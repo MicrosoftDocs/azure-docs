@@ -3,7 +3,7 @@ title: Start virtual machine connect - Azure
 description: How to configure the start virtual machine on connect feature.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/29/2021
+ms.date: 08/06/2021
 ms.author: helohr
 manager: femila
 ---
@@ -69,30 +69,33 @@ To assign the custom role:
 
 ### Create a custom role with a JSON file template
 
-If you're using a JSON file to create the custom role, the following example shows a basic template you can use. Make sure you replace the subscription ID value with the subscription ID you want to assign the role to.
+If you're using a JSON file to create the custom role, the following example shows a basic template you can use. Make sure you replace the subscription ID value in *AssignableScopes* with the subscription ID you want to assign the role to.
 
 ```json
 {
-    "properties": {
-        "roleName": "start VM on connect",
-        "description": "Friendly description.",
-        "assignableScopes": [
-            "/subscriptions/<SubscriptionID>"
-        ],
-        "permissions": [
-            {
-                "actions": [
-                    "Microsoft.Compute/virtualMachines/start/action",
-                    "Microsoft.Compute/virtualMachines/read"
-                ],
-                "notActions": [],
-                "dataActions": [],
-                "notDataActions": []
-            }
-        ]
-    }
+  "Name": "Start VM on connect (Custom)",
+  "IsCustom": true,
+  "Description": "Start VM on connect with AVD (Custom)",
+  "Actions": [
+    "Microsoft.Compute/virtualMachines/start/action",
+    "Microsoft.Compute/virtualMachines/read"
+  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/subscriptions/00000000-0000-0000-0000-000000000000"
+  ]
 }
 ```
+
+To use the JSON template, save the JSON file, add the relevant subscription information to *Assignable Scopes*, then run the following cmdlet in PowerShell:
+
+```powershell
+New-AzRoleDefinition -InputFile "C:\temp\filename"
+```
+
+To learn more about creating custom roles, see [Create or update Azure custom roles using Azure PowerShell](../role-based-access-control/custom-roles-powershell.md#create-a-custom-role-with-json-template).
 
 ## Configure the Start VM on Connect feature
 
