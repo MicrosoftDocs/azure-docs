@@ -1,13 +1,15 @@
 ---
 title: Create schedule triggers in Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to create a trigger in Azure Data Factory that runs a pipeline on a schedule.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 10/30/2020
-ms.custom: devx-track-python, devx-track-azurepowershell
+ms.custom: devx-track-python, devx-track-azurepowershell, synapse
 ---
 
 # Create a trigger that runs a pipeline on a schedule

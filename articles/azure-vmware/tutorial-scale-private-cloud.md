@@ -2,7 +2,7 @@
 title: Tutorial - Scale clusters in a private cloud
 description: In this tutorial, you use the Azure portal to scale an Azure VMware Solution private cloud.
 ms.topic: tutorial
-ms.date: 03/13/2021
+ms.date: 08/03/2021
 
 #Customer intent: As a VMware administrator, I want to learn how to scale an Azure VMware Solution private cloud in the Azure portal.
 ---
@@ -23,23 +23,25 @@ You'll need an existing private cloud to complete this tutorial. If you haven't 
 
 ## Add a new cluster
 
-1. On the overview page of an existing private cloud, under **Manage**, select **Scale private cloud**. Next, select **+ Add a cluster**.
+1. On the overview page of an existing private cloud, under Manage, select **Clusters** > **Add a cluster**.
 
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss2-select-add-cluster.png" alt-text="Screenshot showing how to add a cluster to an Azure VMware Solution private cloud." border="true":::
+   :::image type="content" source="media/tutorial-scale-private-cloud/ss2-select-add-cluster.png" alt-text="Screenshot showing how to add a cluster to an Azure VMware Solution private cloud." border="true":::
 
-1. In the **Add cluster** page, use the slider to select the number of hosts. Select **Save**.
+1. Use the slider to select the number of hosts and the select **Save**.
 
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss3-configure-new-cluster.png" alt-text="Screenshot showing how to configure a new cluster." border="true":::
+   :::image type="content" source="media/tutorial-scale-private-cloud/ss3-configure-new-cluster.png" alt-text="Screenshot showing how to configure a new cluster." border="true":::
 
-   The deployment of the new cluster will begin.
+   The deployment of the new cluster begins.
 
 ## Scale a cluster 
 
-1. On the overview page of an existing private cloud, select **Scale private cloud** and select the pencil icon to edit the cluster.
+1. On the overview page of an existing private cloud, under Manage, select **Clusters**.
 
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" alt-text="Screenshot showing where to edit an existing cluster." border="true":::
+1. Select the cluster you want to scale, select **More** (...) and then select **Edit**.
 
-1. In the **Edit Cluster** page, use the slider to select the number of hosts. Select **Save**.
+   :::image type="content" source="media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" alt-text="Screenshot showing where to edit an existing cluster." border="true":::
+
+1. Use the slider to select the number of hosts and then select **Save**.
 
    The addition of hosts to the cluster begins.
 

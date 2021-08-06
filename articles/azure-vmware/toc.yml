@@ -78,13 +78,13 @@
       href: configure-dns-azure-vmware-solution.md
     - name: Configure port mirroring  
       href: configure-port-mirroring-azure-vmware-solution.md
-    - name: Configure GitHub Enterprise Server
-      href: ./configure-github-enterprise-server.md
     - name: Enable public internet access
       href: enable-public-internet-access.md
     - name: Configure a site-to-site VPN in vWAN 
       href: configure-site-to-site-vpn-gateway.md
-  - name: Configure Windows Server Failover Cluster
+    - name: Configure GitHub Enterprise Server
+      href: configure-github-enterprise-server.md
+    - name: Configure Windows Server Failover Cluster
     href: configure-windows-server-failover-cluster.md
   - name: Rotate cloudadmin credentials
     href: rotate-cloudadmin-credentials.md
