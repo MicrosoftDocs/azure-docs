@@ -50,7 +50,7 @@ You can turn on monitoring for your Java apps running in Azure App Service just 
 
 To enable client-side monitoring for your Java application, you need to [manually add the client-side JavaScript SDK to your application](./javascript.md).
 
-[!INCLUDE [azure-web-apps-automate-monitoring](../includes/azure-web-apps-automate-monitoring.md)]
+[!INCLUDE [azure-web-apps-automate-monitoring](./includes/azure-web-apps-automate-monitoring.md)]
 
 
 ## Troubleshooting
@@ -119,4 +119,4 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
     If `AppAlreadyInstrumented` is true this indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off.
 
 
-[!INCLUDE [azure-web-apps-footer](../includes/azure-web-apps-footer.md)]
+[!INCLUDE [azure-web-apps-footer](./includes/azure-web-apps-footer.md)]

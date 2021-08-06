@@ -50,7 +50,7 @@ You can monitor your Node.js apps running in Azure App Service without any code 
 
 To enable client-side monitoring for your Node.js application, you need to [manually add the client-side JavaScript SDK to your application](./javascript.md).
 
-[!INCLUDE [azure-web-apps-automate-monitoring](../includes/azure-web-apps-automate-monitoring.md)]
+[!INCLUDE [azure-web-apps-automate-monitoring](./includes/azure-web-apps-automate-monitoring.md)]
 
 
 ## Troubleshooting
@@ -121,4 +121,4 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
 
 
-[!INCLUDE [azure-web-apps-footer](../includes/azure-web-apps-footer.md)]
+[!INCLUDE [azure-web-apps-footer](./includes/azure-web-apps-footer.md)]
