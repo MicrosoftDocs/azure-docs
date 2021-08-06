@@ -154,7 +154,7 @@ Use the following steps to explore the workbook visualizations:
 
 1. Select the **modules** view to see the status of all the modules deployed on the device. You can select each of the modules to see details about how much CPU and memory they use.
 
-   :::image type="content" source="{source}" alt-text="Select the modules view to see the status of each module deployed to the device.":::
+   :::image type="content" source="./media/tutorial-monitor-with-workbooks/device-details-modules-availability.png" alt-text="Select the modules view to see the status of each module deployed to the device.":::
 
 1. Select the **host** view to see information about the host device, including it's operating system, the IoT Edge daemon version, and resource use.
 
