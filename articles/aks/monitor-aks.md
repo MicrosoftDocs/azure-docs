@@ -17,7 +17,7 @@ The [Cloud Monitoring Guide](/azure/cloud-adoption-framework/manage/monitor/) de
 ## Scope of the scenario
 This scenario is intended for customers using Azure Monitor to monitor AKS. It does not include the following, although this content may be added in subsequent updates to the scenario.
 
-- Monitoring of Kubernetes clusters outside of Azure except for referring to existing content for Azure Arc enabled Kubernetes. 
+- Monitoring of Kubernetes clusters outside of Azure except for referring to existing content for Azure Arc–enabled Kubernetes. 
 - Monitoring of AKS with tools other than Azure Monitor except to fill gaps in Azure Monitor and Container Insights.
 
 > [!NOTE]
@@ -249,4 +249,3 @@ For those conditions where Azure Monitor either doesn't have the data required f
 ## Next steps
 
 - See [Monitoring AKS data reference](monitor-aks-reference.md) for a reference of the metrics, logs, and other important values created by AKS.
-

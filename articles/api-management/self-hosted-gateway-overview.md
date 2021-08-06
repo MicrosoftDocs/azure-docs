@@ -37,7 +37,7 @@ Deploying self-hosted gateways into the same environments where the backend API 
 
 ## Packaging and features
 
-The self-hosted gateway is a containerized, functionally equivalent version of the managed gateway deployed to Azure as part of every API Management service. The self-hosted gateway is available as a Linux-based Docker [container](https://aka.ms/apim/sputnik/dhub) from the Microsoft Container Registry. It can be deployed to Docker, Kubernetes, or any other container orchestration solution running on a server cluster on premises, cloud infrastructure, or for evaluation and development purposes, on a personal computer. You can also deploy the self-hosted gateway as a cluster extension to an [Azure Arc enabled Kubernetes cluster](./how-to-deploy-self-hosted-gateway-azure-arc.md).
+The self-hosted gateway is a containerized, functionally equivalent version of the managed gateway deployed to Azure as part of every API Management service. The self-hosted gateway is available as a Linux-based Docker [container](https://aka.ms/apim/sputnik/dhub) from the Microsoft Container Registry. It can be deployed to Docker, Kubernetes, or any other container orchestration solution running on a server cluster on premises, cloud infrastructure, or for evaluation and development purposes, on a personal computer. You can also deploy the self-hosted gateway as a cluster extension to an [Azure Arc–enabled Kubernetes cluster](./how-to-deploy-self-hosted-gateway-azure-arc.md).
 
 The following functionality found in the managed gateways is **not available** in the self-hosted gateways:
 
@@ -79,4 +79,4 @@ When connectivity is restored, each self-hosted gateway affected by the outage w
 -   [Read a whitepaper for additional background on this topic](https://aka.ms/hybrid-and-multi-cloud-api-management)
 -   [Deploy self-hosted gateway to Docker](how-to-deploy-self-hosted-gateway-docker.md)
 -   [Deploy self-hosted gateway to Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)
--   [Deploy self-hosted gateway to Azure Arc enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md)
+-   [Deploy self-hosted gateway to Azure Arc–enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md)
