@@ -42,7 +42,7 @@ The following steps outline the process for requesting, resolving, or administer
 
 Users or groups assigned to a role can extend expiring role assignments directly from the **Eligible** or **Active** tab on the **My roles** page, either under **Azure AD roles** or from the top level **My roles** page of the Privileged Identity Management portal. Users or groups can request to extend eligible and active role assignments that expire in the next 14 days.
 
-![Azure AD roles - My roles page listing eligible roles with an Action column](media/pim-how-to-renew-extend/pim-extend-link-in-portal.png)
+![Azure AD roles - My roles page listing eligible roles with an Action column](/media/pim-how-to-renew-extend/pim-extend-link-in-portal.png)
 
 When the assignment end date and time is within 14 days, the button to **Extend** becomes an active link in the user interface. In the following example, assume the current date is March 27.
 
