@@ -1,7 +1,7 @@
 ---
 title: VM extension management with Azure Arc-enabled servers
 description: Azure Arc-enabled servers can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 07/16/2021
+ms.date: 08/05/2021
 ms.topic: conceptual
 ---
 
@@ -81,15 +81,15 @@ Be sure to review the documentation for each VM extension referenced in the prev
 
 The Log Analytics agent VM extension for Linux requires Python 2.x is installed on the target machine.
 
-### Azure Key Vault VM extension (preview)
+### Azure Key Vault VM extension 
 
-The Key Vault VM extension (preview) doesn't support the following Linux operating systems:
+The Key Vault VM extension doesn't support the following Linux operating systems:
 
 - CentOS Linux 7 (x64)
 - Red Hat Enterprise Linux (RHEL) 7 (x64)
 - Amazon Linux 2 (x64)
 
-Deploying the Key Vault VM extension (preview) is only supported using:
+Deploying the Key Vault VM extension is only supported using:
 
 - The Azure CLI
 - The Azure PowerShell
