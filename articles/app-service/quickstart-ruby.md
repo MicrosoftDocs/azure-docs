@@ -26,31 +26,30 @@ ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 
 ## Download the sample
 
-In a terminal window, run the following command to clone the sample app repository to your local machine:
+In a terminal window, run the following commands. This will clone the sample application to your local machine, and navigate to the directory containing the sample code. 
 
 ```bash
 git clone https://github.com/Azure-Samples/ruby-docs-hello-world
+cd ruby-docs-hello-world
 ```
 
 ## Run the application locally
 
-Run the application locally so that you see how it should look when you deploy it to Azure. Open a terminal window, change to the `hello-world` directory, and use the `rails server` command to start the server.
+1. Install the required gems. There's a `Gemfile` included in the sample, so just run the following command:
 
-The first step is to install the required gems. There's a `Gemfile` included in the sample, so just run the following command:
+    ```bash
+    bundle install
+    ```
 
-```bash
-bundle install
-```
+1. Once the gems are installed, start the app:
 
-Once the gems are installed, we'll use bundler to start the app:
+    ```bash
+    bundle exec rails server
+    ```
 
-```bash
-bundle exec rails server
-```
+1. Using your web browser, navigate to `http://localhost:3000` to test the app locally.
 
-Using your web browser, navigate to `http://localhost:3000` to test the app locally.
-
-![Hello World configured](./media/quickstart-ruby/hello-world-updated.png)
+    ![Hello World configured](./media/quickstart-ruby/hello-world-updated.png)
 
 [!INCLUDE [Try Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
@@ -62,57 +61,86 @@ Using your web browser, navigate to `http://localhost:3000` to test the app loca
 
 ## Create a web app
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
+1. Create a [web app](../articles/app-service/overview.md#app-service-on-linux) in the `myAppServicePlan` App Service plan. 
 
-Browse to the app to see your newly created web app with built-in image. Replace _&lt;app name>_ with your web app name.
+    In the Cloud Shell, you can use the [`az webapp create`](/cli/azure/webapp) command. In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `RUBY|2.6.2`. To see all supported runtimes, run [`az webapp list-runtimes --linux`](/cli/azure/webapp). 
 
-```bash
-http://<app_name>.azurewebsites.net
-```
+    ```azurecli-interactive
+    az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime 'RUBY|2.6.2' --deployment-local-git
+    ```
 
-Here is what your new web app should look like:
+    When the web app has been created, the Azure CLI shows output similar to the following example:
 
-![Splash page](./media/quickstart-ruby/splash-page.png)
+    <pre>
+    Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git'
+    {
+      "availabilityState": "Normal",
+      "clientAffinityEnabled": true,
+      "clientCertEnabled": false,
+      "cloningInfo": null,
+      "containerSize": 0,
+      "dailyMemoryTimeQuota": 0,
+      "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
+      "deploymentLocalGitUrl": "https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git",
+      "enabled": true,
+      &lt; JSON data removed for brevity. &gt;
+    }
+    </pre>
+    
+    You've created an empty new web app, with git deployment enabled.
+
+    > [!NOTE]
+    > The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Save this URL as you need it later.
+    >
+
+1. Browse to the app to see your newly created web app with built-in image. Replace _&lt;app name>_ with your web app name.
+
+    ```bash
+    http://<app_name>.azurewebsites.net
+    ```
+
+    Here is what your new web app should look like:
+
+    ![Splash page](./media/quickstart-ruby/splash-page.png)
 
 ## Deploy your application
 
-Run the following commands to deploy the local application to your Azure web app:
+1. Since your Git repository is in `main` branch, you need to set the default deployment branch for your App Service app to `main`. In the Cloud Shell, set the `DEPLOYMENT_BRANCH` app setting with the [`az webapp config appsettings set`](/cli/azure/webapp/appsettings#az_webapp_config_appsettings_set) command. 
 
-```bash
-git remote add azure <Git deployment URL from above>
-git push azure main
-```
+    ```azurecli-interactive
+    az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DEPLOYMENT_BRANCH='main'
+    ```
 
-Confirm that the remote deployment operations report success. The commands produce output similar to the following text:
+[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
-```bash
-remote: Using turbolinks 5.2.0
-remote: Using uglifier 4.1.20
-remote: Using web-console 3.7.0
-remote: Bundle complete! 18 Gemfile dependencies, 78 gems now installed.
-remote: Bundled gems are installed into `/tmp/bundle`
-remote: Zipping up bundle contents
-remote: .......
-remote: ~/site/repository
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-remote: App container will begin restart within 10 seconds.
-To https://<app-name>.scm.azurewebsites.net/<app-name>.git
-   a6e73a2..ae34be9  main -> main
-```
+    <pre>
+    remote: Using turbolinks 5.2.0
+    remote: Using uglifier 4.1.20
+    remote: Using web-console 3.7.0
+    remote: Bundle complete! 18 Gemfile dependencies, 78 gems now installed.
+    remote: Bundled gems are installed into `/tmp/bundle`
+    remote: Zipping up bundle contents
+    remote: .......
+    remote: ~/site/repository
+    remote: Finished successfully.
+    remote: Running post deployment command(s)...
+    remote: Deployment successful.
+    remote: App container will begin restart within 10 seconds.
+    To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
+       a6e73a2..ae34be9  main -> main
+    </pre>
+    
+1. Once the deployment has completed, wait about 10 seconds for the web app to restart, and then navigate to the web app and verify the results.
 
-Once the deployment has completed, wait about 10 seconds for the web app to restart, and then navigate to the web app and verify the results.
+    ```bash
+    http://<app-name>.azurewebsites.net
+    ```
+    
+    ![updated web app](./media/quickstart-ruby/hello-world-configured.png)
 
-```bash
-http://<app-name>.azurewebsites.net
-```
-
-![updated web app](./media/quickstart-ruby/hello-world-configured.png)
-
-> [!NOTE]
-> While the app is restarting, you may observe the HTTP status code `Error 503 Server unavailable` in the browser, or the `Hey, Ruby developers!` default page. It may take a few minutes for the app to fully restart.
->
+    > [!NOTE]
+    > While the app is restarting, you may observe the HTTP status code `Error 503 Server unavailable` in the browser, or the `Hey, Ruby developers!` default page. It may take a few minutes for the app to fully restart.
+    >
 
 [!INCLUDE [Clean-up section](../../includes/cli-script-clean-up.md)]
 
