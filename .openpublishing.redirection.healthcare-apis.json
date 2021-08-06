@@ -59,7 +59,7 @@
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/azure-ad-hcapi-token-validation.md",
-        "redirect_url": "/azure/healthcare-apis/fhir/azure-ad-hcapi-token-validation",
+        "redirect_url": "/azure/healthcare-apis/fhir/fhir-service-access-token-validation",
         "redirect_document_id": true
     },
     {

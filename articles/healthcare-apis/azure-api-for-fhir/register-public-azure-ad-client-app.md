@@ -68,7 +68,7 @@ Similarly to the [confidential client application](register-confidential-azure-a
 ## Validate FHIR server authority
 If the application you registered in this article and your FHIR server are in the same Azure AD tenant, you are good to proceed to the next steps.
 
-If you configure your client application in a different Azure AD tenant from your FHIR server, you will need to update the **Authority**. In Azure API for FHIR, you do set the Authority under Settings --> Authentication. Set your Authority to **https://login.microsoftonline.com/\<TENANT-ID>**.
+If you configure your client application in a different Azure AD tenant from your FHIR server, you will need to update the **Authority**. In Azure API for FHIR, you do set the Authority under Settings --> Authentication. Set your Authority to ``https://login.microsoftonline.com/\<TENANT-ID>`.
 
 ## Next steps
 

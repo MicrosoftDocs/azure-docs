@@ -39,7 +39,7 @@ landingContent:
           - text: Azure AD for FHIR service
             url: azure-active-directory-identity-configuration.md
           - text: Access token validation
-            url: azure-ad-hcapi-token-validation.md
+            url: fhir-service-access-token-validation.md
       - linkListType: learn
         links:
           - text: Access FHIR service using Postman

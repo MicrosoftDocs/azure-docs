@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 08/03/2021
+ms.date: 08/05/2021
 ms.author: cavoeg
 ---
 # FHIR service access token validation
