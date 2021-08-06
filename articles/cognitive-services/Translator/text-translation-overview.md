@@ -45,4 +45,4 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 * [**Create a Translator resource**](translator-how-to-signup.md) in the Azure portal.
 
-* Explore our [**quickstart**](quickstart-translator.md) and view use examples and code for  [**C#/.NET**](quickstart-translator.md?tabs=csharp), [**Go**](quickstart-translator.md?tabs=go), [**Java**](quickstart-translator.md?tabs=java), [**JavaScript/Node.js**](quickstart-translator.md?tabs=nodejs), and [**Python**](quickstart-translator.md?tabs=python).
+* Explore our [**quickstart**](quickstart-translator.md) and view use cases and code samples for  [**C#/.NET**](quickstart-translator.md?tabs=csharp), [**Go**](quickstart-translator.md?tabs=go), [**Java**](quickstart-translator.md?tabs=java), [**JavaScript/Node.js**](quickstart-translator.md?tabs=nodejs), and [**Python**](quickstart-translator.md?tabs=python).
