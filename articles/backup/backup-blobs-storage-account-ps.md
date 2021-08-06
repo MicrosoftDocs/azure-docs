@@ -2,7 +2,7 @@
 title: Back up Azure blobs within a storage account using Azure PowerShell
 description: Learn how to back up all Azure blobs within a storage account using Azure PowerShell.
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 08/06/2021
 ---
 
 # Back up all Azure blobs in a storage account using Azure PowerShell
@@ -24,16 +24,9 @@ For information on the Azure blob region availability, supported scenarios and l
 > [!IMPORTANT]
 > Support for Azure blobs is available from Az 5.9.0 version.
 
-[!INCLUDE [Before you start](blob-backup-configure-manage.md#before-you-start)]
-
 ## Before you start
 
-- Operational backup of blobs is a local backup solution that maintains data for a specified duration in the source storage account itself. This solution doesn't maintain an additional copy of data in the vault.
-- This solution allows you to retain your data for restore for up to 360 days. Long retention durations may, however, lead to longer time taken during the restore operation.
-- The solution can be used to perform restores to the source storage account only and may result in data being overwritten.
-- If you delete a container from the storage account by calling the Delete Container operation, that container cannot be restored with a restore operation. Rather than deleting an entire container, delete individual blobs if you may want to restore them later. Also, Microsoft recommends enabling soft delete for containers, in addition to operational backup, to protect against accidental deletion of containers.
-- Refer to the [support matrix](blob-backup-support-matrix.md) to learn more about the supported scenarios, limitations, and availability.
-- Ensure that the **Microsoft.DataProtection** provider is registered for your subscription.
+See the [prerequisites](/azure/backup/blob-backup-configure-manage#before-you-start) before you get started.
 
 ## Create a Backup vault
 

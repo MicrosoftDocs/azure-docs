@@ -2,7 +2,7 @@
 title: Back up Azure Blobs using Azure CLI
 description: Learn how to back up Azure Blobs using Azure CLI.
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 08/06/2021
 ---
 
 # Back up Azure Blobs in a storage account using Azure CLI
@@ -28,12 +28,7 @@ For information on the Azure Blobs regions availability, supported scenarios, an
 
 ## Before you start
 
-- Operational backup of blobs is a local backup solution that maintains data for a specified duration in the source storage account itself. This solution doesn't maintain an additional copy of data in the vault.
-- This solution allows you to retain your data for restore for up to 360 days. Long retention durations may, however, lead to longer time taken during the restore operation.
-- The solution can be used to perform restores to the source storage account only and may result in data being overwritten.
-- If you delete a container from the storage account by calling the Delete Container operation, that container cannot be restored with a restore operation. Rather than deleting an entire container, delete individual blobs if you may want to restore them later. Also, Microsoft recommends enabling soft delete for containers, in addition to operational backup, to protect against accidental deletion of containers.
-- Refer to the [support matrix](blob-backup-support-matrix.md) to learn more about the supported scenarios, limitations, and availability.
-- Ensure that the **Microsoft.DataProtection** provider is registered for your subscription.
+See the [prerequisites](/azure/backup/blob-backup-configure-manage#before-you-start) before you get started.
 
 ## Create a Backup vault
 
