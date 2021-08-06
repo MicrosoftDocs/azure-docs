@@ -49,7 +49,7 @@ az sig image-version show \
    --query "id"
 ```
 
-### [PowerShell]](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
 List all galleries by name.
 
@@ -161,7 +161,7 @@ az sig image-version update \
    --set publishingProfile.excludeFromLatest=false
 ```
 
-### [PowerShell]](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
 
 There are some limitations on what can be updated. The following items can be updated: 
@@ -262,7 +262,7 @@ az sig delete \
    --gallery-name myGallery
 ```
 
-### [PowerShell]](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
 
 
