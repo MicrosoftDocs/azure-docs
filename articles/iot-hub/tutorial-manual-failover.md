@@ -35,7 +35,7 @@ For more information about manual failover and Microsoft-initiated failover with
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-include-create-hub](../includes/iot-hub-include-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Perform a manual failover
 
