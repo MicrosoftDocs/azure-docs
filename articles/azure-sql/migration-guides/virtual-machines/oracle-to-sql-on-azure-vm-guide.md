@@ -120,7 +120,7 @@ To create an assessment, follow these steps:
    ![Screenshot that shows the list of Oracle schemas that can be migrated.](./media/oracle-to-sql-on-azure-vm-guide/select-schema.png)
 
 
-1. In **Oracle Metadata Explorer**, right-click the Oracle schema that you want to migrate, and then select **Create Report**. Doing so will generate an HTML report. Instead, you can select the database and then select **Create report** in the top menu.
+1. In **Oracle Metadata Explorer**, right-click the Oracle schema that you want to migrate, and then select **Create Report**. Doing so will generate an HTML report. Or, you can select the database and then select **Create report** in the top menu.
 
    ![Screenshot that shows how to create a report.](./media/oracle-to-sql-on-azure-vm-guide/create-report.png)
 
