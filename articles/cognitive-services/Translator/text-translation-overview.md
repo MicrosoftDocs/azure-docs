@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Cognitive Services Translator
+title: Microsoft Azure Cognitive Services Text Translation
 titlesuffix: Azure Cognitive Services
 description: Integrate the Text Translation API into your applications, websites, tools, and other solutions to provide multi-language user experiences.
 services: cognitive-services
@@ -20,24 +20,24 @@ keywords: translator, text translation, machine translation, translation service
 
 This documentation contains the following article types:
 
-* [**Quickstarts**](quickstart-translator) are getting-started instructions to guide you through making requests to the service.
+* [**Quickstarts**](quickstart-translator.md) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](translator-how-to-signup.md) contain instructions for using the feature in more specific or customized ways.
-* [**Reference**](reference/text-translator-rest-api-guide.md) provide REST API settings, values, keywords and configuration.
+* [**Reference**](reference/rest-api-guide.md) provide REST API settings, values, keywords and configuration.
 
 ## Text Translation development options and features
 
 You can add Text Translation to your projects and applications using the [**REST API***](reference/rest-api-guide.md), available in Azure or on-premises using the [**Translator Docker container**](containers/translator-how-to-install-container.md).
 
-[**Languages**](reference/v3-0-languages). Returns a list of languages supported by **Translate**, **Transliterate** and **Dictionary Lookup** operations. This request does not require authentication; just copy and paste the following GET request into Postman, Fiddler, or your favorite API tool:
+[**Languages**](reference/v3-0-languages.md). Returns a list of languages supported by **Translate**, **Transliterate** and **Dictionary Lookup** operations. This request does not require authentication; just copy and paste the following GET request into Postman, Fiddler, or your favorite API tool:
 
 ```http
 https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 ```
 
 * [**Translate**](reference/v3-0-translate.md#translate-to-multiple-languages) source-language text to multiple target languages text with a single request
-* [**Transliterate**](v3-0-transliterate) text by converting characters or letters of a source language to the corresponding characters or letters of a target language.
-* [**Detect**](reference/v3-0-detect) returns the source code language code and receive a boolean variable denoting whether the detected language is supported for text translation and transliteration.
-* [**Translate, Transliterate, and Detect**](reference/v3-0-translate#translate-a-single-input-with-language-autodetection) text in a single call.
+* [**Transliterate**](v3-0-transliterate.md) text by converting characters or letters of a source language to the corresponding characters or letters of a target language.
+* [**Detect**](reference/v3-0-detect.md) returns the source code language code and receive a boolean variable denoting whether the detected language is supported for text translation and transliteration.
+* [**Translate, Transliterate, and Detect**](reference/v3-0-translate.md#translate-a-single-input-with-language-autodetection) text in a single call.
 * Use [**Dictionary lookup**](reference/v3-0-dictionary-lookup.md) to return equivalent words for the source term in the target language.
 * Use [**Dictionary example**](reference/v3-0-dictionary-examples.md) to return grammatical structure and context examples for the source term and target term pair.
 
