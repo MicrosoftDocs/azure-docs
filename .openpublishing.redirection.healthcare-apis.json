@@ -64,7 +64,7 @@
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/azure-ad-hcapi.md",
-        "redirect_url": "/azure/healthcare-apis/fhir/azure-ad-hcapi",
+        "redirect_url": "/azure/healthcare-apis/fhir/azure-active-directory-identity-configuration",
         "redirect_document_id": true
     },
     {
