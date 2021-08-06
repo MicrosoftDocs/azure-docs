@@ -55,7 +55,7 @@ When you create resources for an Azure Machine Learning workspace, resources for
 * [Key Vault](https://azure.microsoft.com/pricing/details/key-vault?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 * [Application Insights](https://azure.microsoft.com/en-us/pricing/details/monitor?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
-When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  [Set up a schedule](how-to-create-manage-compute-instance.md?tabs=azure-studio#schedule-studio) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
+When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  [Set up a schedule](how-to-create-manage-compute-instance.md#schedule) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
  
 ### Costs might accrue before resource deletion
 
