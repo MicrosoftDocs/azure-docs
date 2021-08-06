@@ -114,22 +114,22 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
 
 1. From Security Center's menu, select **Pricing & settings** and select the subscription with the Linux machines that you want to receive Defender for Endpoint.
 
-1. Select **Integrations**.
-
-    You'll know that the integration is enabled, if the checkbox for **Allow Microsoft Defender for Endpoint to access my data** is selected as shown:
+1. Select **Integrations**. You'll know that the integration is enabled, if the checkbox for **Allow Microsoft Defender for Endpoint to access my data** is selected as shown:
 
     :::image type="content" source="./media/security-center-wdatp/integration-enabled.png" alt-text="The integration between Azure Security Center and Microsoft's EDR solution, Microsoft Defender for Endpoint is enabled":::
 
     > [!NOTE]
     > If it isn't selected, use the instructions in [New users who've never enabled the integration with Microsoft Defender for Endpoint for Windows](#new-users-whove-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows).
 
-1. With this preview, a new button, **Enable for Linux machines**, has been added below this checkbox:
+    With this preview, a new button, **Enable for Linux machines**, has been added below this checkbox:
 
     :::image type="content" source="./media/security-center-wdatp/deploy-to-linux.png" alt-text="The preview introduces a button to manually control when to deploy Defender for Endpoint for Linux":::
 
-    To add your Linux machines to your integration, select **Enable for Linux machines**, and select **Save**.
+1. To add your Linux machines to your integration
 
-1. In the confirmation prompt, verify the information and select **Enable** if you're happy to proceed. 
+    1. Select **Enable for Linux machines**.
+    1. Select **Save**.
+    1. In the confirmation prompt, verify the information and select **Enable** if you're happy to proceed. 
 
     :::image type="content" source="./media/security-center-wdatp/enable-for-linux-result.png" alt-text="Confirming the integration between Security Center and Microsoft's EDR solution, Microsoft Defender for Endpoint for Linux":::
 
