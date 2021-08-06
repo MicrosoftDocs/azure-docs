@@ -9,7 +9,11 @@ manager: femila
 ---
 # Multimedia Redirection (MMR) on Azure Virtual Desktop (preview)
 
->[!IMPORTANT]
+> [!IMPORTANT]
+> Multimedia redirection for Azure Virtual Desktop is currently in preview.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+>[!NOTE]
 >Azure Virtual Desktop doesn't currently support multimedia redirection on Azure Virtual Desktop for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
 >
 >Multimedia redirection on Azure Virtual Desktop is only available for the Windows Desktop client on Windows 10 machines. Multimedia redirection requires the Windows Desktop client, version 1.2.2222 or later.
@@ -90,9 +94,9 @@ To run the extension on Google Chrome manually, look for the notification messag
 
 Once the extensions have been enabled head over to YouTube and enjoy some smooth video playback.
 
-## Multimedia Redirection extension icon
+### The MMR status icon
 
-To quickly tell if MMR is being used we’ve added states to the MMR icon. The MMR states are shown below:
+To quickly tell if MMR is active in your browser, we've added the following icon states:
 
 | Icon State  | Definition  |
 |-----------------|-----------------|
@@ -102,26 +106,27 @@ To quickly tell if MMR is being used we’ve added states to the MMR icon. The M
 
 ![](media/76b945f80c70a70b5bd3eb6f141d8871.png)
 
-Clicking on the MMR icon will reveal a popout with versioning information for
-the 3 components and a checkbox to enable MMR on all site.
+Selecting the icon will display a pop-up menu that has a checkbox you can select to enable or disable MMR on all websites. It also lists the version numbers for each component of the service.
 
 ## Send feedback during public preview
 
-If by chance you run into an issue we’d love to hear from you. Please file a feedback hub bug on **both the client and VM host**.
+If you run into any issues, please tell us in the feedback hub on both the client and VM host.
 
-1. Open up the Feedback hub on both the client and server.
+To send us feedback:
+
+1. Open the **feedback hub** on both the client and server.
 
 2. Select **Report a problem**.
 
-3. Use the same title on each bug report. The only difference in title should be [Client] or [Host] at the start of Title depending on which feedback hub you are filing the issue from.
+3. Use the same title on both issue reports, but specify where you're submitting the report from by puttinge either "Client" or "Host" at the beginning.
 
     ![Graphical user interface, text, application, email Description automatically generated](media/0027d0bd2f478fdfbeb5274b6921f9a5.png)
 
     ![Graphical user interface, text, application, email Description automatically generated](media/1611e80268d9502ced92104641346b47.png)
 
-4. Describe the issue you are experiencing in the Explain in more detail section. In addition, please provide the URL of the video that is not working as well.
+4. In the **Explain in more detail** field, describe the issue you're experiencing. We recommend also including the URL of the video you were watching when the issue happened.
 
-5. Select **Next**.
+5. Once you're done, select **Next**.
 
 6. Select **Problem**, then **Remote Desktop apps**.
 
@@ -140,9 +145,9 @@ If by chance you run into an issue we’d love to hear from you. Please file a f
 
     ![Graphical user interface, table Description automatically generated](media/1318537aef2bf2dcaf162b511b8145c2.png)
 
-- Select **Next**.
+9. Select **Next**.
 
-- In the **Add more details** window, make sure to answer all questions in as much detail as possible. Make sure to select **Include data about Remote Desktop (Default)**.
+10. In the **Add more details** window, make sure to answer all questions with as much detail as possible. Make sure to select **Include data about Remote Desktop (Default)**.
 
     ![Graphical user interface Description automatically generated](media/48da9fd8bc5c188fc0a87c2edb0978f8.png)
 
@@ -154,18 +159,17 @@ If by chance you run into an issue we’d love to hear from you. Please file a f
 
 ## Known issues and limitations
 
-- Multimedia Redirection only works via the Windows Desktop Client for Azure Virtual Desktop. MMR does not work via the Web Client.
+- MMR only works on the Windows Desktop client, not the web client.
 
-- MMR does not work on protected content, so videos from Pluralsight and Netflix will not work.
+- MMR doesn't currently support protected content, so videos from Pluralsight and Netflix won't work.
 
-- MMR is disable on all sites except YouTube during the public preview. We enabled a way, via the extension, to allow MMR on to work on all sites, so that companies can test MMR on their internal websites.
+- During public preview, MMR will be disabled on all sites except YouTube. However, if you have the extension, you can enable MMR for all websites. We added the extension so organizations can test the feature on their company websites.
 
-- In internal testing, on rare occasion the extensions fail to install via the MSI installer. If this occurs, please install the MMR extensions from the Microsoft Edge Store or Google Chrome store. Direct links to the extensions are provided below.
+- There's a small chance that the MSI installer won't be able to install the extension during internal testing. If this happens, you'll need to install the MMR extensions from the Microsoft Edge Store or Google Chrome Store.
 
-    - Link to [MMR browser extension](https://microsoftedge.microsoft.com/addons/detail/wvd-multimedia-redirectio/joeclbldhdmoijbaagobkhlpfjglcihd) for Microsoft Edge.
+    - [MMR browser extension (Microsoft Edge)](https://microsoftedge.microsoft.com/addons/detail/wvd-multimedia-redirectio/joeclbldhdmoijbaagobkhlpfjglcihd)
+    - [MMR browser extension (Google Chrome)](https://chrome.google.com/webstore/detail/wvd-multimedia-redirectio/lfmemoeeciijgkjkgbgikoonlkabmlno)
 
-    - Link to [MMR browser extension](https://chrome.google.com/webstore/detail/wvd-multimedia-redirectio/lfmemoeeciijgkjkgbgikoonlkabmlno) for Google Chrome.
+- Installing the MMR extensions on host machines with the MSI installer will either prompt users to accept the extension on first run or display a warning or error message. If users deny this prompt, it can cause the extensions not to load. To avoid this, install the extensions by [editing the group policy](#managing-group-policies-for-the-mmr-browser-extension).
 
-- Installing the MMR extensions via the MSI on host machines will prompt users to accept the extension on first run or prompt the user with an warning or error. If users deny this prompt, it can cause the extensions not to load. IT admins can conversely install the extensions via group policy.
-
-- When the video window is resized, the video adjust slower than the window resize. This can also been seen when minimizing and maximizing the window
+- When you resize the video window, the window's size will adjust faster than the video itself. You'll also see this issue when miniizing and maximizing the window. 
