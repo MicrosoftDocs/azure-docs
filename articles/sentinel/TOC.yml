@@ -439,6 +439,8 @@
       href: entities-reference.md
     - name: UEBA enrichments
       href: ueba-enrichments.md
+    - name: Watchlist template schemas
+      href: watchlist-schemas.md
     - name: Kusto Query Language
       items:
       - name: Kusto query overview
