@@ -26,9 +26,9 @@ For more information about the _provision_ and _retire_ stages, and to better un
 ## Prerequisites
 
 Before you can set up the provisioning, you'll need to set up the following:
-* an **Azure Digital Twins instance**. Follow the instructions in [How-to: Set up an instance and authentication](how-to-set-up-instance-portal.md) to create an Azure digital twins instance. Gather the instance's **_host name_** in the Azure portal ([instructions](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
+* an **Azure Digital Twins instance**. Follow the instructions in [Set up an instance and authentication](how-to-set-up-instance-portal.md) to create an Azure digital twins instance. Gather the instance's **_host name_** in the Azure portal ([instructions](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 * an **IoT hub**. For instructions, see the "Create an IoT Hub" section of [the IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md).
-* an [Azure function](../azure-functions/functions-overview.md) that updates digital twin information based on IoT Hub data. Follow the instructions in [How to: Ingest IoT hub data](how-to-ingest-iot-hub-data.md) to create this Azure function. Gather the function **_name_** to use it in this article.
+* an [Azure function](../azure-functions/functions-overview.md) that updates digital twin information based on IoT Hub data. Follow the instructions in [Ingest IoT hub data](how-to-ingest-iot-hub-data.md) to create this Azure function. Gather the function **_name_** to use it in this article.
 
 This sample also uses a **device simulator** that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Get the sample project on your machine by navigating to the sample link and selecting the **Browse code** button underneath the title. This will take you to the GitHub repo for the sample, which you can download as a .zip file by selecting the **Code** button and **Download ZIP**. 
 
@@ -73,7 +73,7 @@ The following sections walk through the steps to set up this auto-provision devi
 
 When a new device is provisioned using Device Provisioning Service, a new twin for that device can be created in Azure Digital Twins with the same name as the registration ID.
 
-Create a Device Provisioning Service instance, which will be used to provision IoT devices. You can either use the Azure CLI instructions below, or use the Azure portal: [Quickstart: Set up the IoT Hub Device Provisioning Service with the Azure portal](../iot-dps/quick-setup-auto-provision.md).
+Create a Device Provisioning Service instance, which will be used to provision IoT devices. You can either use the Azure CLI instructions below, or use the Azure portal by following [Set up the IoT Hub Device Provisioning Service with the Azure portal](../iot-dps/quick-setup-auto-provision.md).
 
 The following Azure CLI command will create a Device Provisioning Service. You'll need to specify a Device Provisioning Service name, resource group, and region. To see what regions support Device Provisioning Service, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the [Azure CLI installed on your machine](/cli/azure/install-azure-cli).
@@ -132,7 +132,7 @@ The device simulator is a thermostat-type device that uses the model with this I
 
 [!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 
-For more information about models, refer to [How-to: Manage models](how-to-manage-model.md#upload-models).
+For more information about models, refer to [Manage models](how-to-manage-model.md#upload-models).
 
 #### Configure and run the simulator
 
@@ -231,7 +231,7 @@ Next, configure the Azure function app that you set up in the [Prerequisites sec
 2. Add the connection string as a variable in the function app settings with the following Azure CLI command. The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the [Azure CLI installed on your machine](/cli/azure/install-azure-cli).
 
     ```azurecli-interactive
-    az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event-Hubs-SAS-connection-string-Listen>" --resource-group <resource-group> --name <your-App-Service-function-app-name>
+    az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event-Hubs-SAS-connection-string-Listen>" --resource-group <resource-group> --name <your-function-app-name>
     ```
 
 ### Add a function to retire with IoT Hub lifecycle events
@@ -339,7 +339,7 @@ Then, delete the project sample folder you downloaded from your local machine.
 
 The digital twins created for the devices are stored as a flat hierarchy in Azure Digital Twins, but they can be enriched with model information and a multi-level hierarchy for organization. To learn more about this concept, read:
 
-* [Concepts: Digital twins and the twin graph](concepts-twins-graph.md)
+* [Digital twins and the twin graph](concepts-twins-graph.md)
 
 For more information about using HTTP requests with Azure functions, see:
 
@@ -347,5 +347,5 @@ For more information about using HTTP requests with Azure functions, see:
 
 You can write custom logic to automatically provide this information using the model and graph data already stored in Azure Digital Twins. To read more about managing, upgrading, and retrieving information from the twins graph, see the following:
 
-* [How-to: Manage a digital twin](how-to-manage-twin.md)
-* [How-to: Query the twin graph](how-to-query-graph.md)
+* [Manage a digital twin](how-to-manage-twin.md)
+* [Query the twin graph](how-to-query-graph.md)

@@ -2,18 +2,12 @@
 title: Enable automatic certificate rotation in a Batch pool
 description: You can create a Batch pool with a managed identity and a certificate that will automatically be renewed.
 ms.topic: conceptual
-ms.date: 03/23/2021
-ms.custom: references_regions
+ms.date: 07/16/2021
 
 ---
 # Enable automatic certificate rotation in a Batch pool
 
  You can create a Batch pool with a certificate that will automatically be renewed. To do so, your pool must be created with a [user-assigned managed identity](managed-identity-pools.md) that will have access to the certificate in [Azure Key Vault](../key-vault/general/overview.md).
-
-> [!IMPORTANT]
-> Support for Azure Batch pools with user-assigned managed identities is currently in public preview for the following regions: West US 2, South Central US, East US, US Gov Arizona and US Gov Virginia.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Create a user-assigned identity
 

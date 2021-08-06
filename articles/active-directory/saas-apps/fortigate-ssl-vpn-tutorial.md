@@ -202,6 +202,7 @@ To complete these steps, you'll need the values you recorded earlier:
    ```console
     config user saml
     edit azure
+    set cert <FortiGate VPN Server Certificate Name>
     set entity-id <Entity ID>
     set single-sign-on-url <Reply URL>
     set single-logout-url <Logout URL>

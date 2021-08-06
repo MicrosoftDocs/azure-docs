@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with PolicyStat | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory SAML 2.0 Integration with PolicyStat | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and PolicyStat.
 services: active-directory
 author: jeevansd

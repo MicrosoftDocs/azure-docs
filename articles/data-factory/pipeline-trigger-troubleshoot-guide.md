@@ -3,6 +3,7 @@ title: Troubleshoot pipeline orchestration and triggers in Azure Data Factory
 description: Use different methods to troubleshoot pipeline trigger issues in Azure Data Factory. 
 author: ssabat
 ms.service: data-factory
+ms.subservice: troubleshooting
 ms.date: 07/09/2021
 ms.topic: troubleshooting
 ms.author: susabat
@@ -149,7 +150,7 @@ Known Facts about *ForEach*
  
  **Resolution**
  
-* **Concurrency Limit:**  If your pipeline has a concurrency policy, verify that there are no old pipeline runs in progress. The maximum pipeline concurrency allowed in Azure Data Factory is 10 pipelines . 
+* **Concurrency Limit:**  If your pipeline has a concurrency policy, verify that there are no old pipeline runs in progress. 
 * **Monitoring limits**: Go to the ADF authoring canvas, select your pipeline, and determine if it has a concurrency property  assigned to it. If it does, go to the Monitoring view, and make sure there's nothing in the past 45 days that's in progress. If there is something in progress, you can cancel it and the new pipeline run should  start.
 * **Transient  Issues:** It is possible that your run was impacted by a transient network issue, credential failures, services outages etc.  If this happens, Azure Data Factory has an internal recovery process that monitors all the runs and starts them when it notices something went wrong. This process happens every one  hour, so if your run is stuck for more than an hour, create a support case.
  
@@ -204,20 +205,23 @@ You are running ADF in debug mode.
 
 **Resolution**
 
-Please run pipeline in trigger mode.
+Execute the pipeline in trigger mode.
 
 ### Cannot publish because account is locked
 
 **Cause**
 
-You made changes in collaboration branch to remove storage event trigger. You are trying to publish and encounter "Trigger deactivation error" message. This is due to the storage account, used for the event trigger, is being locked. 
+You made changes in collaboration branch to remove storage event trigger. You are trying to publish and encounter `Trigger deactivation error` message.
+
+**Resolution**
+
+This is due to the storage account, used for the event trigger, is being locked. Unlock the account.
 
 ### Expression builder fails to load
 
 **Cause**
 
 The expression builder can fail to load due to network or cache problems with the web browser.  
-
 
 **Resolution**
 
@@ -233,7 +237,20 @@ You have chained many activities.
 
 You can split your pipelines into sub pipelines, and stich them together with **ExecutePipeline** activity. 
 
+###  How to optimize pipeline with mapping data flows to avoid internal server errors, concurrency errors etc. during execution
 
+**Cause**
+
+You have not optimized mapping data flow.
+
+**Resolution**
+
+* Use memory optimized compute when dealing with large amount of data and transformations.
+* Reduce the batch size in case of a for each activity.
+* Scale up your databases and warehouses to match the performance of your ADF. 
+* Use a separate IR(integration runtime) for activities running in parallel.
+* Adjust the partitions at the source and sink accordingly. 
+* Review  [Data Flow Optimizations](concepts-data-flow-performance.md)
 
 ## Next steps
 

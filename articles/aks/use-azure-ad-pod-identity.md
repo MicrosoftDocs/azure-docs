@@ -13,7 +13,7 @@ Azure Active Directory pod-managed identities uses Kubernetes primitives to asso
 
 > [!NOTE]
 >The feature described in this document, pod-managed identities (preview), will be replaced with pod-managed identities V2 (preview).
-> If you have an existing installation of AADPODIDENTITY, you must remove the existing installation. Enabling this feature means that the MIC component isn't needed.
+> If you have an existing installation of AADPODIDENTITY, there will be a migration option to V2. More details on the migration will follow as we get closer to Public Preview slated for Q2 2022. Enabling this feature means that the MIC component isn't needed.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -50,7 +50,7 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-## Create an AKS cluster with Azure CNI
+## Create an AKS cluster with Azure Container Networking Interface (CNI)
 
 > [!NOTE]
 > This is the default recommended configuration
@@ -142,12 +142,12 @@ export IDENTITY_RESOURCE_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n
 
 ## Assign permissions for the managed identity
 
-The *IDENTITY_CLIENT_ID* managed identity must have Managed Identity Operator permissions in the resource group that contains the virtual machine scale set of your AKS cluster.
+To run the demo, the *IDENTITY_CLIENT_ID* managed identity must have Virtual Machine Contributor permissions in the resource group that contains the virtual machine scale set of your AKS cluster.
 
 ```azurecli-interactive
 NODE_GROUP=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
 NODES_RESOURCE_ID=$(az group show -n $NODE_GROUP -o tsv --query "id")
-az role assignment create --role "Managed Identity Operator" --assignee "$IDENTITY_CLIENT_ID" --scope $NODES_RESOURCE_ID
+az role assignment create --role "Virtual Machine Contributor" --assignee "$IDENTITY_CLIENT_ID" --scope $NODES_RESOURCE_ID
 ```
 
 ## Create a pod identity
@@ -155,7 +155,9 @@ az role assignment create --role "Managed Identity Operator" --assignee "$IDENTI
 Create a pod identity for the cluster using `az aks pod-identity add`.
 
 > [!IMPORTANT]
-> You must have the appropriate permissions, such as `Owner`, on your subscription to create the identity and role binding.
+> You must have the relevant permissions (for example, Owner) on your subscription to create the identity and assign role binding to the cluster identity.
+> 
+> The cluster identity must have Managed Identity Operator permissions for the identity to be assigned.
 
 ```azurecli-interactive
 export POD_IDENTITY_NAME="my-pod-identity"
@@ -165,6 +167,9 @@ az aks pod-identity add --resource-group myResourceGroup --cluster-name myAKSClu
 
 > [!NOTE]
 > When you enable pod-managed identity on your AKS cluster, an AzurePodIdentityException named *aks-addon-exception* is added to the *kube-system* namespace. An AzurePodIdentityException allows pods with certain labels to access the Azure Instance Metadata Service (IMDS) endpoint without being intercepted by the node-managed identity (NMI) server. The *aks-addon-exception* allows AKS first-party addons, such as AAD pod-managed identity, to operate without having to manually configure an AzurePodIdentityException. Optionally, you can add, remove, and update an AzurePodIdentityException using `az aks pod-identity exception add`, `az aks pod-identity exception delete`, `az aks pod-identity exception update`, or `kubectl`.
+
+> [!NOTE]
+> When you assign the pod identity by using `pod-identity add`, the Azure CLI attempts to grant the Managed Identity Operator role over the pod identity (*IDENTITY_RESOURCE_ID*) to the cluster identity.
 
 ## Run a sample application
 
@@ -179,15 +184,15 @@ kind: Pod
 metadata:
   name: demo
   labels:
-    aadpodidbinding: POD_IDENTITY_NAME
+    aadpodidbinding: $POD_IDENTITY_NAME
 spec:
   containers:
   - name: demo
     image: mcr.microsoft.com/oss/azure/aad-pod-identity/demo:v1.6.3
     args:
-      - --subscriptionid=SUBSCRIPTION_ID
-      - --clientid=IDENTITY_CLIENT_ID
-      - --resourcegroup=IDENTITY_RESOURCE_GROUP
+      - --subscriptionid=$SUBSCRIPTION_ID
+      - --clientid=$IDENTITY_CLIENT_ID
+      - --resourcegroup=$IDENTITY_RESOURCE_GROUP
     env:
       - name: MY_POD_NAME
         valueFrom:
@@ -295,9 +300,9 @@ spec:
   - name: demo
     image: mcr.microsoft.com/oss/azure/aad-pod-identity/demo:v1.6.3
     args:
-      - --subscriptionid=SUBSCRIPTION_ID
-      - --clientid=IDENTITY_CLIENT_ID
-      - --resourcegroup=IDENTITY_RESOURCE_GROUP
+      - --subscriptionid=$SUBSCRIPTION_ID
+      - --clientid=$IDENTITY_CLIENT_ID
+      - --resourcegroup=$IDENTITY_RESOURCE_GROUP
     env:
       - name: MY_POD_NAME
         valueFrom:

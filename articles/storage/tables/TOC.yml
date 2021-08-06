@@ -41,6 +41,9 @@
   - name: PowerShell
     href: ./table-storage-how-to-use-powershell.md
     maintainContext: true
+  - name: Azure Resource Graph queries
+    href: ../common/resource-graph-samples.md
+    maintainContext: true
 - name: Concepts
   items:
   - name: Storage accounts

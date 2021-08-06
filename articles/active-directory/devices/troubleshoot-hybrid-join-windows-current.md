@@ -545,8 +545,8 @@ Resolution:
 Reason(s): 
 -  User’s UPN is not in expected format. 
 > [!NOTE] 
-> - For AADJ devices the UPN is the text entered by the user in the LoginUI.
-> - For Hybrid Joined devices the UPN is returned from the domain controller during the login process.
+> - For Azure AD joined devices, the UPN is the text entered by the user in the LoginUI.
+> - For Hybrid Azure AD joined devices, the UPN is returned from the domain controller during the login process.
 
 Resolution:
 -  User’s UPN should be in the Internet-style login name, based on the Internet standard [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). Event 1144 (AAD analytic logs) will contain the UPN provided.

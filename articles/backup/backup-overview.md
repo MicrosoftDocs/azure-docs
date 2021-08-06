@@ -20,7 +20,7 @@ The Azure Backup service provides simple, secure, and cost-effective solutions t
 - **SQL Server in Azure VMs** -  [Back up SQL Server databases running on Azure VMs](backup-azure-sql-database.md)
 - **SAP HANA databases in Azure VMs** - [Backup SAP HANA databases running on Azure VMs](backup-azure-sap-hana-database.md)
 - **Azure Database for PostgreSQL servers (preview)** -  [Back up Azure PostgreSQL databases and retain the backups for up to 10 years](backup-azure-database-postgresql.md)
-- **Azure Blobs (preview)** - [Overview of operational backup for Azure Blobs (in preview)](blob-backup-overview.md)
+- **Azure Blobs** - [Overview of operational backup for Azure Blobs](blob-backup-overview.md)
 
 ![Azure Backup Overview](./media/backup-overview/azure-backup-overview.png)
 

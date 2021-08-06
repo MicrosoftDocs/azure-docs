@@ -1,11 +1,11 @@
 ---
 title: "Use Distributed Tracing with Azure Spring Cloud"
 description: Learn how to use Spring Cloud's distributed tracing through Azure Application Insights
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 10/06/2019
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ---
@@ -87,7 +87,7 @@ For example, *appsettings.json* would include the following properties:
   }
 ```
 
-For more information about distributed tracing in .NET Core Steeltoe apps, see [Distributed tracing](https://steeltoe.io/docs/3/tracing/distributed-tracing) in the Steeltoe documentation.
+For more information about distributed tracing in .NET Core Steeltoe apps, see [Distributed tracing](https://docs.steeltoe.io/api/v3/tracing/) in the Steeltoe documentation.
 ::: zone-end
 ::: zone pivot="programming-language-java"
 In this article, you learn how to:

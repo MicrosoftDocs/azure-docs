@@ -47,7 +47,7 @@ Alternatively, the event message also contains the ID of the source twin that se
 
 The compute resource also needs to establish security and access permissions independently.
 
-To walk through the process of setting up an Azure function to process digital twin events, see [How-to: Set up an Azure function for processing data](how-to-create-azure-function.md).
+To walk through the process of setting up an Azure function to process digital twin events, see [Set up an Azure function for processing data](how-to-create-azure-function.md).
 
 ## Create an endpoint
 
@@ -56,7 +56,7 @@ To define an event route, developers first must define endpoints. An **endpoint*
 * Event Hub
 * Service Bus
 
-To create an endpoint, you can use the Azure Digital Twins [REST APIs, CLI commands](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins), or the [Azure portal](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins).
+To [create an endpoint](how-to-manage-routes.md#create-an-endpoint-for-azure-digital-twins), you can use the Azure Digital Twins REST APIs, CLI commands, or the Azure portal.
 
 When defining an endpoint, you'll need to provide:
 * The endpoint's name
@@ -72,7 +72,7 @@ The endpoint APIs that are available in control plane are:
 
 ## Create an event route
  
-To create an event route, you can use the Azure Digital Twins [REST APIs, CLI commands](how-to-manage-routes-apis-cli.md#create-an-event-route), or the [Azure portal](how-to-manage-routes-portal.md#create-an-event-route).
+To [create an event route](how-to-manage-routes.md#create-an-event-route), you can use the Azure Digital Twins REST APIs, CLI commands, or the Azure portal.
 
 Here is an example of creating an event route within a client application, using the `CreateOrReplaceEventRouteAsync` [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) call: 
 
@@ -80,7 +80,7 @@ Here is an example of creating an event route within a client application, using
 
 1. First, a `DigitalTwinsEventRoute` object is created, and the constructor takes the name of an endpoint. This `endpointName` field identifies an endpoint such as an Event Hub, Event Grid, or Service Bus. These endpoints must be created in your subscription and attached to Azure Digital Twins using control plane APIs before making this registration call.
 
-2. The event route object also has a [Filter](how-to-manage-routes-apis-cli.md#filter-events) field, which can be used to restrict the types of events that follow this route. A filter of `true` enables the route with no additional filtering (a filter of `false` disables the route). 
+2. The event route object also has a [Filter](how-to-manage-routes.md#filter-events) field, which can be used to restrict the types of events that follow this route. A filter of `true` enables the route with no additional filtering (a filter of `false` disables the route). 
 
 3. This event route object is then passed to `CreateOrReplaceEventRouteAsync`, along with a name for the route.
 
@@ -101,7 +101,7 @@ Before setting the dead-letter location, you must have a storage account with a 
 
 To learn more about SAS tokens, see: [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md)
 
-To learn how to set up an endpoint with dead-lettering, see [How-to: Manage endpoints and routes in Azure Digital Twins (APIs and CLI)](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
+To learn how to set up an endpoint with dead-lettering, see [Manage endpoints and routes in Azure Digital Twins](how-to-manage-routes.md#create-an-endpoint-with-dead-lettering).
 
 ### Types of event messages
 
@@ -112,7 +112,7 @@ Different types of events in IoT Hub and Azure Digital Twins produce different t
 ## Next steps
 
 See how to set up and manage an event route:
-* [How-to: Manage endpoints and routes](how-to-manage-routes-apis-cli.md)
+* [Manage endpoints and routes](how-to-manage-routes.md)
 
 Or, see how to use Azure Functions to route events within Azure Digital Twins:
-* [How-to: Set up an Azure function for processing data](how-to-create-azure-function.md)
+* [Set up an Azure function for processing data](how-to-create-azure-function.md)

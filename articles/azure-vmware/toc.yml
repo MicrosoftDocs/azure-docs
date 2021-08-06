@@ -6,16 +6,18 @@
     href: introduction.md
   - name: Platform updates
     href: azure-vmware-solution-platform-updates.md
-- name: Quick start
+- name: Get started
   items:
-    - name: 1 - Plan the deployment
-      href: production-ready-deployment-steps.md
-    - name: 2 - Deploy Azure VMware Solution
-      href: deploy-azure-vmware-solution.md
-    - name: 3 - Connect to on-premises
-      href: tutorial-expressroute-global-reach-private-cloud.md
-    - name: 4 - Deploy and configure VMware HCX
-      href: tutorial-deploy-vmware-hcx.md
+  - name: 1 - Plan the deployment
+    href: plan-private-cloud-deployment.md
+  - name: 2 - Deploy Azure VMware Solution
+    href: deploy-azure-vmware-solution.md
+  - name: 3 - Connect to on-premises environment
+    href: tutorial-expressroute-global-reach-private-cloud.md
+  - name: 4 - Install the VMware HCX Connector
+    href: install-vmware-hcx.md
+  - name: 5 - Configure on-premises VMware HCX Connector
+    href: configure-vmware-hcx.md
 - name: Tutorials
   items:
   - name: Access a private cloud
@@ -24,12 +26,10 @@
     href: tutorial-configure-networking.md
   - name: Create a private cloud
     href: tutorial-create-private-cloud.md
-  - name: Create an NSX-T network segment
+  - name: Create a network segment
     href: tutorial-nsx-t-network-segment.md
   - name: Delete a private cloud
     href: tutorial-delete-private-cloud.md
-  - name: Deploy and configure VMware HCX
-    href: tutorial-deploy-vmware-hcx.md
   - name: Expand or shrink clusters in a private cloud
     href: tutorial-scale-private-cloud.md
   - name: Network planning checklist
@@ -62,7 +62,7 @@
     href: reserved-instance.md
   - name: Configure networking
     items:
-    - name: Configure DHCP  
+    - name: Configure DHCP server or relay 
       href: configure-dhcp-azure-vmware-solution.md
     - name: Configure DHCP on L2 stretched networks
       href: configure-l2-stretched-vmware-hcx-networks.md
@@ -70,13 +70,13 @@
       href: configure-dns-azure-vmware-solution.md
     - name: Configure port mirroring  
       href: configure-port-mirroring-azure-vmware-solution.md
-    - name: Configure GitHub Enterprise Server
-      href: ./configure-github-enterprise-server.md
     - name: Enable public internet access
       href: enable-public-internet-access.md
     - name: Configure a site-to-site VPN in vWAN 
       href: configure-site-to-site-vpn-gateway.md
-  - name: Configure Windows Server Failover Cluster
+    - name: Configure GitHub Enterprise Server
+      href: configure-github-enterprise-server.md
+    - name: Configure Windows Server Failover Cluster
     href: configure-windows-server-failover-cluster.md
   - name: Rotate cloudadmin credentials
     href: rotate-cloudadmin-credentials.md
@@ -144,7 +144,7 @@
       href: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html
   - name: VMware ecosystem
     items:
-    - name: Backup solutions for VMs
+    - name: Back up solutions for VMs
       href: ecosystem-back-up-vms.md
     - name: Migration solutions for VMs
       href: ecosystem-migration-vms.md
@@ -157,7 +157,7 @@
   - name: Troubleshooting
     items:
     - name: Open a support request for deployment failures
-      href: fix-deployment-provisioning-failures.md
+      href: fix-deployment-failures.md
     - name: VMware tools vix error code = 21009
       href: https://kb.vmware.com/s/article/2129927
   - name: FAQ

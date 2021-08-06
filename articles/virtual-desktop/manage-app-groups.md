@@ -3,7 +3,7 @@ title: Manage app groups for Azure Virtual Desktop portal - Azure
 description: How to manage Azure Virtual Desktop app groups with the Azure portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 07/14/2021
+ms.date: 07/20/2021
 ms.author: helohr
 manager: femila
 ---
@@ -31,6 +31,8 @@ If you've already created a host pool and session host VMs using the Azure porta
    
     >[!NOTE]
     > If you're signing in to the US Gov portal, go to [https://portal.azure.us/](https://portal.azure.us/) instead.
+    >
+    >If you're accessing the Azure China portal, go to [https://portal.azure.cn/](https://portal.azure.cn/).
 
 2.  Search for and select **Azure Virtual Desktop**.
 

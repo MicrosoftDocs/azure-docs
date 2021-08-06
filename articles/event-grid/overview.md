@@ -2,7 +2,7 @@
 title: What is Azure Event Grid? 
 description: Send event data from a source to handlers with Azure Event Grid. Build event-based applications, and integrate with Azure services.
 ms.topic: overview
-ms.date: 01/28/2021
+ms.date: 07/27/2021
 ---
 
 # What is Azure Event Grid?

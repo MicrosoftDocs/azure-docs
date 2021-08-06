@@ -4,7 +4,7 @@ description: Learn how you can use Azure Cosmos DB to store, query, and traverse
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 03/22/2021
+ms.date: 07/26/2021
 author: manishmsfte
 ms.author: mansha
 ---

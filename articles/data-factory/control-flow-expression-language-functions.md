@@ -1,12 +1,15 @@
 ---
 title: Expression and functions in Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: This article provides information about expressions and functions that you can use in creating data factory entities.
 author: minhe-msft
 ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/28/2021
+ms.date: 07/16/2021
 ---
 
 # Expressions and functions in Azure Data Factory
@@ -55,12 +58,28 @@ Expressions can appear anywhere in a JSON string value and always result in anot
 |"\@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Returns the string `Answer is: 42`|  
 |"Answer is: \@\@{pipeline().parameters.myNumber}"| Returns the string `Answer is: @{pipeline().parameters.myNumber}`.|  
 
+In the  control flow activities like ForEach activity, you can provide an array to be iterated over for the property items and use  @item() to iterate over a single enumeration in ForEach activity. For example, if items is an array: [1, 2, 3], @item() returns 1 in the first iteration, 2 in the second iteration, and 3 in the third iteration. You can also use @range(0,10) like expression to iterate ten times starting with 0 ending with 9.
+
+You can use @activity('activity name') to capture output of activity and make decisions. Consider a web activity called Web1. For placing the output of the first activity in the body of the second, the expression generally looks like: @activity('Web1').output or @activity('Web1').output.data or something similar depending upon what the output of the first activity looks like. 
+
 ## Examples
 
 ### Complex expression example
-The below example shows a complex example that references a deep sub-field of activity output. To reference a pipeline parameter that evaluates to a sub-field, use [] syntax instead of dot(.) operator (as in case of subfield1 and subfield2)
+The below example shows a complex example that references a deep sub-field of activity output. To reference a pipeline parameter that evaluates to a sub-field, use [] syntax instead of dot(.) operator (as in case of subfield1 and subfield2), as part of an activity output.
 
 `@activity('*activityName*').output.*subfield1*.*subfield2*[pipeline().parameters.*subfield3*].*subfield4*`
+
+Creating files dynamically and naming them is common pattern. Let us explore few dynamic file naming examples.
+
+  1. Append Date to a filename:  `@concat('Test_',  formatDateTime(utcnow(), 'yyyy-dd-MM'))` 
+  
+  2. Append DateTime in customer timezone : `@concat('Test_',  convertFromUtc(utcnow(), 'Pacific Standard Time'))`
+  
+  3. Append Trigger Time :` @concat('Test_',  pipeline().TriggerTime)`
+  
+  4. Output a custom filename in a Mapping Data Flow when outputting to a single file with date : `'Test_' + toString(currentDate()) + '.csv'`
+
+In above cases, 4 dynamic filenames are created starting with Test_. 
 
 ### Dynamic content editor
 

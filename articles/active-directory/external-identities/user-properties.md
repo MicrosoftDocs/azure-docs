@@ -1,12 +1,12 @@
 ---
 title: Properties of a B2B guest user - Azure Active Directory | Microsoft Docs
-description: Azure Active Directory B2B guest user properties and states before and after invitation redemption
+description: Azure Active Directory B2B invited guest user properties and states before and after invitation redemption
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 08/04/2021
 
 ms.author: mimart
 author: msmimart
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Properties of an Azure Active Directory B2B collaboration user
 
-This article describes the properties and states of the B2B guest user object in Azure Active Directory (Azure AD) before and after invitation redemption. An Azure AD business-to-business (B2B) collaboration user is a user with UserType = Guest. This guest user typically is from a partner organization and has limited privileges in the inviting directory, by default.
+This article describes the properties and states of an invited Azure Active Directory B2B (Azure AD B2B) collaboration user object both before and after invitation redemption. An Azure AD B2B collaboration user is an external user, typically from a partner organization, that you invite to sign into your Azure AD organization using their own credentials. This B2B collaboration user (also generally referred to as a *guest user*) can then access the apps and resources you want to share with them. A user object is created for the B2B collaboration user in the same directory as your employees. B2B collaboration user objects have limited privileges in your directory by default, and they can be managed like employees, added to groups, and so on.
 
 Depending on the inviting organization's needs, an Azure AD B2B collaboration user can be in one of the following account states:
 
@@ -56,7 +56,7 @@ For guest users in State 2, the **Source** is **Microsoft Account**.
 
 ![State 2 guest user after offer redemption](media/user-properties/after-redemption-state2.png)
 
-For guest users in State 3 and State 4, the **Source** property is set to **Azure Active Directory** or **Windows Server Active Directory**, as described in the next section.
+For guest users in State 3 and State 4, the **Source** property is set to **Azure Active Directory** or **Windows Server AD**, as described in the next section.
 
 ## Key properties of the Azure AD B2B collaboration user
 ### UserType
@@ -79,7 +79,7 @@ This property indicates how the user signs in.
 
 - Microsoft account: This user is homed in a Microsoft account and authenticates by using a Microsoft account. This type of sign-in corresponds to State 2.
 
-- Windows Server Active Directory: This user is signed in from on-premises Active Directory that belongs to this organization. This type of sign-in corresponds to State 3.
+- Windows Server AD: This user is signed in from on-premises Active Directory that belongs to this organization. This type of sign-in corresponds to State 3.
 
 - Azure Active Directory: This user authenticates by using an Azure AD account that belongs to this organization. This type of sign-in corresponds to State 4.
   > [!NOTE]

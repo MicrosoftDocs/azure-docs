@@ -11,55 +11,13 @@ You can set up security access for the function app by using either the Azure CL
 
 # [CLI](#tab/cli)
 
-Run these commands in [Azure Cloud Shell](https://shell.azure.com) or a [local Azure CLI installation](/cli/azure/install-azure-cli).
-You can use the function app's system-managed identity to give it the **Azure Digital Twins Data Owner** role for your Azure Digital Twins instance. The role gives the function app permission in the instance to perform data plane activities. Then make the URL of the instance accessible to your function by setting an environment variable.
-
-### Assign an access role
-
-[!INCLUDE [digital-twins-permissions-required.md](digital-twins-permissions-required.md)]
-
-The Azure function requires a bearer token to be passed to it. If the bearer token isn't passed, the function app can't authenticate with Azure Digital Twins. 
-
-To make sure the bearer token is passed, set up [managed identities](../articles/active-directory/managed-identities-azure-resources/overview.md) permissions so the function app can access Azure Digital Twins. You only need to set up these permissions once for each function app.
-
-
-1. Use the following command to see the details of the system-managed identity for the function. Take note of the `principalId` field in the output.
-
-    ```azurecli-interactive	
-    az functionapp identity show --resource-group <your-resource-group> --name <your-App-Service-function-app-name>	
-    ```
-
-    >[!NOTE]
-    > If the result is empty instead of showing identity details, create a new system-managed identity for the function by using this command:
-    > 
-    >```azurecli-interactive	
-    >az functionapp identity assign --resource-group <your-resource-group> --name <your-App-Service-function-app-name>	
-    >```
-    >
-    > The output displays details of the identity, including the `principalId` value required for the next step. 
-
-1. Use the `principalId` value in the following command to assign the function app's identity to the _Azure Digital Twins Data Owner_ role for your Azure Digital Twins instance.
-
-    ```azurecli-interactive	
-    az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
-    ```
-
-### Configure application settings
-
-Make the URL of your instance accessible to your function by setting an environment variable for it. For more information about environment variables, see [Manage your function app](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
-
-> [!TIP]
-> The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your instance's host name. To see the host name, along with all the properties of your instance, run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
-
-```azurecli-interactive	
-az functionapp config appsettings set --resource-group <your-resource-group> --name <your-App-Service-function-app-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
-```
+[!INCLUDE [digital-twins-configure-function-app-cli.md](digital-twins-configure-function-app-cli.md)]
 
 # [Azure portal](#tab/portal)
 
 Complete the following steps in the [Azure portal](https://portal.azure.com/).
 
-### Assign an access role
+#### Assign an access role
 
 [!INCLUDE [digital-twins-permissions-required.md](digital-twins-permissions-required.md)]
 
@@ -94,7 +52,7 @@ The lifecycle of this type of managed identity is tied to the lifecycle of this 
 
     :::image type="content" source="../articles/digital-twins/media/how-to-create-azure-function/add-role-assignment-3.png" alt-text="Screenshot of the Azure portal, showing how to add a new role assignment. The dialog shows fields for Scope, Subscription, Resource group, and Role.":::
 
-### Configure application settings
+#### Configure application settings
 
 To make the URL of your Azure Digital Twins instance accessible to your function, you can set an environment variable. Application settings are exposed as environment variables to allow access to the Azure Digital Twins instance. For more information about environment variables, see [Manage your function app](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 

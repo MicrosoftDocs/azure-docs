@@ -2,7 +2,7 @@
 title: Use direct methods in Azure Video Analyzer - Azure
 description: Azure Video Analyzer exposes several direct methods. The direct methods are based on the conventions described in this topic.
 ms.topic: conceptual
-ms.date: 05/06/2021
+ms.date: 06/01/2021
 
 ---
 # Azure Video Analyzer Direct methods

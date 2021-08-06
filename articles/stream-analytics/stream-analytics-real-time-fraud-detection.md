@@ -130,7 +130,7 @@ Now that you have a stream of call events, you can create a Stream Analytics job
 
 1. To create a Stream Analytics job, navigate to the [Azure portal](https://portal.azure.com/).
 
-2. Select **Create a resource** and search for **Stream Analytics job**. Select the **Stream Analytics job** tile and select *Create**.
+2. Select **Create a resource** and search for **Stream Analytics job**. Select the **Stream Analytics job** tile and select **Create**.
 
 3. Fill out the **New Stream Analytics job** form with the following values:
 

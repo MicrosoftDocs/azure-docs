@@ -288,7 +288,7 @@ Notifications are charged separately as per [Notifications pricing in Azure Moni
 
 ## Pricing
 
-Information on pricing is available [online](network-performance-monitor-pricing-faq.md).
+Information on pricing is available [online](network-performance-monitor-pricing-faq.yml).
 
 ## Provide feedback 
 

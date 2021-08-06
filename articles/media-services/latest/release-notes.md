@@ -34,14 +34,7 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 Additional live event ingest heartbeat properties have been added to the Event Grid message. This includes the following new fields to assist with diagnosing issues during live ingest.  The **ingestDriftValue** is helpful in scenarios where you need to monitor network latency from the source ingest encoder pushing into the live event. If this value drifts out too far, it can be an indication that the network latency is too high for a successful live streaming event.
 
-See the [LiveEventIngestHeartbeat schema](./monitoring/media-services-event-schemas.md) for more details.
-
-| New LiveEventIngestHeartbeat property | Description |
-| -------- | ---------- |
-| lastFragmentArrivalTime | The last time stamp in UTC that a fragment arrived at the ingest endpoint. Example date format is "2020-11-11 12:12:12:888999" |
-| ingestDriftValue | Indicates the speed of delay, in seconds-per-minute, of the incoming audio or video data during the last minute. The value is greater than zero if data is arriving to the live event slower than expected in the last minute; zero if data arrived with no delay; and "n/a" if no audio or video data was received. Please note, this value is unrelated to the presence or absence of missing data in the last minute. For example, if you have a contribution encoder sending in live content, and it is slowing down due to processing issues, or network latency, it may be only able to deliver a total of 58 seconds of audio or video in a one minute period.  This would be reported as 2 seconds of drift.  If the encoder is able to catch up and send all 60 seconds of data every minute you will see this value reported as 0. If there was a disconnection, or discontinuity from the encoder, this value may still display as 0, as it does not account for breaks in the data - only data that is delayed in timestamps. |
-| transcriptionState |  The state of the live transcription feature.  This state is only applicable to tracktype of "audio" for Live transcription. All other tracks will have an empty value, or empty when disabled.|
-| transcriptionLanguage |  The BCP-47 language code used for this track if the tracktype is "audio". When transcriptionState is empty (off) this will have an empty value. All other non-audio tracks will also contain an empty value. |
+See the [LiveEventIngestHeartbeat schema](./monitoring/media-services-event-schemas.md#liveeventingestheartbeat) for more details.
 
 ### Private links support is now GA
 
@@ -328,7 +321,7 @@ Added support for the following new recommended partner encoders for RTMP live s
 - Standard encoding now maintains a regular GOP cadence for variable frame rate  (VFR) contents during VOD encoding when using the time-based GOP setting.  This means that customer submitting mixed frame rate content that varies between 15-30 fps, for example,  should now see regular GOP distances calculated on output to adaptive bitrate streaming MP4 files. This will improve the ability to switch seamlessly between tracks when delivering over HLS or DASH. 
 -  Improved AV sync for variable frame rate (VFR) source content
 
-### Video Indexer, Video analytics
+### Azure Video Analyzer for Media, Video analytics
 
 - Keyframes extracted using the VideoAnalyzer preset are now in the original resolution of the video instead of being resized. High-resolution keyframe extraction gives you original quality images and allows you to make use of the image-based artificial intelligence models provided by the Microsoft Computer Vision and Custom Vision services to gain even more insights from your video.
 
@@ -344,9 +337,9 @@ Media Services v3 is announcing the preview of 24 hrs x 365 days of live linear 
 
 #### Deprecation of media processors
 
-We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. For the retirement dates, see the  [legacy components](../previous/legacy-components.md) article. Azure Media Services Video Indexer replaces these legacy media processors.
+We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. For the retirement dates, see the  [legacy components](../previous/legacy-components.md) article. Azure Video Analyzer for Media replaces these legacy media processors.
 
-For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](../previous/migrate-indexer-v1-v2.md).
+For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to **Azure Media Services Video Indexer**](../previous/migrate-indexer-v1-v2.md).
 
 ## August 2019
 

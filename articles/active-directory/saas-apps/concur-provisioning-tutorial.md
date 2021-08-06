@@ -15,6 +15,9 @@ ms.author: jeedes
 
 The objective of this tutorial is to show you the steps you need to perform in Concur and Azure AD to automatically provision and de-provision user accounts from Azure AD to Concur.
 
+> [!WARNING]
+> This provisioning integration is no longer supported. As a result of this, the provisioning functionality of the SAP Concur application in the Azure Active Directory Enterprise App Gallery will be removed soon. The application's SSO functionality will remain intact. Microsoft is working with SAP Concur to build a new modernized provisioning integration, but there is currently no ETA on when this will be completed.
+
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following items:

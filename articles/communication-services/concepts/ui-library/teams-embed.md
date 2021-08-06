@@ -1,11 +1,11 @@
 ---
-title: UI Library Teams Embed
-titleSuffix: An Azure Communication Services quickstart
-description: In this document, you'll learn how the Azure Communication Services UI Library Teams Embed capability can be used to build turnkey calling experiences.
+title: Teams Embed SDK
+titleSuffix: An Azure Communication Services - Teams Embed SDK description
+description: In this document, review about the Teams Embed Capabilities and how is going to work in your applications
 author: tophpalmer
 ms.author: chpalm
 ms.date: 06/30/2021
-ms.topic: quickstart
+ms.topic: conceptual
 ms.service: azure-communication-services
 
 ---
@@ -35,8 +35,6 @@ As a participant of any of the meetings, you can set up a default configuration 
 ## Meeting experience
 
 Customize the user experience, adjust the capabilities accordingly to your needs. You will control the overall experience during the meetings.
-
-- [**Video background blur effect**](https://support.microsoft.com/office/change-your-background-for-a-teams-meeting-f77a2381-443a-499d-825e-509a140f4780): The user can add a blur effect or change their background.
 
 - [**Content sharing**](https://support.microsoft.com/office/share-content-in-a-meeting-in-teams-fcc2bf59-aecd-4481-8f99-ce55dd836ce8): The user can share video, photo, or the whole screen, and the users will see the shared content.
 
@@ -80,7 +78,6 @@ You can use an Azure Communication Service access token, more information [how g
 |---------------------------------------------------------------------|--------------|
 | *Meeting actions*                                                   |              |
 | Display the call roster                                             | Yes          |
-| Background blur                                                     | Yes          |
 | Customize the layout: colors, icons, buttons                        | Partially    |
 | Customize the call screen icons                                     | Yes          |
 | Change meeting views layout                                         | Yes          |
@@ -94,6 +91,7 @@ You can use an Azure Communication Service access token, more information [how g
 | Start/Stop video                                                    | Yes          |
 | User tile press event                                               | Yes          |
 | Name plate press event                                              | Yes          |
+| Background blur                                                     | Yes          |
 | Customize the screen background color​                               | No           |
 | Customize the top/bottom bar color​                                  | No           |
 | Whiteboard sharing                                                  | No           |

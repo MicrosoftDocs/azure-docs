@@ -1,8 +1,8 @@
 ---
 title:  Azure Spring Cloud CI/CD with GitHub Actions
 description: How to build up CI/CD workflow for Azure Spring Cloud with GitHub Actions
-author:  brendm
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/08/2020
@@ -81,7 +81,7 @@ az spring-cloud app create --name solar-system-weather
 
 ### Deploy with Azure CLI directly
 
-Create the `.github/workflows/main.yml` file in the repository with the following content. Replace `<your resource group name>` and `<your service name>` with the correct values.
+Create the `.github/workflows/main.yml` file in the repository with the following content. Replace *\<your resource group name>* and *\<your service name>* with the correct values.
 
 ```yaml
 name: Steeltoe-CD

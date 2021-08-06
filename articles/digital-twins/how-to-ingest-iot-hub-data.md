@@ -27,7 +27,7 @@ This how-to document walks through the process for writing a function that can i
 
 Before continuing with this example, you'll need to set up the following resources as prerequisites:
 * **An IoT hub**. For instructions, see the *Create an IoT Hub* section of this [IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md).
-* **An Azure Digital Twins instance** that will receive your device telemetry. For instructions, see [How-to: Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md).
+* **An Azure Digital Twins instance** that will receive your device telemetry. For instructions, see [Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md).
 
 This article also uses **Visual Studio**. You can download the latest version from [Visual Studio Downloads](https://visualstudio.microsoft.com/downloads/).
 
@@ -135,7 +135,7 @@ Select the _Create_ button to create the event subscription.
 
 ## Send simulated IoT data
 
-To test your new ingress function, use the device simulator from [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md). That tutorial is driven by this [Azure Digital Twins end-to-end sample project written in C#](/samples/azure-samples/digital-twins-samples/digital-twins-samples). You'll be using the **DeviceSimulator** project in that repository.
+To test your new ingress function, use the device simulator from [Connect an end-to-end solution](./tutorial-end-to-end.md). That tutorial is driven by this [Azure Digital Twins end-to-end sample project written in C#](/samples/azure-samples/digital-twins-samples/digital-twins-samples). You'll be using the **DeviceSimulator** project in that repository.
 
 In the end-to-end tutorial, complete the following steps:
 1. [Register the simulated device with IoT Hub](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
@@ -174,4 +174,4 @@ To see the value change, repeatedly run the query command above.
 ## Next steps
 
 Read about data ingress and egress with Azure Digital Twins:
-* [Concepts: Data ingress and egress](concepts-data-ingress-egress.md)
+* [Data ingress and egress](concepts-data-ingress-egress.md)

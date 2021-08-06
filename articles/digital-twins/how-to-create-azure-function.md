@@ -48,13 +48,13 @@ To use the SDK, you'll need to include the following packages in your project. I
 * [System.Net.Http](https://www.nuget.org/packages/System.Net.Http/)
 * [Azure.Core](https://www.nuget.org/packages/Azure.Core/)
 
-Next, in Visual Studio Solution Explorer, open the _Function1.cs_ file that includes your sample code. Add the following `using` statements for the packages.
+Next, in Visual Studio Solution Explorer, open the _.cs_ file that includes your sample code. Add the following `using` statements for the packages.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
 
 ## Add authentication code to the function
 
-Now declare class-level variables and add authentication code that will allow the function to access Azure Digital Twins. Add the variables and code to your function in the _Function1.cs_ file.
+Now declare class-level variables and add authentication code that will allow the function to access Azure Digital Twins. Add the variables and code to your function.
 
 * **Code to read the Azure Digital Twins service URL as an environment variable.** It's a good practice to read the service URL from an environment variable rather than hard-coding it in the function. You'll set the value of this environment variable [later in this article](#set-up-security-access-for-the-function-app). For more information about environment variables, see [Manage your function app](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal).
 

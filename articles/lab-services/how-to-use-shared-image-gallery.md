@@ -6,7 +6,12 @@ ms.date: 09/11/2020
 ---
 
 # Use a shared image gallery in Azure Lab Services
-This article shows how educators/lab admins can save a template virtual machine image to a [shared image gallery](../virtual-machines/shared-image-galleries.md) so that it can be used by others to create labs. 
+
+An image contains the operating system, software applications, files, and settings that are installed on a VM.  There are two types of images that you can use when you set up a new lab:
+-   Marketplace images that are prebuilt by Microsoft for use within Azure.  These images have either Windows or Linux installed and may also include software applications.  For example, the [Data Science Virtual Machine image](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview#whats-included-on-the-dsvm) includes installed deep learning frameworks and tools.
+-   Custom images that are created by your institution’s IT department and\or other educators.  You can create both Windows and Linux custom images and have the flexibility to install Microsoft and 3rd party applications based on your unique needs.  You also can add files, change application settings, and more.
+
+This article shows how educators/lab admins can create and save a custom image from a template virtual machine to a [shared image gallery](../virtual-machines/shared-image-galleries.md) so that it can be used by others to create new labs.
 
 > [!IMPORTANT]
 > While using a Shared Image Gallery, Azure Lab Services supports only images with less than 128 GB of OS Disk Space. Images with more than 128 GB of disk space or multiple disks will not be shown in the list of virtual machine images during lab creation.
@@ -22,7 +27,6 @@ Here are the couple of scenarios supported by this feature:
 ## Prerequisites
 - Create a [shared image gallery](../virtual-machines/create-gallery.md).
 - You have attached the shared image gallery to the lab account. For step-by-step instructions, see [How to attach or detach shared image gallery](how-to-attach-detach-shared-image-gallery.md).
-
 
 ## Save an image to the shared image gallery
 After a shared image gallery is attached, a lab account admin or an educator can save an image to the shared image gallery so that it can be reused by other educators. 
@@ -43,8 +47,10 @@ After a shared image gallery is attached, a lab account admin or an educator can
 
     After you save the image to the shared image gallery, you can use that image from the gallery when creating another lab. You can also upload an image to the shared image gallery outside the context of a lab. For more information, see:
 
+
     - [Shared image gallery overview](../virtual-machines/shared-image-galleries.md)
-    - [Upload custom image to shared image gallery](upload-custom-image-shared-image-gallery.md)
+    - [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md)
+
 
     > [!IMPORTANT]
     > When you [save a template image of a lab](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) in Azure Lab Services to a shared image gallery, the image is uploaded to the gallery as a **specialized image**. [Specialized images](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) keep machine-specific information and user profiles. You can still directly upload a generalized image to the gallery outside of Azure Lab Services.    
@@ -70,6 +76,6 @@ If instead you choose **Update existing image**, the original custom image's def
 ## Next steps
 To learn about how to set up shared image gallery by attaching and detaching it to a lab account, see [How to attach and detach shared image gallery](how-to-attach-detach-shared-image-gallery.md).
 
-To bring a Windows custom image to shared image gallery outside of the context of a lab, see [Bring custom image to shared image gallery](upload-custom-image-shared-image-gallery.md).
+To explore other options for bringing custom images to shared image gallery outside of the context of a lab, see [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md).
 
 For more information about shared image galleries in general, see [shared image gallery](../virtual-machines/shared-image-galleries.md).

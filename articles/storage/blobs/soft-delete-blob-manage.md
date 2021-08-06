@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/29/2021
+ms.date: 07/23/2021
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: "devx-track-csharp"
@@ -148,6 +148,9 @@ When blobs or directories are soft-deleted, they are invisible in the Azure port
 > [!div class="mx-imgBorder"]
 > ![Screenshot showing how to list soft-deleted blobs in Azure portal (hierarchical namespace enabled accounts)](media/soft-delete-blob-manage/soft-deleted-blobs-list-portal-hns.png)
 
+> [!NOTE]
+> If you rename a directory that contains soft deleted items (subdirectories and blobs), those soft deleted items become disconnected from the directory, so they won't appear in the Azure portal when you toggle the **Show deleted blobs** setting. If you want to view them in the Azure portal, you'll have to revert the name of the directory back to it's original name or create a separate directory that uses the original directory name. 
+
 Next, select the deleted directory or blob from the list display its properties. Under the **Overview** tab, notice that the status is set to **Deleted**. The portal also displays the number of days until the blob is permanently deleted.
 
 > [!div class="mx-imgBorder"]
@@ -184,6 +187,7 @@ To restore a soft-deleted blob or directory in the Azure portal, first display t
    $deletedItems | Restore-AzDataLakeGen2DeletedItem
    ```
 
+   If you rename the directory that contains the soft deleted items, those items become disconnected from the directory. If you want to restore those items, you'll have to revert the name of the directory back to it's original name or create a separate directory that uses the original directory name. Otherwise, you'll receive an error when you attempt to restore those soft deleted items.
 
 ### Restore soft deleted blobs and directories by using Azure CLI
 
@@ -205,6 +209,8 @@ To restore a soft-deleted blob or directory in the Azure portal, first display t
    $dirName="my-directory"
    az storage fs undelete-path -f $filesystemName --deleted-path-name $dirName —deletion-id "<deletionId>" --auth-mode login
    ```
+
+   If you rename the directory that contains the soft deleted items, those items become disconnected from the directory. If you want to restore those items, you'll have to revert the name of the directory back to it's original name or create a separate directory that uses the original directory name. Otherwise, you'll receive an error when you attempt to restore those soft deleted items.
 
 ### Restore soft deleted blobs and directories by using .NET
 
@@ -272,6 +278,8 @@ To restore a soft-deleted blob or directory in the Azure portal, first display t
 
    ```
 
+   If you rename the directory that contains the soft deleted items, those items become disconnected from the directory. If you want to restore those items, you'll have to revert the name of the directory back to it's original name or create a separate directory that uses the original directory name. Otherwise, you'll receive an error when you attempt to restore those soft deleted items.
+
 ### Restore soft deleted blobs and directories by using Java
 
 >[!IMPORTANT]
@@ -321,6 +329,8 @@ To restore a soft-deleted blob or directory in the Azure portal, first display t
 
    ```
 
+   If you rename the directory that contains the soft deleted items, those items become disconnected from the directory. If you want to restore those items, you'll have to revert the name of the directory back to it's original name or create a separate directory that uses the original directory name. Otherwise, you'll receive an error when you attempt to restore those soft deleted items.
+
 ### Restore soft deleted blobs and directories by using Python
 
 >[!IMPORTANT]
@@ -365,6 +375,8 @@ To restore a soft-deleted blob or directory in the Azure portal, first display t
             print(e)
 
     ```
+
+   If you rename the directory that contains the soft deleted items, those items become disconnected from the directory. If you want to restore those items, you'll have to revert the name of the directory back to it's original name or create a separate directory that uses the original directory name. Otherwise, you'll receive an error when you attempt to restore those soft deleted items.
 
 ## Next steps
 

@@ -427,11 +427,11 @@ additionalContent:
         - title: Privacy and GDPR
           links:
             - text: Checklists
-              url: /compliance/regulatory/gdpr-arc-azure-dynamics
+              url: /compliance/regulatory/gdpr-arc-azure-dynamics-windows
             - text: Data subject requests
               url: /compliance/regulatory/gdpr-dsr-Azure
             - text: Breach notification
-              url: /compliance/regulatory/gdpr-breach-azure-dynamics
+              url: /compliance/regulatory/gdpr-breach-azure-dynamics-windows
             - text: Data protection impact assessments
               url: /microsoft-365/compliance/gdpr-dpia-azure
             - text: Data residency in Azure

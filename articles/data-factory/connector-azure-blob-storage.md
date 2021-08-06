@@ -1,12 +1,14 @@
 ---
 title: Copy and transform data in Azure Blob storage
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data to and from Blob storage, and transform data in Blob storage by using Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 06/17/2021
+ms.custom: synapse
+ms.date: 07/19/2021
 ---
 
 # Copy and transform data in Azure Blob storage by using Azure Data Factory
@@ -53,7 +55,8 @@ This Blob storage connector supports the following authentication types. See the
 - [Account key authentication](#account-key-authentication)
 - [Shared access signature authentication](#shared-access-signature-authentication)
 - [Service principal authentication](#service-principal-authentication)
-- [Managed identities for Azure resource authentication](#managed-identity)
+- [System-assigned managed identity authentication](#managed-identity)
+- [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
 
 >[!NOTE]
 >- If want to use the public Azure integration runtime to connect to your Blob storage by leveraging the **Allow trusted Microsoft services to access this storage account** option enabled on Azure Storage firewall, you must use [managed identity authentication](#managed-identity).
@@ -264,21 +267,18 @@ These properties are supported for an Azure Blob storage linked service:
 }
 ```
 
-### <a name="managed-identity"></a> Managed identities for Azure resource authentication
+### <a name="managed-identity"></a> System-assigned managed identity authentication
 
-A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md), which represents this specific data factory. You can directly use this managed identity for Blob storage authentication, which is similar to using your own service principal. It allows this designated factory to access and copy data from or to Blob storage.
+A data factory can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity), which represents this specific data factory. You can directly use this system-assigned managed identity for Blob storage authentication, which is similar to using your own service principal. It allows this designated factory to access and copy data from or to Blob storage. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
 
 For general information about Azure Storage authentication, see [Authenticate access to Azure Storage using Azure Active Directory](../storage/common/storage-auth-aad.md). To use managed identities for Azure resource authentication, follow these steps:
 
-1. [Retrieve Data Factory managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the managed identity object ID generated along with your factory.
+1. [Retrieve Data Factory system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the system-assigned managed identity object ID generated along with your factory.
 
 2. Grant the managed identity permission in Azure Blob storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/blobs/assign-azure-role-data-access.md).
 
     - **As source**, in **Access control (IAM)**, grant at least the **Storage Blob Data Reader** role.
     - **As sink**, in **Access control (IAM)**, grant at least the **Storage Blob Data Contributor** role.
-
->[!IMPORTANT]
->If you use PolyBase or COPY statement to load data from Blob storage (as a source or as staging) into Azure Synapse Analytics, when you use managed identity authentication for Blob storage, make sure you also follow steps 1 to 3 in [this guidance](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Those steps will register your server with Azure AD and assign the Storage Blob Data Contributor role to your server. Data Factory handles the rest. If you configure Blob storage with an Azure Virtual Network endpoint, you also need to have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu as required by Synapse.
 
 These properties are supported for an Azure Blob storage linked service:
 
@@ -288,14 +288,6 @@ These properties are supported for an Azure Blob storage linked service:
 | serviceEndpoint | Specify the Azure Blob storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
 | accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/><br/>When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
-
-> [!NOTE]
->
-> - If your blob account enables [soft delete](../storage/blobs/soft-delete-blob-overview.md), managed identity authentication is not supported in Data Flow.
-> - If you access the blob storage through private endpoint using Data Flow, note when managed identity authentication is used Data Flow connects to the ADLS Gen2 endpoint instead of Blob endpoint . Make sure you create the corresponding private endpoint in ADF to enable access.
-
-> [!NOTE]
-> Managed identities for Azure resource authentication are supported only by the "AzureBlobStorage" type linked service, not the previous "AzureStorage" type linked service.
 
 **Example:**
 
@@ -315,6 +307,63 @@ These properties are supported for an Azure Blob storage linked service:
     }
 }
 ```
+
+### User-assigned managed identity authentication
+A data factory can be assigned with one or multiple [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity). You can use this user-assigned managed identity for Blob storage authentication, which allows to access and copy data from or to Blob storage. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
+
+For general information about Azure storage authentication, see [Authenticate access to Azure Storage using Azure Active Directory](../storage/common/storage-auth-aad.md). To use user-assigned managed identity authentication, follow these steps:
+
+1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant permission in Azure Blob storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/common/storage-auth-aad-rbac-portal.md).
+
+    - **As source**, in **Access control (IAM)**, grant at least the **Storage Blob Data Reader** role.
+    - **As sink**, in **Access control (IAM)**, grant at least the **Storage Blob Data Contributor** role.
+     
+2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](data-factory-service-identity.md#credentials) for each user-assigned managed identity. 
+
+
+These properties are supported for an Azure Blob storage linked service:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The **type** property must be set to **AzureBlobStorage**. | Yes |
+| serviceEndpoint | Specify the Azure Blob storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
+| accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/><br/>When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
+| credentials | Specify the user-assigned managed identity as the credential object. | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
+
+**Example:**
+
+```json
+{
+    "name": "AzureBlobStorageLinkedService",
+    "properties": {
+        "type": "AzureBlobStorage",
+        "typeProperties": {            
+            "serviceEndpoint": "https://<accountName>.blob.core.windows.net/",
+            "accountKind": "StorageV2",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+>[!IMPORTANT]
+>If you use PolyBase or COPY statement to load data from Blob storage (as a source or as staging) into Azure Synapse Analytics, when you use managed identity authentication for Blob storage, make sure you also follow steps 1 to 3 in [this guidance](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Those steps will register your server with Azure AD and assign the Storage Blob Data Contributor role to your server. Data Factory handles the rest. If you configure Blob storage with an Azure Virtual Network endpoint, you also need to have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu as required by Synapse.
+
+> [!NOTE]
+>
+> - If your blob account enables [soft delete](../storage/blobs/soft-delete-blob-overview.md), system-assigned/user-assigned managed identity authentication is not supported in Data Flow.
+> - If you access the blob storage through private endpoint using Data Flow, note when system-assigned/user-assigned managed identity authentication is used Data Flow connects to the ADLS Gen2 endpoint instead of Blob endpoint. Make sure you create the corresponding private endpoint in ADF to enable access.
+
+> [!NOTE]
+> System-assigned/user-assigned managed identity authentication is supported only by the "AzureBlobStorage" type linked service, not the previous "AzureStorage" type linked service.
 
 ## Dataset properties
 

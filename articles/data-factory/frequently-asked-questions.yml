@@ -6,7 +6,7 @@ metadata:
   ms.author: susabat
   ms.service: data-factory
   ms.topic: conceptual
-  ms.date: 05/11/2021
+  ms.date: 07/23/2021
     
 title: Azure Data Factory FAQ
 summary: |
@@ -109,12 +109,16 @@ sections:
           The integration runtime is the compute infrastructure that Azure Data Factory uses to provide the following data integration capabilities across various network environments:
           
           - **Data movement**: For data movement, the integration runtime moves the data between the source and destination data stores, while providing support for built-in connectors, format conversion, column mapping, and performant and scalable data transfer.
+          - **Data flow**: For data flow, Execute a [Data Flow](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview) in managed Azure compute environment.
           - **Dispatch activities**: For transformation, the integration runtime provides capability to natively execute SSIS packages.
           - **Execute SSIS packages**: The integration runtime natively executes SSIS packages in a managed Azure compute environment. The integration runtime also supports dispatching and monitoring transformation activities running on a variety of compute services, such as Azure HDInsight, Azure Machine Learning, SQL Database, and SQL Server.
           
           You can deploy one or many instances of the integration runtime as required to move and transform data. The integration runtime can run on an Azure public network or on a private network (on-premises, Azure Virtual Network, or Amazon Web Services virtual private cloud [VPC]).
-          
-          For more information, see [Integration runtime in Azure Data Factory](concepts-integration-runtime.md).
+          In Data Factory, an activity defines the action to be performed. A linked service defines a target data store or a compute service.
+          An integration runtime provides the bridge between the activity and linked Services. It's referenced by the linked service or activity, and provides the compute environment where the activity either runs on or gets dispatched from. This way, the activity can be performed in the region closest possible to the target data store or compute service in the most performant way while meeting security and compliance needs.
+
+          Integration runtimes can be created in the Azure Data Factory UX via the management hub and any activities, datasets, or data flows that reference them.
+          For more information, see [Integration runtime in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime).
           
       - question: |
           What is the limit on the number of integration runtimes?
@@ -132,9 +136,10 @@ sections:
           
           ### Data flows
           
-          Data flows are objects that you build visually in Data Factory which transform data at scale on backend Spark services. You do not need to understand programming or Spark internals. Just design your data transformation intent using graphs (Mapping) or spreadsheets (Wrangling).
+          Data flows are objects that you build visually in Data Factory which transform data at scale on backend Spark services. You do not need to understand programming or Spark internals. 
+          Just design your data transformation intent using graphs (Mapping) or spreadsheets (Power query activity).
           
-          ### Activities
+           ### Activities
           
           Activities represent a processing step in a pipeline. For example, you can use a Copy activity to copy data from one data store to another data store. Similarly, you can use a Hive activity, which runs a Hive query on an Azure HDInsight cluster to transform or analyze your data. Data Factory supports three types of activities: data movement activities, data transformation activities, and control activities.
           
@@ -224,7 +229,8 @@ sections:
         answer: |
           ### I need help troubleshooting my data flow logic. What info do I need to provide to get help?
           
-          When Microsoft provides help or troubleshooting with data flows, please provide the Data Flow Script. This is the code-behind script from your data flow graph. From the ADF UI, open your data flow, then click the "Script" button at the top-right corner. Copy and paste this script or save it in a text file.
+          When Microsoft provides help or troubleshooting with data flows, please provide the ADF pipeline support files.
+          This Zip file contains the code-behind script from your data flow graph. From the ADF UI, click **...** next to pipeline, and then click **Download support files**.
           
           ### How do I access data by using the other 90 dataset types in Data Factory?
           
@@ -266,39 +272,22 @@ sections:
           
           
       - question: |
-          Wrangling data flow (Data flow power query)
+          Power Query Data Wrangling
         answer: |
-          ### What are the supported regions for wrangling data flow?
+          ### What are the supported regions for data wrangling?
           
           Data factory is available in following [regions.](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)
-          Power query feature is being rolled out to all regions. If the feature is not available in your region, please check with support.
-          
-          ### What are the limitations and constraints with wrangling data flow?
-          
-          Dataset names can only contain alpha-numeric characters. The following data stores are supported:
-          
-          * DelimitedText dataset in Azure Blob Storage using account key authentication
-          * DelimitedText dataset in Azure Data Lake Storage gen2 using account key or service principal authentication
-          * DelimitedText dataset in Azure Data Lake Storage gen1 using service principal authentication
-          * Azure SQL Database and Data Warehouse using sql authentication. See supported SQL types below. There is no PolyBase or staging support for data warehouse.
-          
-          At this time, linked service Key Vault integration is not supported in wrangling data flows.
-          
-          ### What is the difference between mapping and wrangling data flows?
+          The Power Query feature is available in all data flow regions. If the feature is not available in your region, please check with support.
+                         
+          ### What is the difference between mapping data flow and Power query actvity (data wrangling)?
           
           Mapping data flows provide a way to transform data at scale without any coding required. You can design a data transformation job in the data flow canvas by constructing a series of transformations. Start with any number of source transformations followed by data transformation steps. Complete your data flow with a sink to land your results in a destination. Mapping data flow is great at mapping and transforming data with both known and unknown schemas in the sinks and sources.
           
-          Wrangling data flows allow you to do agile data preparation and exploration using the Power Query Online mashup editor at scale via spark execution. With the rise of data lakes sometimes you just need to explore a data set or create a dataset in the lake. You aren't mapping to a known target. Wrangling data flows are used for less formal and model-based analytics scenarios.
-          
-          ### What is the difference between Power Platform Dataflows and wrangling data flows?
-          
-          Power Platform Dataflows allow users to import and transform data from a wide range of data sources into the Common Data Service and Azure Data Lake to build PowerApps applications, Power BI reports or Flow automations. Power Platform Dataflows use the established Power Query data preparation experiences, similar to Power BI and Excel. Power Platform Dataflows also enable easy reuse within an organization and automatically handle orchestration (e.g. automatically refreshing dataflows that depend on another dataflow when the former one is refreshed).
-          
-          Azure Data Factory (ADF) is a managed data integration service that allows data engineers and citizen data integrator to create complex hybrid extract-transform-load (ETL) and extract-load-transform (ELT) workflows. Wrangling data flow in ADF empowers users with a code-free, serverless environment that simplifies data preparation in the cloud and scales to any data size with no infrastructure management required. It uses the Power Query data preparation technology (also used in Power Platform dataflows, Excel, Power BI) to prepare and shape the data. Built to handle all the complexities and scale challenges of big data integration, wrangling data flows allow users to quickly prepare data at scale via spark execution. Users can build resilient data pipelines in an accessible visual environment with our browser-based interface and let ADF handle the complexities of Spark execution. Build schedules for your pipelines and monitor your data flow executions from the ADF monitoring portal. Easily manage data availability SLAs with ADF's rich availability monitoring and alerts and leverage built-in continuous integration and deployment capabilities to save and manage your flows in a managed environment. Establish alerts and view execution plans to validate that your logic is performing as planned as you tune your data flows.
+          Power Query Data Wrangling allow you to do agile data preparation and exploration using the Power Query Online mashup editor at scale via spark execution. With the rise of data lakes sometimes you just need to explore a data set or create a dataset in the lake. You aren't mapping to a known target.
           
           ### Supported SQL Types
           
-          Wrangling data flow supports the following data types in SQL. You will get a validation error for using a data type that isn't supported.
+          Power Query Data Wrangling supports the following data types in SQL. You will get a validation error for using a data type that isn't supported.
           
           * short
           * double

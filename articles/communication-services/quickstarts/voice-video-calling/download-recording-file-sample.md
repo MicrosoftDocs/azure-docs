@@ -67,7 +67,7 @@ We'll then subscribe this webhook to the `recording` event:
 2. Select `Event Subscription` as shown below.
 ![Screenshot showing event grid UI](./media/call-recording/image1-event-grid.png)
 3. Configure the event subscription and select `Call Recording File Status Update` as the `Event Type`. Select `Webhook` as the `Endpoint type`.
-![Create Event Subscription](./media/call-recording/image2-create-subscription.png)
+![Create Event Subscription](./media/call-recording/image2-create-event-subscription.png)
 4. Input your webhook's URL into `Subscriber Endpoint`.
 ![Subscribe to Event](./media/call-recording/image3-subscribe-to-event.png)
 

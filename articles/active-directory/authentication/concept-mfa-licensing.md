@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 07/22/2021
 
 ms.author: justinha
 author: justinha
@@ -37,9 +37,9 @@ The following table details the different ways to get Azure AD Multi-Factor Auth
 
 ## Feature comparison of versions
 
-The following table provides a list of the features that are available in the various versions of Azure AD Multi-Factor Authentication. Plan out your needs for securing user authentication, then determine which approach meets those requirements. For example, although Azure AD Free provides security defaults that provide Azure AD Multi-Factor Authentication, only the mobile authenticator app can be used for the authentication prompt, not a phone call or SMS. This approach may be a limitation if you can't ensure the mobile authentication app is installed on a user's personal device.
+The following table provides a list of the features that are available in the various versions of Azure AD Multi-Factor Authentication. Plan out your needs for securing user authentication, then determine which approach meets those requirements. For example, although Azure AD Free provides security defaults that provide Azure AD Multi-Factor Authentication, only the mobile authenticator app can be used for the authentication prompt, not a phone call or SMS. This approach may be a limitation if you can't ensure the mobile authentication app is installed on a user's personal device. See [Azure AD Free tier](#azure-ad-free-tier) later in this topic for more details. 
 
-| Feature | Azure AD Free - Security defaults | Azure AD Free - Azure AD Global Administrators | Office 365 | Azure AD Premium P1 or P2 |
+| Feature | Azure AD Free - Security defaults (enabled for all users) | Azure AD Free - Global Administrators only | Office 365 | Azure AD Premium P1 or P2 |
 | --- |:---:|:---:|:---:|:---:|
 | Protect Azure AD tenant admin accounts with MFA | ● | ● (*Azure AD Global Administrator* accounts only) | ● | ● |
 | Mobile app as a second factor | ● | ● | ● | ● |

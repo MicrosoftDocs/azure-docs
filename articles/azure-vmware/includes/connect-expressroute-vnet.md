@@ -25,7 +25,7 @@ ms.date: 12/08/2020
    | **Authorization key**  | Paste the authorization key you copied earlier. |
    | **Peer circuit URI**  | Paste the ExpressRoute ID you copied earlier.  |
 
-   :::image type="content" source="../media/expressroute-global-reach/expressroute-add-connection.png" alt-text="Screenshot showing the Add connection page to connect ExpressRoute to the virtual network gateway.":::
+   :::image type="content" source="../media/tutorial-configure-networking/add-connection.png" alt-text="Screenshot showing the Add connection page to connect ExpressRoute to the virtual network gateway.":::
 
 The connection between your ExpressRoute circuit and your Virtual Network is created.
 

@@ -91,7 +91,7 @@ For any questions or feedback about this or other datasets in the COVID-19 Data 
 > [!TIP]
 > **[Download the notebook instead.](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azure-storage&registryId=bing-covid-19-data)**.
 
-#### This notebook documents the URLs and sample code to access the [Bing COVID-19 Dataset](https://azure.microsoft.com/services/open-datasets/catalog/bing-covid-19-data/)
+#### This notebook documents the URLs and sample code to access the [Bing COVID-19 Dataset](https://github.com/microsoft/Bing-COVID-19-Data)
 
 Use the following URLs to get specific file formats hosted on Azure Blob Storage:
 
@@ -109,7 +109,6 @@ https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_parquet.h
 
 https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
 
-https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_json.html (use lines=True for json lines)
 
 ```python
 import pandas as pd
