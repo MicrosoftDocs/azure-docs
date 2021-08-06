@@ -234,11 +234,6 @@ sections:
   - name: Other questions
     questions:
       - question: |
-          What does "Requested feature is not available in resource group" mean?
-        answer: |
-          You may see this message when creating web app using Azure Resource Manager (ARM). Based on a current limitation, for the same resource group, you cannot mix Windows and Linux apps in the same region.
-
-      - question: |
           What are the supported characters in application settings names?
         answer: |
           You can use only letters (A-Z, a-z), numbers (0-9), and the underscore character (_) for application settings.
