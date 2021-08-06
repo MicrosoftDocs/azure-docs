@@ -44,10 +44,8 @@ dotnet build
 Install the Azure Communication Chat SDK for .NET
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version $LatestVersion
+dotnet add package Azure.Communication.Chat
 ```
-
-Please substitute `$LatestVersion` with the latest version found in https://www.nuget.org/packages?q=Azure.Communication.Chat.
 
 ## Object model
 
