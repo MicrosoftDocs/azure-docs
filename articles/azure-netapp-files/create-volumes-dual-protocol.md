@@ -168,6 +168,9 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 
         Additional configurations are required for Kerberos. Follow the instructions in [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md).
 
+    *  Customize **Unix Permissions** as needed to specify change permissions for the mount path. The setting does not apply to the files under the mount path. The default setting is `0770`. This default setting grants read, write, and execute permissions to the owner and the group, but no permissions are granted to other users.     
+        Registration requirement and considerations apply for setting **Unix Permissions**. Follow instructions in [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md).  
+
     * Optionally, [configure export policy for the volume](azure-netapp-files-configure-export-policy.md).
 
     ![Specify dual-protocol](../media/azure-netapp-files/create-volume-protocol-dual.png)
@@ -229,6 +232,7 @@ Follow instructions in [Configure an NFS client for Azure NetApp Files](configur
 
 * [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md)
 * [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md)
+* [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md). 
 * [Configure ADDS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md)
 * [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
 * [Troubleshoot SMB or dual-protocol volumes](troubleshoot-dual-protocol-volumes.md)
