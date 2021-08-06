@@ -35,13 +35,13 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 |Preconfigured&nbsp;for&nbsp;ML|Save time on setup tasks with pre-configured and up-to-date ML packages, deep learning frameworks, GPU drivers.|
 |Fully customizable|Broad support for Azure VM types including GPUs and persisted low-level customization such as installing packages and drivers makes advanced scenarios a breeze. |
 
-The compute instance is also a secure training compute target similar to compute clusters, but it is single node.
+* The compute instance is also a secure training compute target similar to compute clusters, but it is single node.
 
-You can [create a compute instance](how-to-create-manage-compute-instance.md?tabs=python#create) yourself, or an administrator can **[create a compute instance on your behalf](how-to-create-manage-compute-instance.md?tabs=python#on-behalf)**.
+* You can [create a compute instance](how-to-create-manage-compute-instance.md?tabs=python#create) yourself, or an administrator can **[create a compute instance on your behalf](how-to-create-manage-compute-instance.md?tabs=python#on-behalf)**.
 
-You can also **[use a setup script (preview)](how-to-create-manage-compute-instance.md#setup-script)**  for an automated way to customize and configure the compute instance as per your needs.
+* You can also **[use a setup script (preview)](how-to-create-manage-compute-instance.md#setup-script)**  for an automated way to customize and configure the compute instance as per your needs.
 
-* To save on costs, [create  a schedule](how-to-create-manage-compute-instance.md?tabs=azure-studio#schedule-studio) to automatically start and stop the compute instance (preview).
+* To save on costs, **[create  a schedule](how-to-create-manage-compute-instance.md?tabs=azure-studio#schedule-studio)** to automatically start and stop the compute instance (preview).
 
 ## <a name="contents"></a>Tools and environments
 
