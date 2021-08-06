@@ -17,6 +17,7 @@
   expanded: true
   items:
   - name: What is Text Translation?
+    href: text-translation-overview.md
   - name: Quickstart
     href: quickstart-translator.md
   - name: Samples

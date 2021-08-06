@@ -16,33 +16,69 @@ keywords: translator, text translation, machine translation, translation service
 
 # What is Text Translation?
 
- Text translation is a cloud-based REST API service that uses neural machine translation technology to enable quick and accurate source-to-target text translation in real time across all [supported languages](language-support.md). The Text translation REST APIs enables you to build intelligent solutions for your applications.
+ Text translation is a cloud-based REST API feature of the Translator service hat uses neural machine translation technology to enable quick and accurate source-to-target text translation in real time across all [supported languages](language-support.md). In this overview, you'll learn how the Text translation REST APIs can enable you to build intelligent solutions for your applications and workflows.
 
-This documentation contains the following article types:
+Text translation documentation contains the following article types:
 
-* [**Quickstarts**](quickstart-translator.md) are getting-started instructions to guide you through making requests to the service.
-* [**How-to guides**](translator-how-to-signup.md) contain instructions for using the feature in more specific or customized ways.
-* [**Reference**](reference/rest-api-guide.md) provide REST API settings, values, keywords and configuration.
+* [**Quickstarts**](quickstart-translator.md). Getting-started instructions to guide you through making requests to the service.
+* [**How-to guides**](translator-how-to-signup.md). Instructions for accessing and using the service in more specific or customized ways.
+* [**Tutorials**](/ai-builder/flow-text-translation?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json). Longer guides that show you how to use the service as a component in broader business solutions.
+* [**Reference articles**](reference/v3-0-reference.md). REST API documentation and programming language-based content.
 
-## Text Translation development options and features
+## Text translation features
 
-You can add Text Translation to your projects and applications using the [**REST API***](reference/rest-api-guide.md), available in Azure or on-premises using the [**Translator Docker container**](containers/translator-how-to-install-container.md).
+ The following methods are supported by the text translation feature:
 
-[**Languages**](reference/v3-0-languages.md). Returns a list of languages supported by **Translate**, **Transliterate** and **Dictionary Lookup** operations. This request does not require authentication; just copy and paste the following GET request into Postman, Fiddler, or your favorite API tool:
+* [**Languages**](reference/v3-0-languages.md). Returns a list of languages supported by **Translate**, **Transliterate** and **Dictionary Lookup** operations. This request does not require authentication; just copy and paste the following GET request into Postman, Fiddler, or your favorite API tool:
 
-```http
-https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
-```
+    ```http
+    https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
+    ```
 
-* [**Translate**](reference/v3-0-translate.md#translate-to-multiple-languages) source-language text to multiple target languages text with a single request
-* [**Transliterate**](reference/v3-0-transliterate.md) text by converting characters or letters of a source language to the corresponding characters or letters of a target language.
-* [**Detect**](reference/v3-0-detect.md) returns the source code language code and receive a boolean variable denoting whether the detected language is supported for text translation and transliteration.
-* [**Translate, Transliterate, and Detect**](reference/v3-0-translate.md#translate-a-single-input-with-language-autodetection) text in a single call.
-* Use [**Dictionary lookup**](reference/v3-0-dictionary-lookup.md) to return equivalent words for the source term in the target language.
-* Use [**Dictionary example**](reference/v3-0-dictionary-examples.md) to return grammatical structure and context examples for the source term and target term pair.
+* [**Translate**](reference/v3-0-translate.md#translate-to-multiple-languages). Renders source-language text to multiple target languages text with a single request.
+
+* [**Transliterate**](reference/v3-0-transliterate.md). Converts characters or letters of a source language to the corresponding characters or letters of a target language.
+
+* [**Detect**](reference/v3-0-detect.md). Returns the source code language code and a boolean variable denoting whether the detected language is supported for text translation and transliteration.
+
+    > [!NOTE]
+    > You can **Translate, Transliterate, and Detect** text with [a single REST API call](reference/v3-0-translate.md#translate-a-single-input-with-language-autodetection) .
+
+* [**Dictionary lookup**](reference/v3-0-dictionary-lookup.md). Returns equivalent words for the source term in the target language.
+* [**Dictionary example**](reference/v3-0-dictionary-examples.md) Returns grammatical structure and context examples for the source term and target term pair.
+
+## Text translation deployment options
+
+Add Text Translation to your projects and applications using the following resources:
+
+* Access the cloud-based Translator service via the [**REST API***](reference/rest-api-guide.md), available in Azure.
+* Use the REST API [translate request](containers/translator-container-supported-parameters.md), available in Azure, on-premises using the [**Text translation Docker container**](containers/translator-how-to-install-container.md).
+
+    > [!IMPORTANT]
+    >
+    > * The Translator container is in gated preview. To use it, you must complete and submit the [**Azure Cognitive Services Application for Gated Services**](https://aka.ms/csgate-translator) online request form and have it approved to acquire access to the container.
+    >
+    > * The Translator container supports limited features compared to the cloud offerings.
+    >
+
+## Get started with text translation
+
+Ready to begin?
+
+* [**Create a Translator resource**](translator-how-to-signup.md "Go to the Azure portal.").
+
+* [**Get your access keys and API endpoint**](translator-how-to-signup.md#authentication-keys-and-endpoint-url "An endpoint URL and read-only key are required for authentication.")
+
+* Explore our [**Quickstart**](quickstart-translator.md "Learn to use Translator via REST and a preferred programming language.") and view use cases and code samples for the following programming languages: 
+  * [**C#/.NET**](quickstart-translator.md?tabs=csharp)
+  * [**Go**](quickstart-translator.md?tabs=go)
+  * [**Java**](quickstart-translator.md?tabs=java)
+  * [**JavaScript/Node.js**](quickstart-translator.md?tabs=nodejs)
+  * [**Python**](quickstart-translator.md?tabs=python).
 
 ## Next Steps
 
-* [**Create a Translator resource**](translator-how-to-signup.md) in the Azure portal.
+Dive deeper into the text translation REST API:
 
-* Explore our [**quickstart**](quickstart-translator.md) and view use cases and code samples for  [**C#/.NET**](quickstart-translator.md?tabs=csharp), [**Go**](quickstart-translator.md?tabs=go), [**Java**](quickstart-translator.md?tabs=java), [**JavaScript/Node.js**](quickstart-translator.md?tabs=nodejs), and [**Python**](quickstart-translator.md?tabs=python).
+> [!div class="nextstepaction"]
+> [See the REST API reference](./reference/v3-0-reference.md)
