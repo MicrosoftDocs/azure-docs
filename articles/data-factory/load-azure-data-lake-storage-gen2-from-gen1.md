@@ -132,22 +132,20 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 
 To assess upgrading from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2 in general, see [Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md). The following sections introduce best practices for using Data Factory for a data upgrade from Data Lake Storage Gen1 to Data Lake Storage Gen2.
 
-### Performance of copying historical data
+### Historical data copy
 
-#### Data partition for historical data copy
+#### Performance tunning by proof-of-concept
 
-- If your total data size in Data Lake Storage Gen1 is less than 30 TB and the number of files is less than 1 million, you can copy all data in a single copy activity run.
-- If you have a larger amount of data to copy, or you want the flexibility to manage data migration in batches and make each of them complete within a specific time frame, partition the data. Partitioning also reduces the risk of any unexpected issue. The way to do partition is to use **name range- listAfter/listBefore** in [copy activity property](connector-azure-data-lake-store.md#copy-activity-properties). By doing so, each copy activity will load one partition filtered by folders/files name range at one time. And you can make multiple copy activities running in parallel. 
-
-#### Major proof-of-concept flow
 Use a proof of concept to verify the end-to-end solution and test the copy throughput in your environment. Major proof-of-concept steps: 
 
 1. Create one Data Factory pipeline with a single copy activity to copy several TBs of data from Data Lake Storage Gen1 to Data Lake Storage Gen2 to get a copy performance baseline. Start with [data integration units (DIUs)](copy-activity-performance-features.md#data-integration-units) as 128. The [Parallel copy](copy-activity-performance-features.md#parallel-copy) is suggested to be set as **empty (default)**.
 2. Based on the copy throughput you get in step 1, calculate the estimated time that's required for the entire data migration. If the copy throughput is not good for you, identify and resolve the performance bottlenecks by following the [performance tuning steps](copy-activity-performance.md#performance-tuning-steps).
-3. If you have maximized the performance of a single copy activity, but have not yet achieved the throughput upper limits of your environment, you can run multiple copy activities in parallel. Each copy activities can be configured to copy one partition at a time, so that multiple copy activities can copy data from single Data Lake Storage Gen1 cocurrently. The way to partition the files is to use **name range- listAfter/listBefore** in [copy activity property](connector-azure-data-lake-store.md#copy-activity-properties).
+3. If you have maximized the performance of a single copy activity, but have not yet achieved the throughput upper limits of your environment, you can run multiple copy activities in parallel. Each copy activities can be configured to copy one partition at a time, so that multiple copy activities can copy data from single Data Lake Storage Gen1 account cocurrently. The way to partition the files is to use **name range- listAfter/listBefore** in [copy activity property](connector-azure-data-lake-store.md#copy-activity-properties).
+
+If your total data size in Data Lake Storage Gen1 is less than 30 TB and the number of files is less than 1 million, you can copy all data in a single copy activity run. If you have a larger amount of data to copy, or you want the flexibility to manage data migration in batches and make each of them complete within a specific time frame, partition the data. Partitioning also reduces the risk of any unexpected issue. 
 
 
-#### Performance bottlenecks from network bandwidth and storage I/O 
+#### Network bandwidth and storage I/O 
 
 If you see big number of throttling error from [copy activity monitoring](copy-activity-monitoring.md#monitor-visually), it indicates you have reach the capacity limit of your storage account. ADF will retry automatically to overcome each throttling error to make sure there will not be any data lost, but too many retries impact your copy throughput as well. In such case, you are encouraged to reduce the number of copy activity running cocurrently to avoid big amounts of throttling errors. If you have been using single copy activity to copy data, then you are encouraged to reduce the number of [data integration units (DIUs)](copy-activity-performance-features.md#data-integration-units).
 
@@ -163,7 +161,7 @@ You can use several approaches to load only the new or updated files from Data L
 The proper frequency to do incremental load depends on the total number of files in Azure Data Lake Storage Gen1 and the volume of new or updated files to be loaded every time. 
 
 
-### Preserve ACLs from Data Lake Storage Gen1
+### Preserve ACLs
 
 If you want to replicate the ACLs along with data files when you upgrade from Data Lake Storage Gen1 to Data Lake Storage Gen2, see [Preserve ACLs from Data Lake Storage Gen1](connector-azure-data-lake-storage.md#preserve-acls). 
 
