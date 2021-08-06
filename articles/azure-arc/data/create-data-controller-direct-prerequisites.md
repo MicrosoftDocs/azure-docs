@@ -13,20 +13,20 @@ ms.topic: overview
 
 # Prerequisites to deploy the data controller in direct connectivity mode
 
-This article describes how to prepare to deploy a data controller for Azure Arc-enabled data services in direct connect mode. Deploying Azure Arc data controller requires additional understanding and concepts as described in [Plan to deploy Azure Arc-enabled data services](plan-azure-arc-data-services.md).
+This article describes how to prepare to deploy a data controller for Azure Arc—enabled data services in direct connect mode. Deploying Azure Arc data controller requires additional understanding and concepts as described in [Plan to deploy Azure Arc—enabled data services](plan-azure-arc-data-services.md).
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 At a high level, the prerequisites for creating Azure Arc data controller in **direct** connectivity mode include:
 
-1. Connect Kubernetes cluster to Azure using Azure Arc-enabled Kubernetes
+1. Connect Kubernetes cluster to Azure using Azure Arc—enabled Kubernetes
 2. Create the service principal and configure roles for metrics
-3. Create Azure Arc-enabled data services data controller. This step involves creating
+3. Create Azure Arc—enabled data services data controller. This step involves creating
     - Azure Arc data services extension
     - custom location
     - Azure Arc data controller
 
-## 1. Connect Kubernetes cluster to Azure using Azure Arc-enabled Kubernetes
+## 1. Connect Kubernetes cluster to Azure using Azure Arc—enabled Kubernetes
 
 Connecting your kubernetes cluster to Azure can be done by using the ```az``` CLI, with the following extensions as well as Helm.
 
@@ -75,5 +75,3 @@ The SPN ClientID, TenantID, and Client Secret information will be required when 
 ## 3. Create Azure Arc data services
 
 After you have completed these prerequisites, you can [Deploy Azure Arc data controller | Direct connect mode](create-data-controller-direct-azure-portal.md).
-
-

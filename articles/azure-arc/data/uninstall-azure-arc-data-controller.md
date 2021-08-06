@@ -90,4 +90,4 @@ kubectl delete ns <nameSpecifiedDuringCreation>
 
 ## Next steps
 
-[What are Azure Arc-enabled data services?](overview.md)
+[What are Azure Arc—enabled data services?](overview.md)

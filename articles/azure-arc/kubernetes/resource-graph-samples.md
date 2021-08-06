@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Graph sample queries for Azure Arc-enabled Kubernetes
-description: Sample Azure Resource Graph queries for Azure Arc-enabled Kubernetes showing use of resource types and tables to access Azure Arc-enabled Kubernetes related resources and properties.
+title: Azure Resource Graph sample queries for Azure Arc—enabled Kubernetes
+description: Sample Azure Resource Graph queries for Azure Arc—enabled Kubernetes showing use of resource types and tables to access Azure Arc—enabled Kubernetes related resources and properties.
 ms.date: 08/04/2021
 ms.topic: sample
 ms.service: azure-arc
@@ -8,10 +8,10 @@ author: mgoedtel
 ms.author: magoedte
 ms.custom: subject-resourcegraph-sample
 ---
-# Azure Resource Graph sample queries for Azure Arc-enabled Kubernetes
+# Azure Resource Graph sample queries for Azure Arc—enabled Kubernetes
 
 This page is a collection of [Azure Resource Graph](../../governance/resource-graph/overview.md)
-sample queries for Azure Arc-enabled Kubernetes. For a complete list of Azure Resource Graph
+sample queries for Azure Arc—enabled Kubernetes. For a complete list of Azure Resource Graph
 samples, see
 [Resource Graph samples by Category](../../governance/resource-graph/samples/samples-by-category.md)
 and [Resource Graph samples by Table](../../governance/resource-graph/samples/samples-by-table.md).

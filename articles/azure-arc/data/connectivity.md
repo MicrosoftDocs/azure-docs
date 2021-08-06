@@ -1,6 +1,6 @@
 ---
 title: Connectivity modes and requirements
-description: Explains Azure Arc-enabled data services connectivity options for from your environment to Azure
+description: Explains Azure Arc—enabled data services connectivity options for from your environment to Azure
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -16,16 +16,16 @@ ms.topic: conceptual
 
 ## Connectivity modes
 
-There are multiple options for the degree of connectivity from your Azure Arc-enabled data services environment to Azure. As your requirements vary based on business policy, government regulation, or the availability of network connectivity to Azure, you can choose from the following connectivity modes.
+There are multiple options for the degree of connectivity from your Azure Arc—enabled data services environment to Azure. As your requirements vary based on business policy, government regulation, or the availability of network connectivity to Azure, you can choose from the following connectivity modes.
 
-Azure Arc-enabled data services provides you the option to connect to Azure in two different *connectivity modes*: 
+Azure Arc—enabled data services provides you the option to connect to Azure in two different *connectivity modes*: 
 
 - Directly connected 
 - Indirectly connected
 
-The connectivity mode provides you the flexibility to choose how much data is sent to Azure and how users interact with the Arc Data Controller. Depending on the connectivity mode that is chosen, some functionality of Azure Arc-enabled data services may or may not be available.
+The connectivity mode provides you the flexibility to choose how much data is sent to Azure and how users interact with the Arc Data Controller. Depending on the connectivity mode that is chosen, some functionality of Azure Arc—enabled data services may or may not be available.
 
-Importantly, if the Azure Arc-enabled data services are directly connected to Azure, then users can use [Azure Resource Manager APIs](/rest/api/resources/), the Azure CLI, and the Azure portal to operate the Azure Arc data services. The experience in directly connected mode is much like how you would use any other Azure service with provisioning/de-provisioning, scaling, configuring, and so on all in the Azure portal.  If the Azure Arc-enabled data services are indirectly connected to Azure, then the Azure portal is a read-only view. You can see the inventory of SQL managed instances and Postgres Hyperscale instances that you have deployed and the details about them, but you cannot take action on them in the Azure portal.  In the indirectly connected mode, all actions must be taken locally using Azure Data Studio, the appropriate CLI, or Kubernetes native tools like kubectl.
+Importantly, if the Azure Arc—enabled data services are directly connected to Azure, then users can use [Azure Resource Manager APIs](/rest/api/resources/), the Azure CLI, and the Azure portal to operate the Azure Arc data services. The experience in directly connected mode is much like how you would use any other Azure service with provisioning/de-provisioning, scaling, configuring, and so on all in the Azure portal.  If the Azure Arc—enabled data services are indirectly connected to Azure, then the Azure portal is a read-only view. You can see the inventory of SQL managed instances and Postgres Hyperscale instances that you have deployed and the details about them, but you cannot take action on them in the Azure portal.  In the indirectly connected mode, all actions must be taken locally using Azure Data Studio, the appropriate CLI, or Kubernetes native tools like kubectl.
 
 Additionally, Azure Active Directory and Azure Role-Based Access Control can be used in the directly connected mode only because there is a dependency on a continuous and direct connection to Azure to provide this functionality.
 
@@ -43,7 +43,7 @@ Some Azure-attached services are only available when they can be directly reache
 |**Feature**|**Indirectly connected**|**Directly connected**|
 |---|---|---|
 |**Automatic high availability**|Supported|Supported|
-|**Self-service provisioning**|Supported<br/>Creation can be done through Azure Data Studio, the appropriate CLI, or Kubernetes native tools (helm, kubectl, oc, etc.), or using Azure Arc-enabled Kubernetes GitOps provisioning.|Supported<br/>In addition to the indirectly connected mode creation options, you can also create through the Azure portal, Azure Resource Manager APIs, the Azure CLI, or ARM templates. **Pending availability of directly connected mode**
+|**Self-service provisioning**|Supported<br/>Creation can be done through Azure Data Studio, the appropriate CLI, or Kubernetes native tools (helm, kubectl, oc, etc.), or using Azure Arc—enabled Kubernetes GitOps provisioning.|Supported<br/>In addition to the indirectly connected mode creation options, you can also create through the Azure portal, Azure Resource Manager APIs, the Azure CLI, or ARM templates. **Pending availability of directly connected mode**
 |**Elastic scalability**|Supported|Supported<br/>**Pending availability of directly connected mode**|
 |**Billing**|Supported<br/>Billing data is periodically exported out and sent to Azure.|Supported<br/>Billing data is automatically and continuously sent to Azure and reflected in near real time. **Pending availability of directly connected mode**|
 |**Inventory management**|Supported<br/>Inventory data is periodically exported out and sent to Azure.<br/><br/>Use client tools like Azure Data Studio, Azure Data CLI, or `kubectl` to view and manage inventory locally.|Supported<br/>Inventory data is automatically and continuously sent to Azure and reflected in near real time. As such, you can manage inventory directly from the Azure portal.|
@@ -88,7 +88,7 @@ The following sections provide details for these connections.
 
 ### Microsoft Container Registry (MCR)
 
-The Microsoft Container Registry hosts the Azure Arc-enabled data services container images.  You can pull these images from MCR and push them to a private container registry and configure the data controller deployment process to pull the container images from that private container registry.
+The Microsoft Container Registry hosts the Azure Arc—enabled data services container images.  You can pull these images from MCR and push them to a private container registry and configure the data controller deployment process to pull the container images from that private container registry.
 
 #### Connection source
 
@@ -189,5 +189,4 @@ Azure Active Directory
 > [!NOTE]
 > For now, all browser HTTPS/443 connections to the data controller for running the command `az arcdata dc export` and Grafana and Kibana dashboards are SSL encrypted using self-signed certificates.  A feature will be available in the future that will allow you to provide your own certificates for encryption of these SSL connections.
 
-Connectivity from Azure Data Studio to the Kubernetes API server uses the Kubernetes authentication and encryption that you have established.  Each user that is using Azure Data Studio or CLI must have an authenticated connection to the Kubernetes API to perform many of the actions related to Azure Arc-enabled data services.
-
+Connectivity from Azure Data Studio to the Kubernetes API server uses the Kubernetes authentication and encryption that you have established.  Each user that is using Azure Data Studio or CLI must have an authenticated connection to the Kubernetes API to perform many of the actions related to Azure Arc—enabled data services.

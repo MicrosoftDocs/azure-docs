@@ -33,7 +33,7 @@ az postgres arc-server create --help
 
 
 ## Collecting logs of the data controller and your server groups
-Read the article about [getting logs for Azure Arc-enabled data services](troubleshooting-get-logs.md)
+Read the article about [getting logs for Azure Arc—enabled data services](troubleshooting-get-logs.md)
 
 
 
@@ -81,7 +81,7 @@ Implement the steps described in  [033-manage-Postgres-with-AzureDataStudio.md](
 
 :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook.jpg" alt-text="Azure Data Studio - Open PostgreSQL troubleshooting Notebook":::
 
-The **TSG100 - The Azure Arc-enabled PostgreSQL Hyperscale troubleshooter notebook** opens up:
+The **TSG100 - The Azure Arc—enabled PostgreSQL Hyperscale troubleshooter notebook** opens up:
 :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio - Use PostgreSQL troubleshooting notebook":::
 
 #### Run the scripts
@@ -92,7 +92,7 @@ View the output from the execution of the code cells for any potential issues.
 We'll add more details to the notebook over time about how to recognize common problems and how to solve them.
 
 ## Next step
-- Read about [getting logs for Azure Arc-enabled data services](troubleshooting-get-logs.md)
+- Read about [getting logs for Azure Arc—enabled data services](troubleshooting-get-logs.md)
 - Read about [searching logs with Kibana](monitor-grafana-kibana.md)
 - Read about [monitoring with Grafana](monitor-grafana-kibana.md)
 - Create your own notebooks

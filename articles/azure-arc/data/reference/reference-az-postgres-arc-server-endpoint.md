@@ -1,6 +1,6 @@
 ---
 title: az postgres arc-server endpoint reference
-titleSuffix: Azure Arc-enabled data services
+titleSuffix: Azure Arc—enabled data services
 description: Reference article for az postgres arc-server endpoint commands.
 author: MikeRayMSFT
 ms.author: mikeray
@@ -15,9 +15,9 @@ ms.subservice: azure-arc-data
 ## Commands
 | Command | Description|
 | --- | --- |
-[az postgres arc-server endpoint list](#az-postgres-arc-server-endpoint-list) | List Azure Arc enabled PostgreSQL Hyperscale server group endpoints.
+[az postgres arc-server endpoint list](#az-postgres-arc-server-endpoint-list) | List Azure Arc—enabled PostgreSQL Hyperscale server group endpoints.
 ## az postgres arc-server endpoint list
-List Azure Arc enabled PostgreSQL Hyperscale server group endpoints.
+List Azure Arc—enabled PostgreSQL Hyperscale server group endpoints.
 ```bash
 az postgres arc-server endpoint list [--name -n] 
                                      [--k8s-namespace -k]  
@@ -25,15 +25,15 @@ az postgres arc-server endpoint list [--name -n]
 [--use-k8s]
 ```
 ### Examples
-List Azure Arc enabled PostgreSQL Hyperscale server group endpoints.
+List Azure Arc—enabled PostgreSQL Hyperscale server group endpoints.
 ```bash
 az postgres arc-server endpoint list --name postgres01  --k8s-namespace namespace --use-k8s
 ```
 ### Optional Parameters
 #### `--name -n`
-Name of the Azure Arc enabled PostgreSQL Hyperscale server group.
+Name of the Azure Arc—enabled PostgreSQL Hyperscale server group.
 #### `--k8s-namespace -k`
-The Kubernetes namespace where the Azure Arc enabled PostgreSQL Hyperscale server group is deployed. If no namespace is specified, then the namespace defined in the kubeconfig will be used.
+The Kubernetes namespace where the Azure Arc—enabled PostgreSQL Hyperscale server group is deployed. If no namespace is specified, then the namespace defined in the kubeconfig will be used.
 #### `--use-k8s`
 Use local Kubernetes APIs to perform this action.
 ### Global Arguments

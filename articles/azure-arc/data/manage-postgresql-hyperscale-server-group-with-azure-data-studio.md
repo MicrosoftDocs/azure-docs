@@ -11,7 +11,7 @@ ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Use Azure Data Studio to manage your Azure Arc-enabled PostgreSQL Hyperscale server group
+# Use Azure Data Studio to manage your Azure Arc—enabled PostgreSQL Hyperscale server group
 
 
 This article describes how to:
@@ -53,7 +53,7 @@ Enter the connection information to your Azure Data Controller:
 
 Azure data studio shows your Arc Data Controller. Expand it and it shows the list of PostgreSQL instances that it manages.
 
-## Manage your Azure Arc-enabled PostgreSQL Hyperscale server groups
+## Manage your Azure Arc—enabled PostgreSQL Hyperscale server groups
 
 Right-click on the PostgreSQL instance you want to manage and select [Manage]
 

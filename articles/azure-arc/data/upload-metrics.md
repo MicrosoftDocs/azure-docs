@@ -1,6 +1,6 @@
 ---
 title: Upload metrics to Azure Monitor
-description: Upload Azure Arc-enabled data services metrics to Azure Monitor
+description: Upload Azure Arc—enabled data services metrics to Azure Monitor
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -98,7 +98,7 @@ echo %SPN_AUTHORITY%
 
 ## Upload metrics to Azure Monitor
 
-To upload metrics for your Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL Hyperscale server groups run, the following CLI commands:
+To upload metrics for your Azure Arc—enabled SQL managed instances and Azure Arc—enabled PostgreSQL Hyperscale server groups run, the following CLI commands:
 
 1. Log in to the data controller with `azdata`.
  
@@ -118,7 +118,7 @@ To upload metrics for your Azure Arc-enabled SQL managed instances and Azure Arc
    ```
 
    >[!NOTE]
-   >Wait for at least 30 mins after the Azure Arc-enabled data instances are created for the first upload.
+   >Wait for at least 30 mins after the Azure Arc—enabled data instances are created for the first upload.
    >
    >Make sure `upload` the metrics right away after `export` as Azure Monitor only accepts metrics for the last 30 minutes. [Learn more](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting).
 
@@ -190,7 +190,7 @@ You could also use a job scheduler like cron or Windows Task Scheduler or an orc
 
 ## General guidance on exporting and uploading usage, metrics
 
-Create, read, update, and delete (CRUD) operations on Azure Arc-enabled data services are logged for billing and monitoring purposes. There are background services that monitor for these CRUD operations and calculate the consumption appropriately. The actual calculation of usage or consumption happens on a scheduled basis and is done in the background. 
+Create, read, update, and delete (CRUD) operations on Azure Arc—enabled data services are logged for billing and monitoring purposes. There are background services that monitor for these CRUD operations and calculate the consumption appropriately. The actual calculation of usage or consumption happens on a scheduled basis and is done in the background. 
 
 Upload the usage only once per day. When usage information is exported and uploaded multiple times within the same 24 hour period, only the resource inventory is updated in Azure portal but not the resource usage.
 

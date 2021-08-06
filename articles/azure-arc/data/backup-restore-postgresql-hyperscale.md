@@ -11,16 +11,16 @@ ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Back up and restore Azure Arc-enabled PostgreSQL Hyperscale server groups
+# Back up and restore Azure Arc—enabled PostgreSQL Hyperscale server groups
 
 > [!IMPORTANT]
-> Backup and restore of Azure Arc-enabled PostgreSQL Hyperscale server is not supported in the current preview release.
+> Backup and restore of Azure Arc—enabled PostgreSQL Hyperscale server is not supported in the current preview release.
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-When you back up or restore your Azure Arc-enabled PostgreSQL Hyperscale server group, the entire set of databases on all the PostgreSQL nodes of your server group is backed-up and/or restored.
+When you back up or restore your Azure Arc—enabled PostgreSQL Hyperscale server group, the entire set of databases on all the PostgreSQL nodes of your server group is backed-up and/or restored.
 
 ## Take a manual full backup
 
@@ -33,7 +33,7 @@ Where:
 - __server-name__ indicates a server group
 - __no-wait__ indicates that the command line will not wait for the backup to complete for you to be able to continue to use this command-line window
 
-This command will coordinate a distributed full backup across all the nodes that constitute your Azure Arc-enabled PostgreSQL Hyperscale server group. In other words, it will backup all data in your Coordinator and Worker nodes.
+This command will coordinate a distributed full backup across all the nodes that constitute your Azure Arc—enabled PostgreSQL Hyperscale server group. In other words, it will backup all data in your Coordinator and Worker nodes.
 
 For example:
 
@@ -103,7 +103,7 @@ azdata arc postgres backup restore -sn <target server group name> [-ssn <source 
 
 Where:
 - __backup-id__ is the ID of the backup shown in the list backup command shown above.
-This will coordinate a distributed full restore across all the nodes that constitute your Azure Arc-enabled PostgreSQL Hyperscale server group. In other words, it will restore all data in your Coordinator and Worker nodes.
+This will coordinate a distributed full restore across all the nodes that constitute your Azure Arc—enabled PostgreSQL Hyperscale server group. In other words, it will restore all data in your Coordinator and Worker nodes.
 
 #### Examples:
 

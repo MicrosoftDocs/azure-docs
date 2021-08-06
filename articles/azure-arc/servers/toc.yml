@@ -1,14 +1,14 @@
-- name: Azure Arc enabled servers Documentation
+- name: Azure Arc—enabled servers Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure Arc enabled servers
+  - name: About Azure Arc—enabled servers
     href: overview.md
   - name: What's new with Connected Machine agent
     href: agent-release-notes.md
 - name: Quickstarts
   items:
-  - name: Enable Arc enabled servers agent
+  - name: Enable Azure Arc—enabled servers agent
     href: ./learn/quick-enable-hybrid-vm.md
 - name: Tutorials
   items:
@@ -75,7 +75,7 @@
       href: manage-howto-migrate.md
   - name: Scenarios
     items:
-    - name: Test Arc enabled servers using an Azure VM
+    - name: Test Azure Arc—enabled servers using an Azure VM
       href: plan-evaluate-on-azure-virtual-machine.md
     - name: Onboard to Azure Sentinel
       href: scenario-onboard-azure-sentinel.md

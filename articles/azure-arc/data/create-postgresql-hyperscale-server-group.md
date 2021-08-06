@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Arc-enabled PostgreSQL Hyperscale server group from CLI
-description: Create an Azure Arc-enabled PostgreSQL Hyperscale server group from CLI
+title: Create an Azure Arc—enabled PostgreSQL Hyperscale server group from CLI
+description: Create an Azure Arc—enabled PostgreSQL Hyperscale server group from CLI
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,7 +11,7 @@ ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Create an Azure Arc-enabled PostgreSQL Hyperscale server group
+# Create an Azure Arc—enabled PostgreSQL Hyperscale server group
 
 This document describes the steps to create a PostgreSQL Hyperscale server group on Azure Arc.
 
@@ -22,7 +22,7 @@ This document describes the steps to create a PostgreSQL Hyperscale server group
 ## Getting started
 If you are already familiar with the topics below, you may skip this paragraph.
 There are important topics you may want read before you proceed with creation:
-- [Overview of Azure Arc-enabled data services](overview.md)
+- [Overview of Azure Arc—enabled data services](overview.md)
 - [Connectivity modes and requirements](connectivity.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
 - [Kubernetes resource model](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
@@ -42,9 +42,9 @@ oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace 
 For more details on SCCs in OpenShift, please refer to the [OpenShift documentation](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html). You may now implement the next step.
 
 
-## Create an Azure Arc-enabled PostgreSQL Hyperscale server group
+## Create an Azure Arc—enabled PostgreSQL Hyperscale server group
 
-To create an Azure Arc-enabled PostgreSQL Hyperscale server group on your Arc data controller, you will use the command `az postgres arc-server create` to which you will pass several parameters.
+To create an Azure Arc—enabled PostgreSQL Hyperscale server group on your Arc data controller, you will use the command `az postgres arc-server create` to which you will pass several parameters.
 
 For details about all the parameters you can set at the creation time, review the output of the command:
 ```azurecli
@@ -72,7 +72,7 @@ While using -w 1 works, we do not recommend you use it. This deployment will not
 - **the storage classes** you want your server group to use. It is important you set the storage class right at the time you deploy a server group as this cannot be changed after you deploy. If you were to change the storage class after deployment, you would need to extract the data, delete your server group, create a new server group, and import the data. You may specify the storage classes to use for the data, logs and the backups. By default, if you do not indicate storage classes, the storage classes of the data controller will be used.
     - to set the storage class for the data, indicate the parameter `--storage-class-data` or `-scd` followed by the name of the storage class.
     - to set the storage class for the logs, indicate the parameter `--storage-class-logs` or `-scl` followed by the name of the storage class.
-    - to set the storage class for the backups: in this Preview of the Azure Arc-enabled PostgreSQL Hyperscale there are two ways to set storage classes depending on what types of backup/restore operations you want to do. We are working on simplifying this experience. You will either indicate a storage class or a volume claim mount. A volume claim mount is a pair of an existing persistent volume claim (in the same namespace) and volume type (and optional metadata depending on the volume type) separated by colon. The persistent volume will be mounted in each pod for the PostgreSQL server group.
+    - to set the storage class for the backups: in this Preview of the Azure Arc—enabled PostgreSQL Hyperscale there are two ways to set storage classes depending on what types of backup/restore operations you want to do. We are working on simplifying this experience. You will either indicate a storage class or a volume claim mount. A volume claim mount is a pair of an existing persistent volume claim (in the same namespace) and volume type (and optional metadata depending on the volume type) separated by colon. The persistent volume will be mounted in each pod for the PostgreSQL server group.
         - if you want plan to do only full database restores, set the parameter `--storage-class-backups` or `-scb` followed by the name of the storage class.
         - if you plan to do both full database restores and point in time restores, set the parameter `--volume-claim-mounts` or `--volume-claim-mounts` followed by the name of a volume claim and a volume type.
 
@@ -143,7 +143,7 @@ Name        State     Workers
 postgres01  Ready     2
 ```
 
-## Get the endpoints to connect to your Azure Arc-enabled PostgreSQL Hyperscale server groups
+## Get the endpoints to connect to your Azure Arc—enabled PostgreSQL Hyperscale server groups
 
 To view the endpoints for a PostgreSQL server group, run the following command:
 
@@ -168,7 +168,7 @@ For example:
 ]
 ```
 
-You can use the PostgreSQL Instance endpoint to connect to the PostgreSQL Hyperscale server group from your favorite tool:  [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc. When you do so, you connect to the coordinator node/instance which takes care of routing the query to the appropriate worker nodes/instances if you have created distributed tables. For more details, read the [concepts of Azure Arc-enabled PostgreSQL Hyperscale](concepts-distributed-postgres-hyperscale.md).
+You can use the PostgreSQL Instance endpoint to connect to the PostgreSQL Hyperscale server group from your favorite tool:  [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc. When you do so, you connect to the coordinator node/instance which takes care of routing the query to the appropriate worker nodes/instances if you have created distributed tables. For more details, read the [concepts of Azure Arc—enabled PostgreSQL Hyperscale](concepts-distributed-postgres-hyperscale.md).
 
    [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 
@@ -223,7 +223,7 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 
 ## Next steps
 
-- Connect to your Azure Arc-enabled PostgreSQL Hyperscale: read [Get Connection Endpoints And Connection Strings](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)
+- Connect to your Azure Arc—enabled PostgreSQL Hyperscale: read [Get Connection Endpoints And Connection Strings](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)
 - Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to benefit from better performances potentially:
     * [Nodes and tables](../../postgresql/concepts-hyperscale-nodes.md)
     * [Determine application type](../../postgresql/concepts-hyperscale-app-type.md)
@@ -233,9 +233,9 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
     * [Design a multi-tenant database](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
     * [Design a real-time analytics dashboard](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
-    > \* In the documents above, skip the sections **Sign in to the Azure portal**, & **Create an Azure Database for PostgreSQL - Hyperscale (Citus)**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for PostgreSQL Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc-enabled PostgreSQL Hyperscale.
+    > \* In the documents above, skip the sections **Sign in to the Azure portal**, & **Create an Azure Database for PostgreSQL - Hyperscale (Citus)**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for PostgreSQL Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc—enabled PostgreSQL Hyperscale.
 
-- [Scale out your Azure Arc-enabled for PostgreSQL Hyperscale server group](scale-out-in-postgresql-hyperscale-server-group.md)
+- [Scale out your Azure Arc—enabled for PostgreSQL Hyperscale server group](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
 - [Expanding Persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Kubernetes resource model](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

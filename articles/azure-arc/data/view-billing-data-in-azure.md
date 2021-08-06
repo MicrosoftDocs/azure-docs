@@ -14,15 +14,15 @@ ms.topic: how-to
 # Upload billing data to Azure and view it in the Azure portal
 
 > [!IMPORTANT] 
->  There is no cost to use Azure Arc-enabled data services during the preview period. Although the billing system works end to end the billing meter is set to $0.  If you follow this scenario, you will see entries in your billing for a service currently named **hybrid data services** and for resources of a type called **Microsoft.AzureArcData/`<resource type>`**. You will be able to see a record for each data service - Azure Arc that you create, but each record will be billed for $0.
+>  There is no cost to use Azure Arc—enabled data services during the preview period. Although the billing system works end to end the billing meter is set to $0.  If you follow this scenario, you will see entries in your billing for a service currently named **hybrid data services** and for resources of a type called **Microsoft.AzureArcData/`<resource type>`**. You will be able to see a record for each data service - Azure Arc that you create, but each record will be billed for $0.
 
 
 ## Connectivity Modes - Implications for billing data
 
-In the future, there will be two modes in which you can run your Azure Arc-enabled data services:
+In the future, there will be two modes in which you can run your Azure Arc—enabled data services:
 
 - **Indirectly connected** - There is no direct connection to Azure. Data is sent to Azure only through an export/upload process.
-- **Directly connected** - In this mode there will be a dependency on the Azure Arc-enabled Kubernetes service to provide a direct connection between Azure and the Kubernetes cluster on which the Azure Arc-enabled data services are running. This will enable more capabilities and will also enable you to use the Azure portal and the Azure CLI to manage your Azure Arc-enabled data services just like you manage your data services in Azure PaaS.  This connectivity mode is not yet available in preview, but will be coming soon.
+- **Directly connected** - In this mode there will be a dependency on the Azure Arc—enabled Kubernetes service to provide a direct connection between Azure and the Kubernetes cluster on which the Azure Arc—enabled data services are running. This will enable more capabilities and will also enable you to use the Azure portal and the Azure CLI to manage your Azure Arc—enabled data services just like you manage your data services in Azure PaaS.  This connectivity mode is not yet available in preview, but will be coming soon.
 
 You can read more about the difference between the [connectivity modes](./connectivity.md).
 
@@ -32,9 +32,9 @@ In the indirectly connected mode, billing data is periodically exported out of t
 
 To upload billing data to Azure, the following should happen first:
 
-1. Create an Azure Arc-enabled data service if you don't have one already. For example create one of the following:
+1. Create an Azure Arc—enabled data service if you don't have one already. For example create one of the following:
    - [Create an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md)
-   - [Create an Azure Arc-enabled PostgreSQL Hyperscale server group](create-postgresql-hyperscale-server-group.md)
+   - [Create an Azure Arc—enabled PostgreSQL Hyperscale server group](create-postgresql-hyperscale-server-group.md)
 1. [Upload resource inventory, usage data, metrics and logs to Azure Monitor](upload-metrics-and-logs-to-azure-monitor.md) if you haven't already.
 1. Wait for at least 2 hours since the creation of the data service so that the billing telemetry collection process can collect some billing data.
 
@@ -113,7 +113,7 @@ Follow these steps to view billing data in the Azure portal:
 1. Make sure that your Scope is set to the subscription in which your data service resources were created.
 1. Select **Cost by resource** in the View drop down next to the Scope selector near the top of the view.
 1. Make sure the date filter is set to **This month** or some other time range that makes sense given the timing of when you created your data service resources.
-1. Click **Add filter** to add a filter by **Resource type** = `Microsoft.AzureArcData/<data service type>` if you want to filter down to just one type of Azure Arc-enabled data service.
+1. Click **Add filter** to add a filter by **Resource type** = `Microsoft.AzureArcData/<data service type>` if you want to filter down to just one type of Azure Arc—enabled data service.
 1. You will now see a list of all the resources that were created and uploaded to Azure. Since the billing meter is $0, you will see that the cost is always $0.
 
 ## Download billing data

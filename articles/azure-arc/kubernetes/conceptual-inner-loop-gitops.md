@@ -84,6 +84,6 @@ Suppose Alice wants to update, run, and debug the application either in local or
 > [!NOTE]
 > Find the sample code for above workflow at this [GitHub repo](https://github.com/Azure/arc-cicd-demo-src)
 
-
 ## Next steps
-Learn more about creating connections between your cluster and a Git repository as a [configuration resource with Azure Arc enabled Kubernetes](./conceptual-configurations.md)
+
+Learn more about creating connections between your cluster and a Git repository as a [configuration resource with Azure Arc—enabled Kubernetes](./conceptual-configurations.md)

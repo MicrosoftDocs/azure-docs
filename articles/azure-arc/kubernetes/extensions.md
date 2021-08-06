@@ -1,29 +1,29 @@
 ---
-title: "Azure Arc enabled Kubernetes cluster extensions"
+title: "Azure Arc—enabled Kubernetes cluster extensions"
 services: azure-arc
 ms.service: azure-arc
 ms.date: 06/18/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
-description: "Deploy and manage lifecycle of extensions on Azure Arc enabled Kubernetes"
+description: "Deploy and manage lifecycle of extensions on Azure Arc—enabled Kubernetes"
 ---
 
-# Deploy and manage Azure Arc enabled Kubernetes cluster extensions
+# Deploy and manage Azure Arc—enabled Kubernetes cluster extensions
 
-The Kubernetes extensions feature enables the following on Azure Arc enabled Kubernetes clusters:
+The Kubernetes extensions feature enables the following on Azure Arc—enabled Kubernetes clusters:
 
 * Azure Resource Manager-based deployment of cluster extension.
 * Lifecycle management of extension Helm charts.
 
 In this article, you learn:
 > [!div class="checklist"]
-> * Current available Azure Arc enabled Kubernetes cluster extensions.
+> * Current available Azure Arc—enabled Kubernetes cluster extensions.
 > * How to create extension instances.
 > * Required and optional parameters.
 > * How to view, list, update, and delete extension instances. 
 
-A conceptual overview of this feature is available in [Cluster extensions - Azure Arc enabled Kubernetes](conceptual-extensions.md) article.
+A conceptual overview of this feature is available in [Cluster extensions - Azure Arc—enabled Kubernetes](conceptual-extensions.md) article.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
@@ -44,7 +44,7 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
     az extension update --name k8s-extension
     ```
 
-- An existing Azure Arc enabled Kubernetes connected cluster.
+- An existing Azure Arc—enabled Kubernetes connected cluster.
     - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
     - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.1.0.
 
@@ -54,18 +54,18 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 | --------- | ----------- |
 | [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json) | Provides visibility into the performance of workloads deployed on the Kubernetes cluster. Collects memory and CPU utilization metrics from controllers, nodes, and containers. |
 | [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Gathers information related to security like audit log data from the Kubernetes cluster. Provides recommendations and threat alerts based on gathered data. |
-| [Azure Arc enabled Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md) | Deploys Open Service Mesh on the cluster and enables capabilities like mTLS security, fine grained access control, traffic shifting, monitoring with Azure Monitor or with open source add-ons of Prometheus and Grafana, tracing with Jaeger, integration with external certification management solution. |
-| [Azure Arc enabled Data Services](../../azure-arc/kubernetes/custom-locations.md#create-custom-location) | Makes it possible for you to run Azure data services on-prem, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice. |
-| [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md) | Allows you to provision an App Service Kubernetes environment on top of Azure Arc enabled Kubernetes clusters. |
-| [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md) | Create and manage event grid resources such as topics and event subscriptions on top of Azure Arc enabled Kubernetes clusters. |
-| [Azure API Management on Azure Arc](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md) | Deploy and manage API Management gateway on Azure Arc enabled Kubernetes clusters. |
-| [Azure Arc enabled Machine Learning](../../machine-learning/how-to-attach-arc-kubernetes.md) | Deploy and run Azure Machine Learning on Azure Arc-enabled Kubernetes clusters. |
+| [Azure Arc—enabled Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md) | Deploys Open Service Mesh on the cluster and enables capabilities like mTLS security, fine grained access control, traffic shifting, monitoring with Azure Monitor or with open source add-ons of Prometheus and Grafana, tracing with Jaeger, integration with external certification management solution. |
+| [Azure Arc—enabled Data Services](../../azure-arc/kubernetes/custom-locations.md#create-custom-location) | Makes it possible for you to run Azure data services on-prem, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice. |
+| [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md) | Allows you to provision an App Service Kubernetes environment on top of Azure Arc—enabled Kubernetes clusters. |
+| [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md) | Create and manage event grid resources such as topics and event subscriptions on top of Azure Arc—enabled Kubernetes clusters. |
+| [Azure API Management on Azure Arc](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md) | Deploy and manage API Management gateway on Azure Arc—enabled Kubernetes clusters. |
+| [Azure Arc—enabled Machine Learning](../../machine-learning/how-to-attach-arc-kubernetes.md) | Deploy and run Azure Machine Learning on Azure Arc—enabled Kubernetes clusters. |
 
 ## Usage of cluster extensions
 
 ### Create extensions instance
 
-Create a new extension instance with `k8s-extension create`, passing in values for the mandatory parameters. The below command creates an Azure Monitor for containers extension instance on your Azure Arc enabled Kubernetes cluster:
+Create a new extension instance with `k8s-extension create`, passing in values for the mandatory parameters. The below command creates an Azure Monitor for containers extension instance on your Azure Arc—enabled Kubernetes cluster:
 
 ```azurecli
 az k8s-extension create --name azuremonitor-containers  --extension-type Microsoft.AzureMonitor.Containers --scope cluster --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type connectedClusters
@@ -108,7 +108,7 @@ az k8s-extension create --name azuremonitor-containers  --extension-type Microso
 ```
 
 > [!NOTE]
-> * The service is unable to retain sensitive information for more than 48 hours. If Azure Arc enabled Kubernetes agents don't have network connectivity for more than 48 hours and cannot determine whether to create an extension on the cluster, then the extension transitions to `Failed` state. Once in `Failed` state, you will need to run `k8s-extension create` again to create a fresh extension Azure resource.
+> * The service is unable to retain sensitive information for more than 48 hours. If Azure Arc—enabled Kubernetes agents don't have network connectivity for more than 48 hours and cannot determine whether to create an extension on the cluster, then the extension transitions to `Failed` state. Once in `Failed` state, you will need to run `k8s-extension create` again to create a fresh extension Azure resource.
 > * Azure Monitor for containers is a singleton extension (only one required per cluster). You'll need to clean up any previous Helm chart installations of Azure Monitor for containers (without extensions) before installing the same via extensions. Follow the instructions for [deleting the Helm chart before running `az k8s-extension create`](../../azure-monitor/containers/container-insights-optout-hybrid.md).
 
 **Required parameters**
@@ -118,9 +118,9 @@ az k8s-extension create --name azuremonitor-containers  --extension-type Microso
 | `--name` | Name of the extension instance |
 | `--extension-type` | The type of extension you want to install on the cluster. For example: Microsoft.AzureMonitor.Containers, microsoft.azuredefender.kubernetes | 
 | `--scope` | Scope of installation for the extension - `cluster` or `namespace` |
-| `--cluster-name` | Name of the Azure Arc enabled Kubernetes resource on which the extension instance has to be created |
-| `--resource-group` | The resource group containing the Azure Arc enabled Kubernetes resource |
-| `--cluster-type` | The cluster type on which the extension instance has to be created. Current only `connectedClusters`, which corresponds to Azure Arc enabled Kubernetes, is an accepted value |
+| `--cluster-name` | Name of the Azure Arc—enabled Kubernetes resource on which the extension instance has to be created |
+| `--resource-group` | The resource group containing the Azure Arc—enabled Kubernetes resource |
+| `--cluster-type` | The cluster type on which the extension instance has to be created. Current only `connectedClusters`, which corresponds to Azure Arc—enabled Kubernetes, is an accepted value |
 
 **Optional parameters**
 
@@ -257,12 +257,12 @@ az k8s-extension delete --name azuremonitor-containers --cluster-name <clusterNa
 
 ## Next steps
 
-Learn more about the cluster extensions currently available for Azure Arc enabled Kubernetes:
+Learn more about the cluster extensions currently available for Azure Arc—enabled Kubernetes:
 
 > [!div class="nextstepaction"]
 > [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json)
 > [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
-> [Azure Arc enabled Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md)
+> [Azure Arc—enabled Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md)
 > 
 > [!div class="nextstepaction"]
 > [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)

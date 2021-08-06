@@ -1,5 +1,5 @@
 ---
-title: "CI/CD Workflow using GitOps - Azure Arc enabled Kubernetes"
+title: "CI/CD Workflow using GitOps - Azure Arc—enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
 ms.date: 03/03/2021
@@ -9,7 +9,7 @@ ms.author: tcare
 description: "This article provides a conceptual overview of a CI/CD workflow using GitOps"
 keywords: "GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, containers, CI, CD, Azure DevOps"
 ---
-# CI/CD workflow using GitOps - Azure Arc enabled Kubernetes
+# CI/CD workflow using GitOps - Azure Arc—enabled Kubernetes
 
 Modern Kubernetes deployments house multiple applications, clusters, and environments. With GitOps, you can manage these complex setups more easily, tracking the desired state of the Kubernetes environments declaratively with Git. Using common Git tooling to track cluster state, you can increase accountability, facilitate fault investigation, and enable automation to manage environments.
 
@@ -36,7 +36,7 @@ The CD pipeline is automatically triggered by successful CI builds. It uses the 
 ### GitOps repo
 The GitOps repo represents the current desired state of all environments across clusters. Any change to this repo is picked up by the Flux service in each cluster and deployed. PRs are created with changes to the desired state, reviewed, and merged. These PRs contain changes to both deployment templates and the resulting rendered Kubernetes manifests. Low-level rendered manifests allow more careful inspection of changes typically unseen at the template-level.
 ### Kubernetes clusters
-At least one Azure Arc enabled Kubernetes clusters serves the different environments needed by the application. For example, a single cluster can serve both a dev and QA environment through different namespaces. A second cluster can provide easier separation of environments and more fine-grained control.
+At least one Azure Arc—enabled Kubernetes clusters serves the different environments needed by the application. For example, a single cluster can serve both a dev and QA environment through different namespaces. A second cluster can provide easier separation of environments and more fine-grained control.
 ## Example workflow
 As an application developer, Alice:
 * Writes application code.
@@ -68,4 +68,4 @@ Suppose Alice wants to make an application change that alters the Docker image u
 8.  Once all the environments have received successful deployments, the pipeline completes.
 
 ## Next steps
-Learn more about creating connections between your cluster and a Git repository as a [configuration resource with Azure Arc enabled Kubernetes](./conceptual-configurations.md)
+Learn more about creating connections between your cluster and a Git repository as a [configuration resource with Azure Arc—enabled Kubernetes](./conceptual-configurations.md)

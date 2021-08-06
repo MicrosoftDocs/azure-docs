@@ -13,13 +13,13 @@ ms.topic: how-to
 
 # View logs and metrics using Kibana and Grafana
 
-Kibana and Grafana web dashboards are provided to bring insight and clarity to the Kubernetes namespaces being used by Azure Arc-enabled data services.
+Kibana and Grafana web dashboards are provided to bring insight and clarity to the Kubernetes namespaces being used by Azure Arc—enabled data services.
 
 
 
 ## Monitor Azure SQL managed instances on Azure Arc
 
-To access the logs and monitoring dashboards for Arc enabled SQL Managed Instance, run the following `azdata` CLI command
+To access the logs and monitoring dashboards for Azure Arc—enabled SQL Managed Instance, run the following `azdata` CLI command
 
 ```azurecl
 az sql mi-arc endpoint list -n <name of SQL instance>
@@ -91,4 +91,3 @@ az network nsg rule create -n ports_30777 --nsg-name azurearcvmNSG --priority 60
    - [Kibana guide](https://www.elastic.co/guide/en/kibana/current/index.html)
    - [Introduction to dashboard drilldowns with data visualizations in Kibana](https://www.elastic.co/webinars/dashboard-drilldowns-with-data-visualizations-in-kibana/)
    - [How to build Kibana dashboards](https://www.elastic.co/webinars/how-to-build-kibana-dashboards/)
-

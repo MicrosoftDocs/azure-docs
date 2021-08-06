@@ -29,19 +29,19 @@ highlightedContent:
       itemType: sample
       url: https://azurearcjumpstart.io/overview/
       # Card
-    - title: Azure Arc-enabled servers
+    - title: Azure Arc—enabled servers
       itemType: overview
       url: ./servers/overview.md
     # Card
-    - title: Azure Arc-enabled Kubernetes
+    - title: Azure Arc—enabled Kubernetes
       itemType: overview
       url: ./kubernetes/overview.md
     # Card
-    - title: Azure Arc-enabled data services 
+    - title: Azure Arc—enabled data services 
       itemType: overview
       url: ./data/overview.md
     # Card
-    - title: SQL Server on Azure Arc-enabled servers
+    - title: SQL Server on Azure Arc—enabled servers
       itemType: overview
       url: /sql/sql-server/azure-arc/overview
 
@@ -51,7 +51,7 @@ conceptualContent:
   # summary: # < 160 chars (optional)
   items:
     # Card
-    - title: Azure Arc-enabled servers
+    - title: Azure Arc—enabled servers
       links:
         - url: ./servers/learn/quick-enable-hybrid-vm.md
           itemType: quickstart
@@ -64,13 +64,13 @@ conceptualContent:
           text: Admission control policies using Azure Policy
         - url: /sql/sql-server/azure-arc/overview
           itemType: overview
-          text: Connect Arc-enabled SQL Server
+          text: Connect Azure Arc—enabled SQL Server
       # footerLink (optional)
       footerLink:
         url: ./servers/index.yml
         text: See more
     # Card
-    - title: Azure Arc-enabled Kubernetes
+    - title: Azure Arc—enabled Kubernetes
       links:
         - url: ./kubernetes/quickstart-connect-cluster.md
           itemType: quickstart
@@ -83,13 +83,13 @@ conceptualContent:
           text: Enforce GitOps using Azure Policy
         - url: ./kubernetes/tutorial-arc-enabled-open-service-mesh.md
           itemType: tutorial
-          text: Azure Arc-enabled Open Service Mesh (Preview)
+          text: Azure Arc—enabled Open Service Mesh (Preview)
       # footerLink (optional)
       footerLink:
         url: ./kubernetes/index.yml
         text: See more
     # Card
-    - title: Azure Arc-enabled data services 
+    - title: Azure Arc—enabled data services 
       links:
         - url: ./data/install-client-tools.md
           itemType: deploy
@@ -125,11 +125,11 @@ conceptualContent:
           itemType: overview
           text: Azure Automation overview
     # Card
-    - title: Azure Arc-enabled SQL Server
+    - title: Azure Arc—enabled SQL Server
       links:
         - url: /sql/sql-server/azure-arc/assess
           itemType: how-to-guide
-          text: Assess Arc enabled instance
+          text: Assess Azure Arc—enabled instance
         - url: /sql/sql-server/azure-arc/configure-advanced-data-security
           itemType: how-to-guide
           text: Configure advanced data security

@@ -18,9 +18,9 @@ ms.topic: how-to
 
 You can use the Azure portal to create an Azure Arc data controller, in indirect connectivity mode.
 
-Many of the creation experiences for Azure Arc start in the Azure portal even though the resource to be created or managed is outside of Azure infrastructure. The user experience pattern in these cases, especially when there is no direct connectivity between Azure and your environment, is to use the Azure portal to generate a script which can then be downloaded and executed in your environment to establish a secure connection back to Azure. For example, Azure Arc-enabled servers follows this pattern to [create Arc enabled servers](../servers/onboard-portal.md).
+Many of the creation experiences for Azure Arc start in the Azure portal even though the resource to be created or managed is outside of Azure infrastructure. The user experience pattern in these cases, especially when there is no direct connectivity between Azure and your environment, is to use the Azure portal to generate a script which can then be downloaded and executed in your environment to establish a secure connection back to Azure. For example, Azure Arc—enabled servers follows this pattern to [create Azure Arc—enabled servers](../servers/onboard-portal.md).
 
-When you use the indirect connect mode of Azure Arc-enabled data services, you can use the Azure portal to generate a notebook for you that can then be downloaded and run in Azure Data Studio against your Kubernetes cluster. 
+When you use the indirect connect mode of Azure Arc—enabled data services, you can use the Azure portal to generate a notebook for you that can then be downloaded and run in Azure Data Studio against your Kubernetes cluster. 
 
    [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 

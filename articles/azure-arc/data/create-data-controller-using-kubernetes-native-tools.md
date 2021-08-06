@@ -212,7 +212,7 @@ Edit the following as needed:
 - **displayName**: Set this to the same value as the name attribute at the top of the file.
 - **registry**: The Microsoft Container Registry is the default.  If you are pulling the images from the Microsoft Container Registry and [pushing them to a private container registry](offline-deployment.md), enter the IP address or DNS name of your registry here.
 - **dockerRegistry**: The image pull secret to use to pull the images from a private container registry if required.
-- **repository**: The default repository on the Microsoft Container Registry is `arcdata`.  If you are using a private container registry, enter the path the folder/repository containing the Azure Arc-enabled data services container images.
+- **repository**: The default repository on the Microsoft Container Registry is `arcdata`.  If you are using a private container registry, enter the path the folder/repository containing the Azure Arc—enabled data services container images.
 - **imageTag**: the current latest version tag is defaulted in the template, but you can change it if you want to use an older version.
 
 The following example shows a completed data controller yaml file. Update the example for your environment, based on your requirements, and the information above.

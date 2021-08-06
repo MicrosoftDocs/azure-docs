@@ -1,6 +1,6 @@
 ---
 title: az arcdata dc status reference
-titleSuffix: Azure Arc-enabled data services
+titleSuffix: Azure Arc—enabled data services
 description: Reference article for az arcdata dc status commands.
 author: MikeRayMSFT
 ms.author: mikeray

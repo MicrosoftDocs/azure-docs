@@ -1,6 +1,6 @@
 ---
 title: az sql mi-arc reference
-titleSuffix: Azure Arc-enabled data services
+titleSuffix: Azure Arc—enabled data services
 description: Reference article for az sql mi-arc commands.
 author: MikeRayMSFT
 ms.author: mikeray

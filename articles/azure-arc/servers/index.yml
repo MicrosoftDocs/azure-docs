@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Azure Arc enabled servers
-summary: Azure Arc enabled servers
+title: Azure Arc—enabled servers
+summary: Azure Arc—enabled servers
 
 metadata:
-  title: Azure Arc enabled servers
+  title: Azure Arc—enabled servers
   description: Learn about how to manage on-premises machines in Azure
   author: mgoedtel
   ms.service: azure-arc
@@ -13,11 +13,11 @@ metadata:
 
 landingContent:
  # Card
-  - title: Connect machines to Azure using Azure Arc enabled servers
+  - title: Connect machines to Azure using Azure Arc—enabled servers
     linkLists: 
       - linkListType: overview
         links:
-          - text: What is Azure Arc enabled servers?
+          - text: What is Azure Arc—enabled servers?
             url: overview.md
       - linkListType: deploy
         links:
@@ -36,7 +36,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Deploy Arc enabled servers agent
+          - text: Deploy Azure Arc—enabled servers agent
             url: ./learn/quick-enable-hybrid-vm.md
  # Card
   - title: Proof of concept
@@ -47,7 +47,7 @@ landingContent:
             url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/
      - linkListType: get-started
        links:
-          - text: Test Arc enabled servers using an Azure VM
+          - text: Test Azure Arc—enabled servers using an Azure VM
             url: plan-evaluate-on-azure-virtual-machine.md
  # Card
   - title: Reference architecture

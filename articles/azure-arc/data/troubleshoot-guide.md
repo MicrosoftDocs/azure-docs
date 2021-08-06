@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Arc-enabled data services
+title: Troubleshoot Azure Arc—enabled data services
 description: Introduction to troubleshooting resources
 services: azure-arc
 ms.service: azure-arc
@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Troubleshooting resources
 
-This article identifies troubleshooting resources for Azure Arc-enabled data services.
+This article identifies troubleshooting resources for Azure Arc—enabled data services.
 
 
 ## Resources by type

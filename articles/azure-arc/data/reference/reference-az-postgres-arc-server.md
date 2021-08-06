@@ -1,6 +1,6 @@
 ---
 title: az postgres arc-server reference
-titleSuffix: Azure Arc-enabled data services
+titleSuffix: Azure Arc—enabled data services
 description: Reference article for az postgres arc-server commands.
 author: MikeRayMSFT
 ms.author: mikeray
@@ -15,12 +15,12 @@ ms.subservice: azure-arc-data
 ## Commands
 | Command | Description|
 | --- | --- |
-[az postgres arc-server create](#az-postgres-arc-server-create) | Create an Azure Arc enabled PostgreSQL Hyperscale server group.
-[az postgres arc-server edit](#az-postgres-arc-server-edit) | Edit the configuration of an Azure Arc enabled PostgreSQL Hyperscale server group.
-[az postgres arc-server delete](#az-postgres-arc-server-delete) | Delete an Azure Arc enabled PostgreSQL Hyperscale server group.
-[az postgres arc-server show](#az-postgres-arc-server-show) | Show the details of an Azure Arc enabled PostgreSQL Hyperscale server group.
-[az postgres arc-server list](#az-postgres-arc-server-list) | List Azure Arc enabled PostgreSQL Hyperscale server groups.
-[az postgres arc-server endpoint](reference-az-postgres-arc-server-endpoint.md) | Manage Azure Arc enabled PostgreSQL Hyperscale server group endpoints.
+[az postgres arc-server create](#az-postgres-arc-server-create) | Create an Azure Arc—enabled PostgreSQL Hyperscale server group.
+[az postgres arc-server edit](#az-postgres-arc-server-edit) | Edit the configuration of an Azure Arc—enabled PostgreSQL Hyperscale server group.
+[az postgres arc-server delete](#az-postgres-arc-server-delete) | Delete an Azure Arc—enabled PostgreSQL Hyperscale server group.
+[az postgres arc-server show](#az-postgres-arc-server-show) | Show the details of an Azure Arc—enabled PostgreSQL Hyperscale server group.
+[az postgres arc-server list](#az-postgres-arc-server-list) | List Azure Arc—enabled PostgreSQL Hyperscale server groups.
+[az postgres arc-server endpoint](reference-az-postgres-arc-server-endpoint.md) | Manage Azure Arc—enabled PostgreSQL Hyperscale server group endpoints.
 ## az postgres arc-server create
 To set the password of the server group, please set the environment variable AZDATA_PASSWORD
 ```bash
@@ -72,11 +72,11 @@ az postgres arc-server create --name -n
 [--use-k8s]
 ```
 ### Examples
-Create an Azure Arc enabled PostgreSQL Hyperscale server group.
+Create an Azure Arc—enabled PostgreSQL Hyperscale server group.
 ```bash
 az postgres arc-server create -n pg1 --k8s-namespace namespace --use-k8s
 ```
-Create an Azure Arc enabled PostgreSQL Hyperscale server group with engine settings. Both below examples are valid.
+Create an Azure Arc—enabled PostgreSQL Hyperscale server group with engine settings. Both below examples are valid.
 ```bash
 az postgres arc-server create -n pg1 --engine-settings "key1=val1" --k8s-namespace namespace 
 az postgres arc-server create -n pg1 --engine-settings "key2=val2" --k8s-namespace namespace --use-k8s
@@ -91,20 +91,20 @@ az postgres arc-server create -n pg1 --memory-limit "coordinator=2Gi,w=1Gi" --wo
 ```
 ### Required Parameters
 #### `--name -n`
-Name of the Azure Arc enabled PostgreSQL Hyperscale server group.
+Name of the Azure Arc—enabled PostgreSQL Hyperscale server group.
 ### Optional Parameters
 #### `--path`
-The path to the source json file for the Azure Arc enabled PostgreSQL Hyperscale server group. This is optional.
+The path to the source json file for the Azure Arc—enabled PostgreSQL Hyperscale server group. This is optional.
 #### `--k8s-namespace -k`
-The Kubernetes namespace where the Azure Arc enabled PostgreSQL Hyperscale server group is deployed. If no namespace is specified, then the namespace defined in the kubeconfig will be used.
+The Kubernetes namespace where the Azure Arc—enabled PostgreSQL Hyperscale server group is deployed. If no namespace is specified, then the namespace defined in the kubeconfig will be used.
 #### `--cores-limit`
-The maximum number of CPU cores for Azure Arc enabled PostgreSQL Hyperscale server group that can be used per node. Fractional cores are supported. Optionally a comma-separated list of roles with values can be specified in format <role>=<value>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
+The maximum number of CPU cores for Azure Arc—enabled PostgreSQL Hyperscale server group that can be used per node. Fractional cores are supported. Optionally a comma-separated list of roles with values can be specified in format <role>=<value>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
 #### `--cores-request`
 The minimum number of CPU cores that must be available per node to schedule the service. Fractional cores are supported. Optionally a comma-separated list of roles with values can be specified in format <role>=<value>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
 #### `--memory-limit`
-The memory limit of the Azure Arc enabled PostgreSQL Hyperscale server group as a number followed by Ki (kilobytes), Mi (megabytes), or Gi (gigabytes). Optionally a comma-separated list of roles with values can be specified in format <role>=<value>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
+The memory limit of the Azure Arc—enabled PostgreSQL Hyperscale server group as a number followed by Ki (kilobytes), Mi (megabytes), or Gi (gigabytes). Optionally a comma-separated list of roles with values can be specified in format <role>=<value>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
 #### `--memory-request`
-The memory request of the Azure Arc enabled PostgreSQL Hyperscale server group as a number followed by Ki (kilobytes), Mi (megabytes), or Gi (gigabytes). Optionally a comma-separated list of roles with values can be specified in format <role>=<value>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
+The memory request of the Azure Arc—enabled PostgreSQL Hyperscale server group as a number followed by Ki (kilobytes), Mi (megabytes), or Gi (gigabytes). Optionally a comma-separated list of roles with values can be specified in format <role>=<value>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
 #### `--storage-class-data`
 The storage class to be used for data persistent volumes.
 #### `--storage-class-logs`
@@ -154,7 +154,7 @@ Name or ID of subscription. You can configure the default subscription using `az
 #### `--verbose`
 Increase logging verbosity. Use --debug for full debug logs.
 ## az postgres arc-server edit
-Edit the configuration of an Azure Arc enabled PostgreSQL Hyperscale server group.
+Edit the configuration of an Azure Arc—enabled PostgreSQL Hyperscale server group.
 ```bash
 az postgres arc-server edit --name -n 
                             [--k8s-namespace -k]  
@@ -190,36 +190,36 @@ az postgres arc-server edit --name -n
 [--use-k8s]
 ```
 ### Examples
-Edit the configuration of an Azure Arc enabled PostgreSQL Hyperscale server group.
+Edit the configuration of an Azure Arc—enabled PostgreSQL Hyperscale server group.
 ```bash
 az postgres arc-server edit --path ./spec.json -n pg1 --k8s-namespace namespace --use-k8s
 ```
-Edit an Azure Arc enabled PostgreSQL Hyperscale server group with engine settings for the coordinator node.
+Edit an Azure Arc—enabled PostgreSQL Hyperscale server group with engine settings for the coordinator node.
 ```bash
 az postgres arc-server edit -n pg1 --coordinator-settings "key2=val2" --k8s-namespace namespace
 ```
-Edits an Azure Arc enabled PostgreSQL Hyperscale server group and replaces existing engine settings with new setting key1=val1.
+Edits an Azure Arc—enabled PostgreSQL Hyperscale server group and replaces existing engine settings with new setting key1=val1.
 ```bash
 az postgres arc-server edit -n pg1 --engine-settings "key1=val1" --replace-settings --k8s-namespace namespace
 ```
 ### Required Parameters
 #### `--name -n`
-Name of the Azure Arc enabled PostgreSQL Hyperscale server group that is being edited. The name under which your instance is deployed cannot be changed.
+Name of the Azure Arc—enabled PostgreSQL Hyperscale server group that is being edited. The name under which your instance is deployed cannot be changed.
 ### Optional Parameters
 #### `--k8s-namespace -k`
-The Kubernetes namespace where the Azure Arc enabled PostgreSQL Hyperscale server group is deployed. If no namespace is specified, then the namespace defined in the kubeconfig will be used.
+The Kubernetes namespace where the Azure Arc—enabled PostgreSQL Hyperscale server group is deployed. If no namespace is specified, then the namespace defined in the kubeconfig will be used.
 #### `--path`
-The path to the source json file for the Azure Arc enabled PostgreSQL Hyperscale server group. This is optional.
+The path to the source json file for the Azure Arc—enabled PostgreSQL Hyperscale server group. This is optional.
 #### `--workers -w`
 The number of worker nodes to provision in a server group. In Preview, reducing the number of worker nodes is not supported. Refer to documentation for additional details.
 #### `--cores-limit`
-The maximum number of CPU cores for Azure Arc enabled PostgreSQL Hyperscale server group that can be used per node, fractional cores are supported. To remove the cores_limit, specify its value as empty string. Optionally a comma-separated list of roles with values can be specified in format <role>=<value>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
+The maximum number of CPU cores for Azure Arc—enabled PostgreSQL Hyperscale server group that can be used per node, fractional cores are supported. To remove the cores_limit, specify its value as empty string. Optionally a comma-separated list of roles with values can be specified in format <role>=<value>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
 #### `--cores-request`
 The minimum number of CPU cores that must be available per node to schedule the service, fractional cores are supported. To remove the cores_request, specify its value as empty string. Optionally a comma-separated list of roles with values can be specified in format <role>=<value>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
 #### `--memory-limit`
-The memory limit for Azure Arc enabled PostgreSQL Hyperscale server group as a number followed by Ki (kilobytes), Mi (megabytes), or Gi (gigabytes). To remove the memory_limit, specify its value as empty string. Optionally a comma-separated list of roles with values can be specified in format <role>=<value>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
+The memory limit for Azure Arc—enabled PostgreSQL Hyperscale server group as a number followed by Ki (kilobytes), Mi (megabytes), or Gi (gigabytes). To remove the memory_limit, specify its value as empty string. Optionally a comma-separated list of roles with values can be specified in format <role>=<value>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
 #### `--memory-request`
-The memory request for Azure Arc enabled PostgreSQL Hyperscale server group as a number followed by Ki (kilobytes), Mi (megabytes), or Gi (gigabytes). To remove the memory_request, specify its value as empty string. Optionally a comma-separated list of roles with values can be specified in format <role>=<value>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
+The memory request for Azure Arc—enabled PostgreSQL Hyperscale server group as a number followed by Ki (kilobytes), Mi (megabytes), or Gi (gigabytes). To remove the memory_request, specify its value as empty string. Optionally a comma-separated list of roles with values can be specified in format <role>=<value>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
 #### `--extensions`
 A comma-separated list of the Postgres extensions that should be loaded on startup. Please refer to the postgres documentation for supported values.
 #### `--port`
@@ -235,7 +235,7 @@ A comma separated list of Postgres engine settings in the format 'key1=val1, key
 #### `--worker-settings`
 A comma separated list of Postgres engine settings in the format 'key1=val1, key2=val2' to be applied to 'worker' node role. When node role specific settings are specified, default settings will be ignored and overridden with the settings provided here.
 #### `--admin-password`
-If given, the Azure Arc enabled PostgreSQL Hyperscale server group's admin password will be set to the value of the AZDATA_PASSWORD environment variable if present and a prompted value otherwise.
+If given, the Azure Arc—enabled PostgreSQL Hyperscale server group's admin password will be set to the value of the AZDATA_PASSWORD environment variable if present and a prompted value otherwise.
 #### `--use-k8s`
 Use local Kubernetes APIs to perform this action.
 ### Global Arguments
@@ -252,7 +252,7 @@ Name or ID of subscription. You can configure the default subscription using `az
 #### `--verbose`
 Increase logging verbosity. Use --debug for full debug logs.
 ## az postgres arc-server delete
-Delete an Azure Arc enabled PostgreSQL Hyperscale server group.
+Delete an Azure Arc—enabled PostgreSQL Hyperscale server group.
 ```bash
 az postgres arc-server delete --name -n 
                               [--k8s-namespace -k]  
@@ -262,18 +262,18 @@ az postgres arc-server delete --name -n
 [--use-k8s]
 ```
 ### Examples
-Delete an Azure Arc enabled PostgreSQL Hyperscale server group.
+Delete an Azure Arc—enabled PostgreSQL Hyperscale server group.
 ```bash
 az postgres arc-server delete -n pg1 --k8s-namespace namespace --use-k8s
 ```
 ### Required Parameters
 #### `--name -n`
-Name of the Azure Arc enabled PostgreSQL Hyperscale server group.
+Name of the Azure Arc—enabled PostgreSQL Hyperscale server group.
 ### Optional Parameters
 #### `--k8s-namespace -k`
-The Kubernetes namespace where the Azure Arc enabled PostgreSQL Hyperscale server group is deployed. If no namespace is specified, then the namespace defined in the kubeconfig will be used.
+The Kubernetes namespace where the Azure Arc—enabled PostgreSQL Hyperscale server group is deployed. If no namespace is specified, then the namespace defined in the kubeconfig will be used.
 #### `--force -f`
-Force delete the Azure Arc enabled PostgreSQL Hyperscale server group without confirmation.
+Force delete the Azure Arc—enabled PostgreSQL Hyperscale server group without confirmation.
 #### `--use-k8s`
 Use local Kubernetes APIs to perform this action.
 ### Global Arguments
@@ -290,7 +290,7 @@ Name or ID of subscription. You can configure the default subscription using `az
 #### `--verbose`
 Increase logging verbosity. Use --debug for full debug logs.
 ## az postgres arc-server show
-Show the details of an Azure Arc enabled PostgreSQL Hyperscale server group.
+Show the details of an Azure Arc—enabled PostgreSQL Hyperscale server group.
 ```bash
 az postgres arc-server show --name -n 
                             [--k8s-namespace -k]  
@@ -300,18 +300,18 @@ az postgres arc-server show --name -n
 [--use-k8s]
 ```
 ### Examples
-Show the details of an Azure Arc enabled PostgreSQL Hyperscale server group.
+Show the details of an Azure Arc—enabled PostgreSQL Hyperscale server group.
 ```bash
 az postgres arc-server show -n pg1 --k8s-namespace namespace --use-k8s
 ```
 ### Required Parameters
 #### `--name -n`
-Name of the Azure Arc enabled PostgreSQL Hyperscale server group.
+Name of the Azure Arc—enabled PostgreSQL Hyperscale server group.
 ### Optional Parameters
 #### `--k8s-namespace -k`
-The Kubernetes namespace where the Azure Arc enabled PostgreSQL Hyperscale server group is deployed. If no namespace is specified, then the namespace defined in the kubeconfig will be used.
+The Kubernetes namespace where the Azure Arc—enabled PostgreSQL Hyperscale server group is deployed. If no namespace is specified, then the namespace defined in the kubeconfig will be used.
 #### `--path`
-A path where the full specification for the Azure Arc enabled PostgreSQL Hyperscale server group should be written. If omitted, the specification will be written to standard output.
+A path where the full specification for the Azure Arc—enabled PostgreSQL Hyperscale server group should be written. If omitted, the specification will be written to standard output.
 #### `--use-k8s`
 Use local Kubernetes APIs to perform this action.
 ### Global Arguments
@@ -328,19 +328,19 @@ Name or ID of subscription. You can configure the default subscription using `az
 #### `--verbose`
 Increase logging verbosity. Use --debug for full debug logs.
 ## az postgres arc-server list
-List Azure Arc enabled PostgreSQL Hyperscale server groups.
+List Azure Arc—enabled PostgreSQL Hyperscale server groups.
 ```bash
 az postgres arc-server list [--k8s-namespace -k] 
                             [--use-k8s]
 ```
 ### Examples
-List Azure Arc enabled PostgreSQL Hyperscale server groups.
+List Azure Arc—enabled PostgreSQL Hyperscale server groups.
 ```bash
 az postgres arc-server list --k8s-namespace namespace --use-k8s
 ```
 ### Optional Parameters
 #### `--k8s-namespace -k`
-The Kubernetes namespace where the Azure Arc enabled PostgreSQL Hyperscale server groups are deployed. If no namespace is specified, then the namespace defined in the kubeconfig will be used.
+The Kubernetes namespace where the Azure Arc—enabled PostgreSQL Hyperscale server groups are deployed. If no namespace is specified, then the namespace defined in the kubeconfig will be used.
 #### `--use-k8s`
 Use local Kubernetes APIs to perform this action.
 ### Global Arguments

@@ -1,6 +1,6 @@
 ---
 title: az sql mi-arc dag reference
-titleSuffix: Azure Arc-enabled data services
+titleSuffix: Azure Arc—enabled data services
 description: Reference article for az sql mi-arc dag commands.
 author: MikeRayMSFT
 ms.author: mikeray

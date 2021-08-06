@@ -7,7 +7,7 @@ ms.date: 04/21/2021
 
 # Tutorial: Monitor a hybrid machine with VM insights
 
-[Azure Monitor](../../../azure-monitor/overview.md) can collect data directly from your hybrid machines into a Log Analytics workspace for detailed analysis and correlation. Typically this would entail installing the [Log Analytics agent](../../../azure-monitor/agents/agents-overview.md#log-analytics-agent) on the machine using a script, manually, or automated method following your configuration management standards. Arc enabled servers recently introduced support to install the Log Analytics and Dependency agent [VM extensions](../manage-vm-extensions.md) for Windows and Linux, enabling [VM insights](../../../azure-monitor/vm/vminsights-overview.md) to collect data from your non-Azure VMs.
+[Azure Monitor](../../../azure-monitor/overview.md) can collect data directly from your hybrid machines into a Log Analytics workspace for detailed analysis and correlation. Typically this would entail installing the [Log Analytics agent](../../../azure-monitor/agents/agents-overview.md#log-analytics-agent) on the machine using a script, manually, or automated method following your configuration management standards. Azure Arc—enabled servers recently introduced support to install the Log Analytics and Dependency agent [VM extensions](../manage-vm-extensions.md) for Windows and Linux, enabling [VM insights](../../../azure-monitor/vm/vminsights-overview.md) to collect data from your non-Azure VMs.
 
 This tutorial shows you how to configure and collect data from your Linux or Windows machines by enabling VM insights following a simplified set of steps, which streamlines the experience and takes a shorter amount of time.  
 
@@ -29,7 +29,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Launch the Azure Arc service in the Azure portal by clicking **All services**, then searching for and selecting **Machines - Azure Arc**.
 
-    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Search for Arc enabled servers in All Services" border="false":::
+    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Search for Azure Arc—enabled servers in All Services" border="false":::
 
 1. On the **Machines - Azure Arc** page, select the connected machine you created in the [quickstart](quick-enable-hybrid-vm.md) article.
 
