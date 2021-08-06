@@ -2,11 +2,11 @@
 title: How to configure Azure Functions Application Insights with Key Vault and identity-based connections
 description: Article that shows you how to use identity-based connections and key vault in place of connection strings for application insights
 ms.topic: article
-ms.date: 7/26/2021
-
+ms.date: 8/206/2021
+#Customer intent: As a function developer, I want to learn how to use managed identities so that my function app can connect to Application Insights using secrets stored in Key Vault and system managed identities for better security.
 ---
 
-# Tutorial: Access Application Insights Secrets Using Key Vault
+# Tutorial: Access Application Insights secrets using Azure Key Vault
 
 This article shows you how to configure the Azure Application Insights instance used by your function app with Azure Key Vault and managed identities. The tutorial is a continuation of the [functions managed identity tutorial](./functions-managed-identity-tutorial.md). To learn more about identity-based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 
@@ -15,17 +15,27 @@ In this tutorial, you'll:
 > * Create a key vault.
 > * Get your Application Insights connection string.
 > * Add the connection string to your key vault
-> * Configure your function app to use role-based access for Application Insights.
+> * Configure your function app to use role-based access control (RBAC) for Application Insights.
+
+Using a key value to store your Application Insights connection string impacts the experience managing your function app in the Azure portal. Specifically, monitoring data from your connected Application Insights instance are no longer displayed and links to the instance are removed. To go to the linked instance, you'll need to search or browse Application Insights for your named instance.   
 
 ## Prerequisites
 
 Complete the previous tutorial [Create a function app with identity-based connections](./functions-managed-identity-tutorial.md).
 
+## Get your Application Insights connection string
+
+1. In the [Azure portal](https://portal.azure.com), search for the function app you created in the previous tutorial. You can also browse to it in the **Function App** page. 
+
+1. In your function app, select **Configuration** under **Settings**, then select your **APPLICATIONINSIGHTS_CONNECTION_STRING** setting.
+
+1. Copy the value of the **APPLICATIONINSIGHTS_CONNECTION_STRING** setting, which is the connection string for your Application Insights instance. You need this value when you create a secret in your key vault. 
+
 ## Create a key vault 
 
 1. In the [Azure portal](https://portal.azure.com), choose **Create a resource (+)**.
 
-1. On the **New** page, search for *key vault*, select **Key vaults** from **Services**, and then select **+ Create**.
+1. On the **Create a resource** page, search for *key vault*, select **Key Vault**, and then select **+ Create**.
 
 1. On the **Basics** tab, configure the key vault settings based on the values from the following table: 
 
@@ -34,77 +44,97 @@ Complete the previous tutorial [Create a function app with identity-based connec
     | **Subscription** | Your subscription | The subscription under which your resources are created. | 
     | **[Resource group](../azure-resource-manager/management/overview.md)**  | myResourceGroup | The resource group you created with your function app. |
     | **Key vault name** | mykeyvault-uniqueid | The name of your key vault. Because the key vault is publicly accessible, you must use a name that is globally unique across Azure. The name must also be between 3 and 24 characters in length, contain only alphanumeric characters and dashes, and can't start with a number. |
-    | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | The region where you created your function app. |
+    | **[Region](https://azure.microsoft.com/regions/)** | same as your function app | The region where you created your function app. |
 
-    For any other settings, just use the default values.
+1. Select **Next: Access policy >** and select **Azure role-based access control** for the **Permission model**.
 
-1. Select **Review + create**, and after validation finishes, select **Create**.
+1. Select **Review + create**, and after validation finishes, select **Create**. This step creates a key vault that uses RBAC. 
+
+1. After the deployment completes, select **Go to resource** to navigate to your new key vault. 
  
-This creates the key vault. Next, you can add a secret that is the Application Insights connection string.
+Before you can add secrets to this new RBAC-enabled vault, you need to grant yourself permissions to do so. 
 
-## Add a secret to key vault.
+## Grant your account permissions to create secrets
 
-1. Search for the function app you created in the previous tutorial. You can also browse to it in the **Function App** page. 
+1. In your key vault, select **Access control (AIM)** and then **+ Add** > **Add role assignment (preview)**. If you have trouble finding your new key vault, you can always search for it by name.
 
-1. In your function app, select **Configuration** under **Settings**, then select your **APPLICATIONINSIGHTS_CONNECTION_STRING** setting.
+1. In **Add role assignment** in the **Role** tab, select **Key Vault Secrets Office** and select **Next**.
 
-1. Copy the value of the **APPLICATIONINSIGHTS_CONNECTION_STRING** setting, which is the connection string for your Application Insights instance, which you'll move into the key vault. 
+1. In the **Members** tab, select **+ Select members**, select your user account, then **Select**. 
+
+1. Select **Next** > **Review + assign**. Select the **Role assignments** tab to verify your user account has the Key Vault Secrets Office role.
+
+Now, you have permissions to add a secret to the RBAC-enabled vault. The secret you add contains the Application Insights connection string. 
+
+## Add a secret to key vault
  
-1. Back in key vault, select **Secrets** from the left blade.
+1. In your key vault, select **Secrets** under **Settings**.
 
-1. Select **Generate/Import** to create a secret with the below settings.
+1. Select **Generate/Import** and supply the following settings: 
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Name**  | AppInsights | The name for you secret. The suggested value is AppInsights as the secret will be for our Application Insights connection string. |
     | **Value** | yourAppInsightsConnectionString | The connection string value you copied from your Application Insights overview. |
 
-## Configure your app to use Azure role-based access control
+1. Select **Create** to add the secret. 
 
-1. In your Key Vault, select **Access policies** from the left blade.
-    :::image type="content" source="./media/functions-secretless-tutorial/15-role-based-access-control.png" alt-text="Screenshot of how to switch to role-based-access-control.":::
+## Update your function app to use key vault
 
-1. Select **Azure role-based access control**, and select **Save**. 
+1. Back in your function app, select **Identity** under **Configuration**.
 
-1. In your function app, select **Identity** from the left blade.
+1. Select **Azure role assignments** on the **System assigned** tab.
 
-1. Select **Azure role assignments**.
-
-1. Select **Add role assignment** and create a role with the below settings.
+1. Select **Add role assignment (preview)** and create a role with the following settings:
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
-    | **Scope**  | Key Vault | Scope is a set of resources that the role assignment applies to. |
-    | **Subscription** | yourSubscription | The subscription under which your resources are created. | 
-    | **Resource**  | yourKeyVault | The Key Vault you are created a role-based connection for. |
+    | **Scope**  | Key Vault | Scope is a set of resources to which the role assignment applies. |
+    | **Subscription** | yourSubscription | Your subscription. | 
+    | **Resource**  | yourKeyVault | The key vault you created in this tutorial. |
     | **Role** | Key Vault Secrets User | The role determines what permissions your managed identity will have. The Key Vault Secrets User will allow your identity to read secret contents. |
 
-1. In your function app, select **Configuration** from the left blade.
+1. Select **Save**. It might take a minute or two for the role to show up when you refresh the Azure role assignments list.
+
+1. In your function app, select **Configuration** under **Settings**.
+
     :::image type="content" source="./media/functions-secretless-tutorial/16-update-appinsights-connection.png" alt-text="Screenshot of how to update the application insights connection string app setting.":::
 
-1. Select **APPLICATIONINSIGHTS_CONNECTION_STRING** and replace the **Value** with the Key Vault **SecretURI**. The format should be: `@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)`. For example, following the steps from this tutorial, the **ServiceURI** would be `@Microsoft.KeyVault(SecretUri=https://identity-app-kv.vault.azure.net/secrets/AppInsights/)`. For more details, go to the [key vault references documentation](../app-service/app-service-key-vault-references.md#reference-syntax).
+1. Edit the **APPLICATIONINSIGHTS_CONNECTION_STRING** and replace the **Value** with a URI in the following format:
 
-1. Select **OK** and then **Save**.
+    `@Microsoft.KeyVault(VaultName=<KEY_VAULT_NAME>;SecretName=AppInsights)`
 
-1. In your application insights, select **Live metrics** from the left blade.
+    In the above string, `AppInsights` is the name of the secret you added. Replace `<KEY_VAULT_NAME>` with the name of your key vault. 
 
-1. Confirm that you are still receiving data with your new Key Vault reference configuration.
+    To learn more about using Key Vault references in application settings, see the [reference syntax](../app-service/app-service-key-vault-references.md#reference-syntax).
 
-1. Congratulations! You've successfully set up your function app's application insights to use RBAC instead of connection strings. Now, your function app is fully secretless, but it still only has a timer trigger and is not triggered by external sources. Continue to the [storage queue](./functions-managed-identity-storage-queue.md) and [service bus queue](./functions-managed-identity-servicebus-queue.md) tutorials to learn how to use managed identities with external triggers.
+1. Delete the **APPINSIGHTS_INSTRUMENTATIONKEY** setting. This legacy setting isn't needed when using `APPLICATIONINSIGHTS_CONNECTION_STRING` and it could help the app continue to run with an incorrectly configured `APPLICATIONINSIGHTS_CONNECTION_STRING`value.
+
+1. Select **OK** and then **Save** > **Continue**. Your changes are saved, the function app restarts, and the validation status of the key value reference is shown in the **Source** column. When the host can't successfully validate the reference, a red **X** is shown, otherwise a green check mark means the reference is good. 
+
+Now, you'll see logs continue to be sent to Application Insights when using the key vault reference. Because your function app in the portal can no longer display links to your named Application Insights instance, you need to browse to it directly.
+
+## Validate your changes
+
+1. In the portal, search for `Application Insights` and select **Application Insights** under **Settings**.  
+
+1. In **Application Insights**, browse or search for your named instance. 
+
+1. In your instance, select **Transaction search** under **Investigate** and then select **See all data in the last 24 hours**.
+ 
+1. Confirm that you're still receiving data with your new Key Vault reference configuration. You should continue to see traces written by the timer trigger every five minutes even after you switch to using Key Vault.
+
+Congratulations! You've successfully configured your function app to connect to Application Insights using RBAC instead of connection strings. 
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
 ## Next steps 
 
-In this tutorial, you created a function app with identity-based connections.
+In this tutorial, you extended the previous tutorial so that all connections used by your function app are made without using stored secrets. 
 
-Use the following links to learn more Azure Functions with identity-based connections:
+Next, consider completing one of the following tutorials that show you how to connect to other Azure services using bindings with managed identities: 
 
-- [Managed identity in Azure Functions](../app-service/overview-managed-identity.md)
-- [identity-based connections in Azure Functions](./functions-reference.md#configure-an-identity-based-connection)
-- [Connecting to host storage with an Identity](./functions-reference.md#connecting-to-host-storage-with-an-identity)
-- [Creating a Function App without Azure Files](./storage-considerations.md#create-an-app-without-azure-files)
-- [Run Azure Functions from a package file](./run-functions-from-deployment-package.md)
-- [Use Key Vault references in Azure Functions](../app-service/app-service-key-vault-references.md)
-- [Configuring the account used by Visual Studio for local development](/dotnet/api/azure/identity-readme.md#authenticating-via-visual-studio)
-- [Functions documentation for local development](./functions-reference.md#local-development-with-identity-based-connections)
++ [Tutorial: Connect to Azure Queue Storage using identity-based connections](functions-managed-identity-storage-queue.md) 
++ [Tutorial: Connect to Azure Service Bus queues using identity-based connections](functions-managed-identity-servicebus-queue.md)
+
+The Service Bus queues tutorial also shows how to use managed identities during local development.
