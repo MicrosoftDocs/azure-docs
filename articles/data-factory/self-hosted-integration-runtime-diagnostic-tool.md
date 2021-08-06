@@ -19,7 +19,7 @@ There are two ways to run this diagnostic tool to detect potential issues:
 
 1. When you install self-hosted integration runtime in on-premises machine and follow the steps on the config manager. you can click **Troubleshoot Problems** when you meet any issues. Or you can also click this button on **Diagnostics** tab at any time when you meet issues after installation.
 
-:::image type="content" source="./media/self-hosted-integration-runtime-diagnostic-tool/troubleshoot-ui.png" alt-text="Troubleshoot-UI":::
+:::image type="content" source="./media/self-hosted-integration-runtime-diagnostic-tool/troubleshoot-ui.png" alt-text="Troubleshoot button in config manager":::
    
 
 2. You can also run command line to start this diagnostics tool.
@@ -29,9 +29,9 @@ There are two ways to run this diagnostic tool to detect potential issues:
 ## Diagnostic result
 The execution result and detail log messages will be generated as a HTML report. You can review the error and get the suggested mitigation methods or public documents URL from the report.
 
-:::image type="content" source="./media/self-hosted-integration-runtime-diagnostic-tool/diagnostic-process.png" alt-text="Diagnostic-process":::
+:::image type="content" source="./media/self-hosted-integration-runtime-diagnostic-tool/diagnostic-process.png" alt-text="Diagnostic running process":::
 
-:::image type="content" source="./media/self-hosted-integration-runtime-diagnostic-tool/diagnostic-report.png" alt-text="Diagnostic-report":::
+:::image type="content" source="./media/self-hosted-integration-runtime-diagnostic-tool/diagnostic-report.png" alt-text="Report for diagnostic result":::
 
 ## Next steps
 
