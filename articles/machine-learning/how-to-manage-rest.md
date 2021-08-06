@@ -212,8 +212,8 @@ You can explore the REST API using the general pattern of:
 | https://| |
 | REGIONAL-API-SERVER/ | centralus.api.azureml.ms/ |
 | operations-path/ | history/v1.0/ |
-| subscriptions/<YOUR-SUBSCRIPTION-ID>/ | subscriptions/abcde123-abab-abab-1234-0123456789abc/ |
-| resourceGroups/<YOUR-RESOURCE-GROUP>/ | resourceGroups/MyResourceGroup/ |
+| subscriptions/`<YOUR-SUBSCRIPTION-ID>`/ | subscriptions/abcde123-abab-abab-1234-0123456789abc/ |
+| resourceGroups/`<YOUR-RESOURCE-GROUP>`/ | resourceGroups/MyResourceGroup/ |
 | providers/operation-provider/ | providers/Microsoft.MachineLearningServices/ |
 | provider-resource-path/ | workspaces/MLWorkspace/MyWorkspace/FirstExperiment/runs/1/ |
 | operations-endpoint/ | artifacts/metadata/ |
