@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/05/2021
+ms.date: 08/06/2021
 ms.author: b-juche
 ---
 
@@ -21,7 +21,23 @@ ms.author: b-juche
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
-## June 2021
+## August 2021
+
+* [NFS `Chown Mode` export policy and UNIX export permissions](configure-unix-permissions-change-ownership-mode.md) (Preview)   
+
+    You can now set the Unix permissions and the change ownership mode (`Chown Mode`) options on Azure NetApp Files NFS volumes or dual-protocol volumes with the Unix security style. You can specify these settings during volume creation or after volume creation.   
+
+    The change ownership mode (`Chown Mode`) functionality enables you to set the ownership management capabilities of files and directories. You can specify or modify the setting under a volume's export policy. Two options for `Chown Mode` are available: *Restricted* (default),  where only the root user can change the ownership of files and directories, and *Unrestricted*, where non-root users can change the ownership for files and directories that they own.   
+
+    The Azure NetApp Files Unix Permissions functionality enables you to specify change permissions for the mount path. 
+
+    These new features provide options to move access control of certain files and directories into the hands of the data user instead of the service operator.   
+
+* [Dual-protocol (NFSv4.1 and SMB) volume](create-volumes-dual-protocol.md) (Preview)   
+
+    Azure NetApp Files already supports dual-protocol access to NFSv3 and SMB volumes as of [July 2020](#july-2020). You can now create an Azure NetApp Files volume that allows simultaneous dual-protocol (NFSv4.1 and SMB) access with support for LDAP user mapping. This feature enables use cases where you might have a Linux-based workload using NFSv4.1 for its access, and the workload generates and stores data in an Azure NetApp Files volume. At the same time, your staff might need to use Windows-based clients and software to analyze the newly generated data from the same Azure NetApp Files volume. The simultaneous dual-protocol access feature removes the need to copy the workload-generated data to a separate volume with a different protocol for post-analysis, saving storage cost and operational time. This feature is free of charge (normal Azure NetApp Files storage cost still applies) and is generally available. Learn more from the [simultaneous dual-protocol NFSv4.1/SMB access](create-volumes-dual-protocol.md) documentation.
+
+## June 2021  
 
 * [Azure NetApp Files storage service add-ons](storage-service-add-ons.md)
 
