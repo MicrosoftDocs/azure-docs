@@ -64,7 +64,7 @@ An API connector at this step in the sign-up process is invoked after the attrib
 An API connector at this step in the sign-up or sign-in process is invoked before a token is issued. The following are examples of scenarios you might enable at this step:
 - Enriching the token with attributes about the user from sources different than the directory including legacy identity systems, HR systems, external user stores, and more.
 - Enriching the token with group or role attributes that you store and manage in your own permission system. 
-- Applying claims transformations or manipulations to values of claims in the directory
+- Applying claims transformations or manipulations to values of claims in the directory.
 
 ::: zone-end
 
