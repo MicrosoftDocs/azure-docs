@@ -151,7 +151,7 @@ If for some reason you would like to disable client-side monitoring:
    * **Save** the settings and **Restart** your app.
 ---
 
-[!INCLUDE [azure-web-apps-automate-monitoring](../../../includes/azure-web-apps-automate-monitoring.md)]
+[!INCLUDE [azure-web-apps-automate-monitoring](../includes/azure-web-apps-automate-monitoring.md)]
 
 
 ### Enabling through PowerShell
@@ -347,4 +347,4 @@ This is due to the APPINSIGHTS_JAVASCRIPT_ENABLED application setting being set 
 For the latest information on the Application Insights agent/extension, check out the [release notes](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
 
-[!INCLUDE [azure-web-apps-footer](../../../includes/azure-web-apps-footer.md)]
+[!INCLUDE [azure-web-apps-footer](../includes/azure-web-apps-footer.md)]

@@ -6,7 +6,7 @@ ms.date: 08/06/2021
 ms.custom: "devx-track-java"
 ---
 
-# Application Monitoring for Azure App Service
+# Application Monitoring for Azure App Service and Java
 
 Enabling monitoring on your Java based web applications running on [Azure App Services](../../app-service/index.yml) is now easier than ever. Whereas previously you needed to manually instrument your app, the latest extension/agent is now built into the App Service image by default. This article will walk you through enabling Azure Monitor application Insights monitoring as well as provide preliminary guidance for automating the process for large-scale deployments.
 
@@ -50,7 +50,7 @@ You can turn on monitoring for your Java apps running in Azure App Service just 
 
 To enable client-side monitoring for your Java application, you need to [manually add the client-side JavaScript SDK to your application](./javascript.md).
 
-[!INCLUDE [azure-web-apps-automate-monitoring](../../../includes/azure-web-apps-automate-monitoring.md)]
+[!INCLUDE [azure-web-apps-automate-monitoring](../includes/azure-web-apps-automate-monitoring.md)]
 
 
 ## Troubleshooting
@@ -119,4 +119,4 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
     If `AppAlreadyInstrumented` is true this indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off.
 
 
-[!INCLUDE [azure-web-apps-footer](../../../includes/azure-web-apps-footer.md)]
+[!INCLUDE [azure-web-apps-footer](../includes/azure-web-apps-footer.md)]

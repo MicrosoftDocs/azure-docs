@@ -8,7 +8,7 @@ ms.date: 08/06/2021
 
 In order to enable telemetry collection with Application Insights, only the Application settings need to be set:
 
-   ![App Service Application Settings with available Application Insights settings](./media/azure-web-apps/application-settings.png)
+   ![App Service Application Settings with available Application Insights settings](../media/azure-web-apps/application-settings.png)
 
 ### Application settings definitions
 
@@ -22,7 +22,7 @@ In order to enable telemetry collection with Application Insights, only the Appl
 
 ### App Service Application settings with Azure Resource Manager
 
-Application settings for App Services can be managed and configured with [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md). This method can be used when deploying new App Service resources with Azure Resource Manager automation, or for modifying the settings of existing resources.
+Application settings for App Services can be managed and configured with [Azure Resource Manager templates](../../../azure-resource-manager/templates/syntax.md). This method can be used when deploying new App Service resources with Azure Resource Manager automation, or for modifying the settings of existing resources.
 
 The basic structure of the application settings JSON for an app service is below:
 
@@ -54,11 +54,11 @@ To create an Azure Resource Manager template with all the default Application In
 
 Select **Automation options**
 
-   ![App Service web app creation menu](./media/azure-web-apps/create-web-app.png)
+   ![App Service web app creation menu](../media/azure-web-apps/create-web-app.png)
 
 This option generates the latest Azure Resource Manager template with all required settings configured.
 
-  ![App Service web app template](./media/azure-web-apps/arm-template.png)
+  ![App Service web app template](../media/azure-web-apps/arm-template.png)
 
 Below is a sample, replace all instances of  `AppMonitoredSite` with your site name:
 
