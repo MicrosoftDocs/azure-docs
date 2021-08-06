@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
 ms.author: zxue
-ms.date: 08/05/2021
+ms.date: 08/06/2021
 ---
 
 # Deploy a FHIR service within Azure Healthcare APIs - using ARM template
