@@ -18,15 +18,15 @@ This article features a collection of common Queue Storage monitoring scenarios,
 
 You can monitor the message count for all queues in a storage account by using the `QueueMessageCount` metric. This metric is refreshed daily.
 
-If you need to dynamically determine whether to adjust workloads to handle message volume, you can query approximate message on each queue and then respond with the appropriate action. Here's a few examples of getting that metric:
+If you need to dynamically determine whether to adjust workloads to handle message volume, you can query approximate message on each queue and then respond with the appropriate action. Use the [Get Queue Metadata](/rest/api/storageservices/get-queue-metadata) REST operation or use any of the supported Blob storage SDKs to get teh approximate message count. 
 
-##### PowerShell
+If you're using PowerShell, you could use a command similar to the following:  
 
 ```powershell
 (Get-AzMetric -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/contosogroup/providers/Microsoft.Storage/storageAccounts/contoso/queueServices/default -MetricName "QueueMessageCount").data.Average
 ```
 
-##### Azure CLI
+This example gets the `QueueMessageCount` metric by using the Azure CLI:
 
 ```azurecli
 az monitor metrics list --resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/contosogroup/providers/Microsoft.Storage/storageAccounts/contoso/ --metric "QueueMessageCount" --interval PT1H --query value[0].timeseries[0].data[0].average
