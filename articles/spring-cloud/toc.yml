@@ -33,7 +33,9 @@
       - name: Provision using Azure CLI
         href: quickstart-deploy-infrastructure-vnet-azure-cli.md
       - name: Provision using Terraform
-        href: quickstart-deploy-infrastructure-vnet-terraform.md          
+        href: quickstart-deploy-infrastructure-vnet-terraform.md
+      - name: Provision using Bicep
+        href: quickstart-deploy-infrastructure-vnet-bicep.md
 - name: Tutorials
   items:
     - name: Alerts and action groups

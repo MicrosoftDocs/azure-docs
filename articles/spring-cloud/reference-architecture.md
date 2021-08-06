@@ -1,7 +1,7 @@
 ---
 ms.date: 02/16/2021
 ms.topic: reference-architecture
-author: karlerickson
+author: kriation
 title: Azure Spring Cloud reference architecture
 ms.author: akaleshian
 ms.service: spring-cloud
@@ -14,7 +14,7 @@ This reference architecture is a foundation using a typical enterprise hub and s
 
 For an implementation of this architecture, see the [Azure Spring Cloud Reference Architecture][10] repository on GitHub.
 
-Deployment options for this architecture include Azure Resource Manager (ARM), Terraform, and Azure CLI. The artifacts in this repository provide a foundation that you can customize for your environment. You can group resources such as Azure Firewall or Application Gateway into different resource groups or subscriptions. This grouping helps keep different functions separate, such as IT infrastructure, security, business application teams, and so on.
+Deployment options for this architecture include Azure Resource Manager (ARM), Terraform, Azure CLI, and Bicep. The artifacts in this repository provide a foundation that you can customize for your environment. You can group resources such as Azure Firewall or Application Gateway into different resource groups or subscriptions. This grouping helps keep different functions separate, such as IT infrastructure, security, business application teams, and so on.
 
 ## Planning the address space
 
