@@ -30,7 +30,7 @@ Set up a new project in an Azure subscription.
 
 1. In the Azure portal, search for *Azure Migrate*.
 2. In **Services**, select **Azure Migrate**.
-3. In **Overview**, select **Assess and migrate servers**.
+3. In **Overview**, select **Discover, assess and migrate**.
 
     :::image type="content" source="./media/create-manage-projects/assess-migrate-servers.png" alt-text="Option in Overview to assess and migrate servers":::
 
