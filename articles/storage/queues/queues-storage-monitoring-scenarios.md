@@ -16,17 +16,23 @@ This article features a collection of common Queue Storage monitoring scenarios,
 
 ## Monitor message counts in each queue 
 
-You can monitor the total message count for all queues in a storage account by using the `QueueMessageCount` metric. This metric is refreshed daily.
+You can monitor the message count for all queues in a storage account by using the `QueueMessageCount` metric. This metric is refreshed daily.
 
-In scenarios where you need to adjust the processing workloads on the messages, you would need to check the message count in a specific queue in near realtime fashion. You can use Compute or Function to query approximate message on each queue with Get Queue Metadata, then respond with necessary action. 
+If you need to dynamically determine whether to adjust workloads to handle message volume, you can query approximate message on each queue and then respond with the appropriate action. Here's a few examples of getting that metric:
 
-Sample - Powershell 
+##### PowerShell
 
-Sample - CLI 
+```powershell
+(Get-AzMetric -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/contosogroup/providers/Microsoft.Storage/storageAccounts/contoso/queueServices/default -MetricName "QueueMessageCount").data.Average
+```
 
-Sample - .Net 
+##### Azure CLI
 
-Another alternative path is to use Service Bus instead which support message per entity. See more in Monitoring Azure Service Bus data reference. 
+```azurecli
+az monitor metrics list --resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/contosogroup/providers/Microsoft.Storage/storageAccounts/contoso/ --metric "QueueMessageCount" --interval PT1H --query value[0].timeseries[0].data[0].average
+```
+
+Also consider using Service Bus which supports message per entity. To learn more, see [Monitoring Azure Service Bus data reference](../../service-bus-messaging/monitor-service-bus-reference.md). 
 
 ## Audit account activity
 
