@@ -216,6 +216,32 @@ The following example demonstrates an authorization request with **AllowCreate**
 </samlp:AuthnRequest>
 ```
 
+### Force Authentication
+
+To request that the external SAML IDP prompt the user for authentication, you can pass the `ForceAuthN` property in the SAML AuthN Reuqest. This will be dependent on your identity provider supporting this property.
+
+Azure AD B2C will by default set this flag to `False` unless there is a valid session and the initiating request asked to force authentication (for example prompt=login on an OIDC request). You can change this behavior using the `ForceAuthN` metadata. The value of this metadata is `true` or `false`.
+
+The following example demonstrates how to set `ForceAuthN` property to `true`.
+
+```xml
+<Metadata>
+  ...
+  <Item Key="ForceAuthN">true</Item>
+  ...
+</Metadata>
+```
+
+The following example demonstrates an authorization request with **ForceAuthN** in the authorization request.
+
+
+```xml
+<samlp:AuthnRequest AssertionConsumerServiceURL="https://..."  ...
+                    ForceAuthn="true">
+  ...
+</samlp:AuthnRequest>
+```
+
 ### Include authentication context class references
 
 A SAML authorization request may contain a **AuthnContext** element, which specifies the context of an authorization request. The element can contain an authentication context class reference, which tells the SAML identity provider which authentication mechanism to present to the user.
@@ -245,7 +271,7 @@ The following SAML authorization request contains the authentication context cla
 
 ## Include custom data in the authorization request
 
-You can optionally include protocol message extension elements that are agreed to by both Azure AD BC and your identity provider. The extension is presented in XML format. You include extension elements by adding XML data inside the CDATA element `<![CDATA[Your IDP metadata]]>`. Check your identity provider’s documentation to see if the extensions element is supported.
+You can optionally include protocol message extension elements that are agreed to by both Azure AD BC and your identity provider. The extension is presented in XML format. You include extension elements by adding XML data inside the CDATA element `<![CDATA[Your Custom XML]]>`. Check your identity provider’s documentation to see if the extensions element is supported.
 
 The following example illustrates the use of extension data:
 
@@ -259,6 +285,9 @@ The following example illustrates the use of extension data:
             </ext:MyCustom>]]></Item>
 </Metadata>
 ```
+
+> [!NOTE]
+> As per the SAML Specification the Extension data must be Namespace qualified XML (For example 'urn:ext:custom' in the sample above). And that namespace can not be one of the SAML specific namespaces.
 
 When using the SAML protocol message extension, the SAML response will look like the following example:
 
