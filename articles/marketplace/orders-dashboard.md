@@ -4,7 +4,7 @@ description: Learn how to access analytic reports about your commercial marketpl
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 08/06/2021
 author: smannepalle
 ms.author: smannepalle
 ---
@@ -131,7 +131,16 @@ The Order details table displays a numbered list of the 1,000 top orders sorted 
 | Customer ID | Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. | CustomerId |
 | Billing Account ID | Billing Account ID | The identifier of the account on which billing is generated. Map **Billing Account ID** to **customerID** to connect your Payout Transaction Report with the Customer, Order, and Usage Reports. | BillingAccountId |
 | AssetCount | Asset Count | The number of assets associated with the order ID. | Deprecated |
+| Not available * | TermStartDate | Indicates the start date of a term for an order. | TermStartDate |
+| Not available * | TermEndDate | Indicates the end date of a term for an order. | TermEndDate |
+| Not available * | purchaseRecordId | The identifier of the purchase record related to an order. | purchaseRecordId |
+| Not available * | purchaseRecordLineItemId | The identifier of the purchase record line item related to this order. | purchaseRecordLineItemId |
+| Not available * | EstimatedCharges | The price the customer will be charged for all order units before taxation. In tax inclusive countries, this price includes the tax, otherwise it does not. | EstimatedCharges |
+| Not available * | Currency | BillingCurrency for the offer | Currency |
+| Not available * | HasTrial | Represents whether an offer has trial period enabled. | HasTrial |
 |||||
+
+`*` These new fields are currently provided in the ISVOrderV2 dataset and can be accessed programmatically.
 
 ### Orders page filters
 
