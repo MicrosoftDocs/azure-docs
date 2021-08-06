@@ -15,7 +15,7 @@ keywords: translator, text translation, machine translation, translation service
 ---
 # What is Translator?
 
- Translator is a cloud-based [machine translation](https://www.microsoft.com/translator/business/machine-translation/#howtext) service that is part of the [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) family of REST APIs. Translator enables you to build intelligent, multi-language solutions for your applications across all [supported written languages](./language-support.md). Translator can be used with any operating system and powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. 
+ Translator is a cloud-based [machine translation](https://www.microsoft.com/translator/business/machine-translation/#howtext) service that is part of the [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) family of REST APIs. Translator enables you to build intelligent, multi-language solutions for your applications across all [supported languages](./language-support.md). Translator can be used with any operating system and powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. 
 
 Translator documentation contains the following article types:
 
@@ -26,17 +26,23 @@ Translator documentation contains the following article types:
 
 ## Translator features and development options
 
-The following features are supported by the Translator service. Use the links in this table to learn more about common use-cases for each feature, or browse the API reference.
+The following features are supported by the Translator service. Use the links in this table to learn more about each feature and browse the API references.
 
 | Feature | Description | Development options |
 |----------|-------------|--------------------------|
 | [**Text Translation**](text-translation-overview.md) | Execute real-time and/or asynchronous translation of text between supported source and target languages | <ul><li>[**REST API**](reference/rest-api-guide.md) </li><li>[Docker Container](/containers/translator-how-to-install-container)</li></ul> |
-| [**Document Translation**](document-translation/overview.md). | Translate batch and complex files while preserving the structure and format of the original documents. | <ul><li>[**REST API**](document-translation/reference/rest-api-guide.md)</li><li>[**Client-library SDK**](document-translation/client-sdks.md)</li></ul> |
-| [**Custom Translator**](custom-translator/overview.md). | Build customized models to translate domain- and industry-specific language, terminology and style. | <ul><li>[**Custom Translator portal**](https://portal.customtranslator.azure.ai/)</li></ul> |
+| [**Document Translation**](document-translation/overview.md) | Translate batch and complex files while preserving the structure and format of the original documents. | <ul><li>[**REST API**](document-translation/reference/rest-api-guide.md)</li><li>[**Client-library SDK**](document-translation/client-sdks.md)</li></ul> |
+| [**Custom Translator**](custom-translator/overview.md) | Build customized models to translate domain- and industry-specific language, terminology and style. | <ul><li>[**Custom Translator portal**](https://portal.customtranslator.azure.ai/)</li></ul> |
+
+## Try the Translator service for free
+
+First, you'll need a Microsoft account; if you do not one, you can sign up for free at the [**Microsoft account portal**](https://account.microsoft.com/account).  Select **Create a Microsoft account** and follow the steps to create and verify your new account.
+
+Next, you'll need to  have an Azure account—navigate to the [**Azure sign-up page**](https://azure.microsoft.com/free/ai/), select the **Start free** button, and create a new Azure account using your Microsoft account credentials.
+
+Now, you're ready to get started! [**Create a Translator service**](translator-how-to-signup.md "Go to the Azure portal."), [**get your access keys and API endpoint** "An endpoint URL and read-only key are required for authentication."](translator-how-to-signup.md#authentication-keys-and-endpoint-url), and try our [**quickstart**](quickstart-translator.md "Learn to use Translator via REST.").
 
 ## Next steps
 
-* [Create a Translator service](translator-how-to-signup.md) to get your access keys and endpoint.
-* Try our [Quickstart](quickstart-translator.md) to quickly call the Translator service.
-* [API reference](./reference/v3-0-reference.md) provides the technical documentation for the APIs.
-* [Pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
+* Explore the [REST API reference](./reference/v3-0-reference.md).
+* Learn more about [Translator pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).

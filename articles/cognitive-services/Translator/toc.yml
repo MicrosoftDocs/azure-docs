@@ -63,6 +63,10 @@
         href: containers/translator-container-supported-parameters.md
   - name: Tutorials
     items:
+    - name: Use Translator and AI Builder
+      items: 
+      - name:  Create a text translation workflow
+        href:  /ai-builder/flow-text-translation?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
     - name: Create a WPF app for Translator, C#
       href: tutorial-wpf-translation-csharp.md
     - name: Create a Flask translation app, Python
