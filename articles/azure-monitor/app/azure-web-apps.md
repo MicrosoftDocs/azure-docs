@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure app services performance | Microsoft Docs
+title: Monitor Azure app services performance .NET | Microsoft Docs
 description: Application performance monitoring for Azure app services. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
 ms.date: 08/05/2021
@@ -151,7 +151,8 @@ If for some reason you would like to disable client-side monitoring:
    * **Save** the settings and **Restart** your app.
 ---
 
-[!INCLUDE [azure-web-apps-automate-monitoring](./azure-web-apps-automate-monitoring.md)]
+[!INCLUDE [azure-web-apps-automate-monitoring](../../../includes/azure-web-apps-automate-monitoring.md)]
+
 
 ### Enabling through PowerShell
 
@@ -193,8 +194,6 @@ Starting with version 2.8.9 the pre-installed site extension is used. If you are
 If the upgrade is done from a version prior to 2.5.1, check that the ApplicationInsigths dlls are removed from the application bin folder [see troubleshooting steps](#troubleshooting).
 
 ## Troubleshooting
-
-### ASP.NET and ASP.NET CORE
 
 Below is our step-by-step troubleshooting guide for extension/agent based monitoring for ASP.NET and ASP.NET Core based applications running on Azure App Services.
 
@@ -272,7 +271,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
     
     If `AppAlreadyInstrumented` is true this indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off.
 
-##### No Data for Linux 
+##### No Data
 
 1. List and identify the process that is hosting an app. Navigate to your terminal and on the command line type `ps ax`. 
     
@@ -312,7 +311,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
     
 
 1. Validate that `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`, `DOTNET_STARTUP_HOOKS` and `APPLICATIONINSIGHTS_CONNECTION_STRING` are set.
-
+---
 
 #### Default website deployed with web apps does not support automatic client-side monitoring
 
@@ -348,4 +347,4 @@ This is due to the APPINSIGHTS_JAVASCRIPT_ENABLED application setting being set 
 For the latest information on the Application Insights agent/extension, check out the [release notes](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
 
-[!INCLUDE [azure-web-apps-footer](./azure-web-apps-footer.md)]
+[!INCLUDE [azure-web-apps-footer](../../../includes/azure-web-apps-footer.md)]

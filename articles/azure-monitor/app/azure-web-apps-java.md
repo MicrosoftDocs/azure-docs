@@ -1,14 +1,14 @@
 ---
-title: Monitor Azure app services performance | Microsoft Docs
-description: Application performance monitoring for Azure app services with Node.js. Chart load and response time, dependency information, and set alerts on performance.
+title: Monitor Azure app services performance Java | Microsoft Docs
+description: Application performance monitoring for Azure app services using Java. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
 ms.date: 08/06/2021
-ms.custom: "devx-track-js"
+ms.custom: "devx-track-java"
 ---
 
 # Application Monitoring for Azure App Service
 
-Enabling monitoring on your Node.js based web applications running on [Azure App Services](../../app-service/index.yml) is now easier than ever. Whereas previously you needed to manually instrument your app, the latest extension/agent is now built into the App Service image by default. This article will walk you through enabling Azure Monitor application Insights monitoring as well as provide preliminary guidance for automating the process for large-scale deployments.
+Enabling monitoring on your Java based web applications running on [Azure App Services](../../app-service/index.yml) is now easier than ever. Whereas previously you needed to manually instrument your app, the latest extension/agent is now built into the App Service image by default. This article will walk you through enabling Azure Monitor application Insights monitoring as well as provide preliminary guidance for automating the process for large-scale deployments.
 
 
 ## Enable Application Insights
@@ -28,30 +28,29 @@ There are two ways to enable application monitoring for Azure App Services hoste
 > If both agent-based monitoring and manual SDK-based instrumentation is detected, only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](#troubleshooting) below.
 ## Enable agent-based monitoring
 
-You can monitor your Node.js apps running in Azure App Service without any code change, just with a couple of simple steps. Application insights for Node.js applications is integrated with App Service on Linux - both code-based and custom containers, and with App Service on Windows for code-based apps. The integration is in public preview. The integration adds Node.js SDK, which is in GA. 
+You can turn on monitoring for your Java apps running in Azure App Service just with one click, no code change required. Application Insights for Java is integrated with App Service on Linux - both code-based and custom containers, and with App Service on Windows - code-based apps. It is important to know how your application will be monitored. The integration adds [Application Insights Java 3.x](./java-in-process-agent.md) and you will get all the telemetry that it auto-collects.
 
 1. **Select Application Insights** in the Azure control panel for your app service.
 
     > [!div class="mx-imgBorder"]
     > ![Under Settings, choose Application Insights.](./media/azure-web-apps/ai-enable.png)
-   * Choose to create a new resource, unless you already set up an Application Insights resource for this application. 
+   * Choose to create a new resource, or select an existing Application Insights resource for this application.
 
-     > [!NOTE]
-     > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
-    ![Instrument your web app.](./media/azure-web-apps/create-resource-01.png)
-
-2. Once you have specified which resource to use, you are all set to go. 
+    > [!NOTE]
+    > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
+    >[!div class="mx-imgBorder"]
+    >![Instrument your web app.](./media/azure-web-apps/ai-create-new.png)
+2. This step is not required. After specifying which resource to use, you can configure the Java agent. If you do not configure the Java agent, default configurations will apply. The full [set of configurations](./java-standalone-config.md) is available, you just need to paste a valid json file. Exclude the connection string and any configurations that are in preview - you will be able to add those as they become generally available.
 
     > [!div class="mx-imgBorder"]
-    > ![Choose options per platform.](./media/azure-web-apps/app-service-node.png)
----
+    > ![Choose options per platform.](./media/azure-web-apps/create-app-service-ai.png)
 
 ## Enable client-side monitoring
 
 
-To enable client-side monitoring for your Node.js application, you need to [manually add the client-side JavaScript SDK to your application](./javascript.md).
+To enable client-side monitoring for your Java application, you need to [manually add the client-side JavaScript SDK to your application](./javascript.md).
 
-[!INCLUDE [azure-web-apps-automate-monitoring](./azure-web-apps-automate-monitoring.md)]
+[!INCLUDE [azure-web-apps-automate-monitoring](../../../includes/azure-web-apps-automate-monitoring.md)]
 
 
 ## Troubleshooting
@@ -120,4 +119,4 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
     If `AppAlreadyInstrumented` is true this indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off.
 
 
-[!INCLUDE [azure-web-apps-footer](./azure-web-apps-footer.md)]
+[!INCLUDE [azure-web-apps-footer](../../../includes/azure-web-apps-footer.md)]

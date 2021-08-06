@@ -1,6 +1,6 @@
 ---
-title: Monitor Azure app services performance | Microsoft Docs
-description: Application performance monitoring for Azure app services with Node.js. Chart load and response time, dependency information, and set alerts on performance.
+title: Monitor Azure app services performance Node.js | Microsoft Docs
+description: Application performance monitoring for Azure app services using Node.js. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
 ms.date: 08/06/2021
 ms.custom: "devx-track-js"
@@ -44,14 +44,13 @@ You can monitor your Node.js apps running in Azure App Service without any code 
 
     > [!div class="mx-imgBorder"]
     > ![Choose options per platform.](./media/azure-web-apps/app-service-node.png)
----
 
 ## Enable client-side monitoring
 
 
 To enable client-side monitoring for your Node.js application, you need to [manually add the client-side JavaScript SDK to your application](./javascript.md).
 
-[!INCLUDE [azure-web-apps-automate-monitoring](./azure-web-apps-automate-monitoring.md)]
+[!INCLUDE [azure-web-apps-automate-monitoring](../../../includes/azure-web-apps-automate-monitoring.md)]
 
 
 ## Troubleshooting
@@ -118,6 +117,8 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
     ```
 
     If `AppAlreadyInstrumented` is true this indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off.
+---
 
 
-[!INCLUDE [azure-web-apps-footer](./azure-web-apps-footer.md)]
+
+[!INCLUDE [azure-web-apps-footer](../../../includes/azure-web-apps-footer.md)]
