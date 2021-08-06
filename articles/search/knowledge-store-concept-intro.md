@@ -16,6 +16,8 @@ Knowledge store is a feature of Azure Cognitive Search that persists output from
 
 If you have used cognitive skills in the past, you already know that *skillsets* move a document through a sequence of enrichments. The outcome can be a search index, or projections in a knowledge store. The two outputs, search index and knowledge store, are products of the same pipeline; derived from the same inputs, but resulting in output that is structured, stored, and used in very different ways.
 
+:::image type="content" source="media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg" alt-text="Knowledge store in pipeline diagram" border="false":::
+
 Physically, a knowledge store is [Azure Storage](../storage/common/storage-account-overview.md), either Azure Table Storage, Azure Blob Storage, or both. Any tool or process that can connect to Azure Storage can consume the contents of a knowledge store.
 
 Viewed through Storage Explorer, a knowledge store is just a collection of tables, objects, or files. The following example shows a knowledge store composed of three tables with fields that are either carried forward from the data source, or created through enrichments (see "sentiment score" and "translated_text").
@@ -38,7 +40,7 @@ Enumerated, the benefits of knowledge store include the following:
 
 > [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3]
 
-## Physical storage
+## Knowledge store definition
 
 During indexer execution, knowledge stores are created in your [Azure Storage account](../storage/common/storage-account-overview.md), using Azure Table Storage, Azure Blob Storage, or both. 
 
@@ -62,25 +64,11 @@ The type of projection you specify in this structure determines the type of stor
 
 + Blob storage is used when you define `objects` or `files`. The physical representation of an `object` is a hierarchical JSON structure that represents an enriched document. A `file` is an image extracted from a document, transferred intact to Blob storage.
 
-## Requirements 
-
-[Azure Storage](../storage/index.yml) is required. It provides physical storage. You can use Blob Storage, Table Storage or both. Blob Storage is used for intact enriched documents, usually when the output is going to downstream processes. Table Storage is for slices of enriched documents, commonly used for analysis and reporting.
-
-[Skillset](cognitive-search-working-with-skillsets.md) is required. It contains the `knowledgeStore` definition, and it determines the structure and composition of an enriched document. You cannot create a knowledge store using an empty skillset. You must have at least one skill in a skillset.
-
-[Indexer](search-indexer-overview.md) is required. A skillset is invoked by an indexer, which drives the execution. Indexers come with their own set of requirements and attributes. Several of these attributes have a direct bearing on a knowledge store:
-
-+ Indexers require a [supported Azure data source](search-indexer-overview.md#supported-data-sources) (the pipeline that ultimately creates the knowledge store starts by pulling data from a supported source on Azure). 
-
-+ Indexers require a search index. An indexer requires that you provide an index schema, even if you never plan to use it. A minimal index has one string field, designated as the key.
-
-+ Indexers provide optional field mappings, used to alias a source field to a destination field. If a default field mapping needs modification (to use a different name or type), you can create a [field mapping](search-indexer-field-mappings.md) within an indexer. For knowledge store output, the destination can be a field in a blob object or table.
-
-+ Indexers have schedules and other properties, such as change detection mechanisms provided by various data sources, can also be applied to a knowledge store. For example, you can [schedule](search-howto-schedule-indexers.md) enrichment at regular intervals to refresh the contents. 
-
 ## Create a knowledge store
 
 To create knowledge store, use the portal or an API.
+
+You will need [Azure Storage](../storage/index.yml), a [skillset](cognitive-search-working-with-skillsets.md), and an [indexer](search-indexer-overview.md). Because indexers require a search index, you will also need to provide an index definition.
 
 ### [**Azure portal**](#tab/kstore-portal)
 
