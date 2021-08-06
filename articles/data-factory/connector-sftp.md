@@ -5,6 +5,7 @@ description: Learn how to copy data from and to SFTP server by using Azure Data 
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 03/17/2021

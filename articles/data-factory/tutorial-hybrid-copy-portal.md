@@ -4,6 +4,7 @@ description: Learn how to copy data from an on-premises data store to the cloud 
 ms.author: abnarain
 author: nabhishek
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 07/05/2021
 ---
