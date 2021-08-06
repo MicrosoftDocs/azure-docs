@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Deploy configurations using GitOps on an Azure Arc—enabled Kubernetes cluster'
-description: This tutorial demonstrates applying configurations on an Azure Arc—enabled Kubernetes cluster. For a conceptual take on this process, see the Configurations and GitOps - Azure Arc—enabled Kubernetes article. 
+title: 'Tutorial: Deploy configurations using GitOps on an Azure Arc–enabled Kubernetes cluster'
+description: This tutorial demonstrates applying configurations on an Azure Arc–enabled Kubernetes cluster. For a conceptual take on this process, see the Configurations and GitOps - Azure Arc–enabled Kubernetes article. 
 author: shashankbarsin
 ms.author: shasb
 ms.service: azure-arc
@@ -9,12 +9,12 @@ ms.date: 03/02/2021
 ms.custom: template-tutorial , devx-track-azurecli
 ---
 
-# Tutorial: Deploy configurations using GitOps on an Azure Arc—enabled Kubernetes cluster 
+# Tutorial: Deploy configurations using GitOps on an Azure Arc–enabled Kubernetes cluster 
 
-In this tutorial, you will apply configurations using GitOps on an Azure Arc—enabled Kubernetes cluster. You'll learn how to:
+In this tutorial, you will apply configurations using GitOps on an Azure Arc–enabled Kubernetes cluster. You'll learn how to:
 
 > [!div class="checklist"]
-> * Create a configuration on an Azure Arc—enabled Kubernetes cluster using an example Git repository.
+> * Create a configuration on an Azure Arc–enabled Kubernetes cluster using an example Git repository.
 > * Validate that the configuration was successfully created.
 > * Apply configuration from a private Git repository.
 > * Validate the Kubernetes configuration.
@@ -22,9 +22,9 @@ In this tutorial, you will apply configurations using GitOps on an Azure Arc—e
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An existing Azure Arc—enabled Kubernetes connected cluster.
-    - If you haven't connected a cluster yet, walk through our [Connect an Azure Arc—enabled Kubernetes cluster quickstart](quickstart-connect-cluster.md).
-- An understanding of the benefits and architecture of this feature. Read more in [Configurations and GitOps - Azure Arc—enabled Kubernetes article](conceptual-configurations.md).
+- An existing Azure Arc–enabled Kubernetes connected cluster.
+    - If you haven't connected a cluster yet, walk through our [Connect an Azure Arc–enabled Kubernetes cluster quickstart](quickstart-connect-cluster.md).
+- An understanding of the benefits and architecture of this feature. Read more in [Configurations and GitOps - Azure Arc–enabled Kubernetes article](conceptual-configurations.md).
 - Install the `k8s-configuration` Azure CLI extension of version >= 1.0.0:
   
   ```azurecli
@@ -183,7 +183,7 @@ For more information, see the [Flux documentation](https://aka.ms/FluxcdReadme).
 > Flux defaults to sync from the `master` branch of the git repo. However, newer git repositories have the root branch named `main`, in which case you need to set `--git-branch=main` in the --operator-params. 
 
 > [!TIP]
-> You can create a configuration in the Azure portal in the **GitOps** tab of the Azure Arc—enabled Kubernetes resource.
+> You can create a configuration in the Azure portal in the **GitOps** tab of the Azure Arc–enabled Kubernetes resource.
 
 ## Validate the configuration
 

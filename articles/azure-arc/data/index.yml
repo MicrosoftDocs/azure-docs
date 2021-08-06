@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure Arc—enabled data services # < 60 chars
+title: Azure Arc–enabled data services # < 60 chars
 summary: Run Azure data services on-premises, at the edge, and in multi-cloud environments using Kubernetes on the infrastructure of your choice. # < 160 chars
  
 metadata:
@@ -23,7 +23,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What are Azure Arc—enabled data services?
+          - text: What are Azure Arc–enabled data services?
             url: overview.md
       - linkListType: concept
         links:
@@ -43,7 +43,7 @@ landingContent:
             url: install-client-tools.md
 
   # Card (optional)
-  - title: Azure Arc—enabled PostgreSQL Hyperscale (preview)
+  - title: Azure Arc–enabled PostgreSQL Hyperscale (preview)
     linkLists:
       - linkListType: quickstart
         links:
@@ -57,7 +57,7 @@ landingContent:
             url: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
 
   # Card (optional)
-  - title: Azure Arc—enabled SQL Managed Instance
+  - title: Azure Arc–enabled SQL Managed Instance
     linkLists:
       - linkListType: quickstart
         links:
@@ -77,4 +77,3 @@ landingContent:
        links:
           - text: Jumpstart
             url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/
-

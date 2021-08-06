@@ -1,14 +1,14 @@
 ---
-title: Azure Resource Graph sample queries for Azure Arc—enabled servers
-description: Sample Azure Resource Graph queries for Azure Arc—enabled servers showing use of resource types and tables to access Azure Arc—enabled servers related resources and properties.
+title: Azure Resource Graph sample queries for Azure Arc–enabled servers
+description: Sample Azure Resource Graph queries for Azure Arc–enabled servers showing use of resource types and tables to access Azure Arc–enabled servers related resources and properties.
 ms.date: 08/04/2021
 ms.topic: sample
 ms.custom: subject-resourcegraph-sample
 ---
-# Azure Resource Graph sample queries for Azure Arc—enabled servers
+# Azure Resource Graph sample queries for Azure Arc–enabled servers
 
 This page is a collection of [Azure Resource Graph](../../governance/resource-graph/overview.md)
-sample queries for Azure Arc—enabled servers. For a complete list of Azure Resource Graph samples,
+sample queries for Azure Arc–enabled servers. For a complete list of Azure Resource Graph samples,
 see
 [Resource Graph samples by Category](../../governance/resource-graph/samples/samples-by-category.md)
 and [Resource Graph samples by Table](../../governance/resource-graph/samples/samples-by-table.md).

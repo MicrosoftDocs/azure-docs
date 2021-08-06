@@ -1,17 +1,17 @@
 ---
-title: Troubleshoot Azure Arc—enabled servers agent connection issues
-description: This article tells how to troubleshoot and resolve issues with the Connected Machine agent that arise with Azure Arc—enabled servers when trying to connect to the service.
+title: Troubleshoot Azure Arc–enabled servers agent connection issues
+description: This article tells how to troubleshoot and resolve issues with the Connected Machine agent that arise with Azure Arc–enabled servers when trying to connect to the service.
 ms.date: 07/16/2021
 ms.topic: conceptual
 ---
 
-# Troubleshoot Azure Arc—enabled servers agent connection issues
+# Troubleshoot Azure Arc–enabled servers agent connection issues
 
-This article provides information on troubleshooting and resolving issues that may occur while attempting to configure the Azure Arc—enabled servers Connected Machine agent for Windows or Linux. Both the interactive and at-scale installation methods when configuring connection to the service are included. For general information, see [Azure Arc—enabled servers overview](./overview.md).
+This article provides information on troubleshooting and resolving issues that may occur while attempting to configure the Azure Arc–enabled servers Connected Machine agent for Windows or Linux. Both the interactive and at-scale installation methods when configuring connection to the service are included. For general information, see [Azure Arc–enabled servers overview](./overview.md).
 
 ## Agent error codes
 
-If you receive an error when configuring the Azure Arc—enabled servers agent, the following table can help you identify the probable cause and suggested steps to resolve your problem. You will need the `AZCM0000` ("0000" can be any 4 digit number) error code printed to the console or script output to proceed.
+If you receive an error when configuring the Azure Arc–enabled servers agent, the following table can help you identify the probable cause and suggested steps to resolve your problem. You will need the `AZCM0000` ("0000" can be any 4 digit number) error code printed to the console or script output to proceed.
 
 | Error code | Probable cause | Suggested remediation |
 |------------|----------------|-----------------------|
@@ -26,9 +26,9 @@ If you receive an error when configuring the Azure Arc—enabled servers agent, 
 | AZCM0017 | The resource name is invalid | Specify a name that only uses alphanumeric characters, hyphens and/or underscores. The name cannot end with a hyphen or underscore. |
 | AZCM0018 | The command was executed without administrative privileges | Retry the command with administrator or root privileges in an elevated command prompt or console session. |
 | AZCM0041 | The credentials supplied are invalid | For device logins, verify the user account specified has access to the tenant and subscription where the server resource will be created. For service principal logins, check the client ID and secret for correctness, the expiration date of the secret, and that the service principal is from the same tenant where the server resource will be created. |
-| AZCM0042 | Creation of the Azure Arc—enabled server resource failed | Verify that the user/service principal specified has access to create Azure Arc—enabled server resources in the specified resource group. |
-| AZCM0043 | Deletion of the Azure Arc—enabled server resource failed | Verify that the user/service principal specified has access to delete Azure Arc—enabled server resources in the specified resource group. If the resource no longer exists in Azure, use the `--force-local-only` flag to proceed. |
-| AZCM0044 | A resource with the same name already exists | Specify a different name for the `--resource-name` parameter or delete the existing Azure Arc—enabled server in Azure and try again. |
+| AZCM0042 | Creation of the Azure Arc–enabled server resource failed | Verify that the user/service principal specified has access to create Azure Arc–enabled server resources in the specified resource group. |
+| AZCM0043 | Deletion of the Azure Arc–enabled server resource failed | Verify that the user/service principal specified has access to delete Azure Arc–enabled server resources in the specified resource group. If the resource no longer exists in Azure, use the `--force-local-only` flag to proceed. |
+| AZCM0044 | A resource with the same name already exists | Specify a different name for the `--resource-name` parameter or delete the existing Azure Arc–enabled server in Azure and try again. |
 | AZCM0061 | Unable to reach the agent service | Verify you are running the command in an elevated user context (administrator/root) and that the HIMDS service is running on your server. |
 | AZCM0062 | An error occurred while connecting the server | Review other error codes in the output for more specific information. If the error occurred after the Azure resource was created, you need to delete the Arc server from your resource group before retrying. |
 | AZCM0063 | An error occurred while disconnecting the server | Review other error codes in the output for more specific information. If you continue to encounter this error, you can delete the resource in Azure and then run `azcmagent disconnect --force-local-only` on the server to disconnect the agent. |

@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Azure Arc—enabled Kubernetes
+title: Azure Arc–enabled Kubernetes
 summary: Learn how to manage Kubernetes clusters with Azure Arc
 
 metadata:
@@ -12,11 +12,11 @@ metadata:
   ms.author: shasb
 
 landingContent:
-  - title: About Azure Arc—enabled Kubernetes
+  - title: About Azure Arc–enabled Kubernetes
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Arc—enabled Kubernetes?
+          - text: What is Azure Arc–enabled Kubernetes?
             url: overview.md
           - text: Azure Arc Validation Program
             url: validation-program.md

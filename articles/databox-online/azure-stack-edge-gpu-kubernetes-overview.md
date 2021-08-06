@@ -109,7 +109,7 @@ For more information on deploying applications on your Kubernetes cluster via Io
 
 ### Kubernetes and Azure Arc
 
-Azure Arc is a hybrid management tool that will allow you to deploy applications on your Kubernetes clusters. Azure Arc also allows you to use Azure Monitor for containers to view and monitor your clusters. For more information, go to [What is Azure-Arc enabled Kubernetes?](../azure-arc/kubernetes/overview.md). For information on Azure Arc pricing, go to [Azure Arc pricing](https://azure.microsoft.com/services/azure-arc/#pricing).
+Azure Arc is a hybrid management tool that will allow you to deploy applications on your Kubernetes clusters. Azure Arc also allows you to use Azure Monitor for containers to view and monitor your clusters. For more information, go to [What is Azure Arc–enabled Kubernetes?](../azure-arc/kubernetes/overview.md). For information on Azure Arc pricing, go to [Azure Arc pricing](https://azure.microsoft.com/services/azure-arc/#pricing).
 
 Beginning March 2021, Azure Arc enabled Kubernetes will be generally available to the users and standard usage charges apply. As a valued preview customer, the Azure Arc enabled Kubernetes will be available to you at no charge for Azure Stack Edge device(s). To avail the preview offer, create a [Support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
 

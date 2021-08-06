@@ -1,6 +1,6 @@
 ---
 title: Change the PostgreSQL port
-description: Change the port on which the Azure Arc—enabled PostgreSQL Hyperscale server group is listening.
+description: Change the port on which the Azure Arc–enabled PostgreSQL Hyperscale server group is listening.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data

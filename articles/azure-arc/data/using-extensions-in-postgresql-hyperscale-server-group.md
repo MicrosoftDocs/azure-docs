@@ -1,7 +1,7 @@
 ---
 title: Use PostgreSQL extensions
 description: Use PostgreSQL extensions
-titleSuffix: Azure Arc—enabled data services
+titleSuffix: Azure Arc–enabled data services
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -12,14 +12,14 @@ ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Use PostgreSQL extensions in your Azure Arc—enabled PostgreSQL Hyperscale server group
+# Use PostgreSQL extensions in your Azure Arc–enabled PostgreSQL Hyperscale server group
 
 PostgreSQL is at its best when you use it with extensions. In fact, a key element of our own Hyperscale functionality is the Microsoft-provided `citus` extension that is installed by default, which allows Postgres to transparently shard data across multiple nodes.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Supported extensions
-The standard [`contrib`](https://www.postgresql.org/docs/12/contrib.html) extensions and the following extensions are already deployed in the containers of your Azure Arc—enabled PostgreSQL Hyperscale server group:
+The standard [`contrib`](https://www.postgresql.org/docs/12/contrib.html) extensions and the following extensions are already deployed in the containers of your Azure Arc–enabled PostgreSQL Hyperscale server group:
 - [`citus`](https://github.com/citusdata/citus), v: 10.0. The Citus extension by [Citus Data](https://www.citusdata.com/) is loaded by default as it brings the Hyperscale capability to the PostgreSQL engine. Dropping the Citus extension from your Azure Arc PostgreSQL Hyperscale server group is not supported.
 - [`pg_cron`](https://github.com/citusdata/pg_cron), v: 1.3
 - [`pgaudit`](https://www.pgaudit.org/), v: 1.4

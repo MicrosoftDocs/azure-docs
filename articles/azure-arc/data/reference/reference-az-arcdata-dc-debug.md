@@ -1,6 +1,6 @@
 ---
 title: az arcdata dc debug reference
-titleSuffix: Azure Arc—enabled data services
+titleSuffix: Azure Arc–enabled data services
 description: Reference article for az arcdata dc debug commands.
 author: MikeRayMSFT
 ms.author: mikeray

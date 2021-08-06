@@ -1,13 +1,13 @@
 ---
-title: Authenticate against Azure resources with Azure Arc—enabled servers
-description: This article describes Azure Instance Metadata Service support for Azure Arc—enabled servers and how you can authenticate against Azure resources and local using a secret.
+title: Authenticate against Azure resources with Azure Arc–enabled servers
+description: This article describes Azure Instance Metadata Service support for Azure Arc–enabled servers and how you can authenticate against Azure resources and local using a secret.
 ms.topic: conceptual
 ms.date: 07/16/2021
 ---
 
-# Authenticate against Azure resources with Azure Arc—enabled servers
+# Authenticate against Azure resources with Azure Arc–enabled servers
 
-Applications or processes running directly on an Azure Arc—enabled servers can leverage managed identities to access other Azure resources that support Azure Active Directory-based authentication. An application can obtain an [access token](../../active-directory/develop/developer-glossary.md#access-token) representing its identity, which is system-assigned for Azure Arc—enabled servers, and use it as a 'bearer' token to authenticate itself to another service.
+Applications or processes running directly on an Azure Arc–enabled servers can leverage managed identities to access other Azure resources that support Azure Active Directory-based authentication. An application can obtain an [access token](../../active-directory/develop/developer-glossary.md#access-token) representing its identity, which is system-assigned for Azure Arc–enabled servers, and use it as a 'bearer' token to authenticate itself to another service.
 
 Refer to the [managed identity overview](../../active-directory/managed-identities-azure-resources/overview.md) documentation for a detailed description of managed identities, as well as the distinction between system-assigned and user-assigned identities.
 
@@ -15,17 +15,17 @@ In this article, we show you how a server can use a system-assigned managed iden
 
 ## Security overview
 
-While onboarding your server to Azure Arc—enabled servers, several actions are performed to configure using a managed identity, similar to what is performed for an Azure VM:
+While onboarding your server to Azure Arc–enabled servers, several actions are performed to configure using a managed identity, similar to what is performed for an Azure VM:
 
-- Azure Resource Manager receives a request to enable the system-assigned managed identity on the Azure Arc—enabled server.
+- Azure Resource Manager receives a request to enable the system-assigned managed identity on the Azure Arc–enabled server.
 
 - Azure Resource Manager creates a service principal in Azure AD for the identity of the server. The service principal is created in the Azure AD tenant that's trusted by the subscription.
 
-- Azure Resource Manager configures the identity on the server by updating the Azure Instance Metadata Service (IMDS) identity endpoint for [Windows](../../virtual-machines/windows/instance-metadata-service.md) or [Linux](../../virtual-machines/linux/instance-metadata-service.md) with the service principal client ID and certificate. The endpoint is a REST endpoint accessible only from within the server using a well-known, non-routable IP address. This service provides a subset of metadata information about the Azure Arc—enabled server to help manage and configure it.
+- Azure Resource Manager configures the identity on the server by updating the Azure Instance Metadata Service (IMDS) identity endpoint for [Windows](../../virtual-machines/windows/instance-metadata-service.md) or [Linux](../../virtual-machines/linux/instance-metadata-service.md) with the service principal client ID and certificate. The endpoint is a REST endpoint accessible only from within the server using a well-known, non-routable IP address. This service provides a subset of metadata information about the Azure Arc–enabled server to help manage and configure it.
 
-The environment of a managed-identity-enabled server will be configured with the following variables on a Windows Azure Arc—enabled server:
+The environment of a managed-identity-enabled server will be configured with the following variables on a Windows Azure Arc–enabled server:
 
-- **IMDS_ENDPOINT**: The IMDS endpoint IP address `http://localhost:40342` for Azure Arc—enabled servers.
+- **IMDS_ENDPOINT**: The IMDS endpoint IP address `http://localhost:40342` for Azure Arc–enabled servers.
 
 - **IDENTITY_ENDPOINT**: the localhost endpoint corresponding to service's managed identity `http://localhost:40342/metadata/identity/oauth2/token`.
 
@@ -36,18 +36,18 @@ The system environment variable **IDENTITY_ENDPOINT** is used to discover the id
 ## Prerequisites
 
 - An understanding of Managed identities.
-- A server connected and registered with Azure Arc—enabled servers.
+- A server connected and registered with Azure Arc–enabled servers.
 - You are a member of the [Owner group](../../role-based-access-control/built-in-roles.md#owner)** in the subscription or resource group, in order to perform required resource creation and role management steps.
 - An Azure Key Vault to store and retrieve your credential. and assign the Azure Arc identity access to the KeyVault.
 
     - If you don't have a Key Vault created, see [Create Key Vault](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#create-a-key-vault-).
-    - To configure access by the managed identity used by the server, see [Grant access for Linux](../../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-nonaad.md#grant-access) or [Grant access for Windows](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#grant-access). For step number 5, you are going to enter the name of the Azure Arc—enabled server. To complete this using PowerShell, see [Assign an access policy using PowerShell](../../key-vault/general/assign-access-policy-powershell.md).
+    - To configure access by the managed identity used by the server, see [Grant access for Linux](../../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-nonaad.md#grant-access) or [Grant access for Windows](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#grant-access). For step number 5, you are going to enter the name of the Azure Arc–enabled server. To complete this using PowerShell, see [Assign an access policy using PowerShell](../../key-vault/general/assign-access-policy-powershell.md).
 
 ## Acquiring an access token using REST API
 
 The method to obtain and use a system-assigned managed identity to authenticate with Azure resources is similar to how it is performed with an Azure VM.
 
-For an Azure Arc—enabled Windows server, using PowerShell, you invoke the web request to get the token from the local host in the specific port. Specify the request using the IP address or the environmental variable **IDENTITY_ENDPOINT**.
+For an Azure Arc–enabled Windows server, using PowerShell, you invoke the web request to get the token from the local host in the specific port. Specify the request using the IP address or the environmental variable **IDENTITY_ENDPOINT**.
 
 ```powershell
 $apiVersion = "2020-06-01"
@@ -80,7 +80,7 @@ The following response is an example that is returned:
 
 :::image type="content" source="media/managed-identity-authentication/powershell-token-output-example.png" alt-text="A successful retrieval of the access token using PowerShell.":::
 
-For an Azure Arc—enabled Linux server, using Bash, you invoke the web request to get the token from the local host in the specific port. Specify the following request using the IP address or the environmental variable **IDENTITY_ENDPOINT**. To complete this step, you need an SSH client.
+For an Azure Arc–enabled Linux server, using Bash, you invoke the web request to get the token from the local host in the specific port. Specify the following request using the IP address or the environmental variable **IDENTITY_ENDPOINT**. To complete this step, you need an SSH client.
 
 ```bash
 ChallengeTokenPath=$(curl -s -D - -H Metadata:true "http://127.0.0.1:40342/metadata/identity/oauth2/token?api-version=2019-11-01&resource=https%3A%2F%2Fmanagement.azure.com" | grep Www-Authenticate | cut -d "=" -f 2 | tr -d "[:cntrl:]")

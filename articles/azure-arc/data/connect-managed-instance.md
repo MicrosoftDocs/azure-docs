@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure Arc—enabled SQL Managed Instance
-description: Connect to Azure Arc—enabled SQL Managed Instance
+title: Connect to Azure Arc–enabled SQL Managed Instance
+description: Connect to Azure Arc–enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -10,14 +10,14 @@ ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
 ---
-# Connect to Azure Arc—enabled SQL Managed Instance
+# Connect to Azure Arc–enabled SQL Managed Instance
 
-This article explains how you can connect to your Azure Arc—enabled SQL Managed Instance. 
+This article explains how you can connect to your Azure Arc–enabled SQL Managed Instance. 
 
 
-## View Azure Arc—enabled SQL Managed Instances
+## View Azure Arc–enabled SQL Managed Instances
 
-To view the Azure Arc—enabled SQL Managed Instance and the external endpoints use the following command:
+To view the Azure Arc–enabled SQL Managed Instance and the external endpoints use the following command:
 
 ```azurecli
 az sql mi-arc list

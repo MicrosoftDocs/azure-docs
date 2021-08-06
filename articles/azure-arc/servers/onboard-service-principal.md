@@ -1,6 +1,6 @@
 ---
 title: Connect hybrid machines to Azure at scale
-description: In this article, you learn how to connect machines to Azure using Azure Arc—enabled servers using a service principal.
+description: In this article, you learn how to connect machines to Azure using Azure Arc–enabled servers using a service principal.
 ms.date: 07/16/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
@@ -8,9 +8,9 @@ ms.custom: devx-track-azurepowershell
 
 # Connect hybrid machines to Azure at scale
 
-You can enable Azure Arc—enabled servers for multiple Windows or Linux machines in your environment with several flexible options depending on your requirements. Using the template script we provide, you can automate every step of the installation, including establishing the connection to Azure Arc. However, you are required to interactively execute this script with an account that has elevated permissions on the target machine and in Azure.
+You can enable Azure Arc–enabled servers for multiple Windows or Linux machines in your environment with several flexible options depending on your requirements. Using the template script we provide, you can automate every step of the installation, including establishing the connection to Azure Arc. However, you are required to interactively execute this script with an account that has elevated permissions on the target machine and in Azure.
 
-To connect the machines to Azure Arc—enabled servers, you can use an Azure Active Directory [service principal](../../active-directory/develop/app-objects-and-service-principals.md) instead of using your privileged identity to [interactively connect the machine](onboard-portal.md). A service principal is a special limited management identity that is granted only the minimum permission necessary to connect machines to Azure using the `azcmagent` command. This is safer than using a higher privileged account like a Tenant Administrator, and follows our access control security best practices. The service principal is used only during onboarding, it is not used for any other purpose.  
+To connect the machines to Azure Arc–enabled servers, you can use an Azure Active Directory [service principal](../../active-directory/develop/app-objects-and-service-principals.md) instead of using your privileged identity to [interactively connect the machine](onboard-portal.md). A service principal is a special limited management identity that is granted only the minimum permission necessary to connect machines to Azure using the `azcmagent` command. This is safer than using a higher privileged account like a Tenant Administrator, and follows our access control security best practices. The service principal is used only during onboarding, it is not used for any other purpose.  
 
 The installation methods to install and configure the Connected Machine agent requires that the automated method you use has  administrator permissions on the machines. On Linux, by using the root account and on Windows, as a member of the Local Administrators group.
 
@@ -117,7 +117,7 @@ You can learn more about the `azcmagent` command-line tool by reviewing the [Azc
 >The Windows PowerShell script only supports running from a 64-bit version of Windows PowerShell.
 >
 
-After you install the agent and configure it to connect to Azure Arc—enabled servers, go to the Azure portal to verify that the server has successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
+After you install the agent and configure it to connect to Azure Arc–enabled servers, go to the Azure portal to verify that the server has successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
 
 ![A successful server connection](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
@@ -125,6 +125,6 @@ After you install the agent and configure it to connect to Azure Arc—enabled s
 
 - Troubleshooting information can be found in the [Troubleshoot Connected Machine agent guide](troubleshoot-agent-onboard.md).
 
-- Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc—enabled servers at any scale and implement centralized management and monitoring.
+- Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc–enabled servers at any scale and implement centralized management and monitoring.
 
 - Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verify the machine is reporting to the expected Log Analytics workspace, enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.

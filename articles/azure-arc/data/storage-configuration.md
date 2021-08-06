@@ -1,6 +1,6 @@
 ---
 title: Storage configuration
-description: Explains Azure Arc—enabled data services storage configuration options
+description: Explains Azure Arc–enabled data services storage configuration options
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data

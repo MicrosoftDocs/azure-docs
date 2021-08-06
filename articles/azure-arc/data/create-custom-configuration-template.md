@@ -12,14 +12,14 @@ ms.topic: how-to
 ---
 # Create custom configuration templates
 
-This article explains how to create a custom configuration template for Azure Arc—enabled data controller. 
+This article explains how to create a custom configuration template for Azure Arc–enabled data controller. 
 
 One of required parameters during deployment of a data controller in indirectly connected mode, is the `az arcdata dc create --profile-name` parameter. Currently, the available list of built-in profiles can be found via running the query:
 
 ```azurecli
 az arcdata dc config list
 ```
-These profiles are template JSON files that have various settings for the Azure Arc—enabled data controller such as docker registry and repository settings, storage classes for data and logs, storage size for data and logs, security, service type etc. and can be customized to your environment. 
+These profiles are template JSON files that have various settings for the Azure Arc–enabled data controller such as docker registry and repository settings, storage classes for data and logs, storage size for data and logs, security, service type etc. and can be customized to your environment. 
 
 However, in some cases, you may want to customize those configuration templates to meet your requirements and pass the customized configuration template using the `--path` parameter to the `az arcdata dc create` command rather than pass a preconfigured configuration template using the `--profile-name` parameter.
 
@@ -33,9 +33,9 @@ az arcdata dc config init --source azure-arc-kubeadm --path custom
 ```
 The created control.json file can be edited in any editor such as Visual Studio Code to customize the settings appropriate for your environment.
 
-## Use custom control.json file to deploy Azure Arc—enabled data controller using Azure CLI (az)
+## Use custom control.json file to deploy Azure Arc–enabled data controller using Azure CLI (az)
 
-Once the template file is created, the file can be applied during Azure Arc—enabled data controller create command as follows:
+Once the template file is created, the file can be applied during Azure Arc–enabled data controller create command as follows:
 
 ```azurecli
 az arcdata dc  create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect  --k8s-namespace <namespace> --use-k8s

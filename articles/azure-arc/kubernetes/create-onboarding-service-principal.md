@@ -1,5 +1,5 @@
 ---
-title: "Create an onboarding service principal for Azure Arc—enabled Kubernetes"
+title: "Create an onboarding service principal for Azure Arc–enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
@@ -7,11 +7,11 @@ ms.date: 03/03/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: "Create an Azure Arc—enabled onboarding service principal "
+description: "Create an Azure Arc–enabled onboarding service principal "
 keywords: "Kubernetes, Arc, Azure, containers"
 ---
 
-# Create an onboarding service principal for Azure Arc—enabled Kubernetes
+# Create an onboarding service principal for Azure Arc–enabled Kubernetes
 
 ## Overview
 

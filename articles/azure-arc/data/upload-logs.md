@@ -1,6 +1,6 @@
 ---
 title: Upload logs to Azure Monitor
-description: Upload logs for Azure Arc—enabled data services to Azure Monitor
+description: Upload logs for Azure Arc–enabled data services to Azure Monitor
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data

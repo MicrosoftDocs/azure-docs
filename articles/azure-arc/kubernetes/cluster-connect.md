@@ -1,21 +1,21 @@
 ---
-title: "Use Cluster Connect to connect to Azure Arc—enabled Kubernetes clusters"
+title: "Use Cluster Connect to connect to Azure Arc–enabled Kubernetes clusters"
 services: azure-arc
 ms.service: azure-arc
 ms.date: 04/05/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
-description: "Use Cluster Connect to securely connect to Azure Arc—enabled Kubernetes clusters"
+description: "Use Cluster Connect to securely connect to Azure Arc–enabled Kubernetes clusters"
 ---
 
-# Use Cluster Connect to connect to Azure Arc—enabled Kubernetes clusters
+# Use Cluster Connect to connect to Azure Arc–enabled Kubernetes clusters
 
-With Cluster Connect, you can securely connect to Azure Arc—enabled Kubernetes clusters without requiring any inbound port to be enabled on the firewall. Access to the `apiserver` of the Azure Arc—enabled Kubernetes cluster enables the following scenarios:
+With Cluster Connect, you can securely connect to Azure Arc–enabled Kubernetes clusters without requiring any inbound port to be enabled on the firewall. Access to the `apiserver` of the Azure Arc–enabled Kubernetes cluster enables the following scenarios:
 * Enable interactive debugging and troubleshooting.
 * Provide cluster access to Azure services for [custom locations](custom-locations.md) and other resources created on top of it.
 
-A conceptual overview of this feature is available in [Cluster connect - Azure Arc—enabled Kubernetes](conceptual-cluster-connect.md) article.
+A conceptual overview of this feature is available in [Cluster connect - Azure Arc–enabled Kubernetes](conceptual-cluster-connect.md) article.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
@@ -35,11 +35,11 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
     az extension update --name connectedk8s
     ```
 
-- An existing Azure Arc—enabled Kubernetes connected cluster.
+- An existing Azure Arc–enabled Kubernetes connected cluster.
     - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
     - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.1.0.
 
-- Enable the Cluster Connect on any Azure Arc—enabled Kubernetes cluster by running the following command on a machine where the `kubeconfig` file is pointed to the cluster of concern:
+- Enable the Cluster Connect on any Azure Arc–enabled Kubernetes cluster by running the following command on a machine where the `kubeconfig` file is pointed to the cluster of concern:
 
     ```azurecli
     az connectedk8s enable-features --features cluster-connect -n <clusterName> -g <resourceGroupName>

@@ -1,6 +1,6 @@
 ---
-title: Delete an Azure Arc—enabled PostgreSQL Hyperscale server group
-description: Delete an Azure Arc—enabled Postgres Hyperscale server group
+title: Delete an Azure Arc–enabled PostgreSQL Hyperscale server group
+description: Delete an Azure Arc–enabled Postgres Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,7 +11,7 @@ ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Delete an Azure Arc—enabled PostgreSQL Hyperscale server group
+# Delete an Azure Arc–enabled PostgreSQL Hyperscale server group
 
 This document describes the steps to delete a server group from your Azure Arc setup.
 
@@ -119,4 +119,4 @@ persistentvolumeclaim "data-postgres01-0" deleted
 > ```
     
 ## Next step
-Create [Azure Arc—enabled PostgreSQL Hyperscale](create-postgresql-hyperscale-server-group.md)
+Create [Azure Arc–enabled PostgreSQL Hyperscale](create-postgresql-hyperscale-server-group.md)

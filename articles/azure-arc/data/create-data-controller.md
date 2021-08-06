@@ -16,7 +16,7 @@ ms.topic: how-to
 
 ## Overview of creating the Azure Arc data controller
 
-Azure Arc—enabled data services can be created on multiple different types of Kubernetes clusters and managed Kubernetes services using multiple different approaches.
+Azure Arc–enabled data services can be created on multiple different types of Kubernetes clusters and managed Kubernetes services using multiple different approaches.
 
 Currently, the supported list of Kubernetes services and distributions are the following:
 
@@ -47,7 +47,7 @@ Regardless of the option you choose, during the creation process you will need t
 - **Data controller username** - Any username for the data controller administrator user.
 - **Data controller password** - A password for the data controller administrator user.
 - **Name of your Kubernetes namespace** - the name of the Kubernetes namespace that you want to create the data controller in.
-- **Connectivity mode** - Connectivity mode determines the degree of connectivity from your Azure Arc—enabled data services environment to Azure. Indirect connectivity mode is generally available. Direct connectivity mode is in preview.  For information, see [connectivity mode](./connectivity.md). 
+- **Connectivity mode** - Connectivity mode determines the degree of connectivity from your Azure Arc–enabled data services environment to Azure. Indirect connectivity mode is generally available. Direct connectivity mode is in preview.  For information, see [connectivity mode](./connectivity.md). 
 - **Azure subscription ID** - The Azure subscription GUID for where you want the data controller resource in Azure to be created.
 - **Azure resource group name** - The name of the resource group where you want the data controller resource in Azure to be created.
 - **Azure location** - The Azure location where the data controller resource metadata will be stored in Azure. For a list of available regions, see [Azure global infrastructure / Products by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc). The metadata and billing information about the Azure resources managed by the data controller that you are deploying will be stored only in the location in Azure that you specify as the location parameter. If you are deploying in the directly connected mode, the location parameter for the data controller will be the same as the location of the custom location resource that you target.
