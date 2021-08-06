@@ -98,8 +98,9 @@ You can use the CreateReleaseAnnotation PowerShell script to create annotations 
     }
     
     $body = (ConvertTo-Json $annotation -Compress) -replace '(\\+)"', '$1$1"' -replace "`"", "`"`""
-
-    Invoke-AzRestMethod -Path "$aiResourceId/Annotations?api-version=2015-05-01" -Method PUT -Payload $body
+    az rest --method put --uri "$($aiResourceId)/Annotations?api-version=2015-05-01" --body "$($body) "
+    # Use the below command in case you want to for Linux Azure DevOps Hosts or other PS scnearios
+    # Invoke-AzRestMethod -Path "$aiResourceId/Annotations?api-version=2015-05-01" -Method PUT -Payload $body
     ```
 
 3. Call the PowerShell script with the following code, replacing the angle-bracketed placeholders with your values. The -releaseProperties are optional.
