@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 08/03/2021
+ms.date: 08/05/2021
 ---
 
 # Introduction: Centers for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule

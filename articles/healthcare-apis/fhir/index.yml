@@ -66,7 +66,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: CMS Interoperability and Patient Access rule introduction
-            url: cms-tutorial-introduction.md
+            url: centers-for-medicare-tutorial-introduction.md
           - text: CARIN Implementation Guide for Blue Button
             url: carin-implementation-guide-blue-button-tutorial.md
           - text: Da Vinci Drug Formulary

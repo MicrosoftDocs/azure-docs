@@ -26,7 +26,7 @@ items:
     expanded: true
     items:
     - name: CMS Interoperability and Patient Access rule introduction
-      href: cms-tutorial-introduction.md
+      href: centers-for-medicare-tutorial-introduction.md
     - name: CARIN Implementation Guide for Blue Button
       href: carin-implementation-guide-blue-button-tutorial.md
     - name: Da Vinci Drug Formulary
