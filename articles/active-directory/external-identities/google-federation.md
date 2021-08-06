@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 08/06/2021
 
 ms.author: mimart
 author: msmimart
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 By setting up federation with Google, you can allow invited users to sign in to your shared apps and resources with their own Gmail accounts, without having to create Microsoft accounts.
 
-After you've added Google as one of your application's sign-in options, on the **Sign in** page, a user can simply enter the email they use to sign in to Google, or they can select **Sign-in options** and choose **Sign in with Google**. In either case, they'll be redirected to the Google sign-in page for authentication.
+After you've added Google as one of your application's sign-in options, on the **Sign in** page, a user can simply enter the Gmail address they use to sign in to Google, and then they'll be redirected to the Google sign-in page for authentication.
 
 ![Sign in options for Google users](media/google-federation/sign-in-with-google-overview.png)
 
@@ -139,6 +139,7 @@ First, create a new project in the Google Developers Console to obtain a client 
 11. Under **Application type**, select **Web application**. Give the application a suitable name, like **Azure AD B2B**. Under **Authorized redirect URIs**, enter the following URIs:
     - `https://login.microsoftonline.com`
     - `https://login.microsoftonline.com/te/<tenant ID>/oauth2/authresp` <br>(where `<tenant ID>` is your tenant ID)
+    - `https://login.microsoftonline.com/te/<tenant name>.onmicrosoft.com/oauth2/authresp` <br>(where `<tenant name>` is your tenant name)
    
     > [!NOTE]
     > To find your tenant ID, go to the [Azure portal](https://portal.azure.com). Under **Azure Active Directory**, select **Properties** and copy the **Tenant ID**.
@@ -148,6 +149,8 @@ First, create a new project in the Google Developers Console to obtain a client 
 12. Select **Create**. Copy the client ID and client secret. You'll use them when you add the identity provider in the Azure portal.
 
     ![Screenshot that shows the OAuth client ID and client secret.](media/google-federation/google-auth-client-id-secret.png)
+
+13. On the OAuth consent screen, select **Publish app**.
 
 ## Step 2: Configure Google federation in Azure AD 
 
@@ -172,7 +175,7 @@ You'll now set the Google client ID and client secret. You can use the Azure por
  
    > [!NOTE]
    > Use the client ID and client secret from the app you created in "Step 1: Configure a Google developer project." For more information, see [New-AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview&preserve-view=true). 
- 
+
 ## How do I remove Google federation?
 
 You can delete your Google federation setup. If you do so, Google guest users who have already redeemed their invitation won't be able to sign in. But you can give them access to your resources again by [resetting their redemption status](reset-redemption-status.md).
