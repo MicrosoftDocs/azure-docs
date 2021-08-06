@@ -14,7 +14,7 @@ ms.author: makromer
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory and Synapse pipelines to copy data from and to a REST endpoint. The article builds on [Copy Activity in Azure Data Factory and Azure Synapse pipelines](copy-activity-overview.md), which presents a general overview of Copy Activity.
+This article outlines how to use the Copy Activity in Azure Data Factory and Azure Synapse Analytics pipelines to copy data from and to a REST endpoint. The article builds on [Copy Activity in Azure Data Factory and Azure Synapse pipelines](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
 The differences between this REST connector, [HTTP connector](connector-http.md), and the [Web table connector](connector-web-table.md) are:
 

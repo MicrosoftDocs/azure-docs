@@ -122,11 +122,11 @@ For more information about Azure-SSIS runtime, see the following articles:
 
 ### Relationship between factory location and IR location
 
-When customer creates a data factory instance, they need to specify the location for the data factory or Synapse workspace. The metadata for the data factory or Synapse workspace is stored here, and triggering of the pipeline is initiated from here. Metadata is only stored in the region of the customer’s choice and will not be stored in other regions.
+When customer creates a Data Factory instance, they need to specify the location for the Data Factory or Synapse Workspace. The metadata for the Data Factory or Synapse Workspace is stored here, and triggering of the pipeline is initiated from here. Metadata is only stored in the region of the customer’s choice and will not be stored in other regions.
 
-Meanwhile, a data factory or Synapse pipeline can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. This behavior is realized through the [globally available IR](https://azure.microsoft.com/global-infrastructure/services/) to ensure data compliance, efficiency, and reduced network egress costs.
+Meanwhile, an Azure Data Factory or Azure Synapse pipeline can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. This behavior is realized through the [globally available IR](https://azure.microsoft.com/global-infrastructure/services/) to ensure data compliance, efficiency, and reduced network egress costs.
 
-The IR Location defines the location of its back-end compute, and essentially the location where the data movement, activity dispatching, and SSIS package execution are performed. The IR location can be different from the location of the data factory it belongs to. 
+The IR Location defines the location of its back-end compute, and essentially the location where the data movement, activity dispatching, and SSIS package execution are performed. The IR location can be different from the location of the Data Factory it belongs to. 
 
 ### Azure IR location
 
@@ -134,9 +134,9 @@ You can set a certain location of an Azure IR, in which case the activity execut
 
 If you choose to use the auto-resolve Azure IR in public network, which is the default,
 
-- For copy activity, a best effort is made to automatically detect your sink data store's location, then use the IR in either the same region if available or the closest one in the same geography; if the sink data store's region is not detectable, IR in the data factory region as alternative is used.
+- For copy activity, a best effort is made to automatically detect your sink data store's location, then use the IR in either the same region if available or the closest one in the same geography; if the sink data store's region is not detectable, IR in the Data Factory region as alternative is used.
 
-  For example, you have your factory or workspace was created in East US, 
+  For example, you have your Data Factory or Synapse Workspace was created in East US, 
   
   - When copying data to Azure Blob in West US, if the Blob is detected in West US, copy activity is executed on the IR in West US; if the region detection fails, copy activity is executed on IR in East US.
   - When copy data to Salesforce of which the region is not detectable, copy activity is executed on IR in East US.
@@ -144,20 +144,20 @@ If you choose to use the auto-resolve Azure IR in public network, which is the d
   >[!TIP] 
   >If you have strict data compliance requirements and need ensure that data do not leave a certain geography, you can explicitly create an Azure IR in a certain region and point the Linked Service to this IR using ConnectVia property. For example, if you want to copy data from Blob in UK South to Azure Synapse Analytics in UK South and want to ensure data do not leave UK, create an Azure IR in UK South and link both Linked Services to this IR.
 
-- For Lookup/GetMetadata/Delete activity execution (also known as Pipeline activities), transformation activity dispatching (also known as External activities), and authoring operations (test connection, browse folder list and table list, preview data), the IR in the same region as the data factory or Synapse workspace is used.
+- For Lookup/GetMetadata/Delete activity execution (also known as Pipeline activities), transformation activity dispatching (also known as External activities), and authoring operations (test connection, browse folder list and table list, preview data), the IR in the same region as the Data Factory or Synapse Workspace is used.
 
-- For Data Flow, the IR in the data factory or Synapse workspace region is used. 
+- For Data Flow, the IR in the Data Factory or Synapse Workspace region is used. 
 
   > [!TIP] 
-  > A good practice would be to ensure Data flow runs in the same region as your corresponding data stores (if possible). You can either achieve this by auto-resolve Azure IR (if data store location is same as data factory or Synapse workspace location), or by creating a new Azure IR instance in the same region as your data stores and then execute the data flow on it. 
+  > A good practice would be to ensure Data flow runs in the same region as your corresponding data stores (if possible). You can either achieve this by auto-resolve Azure IR (if data store location is same as Data Factory or Synapse Workspace location), or by creating a new Azure IR instance in the same region as your data stores and then execute the data flow on it. 
 
-If you enable Managed Virtual Network for auto-resolve Azure IR, the IR in the data factory or Synapse workspace region is used. 
+If you enable Managed Virtual Network for auto-resolve Azure IR, the IR in the Data Factory or Synapse Workspace region is used. 
 
 You can monitor which IR location takes effect during activity execution in pipeline activity monitoring view on UI or activity monitoring payload.
 
 ### Self-hosted IR location
 
-The self-hosted IR is logically registered to the data factory or Synapse workspace and the compute used to support its functionalities is provided by you. Therefore there is no explicit location property for self-hosted IR. 
+The self-hosted IR is logically registered to the Data Factory or Synapse Workspace and the compute used to support its functionalities is provided by you. Therefore there is no explicit location property for self-hosted IR. 
 
 When used to perform data movement, the self-hosted IR extracts data from the source and writes into the destination.
 
@@ -168,7 +168,7 @@ When used to perform data movement, the self-hosted IR extracts data from the so
 
 Selecting the right location for your Azure-SSIS IR is essential to achieve high performance in your extract-transform-load (ETL) workflows.
 
-- The location of your Azure-SSIS IR does not need to be the same as the location of your data factory, but it should be the same as the location of your own Azure SQL Database or SQL Managed Instance where SSISDB. This way, your Azure-SSIS Integration Runtime can easily access SSISDB without incurring excessive traffics between different locations.
+- The location of your Azure-SSIS IR does not need to be the same as the location of your Data Factory, but it should be the same as the location of your own Azure SQL Database or SQL Managed Instance where SSISDB. This way, your Azure-SSIS Integration Runtime can easily access SSISDB without incurring excessive traffics between different locations.
 - If you do not have an existing SQL Database or SQL Managed Instance, but you have on-premises data sources/destinations, you should create a new Azure SQL Database or SQL Managed Instance in the same location of a virtual network connected to your on-premises network.  This way, you can create your Azure-SSIS IR using the new Azure SQL Database or SQL Managed Instance and joining that virtual network, all in the same location, effectively minimizing data movements across different locations.
 - If the location of your existing Azure SQL Database or SQL Managed Instance is not the same as the location of a virtual network connected to your on-premises network, first create your Azure-SSIS IR using an existing Azure SQL Database or SQL Managed Instance and joining another virtual network in the same location, and then configure a virtual network to virtual network connection between different locations.
 
@@ -177,9 +177,9 @@ The following diagram shows location settings of Data Factory and its integratio
 :::image type="content" source="media/concepts-integration-runtime/integration-runtime-location.png" alt-text="Integration runtime location":::
 
 ## Determining which IR to use
-If an activity associates with more than one type of integration runtime, it will resolve to one of them. The self-hosted integration runtime takes precedence over Azure integration runtime in Azure Data Factory or Synapse workspaces using a managed virtual network. And the latter takes precedence over public Azure integration runtime.
+If an activity associates with more than one type of integration runtime, it will resolve to one of them. The self-hosted integration runtime takes precedence over Azure integration runtime in Azure Data Factory or Synapse Workspaces using a managed virtual network. And the latter takes precedence over public Azure integration runtime.
 
-For example, one copy activity is used to copy data from source to sink. The public Azure integration runtime is associated with the linked service to source and an Azure integration runtime in Azure Data Factory managed virtual network associates with the linked service for sink, then the result is that both source and sink linked service use Azure integration runtime in Azure Data Factory or Synapse workspaces using a managed virtual network. But if a self-hosted integration runtime associates the linked service for source, then both source and sink linked service use self-hosted integration runtime.
+For example, one copy activity is used to copy data from source to sink. The public Azure integration runtime is associated with the linked service to source and an Azure integration runtime in Azure Data Factory managed virtual network associates with the linked service for sink, then the result is that both source and sink linked service use Azure integration runtime in Azure Data Factory or Synapse Workspaces using a managed virtual network. But if a self-hosted integration runtime associates the linked service for source, then both source and sink linked service use self-hosted integration runtime.
 
 ### Copy activity
 
