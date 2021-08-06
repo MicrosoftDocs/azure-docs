@@ -2027,7 +2027,7 @@
   },
   {
     "source_path_from_root": "/articles/cosmos-db/mongodb-api-faq.yml",
-    "redirect_url": "/azure/cosmos-db/mongodb/mongodb-faq.yml",
+    "redirect_url": "/azure/cosmos-db/mongodb/mongodb-faq",
     "redirect_document_id": true
   },
   {
