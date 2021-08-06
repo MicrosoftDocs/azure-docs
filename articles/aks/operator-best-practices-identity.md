@@ -133,9 +133,7 @@ Azure Active Directory Pod Identity supports 2 modes of operation:
 2. Managed Mode: In this mode, there is only NMI. The identity needs to be manually assigned and managed by the user. For more information, see [Pod Identity in Managed Mode](https://azure.github.io/aad-pod-identity/docs/configure/pod_identity_in_managed_mode/). In this mode, when you use the [az aks pod-identity add](/cli/azure/aks/pod-identity?view=azure-cli-latest#az_aks_pod_identity_add) command to add a pod identity to an Azure Kubernetes Service (AKS) cluster, it creates the [AzureIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentity/) and [AzureIdentityBinding](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentitybinding/) in the namespace specified by the `--namespace` parameter, while the AKS resource provider assigns the managed identity specified by the `--identity-resource-id` parameter to virtual machine scale set (VMSS) of each node pool in the AKS cluster.
 
 > [!NOTE]
-> Managed mode is only supported in namespaced mode. This ensures pods in namespace are only matched with AzureIdentity and AzureIdentityBinding in the same namespace.
-
-When you install the Azure Active Directory Pod Identity via Helm chart or YAML manifest as shown in the [Installation Guide](https://azure.github.io/aad-pod-identity/docs/getting-started/installation/), you can choose between the `standard` and `managed` mode. If you instead decide to install the Azure Active Directory Pod Identity using the [AKS cluster add-on](/azure/aks/use-azure-ad-pod-identity), the setup will use the `managed` mode.
+> If you instead decide to install the Azure Active Directory Pod Identity using the [AKS cluster add-on](/azure/aks/use-azure-ad-pod-identity), the setup will use the `managed` mode.
 
 The `managed` mode provides the following advantages over the `standard`:
 
