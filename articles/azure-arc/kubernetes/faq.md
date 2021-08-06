@@ -30,7 +30,7 @@ Yes, connecting your AKS-HCI cluster or Kubernetes clusters on Azure Stack Edge 
 
 If the Azure Arc–enabled Kubernetes cluster is on Azure Stack Edge, AKS on Azure Stack HCI (>= April 2021 update), or AKS on Windows Server 2019 Datacenter (>= April 2021 update), then the Kubernetes configuration is included at no charge.
 
-## How to address expired Azure Arc–enabled Kubernetes resources?
+## How to address expired Azure Arc-enabled Kubernetes resources?
 
 The Managed Service Identity (MSI) certificate associated with your Azure Arc–enabled Kubernetes has an expiration window of 90 days. Once this certificate expires, the resource is considered `Expired` and all features (such as configuration, monitoring, and policy) stop working on this cluster. To get your Kubernetes cluster working with Azure Arc again:
 

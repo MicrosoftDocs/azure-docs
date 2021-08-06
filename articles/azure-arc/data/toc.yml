@@ -96,7 +96,7 @@ items:
     - name: Overview
       items:
         - name: What is Azure Arc–enabled PostgreSQL Hyperscale
-          href: what-is-azure-arc—enabled-postgres-hyperscale.md
+          href: what-is-azure-arc-enabled-postgres-hyperscale.md
         - name: Limitations
           href: limitations-postgresql-hyperscale.md
     - name: Quickstarts

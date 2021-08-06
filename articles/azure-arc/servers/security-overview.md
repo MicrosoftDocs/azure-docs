@@ -35,7 +35,7 @@ The Azure Connected Machine agent is composed of three services, which run on yo
 
 The guest configuration and extension services run as Local System on Windows, and as root on Linux.
 
-## Using a managed identity with Azure Arc–enabled servers
+## Using a managed identity with Azure Arc-enabled servers
 
 By default, the Azure Active Directory system assigned identity used by Arc can only be used to update the status of the Azure Arc–enabled server in Azure. For example, the *last seen* heartbeat status. You can optionally assign additional roles to the identity if an application on your server uses the system assigned identity to access other Azure services.
 

@@ -101,7 +101,7 @@ Install-Module -Name Az.ConnectedKubernetes
 | `https://gbl.his.arc.azure.com` |  Required to get the regional endpoint for pulling system-assigned Managed Service Identity (MSI) certificates. |
 | `https://<region-code>.his.arc.azure.com` (for Azure Cloud), `https://usgv.his.arc.azure.us` (for Azure US Government) |  Required to pull system-assigned Managed Service Identity (MSI) certificates. `<region-code>` mapping for Azure cloud regions: `eus` (East US), `weu` (West Europe), `wcus` (West Central US), `scus` (South Central US), `sea` (South East Asia), `uks` (UK South), `wus2` (West US 2), `ae` (Australia East), `eus2` (East US 2), `ne` (North Europe), `fc` (France Central). |
 
-## 1. Register providers for Azure Arc–enabled Kubernetes
+## 1. Register providers for Azure Arc-enabled Kubernetes
 
 ### [Azure CLI](#tab/azure-cli)
 
