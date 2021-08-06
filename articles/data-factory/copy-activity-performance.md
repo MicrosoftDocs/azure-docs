@@ -9,6 +9,7 @@ author: jianleishen
 manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
+ms.subservice: data-movement
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: synapse
