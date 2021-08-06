@@ -56,7 +56,7 @@ If there's no domain issue, and no group policies are blocking your access to th
 
 Review Windows security event logs on the device for errors that indicate an authentication failure.
 
-You can review the `Smbserver.Security` event logs in the `etw` folder or [view security errors in Event Viewer](#view-security-events-in-event-viewer).
+You can review the `Smbserver.Security` event logs in the `etw` folder or view security errors in Event Viewer.
 
 To review Windows Security event logs in Event Viewer, do these steps:
 
@@ -92,7 +92,7 @@ To review Windows Security event logs in Event Viewer, do these steps:
  
 ### Change LAN Manager authentication level
  
-To change the LAN Manager authentication level on your device, you can either [use Local Security Policy](#use-local-security-policy) or [update the registry directly](#update-the-registry-directly).
+To change the LAN Manager authentication level on your device, you can either [use Local Security Policy](#use-local-security-policy) or [update the registry directly](#update-the-registry).
 
 #### Use Local Security Policy
 
