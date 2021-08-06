@@ -1,5 +1,5 @@
 ---
-title: how to test your Custom classification model - Azure Cognitive Services
+title: How to test your custom classification model - Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
 description: Learn about how to test your model for custom text classification.
 services: cognitive-services
@@ -20,7 +20,7 @@ After deploying your model, it's available to use through the Analyze API, and y
 
 * Successfully created a [Custom text classification project](create-project.md)
 
-* Completed [deploying your model][here](deploy-model.md) successfully.
+* Completed [deploying your model](deploy-model.md) successfully.
 
 ## Test your model in Language studio
 

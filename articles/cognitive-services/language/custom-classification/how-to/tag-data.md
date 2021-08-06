@@ -1,5 +1,5 @@
 ---
-title: how to tag your data for  Custom classification - Azure Cognitive Services
+title: How to tag your data for custom classification - Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
 description: Learn about how to tag your data for use with the custom text classification API.
 services: cognitive-services

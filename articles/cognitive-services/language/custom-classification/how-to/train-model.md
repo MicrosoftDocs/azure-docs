@@ -1,5 +1,5 @@
 ---
-title: how to train your Custom classification model - Azure Cognitive Services
+title: How to train your custom classification model - Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
 description: Learn about how to train your model for custom text classification.
 services: cognitive-services
