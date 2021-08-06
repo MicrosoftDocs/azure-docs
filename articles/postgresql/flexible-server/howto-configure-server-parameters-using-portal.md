@@ -41,8 +41,65 @@ To step through this how-to guide you need:
 ## Working with time zone parameters
 If you plan to work with date and time data in PostgreSQL, you’ll want to ensure that you’ve set the correct time zone for your location. All timezone-aware dates and times are stored internally in Postgres in UTC. They are converted to local time in the zone specified by the **TimeZone** server parameter before being displayed to the client.  This parameter can be edited on **Server parameters** page as explained above. 
 PostgreSQL allows you to specify time zones in three different forms:
-1. A full time zone name, for example America/New_York. The recognized time zone names are listed in the **pg_timezone_names** view.
-2. A time zone abbreviation, for example PST. Such a specification merely defines a particular offset from UTC, in contrast to full time zone names which can imply a set of daylight savings transition-date rules as well. The recognized abbreviations are listed in the **pg_timezone_abbrevs view**
+1. A full time zone name, for example America/New_York. The recognized time zone names are listed in the [**pg_timezone_names**](https://www.postgresql.org/docs/9.2/view-pg-timezone-names.html) view.  
+   Example to query this view in psql and get list of time zone names:
+   > select name FROM pg_timezone_names LIMIT 20;
+
+   You should see result set like:
+
+   >
+            name
+        -----------------------
+        GMT0
+        Iceland
+        Factory
+        NZ-CHAT
+        America/Panama
+        America/Fort_Nelson
+        America/Pangnirtung
+        America/Belem
+        America/Coral_Harbour
+        America/Guayaquil
+        America/Marigot
+        America/Barbados
+        America/Porto_Velho
+        America/Bogota
+        America/Menominee
+        America/Martinique
+        America/Asuncion
+        America/Toronto
+        America/Tortola
+        America/Managua
+        (20 rows)
+   
+2. A time zone abbreviation, for example PST. Such a specification merely defines a particular offset from UTC, in contrast to full time zone names which can imply a set of daylight savings transition-date rules as well. The recognized abbreviations are listed in the [**pg_timezone_abbrevs view**](https://www.postgresql.org/docs/9.4/view-pg-timezone-abbrevs.html)
+   Example to query this view in psql and get list of time zone abbreviations:
+   > select abbrev from pg_timezone_abbrevs limit 20;
+     You should see result set like:
+     >
+        abbrev|
+        ------+
+        ACDT  |
+        ACSST |
+        ACST  |
+        ACT   |
+        ACWST |
+        ADT   |
+        AEDT  |
+        AESST |
+        AEST  |
+        AFT   |
+        AKDT  |
+        AKST  |
+        ALMST |
+        ALMT  |
+        AMST  |
+        AMT   |
+        ANAST |
+        ANAT  |
+        ARST  |
+        ART   |
+
 3. In addition to the timezone names and abbreviations, PostgreSQL will accept POSIX-style time zone specifications of the form STDoffset or STDoffsetDST, where STD is a zone abbreviation, offset is a numeric offset in hours west from UTC, and DST is an optional daylight-savings zone abbreviation, assumed to stand for one hour ahead of the given offset. 
    
 
