@@ -4,6 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: 'Learn about how to add fault tolerance to copy activity in Azure Data Factory by skipping the incompatible data.'
 author: dearandyxu
 ms.service: data-factory
+ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 06/22/2020

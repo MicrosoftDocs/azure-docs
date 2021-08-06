@@ -4,6 +4,7 @@ description: In this tutorial, you create an Azure Data Factory pipeline that in
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 02/18/2021
 ---
