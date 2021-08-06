@@ -19125,11 +19125,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-hub/iot-hub-device-sdk-c-serializer.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-device-sdk-c-intro",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/iot-edge/iot-edge-what-is-azure-iot.md",
       "redirect_url": "/azure/iot-fundamentals/iot-introduction",
       "redirect_document_id": false
