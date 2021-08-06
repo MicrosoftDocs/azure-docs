@@ -206,7 +206,18 @@ To delegate create, read, update, and delete (CRUD) permissions for updating the
 > | microsoft.directory/applicationTemplates/instantiate | Instantiate gallery applications from application templates. |
 > | microsoft.directory/auditLogs/allProperties/read | Read audit logs. |
 > | microsoft.directory/signInReports/allProperties/read | Read sign-in reports. |
+> | microsoft.directory/applications/applicationProxy/read | Read all application proxy properties of all types of applications. |
+> | microsoft.directory/applications/applicationProxy/update | Update all application proxy properties of all types of applications. |
+> | microsoft.directory/applications/applicationProxyAuthentication/update | Update application proxy authentication properties of all types of applications. |
+> | microsoft.directory/applications/applicationProxyUrlSettings/update | Update application proxy internal and external URLs of all types of applications. |
+> | microsoft.directory/applications/applicationProxySslCertificate/update | Update application proxy custom domains of all types of applications. |
 > | microsoft.directory/applications/synchronization/standard/read | Read provisioning settings associated with the application object. |
+> | microsoft.directory/connectorGroups/create | Create application proxy connector groups. |
+> | microsoft.directory/connectorGroups/delete | Delete application proxy connector groups. |
+> | microsoft.directory/connectorGroups/allProperties/read | Read all properties of application proxy connector groups. |
+> | microsoft.directory/connectorGroups/allProperties/update | Update all properties of application proxy connector groups. |
+> | microsoft.directory/connectors/create | Create application proxy connectors. |
+> | microsoft.directory/connectors/allProperties/read | Read all properties of application proxy connectors. |
 > | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Manage all aspects of job synchronization for service principal resources |
 > | microsoft.directory/servicePrincipals/synchronization/standard/read | Read provisioning settings associated with service principals |
 > | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Manage all aspects of schema synchronization for service principal resources |
