@@ -75,8 +75,8 @@ You can now create an application setting:
     :::image type="content" source="../articles/digital-twins/media/includes/azure-functions/application-setting.png" alt-text="Screenshot of the Azure portal. On the Configuration tab for the function app, the button to create a New application setting is highlighted.":::
 
 1. In the window that opens, use the host name value you copied to create an application setting.
-    * **Name**: ADT_SERVICE_URL
-    * **Value**: https://<your-Azure-Digital-Twins-host-name>
+    * **Name**: `ADT_SERVICE_URL`
+    * **Value**: `https://<your-Azure-Digital-Twins-host-name>`
     
     Select __OK__ to create an application setting.
     
