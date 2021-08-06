@@ -119,8 +119,8 @@
       tocHref: /azure/app-service/
       topicHref: /azure/app-service/
     - name: Mobile Apps
-      tocHref: /azure/app-service-mobile/
-      topicHref: /azure/app-service-mobile/
+      tocHref: /azure/developer/mobile-apps/azure-mobile-apps/overview
+      topicHref: /azure/developer/mobile-apps/azure-mobile-apps/overview
   - name: Azure Automanage
     tocHref: https://azure.microsoft.com/services/azure-automanage/
     topicHref: https://azure.microsoft.com/services/azure-automanage/
@@ -497,8 +497,8 @@
       tocHref: /azure/cosmos-db/mongodb
       topicHref: /azure/cosmos-db/mongodb
     - name: Table API
-      tocHref: /azure/cosmos-db/table/
-      topicHref: /azure/cosmos-db/table/
+      tocHref: /azure/cosmos-db/table/introduction
+      topicHref: /azure/cosmos-db/table/introduction
     - name: Cassandra API
       tocHref: /azure/cosmos-db/cassandra/
       topicHref: /azure/cosmos-db/cassandra/

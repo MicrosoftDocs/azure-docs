@@ -41,7 +41,7 @@ When running out-of-process, your .NET functions can take advantage of the follo
 A .NET isolated function project is basically a .NET console app project that targets .NET 5.0. The following are the basic files required in any .NET isolated project:
 
 + [host.json](functions-host-json.md) file.
-+ [local.settings.json](functions-run-local.md#local-settings-file) file.
++ [local.settings.json](functions-develop-local.md#local-settings-file) file.
 + C# project file (.csproj) that defines the project and dependencies.
 + Program.cs file that's the entry point for the app.
 
