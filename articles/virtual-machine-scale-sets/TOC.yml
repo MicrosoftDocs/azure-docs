@@ -260,7 +260,7 @@
         - name: Generalized
           href: instance-generalized-image-version-cli.md
     - name: Update image resources
-          href: ../virtual-machines/update-image-resources.md
+      href: ../virtual-machines/update-image-resources.md
     - name: Troubleshoot shared images
       href: ../virtual-machines/troubleshooting-shared-images.md
     - name: Using customer-managed keys
