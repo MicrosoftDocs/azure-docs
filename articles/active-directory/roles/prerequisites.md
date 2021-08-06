@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 08/04/2021
+ms.date: 08/06/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -51,7 +51,7 @@ Version    Name                                Repository           Description
 
 #### Install AzureAD
 
-If you don't have AzureAD installed, use [Install-Module](/powershell/module/powershellget/install-module) to install AzureAD. You might need to have Administrator rights to install modules.
+If you don't have AzureAD installed, use [Install-Module](/powershell/module/powershellget/install-module) to install AzureAD. You must have Administrator rights to install modules.
 
 ```powershell
 Install-Module -Name AzureAD
@@ -59,7 +59,7 @@ Install-Module -Name AzureAD
 
 #### Update AzureAD
 
-To update AzureAD to the latest version, re-run [Install-Module](/powershell/module/powershellget/install-module). You might need to have Administrator rights to update modules and you might need to add the `-Force` parameter.
+To update AzureAD to the latest version, re-run [Install-Module](/powershell/module/powershellget/install-module). You must have Administrator rights to update modules and you might need to add the `-Force` parameter.
 
 ```powershell
 Install-Module -Name AzureAD
