@@ -155,7 +155,7 @@ Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows 
 
 #### Create test case
 
-1. Open SSMA for Oracle, select Tester followed by New Test Case.
+1. Open SSMA for Oracle, select **Tester**  followed by **New Test Case**.
    ![Screenshot that shows to create new test case.](./media/oracle-to-sql-database-guide/ssma-tester-new.png)
 
 1. Provide the following information for the new test case.
