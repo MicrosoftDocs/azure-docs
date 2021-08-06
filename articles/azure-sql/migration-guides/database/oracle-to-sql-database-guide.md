@@ -151,7 +151,7 @@ The test approach to database migration consists of the following activities:
 
 ### Validate Migrated Data
 
-Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows you to test the migrated database objects the migrated data. The tester is primarily used to verify that converted objects behave in the same way.
+Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows you to test migrated database objects. The SSMA Tester is used to verify that converted objects behave in the same way.
 
 #### Create test case
 
