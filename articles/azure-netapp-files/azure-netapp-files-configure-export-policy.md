@@ -11,7 +11,7 @@ ms.date: 08/06/2021
 ---
 # Configure export policy for NFS or dual-protocol volumes
 
-You can configure export policy to control access to an Azure NetApp Files volume that uses the NFS protocol (NFSv3 and NFSv4.1) or the dual protocol (NFSv3 and SMB). 
+You can configure export policy to control access to an Azure NetApp Files volume that uses the NFS protocol (NFSv3 and NFSv4.1) or the dual protocol (NFSv3 and SMB, or NFSv4.1 and SMB). 
 
 You can create up to five export policy rules.
 
