@@ -79,8 +79,9 @@ Creating the Azure Arc data controller has the following high level steps:
 2. Create a namespace in which the data controller will be created. **[Requires Kubernetes Cluster Administrator Permissions]**
 3. Create the bootstrapper service including the replica set, service account, role, and role binding.
 4. Create a secret for the data controller administrator username and password.
-5. Create the data controller.
-6. Create the webhook deployment job, cluster role and cluster role binding.
+5. Create the webhook deployment job, cluster role and cluster role binding. **[Requires Kubernetes Cluster Administrator Permissions]**
+6. Create the data controller.
+
 
 ## Create the custom resource definitions
 
@@ -181,6 +182,19 @@ kubectl create --namespace arc -f <path to your data controller secret file>
 #Example
 kubectl create --namespace arc -f C:\arc-data-services\controller-login-secret.yaml
 ```
+
+## Create the webhook deployment job, cluster role and cluster role binding
+
+First, create a copy of the [template file](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/web-hook.yaml) locally on your computer so that you can modify some of the settings.
+
+Edit the file and replace `{{namespace}}` in all places with the name of the namespace you created in the previous step. **Save the file.**
+
+Run the following command to create the cluster role and cluster role bindings.  **[Requires Kubernetes Cluster Administrator Permissions]**
+
+```console
+kubectl create -n arc -f <path to the edited template file on your computer>
+```
+
 
 ## Create the data controller
 
@@ -302,18 +316,6 @@ kubectl describe pod/<pod name> --namespace arc
 
 #Example:
 #kubectl describe pod/control-2g7bl --namespace arc
-```
-
-## Create the webhook deployment job, cluster role and cluster role binding
-
-First, create a copy of the [template file](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/web-hook.yaml) locally on your computer so that you can modify some of the settings.
-
-Edit the file and replace `{{namespace}}` in three places with the name of the namespace you created in the previous step. **Save the file.**
-
-Run the following command to create the cluster role and cluster role bindings.  **[Requires Kubernetes Cluster Administrator Permissions]**
-
-```console
-kubectl create -n arc -f <path to the edited template file on your computer>
 ```
 
 ## Troubleshooting creation problems
