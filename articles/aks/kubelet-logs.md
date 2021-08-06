@@ -31,6 +31,8 @@ Once you have connected to the node via `kubectl debug`, run the following comma
 chroot /host
 journalctl -u kubelet -o cat
 ```
+> [!NOTE]
+> You don't need to use `sudo journalctl` since you are already `root` on the node.
 
 > [!NOTE]
 > For Windows nodes, the log data is in `C:\k` and can be viewed using the *more* command:
