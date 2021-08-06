@@ -35,35 +35,13 @@ For more information about manual failover and Microsoft-initiated failover with
 
 ## Create an IoT hub
 
-1. Log into the [Azure portal](https://portal.azure.com). 
-
-2. Click **+ Create a resource** and select **Internet of Things**, then **IoT Hub**.
-
-   ![Screenshot showing creating an IoT hub](./media/tutorial-manual-failover/create-hub-01.png)
-
-3. Select the **Basics** tab. Fill in the following fields.
-
-    **Subscription**: select the Azure subscription you want to use.
-
-    **Resource Group**: click **Create new** and specify **ManlFailRG** for the resource group name.
-
-    **Region**: select a region close to you. This tutorial uses `West US 2`. A failover can only be performed between Azure geo-paired regions. The region geo-paired with West US 2 is WestCentralUS.
-    
-   **IoT Hub Name**: specify a name for your Iot hub. The hub name must be globally unique. 
-
-   ![Screenshot showing Basics pane for creating an IoT hub](./media/tutorial-manual-failover/create-hub-02-basics.png)
-
-   Click **Review + create**. (It uses the defaults for size and scale.) 
-
-4. Review the information, then click **Create** to create the IoT hub. 
-
-   ![Screenshot showing final step for creating an IoT hub](./media/tutorial-manual-failover/create-hub-03-create.png)
+[!INCLUDE [iot-hub-include-create-hub](iot-hub-include-create-hub.md)]
 
 ## Perform a manual failover
 
 Note that there is a limit of two failovers and two failbacks per day for an IoT hub.
 
-1. Click **Resource groups** and then select the resource group **ManlFailRG**. Click on your hub in the list of resources. 
+1. Click **Resource groups** and then select your resource group. This tutorial uses **ManlFailRG**. Click on your hub in the list of resources. 
 
 1. Under **Settings** on the IoT Hub pane, click **Failover**.
 
