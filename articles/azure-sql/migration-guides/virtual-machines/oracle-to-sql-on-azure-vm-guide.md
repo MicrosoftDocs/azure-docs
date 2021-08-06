@@ -52,7 +52,7 @@ To use MAP Toolkit to do an inventory scan, follow these steps:
 
    ![Screenshot that shows the Create/Select database option.](./media/oracle-to-sql-on-azure-vm-guide/select-database.png)
 
-1. Select **Create an inventory database**. Enter a name for the new inventory database you're creating, provide a brief description, and then select **OK**:
+1. Select **Create an inventory database**. Enter the name for the new inventory database and a brief description, and then select **OK**:
 
    :::image type="content" source="media/oracle-to-sql-on-azure-vm-guide/create-inventory-database.png" alt-text="Screenshot that shows the interface for creating an inventory database.":::
 
