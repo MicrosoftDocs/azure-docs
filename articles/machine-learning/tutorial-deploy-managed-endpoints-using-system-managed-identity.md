@@ -7,7 +7,7 @@ ms.subservice: core
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 058/05/2021
+ms.date: 08/05/2021
 ms.topic: tutorial
 ms.custom: tutorial, devplatv2
 
