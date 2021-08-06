@@ -15,91 +15,23 @@ FOLLOWED SKILLSET EXAMPLE (see new file for that content.  Should these be conso
 
 # Shaping data for projection into a knowledge store
 
-When enriching content in Azure Cognitive Search, you can send the output to a [knowledge store](knowledge-store-concept-intro.md) in Azure Storage. This article explains how to shape a projection to get the data structures you want for analysis in Power BI or other knowledge mining apps.
+When enriching content in Azure Cognitive Search, before you can send output to a [knowledge store](knowledge-store-concept-intro.md), it must be formed into a shape that can be consumed by the projections. This article explains how to take nodes in an enrichment tree and formulate them into a data shape.
 
-A data shape contains all the data intended to project, formed as a hierarchy of nodes. This article demonstrates two techniques for shaping data so that it can be projected into physical structures conducive to reporting, analysis, or downstream processing. 
-
-In Azure Cognitive Search, *projection* is the process of taking nodes from the enrichment tree and creating a physical expression of them in the knowledge store. Projections are custom shapes of the document (content and enrichments) that can be output as either table or object projections. As such, the data definitions of the tables, objects, and files in a knowledge store are determined in part by the projection specification, and the custom shape that you pass to the projection. Shapes are referenced in `source` or `sourceContext` properties, but are built using shapes in a skillset.
-
-## Projection definition
-
-A [projection](knowledge-store-projection-overview.md) is also an element in a skillset's knowledge store definition. 
-
-```json
-"knowledgeStore" : {
-"storageConnectionString": "{{storage-connection-string}}",
-"projections": [
-        {
-            "tables": [
-                {
-                    "tableName": "crossDocument",
-                    "generatedKeyName": "Id",
-                    "source": "/document/crossProjection"
-                },
-                {
-                    "tableName": "crossEntities",
-                    "generatedKeyName": "EntityId",
-                    "source": "/document/crossProjection/entities/*"
-                },
-                {
-                    "tableName": "crossKeyPhrases",
-                    "generatedKeyName": "KeyPhraseId",
-                    "source": "/document/crossProjection/keyPhrases/*"
-                },
-                {
-                    "tableName": "crossReference",
-                    "generatedKeyName": "CrossId",
-                    "source": "/document/crossProjection/images/*"
-                }           
-            ],
-            "objects": [
-                {
-                    "storageContainer": "crossobject",
-                    "generatedKeyName": "crosslayout",
-                    "source": null,
-                    "sourceContext": "/document/crossProjection/images/*/layoutText",
-                    "inputs": [
-                        {
-                            "name": "OcrLayoutText",
-                            "source": "/document/crossProjection/images/*/layoutText"
-                        }
-                    ]
-                }
-            ],
-            "files": [
-                {
-                    "storageContainer": "crossimages",
-                    "generatedKeyName": "crossimages",
-                    "source": "/document/crossProjection/images/*/image"
-                }
-            ]
-        }
-    ]
-```
+A data shape contains all the data intended to project, and you might want multiple of them depending on the quantity of tables, objects, and files you want in a knowledge store.
 
 ## Approaches for creating shapes
 
 There are two ways to shape enriched content to that it can be projected into a knowledge store:
 
-+ Use the [Shaper skill](cognitive-search-skill-shaper.md) to create a new node that is the root node for all the enrichments you are projecting. Then, in your projections, you would only reference the output of the Shaper skill.
++ Use the [Shaper skill](cognitive-search-skill-shaper.md) to create nodes in an enrichment tree that are used expressly for projection. Most skills create new content. In contrast, a Shaper skill work with existing nodes, usually to consolidate multiple nodes into a single complex object. This is particularly useful for tables, where you want the output of multiple nodes to be physically expressed as columns in the table. 
 
-+ Use an inline shape a projection within the projection definition itself.
++ Use an inline shape within the projection definition itself.
 
-Using the Shaper skill is more verbose than inline shaping, but ensures that all the mutations of the enrichment tree are contained within the skills and that the output is an object that can be reused. In contrast, inline shaping allows you to create the shape you need, but is an anonymous object and is only available to the projection for which it is defined.
+Using the Shaper skill externalizes the shape so that it can be used by multiple projections or even other skills. It also ensures that all the mutations of the enrichment tree are contained within the skill, and that the output is an object that can be reused. In contrast, inline shaping allows you to create the shape you need, but is an anonymous object and is only available to the projection for which it is defined.
 
-The approaches can be used together or separately. In this article, a skillset example shows both approaches, using a shaper skill for the table projections, and inline shaping to project the key phrases table.
+The approaches can be used together or separately. In this article, a skillset example shows both approaches, using a shaper skill for the table projections and inline shaping to project the key phrases table.
 
 ## Use a Shaper skill
-
-<!-- INTRO - TBD -->
-
-### Source property
-
-### SourceContext property
-
-Within a Shaper skill, an input can have a `sourceContext` element that is used only in skill inputs and projections. It is used to construct multi-level, nested objects. You may need to create a new object to either pass it as an input to a skill or project into the knowledge store. As enrichment nodes may not be a valid JSON object in the enrichment tree and referencing a node in the tree only returns that state of the node when it was created, using the enrichments as skill inputs or projections requires you to create a well formed JSON object. The `sourceContext` enables you to construct a hierarchical, anonymous type object, which would require multiple skills if you were only using the context. 
-
-Using `sourceContext` is shown in the following examples. Look at the skill output that generated an enrichment to determine if it is a valid JSON object and not a primitive type.
 
 ```json
 {
@@ -171,7 +103,17 @@ Using `sourceContext` is shown in the following examples. Look at the skill outp
 }
 ```
 
-With the `tableprojection` node defined in the `outputs` section above, we can now use the slicing feature to project parts of the `tableprojection` node into different tables:
+### SourceContext property
+
+Within a Shaper skill, an input can have a `sourceContext` element. This same property can also be used in inline shapes in projections. 
+
+`sourceContext` is used to construct multi-level, nested objects in an enrichment pipeline. If the input is at a *different* context than the skill context, use the *sourceContext*. The *sourceContext* requires you to define a nested input with the specific element being addressed as the source. 
+
+In the example above, sentiment analysis and key phrases extraction was performed on text that was split into pages for more efficient analysis. Assuming you want the scores and phrases projected into a table, you will now need to set the context to nested input that provides the score and phrase.
+
+### Projecting a shape into multiple tables
+
+With the `tableprojection` node defined in the `outputs` section above, you can slice parts of the `tableprojection` node into individual, related tables:
 
 ```json
 "projections": [
@@ -199,15 +141,17 @@ With the `tableprojection` node defined in the `outputs` section above, we can n
 
 ## Inline shaping projections
 
-Inline shaping is the ability to create a new shape in the definition of the inputs to a projection. Inline shaping creates an anonymous object that is identical to what a Shaper skill would produce (in our case, `projectionShape`). Inline shaping is useful if you are defining a shape that you do not plan to reuse.
+Inline shaping is the ability to form new shapes as inputs to a projection. Inline shaping has these characteristics:
 
-With inline shaping, shapes needed for the projections are created at the time they are used. An inline shape is created using `sourceContext` and `inputs`.
++ The shape can be used only by the projection that contains it.
++ The shape can be identical to what a Shaper skill would produce.
+
+An inline shape is created using `sourceContext` and `inputs`.
 
 | Property | Description |
 |----------|-------------|
 | sourceContext | Sets the root of the projection.  |
 | inputs | Each input is a column in the table. Name is the column name. Source is the enrichment node that provides the value. |
-
 
 To project the same data as the previous example, the inline projection option would look like this:
 
@@ -276,4 +220,4 @@ One observation from both the approaches is how values of `"Keyphrases"` are pro
 This article describes the concepts and principles of projection shapes. As a next step, see how these are applied in patterns for table, object, and file projections.
 
 > [!div class="nextstepaction"]
-> [Projection patterns for Power BI](knowledge-store-projections-examples.md)
+> [Define projections in a knowledge store](knowledge-store-projections-examples.md)

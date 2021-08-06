@@ -12,7 +12,7 @@ ms.date: 08/10/2021
 ---
 
 
-# How to define projections for a knowledge store in Azure Cognitive Search
+# Define projections in a knowledge store
 
 [Projections](knowledge-store-projection-overview.md) are the physical expression of enriched documents in a [knowledge store](knowledge-store-concept-intro.md) and take the form of tables, objects, or files in Azure Storage. Effective use of enriched documents requires structure. In this article, you'll explore both structure and relationships, learning how to build out projection properties, as well as how to relate data across the projection types created.
 
@@ -183,7 +183,7 @@ To understand the intersection between data shapes and projections, refer to the
 }
 ```
 
-## Example Shaper skill to create a custom shape
+## Example Shaper skill
 
 The Shaper skill is a utility for working with enriched content instead of creating it. Adding a Shaper to a skillset lets you create a custom shape that you can project into table storage. Without a custom shape, projections are limited to referencing a single node (one projection per output), which isn't suitable for tables. Creating a custom shape aggregates various elements into a new logical whole that can be projected as a single table, or sliced and distributed across a collection of tables. 
 
@@ -275,7 +275,9 @@ Add the above Shaper skill to the skillset.
 
 ## Projecting to tables
 
-Projecting to tables in Azure Storage is useful for reporting and analysis using tools like Power BI that can read from tables and discover relationships based on keys generated during projection. If you're trying to build a dashboard, working with related tables will simplify that task. 
+Projecting to tables in Azure Storage is useful for reporting and analysis using tools like Power BI that can read from tables and discover relationships based on keys generated during projection. If you're trying to build a dashboard, working with related tables will simplify that task.
+
+The schema of the table is specified partly by the projection (table name and key), and also by the source that provides the shape of table (columns).
 
 > [!NOTE] 
 > Table projections are Azure Storage tables, governed by the storage limits imposed by Azure Storage. For more information, see [table storage limits](/rest/api/storageservices/understanding-the-table-service-data-model). It is useful to know that the entity size cannot exceed 1 MB and a single property can be no bigger than 64 KB. These constraints make tables a good solution for storing a large number of small entities.

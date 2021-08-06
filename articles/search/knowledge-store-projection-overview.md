@@ -15,7 +15,7 @@ ms.date: 08/10/2021
 
 Projections, a component of [knowledge store](knowledge-store-concept-intro.md), are views of enriched documents that can be saved to physical storage for knowledge mining purposes. A projection lets you "project" your data into a shape that aligns with your needs, preserving relationships so that tools like Power BI can read the data with no additional effort.
 
-Projections can be tabular, with data stored in rows and columns in Azure Table Storage, or JSON objects stored in Azure Blob Storage. You can define multiple projections of your data as it is being enriched. Multiple projections are useful when you want the same data shaped differently for individual use cases.
+Projections can be tabular, where data articulation is in rows and columns in Azure Table Storage, or JSON objects stored in Azure Blob Storage, or binary images also stored in Blob Storage. You can define multiple projections of your data as it is being enriched. Multiple projections are useful when you want the same data shaped differently for individual use cases.
 
 The knowledge store supports three types of projections:
 
@@ -222,7 +222,19 @@ The Shaper skill allows you to compose an object from different nodes of the enr
 
 ## Projection slicing
 
-When defining a projection group, a single node in the enrichment tree can be sliced into multiple related tables or objects. When projecting to multiple tables, the complete shape will be projected into each table, unless a child node is the source of another table within the same group. Adding a projection with a source path that is a child of an existing projection will result in the child node being sliced out of the parent node and projected into the new yet related table or object. This technique allows you to define a single node in a Shaper skill that can be the source for all of your projections.
+Within a table projection group, a single node in the enrichment tree can be sliced into multiple related tables, so that each table contains a category of data. This can be useful for analysis, where you can control if and how related data is aggregated.
+
+To create multiple child tables, start with parent table, and then create additional tables that build off the parent's source. In this example, "KeyPhrases" and "Entities" take slices of "/document/EnrichedShape".
+
+```json
+"tables": [
+  { "tableName": "MainTable", "generatedKeyName": "SomeId", "source": "/document/EnrichedShape" },
+  { "tableName": "KeyPhrases", "generatedKeyName": "KeyPhraseId", "source": "/document/EnrichedShape/*/KeyPhrases/*" },
+  { "tableName": "Entities", "generatedKeyName": "EntityId", "source": "/document/EnrichedShape/*/Entities/*" }
+]
+```
+
+When projecting to multiple tables, the complete shape will be projected into each table, unless a child node is the source of another table within the same group. Adding a projection with a source path that is a child of an existing projection will result in the child node being sliced out of the parent node and projected into the new yet related table or object. This technique allows you to define a single node in a Shaper skill that can be the source for all of your projections.
 
 ## Projection lifecycle
 
@@ -245,4 +257,4 @@ As a next step, create your first knowledge store using sample data and instruct
 > [!div class="nextstepaction"]
 > [Create a knowledge store in REST](knowledge-store-create-rest.md).
 
-For more advanced concepts like slicing, inline shaping, and relationships, see [Shape projections in a knowledge store](knowledge-store-projections-examples.md).
+For more advanced concepts like slicing, inline shaping, and relationships, see [Define projections in a knowledge store](knowledge-store-projections-examples.md).
