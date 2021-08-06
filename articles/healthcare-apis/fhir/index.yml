@@ -37,7 +37,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Azure AD for FHIR service
-            url: azure-ad-hcapi.md
+            url: azure-active-directory-identity-configuration.md
           - text: Access token validation
             url: azure-ad-hcapi-token-validation.md
       - linkListType: learn
