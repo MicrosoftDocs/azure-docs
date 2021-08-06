@@ -170,7 +170,7 @@ Consider this sample checklist while you **onboard an application**:
 | Check the regulatory constraints | Check if there is any reason to have remote profiles or specific privacy policies.  |
 | Design the sign-in and sign-up flow | Decide whether an email verification or email verification inside sign-ups will be needed. First check-out process such as Shop systems or [Azure AD Multi-Factor Authentication (MFA)](../authentication/concept-mfa-howitworks.md) is needed or not. Watch [this video](https://www.youtube.com/watch?v=c8rN1ZaR7wk&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=4). |
 | Check the type of application and authentication protocol used or that will be implemented | Information exchange about the implementation of client application such as Web application, SPA, or Native application. Authentication protocols for client application and Azure AD B2C could be OAuth, OIDC, and SAML. Watch [this video](https://www.youtube.com/watch?v=r2TIVBCm7v4&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=9)|
-| Plan user migration | Discuss the possibilities of [user migration with Azure AD B2C](../../active-directory-b2c/user-migration.md#:~:text=Pre%20Migration%20Flow%20in%20Azure%20AD%20B2C%20In,B2C%20directory%20with%20the%20current%20credentials.%20See%20More.). There are several scenarios possible such as Just In Times (JIT) migration, and bulk import/export. Watch [this video](https://www.youtube.com/watch?v=lCWR6PGUgz0&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=2). You can also consider using [Microsoft Graph API](https://www.youtube.com/watch?v=9BRXBtkBzL4&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=3) for user migration.|
+| Plan user migration | Discuss the possibilities of [user migration with Azure AD B2C](../../active-directory-b2c/user-migration.md). There are several scenarios possible such as Just In Times (JIT) migration, and bulk import/export. Watch [this video](https://www.youtube.com/watch?v=lCWR6PGUgz0&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=2). You can also consider using [Microsoft Graph API](https://www.youtube.com/watch?v=9BRXBtkBzL4&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=3) for user migration.|
 
 Consider this sample checklist while you **deliver**.
 
@@ -188,7 +188,7 @@ Consider this sample checklist to enhance the security of your application depen
 
 - Check if strong authentication method such as [MFA](../authentication/concept-mfa-howitworks.md) is required. For users who trigger high value transactions or other risk events its suggested to use MFA. For example, for banking and finance applications, online shops - first checkout process.
 
-- Check if MFA is required, [check the methods available to do MFA](../authentication/concept-authentication-methods.md#:~:text=How%20each%20authentication%20method%20works%20%20%20,%20%20MFA%20%204%20more%20rows%20) such as  SMS/Phone, email, and third-party services.
+- Check if MFA is required, [check the methods available to do MFA](../authentication/concept-authentication-methods.md) such as  SMS/Phone, email, and third-party services.
 
 - Check if any anti-bot mechanism is in use today with your applications.
 

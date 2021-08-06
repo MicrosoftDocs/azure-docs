@@ -41,9 +41,9 @@ For app registrations:
 
    The confidential client scenarios are:
 
-   - [Daemon scenarios](?tabs=daemon#migrate-daemon-scenarios) supported by web apps, web APIs, and daemon console applications.
-   - [Web API calling downstream web APIs](?tabs=obo#migrate-on-behalf-of-calls-obo-in-web-apis) supported by web APIs calling downstream web APIs on behalf of the user.
-   - [Web app calling web APIs](?tabs=authcode#migrate-acquiretokenbyauthorizationcodeasync-in-web-apps) supported by web apps that sign in users and call a downstream web API.
+   - [Daemon scenarios](?tabs=daemon#migrate-daemon-apps) supported by web apps, web APIs, and daemon console applications.
+   - [Web API calling downstream web APIs](?tabs=obo#migrate-a-web-api-that-calls-downstream-web-apis) supported by web APIs calling downstream web APIs on behalf of the user.
+   - [Web app calling web APIs](?tabs=authcode#migrate-a-web-api-that-calls-downstream-web-apis) supported by web apps that sign in users and call a downstream web API.
 
 You might have provided a wrapper around ADAL.NET to handle certificates and caching. This article uses the same approach to illustrate the process of migrating from ADAL.NET to MSAL.NET. However, this code is only for demonstration purposes. Don't copy/paste these wrappers or integrate them in your code as they are.
 
@@ -60,7 +60,7 @@ The ADAL code for your app uses daemon scenarios if it contains a call to `Authe
 - A resource (app ID URI) as a first parameter
 - `IClientAssertionCertificate` or `ClientAssertion` as the second parameter
 
-`AuthenticationContext.AcquireTokenAsync` doesn't have a parameter of type `UserAssertion`. If it does, then your app is a web API, and it's using the [web API calling downstream web APIs ](#migrate-on-behalf-of-calls-obo-in-web-apis) scenario.
+`AuthenticationContext.AcquireTokenAsync` doesn't have a parameter of type `UserAssertion`. If it does, then your app is a web API, and it's using the [web API calling downstream web APIs](?tabs=obo#migrate-a-web-api-that-calls-downstream-web-apis) scenario.
 
 #### Update the code of daemon scenarios
 

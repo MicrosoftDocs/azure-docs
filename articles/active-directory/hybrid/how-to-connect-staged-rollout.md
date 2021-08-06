@@ -94,7 +94,7 @@ The following scenarios are not supported for staged rollout:
 - If you have a Windows Hello for Business hybrid certificate trust with certs that are issued via your federation server acting as Registration Authority or smartcard users, the scenario isn't supported on a staged rollout. 
 
   >[!NOTE]
-  >You still need to make the final cutover from federated to cloud authentication by using Azure AD Connect or PowerShell. Staged rollout doesn't switch domains from  federated to managed.  For more information about domain cutover, see [Migrate from federation to password hash synchronization](./migrate-from-federation-to-cloud-authentication.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) and [Migrate from federation to pass-through authentication](./migrate-from-federation-to-cloud-authentication.md#step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso).
+  >You still need to make the final cutover from federated to cloud authentication by using Azure AD Connect or PowerShell. Staged rollout doesn't switch domains from  federated to managed.  For more information about domain cutover, see [Migrate from federation to password hash synchronization](./migrate-from-federation-to-cloud-authentication.md) and [Migrate from federation to pass-through authentication](./migrate-from-federation-to-cloud-authentication.md).
   
 ## Get started with staged rollout
 
@@ -263,6 +263,6 @@ A: Yes. To learn how to use PowerShell to perform staged rollout, see [Azure AD 
 
 ## Next steps
 - [Azure AD 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout )
-- [Change the sign-in method to password hash synchronization](./migrate-from-federation-to-cloud-authentication.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
-- [Change sign-in method to pass-through authentication](./migrate-from-federation-to-cloud-authentication.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+- [Change the sign-in method to password hash synchronization](./migrate-from-federation-to-cloud-authentication.md)
+- [Change sign-in method to pass-through authentication](./migrate-from-federation-to-cloud-authentication.md)
 - [Staged rollout interactive guide](https://mslearn.cloudguides.com/en-us/guides/Test%20migration%20to%20cloud%20authentication%20using%20staged%20rollout%20in%20Azure%20AD)
