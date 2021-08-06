@@ -16,7 +16,7 @@ ms.reviewer: sngun
 
 This multi-part tutorial demonstrates how to create a new app written in Node.js with Express and Angular and then connect it to your [Cosmos account configured with Cosmos DB's API for MongoDB](mongodb-introduction.md).
 
-Part 3 of the tutorial builds on [Part 2](tutorial-develop-nodejs-part2.md) and covers the following tasks:
+Part 3 of the tutorial builds on [Part 2](tutorial-develop-nodejs-part-2.md) and covers the following tasks:
 
 > [!div class="checklist"]
 > * Build the Angular UI
@@ -29,14 +29,14 @@ Part 3 of the tutorial builds on [Part 2](tutorial-develop-nodejs-part2.md) and 
 
 ## Prerequisites
 
-Before starting this part of the tutorial, ensure you've completed the steps in [Part 2](tutorial-develop-nodejs-part2.md) of the tutorial.
+Before starting this part of the tutorial, ensure you've completed the steps in [Part 2](tutorial-develop-nodejs-part-2.md) of the tutorial.
 
 > [!TIP]
 > This tutorial walks you through the steps to build the application step-by-step. If you want to download the finished project, you can get the completed application from the [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb) on GitHub.
 
 ## Build the UI
 
-1. In Visual Studio Code, click the Stop button :::image type="icon" source="./media/tutorial-develop-nodejs-part3/stop-button.png"::: to stop the Node app. 
+1. In Visual Studio Code, click the Stop button :::image type="icon" source="./media/tutorial-develop-nodejs-part-3/stop-button.png"::: to stop the Node app. 
 
 2. In your Windows Command Prompt or Mac Terminal window, enter the following command to generate a heroes component. In this code g=generate, c=component, heroes=name of component, and it's using a flat file structure (--flat) so that a subfolder isn't created for it.
 
@@ -46,7 +46,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
     The terminal window displays confirmation of the new components.
 
-    :::image type="content" source="./media/tutorial-develop-nodejs-part3/install-heros-component.png" alt-text="Installing hero component":::
+    :::image type="content" source="./media/tutorial-develop-nodejs-part-3/install-heros-component.png" alt-text="Installing hero component":::
 
     Let's take a look at the files that were created and updated. 
 
@@ -57,7 +57,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 4. In the same folder, open the **app.module.ts** file, and notice that it added the `HeroesComponent` to the declarations on line 5 and it imported it as well on line 10.
 
-    :::image type="content" source="./media/tutorial-develop-nodejs-part3/app-module-file.png" alt-text="Open the app-module.ts file":::
+    :::image type="content" source="./media/tutorial-develop-nodejs-part-3/app-module-file.png" alt-text="Open the app-module.ts file":::
 
 5. Go back to the **heroes.component.html** file and copy in this code. The `<div>` is the container for the entire page. Inside of the container there is a list of heroes which we need to create so that when you click on one you can select it and edit it or delete it in the UI. Then in the HTML we've got some styling so you know which one has been selected. There's also an edit area so that you can add a new hero or edit an existing one. 
 
@@ -389,7 +389,7 @@ Now that we have the component, how do we get it to show up on the screen? Let's
 
 5. Left-click the term `Hero`, and Visual Studio displays a lightbulb icon on the left side of the code block. 
 
-    :::image type="content" source="./media/tutorial-develop-nodejs-part3/light-bulb.png" alt-text="Light bulb in Visual Studio Code":::
+    :::image type="content" source="./media/tutorial-develop-nodejs-part-3/light-bulb.png" alt-text="Light bulb in Visual Studio Code":::
 
 6. Click the lightbulb and then click **Import Hero from "/app/hero".** or **Import Hero from "./hero".** (The message changes depending on your setup)
 
@@ -481,11 +481,11 @@ Now that we have the component, how do we get it to show up on the screen? Let's
 
     Now let's run the app.
 
-2. In Visual Studio Code, click the **Debug** button :::image type="icon" source="./media/tutorial-develop-nodejs-part2/debug-button.png"::: on the left side, then click the **Start Debugging** button :::image type="icon" source="./media/tutorial-develop-nodejs-part3/start-debugging-button.png":::.
+2. In Visual Studio Code, click the **Debug** button :::image type="icon" source="./media/tutorial-develop-nodejs-part-2/debug-button.png"::: on the left side, then click the **Start Debugging** button :::image type="icon" source="./media/tutorial-develop-nodejs-part-3/start-debugging-button.png":::.
 
 3. Now open an internet browser and navigate to **localhost:3000** and see the app running locally.
 
-     :::image type="content" source="./media/tutorial-develop-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png" alt-text="Hero application running locally":::
+     :::image type="content" source="./media/tutorial-develop-nodejs-part-3/azure-cosmos-db-mongodb-mean-app.png" alt-text="Hero application running locally":::
 
 ## Next steps
 
@@ -498,4 +498,4 @@ In this part of the tutorial, you've done the following:
 You can proceed to the next part of the tutorial to create an Azure Cosmos DB account.
 
 > [!div class="nextstepaction"]
-> [Create an Azure Cosmos DB account using the Azure CLI](tutorial-develop-nodejs-part4.md)
+> [Create an Azure Cosmos DB account using the Azure CLI](tutorial-develop-nodejs-part-4.md)

@@ -28,7 +28,7 @@ This multi-part tutorial covers the following tasks:
 > * Use Mongoose to connect to Azure Cosmos DB
 > * Add React, Create, Update, and Delete operations to the app
 
-Want to do build this same app with Angular? See the [Angular tutorial video series](tutorial-develop-nodejs-part1.md).
+Want to do build this same app with Angular? See the [Angular tutorial video series](tutorial-develop-nodejs-part-1.md).
 
 ## Prerequisites
 * [Node.js](https://www.nodejs.org)

@@ -40,7 +40,7 @@ Both **User Name** and **Password** can be found in your connection information 
     :::image type="content" source="./media/connect-using-robomongo/authentication.png" alt-text="Screenshot of the Robomongo Authentication Tab":::
 6. On the **SSL** tab, check **Use SSL protocol**, then change the **Authentication Method** to **Self-signed Certificate**.
 
-    :::image type="content" source="./media/connect-using-robomongo/SSL.png" alt-text="Screenshot of the Robomongo SSL Tab":::
+    :::image type="content" source="./media/connect-using-robomongo/ssl.png" alt-text="Screenshot of the Robomongo SSL Tab":::
 7. Finally, click **Test** to verify that you are able to connect, then **Save**.
 
 ## Next steps

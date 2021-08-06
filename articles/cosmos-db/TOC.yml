@@ -1104,17 +1104,17 @@
             - name: Node.js and Angular app
               items:
                 - name: Part 1 - Introduction
-                  href: mongodb/tutorial-develop-nodejs-part1.md
+                  href: mongodb/tutorial-develop-nodejs-part-1.md
                 - name: Part 2 - Create Node app
-                  href: mongodb/tutorial-develop-nodejs-part2.md
+                  href: mongodb/tutorial-develop-nodejs-part-2.md
                 - name: Part 3 - Add UI with Angular
-                  href: mongodb/tutorial-develop-nodejs-part3.md
+                  href: mongodb/tutorial-develop-nodejs-part-3.md
                 - name: Part 4 - Create an account
-                  href: mongodb/tutorial-develop-nodejs-part4.md
+                  href: mongodb/tutorial-develop-nodejs-part-4.md
                 - name: Part 5 - Connect to Cosmos DB
-                  href: mongodb/tutorial-develop-nodejs-part5.md
+                  href: mongodb/tutorial-develop-nodejs-part-5.md
                 - name: Part 6 - Perform CRUD operations
-                  href: mongodb/tutorial-develop-nodejs-part6.md
+                  href: mongodb/tutorial-develop-nodejs-part-6.md
             - name: Node.js and React app
               href: mongodb/tutorial-develop-mongodb-react.md
         - name: 2 - Query data

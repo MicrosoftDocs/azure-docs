@@ -2087,32 +2087,32 @@
   },
   {
     "source_path_from_root": "/articles/cosmos-db/tutorial-develop-mongodb-nodejs.md",
-    "redirect_url": "/azure/cosmos-db/mongodb/tutorial-develop-nodejs-part1",
+    "redirect_url": "/azure/cosmos-db/mongodb/tutorial-develop-nodejs-part-1",
     "redirect_document_id": true
   },
   {
     "source_path_from_root": "/articles/cosmos-db/tutorial-develop-mongodb-nodejs-part2.md",
-    "redirect_url": "/azure/cosmos-db/mongodb/tutorial-develop-nodejs-part2",
+    "redirect_url": "/azure/cosmos-db/mongodb/tutorial-develop-nodejs-part-2",
     "redirect_document_id": true
   },
   {
     "source_path_from_root": "/articles/cosmos-db/tutorial-develop-mongodb-nodejs-part3.md",
-    "redirect_url": "/azure/cosmos-db/mongodb/tutorial-develop-nodejs-part3",
+    "redirect_url": "/azure/cosmos-db/mongodb/tutorial-develop-nodejs-part-3",
     "redirect_document_id": true
   },
   {
     "source_path_from_root": "/articles/cosmos-db/tutorial-develop-mongodb-nodejs-part4.md",
-    "redirect_url": "/azure/cosmos-db/mongodb/tutorial-develop-nodejs-part4",
+    "redirect_url": "/azure/cosmos-db/mongodb/tutorial-develop-nodejs-part-4",
     "redirect_document_id": true
   },
   {
     "source_path_from_root": "/articles/cosmos-db/tutorial-develop-mongodb-nodejs-part5.md",
-    "redirect_url": "/azure/cosmos-db/mongodb/tutorial-develop-nodejs-part5",
+    "redirect_url": "/azure/cosmos-db/mongodb/tutorial-develop-nodejs-part-5",
     "redirect_document_id": true
   },
   {
     "source_path_from_root": "/articles/cosmos-db/tutorial-develop-mongodb-nodejs-part6.md",
-    "redirect_url": "/azure/cosmos-db/mongodb/tutorial-develop-nodejs-part6",
+    "redirect_url": "/azure/cosmos-db/mongodb/tutorial-develop-nodejs-part-6",
     "redirect_document_id": true
   },
   {

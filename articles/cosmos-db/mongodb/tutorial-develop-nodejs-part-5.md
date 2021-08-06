@@ -16,7 +16,7 @@ ms.reviewer: sngun
 # Create an Angular app with Azure Cosmos DB's API for MongoDB - Use Mongoose to connect to Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-This multi-part tutorial demonstrates how to create a Node.js app with Express and Angular, and connect it to it to your [Cosmos account configured with Cosmos DB's API for MongoDB](mongodb-introduction.md). This article describes Part 5 of the tutorial and builds on [Part 4](tutorial-develop-nodejs-part4.md).
+This multi-part tutorial demonstrates how to create a Node.js app with Express and Angular, and connect it to it to your [Cosmos account configured with Cosmos DB's API for MongoDB](mongodb-introduction.md). This article describes Part 5 of the tutorial and builds on [Part 4](tutorial-develop-nodejs-part-4.md).
 
 In this part of the tutorial, you will:
 
@@ -31,7 +31,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-* Before you start this tutorial, complete the steps in [Part 4](tutorial-develop-nodejs-part4.md).
+* Before you start this tutorial, complete the steps in [Part 4](tutorial-develop-nodejs-part-4.md).
 
 * This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI 2.0](/cli/azure/install-azure-cli).
 
@@ -107,7 +107,7 @@ To connect your application to Azure Cosmos DB, you need to update the configura
     const port = 10255;
     ```
 
-1. In the **environment.js** file, change the value of `accountName` to the name of the Azure Cosmos DB account that you created in [Part 4](tutorial-develop-nodejs-part4.md) of the tutorial. 
+1. In the **environment.js** file, change the value of `accountName` to the name of the Azure Cosmos DB account that you created in [Part 4](tutorial-develop-nodejs-part-4.md) of the tutorial. 
 
 1. Retrieve the primary key for the Azure Cosmos DB account by using the following CLI command in the terminal window: 
 
@@ -115,7 +115,7 @@ To connect your application to Azure Cosmos DB, you need to update the configura
     az cosmosdb list-keys --name <cosmosdb-name> -g myResourceGroup
     ```    
     
-    \<cosmosdb-name> is the name of the Azure Cosmos DB account that you created in [Part 4](tutorial-develop-nodejs-part4.md) of the tutorial.
+    \<cosmosdb-name> is the name of the Azure Cosmos DB account that you created in [Part 4](tutorial-develop-nodejs-part-4.md) of the tutorial.
 
 1. Copy the primary key into the **environment.js** file as the `key` value.
 
@@ -227,11 +227,11 @@ Let's take a minute to review and walk through the previous code. First, we come
 
 Next, run the app by using the following steps:
 
-1. In Visual Studio Code, save all your changes. On the left, select the **Debug** button :::image type="icon" source="./media/tutorial-develop-nodejs-part5/debug-button.png":::, and then select the **Start Debugging** button :::image type="icon" source="./media/tutorial-develop-nodejs-part5/start-debugging-button.png":::.
+1. In Visual Studio Code, save all your changes. On the left, select the **Debug** button :::image type="icon" source="./media/tutorial-develop-nodejs-part-5/debug-button.png":::, and then select the **Start Debugging** button :::image type="icon" source="./media/tutorial-develop-nodejs-part-5/start-debugging-button.png":::.
 
 1. Now switch to the browser. Open the **Developer tools** and the **Network tab**. Go to `http://localhost:3000`, and there you see our application.
 
-    :::image type="content" source="./media/tutorial-develop-nodejs-part5/azure-cosmos-db-heroes-app.png" alt-text="New Azure Cosmos DB account in the Azure portal":::
+    :::image type="content" source="./media/tutorial-develop-nodejs-part-5/azure-cosmos-db-heroes-app.png" alt-text="New Azure Cosmos DB account in the Azure portal":::
 
 There are no heroes stored yet in the app. In the next part of this tutorial, we'll add put, push, and delete functionality. Then we can add, update, and delete heroes from the UI by using Mongoose connections to our Azure Cosmos database. 
 
@@ -248,4 +248,4 @@ When you no longer need the resources, you can delete the resource group, Azure 
 Continue to Part 6 of the tutorial to add Post, Put, and Delete functions to the app:
 
 > [!div class="nextstepaction"]
-> [Part 6: Add Post, Put, and Delete functions to the app](tutorial-develop-nodejs-part6.md)
+> [Part 6: Add Post, Put, and Delete functions to the app](tutorial-develop-nodejs-part-6.md)
