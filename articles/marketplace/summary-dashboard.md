@@ -5,8 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/09/2020
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
 ---
 
 # Summary dashboard in commercial marketplace analytics

@@ -6,6 +6,7 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 10/05/2020
