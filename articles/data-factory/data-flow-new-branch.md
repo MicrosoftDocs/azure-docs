@@ -5,6 +5,7 @@ description: Replicating data streams in mapping data flow with multiple branche
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 04/16/2021
