@@ -396,7 +396,6 @@ The OS disk object contains the following information about the OS disk used by 
 | `diffDiskSettings` | Ephemeral disk settings
 | `diskSizeGB` | Size of the disk in GB
 | `image`   | Source user image virtual hard disk
-| `lun`     | Logical unit number of the disk
 | `managedDisk` | Managed disk parameters
 | `name`    | Disk name
 | `vhd`     | Virtual hard disk
@@ -416,6 +415,7 @@ Data | Description | Version introduced |
 | `image` | Source user image virtual hard disk
 | `isSharedDisk`* | Identifies if the disk is shared between resources | 2021-05-01
 | `isUltraDisk` | Identifies if the data disk is an Ultra Disk | 2021-05-01
+| `lun`     | Logical unit number of the disk
 | `managedDisk` | Managed disk parameters
 | `name` | Disk name
 | `opsPerSecondThrottle`* | Disk read/write quota in IOPS | 2021-05-01
