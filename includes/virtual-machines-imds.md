@@ -69,7 +69,7 @@ Any request that does not meet **both** of these requirements will be rejected b
 > [!IMPORTANT]
 > IMDS is **not** a channel for sensitive data. The API is unauthenticated and open to all processes on the VM. Information exposed through this service should be considered as shared information to all applications running inside the VM.
 
-If it is not necessry for every process on the VM to access IMDS endpoint, you can set local firewall rules to limit the access. 
+If it is not necessary for every process on the VM to access IMDS endpoint, you can set local firewall rules to limit the access. 
 For example, if only a known system service needs to access instance metadata service, you can set a firewall rule on IMDS endpoint, only allowing the specific process(es) to access, or denying access for the rest of the processes. 
 
 
@@ -251,6 +251,8 @@ When you don't specify a version, you get an error with a list of the newest sup
 - 2020-12-01
 - 2021-01-01
 - 2021-02-01
+- 2021-03-01
+- 2021-05-01
 
 ### Swagger
 
@@ -402,19 +404,26 @@ The OS disk object contains the following information about the OS disk used by 
 
 The data disks array contains a list of data disks attached to the VM. Each data disk object contains the following information:
 
-Data | Description |
------|-------------|
+Data | Description | Version introduced |
+|------|-----------|--------------------|
+| `bytesPerSecondThrottle`* | Disk read/write quota in bytes | 2021-05-01
 | `caching` | Caching requirements
 | `createOption` | Information about how the VM was created
 | `diffDiskSettings` | Ephemeral disk settings
+| `diskCapacityBytes`* | Size of disk in bytes | 2021-05-01
 | `diskSizeGB` | Size of the disk in GB
 | `encryptionSettings` | Encryption settings for the disk
 | `image` | Source user image virtual hard disk
+| `isSharedDisk`* | Identifies if the disk is shared between resources | 2021-05-01
+| `isUltraDisk` | Identifies if the data disk is an Ultra Disk | 2021-05-01
 | `managedDisk` | Managed disk parameters
 | `name` | Disk name
+| `opsPerSecondThrottle`* | Disk read/write quota in IOPS | 2021-05-01
 | `osType` | Type of OS included in the disk
 | `vhd` | Virtual hard disk
 | `writeAcceleratorEnabled` | Whether or not writeAccelerator is enabled on the disk
+
+\* These fields are only populated for Ultra Disks; they will be empty strings from non-Ultra Disks.
 
 The resource disk object contains the size of the [Local Temp Disk](../articles/virtual-machines/managed-disks-overview.md#temporary-disk) attached to the VM, if it has one, in kilobytes.
 If there is [no local temp disk for the VM](../articles/virtual-machines/azure-vms-no-temp-disk.yml), this value is 0. 
