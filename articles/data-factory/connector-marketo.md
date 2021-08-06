@@ -8,9 +8,9 @@ ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.author: chez
-author: chez-charlie
+ms.author: jianleishen
 ---
+
 # Copy data from Marketo using Azure Data Factory or Synapse Analytics (Preview)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
