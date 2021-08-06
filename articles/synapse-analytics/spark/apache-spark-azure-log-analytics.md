@@ -163,7 +163,7 @@ You can upload the configuration file to your Synapse Spark pool in Synapse Stud
 Then, submit your Apache Spark application to the configured Spark pool. After the application goes to running state, choose the running application in the workbook dropdown list.
 
 > [!div class="mx-imgBorder"]
-> ![workbook imange](./media/apache-spark-azure-log-analytics/workbook.png)
+> ![workbook screenshot](./media/apache-spark-azure-log-analytics/workbook.png)
 
 And you can customize the workbook by Kusto query and configure alerts.
 
@@ -230,9 +230,28 @@ Azure Monitor alerts allow users to use a Log Analytics query to evaluate metric
 
 For more information, see [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
 
-## Limitation
+## Synapse workspace with data exfiltration protection enabled
 
-Azure Synapse Analytics workspace with [managed virtual network](../security/synapse-workspace-managed-vnet.md) enabled is not supported.
+After the Synapse workspace is created with [data exfiltration protection](../security/workspace-data-exfiltration-protection.md) enabled,
+when you want to enabled this feature, you need to create managed private endpoint connection requests to [Azure Monitor private link scopes (AMPLS)](https://docs.microsoft.com/azure/azure-monitor/logs/private-link-security) in the workspace’s approved Azure AD tenants.
+
+You can follow below steps to create a managed private endpoint connection to Azure Monitor private link scopes (AMPLS):
+
+1. If there is no existing AMPLS, create one.
+2. Navigate to your AMPLS in Azure portal, on the **Azure Monitor Resources** page, click **Add** to add connection to your Azure Log Analytics workspace.
+3. Navigate to **Synapse Studio > Manage > Managed private endpoints**, click **New** button, select **Azure Monitor Private Link Scopes** and **continue**.
+   > [!div class="mx-imgBorder"]
+   > ![Create AMPLS managed private endpoint 1](./media/apache-spark-azure-log-analytics/create-ampls-private-endpoint-1.png)
+4. Choose your Azure Monitor Private Link Scope you just created, and click **Create** button.
+   > [!div class="mx-imgBorder"]
+   > ![Create AMPLS managed private endpoint 2](./media/apache-spark-azure-log-analytics/create-ampls-private-endpoint-2.png)
+5. Wait a few minutes for private endpoint provisioning.
+6. Navigate to your AMPLS in Azure portal again, on the **Private Endpoint connections** page, select the connection just provisioned and **Approve**.
+
+
+> [!NOTE] 
+>  - The AMPLS object has a number of limits you should consider when planning your Private Link setup. See [AMPLS limits](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/private-link-security#ampls-limits) for a deeper review of these limits. 
+>  - Check if you have [right permission](../security/synapse-workspace-access-control-overview.md) to create managed private endpoint.
 
 ## Next steps
 
