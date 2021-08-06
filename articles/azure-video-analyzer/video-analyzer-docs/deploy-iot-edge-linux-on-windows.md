@@ -28,8 +28,8 @@ The following depicts the overall flow of the document and in 5 simple steps you
 
 1. Once EFLOW is set up, type the command `Connect-EflowVm` into PowerShell (with administrative privilege) to connect. This will bring up a bash terminal within PowerShell to control the EFLOW VM, where you can run Linux commands including utilities like Top and Nano. 
 
-> [!TIP] 
-> To exit the EFLOW VM, type `exit` within the terminal.
+    > [!TIP] 
+    > To exit the EFLOW VM, type `exit` within the terminal.
 
 1. Log into the EFLOW VM via PowerShell and type in the following command:
 
@@ -52,9 +52,9 @@ The following depicts the overall flow of the document and in 5 simple steps you
     The deployment process will take about 20 minutes. Upon completion, you will have certain Azure resources deployed in the Azure subscription, including:
 
     1. Video Analyzer account - This cloud service is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics.
-    2. Storage account - For storing recorded video and video analytics.
-    3. Managed Identity - This is the user assigned managed identity used to manage access to the above storage account.
-    4. IoT Hub - This acts as a central message hub for bi-directional communication between your IoT application, IoT Edge modules and the devices it manages.
+    1. Storage account - For storing recorded video and video analytics.
+    1. Managed Identity - This is the user assigned managed identity used to manage access to the above storage account.
+    1. IoT Hub - This acts as a central message hub for bi-directional communication between your IoT application, IoT Edge modules and the devices it manages.
 
     In the template, when asked if you need an edge device, choose the "Use and existing edge device" option since you created both the device and the IoT Hub earlier. You will also be prompted for your IoT Hub name and IoT Edge device ID in the subsequent steps.  
     
