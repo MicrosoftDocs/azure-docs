@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 9/21/2020
 ---
 
-## Create and manage firewall rules for Azure Database for MySQL - Flexible Server using the Azure portal
+# Create and manage firewall rules for Azure Database for MySQL - Flexible Server using the Azure portal
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -20,7 +20,7 @@ Azure Database for MySQL Flexible Server supports two types of mutually exclusiv
 1. Public access (allowed IP addresses)
 2. Private access (VNet Integration)
 
-In this article, we will focus on creation of MySQL server with **Public access (allowed IP addresses)** using Azure portal and will provide an overview of managing firewall rules after creation of flexible server. With *Public access (allowed IP addresses)*, the connections to the MySQL server are restricted to allowed IP addresses only. The client IP addresses need to be allowed in firewall rules. To learn more about it, refer to [Public access (allowed IP addresses)](./concepts-networking.md#public-access-allowed-ip-addresses). The firewall rules can be defined at the time of server creation (recommended) but can be added later as well. In this article, we will provide an overview on how to create and manage firewall rules using public access (allowed IP addresses).
+In this article, we will focus on creation of MySQL server with **Public access (allowed IP addresses)** using Azure portal and will provide an overview of managing firewall rules after creation of flexible server. With *Public access (allowed IP addresses)*, the connections to the MySQL server are restricted to allowed IP addresses only. The client IP addresses need to be allowed in firewall rules. To learn more about it, refer to [Public access (allowed IP addresses)](./concepts-networking-public.md#public-access-allowed-ip-addresses). The firewall rules can be defined at the time of server creation (recommended) but can be added later as well. In this article, we will provide an overview on how to create and manage firewall rules using public access (allowed IP addresses).
 
 ## Create a firewall rule when creating a server
 

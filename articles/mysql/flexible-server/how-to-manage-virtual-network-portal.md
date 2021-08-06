@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 9/21/2020
 ---
 
-## Create and manage virtual networks for Azure Database for MySQL - Flexible Server using the Azure portal
+# Create and manage virtual networks for Azure Database for MySQL - Flexible Server using the Azure portal
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -47,7 +47,7 @@ To create a flexible server in a virtual network, you need:
     > Only virtual networks and subnets in the same region and subscription will be listed in the drop down. </br>
     > The chosen subnet will be delegated to *Microsoft.DBforMySQL/flexibleServers*. It means that only Azure Database for MySQL Flexible Servers can use that subnet.</br>
 
-    :::image type="content" source="./media/how-to-manage-virtual-network-portal/vnet-creation.png" alt-text="Vnet configuration":::
+    :::image type="content" source="./media/how-to-manage-virtual-network-portal/vnet-creation.png" alt-text="Vnet-creation":::
 
 7. Create a new or Select an existing **Private DNS Zone**.
     > [!NOTE]
@@ -55,7 +55,7 @@ To create a flexible server in a virtual network, you need:
     > If you do not see the option to create a new private dns zone, please enter the server name on the **Basics** tab.</br>
     > After the flexible server is deployed to a virtual network and subnet, you cannot move it to Public access (allowed IP addresses).</br>
 
-    :::image type="content" source="./media/how-to-manage-virtual-network-portal/private-dns-zone.png" alt-text="Vnet configuration":::
+    :::image type="content" source="./media/how-to-manage-virtual-network-portal/private-dns-zone.png" alt-text="dnsconfiguration":::
 8. Select **Review + create** to review your flexible server configuration.
 9. Select **Create** to provision the server. Provisioning can take a few minutes.
 

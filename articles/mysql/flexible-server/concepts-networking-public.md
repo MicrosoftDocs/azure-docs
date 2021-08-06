@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 8/6/2021
 ---
 
-## Public Network Access for Azure Database for MySQL - Flexible Server (Preview)
+# Public Network Access for Azure Database for MySQL - Flexible Server (Preview)
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 

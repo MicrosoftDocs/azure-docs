@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 04/01/2021
 ---
 
-## Point-in-time restore of a Azure Database for MySQL - Flexible Server (Preview) using Azure portal
+# Point-in-time restore of a Azure Database for MySQL - Flexible Server (Preview) using Azure portal
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -78,7 +78,7 @@ Follow these steps to restore your flexible server using an earliest existing ba
     > If you do not see the option to create a new private dns zone, please enter the server name on the **Basics** tab.</br>
     > After the flexible server is deployed to a virtual network and subnet, you cannot move it to Public access (allowed IP addresses).</br>
 
-    :::image type="content" source="./media/how-to-manage-virtual-network-portal/private-dns-zone.png" alt-text="Vnet configuration":::
+    :::image type="content" source="./media/how-to-manage-virtual-network-portal/private-dns-zone.png" alt-text="dns configuration":::
 10. Select **Review + create** to review your flexible server configuration.
 11. Select **Create** to provision the server. Provisioning can take a few minutes.
 

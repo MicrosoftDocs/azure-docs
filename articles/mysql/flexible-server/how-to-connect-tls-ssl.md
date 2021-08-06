@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ---
 
-## Connect to Azure Database for MySQL - Flexible Server with encrypted connections
+# Connect to Azure Database for MySQL - Flexible Server with encrypted connections
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 

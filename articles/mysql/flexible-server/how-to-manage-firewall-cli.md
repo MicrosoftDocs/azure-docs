@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli
 ms.date: 9/21/2020
 ---
 
-## Create and manage Azure Database for MySQL - Flexible Server firewall rules using the Azure CLI
+# Create and manage Azure Database for MySQL - Flexible Server firewall rules using the Azure CLI
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 

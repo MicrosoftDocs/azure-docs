@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 07/28/2021
 ---
 
-## What's new in Azure Database for MySQL - Flexible Server (Preview)?
+# What's new in Azure Database for MySQL - Flexible Server (Preview)?
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -23,7 +23,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Online migration from Single Server to Flexible Server**
 
-  Customers can now migrate an instance of Azure Database for MySQL – Single Server to Flexible Server with minimum downtime to their applications by using Data-in Replication. For detailed, step-by-step instructions, see [Migrate Azure Database for MySQL – Single Server to Flexible Server with minimal downtime](https://docs.microsoft.com/azure/mysql/howto-migrate-single-flexible-minimum-downtime).
+  Customers can now migrate an instance of Azure Database for MySQL – Single Server to Flexible Server with minimum downtime to their applications by using Data-in Replication. For detailed, step-by-step instructions, see [Migrate Azure Database for MySQL – Single Server to Flexible Server with minimal downtime](../howto-migrate-single-flexible-minimum-downtime.md).
 
 - **Availability in West US and Germany West Central**
 
