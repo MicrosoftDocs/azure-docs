@@ -725,8 +725,13 @@
       - name: Azure VM and virtual machine scale set
         href: app/azure-vm-vmss-apps.md
       - name: Azure App Service
-        displayname: App Service, web app, PaaS, Azure web app
-        href: app/azure-web-apps.md
+        items: 
+        - name: .NET 
+          href: app/azure-web-apps.md
+        - name: Java 
+          href: app/azure-web-apps-java.md
+        - name: Node.js 
+          href: app/azure-web-apps-nodejs.md
       - name: Azure Cloud Services
         displayname: cloud, cloud services, PaaS
         href: app/cloudservices.md
