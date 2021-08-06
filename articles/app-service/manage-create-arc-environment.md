@@ -430,10 +430,10 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
     #[PowerShell](tab/powershell)
 
     ```azurecli-interactive
-    customLocationId=$(az customlocation show \
-        --resource-group $groupName \
-        --name $customLocationName \
-        --query id \
+    $customLocationId=$(az customlocation show `
+        --resource-group $groupName `
+        --name $customLocationName `
+        --query id `
         --output tsv)
     ```
 
