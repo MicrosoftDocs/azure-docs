@@ -23,12 +23,6 @@ For example, consider a graph representing Floors and Rooms in a building, where
 
 In this article, you'll see how to send events from twin to twin, allowing you to update twins in response to property changes or other data from another twin in the graph. Currently, twin-to-twin updates are handled by setting up an [Azure function](../azure-functions/functions-overview.md) that watches for twin life cycle events that should affect other areas of the graph, and makes changes to other twins accordingly.
 
-Here are the steps covered by this article:
-1. [Set up an Event Grid endpoint](#create-the-endpoint) in Azure Digital Twins that connects the instance to Event Grid. Then, [set up a route](#create-the-route) within Azure Digital Twins to send twin property change events to the endpoint
-1. [Create an Azure function](#create-the-azure-function) capable of listening on the Event Grid endpoint and updating other twins accordingly
-1. [Connect the function to Event Grid](#connect-the-function-to-event-grid) so that it receives the updates from the Event Grid endpoint
-1. [Test and verify](#test-and-verify-results) the solution by simulating a property change and querying Azure Digital Twins to see the results on other twins
-
 ## Prerequisites
 
 This article uses **Visual Studio**. You can download the latest version from [Visual Studio Downloads](https://visualstudio.microsoft.com/downloads/).
