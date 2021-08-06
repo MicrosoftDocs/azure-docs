@@ -94,7 +94,7 @@ ms.custom: generated
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">0</p></strong></td>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Enable Advanced Threat Protection</p></strong></td>
-    <td class="tg-lboi"; width=55%>- Azure Arc enabled Kubernetes clusters should have Azure Defender's extension installed<br />- Azure Defender for App Service should be enabled<br />- Azure Defender for Azure SQL Database servers should be enabled<br />- Azure Defender for container registries should be enabled<br />- Azure Defender for DNS should be enabled<br />- Azure Defender for Key Vault should be enabled<br />- Azure Defender for Kubernetes should be enabled<br />- Azure Defender for Resource Manager should be enabled<br />- Azure Defender for servers should be enabled<br />- Azure Defender for SQL servers on machines should be enabled<br />- Azure Defender for Storage should be enabled</td>
+    <td class="tg-lboi"; width=55%>- Azure Arc-enabled Kubernetes clusters should have Azure Defender's extension installed<br />- Azure Defender for App Service should be enabled<br />- Azure Defender for Azure SQL Database servers should be enabled<br />- Azure Defender for container registries should be enabled<br />- Azure Defender for DNS should be enabled<br />- Azure Defender for Key Vault should be enabled<br />- Azure Defender for Kubernetes should be enabled<br />- Azure Defender for Resource Manager should be enabled<br />- Azure Defender for servers should be enabled<br />- Azure Defender for SQL servers on machines should be enabled<br />- Azure Defender for Storage should be enabled</td>
   </tr>
 </tbody>
 </table>

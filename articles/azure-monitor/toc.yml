@@ -1088,7 +1088,7 @@
         href: containers/container-insights-enable-new-cluster.md
       - name: Enable for existing AKS cluster
         href: containers/container-insights-enable-existing-clusters.md
-      - name: Enable for Arc enabled cluster
+      - name: Enable for Azure Arc–enabled cluster
         href: containers/container-insights-enable-arc-enabled-clusters.md
       - name: Enable for hybrid cluster
         href: containers/container-insights-hybrid-setup.md

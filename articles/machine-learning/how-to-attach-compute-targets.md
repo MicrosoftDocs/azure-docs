@@ -26,7 +26,7 @@ In this article, learn how to set up your workspace to use these compute resourc
 * Azure Databricks - used as a training compute target only in [machine learning pipelines](how-to-create-machine-learning-pipelines.md)
 * Azure Data Lake Analytics
 * Azure Container Instance
-* Azure Kubernetes Service & Azure Arc enabled Kubernetes (preview)
+* Azure Kubernetes Service & Azure Arc–enabled Kubernetes (preview)
 
 To use compute targets managed by Azure Machine Learning, see:
 
@@ -344,7 +344,7 @@ Azure Container Instances (ACI) are created dynamically when you deploy a model.
 Azure Machine Learning provides you with the following options to attach your own Kubernetes clusters for training:
 
 * [Azure Kubernetes Service](../aks/intro-kubernetes.md). Azure Kubernetes Service provides a managed cluster in Azure.
-* [Azure Arc Kubernetes](../azure-arc/kubernetes/overview.md). Use Azure Arc enabled Kubernetes clusters if your cluster is hosted outside of Azure.
+* [Azure Arc Kubernetes](../azure-arc/kubernetes/overview.md). Use Azure Arc–enabled Kubernetes clusters if your cluster is hosted outside of Azure.
 
 [!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
@@ -355,7 +355,7 @@ compute_target.detach()
 ```
 
 > [!WARNING]
-> Detaching a cluster **does not delete the cluster**. To delete an Azure Kubernetes Service cluster, see [Use the Azure CLI with AKS](../aks/kubernetes-walkthrough.md#delete-the-cluster). To delete an Azure Arc enabled Kubernetes cluster, see [Azure Arc quickstart](../azure-arc/kubernetes/quickstart-connect-cluster.md#7-clean-up-resources).
+> Detaching a cluster **does not delete the cluster**. To delete an Azure Kubernetes Service cluster, see [Use the Azure CLI with AKS](../aks/kubernetes-walkthrough.md#delete-the-cluster). To delete an Azure Arc–enabled Kubernetes cluster, see [Azure Arc quickstart](../azure-arc/kubernetes/quickstart-connect-cluster.md#7-clean-up-resources).
 
 ## Notebook examples
 

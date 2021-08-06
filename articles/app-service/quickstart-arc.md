@@ -7,11 +7,11 @@ ms.date: 06/02/2021
 
 # Create an App Service app on Azure Arc (Preview)
 
-In this quickstart, you create an [App Service app to an Azure Arc enabled Kubernetes cluster](overview-arc-integration.md) (Preview). This scenario supports Linux apps only, and you can use a built-in language stack or a custom container.
+In this quickstart, you create an [App Service app to an Azure Arc–enabled Kubernetes cluster](overview-arc-integration.md) (Preview). This scenario supports Linux apps only, and you can use a built-in language stack or a custom container.
 
 ## Prerequisites
 
-- [Set up your Azure Arc enabled Kubernetes to run App Service](manage-create-arc-environment.md).
+- [Set up your Azure Arc–enabled Kubernetes to run App Service](manage-create-arc-environment.md).
 
 [!INCLUDE [app-service-arc-cli-install-extensions](../../includes/app-service-arc-cli-install-extensions.md)]
 

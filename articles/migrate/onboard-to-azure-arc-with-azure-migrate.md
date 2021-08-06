@@ -32,7 +32,7 @@ Azure Arc allows you to manage your hybrid IT estate with a single pane of glass
     - Ensure that the Azure account is granted assignment to the [required Azure roles](../azure-arc/servers/agent-overview.md#required-permissions).
     - Make sure [the required URLs](../azure-arc/servers/agent-overview.md#networking-configuration) are not blocked if the discovered servers connect through a firewall or proxy server to communicate over the Internet.
     - Review the [regions supported](../azure-arc/servers/overview.md#supported-regions) for Azure Arc. 
-    - Azure Arc enabled servers supports up to 5,000 machine instances in a resource group.
+    - Azure Arc–enabled servers supports up to 5,000 machine instances in a resource group.
 
 
 ## Set up the Azure Migrate project  

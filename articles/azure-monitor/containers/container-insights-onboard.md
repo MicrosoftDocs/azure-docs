@@ -14,7 +14,7 @@ This article provides an overview of the options that are available for setting 
 - [Azure Kubernetes Service (AKS)](../../aks/index.yml)  
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) versions 3.x and 4.x  
 - [Red Hat OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4.x  
-- An [Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md)
+- An [Azure Arc–enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md)
 
 You can also monitor the performance of workloads that are deployed to self-managed Kubernetes clusters hosted on:
 - Azure, by using the [AKS engine](https://github.com/Azure/aks-engine)
@@ -129,7 +129,7 @@ To enable Container insights, use one of the methods that's described in the fol
 | | [Enable from AKS cluster](container-insights-enable-existing-clusters.md#enable-directly-from-aks-cluster-in-the-portal)| You can enable monitoring directly from an AKS cluster in the Azure portal. |
 | | [Enable for AKS cluster using an Azure Resource Manager template](container-insights-enable-existing-clusters.md#enable-using-an-azure-resource-manager-template)| You can enable monitoring for an AKS cluster by using a preconfigured Azure Resource Manager template. |
 | | [Enable for hybrid Kubernetes cluster](container-insights-hybrid-setup.md) | You can enable monitoring for the AKS engine that's hosted on Azure Stack or for a Kubernetes cluster that's hosted on-premises. |
-| | [Enable for Arc enabled Kubernetes cluster](container-insights-enable-arc-enabled-clusters.md). | You can enable monitoring for your Kubernetes clusters that are hosted outside of Azure and enabled with Azure Arc. |
+| | [Enable for Azure Arc–enabled Kubernetes cluster](container-insights-enable-arc-enabled-clusters.md). | You can enable monitoring for your Kubernetes clusters that are hosted outside of Azure and enabled with Azure Arc. |
 | | [Enable for OpenShift cluster using an Azure Resource Manager template](container-insights-azure-redhat-setup.md#enable-using-an-azure-resource-manager-template) | You can enable monitoring for an existing OpenShift cluster by using a preconfigured Azure Resource Manager template. |
 | | [Enable for OpenShift cluster from Azure Monitor](container-insights-azure-redhat-setup.md#from-the-azure-portal) | You can enable monitoring for one or more OpenShift clusters that are already deployed from the multicluster page in Azure Monitor. |
 

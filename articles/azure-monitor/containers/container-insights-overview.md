@@ -15,7 +15,7 @@ Container insights is a feature designed to monitor the performance of container
 - [Azure Container Instances](../../container-instances/container-instances-overview.md)
 - Self-managed Kubernetes clusters hosted on [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
-- [Azure Arc enabled Kubernetes](../../azure-arc/kubernetes/overview.md) (preview)
+- [Azure Arc–enabled Kubernetes](../../azure-arc/kubernetes/overview.md) (preview)
 
 Container insights supports clusters running the Linux and Windows Server 2019 operating system. The container runtimes it supports are Docker, Moby, and any CRI compatible runtime such as CRI-O and ContainerD.
 
@@ -43,7 +43,7 @@ Container insights delivers a comprehensive monitoring experience using differen
     >Support for Azure Red Hat OpenShift is a feature in public preview at this time.
     >
 
-* Monitor container workloads [deployed to Azure Arc enabled Kubernetes (preview)](../../azure-arc/kubernetes/overview.md).
+* Monitor container workloads [deployed to Azure Arc–enabled Kubernetes (preview)](../../azure-arc/kubernetes/overview.md).
 
 The main differences in monitoring a Windows Server cluster compared to a Linux cluster are the following:
 

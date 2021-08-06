@@ -37,8 +37,8 @@ Before you begin, make sure that:
         1. Identify the Kubernetes server version installed on the device. In the local UI of the device, go to **Software updates** page. Note the **Kubernetes server version** in this page.
         1. Download a client that is skewed no more than one minor version from the master. The client version but may lead the master by up to one minor version. For example, a v1.3 master should work with v1.1, v1.2, and v1.3 nodes, and should work with v1.2, v1.3, and v1.4 clients. For more information on Kubernetes client version, see [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew).
     
-1. Optionally, [Install client tools for deploying and managing Azure Arc enabled data services](../azure-arc/data/install-client-tools.md). These tools are not required but recommended.  
-1. Make sure you have enough resources available on your device to provision a data controller and one SQL Managed Instance. For data controller and one SQL Managed Instance, you will need a minimum of 16 GB of RAM and 4 CPU cores. For detailed guidance, go to [Minimum requirements for Azure Arc enabled data services deployment](../azure-arc/data/sizing-guidance.md#minimum-deployment-requirements).
+1. Optionally, [Install client tools for deploying and managing Azure Arc–enabled data services](../azure-arc/data/install-client-tools.md). These tools are not required but recommended.  
+1. Make sure you have enough resources available on your device to provision a data controller and one SQL Managed Instance. For data controller and one SQL Managed Instance, you will need a minimum of 16 GB of RAM and 4 CPU cores. For detailed guidance, go to [Minimum requirements for Azure Arc–enabled data services deployment](../azure-arc/data/sizing-guidance.md#minimum-deployment-requirements).
 
 
 ## Configure Kubernetes external service IPs

@@ -79,14 +79,14 @@ There are multiple methods to install the Log Analytics agent and connect your m
 
 ### Windows virtual machine on-premises or in another cloud
 
-- Use [Azure Arc enabled servers](../../azure-arc/servers/overview.md) to deploy and manage the Log Analytics VM extension.
+- Use [Azure Arc–enabled servers](../../azure-arc/servers/overview.md) to deploy and manage the Log Analytics VM extension.
 - [Manually install](../agents/agent-windows.md) the agent from the command line.
 - Automate the installation with [Azure Automation DSC](../agents/agent-windows.md#install-agent-using-dsc-in-azure-automation).
 - Use a [Resource Manager template with Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win)
 
 ### Linux virtual machine on-premises or in another cloud
 
-- Use [Azure Arc enabled servers](../../azure-arc/servers/overview.md) to deploy and manage the Log Analytics VM extension.
+- Use [Azure Arc–enabled servers](../../azure-arc/servers/overview.md) to deploy and manage the Log Analytics VM extension.
 - [Manually install](../vm/quick-collect-linux-computer.md) the agent calling a wrapper-script hosted on GitHub.
 - Integrate [System Center Operations Manager](./om-agents.md) with Azure Monitor to forward collected data from Windows computers reporting to a management group.
 

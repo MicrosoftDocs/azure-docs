@@ -1,5 +1,5 @@
 ---
-title: Overview - Azure Arc enabled Logic Apps
+title: Overview - Azure Arc–enabled Logic Apps
 description: Learn about single-tenant Logic Apps workflows that can run anywhere that Kubernetes can run.
 services: logic-apps
 ms.suite: integration
@@ -10,13 +10,13 @@ ms.date: 05/25/2021
 ## Customer intent: As a developer, I want to learn about automated Logic Apps workflows that can run anywhere that Kubernetes can run.
 ---
 
-# What is Azure Arc enabled Logic Apps? (Preview)
+# What is Azure Arc–enabled Logic Apps? (Preview)
 
 > [!NOTE]
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-With Azure Arc enabled Logic Apps, you can develop and run single-tenant based logic apps anywhere that Kubernetes can run. For example, you can run your logic app workflows on Azure, Azure Kubernetes Service, on premises, and even other cloud providers. This offering provides a centralized single pane-of-glass management platform through Azure Arc and the Azure portal for the following capabilities: 
+With Azure Arc–enabled Logic Apps, you can develop and run single-tenant based logic apps anywhere that Kubernetes can run. For example, you can run your logic app workflows on Azure, Azure Kubernetes Service, on premises, and even other cloud providers. This offering provides a centralized single pane-of-glass management platform through Azure Arc and the Azure portal for the following capabilities: 
 
 - Use Azure Logic Apps as your integration platform.
 - Connect your workflows to all your services no matter where they're hosted.
@@ -31,16 +31,16 @@ For more information, review the following documentation:
 - [Single-tenant versus other Logic Apps environments](../logic-apps/single-tenant-overview-compare.md)
 - [Azure Arc overview](../azure-arc/overview.md)
 - [Azure Kubernetes Service overview](../aks/intro-kubernetes.md)
-- [What is Azure Arc enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
+- [What is Azure Arc–enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
 - [What is Kubernetes?](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/)
 
 <a name="why-use"></a>
 
-## Why use Arc enabled Logic Apps
+## Why use Azure Arc–enabled Logic Apps
 
-With Azure Arc enabled Logic Apps, you can create and deploy logic app workflows in the same way as in the single-tenant experience for Azure Logic Apps. You also gain more control and flexibility when you have logic apps running on a Kubernetes infrastructure that you operate and manage.
+With Azure Arc–enabled Logic Apps, you can create and deploy logic app workflows in the same way as in the single-tenant experience for Azure Logic Apps. You also gain more control and flexibility when you have logic apps running on a Kubernetes infrastructure that you operate and manage.
 
-Minor differences exist between the Azure Arc and single-tenant Logic Apps experiences for creating, designing, and deploying logic apps. When you use Azure Arc enabled Logic Apps, the major difference is that your logic apps run in a *custom location*. This location is mapped to an Arc enabled Kubernetes cluster where you have installed and enabled the Azure App Service platform extensions bundle.
+Minor differences exist between the Azure Arc and single-tenant Logic Apps experiences for creating, designing, and deploying logic apps. When you use Azure Arc–enabled Logic Apps, the major difference is that your logic apps run in a *custom location*. This location is mapped to an Azure Arc–enabled Kubernetes cluster where you have installed and enabled the Azure App Service platform extensions bundle.
 
 For example, this cluster can be Azure Kubernetes Service, bare-metal Kubernetes, or another setup. The extensions bundle enables you to run platform services such as Azure Logic Apps, Azure Functions, and Azure App Service on your Kubernetes cluster.
 
@@ -48,16 +48,16 @@ For more information, review the following documentation:
 
 - [Single-tenant versus other Azure Logic Apps environments](../logic-apps/single-tenant-overview-compare.md)
 - [Azure Kubernetes Service overview](../aks/intro-kubernetes.md)
-- [What is Azure Arc enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
-- [Custom locations on Azure Arc enabled Kubernetes](../azure-arc/kubernetes/conceptual-custom-locations.md)
+- [What is Azure Arc–enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
+- [Custom locations on Azure Arc–enabled Kubernetes](../azure-arc/kubernetes/conceptual-custom-locations.md)
 - [App Service, Functions, and Logic Apps on Azure Arc (Preview)](../app-service/overview-arc-integration.md)
-- [Set up an Azure Arc enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)](../app-service/manage-create-arc-environment.md)
+- [Set up an Azure Arc–enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)](../app-service/manage-create-arc-environment.md)
 
 <a name="when-to-use"></a>
 
-## When to use Arc enabled Logic Apps
+## When to use Azure Arc–enabled Logic Apps
 
-Although Kubernetes provides more control and flexibility, you also have operational overhead. If you're satisfied that the Logic Apps service meets your needs, you're encouraged to continue using this service. However, consider using Azure Arc enabled Logic Apps when you have the following scenarios:
+Although Kubernetes provides more control and flexibility, you also have operational overhead. If you're satisfied that the Logic Apps service meets your needs, you're encouraged to continue using this service. However, consider using Azure Arc–enabled Logic Apps when you have the following scenarios:
 
 - You already run all your apps and services on Kubernetes. You want to extend these processes and controls to all your other PaaS services.
 
@@ -121,7 +121,7 @@ This table provides a high-level comparison between the capabilities in the curr
       Run anywhere your containers run
    :::column-end:::
    :::column:::
-      Run anywhere with an Arc enabled Kubernetes cluster
+      Run anywhere with an Azure Arc–enabled Kubernetes cluster
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -179,4 +179,4 @@ This table provides a high-level comparison between the capabilities in the curr
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create and deploy workflows with Arc enabled Logic Apps](azure-arc-enabled-logic-apps-create-deploy-workflows.md)
+> [Create and deploy workflows with Azure Arc–enabled Logic Apps](azure-arc-enabled-logic-apps-create-deploy-workflows.md)

@@ -21,7 +21,7 @@ The hosting plan you choose dictates the following behaviors:
 This article provides a detailed comparison between the various hosting plans, along with [Kubernetes-based hosting](functions-kubernetes-keda.md).
 
 > [!NOTE]
-> If you choose to host your functions in a Kubernetes cluster, consider using an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md). Hosting on an Azure Arc-enabled Kubernetes cluster is currently in preview. To learn more, see [App Service, Functions, and Logic Apps on Azure Arc](../app-service/overview-arc-integration.md).  
+> If you choose to host your functions in a Kubernetes cluster, consider using an [Azure Arc–enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md). Hosting on an Azure Arc–enabled Kubernetes cluster is currently in preview. To learn more, see [App Service, Functions, and Logic Apps on Azure Arc](../app-service/overview-arc-integration.md).  
 
 ## Overview of plans
 

@@ -11066,7 +11066,7 @@ Azure service: [Azure Arc](../azure-arc/index.yml)
 
 ### Microsoft.Kubernetes
 
-Azure service: [Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md)
+Azure service: [Azure Arc–enabled Kubernetes](../azure-arc/kubernetes/overview.md)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |

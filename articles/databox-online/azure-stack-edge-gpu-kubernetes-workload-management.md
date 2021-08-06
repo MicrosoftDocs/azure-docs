@@ -49,11 +49,11 @@ There are three primary ways of deploying your workloads. Each of these deployme
 
 - **IoT Edge deployment**: This is through IoT Edge, which connects to the Azure IoT Hub. You connect to the Kubernetes cluster on your Azure Stack Edge Pro device via the `iotedge` namespace. The IoT Edge agents deployed in this namespace are responsible for connectivity to Azure. You apply the `IoT Edge deployment.json` configuration using Azure DevOps CI/CD. Namespace and IoT Edge management is done through cloud operator.
 
-- **Azure Arc enabled Kubernetes deployment**: Azure Arc enabled Kubernetes is a hybrid management tool that will allow you to deploy applications on your Kubernetes clusters. You connect to the Kubernetes cluster on your Azure Stack Edge Pro device via the `azure-arc namespace`. The agents deployed in this namespace are responsible for connectivity to Azure. You apply the deployment configuration by using the GitOps-based configuration management. 
+- **Azure Arc–enabled Kubernetes deployment**: Azure Arc–enabled Kubernetes is a hybrid management tool that will allow you to deploy applications on your Kubernetes clusters. You connect to the Kubernetes cluster on your Azure Stack Edge Pro device via the `azure-arc namespace`. The agents deployed in this namespace are responsible for connectivity to Azure. You apply the deployment configuration by using the GitOps-based configuration management. 
     
-    Azure Arc enabled Kubernetes will also allow you to use Azure Monitor for containers to view and monitor your cluster. For more information, go to [What is Azure Arc enabled Kubernetes?](../azure-arc/kubernetes/overview.md).
+    Azure Arc–enabled Kubernetes will also allow you to use Azure Monitor for containers to view and monitor your cluster. For more information, go to [What is Azure Arc–enabled Kubernetes?](../azure-arc/kubernetes/overview.md).
     
-    Beginning March 2021, Azure Arc enabled Kubernetes will be generally available to the users and standard usage charges apply. As a valued preview customer, the Azure Arc enabled Kubernetes will be available to you at no charge for Azure Stack Edge device(s). To avail the preview offer, create a [Support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
+    Beginning March 2021, Azure Arc–enabled Kubernetes will be generally available to the users and standard usage charges apply. As a valued preview customer, the Azure Arc–enabled Kubernetes will be available to you at no charge for Azure Stack Edge device(s). To avail the preview offer, create a [Support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
 
     1. Under **Issue type**, select **Billing**.
     2. Under **Subscription**, select your subscription.

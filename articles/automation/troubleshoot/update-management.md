@@ -335,7 +335,7 @@ Machines do appear in Azure Resource Graph query results, but still don't show u
 
 5. If the machine is not set up as a system Hybrid Runbook Worker, review the methods to enable using one of the following methods:
 
-   - From your [Automation account](../update-management/enable-from-automation-account.md) for one or more Azure and non-Azure machines, including Arc enabled servers.
+   - From your [Automation account](../update-management/enable-from-automation-account.md) for one or more Azure and non-Azure machines, including Azure Arc–enabled servers.
 
    - Using the **Enable-AutomationSolution** [runbook](../update-management/enable-from-runbook.md) to automate onboarding Azure VMs.
 

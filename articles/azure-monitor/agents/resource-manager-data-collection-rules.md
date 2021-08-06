@@ -80,7 +80,7 @@ The following sample creates an association between an Azure virtual machine and
 
 ## Create association with Azure Arc
 
-The following sample creates an association between an Azure Arc-enabled server and a data collection rule.
+The following sample creates an association between an Azure Arc–enabled server and a data collection rule.
 
 ### Template file
 

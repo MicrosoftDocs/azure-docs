@@ -51,9 +51,9 @@ sections:
           Automanage enrolls, configures, and monitors throughout the lifecycle of the VM the services listed [here](automanage-virtual-machines.md).
           
       - question: |
-          Does Azure Automanage work with Azure Arc-enabled VMs?
+          Does Azure Automanage work with Azure Arc–enabled VMs?
         answer: |
-          Automanage currently does not support Arc-enabled VMs.
+          Automanage currently does not support Arc–enabled VMs.
 
       - question: |
           Can I customize configurations on Azure Automanage?
