@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 11/04/2020
+ms.date: 08/06/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -111,6 +111,56 @@ To delegate ability to read provisioning settings associated with your service p
 To delegate ability to authorize application access for provisioning. Example input Oauth bearer token. Permissions required:
 
 - microsoft.directory/servicePrincipals/synchronizationCredentials/manage
+
+## Application Proxy permissions
+
+Performing any write operations to the Application Proxy properties of the application also requires the permissions to update the application's basic properties and authentication.
+
+To read and perform any write operations to the Application Proxy properties of the application also requires the read permissions to view connector groups as this is part of the list of properties shown on the page.
+
+### Delegate Application Proxy  connector management
+
+To delegate create, read, update, and delete actions for connector management. Permissions required:
+
+- microsoft.directory/connectorGroups/allProperties/read
+- microsoft.directory/connectorGroups/allProperties/update
+- microsoft.directory/connectorGroups/create
+- microsoft.directory/connectorGroups/delete
+- microsoft.directory/connectors/allProperties/read
+- microsoft.directory/connectors/create
+
+
+### Delegate Application Proxy settings management
+
+To delegate create, read, update, and delete actions for Application Proxy properties on an app. Permissions required:
+
+- microsoft.directory/applications/applicationProxy/read 
+- microsoft.directory/applications/applicationProxy/update 
+- microsoft.directory/applications/applicationProxyAuthentication/update 
+- microsoft.directory/applications/applicationProxySslCertificate/update 
+- microsoft.directory/applications/applicationProxyUrlSettings/update 
+- microsoft.directory/applications/basic/update
+- microsoft.directory/applications/authentication/update
+- microsoft.directory/connectorGroups/allProperties/read
+
+### Read Application Proxy Settings for an app
+
+To delegate read permissions for Application Proxy properties on an app. Permissions required:
+ 
+- microsoft.directory/applications/applicationProxy/read 
+- microsoft.directory/connectorGroups/allProperties/read 
+
+### Update URL configuration Application Proxy settings for an app 
+
+To delegate create, read, update, and delete (CRUD) permissions for updating the Application Proxy external URL, internal URL, and SSL certificate properties. Permissions required: 
+
+- microsoft.directory/applications/applicationProxy/read 
+- microsoft.directory/connectorGroups/allProperties/read 
+- microsoft.directory/applications/basic/update 
+- microsoft.directory/applications/authentication/update
+- microsoft.directory/applications/applicationProxyAuthentication/update 
+- microsoft.directory/applications/applicationProxySslCertificate/update 
+- microsoft.directory/applications/applicationProxyUrlSettings/update
 
 ## Full list of permissions
 
