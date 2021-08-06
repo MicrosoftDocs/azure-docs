@@ -3,17 +3,18 @@ author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 06/11/2021
+ms.date: 08/04/2021
 ms.author: mimart
 # Used by Azure AD B2C app integration articles under "App integration".
 ---
 
-To grant the web app permissions, do the following: 
+To grant your app (App ID: 1) permissions, follow these steps: 
 
+1. Select **App registrations**, and then select the app your created (App ID: 1).
 1. Under **Manage**, select **API permissions**.
 1. Under **Configured permissions**, select **Add a permission**.
 1. Select the **My APIs** tab.
-1. Select the API to which the web application should be granted access (for example, *my-api1*).
+1. Select the API to which the web application should be granted access (App ID: 2). For example, *my-api1*.
 1. Under **Permission**, expand **tasks**, and then select the scopes that you defined earlier (for example, *tasks.read* and *tasks.write*).
 1. Select **Add permissions**.
 1. Select **Grant admin consent for \<*your tenant name*>**.
