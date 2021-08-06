@@ -166,7 +166,7 @@ Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows 
 
    Last Modified date: filled in automatically, should not be changed.
 
-   Description: Enter any additional information to identify the purpose of the test case.
+**Description:**Enter any additional information to identify the purpose of the test case.
 
    ![Screenshot that shows steps to initialize a test case .](./media/oracle-to-sql-database-guide/tester-init-test-case.png)
 
