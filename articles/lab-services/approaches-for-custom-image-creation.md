@@ -46,7 +46,7 @@ Here are the high-level steps to bring a custom image from an Azure VM:
 
 1.  Create an [Azure VM](https://azure.microsoft.com/services/virtual-machines/) using a Windows or Linux Marketplace image.  
 1.  Connect to the Azure VM and install additional software.  You can also make other customizations that are needed for your lab.  
-1.  When you’ve finished setting up the image, [save the VM's image to a shared image gallery](../virtual-machines/image-version-vm-powershell.md).  As part of this, you will also need to create the image’s definition and version.
+1.  When you’ve finished setting up the image, [save the VM's image to a shared image gallery](../virtual-machines/image-version.md).  As part of this, you will also need to create the image’s definition and version.
 1.  Once the custom image is saved in the gallery, your image can be used to create new labs.   
 
 The steps vary depending on if you are creating a custom Windows or Linux image.  Read the following articles for the detailed steps:

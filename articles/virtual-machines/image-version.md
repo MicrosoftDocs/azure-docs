@@ -133,7 +133,7 @@ The syntax for creating the image will change, depending on what you are using a
 | Snapshot or managed disk | `--data-snapshots <Resource ID of the snapshot or managed disk> --data-snapshot-luns <LUN number>` |
 | VHD in a storage account | `--data-vhds-sa <storageaccountname> --data-vhds-uris <URI> --data-vhds-luns <LUN number>` |
 
-For detailed examples of how to specify different sources for your image, see the [az sig image-version create examples](/cli/azure/sig/image-version?view=azure-cli-latest#az_sig_image_version_create-examples).
+For detailed examples of how to specify different sources for your image, see the [az sig image-version create examples](/cli/azure/sig/image-version#az_sig_image_version_create-examples).
 
 In the example below, we are creating an image from a **VM**. The version of our image is *1.0.0* and we are going to create 2 replicas in the *West Central US* region, 1 replica in the *South Central US* region and 1 replica in the *East US 2* region using zone-redundant storage. The replication regions must include the region the source VM is located.
 

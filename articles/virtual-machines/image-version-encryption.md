@@ -93,7 +93,7 @@ New-AzGalleryImageVersion `
 
 ### Create a VM
 
-You can create a virtual machine (VM) from a shared image gallery and use customer-managed keys to encrypt the disks. The syntax is the same as creating a [generalized](vm-generalized-image-version-powershell.md) or [specialized](vm-specialized-image-version-powershell.md) VM from an image. Use the extended parameter set and add `Set-AzVMOSDisk -Name $($vmName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage` to the VM configuration.
+You can create a virtual machine (VM) from a shared image gallery and use customer-managed keys to encrypt the disks. The syntax is the same as creating a [generalized](vm-generalized-image-version.md) or [specialized](vm-specialized-image-version.md) VM from an image. Use the extended parameter set and add `Set-AzVMOSDisk -Name $($vmName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage` to the VM configuration.
 
 For data disks, add the `-DiskEncryptionSetId $setID` parameter when you use [Add-AzVMDataDisk](/powershell/module/az.compute/add-azvmdatadisk).
 

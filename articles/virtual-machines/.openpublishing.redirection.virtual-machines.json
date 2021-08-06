@@ -2698,21 +2698,21 @@
           {
             "source_path_from_root": "/articles/virtual-machines/vm-generalized-image-version-powershell.md",
             "redirect_url": "/azure/virtual-machines/vm-generalized-image-version",
-            "redirect_document_id": true
+            "redirect_document_id": false
           },
           {
             "source_path_from_root": "/articles/virtual-machines/vm-generalized-image-version-cli.md",
             "redirect_url": "/azure/virtual-machines/vm-generalized-image-version",
-            "redirect_document_id": true
+            "redirect_document_id": false
           },
           {
             "source_path_from_root": "/articles/virtual-machines/update-image-resources-powershell.md ",
-            "redirect_url": "/azure/virtual-machines/update-image-resources.md ",
-            "redirect_document_id": true
+            "redirect_url": "/azure/virtual-machines/update-image-resources.md",
+            "redirect_document_id": false
           },
           {
             "source_path_from_root": "/articles/virtual-machines/update-image-resources-cli.md ",
-            "redirect_url": "/azure/virtual-machines/update-image-resources.md ",
+            "redirect_url": "/azure/virtual-machines/update-image-resources.md",
             "redirect_document_id": true
           },
           {

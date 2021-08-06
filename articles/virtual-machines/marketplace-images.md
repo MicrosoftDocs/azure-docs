@@ -65,7 +65,7 @@ Create the image definition, using the  `-PurchasePlanPublisher`, `-PurchasePlan
    -PurchasePlanName  $vm.Plan.Name
 ```
 
-Then create your image version using [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). You can create an image version from a [VM](image-version-vm-powershell.md#create-an-image-version), [managed image](image-version-managed-image-powershell.md#create-an-image-version), [VHD\snapshot](image-version-snapshot-powershell.md#create-an-image-version), or [another image version](image-version-another-gallery-powershell.md#create-the-image-version). 
+Then create your [image version](image-version.md) using [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion).  
 
 
 ## Create the VM

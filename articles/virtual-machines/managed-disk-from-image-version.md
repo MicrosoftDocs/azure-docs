@@ -114,6 +114,6 @@ New-AzDisk -Disk $diskConfig `
 
 ## Next steps
 
-You can also create an image version from a managed disk using the [Azure CLI](image-version-managed-image-cli.md) or [PowerShell](image-version-managed-image-powershell.md).
+You can also create an [image version](image-version.md) from a managed disk.
 
 

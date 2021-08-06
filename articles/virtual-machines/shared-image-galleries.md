@@ -232,13 +232,13 @@ To list all the Shared Image Gallery resources across subscriptions that you hav
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
 ```
 
-For more information, see **Manage gallery resources** using the [Azure CLI](update-image-resources-cli.md) or [PowerShell](update-image-resources-powershell.md).
+For more information, see [List, update, and delete image resources](update-image-resources.md).
 
 ### Can I move my existing image to the shared image gallery?
  
 Yes. There are 3 scenarios based on the types of images you may have.
 
- Scenario 1: If you have a managed image, then you can create an image definition and image version from it. For more information, see **Migrate from a managed image to an image version** using the [Azure CLI](image-version-managed-image-cli.md) or [PowerShell](image-version-managed-image-powershell.md).
+ Scenario 1: If you have a managed image, then you can create an image definition and image version from it. For more information, see [Create and image definition and an image version](image-version.md).
 
  Scenario 2: If you have an unmanaged image, you can create a managed image from it, and then create an image definition and image version from it. 
 
@@ -249,11 +249,11 @@ Yes. There are 3 scenarios based on the types of images you may have.
 
 ### Can I create an image version from a specialized disk?
 
-Yes, can create a VM from a specialized image using the [CLI](vm-specialized-image-version-cli.md), [PowerShell](vm-specialized-image-version-powershell.md), or API. 
+Yes, can create a VM from a [specialized image](windows/create-vm-specialized.md). 
 
 ### Can I move the Shared Image Gallery resource to a different subscription after it has been created?
 
-No, you can't move the shared image gallery resource to a different subscription. You can replicate the image versions in the gallery to other regions or copy an image from another gallery using the [Azure CLI](image-version-another-gallery-cli.md) or [PowerShell](image-version-another-gallery-powershell.md).
+No, you can't move the shared image gallery resource to a different subscription. You can replicate the image versions in the gallery to other regions or copy an [image from another gallery](image-version.md).
 
 ### Can I replicate my image versions across clouds such as Azure China 21Vianet or Azure Germany or Azure Government Cloud?
 

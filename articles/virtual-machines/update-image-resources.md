@@ -164,8 +164,6 @@ az sig image-version update \
 ### [PowerShell]](#tab/powershell)
 
 
-## Update resources
-
 There are some limitations on what can be updated. The following items can be updated: 
 
 Shared image gallery:
