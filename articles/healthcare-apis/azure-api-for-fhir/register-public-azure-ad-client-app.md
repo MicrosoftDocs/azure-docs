@@ -6,7 +6,7 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 08/05/2021
 ms.author: cavoeg
 ---
 
@@ -24,7 +24,7 @@ The quickstart provides general information about how to [register an applicatio
 
 2. In the **Azure Active Directory** blade, click **App registrations**:
 
-    ![Azure portal. New App Registration.](media/how-to-aad/portal-aad-new-app-registration.png)
+    ![Azure portal. New App Registration.](media/add-azure-active-directory/portal-aad-new-app-registration.png)
 
 3. Click the **New registration**.
 
@@ -34,7 +34,7 @@ The quickstart provides general information about how to [register an applicatio
 
 2. Provide a reply URL. The reply URL is where authentication codes will be returned to the client application. You can add more reply URLs and edit existing ones later.
 
-    ![Azure portal. New public App Registration.](media/how-to-aad/portal-aad-register-new-app-registration-PUB-CLIENT-NAME.png)
+    ![Azure portal. New public App Registration.](media/add-azure-active-directory/portal-aad-register-new-app-registration-pub-client-name.png)
 
 
 To configure your [desktop](../../active-directory/develop/scenario-desktop-app-registration.md), [mobile](../../active-directory/develop/scenario-mobile-app-registration.md) or [single-page](../../active-directory/develop/scenario-spa-app-registration.md) application as public application:
