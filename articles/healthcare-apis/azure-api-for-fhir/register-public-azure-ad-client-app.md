@@ -59,11 +59,11 @@ Similarly to the [confidential client application](register-confidential-azure-a
     
     If you are referencing a different Resource Application, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md) that you created previously under **My APIs**:
 
-    ![Azure portal. New public API permissions - Azure API for FHIR Default](media/public-client-app/api-permissions.png)
+    ![Azure portal. New public API permissions - Azure API for FHIR Default](media/public-client-application/api-permissions.png)
 
 
 2. Select the permissions that you would like the application to be able to request:
-    ![Azure portal. App permissions](media/public-client-app/app-permissions.png)
+    ![Azure portal. App permissions](media/public-client-application/app-permissions.png)
 
 ## Validate FHIR server authority
 If the application you registered in this article and your FHIR server are in the same Azure AD tenant, you are good to proceed to the next steps.
