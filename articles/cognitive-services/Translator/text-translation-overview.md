@@ -35,7 +35,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 ```
 
 * [**Translate**](reference/v3-0-translate.md#translate-to-multiple-languages) source-language text to multiple target languages text with a single request
-* [**Transliterate**](v3-0-transliterate.md) text by converting characters or letters of a source language to the corresponding characters or letters of a target language.
+* [**Transliterate**](reference/v3-0-transliterate.md) text by converting characters or letters of a source language to the corresponding characters or letters of a target language.
 * [**Detect**](reference/v3-0-detect.md) returns the source code language code and receive a boolean variable denoting whether the detected language is supported for text translation and transliteration.
 * [**Translate, Transliterate, and Detect**](reference/v3-0-translate.md#translate-a-single-input-with-language-autodetection) text in a single call.
 * Use [**Dictionary lookup**](reference/v3-0-dictionary-lookup.md) to return equivalent words for the source term in the target language.
