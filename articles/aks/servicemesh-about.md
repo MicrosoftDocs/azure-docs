@@ -1,10 +1,10 @@
 ---
 title: About service meshes
 description: Obtain an overview of service meshes, supported scenarios, selection criteria, and next steps to explore.
-author: paulbouwer
+author: pgibson
 ms.topic: article
 ms.date: 07/29/2021
-ms.author: pabouwer
+ms.author: pgibson
 ---
 
 # About service meshes
