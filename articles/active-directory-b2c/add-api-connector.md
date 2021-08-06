@@ -44,13 +44,13 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 2. Under **Azure services**, select **Azure AD B2C**.
 4. Select **API connectors**, and then select **New API connector**.
 
-   :::image type="content" source="media/add-api-connector/api-connector-new.png" alt-text="Providing the basic configuration like target URL and display name for an API connector during the creation experience.":::
+   ![Screenshot of basic configuration for an API connector](media/add-api-connector/api-connector-new.png)
 
 5. Provide a display name for the call. For example, **Validate user information**.
 6. Provide the **Endpoint URL** for the API call.
 7. Choose the **Authentication type** and configure the authentication information for calling your API. Learn how to [Secure your API Connector](secure-rest-api.md).
 
-    :::image type="content" source="media/add-api-connector/api-connector-config.png" alt-text="Providing authentication configuration for an API connector during the creation experience.":::
+   ![Screenshot of authentication configuration for an API connector](media/add-api-connector/api-connector-config.png)
 
 8. Select **Save**.
 
@@ -117,7 +117,7 @@ Follow these steps to add an API connector to a sign-up user flow.
    - **Before creating the user**
    - **Before sending the token (preview)**
 
-    :::image type="content" source="media/add-api-connector/api-connectors-user-flow-select.png" alt-text="Selecting which API connector to use for a step in the user flow like 'Before creating the user'.":::
+   ![Selecting an API connector for a step in the user flow](media/add-api-connector/api-connectors-user-flow-select.png)
 
 6. Select **Save**.
 
@@ -246,7 +246,7 @@ See an example of a [validation-error response](#example-of-a-validation-error-r
 ## Before sending the token (preview)
 
 > [!IMPORTANT]
-> API connectors used in this step are in preview For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> API connectors used in this step are in preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 An API connector at this step is invoked when a token is about to be issued during sign-ins and sign-ups. An API connector for this step can be used to enrich the token with claim values from external sources.
 
@@ -286,9 +286,9 @@ When the web API receives an HTTP request from Azure AD during a user flow, it c
 
 A continuation response indicates that the user flow should continue to the next step: issue the token.
 
-In a continuation response, the API can return additional claims. A claim returned by the API that you wish to return in the token must be a built-in claim or [defined as a custom attribute](user-flow-custom-attributes.md) and be selected in the **Application claims** configuration of the user flow. 
+In a continuation response, the API can return additional claims. A claim returned by the API that you want to return in the token must be a built-in claim or [defined as a custom attribute](user-flow-custom-attributes.md) and must be selected in the **Application claims** configuration of the user flow. 
 
-The claim value in the token will be that returned by the API, not the value in the directory. Some claim values cannot be overwritten by the API response. Claims that can be returned by the API correspond to the set found under **User attributes** with the exception of `email`.
+The claim value in the token will be the value returned by the API, not the value in the directory. Some claim values cannot be overwritten by the API response. Claims that can be returned by the API correspond to the set found under **User attributes** with the exception of `email`.
 
 See an example of a [continuation response](#example-of-a-continuation-response).
 
@@ -340,7 +340,7 @@ Content-type: application/json
 
 **End-user experience with a blocking response**
 
-:::image type="content" source="media/add-api-connector/blocking-page-response.png" alt-text="An example image of what the end-user experience looks like after an API returns a blocking response.":::
+![Example of a blocking response](media/add-api-connector/blocking-page-response.png)
 
 ### Example of a validation-error response
 
@@ -368,7 +368,7 @@ Content-type: application/json
 
 **End-user experience with a validation-error response**
 
-  :::image type="content" source="media/add-api-connector/validation-error-postal-code.png" alt-text="An example image of what the end-user experience looks like after an API returns a validation-error response.":::
+![Example of a validation-error response](media/add-api-connector/validation-error-postal-code.png)
 
 ::: zone-end
 
@@ -624,7 +624,7 @@ Ensure that:
 * Your API explicitly checks for null values of received claims that it depends on.
 * Your API implements an authentication method outlined in [secure your API Connector](secure-rest-api.md).
 * Your API responds as quickly as possible to ensure a fluid user experience.
-    * Azure AD B2C will wait for a maximum of *20 seconds* to receive a response. If it doesn't, it will make *one more attempt (retry)* at calling your API.
+    * Azure AD B2C will wait for a maximum of *20 seconds* to receive a response. If none is received, it will make *one more attempt (retry)* at calling your API.
     * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at minimum the [Premium plan](../azure-functions/functions-scale.md) in production.
 * Ensure high availability of your API.
 * Monitor and optimize performance of downstream APIs, databases, or other dependencies of your API.
@@ -640,12 +640,12 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 * Monitor your API for long response times. 
 
 Additionally, Azure AD B2C logs metadata about the API transactions that happen during user authentications via a user flow. To find these:
-1. Go to **Azure AD B2C**
-2. Select **Audit logs** in the **Activities** section
-3. Filter the list view by the length of time you wish and **Activity** to **An API was called as part of a user flow**
-4. Inspect individual logs. Each row represents an API connector attempting to be called during a user flow. If an API call fails and there's a retry, it's still represented as a singular row. There's a `numberOfAttempts` which indicates the number of times your API was called. This can be of values `1`or `2`. Other information about the API call is detailed in the logs.
+1. Go to **Azure AD B2C**.
+2. Under **Activities**, select **Audit logs**.
+3. Filter the list view: For **Date**, select the time interval you want, and for **Activity**, select **An API was called as part of a user flow**.
+4. Inspect individual logs. Each row represents an API connector attempting to be called during a user flow. If an API call fails and a retry occurs, it's still represented as a single row. The `numberOfAttempts` indicates the number of times your API was called. This value can be `1`or `2`. Other information about the API call is detailed in the logs.
 
-:::image type="content" source="media/add-api-connector/example-anonymized-audit-log.png" alt-text="An example of audit log regarding API connector transaction during an end user authentication to a user flow":::
+![Example of an API connector transaction during user authentication](media/add-api-connector/example-anonymized-audit-log.png)
 
 ::: zone-end
 
