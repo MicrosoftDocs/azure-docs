@@ -51,7 +51,7 @@ Version    Name                                Repository           Description
 
 #### Install AzureAD
 
-If you don't have AzureAD installed, use [Install-Module](/powershell/module/powershellget/install-module) to install AzureAD. You must have Administrator rights to install modules.
+If you don't have AzureAD installed, use [Install-Module](/powershell/module/powershellget/install-module) to install AzureAD.
 
 ```powershell
 Install-Module -Name AzureAD
@@ -59,7 +59,7 @@ Install-Module -Name AzureAD
 
 #### Update AzureAD
 
-To update AzureAD to the latest version, re-run [Install-Module](/powershell/module/powershellget/install-module). You must have Administrator rights to update modules and you might need to add the `-Force` parameter.
+To update AzureAD to the latest version, re-run [Install-Module](/powershell/module/powershellget/install-module).
 
 ```powershell
 Install-Module -Name AzureAD
@@ -127,7 +127,7 @@ Version    Name                                Repository           Description
 
 #### Install AzureADPreview
 
-If you don't have AzureADPreview installed, use [Install-Module](/powershell/module/powershellget/install-module) to install AzureADPreview. You might need to have Administrator rights to install modules.
+If you don't have AzureADPreview installed, use [Install-Module](/powershell/module/powershellget/install-module) to install AzureADPreview.
 
 ```powershell
 Install-Module -Name AzureADPreview
@@ -135,7 +135,7 @@ Install-Module -Name AzureADPreview
 
 #### Update AzureADPreview
 
-To update AzureADPreview to the latest version, re-run [Install-Module](/powershell/module/powershellget/install-module). You might need to have Administrator rights to update modules and you might need to add the `-Force` parameter.
+To update AzureADPreview to the latest version, re-run [Install-Module](/powershell/module/powershellget/install-module).
 
 ```powershell
 Install-Module -Name AzureADPreview
