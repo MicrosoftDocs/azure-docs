@@ -327,7 +327,7 @@ After deployment, your virtual network should include IPv6 config on the Load Ba
 TODO:Screenshots/CLI output?
 TODO:Talk about v4 and v6 ip's on Load Balancers and NSG differences.
 
-<a id="existingvnet"></a>
+<a id="byovnet"></a>
 ## Bring your own virtual network
 This feature allows customers to specify an existing virtual network and dedicated subnet(s) the managed cluster will use for ip resource allocation. This can be useful if you already have a configured VNet and related security policies that you want to leverage. After you deploy to an existing virtual network, it's easy to incorporate other networking features, like Azure ExpressRoute, Azure VPN Gateway, a network security group, and virtual network peering.
 
@@ -341,34 +341,62 @@ When you setup a cluster to deploy in to an existing virtual network you can als
 
 In the following example, we start with an existing virtual network named ExistingRG-vnet, in the ExistingRG resource group. The subnet is named default. These default resources are created when you use the Azure portal to create a standard virtual machine (VM). You could create the virtual network and subnet without creating the VM, but the main goal of adding a cluster to an existing virtual network is to provide network connectivity to other VMs. Creating the VM gives a good example of how an existing virtual network typically is used. 
 
+To configure the feature:
+1) In the [provided sample](url to sample json), configure role assignment that allows the resource provider to make required changes, setup the backend pool, and optionally define NAT pools on the existing Azure Load Balancer. You do this by running the following PowerShell command or ARM Template. 
 
-To configure this feature:
-1) set the following property on a Service Fabric managed cluster resource.
+Add a role assignment to the Service Fabric Resource Provider application. This is a one time action.
 
-```json
-            "apiVersion": "2021-07-01-preview",
-            "type": "Microsoft.ServiceFabric/managedclusters",
-            ...
-            "properties": {
-              "enableIpv6": {
-              "type": "true",
-              },
-            }
-```
-
-
-2) Deploy the template
-
-See the [bring your own virtual network sample template](url to sample json) for an example or build your own using the details above
+Get service principal for Service Fabric Resource Provider application:
 
 ```powershell
-    New-AzResourceGroup -Name sfnetworkingexistingvnet -Location westus
-    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
+Login-AzAccount
+Select-AzSubscription -SubscriptionId <SubId>
+Get-AzADServicePrincipal -DisplayName "Azure Service Fabric Resource Provider"
 ```
 
-<FIXME>After deployment, you can see that your load balancer is bound to the public static IP address from the other resource group. The Service Fabric client connection endpoint and [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) endpoint point to the DNS FQDN of the static IP address. 
+> [!NOTE]
+> Make sure you are in the correct subscription, the principal ID will change if the subscription is in a different tenant.
 
-<Merge with above>Make sure this states that the public endpoint is still created and managed by the resource provider. This does not allow you to specify the public ip/re-use static ip.
+```powershell
+ServicePrincipalNames : {74cb6831-0dbb-4be1-8206-fd4df301cdc2}
+ApplicationId         : 74cb6831-0dbb-4be1-8206-fd4df301cdc2
+ObjectType            : ServicePrincipal
+DisplayName           : Azure Service Fabric Resource Provider
+Id                    : 00000000-0000-0000-0000-000000000000
+```
+
+Use the **Id** of the previous output as **principalId** and the role definition ID bellow as **roleDefinitionId** where applicable on the template or PowerShell command:
+
+|Role definition name|Role definition ID|
+|----|-------------------------------------|
+|Network Contributor|4d97b98b-1d4f-4787-a291-c67834d212e7|
+
+This role assignment can be defined in the resources section template using the Principal ID and role definition ID:
+
+```JSON
+      "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2020-04-01-preview",
+      "name": "[parameters('loadBalancerRoleAssignmentID')]",
+      "scope": "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'), '/subnets/', parameters('subnetName'))]",
+      "dependsOn": [
+        "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]"
+      ],
+      "properties": {
+        "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/4d97b98b-1d4f-4787-a291-c67834d212e7')]",
+        "principalId": "00000000-0000-0000-0000-000000000000"
+      }
+```
+> [!NOTE]
+> loadBalancerRoleAssignmentID should be a valid GUID. If you deploy again the same template including this role assignment, make sure the GUID is the same as the one originally used or remove this resource as it just needs to be created once.
+
+or created via PowerShell using the principal ID and role definition name:
+
+```powershell
+New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Network Contributor" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<LoadBalancerName>"
+```
+
+With this enabled the public endpoint is still created and managed by the resource provider. This does not allow you to specify the public ip/re-use static ip. You can [bring your own Azure Load Balancer](#byolb) if you require to cover those needs and more.
+
 
 <a id="byolb"></a>
 ## Bring your own Load Balancer
