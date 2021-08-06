@@ -335,17 +335,19 @@ This quickstart explains how to:
 
 To complete this quickstart:
 
-* [Install JDK 8](/java/azure/jdk/)
+* [Install JDK 8 or above](/java/azure/jdk/)
 * [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
 * (Optional) [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli) and the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
 * (Optional) [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
+* (Optional) [Install the Maven](https://maven.apache.org/download.cgi) , if you use the Azure Cloud Shell, this installation is not needed.
 
 ## Generate a Spring Cloud project
 
-Start with [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.12.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client) to generate a sample project with recommended dependencies for Azure Spring Cloud. The following image shows the Initializr set up for this sample project.
+Start with [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.12.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client) to generate a sample project with recommended dependencies for Azure Spring Cloud or check the following url which provides default settings for you. 
 ```url
 https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.12.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client
 ```
+The following image shows the recommanded Initializr set up for this sample project. 
 Note that this example uses Java version 8.  If you want to use Java version 11, change the option under **Project Metadata**.
 
   ![Initializr page](media/spring-cloud-quickstart-java/initializr-page.png)
@@ -394,6 +396,23 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 
 6. Click **Review and create**.
 
+## Log in to Azure
+
+1. Log in to the Azure CLI
+
+    ```azurecli
+    az login
+    ```
+
+2. If you have more than one subscription, choose the one you want to use for this quickstart.
+
+   ```azurecli
+   az account list -o table
+   ```
+
+   ```azurecli
+   az account set --subscription <Name or ID of a subscription from the last step>
+   
 ## Build and deploy the app
     
 #### [CLI](#tab/Azure-CLI)
