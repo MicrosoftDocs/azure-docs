@@ -16,7 +16,7 @@ ms.custom: it-pro
 
 # Enterprise application permissions for custom roles in Azure Active Directory
 
-This article contains the currently available enterprise application permissions for custom role definitions in Azure Active Directory (Azure AD). In this article, you'll find permission lists for some common scenarios and the full list of enterprise app permissions. Application Proxy permissions are not currently rolled out in this release.
+This article contains the currently available enterprise application permissions for custom role definitions in Azure Active Directory (Azure AD). In this article, you'll find permission lists for some common scenarios and the full list of enterprise app permissions.
 
 ## License requirements
 
