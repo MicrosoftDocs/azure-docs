@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 08/05/2021
+ms.date: 08/06/2021
 ms.author: alkohli
 ---
 
@@ -52,25 +52,11 @@ To ensure that no group policies are preventing your access to shares on the Dat
 
 If there's no domain issue, and no group policies are blocking your access to the share, check for permissions issues on your device by reviewing audit logs and security event logs.
 
-### Run diagnostics
-
-To run diagnostics on your device, do the following steps:
-
-   1. In the local web UI, go to **Troubleshooting** and then **Diagnostic test**. Select **Run diagnostics**. PICTURE?
-   1. FOLLOW-UP STEP. For more information, see 
-
-### View audit logs
-
-[Review audit logs](data-box-audit-logs.md) on your Data Box device for any events related to a permissions failure.
-
-
 ### Review security event logs
 
-If your device is a Windows server, review Windows security event logs for errors that indicate an authentication failure. On a Linux computer, LINK TO INSTRUCTIONS.
+Review Windows security event logs on the device for errors that indicate an authentication failure.
 
 You can review the `Smbserver.Security` event logs in the `etw` folder or [view security errors in Event Viewer](#view-security-events-in-event-viewer).
-
-#### View security events in Event Viewer
 
 To review Windows Security event logs in Event Viewer, do these steps:
 
@@ -104,11 +90,11 @@ To review Windows Security event logs in Event Viewer, do these steps:
 
     Either error indicates that you need to change the LAN Manager authentication level on your device.
  
-## Change the LAN Manager authentication level
+### Change LAN Manager authentication level
  
 To change the LAN Manager authentication level on your device, you can either [use Local Security Policy](#use-local-security-policy) or [update the registry directly](#update-the-registry-directly).
 
-### Use Local Security Policy
+#### Use Local Security Policy
 
 To change LAN Manager authentication level using Local Security Policy, do these steps:
  
@@ -122,7 +108,7 @@ To change LAN Manager authentication level using Local Security Policy, do these
 
     ![Screenshot showing "Network Security: LAN Manager authentication level" policy in the Local Security Policy editor. The "Send NTLMv2 response only. Refuse LM & NTLM" option is highlighted.](media/data-box-troubleshoot-share-access/security-policy-02.png)
 
-### Update the registry directly
+#### Update the registry
 
 If you can't change the LAN Manager authentication level in Local Security Policy, update the registry directly.
 
@@ -144,3 +130,4 @@ To update the registry directly, do these steps:
 
 - [Copy data via SMB](data-box-deploy-copy-data.md).
 - [Troubleshoot data copy issues in Data Box](data-box-troubleshoot.md).
+- [Contact Microsoft support](data-box-disk-contact-microsoft-support.md).
