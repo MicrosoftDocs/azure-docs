@@ -13,6 +13,9 @@ ms.date: 7/28/2021
 
 You can use a private endpoint (also called private link) to restrict access to your static web app so that it is only accessible from your private network.
 
+> [!NOTE]
+> Private endpoints support in Static Web Apps is currently in preview.
+
 ## How it works
 
 An Azure Virtual Network (VNet) is a network just like you might have in a traditional data center, but resources within the VNet talk to each other securely on the Microsoft backbone network.
@@ -61,7 +64,7 @@ In this section, you create a private endpoint for your static web app.
 
 ## Testing your private endpoint
 
-Since your application is no longer publicly available, the only way to access it is from inside of your virtual network. To test, setup a virtual machine inside of your virtual network and navigate to your site.
+Since your application is no longer publicly available, the only way to access it is from inside of your virtual network. To test, set up a virtual machine inside of your virtual network and navigate to your site.
 
 ## Next steps
 
