@@ -72,7 +72,7 @@ The following maximum resources are available to a container group deployed with
 
 ## Windows container groups
 
-The following regions and maximum resources are available to container groups with [supported and preview](./container-instances-faq.yml#what-windows-base-os-images-are-supported) Windows Server containers.
+The following regions and maximum resources are available to container groups with [supported and preview](.//azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported) Windows Server containers.
 
 > [!IMPORTANT]
 > At this time, deployments with Windows container groups are not supported in an Azure virtual network deployment.

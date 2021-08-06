@@ -40,7 +40,7 @@ If you specify an image that Azure Container Instances doesn't support, an `OsVe
 }
 ```
 
-This error is most often encountered when deploying Windows images that are based on Semi-Annual Channel release 1709 or 1803, which are not supported. For supported Windows images in Azure Container Instances, see [Frequently asked questions](./container-instances-faq.yml#what-windows-base-os-images-are-supported).
+This error is most often encountered when deploying Windows images that are based on Semi-Annual Channel release 1709 or 1803, which are not supported. For supported Windows images in Azure Container Instances, see [Frequently asked questions](.//azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported).
 
 ### Unable to pull image
 

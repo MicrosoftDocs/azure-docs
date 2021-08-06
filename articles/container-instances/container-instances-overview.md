@@ -59,7 +59,7 @@ Some features are currently restricted to Linux containers:
 * [Virtual network deployment](container-instances-vnet.md)
 * [GPU resources](container-instances-gpu.md) (preview)
 
-For Windows container deployments, use images based on common [Windows base images](./container-instances-faq.yml#what-windows-base-os-images-are-supported).
+For Windows container deployments, use images based on common [Windows base images](.//azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported).
 
 ## Co-scheduled groups
 
