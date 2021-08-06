@@ -80,9 +80,9 @@ The log files you use for investigation and monitoring are:
 
 * [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)
 
-* .[Risky Users log].(../../identity-protection/howto-identity-protection-investigate-risk.md)
+* [Risky Users log](../identity-protection/howto-identity-protection-investigate-risk.md)
 
-* .[UserRiskEvents log].(../../identity-protection/howto-identity-protection-investigate-risk.md)
+* [UserRiskEvents log](../identity-protection/howto-identity-protection-investigate-risk.md)
 
 From the Azure portal you can view the Azure AD Audit logs and download as comma separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools that allow for greater automation of monitoring and alerting:
 

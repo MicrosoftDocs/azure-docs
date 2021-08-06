@@ -151,4 +151,4 @@ If you are not going use the deployment, you should delete it with:
 - [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)
 - [Managed online endpoints SKU list (preview)](reference-managed-online-endpoints-vm-sku-list.md)
 - [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md)
-- [Managed online endpoints (preview) YAML reference](reference-online-endpoint-yaml.md)
+- [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md)

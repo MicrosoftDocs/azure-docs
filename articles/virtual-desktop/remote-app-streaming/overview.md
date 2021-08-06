@@ -22,7 +22,7 @@ In order to set up an Azure Virtual Desktop deployment for your custom apps that
 
 - Your custom app. See [How to host custom apps with Azure Virtual Desktop](custom-apps.md) to learn about the types of apps Azure Virtual Desktop supports and how you can serve them to your customers.
 
-- Your domain join credentials. If you don't already have an identity management system compatible with Azure Virtual Desktop, you'll need to set up identity management for your host pool.
+- Your domain join credentials. If you don't already have an identity management system compatible with Azure Virtual Desktop, you'll need to set up identity management for your host pool. To learn more, see [Set up managed identities](identities.md).
 
 - An Azure subscription. If you don't already have a subscription, make sure to [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -53,6 +53,7 @@ Once you've set up Azure Virtual Desktop, you have lots of options to customize 
 - [Set up a business continuity and disaster recovery plan](../disaster-recovery.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [Scale session hosts using Azure Automation](../set-up-scaling-script.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [Set up Universal Print](/universal-print/fundamentals/universal-print-getting-started)
+- [Set up the Start VM on Connect feature](../start-virtual-machine-connect.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## Get to know your Azure Virtual Desktop deployment
 
@@ -65,6 +66,7 @@ Read the following articles to understand concepts essential to creating and man
 - [Azure Virtual Desktop for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 - [Estimate total deployment costs](total-costs.md)
 - [Architecture recommendations](architecture-recs.md)
+- [Start VM on Connect FAQ](../start-virtual-machine-connect-faq.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## Next steps
 

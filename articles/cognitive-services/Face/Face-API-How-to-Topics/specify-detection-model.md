@@ -105,7 +105,7 @@ The best way to compare the performances of the detection models is to use them 
 
 ## Next steps
 
-In this article, you learned how to specify the detection model to use with different Face APIs. Next, follow a quickstart to get started using face detection.
+In this article, you learned how to specify the detection model to use with different Face APIs. Next, follow a quickstart to get started with face detection and analysis.
 
 * [Face .NET SDK](../quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [Face Python SDK](../quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)

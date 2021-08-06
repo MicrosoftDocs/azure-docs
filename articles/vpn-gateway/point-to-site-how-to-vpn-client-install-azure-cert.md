@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 07/27/2021
 ms.author: cherylmc
 
 ---
@@ -28,7 +28,7 @@ If you want to generate a client certificate from a self-signed root certificate
 ## <a name="installmac"></a>Mac
 
 >[!NOTE]
->Mac VPN clients are supported for the Resource Manager deployment model only. They are not supported for the classic deployment model.
+>Mac VPN clients are supported for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) only. They are not supported for the classic deployment model.
 >
 >
 

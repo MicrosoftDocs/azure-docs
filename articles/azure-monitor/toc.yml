@@ -21,14 +21,6 @@
     - name: ARM template
       displayName: Resource Manager
       href: essentials/quick-collect-activity-log-arm.md
-  - name: Monitor virtual machines
-    items:
-    - name: Azure VMs
-      href: vm/quick-monitor-azure-vm.md
-    - name: Linux computer
-      href: vm/quick-collect-linux-computer.md
-    - name: Windows computer
-      href: vm/quick-collect-windows-computer.md
   - name: Monitor applications
     items:
     - name: ASP.NET Core application
@@ -175,6 +167,8 @@
       - name: Monitor workloads
         href: vm/monitor-virtual-machine-workloads.md
       displayname: VM
+    - name: Monitor Kubernetes
+      href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
   - name: Deploy
     items:
     - name: Deploy Azure Monitor
@@ -1106,18 +1100,30 @@
         href: containers/container-insights-enable-aks-policy.md
       - name: Region mappings
         href: containers/container-insights-region-mapping.md
-    - name: Monitor performance
-      href: containers/container-insights-analyze.md
-    - name: Monitor GPU performance
-      href: containers/container-insights-gpu-monitoring.md
-    - name: Monitor network configuration
-      href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
-    - name: Monitor Deployments & HPAs
-      href: containers/container-insights-deployment-hpa-metrics.md
-    - name: Monitor Persistent Volumes (PVs)
-      href: containers/container-insights-persistent-volumes.md
-    - name: Reports tab
-      href: insights/container-insights-reports.md
+      - name: Agent management
+        href: containers/container-insights-manage-agent.md
+      - name: Configure Prometheus metric scraping
+        href: containers/container-insights-prometheus-integration.md
+      - name: Configure agent collection settings
+        href: containers/container-insights-agent-config.md
+      - name: Update to enable metrics
+        href: containers/container-insights-update-metrics.md
+    - name: Monitor
+      items:
+      - name: Monitor performance
+        href: containers/container-insights-analyze.md
+      - name: Monitor GPU performance
+        href: containers/container-insights-gpu-monitoring.md
+      - name: Monitor network configuration
+        href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
+      - name: Monitor Deployments & HPAs
+        href: containers/container-insights-deployment-hpa-metrics.md
+      - name: Monitor Persistent Volumes (PVs)
+        href: containers/container-insights-persistent-volumes.md
+      - name: Reports tab
+        href: containers/container-insights-reports.md
+    - name: Log queries
+      href: containers/container-insights-log-query.md
     - name: View live data
       items:
       - name: Live Data overview
@@ -1128,22 +1134,12 @@
         href: containers/container-insights-livedata-metrics.md
       - name: View deployments
         href: containers/container-insights-livedata-deployments.md
-    - name: Analyze data with log queries
-      href: containers/container-insights-log-search.md
     - name: Alerting
       items:
       - name: Create log alert rules
         href: containers/container-insights-log-alerts.md
       - name: Create metric alert rules
         href: containers/container-insights-metric-alerts.md
-    - name: Agent management
-      href: containers/container-insights-manage-agent.md
-    - name: Configure Prometheus metric scraping
-      href: containers/container-insights-prometheus-integration.md
-    - name: Configure agent collection settings
-      href: containers/container-insights-agent-config.md
-    - name: Update to enable metrics
-      href: containers/container-insights-update-metrics.md
     - name: Manage cost and usage
       href: containers/container-insights-cost.md
     - name: Disable monitoring
@@ -1164,7 +1160,7 @@
       href: insights/redis-cache-insights-overview.md
     - name: Azure Cosmos DB
       href: insights/cosmosdb-insights-overview.md
-    - name: Azure Data Explorer (preview)
+    - name: Azure Data Explorer
       href: insights/data-explorer.md
     - name: Log Analytics workspace
       href: logs/log-analytics-workspace-insights-overview.md

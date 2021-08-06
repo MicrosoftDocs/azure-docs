@@ -641,11 +641,11 @@ productDirectory:
     # Card
     - title: Azure Virtual Desktop
       summary: The best virtual desktop experience, delivered on Azure
-      imageSrc: https://static.docs.com/ui/media/product/azure/windows-virtual-desktop.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-desktop.svg
       azureCategories:
         - featured
         - compute
-        - windows-virtual-desktop
+        - azure-virtual-desktop
       url: virtual-desktop/index.yml
     # Card
     - title: Windows Virtual Machines

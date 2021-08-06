@@ -1,12 +1,14 @@
 ---
 title: Alter row transformation in mapping data flow
+titleSuffix: Azure Data Factory & Azure Synapse
 description: How to update database target using the alter row transformation in mapping data flow
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 05/06/2020
 ---
 
@@ -18,7 +20,7 @@ Use the Alter Row transformation to set insert, delete, update, and upsert polic
 
 ![Alter row settings](media/data-flow/alter-row1.png "Alter Row Settings")
 
-Alter Row transformations will only operate on database or CosmosDB sinks in your data flow. The actions that you assign to rows (insert, update, delete, upsert) won't occur during debug sessions. Run an Execute Data Flow activity in a pipeline to enact the alter row policies on your database tables.
+Alter Row transformations will only operate on database, REST, or CosmosDB sinks in your data flow. The actions that you assign to rows (insert, update, delete, upsert) won't occur during debug sessions. Run an Execute Data Flow activity in a pipeline to enact the alter row policies on your database tables.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vJYc]
 

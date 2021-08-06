@@ -79,7 +79,7 @@ Use the following steps to enable access to data stored in Azure Blob and File s
 > [!TIP]
 > The first step is not required for the default storage account for the workspace. All other steps are required for *any* storage account behind the VNet and used by the workspace, including the default storage account.
 
-1. **If the storage account is the *default* storage for your workspace, skip this step**. If it is not the default, **Grant the workspace managed identity the 'Blob Data Reader' role** for the Azure storage account so that it can read data from blob storage.
+1. **If the storage account is the *default* storage for your workspace, skip this step**. If it is not the default, **Grant the workspace managed identity the 'Storage Blob Data Reader' role** for the Azure storage account so that it can read data from blob storage.
 
     For more information, see the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) built-in role.
 

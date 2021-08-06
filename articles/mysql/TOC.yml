@@ -411,7 +411,7 @@
             displayName: Resource Manager
             href: flexible-server/quickstart-create-arm-template.md
       - name: Connect and query
-        items:
+        items:          
           - name: Azure CLI
             href: flexible-server/connect-azure-cli.md
           - name: PHP
@@ -424,6 +424,8 @@
             href: flexible-server/connect-java.md
           - name: .NET
             href: flexible-server/connect-csharp.md
+          - name: Connect to server in VNET 
+            href: flexible-server/quickstart-create-connect-server-vnet.md
       - name: Connect using TLS/SSL
         href: flexible-server/how-to-connect-tls-ssl.md
       - name: Configure server parameters

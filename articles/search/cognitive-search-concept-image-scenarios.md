@@ -3,8 +3,8 @@ title: Extract text from images
 titleSuffix: Azure Cognitive Search
 description: Process and extract text and other information from images in Azure Cognitive Search pipelines.
 
-author: vkurpad
-ms.author: vikurpad
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp
 ---
 # How to process and extract information from images in AI enrichment scenarios
 
-Azure Cognitive Search has several capabilities for working with images and image files. During document cracking, you can use the *imageAction* parameter to extract text from photos or pictures containing alphanumeric text, such as the word "STOP" in a stop sign. Other scenarios include generating a text representation of an image, such as "dandelion" for a photo of a dandelion, or the color "yellow". You can also extract metadata about the image, such as its size.
+Azure Cognitive Search has several capabilities for working with images and image files. During [document cracking](search-indexer-overview.md#document-cracking), you can use the *imageAction* parameter to extract text from photos or pictures containing alphanumeric text, such as the word "STOP" in a stop sign. Other scenarios include generating a text representation of an image, such as "dandelion" for a photo of a dandelion, or the color "yellow". You can also extract metadata about the image, such as its size.
 
 This article covers image processing in more detail and provides guidance for working with images in an AI enrichment pipeline.
 
