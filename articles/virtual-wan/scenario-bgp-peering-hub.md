@@ -11,15 +11,15 @@ ms.date: 08/06/2021
 ms.author: cherylmc
 
 ---
-# About BGP peering with a virtual hub (Preview)
+# Scenario: BGP peering with a virtual hub (Preview)
 
-In this scenario, the Azure Virtual WAN virtual hub router acts as a route manager and provides simplification in routing operation within and across virtual hubs. The virtual hub's router, also called the virtual router, does the following:
+Azure Virtual WAN hub router, also called as virtual hub router, acts as a route manager and provides simplification in routing operation within and across virtual hubs. In other words, a virtual hub router does the following:
 
-* Simplifies route management by being the route manager with VPN, ExpressRoute, and other entities or gateways in the virtual hub.
+* Simplifies routing management by being the central routing engine talking to gateways such as VPN, ExpressRoute, P2S, and Network Virtual Appliances (NVA). 
 * Enables advance routing scenarios of custom route tables, association, and propagation of routes.
 * Acts as the router for traffic transiting between/to virtual networks connected to a virtual hub.
 
-The virtual router now also exposes the ability to peer with it, thereby exchanging routing information directly through Border Gateway Protocol (BGP) routing protocol. Network Virtual Appliances (NVAs) or a BGP end point provisioned in a virtual network connected to a virtual hub, can directly peer with the virtual hub router if it supports the BGP routing protocol and ensures that ASN on the NVA is set up to be different from the virtual hub ASN.
+The virtual hub router now also exposes the ability to peer with it, thereby exchanging routing information directly through Border Gateway Protocol (BGP) routing protocol. NVA or a BGP end point provisioned in a virtual network connected to a virtual hub, can directly peer with the virtual hub router if it supports the BGP routing protocol and ensures that ASN on the NVA is set up to be different from the virtual hub ASN.
 
 ## Benefits and considerations
 
@@ -51,19 +51,19 @@ The virtual router now also exposes the ability to peer with it, thereby exchang
    |---|---|
    |  Number of routes each BGP peer can advertise to the virtual hub.| The hub can only accept a maximum number of 10,000 routes (total) from its connected resources. For example, if a virtual hub has a total of 6000 routes from the connected virtual networks, branches, virtual hubs etc., then when a new BGP peering is configured with an NVA, the NVA can only advertise up to 4000 routes. |
 
-## About hub routing
+## BGP peering scenarios
 
-A virtual hub route table can contain one or more routes. A route includes its name, a label, a destination type, a list of destination prefixes, and next hop information for a packet to be routed. A connection typically will have a routing configuration that associates or propagates to a route table.
+This section describes scenarios where BGP peering feature can be utilised to configure routing.
 
-## <a name="vnet-vnet"></a>VNet-to-VNet scenario
+## <a name="vnet-vnet"></a>Transit VNet connectivity
 
 :::image type="content" source="./media/scenario-bgp-peering-hub/vnet-vnet.png" alt-text="Graphic with VNet-to-VNet routing.":::
 
-In this example, the virtual hub named "Hub 1" is connected to several virtual networks. 
+In this scenario, the virtual hub named "Hub 1" is connected to several virtual networks. The goal is to establish routing between virtual networks VNET1 and VNET5.
 
 ### Configuration steps without BGP peering
 
-To establish routing between virtual networks VNET1 and VNET5, the following steps are required when BGP peering is not used on the virtual hub:
+The following steps are required when BGP peering is not used on the virtual hub:
 
 Virtual hub configuration
 
@@ -77,7 +77,7 @@ Virtual network configuration
 
 ### Configuration steps with BGP peering
 
-The maintenance of these static routes and UDR can become complex if the VNET5 configuration changes frequently. To address this challenge, the BGP peering with virtual WAN hub feature can be used and the routing configuration must be changed to the following steps:
+In the previous configuration, the maintenance of the static routes and UDR can become complex if the VNET5 configuration changes frequently. To address this challenge, the BGP peering with a virtual hub feature can be used and the routing configuration must be changed to the following steps:
 
 Virtual hub configuration
 
@@ -100,15 +100,15 @@ The table below shows few entries from Hub 1's effective routes in the defaultRo
 
 Configuring routing in this manner using the feature eliminates the need for static route entries on the virtual hub. Therefore, the configuration is simpler and route tables are updated dynamically when the configuration in connected virtual networks (like VNET5) changes.
 
-## <a name="branch-vnet"></a>Branch-to-VNet scenario
+## <a name="branch-vnet"></a>Branch VNet connectivity
 
 :::image type="content" source="./media/scenario-bgp-peering-hub/branch-vnet.png" alt-text="Graphic with Branch-to-VNet routing.":::
 
-In this scenario, the on-premises site named "NVA Branch 1" has a VPN configured to terminate on the VNET2 NVA. 
+In this scenario, the on-premises site named "NVA Branch 1" has a VPN configured to terminate on the VNET2 NVA. The goal is to configure routing between NVA Branch 1 and virtual network VNET1.
 
 ### Configuration steps without BGP peering
 
-To configure routing between NVA Branch 1 and virtual network VNET1, the following steps are required when BGP peering is not used on the virtual hub:
+The following steps are required when BGP peering is not used on the virtual hub:
 
 Virtual hub configuration
 
@@ -122,7 +122,7 @@ Virtual network configuration
 
 ### Configuration steps with BGP peering
 
-Over time, the destination prefixes in NVA Branch 1 may change, or there may be many sites like NVA Branch 1, which need connectivity to VNET1. This would result in needing updates to the static routes on the Hub 1 and the VNET2 connection, which can get cumbersome. In such cases, we can use the "BGP peer with virtual hub" feature and the configuration steps for routing connecting would be as given below.
+Over time, the destination prefixes in NVA Branch 1 may change, or there may be many sites like NVA Branch 1, which need connectivity to VNET1. This would result in needing updates to the static routes on the Hub 1 and the VNET2 connection, which can get cumbersome. In such cases, we can use the BGP peering with a virtual hub feature and the configuration steps for routing connectivity would be as given below.
 
 Virtual hub configuration
 
