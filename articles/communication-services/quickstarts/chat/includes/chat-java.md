@@ -194,7 +194,7 @@ SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
     .setContent("Please take a look at the attachment")
     .setType(ChatMessageType.TEXT)
     .setSenderDisplayName("Sender Display Name")
-    .metadata(metadata);
+    .setMetadata(metadata);
 
 SendChatMessageResult sendChatMessageResult = chatThreadClient.sendMessage(sendChatMessageOptions);
 String chatMessageId = sendChatMessageResult.getId();

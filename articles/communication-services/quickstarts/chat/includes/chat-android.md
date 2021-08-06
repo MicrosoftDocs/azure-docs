@@ -103,7 +103,7 @@ Copy the following code into class `MainActivity` in file `MainActivity.java`:
     private String firstUserAccessToken = "<first_user_access_token>";
     private String threadId = "<thread_id>";
     private String chatMessageId = "<chat_message_id>";
-    private final String sdkVersion = "1.0.0";
+    private final String sdkVersion = "<chat_sdk_version>";
     private static final String APPLICATION_ID = "Chat Quickstart App";
     private static final String SDK_NAME = "azure-communication-com.azure.android.communication.chat";
     private static final String TAG = "Chat Quickstart App";
@@ -149,6 +149,7 @@ Copy the following code into class `MainActivity` in file `MainActivity.java`:
 1. Replace `<resource>` with your Communication Services resource.
 2. Replace `<first_user_id>` and `<second_user_id>` with valid Communication Services user IDs that were generated as part of prerequisite steps.
 3. Replace `<first_user_access_token>` with the Communication Services access token for `<first_user_id>` that was generated as part of prerequisite steps.
+4. Replace `<chat_sdk_version>` with the version of Azure Communication Chat SDK.
 
 In following steps, we'll replace the placeholders with sample code using the Azure Communication Services Chat library.
 
@@ -248,7 +249,7 @@ SendChatMessageOptions chatMessageOptions = new SendChatMessageOptions()
     .setType(ChatMessageType.TEXT)
     .setContent(content)
     .setSenderDisplayName(senderDisplayName)
-    .setMetaData(metadata);
+    .setMetadata(metadata);
 
 // A string is the response returned from sending a message, it is an id, which is the unique ID
 // of the message.
