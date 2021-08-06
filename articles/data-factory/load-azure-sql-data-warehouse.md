@@ -145,11 +145,11 @@ This article shows you how to use the Copy Data tool to _load data from Azure SQ
 
 --- 
 
-11. To switch back to the pipeline runs view, select the **All pipeline runs** link at the top. Select **Refresh** to refresh the list.
+12. To switch back to the pipeline runs view, select the **All pipeline runs** link at the top. Select **Refresh** to refresh the list.
 
     ![Monitor activity runs](./media/load-azure-sql-data-warehouse/activity-monitoring.png)
 
-12. To monitor the execution details for each copy activity, select the **Details** link (eyeglasses icon) under **Activity name** in the activity runs view. You can monitor details like the volume of data copied from the source to the sink, data throughput, execution steps with corresponding duration, and used configurations.
+1. To monitor the execution details for each copy activity, select the **Details** link (eyeglasses icon) under **Activity name** in the activity runs view. You can monitor details like the volume of data copied from the source to the sink, data throughput, execution steps with corresponding duration, and used configurations.
 
     ![Monitor activity run details first](./media/load-azure-sql-data-warehouse/monitor-activity-run-details-1.png)
 

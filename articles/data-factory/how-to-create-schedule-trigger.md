@@ -39,7 +39,7 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
 
 ---
     
-1. Select **Trigger** on the menu, then select **New/Edit**. 
+2. Select **Trigger** on the menu, then select **New/Edit**. 
 
     ![New trigger menu](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
 
@@ -88,7 +88,7 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
     
 ---
 
-1. Switch to the **Trigger Runs** \ **Schedule** view. 
+9. Switch to the **Trigger Runs** \ **Schedule** view. 
 
     # [Azure Data Factory](#tab/data-factory)
 

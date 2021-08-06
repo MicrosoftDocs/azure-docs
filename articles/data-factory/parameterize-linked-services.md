@@ -66,15 +66,15 @@ Refer to the [JSON sample](#json) to add ` parameters` section to define paramet
 
 # [Azure Data Factory](#tab/data-factory)
 
-![Add dynamic content to the Linked Service definition](media/parameterize-linked-services/parameterize-linked-services-image1.png)
+![Add dynamic content to the Linked Service definition](media/parameterize-linked-services/parameterize-linked-services-image-1.png)
 
-![Create a new parameter](media/parameterize-linked-services/parameterize-linked-services-image2.png)
+![Create a new parameter](media/parameterize-linked-services/parameterize-linked-services-image-2.png)
 
 # [Azure Synapse](#tab/synapse-analytics)
 
-![Add dynamic content to the Linked Service definition](media/parameterize-linked-services/parameterize-linked-services-image1-synapse.png)
+![Add dynamic content to the Linked Service definition](media/parameterize-linked-services/parameterize-linked-services-image-1-synapse.png)
 
-![Create a new parameter](media/parameterize-linked-services/parameterize-linked-services-image2-synapse.png)
+![Create a new parameter](media/parameterize-linked-services/parameterize-linked-services-image-2-synapse.png)
 
 ---
 
