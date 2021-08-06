@@ -125,7 +125,7 @@ To publish your schema and migrate your data:
 
    ![Screenshot that shows validation in SQL Server Management Studio.](./media/oracle-to-sql-database-guide/validate-data.png)
 
-Instead, you can also use SQL Server Integration Services to perform the migration. To learn more, see:
+Or, you can also use SQL Server Integration Services to perform the migration. To learn more, see:
 
 - [Getting started with SQL Server Integration Services](/sql/integration-services/sql-server-integration-services)
 - [SQL Server Integration Services for Azure and Hybrid Data Movement](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
