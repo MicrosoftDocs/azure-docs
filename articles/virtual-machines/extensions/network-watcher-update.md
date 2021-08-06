@@ -29,7 +29,7 @@ This article assumes you have the Network Watcher extension installed in your VM
 
 ## Latest version
 
-The latest version of the Network Watcher extension is currently `1.4.1693.1`.
+The latest version of the Network Watcher extension is currently `1.4.1884.1`.
 
 ## Update your extension using a PowerShell script
 Customers with large deployments who need to update multiple VMs at once. For updating select VMs manually, please see the next section 
