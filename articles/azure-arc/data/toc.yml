@@ -1,9 +1,9 @@
 items:
-- name: Azure Arc—enabled data services documentation
+- name: Azure Arc–enabled data services documentation
   href: index.yml
 - name: Overview
   items:
-    - name: What are Azure Arc—enabled data services
+    - name: What are Azure Arc–enabled data services
       href: overview.md
     - name: Release notes
       href: release-notes.md
@@ -13,7 +13,7 @@ items:
       href: privacy-data-collection-and-reporting.md
 - name: Quickstarts
   items:
-    - name: Plan Azure Arc—enabled data services deployment 
+    - name: Plan Azure Arc–enabled data services deployment 
       href: plan-azure-arc-data-services.md
 - name: Concepts
   items:
@@ -53,7 +53,7 @@ items:
             href: create-data-controller-direct-azure-portal.md
           - name: az CLI
             href: create-data-controller-direct-cli.md
-    - name: Common experiences across Azure Arc—enabled data services
+    - name: Common experiences across Azure Arc–enabled data services
       items:
         - name: Monitor with dashboards (Azure Data Studio)
           href: azure-data-studio-dashboards.md
@@ -91,11 +91,11 @@ items:
           href: troubleshoot-guide.md
         - name: Get logs
           href: troubleshooting-get-logs.md
-- name: Azure Arc—enabled PostgreSQL Hyperscale (preview) 
+- name: Azure Arc–enabled PostgreSQL Hyperscale (preview) 
   items:
     - name: Overview
       items:
-        - name: What is Azure Arc—enabled PostgreSQL Hyperscale
+        - name: What is Azure Arc–enabled PostgreSQL Hyperscale
           href: what-is-azure-arc—enabled-postgres-hyperscale.md
         - name: Limitations
           href: limitations-postgresql-hyperscale.md
@@ -157,11 +157,11 @@ items:
               href: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
         - name: Troubleshoot
           href: troubleshoot-postgresql-hyperscale-server-group.md
-- name: Azure Arc—enabled SQL Managed Instance
+- name: Azure Arc–enabled SQL Managed Instance
   items:
     - name: Overview
       items:
-        - name: What is Azure Arc—enabled SQL Managed Instance
+        - name: What is Azure Arc–enabled SQL Managed Instance
           href: managed-instance-overview.md
         - name: Features
           href: managed-instance-features.md

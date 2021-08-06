@@ -3,7 +3,7 @@ title: Azure Arc–enabled Kubernetes
 summary: Learn how to manage Kubernetes clusters with Azure Arc
 
 metadata:
-  title: Azure Arc—enabled Kubernetes
+  title: Azure Arc–enabled Kubernetes
   description: Learn about how to manage on-premises machines in Azure
   author: shashankbarsin
   ms.service: azure-arc

@@ -204,7 +204,7 @@ With the environment variables set, you can upload logs to the log workspace.
 
 ## Upload logs to Azure Monitor
 
- To upload logs for your Azure Arc—enabled SQL managed instances and Azure Arc—enabled PostgreSQL Hyperscale server groups run the following CLI commands-
+ To upload logs for your Azure Arc–enabled SQL managed instances and Azure Arc–enabled PostgreSQL Hyperscale server groups run the following CLI commands-
 
 1. Log in to to the Azure Arc data controller with Azure (`az`)  CLI with the `arcdata` extension.
 

@@ -8,13 +8,13 @@
   items:
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md
-- name: Azure Arc—enabled servers >
+- name: Azure Arc–enabled servers >
   href: ./servers/overview.md
-- name: Azure Arc—enabled Kubernetes >
+- name: Azure Arc–enabled Kubernetes >
   href: ./kubernetes/overview.md
-- name: Azure Arc—enabled data services  >
+- name: Azure Arc–enabled data services  >
   href: ./data/overview.md
-- name: SQL Server on Azure Arc—enabled servers >
+- name: SQL Server on Azure Arc–enabled servers >
   href: https://docs.microsoft.com/sql/sql-server/azure-arc/overview
 - name: Arc validation program
   items:

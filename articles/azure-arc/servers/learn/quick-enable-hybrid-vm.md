@@ -51,7 +51,7 @@ The script to automate the download, installation, and establish the connection 
 
 1. Launch the Azure Arc service in the Azure portal by clicking **All services**, then searching for and selecting **Servers - Azure Arc**.
 
-    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Search for Azure Arc—enabled servers in All Services" border="false":::
+    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Search for Azure Arc–enabled servers in All Services" border="false":::
 
 1. On the **Servers - Azure Arc** page, select **Add** at the upper left.
 

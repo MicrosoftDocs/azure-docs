@@ -29,7 +29,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Launch the Azure Arc service in the Azure portal by clicking **All services**, then searching for and selecting **Machines - Azure Arc**.
 
-    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Search for Azure Arc—enabled servers in All Services" border="false":::
+    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Search for Azure Arc–enabled servers in All Services" border="false":::
 
 1. On the **Machines - Azure Arc** page, select the connected machine you created in the [quickstart](quick-enable-hybrid-vm.md) article.
 

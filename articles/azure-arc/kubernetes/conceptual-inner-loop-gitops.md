@@ -86,4 +86,4 @@ Suppose Alice wants to update, run, and debug the application either in local or
 
 ## Next steps
 
-Learn more about creating connections between your cluster and a Git repository as a [configuration resource with Azure Arc—enabled Kubernetes](./conceptual-configurations.md)
+Learn more about creating connections between your cluster and a Git repository as a [configuration resource with Azure Arc–enabled Kubernetes](./conceptual-configurations.md)
