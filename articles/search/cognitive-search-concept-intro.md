@@ -13,9 +13,9 @@ ms.custom: references_regions
 ---
 # AI enrichment in Azure Cognitive Search
 
-In Azure Cognitive Search, AI enrichment refers to built-in cognitive skills and custom skills as part of indexing. Enrichments create new information where none previously existed: extracting information from images, detecting sentiment, key phrases, and entities from text, to name a few. Enrichments also add structure to undifferentiated text. All of these processes result in documents that make full text search more effective. In many instances, enriched documents are useful for scenarios other than search, such as for knowledge mining.
+In Azure Cognitive Search, AI enrichment refers to built-in cognitive skills and custom skills that add content transformation and generation during indexing. Enrichments create new information where none previously existed: extracting information from images, detecting sentiment, key phrases, and entities from text, to name a few. Enrichments also add structure to undifferentiated text. All of these processes result in documents that make full text search more effective. In many instances, enriched documents are useful for scenarios other than search, such as for knowledge mining.
 
-AI enrichment is defined by a [skillset](cognitive-search-working-with-skillsets.md) that's attached to an [indexer](search-indexer-overview.md). The indexer will extract and set up the content, while the skillset identifies, analyzes, and creates new information and structures from images, blobs, and other unstructured data sources. The output of enrichment is either a [search index](search-what-is-an-index.md) or a [knowledge store](knowledge-store-concept-intro.md).
+Enrichment is defined by a [skillset](cognitive-search-working-with-skillsets.md) that's attached to an [indexer](search-indexer-overview.md). The indexer will extract and set up the content, while the skillset identifies, analyzes, and creates new information and structures from images, blobs, and other unstructured data sources. The output of enrichment is either a [search index](search-what-is-an-index.md) or a [knowledge store](knowledge-store-concept-intro.md).
 
 A skillset can contain built-in skills from Cognitive Search or embed external processing that you provide in a [*custom skill*](cognitive-search-create-custom-skill-example.md). Examples of a custom skill might be a custom entity module or document classifier targeting a specific domain such as finance, scientific publications, or medicine.
 
@@ -52,15 +52,15 @@ Additionally, you might consider adding a custom skill if you have open-source, 
 
 A [skillset](cognitive-search-defining-skillset.md) that's assembled using built-in skills is well-suited for the following application scenarios:
 
-+ Optical Character Recognition (OCR) that recognizes typeface and handwritten text in scanned documents (JPEG) is perhaps the most commonly used skill. Attaching the [OCR skill](cognitive-search-skill-ocr.md) will identify, extract, and ingest text from JPEG files.
++ [Optical Character Recognition (OCR)](cognitive-search-skill-ocr.md) that recognizes typeface and handwritten text in scanned documents (JPEG) is perhaps the most commonly used skill. Attaching the OCR skill will identify, extract, and ingest text from JPEG files.
 
-+ Text translation of multilingual content is another commonly used skill. Language detection is built into [Text Translation](cognitive-search-skill-text-translation.md), but you can also run [Language Detection](cognitive-search-skill-language-detection.md) independently if you just want the language codes of the content in your corpus.
++ [Text translation](cognitive-search-skill-text-translation.md) of multilingual content is another commonly used skill. Language detection is built into Text Translation, but you can also run [Language Detection](cognitive-search-skill-language-detection.md) independently if you just want the language codes of the content in your corpus.
 
 + PDFs with combined image and text. Text in PDFs can be extracted during indexing without the use of enrichment steps, but the addition of image and natural language processing can often produce a better outcome than a standard indexing provides.
 
 + Unstructured or semi-structured documents containing content that has inherent meaning or context that is hidden in the larger document. 
 
-  Blobs in particular often contain a large body of content that is packed into a single "field". By attaching image and natural language processing skills to an indexer, you can create new information that is extant in the raw content, but not otherwise surfaced as distinct fields. Some ready-to-use built-in cognitive skills that can help: [key phrase extraction](cognitive-search-skill-keyphrases.md) and [entity recognition](cognitive-search-skill-entity-recognition-v3.md) (people, organizations, and locations to name a few).
+  Blobs in particular often contain a large body of content that is packed into a single "field". By attaching image and natural language processing skills to an indexer, you can create new information that is extant in the raw content, but not otherwise surfaced as distinct fields. Some ready-to-use built-in cognitive skills that can help: [Key Phrase Extraction](cognitive-search-skill-keyphrases.md) and [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md) (people, organizations, and locations to name a few).
 
   Additionally, built-in skills can also be used restructure content through text split, merge, and shape operations.
 
@@ -124,13 +124,13 @@ The knowledge store contains data that can be consumed in knowledge mining scena
 
 1. When beginning a project, it's helpful to work with a subset of data. Indexer and skillset design is an iterative process, and you'll iterate more quickly if you're working with a small representative data set.
 
-1. Create a [data source](/rest/api/searchservice/create-data-source) that specifies a connection.
+1. Create a [data source](/rest/api/searchservice/create-data-source) that specifies a connection to your data.
 
-1. Create a [skillset](/rest/api/searchservice/create-skillset) with enrichment steps.
+1. Create a [skillset](/rest/api/searchservice/create-skillset) to add enrichment.
 
 1. Create an [index schema](/rest/api/searchservice/create-index) that defines a search index.
 
-1. Create an [indexer](/rest/api/searchservice/create-indexer) to bring all of the above components together. Creating or running indexer retrieves data, runs the skillset, and loads the index.
+1. Create an [indexer](/rest/api/searchservice/create-indexer) to bring all of the above components together. Creating or running indexer retrieves the data, runs the skillset, and loads the index.
 
 1. Run queries to evaluate results and modify code to update skillsets, schema, or indexer configuration.
 
