@@ -11,7 +11,7 @@ services: iot-central
 
 # Tutorial: Create a rule and set up notifications in your Azure IoT Central application
 
-You can use Azure IoT Central to remotely monitor your connected devices. Azure IoT Central rules let you monitor your devices in near real time and automatically invoke actions, such as sending an email. This article explains how to create rules to monitor the telemetry your devices send.
+You can use Azure IoT Central to remotely monitor your connected devices. Azure IoT Central Rules let you monitor your devices in near real time and automatically invoke actions, such as sending an email. This article explains how to create rules to monitor the telemetry your devices send.
 
 Devices use telemetry to send numerical data from the device. A  rule triggers when the selected telemetry crosses a specified threshold.
 
@@ -96,16 +96,16 @@ Conditions define the criteria that the rule monitors. In this tutorial, you con
 
 1. Next, choose **Is greater than** as the **Operator** and enter _70_ as the **Value**.
 
-    :::image type="content" source="media/tutorial-create-telemetry-rules/condition-filled-out.png" alt-text="Screenshot that shows the temperature condition for the rule":::
+    :::image type="content" source="media/tutorial-create-telemetry-rules/condition-filled-outv1.png" alt-text="Screenshot that shows the temperature condition for the rule":::
 
 1. Optionally, you can set a **Time aggregation**. When you select a time aggregation, you must also select an aggregation type, such as average or sum from the aggregation drop-down.
 
     * Without aggregation, the rule triggers for each telemetry data point that meets the condition. For example, if you configure the rule to trigger when temperature is above 70 then the rule triggers almost instantly when the device temperature exceeds this value.
     * With aggregation, the rule triggers if the aggregate value of the telemetry data points in the time window meets the condition. For example, if you configure the rule to trigger when temperature is above 70 and with an average time aggregation of 10 minutes, then the rule triggers when the device reports an average temperature greater than 70, calculated over a 10-minute interval.
 
-    :::image type="content" source="media/tutorial-create-telemetry-rules/aggregate-condition-filled-out.png" alt-text="Screenshot that shows the aggregate condition filled out":::
+    :::image type="content" source="media/tutorial-create-telemetry-rules/aggregate-condition-filled-outv1.png" alt-text="Screenshot that shows the aggregate condition filled out":::
 
-You can add multiple conditions to a rule by selecting **+ Condition**. When multiple conditions are specified, all the conditions must be met for the rule to trigger. Each condition is joined by an implicit `AND` clause. If you're using time aggregation with multiple conditions, all the telemetry values must be aggregated.
+You can add multiple conditions to a rule by selecting **+ Condition**. When multiple conditions are added, you can specify if all the conditions must be met or any of the conditions must be met for the rule to trigger. If you're using time aggregation with multiple conditions, all the telemetry values must be aggregated.
 
 ### Configure actions
 
