@@ -43,11 +43,11 @@ If you plan to work with date and time data in PostgreSQL, you’ll want to ensu
 PostgreSQL allows you to specify time zones in three different forms:
 1. A full time zone name, for example America/New_York. The recognized time zone names are listed in the [**pg_timezone_names**](https://www.postgresql.org/docs/9.2/view-pg-timezone-names.html) view.  
    Example to query this view in psql and get list of time zone names:
-   > select name FROM pg_timezone_names LIMIT 20;
+   <pre>select name FROM pg_timezone_names LIMIT 20;</pre>
 
    You should see result set like:
 
-   >
+   <pre>
             name
         -----------------------
         GMT0
@@ -71,12 +71,16 @@ PostgreSQL allows you to specify time zones in three different forms:
         America/Tortola
         America/Managua
         (20 rows)
+    </pre>
    
 2. A time zone abbreviation, for example PST. Such a specification merely defines a particular offset from UTC, in contrast to full time zone names which can imply a set of daylight savings transition-date rules as well. The recognized abbreviations are listed in the [**pg_timezone_abbrevs view**](https://www.postgresql.org/docs/9.4/view-pg-timezone-abbrevs.html)
    Example to query this view in psql and get list of time zone abbreviations:
-   > select abbrev from pg_timezone_abbrevs limit 20;
-     You should see result set like:
-     >
+
+   <pre> select abbrev from pg_timezone_abbrevs limit 20;</pre>
+
+    You should see result set like:
+
+     <pre>
         abbrev|
         ------+
         ACDT  |
@@ -99,6 +103,7 @@ PostgreSQL allows you to specify time zones in three different forms:
         ANAT  |
         ARST  |
         ART   |
+    </pre>
 
 3. In addition to the timezone names and abbreviations, PostgreSQL will accept POSIX-style time zone specifications of the form STDoffset or STDoffsetDST, where STD is a zone abbreviation, offset is a numeric offset in hours west from UTC, and DST is an optional daylight-savings zone abbreviation, assumed to stand for one hour ahead of the given offset. 
    
