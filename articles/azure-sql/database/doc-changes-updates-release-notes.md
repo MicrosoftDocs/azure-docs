@@ -129,6 +129,7 @@ The following features are enabled in the SQL Managed Instance deployment model 
 |[Procedure sp_send_dbmail may transiently fail when @query parameter is used](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Jan 2021|Has Workaround||
 |[Distributed transactions can be executed after removing Managed Instance from Server Trust Group](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Oct 2020|Has Workaround||
 |[Distributed transactions cannot be executed after Managed Instance scaling operation](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Oct 2020|Has Workaround||
+|[Cannot create SQL Managed Instance with the same name as logical server previously deleted](#cannot-create-sql-managed-instance-with-the-same-name-as-logical-server-previously-deleted)|Aug 2020|Has Workaround||
 |[BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql)/[OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql) in Azure SQL and `BACKUP`/`RESTORE` statement in Managed Instance cannot use Azure AD Manage Identity to authenticate to Azure storage|Sep 2020|Has Workaround||
 |[Service Principal cannot access Azure AD and AKV](#service-principal-cannot-access-azure-ad-and-akv)|Aug 2020|Has Workaround||
 |[Restoring manual backup without CHECKSUM might fail](#restoring-manual-backup-without-checksum-might-fail)|May 2020|Resolved|June 2020|
@@ -194,6 +195,10 @@ END
 ### Distributed transactions cannot be executed after Managed Instance scaling operation
 
 Managed Instance scaling operations that include changing service tier or number of vCores will reset Server Trust Group settings on the backend and disable running [distributed transactions](./elastic-transactions-overview.md). As a workaround, delete and create new [Server Trust Group](../managed-instance/server-trust-group-overview.md) on Azure portal.
+
+### Cannot create SQL Managed Instance with the same name as logical server previously deleted
+
+After [logical server](./logical-servers.md) is deleted, there is a treshold period of 7 days before the name is released from the records. In that period, SQL Managed Instance with the same name cannot be created. As a workaround you would need to use different name for the SQL Managed Instance or create a support ticket for releasing a logical server name.
 
 ### BULK INSERT and BACKUP/RESTORE statements should use SAS Key to access Azure storage
 
