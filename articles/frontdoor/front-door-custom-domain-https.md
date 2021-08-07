@@ -83,7 +83,7 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 2. Azure Key Vault certificates: If you already have a certificate, you can upload it directly to your Azure Key Vault account or you can create a new certificate directly through Azure Key Vault from one of the partner CAs that Azure Key Vault integrates with. Upload your certificate as a **certificate** object, rather than a **secret**.
 
 > [!NOTE]
-> For your own TLS/SSL certificate, Front Door doesn't support certificates with EC cryptography algorithms. The certificate must have a complete certificate chin with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA list](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
+> For your own TLS/SSL certificate, Front Door doesn't support certificates with EC cryptography algorithms. The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA list](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
 
 #### Register Azure Front Door
 

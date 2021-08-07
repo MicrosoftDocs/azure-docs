@@ -351,11 +351,11 @@
     href: age-gating.md
   - name: API connectors
     items:
-    - name: Add an API connector to a sign-up user flow
+    - name: Modify sign-up experiences 
       href: add-api-connector.md
       displayName: rest claims validation, validate
-    - name: Add an API connector to a sign-up or sign-in user flow
-      href: custom-policy-rest-api-claims-exchange.md
+    - name: Enrich tokens with external claims
+      href: add-api-connector-token-enrichment.md
       displayName: rest claims exchange
     - name: Secure an API connector
       href: secure-rest-api.md

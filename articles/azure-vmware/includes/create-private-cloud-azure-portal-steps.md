@@ -2,7 +2,7 @@
 title: Create an Azure VMware Solution private cloud
 description: Steps to create an Azure VMware Solution private cloud using the Azure portal.
 ms.topic: include
-ms.date: 06/17/2021
+ms.date: 08/05/2021
 ---
 
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
@@ -29,12 +29,12 @@ You can create an Azure VMware Solution private cloud by using the Azure portal 
    | ---| --- |
    | **Subscription** | Select the subscription you plan to use for the deployment. All resources in an Azure subscription are billed together.|
    | **Resource group** | Select the resource group for your private cloud. An Azure resource group is a logical container into which Azure resources are deployed and managed. Alternatively, you can create a new resource group for your private cloud. |
-   | **Location** | Select a location, such as **east us**. This is the *region* you defined during the planning phase. |
    | **Resource name** | Provide the name of your Azure VMware Solution private cloud. |
-   | **SKU** | Select **AV36**. |
-   | **Hosts** | Shows the number of hosts allocated for the private cloud cluster. The default value is 3, which can be raised or lowered after deployment.  | 
-   | **Address block** | Provide an IP address block for the private cloud.  The CIDR represents the private cloud management network and will be used for the cluster management services, such as vCenter Server and NSX-T Manager. Use /22 address space, for example, 10.175.0.0/22.  The address should be unique and not overlap with other Azure Virtual Networks as well as with on-premises networks. |
-   | **Virtual Network** | Leave this blank because the Azure VMware Solution ExpressRoute circuit is established as a post-deployment step.   |
+   | **Location** | Select a location, such as **east us**. This is the *region* you defined during the planning phase. |
+   | **Size of host** | Select **AV36**.  |
+   | **Number of hosts** | Shows the number of hosts allocated for the private cloud cluster. The default value is 3, which can be raised or lowered after deployment.  |
+   | **Address block for private cloud** | Provide an IP address block for the private cloud.  The CIDR represents the private cloud management network and will be used for the cluster management services, such as vCenter Server and NSX-T Manager. Use /22 address space, for example, 10.175.0.0/22.  The address should be unique and not overlap with other Azure Virtual Networks as well as with on-premises networks. |
+   
 
    :::image type="content" source="../media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="Screenshot showing the Basics tab on the Create a private cloud window." border="true":::
 
