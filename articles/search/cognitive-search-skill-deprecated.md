@@ -33,7 +33,7 @@ If you're using the [Microsoft.Skills.Text.NamedEntityRecognitionSkill](#microso
 
 ### End of support
 
-August 29, 2024
+August 31, 2024
 
 ### Recommendations 
 
@@ -361,25 +361,25 @@ To migrate to the [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-se
 
 ### End of support
 
-August 29, 2024
+August 31, 2024
 
 ### Recommendations 
 
-Use [Microsoft.Skills.Text.V3.SentimentSkill](cognitive-search-skill-sentiment-v3.md) instead. It provides an improved model and includes the option to add opinion mining or aspect based sentiment. As the skill is significantly more complex, the outputs are also very different.
+Use [Microsoft.Skills.Text.V3.SentimentSkill](cognitive-search-skill-sentiment-v3.md) instead. It provides an improved model and includes the option to add opinion mining or aspect-based sentiment. As the skill is significantly more complex, the outputs are also very different.
 
 To migrate to the [Microsoft.Skills.Text.V3.SentimentSkill](cognitive-search-skill-sentiment-v3.md), you will have to perform one or more of the following changes to your skill definition. You can update the skill definition using the [Update Skillset API](/rest/api/searchservice/update-skillset).
 
 > [!NOTE]
-> The skill outputs for the Sentiment Skill V3 are not compatible with the index definition based on the SentimentSkill. You will have to make changes to the index definition, skillset (later skill inputs and/or knowledge store projections) and indexer output field mappings to replace the sentiment skill with new version.
+> The skill outputs for the Sentiment Skill V3 are not compatible with the index definition based on the SentimentSkill. You will have to make changes to the index definition, skillset (later skill inputs and/or knowledge store projections) and indexer output field mappings to replace the sentiment skill with the new version.
 
 1. *(Required)* Change the `@odata.type` from `"#Microsoft.Skills.Text.SentimentSkill"` to `"#Microsoft.Skills.Text.V3.SentimentSkill"`.
 
-2. *(Required)* The Sentiment Skill V3 provides a `positive`, `neutral` and `negative` score for the overall text and the same scores for each sentence in the overall text, whereas the previous SentimentSkill only provided a single double that ranged from 0.0 (negative) to 1.0 (positive) for the overall text. You will need to update your index definition to accept the three double values in place of a single score, and make sure all of your downstream skill inputs, knowledge store projections, and output field mappings are consistent with the naming changes.
+2. *(Required)* The Sentiment Skill V3 provides a `positive`, `neutral`, and `negative` score for the overall text and the same scores for each sentence in the overall text, whereas the previous SentimentSkill only provided a single double that ranged from 0.0 (negative) to 1.0 (positive) for the overall text. You will need to update your index definition to accept the three double values in place of a single score, and make sure all of your downstream skill inputs, knowledge store projections, and output field mappings are consistent with the naming changes.
 
-It is recommended to replace the old SentimentSkill with the SentimentSkill V3 entirely, update your downstream skill inputs, knowledge store projections, indexer output field mappings and index definition to match the new output format, and reset your indexer so that all of your documents have consistent sentiment results going forward.
+It is recommended to replace the old SentimentSkill with the SentimentSkill V3 entirely, update your downstream skill inputs, knowledge store projections, indexer output field mappings, and index definition to match the new output format, and reset your indexer so that all of your documents have consistent sentiment results going forward.
 
 > [!NOTE]
-> If you need any additional help updating your enrichment pipeline to use the latest version of the sentiment skill or if resetting your indexer is not an option for you, please open a new support request where we can work with you directly.
+> If you need any additional help updating your enrichment pipeline to use the latest version of the sentiment skill or if resetting your indexer is not an option for you, please open a [new support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) where we can work with you directly.
 
 ## Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
@@ -389,7 +389,7 @@ It is recommended to replace the old SentimentSkill with the SentimentSkill V3 e
 
 ### End of support
 
-August 29, 2024
+August 31, 2024
 
 ### Recommendations 
 
