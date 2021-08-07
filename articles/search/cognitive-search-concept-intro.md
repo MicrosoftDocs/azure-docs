@@ -8,12 +8,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 08/10/2021
 ms.custom: references_regions
 ---
 # AI enrichment in Azure Cognitive Search
 
-Azure Cognitive Search enables content enrichment through built-in cognitive skills and custom skills as part of indexing. Enrichments create new information where none previously existed: extracting information from images, detecting sentiment, key phrases, and entities from text, to name a few. Enrichments also add structure to undifferentiated text. All of these processes result in documents that make full text search more effective. In many instances, enriched documents are useful for scenarios other than search, such as for knowledge mining.
+In Azure Cognitive Search, AI enrichment refers to built-in cognitive skills and custom skills as part of indexing. Enrichments create new information where none previously existed: extracting information from images, detecting sentiment, key phrases, and entities from text, to name a few. Enrichments also add structure to undifferentiated text. All of these processes result in documents that make full text search more effective. In many instances, enriched documents are useful for scenarios other than search, such as for knowledge mining.
 
 AI enrichment is defined by a [skillset](cognitive-search-working-with-skillsets.md) that's attached to an [indexer](search-indexer-overview.md). The indexer will extract and set up the content, while the skillset identifies, analyzes, and creates new information and structures from images, blobs, and other unstructured data sources. The output of enrichment is either a [search index](search-what-is-an-index.md) or a [knowledge store](knowledge-store-concept-intro.md).
 
@@ -98,19 +98,17 @@ Internally, the pipeline generates a collection of enriched documents. You can d
 
 Indexing is the process wherein raw and enriched content is ingested as fields in a search index, and as [projections](knowledge-store-projection-overview.md) if you are also creating a knowledge store. The same enriched content can appear in both, using implicit or explicit field mappings to send the content to the correct fields.
 
-The mechanics of indexing are internal to the service, and the search engine sets up the physical structures and inverted indexes required for your content. In the case of a knowledge store, you'll specify the physical structure of the output. 
-
-After indexing is complete, the results are persisted and accessible to users and apps.
+Enriched content is generated during skillset execution, and is temporary unless you save it. In order for enriched content to appear in a search index, the indexer must have mapping information so that it can send enriched content to a field in a search index. [Output field mappings](cognitive-search-output-field-mapping.md) set up these associations.
 
 ## Saving enriched output
 
-In Azure Cognitive Search, an indexer saves the output it creates. One of the outputs is always a [searchable index](search-what-is-an-index.md). Specifying an index is a required component of an indexer, and when you attach a skillset, the output of the skillset, plus any fields that are imported directly from the source, are used to populate the index. Usually, the outputs of specific skills, such as key phrases or sentiment scores, are ingested into the index in a field created for that purpose.
+In Azure Cognitive Search, an indexer saves the output it creates. One of the outputs is always a [searchable index](search-what-is-an-index.md). Specifying an index is a required component of an indexer, and when you attach a skillset, the output of the skillset, plus any fields that are imported directly from the source, are used to populate the index. Usually, the outputs of specific skills, such as key phrases or sentiment scores, are ingested into the index in fields created for that purpose.
 
-Optionally, an indexer can also send the output to a [knowledge store](knowledge-store-concept-intro.md) for consumption in other tools or processes. A knowledge store is defined as part of the skillset. Its definition determines whether your enriched documents are projected as tables or objects (files or blobs). Tabular projections are well suited for interactive analysis in tools like Power BI, whereas files and blobs are typically used in data science or similar processes.
+Optionally, an indexer can also send the output to a [knowledge store](knowledge-store-concept-intro.md) for downstream knowledge mining. A knowledge store is defined within a skillset. Its definition determines whether your enriched documents are projected as tables or objects (files or blobs). Tabular projections are well suited for interactive analysis in tools like Power BI, whereas files and blobs are typically used in data science or similar processes.
 
-Finally, an indexer can [cache enriched documents](cognitive-search-incremental-indexing-conceptual.md) in Azure Blob Storage for potential reuse in subsequent skillset executions. Cached enrichments are consumable by the same skillset that you rerun at a later date. Caching is particularly helpful if your skillset include image analysis or OCR, and you want to avoid the time and expense of re-processing image files.
+Finally, an indexer can [cache enriched documents](cognitive-search-incremental-indexing-conceptual.md) in Azure Blob Storage for potential reuse in subsequent skillset executions. Cached enrichments are consumable by the same skillset that you rerun at a later date. Caching is helpful if your skillset include image analysis or OCR, and you want to avoid the time and expense of reprocessing image files.
 
-Indexes and knowledge stores are fully independent of each other. While you must attach an index per indexer requirements, if your sole objective is a knowledge store, you can ignore the index after it's populated. Avoid deleting it though. If you want to rerun the indexer and skillset, you'll need the index in order for the indexer to run.
+Indexes and knowledge stores are fully independent of each other. While you must attach an index to satisfy indexer requirements, if your sole objective is a knowledge store, you can ignore the index after it's populated. Avoid deleting it though. If you want to rerun the indexer and skillset, you'll need the index in order for the indexer to run.
 
 ## Using enriched content
 
@@ -118,36 +116,29 @@ When processing is finished, you have a [search index](search-what-is-an-index.m
 
 ![Enrichment with search index and knowledge store](./media/cognitive-search-intro/cogsearch-arch-kstore.png "Enrichment with search index and knowledge store")
 
-The index is like any other you might create for Azure Cognitive Search: you can supplement with custom analyzers, invoke fuzzy search queries, add filtered search, or experiment with scoring profiles to reshape the search results.
+The index is like any other you might create for Azure Cognitive Search: you can supplement text analysis with custom analyzers, invoke fuzzy search queries, add filters, or experiment with scoring profiles to tune search relevance.
 
-The knowledge store can contain [cached enrichments for reuse in skillsets](cognitive-search-incremental-indexing-conceptual.md), or projections intended for consumption in knowledge mining scenarios like analytics or machine learning.
+The knowledge store contains data that can be consumed in knowledge mining scenarios like analytics or machine learning.
 
 ## Checklist: A typical workflow
 
-1. When beginning a project, it's helpful to work with a subset of data. Indexer and skillset design is an iterative process, and you'll iterate more quickly if you're working with a small, representative data set.
+1. When beginning a project, it's helpful to work with a subset of data. Indexer and skillset design is an iterative process, and you'll iterate more quickly if you're working with a small representative data set.
 
-1. Create a [data source object](/rest/api/searchservice/create-data-source) in Azure Cognitive Search to provide a connection string for data retrieval.
+1. Create a [data source](/rest/api/searchservice/create-data-source) that specifies a connection.
 
 1. Create a [skillset](/rest/api/searchservice/create-skillset) with enrichment steps.
 
-1. Define the [index schema](/rest/api/searchservice/create-index). The *Fields* collection includes fields from source data. You should also stub out additional fields to hold generated values for content created during enrichment.
+1. Create an [index schema](/rest/api/searchservice/create-index) that defines a search index.
 
-1. Define the [indexer](/rest/api/searchservice/create-indexer) referencing the data source, skillset, and index.
-
-1. Within the indexer, add *outputFieldMappings*. These properties map connect a skillset's output to the correct fields in the index schema.
-
-1. Send *Create Indexer* request you just created (a POST request with an indexer definition in the request body) to express the indexer in Azure Cognitive Search. This step is how you run the indexer, invoking the pipeline.
+1. Create an [indexer](/rest/api/searchservice/create-indexer) to bring all of the above components together. Creating or running indexer retrieves data, runs the skillset, and loads the index.
 
 1. Run queries to evaluate results and modify code to update skillsets, schema, or indexer configuration.
 
-1. [Reset the indexer](search-howto-reindex.md) before rebuilding the pipeline, or delete and recreate the objects on each run (recommended if you are using the free tier).
+To iterate over the above steps, [reset the indexer](search-howto-reindex.md) before rebuilding the pipeline, or delete and recreate the objects on each run (recommended if you are using the free tier). You should also [enable enrichment caching](cognitive-search-incremental-indexing-conceptual.md) to reuse existing enrichments wherever possible.
 
 ## Next steps
 
-+ [AI enrichment documentation links](cognitive-search-resources-documentation.md)
-+ [Example: Creating a custom skill for AI enrichment (C#)](cognitive-search-create-custom-skill-example.md)
 + [Quickstart: Try AI enrichment in a portal walk-through](cognitive-search-quickstart-blob.md)
-+ [Tutorial: Learn about the AI enrichment APIs](cognitive-search-tutorial-blob.md)
++ [Tutorial: Learn about the AI enrichment REST APIs](cognitive-search-tutorial-blob.md)
 + [Knowledge store](knowledge-store-concept-intro.md)
 + [Create a knowledge store in REST](knowledge-store-create-rest.md)
-+ [Troubleshooting tips](cognitive-search-concept-troubleshooting.md)
