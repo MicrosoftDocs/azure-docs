@@ -13,7 +13,7 @@ ms.author: cherylmc
 ---
 # How to create BGP peering with virtual hub (Preview) - Azure portal
 
-This article helps you configure an Azure Virtual WAN hub router to peer with a Network Virtual Appliance (NVA) in your virtual network using the Azure portal. The virtual hub router learns routes from the NVA in a spoke VNet that is connected to a virtual WAN hub. The virtual hub router also advertises the virtual network routes to the NVA. For more information, see [About BGP peering with a virtual hub](scenario-bgp-peering-hub.md).
+This article helps you configure an Azure Virtual WAN hub router to peer with a Network Virtual Appliance (NVA) in your virtual network using the Azure portal. The virtual hub router learns routes from the NVA in a spoke VNet that is connected to a virtual WAN hub. The virtual hub router also advertises the virtual network routes to the NVA. For more information, see [Scenario: BGP peering with a virtual hub](scenario-bgp-peering-hub.md).
 
 [!INCLUDE [Gated public preview SLA link](../../includes/virtual-wan-gated-public-preview-sla.md)]
 
@@ -88,4 +88,4 @@ In this section, you create a connection between your hub and VNet.
 
 ## Next steps
 
-* For more information about BGP scenarios, see [About BGP peering with a virtual hub](scenario-bgp-peering-hub.md).
+* For more information about BGP scenarios, see [Scenario: BGP peering with a virtual hub](scenario-bgp-peering-hub.md).
