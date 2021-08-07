@@ -231,7 +231,7 @@ This article provides a detailed list of cloud services in scope for the above a
 | [Web Apps (App Service)](https://azure.microsoft.com/services/app-service/web/) | &#x2705; | &#x2705; | |
 | [Windows 10 IoT Core Services](https://azure.microsoft.com/services/windows-10-iot-core/) | &#x2705; | &#x2705; | |
 
-**&ast;** FedRAMP High authorization for edge devices applies to Azure services that support on-premises, customer-managed devices. For example, FedRAMP High authorization for Azure Data Box covers datacenter infrastructure services and Databox pod and disk service, which are the online software components supporting Data Box hardware appliance. You are wholly responsible for the authorization package that covers the physical devices. For assistance with accelerating your onboarding and authorization of devices, contact your Microsoft account representative.
+**&ast;** FedRAMP High authorization for edge devices (such as Azure Data Box and Azure Stack Edge) applies only to Azure services that support on-premises, customer-managed devices. For example, FedRAMP High authorization for Azure Data Box covers datacenter infrastructure services and Databox pod and disk service, which are the online software components supporting Data Box hardware appliance. You are wholly responsible for the authorization package that covers the physical devices. For assistance with accelerating your onboarding and authorization of devices, contact your Microsoft account representative.
 
 **&ast;&ast;** FedRAMP High authorization for Azure Databricks is applicable to limited regions in Azure. To configure Azure Databricks for FedRAMP High use, contact your Microsoft or Databricks representative.
 
@@ -372,7 +372,7 @@ This article provides a detailed list of cloud services in scope for the above a
 | [Load Balancer](https://azure.microsoft.com/services/load-balancer/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Microsoft 365 Defender](/microsoft-365/security/defender/) (formerly Microsoft Threat Protection) | &#x2705; | | | | |
 | [Microsoft Azure portal](https://azure.microsoft.com/features/azure-portal/) | &#x2705; | &#x2705; | &#x2705;| &#x2705; | &#x2705; |
-| [Microsoft Azure Government portal](../azure-government/documentation-government-get-started-connect-with-portal.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; | &#x2705; |
+| [Microsoft Azure Government portal](../documentation-government-get-started-connect-with-portal.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; | &#x2705; |
 | [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)| &#x2705; | &#x2705; | &#x2705; | | |
 | [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) (formerly Microsoft Defender Advanced Threat Protection) | &#x2705; | &#x2705; | &#x2705; | | |
 | [Microsoft Defender for Identity](/defender-for-identity/what-is) | &#x2705; | &#x2705; | &#x2705; | | |
@@ -410,4 +410,4 @@ This article provides a detailed list of cloud services in scope for the above a
 | [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Web Apps (App Service)](https://azure.microsoft.com/services/app-service/web/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 
-**&ast;** Authorizations for edge devices apply to Azure services that support on-premises, customer-managed devices. You are wholly responsible for the authorization package that covers the physical devices. For assistance with accelerating your onboarding and authorization of devices, contact your Microsoft account representative.
+**&ast;** Authorizations for edge devices (such as Azure Data Box and Azure Stack Edge) apply only to Azure services that support on-premises, customer-managed devices. You are wholly responsible for the authorization package that covers the physical devices. For assistance with accelerating your onboarding and authorization of devices, contact your Microsoft account representative.
