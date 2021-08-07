@@ -200,7 +200,7 @@ This article provides a detailed list of cloud services in scope for the above a
 | [Microsoft Intune](/mem/intune/fundamentals/) | &#x2705; | &#x2705; | |
 | [Microsoft Stream](/stream/overview) | &#x2705; | &#x2705; | |
 | [Microsoft Threat Experts](/microsoft-365/security/defender-endpoint/microsoft-threat-experts) | &#x2705; | &#x2705; | |
-| [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; | |
+| [Multifactor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; | |
 | [Network Watcher](https://azure.microsoft.com/services/network-watcher/) | &#x2705; | &#x2705; | |
 | [Network Watcher Traffic Analytics](../../network-watcher/traffic-analytics.md) | &#x2705; | &#x2705; | |
 | [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) | &#x2705; | &#x2705; | |
@@ -231,7 +231,7 @@ This article provides a detailed list of cloud services in scope for the above a
 | [Web Apps (App Service)](https://azure.microsoft.com/services/app-service/web/) | &#x2705; | &#x2705; | |
 | [Windows 10 IoT Core Services](https://azure.microsoft.com/services/windows-10-iot-core/) | &#x2705; | &#x2705; | |
 
-**&ast;** FedRAMP High authorization for edge devices (such as Azure Data Box and Azure Stack Edge) applies only to Azure services that support on-premises, customer-managed devices. For example, FedRAMP High authorization for Azure Data Box covers datacenter infrastructure services and Databox pod and disk service, which are the online software components supporting Data Box hardware appliance. You are wholly responsible for the authorization package that covers the physical devices. For assistance with accelerating your onboarding and authorization of devices, contact your Microsoft account representative.
+**&ast;** FedRAMP High authorization for edge devices (such as Azure Data Box and Azure Stack Edge) applies only to Azure services that support on-premises, customer-managed devices. For example, FedRAMP High authorization for Azure Data Box covers datacenter infrastructure services and Data Box pod and disk service, which are the online software components supporting Data Box hardware appliance. You are wholly responsible for the authorization package that covers the physical devices. For assistance with accelerating your onboarding and authorization of devices, contact your Microsoft account representative.
 
 **&ast;&ast;** FedRAMP High authorization for Azure Databricks is applicable to limited regions in Azure. To configure Azure Databricks for FedRAMP High use, contact your Microsoft or Databricks representative.
 
@@ -379,7 +379,7 @@ This article provides a detailed list of cloud services in scope for the above a
 | [Microsoft Graph](/graph/overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Microsoft Intune](/mem/intune/fundamentals/) | &#x2705; | &#x2705; | &#x2705; | | |
 | [Microsoft Stream](/stream/overview) | &#x2705; | &#x2705; | &#x2705; | | |
-| [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Multifactor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Network Watcher](https://azure.microsoft.com/services/network-watcher/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Network Watcher Traffic Analytics](../../network-watcher/traffic-analytics.md) | &#x2705; | &#x2705; | &#x2705; | | |
 | **Service** | **FR High / DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** | **ICD 503** |

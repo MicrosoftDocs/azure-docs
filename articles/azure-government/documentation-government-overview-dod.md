@@ -19,7 +19,7 @@ ms.date: 08/04/2021
 
 ## Overview
 
-Azure Government is used by the US Department of Defense (DoD) entities to deploy a broad range of workloads and solutions, including workloads subject to the DoD Cloud Computing [Security Requirements Guide](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html) (SRG) Impact Level 4 (IL4) and Impact Level 5 (IL5) restrictions. Azure Government was the first hyperscale cloud services platform to be awarded a DoD IL5 Provisional Authorization (PA) by the Defense Information Systems Agency (DISA). For more information about DISA and DoD IL5, see [Department of Defense (DoD) Impact Level 5](/azure/compliance/offerings/offering-dod-il5) compliance documentation.
+Azure Government is used by the US Department of Defense (DoD) entities to deploy a broad range of workloads and solutions. Some of these workloads can be subject to the DoD Cloud Computing [Security Requirements Guide](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html) (SRG) Impact Level 4 (IL4) and Impact Level 5 (IL5) restrictions. Azure Government was the first hyperscale cloud services platform to be awarded a DoD IL5 Provisional Authorization (PA) by the Defense Information Systems Agency (DISA). For more information about DISA and DoD IL5, see [Department of Defense (DoD) Impact Level 5](/azure/compliance/offerings/offering-dod-il5) compliance documentation.
 
 Azure Government offers the following regions to DoD mission owners and their partners:
 
@@ -28,7 +28,7 @@ Azure Government offers the following regions to DoD mission owners and their pa
 |US Gov Arizona </br> US Gov Texas </br> US Gov Virginia|FedRAMP High, DoD IL4, DoD IL5|138|
 |US DoD Central </br> US DoD East|DoD IL5|64|
 
-**Azure Government regions** (US Gov Arizona, US Gov Texas, and US Gov Virginia) are intended for US federal (including DoD), state, and local government agencies, and their partners. **Azure Government DoD regions** (US DoD Central and US DoD East) are reserved for exclusive DoD use. Separate DoD IL5 PAs are in place for Azure Government regions (US Gov Arizona, US Gov Texas, and US Gov Virginia) vs. Azure Government DoD regions (US DoD Central and US DoD East). 
+**Azure Government regions** (US Gov Arizona, US Gov Texas, and US Gov Virginia) are intended for US federal (including DoD), state, and local government agencies, and their partners. **Azure Government DoD regions** (US DoD Central and US DoD East) are reserved for exclusive DoD use. Separate DoD IL5 PAs are in place for Azure Government regions (US Gov Arizona, US Gov Texas, and US Gov Virginia) vs. Azure Government DoD regions (US DoD Central and US DoD East).
 
 The primary differences between DoD IL5 PAs that are in place for Azure Government regions (US Gov Arizona, US Gov Texas, and US Gov Virginia) vs. Azure Government DoD regions (US DoD Central and US DoD East) are:
 
@@ -130,7 +130,7 @@ Azure Government is a US government community cloud providing services for feder
 Azure provides [extensive support for tenant isolation](./azure-secure-isolation-guidance.md) across compute, storage, and networking services to segregate each customer's applications and data. This approach provides the scale and economic benefits of multi-tenant cloud services while rigorously helping prevent other customers from accessing your data or applications. Moreover, some Azure services deployed in Azure Government regions (US Gov Arizona, US Gov Texas, and US Gov Virginia) require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in [Isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md).
 
 ### What is IL5 data? 
-IL5 accommodates controlled unclassified information (CUI) that requires a higher level of protection than that afforded by IL4 as deemed necessary by the information owner, public law, or other government regulations. IL5 also supports unclassified National Security Systems (NSS). This impact level accommodates NSS and CUI categorizations based on CNSSI 1253 up to moderate confidentiality and moderate integrity (M-M-x). For more information on IL5 data, see [DoD IL5 overview](/azure/compliance/offerings/offering-dod-il5#dod-il5-overview).
+IL5 accommodates controlled unclassified information (CUI) that requires a higher level of protection than is afforded by IL4 as deemed necessary by the information owner, public law, or other government regulations. IL5 also supports unclassified National Security Systems (NSS). This impact level accommodates NSS and CUI categorizations based on CNSSI 1253 up to moderate confidentiality and moderate integrity (M-M-x). For more information on IL5 data, see [DoD IL5 overview](/azure/compliance/offerings/offering-dod-il5#dod-il5-overview).
 
 ### What is the difference between IL4 and IL5 data?  
 IL4 data is controlled unclassified information (CUI) that may include data subject to export control, protected health information, and other data requiring explicit CUI designation (for example, For Official Use Only, Law Enforcement Sensitive, and Sensitive Security Information).
