@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 
 ## Create a new Windows virtual machine
 
-1. In the resource group, select **+ Add** then search and select **Microsoft Windows 10**, and then select **Create**.
+1. In the resource group, select **Add**, search for and select **Microsoft Windows 10**, and then select **Create**.
 
    :::image type="content" source="media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png" alt-text="Screenshot of how to add a new Windows 10 VM for a jump box.":::
 
@@ -75,7 +75,7 @@ In this tutorial, you learn how to:
 
 ## Next steps
 
-In this tutorial you learned how to:
+In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Create a Windows virtual machine to use to connect to vCenter
