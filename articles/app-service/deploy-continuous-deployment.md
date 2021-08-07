@@ -46,36 +46,36 @@ If you can’t find an organization or repository, you might need to enable more
     > [!NOTE]
     > App Service detects the [language stack setting](configure-common.md#configure-language-stack-settings) of your app and selects the most appropriate workflow template. If you choose a different template, it might deploy an app that doesn't run properly. For more information, see [How the GitHub Actions build provider works](#how-the-github-actions-build-provider-works).
 
-1. Click **Save**.
+1. Select **Save**.
    
-    New commits in the selected repository and branch now deploy continuously into your App Service app. You can track the commits and deployments in the **Logs** tab.
+    New commits in the selected repository and branch now deploy continuously into your App Service app. You can track the commits and deployments on the **Logs** tab.
 
-# [BitBucket](#tab/bitbucket)
+# [Bitbucket](#tab/bitbucket)
 
-The BitBucket integration uses the App Service Build Services (Kudu) for build automation.
+The Bitbucket integration uses the App Service Build Services (Kudu) for build automation.
 
-4. If you're deploying from BitBucket for the first time, click **Authorize** and follow the authorization prompts. If you want to deploy from a different user's repository, click **Change Account**.
+4. If you're deploying from Bitbucket for the first time, select **Authorize** and follow the authorization prompts. If you want to deploy from a different user's repository, select **Change Account**.
 
 1. For Bitbucket, select the Bitbucket **Team**, **Repository**, and **Branch** you want to deploy continuously.
 
-1. Click **Save**.
+1. Select **Save**.
    
-    New commits in the selected repository and branch now deploy continuously into your App Service app. You can track the commits and deployments in the **Logs** tab.
+    New commits in the selected repository and branch now deploy continuously into your App Service app. You can track the commits and deployments on the **Logs** tab.
    
 # [Local Git](#tab/local)
 
 See [Local Git deployment to Azure App Service](deploy-local-git.md).
 
 # [Azure Repos](#tab/repos)
-
-> [!NOTE]
-> Azure Repos as a deployment source is support for Windows apps.
->
+   
+   > [!NOTE]
+   > Azure Repos as a deployment source is support for Windows apps.
+   >
 
 4. App Service Build Service (Kudu) is the default build provider.
 
     > [!NOTE]
-    > To use Azure Pipelines as the build provider for your App Service app, don't configure it in App Service. Instead, configure CI/CD directly from Azure Pipelines. The **Azure Pipelines** option just points you in the right direction.
+    > To use Azure Pipelines as the build provider for your App Service app, configure CI/CD directly from Azure Pipelines. Don't configure it in App Service. The **Azure Pipelines** option just points you in the right direction.
 
 1. Select the **Azure DevOps Organization**, **Project**, **Repository**, and **Branch** you want to deploy continuously. 
 
@@ -85,37 +85,37 @@ See [Local Git deployment to Azure App Service](deploy-local-git.md).
 
 ## Disable continuous deployment
 
-1. In the [Azure portal](https://portal.azure.com), navigate to the management page for your App Service app.
+1. In the [Azure portal](https://portal.azure.com), go to the management page for your App Service app.
 
-1. From the left menu, click **Deployment Center** > **Settings** > **Disconnect**. 
+1. In the left pane, select **Deployment Center**. Then select **Settings** > **Disconnect**:
 
-    ![Shows how to disconnect your cloud folder sync with your App Service app in the Azure portal.](media/app-service-continuous-deployment/disable.png)
+    ![Screenshot that shows how to disconnect your cloud folder sync with your App Service app in the Azure portal.](media/app-service-continuous-deployment/disable.png)
 
-1. By default, the GitHub Actions workflow file is preserved in your repository, but it will continue to trigger deployment to your app. To delete it from your repository, select **Delete workflow file**.
+1. By default, the GitHub Actions workflow file is preserved in your repository, but it will continue to trigger deployment to your app. To delete the file from your repository, select **Delete workflow file**.
 
-1. Click **OK**.
+1. Select **OK**.
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
 ## How the GitHub Actions build provider works
 
-The GitHub Actions build provider is an option for [CI/CD from GitHub](#configure-deployment-source), and does the following to set up CI/CD:
+The GitHub Actions build provider is an option for [CI/CD from GitHub](#configure-deployment-source). It completes these actions to set up CI/CD:
 
 - Deposits a GitHub Actions workflow file into your GitHub repository to handle build and deploy tasks to App Service.
 - Adds the publishing profile for your app as a GitHub secret. The workflow file uses this secret to authenticate with App Service.
-- Captures information from the [workflow run logs](https://docs.github.com/actions/managing-workflow-runs/using-workflow-run-logs) and displays it in the **Logs** tab in your app's **Deployment Center**.
+- Captures information from the [workflow run logs](https://docs.github.com/actions/managing-workflow-runs/using-workflow-run-logs) and displays it on the **Logs** tab in your app's Deployment Center.
 
-You can customize the GitHub Actions build provider in the following ways:
+You can customize the GitHub Actions build provider in these ways:
 
 - Customize the workflow file after it's generated in your GitHub repository. For more information, see [Workflow syntax for GitHub Actions](https://docs.github.com/actions/reference/workflow-syntax-for-github-actions). Just make sure that the workflow deploys to App Service with the [azure/webapps-deploy](https://github.com/Azure/webapps-deploy) action.
-- If the selected branch is protected, you can still preview the workflow file without saving the configuration, then manually add it into your repository. This method doesn't give you the log integration with the Azure portal.
-- Instead of a publishing profile, deploy using a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) in Azure Active Directory.
+- If the selected branch is protected, you can still preview the workflow file without saving the configuration, and then manually add it into your repository. This method doesn't give you log integration with the Azure portal.
+- Instead of a publishing profile, deploy by using a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) in Azure Active Directory.
 
-#### Authenticate with a service principal
+#### Authenticate by using a service principal
 
 This optional configuration replaces the default authentication with publishing profiles in the generated workflow file.
 
-1. Generate a service principal with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command in the [Azure CLI](/cli/azure/). In the following example, replace *\<subscription-id>*, *\<group-name>*, and *\<app-name>* with your own values:
+1. Generate a service principal by using the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command in the [Azure CLI](/cli/azure/). In the following example, replace \<subscription-id>, \<group-name>, and \<app-name> with your own values:
 
     ```azurecli-interactive
     az ad sp create-for-rbac --name "myAppDeployAuth" --role contributor \
@@ -128,33 +128,33 @@ This optional configuration replaces the default authentication with publishing 
     
 1. Save the entire JSON output for the next step, including the top-level `{}`.
 
-1. In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
+1. In [GitHub](https://github.com/), in your repository, select **Settings** > **Secrets** > **Add a new secret**.
 
 1. Paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret a name like `AZURE_CREDENTIALS`.
 
-1. In the workflow file generated by the **Deployment Center**, revise the `azure/webapps-deploy` step with code like the following example (which is modified from a Node.js workflow file):
+1. In the workflow file generated by the Deployment Center, revise the `azure/webapps-deploy` step to look like the following example (which is modified from a Node.js workflow file):
 
     ```yaml
     - name: Sign in to Azure 
-    # Use the GitHub secret you added
+    # Use the GitHub secret you added.
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Deploy to Azure Web App
-    # Remove publish-profile
+    # Remove publish-profile.
     - uses: azure/webapps-deploy@v2
       with:
         app-name: '<app-name>'
         slot-name: 'production'
         package: .
-    - name: Sign out of Azure
+    - name: Sign out of Azure.
       run: |
         az logout
     ```
     
 ## Deploy from other repositories
 
-For Windows apps, you can manually configure continuous deployment from a cloud Git or Mercurial repository that the portal doesn't directly support, such as [GitLab](https://gitlab.com/). You do it by choosing External Git in the **Source** dropdown. For more information, see [Set up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
+For Windows apps, you can manually configure continuous deployment from a cloud Git or Mercurial repository that the portal doesn't directly support, like [GitLab](https://gitlab.com/). You do that by selecting **External Git** in the **Source** dropdown list. For more information, see [Set up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 ## More resources
 
