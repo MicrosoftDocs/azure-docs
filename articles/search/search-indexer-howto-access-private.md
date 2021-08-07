@@ -25,7 +25,7 @@ This indexer connection method is subject to the following two requirements:
 
 Private endpoints of secured resources that are created through Azure Cognitive Search APIs are referred to as *shared private link resources*. This is because you're "sharing" access to a resource, such as a storage account, that has been integrated with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/).
 
-Through its Management REST API, Azure Cognitive Search provides a [CreateOrUpdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) operation that you can use to configure access from an Azure Cognitive Search indexer.
+Through its Management REST API, Azure Cognitive Search provides a [CreateOrUpdate](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update) operation that you can use to configure access from an Azure Cognitive Search indexer.
 
 You can create private endpoint connections to some resources only by using the preview version of the Search Management API (version *2020-08-01-preview* or later), which is designated *preview* in the following table. Resources without a *preview* designation can be created with either the preview or generally available API version (*2020-08-01* or later).
 
@@ -41,9 +41,9 @@ The following table lists Azure resources for which you can create outbound priv
 | Azure Key Vault | `vault` |
 | Azure Functions (preview) | `sites` |
 
-You can also query the Azure resources for which outbound private endpoint connections are supported by using the [list of supported APIs](/rest/api/searchmanagement/privatelinkresources/listsupported).
+You can also query the Azure resources for which outbound private endpoint connections are supported by using the [list of supported APIs](/rest/api/searchmanagement/2021-04-01-preview/private-link-resources/list-supported).
 
-In the remainder of this article, a mix of the [Azure CLI](/cli/azure/) (or [ARMClient](https://github.com/projectkudu/ARMClient) if you prefer) and [Postman](https://www.postman.com/) (or any other HTTP client like [curl](https://curl.se/) if you prefer) is used to demonstrate the REST API calls.
+In the remainder of this article, a mix of Azure portal (or the [Azure CLI](/cli/azure/) if you prefer) and [Postman](https://www.postman.com/) (or any other HTTP client like [curl](https://curl.se/) if you prefer) is used to demonstrate the REST API calls.
 
 > [!NOTE]
 > The examples in this article are based on the following assumptions:
@@ -59,19 +59,31 @@ Configure the storage account to [allow access only from specific subnets](../st
    ![Screenshot of the "Firewalls and virtual networks" pane, showing the option to allow access to selected networks. ](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png)
 
 > [!NOTE]
-> You can use the [trusted Microsoft service approach](../storage/common/storage-network-security.md#trusted-microsoft-services) to bypass virtual network or IP restrictions on a storage account. You can also enable the search service to access data in the storage account. To do so, see [Indexer access to Azure Storage with the trusted service exception](search-indexer-howto-access-trusted-service-exception.md). 
+> You can use the [trusted Microsoft service approach](../storage/common/storage-network-security.md#trusted-microsoft-services) to bypass virtual network or IP restrictions on a storage account. You can also enable the search service to access data in the storage account. To do so, see [Indexer access to Azure Storage with the trusted service exception](search-indexer-howto-access-trusted-service-exception.md).
 >
 > However, when you use this approach, communication between Azure Cognitive Search and your storage account happens via the public IP address of the storage account, over the secure Microsoft backbone network.
 
+Shared private link resources for an Azure Cognitive Search service can be managed via the Azure portal. Navigate to your search service -> Networking -> Shared Private Access to manage these resources via the portal.
+
+   ![Screenshot of the "Networking" pane, showing the shared private link management blade. ](media\search-indexer-howto-secure-access\shared-private-link-portal-blade.png)
+
 ### Step 1: Create a shared private link resource to the storage account
 
-To request Azure Cognitive Search to create an outbound private endpoint connection to the storage account, make the following API call, for example with the [Azure CLI](/cli/azure/): 
+To request Azure Cognitive Search to create an outbound private endpoint connection to the storage account, via the Shared Private Access blade, click on "Add Shared Private Access". On the dialog that opens on the right, you can choose to "Connect to an Azure resource in my directory" or "Connect to an Azure resource by resource ID or alias".
 
-`az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 --body @create-pe.json`
+When using the first option (recommended), the dialog pane will help guide you to pick the appropriate storage account and will help fill in other properties such as the group ID of the resource and the resource type.
 
-Or if you prefer to use [ARMClient](https://github.com/projectkudu/ARMClient):
+   ![Screenshot of the "Add Shared Private Access" pane, showing a guided experience for creating a shared private link resource. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource.png)
 
-`armclient PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 create-pe.json`
+When using the second option, you can enter the Azure resource ID of the target storage account manually and choose the appropriate group ID (in this case "blob")
+
+![Screenshot of the "Add Shared Private Access" pane, showing the manual experience for creating a shared private link resource. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource-manual.png)
+
+Alternatively, you can make the following API call with the [Azure CLI](/cli/azure/):
+
+```dotnetcli
+az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 --body @create-pe.json
+```
 
 The contents of the *create-pe.json* file, which represent the request body to the API, are as follows:
 
@@ -88,9 +100,9 @@ The contents of the *create-pe.json* file, which represent the request body to t
 
 A `202 Accepted` response is returned on success. The process of creating an outbound private endpoint is a long-running (asynchronous) operation. It involves deploying the following resources:
 
-* A private endpoint, allocated with a private IP address in a `"Pending"` state. The private IP address is obtained from the address space that's allocated to the virtual network of the execution environment for the search service-specific private indexer. Upon approval of the private endpoint, any communication from Azure Cognitive Search to the storage account originates from the private IP address and a secure private link channel.
++ A private endpoint, allocated with a private IP address in a `"Pending"` state. The private IP address is obtained from the address space that's allocated to the virtual network of the execution environment for the search service-specific private indexer. Upon approval of the private endpoint, any communication from Azure Cognitive Search to the storage account originates from the private IP address and a secure private link channel.
 
-* A private DNS zone for the type of resource, based on the `groupId`. By deploying this resource, you ensure that any DNS lookup to the private resource utilizes the IP address that's associated with the private endpoint.
++ A private DNS zone for the type of resource, based on the `groupId`. By deploying this resource, you ensure that any DNS lookup to the private resource utilizes the IP address that's associated with the private endpoint.
 
 Be sure to specify the correct `groupId` for the type of resource for which you're creating the private endpoint. Any mismatch will result in a non-successful response message.
 
@@ -98,19 +110,23 @@ As in all asynchronous Azure operations, the `PUT` call returns an `Azure-AsyncO
 
 `"Azure-AsyncOperation": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
 
-You can poll this URI periodically to obtain the status of the operation. Before you proceed, we recommend that you wait until the status of the shared private link resource operation has reached a terminal state (that is, the operation's status is *succeeded*).
+You can poll this URI periodically to obtain the status of the operation.
 
-`az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01`
+If you utilize the Azure portal to create the shared private link resource, this polling will be done automatically by the portal (with the resource provisioning state marked as "Updating").
 
-Or using ARMClient:
+![Screenshot of the "Add Shared Private Access" pane, showing the resource creation in progress. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource-progress.png)
 
-`armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
+Once the resource is successfully created, you will receive a portal notification and the provisioning state of the resource will change to "Succeeded".
 
-```json
-{
-    "status": "running" | "succeeded" | "failed"
-}
+![Screenshot of the "Add Shared Private Access" pane, showing the resource creation completed. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource-success.png)
+
+If you are using the CLI, you can poll for the status by manually querying the `Azure-AsyncOperationHeader` value,
+
+```dotnetcli
+az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01
 ```
+
+Wait until the provisioning state of the resource changes to "Succeeded" before proceeding to the next steps.
 
 ### Step 2a: Approve the private endpoint connection for the storage account
 
@@ -119,11 +135,11 @@ Or using ARMClient:
 >
 > Other providers, such as Azure Cosmos DB or Azure SQL Server, offer similar storage resource provider APIs for managing private endpoint connections.
 
-1. In the Azure portal, select the **Private endpoint connections** tab of your storage account. After the asynchronous operation has succeeded, there should be a request for a private endpoint connection with the request message from the previous API call.
+1. In the Azure portal, select the **Networking** tab of your storage account and navigate to **Private endpoint connections**. After the asynchronous operation has succeeded, there should be a request for a private endpoint connection with the request message from the previous API call.
 
    ![Screenshot of the Azure portal, showing the "Private endpoint connections" pane.](media\search-indexer-howto-secure-access\storage-privateendpoint-approval.png)
 
-1. Select the private endpoint that Azure Cognitive Search created. In the **Private endpoint** column, identify the private endpoint connection by the name that's specified in the previous API, select **Approve**, and then enter an appropriate message. The message content isn't significant. 
+1. Select the private endpoint that Azure Cognitive Search created. In the **Private endpoint** column, identify the private endpoint connection by the name that's specified in the previous API, select **Approve**, and then enter an appropriate message. The message content isn't significant.
 
    Make sure that the private endpoint connection appears as shown in the following screenshot. It could take one to two minutes for the status to be updated in the portal.
 
@@ -133,15 +149,17 @@ After the private endpoint connection request is approved, traffic is *capable* 
 
 ### Step 2b: Query the status of the shared private link resource
 
-To confirm that the shared private link resource has been updated after approval, obtain its status by using the [GET API](/rest/api/searchmanagement/sharedprivatelinkresources/get).
+To confirm that the shared private link resource has been updated after approval, revisit the "Shared Private Access" blade of the search service on the Azure portal and check the "Connection State".
 
-`az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
+   ![Screenshot of the Azure portal, showing an "Approved" shared private link resource.](media\search-indexer-howto-secure-access\new-shared-private-link-resource-approved.png)
 
-Or using ARMClient:
+Alternatively you can also obtain the "Connection state" by using the [GET API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/get).
 
-`armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
+```dotnetcli
+az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01
+```
 
-If the `properties.provisioningState` of the resource is `Succeeded` and `properties.status` is `Approved`, it means that the shared private link resource is functional and the indexer can be configured to communicate over the private endpoint.
+This would return a JSON, where the connection state would show up as "status" under the "properties" section.
 
 ```json
 {
@@ -157,6 +175,8 @@ If the `properties.provisioningState` of the resource is `Succeeded` and `proper
 }
 
 ```
+
+If the "Provisioning State" (`properties.provisioningState`) of the resource is `Succeeded` and "Connection State" (`properties.status`) is `Approved`, it means that the shared private link resource is functional and the indexer can be configured to communicate over the private endpoint.
 
 ### Step 3: Configure the indexer to run in the private environment
 
@@ -180,16 +200,16 @@ If the `properties.provisioningState` of the resource is `Succeeded` and `proper
 
 ## Troubleshooting
 
-- If your indexer creation fails with an error message such as "Data source credentials are invalid," it means that either the status of the private endpoint connection is not yet *Approved* or the connection is not functional. To remedy the issue: 
-  * Obtain the status of the shared private link resource by using the [GET API](/rest/api/searchmanagement/sharedprivatelinkresources/get). If the status is *Approved*, check the `properties.provisioningState` of the resource. If the status here is `Incomplete`, this means that some of the underlying dependencies for the resource failed to be set up. Reissuing the `PUT` request to re-create the shared private link resource should fix the issue. A reapproval might be necessary. Re-check the status of the resource to verify that the issue is fixed.
++ If your indexer creation fails with an error message such as "Data source credentials are invalid," it means that either the status of the private endpoint connection is not yet *Approved* or the connection is not functional. To remedy the issue: 
+  + Obtain the status of the shared private link resource by using the [GET API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/get). If the status is *Approved*, check the `properties.provisioningState` of the resource. If the status here is `Incomplete`, this means that some of the underlying dependencies for the resource failed to be set up. Reissuing the `PUT` request to re-create the shared private link resource should fix the issue. A reapproval might be necessary. Re-check the status of the resource to verify that the issue is fixed.
 
-- If you create the indexer without setting its `executionEnvironment` property, the creation might succeed, but its execution history will show that the indexer runs are unsuccessful. To remedy the issue:
-   * [Update the indexer](/rest/api/searchservice/update-indexer) to specify the execution environment.
++ If you create the indexer without setting its `executionEnvironment` property, the creation might succeed, but its execution history will show that the indexer runs are unsuccessful. To remedy the issue:
+  + [Update the indexer](/rest/api/searchservice/update-indexer) to specify the execution environment.
 
-- If you've created the indexer without setting the `executionEnvironment` property and it runs successfully, it means that Azure Cognitive Search has decided that its execution environment is the search service-specific *private* environment. This can change, depending on resources consumed by the indexer, the load on the search service, and other factors, and it can fail later. To remedy the issue:
-  * We highly recommend that you set the `executionEnvironment` property to `private` to ensure that it won't fail in the future.
++ If you've created the indexer without setting the `executionEnvironment` property and it runs successfully, it means that Azure Cognitive Search has decided that its execution environment is the search service-specific *private* environment. This can change, depending on resources consumed by the indexer, the load on the search service, and other factors, and it can fail later. To remedy the issue:
+  + We highly recommend that you set the `executionEnvironment` property to `private` to ensure that it won't fail in the future.
 
-- If you're viewing your data source's networking page in the Azure portal and you select a private endpoint that you created for your Azure Cognitive Search service to access this data source, you may receive a *No Access* error. This is expected. You can change the status of the connection request via the target service's portal page but to further manage the shared private link resource you need to view the shared private link resource in your search service's network page in the Azure Portal.
++ If you're viewing your data source's networking page in the Azure portal and you select a private endpoint that you created for your Azure Cognitive Search service to access this data source, you may receive a *No Access* error. This is expected. You can change the status of the connection request via the target service's portal page but to further manage the shared private link resource you need to view the shared private link resource in your search service's network page in the Azure portal.
 
 [Quotas and limits](search-limits-quotas-capacity.md) determine how many shared private link resources can be created and depend on the SKU of the search service.
 
@@ -197,5 +217,6 @@ If the `properties.provisioningState` of the resource is `Succeeded` and `proper
 
 Learn more about private endpoints:
 
-- [What are private endpoints?](../private-link/private-endpoint-overview.md)
-- [DNS configurations needed for private endpoints](../private-link/private-endpoint-dns.md)
++ [Troubleshoot issues with shared private link resources](troubleshoot-shared-private-link-resources.md)
++ [What are private endpoints?](../private-link/private-endpoint-overview.md)
++ [DNS configurations needed for private endpoints](../private-link/private-endpoint-dns.md)

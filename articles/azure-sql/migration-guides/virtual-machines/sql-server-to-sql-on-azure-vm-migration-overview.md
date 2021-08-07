@@ -8,7 +8,7 @@ ms.devlang:
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
-ms.reviewer: mathoma
+ms.reviewer: chadam
 ms.date: 11/06/2020
 ---
 
@@ -137,12 +137,10 @@ For additional assistance, see the following resources that were developed for r
 
 |Asset  |Description  |
 |---------|---------|
-|[Data workload assessment model and tool](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Data%20Workload%20Assessment%20Model%20and%20Tool)| This tool provides suggested "best fit" target platforms, cloud readiness, and application/database remediation level for a given workload. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing and automated and uniform target platform decision process.|
-|[Perfmon data collection automation using Logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|A tool that collects Perform data to understand baseline performance that assists in the migration target recommendation. This tool that uses logman.exe to create the command that will create, start, stop, and delete performance counters set on a remote SQL Server.|
-|[SQL Server Deployment in Azure](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/SQL%20Server%20Deployment%20in%20Azure%20.pdf)|This guidance whitepaper assists in reviewing various options to move your SQL Server workloads to Azure including feature comparison, high availability and backup / storage considerations. |
-|[On-Premise SQL Server to Azure virtual machine](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/OnPremise%20SQL%20Server%20to%20Azure%20VM.pdf)|This whitepaper outlines the steps to backup and restore databases from on-premises SQL Server to SQL Server on Azure virtual machine using sample scripts.|
-|[Multiple-SQL-VM-VNet-ILB](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/ARM%20Templates/Multiple-SQL-VM-VNet-ILB)|This whitepaper outlines the steps to setup multiple Azure virtual machines in a SQL Server Always On Availability Group configuration.|
-|[Azure virtual machines supporting Ultra SSD per Region](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Find%20Azure%20VMs%20supporting%20Ultra%20SSD)|These PowerShell scripts provide a programmatic option to retrieve the list of regions that support Azure virtual machines supporting Ultra SSDs.|
+|[Data workload assessment model and tool](https://www.microsoft.com/download/details.aspx?id=103130)| This tool provides suggested "best fit" target platforms, cloud readiness, and application/database remediation level for a given workload. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing and automated and uniform target platform decision process.|
+|[Perfmon data collection automation using Logman](https://www.microsoft.com/download/details.aspx?id=103114)|A tool that collects Perform data to understand baseline performance that assists in the migration target recommendation. This tool that uses logman.exe to create the command that will create, start, stop, and delete performance counters set on a remote SQL Server.|
+|[Multiple-SQL-VM-VNet-ILB](https://www.microsoft.com/download/details.aspx?id=103104)|This whitepaper outlines the steps to setup multiple Azure virtual machines in a SQL Server Always On Availability Group configuration.|
+|[Azure virtual machines supporting Ultra SSD per Region](https://www.microsoft.com/download/details.aspx?id=103105)|These PowerShell scripts provide a programmatic option to retrieve the list of regions that support Azure virtual machines supporting Ultra SSDs.|
 
 The Data SQL Engineering team developed these resources. This team's core charter is to unblock and accelerate complex modernization for data platform migration projects to Microsoft's Azure data platform.
 

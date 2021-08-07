@@ -123,4 +123,4 @@ For more information on Web App for Containers, see:
 * [Introducing remote debugging of Node.js apps on Azure App Service from VS Code](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0)
 * [Quickstart: Run a custom container on App Service](quickstart-custom-container.md?pivots=container-linux)
 * [Using Ruby in Azure App Service on Linux](quickstart-ruby.md)
-* [Azure App Service Web App for Containers FAQ](faq-app-service-linux.md)
+* [Azure App Service Web App for Containers FAQ](faq-app-service-linux.yml)

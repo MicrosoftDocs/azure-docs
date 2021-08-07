@@ -154,10 +154,14 @@
       href: howto-password-ban-bad-on-premises-faq.yml
     - name: Agent version history
       href: howto-password-ban-bad-on-premises-agent-versions.md
+  - name: Nudge Microsoft Authenticator setup (Preview)
+    href: how-to-nudge-authenticator-app.md
   - name: Use a Temporary Access Pass (Preview)
     href: howto-authentication-temporary-access-pass.md
   - name: Use SMS-based authentication
     href: howto-authentication-sms-signin.md
+  - name: Supported apps for SMS-based authentication
+    href: how-to-authentication-sms-supported-apps.md
   - name: Two-way SMS unsupported
     href: how-to-authentication-two-way-sms-unsupported.md
   - name: Use email address sign-in
@@ -185,6 +189,14 @@
       href: howto-mfa-reporting-datacollection.md
   - name: MFA Server
     items:
+    - name: Migrate MFA Server to Azure AD MFA
+      items:
+      - name: Overview
+        href: how-to-migrate-mfa-server-to-azure-mfa.md
+      - name: Migrate to Azure MFA and user authentication
+        href: how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md
+      - name: Migrate to Azure MFA with Federation
+        href: how-to-migrate-mfa-server-to-azure-mfa-with-federation.md    
     - name: Deploy MFA on-premises
       href: howto-mfaserver-deploy.md
     - name: Install the user portal
@@ -251,6 +263,8 @@
     href: ../enterprise-users/directory-service-limits-restrictions.md
   - name: FIDO2 compatibility
     href: fido2-compatibility.md
+  - name: Become a FIDO2 provider
+    href: concept-fido2-hardware-vendor.md  
 - name: Resources
   items:
   - name: Azure feedback forum
@@ -258,7 +272,7 @@
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-active-directory.html
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/active-directory/
+    href: https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing
   - name: Service updates
     href: ../fundamentals/whats-new.md
   - name: Stack Overflow

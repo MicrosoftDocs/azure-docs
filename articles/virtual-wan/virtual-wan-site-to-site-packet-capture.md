@@ -42,15 +42,15 @@ You must create a storage account under your Azure subscription to store the res
 
 After creating your account, please run the following commands to generate a shared access signature (SAS) URL. The results of your packet capture will be stored via this URL.
    ```azurepowershell-interactive
-  $rgname = “<resource group name containing storage account>” 
+  $rg = “<resource group name containing storage account>” 
 $storeName = “<name of storage account> “
 $containerName = “<name of container you want to store packet capture in>
-$key = Get-AzStorageAccountKey -ResourceGroupName $rgname -Name $storeNAme
+$key = Get-AzStorageAccountKey -ResourceGroupName $rg -Name $storeName
 $context = New-AzStorageContext -StorageAccountName  $storeName -StorageAccountKey $key[0].value
 New-AzStorageContainer -Name $containerName -Context $context
 $container = Get-AzStorageContainer -Name $containerName  -Context $context
 $now = get-date
-$sasurl = New-AzureStorageContainerSASToken -Name $containerName -Context $context -Permission "rwd" -StartTime $now.AddHours(-1) -ExpiryTime $now.AddDays(1) -FullUri
+$sasurl = New-AzStorageContainerSASToken -Name $containerName -Context $context -Permission "rwd" -StartTime $now.AddHours(-1) -ExpiryTime $now.AddDays(1) -FullUri
    ```
 
 ## Start the packet capture
@@ -64,7 +64,7 @@ Please run the following commands. The Name of the Site-to-site VPN Gateway can 
 :::image type="content" source="./media/virtual-wan-pcap-screenshots/vpn-gateway-name.png" alt-text="Image of Virtual WAN gateway name." lightbox="./media/virtual-wan-pcap-screenshots/vpn-gateway-name.png":::
 
    ```azurepowershell-interactive
-Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gateway>" -Sasurl $sasurl
+Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gateway>"
    ```
 
 ### Packet capture on Specific Site-to-site VPN Connections
@@ -82,7 +82,7 @@ The name of the links connected to a specific VPN site can be found by clicking 
 :::image type="content" source="./media/virtual-wan-pcap-screenshots/link-name-sample.png" alt-text="Image of how to find VPN link name." lightbox="./media/virtual-wan-pcap-screenshots/link-name-sample.png":::
 
    ```azurepowershell-interactive
-Start-AzVpnConnectionPacketCapture -ResourceGroupName $rg -Name "<name of the VPN connection>" -ParentResourceName “<name of the Gateway>” -LinkConnection “<comma separated list of links eg. "link1,link2">” -Sasurl $sasurl 
+Start-AzVpnConnectionPacketCapture -ResourceGroupName $rg -Name "<name of the VPN connection>" -ParentResourceName “<name of the Gateway>” -LinkConnection “<comma separated list of links eg. "link1,link2">”
    ```
 
 ## Optional: Specifying filters
@@ -111,7 +111,7 @@ Below is an Example Packet Capture Using a Filter String. You may change the par
 $filter="{`"TracingFlags`":11,`"MaxPacketBufferSize`":120,`"MaxFileSize`":500,`"Filters`":[{`"SourceSubnets`":[`"10.19.0.4/32`",`"10.20.0.4/32`"],`"DestinationSubnets`":[`"10.20.0.4/32`",`"10.19.0.4/32`"],`"TcpFlags`":9,`"CaptureSingleDirectionTrafficOnly`":true}]}"
 Start-AzVpnConnectionPacketCapture -ResourceGroupName $rg -Name "<name of the VPN connection>" -ParentResourceName “<name of the Gateway>” -LinkConnection “<comma separated list of links>” -Sasurl $sasurl -FilterData $filter
 
-Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gateway>" -Sasurl $sasurl -FilterData $filter
+Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gateway>" -FilterData $filter
    ```
 
 ## Stopping the packet capture

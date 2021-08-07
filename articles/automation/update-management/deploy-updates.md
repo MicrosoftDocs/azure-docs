@@ -3,7 +3,7 @@ title: How to create update deployments for Azure Automation Update Management
 description: This article describes how to schedule update deployments and review their status.
 services: automation
 ms.subservice: update-management
-ms.date: 04/19/2021
+ms.date: 06/24/2021
 ms.topic: conceptual
 ---
 
@@ -57,6 +57,9 @@ To schedule a new update deployment, perform the following steps. Depending on t
     > [!NOTE]
     > This option is not available if you selected an Azure VM or Arc enabled server. The machine is automatically targeted for the scheduled deployment.
 
+   > [!IMPORTANT]
+   > When building a dynamic group of Azure VMs, Update Management only supports a maximum of 500 queries that combines subscriptions or resource groups in the scope of the group.
+
 6. In the **Machines to update** region, select a saved search, an imported group, or pick **Machines** from the dropdown menu and select individual machines. With this option, you can see the readiness of the Log Analytics agent for each machine. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../../azure-monitor/logs/computer-groups.md). You can include up to a maximum of 1000 machines in a scheduled update deployment.
 
     > [!NOTE]
@@ -70,6 +73,11 @@ To schedule a new update deployment, perform the following steps. Depending on t
 
    >[!NOTE]
    > Deploying updates by update classification doesn't work on RTM versions of CentOS. To properly deploy updates for CentOS, select all classifications to make sure updates are applied. There's currently no supported method to enable native classification-data availability on CentOS. See the following for more information about [Update classifications](overview.md#update-classifications).
+
+   >[!NOTE]
+   > Deploying updates by update classification may not work correctly for Linux distros supported by Update Management. This is a result of an issue identified with the naming schema of the OVAL file and this prevents Update Management from properly matching classifications based on filtering rules. Because of the different logic used in security update assessments, results may differ from the security updates applied during deployment. If you have classification set as **Critical** and **Security**, the update deployment will work as expected. Only the *classification of updates* during an assessment is affected.
+   >
+   > Update Management for Windows Server machines is unaffected; update classification and deployments are unchanged.
 
 8. Use the **Include/exclude updates** region to add or exclude selected updates from the deployment. On the **Include/Exclude** page, you enter KB article ID numbers to include or exclude for Windows updates. For supported Linux distros, you specify the package name.
 

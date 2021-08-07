@@ -26,6 +26,8 @@
       items:
         - name: Develop with Helm
           href: quickstart-helm.md
+    - name: Subscribe to AKS events with Event Grid (Preview)
+      href: quickstart-event-grid.md
 - name: Tutorials
   items:
     - name: 1 - Prepare application for AKS
@@ -203,14 +205,12 @@
           href: use-ultra-disks.md
         - name: CSI Storage Drivers
           items:
-            - name: Enable CSI Storage Drivers (preview)
+            - name: Enable CSI Storage Drivers
               href: csi-storage-drivers.md
-            - name: Azure Disk CSI drivers (preview)
+            - name: Azure Disk CSI drivers
               href: azure-disk-csi.md
-            - name: Azure Files CSI drivers (preview)
+            - name: Azure Files CSI drivers
               href: azure-files-csi.md
-            - name: CSI Secrets Store driver (preview)
-              href: csi-secrets-store-driver.md
     - name: Configure networking
       items:
         - name: Create or use existing virtual network
@@ -282,7 +282,7 @@
               href: managed-aad.md
             - name: Azure AD integration (legacy)
               href: azure-ad-integration-cli.md
-        - name: Use Azure RBAC for Kubernetes Authorization (preview)
+        - name: Use Azure RBAC for Kubernetes Authorization
           href: manage-azure-rbac.md
         - name: Use Kubernetes RBAC with Azure AD integration
           href: azure-ad-rbac.md
@@ -295,15 +295,14 @@
           href: azure-disk-customer-managed-keys.md
         - name: Enable host-based encryption
           href: enable-host-encryption.md
+        - name: CSI Secrets Store driver (preview)
+          href: csi-secrets-store-driver.md
     - name: Monitoring and logging
       items:
-        - name: View cluster metrics
-          href: view-metrics.md
-        - name: Azure Monitor for containers
-          href: ../azure-monitor/containers/container-insights-overview.md
-          maintainContext: true
-        - name: View the control plane component logs
-          href: view-control-plane-logs.md
+        - name: Monitor AKS
+          href: monitor-aks.md
+        - name: Monitor reference
+          href: monitor-aks-reference.md
         - name: View the kubelet logs
           href: kubelet-logs.md
         - name: View container data real-time
@@ -393,8 +392,6 @@
       items:
         - name: Common issues
           href: troubleshooting.md
-        - name: Checking for best practices
-          href: kube-advisor-tool.md
         - name: SSH node access
           href: ssh.md
         - name: Linux performance tools

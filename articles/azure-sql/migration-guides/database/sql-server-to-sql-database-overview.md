@@ -8,7 +8,7 @@ ms.devlang:
 ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
-ms.reviewer: MashaMSFT
+ms.reviewer: cawrites
 ms.date: 11/06/2020
 ---
 # Migration overview: SQL Server to Azure SQL Database
@@ -35,6 +35,8 @@ SQL Database provides flexibility with multiple [deployment models](../../databa
 One of the key benefits of migrating to SQL Database is that you can modernize your application by using the PaaS capabilities. You can then eliminate any dependency on technical components that are scoped at the instance level, such as SQL Agent jobs.
 
 You can also save costs by using the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) for SQL Server to migrate your SQL Server on-premises licenses to Azure SQL Database. This option is available if you choose the [vCore-based purchasing model](../../database/service-tiers-vcore.md).
+
+Be sure to review the SQL Server database engine features [available in Azure SQL Database](../../database/features-comparison.md) to validate the supportability of your migration target.  
 
 ## Considerations 
 
@@ -147,17 +149,12 @@ Manual setup of SQL Server high-availability features like Always On failover cl
 
 Beyond the high-availability architecture that's included in Azure SQL Database, the [auto-failover groups](../../database/auto-failover-group-overview.md) feature allows you to manage the replication and failover of databases in a managed instance to another region. 
 
+### Logins and groups
+
+Windows logins are not supported in Azure SQL Database, create an Azure Active Directory login instead. Manually recreate any SQL logins. 
+
 ### SQL Agent jobs
 SQL Agent jobs are not directly supported in Azure SQL Database and need to be deployed to [elastic database jobs (preview)](../../database/job-automation-overview.md).
-
-### Logins and groups
-Move SQL logins from the SQL Server source to Azure SQL Database by using Database Migration Service in offline mode. Use the **Selected logins** pane in the Migration Wizard to migrate logins to your target SQL database. 
-
-You can also migrate Windows users and groups via Database Migration Service by enabling the corresponding toggle on the Database Migration Service **Configuration** page. 
-
-Alternatively, you can use the [PowerShell utility](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins) specially designed by Microsoft data migration architects. The utility uses PowerShell to create a Transact-SQL (T-SQL) script to re-create logins and select database users from the source to the target. 
-
-The PowerShell utility automatically maps Windows Server Active Directory accounts to Azure Active Directory (Azure AD) accounts, and it can do a UPN lookup for each login against the source Active Directory instance. The utility scripts custom server and database roles, along with role membership and user permissions. Contained databases are not yet supported, and only a subset of possible SQL Server permissions are scripted. 
 
 ### System databases
 For Azure SQL Database, the only applicable system databases are [master](/sql/relational-databases/databases/master-database) and tempdb. To learn more, see [Tempdb in Azure SQL Database](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
@@ -179,18 +176,15 @@ For more assistance, see the following resources that were developed for real-wo
 
 |Asset  |Description  |
 |---------|---------|
-|[Data workload assessment model and tool](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| This tool provides suggested "best fit" target platforms, cloud readiness, and an application/database remediation level for a workload. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing an automated and uniform decision process for target platforms.|
-|[DBLoader utility](https://github.com/microsoft/DataMigrationTeam/tree/master/DBLoader%20Utility)|You can use DBLoader to load data from delimited text files into SQL Server. This Windows console utility uses the SQL Server native client bulk-load interface. The interface works on all versions of SQL Server, along with Azure SQL Database.|
-|[Bulk database creation with PowerShell](https://github.com/Microsoft/DataMigrationTeam/tree/master/Bulk%20Database%20Creation%20with%20PowerShell)|You can use a set of three PowerShell scripts that create a resource group (create_rg.ps1), the [logical server in Azure](../../database/logical-servers.md) (create_sqlserver.ps1), and a SQL database (create_sqldb.ps1). The scripts include loop capabilities so you can iterate and create as many servers and databases as necessary.|
-|[Bulk schema deployment with MSSQL-Scripter and PowerShell](https://github.com/Microsoft/DataMigrationTeam/tree/master/Bulk%20Schema%20Deployment%20with%20MSSQL-Scripter%20&%20PowerShell)|This asset creates a resource group, creates one or multiple [logical servers in Azure](../../database/logical-servers.md) to host Azure SQL Database, exports every schema from an on-premises SQL Server instance (or multiple SQL Server 2005+ instances), and imports the schemas to Azure SQL Database.|
-|[Convert SQL Server Agent jobs into elastic database jobs](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Convert%20SQL%20Server%20Agent%20Jobs%20into%20Elastic%20Database%20Jobs)|This script migrates your source SQL Server Agent jobs to elastic database jobs.|
+|[Data workload assessment model and tool](https://www.microsoft.com/download/details.aspx?id=103130)| This tool provides suggested "best fit" target platforms, cloud readiness, and an application/database remediation level for a workload. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing an automated and uniform decision process for target platforms.|
+|[Bulk database creation with PowerShell](https://www.microsoft.com/download/details.aspx?id=103107)|You can use a set of three PowerShell scripts that create a resource group (create_rg.ps1), the [logical server in Azure](../../database/logical-servers.md) (create_sqlserver.ps1), and a SQL database (create_sqldb.ps1). The scripts include loop capabilities so you can iterate and create as many servers and databases as necessary.|
+|[Bulk schema deployment with MSSQL-Scripter and PowerShell](https://www.microsoft.com/download/details.aspx?id=103032)|This asset creates a resource group, creates one or multiple [logical servers in Azure](../../database/logical-servers.md) to host Azure SQL Database, exports every schema from an on-premises SQL Server instance (or multiple SQL Server 2005+ instances), and imports the schemas to Azure SQL Database.|
+|[Convert SQL Server Agent jobs into elastic database jobs](https://www.microsoft.com/download/details.aspx?id=103123)|This script migrates your source SQL Server Agent jobs to elastic database jobs.|
 |[Send emails from Azure SQL Database](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/AF%20SendMail)|This solution is an alternative to SendMail capability and is available for on-premises SQL Server. It uses Azure Functions and the SendGrid service to send emails from Azure SQL Database.|
-|[Utility to move on-premises SQL Server logins to Azure SQL Database](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins)|A PowerShell script can create a T-SQL command script to re-create logins and select database users from on-premises SQL Server to Azure SQL Database. The tool allows automatic mapping of Windows Server Active Directory accounts to Azure AD accounts, along with optionally migrating SQL Server native logins.|
-|[Perfmon data collection automation by using Logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|You can use the Logman tool to collect Perfmon data (to help you understand baseline performance) and get migration target recommendations. This tool uses logman.exe to create the command that will create, start, stop, and delete performance counters set on a remote SQL Server instance.|
-|[Database migration to Azure SQL Database by using BACPAC](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Database%20migrations%20-%20Benchmarks%20and%20Steps%20to%20Import%20to%20Azure%20SQL%20DB%20Single%20Database%20from%20BACPAC.pdf)|This white paper provides guidance and steps to help accelerate migrations from SQL Server to Azure SQL Database by using BACPAC files.|
+|[Utility to move on-premises SQL Server logins to Azure SQL Database](https://www.microsoft.com/download/details.aspx?id=103111)|A PowerShell script can create a T-SQL command script to re-create logins and select database users from on-premises SQL Server to Azure SQL Database. The tool allows automatic mapping of Windows Server Active Directory accounts to Azure AD accounts, along with optionally migrating SQL Server native logins.|
+|[Perfmon data collection automation by using Logman](https://www.microsoft.com/download/details.aspx?id=103114)|You can use the Logman tool to collect Perfmon data (to help you understand baseline performance) and get migration target recommendations. This tool uses logman.exe to create the command that will create, start, stop, and delete performance counters set on a remote SQL Server instance.|
 
 The Data SQL Engineering team developed these resources. This team's core charter is to unblock and accelerate complex modernization for data platform migration projects to Microsoft's Azure data platform.
-
 
 ## Next steps
 

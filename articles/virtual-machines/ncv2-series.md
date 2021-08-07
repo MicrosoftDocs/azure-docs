@@ -22,7 +22,7 @@ The NC24rs v2 configuration provides a low latency, high-throughput network inte
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported ([In preview](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
 Nvidia NVLink Interconnect: Not Supported
 
 > [!IMPORTANT]

@@ -18,7 +18,9 @@ Before you can do anything, you'll need to install the Speech SDK. Depending on 
 
 ## Create voice signatures
 
-The first step is to create voice signatures for the conversation participants so that they can be identified as unique speakers. The input `.wav` audio file for creating voice signatures should be 16-bit, 16 kHz sample rate, and single channel (mono) format. The recommended length for each audio sample is between thirty seconds and two minutes. The `.wav` file should be a sample of **one person's** voice so that a unique voice profile is created.
+(You can skip this step if you do not want to use pre-enrolled user profiles to identify specific participants.)
+
+If you want to enroll user profiles, the first step is to create voice signatures for the conversation participants so that they can be identified as unique speakers. The input `.wav` audio file for creating voice signatures must be 16-bit, 16 kHz sample rate, in single channel (mono) format. The recommended length for each audio sample is between thirty seconds and two minutes. An audio sample that is too short will result in reduced accuracy when recognizing the speaker. The `.wav` file should be a sample of **one person's** voice so that a unique voice profile is created.
 
 The following example shows how to create a voice signature by [using the REST API](https://aka.ms/cts/signaturegenservice) in C#
 . Note that you need to substitute real information for your `subscriptionKey`, `region`, and the path to a sample `.wav` file.
@@ -93,11 +95,16 @@ Running the function `GetVoiceSignatureString()` returns a voice signature strin
 
 The following sample code demonstrates how to transcribe conversations in real time for two speakers. It assumes you've already created voice signature strings for each speaker as shown above. Substitute real information for `subscriptionKey`, `region`, and the path `filepath` for the audio you want to transcribe.
 
+If you do not use pre-enrolled user profiles, it will take a few more seconds to complete the first recognition of unknown users as speaker1, speaker2, etc.
+
+> [!NOTE]
+> Make sure the same `subscriptionKey` is used across your application for signature creation, or you will encounter errors. 
+
 This sample code does the following:
 
-* Creates an `AudioStreamReader` from the sample `.wav` file to transcribe.
+* Creates an `AudioConfig` from the sample `.wav` file to transcribe.
 * Creates a `Conversation` using `CreateConversationAsync()`.
-* Creates a `ConversationTranscriber` using the constructor, and subscribes to the necessary events
+* Creates a `ConversationTranscriber` using the constructor, and subscribes to the necessary events.
 * Adds participants to the conversation. The strings `voiceSignatureStringUser1` and `voiceSignatureStringUser2` should come as output from the steps above from the function `GetVoiceSignatureString()`.
 * Joins the conversation and begins transcription.
 
@@ -108,7 +115,12 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Audio;
 using Microsoft.CognitiveServices.Speech.Transcription;
+
+class transcribe_conversation
+{
+// all your other code
 
 public static async Task TranscribeConversationsAsync(string voiceSignatureStringUser1, string voiceSignatureStringUser2)
 {
@@ -118,9 +130,10 @@ public static async Task TranscribeConversationsAsync(string voiceSignatureStrin
 
     var config = SpeechConfig.FromSubscription(subscriptionKey, region);
     config.SetProperty("ConversationTranscriptionInRoomAndOnline", "true");
+    // config.SpeechRecognitionLanguage = "zh-cn"; // en-us by default. This code specifies Chinese.
     var stopRecognition = new TaskCompletionSource<int>();
 
-    using (var audioInput = AudioStreamReader.OpenWavFile(filepath))
+    using (var audioInput = AudioConfig.FromWavFileInput(filepath))
     {
         var meetingID = Guid.NewGuid().ToString();
         using (var conversation = await Conversation.CreateConversationAsync(config, meetingID))
@@ -186,5 +199,6 @@ public static async Task TranscribeConversationsAsync(string voiceSignatureStrin
             }
         }
     }
+}
 }
 ```

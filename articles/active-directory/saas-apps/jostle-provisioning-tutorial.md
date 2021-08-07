@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Jostle for automatic user provisioning with Azure Ac
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Jostle.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 6dbb744f-8b8e-4988-b293-ebe079c8c5c5
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Jostle for automatic user provisioning
@@ -92,6 +92,9 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and groups in Jostle app based on user and group assignments in Azure AD.
 
+> [!NOTE]
+> For more information on automatic user provisioning to Jostle, see [User-Provisioning-Azure-Integration](https://forum.jostle.us/hc/en-us/articles/360056368534-User-Provisioning-Azure-Integration).
+
 ### To configure automatic user provisioning for Jostle in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
@@ -102,7 +105,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![The Jostle link in the Applications list](common/all-applications.png)
 
-1. Select the **Provisioning** tab.
+1. Select the **Provisioning** tab and click **Get Started**.
 
 	![Provisioning tab](common/provisioning.png)
 
@@ -114,13 +117,13 @@ This section guides you through the steps to configure the Azure AD provisioning
 
  	![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications. Select the **Send an email notification when a failure occurs** check box.
+1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications. Select the **Send an email notification when a failure occurs** check box. But to be noted, Jostle will also send provisioning failure notifications, so this is optional.
 
 	![Notification Email](common/provisioning-notification-email.png)
 
 1. Select **Save**.
 
-1. In the **Mappings** section, select **Synchronize Azure Active Directory Users to Jostle**.
+1. In the **Mappings** section, select **Provision Azure Active Directory Users to Jostle**.
 
 1. Review the user attributes that are synchronized from Azure AD to Jostle in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Jostle for update operations. If you change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the Jostle API supports filtering users based on that attribute. Select **Save** to commit any changes.
 
@@ -143,7 +146,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-1. Define the users or groups that you want to provision to Jostle by selecting the desired values in **Scope** in the **Settings** section.
+1. Define the users or groups that you want to provision to Jostle by selecting the desired values in **Scope** in the **Settings** section.For Jostle, the **Scope** should be set to "Sync only assigned users and groups".
 
 	![Provisioning Scope](common/provisioning-scope.png)
 

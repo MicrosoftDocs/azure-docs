@@ -1,11 +1,14 @@
 ---
 title: Delimited text format in Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 'This topic describes how to deal with delimited text format in Azure Data Factory.'
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.author: jingwang
+ms.author: jianleishen
 ---
 
 # Delimited text format in Azure Data Factory
@@ -14,7 +17,7 @@ ms.author: jingwang
 
 Follow this article when you want to **parse the delimited text files or write the data into delimited text format**. 
 
-Delimited text format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).
+Delimited text format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md).
 
 ## Dataset properties
 
@@ -151,6 +154,9 @@ The below table lists the properties supported by a delimited text source. You c
 | After completion | Delete or move the files after processing. File path starts from the container root | no | Delete: `true` or `false` <br> Move: `['<from>', '<to>']` | purgeFiles <br> moveFiles |
 | Filter by last modified | Choose to filter files based upon when they were last altered | no | Timestamp | modifiedAfter <br> modifiedBefore |
 | Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
+
+> [!NOTE]
+> Data flow sources support for list of files is limited to 1024 entries in your file. To include more files, use wildcards in your file list.
 
 ### Source example
 

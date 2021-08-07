@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 12/02/2020
+ms.date: 05/19/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -31,6 +31,8 @@ Download and fill in the bulk upload CSV template to help you successfully creat
 
 > [!WARNING]
 > If you are adding only one entry using the CSV template, you must preserve row 3 and add your new entry to row 4.
+>
+> Ensure that you add the ".csv" file extension and remove any leading spaces before userPrincipalName, passwordProfile, and accountEnabled.
 
 ### CSV template structure
 

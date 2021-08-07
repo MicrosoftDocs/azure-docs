@@ -9,7 +9,7 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 04/26/2021
 ms.author: alkohli
-ms.custom: "contperf-fy21q3"
+ms.custom: "contperf-fy21q4"
 ---
 # System requirements for Azure Stack Edge Pro with GPU 
 
@@ -102,6 +102,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Azu
 | https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft container registry (required)               |
 | https://\*.azurecr.io                     | Personal and third-party container registries (optional) | 
 | https://\*.azure-devices.net              | IoT Hub access (required)                             | 
+| https://\*.docker.com              | StorageClass (required)                             | 
 
 ### URL patterns for monitoring
 
@@ -109,9 +110,9 @@ Add the following URL patterns for Azure Monitor if you're using the containeriz
 
 | URL pattern | Port | Component or functionality |
 |-------------|-------------|----------------------------|
-| http://\*ods.opinsights.azure.com | 443 | Data ingestion |
-| http://\*.oms.opinsights.azure.com | 443 | Operations Management Suite (OMS) onboarding |
-| http://\*.dc.services.visualstudio.com | 443 | Agent telemetry that uses Azure Public Cloud Application Insights |
+| https://\*ods.opinsights.azure.com | 443 | Data ingestion |
+| https://\*.oms.opinsights.azure.com | 443 | Operations Management Suite (OMS) onboarding |
+| https://\*.dc.services.visualstudio.com | 443 | Agent telemetry that uses Azure Public Cloud Application Insights |
 
 For more information, see [Network firewall requirements for monitoring container insights](../azure-monitor/containers/container-insights-onboard.md#network-firewall-requirements).
 
@@ -133,9 +134,9 @@ Add the following URL patterns for Azure Monitor if you're using the containeriz
 
 | URL pattern | Port | Component or functionality |
 |-------------|-------------|----------------------------|
-| http://\*ods.opinsights.azure.us | 443 | Data ingestion |
-| http://\*.oms.opinsights.azure.us | 443 | Operations Management Suite (OMS) onboarding |
-| http://\*.dc.services.visualstudio.com | 443 | Agent telemetry that uses Azure Public Cloud Application Insights |
+| https://\*ods.opinsights.azure.us | 443 | Data ingestion |
+| https://\*.oms.opinsights.azure.us | 443 | Operations Management Suite (OMS) onboarding |
+| https://\*.dc.services.visualstudio.com | 443 | Agent telemetry that uses Azure Public Cloud Application Insights |
 
 
 ## Internet bandwidth

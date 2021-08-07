@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Explore a sample scenario
+  - name: Get started with Azure Digital Twins Explorer
     href: quickstart-azure-digital-twins-explorer.md
 - name: Tutorials
   items:
@@ -41,42 +41,50 @@
     href: concepts-query-language.md
   - name: Query Units
     href: concepts-query-units.md
-  - name: Integration with other services
-    href: concepts-integration.md
+  - name: Querying with Azure Data Explorer
+    href: concepts-data-explorer-plugin.md   
+  - name: Developer interfaces
+    items:
+    - name: Azure Digital Twins Explorer
+      href: concepts-azure-digital-twins-explorer.md
+    - name: APIs and SDKs
+      href: concepts-apis-sdks.md
+    - name: CLI command set
+      href: concepts-cli.md
+  - name: Data ingress and egress
+    href: concepts-data-ingress-egress.md
   - name: Event notifications
     href: concepts-event-notifications.md
   - name: Event routes
     href: concepts-route-events.md
   - name: Security for Azure Digital Twins solutions
-    href: concepts-security.md
+    href: concepts-security.md  
   - name: High availability and disaster recovery
     href: concepts-high-availability-disaster-recovery.md
 - name: How-to guides
   items:
   - name: Deploy
     items:
-    - name: Use the Azure Digital Twins CLI
-      href: how-to-use-cli.md
     - name: Set up an instance and authentication
       items:
-      - name: Portal version
+      - name: Portal
         href: how-to-set-up-instance-portal.md
-      - name: CLI version
+      - name: CLI
         href: how-to-set-up-instance-cli.md
-      - name: PowerShell version
+      - name: PowerShell
         href: how-to-set-up-instance-powershell.md
-      - name: Scripted version
+      - name: Setup script sample
         href: how-to-set-up-instance-scripted.md
     - name: Enable private access with Private Link
-      items:
-      - name: Portal version
-        href: how-to-enable-private-link-portal.md
-      - name: CLI version
-        href: how-to-enable-private-link-cli.md
+      href: how-to-enable-private-link.md
     - name: Write app authentication code
       href: how-to-authenticate-client.md
     - name: Create an app registration
-      href: how-to-create-app-registration.md
+      items:
+      - name: Portal
+        href: how-to-create-app-registration-portal.md
+      - name: CLI
+        href: how-to-create-app-registration-cli.md
     - name: Move instance to a different region
       href: how-to-move-regions.md
   - name: Design models
@@ -89,9 +97,11 @@
       href: how-to-use-tags.md
   - name: Use live execution environment
     items:
+    - name: Use Azure Digital Twins Explorer
+      href: how-to-use-azure-digital-twins-explorer.md  
     - name: Manage digital twins
       href: how-to-manage-twin.md
-    - name: Manage the twin graph with relationships
+    - name: Manage the twin graph and relationships
       href: how-to-manage-graph.md
     - name: Set up an Azure function for processing data
       href: how-to-create-azure-function.md
@@ -99,9 +109,7 @@
       href: how-to-query-graph.md
   - name: Develop client apps
     items:
-    - name: Use the APIs and SDKs
-      href: how-to-use-apis-sdks.md
-    - name: Make requests with Postman
+    - name: Make API requests with Postman
       href: how-to-use-postman.md
     - name: Integrate with Azure SignalR Service
       href: how-to-integrate-azure-signalr.md
@@ -113,20 +121,14 @@
       href: how-to-provision-using-device-provisioning-service.md
     - name: Integrate with Logic Apps
       href: how-to-integrate-logic-apps.md
+    - name: Ingest OPC UA data to Azure Digital Twins
+      href: how-to-ingest-opcua-data.md
   - name: Connect output
     items:
     - name: Manage endpoints and routes
-      items:
-      - name: Portal version
-        href: how-to-manage-routes-portal.md
-      - name: APIs and CLI version
-        href: how-to-manage-routes-apis-cli.md
-    - name: Enable a managed identity for routing events
-      items:
-      - name: Portal version
-        href: how-to-enable-managed-identities-portal.md
-      - name: CLI version
-        href: how-to-enable-managed-identities-cli.md
+      href: how-to-manage-routes.md
+    - name: Route events with a managed identity
+      href: how-to-route-with-managed-identity.md
     - name: Integrate with Azure Maps
       href: how-to-integrate-maps.md
     - name: Integrate with Azure Time Series Insights
@@ -139,6 +141,8 @@
       href: troubleshoot-diagnostics.md
     - name: Enable alerts
       href: troubleshoot-alerts.md
+    - name: Troubleshoot performance
+      href: troubleshoot-performance.md
     - name: Understand your resource health
       href: troubleshoot-resource-health.md
     - name: Known issues
@@ -150,7 +154,7 @@
       - name: 404 Sub-Domain not found
         href: troubleshoot-error-404.md
       - name: Azure Digital Twins Explorer authentication
-        href: troubleshoot-error-azure-digital-twins-explorer-authentication.md
+        href: troubleshoot-error-azure-digital-twins-explorer-authentication.md  
 - name: Reference
   items:
   - name: REST API reference
@@ -160,21 +164,21 @@
       - name: Control plane
         items:
         - name: .NET (C#) SDK
-          href: /dotnet/api/overview/azure/digitaltwins/management
+          href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true
         - name: Java SDK
-          href: /java/api/overview/azure/digitaltwins/resourcemanagement
+          href: /java/api/overview/azure/digitaltwins/resourcemanagement?view=azure-java-stable&preserve-view=true
       - name: Data plane
         items:
         - name: .NET (C#) SDK
-          href: /dotnet/api/overview/azure/digitaltwins/client
+          href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true
         - name: Java SDK
-          href: /java/api/overview/azure/digitaltwins/client
+          href: /java/api/overview/azure/digitaltwins/client?view=azure-java-stable&preserve-view=true
         - name: JavaScript SDK
-          href: /javascript/api/@azure/digital-twins-core/
+          href: /javascript/api/@azure/digital-twins-core/?view=azure-node-latest&preserve-view=true
         - name: Python SDK
-          href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core
+          href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true
   - name: Digital Twins CLI
-    href: /cli/azure/dt
+    href: /cli/azure/dt?view=azure-cli-latest&preserve-view=true
   - name: DTDL v2 spec
     href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
   - name: Query language reference
@@ -273,12 +277,12 @@
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_servicebus
   - name: Tools and sample projects
     items:
+      - name: Azure Digital Twins Explorer
+        href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
       - name: Azure Digital Twins Postman Collection
         href: https://github.com/microsoft/azure-digital-twins-postman-samples
       - name: Azure Digital Twins end-to-end samples
         href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
-      - name: Azure Digital Twins explorer (sample)
-        href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
       - name: DTDL Validator (sample)
         href: /samples/azure-samples/dtdl-validator/dtdl-validator/
       - name: Model Uploader (sample)
@@ -295,6 +299,14 @@
         href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
       - name: Device simulator service
         href: https://github.com/Azure/device-simulation-dotnet/tree/master
+  - name: Ontologies
+    items:
+      - name: Smart buildings
+        href: https://github.com/Azure/opendigitaltwins-building
+      - name: Smart cities
+        href: https://github.com/Azure/opendigitaltwins-smartcities
+      - name: Energy grids
+        href: https://github.com/Azure/opendigitaltwins-energygrid/
   - name: DTDL
     items:
     - name: DTDL extension for VS Code

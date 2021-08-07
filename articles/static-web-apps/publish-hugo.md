@@ -5,11 +5,11 @@ services: static-web-apps
 author: aaronpowell
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 05/08/2020
+ms.date: 05/11/2021
 ms.author: aapowell
 ---
 
-# Tutorial: Publish a Hugo site to Azure Static Web Apps Preview
+# Tutorial: Publish a Hugo site to Azure Static Web Apps
 
 This article demonstrates how to create and deploy a [Hugo](https://gohugo.io/) web application to [Azure Static Web Apps](overview.md). The final result is a new Azure Static Web App with associated GitHub Actions that give you control over how the app is built and published.
 
@@ -51,7 +51,13 @@ Create a Hugo app using the Hugo Command Line Interface (CLI):
 1. Initialize a Git repo.
 
    ```bash
-    git init
+   git init
+   ```
+
+1. Ensure that your branch is named `main`.
+
+   ```bash
+   git branch -M main
    ```
 
 1. Next, add a theme to the site by installing a theme as a git submodule and then specifying it in the Hugo config file.
@@ -93,56 +99,42 @@ The following steps show you how to create a new static site app and deploy it t
 ### Create the application
 
 1. Navigate to the [Azure portal](https://portal.azure.com)
-1. Click **Create a Resource**
+1. Select **Create a Resource**
 1. Search for **Static Web Apps**
-1. Click **Static Web Apps (Preview)**
-1. Click **Create**
+1. Select **Static Web Apps**
+1. Select **Create**
+1. On the _Basics_ tab, enter the following values.
 
-   :::image type="content" source="./media/publish-hugo/create-in-portal.png" alt-text="Create a Azure Static Web Apps resource in the portal":::
+    | Property | Value |
+    | --- | --- |
+    | _Subscription_ | Your Azure subscription name. |
+    | _Resource group_ | **my-hugo-group**  |
+    | _Name_ | **hugo-static-app** |
+    | _Plan type_ | **Free** |
+    | _Region for Azure Functions API and staging environments_ | Select a region closest to you. |
+    | _Source_ | **GitHub** |
 
-1. For **Subscription**, accept the subscription that is listed or select a new one from the drop-down list.
+1. Select **Sign in with GitHub** and authenticate with GitHub.
 
-1. In _Resource group_, select **New**. In _New resource group name_, enter **hugo-static-app** and select **OK**.
+1. Enter the following GitHub values.
 
-1. Next, a name for your app in the **Name** box. Valid characters include `a-z`, `A-Z`, `0-9` and `-`.
+    | Property | Value |
+    | --- | --- |
+    | _Organization_ | Select your desired GitHub organization. |
+    | _Repository_ | Select **hugo-static-app**. |
+    | _Branch_ | Select **main**. |
 
-1. For _Region_, select an available region close to you.
-
-1. For _SKU_, select **Free**.
-
-   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Details filled out":::
-
-1. Click the **Sign in with GitHub** button.
-
-1. Select the **Organization** under which you created the repo.
-
-1. Select the **hugo-static-app** as the _Repository_ .
-
-1. For the _Branch_ select **main**.
-
-   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Completed GitHub information":::
-
-### Build
-
-Next, you add configuration settings that the build process uses to build your app. The following settings configure the GitHub Action workflow file.
-
-1. Click the **Next: Build >** button to edit the build configuration
-
-1. Set _App location_ to **/**.
-
-1. Set _App artifact location_ to **public**.
-
-   A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
+1. In the _Build Details_ section, select **Hugo** from the _Build Presets_ drop-down and keep the default values.
 
 ### Review and create
 
-1. Click the **Review + Create** button to verify the details are all correct.
+1. Select the **Review + Create** button to verify the details are all correct.
 
-1. Click **Create** to start the creation of the Azure Static Web Apps and provision a GitHub Action for deployment.
+1. Select **Create** to start the creation of the App Service Static Web App and provision a GitHub Action for deployment.
 
-1. Wait for the GitHub Action to complete.
+1. Once the deployment completes click, **Go to resource**.
 
-1. In the Azure portal's _Overview_ window of newly created Azure Static Web Apps resource, click the _URL_ link to open your deployed application.
+1. On the resource screen, click the _URL_ link to open your deployed application. You may need to wait a minute or two for the GitHub Action to complete.
 
    :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Deployed application":::
 
@@ -162,10 +154,10 @@ jobs:
           submodules: true
       - name: Build And Deploy
         id: builddeploy
-        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig

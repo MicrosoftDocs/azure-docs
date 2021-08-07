@@ -49,13 +49,11 @@
   - name: Migrate MySQL
     items: 
     - name: to Azure Database for MySQL (offline)
-      href: tutorial-mysql-azure-mysql-offline-portal.md
-    - name: to Azure Database for MySQL (online)
-      href: tutorial-mysql-azure-mysql-online.md    
+      href: tutorial-mysql-azure-mysql-offline-portal.md        
   - name: Migrate RDS MySQL
     items: 
     - name: to Azure Database for MySQL
-      href: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
+      href: tutorial-mysql-azure-mysql-offline-portal.md
   - name: Migrate PostgreSQL
     items: 
     - name: to Azure DB for PostgreSQL (Portal)
@@ -75,11 +73,7 @@
     - name: to Azure Cosmos DB Mongo API (offline)
       href: tutorial-mongodb-cosmos-db.md
     - name: to Azure Cosmos DB Mongo API (online)
-      href: tutorial-mongodb-cosmos-db-online.md
-  - name: Migrate Oracle
-    items: 
-    - name: to Azure DB for PostgreSQL–Single server online
-      href: tutorial-oracle-azure-postgresql-online.md  
+      href: tutorial-mongodb-cosmos-db-online.md  
 
 
 
@@ -151,12 +145,8 @@
       items:     
       - name: SQL Managed Instance
         href: known-issues-azure-sql-db-managed-instance-online.md
-      - name: Azure DB for MySQL
-        href: known-issues-azure-mysql-online.md
       - name: PostgreSQL to Azure DB for PostgreSQL
         href: known-issues-azure-postgresql-online.md
-      - name: Oracle to Azure DB for PostgreSQL
-        href: known-issues-oracle-azure-postgresql-online.md
       - name: MongoDB to Azure Cosmos DB API for MongoDB
         href: known-issues-mongo-cosmos-db.md
 
@@ -175,6 +165,6 @@
     - name: Monitor an online migration and perform cutover
       href: https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/
     - name: Migrate Oracle to Azure SQL DB
-      href: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/
+      href: ../postgresql/howto-migrate-from-oracle.md
     - name: Migrate MongoDB to Azure Cosmos DB
       href: https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/

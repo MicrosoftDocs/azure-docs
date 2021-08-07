@@ -10,7 +10,7 @@ ms.author: dukek
 ---
 
 # Create an action group with a Resource Manager template
-This article shows you how to use an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) to configure action groups. By using templates, you can automatically set up action groups that can be reused in certain types of alerts. These action groups ensure that all the correct parties are notified when an alert is triggered.
+This article shows you how to use an [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) to configure action groups. By using templates, you can automatically set up action groups that can be reused in certain types of alerts. These action groups ensure that all the correct parties are notified when an alert is triggered.
 
 The basic steps are:
 

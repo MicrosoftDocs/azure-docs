@@ -3,13 +3,13 @@ title: "Speech CLI quickstart - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Get started with the Azure Speech CLI. You can interact with Speech services like speech to text, text to speech, and speech translation without writing code. 
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/28/2021
-ms.author: trbye
+ms.author: nitinme
 ---
 
 # Get started with the Azure Speech CLI
@@ -133,5 +133,6 @@ spx help translate
 
 ## Next steps
 
+* [Install GStreamer to use Speech CLI with MP3 and other formats](./how-to-use-codec-compressed-audio-input-streams.md)
 * [Speech CLI configuration options](./spx-data-store-configuration.md)
 * [Batch operations with the Speech CLI](./spx-batch-operations.md)

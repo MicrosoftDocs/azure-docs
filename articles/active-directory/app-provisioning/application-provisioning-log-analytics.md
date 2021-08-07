@@ -3,14 +3,14 @@ title: Understand how Provisioning integrates with Azure Monitor logs in Azure A
 description: Understand how Provisioning integrates with Azure Monitor logs in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/12/2020
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.reviewer: arvinh,luleon
+ms.reviewer: arvinh
 ---
 
 # Understand how provisioning integrates with Azure Monitor logs
@@ -91,7 +91,7 @@ AADProvisioningLogs
 
 Azure Monitor lets you configure custom alerts so that you can get notified about key events related to Provisioning. For example, you might want to receive an alert on spikes in failures. Or perhaps spikes in disables or deletes. Another example of where you might want to be alerted is a lack of any provisioning, which indicates something is wrong.
 
-To learn more about alerts, see [Respond to events with Azure Monitor Alerts](../../azure-monitor/alerts/tutorial-response.md).
+To learn more about alerts, see [Azure Monitor Log Alerts](../../azure-monitor/alerts/alerts-log.md).
 
 Alert when there's a spike in failures. Replace the jobID with the jobID for your application.
 

@@ -2,11 +2,13 @@
 title: Continuous integration and delivery in Azure Data Factory 
 description: Learn how to use continuous integration and delivery to move Data Factory pipelines from one environment (development, test, production) to another.
 ms.service: data-factory
+ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 05/12/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Continuous integration and delivery in Azure Data Factory
@@ -91,9 +93,9 @@ The following is a guide for setting up an Azure Pipelines release that automate
 
     d.  In the **Action** list, select **Create or update resource group**.
 
-    e.  Select the ellipsis button (**…**) next to the **Template** box. Browse for the Azure Resource Manager template that is generated in your publish branch of the configured git repository. Look for the file `ARMTemplateForFactory.json` in the <FactoryName> folder of the adf_publish branch.
+    e.  Select the ellipsis button (**…**) next to the **Template** box. Browse for the Azure Resource Manager template that is generated in your publish branch of the configured git repository. Look for the file `ARMTemplateForFactory.json` in the &lt;FactoryName&gt; folder of the adf_publish branch.
 
-    f.  Select **…** next to the **Template parameters** box to choose the parameters file. Look for the file `ARMTemplateParametersForFactory.json` in the <FactoryName> folder of the adf_publish branch.
+    f.  Select **…** next to the **Template parameters** box to choose the parameters file. Look for the file `ARMTemplateParametersForFactory.json` in the &gt;FactoryName&lt; folder of the adf_publish branch.
 
     g.  Select **…** next to the **Override template parameters** box, and enter the desired parameter values for the target data factory. For credentials that come from Azure Key Vault, enter the secret's name between double quotation marks. For example, if the secret's name is cred1, enter **"$(cred1)"** for this value.
 
@@ -156,9 +158,15 @@ The Azure Key Vault task might fail with an Access Denied error if the correct p
 
 ### Updating active triggers
 
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+
+>[!WARNING]
+>If you do not use latest versions of PowerShell and Data Factory module, you may run into deserialization errors while running the commands. 
+>
+
 Deployment can fail if you try to update active triggers. To update active triggers, you need to manually stop them and then restart them after the deployment. You can do this by using an Azure PowerShell task:
 
-1.  On the **Tasks** tab of the release, add an **Azure PowerShell** task. Choose task version 4.*. 
+1.  On the **Tasks** tab of the release, add an **Azure PowerShell** task. Choose task version the latest Azure PowerShell version. 
 
 1.  Select the subscription your factory is in.
 
@@ -613,6 +621,8 @@ Remember to add the Data Factory scripts in your CI/CD pipeline before and after
 
 If you don't have Git configured, you can access the linked templates via **Export ARM Template** in the **ARM Template** list.
 
+When deploying your resources, you specify that the deployment is either an incremental update or a complete update. The difference between these two modes is how Resource Manager handles existing resources in the resource group that aren't in the template. Please review [Deployment Modes](../azure-resource-manager/templates/deployment-modes.md).
+
 ## Hotfix production environment
 
 If you deploy a factory to production and realize there's a bug that needs to be fixed right away, but you can't deploy the current collaboration branch, you might need to deploy a hotfix. This approach is as known as quick-fix engineering or QFE.
@@ -682,7 +692,14 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 
 ## <a name="script"></a> Sample pre- and post-deployment script
 
-The following sample script can be used to stop triggers before deployment and restart them afterward. The script also includes code to delete resources that have been removed. Save the script in an Azure DevOps  git repository and reference it via an Azure PowerShell task using version 4.*.
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+
+>[!WARNING]
+>If you do not use latest versions of PowerShell and Data Factory module, you may run into deserialization errors while running the commands. 
+>
+
+The following sample script can be used to stop triggers before deployment and restart them afterward. The script also includes code to delete resources that have been removed. Save the script in an Azure DevOps  git repository and reference it via an Azure PowerShell task the latest Azure PowerShell version.
+
 
 When running a pre-deployment script, you will need to specify a variation of the following parameters in the **Script Arguments** field.
 

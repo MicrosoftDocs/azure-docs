@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 04/19/2021
+ms.date: 05/03/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Identity Protection detects compromised credentials for Azure AD users. If your credential is detected as compromised, it means that someone else may have your password and be using it illegitimately. To prevent further risk to your account, it is important to securely reset your password so that the bad actor can no longer use your compromised password. Identity Protection marks accounts that may be compromised as "at risk."
 
-You can use your organizational credentials to sign-in to another organization as a guest; this process is referred to B2B authentication. Organizations can configure policies to block users from signing-in if their credentials are at risk. If your account is at risk and you are blocked from signing-in to another organization as a guest, you may be able to self-remediate your account using the steps below. If your organization has not enabled self-service password reset, your administrator will need to manually remediate your account.
+You can use your organizational credentials to sign-in to another organization as a guest. This process is referred to [business-to-business or B2B collaboration](../external-identities/what-is-b2b.md). Organizations can configure policies to block users from signing-in if their credentials are considered [at risk](concept-identity-protection-risks.md). If your account is at risk and you are blocked from signing-in to another organization as a guest, you may be able to self-remediate your account using the following steps. If your organization has not enabled self-service password reset, your administrator will need to manually remediate your account.
 
 ## How to unblock your account 
 
@@ -62,8 +62,8 @@ The user risk for B2B collaboration users is evaluated at their home directory. 
 There are limitations in the implementation of Identity Protection for B2B collaboration users in a resource directory due to their identity existing in their home directory. The main limitations are as follows:
 
 - If a guest user triggers the Identity Protection user risk policy to force password reset, **they will be blocked**. This block is due to the inability to reset passwords in the resource directory.
-- **Guest users do not appear in the risky users report**. This loss of visibility is due to the risk evaluation occurring in the B2B user's home directory.
-- Administrators **cannot dismiss or remediate a risky B2B collaboration user** in their resource directory. This loss of functionality is due to administrators in the resource directory not having access to the B2B user's home directory.
+- **Guest users do not appear in the risky users report**. This limitation is due to the risk evaluation occurring in the B2B user's home directory.
+- Administrators **cannot dismiss or remediate a risky B2B collaboration user** in their resource directory. This limitation is due to administrators in the resource directory not having access to the B2B user's home directory.
 
 ### Why can't I remediate risky B2B collaboration users in my directory?
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/03/2021
+ms.date: 04/19/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Mini R is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -37,6 +37,7 @@ Azure Stack Edge Mini R has the following capabilities:
 |Data refresh     | Ability to refresh local files with the latest from cloud.|
 |Double encryption    | Use of self-encrypting drive provides the first layer of encryption. VPN provides the second layer of encryption. BitLocker support to locally encrypt data and secure data transfer to cloud over *https* .|
 |Bandwidth throttling| Throttle to limit bandwidth usage during peak hours.|
+|Easy ordering| Bulk ordering and tracking of the device via Azure Edge Hardware Center (Preview).|
 
 ## Use cases
 
@@ -62,10 +63,15 @@ The Azure Stack Edge Mini R solution comprises of an Azure Stack Edge resource, 
 
     ![Azure Stack Edge Mini R device](media/azure-stack-edge-mini-r-overview/perspective-view-1.png)
 
+    [!INCLUDE [azure-stack-edge-gateway-edge-hardware-center-overview](../../includes/azure-stack-edge-gateway-edge-hardware-center-overview.md)]    
+
+    For more information, go to [Create an order for your Azure Stack Edge Mini R device](azure-stack-edge-mini-r-deploy-prep.md#create-a-new-resource).
+
 * **Azure Stack Edge resource** – A resource in the Azure portal that lets you manage a rugged, Azure Stack Edge Mini R device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
 
 * **Azure Stack Edge Mini R local web UI** - A browser-based local user interface on your Azure Stack Edge Mini R device primarily intended for the initial configuration of the device. Use the local web UI also to run diagnostics, shut down and restart the Azure Stack Edge Pro device, view copy logs, and contact Microsoft Support to file a service request.
 
+    [!INCLUDE [azure-stack-edge-gateway-local-web-ui-languages](../../includes/azure-stack-edge-gateway-local-web-ui-languages.md)]
 
 ## Region availability
 

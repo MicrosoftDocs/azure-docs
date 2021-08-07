@@ -1,7 +1,7 @@
 ---
 title: Index of blueprint samples
 description: Index of compliance and standard samples for deploying environments, policies, and Cloud Adoptions Framework foundations with Azure Blueprints.
-ms.date: 03/24/2021
+ms.date: 05/04/2021
 ms.topic: sample
 ---
 # Azure Blueprints samples
@@ -16,7 +16,7 @@ quality and ready to deploy today to assist you in meeting your various complian
 | [Australian Government ISM PROTECTED](./ism-protected/index.md) | Provides guardrails for compliance to Australian Government ISM PROTECTED. |
 | [Azure Security Benchmark](./azure-security-benchmark.md) | Provides guardrails for compliance to [Azure Security Benchmark](../../../security/benchmarks/overview.md). |
 | [Azure Security Benchmark Foundation](./azure-security-benchmark-foundation/index.md) | Deploys and configures Azure Security Benchmark Foundation. |
-| [Canada Federal PBMM](./canada-federal-pbmm/index.md) | Provides guardrails for compliance to Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM). |
+| [Canada Federal PBMM](./canada-federal-pbmm.md) | Provides guardrails for compliance to Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM). |
 | [CIS Microsoft Azure Foundations Benchmark v1.3.0](./cis-azure-1-3-0.md) | Provides a set of policies to help comply with CIS Microsoft Azure Foundations Benchmark v1.3.0 recommendations. |
 | [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md) | Provides a set of policies to help comply with CIS Microsoft Azure Foundations Benchmark v1.1.0 recommendations. |
 | [CMMC Level 3](./cmmc-l3.md) | Provides guardrails for compliance with CMMC Level 3. |
@@ -25,7 +25,7 @@ quality and ready to deploy today to assist you in meeting your various complian
 | [FedRAMP Moderate](./fedramp-m/index.md) | Provides a set of policies to help comply with FedRAMP Moderate. |
 | [FedRAMP High](./fedramp-h/index.md) | Provides a set of policies to help comply with FedRAMP High. |
 | [HIPAA HITRUST 9.2](./hipaa-hitrust-9-2.md) | Provides a set of policies to help comply with HIPAA HITRUST. |
-| [IRS 1075](./irs-1075/index.md) | Provides guardrails for compliance with IRS 1075.|
+| [IRS 1075 September 2016](./irs-1075-sept2016.md) | Provides guardrails for compliance with IRS 1075.|
 | [ISO 27001](./iso-27001-2013.md) | Provides guardrails for compliance with ISO 27001. |
 | [ISO 27001 Shared Services](./iso27001-shared/index.md) | Provides a set of compliant infrastructure patterns and policy guardrails that help toward ISO 27001 attestation. |
 | [ISO 27001 App Service Environment/SQL Database workload](./iso27001-ase-sql-workload/index.md) | Provides more infrastructure to the [ISO 27001 Shared Services](./iso27001-shared/index.md) blueprint sample. |
@@ -35,7 +35,7 @@ quality and ready to deploy today to assist you in meeting your various complian
 | [NIST SP 800-171 R2](./nist-sp-800-171-r2.md) | Provides guardrails for compliance with NIST SP 800-171 R2. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | Provides a set of policies to aide in PCI-DSS v3.2.1 compliance. |
 | [SWIFT CSP-CSCF v2020](./swift-2020/index.md) | Aides in SWIFT CSP-CSCF v2020 compliance. |
-| [UK OFFICIAL and UK NHS Governance](./ukofficial/index.md) | Provides a set of compliant infrastructure patterns and policy guardrails that help toward UK OFFICIAL and UK NHS attestation. |
+| [UK OFFICIAL and UK NHS Governance](./ukofficial-uknhs.md) | Provides a set of compliant infrastructure patterns and policy guardrails that help toward UK OFFICIAL and UK NHS attestation. |
 | [CAF Foundation](./caf-foundation/index.md) | Provides a set of controls to help you manage your cloud estate in alignment with the [Microsoft Cloud Adoption Framework for Azure (CAF)](/azure/architecture/cloud-adoption/governance/journeys/index). |
 | [CAF Migrate landing zone](./caf-migrate-landing-zone/index.md) | Provides a set of controls to help you set up for migrating your first workload and manage your cloud estate in alignment with the [Microsoft Cloud Adoption Framework for Azure (CAF)](/azure/architecture/cloud-adoption/migrate/index). |
 

@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Get started with Azure Active Directory Verifiable Credentials using a sample app (preview)
 description: In this tutorial, you learn how to issue verifiable credentials using our sample app and test tenant
-ms.service: identity
+ms.service: active-directory
 ms.subservice: verifiable-credentials
 author: barclayn
 ms.author: barclayn

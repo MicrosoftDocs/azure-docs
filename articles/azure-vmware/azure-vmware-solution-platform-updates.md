@@ -2,12 +2,37 @@
 title: Platform updates for Azure VMware Solution
 description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
-ms.date: 04/26/2021
+ms.date: 07/23/2021
 ---
 
 # Platform updates for Azure VMware Solution
 
 Azure VMware Solution will apply important updates starting in March 2021. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
+
+## July 23, 2021
+
+All new Azure VMware Solution private clouds are now deployed with NSX-T version 3.1.2. NSX-T version in existing private clouds will be upgraded through September, 2021 to NSX-T 3.1.2 release.
+ 
+You'll receive an email with the planned maintenance date and time. You can reschedule an upgrade. The email also provides details on the upgraded component, its effect on workloads, private cloud access, and other Azure services. 
+
+For more information on this NSX-T  version, see [VMware NSX-T Data Center 3.1.2 Release Notes](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/rn/VMware-NSX-T-Data-Center-312-Release-Notes.html).
+
+
+## May 25, 2021
+Per VMware security advisory [VMSA-2021-0010](https://www.vmware.com/security/advisories/VMSA-2021-0010.html), multiple vulnerabilities in VMware ESXi and vSphere Client (HTML5) have been reported to VMware. 
+
+To address the vulnerabilities ([CVE-2021-21985](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21985) and [CVE-2021-21986](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21986)) reported in VMware security advisory [VMSA-2021-0010](https://www.vmware.com/security/advisories/VMSA-2021-0010.html), vCenter Server has been updated in all Azure VMware Solution private clouds.
+
+No further action is required.
+
+## May 21, 2021
+ 
+Azure VMware Solution service will do maintenance work through May 23, 2021, to apply important updates to the vCenter server in your private cloud.  You'll receive a notification through Azure Service Health that includes the timeline of the maintenance for your private cloud.
+ 
+During this time, VMware vCenter will be unavailable and you won't be able to manage VMs (stop, start, create, or delete). It's recommended that, during this time, you don't plan any other activities like scaling up private cloud, creating new networks, and so on, in your private cloud.
+ 
+There is no impact to workloads running in your private cloud.
+
 
 ## April 26, 2021
 All new Azure VMware Solution private clouds are now deployed with VMware vCenter version 6.7U3l and NSX-T version 2.5.2. We're not using NSX-T 3.1.1 for new private clouds because of an identified issue in NSX-T 3.1.1 that impacts customer VM connectivity. 

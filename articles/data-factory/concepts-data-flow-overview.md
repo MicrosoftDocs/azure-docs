@@ -4,9 +4,10 @@ description: An overview of mapping data flows in Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 04/14/2021
+ms.date: 05/20/2021
 ---
 
 # Mapping data flows in Azure Data Factory
@@ -79,19 +80,19 @@ View the [mapping data flow transformation overview](data-flow-transformation-ov
 
 ## Data flow data types
 
-array
-binary
-boolean
-complex
-decimal
-date
-float
-integer
-long
-map
-short
-string
-timestamp
+* array
+* binary
+* boolean
+* complex
+* decimal (includes precision)
+* date
+* float
+* integer
+* long
+* map
+* short
+* string
+* timestamp
 
 ## Data flow activity
 

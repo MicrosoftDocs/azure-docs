@@ -41,7 +41,7 @@ See the article that [compares user flows and custom polices](../../active-direc
 
 ## Choose multiple IDPs
 
-When using an [external identity provider](../../active-directory-b2c/technical-overview.md#external-identity-providers) such as Facebook, make sure to have a fallback plan in case the external provider becomes unavailable.
+When using an [external identity provider](../../active-directory-b2c/add-identity-provider.md) such as Facebook, make sure to have a fallback plan in case the external provider becomes unavailable.
 
 ### How to set up multiple IDPs
 

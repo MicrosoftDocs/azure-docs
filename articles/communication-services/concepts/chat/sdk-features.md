@@ -2,18 +2,16 @@
 title: Chat SDK overview for Azure Communication Services	
 titleSuffix: An Azure Communication Services concept document	
 description: Learn about the Azure Communication Services Chat SDK.	
-author: mikben	
+author: knvsl	
 manager: jken	
 services: azure-communication-services	
 ms.author: mikben	
-ms.date: 09/30/2020	
+ms.date: 06/30/2021
 ms.topic: overview	
 ms.service: azure-communication-services	
 ---	
 
 # Chat SDK overview	
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-chat.md)]
 
 Azure Communication Services Chat SDKs can be used to add rich, real-time chat to your applications.
 	
@@ -35,9 +33,11 @@ The following list presents the set of features which are currently available in
 |                   | Update the content of your sent message                                                                               | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |	
 |                   | Delete a message you previously sent                                                                                                      | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |	
 |                   | Read receipts for messages that have been read by other participants in a chat                                        | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |	
-|                   | Get notified when participants are actively typing a message in a chat thread                                         | ✔️   | ✔️   | ✔️    | ✔️    |  ✔️    | ✔️   |	
+|                   | Get notified when participants are actively typing a message in a chat thread                                         | ✔️   | ❌    | ❌  | ❌  | ✔️  | ✔️  |	
 |                   | Get all messages in a chat thread                                                                        | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
 |                   | Send Unicode emojis as part of message content                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
+|                   | Add metadata to chat messages                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
+|                   | Add display name to typing indicator notification                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
 |Real-time notifications (enabled by proprietary signaling package**)|  Chat clients can subscribe to get real-time updates for incoming messages and other operations occurring in a chat thread. To see a list of supported updates for real-time notifications, see [Chat concepts](concepts.md#real-time-notifications)                                     | ✔️   | ❌    | ❌  | ❌  | ✔️  | ✔️  |	
 | Integration with Azure Event Grid             | Use the chat events available in Azure Event Grid to plug custom notification services or post that event to a webhook to execute business logic like updating CRM records after a chat is finished   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
 | Reporting </br>(This info is available under Monitoring tab for your Communication Services resource on Azure portal)      | Understand API traffic from your chat app by monitoring the published metrics in Azure Metrics Explorer and set alerts to detect abnormalities     | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	

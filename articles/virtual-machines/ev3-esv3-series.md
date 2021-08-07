@@ -41,9 +41,7 @@ Ev3-series VM’s feature Intel® Hyper-Threading Technology.
 | Standard_E32_v3 | 32 | 256 | 800  | 32 | 48000/750/375  | 8/16000 |
 | Standard_E48_v3 | 48 | 384 | 1200 | 32 | 96000/1000/500 | 8/24000 |
 | Standard_E64_v3 | 64 | 432 | 1600 | 32 | 96000/1000/500 | 8/30000 |
-| Standard_E64i_v3 <sup>1,2</sup> | 64 | 432 | 1600 | 32 | 96000/1000/500 | 8/30000 |
-
-<sup>1</sup> Constrained core sizes available.
+| Standard_E64i_v3 <sup>2</sup> | 64 | 432 | 1600 | 32 | 96000/1000/500 | 8/30000 |
 
 <sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
 
@@ -71,11 +69,11 @@ Esv3-series VM’s feature Intel® Hyper-Threading Technology.
 | Standard_E16s_v3 <sup>1</sup>  | 16 | 128 | 256 | 32 | 32000/256 (400)    | 32000/800   | 25600/384  | 32000/800 | 8/8000 |
 | Standard_E20s_v3               | 20 | 160 | 320 | 32 | 40000/320 (400)    | 40000/1000  | 32000/480  | 40000/1000 | 8/10000 |
 | Standard_E32s_v3 <sup>1</sup>  | 32 | 256 | 512 | 32 | 64000/512 (800)    | 64000/1600  | 51200/768  | 64000/1600 | 8/16000 |
-| Standard_E48s_v3 <sup>1</sup>  | 48 | 384 | 768 | 32 | 96000/768 (1200)   | 96000/2000  | 76800/1152 | 80000/2000 | 8/24000 |
+| Standard_E48s_v3               | 48 | 384 | 768 | 32 | 96000/768 (1200)   | 96000/2000  | 76800/1152 | 80000/2000 | 8/24000 |
 | Standard_E64s_v3 <sup>1</sup>  | 64 | 432 | 864 | 32 | 128000/1024 (1600) | 128000/2000 | 80000/1200 | 80000/2000 | 8/30000 |
 | Standard_E64is_v3 <sup>2</sup> | 64 | 432 | 864 | 32 | 128000/1024 (1600) | 128000/2000 | 80000/1200 | 80000/2000 | 8/30000 |
 
-<sup>1</sup> Constrained core sizes available.
+<sup>1</sup> [Constrained core sizes available](./constrained-vcpu.md).
 
 <sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
 

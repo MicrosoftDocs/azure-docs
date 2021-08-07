@@ -2,7 +2,7 @@
 title: Create and configure Recovery Services vaults
 description: In this article, learn how to create and configure Recovery Services vaults that store the backups and recovery points. Learn how to use Cross Region Restore to restore in a secondary region.
 ms.topic: conceptual
-ms.date: 04/14/2021
+ms.date: 06/01/2021
 ms.custom: references_regions 
 ---
 
@@ -73,6 +73,9 @@ Since this process is at the storage level, there are [pricing implications](htt
 A vault created with GRS redundancy includes the option to configure the Cross Region Restore feature. Every GRS vault will have a banner, which will link to the documentation. To configure CRR for the vault, go to the Backup Configuration pane, which contains the option to enable this feature.
 
  ![Backup Configuration banner](./media/backup-azure-arm-restore-vms/banner.png)
+
+>[!Note]
+>If you've access to restricted paired regions and still unable to view Cross Region Restore settings in **Backup Configuration** blade, then re-register the recovery services resource provider. <br><br> To re-register the provider, go to your subscription in the Azure portal, navigate to **Resource provider** on the left navigation bar, then select **Microsoft.RecoveryServices** and select **Re-register**.
 
 1. From the portal, go to your Recovery Services vault > **Properties** (under **Settings**).
 1. Under **Backup Configuration**, select **Update**.

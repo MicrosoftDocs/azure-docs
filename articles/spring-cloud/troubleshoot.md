@@ -1,11 +1,11 @@
 ---
 title: Troubleshooting guide for Azure Spring Cloud | Microsoft Docs
 description: Troubleshooting guide for Azure Spring Cloud
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: troubleshooting
 ms.date: 09/08/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 ---
 
@@ -113,7 +113,7 @@ But if you try to set up the Azure Spring Cloud service instance by using the [A
 * The resource group for the instance is already created.
 * The resource name conforms to the naming rule. It must contain only lowercase letters, numbers, and hyphens. The first character must be a letter. The last character must be a letter or number. The value must contain from 2 to 32 characters.
 
-If you want to set up the Azure Spring Cloud service instance by using the Resource Manager template, first refer to [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md).
+If you want to set up the Azure Spring Cloud service instance by using the Resource Manager template, first refer to [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
 The name of the Azure Spring Cloud service instance will be used for requesting a subdomain name under `azureapps.io`, so the setup will fail if the name conflicts with an existing one. You might find more details in the activity logs.
 

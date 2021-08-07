@@ -402,10 +402,10 @@ The following tables provide an overview of our samples repository and the scena
 
 To view the complete JavaScript sample libraries, go to:
 
-* [Azure blob code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples/javascript)
+* [Azure Blob code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples/javascript)
 * [Azure Data Lake code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples/javascript)
 * [Azure Files code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-share/samples/javascript)
-* [Azure queue code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples/javascript)
+* [Azure Queue code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples/javascript)
 
 You can browse and clone the GitHub repository for each library.
 

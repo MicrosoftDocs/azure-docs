@@ -20,7 +20,7 @@ ms.custom: mvc,subject-armqs
 
 # Quickstart: Create a public load balancer to load balance VMs by using an ARM template
 
-Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines (VMs). 
+Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines (VMs).
 
 This quickstart shows you how to deploy a standard load balancer to load balance virtual machines.
 
@@ -30,7 +30,7 @@ Using an ARM template takes fewer steps comparing to other deployment methods.
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-load-balancer-standard-create%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fload-balancer-standard-create%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -38,11 +38,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-load-balancer-standard-create/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/load-balancer-standard-create/).
 
-Load balancer and public IP SKUs must match. When you create a standard load balancer, you must also create a new standard public IP address that is configured as the frontend for the standard load balancer. If you want to create a basic load balancer, use [this template](https://azure.microsoft.com/resources/templates/201-2-vms-loadbalancer-natrules/). Microsoft recommends using standard SKU for production workloads.
+Load balancer and public IP SKUs must match. When you create a standard load balancer, you must also create a new standard public IP address that is configured as the frontend for the standard load balancer. If you want to create a basic load balancer, use [this template](https://azure.microsoft.com/resources/templates/2-vms-loadbalancer-natrules/). Microsoft recommends using standard SKU for production workloads.
 
-:::code language="json" source="~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/load-balancer-standard-create/azuredeploy.json":::
 
 Multiple Azure resources have been defined in the template:
 
@@ -68,7 +68,7 @@ To find more templates that are related to Azure Load Balancer, see [Azure Quick
    $adminPassword = Read-Host -Prompt "Enter the virtual machine administrator password" -AsSecureString
 
    $resourceGroupName = "${projectName}rg"
-   $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json"
+   $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/load-balancer-standard-create/azuredeploy.json"
 
    New-AzResourceGroup -Name $resourceGroupName -Location $location
    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -location $location -adminUsername $adminUsername -adminPassword $adminPassword
@@ -116,7 +116,7 @@ To see the load balancer distribute traffic across all three VMs, you can force 
 
 ## Clean up resources
 
-When you no longer need them, delete the: 
+When you no longer need them, delete the:
 
 * Resource group
 * Load balancer

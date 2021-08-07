@@ -1,7 +1,7 @@
 ---
 title: 'Configure monitoring and metrics using Azure Monitor'
 titleSuffix: Azure Bastion
-description: Learn about Azure Bastion monitoring, and metrics using Azure Monitor, the solution for metrics, alerting, diagnostic logs across Azure.
+description: Learn about Azure Bastion monitoring and metrics using Azure Monitor.
 services: bastion
 author: mialdrid
 

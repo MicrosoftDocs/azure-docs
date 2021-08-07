@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs
+ms.custom: mvc, subject-armqs, devx-track-azurepowershell
 ms.date: 04/01/2021
 
 # Customer intent: As a developer, I want to automate creating and deploying a logic app workflow to whichever environment that I want by using Azure Resource Manager templates.
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ## Review the template
 
-This quickstart uses the [**Create a logic app**](https://azure.microsoft.com/resources/templates/101-logic-app-create/) template, which you can find in the [Azure Quickstart Templates Gallery](https://azure.microsoft.com/resources/templates) but is too long to show here. Instead, you can review the quickstart template's ["azuredeploy.json file"](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json) in the templates gallery.
+This quickstart uses the [**Create a logic app**](https://azure.microsoft.com/resources/templates/logic-app-create/) template, which you can find in the [Azure Quickstart Templates Gallery](https://azure.microsoft.com/resources/templates) but is too long to show here. Instead, you can review the quickstart template's ["azuredeploy.json file"](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json) in the templates gallery.
 
 The quickstart template creates a logic app workflow that uses the Recurrence trigger, which is set to run every hour, and an HTTP [*built-in* action](../connectors/built-in.md), which calls a URL that returns the status for Azure. A built-in action is native to the Azure Logic Apps platform.
 
@@ -165,7 +165,7 @@ For more information, see these topics:
 
    For more information, see [Resource Management REST API: Deployments - Create Or Update](/rest/api/resources/deployments/createorupdate).
 
-1. To provide the values to use for the deployment, such as the Azure region and links to the quickstart template and [parameter file](../azure-resource-manager/templates/template-parameters.md), which contains the values for the quickstart template to use at deployment, follow this syntax for the request body that you send to the Resource Management REST API:
+1. To provide the values to use for the deployment, such as the Azure region and links to the quickstart template and [parameter file](../azure-resource-manager/templates/parameters.md), which contains the values for the quickstart template to use at deployment, follow this syntax for the request body that you send to the Resource Management REST API:
 
    ```json
    {

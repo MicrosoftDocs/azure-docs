@@ -1,12 +1,14 @@
 ---
 title: Copy data from an SAP table
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from an SAP table to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-ms.author: jingwang
 author: linda33wj
+ms.author: jingwang
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 03/12/2021
+ms.custom: synapse
+ms.date: 07/30/2021
 ---
 
 # Copy data from an SAP table by using Azure Data Factory
@@ -61,11 +63,11 @@ To use this SAP table connector, you need to:
 - The SAP user who's being used in the Data Factory SAP table connector must have the following permissions:
 
   - Authorization for using Remote Function Call (RFC) destinations.
-  - Permissions to the Execute activity of the S_SDSAUTH authorization object. You can refer to SAP Note 40089 on the majority authorization objects. Certain RFCs are required by the underlying NCo connector, for example RFC_FUNCTION_SEARCH. 
+  - Permissions to the Execute activity of the S_SDSAUTH authorization object. You can refer to SAP Note 460089 on the majority authorization objects. Certain RFCs are required by the underlying NCo connector, for example RFC_FUNCTION_SEARCH. 
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define the Data Factory entities specific to the SAP table connector.
 
@@ -224,7 +226,7 @@ To copy data from an SAP table, the following properties are supported:
 | `partitionColumnName`              | The name of the column used to partition the data.                | No       |
 | `partitionUpperBound`              | The maximum value of the column specified in `partitionColumnName` that will be used to continue with partitioning. | No       |
 | `partitionLowerBound`              | The minimum value of the column specified in `partitionColumnName` that will be used to continue with partitioning. (Note: `partitionLowerBound` cannot be "0" when partition option is `PartitionOnInt`) | No       |
-| `maxPartitionsNumber`              | The maximum number of partitions to split the data into.     | No       |
+| `maxPartitionsNumber`              | The maximum number of partitions to split the data into. The default value is 1.    | No       |
 | `sapDataColumnDelimiter` | The single character that is used as delimiter passed to SAP RFC to split the output data. | No |
 
 >[!TIP]

@@ -36,7 +36,7 @@ This article describes how to create and manage a self-hosted integration runtim
 
    - Copy and paste the authentication key.
 
-   - Download the self-hosted integration runtime from [Microsoft Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717) on a local Windows machine. Run the installer.
+   - Download the self-hosted integration runtime from [Microsoft Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717) on a local Windows machine. Run the installer. Self-hosted integration runtime versions such as 5.4.7803.1 and 5.6.7795.1 are supported. 
 
    - On the **Register Integration Runtime (Self-hosted)** page, paste one of the two keys you saved earlier, and select **Register**.
 
@@ -47,6 +47,38 @@ This article describes how to create and manage a self-hosted integration runtim
 6. After the Self-hosted integration runtime is registered successfully, you see the following window:
 
    :::image type="content" source="media/manage-integration-runtimes/successfully-registered.png" alt-text="successfully registered.":::
+
+## Networking requirements
+
+Your self-hosted integration runtime machine will need to connect to several resources to work correctly:
+
+* The sources you want to scan using the self-hosted integration runtime.
+* Any Azure Key Vault used to store credentials for the Purview resource.
+* The managed Storage account and Event Hub resources created by Purview.
+
+The managed Storage and Event Hub resources can be found in your subscription under a resource group containing the name of your Purview resource. Azure Purview uses these resources to ingest the results of the scan, among many other things, so the self-hosted integration runtime will need to be able to connect directly with these resources.
+
+Here are the domains and ports that will need to be allowed through corporate and machine firewalls.
+
+> [!NOTE]
+> For domains listed with '\<managed Purview storage account>', you will add the name of the managed storage account associated with your Purview resource. You can find this resource in the Portal. Search your Resource Groups for a group named: managed-rg-\<your Purview Resource name>. For example: managed-rg-contosoPurview. You will use the name of the storage account in this resource group.
+> 
+> For domains listed with '\<managed Event Hub resource>', you will add the name of the managed Event Hub associated with your Purview resource. You can find this in the same Resource Group as the managed storage account.
+
+| Domain names                  | Outbound ports | Description                              |
+| ----------------------------- | -------------- | ---------------------------------------- |
+| `*.servicebus.windows.net` | 443            | Global infrastructure Purview uses to run its scans. Wildcard required as there is no dedicated resource. |
+| `<managed Event Hub resource>.servicebus.windows.net` | 443            | Purview uses this to connect with the associated service bus. It will be covered by allowing the above domain, but if you are using Private Endpoints, you will need to test access to this single domain.|
+| `*.frontend.clouddatahub.net` | 443            | Global infrastructure Purview uses to run its scans. Wildcard required as there is no dedicated resource. |
+| `<managed Purview storage account>.core.windows.net`          | 443            | Used by the self-hosted integration runtime to connect to the managed Azure storage account.|
+| `<managed Purview storage account>.queue.core.windows.net` | 443            | Queues used by purview to run the scan process. |
+| `<your Key Vault Name>.vault.azure.net` | 443           | Required if any credentials are stored in Azure Key Vault. |
+| `download.microsoft.com` | 443           | Optional for SHIR updates. |
+| Various Domains | Dependant          | Domains for any other sources the SHIR will connect to. |
+  
+  
+> [!IMPORTANT]
+> In most environments, you will also need to confirm that your DNS is correctly configured. To confirm you can use **nslookup** from your SHIR machine to check connectivity to each of the above domains. Each nslookup should return the the IP of the resource. If you are using [Private Endpoints](catalog-private-link.md), the private IP should be returned and not the Public IP. If no IP is returned, or if when using Private Endpoints the public IP is returned, you will need to address your DNS/VNET association, or your Private Endpoint/VNET peering.
 
 ## Manage a self-hosted integration runtime
 

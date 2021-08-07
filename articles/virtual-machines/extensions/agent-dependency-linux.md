@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor Dependency virtual machine extension for Linux 
+title: Azure Monitor Dependency virtual machine extension for Linux
 description: Deploy the Azure Monitor Dependency agent on Linux virtual machine by using a virtual machine extension.
 ms.topic: article
 ms.service: virtual-machines
@@ -7,7 +7,7 @@ ms.subservice: extensions
 author: mgoedtel
 ms.author: magoedte
 ms.collection: linux
-ms.date: 03/29/2019
+ms.date: 06/01/2021
 
 ---
 # Azure Monitor Dependency virtual machine extension for Linux
@@ -22,7 +22,7 @@ The Azure VM Dependency agent extension for Linux can be run against the support
 
 ## Extension schema
 
-The following JSON shows the schema for the Azure VM Dependency agent extension on an Azure Linux VM. 
+The following JSON shows the schema for the Azure VM Dependency agent extension on an Azure Linux VM.
 
 ```json
 {
@@ -96,7 +96,7 @@ The following example assumes the Dependency agent extension is nested inside th
 }
 ```
 
-When you place the extension JSON at the root of the template, the resource name includes a reference to the parent virtual machine. The type reflects the nested configuration. 
+When you place the extension JSON at the root of the template, the resource name includes a reference to the parent virtual machine. The type reflects the nested configuration.
 
 ```json
 {
@@ -127,8 +127,22 @@ az vm extension set \
     --vm-name myVM \
     --name DependencyAgentLinux \
     --publisher Microsoft.Azure.Monitoring.DependencyAgent \
-    --version 9.5 
+    --version 9.5
 ```
+
+## Automatic extension upgrade (preview)
+A new feature to [automatically upgrade minor versions](../automatic-extension-upgrade.md) of Dependency extension is now available in public preview.
+
+To enable automatic extension upgrade for an extension, you must ensure the property `enableAutomaticUpgrade` is set to `true` and added to the extension template. This property must be enabled on every VM or VM scale set individually. Use one of the methods described in the [enablement](../automatic-extension-upgrade.md#enabling-automatic-extension-upgrade) section enable the feature for your VM or VM scale set.
+
+When automatic extension upgrade is enabled on a VM or VM scale set, the extension is upgraded automatically whenever the extension publisher releases a new version for that extension. The upgrade is applied safely following availability-first principles as described [here](../automatic-extension-upgrade.md#how-does-automatic-extension-upgrade-work).
+
+The `enableAutomaticUpgrade` attribute's functionality is different from that of the `autoUpgradeMinorVersion`. The  `autoUpgradeMinorVersion` attributes does not automatically trigger a minor version update when the extension publisher releases a new version. The `autoUpgradeMinorVersion` attribute indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+
+To keep your extension version updated, we recommend using `enableAutomaticUpgrade` with your extension deployment.
+
+> [!IMPORTANT]
+> If you add the `enableAutomaticUpgrade` to your template, make sure that you use at API version 2019-12-01 or higher.
 
 ## Troubleshoot and support
 
@@ -143,7 +157,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 Extension execution output is logged to the following file:
 
 ```
-/opt/microsoft/dependency-agent/log/install.log 
+/opt/microsoft/dependency-agent/log/install.log
 ```
 
 ### Support

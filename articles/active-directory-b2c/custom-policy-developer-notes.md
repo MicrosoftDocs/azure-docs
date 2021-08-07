@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/30/2021
+ms.date: 06/21/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -22,7 +22,7 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 ## Terms for features in public preview
 
 - We encourage you to use public preview features for evaluation purposes only.
-- Service level agreements (SLAs) don't apply to public preview features.
+- [Service level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/active-directory-b2c) don't apply to public preview features.
 - Support requests for public preview features can be submitted through regular support channels.
 
 ## User flows
@@ -33,8 +33,44 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 | [Sign-up and sign-in](add-sign-up-and-sign-in-policy.md) with username and password.| GA | GA | |
 | [Profile editing flow](add-profile-editing-policy.md) | GA | GA | |
 | [Self-Service password reset](add-password-reset-policy.md) | GA| GA| |
-| [Force password reset](force-password-reset.md) | Preview | NA | |
-| [phone sign-up and sign-in](phone-authentication-user-flows.md) | GA | GA | |
+| [Force password reset](force-password-reset.md) | GA | NA | |
+| [Phone sign-up and sign-in](phone-authentication-user-flows.md) | GA | GA | |
+| [Conditional Access and Identity Protection](conditional-access-user-flow.md) | GA | GA | Not available for SAML applications |
+
+## OAuth 2.0 application authorization flows
+
+The following table summarizes the OAuth 2.0 and OpenId Connect application authentication flows that can be  integrated with Azure AD B2C.
+
+|Feature  |User flow  |Custom policy  |Notes  |
+|---------|:---------:|:---------:|---------|
+[Authorization code](authorization-code-flow.md) | GA | GA | Allows users to sign in to web applications. The web application receives an authorization code. The authorization code is redeemed to acquire a token to call web APIs.|
+[Authorization code with PKCE](authorization-code-flow.md)| GA | GA | Allows users to sign in to mobile and single-page applications. The application receives an authorization code using proof key for code exchange (PKCE). The authorization code is redeemed to acquire a token to call web APIs.  |
+[Client credentials grant](https://tools.ietf.org/html/rfc6749#section-4.4)| GA | GA | Allows access web-hosted resources by using the identity of an application. Commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user.  <br />  <br />  To use this feature in an Azure AD B2C tenant, use the Azure AD endpoint of your Azure AD B2C tenant. For more information, see [OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). This flow doesn't use your Azure AD B2C [user flow or custom policy](user-flow-overview.md) settings. |
+[Device authorization grant](https://tools.ietf.org/html/rfc8628)| NA | NA | Allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer.  |
+[Implicit flow](implicit-flow-single-page-application.md) | GA | GA |  Allows users to sign in to single-page applications. The app gets tokens directly without performing a back-end server credential exchange.|
+[On-behalf-of](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md)| NA | NA | An application invokes a service or web API, which in turn needs to call another service or web API. <br />  <br /> For the middle-tier service to make authenticated requests to the downstream service, pass a *client credential* token in the authorization header. Optionally, you can include a custom header with the Azure AD B2C user's token.  |
+[OpenId Connect](openid-connect.md) | GA | GA | OpenID Connect introduces the concept of an ID token, which is a security token that allows the client to verify the identity of the user. |
+[OpenId Connect hybrid flow](openid-connect.md) | GA | GA | Allows a web application retrieve the ID token on the authorize request along with an authorization code.  |
+[Resource owner password credentials (ROPC)](add-ropc-policy.md) | Preview | Preview | Allows a mobile application to sign in the user by directly handling their password. |
+
+### OAuth 2.0 options
+
+|Feature  |User flow  |Custom policy  |Notes  |
+|---------|:---------:|:---------:|---------|
+| [Redirect sign-in to a social provider](direct-signin.md#redirect-sign-in-to-a-social-provider) | GA | GA | Query string parameter `domain_hint`. |
+| [Prepopulate the sign-in name](direct-signin.md#prepopulate-the-sign-in-name) | GA | GA | Query string parameter `login_hint`. |
+| Insert JSON into user journey via `client_assertion`| NA| Deprecated |  |
+| Insert JSON into user journey as [id_token_hint](id-token-hint.md) | NA | GA | |
+| [Pass identity provider token to the application](idp-pass-through-user-flow.md)| Preview| Preview| For example, from Facebook to app. |
+
+## SAML2 application authentication flows
+
+The following table summarizes the Security Assertion Markup Language (SAML) application authentication flows that can be  integrated with Azure AD B2C.
+
+|Feature  |User flow  |Custom policy  |Notes  |
+|---------|:---------:|:---------:|---------|
+[SP initiated](saml-service-provider.md) | NA | GA | POST and Redirect bindings. |
+[IDP initiated](saml-service-provider-options.md#identity-provider-initiated-flow) | NA | GA | Where the initiating identity provider is Azure AD B2C.  |
 
 ## User experience customization
 
@@ -44,24 +80,13 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 | [Custom email verification](custom-email-mailjet.md) | NA | GA| |
 | [Customize the user interface with built-in templates](customize-ui.md) | GA| GA| |
 | [Customize the user interface with custom templates](customize-ui-with-html.md) | GA| GA| By using HTML templates. |
+| [Page layout version](page-layout.md) | GA | GA | |
 | [JavaScript](javascript-and-page-layout.md) | GA | GA | |
 | [Embedded sign-in experience](embedded-login.md) | NA |  Preview| By using the inline frame element `<iframe>`. |
 | [Password complexity](password-complexity.md) | GA | GA | |
 | [Disable email verification](disable-email-verification.md) | GA|  GA| Not recommended for production environments. Disabling email verification in the sign-up process may lead to spam. |
 
 
-## Protocols and authorization flows
-
-|Feature  |User flow  |Custom policy  |Notes  |
-|---------|:---------:|:---------:|---------|
-|[OAuth2 authorization code](authorization-code-flow.md) | GA | GA |
-|[OAuth2 authorization code with PKCE](authorization-code-flow.md)| GA | GA | Public clients and single-page applications. |
-|[OAuth2 implicit flow](implicit-flow-single-page-application.md) | GA | GA | |
-|[OAuth2 resource owner password credentials](add-ropc-policy.md) | Preview | Preview | |
-|OAuth1 | NA | NA | Not supported. |
-|[OpenId Connect](openid-connect.md) | GA | GA | |
-|[SAML2](saml-service-provider.md) | NA | GA | POST and Redirect bindings. |
-| WSFED | NA | NA | Not supported. |
 
 ## Identity providers
 
@@ -106,16 +131,6 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 |[Secure with client certificate authentication](secure-rest-api.md#https-client-certificate-authentication) | Preview | GA | |
 |[Secure with OAuth2 bearer authentication](secure-rest-api.md#oauth2-bearer-authentication) | NA | GA | |
 |[Secure API key authentication](secure-rest-api.md#api-key-authentication) | NA | GA | |
-
-### Application and Azure AD B2C integration
-
-|Feature  |User flow  |Custom policy  |Notes  |
-|---------|:---------:|:---------:|---------|
-| [Redirect sign-in to a social provider](direct-signin.md#redirect-sign-in-to-a-social-provider) | GA | GA | Query string parameter `domain_hint`. |
-| [Prepopulate the sign-in name](direct-signin.md#prepopulate-the-sign-in-name) | GA | GA | Query string parameter `login_hint`. |
-| Insert JSON into user journey via `client_assertion`| NA| Deprecated |  |
-| Insert JSON into user journey as [id_token_hint](id-token-hint.md) | NA | GA | |
-| [Pass identity provider token to the application](idp-pass-through-user-flow.md)| Preview| Preview| For example, from Facebook to app. |
 
 
 ## Custom policy features

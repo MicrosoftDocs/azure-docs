@@ -1,7 +1,7 @@
 ---
 title:  "Tutorial: Managed identity to invoke Azure Functions"
 description: Use managed identity to invoke Azure Functions from an Azure Spring Cloud app
-author:  MarkGardner
+author: karlerickson
 ms.author: margard
 ms.service: spring-cloud
 ms.topic: tutorial
@@ -35,7 +35,7 @@ az group create --name myResourceGroup --location eastus
 To create a Function app you must first create a backing storage account, use the command [az storage account create](/cli/azure/storage/account#az_storage_account_create):
 
 > [!Important]
-> Each Function app and Storage Account must have a unique name. Replace <your-functionapp-name> with the name of your Function app and <your-storageaccount-name> with the name of your Storage Account in the following examples.
+> Each Function app and Storage Account must have a unique name. Replace *\<your-functionapp-name>* with the name of your Function app and *\<your-storageaccount-name>* with the name of your Storage Account in the following examples.
 
 ```azurecli-interactive
 az storage account create --name <your-storageaccount-name> --resource-group myResourceGroup --location eastus --sku Standard_LRS
@@ -47,7 +47,7 @@ Once the Storage Account has been created, you can create the Function app.
 az functionapp create --name <your-functionapp-name> --resource-group myResourceGroup --consumption-plan-location eastus --os-type windows --runtime node --storage-account <your-storageaccount-name> --functions-version 3
 ```
 
-Make a note of the returned **hostNames**, which will be in the format "https://<your-functionapp-name>.azurewebsites.net". It will be used in a following step.
+Make a note of the returned **hostNames**, which will be in the format *https://\<your-functionapp-name>.azurewebsites.net*. It will be used in a following step.
 
 
 ## Enable Azure Active Directory Authentication

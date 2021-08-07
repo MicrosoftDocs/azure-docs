@@ -32,6 +32,8 @@
   - name: Versioning policy
     href: concepts-version-policy.md
     displayName: version, postgresql
+  - name: Major version upgrades
+    href: how-to-upgrade-using-dump-and-restore.md
   - name: Known issues & limitations
     href: concepts-known-issues-limitations.md
     displayName: issues, limitations, postgresql 
@@ -148,8 +150,8 @@
       - name: Connectivity architecture
         href: concepts-connectivity-architecture.md
         displayName: security, architecture
-      - name: Advanced threat protection
-        href: concepts-data-access-and-security-threat-protection.md
+      - name: Threat protection with Azure Defender
+        href: ../security-center/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
         displayName: security, advanced threat protection
       - name: Azure AD authentication
         href: concepts-aad-authentication.md
@@ -351,11 +353,6 @@
       - name: Troubleshoot data encryption
         href: howto-data-encryption-troubleshoot.md
         displayName: debug, security, encryption
-    - name: Advanced threat protection
-      items:
-      - name: Azure portal
-        href: howto-database-threat-protection-portal.md
-        displayName: advanced thread, security
     - name: Virtual network
       items:
       - name: Azure portal
@@ -408,8 +405,6 @@
       items:
       - name: Azure portal
         href: howto-move-regions-portal.md
-    - name: Major version upgrades
-      href: how-to-upgrade-using-dump-and-restore.md
 - name: Flexible Server (Preview)
   expanded: true
   items:
@@ -419,6 +414,8 @@
     href: flexible-server/overview.md
   - name: Release notes
     href: flexible-server/release-notes.md   
+  - name: Compare Single Server and Flexible Server
+    href: flexible-server/concepts-compare-single-server-flexible-server.md   
   - name: Quickstarts
     expanded: true
     items:
@@ -464,6 +461,10 @@
     - name: Networking
       href: flexible-server/concepts-networking.md
       displayName: virtual networks, vnet, IP address, public access
+    - name: Firewall rules
+      href: flexible-server/concepts-firewall-rules.md
+    - name: Security
+      href: flexible-server/concepts-security.md
     - name: Limits
       href: flexible-server/concepts-limits.md
     - name: Extensions
@@ -471,7 +472,9 @@
     - name: Scheduled maintenance
       href: flexible-server/concepts-maintenance.md
     - name: Connection pooling (PgBouncer)
-      href: flexible-server/concepts-pgbouncer.md      
+      href: flexible-server/concepts-pgbouncer.md   
+    - name: Server parameters
+      href: flexible-server/concepts-server-parameters.md      
     - name: Business continuity
       items:
       - name: Business continuity overview
@@ -531,10 +534,12 @@
           href: flexible-server/how-to-manage-firewall-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-manage-firewall-cli.md
-      - name: TLS/SSL
+      - name: TLS/SSL/SCRAM
         items:
         - name: Connect using TLS/SSL
           href: flexible-server/how-to-connect-tls-ssl.md
+        - name: Connect using SCRAM
+          href: flexible-server/how-to-connect-scram.md          
     - name: Configure server parameters
       items:
       - name: Azure portal
@@ -551,21 +556,29 @@
       items:
       - name: Azure portal
         href: flexible-server/how-to-restart-server-portal.md
+      - name: Azure CLI
+        href: flexible-server/how-to-restart-server-cli.md        
     - name: Restore a server
       items:
       - name: Azure portal
         href: flexible-server/how-to-restore-server-portal.md
+      - name: Azure CLI
+        href: flexible-server/how-to-restore-server-cli.md
     - name: Stop/start a server
       items:
       - name: Azure portal
         href: flexible-server/how-to-stop-start-server-portal.md
+      - name: Azure CLI
+        href: flexible-server/how-to-stop-start-server-cli.md
     - name: Manage high availability
       items:
       - name: Azure portal
         href: flexible-server/how-to-manage-high-availability-portal.md
+      - name: Azure CLI
+        href: flexible-server/how-to-configure-high-availability-cli.md        
     - name: Monitor
       items:
-      - name: Create alerts on metrics
+      - name: Create alerts on metrics using portal
         href: flexible-server/howto-alert-on-metrics.md
       - name: Configure and access logs
         href: flexible-server/howto-configure-and-access-logs.md
@@ -638,6 +651,8 @@
         href: concepts-hyperscale-high-availability.md
     - name: Replication
       href: concepts-hyperscale-read-replicas.md
+    - name: Connection pooling
+      href: concepts-hyperscale-connection-pool.md
     - name: Monitor and tune
       items:
       - name: Monitor and tune
@@ -690,6 +705,8 @@
       items:
       - name: Azure portal
         href: howto-hyperscale-maintenance.md
+    - name: Restart server group
+      href: howto-hyperscale-restart.md
     - name: Monitor
       items:
       - name: Create alerts on metrics
@@ -709,6 +726,9 @@
       - name: Troubleshoot connection errors
         href: howto-hyperscale-troubleshoot-common-connection-issues.md
         displayName: connection errors, hyperscale
+      - name: Troubleshoot read-only access
+        href: howto-hyperscale-troubleshoot-read-only.md
+        displayName: read-only, hyperscale
       - name: Useful diagnostic queries
         href: howto-hyperscale-useful-diagnostic-queries.md
   - name: API Reference

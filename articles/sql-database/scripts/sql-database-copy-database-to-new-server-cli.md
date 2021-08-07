@@ -7,9 +7,9 @@ ms.subservice: data-movement
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: stevestein
-ms.author: sstein
-ms.reviewer: carlrab
+author: rothja
+ms.author: jroth
+ms.reviewer: mathoma
 ms.date: 03/12/2019
 ---
 # Use CLI to copy a database in Azure SQL Database to a new server

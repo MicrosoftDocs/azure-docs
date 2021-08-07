@@ -2,7 +2,7 @@
 title: Azure Resource Logs supported services and schemas
 description: Understand the supported services and event schema for Azure resource logs.
 ms.topic: reference
-ms.date: 04/07/2020
+ms.date: 05/10/2021
 ---
 
 # Common and service-specific schema for Azure Resource Logs
@@ -43,7 +43,7 @@ The schema for resource logs varies depending on the resource and log category. 
 
 | Service | Schema & Docs |
 | --- | --- |
-| Azure Active Directory | [Overview](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Audit log schema](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) and [Sign-ins schema](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [Overview](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Audit log schema](../../active-directory/reports-monitoring/overview-reports.md) and [Sign-ins schema](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | [Azure Analysis Services - Setup diagnostic logging](../../analysis-services/analysis-services-logging.md) |
 | API Management | [API Management Resource Logs](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | App Service | [App Service Logs](../../app-service/troubleshoot-diagnostic-logs.md)
@@ -51,7 +51,8 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Automation |[Log analytics for Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch logging](../../batch/batch-diagnostics.md) |
 | Cognitive Services | [Logging for Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
-| Container Registry | [Logging for Azure Container Registry](../../container-registry/container-registry-diagnostics-audit-logs.md) |
+| Container Instances | [Logging for Azure Container Instances](../../container-instances/container-instances-log-analytics.md#log-schema) |
+| Container Registry | [Logging for Azure Container Registry](../../container-registry/monitor-service.md) |
 | Content Delivery Network | [Azure Logs for CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB Logging](../../cosmos-db/monitor-cosmos-db.md) |
 | Data Factory | [Monitor Data Factories using Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
@@ -61,17 +62,19 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Database for MySQL | [Azure Database for MySQL diagnostic logs](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database for PostgreSQL | [Azure Database for PostgreSQL logs](../../postgresql/concepts-server-logs.md#resource-logs) |
 | Azure Databricks | [Diagnostic logging in Azure Databricks](/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
+| Azure Machine Learning | [Diagnostic logging in Azure Machine Learning](/azure/machine-learning/monitor-resource-reference) |
 | DDoS Protection | [Logging for Azure DDoS Protection Standard](../../ddos-protection/diagnostic-logging.md#log-schemas) |
 | Azure Digital Twins | [Set up Azure Digital Twins Diagnostics](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Event Hubs |[Azure Event Hubs logs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Schema not available. |
-| Azure Firewall | Schema not available. |
+| Azure Firewall | [Logging for Azure Firewall](../../firewall/logs-and-metrics.md#diagnostic-logs) |
 | Front Door | [Logging for Front Door](../../frontdoor/front-door-diagnostics.md) |
 | IoT Hub | [IoT Hub Operations](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | Key Vault |[Azure Key Vault Logging](../../key-vault/general/logging.md) |
-| Kubernetes Service |[Azure Kubernetes Logging](../../aks/view-control-plane-logs.md#log-event-schema) |
-| Load Balancer |[Log analytics for Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
+| Kubernetes Service |[Azure Kubernetes Logging](../../aks/monitor-aks-reference.md#resource-logs) |
+| Load Balancer |[Log analytics for Azure Load Balancer](../../load-balancer/monitor-load-balancer.md) |
 | Logic Apps |[Logic Apps B2B custom tracking schema](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
+| Media Services | [Media services monitoring schemas](../../media-services/latest/monitoring/monitor-media-services-data-reference.md#schemas) |
 | Network Security Groups |[Log analytics for network security groups (NSGs)](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | Power BI Dedicated | [Logging for Power BI Embedded in Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Data Model for Azure Backup](../../backup/backup-azure-reports-data-model.md)|

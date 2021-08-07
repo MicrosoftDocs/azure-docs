@@ -27,7 +27,7 @@ sections:
       - question: |
          What license is required to use Azure AD Application Proxy?
         answer: |
-              To use Azure AD Application Proxy, you must have an Azure AD Premium P1 or P2 license. For more information about licensing, see [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/)
+              To use Azure AD Application Proxy, you must have an Azure AD Premium P1 or P2 license. For more information about licensing, see [Azure Active Directory Pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
           
       - question: |
          What happens to Azure AD Application Proxy in my tenant, if my license expires?
@@ -51,11 +51,11 @@ sections:
               The updater service is healthy if it’s running and there are no errors recorded in the event log (Applications and Services logs -> Microsoft -> AadApplicationProxy -> Updater -> Admin). 
           
               > [!IMPORTANT]
-              > Only major versions are released for auto-upgrade. We recommend updating your connector manually only if it's necessary. For example, you cannot wait for a major release, because you must fix a known problem or you want to use a new feature. For more information on new releases, the type of the release (download, auto-upgrade), bug fixes and new features see, [Azure AD Application Proxy: Version release history](../manage-apps/application-proxy-release-version-history.md).
+              > Only major versions are released for auto-upgrade. We recommend updating your connector manually only if it's necessary. For example, you cannot wait for a major release, because you must fix a known problem or you want to use a new feature. For more information on new releases, the type of the release (download, auto-upgrade), bug fixes and new features see, [Azure AD Application Proxy: Version release history](./application-proxy-release-version-history.md).
           
               To manually upgrade a connector:
           
-              - Download the latest version of the connector. (You will find it under Application Proxy on the Azure Portal. You can also find the link at [Azure AD Application Proxy: Version release history](../manage-apps/application-proxy-release-version-history.md).
+              - Download the latest version of the connector. (You will find it under Application Proxy on the Azure Portal. You can also find the link at [Azure AD Application Proxy: Version release history](./application-proxy-release-version-history.md).
               -	The installer restarts the Azure AD Application Proxy Connector services. In some cases, a reboot of the server might be required if the installer cannot replace all files. Therefore we recommend closing all applications (i.e. Event Viewer) before you start the upgrade.
               -	Run the installer. The upgrade process is quick and does not require providing any credentials and the connector will not be re-registered.
           
@@ -75,7 +75,7 @@ sections:
       - question: |
          My back-end application is hosted on multiple web servers and requires user session persistence (stickiness). How can I achieve session persistence? 
         answer: |
-              For recommendations, see [High availability and load balancing of your Application Proxy connectors and applications](../manage-apps/application-proxy-high-availability-load-balancing.md).
+              For recommendations, see [High availability and load balancing of your Application Proxy connectors and applications](./application-proxy-high-availability-load-balancing.md).
           
       - question: |
          Is TLS termination (TLS/HTTPS inspection or acceleration) on traffic from the connector servers to Azure supported?
@@ -90,7 +90,7 @@ sections:
       - question: |
          Can I place a forward proxy device between the connector server(s) and the back-end application server?
         answer: |
-              Yes, this scenario is supported starting from the connector version 1.5.1526.0. See [Work with existing on-premises proxy servers](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md).
+              Yes, this scenario is supported starting from the connector version 1.5.1526.0. See [Work with existing on-premises proxy servers](./application-proxy-configure-connectors-with-proxy-servers.md).
           
       - question: |
          Should I create a dedicated account to register the connector with Azure AD Application Proxy?
@@ -215,7 +215,7 @@ sections:
       - question: |
          How can I publish Remote Desktop Gateway over Azure AD Application Proxy?
         answer: |
-              Refer to [Publish Remote Desktop with Azure AD Application Proxy](../manage-apps/application-proxy-integrate-with-remote-desktop-services.md).
+              Refer to [Publish Remote Desktop with Azure AD Application Proxy](./application-proxy-integrate-with-remote-desktop-services.md).
           
       - question: |
          Can I use Kerberos Constrained Delegation (Single Sign-On - Windows Integrated Authentication) in the Remote Desktop Gateway publishing scenario?
@@ -230,11 +230,15 @@ sections:
       - question: |
          Is the Remote Desktop Web Client (HTML5) supported?
         answer: |
-              Yes, this scenario is currently in public preview. Refer to [Publish Remote Desktop with Azure AD Application Proxy](../manage-apps/application-proxy-integrate-with-remote-desktop-services.md).
+              Yes, this scenario is currently in public preview. Refer to [Publish Remote Desktop with Azure AD Application Proxy](./application-proxy-integrate-with-remote-desktop-services.md).
           
       - question: |
           After I configured the pre-authentication scenario, I realized that the user has to authenticate twice: first on the Azure AD sign-in form, and then on the RDWeb sign-in form. Is this expected? How can I reduce this to one sign-in?
         answer:     Yes, it's expected. If the user’s computer is Azure AD joined, the user signs in to Azure AD automatically. The user needs to provide their credentials only on the RDWeb sign-in form.
+
+      - question: |
+          Can I use the Resources Launch Method option "Download the rdp file" under Settings on the Remote Desktop Web Client Portal in Azure AD pre-authentication scenario?
+        answer:      This option enables the user to download the rdp file and use it by another RDP client (outside of the Remote Desktop Web Client). Typically, another RDP clients (like the Microsoft Remote Desktop Client) cannot handle the pre-authentication natively. That's why this will not work.
 
       - question: |
          SharePoint publishing
@@ -243,10 +247,10 @@ sections:
       - question: |
          How can I publish SharePoint over Azure AD Application Proxy?
         answer: |
-              Refer to [Enable remote access to SharePoint with Azure AD Application Proxy](../manage-apps/application-proxy-integrate-with-sharepoint-server.md).
+              Refer to [Enable remote access to SharePoint with Azure AD Application Proxy](./application-proxy-integrate-with-sharepoint-server.md).
           
       - question: |
-         Can I use the SharePoint mobile app (iOS/ Android) to access a published SharePoint server?
+         Can I use the SharePoint mobile app (iOS/ Android) to access a published SharePoint Server?
         answer: |
               The [SharePoint mobile app](/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) does not support Azure Active Directory pre-authentication currently.
           
@@ -259,6 +263,11 @@ sections:
         answer: |
               No. Azure AD Application Proxy is designed to work with Azure AD and doesn’t fulfill the requirements to act as an AD FS proxy.
 
+      - question: |
+         Can I use Azure AD Application Proxy to publish any AD FS endpoint (like /adfs/portal/updatepassword/)?
+        answer: |
+              No, this is not supported.
+                       
       - question: |
          WebSocket
         answer: |
@@ -278,7 +287,7 @@ sections:
         answer: |
               Yes. Link translation affects performance. The Application Proxy service scans the application for hardcoded links and replaces them with their respective, published external URLs before presenting them to the user. 
           
-              For best performance, we recommend using identical internal and external URLs by configuring [custom domains](../manage-apps/application-proxy-configure-custom-domain.md). If using custom domains isn't possible, you can improve link translation performance by using the My Apps Secure Sign in Extension or Microsoft Edge Browser on mobile. See [Redirect hardcoded links for apps published with Azure AD Application Proxy](../manage-apps/application-proxy-configure-hard-coded-link-translation.md).
+              For best performance, we recommend using identical internal and external URLs by configuring [custom domains](./application-proxy-configure-custom-domain.md). If using custom domains isn't possible, you can improve link translation performance by using the My Apps Secure Sign in Extension or Microsoft Edge Browser on mobile. See [Redirect hardcoded links for apps published with Azure AD Application Proxy](./application-proxy-configure-hard-coded-link-translation.md).
           
       - question: |
          Wildcards
@@ -294,4 +303,3 @@ sections:
           2. Publish the HTTPS URL through a wildcard application. Publish the HTTP applications separately using these Application Proxy PowerShell cmdlets:
              - [Application Proxy Application Management](/powershell/module/azuread/#application_proxy_application_management&preserve-view=true)
              - [Application Proxy Connector Management](/powershell/module/azuread/#application_proxy_connector_management&preserve-view=true)
-          

@@ -7,9 +7,9 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: tutorial
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, sstein
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 02/13/2019
 ---
 # Tutorial: Configure active geo-replication and failover in the Azure portal (Azure SQL Database)

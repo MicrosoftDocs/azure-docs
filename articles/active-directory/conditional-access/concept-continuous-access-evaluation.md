@@ -47,14 +47,14 @@ Continuous access evaluation is implemented by enabling services, like Exchange 
 - Administrator explicitly revokes all refresh tokens for a user
 - High user risk detected by Azure AD Identity Protection
 
-This process enables the scenario where users lose access to organizational SharePoint Online files, email, calendar, or tasks, and Teams from Microsoft 365 client apps within mins after one of these critical events. 
+This process enables the scenario where users lose access to organizational SharePoint Online files, email, calendar, or tasks, and Teams from Microsoft 365 client apps within minutes after one of these critical events. 
 
 > [!NOTE] 
 > Teams and SharePoint Online does not support user risk events yet.
 
 ### Conditional Access policy evaluation (preview)
 
-Exchange and SharePoint are able to synchronize key Conditional Access policies so they can be evaluated within the service itself.
+Exchange Online, SharePoint Online, Teams, and MS Graph are able to synchronize key Conditional Access policies so they can be evaluated within the service itself.
 
 This process enables the scenario where users lose access to organizational files, email, calendar, or tasks from Microsoft 365 client apps or SharePoint Online immediately after network location changes.
 
@@ -74,6 +74,12 @@ This process enables the scenario where users lose access to organizational file
 | | OneDrive web | OneDrive Win32 | OneDrive iOS | OneDrive Android | OneDrive Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | **SharePoint Online** | Supported | Supported | Supported | Supported | Supported |
+
+| | Teams web | Teams Win32 | Teams iOS | Teams Android | Teams Mac |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Teams Service** | Supported | Supported | Supported | Supported | Supported |
+| **SharePoint Online** | Supported | Supported | Supported | Supported | Supported |
+| **Exchange Online** | Supported | Supported | Supported | Supported | Supported |
 
 ### Client-side claim challenge
 
@@ -134,6 +140,9 @@ From this page, you can optionally limit the users and groups that will be subje
 > [!WARNING]
 > To disable continuous access evaluation please select **Enable preview** then **Disable preview** and select **Save**.
 
+> [!NOTE]
+>You can query the Microsoft Graph via [**continuousAccessEvaluationPolicy**](/graph/api/continuousaccessevaluationpolicy-get?view=graph-rest-beta&tabs=http#request-body) to verify the configuration of CAE in your tenant. An HTTP 200 response and associated response body indicate whether CAE is enabled or disabled in your tenant. CAE is not configured if Microsoft Graph returns an HTTP 404 response.
+
 ![Enabling the CAE preview in the Azure portal](./media/concept-continuous-access-evaluation/enable-cae-preview.png)
 
 ## Troubleshooting
@@ -188,4 +197,6 @@ Sign-in Frequency will be honored with or without CAE.
 
 ## Next steps
 
-[Announcing continuous access evaluation](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933)
+- [Announcing continuous access evaluation](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933)
+- [How to use Continuous Access Evaluation enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md)
+- [Claims challenges, claims requests, and client capabilities](../develop/claims-challenge.md)

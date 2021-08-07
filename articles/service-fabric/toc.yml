@@ -2,18 +2,18 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Service Fabric?
-    href: service-fabric-overview.md
   - name: Service Fabric managed clusters
     href: overview-managed-cluster.md
+  - name: What is Service Fabric?
+    href: service-fabric-overview.md
 - name: Quickstarts
   expanded: true
   items:
+  - name: Managed cluster
+    href: quickstart-managed-cluster-template.md
   - name: ARM template
     displayName: Resource Manager
     href: quickstart-cluster-template.md
-  - name: Managed cluster
-    href: quickstart-managed-cluster-template.md
   - name: Create .NET application
     href: service-fabric-quickstart-dotnet.md
   - name: Deploy a Linux container application
@@ -28,6 +28,16 @@
       href: service-fabric-quickstart-java-reliable-services.md
 - name: Tutorials
   items:
+  - name: Create a Service Fabric managed cluster
+    items:
+    - name: 1- Deploy a Service Fabric managed cluster
+      href: tutorial-managed-cluster-deploy.md
+    - name: 2- Scale out a managed cluster node type
+      href: tutorial-managed-cluster-scale.md
+    - name: 3- Add and remove managed cluster node types
+      href: tutorial-managed-cluster-add-remove-node-type.md
+    - name: 4- Connect to a managed cluster and deploy an application
+      href: tutorial-managed-cluster-deploy-app.md
   - name: Deploy a .NET app
     items:
     - name: 1- Build a .NET application
@@ -68,17 +78,7 @@
       href: service-fabric-tutorial-package-containers.md
     - name: 3- Fail over and scale
       href: service-fabric-tutorial-containers-failover.md
-  - name: Create a Service Fabric managed cluster
-    items:
-    - name: 1- Deploy a Service Fabric managed cluster
-      href: tutorial-managed-cluster-deploy.md
-    - name: 2- Scale out a managed cluster node type
-      href: tutorial-managed-cluster-scale.md
-    - name: 3- Add and remove managed cluster node types
-      href: tutorial-managed-cluster-add-remove-node-type.md
-    - name: 4- Connect to a managed cluster and deploy an application
-      href: tutorial-managed-cluster-deploy-app.md
-  - name: Create and manage a cluster
+  - name: Create a cluster on Azure
     items:
     - name: 1- Create a cluster on Azure
       href: service-fabric-tutorial-create-vnet-and-windows-cluster.md     
@@ -225,6 +225,8 @@
       href: service-fabric-concept-resource-model.md
     - name: Application and service manifests
       href: service-fabric-application-and-service-manifests.md
+    - name: Service Configuration using StartupServices model
+      href: service-fabric-startupservices-model.md
     - name: Application and service manifest examples
       href: service-fabric-manifest-examples.md
       items:
@@ -397,6 +399,32 @@
   
 - name: How-to guides
   items:
+  - name: Use Service Fabric managed clusters
+    items:
+    - name: Configure your managed cluster
+      href: how-to-managed-cluster-configuration.md
+    - name: Add a VM scale set extension to a managed cluster node type
+      href: how-to-managed-cluster-vmss-extension.md
+    - name: Add NSG rules and other managed cluster networking options
+      href: how-to-managed-cluster-networking.md
+    - name: Configure managed cluster Availability Zone spanning
+      href: how-to-managed-cluster-availability-zones.md
+    - name: Enable disk encryption for managed cluster nodes
+      href: how-to-enable-managed-cluster-disk-encryption.md
+    - name: Select managed disk types for managed cluster nodes
+      href: how-to-managed-cluster-managed-disk.md
+    - name: Configure managed cluster upgrade options
+      href: how-to-managed-cluster-upgrades.md  
+    - name: Deploy managed cluster application secrets
+      href: how-to-managed-cluster-application-secrets.md
+    - name: Deploy managed cluster applications using ARM template
+      href: how-to-managed-cluster-app-deployment-template.md
+    - name: Deploy managed cluster applications with managed identity
+      href: how-to-managed-cluster-application-managed-identity.md
+    - name: Deploy stateless-only node types to a managed cluster 
+      href: how-to-managed-cluster-stateless-node-type.md 
+    - name: Use managed identity for managed cluster nodes
+      href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
   - name: Set up your development environment
     items:
     - name: Windows
@@ -443,20 +471,6 @@
           href: service-fabric-develop-csharp-applications-with-vs-code.md
         - name: Develop Java Service Fabric applications with VS Code
           href: service-fabric-develop-java-applications-with-vs-code.md
-  - name: Use Service Fabric managed clusters
-    items:
-    - name: Add a virtual machine scale set extension to a managed cluster node type
-      href: how-to-managed-cluster-vmss-extension.md
-    - name: Configure your managed cluster
-      href: how-to-managed-cluster-configuration.md
-    - name: Add NSG rules and other managed cluster networking options
-      href: how-to-managed-cluster-networking.md
-    - name: Deploy managed cluster applications using ARM template
-      href: how-to-managed-cluster-app-deployment-template.md
-    - name: Enable disk encryption for managed cluster nodes
-      href: how-to-enable-managed-cluster-disk-encryption.md
-    - name: Use managed identity for managed cluster nodes
-      href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
   - name: Plan and prepare
     items:
     - name: Plan cluster capacity
@@ -467,7 +481,7 @@
       href: service-fabric-disaster-recovery.md
     - name: Plan application capacity
       href: service-fabric-capacity-planning.md
-  - name: Create and manage clusters
+  - name: Create and maintain clusters
     items:
     - name: Clusters on Azure
       items:
@@ -510,7 +524,10 @@
         - name: Upgrade cluster configuration
           href: service-fabric-cluster-config-upgrade-azure.md
         - name: Patch cluster nodes (Windows)
-          href: service-fabric-patch-orchestration-application.md
+          href: how-to-patch-cluster-nodes-windows.md
+          items:
+          - name: Use Patch Orchestration Application (POA)
+            href: service-fabric-patch-orchestration-application.md
         - name: Enable disk encryption (Windows)
           href: service-fabric-enable-azure-disk-encryption-windows.md
         - name: Enable disk encryption (Linux)
@@ -552,7 +569,7 @@
         - name: Set access control
           href: service-fabric-cluster-security-roles.md         
         - name: Patch cluster nodes (Windows)
-          href: service-fabric-patch-orchestration-application.md
+          href: how-to-patch-cluster-nodes-windows.md
     - name: Visualize using Service Fabric Explorer
       href: service-fabric-visualizing-your-cluster.md
     - name: Connect to a secure cluster
@@ -812,6 +829,10 @@
       href: how-to-managed-identity-service-fabric-app-code.md
     - name: Grant access to other Azure resources
       href: how-to-grant-access-other-resources.md
+  - name: Migrate your cluster to a new region
+    items:
+    - name: How to move your Azure Service Fabric cluster to a new region
+      href: service-fabric-cluster-region-move.md
   - name: Migrate from Cloud Services
     items:
     - name: Compare Cloud Services with Service Fabric
@@ -848,29 +869,6 @@
       href: service-fabric-sfctl-container.md
     - name: sfctl is
       href: service-fabric-sfctl-is.md
-    - name: sfctl mesh
-      href: service-fabric-sfctl-mesh.md
-      items:
-      - name: sfctl mesh app  
-        href: service-fabric-sfctl-mesh-app.md
-      - name: sfctl mesh code-package-log  
-        href: service-fabric-sfctl-mesh-code-package-log.md
-      - name: sfctl mesh deployment  
-        href: service-fabric-sfctl-mesh-deployment.md
-      - name: sfctl mesh gateway  
-        href: service-fabric-sfctl-mesh-gateway.md
-      - name: sfctl mesh network  
-        href: service-fabric-sfctl-mesh-network.md
-      - name: sfctl mesh secret  
-        href: service-fabric-sfctl-mesh-secret.md
-      - name: sfctl mesh secretvalue  
-        href: service-fabric-sfctl-mesh-secretvalue.md
-      - name: sfctl mesh service  
-        href: service-fabric-sfctl-mesh-service.md
-      - name: sfctl mesh service-replica  
-        href: service-fabric-sfctl-mesh-service-replica.md
-      - name: sfctl mesh volume  
-        href: service-fabric-sfctl-mesh-volume.md
     - name: sfctl node
       href: service-fabric-sfctl-node.md
     - name: sfctl partition
@@ -924,12 +922,12 @@
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Service Fabric managed clusters FAQ
+    href: faq-managed-cluster.yml
   - name: Common questions
     href: service-fabric-common-questions.md
-  - name: Service Fabric managed clusters common questions
-    href: faq-managed-cluster.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-service-fabric.html
   - name: Azure Resource Manager Deployment Guardrails
@@ -942,13 +940,11 @@
     href: release-notes.md
   - name: Sample code
     href: /samples/browse/?products=azure
-  - name: Support options
-    href: service-fabric-support.md
   - name: Service Fabric versions
     href: service-fabric-versions.md
   - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=service-fabric
-  - name: Troubleshooting guides
-    href: https://github.com/Azure/Service-Fabric-Troubleshooting-Guides
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
+- name: Support and troubleshooting
+  href: service-fabric-support.md 

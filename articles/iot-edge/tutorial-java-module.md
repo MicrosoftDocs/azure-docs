@@ -51,7 +51,7 @@ Before beginning this tutorial, you should have gone through the previous tutori
 To develop an IoT Edge module in Java, install the following additional prerequisites on your development machine:
 
 * [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) for Visual Studio Code.
-* [Java SE Development Kit 11](/azure/developer/java/fundamentals/java-jdk-long-term-support), and [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
+* [Java SE Development Kit 11](/azure/developer/java/fundamentals/java-support-on-azure), and [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
 * [Maven](https://maven.apache.org/)
 
    >[!TIP]
@@ -99,6 +99,9 @@ The IoT Edge extension tries to pull your container registry credentials from Az
 1. In the VS Code explorer, open the .env file.
 2. Update the fields with the **username** and **password** values that you copied from your Azure container registry.
 3. Save this file.
+
+>[!NOTE]
+>This tutorial uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
 
 ### Select your target architecture
 

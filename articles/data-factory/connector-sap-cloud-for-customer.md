@@ -1,11 +1,13 @@
 ---
 title: Copy data from/to SAP Cloud for Customer
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from SAP Cloud for Customer to supported sink data stores (or) from supported source data stores to SAP Cloud for Customer by using Data Factory.
-ms.author: jingwang
 author: linda33wj
+ms.author: jingwang
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 03/17/2021
 ---
 
@@ -31,7 +33,7 @@ Specifically, this connector enables Azure Data Factory to copy data from/to SAP
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to SAP Cloud for Customer connector.
 

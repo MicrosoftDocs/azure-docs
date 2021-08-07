@@ -9,19 +9,22 @@ ms.date: 04/09/2021
 ms.author: cshoe
 ---
 
-# Authentication and authorization for Azure Static Web Apps Preview
+# Authentication and authorization for Azure Static Web Apps
 
-Azure Static Web Apps streamlines the authentication experience by managing authentication with the following providers:
+Azure Static Web Apps provides a streamlined authentication experience. By default, you have access to a series of pre-configured providers, or the option to [register a custom provider](./authentication-custom.md).
 
-- Azure Active Directory
-- GitHub
-- Twitter
+- Any user can authenticate with an enabled provider.
+- Once logged in, users belong to the `anonymous` and `authenticated` roles by default.
+- Authorized users gain access to restricted [routes](configuration.md#routes) by rules defined in the [staticwebapp.config.json file](./configuration.md).
+- Users join custom roles via provider-specific [invitations](#invitations), or through a [custom Azure Active Directory provider registration](./authentication-custom.md).
+- All authentication providers are enabled by default.
+  - To restrict an authentication provider, [block access](#block-an-authorization-provider) with a custom route rule.
+- Pre-configured providers include:
+  - Azure Active Directory
+  - GitHub
+  - Twitter
 
-Provider-specific [invitations](#invitations) associate users with roles, and authorized users are granted access to [routes](configuration.md#routes) by rules defined in the _staticwebapp.config.json_ file.
-
-All authentication providers are enabled by default. To restrict an authentication provider, [block access](#block-an-authorization-provider) with a custom route rule.
-
-The topics of authentication and authorization significantly overlap with routing concepts. Make sure to read the [configuration guide](configuration.md#routes) along with this article.
+The subjects of authentication and authorization significantly overlap with routing concepts, which are detailed in the [application configuration guide](configuration.md#routes).
 
 ## Roles
 
@@ -36,7 +39,10 @@ Beyond the built-in roles, you can create new roles, assign them to users via in
 
 ### Add a user to a role
 
-To add users to your web site, you generate invitations which allow you to associate users to specific roles. Roles are defined and maintained in the _staticwebapp.config.json_ file.
+To add a user to a role, you generate invitations that allow you to associate users to specific roles. Roles are defined and maintained in the _staticwebapp.config.json_ file.
+
+> [!NOTE]
+> You may choose to [register a custom Azure Active Directory provider](./authentication-custom.md) to avoid issuing invitations for group management.
 
 <a name="invitations" id="invitations"></a>
 
@@ -96,9 +102,9 @@ As you remove a user, keep in mind the following items:
 
 ## Remove personal identifying information
 
-When you grant consent to an application as an end-user, the application has access to your email address or your username depending on the identity provider. Once this information is provided, the owner of the application decides how to manage personally identifying information.
+When you grant consent to an application as an end user, the application has access to your email address or your username depending on the identity provider. Once this information is provided, the owner of the application decides how to manage personally identifying information.
 
-End-users need to contact administrators of individual web apps to revoke this information from their systems.
+End users need to contact administrators of individual web apps to revoke this information from their systems.
 
 To remove personally identifying information from the Azure Static Web Apps platform, and prevent the platform from providing this information on future requests, submit a request using the URL:
 
@@ -112,13 +118,15 @@ To prevent the platform from providing this information on future requests to in
 https://<WEB_APP_DOMAIN_NAME>/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 ```
 
+Note that if you are using Azure Active Directory, use `aad` as the value for the `<AUTHENTICATION_PROVIDER_NAME>` placeholder.
+
 ## System folder
 
 Azure Static Web Apps uses the `/.auth` system folder to provide access to authorization-related APIs. Rather than exposing any of the routes under the `/.auth` folder directly to end users, consider creating [routing rules](configuration.md#routes) to create friendly URLs.
 
 ## Login
 
-Use the following table to find the provider-specific login route.
+Use the following table to find the provider-specific route.
 
 | Authorization provider | Login route             |
 | ---------------------- | ----------------------- |
@@ -126,7 +134,7 @@ Use the following table to find the provider-specific login route.
 | GitHub                 | `/.auth/login/github`   |
 | Twitter                | `/.auth/login/twitter`  |
 
-For example, to login with GitHub you could include a login link like the following snippet:
+For example, to log in with GitHub you could include a link like the following snippet:
 
 ```html
 <a href="/.auth/login/github">Login</a>

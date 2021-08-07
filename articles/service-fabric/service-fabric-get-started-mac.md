@@ -20,15 +20,15 @@ ms.custom: devx-track-js
 You can build Azure Service Fabric applications to run on Linux clusters by using Mac OS X. This document covers how to set up your Mac for development.
 
 ## Prerequisites
-Azure Service Fabric doesn't run natively on Mac OS X. To run a local Service Fabric cluster, a pre-configured Docker container image is provided. Before you get started, you need:
+Azure Service Fabric doesn't run natively on Mac OS X. To run a local Service Fabric cluster, a pre-configured Docker container image is provided. Before you get started, you'll need:
 
-* At least 4 GB of RAM.
-* The latest version of [Docker](https://www.docker.com/).
+* The system requirements for installing [Docker Desktop on Mac](https://docs.docker.com/docker-for-mac/install/)
+
+* To [install and run Docker Desktop on Mac](https://docs.docker.com/docker-for-mac/install/#install-and-run-docker-desktop-on-mac)
 
 >[!TIP]
 >
->To install Docker on your Mac, follow the steps in the [Docker documentation](https://docs.docker.com/docker-for-mac/install/#what-to-know-before-you-install). After installing, [verify your installation](https://docs.docker.com/docker-for-mac/#check-versions-of-docker-engine-compose-and-machine).
->
+>To install Docker on your Mac, follow the steps in the [Docker documentation](https://docs.docker.com/docker-for-mac/install/#what-to-know-before-you-install). After installing, you can use Docker Desktop to set preferences including [resource limits](https://docs.docker.com/docker-for-mac) and [disk utilization](https://docs.docker.com/docker-for-mac/space/).
 
 ## Create a local container and set up Service Fabric
 To set up a local Docker container and have a Service Fabric cluster running on it, perform the following steps:

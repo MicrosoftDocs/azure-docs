@@ -12,14 +12,12 @@
   - name: What's new
     href: whats-new.md
   - name: LUIS FAQ
-    href: troubleshooting.md
+    href: troubleshooting.yml
     displayName: Troubleshooting, import
 - name: LUIS quickstarts
   items:
   - name: Use the LUIS portal
     href: luis-get-started-create-app.md
-  - name: Use browser
-    href: luis-get-started-get-intent-from-browser.md
   - name: Use the client libraries and REST API
     href: client-libraries-rest-api.md
 - name: Samples
@@ -82,18 +80,14 @@
     href: luis-get-started-get-intent-from-browser.md
   - name: Migrate
     items:
-    - name: Overview
-      href: migration.md
-    - name: Migrate from composite entity
-      href: migrate-from-composite-entity.md
-    - name: Migrate to authoring resource
-      href: luis-migration-authoring.md
-    - name: Migrate to V3 API
-      href: luis-migration-api-v3.md
     - name: Migrate to V3 Authoring APIs
       href: luis-migration-authoring-entities.md
     - name: Migrate to V3 Prediction APIs
       href: luis-migration-api-v3.md
+    - name: Migrate from composite entity
+      href: migrate-from-composite-entity.md
+    - name: Migrate to authoring resource
+      href: luis-migration-authoring.md
     - name: Migrate to V2 API
       href: luis-migration-api-v1-to-v2.md
   - name: Manage app
@@ -171,10 +165,6 @@
     items:
     - name: Review endpoint utterances
       href: luis-concept-review-endpoint-utterances.md
-  - name: Test
-    items:
-    - name: Interactive testing
-      href: luis-concept-test.md
   - name: Data management
     items:
     - name: Data collection
@@ -196,14 +186,12 @@
     displayName: import
   - name: Applying DevOps practices with LUIS
     items:
-    - name: Use DevOps
-      href: luis-how-to-devops-with-github.md
+    - name: Continuous Integration and Continuous Delivery (CI/CD) workflows
+      href: luis-concept-devops-automation.md 
     - name: Source control and branch strategies for LUIS
       href: luis-concept-devops-sourcecontrol.md
     - name: Testing for DevOps
       href: luis-concept-devops-testing.md
-    - name: CI/CD workflows
-      href: luis-concept-devops-automation.md 
 - name: Tutorials
   items:
   - name: Build decomposable app
@@ -356,8 +344,6 @@
       items:
       - name: Machine-learning entity
         href: reference-entity-machine-learned-entity.md
-      - name: Composite entity
-        href: reference-entity-composite.md
       - name: List entity
         href: reference-entity-list.md
       - name: Pattern.any entity

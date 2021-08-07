@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp
 
 Here are the settings that you can configure:
 - C#:
-[FabricTransportRemotingSettings](/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
+[FabricTransportRemotingSettings](/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
 - Java: [FabricTransportRemotingSettings](/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
 
 You can modify the default configuration of FabricTransport in following ways.

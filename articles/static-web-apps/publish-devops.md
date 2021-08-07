@@ -17,20 +17,21 @@ This article demonstrates how to deploy to [Azure Static Web Apps](./overview.md
 In this tutorial, you learn to:
 
 - Set up an Azure Static Web Apps site
-- Create an Azure DevOps Pipeline to build and publish a static web app
+- Create an Azure Pipeline to build and publish a static web app
 
 ## Prerequisites
 
 - **Active Azure account:** If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
-- **Azure DevOps Project:** If you don't have one, you can [create a project for free](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/).
-- **Azure DevOps Pipeline:** If you need help getting started, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops).
+- **Azure DevOps project:** If you don't have one, you can [create a project for free](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/).
+  - Azure DevOps includes **Azure Pipelines**. If you need help getting started with Azure Pipelines, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops).
+  - The Static Web App Pipeline Task currently only works on **Linux** machines. When running the pipeline mentioned below, please ensure it is running on a Linux VM.
 
-## Create a static web app in an Azure DevOps repository
+## Create a static web app in an Azure DevOps
 
   > [!NOTE]
   > If you have an existing app in your repository, you may skip to the next section.
 
-1. Navigate to your Azure DevOps repository.
+1. Navigate to your repository in Azure Repos.
 
 1. Select **Import** to begin importing a sample application.
   
@@ -48,11 +49,11 @@ In this tutorial, you learn to:
 
 1. Search for **Static Web Apps**.
 
-1. Select **Static Web Apps (Preview)**.
+1. Select **Static Web Apps**.
 
 1. Select **Create**.
 
-1. Under _Deployment details_ ensure that you select **Other**. This enables you to use the code in your Azure DevOps repository.
+1. Under _Deployment details_ ensure that you select **Other**. This enables you to use the code inside Azure Repos.
 
     :::image type="content" source="media/publish-devops/create-resource.png" alt-text="Deployment details - other":::
 
@@ -69,7 +70,7 @@ In this tutorial, you learn to:
 
 ## Create the Pipeline Task in Azure DevOps
 
-1. Navigate to the Azure DevOps repository that was created earlier.
+1. Navigate to the repository in Azure Repos that was created earlier.
 
 1. Select **Set up build**.
 
@@ -83,7 +84,7 @@ In this tutorial, you learn to:
 
     ```yaml
     trigger:
-    - main
+      - main
 
     pool:
       vmImage: ubuntu-latest
@@ -96,7 +97,6 @@ In this tutorial, you learn to:
           app_location: '/'
           api_location: 'api'
           output_location: ''
-        env:
           azure_static_web_apps_api_token: $(deployment_token)
     ```
 

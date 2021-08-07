@@ -6,7 +6,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/18/2021
+ms.date: 05/18/2021
 ms.author: duau
 ---
 
@@ -58,17 +58,20 @@ Azure Front Door supports HTTP, HTTPS and HTTP/2.
 
 HTTP/2 protocol support is available to clients connecting to Azure Front Door only. The communication to backends in the backend pool is over HTTP/1.1. HTTP/2 support is enabled by default.
 
-### What resources are supported today as part of origin group?
+### What resources are supported today as part of an origin group?
 
-Origin group can be composed of Storage, Web App, Kubernetes instances, or any other custom hostname that has public connectivity. Azure Front Door requires that the origins are defined either via a public IP or a publicly resolvable DNS hostname. Members of origin group can be across zones, regions, or even outside of Azure as long as they have public connectivity.
+Origin groups can be composed of two types of origins:
+
+- Public origins include storage accounts, App Service apps, Kubernetes instances, or any other custom hostname that has public connectivity. These origins must be defined either via a public IP address or a publicly resolvable DNS hostname. Members of origin groups can be deployed across availability zones, regions, or even outside of Azure as long as they have public connectivity. Public origins are supported for Azure Front Door Standard and Premium tiers.
+- [Private Link origins](concept-private-link.md) are available when you use Azure Front Door (Premium).
 
 ### What regions is the service available in?
 
-Azure Front Door is a global service and isn't tied to any specific Azure region. The only location you need to specify while creating a Front Door is for the resource group. That location is basically specifying where the metadata for the resource group will be stored. Front Door resource itself is created as a global resource and the configuration is deployed globally to all the POPs (Point of Presence). 
+Azure Front Door is a global service and isn't tied to any specific Azure region. The only location you need to specify while creating a Front Door is for the resource group. That location is basically specifying where the metadata for the resource group will be stored. Front Door resource itself is created as a global resource and the configuration is deployed globally to all edge locations. 
 
-### What are the POP locations for Azure Front Door?
+### Where are the edge locations for Azure Front Door?
 
-Azure Front Door has the same list of POP (Point of Presence) locations as Azure CDN from Microsoft. For the complete list of our POPs, kindly refer [Azure CDN POP locations from Microsoft](../../cdn/cdn-pop-locations.md).
+For the complete list of Azure Front Door edge locations, see [Azure Front Door edge locations](edge-locations.md).
 
 ### Is Azure Front Door a dedicated deployment for my application or is it shared across customers?
 
@@ -133,9 +136,10 @@ Yes, Azure Front Door supports the X-Forwarded-For, X-Forwarded-Host, and X-Forw
 
 ### How long does it take to deploy an Azure Front Door? Does my Front Door still work when being updated?
 
-A new Front Door creation or any updates to an existing Front Door takes about 3 to 5 minutes for global deployment. That means in about 3 to 5 minutes, your Front Door configuration will be deployed across all of our POPs globally.
+Most Rules Engine configuration updates complete under 20 minutes. You can expect the rule to take effect as soon as the update is completed. 
 
-Note - Custom TLS/SSL certificate updates take about 30 minutes to be deployed globally.
+ > [!Note]  
+  > Most custom TLS/SSL certificate updates take about 30 minutes to be deployed globally.
 
 Any updates to routes or backend pools are seamless and will cause zero downtime (if the new configuration is correct). Certificate updates won't cause any outage, unless you're switching from 'Azure Front Door Managed' to 'Use your own cert' or the other way around.
 
@@ -144,7 +148,9 @@ Any updates to routes or backend pools are seamless and will cause zero downtime
 
 ### Can Azure Front Door load balance or route traffic within a virtual network?
 
-Azure Front Door (AFD) requires a public IP or a publicly resolvable DNS name to route traffic. Azure Front Door can't route directly to resources in a virtual network. You can use an Application Gateway or an Azure Load Balancer with a public IP to solve this problem.
+Azure Front Door (Standard) requires a public IP or a publicly resolvable DNS name to route traffic. Azure Front Door can't route directly to resources in a virtual network. You can use an Application Gateway or an Azure Load Balancer with a public IP to solve this problem.
+
+Azure Front Door (Premium) supports routing traffic to [Private Link origins](concept-private-link.md).
 
 ### What are the various timeouts and limits for Azure Front Door?
 
@@ -152,7 +158,7 @@ Learn about all the documented [timeouts and limits for Azure Front Door](../../
 
 ### How long does it take for a rule to take effect after being added to the Front Door Rules Engine?
 
-The Rules Engine configuration takes about 10 to 15 minutes to complete an update. You can expect the rule to take effect as soon as the update is completed. 
+Most rules engine configuration updates complete under 20 minutes. You can expect the rule to take effect as soon as the update is completed. 
 
 ### Can I configure Azure CDN behind my Front Door profile or Front Door behind my Azure CDN?
 
@@ -244,7 +250,7 @@ For having successful HTTPS connections to your backend whether for health probe
 
 * **Certificate subject name mismatch**: For HTTPS connections, Front Door expects that your backend presents certificate from a valid CA with subject name(s) matching the backend hostname. As an example, if your backend hostname is set to `myapp-centralus.contosonews.net` and the certificate that your backend presents during the TLS handshake doesn't have `myapp-centralus.contosonews.net` or `*myapp-centralus*.contosonews.net` in the subject name. Then Front Door will refuse the connection and result in an error. 
     * **Solution**: It isn't recommended from a compliance standpoint but you can work around this error by disabling the certificate subject name check for your Front Door. You can find this option under Settings in Azure portal and under BackendPoolsSettings in the API.
-* **Backend hosting certificate from invalid CA**: Only certificates from [valid Certificate Authorities](troubleshoot-allowed-certificate-authority.md) can be used at the backend with Front Door. Certificates from internal CAs or self-signed certificates aren't allowed.
+* **Backend hosting certificate from invalid CA**: Only certificates from [valid Certificate Authorities](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT) can be used at the backend with Front Door. Certificates from internal CAs or self-signed certificates aren't allowed.
 
 ### Can I use client/mutual authentication with Azure Front Door?
 
@@ -267,6 +273,12 @@ Audit logs are available for Azure Front Door. In the portal, select **Activity 
 ### Can I set alerts with Azure Front Door?
 
 Yes, Azure Front Door does support alerts. Alerts are configured on metrics. 
+
+## Billing
+
+### Will I be billed for the Azure Front Door resources that are disabled?
+
+Azure Front Door resources, like Front Door profiles, are not billed if disabled.
 
 ## Next steps
 

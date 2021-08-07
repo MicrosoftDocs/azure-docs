@@ -66,7 +66,7 @@ This tutorial uses a GitHub template repository to help you create your applicat
 5. Return to the [Azure portal](https://portal.azure.com)
 6. Click **Create a resource**
 7. Type **static web apps** in the search box
-8. Select **Static Web App (preview)**
+8. Select **Static Web App**
 9. Click **Create**
 10. Configure your Azure Static Web App with the following information
     - Subscription: Choose the same subscription as before

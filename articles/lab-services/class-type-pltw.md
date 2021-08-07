@@ -43,7 +43,7 @@ ms.date: 10/28/2020
 
 - **Computer Science A**
 
-    Students expand their programming competence in this class by learning mobile app development.  In this class, they learn [Java](https://www.java.com/) by using the [Microsoft Visual Studio Code development environment](https://code.visualstudio.com/).  Students also use an emulator that allows them to run and test their mobile app code.  For information about how to set up an emulator in Azure Lab Services, [contact Azure Lab Services](mailto:AzLabsCOVIDSupport@microsoft.com).
+    Students expand their programming competence in this class by learning mobile app development.  In this class, they learn [Java](https://www.java.com/) by using the [Microsoft Visual Studio Code development environment](https://code.visualstudio.com/).  Students also use an emulator that allows them to run and test their mobile app code.  For information about how to set up an emulator in Azure Lab Services, contact us via the [Azure Lab Services' forums](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices) for more information.
 
 For a full list of class software, go to the [PLTW site](https://www.pltw.org/pltw-software) for each class.
 
@@ -95,7 +95,7 @@ For more information, see [Set up a license server as a shared resource](./how-t
 ### Template machine
 Some of the installation files that you need for PLTW are large. When you download the files to a lab template VM, they might take a long time to copy.
 
-Instead of downloading installation files to the template machine and installing everything there, we recommend creating your PLTW images in your physical environment.  You can then import the custom images into Shared Image Gallery so that you can use them to create your labs.  For more information, see [Upload a custom image to Shared Image Gallery](./upload-custom-image-shared-image-gallery.md).
+Instead of downloading installation files to the template machine and installing everything there, we recommend creating your PLTW images in your physical environment.  You can then import the custom images into a shared image gallery so that you can use them to create your labs.  For more information, see [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md).
 
 As you follow this recommendation, note the major tasks for setting up a lab:
 
@@ -117,6 +117,9 @@ As you follow this recommendation, note the major tasks for setting up a lab:
 1.  After the lab is created, start and connect to the template VM to validate that the image works as expected.
 
 1.  Finally, publish the template VM to create the students’ VMs.
+
+> [!NOTE]
+> If your school needs to perform content filtering, such as for compliance with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), you will need to use 3rd party software.  For more information, read guidance on [content filtering with Lab Services](./administrator-guide.md#content-filtering).
 
 ## Student devices
 Students can connect to their lab VMs from Windows computers, Mac, and Chromebook. For instructions, see:

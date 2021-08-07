@@ -2,7 +2,7 @@
 title: Compare Azure Storage queues and Service Bus queues
 description: Analyzes differences and similarities between two types of queues offered by Azure.
 ms.topic: article
-ms.date: 04/12/2021
+ms.date: 06/15/2021
 ---
 
 # Storage queues and Service Bus queues - compared and contrasted
@@ -95,7 +95,7 @@ This section compares advanced capabilities provided by Storage queues and Servi
 | Poison message support |**Yes** |**Yes** |
 | In-place update |**Yes** |**Yes** |
 | Server-side transaction log |**Yes** |**No** |
-| Storage metrics |**Yes**<br/><br/>**Minute Metrics** provides real-time metrics for availability, TPS, API call counts, error counts, and more. They're all in real time, aggregated per minute and reported within a few minutes from what just happened in production. For more information, see [About Storage Analytics Metrics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Yes**<br/><br/>For information about metrics supported by Azure Service Bus, see [Message metrics](service-bus-metrics-azure-monitor.md#message-metrics). |
+| Storage metrics |**Yes**<br/><br/>**Minute Metrics** provides real-time metrics for availability, TPS, API call counts, error counts, and more. They're all in real time, aggregated per minute and reported within a few minutes from what just happened in production. For more information, see [About Storage Analytics Metrics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Yes**<br/><br/>For information about metrics supported by Azure Service Bus, see [Message metrics](monitor-service-bus-reference.md#message-metrics). |
 | State management |**No** |**Yes** (Active, Disabled, SendDisabled, ReceiveDisabled. For details on these states, see [Queue status](entity-suspend.md#queue-status)) |
 | Message autoforwarding |**No** |**Yes** |
 | Purge queue function |**Yes** |**No** |
@@ -198,9 +198,6 @@ The following articles provide more guidance and information about using Storage
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [How to Use the Queue Storage Service](../storage/queues/storage-dotnet-how-to-use-queues.md)
 * [Best practices for performance improvements using Service Bus brokered messaging](service-bus-performance-improvements.md)
-* [Introducing Queues and Topics in Azure Service Bus (blog post)](https://www.serverless360.com/blog/azure-service-bus-queues-vs-topics)
-* [The Developer's Guide to Service Bus](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
-* [Using the Queuing Service in Azure](https://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 
 [Azure portal]: https://portal.azure.com
 

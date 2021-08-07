@@ -1,5 +1,5 @@
 ﻿---
-title: Quickstart - Set & retrieve a secret from Key Vault using PowerShell"
+title: Quickstart - Set & retrieve a secret from Key Vault using PowerShell
 description: In this quickstart, learn how to create, retrieve, and delete secrets from an Azure Key Vault using Azure PowerShell.
 services: key-vault
 author: msmbaldwin
@@ -67,14 +67,7 @@ $secret = Set-AzKeyVaultSecret -VaultName "<your-unique-keyvault-name>" -Name "E
 To view the value contained in the secret as plain text:
 
 ```azurepowershell-interactive
-$secret = Get-AzKeyVaultSecret -VaultName "<your-unique-keyvault-name>" -Name "ExamplePassword"
-$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
-try {
-   $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
-} finally {
-   [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
-}
-Write-Output $secretValueText
+$secret = Get-AzKeyVaultSecret -VaultName "<your-unique-keyvault-name>" -Name "ExamplePassword" -AsPlainText
 ```
 
 Now, you have created a Key Vault, stored a secret, and retrieved it.

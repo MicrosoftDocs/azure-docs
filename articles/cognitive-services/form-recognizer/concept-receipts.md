@@ -1,40 +1,62 @@
 ---
 title: Receipts - Form Recognizer
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Learn concepts related to receipt analysis with the Form Recognizer API - usage and limits.
 services: cognitive-services
 author: laujan
 manager: nitinme
 
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/30/2021
+ms.date: 07/01/2021
 ms.author: lajanuar
 ---
 
 # Form Recognizer prebuilt receipt model
 
-Azure Form Recognizer can analyze and extract information from sales receipts using its prebuilt receipt model. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/overview-ocr.md) capabilities with deep learning models to extract key information from receipts written in English.
-
-## Understanding Receipts
-
 Many businesses and individuals still rely on manually extracted data from sales receipts. Automatically extracting data from these receipts can be complicated. Receipts may be crumpled, hard to read, have handwritten parts and contain low-quality smartphone images. Also, receipt templates and fields can vary greatly by market, region, and merchant. These data extraction and field detection challenges make receipt processing a unique problem.
 
-The Receipt API uses Optical Character Recognition (OCR) and our prebuilt model to enable vast receipt processing scenarios. With Receipt API there is no need to train a model. Send the receipt image to the Analyze Receipt API and the data is extracted.
+Azure Form Recognizer can analyze and extract information from sales receipts using its prebuilt receipt model. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/overview-ocr.md) capabilities with deep learning models to extract key information such as merchant name, merchant phone number, transaction date, transaction total, and more from receipts written in English.
 
-![sample receipt](./media/receipts-example.jpg)
+## Customer scenarios
 
+### Business expense reporting
+
+Often filing business expenses involves spending time manually entering data from images of receipts. With the Receipt API, you can use the extracted fields to partially automate this process and analyze your receipts quickly.
+
+The Receipt API is a simple JSON output allowing you to use the extracted field values in multiple ways. Integrate with internal expense applications to pre-populate expense reports. For more on this scenario, read about how Acumatica is utilizing Receipt API to [make expense reporting a less painful process](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure).
+
+### Auditing and accounting
+
+The Receipt API output can also be used to perform analysis on a large number of expenses at various points in the expense reporting and reimbursement process. You can process receipts to triage them for manual audit or quick approvals.
+
+The Receipt output is also useful for general book-keeping for business or personal use. Use the Receipt API to transform any raw receipt image/PDF data into a digital output that is actionable.
+
+### Consumer behavior
+
+Receipts contain useful data which you can use to analyze consumer behavior and shopping trends.
+
+The Receipt API also powers the [AI Builder Receipt Processing feature](/ai-builder/prebuilt-receipt-processing).
+
+## Try it out
+
+To try out the Form Recognizer receipt service, go to the online Sample UI Tool:
+
+> [!div class="nextstepaction"]
+> [Try Prebuilt Models](https://aka.ms/fott-2.1-ga "Start with  prebuilt model to extract data from receipts.")
 
 ## What does the Receipt service do?
 
 The prebuilt Receipt service extracts the contents of sales receipts&mdash;the type of receipt you would commonly get at a restaurant, retailer, or grocery store.
 
+![sample receipt](./media/receipts-example.jpg)
+
 ### Fields extracted
 
 |Name| Type | Description | Text | Value (standardized output) |
 |:-----|:----|:----|:----| :----|
-| ReceiptType | string | Type of sales receipt | Itemized |  |
+| ReceiptType | string | Type of sales receipt |  | Itemized |
 | MerchantName | string | Name of the merchant issuing the receipt | Contoso |  |
 | MerchantPhoneNumber | phoneNumber | Listed phone number of merchant | 987-654-3210 | +19876543210 |
 | MerchantAddress | string | Listed address of merchant | 123 Main St Redmond WA 98052 |  |
@@ -46,7 +68,7 @@ The prebuilt Receipt service extracts the contents of sales receipts&mdash;the t
 | Tip | number | Tip included by buyer | $1.00 | 1.00 |
 | Items | array of objects | Extracted line items, with name, quantity, unit price, and total price extracted | |
 | Name | string | Item name | Surface Pro 6 | |
-| Quantity | number | Quantity of each item | 1 | |
+| Quantity | number | Quantity of each item | 1 | 1 |
 | Price | number | Individual price of each item unit | $999.00 | 999.00 |
 | Total Price | number | Total price of line item | $999.00 | 999.00 |
 
@@ -58,44 +80,30 @@ The Receipt API also returns the following information:
 * OCR raw text (OCR-extracted text output for the entire receipt)
 * Bounding box for each value, line and word
 
-## Try it out
-
-To try out the Form Recognizer receipt service, go to the online Sample UI Tool:
-
-> [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://fott-preview.azurewebsites.net/)
-
 ## Input requirements
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## Supported locales
 
-* **Pre-built receipt v2.0** (GA) supports sales receipts in the **en-us** locale
-* **Pre-built receipt v2.1-preview.3** (Public Preview) adds additional support for the following English receipt locales:
-
-* **en-au**
-* **en-ca**
-* **en-gb**
-* **en-in**
+* **Pre-built receipt v2.1** supports sales receipts in the **en-au**, **en-ca**, **en-gb**, **en-in**, and **en-us** English locales
 
   > [!NOTE]
   > Language input
   >
-  > Prebuilt Receipt v2.1-preview.3 has an optional request parameter to specify a receipt locale from additional English markets. For sales receipts in English from Australia (EN-AU), Canada (EN-CA), Great Britain (EN-GB), and India (EN-IN), you can specify the locale to get improved results. If no locale is specified in v2.1-preview.3, the model will default to the EN-US model.
+  > Prebuilt Receipt v2.1 has an optional request parameter to specify a receipt locale from additional English markets. For sales receipts in English from Australia (en-au), Canada (en-ca), Great Britain (en-gb), and India (en-in), you can specify the locale to get improved results. If no locale is specified in v2.1, the model will automatically detect the locale.
 
+## Analyze Receipt
 
-## The Analyze Receipt operation
-
-The [Analyze Receipt](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeReceiptAsync) takes an image or PDF of a receipt as the input and extracts the values of interest and text. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
+The [Analyze Receipt](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync) takes an image or PDF of a receipt as the input and extracts the values of interest and text. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
 
 |Response header| Result URL |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/analyzeResults/56a36454-fc4d-4354-aa07-880cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1/prebuilt/receipt/analyzeResults/56a36454-fc4d-4354-aa07-880cfbf0064f` |
 
-## The Get Analyze Receipt Result operation
+## Get Analyze Receipt Result
 
-The second step is to call the [Get Analyze Receipt Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeReceiptResult) operation. This operation takes as input the Result ID that was created by the Analyze Receipt operation. It returns a JSON response that contains a **status** field with the following possible values. You call this operation iteratively until it returns with the **succeeded** value. Use an interval of 3 to 5 seconds to avoid exceeding the requests per second (RPS) rate.
+The second step is to call the [Get Analyze Receipt Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeReceiptResult) operation. This operation takes as input the Result ID that was created by the Analyze Receipt operation. It returns a JSON response that contains a **status** field with the following possible values. You call this operation iteratively until it returns with the **succeeded** value. Use an interval of 3 to 5 seconds to avoid exceeding the requests per second (RPS) rate.
 
 |Field| Type | Possible values |
 |:-----|:----:|:----|
@@ -110,10 +118,9 @@ When the **status** field has the **succeeded** value, the JSON response will in
 
 ### Sample JSON output
 
-
 The response to the Get Analyze Receipt Result operation will be the structured representation of the receipt with all the information extracted.  See here for a [sample receipt file](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg) and its structured output [sample receipt output](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json).
 
-See the following example of a successful JSON response:
+See the following example of a successful JSON response (the output has been shortened for simplicity):
 * The `"readResults"` node contains all of the recognized text. Text is organized by page, then by line, then by individual words.
 * The `"documentResults"` node contains the business-card-specific values that the model discovered. This is where you'll find useful key/value pairs like the first name, last name, company name and more.
 
@@ -442,37 +449,7 @@ See the following example of a successful JSON response:
 }
 ```
 
-## Customer scenarios
-
-The data extracted with the Receipt API can be used to perform a variety of tasks. Below are a few examples of what customers have accomplished with the Receipt API.
-
-### Business expense reporting
-
-Often filing business expenses involves spending time manually entering data from images of receipts. With the Receipt API, you can use the extracted fields to partially automate this process and analyze your receipts quickly.
-
-The Receipt API is a simple JSON output allowing you to use the extracted field values in multiple ways. Integrate with internal expense applications to pre-populate expense reports. For more on this scenario, read about how Acumatica is utilizing Receipt API to [make expense reporting a less painful process](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure).
-
-### Auditing and accounting
-
-The Receipt API output can also be used to perform analysis on a large number of expenses at various points in the expense reporting and reimbursement process. You can process receipts to triage them for manual audit or quick approvals.
-
-The Receipt output is also useful for general book-keeping for business or personal use. Use the Receipt API to transform any raw receipt image/PDF data into a digital output that is actionable.
-
-### Consumer behavior
-
-Receipts contain useful data which you can use to analyze consumer behavior and shopping trends.
-
-The Receipt API also powers the [AI Builder Receipt Processing feature](/ai-builder/prebuilt-receipt-processing).
-
 ## Next steps
 
- .Get started writing a receipt processing app with Form Recognizer in the development language of your choice.
-
-> [!div class="nextstepaction"]
-> [Complete a Form Recognizer quickstart](quickstarts/client-library.md)
-
-## See also
-
-* [What is Form Recognizer?](overview.md)
-* [Form Recognizer API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeReceiptAsync)
->
+* Try your own receipts and samples in the [Form Recognizer Sample UI](https://fott-preview.azurewebsites.net/).
+* Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started writing a receipt processing app with Form Recognizer in the development language of your choice.

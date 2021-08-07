@@ -1,12 +1,12 @@
 ---
 title: Azure Cosmos DB Gremlin support and compatibility with TinkerPop features
 description: Learn about the Gremlin language from Apache TinkerPop. Learn which features and steps are available in Azure Cosmos DB and the TinkerPop Graph engine compatibility differences.
-author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 11/11/2020
-ms.author: sngun
+ms.date: 07/06/2021
+author: manishmsfte
+ms.author: mansha
 ---
 
 # Azure Cosmos DB Gremlin graph support and compatibility with TinkerPop features
@@ -97,6 +97,12 @@ The properties used by the JSON format for vertices are described below:
 | `_partition` | The partition key of the vertex. Used for [graph partitioning](graph-partitioning.md). |
 | `outE` | This property contains a list of out edges from a vertex. Storing the adjacency information with vertex allows for fast execution of traversals. Edges are grouped based on their labels. |
 
+Each property can store multiple values within an array.
+
+| Property | Description |
+| --- | --- |
+| `value` | The value of the property |
+
 And the edge contains the following information to help with navigation to other parts of the graph.
 
 | Property | Description |
@@ -104,13 +110,7 @@ And the edge contains the following information to help with navigation to other
 | `id` | The ID for the edge. Must be unique (in combination with the value of `_partition` if applicable) |
 | `label` | The label of the edge. This property is optional, and used to describe the relationship type. |
 | `inV` | This property contains a list of in vertices for an edge. Storing the adjacency information with the edge allows for fast execution of traversals. Vertices are grouped based on their labels. |
-| `properties` | Bag of user-defined properties associated with the edge. Each property can have multiple values. |
-
-Each property can store multiple values within an array. 
-
-| Property | Description |
-| --- | --- |
-| `value` | The value of the property
+| `properties` | Bag of user-defined properties associated with the edge. |
 
 ## Gremlin steps
 

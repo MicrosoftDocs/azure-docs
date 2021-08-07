@@ -1,6 +1,6 @@
 ---
-title: Use preview JavaScript azure/service-bus with topics and subscriptions
-description: Learn how to write a JavaScript program that uses the latest preview version of @azure/service-bus package to send messages to a Service Bus topic and receive messages from a subscription to the topic.
+title: Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (JavaScript)
+description: Learn how to write a JavaScript program that uses the latest version of @azure/service-bus package to send messages to a Service Bus topic and receive messages from a subscription to the topic.
 author: spelluru
 ms.author: spelluru
 ms.date: 11/09/2020
@@ -11,7 +11,7 @@ ms.custom:
   - mode-api
 ---
 
-# Quickstart: Service Bus topics and subscriptions with Node.js and the preview azure/service-bus package
+# Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (JavaScript)
 In this tutorial, you learn how to use the [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package in a JavaScript program to send messages to a Service Bus topic and receive messages from a Service Bus subscription to that topic.
 
 ## Prerequisites
@@ -203,6 +203,7 @@ On this page, if you select a subscription, you get to the **Service Bus Subscri
 ## Next steps
 See the following documentation and samples: 
 
-- [Azure Service Bus client library for Python](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
-- [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). The **javascript** folder has JavaScript samples and the **typescript** has TypeScript samples. 
-- [azure-servicebus reference documentation](/javascript/api/overview/azure/service-bus)
+- [Azure Service Bus client library for JavaScript](https://www.npmjs.com/package/@azure/service-bus)
+- [JavaScript samples](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [TypeScript samples](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [API reference documentation](/javascript/api/overview/azure/service-bus)

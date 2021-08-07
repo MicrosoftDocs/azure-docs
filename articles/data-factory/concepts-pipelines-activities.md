@@ -1,28 +1,31 @@
 ---
-title: Pipelines and activities in Azure Data Factory 
-description: 'Learn about pipelines and activities in Azure Data Factory.'
+title: Pipelines and activities
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn about pipelines and activities in Azure Data Factory and Azure Synapse Analytics.
 author: dcstwh
 ms.author: weetok
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 06/19/2021
 ---
 
-# Pipelines and activities in Azure Data Factory
+# Pipelines and activities in Azure Data Factory and Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 > * [Version 1](v1/data-factory-create-pipelines.md)
 > * [Current version](concepts-pipelines-activities.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article helps you understand pipelines and activities in Azure Data Factory and use them to construct end-to-end data-driven workflows for your data movement and data processing scenarios.
+This article helps you understand pipelines and activities in Azure Data Factory and Azure Synapse Analytics and use them to construct end-to-end data-driven workflows for your data movement and data processing scenarios.
 
 ## Overview
-A data factory can have one or more pipelines. A pipeline is a logical grouping of activities that together perform a task. For example, a pipeline could contain a set of activities that ingest and clean log data, and then kick off a mapping data flow to analyze the log data. The pipeline allows you to manage the activities as a set instead of each one individually. You deploy and schedule the pipeline instead of the activities independently.
+A Data Factory or Synapse Workspace can have one or more pipelines. A pipeline is a logical grouping of activities that together perform a task. For example, a pipeline could contain a set of activities that ingest and clean log data, and then kick off a mapping data flow to analyze the log data. The pipeline allows you to manage the activities as a set instead of each one individually. You deploy and schedule the pipeline instead of the activities independently.
 
 The activities in a pipeline define actions to perform on your data. For example, you may use a copy activity to copy data from SQL Server to an Azure Blob Storage. Then, use a data flow activity or a Databricks Notebook activity to process and transform data from the blob storage to an Azure Synapse Analytics pool on top of which business intelligence reporting solutions are built.
 
-Data Factory has three groupings of activities: [data movement activities](copy-activity-overview.md), [data transformation activities](transform-data.md), and [control activities](#control-flow-activities). An activity can take zero or more input [datasets](concepts-datasets-linked-services.md) and produce one or more output [datasets](concepts-datasets-linked-services.md). The following diagram shows the relationship between pipeline, activity, and dataset in Data Factory:
+Azure Data Factory and Azure Synapse Analytics have three groupings of activities: [data movement activities](copy-activity-overview.md), [data transformation activities](transform-data.md), and [control activities](#control-flow-activities). An activity can take zero or more input [datasets](concepts-datasets-linked-services.md) and produce one or more output [datasets](concepts-datasets-linked-services.md). The following diagram shows the relationship between pipeline, activity, and dataset:
 
 ![Relationship between dataset, activity, and pipeline](media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png)
 
@@ -32,12 +35,12 @@ An input dataset represents the input for an activity in the pipeline, and an ou
 
 Copy Activity in Data Factory copies data from a source data store to a sink data store. Data Factory supports the data stores listed in the table in this section. Data from any source can be written to any sink. Click a data store to learn how to copy data to and from that store.
 
-[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores.md)]
+[!INCLUDE [data-factory-v2-supported-data-stores](includes/data-factory-v2-supported-data-stores.md)]
 
 For more information, see [Copy Activity - Overview](copy-activity-overview.md) article.
 
 ## Data transformation activities
-Azure Data Factory supports the following transformation activities that can be added to pipelines either individually or chained with another activity.
+Azure Data Factory and Azure Synapse Analytics support the following transformation activities that can be added either individually or chained with another activity.
 
 Data transformation activity | Compute environment
 ---------------------------- | -------------------
@@ -64,17 +67,17 @@ The following control flow activities are supported:
 Control activity | Description
 ---------------- | -----------
 [Append Variable](control-flow-append-variable-activity.md) | Add a value to an existing array variable.
-[Execute Pipeline](control-flow-execute-pipeline-activity.md) | Execute Pipeline activity allows a Data Factory pipeline to invoke another pipeline.
+[Execute Pipeline](control-flow-execute-pipeline-activity.md) | Execute Pipeline activity allows a Data Factory or Synapse pipeline to invoke another pipeline.
 [Filter](control-flow-filter-activity.md) | Apply a filter expression to an input array
 [For Each](control-flow-for-each-activity.md) | ForEach Activity defines a repeating control flow in your pipeline. This activity is used to iterate over a collection and executes specified activities in a loop. The loop implementation of this activity is similar to the Foreach looping structure in programming languages.
-[Get Metadata](control-flow-get-metadata-activity.md) | GetMetadata activity can be used to retrieve metadata of any data in Azure Data Factory.
+[Get Metadata](control-flow-get-metadata-activity.md) | GetMetadata activity can be used to retrieve metadata of any data in a Data Factory or Synapse pipeline.
 [If Condition Activity](control-flow-if-condition-activity.md) | The If Condition can be used to branch based on condition that evaluates to true or false. The If Condition activity provides the same functionality that an if statement provides in programming languages. It evaluates a set of activities when the condition evaluates to `true` and another set of activities when the condition evaluates to `false.`
 [Lookup Activity](control-flow-lookup-activity.md) | Lookup Activity can be used to read or look up a record/ table name/ value from any external source. This output can further be referenced by succeeding activities.
 [Set Variable](control-flow-set-variable-activity.md) | Set the value of an existing variable.
-[Until Activity](control-flow-until-activity.md) | Implements Do-Until loop that is similar to Do-Until looping structure in programming languages. It executes a set of activities in a loop until the condition associated with the activity evaluates to true. You can specify a timeout value for the until activity in Data Factory.
+[Until Activity](control-flow-until-activity.md) | Implements Do-Until loop that is similar to Do-Until looping structure in programming languages. It executes a set of activities in a loop until the condition associated with the activity evaluates to true. You can specify a timeout value for the until activity.
 [Validation Activity](control-flow-validation-activity.md) | Ensure a pipeline only continues execution if a reference dataset exists, meets a specified criteria, or a timeout has been reached.
 [Wait Activity](control-flow-wait-activity.md) | When you use a Wait activity in a pipeline, the pipeline waits for the specified time before continuing with execution of subsequent activities.
-[Web Activity](control-flow-web-activity.md) | Web Activity can be used to call a custom REST endpoint from a Data Factory pipeline. You can pass datasets and linked services to be consumed and accessed by the activity.
+[Web Activity](control-flow-web-activity.md) | Web Activity can be used to call a custom REST endpoint from a pipeline. You can pass datasets and linked services to be consumed and accessed by the activity.
 [Webhook Activity](control-flow-webhook-activity.md) | Using the webhook activity, call an endpoint, and pass a callback URL. The pipeline run waits for the callback to be invoked before proceeding to the next activity.
 
 ## Pipeline JSON
@@ -306,7 +309,7 @@ Note the following points:
 - Input for the activity is set to **InputDataset** and output for the activity is set to **OutputDataset**. See [Datasets](concepts-datasets-linked-services.md) article for defining datasets in JSON.
 - In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type. In the [data movement activities](#data-movement-activities) section, click the data store that you want to use as a source or a sink to learn more about moving data to/from that data store.
 
-For a complete walkthrough of creating this pipeline, see [Quickstart: create a data factory](quickstart-create-data-factory-powershell.md).
+For a complete walkthrough of creating this pipeline, see [Quickstart: create a Data Factory](quickstart-create-data-factory-powershell.md).
 
 ## Sample transformation pipeline
 In the following sample pipeline, there is one activity of type **HDInsightHive** in the **activities** section. In this sample, the [HDInsight Hive activity](transform-data-using-hadoop-hive.md) transforms data from an Azure Blob storage by running a Hive script file on an Azure HDInsight Hadoop cluster.
@@ -398,3 +401,6 @@ See the following tutorials for step-by-step instructions for creating pipelines
 
 - [Build a pipeline with a copy activity](quickstart-create-data-factory-powershell.md)
 - [Build a pipeline with a data transformation activity](tutorial-transform-data-spark-powershell.md)
+
+How to achieve CI/CD (continuous integration and delivery) using Azure Data Factory
+- [Continuous integration and delivery in Azure Data Factory](continuous-integration-deployment.md)

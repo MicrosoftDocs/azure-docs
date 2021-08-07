@@ -24,11 +24,11 @@ This article explains how to use the Copy Activity in Azure Data Factory to move
 ## Supported scenarios
 You can copy data **from a SQL Server database** to the following data stores:
 
-[!INCLUDE [data-factory-supported-sink](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sink](includes/data-factory-supported-sinks.md)]
 
 You can copy data from the following data stores **to a SQL Server database**:
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 ## Supported SQL Server versions
 This SQL Server connector support copying data from/to the following versions of instance hosted on-premises or in Azure IaaS using both SQL authentication and Windows authentication: SQL Server 2016, SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008, SQL Server 2005

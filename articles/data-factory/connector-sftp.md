@@ -1,11 +1,13 @@
 ---
 title: Copy data from and to SFTP server
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from and to SFTP server by using Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 03/17/2021
 ---
 
@@ -34,11 +36,11 @@ Specifically, the SFTP connector supports:
 
 ## Prerequisites
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to SFTP.
 
@@ -205,7 +207,7 @@ To use multi-factor authentication which is a combination of basic and SSH publi
 
 For a full list of sections and properties that are available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for SFTP under `location` settings in the format-based dataset:
 
@@ -247,7 +249,7 @@ For a full list of sections and properties that are available for defining activ
 
 ### SFTP as source
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for SFTP under the `storeSettings` settings in the format-based Copy source:
 
@@ -311,7 +313,7 @@ The following properties are supported for SFTP under the `storeSettings` settin
 
 ### SFTP as a sink
 
-[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)]
+[!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)]
 
 The following properties are supported for SFTP under `storeSettings` settings in a format-based Copy sink:
 

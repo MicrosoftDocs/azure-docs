@@ -98,6 +98,8 @@
     href: ingress-controller-overview.md
   - name: Health monitoring
     items:
+    - name: Monitor Azure Application Gateway
+      href: monitor-application-gateway.md
     - name: Health probe
       href: application-gateway-probe-overview.md
     - name: Diagnostic logs and backend health
@@ -282,6 +284,10 @@
     href: migrate-v1-v2.md
 - name: Reference
   items:
+  - name: Common Key Vault errors
+    href: application-gateway-key-vault-common-errors.md
+  - name: Monitoring data
+    href: monitor-application-gateway-reference.md
   - name: Ingress for AKS annotations
     href: ingress-controller-annotations.md
   - name: Azure CLI
@@ -308,7 +314,7 @@
   items:
   - name: Author templates
     displayName: ARM
-    href: ../azure-resource-manager/templates/template-syntax.md
+    href: ../azure-resource-manager/templates/syntax.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Community templates

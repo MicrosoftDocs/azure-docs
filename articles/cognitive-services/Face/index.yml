@@ -31,45 +31,47 @@ landingContent:
           - text: What's new in Face service?
             url: releasenotes.md
 
-  - title: Detect faces
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Face detection
-            url: concepts/face-detection.md
-      - linkListType: quickstart
-        links:
-          - text: Using the .NET SDK
-            url: quickstarts/client-libraries.md?pivots=programming-language-csharp
-          - text: Using the Python SDK
-            url: quickstarts/client-libraries.md?pivots=programming-language-python
-          - text: Using the Go SDK
-            url: quickstarts/client-libraries.md?pivots=programming-language-go
-      - linkListType: how-to-guide
-        links:
-          - text: Specify a face detection model
-            url: Face-API-How-to-Topics/specify-detection-model.md
+  
 
-  - title: Recognize faces
+  - title: Face recognition
     linkLists:
       - linkListType: concept
         links:
-          - text: Face recognition
+          - text: Identity verification
             url: concepts/face-recognition.md
       - linkListType: quickstart
         links:
-          - text: Using the .NET SDK
+          - text: Identify faces using a client library SDK or REST API
             url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp
-          - text: Using the Python SDK
-            url: ./quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python
-          - text: Using the Go SDK
-            url: ./quickstarts/client-libraries.md?pivots=programming-language-go%253fpivots%253dprogramming-language-go
       - linkListType: how-to-guide
         links:
-          - text: Specify a face recognition model
+          - text: Add faces to a group
+            url: Face-API-How-to-Topics/how-to-add-faces.md
+          - text: Use the large-scale feature
+            url: Face-API-How-to-Topics/how-to-use-large-scale.md
+          - text: Use the PersonDirectory structure
+            url: Face-API-How-to-Topics/use-persondirectory.md
+          - text: Specify a face recognition model version
             url: Face-API-How-to-Topics/specify-recognition-model.md
 
-  - title: Use face rectangles
+  - title: Detection and analysis
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Face detection and attributes
+            url: concepts/face-detection.md
+      - linkListType: quickstart
+        links:
+          - text: Detect faces using a client library SDK or REST API
+            url: quickstarts/client-libraries.md?pivots=programming-language-csharp
+      - linkListType: how-to-guide
+        links:
+          - text: Detect and analyze faces
+            url: Face-API-How-to-Topics/howtodetectfacesinimage.md
+          - text: Specify a face detection model version
+            url: Face-API-How-to-Topics/specify-detection-model.md
+
+  - title: Face rectangles
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -77,21 +79,6 @@ landingContent:
             url: Face-API-How-to-Topics/howtodetectfacesinimage.md
           - text: Use the HeadPose attribute
             url: Face-API-How-to-Topics/how-to-use-headpose.md
-      
-  - title: Use containers
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Install and run containers
-            url: face-how-to-install-containers.md
-      - linkListType: how-to-guide
-        links:
-          - text: Configure containers
-            url: face-resource-container-config.md
-      - linkListType: deploy
-        links:
-          - text: Use container instances
-            url: ../containers/azure-container-instance-recipe.md
   
   - title: Reference
     linkLists:
@@ -100,13 +87,13 @@ landingContent:
           - text: REST API
             url: /rest/api/face/
           - text: .NET SDK
-            url: /dotnet/api/overview/azure/cognitiveservices/client/faceapi
+            url: /dotnet/api/overview/azure/cognitiveservices/face-readme
           - text: Python SDK
-            url: /python/api/azure-cognitiveservices-vision-face/
+            url: /python/api/overview/azure/cognitiveservices/face-readme
           - text: Java SDK
             url: /java/api/overview/azure/cognitiveservices/client/faceapi
           - text: Node.js SDK
-            url: /javascript/api/@azure/cognitiveservices-face
+            url: /javascript/api/overview/azure/cognitive-services/face-readme
           - text: Go SDK
             url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
           - text: Azure PowerShell

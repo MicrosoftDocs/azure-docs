@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 04/08/2021
+ms.date: 07/08/2021
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -166,6 +166,7 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | availabilitySets | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
+> | cloudservices | resource group | 1-15 <br><br>See note below. | Can't use space or these characters:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Can't start with underscore. Can't end with period or hyphen. |
 > | diskEncryptionSets | resource group | 1-80 | Alphanumerics and underscores. |
 > | disks | resource group | 1-80 | Alphanumerics, underscores, and hyphens. |
 > | galleries | resource group | 1-80 | Alphanumerics and periods.<br><br>Start and end with alphanumeric. |
@@ -187,6 +188,13 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | communicationServices | global | 1-63 | Alphanumerics, hyphens, and underscores. |
+
+## Microsoft.Consumption
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | budgets | subscription or resource group | 1-63 | Alphanumerics, hyphens, and underscores. |
 
 ## Microsoft.ContainerInstance
 
@@ -256,7 +264,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | workspaces | resource group | 3-30 | Alphanumerics, underscores, and hyphens |
+> | workspaces | resource group | 3-64 | Alphanumerics, underscores, and hyphens |
 
 ## Microsoft.DataFactory
 
@@ -400,7 +408,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | actionGroups | resource group | 1-260 | Can't use:<br>`/&%\?` <br><br>Can't end with space or period.  |
+> | actionGroups | resource group | 1-260 | Can't use:<br>`:<>+/&%\?` <br><br>Can't end with space or period.  |
 > | components | resource group | 1-260 | Can't use:<br>`%&\?/` <br><br>Can't end with space or period.  |
 > | scheduledQueryRules | resource group | 1-260 | Can't use:<br>`*<>%{}&:\\?/#` <br><br>Can't end with space or period.  |
 > | metricAlerts | resource group | 1-260 | Can't use:<br>`*#&+:<>?@%{}\/` <br><br>Can't end with space or period.  |

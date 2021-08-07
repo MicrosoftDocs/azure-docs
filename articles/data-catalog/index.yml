@@ -30,7 +30,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Frequently asked questions
-            url: data-catalog-frequently-asked-questions.md
+            url: data-catalog-frequently-asked-questions.yml
   # Card
   - title: Register data assets
     linkLists:

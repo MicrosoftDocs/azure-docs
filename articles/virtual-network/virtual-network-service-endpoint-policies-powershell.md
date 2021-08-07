@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
-ms.custom:
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage data exfiltration to Azure Storage accounts with Virtual network service endpoint policies using Azure PowerShell

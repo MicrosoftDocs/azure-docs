@@ -12,7 +12,7 @@ ms.date: 02/14/2021
 > This article describes how to use older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users, though still in limited use until **31 May 2021**. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
 >
 
-You can use webhooks to route an Azure alert notification to other systems for post-processing or custom actions. You can use a webhook on an alert to route it to services that send SMS messages, to log bugs, to notify a team via chat or messaging services, or for various other actions. 
+You can use webhooks to route an Azure alert notification to other systems for post-processing or custom actions. You can use a webhook on an alert to route it to services that send SMS messages, to log bugs, to notify a team via chat or messaging services, or for various other actions.
 
 This article describes how to set a webhook on an Azure metric alert. It also shows you what the payload for the HTTP POST to a webhook looks like. For information about the setup and schema for an Azure activity log alert (alert on events), see [Call a webhook on an Azure activity log alert](../alerts/alerts-log-webhook.md).
 
@@ -99,6 +99,6 @@ The POST operation contains the following JSON payload and schema for all metric
 ## Next steps
 * Learn more about Azure alerts and webhooks in the video [Integrate Azure alerts with PagerDuty](https://go.microsoft.com/fwlink/?LinkId=627080).
 * Learn how to [execute Azure Automation scripts (runbooks) on Azure alerts](https://go.microsoft.com/fwlink/?LinkId=627081).
-* Learn how to [use a logic app to send an SMS message via Twilio from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
-* Learn how to [use a logic app to send a Slack message from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
-* Learn how to [use a logic app to send a message to an Azure queue from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).
+* Learn how to [use a logic app to send an SMS message via Twilio from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-text-message-with-logic-app).
+* Learn how to [use a logic app to send a Slack message from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-slack-with-logic-app).
+* Learn how to [use a logic app to send a message to an Azure Queue from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-queue-with-logic-app).

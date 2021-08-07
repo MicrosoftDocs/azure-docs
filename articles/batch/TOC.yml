@@ -114,6 +114,8 @@
       href: private-connectivity.md
     - name: Configure customer-managed keys
       href: batch-customer-managed-key.md
+    - name: Move between regions
+      href: account-move.md
   - name: Authenticate with Azure AD
     items:
     - name: Azure AD with Batch service
@@ -149,6 +151,9 @@
       href: batch-sig-images.md
     - name: Create a pool with a managed image resource
       href: batch-custom-images.md
+    - name: Create a pool across Availability Zones
+      displayName: region, zonal policy
+      href: create-pool-availability-zones.md
     - name: Create a pool with disk encryption enabled
       href: disk-encryption.md
     - name: Create a pool in a virtual network
@@ -160,6 +165,8 @@
     - name: Create a pool without public IP addresses
       displayName: private
       href: batch-pool-no-public-ip-address.md
+    - name: Use extensions with pools
+      href: create-pool-extensions.md
     - name: Configure managed identities
       displayName: user-assigned
       href: managed-identity-pools.md

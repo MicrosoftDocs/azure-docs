@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: maintenance-control
 ms.date: 04/26/2021
 ms.reviewer: jushiman
-ms.custom: mimckitt
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 

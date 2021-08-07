@@ -6,9 +6,9 @@ ms.author: khwei
 ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: trusted-launch
-ms.topic: how-to 
+ms.topic: how-to
 ms.date: 04/06/2021
-ms.custom: template-how-to 
+ms.custom: template-how-to
 ---
 
 # Deploy a VM with trusted launch enabled (preview)
@@ -17,7 +17,7 @@ ms.custom: template-how-to
 
 > [!IMPORTANT]
 > Trusted launch is currently in public preview.
-> 
+>
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 >
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -27,9 +27,9 @@ ms.custom: template-how-to
 Create a virtual machine with trusted launch enabled.
 
 1. Sign in to the Azure [portal](https://aka.ms/TL_preview).
-   > [!NOTE] 
+   > [!NOTE]
    > The Portal link is unique to trusted launch preview.
-   >  
+   >
 2. Search for **Virtual Machines**.
 3. Under **Services**, select **Virtual machines**.
 4. In the **Virtual machines** page, select **Add**, and then select **Virtual machine**.
@@ -43,7 +43,7 @@ Create a virtual machine with trusted launch enabled.
     :::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Screenshot showing the message confirming that this is a gen2 image that supports trusted launch.":::
 
 13.	Select a VM size that supports trusted launch. See the list of [supported sizes](trusted-launch.md#public-preview-limitations).
-14.	Fill in the **Administrator account** information and then **Inbound port rules**. 
+14.	Fill in the **Administrator account** information and then **Inbound port rules**.
 1. Switch over to the **Advanced** tab by selecting it at the top of the page.
 1. Scroll down to the **VM generation** section. Make sure **Gen 2** is selected.
 1. While still on the **Advanced** tab, scroll down to **Trusted launch**, and then select the **Trusted launch** checkbox. This will make two more options appear - Secure boot and vTPM. Select the appropriate options for your deployment.
@@ -56,23 +56,23 @@ Create a virtual machine with trusted launch enabled.
     :::image type="content" source="media/trusted-launch/validation.png" alt-text="Sceenshot of the validation page, showing the trusted launch options are included.":::
 
 
-It will take a few minutes for your VM to be deployed. 
+It will take a few minutes for your VM to be deployed.
 
 ## Deploy using a template
 
 You can deploy trusted launch VMs using a quickstart template:
 
-**Linux**:    
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2FcreateUiDefinition.json)
+**Linux**:
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-linux%2FcreateUiDefinition.json)
 
-**Windows**:    
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2FcreateUiDefinition.json)
+**Windows**:
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2FcreateUiDefinition.json)
 
 ## View and update
 
 You can view the trusted launch configuration for an existing VM by visiting the **Overview** page for the VM in the portal.
 
-To change the trusted launch configuration, in the left menu, select **Configuration** under the **Settings** section. You can enable or disable Secure Boot and vTPM from the **Trusted Launch** section. Select **Save** at the top of the page when you are done. 
+To change the trusted launch configuration, in the left menu, select **Configuration** under the **Settings** section. You can enable or disable Secure Boot and vTPM from the **Trusted Launch** section. Select **Save** at the top of the page when you are done.
 
 :::image type="content" source="media/trusted-launch/configuration.png" alt-text="Screenshot of how to change the trusted launch configuration.":::
 
@@ -82,24 +82,24 @@ If the VM is running, you will receive a message  that the VM will be restarted 
 ## Verify secure boot and vTPM
 
 You can validate that secure boot and vTPM are enabled on the virtual machine.
-	
+
 ### Linux: validate if secure boot is running
 
-SSH to the VM and then run the following command: 
+SSH to the VM and then run the following command:
 
 ```bash
 mokutil --sb-state
 ```
 
 If secure boot is enable, the command will return:
- 
+
 ```bash
-SecureBoot enabled 
+SecureBoot enabled
 ```
 
 ### Linux: validate if vTPM is enabled
 
-SSH into your VM. Check if tpm0 device is present: 
+SSH into your VM. Check if tpm0 device is present:
 
 ```bash
 ls /dev/tpm0
@@ -125,7 +125,7 @@ In the right pane, check that the Secure Boot State is **ON**.
 
 ## Enable the Azure Security Center experience
 
-To enable Azure Security Center to display information about your trusted launch VMs, you need to enable several policies. The easiest way to enable the policies is by deploying this [Resource Manager template](https://github.com/prash200/azure-quickstart-templates/tree/master/101-asc-trustedlaunch-policies) to your subscription. 
+To enable Azure Security Center to display information about your trusted launch VMs, you need to enable several policies. The easiest way to enable the policies is by deploying this [Resource Manager template](https://github.com/prash200/azure-quickstart-templates/tree/master/101-asc-trustedlaunch-policies) to your subscription.
 
 Select the button below to deploy the policies to your subscription:
 
@@ -134,7 +134,7 @@ Select the button below to deploy the policies to your subscription:
 The template needs to be deployed only once per subscription. It automatically installs `GuestAttestation` and `AzureSecurity` extensions on all supported VMs. If you get errors, try redeploying the template again.
 
 To get vTPM and secure boot recommendations for trusted launch VMs, see [Add a custom initiative to your subscription](../security-center/custom-security-policies.md#to-add-a-custom-initiative-to-your-subscription).
- 
+
 ## Sign things for Secure Boot on Linux
 
 In some cases, you might need to sign things for UEFI Secure Boot.  For example, you might need to go through [How to sign things for Secure Boot](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) for Ubuntu. In these cases, you need to enter the MOK utility enroll keys for your VM. To do this, you need to use the Azure Serial Console to access the MOK utility.
@@ -147,7 +147,7 @@ In some cases, you might need to sign things for UEFI Secure Boot.  For example,
 1. Once you are logged in, use `mokutil` to import the public key `.der` file.
 
     ```bash
-    sudo mokutil –import <path to public key.der> 
+    sudo mokutil –import <path to public key.der>
     ```
 1. Reboot the machine from Azure Serial Console by typing `sudo reboot`. A 10 second countdown will begin.
 1. Press up or down key to interrupt the countdown and wait in UEFI console mode. If the timer is not interrupted, the boot process continues and all of the MOK changes are lost.

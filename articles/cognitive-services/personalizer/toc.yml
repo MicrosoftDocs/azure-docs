@@ -11,6 +11,9 @@
   - name: What's new
     href: whats-new.md
     displayName: release notes, service updates, videos
+  - name: Personalizer FAQ
+    href: frequently-asked-questions.md
+    displayName: frequently asked questions, troubleshooting, questions
 - name: Quickstart
   href: ./quickstart-personalizer-sdk.md
 - name: Samples
@@ -28,6 +31,8 @@
     displayName: azure, portal, settings, evaluation, offline, policy, export, model, configure
   - name: Use Apprentice mode
     href: how-to-learning-behavior.md
+  - name: Use multi-slot
+    href: how-to-multi-slot.md
   - name: Manage model and learning settings
     href: how-to-manage-model.md
   - name: Analyze with an offline evaluation
@@ -64,6 +69,9 @@
     - name: Rewards
       href: concept-rewards.md
       displayName: reward, wait time, default reward
+    - name: Multi-slot personalization
+      href: concept-multi-slot-personalization.md
+      displayName: multi-slot, multi slot, multi slot personalizer, multi-slot personalizer
     - name: Reinforcement learning
       href: concepts-reinforcement-learning.md
       displayName: RL, contextual bandits, Vowpal Wabbit
@@ -74,6 +82,8 @@
     displayName: learning policy, Counterfactual, features
   - name: Feature evaluation
     href: concept-feature-evaluation.md
+  - name: Auto-optimization
+    href: concept-auto-optimization.md
   - name: Scalability and performance
     href: concepts-scalability-performance.md
 - name: Tutorials
@@ -123,7 +133,5 @@
     href: /learn/browse/?terms=personalizer
   - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/personalizer/context/context
-  - name: Troubleshooting
-    href: troubleshooting.md
   - name: Azure updates
     href: https://go.microsoft.com/fwlink/?linkid=2092153

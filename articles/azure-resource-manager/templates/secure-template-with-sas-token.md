@@ -3,7 +3,7 @@ title: Securely deploy template with SAS token
 description: Deploy resources to Azure with an Azure Resource Manager template that is protected by a SAS token. Shows Azure PowerShell and Azure CLI.
 ms.topic: conceptual
 ms.date: 08/25/2020 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Deploy private ARM template with SAS token
 
@@ -141,4 +141,4 @@ For an example of using a SAS token with linked templates, see [Using linked tem
 
 ## Next steps
 * For an introduction to deploying templates, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
-* To define parameters in template, see [Authoring templates](template-syntax.md#parameters).
+* To define parameters in template, see [Authoring templates](./syntax.md#parameters).

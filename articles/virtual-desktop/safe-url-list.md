@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop required URL list - Azure
-description: A list of URLs you must unblock to ensure your Windows Virtual Desktop deployment works as intended.
+title: Azure Virtual Desktop required URL list - Azure
+description: A list of URLs you must unblock to ensure your Azure Virtual Desktop deployment works as intended.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 12/04/2020
@@ -10,10 +10,10 @@ manager: femila
 
 # Required URL list
 
-In order to deploy and use Windows Virtual Desktop, you must unblock certain URLs so your virtual machines (VMs) can access them anytime. This article lists the required URLs you need to unblock in order for Windows Virtual Desktop to function properly. 
+In order to deploy and use Azure Virtual Desktop, you must unblock certain URLs so your virtual machines (VMs) can access them anytime. This article lists the required URLs you need to unblock in order for Azure Virtual Desktop to function properly. 
 
 >[!IMPORTANT]
->Windows Virtual Desktop doesn't support deployments that block the URLs listed in this article.
+>Azure Virtual Desktop doesn't support deployments that block the URLs listed in this article.
 
 ## Required URL Check tool
 
@@ -63,7 +63,7 @@ To use the Required URL Check tool:
 
 ## Virtual machines
 
-The Azure virtual machines you create for Windows Virtual Desktop must have access to the following URLs in the Azure commercial cloud:
+The Azure virtual machines you create for Azure Virtual Desktop must have access to the following URLs in the Azure commercial cloud:
 
 |Address|Outbound TCP port|Purpose|Service Tag|
 |---|---|---|---|
@@ -82,11 +82,11 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 | 168.63.129.16 | 80 | [Session host health monitoring](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
 
 >[!IMPORTANT]
->Windows Virtual Desktop now supports the FQDN tag. For more information, see [Use Azure Firewall to protect Window Virtual Desktop deployments](../firewall/protect-windows-virtual-desktop.md).
+>Azure Virtual Desktop now supports the FQDN tag. For more information, see [Use Azure Firewall to protect Window Virtual Desktop deployments](../firewall/protect-windows-virtual-desktop.md).
 >
->We recommend you use FQDN tags or service tags instead of URLs to prevent service issues. The listed URLs and tags only correspond to Windows Virtual Desktop sites and resources. They don't include URLs for other services like Azure Active Directory.
+>We recommend you use FQDN tags or service tags instead of URLs to prevent service issues. The listed URLs and tags only correspond to Azure Virtual Desktop sites and resources. They don't include URLs for other services like Azure Active Directory.
 
-The Azure virtual machines you create for Windows Virtual Desktop must have access to the following URLs in the Azure Government cloud:
+The Azure virtual machines you create for Azure Virtual Desktop must have access to the following URLs in the Azure Government cloud:
 
 |Address|Outbound TCP port|Purpose|Service Tag|
 |---|---|---|---|
@@ -118,7 +118,7 @@ The following table lists optional URLs that your Azure virtual machines can hav
 |*.azure-dns.net|443|Azure DNS resolution|None|
 
 >[!NOTE]
->Windows Virtual Desktop currently doesn't have a list of IP address ranges that you can unblock to allow network traffic. We only support unblocking specific URLs at this time.
+>Azure Virtual Desktop currently doesn't have a list of IP address ranges that you can unblock to allow network traffic. We only support unblocking specific URLs at this time.
 >
 >If you're using a Next Generation Firewall (NGFW), you'll need to use a dynamic list specifically made for Azure IPs to make sure you can connect.
 >
@@ -126,7 +126,7 @@ The following table lists optional URLs that your Azure virtual machines can hav
 >
 >You must use the wildcard character (*) for URLs involving service traffic. If you prefer to not use * for agent-related traffic, here's how to find the URLs without wildcards:
 >
->1. Register your virtual machines to the Windows Virtual Desktop host pool.
+>1. Register your virtual machines to the Azure Virtual Desktop host pool.
 >2. Open **Event viewer**, then go to **Windows logs** > **Application** > **WVD-Agent** and look for Event ID 3701.
 >3. Unblock the URLs that you find under Event ID 3701. The URLs under Event ID 3701 are region-specific. You'll need to repeat the unblocking process with the relevant URLs for each region you want to deploy your virtual machines in.
 
@@ -147,4 +147,4 @@ Any Remote Desktop clients you use must have access to the following URLs:
 >[!IMPORTANT]
 >Opening these URLs is essential for a reliable client experience. Blocking access to these URLs is unsupported and will affect service functionality.
 >
->These URLs only correspond to client sites and resources. This list doesn't include URLs for other services like Azure Active Directory. Azure Active Directory URLs can be found under ID 56 on the [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).
+>These URLs only correspond to client sites and resources. This list doesn't include URLs for other services like Azure Active Directory. Azure Active Directory URLs can be found under ID 56, 59 and 125 on the [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).

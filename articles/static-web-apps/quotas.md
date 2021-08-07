@@ -1,6 +1,6 @@
 ---
-title: Quotas in Azure Static Web Apps Preview
-description: Learn about quotas associated with Azure Static Web Apps Preview
+title: Quotas in Azure Static Web Apps
+description: Learn about quotas associated with Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
@@ -9,24 +9,19 @@ ms.date: 05/08/2020
 ms.author: cshoe
 ---
 
-# Quotas in Azure Static Web Apps Preview
+# Quotas in Azure Static Web Apps
 
-The following quotas exist for Azure Static Web Apps Preview.
+The following quotas exist for Azure Static Web Apps.
 
-> [!IMPORTANT]
-> Azure Static Web Apps is in public preview and is not intended for production use.
-
-| Feature                     | Free plan        |
-|-----------------------------|------------------|
-| Included bandwidth          | 100 GB per month |
-| Overage bandwidth           | Unavailable      |
-| Apps per Azure subscription | 10               |
-| App size                    | 250 MB           |
-| Pre-production environments | 3                |
-| Custom domains              | 1                |
-| Authorization (with custom roles and routing rules) | Maximum of 25 end-users that may belong to custom roles |
-| Azure Functions             | Available        |
-| SLA                         | None             |
+| Feature                     | Free plan        | Standard plan |
+|-----------------------------|------------------|---------------|
+| Included bandwidth          | 100 GB per month, per subscription | 100 GB per month, per subscription |
+| Overage bandwidth           | Unavailable      | $0.20 per GB |
+| Apps per Azure subscription | 10               | Unlimited |
+| App size                    | 250 MB           | 500 MB |
+| Pre-production environments | 3                | 10 |
+| Custom domains              | 2 per app        | 5 per app |
+| Authorization (with custom roles and routing rules) | Maximum of 25 end-users that may belong to custom roles | Maximum of 25 end-users that may belong to custom roles |
 
 ## GitHub storage
 

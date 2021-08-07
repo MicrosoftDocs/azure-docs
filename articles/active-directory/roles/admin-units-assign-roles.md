@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 04/14/2021
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -20,7 +20,16 @@ ms.collection: M365-identity-device-management
 
 In Azure Active Directory (Azure AD), for more granular administrative control, you can assign users to an Azure AD role with a scope that's limited to one or more administrative units.
 
-To prepare to use PowerShell and Microsoft Graph for administrative unit management, see [Get started](admin-units-manage.md#get-started).
+## Prerequisites
+
+- Azure AD Premium P1 or P2 license for each administrative unit administrator
+- Azure AD Free licenses for administrative unit members
+- Privileged Role Administrator or Global Administrator
+- AzureAD module when using PowerShell
+- Admin consent when using Graph explorer for Microsoft Graph API
+
+For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
+
 
 ## Available roles
 
@@ -28,7 +37,7 @@ Role  |  Description
 ----- |  -----------
 Authentication Administrator  |  Has access to view, set, and reset authentication method information for any non-admin user in the assigned administrative unit only.
 Groups Administrator  |  Can manage all aspects of groups and groups settings, such as naming and expiration policies, in the assigned administrative unit only.
-Helpdesk Administrator  |  Can reset passwords for non-administrators and Helpdesk administrators in the assigned administrative unit only.
+Helpdesk Administrator  |  Can reset passwords for non-administrators and Helpdesk Administrators in the assigned administrative unit only.
 License Administrator  |  Can assign, remove, and update license assignments within the administrative unit only.
 Password Administrator  |  Can reset passwords for non-administrators and Password Administrators within the assigned administrative unit only.
 User Administrator  |  Can manage all aspects of users and groups, including resetting passwords for limited admins within the assigned administrative unit only.
@@ -38,14 +47,14 @@ User Administrator  |  Can manage all aspects of users and groups, including res
 The following security principals can be assigned to a role with an administrative unit scope:
 
 * Users
-* Role-assignable cloud groups (preview)
+* Role-assignable Azure AD groups
 * Service Principal Name (SPN)
 
 ## Assign a scoped role
 
 You can assign a scoped role by using the Azure portal, PowerShell, or Microsoft Graph.
 
-### Use the Azure portal
+### Azure portal
 
 1. In the Azure portal, go to **Azure AD**.
 
@@ -64,7 +73,7 @@ You can assign a scoped role by using the Azure portal, PowerShell, or Microsoft
 > [!Note]
 > To assign a role on an administrative unit by using Azure AD Privileged Identity Management (PIM), see [Assign Azure AD roles in PIM](../privileged-identity-management/pim-how-to-add-role-to-user.md?tabs=new#assign-a-role-with-restricted-scope).
 
-### Use PowerShell
+### PowerShell
 
 ```powershell
 $adminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
@@ -77,7 +86,7 @@ Add-AzureADMSScopedRoleMembership -Id $adminUnitObj.Id -RoleId $role.ObjectId -R
 
 You can change the highlighted section as required for the specific environment.
 
-### Use Microsoft Graph
+### Microsoft Graph API
 
 Request
 
@@ -100,7 +109,7 @@ Body
 
 You can view a list of scoped admins by using the Azure portal, PowerShell, or Microsoft Graph.
 
-### Use the Azure portal
+### Azure portal
 
 You can view all the role assignments created with an administrative unit scope in the [Administrative units section of Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
 
@@ -110,7 +119,7 @@ You can view all the role assignments created with an administrative unit scope 
 
 1. Select **Roles and administrators**, and then open a role to view the assignments in the administrative unit.
 
-### Use PowerShell
+### PowerShell
 
 ```powershell
 $adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
@@ -119,7 +128,7 @@ Get-AzureADMSScopedRoleMembership -Id $adminUnitObj.Id | fl *
 
 You can change the highlighted section as required for your specific environment.
 
-### Use Microsoft Graph
+### Microsoft Graph API
 
 Request
 
@@ -135,5 +144,5 @@ Body
 
 ## Next steps
 
-- [Use cloud groups to manage role assignments](groups-concept.md)
-- [Troubleshoot roles assigned to cloud groups](groups-faq-troubleshooting.md)
+- [Use Azure AD groups to manage role assignments](groups-concept.md)
+- [Troubleshoot Azure AD roles assigned to groups](groups-faq-troubleshooting.yml)

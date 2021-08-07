@@ -4,12 +4,12 @@ titleSuffix: ""
 description: Learn about logical SQL servers used by Azure SQL Database and Azure Synapse Analytics, and how to manage them. 
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: service-overview
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer:
 ms.date: 03/12/2019
 ---

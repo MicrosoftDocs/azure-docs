@@ -7,7 +7,7 @@ ms.author: duau
 ms.date: 04/23/2021
 ms.topic: quickstart
 ms.service: route-server
-ms.custom:
+ms.custom: devx-track-azurepowershell
   - mode-api
 ---
 

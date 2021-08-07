@@ -30,7 +30,7 @@ Your most sensitive data might include business, financial, healthcare, or perso
 
 ## <a id="what-is-dc"></a>What is Data Discovery & Classification?
 
-Data Discovery & Classification introduces a set of basic services and new capabilities in Azure. It forms a new information-protection paradigm for SQL Database, SQL Managed Instance, and Azure Synapse, aimed at protecting the data and not just the database. The paradigm includes:
+Data Discovery & Classification forms a new information-protection paradigm for SQL Database, SQL Managed Instance, and Azure Synapse, aimed at protecting the data and not just the database. Currently it supports the following capabilities:
 
 - **Discovery and recommendations:** The classification engine scans your database and identifies columns that contain potentially sensitive data. It then provides you with an easy way to review and apply recommended classification via the Azure portal.
 
@@ -54,7 +54,7 @@ The classification includes two metadata attributes:
 
 ### Define and customize your classification taxonomy
 
-Data Discovery & Classification comes with a built-in set of sensitivity labels and a built-in set of information types and discovery logic. You can now customize this taxonomy and define a set and ranking of classification constructs specifically for your environment.
+Data Discovery & Classification comes with a built-in set of sensitivity labels and a built-in set of information types and discovery logic. You can customize this taxonomy and define a set and ranking of classification constructs specifically for your environment.
 
 You define and customize of your classification taxonomy in one central place for your entire Azure organization. That location is in [Azure Security Center](../../security-center/security-center-introduction.md), as part of your security policy. Only someone with administrative rights on the organization's root management group can do this task.
 

@@ -10,7 +10,7 @@ ms.subservice: sql-dw
 ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ---
 
 # Geo-restore a dedicated SQL pool in Azure Synapse Analytics
@@ -53,7 +53,7 @@ $TargetServiceObjective="<YourTargetServiceObjective-DWXXXc>"
 Connect-AzAccount
 Get-AzSubscription
 Select-AzSubscription -SubscriptionName $SubscriptionName
-Get-AzureSqlDatabase -ServerName $ServerName
+Get-AzSqlDatabase -ServerName $ServerName -ResourceGroupName $ResourceGroupName
 
 # Get the data warehouse you want to recover
 $GeoBackup = Get-AzSqlDatabaseGeoBackup -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName

@@ -1,6 +1,6 @@
 ---
 title: What are device templates in Azure IoT Central | Microsoft Docs
-description: Azure IoT Central device templates let you specify the behavior of the devices connected to your application. A device template specifies the telemetry, properties, and commands the device must implement. A device template also defines the UI for the device in IoT Central such as the forms and dashboards an operator uses.
+description: Azure IoT Central device templates let you specify the behavior of the devices connected to your application. A device template specifies the telemetry, properties, and commands the device must implement. A device template also defines the UI for the device in IoT Central such as the forms and views an operator uses.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/19/2020
@@ -8,11 +8,10 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
+# This article applies to device developers and solution builders.
 ---
 
 # What are device templates?
-
-_This article applies to device developers and solution builders._
 
 A device template in Azure IoT Central is a blueprint that defines the characteristics and behaviors of a type of device that connects to your application. For example, the device template defines the telemetry that a device sends so that IoT Central can create visualizations that use the correct units and data types.
 
@@ -21,20 +20,22 @@ A solution builder adds device templates to an IoT Central application. A device
 A device template includes the following sections:
 
 - _A device model_. This part of the device template defines how the device interacts with your application. A device developer implements the behaviors defined in the model.
-    - _Default component_. Every device model has a default component. The default component's interface describes capabilities that are specific to the device model.
-    - _Components_. A device model may include components in addition to the default component to describe device capabilities. Each component has an interface that describes the component's capabilities. Component interfaces may be reused in other device models. For example several phone device models could use the same camera interface.
-    - _Inherited interfaces_. A device model contains one or more interfaces that extend the capabilities of the default component.
+    - _Root component_. Every device model has a root component. The root component's interface describes capabilities that are specific to the device model.
+    - _Components_. A device model may include components in addition to the root component to describe device capabilities. Each component has an interface that describes the component's capabilities. Component interfaces may be reused in other device models. For example several phone device models could use the same camera interface.
+    - _Inherited interfaces_. A device model contains one or more interfaces that extend the capabilities of the root component.
 - _Cloud properties_. This part of the device template lets the solution developer specify any device metadata to store. Cloud properties are never synchronized with devices and only exist in the application. Cloud properties don't affect the code that a device developer writes to implement the device model.
 - _Customizations_. This part of the device template lets the solution developer override some of the definitions in the device model. Customizations are useful if the solution developer wants to refine how the application handles a value, such as changing the display name for a property or the color used to display a telemetry value. Customizations don't affect the code that a device developer writes to implement the device model.
 - _Views_. This part of the device template lets the solution developer define visualizations to view data from the device, and forms to manage and control a device. The views use the device model, cloud properties, and customizations. Views don't affect the code that a device developer writes to implement the device model.
 
 ## Device models
 
-A device model defines how a device interacts with your IoT Central application. The device developer must make sure that the device implements the behaviors defined in the device model so that IoT Central can monitor and manage the device. A device model is made up of one or more _interfaces_, and each interface can define a collection of _telemetry_ types, _device properties_, and _commands_. A solution developer can import a JSON file that defines the device model into a device template, or use the web UI in IoT Central to create or edit a device model. Changes to a device model made using the Web UI require the [device template to be versioned](./howto-version-device-template.md).
+A device model defines how a device interacts with your IoT Central application. The device developer must make sure that the device implements the behaviors defined in the device model so that IoT Central can monitor and manage the device. A device model is made up of one or more _interfaces_, and each interface can define a collection of _telemetry_ types, _device properties_, and _commands_. A solution developer can import a JSON file that defines the device model into a device template, or use the web UI in IoT Central to create or edit a device model.
+
+To learn more about editing a device model, see [Edit an existing device template](howto-edit-device-template.md)
 
 A solution developer can also export a JSON file that contains the device model. A device developer can use this JSON document to understand how the device should communicate with the IoT Central application.
 
-The JSON file that defines the device model uses the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central expects the JSON file to contain the device model with the interfaces defined inline, rather than in separate files. To learn more, see [IoT Plug and Play modeling guide](../../iot-pnp/concepts-modeling-guide.md).
+The JSON file that defines the device model uses the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central expects the JSON file to contain the device model with the interfaces defined inline, rather than in separate files. To learn more, see [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md).
 
 A typical IoT device is made up of:
 
@@ -43,7 +44,7 @@ A typical IoT device is made up of:
 
 These parts are called _interfaces_ in a device model. Interfaces define the details of each part your device implements. Interfaces are reusable across device models. In DTDL, a component refers to another interface, which may defined in a separate DTDL file or in a separate section of the file.
 
-The following example shows the outline of device model for a [temperature controller device](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/temperaturecontroller-2.json). The default component includes definitions for `workingSet`, `serialNumber`, and `reboot`. The device model also includes two `thermostat` components and a `deviceInformation` component. The contents of the three components have been removed for the sake of brevity:
+The following example shows the outline of device model for a [temperature controller device](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/temperaturecontroller-2.json). The root component includes definitions for `workingSet`, `serialNumber`, and `reboot`. The device model also includes two `thermostat` components and a `deviceInformation` component. The contents of the three components have been removed for the sake of brevity:
 
 ```json
 [
@@ -290,7 +291,7 @@ For writable properties, the device application returns a desired state status c
 
 ## Telemetry
 
-IoT Central lets you view telemetry on dashboards and charts, and use rules to trigger actions when thresholds are reached. IoT Central uses the information in the device model, such as data types, units and display names, to determine how to display telemetry values.
+IoT Central lets you view telemetry in device views and charts, and use rules to trigger actions when thresholds are reached. IoT Central uses the information in the device model, such as data types, units and display names, to determine how to display telemetry values. You can also display telemetry values on application and personal dashboards.
 
 You can use the IoT Central data export feature to stream telemetry to other destinations such as storage or Event Hubs.
 
@@ -313,7 +314,7 @@ Offline commands are one-way notifications to the device from your solution. Off
 
 Cloud properties are part of the device template, but aren't part of the device model. Cloud properties let the solution developer specify any device metadata to store in the IoT Central application. Cloud properties don't affect the code that a device developer writes to implement the device model.
 
-A solution developer can add cloud properties to dashboards and views alongside device properties to enable an operator to manage the devices connected to the application. A solution developer can also use cloud properties as part of a rule definition to make a threshold value editable by an operator.
+A solution developer can add cloud properties to device views and forms alongside device properties to enable an operator to manage the devices connected to the application. A solution developer can also use cloud properties as part of a rule definition to make a threshold value editable by an operator.
 
 ## Customizations
 
@@ -336,6 +337,4 @@ The telemetry, properties, and commands that you can add to a view are determine
 
 ## Next steps
 
-As a device developer, now that you've learned about device templates, a suggested next steps is to read [Telemetry, property, and command payloads](./concepts-telemetry-properties-commands.md) to learn more about the data a device exchanges with IoT Central.
-
-As a solution developer, a suggested next step is to read [Define a new IoT device type in your Azure IoT Central application](./howto-set-up-template.md) to learn more about how to create a device template.
+Now that you've learned about device templates, a suggested next steps is to read [Telemetry, property, and command payloads](./concepts-telemetry-properties-commands.md) to learn more about the data a device exchanges with IoT Central.

@@ -3,7 +3,7 @@ title: Migrate Java Message Service (JMS) applications from Apache ActiveMQ to A
 description: This article explains how to migrate existing JMS applications that interact with Apache ActiveMQ to interact with Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: ''
-author: axisc
+author: spelluru
 manager: timlt
 editor: spelluru
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2020
-ms.author: aschhab
+ms.author: spelluru
 ms.custom: devx-track-java
 ---
 
@@ -42,7 +42,7 @@ Even so, there are some differences between the two, as the following table show
 
 ### Current supported and unsupported features
 
-[!INCLUDE [service-bus-jms-features-list](../../includes/service-bus-jms-feature-list.md)]
+[!INCLUDE [service-bus-jms-features-list](./includes/service-bus-jms-feature-list.md)]
 
 ### Considerations
 
@@ -92,7 +92,7 @@ Service Bus enables various enterprise security and high availability features. 
 
 For each Service Bus namespace, you publish metrics onto Azure Monitor. You can use these metrics for alerting and dynamic scaling of resources allocated to the namespace.
 
-For more information about the different metrics and how to set up alerts on them, see [Service Bus metrics in Azure Monitor](service-bus-metrics-azure-monitor.md). You can also find out more about [client side tracing for data operations](service-bus-end-to-end-tracing.md) and [operational/diagnostic logging for management operations](service-bus-diagnostic-logs.md).
+For more information about the different metrics and how to set up alerts on them, see [Service Bus metrics in Azure Monitor](monitor-service-bus-reference.md). You can also find out more about [client side tracing for data operations](service-bus-end-to-end-tracing.md) and [operational/diagnostic logging for management operations](monitor-service-bus-reference.md#resource-logs).
 
 ### Metrics - New Relic
 

@@ -2,7 +2,8 @@
 title: Enable Azure Service Bus message sessions | Microsoft Docs
 description: This article explains how to enable message sessions using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 04/19/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Enable message sessions for an Azure Service Bus queue or a subscription

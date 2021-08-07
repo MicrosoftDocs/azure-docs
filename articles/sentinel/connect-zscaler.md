@@ -21,6 +21,7 @@ ms.author: yelevin
 
 This article explains how to connect your Zscaler Internet Access appliance to Azure Sentinel. The Zscaler data connector allows you to easily connect your Zscaler Internet Access (ZIA) logs with Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. Using Zscaler on Azure Sentinel will provide you more insights into your organization’s Internet usage, and will enhance its security operation capabilities.​ 
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## Configure your Zscaler to send CEF messages
 

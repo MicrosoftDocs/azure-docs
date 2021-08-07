@@ -14,7 +14,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/12/2021
+ms.date: 07/30/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -131,9 +131,8 @@ This article describes the Azure Active Directory (Azure AD) sign-in log schema 
             "riskState":"none",
             "riskEventTypes":[],
             "resourceDisplayName":"windows azure service management api",
-            "resourceId":"797f4846-ba00-4fd7-ba43-dac1f8f63013",
-            "authenticationMethodsUsed":[]
-        }
+            "resourceId":"797f4846-ba00-4fd7-ba43-dac1f8f63013"
+         }
 }
 ```
 
@@ -148,8 +147,8 @@ This article describes the Azure Active Directory (Azure AD) sign-in log schema 
 | OperationVersion | - | The REST API version that's requested by the client. |
 | Category | - | For sign-ins, this value is always *SignIn*. | 
 | TenantId | - | The tenant GUID that's associated with the logs. |
-| ResultType | - | The result of the sign-in operation can be *Success* or *Failure*. | 
-| ResultSignature | - | Contains the error code, if any, for the sign-in operation. |
+| ResultType | - | The result of the sign-in operation can be `0` for success or an *error code* for failure. | 
+| ResultSignature | - | This value is always *None*. |
 | ResultDescription | N/A or blank | Provides the error description for the sign-in operation. |
 | riskDetail | riskDetail | Provides the 'reason' behind a specific state of a risky user, sign-in or a risk detection. The possible values are: `none`, `adminGeneratedTemporaryPassword`, `userPerformedSecuredPasswordChange`, `userPerformedSecuredPasswordReset`, `adminConfirmedSigninSafe`, `aiConfirmedSigninSafe`, `userPassedMFADrivenByRiskBasedPolicy`, `adminDismissedAllRiskForUser`, `adminConfirmedSigninCompromised`, `unknownFutureValue`. The value `none` means that no action has been performed on the user or sign-in so far. <br>**Note:** Details for this property require an Azure AD Premium P2 license. Other licenses return the value `hidden`. |
 | riskEventTypes | riskEventTypes | Risk detection types associated with the sign-in. The possible values are: `unlikelyTravel`, `anonymizedIPAddress`, `maliciousIPAddress`, `unfamiliarFeatures`, `malwareInfectedIPAddress`, `suspiciousIPAddress`, `leakedCredentials`, `investigationsThreatIntelligence`,  `generic`, and `unknownFutureValue`. |
@@ -166,7 +165,9 @@ This article describes the Azure Active Directory (Azure AD) sign-in log schema 
 | Location | - | Provides the location of the sign-in activity. |
 | Properties | - | Lists all the properties that are associated with sign-ins.|
 
+
+
 ## Next steps
 
-* [Interpret audit logs schema in Azure Monitor](reference-azure-monitor-audit-log-schema.md)
+* [Interpret audit logs schema in Azure Monitor](./overview-reports.md)
 * [Read more about Azure platform logs](../../azure-monitor/essentials/platform-logs-overview.md)

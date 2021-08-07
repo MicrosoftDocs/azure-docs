@@ -116,11 +116,11 @@ if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
 fi
 ```
 
-Commit all your changes and deploy your code using Git, or Zip deploy with build automation enabled. Composer should now be running as part of deployment automation.
+Commit all your changes and deploy your code using Git, or Zip deploy [with build automation enabled](deploy-zip.md#enable-build-automation). Composer should now be running as part of deployment automation.
 
 ## Run Grunt/Bower/Gulp
 
-If you want App Service to run popular automation tools at deployment time, such as Grunt, Bower, or Gulp, you need to supply a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). App Service runs this script when you deploy with Git, or with [Zip deployment](deploy-zip.md) with build automation enabled. 
+If you want App Service to run popular automation tools at deployment time, such as Grunt, Bower, or Gulp, you need to supply a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). App Service runs this script when you deploy with Git, or with [Zip deployment](deploy-zip.md) with [with build automation enabled](deploy-zip.md#enable-build-automation). 
 
 To enable your repository to run these tools, you need to add them to the dependencies in *package.json.* For example:
 
@@ -203,7 +203,7 @@ fi
 
 ## Customize build automation
 
-If you deploy your app using Git or zip packages with build automation turned on, the App Service build automation steps through the following sequence:
+If you deploy your app using Git, or using zip packages [with build automation enabled](deploy-zip.md#enable-build-automation), the App Service build automation steps through the following sequence:
 
 1. Run custom script if specified by `PRE_BUILD_SCRIPT_PATH`.
 1. Run `php composer.phar install`.
@@ -276,7 +276,7 @@ If you would rather not use *.htaccess* rewrite, you can deploy your Laravel app
 
 ## Detect HTTPS session
 
-In App Service, [SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
+In App Service, [TLS/SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
 
 ```php
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
@@ -492,6 +492,10 @@ When a working PHP app behaves differently in App Service or has errors, try the
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [App Service Linux FAQ](faq-app-service-linux.md)
+> [App Service Linux FAQ](faq-app-service-linux.yml)
 
 ::: zone-end
+
+Or, see additional resources:
+
+[Environment variables and app settings reference](reference-app-settings.md)

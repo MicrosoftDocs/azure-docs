@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 04/22/2021
+ms.date: 08/05/2021
 ---
 
 # What's new in Azure Backup
@@ -13,6 +13,10 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- July 2021
+  - [Archive Tier support for SQL Server in Azure VM for Azure Backup is now generally available](#archive-tier-support-for-sql-server-in-azure-vm-for-azure-backup-is-now-generally-available)
+- May 2021
+  - [Backup for Azure Blobs is now generally available](#backup-for-azure-blobs-is-now-generally-available)
 - April 2021
   - [Enhancements to encryption using customer-managed keys for Azure Backup (in preview)](#enhancements-to-encryption-using-customer-managed-keys-for-azure-backup-in-preview)
 - March 2021
@@ -37,6 +41,28 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Backup SAP HANA in RHEL Azure Virtual Machines (in preview)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [Zone redundant storage (ZRS) for backup data (in preview)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Soft delete for SQL Server and SAP HANA workloads in Azure VMs](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## Archive Tier support for SQL Server in Azure VM for Azure Backup is now generally available
+
+Azure Backup allows you to move your long-term retention points for Azure Virtual Machines and SQL Server in Azure Virtual Machines to the low-cost Archive Tier. You can also restore from the recovery points in the Vault-archive tier.
+
+In addition to the capability to move the recovery points:
+
+- Azure Backup provides recommendations to move a specific set of recovery points for Azure Virtual Machine backups that'll ensure cost savings.
+- You have the capability to move all their recovery points for a particular backup item at one go using sample scripts.
+- You can view Archive storage usage on the Vault dashboard.
+
+For more information, see [Archive Tier support](/azure/backup/archive-tier-support).
+
+## Backup for Azure Blobs is now generally available
+
+Operational backup for Azure Blobs is a managed-data protection solution that lets you protect your block blob data from various data loss scenarios, such as blob corruptions, blob deletions, and accidental deletion of storage accounts.
+
+Being an operational backup solution, the backup data is stored locally in the source storage account, and can be recovered from a selected point-in-time, giving you a simple and cost-effective means to protect your blob data. To do this, the solution uses the blob point-in-time restore capability available from blob storage.
+
+Operational backup for blobs integrates with the Azure Backup management tools, including Backup Center, to help you manage the protection of your blob data effectively and at-scale. In addition to previously available capabilities, you can now configure and manage operational backup for blobs using the **Data protection** view of the storage accounts, also  [through PowerShell](backup-blobs-storage-account-ps.md). Also, Backup now gives you an enhanced experience for managing role assignments required for configuring operational backup.
+
+For more information, see [Overview of operational backup for Azure Blobs](blob-backup-overview.md).
 
 ## Azure Disk Backup is now generally available
 

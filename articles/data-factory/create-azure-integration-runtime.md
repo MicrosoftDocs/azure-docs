@@ -1,11 +1,14 @@
 ---
 title: Create Azure integration runtime in Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to create Azure integration runtime in Azure Data Factory, which is used to copy data and dispatch transform activities. 
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.date: 06/09/2020
-author: nabhishek
-ms.author: abnarain
+ms.date: 06/04/2021
+author: lrtoyou1223
+ms.author: lle 
+ms.custom: devx-track-azurepowershell, synapse
 ---
 # How to create and configure Azure Integration Runtime
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -38,7 +41,7 @@ You can configure an existing Azure IR to change its location using the Set-AzDa
 ### Create an Azure IR via Azure Data Factory UI
 Use the following steps to create an Azure IR using Azure Data Factory UI.
 
-1. On the **Let's get started** page of Azure Data Factory UI, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
+1. On the home page of Azure Data Factory UI, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
 
    ![The home page Manage button](media/doc-common-process/get-started-page-manage-button.png)
 

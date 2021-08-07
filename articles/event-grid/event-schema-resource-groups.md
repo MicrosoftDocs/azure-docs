@@ -462,7 +462,7 @@ The data object has the following properties:
 | [Azure CLI: subscribe to events for a resource group and filter for a resource](./scripts/event-grid-cli-resource-group-filter.md) | Sample script that subscribes to events for a resource group and filters events for one resource. |
 | [PowerShell: subscribe to events for a resource group](./scripts/event-grid-powershell-resource-group.md) | Sample script that subscribes to events for a resource group. It sends events to a WebHook. |
 | [PowerShell: subscribe to events for a resource group and filter for a resource](./scripts/event-grid-powershell-resource-group-filter.md) | Sample script that subscribes to events for a resource group and filters events for one resource. |
-| [Resource Manager template: resource subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) | Subscribes to events for an Azure subscription or resource group. It sends events to a WebHook. |
+| [Resource Manager template: resource subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-resource-events-to-webhook) | Subscribes to events for an Azure subscription or resource group. It sends events to a WebHook. |
 
 ## Next steps
 

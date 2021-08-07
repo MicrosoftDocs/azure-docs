@@ -1,11 +1,14 @@
 ---
 title: Copy data to and from Oracle by using Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from supported source stores to an Oracle database, or from Oracle to supported sink stores, by using Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.author: jingwang
+ms.author: jianleishen
 ---
 
 # Copy data from and to Oracle by using Azure Data Factory
@@ -45,13 +48,13 @@ Specifically, this Oracle connector supports:
 
 ## Prerequisites
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)] 
 
 The integration runtime provides a built-in Oracle driver. Therefore, you don't need to manually install a driver when you copy data from and to Oracle.
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to the Oracle connector.
 

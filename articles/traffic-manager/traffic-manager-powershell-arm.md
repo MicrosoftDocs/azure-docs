@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: duau
+ms.author: duau 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Using PowerShell to manage Traffic Manager

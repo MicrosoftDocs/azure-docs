@@ -2,7 +2,7 @@
 title: Back up and restore encrypted Azure VMs
 description: Describes how to back up and restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 08/18/2020
+ms.date: 07/27/2021
 ---
 # Back up and restore encrypted Azure virtual machines
 
@@ -38,9 +38,9 @@ Azure Backup can back up and restore Azure VMs using ADE with and without the Az
 
 ### Limitations
 
-- You can back up and restore ADE encrypted VMs within the same subscription and region.
+- You can back up and restore ADE encrypted VMs within the same subscription.
 - Azure Backup supports VMs encrypted using standalone keys. Any key that's a part of a certificate used to encrypt a VM isn't currently supported.
-- You can back up and restore ADE encrypted VMs within the same subscription and region as the Recovery Services Backup vault.
+- Azure Backup supports Cross Region Restore of encrypted Azure VMs to the Azure paired regions. For more information, see [support matrix](/azure/backup/backup-support-matrix#cross-region-restore).
 - ADE encrypted VMs can’t be recovered at the file/folder level. You need to recover the entire VM to restore files and folders.
 - When restoring a VM, you can't use the [replace existing VM](backup-azure-arm-restore-vms.md#restore-options) option for ADE encrypted VMs. This option is only supported for unencrypted managed disks.
 
@@ -60,21 +60,20 @@ In addition, there are a couple of things that you might need to do in some circ
 ## Configure a backup policy
 
 1. If you haven't yet created a Recovery Services backup vault, follow [these instructions](backup-create-rs-vault.md).
-1. Open the vault in the portal, and select **+Backup** in the **Overview** section.
+1. Navigate to Backup center and click **+Backup**  from the **Overview** tab
 
     ![Backup pane](./media/backup-azure-vms-encryption/select-backup.png)
 
-1. In **Backup goal** > **Where is your workload running?** select **Azure**.
-1. In **What do you want to back up?** select **Virtual machine**. Then select **Backup**.
+1. Select **Azure Virtual machines** as the **Datasource type** and select the vault you have created, then click **Continue**.
 
-      ![Scenario pane](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
+     ![Scenario pane](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
-1. In **Backup policy** > **Choose backup policy**, select the policy that you want to associate with the vault. Then select **OK**.
-    - A backup policy specifies when backups are taken, and how long they're stored.
-    - The details of the default policy are listed under the drop-down menu.
+1. Select the policy that you want to associate with the vault, then select **OK**.
+   - A backup policy specifies when backups are taken, and how long they're stored.
+   - The details of the default policy are listed under the drop-down menu.
 
-    ![Choose backup policy](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
-
+   ![Choose backup policy](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
+    
 1. If you don't want to use the default policy, select **Create New**, and [create a custom policy](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
 1. Under **Virtual Machines**, select **Add**.
@@ -101,19 +100,20 @@ In addition, there are a couple of things that you might need to do in some circ
 
 The initial backup will run in accordance with the schedule, but you can run it immediately as follows:
 
-1. In the vault menu, select **Backup items**.
-2. In **Backup Items**, select **Azure Virtual Machine**.
-3. In the **Backup Items** list, select the ellipses (...).
-4. Select **Backup now**.
-5. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then select **OK**.
-6. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your VM, creating the initial backup may take a while.
+1. Navigate to **Backup center** and select the **Backup Instances** menu item.
+1. Select **Azure Virtual machines** as the **Datasource type** and search for the VM that you have configured for backup.
+1. Right-click the relevant row or select the more icon (…), and click **Backup Now**.
+1. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then select **OK**.
+1. Monitor the portal notifications.
+   To monitor the job progress, go to **Backup center** > **Backup Jobs** and filter the list for **In progress** jobs.
+   Depending on the size of your VM, creating the initial backup may take a while.
 
 ## Provide permissions
 
 Azure Backup needs read-only access to back up the keys and secrets, along with the associated VMs.
 
 - Your Key Vault is associated with the Azure AD tenant of the Azure subscription. If you're a **Member user**, Azure Backup acquires access to the Key Vault without further action.
-- If you're a **Guest user**, you must provide permissions for Azure Backup to access the key vault.
+- If you're a **Guest user**, you must provide permissions for Azure Backup to access the key vault. You need to have access to key vaults to configure Backup for encrypted VMs.
 
 To set permissions:
 
@@ -153,10 +153,16 @@ Encrypted VMs can only be restored by restoring the VM disk as explained below. 
 Restore encrypted VMs as follows:
 
 1. [Restore the VM disk](backup-azure-arm-restore-vms.md#restore-disks).
+
+   > [!NOTE]
+   > After you restore the VM disk, you can manually swap the OS disk of the original VM with the restored VM disk without re-creating it. [Learn more](https://azure.microsoft.com/blog/os-disk-swap-managed-disks/).
+
 2. Recreate the virtual machine instance by doing one of the following actions:
     1. Use the template that's generated during the restore operation to customize VM settings, and trigger VM deployment. [Learn more](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
-    2. Create a new VM from the restored disks using PowerShell. [Learn more](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
-3. For Linux VMs, reinstall the ADE extension so the data disks are open and mounted.
+       >[!NOTE]
+       >While deploying the template, verify the storage account containers and the public/private settings.
+    1. Create a new VM from the restored disks using PowerShell. [Learn more](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+1. For Linux VMs, reinstall the ADE extension so the data disks are open and mounted.
 
 ## Next steps
 

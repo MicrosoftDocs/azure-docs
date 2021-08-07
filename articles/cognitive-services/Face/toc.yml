@@ -1,3 +1,4 @@
+items:
 - name: Face Documentation
   href: index.yml
 - name: Overview
@@ -17,16 +18,16 @@
   items:
   - name: Detect and analyze faces
     href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-  - name: Specify a face recognition model version
-    href: Face-API-How-to-Topics/specify-recognition-model.md
   - name: Specify a face detection model version
     href: Face-API-How-to-Topics/specify-detection-model.md
+  - name: Specify a face recognition model version
+    href: Face-API-How-to-Topics/specify-recognition-model.md
   - name: Add faces to a group
     href: Face-API-How-to-Topics/how-to-add-faces.md
-  - name: Use the PersonDirectory structure
-    href: Face-API-How-to-Topics/use-persondirectory.md
   - name: Use the large-scale feature
     href: Face-API-How-to-Topics/how-to-use-large-scale.md
+  - name: Use the PersonDirectory structure
+    href: Face-API-How-to-Topics/use-persondirectory.md
   - name: Use the HeadPose attribute
     href: Face-API-How-to-Topics/how-to-use-headpose.md
   - name: Mitigate latency when using the Face service
@@ -44,7 +45,7 @@
     - name: Configure containers
       href: face-resource-container-config.md
     - name: Use container instances
-      href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/face/context/context
+      href: ../containers/azure-container-instance-recipe.md?context=%2fazure%2fcognitive-services%2fface%2fcontext%2fcontext
     - name: All Cognitive Services containers documentation
       href: ../containers/index.yml
       maintainContext: true
@@ -58,7 +59,7 @@
       href: ../authentication.md?context=/azure/cognitive-services/face/context/context
 - name: Concepts
   items:
-  - name: Face detection
+  - name: Face detection and analysis
     href: concepts/face-detection.md
   - name: Face recognition
     href: concepts/face-recognition.md
@@ -66,22 +67,22 @@
   items:
   - name: Add users to a Face service
     items:
-    - name: Best practices for adding users
+    - name: Best practices for enrolling users
       href: enrollment-overview.md
-    - name: Build a React app to add users
+    - name: Build a React app to enroll users
       href: build-enrollment-app.md
 - name: Reference
   items:
   - name: Face REST API
     href: APIReference.md
   - name: .NET
-    href: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
+    href: /dotnet/api/overview/azure/cognitiveservices/face-readme
   - name: Java
-    href: /java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
+    href: /java/api/overview/azure/cognitiveservices/client/faceapi
   - name: Node.js
-    href: /javascript/api/@azure/cognitiveservices-face
+    href: /javascript/api/overview/azure/cognitive-services/face-readme
   - name: Python
-    href: /python/api/azure-cognitiveservices-vision-face/?view=azure-python
+    href: /python/api/overview/azure/cognitiveservices/face-readme
   - name: Go
     href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
 - name: Resources

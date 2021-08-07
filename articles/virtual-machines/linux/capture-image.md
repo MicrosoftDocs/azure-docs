@@ -18,9 +18,9 @@ One managed image supports up to 20 simultaneous deployments. Attempting to crea
 
 To create a managed image, you'll need to remove personal account information. In the following steps, you deprovision an existing VM, deallocate it and create an image. You can use this image to create VMs across any resource group within your subscription.
 
-To create a copy of your existing Linux VM for backup or debugging, or to upload a specialized Linux VHD from an on-premises VM, see [Upload and create a Linux VM from custom disk image](upload-vhd.md).  
+To create a copy of your existing Linux VM for backup or debugging, or to upload a Linux VHD from an on-premises VM, see [Upload and create a Linux VM from custom disk](upload-vhd.md).  
 
-You can use the **Azure VM Image Builder (Public Preview)** service to build your custom image, no need to learn any tools, or setup build pipelines, simply providing an image configuration, and the Image Builder will create the Image. For more information, see [Getting Started with Azure VM Image Builder](../image-builder-overview.md).
+You can use **Azure VM Image Builder** to build your custom image, no need to learn any tools, or setup build pipelines, simply providing an image configuration, and the Image Builder will create the Image. For more information, see [Getting Started with Azure VM Image Builder](../image-builder-overview.md).
 
 You'll need the following items before creating an image:
 
@@ -76,12 +76,14 @@ Use the Azure CLI to mark the VM as generalized and capture the image. In the fo
     ```azurecli
     az image create \
         --resource-group myResourceGroup \
-        --name myImage --source myVM
+	--name myImage --source myVM
     ```
    
    > [!NOTE]
    > The image is created in the same resource group as your source VM. You can create VMs in any resource group within your subscription from this image. From a management perspective, you may wish to create a specific resource group for your VM resources and images.
    >
+   > If you are capturing an image of a generation 2 VM, also use the `--hyper-v-generation V2` parameter. for more information, see [Generation 2 VMs](../generation-2.md).
+   > 
    > If you would like to store your image in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the `--zone-resilient true` parameter.
    
 This command returns JSON that describes the VM image. Save this output for later reference.

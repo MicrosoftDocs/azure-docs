@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: conceptual
 author: MashaMSFT
 ms.author:  mathoma
-ms.reviewer: sstein
-ms.date: 04/20/2020
+ms.reviewer: mathoma
+ms.date: 05/10/2020
 ---
 # Transactional replication with Azure SQL Managed Instance (Preview)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -146,8 +146,6 @@ In this configuration, a database in Azure SQL Database or Azure SQL Managed Ins
 
 ## With failover groups
 
-[Active geo-replication](../database/active-geo-replication-overview.md) is not supported with a SQL Managed Instance using transactional replication. Instead of active geo-replication, use [Auto-failover groups](../database/auto-failover-group-overview.md), but note that the publication has to be [manually deleted](transact-sql-tsql-differences-sql-server.md#replication) from the primary managed instance and re-created on the secondary SQL Managed Instance after failover.
-
 If a **publisher** or **distributor** SQL Managed Instance is in a [failover group](../database/auto-failover-group-overview.md), the SQL Managed Instance administrator must clean up all publications on the old primary and reconfigure them on the new primary after a failover occurs. The following activities are needed in this scenario:
 
 1. Stop all replication jobs running on the database, if there are any.
@@ -178,7 +176,7 @@ If a **publisher** or **distributor** SQL Managed Instance is in a [failover gro
    EXEC sp_dropdistributor 1,1
    ```
 
-If geo-replication is enabled on a **subscriber** instance in a failover group, the publication should be configured to connect to the failover group listener endpoint for the subscriber managed instance. In the event of a failover, subsequent action by the managed instance administrator depends on the type of failover that occurred:
+If a **subscriber** SQL Managed Instance is in a failover group, the publication should be configured to connect to the failover group listener endpoint for the subscriber managed instance. In the event of a failover, subsequent action by the managed instance administrator depends on the type of failover that occurred:
 
 - For a failover with no data loss, replication will continue working after failover.
 - For a failover with data loss, replication will work as well. It will replicate the lost changes again.

@@ -7,7 +7,8 @@ ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/03/2019
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurepowershell
 ---
 # Move a Windows VM to another Azure subscription or resource group
 This article walks you through how to move a Windows virtual machine (VM) between resource groups or subscriptions. Moving between subscriptions can be handy if you originally created a VM in a personal subscription and now want to move it to your company's subscription to continue your work. You do not need to stop the VM in order to move it and it should continue to run during the move.

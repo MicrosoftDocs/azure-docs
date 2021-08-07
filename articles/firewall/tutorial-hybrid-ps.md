@@ -6,7 +6,8 @@ author: vhorne
 ms.service: firewall
 ms.topic: how-to
 ms.date: 03/26/2021
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
 # Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell

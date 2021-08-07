@@ -4,7 +4,7 @@ description: This article lists Azure Security Center's security recommendations
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/26/2021
+ms.date: 07/25/2021
 ms.author: memildin
 ms.custom: generated
 ---

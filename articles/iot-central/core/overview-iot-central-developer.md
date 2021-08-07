@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: [mvc, device-developer]
+
+# This article applies to device developers.
 ---
 
 # IoT Central device development guide
-
-*This article applies to device developers.*
 
 An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This guide is intended for device developers who implement code to run on devices that connect to IoT Central.
 
@@ -22,33 +22,31 @@ Devices interact with an IoT Central application using the following primitives:
 - _Properties_ are state values that a device reports to IoT Central. For example, the current firmware version of the device. You can also have writable properties that IoT Central can update on the device such as a target temperature.
 - _Commands_ are called from IoT Central to control the behavior a device. For example, your IoT Central application might call a command to reboot a device.
 
-A solution builder is responsible for configuring dashboards and views in the IoT Central web UI to visualize telemetry, manage properties, and call commands.
+A solution builder is responsible for configuring dashboards and device views in the IoT Central web UI to visualize telemetry, manage properties, and call commands.
 
 ## Types of device
 
 The following sections describe the main types of device you can connect to an IoT Central application:
 
-### Standalone device
+### IoT device
 
-A standalone device connects directly to IoT Central. A standalone device typically sends telemetry from its onboard or connected sensors to your IoT Central application. Standalone devices can also report property values, receive writable property values, and respond to commands.
+A IoT device is a standalone device connects directly to IoT Central. A IoT device typically sends telemetry from its onboard or connected sensors to your IoT Central application. Standalone devices can also report property values, receive writable property values, and respond to commands.
 
-### Gateway device
+### IoT Edge device
 
-A gateway device manages one or more downstream devices that connect to your IoT Central application. You use IoT Central to configure the relationships between the downstream devices and the gateway device. To learn more, see [Define a new IoT gateway device type in your Azure IoT Central application](./tutorial-define-gateway-device-type.md).
+An IoT Edge device connects directly to IoT Central. An IoT Edge device can send its own telemetry, report its properties, and respond to writable property updates and commands. IoT Edge modules can process data locally on the IoT Edge device. An IoT Edge device can also act as an intermediary for other devices known as leaf devices. Scenarios that use IoT Edge devices include:
 
-### Edge device
-
-An edge device connects directly to IoT Central, but acts as an intermediary for other devices known as _leaf devices_. An edge device is typically located close to the leaf devices for which it's acting as an intermediary. Scenarios that use edge devices include:
-
-- Enable devices that can't connect directly to IoT Central to connect through the edge device. For example, a leaf device might use bluetooth to connect to the edge device, which then connects over the internet to IoT Central.
-- Aggregate telemetry before it's sent to IoT Central. This approach can help to reduce the costs of sending data to IoT Central.
+- Aggregate or filter telemetry before it's sent to IoT Central. This approach can help to reduce the costs of sending data to IoT Central.
+- Enable devices that can't connect directly to IoT Central to connect through the IoT Edge device. For example, a leaf device might use bluetooth to connect to the IoT Edge device, which then connects over the internet to IoT Central.
 - Control leaf devices locally to avoid the latency associated with connecting to IoT Central over the internet.
 
-An edge device can also send its own telemetry, report its properties, and respond to writable property updates and commands.
-
-IoT Central only sees the edge device, not the leaf devices connected to the edge device.
+IoT Central only sees the IoT Edge device, not the leaf devices connected to the IoT Edge device.
 
 To learn more, see [Add an Azure IoT Edge device to your Azure IoT Central application](./tutorial-add-edge-as-leaf-device.md).
+
+### Gateways
+
+A gateway device manages one or more downstream devices that connect to your IoT Central application. You use IoT Central to configure the relationships between the downstream devices and the gateway device. Both IoT devices and IoT Edge devices can act as gateways. To learn more, see [Define a new IoT gateway device type in your Azure IoT Central application](./tutorial-define-gateway-device-type.md).
 
 ## Connect a device
 
@@ -75,12 +73,14 @@ Communication protocols that a device can use to connect to IoT Central include 
 
 An IoT Central device template includes a _model_ that specifies the behaviors a device of that type should implement. Behaviors include telemetry, properties, and commands.
 
+To learn more about best practices you edit a model, see [Edit an existing device template](howto-edit-device-template.md).
+
 > [!TIP]
 > You can export the model from IoT Central as a [Digital Twins Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl) JSON file.
 
 Each model has a unique _device twin model identifier_ (DTMI), such as `dtmi:com:example:Thermostat;1`. When a device connects to IoT Central, it sends the DTMI of the model it implements. IoT Central can then associate the correct device template with the device.
 
-[IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) defines a set of conventions that a device should follow when it implements a DTDL model.
+[IoT Plug and Play](../../iot-develop/overview-iot-plug-and-play.md) defines a set of conventions that a device should follow when it implements a DTDL model.
 
 The [Azure IoT device SDKs](#languages-and-sdks) include support for the IoT Plug and Play conventions.
 
@@ -95,10 +95,10 @@ A device model is defined using the [DTDL](https://github.com/Azure/opendigitalt
 
 A DTDL model can be a _no-component_ or a _multi-component_ model:
 
-- No-component model: A simple model doesn't use embedded or cascaded components. All the telemetry, properties, and commands are defined a single _default component_. For an example, see the [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) model.
-- Multi-component model. A more complex model that includes two or more components. These components include a single default component, and one or more additional nested components. For an example, see the [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) model.
+- No-component model: A simple model doesn't use embedded or cascaded components. All the telemetry, properties, and commands are defined a single _root component_. For an example, see the [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) model.
+- Multi-component model. A more complex model that includes two or more components. These components include a single root component, and one or more additional nested components. For an example, see the [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) model.
 
-To learn more, see [IoT Plug and Play modeling guide](../../iot-pnp/concepts-modeling-guide.md)
+To learn more, see [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md)
 
 ### Conventions
 
@@ -114,7 +114,7 @@ A device should follow the IoT Plug and Play conventions when it exchanges data 
 
 To learn more about the format of the JSON messages that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
 
-To learn more about the IoT Plug and Play conventions, see [IoT Plug and Play conventions](../../iot-pnp/concepts-convention.md).
+To learn more about the IoT Plug and Play conventions, see [IoT Plug and Play conventions](../../iot-develop/concepts-convention.md).
 
 ### Device SDKs
 

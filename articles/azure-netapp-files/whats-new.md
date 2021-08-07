@@ -13,13 +13,76 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/30/2021
+ms.date: 08/06/2021
 ms.author: b-juche
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+
+## August 2021
+
+* [NFS `Chown Mode` export policy and UNIX export permissions](configure-unix-permissions-change-ownership-mode.md) (Preview)   
+
+    You can now set the Unix permissions and the change ownership mode (`Chown Mode`) options on Azure NetApp Files NFS volumes or dual-protocol volumes with the Unix security style. You can specify these settings during volume creation or after volume creation.   
+
+    The change ownership mode (`Chown Mode`) functionality enables you to set the ownership management capabilities of files and directories. You can specify or modify the setting under a volume's export policy. Two options for `Chown Mode` are available: *Restricted* (default),  where only the root user can change the ownership of files and directories, and *Unrestricted*, where non-root users can change the ownership for files and directories that they own.   
+
+    The Azure NetApp Files Unix Permissions functionality enables you to specify change permissions for the mount path. 
+
+    These new features provide options to move access control of certain files and directories into the hands of the data user instead of the service operator.   
+
+* [Dual-protocol (NFSv4.1 and SMB) volume](create-volumes-dual-protocol.md) (Preview)   
+
+    Azure NetApp Files already supports dual-protocol access to NFSv3 and SMB volumes as of [July 2020](#july-2020). You can now create an Azure NetApp Files volume that allows simultaneous dual-protocol (NFSv4.1 and SMB) access with support for LDAP user mapping. This feature enables use cases where you might have a Linux-based workload using NFSv4.1 for its access, and the workload generates and stores data in an Azure NetApp Files volume. At the same time, your staff might need to use Windows-based clients and software to analyze the newly generated data from the same Azure NetApp Files volume. The simultaneous dual-protocol access feature removes the need to copy the workload-generated data to a separate volume with a different protocol for post-analysis, saving storage cost and operational time. This feature is free of charge (normal Azure NetApp Files storage cost still applies) and is generally available. Learn more from the [simultaneous dual-protocol NFSv4.1/SMB access](create-volumes-dual-protocol.md) documentation.
+
+## June 2021  
+
+* [Azure NetApp Files storage service add-ons](storage-service-add-ons.md)
+
+    The new Azure NetApp Files **Storage service add-ons** menu option provides an Azure portal “launching pad” for available third-party, ecosystem add-ons to the Azure NetApp Files storage service. With this new portal menu option, you can enter a landing page by clicking an add-on tile to quickly access the add-on.  
+
+    **NetApp add-ons** is the first category of add-ons introduced under **Storage service add-ons**. It provides access to **NetApp Cloud Compliance**. Clicking the **NetApp Cloud Compliance** tile opens a new browser and directs you to the add-on installation page. 
+
+* [Manual QoS capacity pool](manual-qos-capacity-pool-introduction.md) now generally available (GA)   
+
+    The Manual QoS capacity pool feature is now generally available. You no longer need to register the feature before using it. 
+
+* [Shared AD support for multiple accounts to one Active Directory per region per subscription](create-active-directory-connections.md#shared_ad) (Preview)   
+
+    To date, Azure NetApp Files supports only a single Active Directory (AD) per region, where only a single NetApp account could be configured to access the AD. The new **Shared AD** feature enables all NetApp accounts to share an AD connection created by one of the NetApp accounts that belong to the same subscription and the same region. For example, using this feature, all NetApp accounts in the same subscription and region can use the common AD configuration to create an SMB volume, a NFSv4.1 Kerberos volume, or a dual-protocol volume. When you use this feature, the AD connection will be visible in all NetApp accounts that are under the same subscription and same region.
+
+## May 2021 
+
+* Azure NetApp Files Application Consistent Snapshot tool [(AzAcSnap)](azacsnap-introduction.md) is now generally available. 
+
+    AzAcSnap is a command-line tool that enables you to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, SUSE and RHEL). See [Release Notes for AzAcSnap](azacsnap-release-notes.md) for the latest changes about the tool.   
+
+* [Support for capacity pool billing tags](manage-billing-tags.md)   
+
+    Azure NetApp Files now supports billing tags to help you cross-reference cost with business units or other internal consumers. Billing tags are assigned at the capacity pool level and not volume level, and they appear on the customer invoice.
+
+* [ADDS LDAP over TLS](configure-ldap-over-tls.md) (Preview) 
+
+    By default, LDAP communications between client and server applications are not encrypted. This means that it is possible to use a network monitoring device or software to view the communications between an LDAP client and server computers. This scenario might be problematic in non-isolated or shared VNets when an LDAP simple bind is used, because the credentials (user name and password) used to bind the LDAP client to the LDAP server are passed over the network unencrypted. LDAP over TLS (also known as LDAPS) is a protocol that uses TLS to secure communication between LDAP clients and LDAP servers. Azure NetApp Files now supports the secure communication between an Active Directory Domain Server (ADDS) using LDAP over TLS. Azure NetApp Files can now use LDAP over TLS for setting up authenticated sessions between the Active Directory-integrated LDAP servers. You can enable the LDAP over TLS feature for NFS, SMB, and dual-protocol volumes. By default, LDAP over TLS is disabled on Azure NetApp Files.  
+
+* Support for throughput [metrics](azure-netapp-files-metrics.md)    
+
+    Azure NetApp Files adds support for the following metrics:   
+    * Capacity pool throughput metrics
+        * *Pool Allocated to Volume Throughput*
+        * *Pool Consumed Throughput*
+        * *Percentage Pool Allocated to Volume Throughput*
+        * *Percentage Pool Consumed Throughput*
+    * Volume throughput metrics
+        * *Volume Allocated Throughput*
+        * *Volume Consumed Throughput*
+        * *Percentage Volume Consumed Throughput*
+
+* Support for [dynamic change of service level](dynamic-change-volume-service-level.md) of replication volumes   
+
+    Azure NetApp Files now supports dynamically changing the service level of replication source and destination volumes.
 
 ## April 2021
 
@@ -35,11 +98,11 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Users have requested direct control over provisioned capacity. Users want to control and balance storage capacity and utilization. They also want to control cost along with the application-side and client-side visibility of available, used, and provisioned capacity and the performance of their application volumes. With this new behavior, all this capability has now been enabled.
 
-* [SMB Continuous Availability (CA) shares support for FSLogix user profile containers](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (Preview)  
+* [SMB Continuous Availability (CA) shares support for FSLogix user profile containers](azure-netapp-files-create-volumes-smb.md#continuous-availability) (Preview)  
 
-    [FSLogix](/fslogix/overview) is a set of solutions that enhance, enable, and simplify non-persistent Windows computing environments. FSLogix solutions are appropriate for virtual environments in both public and private clouds. FSLogix solutions can also be used to create more portable computing sessions when you use physical devices. FSLogix can be used to provide dynamic access to persistent user profile containers stored on SMB shared networked storage, including Azure NetApp Files. To further enhance FSLogix resiliency to storage service maintenance events, Azure NetApp Files has extended support for SMB Transparent Failover via [SMB Continuous Availability (CA) shares on Azure NetApp Files](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) for user profile containers. See Azure NetApp Files [Windows Virtual Desktop solutions](azure-netapp-files-solution-architectures.md#windows-virtual-desktop) for additional information.  
+    [FSLogix](/fslogix/overview) is a set of solutions that enhance, enable, and simplify non-persistent Windows computing environments. FSLogix solutions are appropriate for virtual environments in both public and private clouds. FSLogix solutions can also be used to create more portable computing sessions when you use physical devices. FSLogix can be used to provide dynamic access to persistent user profile containers stored on SMB shared networked storage, including Azure NetApp Files. To further enhance FSLogix resiliency to storage service maintenance events, Azure NetApp Files has extended support for SMB Transparent Failover via [SMB Continuous Availability (CA) shares on Azure NetApp Files](azure-netapp-files-create-volumes-smb.md#continuous-availability) for user profile containers. See Azure NetApp Files [Azure Virtual Desktop solutions](azure-netapp-files-solution-architectures.md#windows-virtual-desktop) for additional information.  
 
-* [SMB3 Protocol Encryption](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (Preview) 
+* [SMB3 Protocol Encryption](azure-netapp-files-create-volumes-smb.md#smb3-encryption) (Preview) 
 
     You can now enable SMB3 Protocol Encryption on Azure NetApp Files SMB and dual-protocol volumes. This feature enables encryption for in-flight SMB3 data, using the [AES-CCM algorithm on SMB 3.0, and the AES-GCM algorithm on SMB 3.1.1](/windows-server/storage/file-server/file-server-smb-overview#features-added-in-smb-311-with-windows-server-2016-and-windows-10-version-1607) connections. SMB clients not using SMB3 encryption will not be able to access this volume. Data at rest is encrypted regardless of this setting. SMB encryption further enhances security. However, it might impact the client (CPU overhead for encrypting and decrypting messages). It might also impact storage resource utilization (reductions in throughput). You should test the encryption performance impact against your applications before deploying workloads into production.
 
@@ -91,7 +154,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files now supports LDAP signing for secure LDAP lookups between the Azure NetApp Files service and the user-specified Active Directory Domain Services domain controllers. This feature is currently in preview.
 
-* [AES encryption for AD authentication](azure-netapp-files-create-volumes-smb.md) (Preview)
+* [AES encryption for AD authentication](create-active-directory-connections.md#create-an-active-directory-connection) (Preview)
 
     Azure NetApp Files now supports AES encryption on LDAP connection to DC to enable AES encryption for an SMB volume. This feature is currently in preview. 
 
@@ -111,11 +174,11 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [NFS v4.1 Kerberos encryption in transit](configure-kerberos-encryption.MD)
 
-    Azure NetApp Files now supports NFS client encryption in Kerberos modes (krb5, krb5i, and krb5p) with AES-256 encryption, providing you with additional data security. This feature is free of charge (normal [Azure NetApp Files storage cost](https://azure.microsoft.com/pricing/details/netapp/) still applies) and is generally available. Learn more from the [NFS v4.1 Kerberos encryption documentation](configure-kerberos-encryption.MD).
+    Azure NetApp Files now supports NFS client encryption in Kerberos modes (krb5, krb5i, and krb5p) with AES-256 encryption, providing you with more data security. This feature is free of charge (normal [Azure NetApp Files storage cost](https://azure.microsoft.com/pricing/details/netapp/) still applies) and is generally available. Learn more from the [NFS v4.1 Kerberos encryption documentation](configure-kerberos-encryption.MD).
 
-* [Dynamic volume service level change](dynamic-change-volume-service-level.MD)
+* [Dynamic volume service level change](dynamic-change-volume-service-level.MD) (Preview) 
 
-    Cloud promises flexibility in IT spending. You can now change the service level of an existing Azure NetApp Files volume by moving the volume to another capacity pool that uses the service level you want for the volume. This in-place service-level change for the volume does not require that you migrate data. It also does not impact the data plane access to the volume. You can change an existing volume to use a higher service level for better performance, or to use a lower service level for cost optimization. This feature is free of charge (normal [Azure NetApp Files storage cost](https://azure.microsoft.com/pricing/details/netapp/) still applies) and is currently in public preview. You can register for the feature preview by following the [dynamic volume service level change documentation](dynamic-change-volume-service-level.md).
+    Cloud promises flexibility in IT spending. You can now change the service level of an existing Azure NetApp Files volume by moving the volume to another capacity pool that uses the service level you want for the volume. This in-place service-level change for the volume does not require that you migrate data. It also does not impact the data plane access to the volume. You can change an existing volume to use a higher service level for better performance, or to use a lower service level for cost optimization. This feature is free of charge (normal [Azure NetApp Files storage cost](https://azure.microsoft.com/pricing/details/netapp/) still applies). It is currently in preview. You can register for the feature preview by following the [dynamic volume service level change documentation](dynamic-change-volume-service-level.md).
 
 * [Volume snapshot policy](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) (Preview) 
 

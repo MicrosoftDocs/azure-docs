@@ -3,13 +3,13 @@ title: Long Audio API - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how the Long Audio API is designed for asynchronous synthesis of long-form text to speech.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.author: trbye
+ms.author: nitinme
 ---
 
 # Long Audio API
@@ -22,7 +22,7 @@ More benefits of the Long Audio API:
 * There's no need to deploy a voice endpoint.
 
 > [!NOTE]
-> The Long Audio API supports both [Public Neural Voices](./language-support.md#neural-voices) and [Custom Neural Voices](./how-to-custom-voice.md#custom-neural-voices).
+> The Long Audio API supports both [Public Neural Voices](./language-support.md#neural-voices) and [Custom Neural Voices](./how-to-custom-voice.md).
 
 ## Workflow
 

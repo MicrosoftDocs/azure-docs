@@ -1,16 +1,29 @@
 ---
 title: Learn about Azure Service Fabric Support options 
 description: Azure Service Fabric cluster versions supported and links to file support tickets
-author: pkcsf
+author: erikadoyle
 ms.topic: troubleshooting
-ms.date: 8/24/2018
-ms.author: pkc
+ms.date: 5/17/2021
+ms.author: edoyle
+ms.custom: support-help-page
 ---
 # Azure Service Fabric support options
 
 We have created a number of support request options to serve the needs of managing your Service Fabric clusters and application workloads, depending on the urgency of support needed and the severity of the issue.
 
+## Self help troubleshooting
+<div class='icon is-large'>
+    <img alt='Self help content' src='./media/logos/doc-logo.png'>
+</div>
+
+This is the material that is referenced by Customer Support Services when a ticket is created, by Service Fabric Site Reliability Engineers responding to an incident, and by users when discovering resolutions to active system issues.
+
+For a full list of self help troubleshooting content, see [Service Fabric troubleshooting guides](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)
+
 ## Create an Azure support request
+<div class='icon is-large'>
+    <img alt='Azure support' src='./media/logos/azure-logo.png'>
+</div>
 
 To report issues related to your Service Fabric cluster running on Azure, open a support ticket [on the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 or [Microsoft support portal](https://support.microsoft.com/oas/default.aspx?prid=16146).
@@ -28,6 +41,9 @@ Learn more about:
 <a id="getlivesitesupportonprem"></a>
 
 ## Create a support request for standalone Service Fabric clusters
+<div class='icon is-large'>
+    <img alt='Azure support' src='./media/logos/azure-logo.png'>
+</div>
 
 To report issues related to Service Fabric clusters running on-premises or on other clouds, you may open a ticket for professional support on the [Microsoft support portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
@@ -37,22 +53,34 @@ Learn more about:
 - [Microsoft premier support](https://support.microsoft.com/en-us/premier).
 
 ## Post a question to Microsoft Q&A
+<div class='icon is-large'>
+    <img alt='Microsoft Q&A' src='./media/logos/microsoft-logo.png'>
+</div>   
 
 Get answers to Service Fabric questions directly from Microsoft engineers, Azure Most Valuable Professionals (MVPs), and members of our expert community.
 
-[Microsoft Q&A](https://docs.microsoft.com/answers/products/) is Azure's recommended source of community support.
+[Microsoft Q&A](/answers/topics/azure-service-fabric.html) is Azure's recommended source of community support.
 
-If you can't find an answer to your problem by searching Microsoft Q&A, submit a new question. Be sure to post your question using the **azure-service-fabric** tag. Here are some Microsoft Q&A tips for writing [high-quality questions](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html).
+If you can't find an answer to your problem by searching Microsoft Q&A, submit a new question. Be sure to post your question using the [**azure-service-fabric**](/answers/topics/azure-service-fabric.html) tag. Here are some Microsoft Q&A tips for writing [high-quality questions](/answers/articles/24951/how-to-write-a-quality-question.html).
 
 ## Open a GitHub issue
+<div class='icon is-large'>
+    <img alt='GitHub-image' src='./media/logos/github-logo.png'>
+</div>
 
 Report Azure Service Fabric issues at the [Service Fabric GitHub](https://github.com/microsoft/service-fabric/issues). This repo is intended for reporting and tracking issues as well as making small feature requests related to Azure Service Fabric. **Do not use this medium to report live-site issues**.
 
 ## Check the StackOverflow forum
+<div class='icon is-large'>
+    <img alt='Stack Overflow' src='./media/logos/stack-overflow-logo.png'>
+</div>
 
 The `azure-service-fabric` tag on [StackOverflow][stackoverflow] is used for asking general questions about how the platform works and how you may use it to accomplish certain tasks.
 
 ## Submit feedback on Azure Feedback
+<div class='icon is-large'>
+    <img alt='UserVoice' src='./media/logos/azure-feedback-logo.png'>
+</div>
 
 The [Azure Feedback Forum for Service Fabric][uservoice-forum] is the best place for submitting significant product feature ideas. We review the most popular requests and factor them for our medium to long-term planning. We encourage you to rally support for your suggestions within the community.
 
@@ -61,6 +89,19 @@ The [Azure Feedback Forum for Service Fabric][uservoice-forum] is the best place
 > **Service Fabric preview versions are not supported for production use.** Occasionally we make special preview releases containing significant feature changes for which we would like to survey early feedback. You should only use preview versions in isolated test environments that do not serve production workloads. Your production cluster should always be running a supported, stable, Service Fabric version. We don't offer a paid support option for these preview releases.
 >
 > A preview version always begins with a major and minor version number of 255. For example, if you see a Service Fabric version 255.255.5703.949, this version is in preview and is only intended to be used in test clusters. These preview releases are also announced on the [Service Fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) and will have details on the features included. Please use one of the options listed above to provide feedback.
+
+
+## Stay informed of updates and new releases
+
+<div class='icon is-large'>
+    <img alt='Stay informed' src='./media/logos/updates-logo.png'>
+</div>
+
+Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?product=service-fabric).
+
+For the latest releases and updates to the Service Fabric runtime and SDKs, see [Service Fabric releases](release-notes.md)
+
+
 
 ## Next steps
 

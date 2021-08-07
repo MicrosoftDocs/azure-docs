@@ -32,7 +32,7 @@ An Azure Marketplace rendering VM image can be specified in the pool configurati
 
 There is a Windows image and a CentOS image.  In the [Azure Marketplace](https://azuremarketplace.microsoft.com), the VM images can be found by searching for 'batch rendering'.
 
-For an example pool configuration, see the [Azure CLI rendering tutorial](./tutorial-rendering-cli.md).  The Azure portal and Batch Explorer provide GUI tools to select a rendering VM image when you create a pool.  If using a Batch API, then specify the following property values for [ImageReference](/rest/api/batchservice/pool/add#imagereference) when creating a pool:
+The Azure portal and Batch Explorer provide GUI tools to select a rendering VM image when you create a pool.  If using a Batch API, then specify the following property values for [ImageReference](/rest/api/batchservice/pool/add#imagereference) when creating a pool:
 
 | Publisher | Offer | Sku | Version |
 |---------|---------|---------|--------|
@@ -93,7 +93,5 @@ When the Azure Marketplace VM images are used, then the best practice is to use 
 
 ## Next steps
 
-For examples of Batch rendering try out the two tutorials:
-
-* [Rendering using the Azure CLI](./tutorial-rendering-cli.md)
-* [Rendering using Batch Explorer](./tutorial-rendering-batchexplorer-blender.md)
+* Learn about [using rendering applications with Batch](batch-rendering-applications.md).
+* Learn about [Storage and data movement options for rendering asset and output files](batch-rendering-storage-data-movement.md).

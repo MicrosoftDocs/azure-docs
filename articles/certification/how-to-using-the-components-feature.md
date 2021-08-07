@@ -5,7 +5,7 @@ author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: how-to 
-ms.date: 03/03/2021
+ms.date: 05/04/2021
 ms.custom: template-how-to 
 ---
 
@@ -21,9 +21,9 @@ While completing the [tutorial to add device details](tutorial-02-adding-device-
 
 Every project submitted for certification will include one **Customer Ready Product** component (which in many cases will represent the holistic product itself). To better understand the distinction of a Customer Ready Product component type, view our [certification glossary](./resources-glossary.md). All additional components are at your discretion to include to accurately capture your device.
 
-1. Select `Add a component` on the Product details tab.
+1. Select `Add a component` on the Hardware tab.
 
-    ![Add a component link](./media/images/add-a-component-link.png)
+    ![Add a component link](./media/images/add-component-new.png)
 
 1. Complete relevant form fields for the component.
 
@@ -60,7 +60,7 @@ You may have questions regarding how many components to include, or what compone
 | Finished Product                                   | 1          | Customer Ready Product, Discrete | N/A                                              |
 | Finished Product with **detachable peripheral(s)** | 2 or more  | Customer Ready Product, Discrete | Peripheral / Discrete or Integrated              |
 | Finished Product with **integrated component(s)**  | 2 or more  | Customer Ready Product, Discrete | Select appropriate type / Discrete or integrated |
-| Solution-Ready Dev Kit                             | 2 or more  | Customer Ready Product, Discrete | Select appropriate type / Discrete or integrated |
+| Solution-Ready Dev Kit                             | 1 or more  | Customer Ready Product or Development Board, Discrete or Integrated| Select appropriate type / Discrete or integrated |
 
 ## Example component usage
 
@@ -107,4 +107,3 @@ Now that you're ready to use our components feature, you're now ready to complet
 
 - [Tutorial: Adding device details](tutorial-02-adding-device-details.md)
 - [Editing your published device](how-to-edit-published-device.md)
-

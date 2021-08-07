@@ -98,7 +98,7 @@ We need to allow the ARO cluster to use the disk encryption set to encrypt the p
 
 ```azurecli-interactive
 # First, get the Azure Application ID of the service principal used in the ARO cluster.
-aroSPAppId="$(oc get secret azure-credentials -n kube-system -o jsonpath='{.data.azure_client_id}' | base64 --decode)"
+aroSPAppId="$(az aro show -n $aroCluster -g $buildRG -o tsv --query servicePrincipalProfile.clientId)"
 
 # Next, get the object ID of the service principal used in the ARO cluster.
 aroSPObjId="$(az ad sp show --id $aroSPAppId -o tsv --query [objectId])"

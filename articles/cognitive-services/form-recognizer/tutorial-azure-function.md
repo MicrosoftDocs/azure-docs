@@ -1,11 +1,11 @@
 ---
 title: "Tutorial: Use an Azure Function to process stored documents"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: This guide shows you how to use an Azure function to trigger the processing of documents that are uploaded to an Azure blob storage container. 
 author: laujan
 manager: nitinme
 
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 03/19/2021
@@ -119,34 +119,13 @@ def main(myblob: func.InputStream):
     f"Blob Size: {myblob.length} bytes")
 ```
 
-The following code block calls the Form Recognizer [Analyze Layout](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync) API on the uploaded document. Fill in your endpoint and key values. 
-
-
-# [version 2.0](#tab/2-0)
+The following code block calls the Form Recognizer [Analyze Layout](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync) API on the uploaded document. Fill in your endpoint and key values. 
 
 ```Python
 # This is the call to the Form Recognizer endpoint
     endpoint = r"Your Form Recognizer Endpoint"
     apim_key = "Your Form Recognizer Key"
-    post_url = endpoint + "/formrecognizer/v2.0/Layout/analyze"
-    source = myblob.read()
-
-    headers = {
-    # Request headers
-    'Content-Type': 'application/pdf',
-    'Ocp-Apim-Subscription-Key': apim_key,
-        }
-
-    text1=os.path.basename(myblob.name)
-```
-
-# [version 2.1 preview](#tab/2-1)
-
-```Python
-# This is the call to the Form Recognizer endpoint
-    endpoint = r"Your Form Recognizer Endpoint"
-    apim_key = "Your Form Recognizer Key"
-    post_url = endpoint + "/formrecognizer/v2.1-preview.3/Layout/analyze"
+    post_url = endpoint + "/formrecognizer/v2.1/Layout/analyze"
     source = myblob.read()
 
     headers = {
@@ -162,7 +141,7 @@ The following code block calls the Form Recognizer [Analyze Layout](https://west
 > [!IMPORTANT]
 > Go to the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For more information, see the [Cognitive Services security](../cognitive-services-security.md) article.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, see the [Cognitive Services security](../cognitive-services-security.md) article.
 
 Next, add code to query the service and get the returned data. 
 

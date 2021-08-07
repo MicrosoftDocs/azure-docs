@@ -2,7 +2,7 @@
 title: Tutorial - Deploy an Azure VMware Solution private cloud
 description: Learn how to create and deploy an Azure VMware Solution private cloud
 ms.topic: tutorial
-ms.date: 04/23/2021
+ms.date: 06/11/2021
 ---
 
 # Tutorial: Deploy an Azure VMware Solution private cloud
@@ -26,11 +26,10 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Appropriate administrative rights and permission to create a private cloud. You must be at minimum contributor level in the subscription.
-- Follow the information you gathered in the [planning](production-ready-deployment-steps.md) article to deploy Azure VMware Solution.
+- Follow the information you gathered in the [planning](plan-private-cloud-deployment.md) tutorial to deploy Azure VMware Solution.
 - Ensure you have the appropriate networking configured as described in [Network planning checklist](tutorial-network-checklist.md).
-- Hosts have been provisioned and the Microsoft.AVS resource provider has been registered as described in [Request hosts and enable the Microsoft.AVS resource provider](enable-azure-vmware-solution.md).
+- Hosts have been provisioned and the Microsoft.AVS [resource provider has been registered](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider).
 
 ## Create a private cloud
 

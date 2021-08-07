@@ -20,7 +20,7 @@ ms.author: yelevin
 # Tutorial: Investigate incidents with Azure Sentinel
 
 > [!IMPORTANT]
-> The investigation graph is now in **General Availability**. 
+> The investigation graph is now in **General Availability**.
 
 This tutorial helps you investigate incidents with Azure Sentinel. After you connected your data sources to Azure Sentinel, you want to be notified when something suspicious happens. To enable you to do this, Azure Sentinel lets you create advanced alert rules, that generate incidents that you can assign and investigate.
 
@@ -81,12 +81,14 @@ To use the investigation graph:
 
 1. Select an incident, then select **Investigate**. This takes you to the investigation graph. The graph provides an illustrative map of the entities directly connected to the alert and each resource connected further.
 
+
+    [ ![View map.](media/tutorial-investigate-cases/investigation-map.png) ](media/tutorial-investigate-cases/investigation-map.png#lightbox)
+
    > [!IMPORTANT] 
    > - You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytics rule. The investigation graph requires that your original incident includes entities.
    >
    > - Azure Sentinel currently supports investigation of **incidents up to 30 days old**.
 
-   ![View map](media/tutorial-investigate-cases/map1.png)
 
 1. Select an entity to open the **Entities** pane so you can review information on that entity.
 
@@ -122,9 +124,12 @@ Once you have resolved a particular incident (for example, when your investigati
 
 :::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="Screenshot that highlights the classifications available in the Select classification list.":::
 
+For more information about false positives and benign positives, see [Handle false positives in Azure Sentinel](false-positives.md).
+
 After choosing the appropriate classification, add some descriptive text in the **Comment** field. This will be useful in the event you need to refer back to this incident. Click **Apply** when you’re done, and the incident will be closed.
 
 :::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
+
 
 ## Next steps
 In this tutorial, you learned how to get started investigating incidents using Azure Sentinel. Continue to the tutorial for [how to respond to threats using automated playbooks](tutorial-respond-threats-playbook.md).

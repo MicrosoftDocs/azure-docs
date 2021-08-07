@@ -1,14 +1,17 @@
 ---
 title: Copy and transform data in Azure Synapse Analytics
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data to and from Azure Synapse Analytics, and transform data in Azure Synapse Analytics by using Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 05/10/2021
 ---
 
-# Copy and transform data in Azure Synapse Analytics by using Azure Data Factory
+# Copy and transform data in Azure Synapse Analytics by using Azure Data Factory or Synapse pipelines
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 >
@@ -17,7 +20,7 @@ ms.date: 03/17/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Synapse Analytics, and use Data Flow to transform data in Azure Data Lake Storage Gen2. To learn about Azure Data Factory, read the [introductory article](introduction.md).
+This article outlines how to use Copy Activity in Azure Data Factory or Synapse pipelines to copy data from and to Azure Synapse Analytics, and use Data Flow to transform data in Azure Data Lake Storage Gen2. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
 ## Supported capabilities
 
@@ -35,7 +38,7 @@ For Copy activity, this Azure Synapse Analytics connector supports these functio
 - As a sink, load data by using [PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics) or [COPY statement](#use-copy-statement) or bulk insert. We recommend PolyBase or COPY statement for better copy performance. The connector also supports automatically creating destination table if not exists based on the source schema.
 
 > [!IMPORTANT]
-> If you copy data by using Azure Data Factory Integration Runtime, configure a [server-level firewall rule](../azure-sql/database/firewall-configure.md) so that Azure services can access the [logical SQL server](../azure-sql/database/logical-servers.md).
+> If you copy data by using an Azure integration runtime, configure a [server-level firewall rule](../azure-sql/database/firewall-configure.md) so that Azure services can access the [logical SQL server](../azure-sql/database/logical-servers.md).
 > If you copy data by using a self-hosted integration runtime, configure the firewall to allow the appropriate IP range. This range includes the machine's IP that is used to connect to Azure Synapse Analytics.
 
 ## Get started
@@ -43,9 +46,9 @@ For Copy activity, this Azure Synapse Analytics connector supports these functio
 > [!TIP]
 > To achieve best performance, use PolyBase or COPY statement to load data into Azure Synapse Analytics. The [Use PolyBase to load data into Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) and [Use COPY statement to load data into Azure Synapse Analytics](#use-copy-statement) sections have details. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics under 15 minutes with Azure Data Factory](load-azure-sql-data-warehouse.md).
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that define Data Factory entities specific to an Azure Synapse Analytics connector.
+The following sections provide details about properties that define Data Factory and Synapse pipeline entities specific to an Azure Synapse Analytics connector.
 
 ## Linked service properties
 
@@ -54,11 +57,11 @@ The following properties are supported for an Azure Synapse Analytics linked ser
 | Property            | Description                                                  | Required                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | type                | The type property must be set to **AzureSqlDW**.             | Yes                                                          |
-| connectionString    | Specify the information needed to connect to the Azure Synapse Analytics instance for the **connectionString** property. <br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put password/service principal key in Azure Key Vault，and if it's SQL authentication pull the `password` configuration out of the connection string. See the JSON example below the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes                                                          |
+| connectionString    | Specify the information needed to connect to the Azure Synapse Analytics instance for the **connectionString** property. <br/>Mark this field as a SecureString to store it securely. You can also put password/service principal key in Azure Key Vault，and if it's SQL authentication pull the `password` configuration out of the connection string. See the JSON example below the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes                                                          |
 | servicePrincipalId  | Specify the application's client ID.                         | Yes, when you use Azure AD authentication with a service principal. |
-| servicePrincipalKey | Specify the application's key. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes, when you use Azure AD authentication with a service principal. |
+| servicePrincipalKey | Specify the application's key. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes, when you use Azure AD authentication with a service principal. |
 | tenant              | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes, when you use Azure AD authentication with a service principal. |
-| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Azure AD application is registered. <br/> Allowed values are `AzurePublic`, `AzureChina`, `AzureUsGovernment`, and `AzureGermany`. By default, the data factory's cloud environment is used. | No |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Azure AD application is registered. <br/> Allowed values are `AzurePublic`, `AzureChina`, `AzureUsGovernment`, and `AzureGermany`. By default, the data factory or Synapse pipeline's cloud environment is used. | No |
 | connectVia          | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. | No                                                           |
 
 For different authentication types, refer to the following sections on prerequisites and JSON samples, respectively:
@@ -134,7 +137,7 @@ To use service principal-based Azure AD application token authentication, follow
 3. **[Create contained database users](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)** for the service principal. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL:
   
     ```sql
-    CREATE USER [your application name] FROM EXTERNAL PROVIDER;
+    CREATE USER [your_application_name] FROM EXTERNAL PROVIDER;
     ```
 
 4. **Grant the service principal needed permissions** as you normally do for SQL users or others. Run the following code, or refer to more options [here](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). If you want to use PolyBase to load the data, learn the [required database permission](#required-database-permission).
@@ -143,7 +146,7 @@ To use service principal-based Azure AD application token authentication, follow
     EXEC sp_addrolemember db_owner, [your application name];
     ```
 
-5. **Configure an Azure Synapse Analytics linked service** in Azure Data Factory.
+5. **Configure an Azure Synapse Analytics linked service** in an Azure Data Factory or Synapse workspace.
 
 #### Linked service example that uses service principal authentication
 
@@ -171,25 +174,25 @@ To use service principal-based Azure AD application token authentication, follow
 
 ### <a name="managed-identity"></a> Managed identities for Azure resources authentication
 
-A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md) that represents the specific factory. You can use this managed identity for Azure Synapse Analytics authentication. The designated factory can access and copy data from or to your data warehouse by using this identity.
+A data factory or Synapse workspace can be associated with a [managed identity for Azure resources](data-factory-service-identity.md) that represents the resource. You can use this managed identity for Azure Synapse Analytics authentication. The designated resource can access and copy data from or to your data warehouse by using this identity.
 
 To use managed identity authentication, follow these steps:
 
 1. **[Provision an Azure Active Directory administrator](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-database)** for your server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
 
-2. **[Create contained database users](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)** for the Data Factory Managed Identity. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL.
+2. **[Create contained database users](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)** for the Managed Identity. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL.
   
     ```sql
-    CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
+    CREATE USER [your_resource_name] FROM EXTERNAL PROVIDER;
     ```
 
-3. **Grant the Data Factory Managed Identity needed permissions** as you normally do for SQL users and others. Run the following code, or refer to more options [here](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). If you want to use PolyBase to load the data, learn the [required database permission](#required-database-permission).
+3. **Grant the Managed Identity needed permissions** as you normally do for SQL users and others. Run the following code, or refer to more options [here](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). If you want to use PolyBase to load the data, learn the [required database permission](#required-database-permission).
 
     ```sql
-    EXEC sp_addrolemember db_owner, [your Data Factory name];
+    EXEC sp_addrolemember db_owner, [your_resource_name];
     ```
 
-4. **Configure an Azure Synapse Analytics linked service** in Azure Data Factory.
+4. **Configure an Azure Synapse Analytics linked service**.
 
 **Example:**
 
@@ -361,7 +364,7 @@ GO
 
 ### <a name="azure-sql-data-warehouse-as-sink"></a> Azure Synapse Analytics as sink
 
-Azure Data Factory supports three ways to load data into Azure Synapse Analytics.
+Azure Data Factory and Synapse pipelines support three ways to load data into Azure Synapse Analytics.
 
 ![Azure Synapse Analytics sink copy options](./media/connector-azure-sql-data-warehouse/sql-dw-sink-copy-options.png)
 
@@ -380,11 +383,11 @@ To copy data to Azure Synapse Analytics, set the sink type in Copy Activity to *
 | polyBaseSettings  | A group of properties that can be specified when the `allowPolybase` property is set to **true**. | No.<br/>Apply  when using PolyBase. |
 | allowCopyCommand | Indicates whether to use [COPY statement](/sql/t-sql/statements/copy-into-transact-sql) to load data into Azure Synapse Analytics. `allowCopyCommand` and `allowPolyBase` cannot be both true. <br/><br/>See [Use COPY statement to load data into Azure Synapse Analytics](#use-copy-statement) section for constraints and details.<br/><br/>Allowed values are **True** and **False** (default). | No.<br>Apply  when using COPY. |
 | copyCommandSettings | A group of properties that can be specified when `allowCopyCommand` property is set to TRUE. | No.<br/>Apply  when using COPY. |
-| writeBatchSize    | Number of rows to inserts into the SQL table **per batch**.<br/><br/>The allowed value is **integer** (number of rows). By default, Data Factory dynamically determines the appropriate batch size based on the row size. | No.<br/>Apply  when using bulk insert.     |
+| writeBatchSize    | Number of rows to inserts into the SQL table **per batch**.<br/><br/>The allowed value is **integer** (number of rows). By default, the service dynamically determines the appropriate batch size based on the row size. | No.<br/>Apply  when using bulk insert.     |
 | writeBatchTimeout | Wait time for the batch insert operation to finish before it times out.<br/><br/>The allowed value is **timespan**. Example: "00:30:00" (30 minutes). | No.<br/>Apply  when using bulk insert.        |
 | preCopyScript     | Specify a SQL query for Copy Activity to run before writing data into Azure Synapse Analytics in each run. Use this property to clean up the preloaded data. | No                                            |
 | tableOption | Specifies whether to [automatically create the sink table](copy-activity-overview.md#auto-create-sink-tables) if not exists based on the source schema. Allowed values are: `none` (default), `autoCreate`. |No |
-| disableMetricsCollection | Data Factory collects metrics such as Azure Synapse Analytics DWUs for copy performance optimization and recommendations, which introduce additional master DB access. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
+| disableMetricsCollection | The service collects metrics such as Azure Synapse Analytics DWUs for copy performance optimization and recommendations, which introduce additional master DB access. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
 | maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 #### Azure Synapse Analytics sink example
@@ -409,15 +412,15 @@ The Azure Synapse Analytics connector in copy activity provides built-in data pa
 
 ![Screenshot of partition options](./media/connector-sql-server/connector-sql-partition-options.png)
 
-When you enable partitioned copy, copy activity runs parallel queries against your Azure Synapse Analytics source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Azure Synapse Analytics.
+When you enable partitioned copy, copy activity runs parallel queries against your Azure Synapse Analytics source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, the service concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Azure Synapse Analytics.
 
 You are suggested to enable parallel copy with data partitioning especially when you load large amount of data from your Azure Synapse Analytics. The following are suggested configurations for different scenarios. When copying data into file-based data store, it's recommended to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
 
 | Scenario                                                     | Suggested settings                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Full load from large table, with physical partitions.        | **Partition option**: Physical partitions of table. <br><br/>During execution, Data Factory automatically detects the physical partitions, and copies data by partitions. <br><br/>To check if your table has physical partition or not, you can refer to [this query](#sample-query-to-check-physical-partition). |
-| Full load from large table, without physical partitions, while with an integer or datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Partition column** (optional): Specify the column used to partition data. If not specified, the index or primary key column is used.<br/>**Partition upper bound** and **partition lower bound** (optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, all rows in the table will be partitioned and copied. If not specified, copy activity auto detect the values.<br><br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, Data Factory retrieves data by 4 partitions - IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. |
-| Load a large amount of data by using a custom query, without physical partitions, while with an integer or date/datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to partition data.<br>**Partition upper bound** and **partition lower bound** (optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, all rows in the query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br><br>During execution, Data Factory replaces `?AdfRangePartitionColumnName` with the actual column name and value ranges for each partition, and sends to Azure Synapse Analytics. <br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, Data Factory retrieves data by 4 partitions- IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. <br><br>Here are more sample queries for different scenarios:<br> 1. Query the whole table: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. Query from a table with column selection and additional where-clause filters: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. Query with subqueries: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. Query with partition in subquery: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
+| Full load from large table, with physical partitions.        | **Partition option**: Physical partitions of table. <br><br/>During execution, the service automatically detects the physical partitions, and copies data by partitions. <br><br/>To check if your table has physical partition or not, you can refer to [this query](#sample-query-to-check-physical-partition). |
+| Full load from large table, without physical partitions, while with an integer or datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Partition column** (optional): Specify the column used to partition data. If not specified, the index or primary key column is used.<br/>**Partition upper bound** and **partition lower bound** (optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, all rows in the table will be partitioned and copied. If not specified, copy activity auto detect the values.<br><br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, the service retrieves data by 4 partitions - IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. |
+| Load a large amount of data by using a custom query, without physical partitions, while with an integer or date/datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to partition data.<br>**Partition upper bound** and **partition lower bound** (optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, all rows in the query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br><br>During execution, the service replaces `?AdfRangePartitionColumnName` with the actual column name and value ranges for each partition, and sends to Azure Synapse Analytics. <br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, the service retrieves data by 4 partitions- IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. <br><br>Here are more sample queries for different scenarios:<br> 1. Query the whole table: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. Query from a table with column selection and additional where-clause filters: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. Query with subqueries: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. Query with partition in subquery: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
 |
 
 Best practices to load data with partition option:
@@ -426,7 +429,7 @@ Best practices to load data with partition option:
 2. If the table has built-in partition, use partition option "Physical partitions of table" to get better performance.
 3. If you use Azure Integration Runtime to copy data, you can set larger "[Data Integration Units (DIU)](copy-activity-performance-features.md#data-integration-units)" (>4) to utilize more computing resource. Check the applicable scenarios there.
 4. "[Degree of copy parallelism](copy-activity-performance-features.md#parallel-copy)" control the partition numbers, setting this number too large sometime hurts the performance, recommend setting this number as (DIU or number of Self-hosted IR nodes) * (2 to 4).
-5. Note Azure Synapse Analytics can execute a maximum of 32 queries at a moment, setting "Degree of copy parallelism" too large may cause Synapse throttling issue.
+5. Note Azure Synapse Analytics can execute a maximum of 32 queries at a moment, setting "Degree of copy parallelism" too large may cause an Azure Synapse throttling issue.
 
 **Example: full load from large table with physical partitions**
 
@@ -476,7 +479,7 @@ Using [PolyBase](/sql/relational-databases/polybase/polybase-guide) is an effici
 - If your source data store and format isn't originally supported by PolyBase, use the **[Staged copy by using PolyBase](#staged-copy-by-using-polybase)** feature instead. The staged copy feature also provides you better throughput. It automatically converts the data into PolyBase-compatible format, stores the data in Azure Blob storage, then calls PolyBase to load data into Azure Synapse Analytics.
 
 > [!TIP]
-> Learn more on [Best practices for using PolyBase](#best-practices-for-using-polybase). When using PolyBase with Azure Integration Runtime, effective [Data Integration Units (DIU)](copy-activity-performance-features.md#data-integration-units) for direct or staged storage-to-Synapse is always 2. Tuning the DIU doesn't impact the performance, as loading data from storage is powered by Synapse engine.
+> Learn more on [Best practices for using PolyBase](#best-practices-for-using-polybase). When using PolyBase with Azure Integration Runtime, effective [Data Integration Units (DIU)](copy-activity-performance-features.md#data-integration-units) for direct or staged storage-to-Synapse is always 2. Tuning the DIU doesn't impact the performance, as loading data from storage is powered by the Azure Synapse engine.
 
 The following PolyBase settings are supported under `polyBaseSettings` in copy activity:
 
@@ -494,7 +497,7 @@ Azure Synapse Analytics PolyBase directly supports Azure Blob, Azure Data Lake S
 > [!TIP]
 > To copy data efficiently to Azure Synapse Analytics, learn more from [Azure Data Factory makes it even easier and convenient to uncover insights from data when using Data Lake Store with Azure Synapse Analytics](/archive/blogs/azuredatalake/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse).
 
-If the requirements aren't met, Azure Data Factory checks the settings and automatically falls back to the BULKINSERT mechanism for the data movement.
+If the requirements aren't met, the service checks the settings and automatically falls back to the BULKINSERT mechanism for the data movement.
 
 1. The **source linked service** is with the following types and authentication methods:
 
@@ -515,7 +518,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
    3. `rowDelimiter` is **default**, **\n**, **\r\n**, or **\r**.
    4. `nullValue` is left as default or set to **empty string** (""), and `treatEmptyAsNull` is left as default or set to true.
    5. `encodingName` is left as default or set to **utf-8**.
-   6. `quoteChar`, `escapeChar`, and `skipLineCount` aren't specified. PolyBase support skip header row, which can be configured as `firstRowAsHeader` in ADF.
+   6. `quoteChar`, `escapeChar`, and `skipLineCount` aren't specified. PolyBase support skip header row, which can be configured as `firstRowAsHeader`.
    7. `compression` can be **no compression**, **``GZip``**, or **Deflate**.
 
 3. If your source is a folder, `recursive` in copy activity must be set to true.
@@ -561,7 +564,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
 
 ### Staged copy by using PolyBase
 
-When your source data is not natively compatible with PolyBase, enable data copying via an interim staging Azure Blob or Azure Data Lake Storage Gen2 (it can't be Azure Premium Storage). In this case, Azure Data Factory automatically converts the data to meet the data format requirements of PolyBase. Then it invokes PolyBase to load data into Azure Synapse Analytics. Finally, it cleans up your temporary data from the storage. See [Staged copy](copy-activity-performance-features.md#staged-copy) for details about copying data via a staging.
+When your source data is not natively compatible with PolyBase, enable data copying via an interim staging Azure Blob or Azure Data Lake Storage Gen2 (it can't be Azure Premium Storage). In this case, the service automatically converts the data to meet the data format requirements of PolyBase. Then it invokes PolyBase to load data into Azure Synapse Analytics. Finally, it cleans up your temporary data from the storage. See [Staged copy](copy-activity-performance-features.md#staged-copy) for details about copying data via a staging.
 
 To use this feature, create an [Azure Blob Storage linked service](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2 linked service](connector-azure-data-lake-storage.md#linked-service-properties) with **account key or managed identity authentication** that refers to the Azure storage account as the interim storage.
 
@@ -623,7 +626,7 @@ PolyBase loads are limited to rows smaller than 1 MB. It cannot be used to load 
 
 When your source data has rows greater than 1 MB, you might want to vertically split the source tables into several small ones. Make sure that the largest size of each row doesn't exceed the limit. The smaller tables can then be loaded by using PolyBase and merged together in Azure Synapse Analytics.
 
-Alternatively, for data with such wide columns, you can use non-PolyBase to load the data using ADF, by turning off "allow PolyBase" setting.
+Alternatively, for data with such wide columns, you can use non-PolyBase to load the data by turning off "allow PolyBase" setting.
 
 #### Azure Synapse Analytics resource class
 
@@ -660,7 +663,7 @@ Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account
 
 #### Columns with default values
 
-Currently, the PolyBase feature in Data Factory accepts only the same number of columns as in the target table. An example is a table with four columns where one of them is defined with a default value. The input data still needs to have four columns. A three-column input dataset yields an error similar to the following message:
+Currently, the PolyBase feature accepts only the same number of columns as in the target table. An example is a table with four columns where one of them is defined with a default value. The input data still needs to have four columns. A three-column input dataset yields an error similar to the following message:
 
 ```output
 All columns of the table must be specified in the INSERT BULK statement.
@@ -680,13 +683,13 @@ For more information, see [Grant permissions to managed identity after workspace
 
 ## <a name="use-copy-statement"></a> Use COPY statement to load data into Azure Synapse Analytics
 
-Azure Synapse Analytics [COPY statement](/sql/t-sql/statements/copy-into-transact-sql) directly supports loading data from **Azure Blob and Azure Data Lake Storage Gen2**. If your source data meets the criteria described in this section, you can choose to use COPY statement in ADF to load data into Azure Synapse Analytics. Azure Data Factory checks the settings and fails the copy activity run if the criteria is not met.
+Azure Synapse Analytics [COPY statement](/sql/t-sql/statements/copy-into-transact-sql) directly supports loading data from **Azure Blob and Azure Data Lake Storage Gen2**. If your source data meets the criteria described in this section, you can choose to use COPY statement to load data into Azure Synapse Analytics. Azure Data Factory checks the settings and fails the copy activity run if the criteria is not met.
 
 >[!NOTE]
->Currently Data Factory only support copy from COPY statement compatible sources mentioned below.
+>Currently the service only supports copy from COPY statement compatible sources mentioned below.
 
 >[!TIP]
->When using COPY statement with Azure Integration Runtime, effective [Data Integration Units (DIU)](copy-activity-performance-features.md#data-integration-units) is always 2. Tuning the DIU doesn't impact the performance, as loading data from storage is powered by Synapse engine.
+>When using COPY statement with Azure Integration Runtime, effective [Data Integration Units (DIU)](copy-activity-performance-features.md#data-integration-units) is always 2. Tuning the DIU doesn't impact the performance, as loading data from storage is powered by the Azure Synapse engine.
 
 Using COPY statement supports the following configuration:
 
@@ -783,7 +786,7 @@ Settings specific to Azure Synapse Analytics are available in the **Source Optio
 
 **Input** Select whether you point your source at a table (equivalent of ```Select * from <table-name>```) or enter a custom SQL query.
 
-**Enable Staging** It is highly recommended that you use this option in production workloads with Azure Synapse Analytics sources. When you execute a [data flow activity](control-flow-execute-data-flow-activity.md) with Azure Synapse Analytics sources from a pipeline, ADF will prompt you for a staging location storage account and will use that for staged data loading. It is the fastest mechanism to load data from Azure Synapse Analytics.
+**Enable Staging** It is highly recommended that you use this option in production workloads with Azure Synapse Analytics sources. When you execute a [data flow activity](control-flow-execute-data-flow-activity.md) with Azure Synapse Analytics sources from a pipeline, you will be prompted for a staging location storage account and will use that for staged data loading. It is the fastest mechanism to load data from Azure Synapse Analytics.
 
 - When you use managed identity authentication for your storage linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.
 - If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage).
@@ -793,7 +796,7 @@ Settings specific to Azure Synapse Analytics are available in the **Source Optio
 
 SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**Batch size**: Enter a batch size to chunk large data into reads. In data flows, ADF will use this setting to set Spark columnar caching. This is an option field, which will use Spark defaults if it is left blank.
+**Batch size**: Enter a batch size to chunk large data into reads. In data flows, this setting will be used to set Spark columnar caching. This is an option field, which will use Spark defaults if it is left blank.
 
 **Isolation Level**: The default for SQL sources in mapping data flow is read uncommitted. You can change the isolation level here to one of these values:
 
@@ -828,6 +831,24 @@ Settings specific to Azure Synapse Analytics are available in the **Settings** t
 
 ![pre and post SQL processing scripts](media/data-flow/prepost1.png "SQL processing scripts")
 
+### Error row handling
+
+When writing to Azure Synapse Analytics, certain rows of data may fail due to constraints set by the destination. Some common errors include:
+
+*    String or binary data would be truncated in table
+*    Cannot insert the value NULL into column
+*    Conversion failed when converting the value to data type
+
+By default, a data flow run will fail on the first error it gets. You can choose to **Continue on error** that allows your data flow to complete even if individual rows have errors. The service provides different options for you to handle these error rows.
+
+**Transaction Commit:** Choose whether your data gets written in a single transaction or in batches. Single transaction will provide better performance and no data written will be visible to others until the transaction completes. Batch transactions have worse performance but can work for large datasets.
+
+**Output rejected data:** If enabled, you can output the error rows into a csv file in Azure Blob Storage or an Azure Data Lake Storage Gen2 account of your choosing. This will write the error rows with three additional columns: the SQL operation like INSERT or UPDATE, the data flow error code, and the error message on the row.
+
+**Report success on error:** If enabled, the data flow will be marked as a success even if error rows are found. 
+
+:::image type="content" source="media/data-flow/sql-error-row-handling.png" alt-text="Screenshot that shows the error row handling" border="false":::
+
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
@@ -838,7 +859,7 @@ To learn details about the properties, check [GetMetadata activity](control-flow
 
 ## Data type mapping for Azure Synapse Analytics
 
-When you copy data from or to Azure Synapse Analytics, the following mappings are used from Azure Synapse Analytics data types to Azure Data Factory interim data types. See [schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn how Copy Activity maps the source schema and data type to the sink.
+When you copy data from or to Azure Synapse Analytics, the following mappings are used from Azure Synapse Analytics data types to Azure Data Factory interim data types. These mappings are also used when copying data from or to Azure Synapse Analytics using Synapse pipelines, since pipelines also implement Azure Data Factory within Azure Synapse.  See [schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn how Copy Activity maps the source schema and data type to the sink.
 
 >[!TIP]
 >Refer to [Table data types in Azure Synapse Analytics](../synapse-analytics/sql/develop-tables-data-types.md) article on Azure Synapse Analytics supported data types and the workarounds for unsupported ones.
@@ -875,4 +896,4 @@ When you copy data from or to Azure Synapse Analytics, the following mappings ar
 
 ## Next steps
 
-For a list of data stores supported as sources and sinks by Copy Activity in Azure Data Factory, see [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by Copy Activity, see [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

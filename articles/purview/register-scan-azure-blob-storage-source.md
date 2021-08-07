@@ -6,7 +6,7 @@ ms.author: sandeepshah
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/25/2020
+ms.date: 05/08/2021
 ---
 
 # Register and scan Azure Blob Storage
@@ -16,6 +16,12 @@ This article outlines how to register an Azure Blob Storage account in Purview a
 ## Supported capabilities
 
 Azure Blob Storage supports full and incremental scans to capture the metadata and schema. It also classifies the data automatically based on system and custom classification rules.
+
+For file types such as csv, tsv, psv, ssv, the schema is extracted when the following logics are in place:
+
+1. First row values are non-empty
+2. First row values are unique
+3. First row values are neither a date and nor a number
 
 ## Prerequisites
 
@@ -105,8 +111,8 @@ It is required to get the Service Principal's application ID and secret:
 
 To register a new blob account in your data catalog, do the following:
 
-1. Navigate to your Purview account
-1. Select **Sources** on the left navigation
+1. Navigate to the Purview Studio from your Purview account in the portal.
+1. Select **Register Sources** on the home page of the Purview Studio.
 1. Select **Register**
 1. On **Register sources**, select **Azure Blob Storage**
 1. Select **Continue**
@@ -114,14 +120,42 @@ To register a new blob account in your data catalog, do the following:
 On the **Register sources (Azure Blob Storage)** screen, do the following:
 
 1. Enter a **Name** that the data source will be listed with in the Catalog. 
-1. Choose your subscription to filter down storage accounts
-1. Select a storage account
-1. Select a collection or create a new one (Optional)
-1. **Finish** to register the data source.
+1. Choose your subscription to filter down storage accounts.
+1. Select a storage account.
+1. Select a collection or create a new one (Optional).
+1. Select **Register** to register the data source.
 
 :::image type="content" source="media/register-scan-azure-blob-storage-source/register-sources.png" alt-text="register sources options" border="true":::
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+## Creating and running a scan
+
+To create and run a new scan, do the following:
+
+1. Select the **Data Map** tab on the left pane in the Purview Studio.
+
+1. Select the Azure Blob data source that you registered.
+
+1. Select **New scan**
+
+1. Select the credential to connect to your data source. 
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/set-up-scan-blob.png" alt-text="Set up scan":::
+
+1. You can scope your scan to specific folders or subfolders by choosing the appropriate items in the list.
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/blob-scope-your-scan.png" alt-text="Scope your scan":::
+
+1. Then select a scan rule set. You can choose between the system default, existing custom rule sets, or create a new rule set inline.
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/blob-scan-rule-set.png" alt-text="Scan rule set":::
+
+1. Choose your scan trigger. You can set up a schedule or run the scan once.
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/trigger-scan.png" alt-text="trigger":::
+
+1. Review your scan and select **Save and run**.
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## Next steps
 

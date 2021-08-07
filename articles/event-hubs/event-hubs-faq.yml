@@ -19,7 +19,7 @@ sections:
       - question: |
           When do I create a new namespace vs. use an existing namespace?
         answer: |
-          Capacity allocations ([throughput units (TUs)](/azure/event-hubs/event-hubs-faq#throughput-units)) are billed at the namespace level. A namespace is also associated with a region.
+          Capacity allocations ([throughput units (TUs)](/azure/event-hubs/event-hubs-faq#throughput-units) or [processing units (PUs)](./event-hubs-scalability.md#processing-units)) are billed at the namespace level. A namespace is also associated with a region.
           
           You may want to create a new namespace instead of using an existing one in one of the following scenarios: 
           
@@ -60,14 +60,14 @@ sections:
       - question: |
           How do I monitor my Event Hubs?
         answer: |
-          Event Hubs emits exhaustive metrics that provide the state of your resources to [Azure Monitor](../azure-monitor/overview.md). They also let you assess the overall health of the Event Hubs service not only at the namespace level but also at the entity level. Learn about what monitoring is offered for [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
+          Event Hubs emits exhaustive metrics that provide the state of your resources to [Azure Monitor](../azure-monitor/overview.md). They also let you assess the overall health of the Event Hubs service not only at the namespace level but also at the entity level. Learn about what monitoring is offered for [Azure Event Hubs](monitor-event-hubs.md).
           
       - question: |
           Where does Azure Event Hubs store data?
         answer: |
           Azure Event Hubs standard and dedicated tiers store metadata and data in regions that you select. When geo-disaster recovery is set up for an Azure Event Hubs namespace, metadata is copied over to the secondary region that you select. Therefore, this service automatically satisfies the region data residency requirements including the ones specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
           
-          [!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
+          [!INCLUDE [event-hubs-connectivity](./includes/event-hubs-connectivity.md)]
           
   - name: Apache Kafka integration
     questions:
@@ -110,7 +110,7 @@ sections:
   - name: Throughput units
     questions:
       - question: |
-          What are Event Hubs throughput units?
+          What are Event Hubs throughput units? (Applied to **standard** tier only)
         answer: |
           Throughput in Event Hubs defines the amount of data in mega bytes or the number (in thousands) of 1-KB events that ingress and egress through Event Hubs. This throughput is measured in throughput units (TUs). Purchase TUs before you can start using the Event Hubs service. You can explicitly select Event Hubs TUs either by using portal or Event Hubs Resource Manager templates. 
           
@@ -158,17 +158,8 @@ sections:
       - question: |
           Is there a limit on the number of throughput units that can be reserved/selected?
         answer: |
-          When creating a basic or a standard tier namespace in the Azure portal, you can select up to 20 TUs for the namespace. To raise it to **exactly** 40 TUs, submit a  [support request](../azure-portal/supportability/how-to-create-azure-support-request.md).  
-          
-          1. On the **Event Bus Namespace** page, select **New support request** on the left menu. 
-          1. On the **New support request** page, follow these steps:
-              1. For **Summary**, describe the issue in a few words. 
-              1. For **Problem type**, select **Quota**. 
-              1. For **Problem subtype**, select **Request for throughput unit increase or decrease**. 
-              
-                  :::image type="content" source="./media/event-hubs-faq/support-request-throughput-units.png" alt-text="Support request page":::
-          
-          Beyond 40 TUs, Event Hubs offers the resource/capacity-based model called the Event Hubs Dedicated clusters. Dedicated clusters are sold in Capacity Units (CUs). For more information, see [Event Hubs Dedicated - overview](event-hubs-dedicated-overview.md).
+          When creating a basic or a standard tier namespace in the Azure portal, you can select up to 40 TUs for the namespace. 
+          Beyond 40 TUs, Event Hubs offers the resource/capacity-based models such as Event Hubs Premium and Event Hubs Dedicated clusters. For more information, see [Event Hubs Premium - overview](event-hubs-premium-overview.md) and [Event Hubs Dedicated - overview](event-hubs-dedicated-overview.md).
           
   - name: Dedicated clusters
     questions:
@@ -183,7 +174,7 @@ sections:
           For step-by-step instructions and more information on setting up an Event Hubs dedicated cluster, see the [Quickstart: Create a dedicated Event Hubs cluster using Azure portal](event-hubs-dedicated-cluster-create-portal.md). 
           
           
-          [!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
+          [!INCLUDE [event-hubs-dedicated-clusters-faq](./includes/event-hubs-dedicated-clusters-faq.md)]
           
           
   - name: Partitions
@@ -277,7 +268,7 @@ sections:
       - question: |
           Diagnostic logs
         answer: |
-          Event Hubs supports two types of [diagnostics logs](event-hubs-diagnostic-logs.md) - Capture error logs and operational logs - both of which are represented in json and can be turned on through the Azure portal.
+          Event Hubs supports two types of [diagnostics logs](monitor-event-hubs-reference.md#resource-logs) - Capture error logs and operational logs - both of which are represented in json and can be turned on through the Azure portal.
           
       - question: |
           Support and SLA
@@ -300,7 +291,7 @@ sections:
           - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/)
           - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java)
           - Python - [Synchronous](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py), [Asynchronous](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
-          - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) and [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts)
+          - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/javascript/receiveEventsWithApiSpecificStorage.js) and [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/typescript/src/receiveEventsWithApiSpecificStorage.ts)
           
 additionalContent: |
 

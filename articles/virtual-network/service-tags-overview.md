@@ -38,7 +38,7 @@ The columns indicate whether the tag:
 - Supports [regional](https://azure.microsoft.com/regions) scope.
 - Is usable in [Azure Firewall](../firewall/service-tags.md) rules.
 
-By default, service tags reflect the ranges for the entire cloud. Some service tags also allow more granular control by restricting the corresponding IP ranges to a specified region. For example, the service tag **Storage** represents Azure Storage for the entire cloud, but **Storage.WestUS** narrows the range to only the storage IP address ranges from the WestUS region. The following table indicates whether each service tag supports such regional scope.  
+By default, service tags reflect the ranges for the entire cloud. Some service tags also allow more granular control by restricting the corresponding IP ranges to a specified region. For example, the service tag **Storage** represents Azure Storage for the entire cloud, but **Storage.WestUS** narrows the range to only the storage IP address ranges from the WestUS region. The following table indicates whether each service tag supports such regional scope. Note that the direction listed for each tag is a recommendation. For example, the AzureCloud tag may be used to allow inbound traffic. However, we don't recommend this in most scenarios since this means allowing traffic from all Azure IP's, including those used by other Azure customers. 
 
 | Tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|
@@ -51,8 +51,8 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureActiveDirectory** | Azure Active Directory. | Outbound | No | Yes |
 | **AzureActiveDirectoryDomainServices** | Management traffic for deployments dedicated to Azure Active Directory Domain Services. | Both | No | Yes |
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection. | Outbound | No | No |
-| **AzureAPIForFHIR** | Azure API for FHIR (Fast Healthcare Interoperability Resources).<br/><br/> *Note: This tag is not currently configurable via Azure Portal.*| Outbound | No | No |
 | **AzureArcInfrastructure** | Azure Arc enabled servers, Azure Arc enabled Kubernetes, and Guest Configuration traffic.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory**,**AzureTrafficManager**, and **AzureResourceManager** tags. *This tag is not currently configurable via Azure Portal*.| Outbound | No | Yes |
+| **AzureAttestation** | Azure Attestation.<br/><br/>*Note: This tag is not currently configurable via Azure Portal* | Outbound | No | Yes | 
 | **AzureBackup** |Azure Backup.<br/><br/>*Note:* This tag has a dependency on the **Storage** and **AzureActiveDirectory** tags. | Outbound | No | Yes |
 | **AzureBotService** | Azure Bot Service. | Outbound | No | No |
 | **AzureCloud** | All [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=56519). | Outbound | Yes | Yes |
@@ -87,7 +87,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **DataFactory**  | Azure Data Factory | Both | No | No |
 | **DataFactoryManagement** | Management traffic for Azure Data Factory. | Outbound | No | No |
 | **Dynamics365ForMarketingEmail** | The address ranges for the marketing email service of Dynamics 365. | Outbound | Yes | No |
-| **EOPExternalPublishedIPs** | This tag represents the IP addresses used for Security & Compliance Center Powershell. Refer to the [Connect to Security & Compliance Center PowerShell using the EXO V2 module for more details](https://docs.microsoft.com/powershell/exchange/connect-to-scc-powershell). <br/><br/> *Note: This tag is not currently configurable via Azure Portal.* | Both | No | Yes |
+| **EOPExternalPublishedIPs** | This tag represents the IP addresses used for Security & Compliance Center Powershell. Refer to the [Connect to Security & Compliance Center PowerShell using the EXO V2 module for more details](/powershell/exchange/connect-to-scc-powershell). <br/><br/> *Note: This tag is not currently configurable via Azure Portal.* | Both | No | Yes |
 | **EventHub** | Azure Event Hubs. | Outbound | Yes | Yes |
 | **GatewayManager** | Management traffic for deployments dedicated to Azure VPN Gateway and Application Gateway. | Inbound | No | No |
 | **GuestAndHybridManagement** | Azure Automation and Guest Configuration. | Outbound | No | Yes |

@@ -146,7 +146,7 @@ If you enable collection of GatewayLogs or metrics in a Log Analytics workspace,
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Screenshot of Logs item in Monitoring menu":::
 
-Run queries to view the data. Several [sample queries](../azure-monitor/logs/example-queries.md) are provided, or run your own. For example, the following query retrieves the most recent 24 hours of data from the GatewayLogs table:
+Run queries to view the data. Several [sample queries](../azure-monitor/logs/queries.md) are provided, or run your own. For example, the following query retrieves the most recent 24 hours of data from the GatewayLogs table:
 
 ```kusto
 ApiManagementGatewayLogs

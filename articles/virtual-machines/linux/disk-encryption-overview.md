@@ -34,7 +34,7 @@ You can learn the fundamentals of Azure Disk Encryption for Linux in just a few 
 
 Linux VMs are available in a [range of sizes](../sizes.md). Azure Disk Encryption is supported on Generation 1 and Generation 2 VMs. Azure Disk Encryption is also available for VMs with premium storage.
 
-See [Azure VM sizes with no local temporary disk](../azure-vms-no-temp-disk.md).
+See [Azure VM sizes with no local temporary disk](../azure-vms-no-temp-disk.yml).
 
 Azure Disk Encryption is also not available on [Basic, A-series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/series/), or on virtual machines that do not meet these minimum memory requirements:
 
@@ -59,6 +59,10 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 
 | Publisher | Offer | SKU | URN | Volume type supported for encryption |
 | --- | --- |--- | --- |
+| Canonical | Ubuntu | 20.04-LTS | Canonical:0001-com-ubuntu-server-focal:20_04-lts:latest | OS and data disk |
+| Canonical | Ubuntu | 20.04-DAILY-LTS | Canonical:0001-com-ubuntu-server-focal-daily:20_04-daily-lts:latest | OS and data disk |
+| Canonical | Ubuntu | 20.04-LTS Gen2 | Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2:latest | OS and data disk |
+| Canonical | Ubuntu | 20.04-DAILY-LTS Gen2 |Canonical:0001-com-ubuntu-server-focal-daily:20_04-daily-lts-gen2:latest | OS and data disk |
 | Canonical | Ubuntu | 18.04-LTS | Canonical:UbuntuServer:18.04-LTS:latest | OS and data disk |
 | Canonical | Ubuntu 18.04 | 18.04-DAILY-LTS | Canonical:UbuntuServer:18.04-DAILY-LTS:latest | OS and data disk |
 | Canonical | Ubuntu 16.04 | 16.04-DAILY-LTS | Canonical:UbuntuServer:16.04-DAILY-LTS:latest | OS and data disk |
@@ -98,9 +102,13 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | SUSE | SLES HPC 12-SP3 | 12-SP3 | SUSE:SLES-HPC:12-SP3:latest | Data disk only |
 
 > [!NOTE]
-> The new Azure Disk Encryption implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images.  
+> The new Azure Disk Encryption implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images.
 >
 > ADE is also supported for RHEL Bring-Your-Own-Subscription Gold Images, but only **after** the subscription has been registered . For more information, see [Red Hat Enterprise Linux Bring-Your-Own-Subscription Gold Images in Azure](../workloads/redhat/byos.md#encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images)
+> 
+> ADE support for a particular offer type does not extend beyond the end-of-life date provided by the publisher. 
+> 
+> The legacy ADE solution (using AAD credentials) is not recommended for new VM's and is not compatible with RHEL versions later than RHEL 7.8.
 
 ## Additional VM requirements
 

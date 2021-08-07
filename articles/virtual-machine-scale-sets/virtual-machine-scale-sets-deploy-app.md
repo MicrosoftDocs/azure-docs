@@ -5,7 +5,7 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.subservice: management
+ms.subservice: extensions
 ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurepowershell, devx-track-azurecli

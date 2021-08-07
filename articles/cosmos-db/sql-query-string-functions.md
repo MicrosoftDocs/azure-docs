@@ -1,12 +1,12 @@
 ---
 title: String functions in Azure Cosmos DB query language
 description: Learn about string SQL system functions in Azure Cosmos DB.
-author: ginamr
+author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 04/27/2021
-ms.author: girobins
+ms.date: 05/26/2021
+ms.author: tisande
 ms.custom: query-reference
 ---
 # String functions (Azure Cosmos DB)
@@ -16,9 +16,9 @@ The string functions let you perform operations on strings in Azure Cosmos DB.
 
 ## Functions
 
-The following scalar functions perform an operation on a string input value and return a string, numeric, or Boolean value:
-  
-| System function                                 | Index usage        | Index usage in queries with [scalar aggregate functions](index-overview.md#index-utilization-for-scalar-aggregate-functions) | Remarks                                                      |
+The below scalar functions perform an operation on a string input value and return a string, numeric, or Boolean value. The **index usage** column assumes, where applicable, that you're comparing the string system function to another value with an equality filter.
+
+| System function                                 | Index usage        | [Index usage in queries with scalar aggregate functions](index-overview.md#index-utilization-for-scalar-aggregate-functions) | Remarks                                                      |
 | ----------------------------------------------- | ------------------ | ------------------------------------------------------ | ------------------------------------------------------------ |
 | [CONCAT](sql-query-concat.md)                   | Full scan          | Full scan                                              |                                                              |
 | [CONTAINS](sql-query-contains.md)               | Full index scan    | Full scan                                              |                                                              |

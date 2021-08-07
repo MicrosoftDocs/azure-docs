@@ -7,7 +7,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: how-to
 ms.date: 03/16/2021
-ms.author: tyao
+ms.author: duau
 ---
 
 # Connect Azure Front Door Premium to an internal load balancer origin with Private Link

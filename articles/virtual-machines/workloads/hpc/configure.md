@@ -5,7 +5,7 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 04/28/2021
+ms.date: 06/02/2021
 ms.author: amverma
 ms.reviewer: cynthn
 
@@ -18,13 +18,14 @@ This article shares some guidance on configuring and optimizing the InfiniBand e
 ## VM images
 On InfiniBand (IB) enabled VMs, the appropriate drivers are required to enable RDMA.
 - The [CentOS-HPC VM images](#centos-hpc-vm-images) in the Marketplace come pre-configured with the appropriate IB drivers.
+  - The CentOS-HPC version 7.9 VM image additionally comes pre-configured with the Nvidia GPU drivers. 
 - The [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) in the Marketplace come pre-configured with the appropriate IB drivers and GPU drivers.
 
 These VM images (VMI) are based on the base CentOS and Ubuntu marketplace VM images. Scripts used in the creation of these VM images from their base CentOS Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/centos).
 
 On GPU enabled [N-series](../../sizes-gpu.md) VMs, the appropriate GPU drivers are additionally required. This can be available by the following methods:
-- Use the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) which come pre-configured with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
-- Add the GPU drivers through the [VM extensions](../../extensions/hpccompute-gpu-linux.md)
+- Use the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and [CentOS-HPC VM image](#centos-hpc-vm-images) version 7.9 which come pre-configured with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
+- Add the GPU drivers through the [VM extensions](../../extensions/hpccompute-gpu-linux.md).
 - Install the GPU drivers [manually](../../linux/n-series-driver-setup.md).
 - Some other VM images on the Marketplace also come pre-installed with the Nvidia GPU drivers, including some VM images from Nvidia.
 
@@ -32,25 +33,35 @@ Depending on the workloads' Linux distro and version needs, both the [CentOS-HPC
 It is also recommended to create [custom VM images](../../linux/tutorial-custom-images.md) with workload specific customization and configuration and reuse those recurringly.
 
 ### VM sizes supported by the HPC VM images
+
+#### InfiniBand OFED support
 The latest Azure HPC marketplace images come with Mellanox OFED 5.1 and above, which do not support ConnectX3-Pro InfiniBand cards. These VM images only support ConnextX-5 and newer InfiniBand cards. This implies the following VM size support matrix for the InfiniBand OFED in these HPC VM images:
 - [H-series](../../sizes-hpc.md): HB, HC, HBv2, HBv3
 - [N-series](../../sizes-gpu.md): NDv2, NDv4
 
-Note that for GPU support in the N-series - NDv2 and NDv4 VM sizes, currently only the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) come pre-configured with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL). 
+#### GPU driver support
+Currently only the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images)  and [CentOS-HPC VM images](#centos-hpc-vm-images) version 7.9 come pre-configured with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
 
-Also note that all the above VM sizes support "Gen 2" VMs, though some older ones also support "Gen 1" VMs.
+The VM size support matrix for the GPU drivers in supported HPC VM images is as follows:
+- [N-series](../../sizes-gpu.md): NDv2, NDv4 VM sizes are supported with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
+- The other 'NC' and 'ND' VM sizes in the [N-series](../../sizes-gpu.md) are supported with the Nvidia GPU drivers.
+
+Also note that all the above VM sizes support "Gen 2" VMs, though some older ones also support "Gen 1" VMs. "Gen 2" support is also indicated with a "01" at the end of the VMI URN or version.
 
 ### CentOS-HPC VM images
 
 #### SR-IOV enabled VMs
-For SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances), CentOS-HPC VM images version 7.6 and later are suitable. These VM images come optimized and pre-loaded with the Mellanox OFED drivers for RDMA and various commonly used MPI libraries and scientific computing packages.
-- The available or latest versions of the VM images can be listed with the following information using [CLI](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list) or [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview).
+For SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances), CentOS-HPC VM images version 7.6 and later are suitable. These VM images come optimized and pre-loaded with the Mellanox OFED drivers for RDMA and various commonly used MPI libraries and scientific computing packages. Refer to the [VM size support matrix](#vm-sizes-supported-by-the-hpc-vm-images) above.
+- The available or latest versions of the VM images can be listed with the following information using [CLI](/cli/azure/vm/image#az_vm_image_list) or [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview).
    ```bash
    "publisher": "OpenLogic",
    "offer": "CentOS-HPC",
    ```
 - Scripts used in the creation of the CentOS-HPC version 7.6 and later VM images from a base CentOS Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/centos).
 - Additionally, details on what's included in the CentOS-HPC version 7.6 and later VM images, and how to deploy them are in a [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/azure-hpc-vm-images/ba-p/977094).
+
+> [!NOTE] 
+> Among the CentOS-HPC VM images, currently only the version 7.9 VM image additionally comes pre-configured with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
 
 > [!NOTE] 
 > SR-IOV enabled N-series VM sizes with FDR InfiniBand (e.g. NCv3 and older) will be able to use the following CentOS-HPC VM image or older versions from the Marketplace:
@@ -68,8 +79,8 @@ For non-SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instan
 > On these CentOS-based HPC images for non-SR-IOV enabled VMs, kernel updates are disabled in the **yum** configuration file. This is because the NetworkDirect Linux RDMA drivers are distributed as an RPM package, and driver updates might not work if the kernel is updated.
 
 ### Ubuntu-HPC VM images
-For SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances), Ubuntu-HPC VM images version 18.04 are suitable. These VM images come optimized and pre-loaded with the Mellanox OFED drivers for RDMA, Nvidia GPU drivers, GPU compute software stack (CUDA, NCCL), and various commonly used MPI libraries and scientific computing packages.
-- The available or latest versions of the VM images can be listed with the following information using [CLI](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list) or [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-hpc?tab=overview).
+For SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances), Ubuntu-HPC VM images versions 18.04 and 20.04 are suitable. These VM images come optimized and pre-loaded with the Mellanox OFED drivers for RDMA, Nvidia GPU drivers, GPU compute software stack (CUDA, NCCL), and various commonly used MPI libraries and scientific computing packages. Refer to the [VM size support matrix](#vm-sizes-supported-by-the-hpc-vm-images) above.
+- The available or latest versions of the VM images can be listed with the following information using [CLI](/cli/azure/vm/image#az_vm_image_list) or [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-hpc?tab=overview).
    ```bash
    "publisher": "Microsoft-DSVM",
    "offer": "Ubuntu-HPC",
@@ -87,7 +98,7 @@ The base Ubuntu Server 16.04 LTS, 18.04 LTS, and 20.04 LTS VM images in the Mark
 - Scripts used in the creation of the Ubuntu 18.04 and 20.04 LTS based HPC VM images from a base Ubuntu Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/ubuntu).
 
 > [!NOTE]
-> Mellanox OFED 5.1 and above do not support ConnectX3-Pro InfiniBand cards on SR-IOV enabled N-series VM sizes with FDR InfiniBand (e.g. NCv3). Please use LTS Mellanox OFED version 4.9-0.1.7.0 or older on the N-series VM's with ConnectX3-Pro cards. Please see more details [here](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed).
+> Mellanox OFED 5.1 and above do not support ConnectX3-Pro InfiniBand cards on SR-IOV enabled N-series VM sizes with FDR InfiniBand (e.g. NCv3). Please use LTS Mellanox OFED version 4.9-0.1.7.0 or older on the N-series VM's with ConnectX3-Pro cards. For more information, see [Linux InfiniBand Drivers](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed).
 
 ### SUSE Linux Enterprise Server VM images
 SLES 12 SP3 for HPC, SLES 12 SP3 for HPC (Premium), SLES 12 SP1 for HPC, SLES 12 SP1 for HPC (Premium), SLES 12 SP4 and SLES 15 VM images in the Marketplace are supported. These VM images come pre-loaded with the Network Direct drivers for RDMA (on the non-SR-IOV VM sizes) and Intel MPI version 5.1. Learn more about [setting up MPI](setup-mpi.md) on the VMs.

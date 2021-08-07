@@ -6,11 +6,22 @@ ms.author: anfeldma
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
-ms.date: 02/10/2021
+ms.date: 05/19/2021
 ms.reviewer: sngun
 ---
 
 # Tutorial: Migrate MongoDB to Azure Cosmos DB's API for MongoDB offline using MongoDB native tools
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
+
+> [!IMPORTANT]  
+> Please read this entire guide before carrying out your migration steps.
+>
+
+This MongoDB migration guide is part of series on MongoDB migration. The critical MongoDB migration steps are [pre-migration](mongodb-pre-migration.md), migration, and [post-migration](mongodb-post-migration.md), as shown below.
+
+![Diagram of migration steps.](./media/mongodb-pre-migration/overall-migration-steps.png)
+
+## Overview of data migration using MongoDB native tools
 
 You can use MongoDB native tools to perform an offline (one-time) migration of databases from an on-premises or cloud instance of MongoDB to Azure Cosmos DB's API for MongoDB.
 

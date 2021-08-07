@@ -1,12 +1,12 @@
 ---
 title: Understand the roles required to perform common tasks in Synapse
 description: This article describes which built-in Synapse RBAC role(s) are required to accomplish specific tasks
-author: RonyMSFT
+author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: ronytho
+ms.author: mesrivas
 ms.reviewer: jrasnick
 ---
 # Understand the roles required to perform common tasks in Synapse
@@ -110,7 +110,7 @@ Review Synapse RBAC role assignments at any scope|Synapse User|read
 Assign and remove Synapse RBAC role assignments for users, groups, and service principals| Synapse Administrator at the workspace or at a specific workspace item scope|roleAssignments/write, delete 
 
 >[!Note]
->Guest users from another tenant are not able to review, add, or change role assignments regardless of the role they have been assigned. 
+>Guest users from another tenant are also able to review, add, or change role assignments once they have been assigned as Synapse Administrator. 
 
 ## Next steps
 

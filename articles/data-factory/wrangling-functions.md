@@ -4,6 +4,7 @@ description: An overview of available Data Wrangling functions in Azure Data Fac
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 04/16/2021
 ---
@@ -15,7 +16,7 @@ ms.date: 04/16/2021
 Data Wrangling in Azure Data Factory allows you to do code-free agile data preparation and wrangling at cloud scale by translating Power Query ```M``` scripts into Data Flow script. ADF integrates with [Power Query Online](/powerquery-m/power-query-m-reference) and makes Power Query ```M``` functions available for data wrangling via Spark execution using the data flow Spark infrastructure. 
 
 > [!NOTE]
-> Power Query in ADF is currently avilable in public preview
+> Power Query in ADF is currently available in public preview
 
 Currently not all Power Query M functions are supported for data wrangling despite being available during authoring. While building your mash-ups, you'll be prompted with the following error message if a function isn't supported:
 
@@ -59,8 +60,8 @@ The following M functions add or transform columns: [Table.AddColumn](/powerquer
 * Row filters as a logical column
 * Number, text, logical, date, and datetime constants
 
-Merging/Joining tables
-----------------------
+## Merging/Joining tables
+
 * Power Query will generate a nested join (Table.NestedJoin; users can also
     manually write
     [Table.AddJoinColumn](/powerquery-m/table-addjoincolumn)).

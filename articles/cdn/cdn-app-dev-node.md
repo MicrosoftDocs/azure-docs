@@ -346,6 +346,6 @@ Finally, let's delete our profile.
 
 To see the reference for the Azure CDN SDK for JavaScript, view the [reference](/javascript/api/@azure/arm-cdn).
 
-To find additional documentation on the Azure SDK for JavaScript, view the [full reference](/javascript/api/?view=azure-node-latest).
+To find additional documentation on the Azure SDK for JavaScript, view the [full reference](/javascript/api/).
 
 Manage your CDN resources with [PowerShell](cdn-manage-powershell.md).

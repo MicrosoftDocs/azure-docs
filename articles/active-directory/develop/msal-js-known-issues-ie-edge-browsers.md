@@ -3,7 +3,7 @@ title: Issues on Internet Explorer & Microsoft Edge (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about know issues when using the Microsoft Authentication Library for JavaScript (MSAL.js) with Internet Explorer and Microsoft Edge browsers.
 services: active-directory
-author: navyasric
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 05/18/2020
-ms.author: nacanuma
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about issues with MSAL.js library so I can decide if this platform meets my application development needs and requirements.
@@ -33,7 +33,7 @@ The cause for most of these issues is as follows. The session storage and local 
 
     `Error :login_required; Error description:AADSTS50058: A silent sign-in request was sent but no user is signed in. The cookies used to represent the user's session were not sent in the request to Azure AD. This can happen if the user is using Internet Explorer or Edge, and the web app sending the silent sign-in request is in different IE security zone than the Azure AD endpoint (login.microsoftonline.com)`
 
-- **Popup window doesn't close or is stuck when using login through Popup to authenticate**. When authenticating through popup window in Microsoft Edge or IE(InPrivate), after entering credentials and signing in, if multiple domains across security zones are involved in the navigation, the popup window doesn't close because MSAL.js loses the handle to the popup window.  
+- **Popup window doesn't close or is stuck when using login through Popup to authenticate**. When authenticating through popup window in Microsoft Edge or IE(InPrivate), after entering credentials and signing in, if multiple domains across security zones are involved in the navigation, the popup window doesn't close because MSAL.js loses the handle to the popup window.
 
 ### Update: Fix available in MSAL.js 0.2.3
 Fixes for the authentication redirect loop issues have been released in [MSAL.js 0.2.3](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases). Enable the flag `storeAuthStateInCookie` in the MSAL.js config to take advantage of this fix. By default this flag is set to false.
@@ -46,7 +46,7 @@ When the `storeAuthStateInCookie` flag is enabled, MSAL.js will use the browser 
 Use workarounds below.
 
 #### Other workarounds
-Make sure to test that your issue is occurring only on the specific version of Microsoft Edge browser and works on the other browsers before adopting these workarounds.  
+Make sure to test that your issue is occurring only on the specific version of Microsoft Edge browser and works on the other browsers before adopting these workarounds.
 1. As a first step to get around these issues, ensure that the application domain and any other sites involved in the redirects of the authentication flow are added as trusted sites in the security settings of the browser, so that they belong to the same security zone.
 To do so, follow these steps:
     - Open **Internet Explorer** and click on the **settings** (gear icon) in the top-right corner

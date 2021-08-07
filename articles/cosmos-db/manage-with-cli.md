@@ -5,12 +5,12 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 04/25/2021
+ms.date: 05/13/2021
 ms.author: mjbrown
 
 ---
 # Manage Azure Cosmos Core (SQL) API resources using Azure CLI
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 The following guide describes common commands to automate management of your Azure Cosmos DB accounts, databases and containers using Azure CLI. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](/cli/azure/cosmosdb). You can also find more examples in [Azure CLI samples for Azure Cosmos DB](cli-samples.md), including how to create and manage Cosmos DB accounts, databases and containers for MongoDB, Gremlin, Cassandra and Table API.
 
@@ -18,7 +18,7 @@ The following guide describes common commands to automate management of your Azu
 
 - This article requires version 2.22.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-For Azure CLI samples for other APIs see [CLI Samples for Cassandra](cli-samples-cassandra.md), [CLI Samples for MongoDB API](cli-samples-mongodb.md), [CLI Samples for Gremlin](cli-samples-gremlin.md), [CLI Samples for Table](cli-samples-table.md)
+For Azure CLI samples for other APIs see [CLI Samples for Cassandra](cassandra/cli-samples.md), [CLI Samples for MongoDB API](cli-samples-mongodb.md), [CLI Samples for Gremlin](cli-samples-gremlin.md), [CLI Samples for Table](cli-samples-table.md)
 
 > [!IMPORTANT]
 > Azure Cosmos DB resources cannot be renamed as this violates how Azure Resource Manager works with resource URIs.

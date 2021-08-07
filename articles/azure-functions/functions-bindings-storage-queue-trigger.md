@@ -435,9 +435,21 @@ The queue trigger provides several [metadata properties](./functions-bindings-ex
 
 ## Poison messages
 
-When a queue trigger function fails, Azure Functions retries the function up to five times for a given queue message, including the first try. If all five attempts fail, the functions runtime adds a message to a queue named *&lt;originalqueuename>-poison*. You can write a function to process messages from the poison queue by logging them or sending a  notification that manual attention is needed.
+When a queue trigger function fails, Azure Functions retries the function up to five times for a given queue message, including the first try. If all five attempts fail, the functions runtime adds a message to a queue named *&lt;originalqueuename&gt;-poison*. You can write a function to process messages from the poison queue by logging them or sending a  notification that manual attention is needed.
 
 To handle poison messages manually, check the [dequeueCount](#message-metadata) of the queue message.
+
+
+## Peek lock
+The peek-lock pattern happens automatically for queue triggers. As messages are dequeued, they are marked as invisible and associated with a timeout managed by the Storage service.
+
+When the function starts, it starts processing a message under the following conditions.
+
+- If the function is successful, then the function execution completes and the message is deleted.
+- If the function fails, then the message visibility is reset. After being reset, the message is reprocessed the next time the function requests a new message.
+- If the function never completes due to a crash, the message visibility expires and the message re-appears in the queue.
+
+All of the visibility mechanics are handled by the Storage service, not the Functions runtime.
 
 ## Polling algorithm
 
@@ -445,8 +457,8 @@ The queue trigger implements a random exponential back-off algorithm to reduce t
 
 The algorithm uses the following logic:
 
-- When a message is found, the runtime waits two seconds and then checks for another message
-- When no message is found, it waits about four seconds before trying again.
+- When a message is found, the runtime waits 100 milliseconds and then checks for another message
+- When no message is found, it waits about 200 milliseconds before trying again.
 - After subsequent failed attempts to get a queue message, the wait time continues to increase until it reaches the maximum wait time, which defaults to one minute.
 - The maximum wait time is configurable via the `maxPollingInterval` property in the [host.json file](functions-host-json-v1.md#queues).
 

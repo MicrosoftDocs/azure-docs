@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 11/05/2020
+ms.date: 07/30/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -18,11 +18,20 @@ ms.collection: M365-identity-device-management
 
 # Create a role-assignable group in Azure Active Directory
 
-You can only assign a role to a group that was created with the ‘isAssignableToRole’ property set to True, or was created in the Azure AD portal with **Azure AD roles can be assigned to the group** turned on. This group attribute makes the group one that can be assigned to a role in Azure Active Directory (Azure AD). This article describes how to create this special kind of group. **Note:** A group with isAssignableToRole property set to true cannot be of dynamic membership type. For more information, see [Using a group to manage Azure AD role assignments](groups-concept.md).
+You can only assign a role to a group that was created with the ‘isAssignableToRole’ property set to True, or was created in the Azure portal with **Azure AD roles can be assigned to the group** turned on. This group attribute makes the group one that can be assigned to a role in Azure Active Directory (Azure AD). This article describes how to create this special kind of group. **Note:** A group with isAssignableToRole property set to true cannot be of dynamic membership type. For more information, see [Use Azure AD groups to manage role assignments](groups-concept.md).
 
-## Using Azure AD admin center
+## Prerequisites
 
-1. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
+- Azure AD Premium P1 or P2 license
+- Privileged Role Administrator or Global Administrator
+- AzureAD module when using PowerShell
+- Admin consent when using Graph explorer for Microsoft Graph API
+
+For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
+
+## Azure portal
+
+1. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
 1. Select **Groups** > **All groups** > **New group**.
 
     [![Open Azure Active Directory and create a new group.](./media/groups-create-eligible/new-group.png "Open Azure Active Directory and create a new group.")](./media/groups-create-eligible/new-group.png#<lightbox>)
@@ -42,20 +51,7 @@ You can only assign a role to a group that was created with the ‘isAssignableT
 
 The group is created with any roles you might have assigned to it.
 
-## Using PowerShell
-
-### Install the Azure AD preview module
-
-```powershell
-Install-Module -Name AzureADPreview
-Import-Module -Name AzureADPreview
-```
-
-To verify that the module is ready to use, issue the following command:
-
-```powershell
-Get-Module -Name AzureADPreview
-```
+## PowerShell
 
 ### Create a group that can be assigned to role
 
@@ -69,9 +65,9 @@ For this type of group, `isPublic` will always be false and `isSecurityEnabled` 
 
 ```powershell
 #Basic set up
-Install-Module -Name AzureADPreview
-Import-Module -Name AzureADPreview
-Get-Module -Name AzureADPreview
+Install-Module -Name AzureAD
+Import-Module -Name AzureAD
+Get-Module -Name AzureAD
 
 #Connect to Azure AD. Sign in as Privileged Role Administrator or Global Administrator. Only these two roles can create a role-assignable group.
 Connect-AzureAD
@@ -99,7 +95,7 @@ Add-AzureADGroupMember -ObjectId $roleAssignablegroup.Id -RefObjectId $member.Ob
 }
 ```
 
-## Using Microsoft Graph API
+## Microsoft Graph API
 
 ### Create a role-assignable group in Azure AD
 
@@ -123,6 +119,6 @@ For this type of group, `isPublic` will always be false and `isSecurityEnabled` 
 
 ## Next steps
 
-- [Assign a role to a cloud group](groups-assign-role.md)
-- [Use cloud groups to manage role assignments](groups-concept.md)
-- [Troubleshooting roles assigned to cloud groups](groups-faq-troubleshooting.md)
+- [Assign Azure AD roles to groups](groups-assign-role.md)
+- [Use Azure AD groups to manage role assignments](groups-concept.md)
+- [Troubleshoot Azure AD roles assigned to groups](groups-faq-troubleshooting.yml)

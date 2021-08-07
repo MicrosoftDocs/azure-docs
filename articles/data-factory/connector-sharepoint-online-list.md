@@ -1,11 +1,14 @@
 ---
 title: Copy data from SharePoint Online List by using Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from SharePoint Online List to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.author: jingwang
+ms.author: jianleishen
 ---
 # Copy data from SharePoint Online List by using Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -60,7 +63,7 @@ The SharePoint List Online connector uses service principal authentication to co
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties you can use to define Data Factory entities that are specific to SharePoint Online List connector.
 
@@ -211,7 +214,7 @@ You can copy file from SharePoint Online by using **Web activity** to authentica
     - **Method**: POST
     - **Headers**:
         - Content-Type: application/x-www-form-urlencoded
-    - **Body**:  `grant_type=client_credentials&client_id=[Client-ID]@[Tenant-ID]&client_secret=[Client-Secret]&resource=00000003-0000-0ff1-ce00-000000000000/[Tenant-Name].sharepoint.com@[Tenant-ID]`. Replace the client ID, client secret, tenant ID and tenant name.
+    - **Body**:  `grant_type=client_credentials&client_id=[Client-ID]@[Tenant-ID]&client_secret=[Client-Secret]&resource=00000003-0000-0ff1-ce00-000000000000/[Tenant-Name].sharepoint.com@[Tenant-ID]`. Replace the client ID (application ID), client secret (application key), tenant ID, and tenant name (of the SharePoint tenant).
 
     > [!CAUTION]
     > Set the Secure Output option to true in Web activity to prevent the token value from being logged in plain text. Any further activities that consume this value should have their Secure Input option set to true.

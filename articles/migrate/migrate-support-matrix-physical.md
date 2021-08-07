@@ -1,8 +1,8 @@
 ---
 title: Support for physical discovery and assessment in Azure Migrate
 description: Learn about support for physical discovery and assessment with Azure Migrate Discovery and assessment
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
@@ -33,10 +33,44 @@ To assess physical servers, you create a project, and add the Azure Migrate: Dis
 
 **Permissions:**
 
-- For Windows servers, use a domain account for domain-joined servers, and a local account for servers that are not domain-joined. The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users.
+Set up an account that the appliance can use to access the physical servers.
+
+**Windows servers**
+
+- For Windows servers, use a domain account for domain-joined servers, and a local account for servers that are not domain-joined. 
+- The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users. 
+- If Remote management Users group isn't present, then add user account to the group: **WinRMRemoteWMIUsers_**.
+- The account needs these permissions for appliance to create a CIM connection with the server and pull the required configuration and performance metadata from the WMI classes listed [here.](migrate-appliance.md#collected-data---physical)
+- In some cases, adding the account to these groups may not return the required data from WMI classes as the account might be filtered by [UAC](/windows/win32/wmisdk/user-account-control-and-wmi). To overcome the UAC filtering, user account needs to have necessary permissions on CIMV2 Namespace and sub-namespaces on the target server. You can follow the steps [here](troubleshoot-appliance.md#access-is-denied-when-connecting-to-physical-servers-during-validation) to enable the required permissions.
+
     > [!Note]
-    > For Windows Server 2008 and 2008 R2, ensure that WMF 3.0 is installed on the servers and the domain/local account used to access the servers is added to these groups: Performance Monitor Users, Performance Log Users and WinRMRemoteWMIUsers.
-- For Linux servers, you need a root account on the Linux servers that you want to discover. Alternately, you can set a non-root account with the required capabilities using the following commands:
+    > For Windows Server 2008 and 2008 R2, ensure that WMF 3.0 is installed on the servers.
+
+**Linux servers**
+
+- You need a root account on the servers that you want to discover. Alternately, you can provide a user account with sudo permissions.
+- The support to add a user account with sudo access is provided by default with the new appliance installer script downloaded from portal after July 20,2021.
+- For older appliances, you can enable the capability by following these steps:
+    1. On the server running the appliance, open the Registry Editor.
+    1. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
+    1. Create a registry key ‘isSudo’ with DWORD value of 1.
+
+    :::image type="content" source="./media/tutorial-discover-physical/issudo-reg-key.png" alt-text="Screenshot that shows how to enable sudo support.":::
+
+- To discover the configuration and performance metadata from target server, you need to enable sudo access for the commands listed [here](migrate-appliance.md#linux-server-metadata). Make sure that you have enabled 'NOPASSWD' for the account to run the required commands without prompting for a password every time sudo command is invoked.
+- The following Linux OS distributions are supported for discovery by Azure Migrate using an account with sudo access:
+
+    Operating system | Versions 
+    --- | ---
+    Red Hat Enterprise Linux | 6,7,8
+    Cent OS | 6.6, 8.2
+    Ubuntu | 14.04,16.04,18.04
+    SUSE Linux | 11.4, 12.4
+    Debian | 7, 10
+    Amazon Linux | 2.0.2021
+    CoreOS Container | 2345.3.0
+
+- If you cannot provide root account or user account with sudo access, then you can set 'isSudo' registry key to value '0' in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance registry and provide a non-root account with the required capabilities using the following commands:
 
 **Command** | **Purpose**
 --- | --- |
@@ -61,7 +95,7 @@ The following table summarizes port requirements for assessment.
 **Device** | **Connection**
 --- | ---
 **Appliance** | Inbound connections on TCP port 3389, to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368, to remotely access the appliance management app using the URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Outbound connections on ports 443 (HTTPS), to send discovery and performance metadata to Azure Migrate.
-**Physical servers** | **Windows:** Inbound connection on WinRM port 5985 (HTTP) or 5986 (HTTPS) to pull configuration and performance metadata from Windows servers. <br/><br/> **Linux:**  Inbound connections on port 22 (TCP), to pull configuration and performance metadata from Linux servers. |
+**Physical servers** | **Windows:** Inbound connection on WinRM port 5985 (HTTP) to pull configuration and performance metadata from Windows servers. <br/><br/> **Linux:**  Inbound connections on port 22 (TCP), to pull configuration and performance metadata from Linux servers. |
 
 ## Agent-based dependency analysis requirements
 

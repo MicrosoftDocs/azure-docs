@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/06/2021
+ms.date: 07/14/2021
 ms.author: rolyon
 ---
 
@@ -17,6 +17,8 @@ ms.author: rolyon
 Organizations might have several Azure subscriptions. Each subscription is associated with a particular Azure Active Directory (Azure AD) directory. To make management easier, you might want to transfer a subscription to a different Azure AD directory. When you transfer a subscription to a different Azure AD directory, some resources are not transferred to the target directory. For example, all role assignments and custom roles in Azure role-based access control (Azure RBAC) are **permanently** deleted from the source directory and are not be transferred to the target directory.
 
 This article describes the basic steps you can follow to transfer a subscription to a different Azure AD directory and re-create some of the resources after the transfer.
+
+If you want to instead **block** the transfer of subscriptions to different directories in your organization, you can configure a subscription policy. For more information, see [Manage Azure subscription policies](../cost-management-billing/manage/manage-azure-subscription-policy.md).
 
 > [!NOTE]
 > For Azure Cloud Solution Providers (CSP) subscriptions, changing the Azure AD directory for the subscription isn't supported.
@@ -89,7 +91,7 @@ To complete these steps, you will need:
 
 - [Bash in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure CLI](/cli/azure)
 - Account Administrator of the subscription you want to transfer in the source directory
-- [Owner](built-in-roles.md#owner) role in the target directory
+- A user account in both the source and target directory for the user making the directory change
 
 ## Step 1: Prepare for the transfer
 
@@ -244,18 +246,19 @@ When you create a key vault, it is automatically tied to the default Azure Activ
 
 ### List other known resources
 
-1. Use [az account show](/cli/azure/account#az_account_show) to get your subscription ID.
+1. Use [az account show](/cli/azure/account#az_account_show) to get your subscription ID (in `bash`).
 
     ```azurecli
-    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"$//')
+    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"//' -e 's/\r$//')
     ```
-
-1. Use the [az graph](/cli/azure/graph) extension to list other Azure resources with known Azure AD directory dependencies.
+    
+1. Use the [az graph](/cli/azure/graph) extension to list other Azure resources with known Azure AD directory dependencies (in `bash`).
 
     ```azurecli
-    az graph query -q \
-    'resources | where type != "microsoft.azureactivedirectory/b2cdirectories" | where  identity <> "" or properties.tenantId <> "" or properties.encryptionSettingsCollection.enabled == true | project name, type, kind, identity, tenantId, properties.tenantId' \
-    --subscriptions $subscriptionId --output table
+    az graph query -q 'resources 
+        | where type != "microsoft.azureactivedirectory/b2cdirectories" 
+        | where  identity <> "" or properties.tenantId <> "" or properties.encryptionSettingsCollection.enabled == true 
+        | project name, type, kind, identity, tenantId, properties.tenantId' --subscriptions $subscriptionId --output yaml
     ```
 
 ## Step 2: Transfer the subscription

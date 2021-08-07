@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 07/29/2021
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -65,8 +65,6 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 ## App Service limits
 
-The following App Service limits include limits for Web Apps, Mobile Apps, and API Apps.
-
 [!INCLUDE [azure-websites-limits](../../../includes/azure-websites-limits.md)]
 
 ## Automation limits
@@ -76,6 +74,10 @@ The following App Service limits include limits for Web Apps, Mobile Apps, and A
 ## Azure App Configuration
 
 [!INCLUDE [app-configuration-limits](../../../includes/app-configuration-limits.md)]
+
+## Azure API for FHIR service limits
+
+[!INCLUDE [functions-limits](../../../includes/azure-api-for-fhir-limits.md)]
 
 ## Azure Cache for Redis limits
 
@@ -167,6 +169,10 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 [!INCLUDE [monitoring-limits](../../../includes/application-insights-limits.md)]
 
+## Azure NetApp Files
+
+[!INCLUDE [netapp-limits](../../../includes/netapp-service-limits.md)]
+
 ## Azure Policy limits
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
@@ -175,7 +181,9 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 [!INCLUDE [quantum-limits](../../../includes/azure-quantum-limits.md)]
 
-## Azure role-based access control limits
+## Azure RBAC limits
+
+The following limits apply to [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 [!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control/limits.md)]
 
@@ -235,6 +243,10 @@ The following table details the features and limits of the Basic, Standard, and 
 
 [!INCLUDE [database-migration-service-limits](../../../includes/database-migration-service-limits.md)]
 
+## Device Update for IoT Hub  limits
+
+[!INCLUDE [device-update-for-iot-hub-limits](../../../includes/device-update-for-iot-hub-limits.md)]
+
 ## Digital Twins limits
 
 > [!NOTE]
@@ -247,8 +259,7 @@ The following table details the features and limits of the Basic, Standard, and 
 [!INCLUDE [event-grid-limits](../../../includes/event-grid-limits.md)]
 
 ## Event Hubs limits
-
-[!INCLUDE [azure-servicebus-limits](../../../includes/event-hubs-limits.md)]
+[!INCLUDE [event-hubs-limits](../../../includes/event-hubs-limits.md)]
 
 ## IoT Central limits
 [!INCLUDE [iot-central-limits](../../../includes/iot-central-limits.md)]
@@ -358,6 +369,8 @@ The latest values for Azure Purview quotas can be found in the [Azure Purview qu
 ## SQL Database limits
 
 For SQL Database limits, see [SQL Database resource limits for single databases](../../azure-sql/database/resource-limits-vcore-single-databases.md), [SQL Database resource limits for elastic pools and pooled databases](../../azure-sql/database/resource-limits-vcore-elastic-pools.md), and [SQL Database resource limits for SQL Managed Instance](../../azure-sql/managed-instance/resource-limits.md).
+
+The maximum number of private endpoints per Azure SQL Database logical server is 250.
 
 ## Azure Synapse Analytics limits
 

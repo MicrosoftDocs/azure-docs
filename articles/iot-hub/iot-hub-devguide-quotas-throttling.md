@@ -1,5 +1,5 @@
 ---
-title: Content Performance http://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-quotas-throttling
+title: Understand Azure IoT Hub quotas and throttling
 
 description: Developer guide - description of the quotas that apply to IoT Hub and the expected throttling behavior.
 author: robinsh
@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/05/2021
-ms.custom: ['Role: Cloud Development', 'Role: Operations', 'Role: Technical Support', 'ms.custom:contperf-fy21q4']
+ms.custom: ['Role: Cloud Development', 'Role: Operations', 'Role: Technical Support', 'contperf-fy21q4']
 ---
 
 # Reference - IoT Hub quotas and throttling
@@ -22,10 +22,6 @@ Each Azure subscription can have at most 50 IoT hubs, and at most 1 Free hub.
 Each IoT hub is provisioned with a certain number of units in a specific tier. The tier and number of units determine the maximum daily quota of messages that you can send. The message size used to calculate the daily quota is 0.5 KB for a free tier hub and 4KB for all other tiers. For more information, see [Azure IoT Hub Pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 The tier also determines the throttling limits that IoT Hub enforces on all operations.
-
-## IoT Plug and Play
-
-IoT Plug and Play devices send at least one telemetry message for each interface, including the root, which may increase the number of messages counted towards your message quota.
 
 ## Operation throttles
 
@@ -66,7 +62,7 @@ The following table shows the enforced throttles. Values refer to an individual 
 
 *  **Quota** is the aggregate number of messages you can send in your hub *per day*. You can find your hub's quota limit under the column **Total number of messages /day** on the [IoT Hub pricing page](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-*  Your cloud-to-device and device-to-cloud throttles determine the maximum *rate* at which you can send messages -- number of messages irrespective of 4 KB chunks. Each message can be up to 256 KB which is the [maximum message size](iot-hub-devguide-quotas-throttling.md#other-limits).
+*  Your cloud-to-device and device-to-cloud throttles determine the maximum *rate* at which you can send messages -- number of messages irrespective of 4 KB chunks. D2C messages can be up to 256 KB; C2D messages can be up to 64 KB. These are the [maximum message sizes] for each type of message.
 
 *  It's a good practice to throttle your calls so that you don't hit/exceed the throttling limits. If you do hit the limit, IoT Hub responds with error code 429 and the client should back-off and retry. These limits are per hub (or in some cases per hub/unit). For more information, refer to [Manage connectivity and reliable messaging/Retry patterns](iot-hub-reliability-features-in-sdks.md#retry-patterns).
 

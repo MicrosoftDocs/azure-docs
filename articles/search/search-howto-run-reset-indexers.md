@@ -69,7 +69,7 @@ A reset flag is cleared after the run is finished. Any regular change detection 
 ## Reset skills (preview)
 
 > [!IMPORTANT] 
-> [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) is in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature.
 
 For indexers that have skillsets, you can reset specific skills to force processing of that skill and any downstream skills that depend on its output. [Cached enrichments](search-howto-incremental-index.md) are also refreshed. Resetting skills invalidates the cached skill results, which is useful when a new version of a skill is deployed and you want the indexer to rerun that skill for all documents. 
 

@@ -4,13 +4,13 @@ description: Learn how to use a Resource Manager template to create a log alert
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 07/12/2021
 ---
 # Create a log alert with a Resource Manager template
 
 Log alerts allow users to use a [Log Analytics](../logs/log-analytics-tutorial.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger run one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](./alerts-unified-log.md).
 
-This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) to configure [log alerts](./alerts-unified-log.md) in Azure Monitor. Resource Manager templates enable you to programmatically set up alerts in a consistent and reproducible way across your environments. Log alerts are created in the `Microsoft.Insights/scheduledQueryRules` resource provider. See API reference for [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrules/).
+This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) to configure [log alerts](./alerts-unified-log.md) in Azure Monitor. Resource Manager templates enable you to programmatically set up alerts in a consistent and reproducible way across your environments. Log alerts are created in the `Microsoft.Insights/scheduledQueryRules` resource provider. See API reference for [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrules/).
 
 The basic steps are as follows:
 
@@ -194,7 +194,7 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
 
 This JSON can be saved and deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
-## Template for all resource types (from API version 2020-05-01-preview)
+## Template for all resource types (from API version 2021-02-01-preview)
 
 [Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) template for all resource types (sample data set as variables):
 
@@ -243,6 +243,20 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
             "defaultValue": true,
             "metadata": {
                 "description": "Specifies whether the alert is enabled"
+            }
+        },
+        "autoMitigate": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Specifies whether the alert will automatically resolve"
+            }
+        },
+        "checkWorkspaceAlertsStorageConfigured": {
+            "type": "bool",
+            "defaultValue": false,
+            "metadata": {
+                "description": "Specifies whether to check linked storage and fail creation if the storage was not found"
             }
         },
         "resourceId": {
@@ -354,7 +368,7 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
         },
         "muteActionsDuration": {
             "type": "string",
-            "defaultValue": "PT5M",
+            "defaultValue": null,
             "allowedValues": [
                 "PT1M",
                 "PT5M",
@@ -383,7 +397,7 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/scheduledQueryRules",
             "location": "[parameters('location')]",
-            "apiVersion": "2020-05-01-preview",
+            "apiVersion": "2021-02-01-preview",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -410,11 +424,15 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
                     ]
                 },
                 "muteActionsDuration": "[parameters('muteActionsDuration')]",
-                "actions": [
-                    {
-                        "actionGroupId": "[parameters('actionGroupId')]"
+                "autoMitigate": "[parameters('autoMitigate')]",
+                "checkWorkspaceAlertsStorageConfigured": "[parameters('checkWorkspaceAlertsStorageConfigured')]",
+                "actions": {
+                    "actionGroups": "[parameters('actionGroupId')]",
+                    "customProperties": {
+                        "key1": "value1",
+                        "key2": "value2"
                     }
-                ]
+                }
             }
         }
     ]

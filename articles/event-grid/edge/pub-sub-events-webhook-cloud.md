@@ -5,7 +5,8 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 07/08/2020
+ms.subservice: iot-edge
+ms.date: 05/10/2021
 ms.topic: article
 ms.custom: devx-track-csharp
 ---
@@ -22,7 +23,7 @@ In order to complete this tutorial, you will need:
 * **Azure subscription** - Create a [free account](https://azure.microsoft.com/free) if you don't already have one. 
 * **Azure IoT Hub and IoT Edge device** - Follow the steps in the quick start for [Linux](../../iot-edge/quickstart-linux.md) or [Windows devices](../../iot-edge/quickstart.md) if you don't already have one.
 
-[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)]
+[!INCLUDE [event-grid-deploy-iot-edge](../includes/event-grid-deploy-iot-edge.md)]
 
 ## Create an Azure function in the Azure portal
 
@@ -102,7 +103,7 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 
 Subscribers can register for events published to a topic. To receive any event, the subscribers will need to create an Event grid subscription on a topic of interest.
 
-[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
+[!INCLUDE [event-grid-deploy-iot-edge](../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Create subscription2.json with the following content. Refer to our [API documentation](api.md) for details about the payload.
 

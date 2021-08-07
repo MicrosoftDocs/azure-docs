@@ -8,9 +8,9 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 04/01/2021
+ms.date: 06/29/2021
 ms.topic: how-to
-ms.custom: contperf-fy21q3
+ms.custom: contperf-fy21q3, devx-track-azurepowershell
 ---
 
 # How to use your workspace with a custom DNS server
@@ -18,8 +18,17 @@ ms.custom: contperf-fy21q3
 When using an Azure Machine Learning workspace with a private endpoint, there are [several ways to handle DNS name resolution](../private-link/private-endpoint-dns.md). By default, Azure automatically handles name resolution for your workspace and private endpoint. If you instead __use your own custom DNS server__, you must manually create DNS entries or use conditional forwarders for the workspace.
 
 > [!IMPORTANT]
-> This article only covers how to find the fully qualified domain name (FQDN) and IP addresses for these entries it does NOT provide information on configuring the DNS records for these items. Consult the documentation for your DNS software for information on how to add records.
+> This article covers how to find the fully qualified domain names (FQDN) and IP addresses for these entries if you would like to manually register DNS records in your DNS solution. Additionally this article provides architecture recommendations for how to configure your custom DNS solution to automatically resolve FQDNs to the correct IP addresses. This article does NOT provide information on configuring the DNS records for these items. Consult the documentation for your DNS software for information on how to add records.
 
+> [!TIP]
+> This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
+>
+> * [Virtual network overview](how-to-network-security-overview.md)
+> * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
+> * [Secure the training environment](how-to-secure-training-vnet.md)
+> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+> * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
+> * [Use a firewall](how-to-access-azureml-behind-firewall.md)
 ## Prerequisites
 
 - An Azure Virtual Network that uses [your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
@@ -30,36 +39,111 @@ When using an Azure Machine Learning workspace with a private endpoint, there ar
 
 - Familiarity with [Azure Private Endpoint DNS zone configuration](../private-link/private-endpoint-dns.md)
 
+- Familiarity with [Azure Private DNS](../dns/private-dns-privatednszone.md)
+
 - Optionally, [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps).
 
-## Public regions
+## Automated DNS server integration
 
-The following list contains the fully qualified domain names (FQDN) used by your workspace if it is in a public region::
+### Introduction
+
+There are two common architectures to use automated DNS server integration with Azure Machine Learning:
+
+* A custom [DNS server hosted in an Azure Virtual Network](#dns-vnet).
+* A custom [DNS server hosted on-premises](#dns-on-premises), connected to Azure Machine Learning through ExpressRoute.
+
+While your architecture may differ from these examples, you can use them as a reference point. Both example architectures provide troubleshooting steps that can help you identify components that may be misconfigured.
+
+Another option is to modify the `hosts` file on the client that is connecting to the Azure Virtual Network (VNet) that contains your workspace. For more information, see the [Host file](#hosts) section.
+### Workspace DNS resolution path
+
+Access to a given Azure Machine Learning workspace via Private Link is done by communicating with the following Fully Qualified Domains (called the workspace FQDNs) listed below:
+
+**Azure Public regions**:
+- ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.azureml.ms```
+- ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.cert.api.azureml.ms```
+- ```<compute instance name>.<region the workspace was created in>.instances.azureml.ms```
+- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.notebooks.azure.net```
+
+**Azure China 21Vianet regions**:
+- ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.cn```
+- ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.cert.api.ml.azure.cn```
+- ```<compute instance name>.<region the workspace was created in>.instances.ml.azure.cn```
+- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.notebooks.chinacloudapi.cn```
+
+**Azure US Government regions**:
+- ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.us```
+- ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.cert.api.ml.azure.us```
+- ```<compute instance name>.<region the workspace was created in>.instances.ml.azure.us```
+- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.notebooks.usgovcloudapi.net```
+
+The Fully Qualified Domains resolve to the following Canonical Names (CNAMEs) called the workspace Private Link FQDNs:
+
+**Azure Public regions**:
+- ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.privatelink.api.azureml.ms```
+- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.privatelink.notebooks.azure.net```
+
+**Azure China regions**:
+- ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.privatelink.api.ml.azure.cn```
+- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.privatelink.notebooks.chinacloudapi.cn```
+
+**Azure US Government regions**:
+- ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.privatelink.api.ml.azure.us```
+- ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.privatelink.notebooks.usgovcloudapi.net```
+
+The FQDNs resolve to the IP addresses of the Azure Machine Learning workspace in that region. However, resolution of the workspace Private Link FQDNs will be overridden when resolving with the Azure DNS Virtual Server IP address in a Virtual Network linked to the Private DNS Zones created as described above.
+
+## Manual DNS server integration
+
+This section discusses which Fully Qualified Domains to create A records for in a DNS Server, and which IP address to set the value of the A record to.
+
+### Retrieve Private Endpoint FQDNs
+
+#### Azure Public region
+
+The following list contains the fully qualified domain names (FQDNs) used by your workspace if it is in the Azure Public Cloud:
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
 * `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.azure.net`
 
     > [!NOTE]
-    > The workspace name for this FQDN may be truncated. Truncation is done to keep `ml-<workspace-name, truncated>-<region>-<workspace-guid>` 63 characters.
+    > The workspace name for this FQDN may be truncated. Truncation is done to keep `ml-<workspace-name, truncated>-<region>-<workspace-guid>` at 63 characters or less.
 * `<instance-name>.<region>.instances.azureml.ms`
 
     > [!NOTE]
     > * Compute instances can be accessed only from within the virtual network.
     > * The IP address for this FQDN is **not** the IP of the compute instance. Instead, use the private IP address of the workspace private endpoint (the IP of the `*.api.azureml.ms` entries.)
 
-## Azure China 21Vianet regions
+#### Azure China region
 
-The following FQDNs are for Azure China 21Vianet regions:
+The following FQDNs are for Azure China regions:
 
 * `<workspace-GUID>.workspace.<region>.cert.api.ml.azure.cn`
 * `<workspace-GUID>.workspace.<region>.api.ml.azure.cn`
 * `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.chinacloudapi.cn`
 
     > [!NOTE]
-    > The workspace name for this FQDN may be truncated. Truncation is done to keep `ml-<workspace-name, truncated>-<region>-<workspace-guid>` 63 characters.
+    > The workspace name for this FQDN may be truncated. Truncation is done to keep `ml-<workspace-name, truncated>-<region>-<workspace-guid>` at 63 characters or less.
+    
 * `<instance-name>.<region>.instances.ml.azure.cn`
-## Find the IP addresses
+
+   * The IP address for this FQDN is **not** the IP of the compute instance. Instead, use the private IP address of the workspace private endpoint (the IP of the `*.api.azureml.ms` entries.)
+
+#### Azure US Government
+
+The following FQDNs are for Azure US Government regions:
+
+* `<workspace-GUID>.workspace.<region>.cert.api.ml.azure.us`
+* `<workspace-GUID>.workspace.<region>.api.ml.azure.us`
+* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.usgovcloudapi.net`
+
+    > [!NOTE]
+    > The workspace name for this FQDN may be truncated. Truncation is done to keep `ml-<workspace-name, truncated>-<region>-<workspace-guid>` at 63 characters or less.
+* `<instance-name>.<region>.instances.ml.azure.us`
+    > * The IP address for this FQDN is **not** the IP of the compute instance. Instead, use the private IP address of the workspace private endpoint (the IP of the `*.api.azureml.ms` entries.)
+
+### Find the IP addresses
 
 To find the internal IP addresses for the FQDNs in the VNet, use one of the following methods:
 
@@ -86,36 +170,369 @@ $workspaceDns.CustomDnsConfigs | format-table
 1. Select the link in the __Private endpoint__ column that is displayed.
 1. A list of the fully qualified domain names (FQDN) and IP addresses for the workspace private endpoint are at the bottom of the page.
 
-:::image type="content" source="./media/how-to-custom-dns/private-endpoint-custom-dns.png" alt-text="List of FQDNs in the portal":::
+    :::image type="content" source="./media/how-to-custom-dns/private-endpoint-custom-dns.png" alt-text="List of FQDNs in the portal":::
+
+    > [!TIP]
+    > If the DNS settings do not appear at the bottom of the page, use the __DNS configuration__ link from the left side of the page to view the FQDNs.
 
 ---
 
-The information returned from all methods is the same; a list of the FQDN and private IP address for the resources. The following example is from a global Azure region:
+The information returned from all methods is the same; a list of the FQDN and private IP address for the resources. The following example is from the Azure Public Cloud:
 
 | FQDN | IP Address |
 | ----- | ----- |
 | `fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
+| `fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.cert.api.azureml.ms` | `10.1.0.5` |
 | `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net` | `10.1.0.6` |
 
-> [!IMPORTANT]
-> Some FQDNs are not shown in listed by the private endpoint, but are required by the workspace in eastus, southcentralus and westus2. These FQDNs are listed in the following table, and must also be added to your DNS server and/or an Azure Private DNS Zone:
->
-> * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
-> * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
-> * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
-> * `<workspace-GUID>.workspace.<region>.aether.ms`
-> * If you have a compute instance, use `<instance-name>.<region>.instances.azureml.ms`, where `<instance-name>` is the name of your compute instance. Use the private IP address of workspace private endpoint. The compute instance can be accessed only from within the virtual network.
->
-> For all of these IP address, use the same address as the `*.api.azureml.ms` entries returned from the previous steps.
-
-The following table shows example IPs from Azure China 21Vianet regions:
+The following table shows example IPs from Azure China regions:
 
 | FQDN | IP Address |
 | ----- | ----- |
 | `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.api.ml.azure.cn` | `10.1.0.5` |
+| `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.cert.api.ml.azure.cn` | `10.1.0.5` |
 | `ml-mype-pltest-chinaeast2-52882c08-ead2-44aa-af65-08a75cf094bd.notebooks.chinacloudapi.cn` | `10.1.0.6` |
+
+The following table shows example IPs from Azure US Government regions:
+
+| FQDN | IP Address |
+| ----- | ----- |
+| `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.api.ml.azure.us` | `10.1.0.5` |
+| `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.cert.api.ml.azure.us` | `10.1.0.5` |
+| `ml-mype-plt-usgovvirginia-52882c08-ead2-44aa-af65-08a75cf094bd.notebooks.usgovcloudapi.net` | `10.1.0.6` |
+
+<a id='dns-vnet'></a>
+
+### Create A records in custom DNS server
+
+Once the list of FQDNs and corresponding IP addresses are gathered, proceed to create A records in the configured DNS Server. Refer to the documentation for your DNS server to determine how to create A records. Note it is recommended to create a unique zone for the entire FQDN, and create the A record in the root of the zone.
+
+## Example: Custom DNS Server hosted in VNet
+
+This architecture uses the common Hub and Spoke virtual network topology. One virtual network contains the DNS server and one contains the private endpoint to the Azure Machine Learning workspace and associated resources. There must be a valid route between both virtual networks. For example, through a series of peered virtual networks.
+
+:::image type="content" source="./media/how-to-custom-dns/custom-dns-topology.svg" alt-text="Diagram of custom DNS hosted in Azure topology":::
+
+The following steps describe how this topology works:
+
+1. **Create Private DNS Zone and link to DNS Server Virtual Network**:
+
+    The first step in ensuring a Custom DNS solution works with your Azure Machine Learning workspace is to create two Private DNS Zones rooted at the following domains:
+
+    **Azure Public regions**:
+    - ```privatelink.api.azureml.ms```
+    - ```privatelink.notebooks.azure.net```
+    
+    **Azure China regions**:
+    - ```privatelink.api.ml.azure.cn```
+    - ```privatelink.notebooks.chinacloudapi.cn```
+    
+    **Azure US Government regions**:
+    - ```privatelink.api.ml.azure.us```
+    - ```privatelink.notebooks.usgovcloudapi.net```
+
+    Following creation of the Private DNS Zone, it needs to be linked to the DNS Server Virtual Network. The Virtual Network that contains the DNS Server.
+
+    A Private DNS Zone overrides name resolution for all names within the scope of the root of the zone. This override applies to all Virtual Networks the Private DNS Zone is linked to. For example, if a Private DNS Zone rooted at `privatelink.api.azureml.ms` is linked to Virtual Network foo, all resources in Virtual Network foo that attempt to resolve `bar.workspace.westus2.privatelink.api.azureml.ms` will receive any record that is listed in the `privatelink.api.azureml.ms` zone.
+
+    However, records listed in Private DNS Zones are only returned to devices resolving domains using the default Azure DNS Virtual Server IP address. So the custom DNS Server will resolve domains for devices spread throughout your network topology. But the custom DNS Server will need to resolve Azure Machine Learning-related domains against the Azure DNS Virtual Server IP address.
+
+2. **Create private endpoint with private DNS integration targeting Private DNS Zone linked to DNS Server Virtual Network**:
+
+    The next step is to create a Private Endpoint to the Azure Machine Learning workspace. The private endpoint targets both Private DNS Zones created in step 1. This ensures all communication with the workspace is done via the Private Endpoint in the Azure Machine Learning Virtual Network.
+
+    > [!IMPORTANT]
+    > The private endpoint must have Private DNS integration enabled for this example to function correctly.
+
+3. **Create conditional forwarder in DNS Server to forward to Azure DNS**: 
+
+    Next, create a conditional forwarder to the Azure DNS Virtual Server. The conditional forwarder ensures that the DNS server always queries the Azure DNS Virtual Server IP address for FQDNs related to your workspace. This means that the DNS Server will return the corresponding record from the Private DNS Zone.
+
+    The zones to conditionally forward are listed below. The Azure DNS Virtual Server IP address is 168.63.129.16:
+
+    **Azure Public regions**:
+    - ```api.azureml.ms```
+    - ```notebooks.azure.net```
+    
+    **Azure China regions**:
+    - ```api.ml.azure.cn```
+    - ```notebooks.chinacloudapi.cn```
+    
+    **Azure US Government regions**:
+    - ```api.ml.azure.us```
+    - ```notebooks.usgovcloudapi.net```
+
+    > [!IMPORTANT]
+    > Configuration steps for the DNS Server are not included here, as there are many DNS solutions available that can be used as a custom DNS Server. Refer to the documentation for your DNS solution for how to appropriately configure conditional forwarding.
+
+4. **Resolve workspace domain**:
+
+    At this point, all setup is done. Now any client that uses DNS Server for name resolution and has a route to the Azure Machine Learning Private Endpoint can proceed to access the workspace.
+    The client will first start by querying DNS Server for the address of the following FQDNs:
+
+    **Azure Public regions**:
+    - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.azureml.ms```
+    - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>. notebooks.azure.net```
+    
+    **Azure China regions**:
+    - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.cn```
+    - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>. notebooks.chinacloudapi.cn```
+    
+    **Azure US Government regions**:
+    - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.us```
+    - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>. notebooks.usgovcloudapi.net```
+
+5. **Azure DNS recursively resolves workspace domain to CNAME**:
+
+    The DNS Server will resolve the FQDNs from step 4 from Azure DNS. Azure DNS will respond with one of the domains listed in step 1.
+
+6. **DNS Server recursively resolves workspace domain CNAME record from Azure DNS**:
+
+    DNS Server will proceed to recursively resolve the CNAME received in step 5. Because there was a conditional forwarder setup in step 3, DNS Server will send the request to the Azure DNS Virtual Server IP address for resolution.
+
+7. **Azure DNS returns records from Private DNS zone**:
+
+    The corresponding records stored in the Private DNS Zones will be returned to DNS Server, which will mean Azure DNS Virtual Server returns the IP addresses of the Private Endpoint.
+
+8. **Custom DNS Server resolves workspace domain name to private endpoint address**:
+
+    Ultimately the Custom DNS Server now returns the IP addresses of the Private Endpoint to the client from step 4. This ensures that all traffic to the Azure Machine Learning workspace is via the Private Endpoint.
+
+#### Troubleshooting
+
+If you cannot access the workspace from a virtual machine or jobs fail on compute resources in the virtual network, use the following steps to identify the cause:
+
+1. **Locate the workspace FQDNs on the Private Endpoint**:
+
+    Navigate to the Azure portal using one of the following links:
+    - [Azure Public regions](https://ms.portal.azure.com/?feature.privateendpointmanagedns=false)
+    - [Azure China regions](https://portal.azure.cn/?feature.privateendpointmanagedns=false)
+    - [Azure US Government regions](https://portal.azure.us/?feature.privateendpointmanagedns=false)
+
+    Navigate to the Private Endpoint to the Azure Machine Learning workspace. The workspace FQDNs will be listed on the “Overview” tab.
+
+1. **Access compute resource in Virtual Network topology**:
+
+    Proceed to access a compute resource in the Azure Virtual Network topology. This will likely require accessing a Virtual Machine in a Virtual Network that is peered with the Hub Virtual Network. 
+
+1. **Resolve workspace FQDNs**:
+
+    Open a command prompt, shell, or PowerShell. Then for each of the workspace FQDNs, run the following command:
+
+    ```nslookup <workspace FQDN>```
+        
+    The result of each nslookup should return one of the two private IP addresses on the Private Endpoint to the Azure Machine Learning workspace. If it does not, then there is something misconfigured in the custom DNS solution.
+
+    Possible causes:
+    - The compute resource running the troubleshooting commands is not using DNS Server for DNS resolution
+    - The Private DNS Zones chosen when creating the Private Endpoint are not linked to the DNS Server VNet
+    - Conditional forwarders to Azure DNS Virtual Server IP were not configured correctly
+
+<a id='dns-on-premises'></a>
+
+## Example: Custom DNS Server hosted on-premises
+
+This architecture uses the common Hub and Spoke virtual network topology. ExpressRoute is used to connect from your on-premises network to the Hub virtual network. The Custom DNS server is hosted on-premises. A separate virtual network contains the private endpoint to the Azure Machine Learning workspace and associated resources. With this topology, there needs to be another virtual network hosting a DNS server that can send requests to the Azure DNS Virtual Server IP address.
+
+:::image type="content" source="./media/how-to-custom-dns/custom-dns-express-route.svg" alt-text="Diagram of custom DNS hosted on-premises topology":::
+
+The following steps describe how this topology works:
+
+1. **Create Private DNS Zone and link to DNS Server Virtual Network**:
+
+    The first step in ensuring a Custom DNS solution works with your Azure Machine Learning workspace is to create two Private DNS Zones rooted at the following domains:
+    
+    **Azure Public regions**:
+    - ``` privatelink.api.azureml.ms```
+    - ``` privatelink.notebooks.azure.net```
+    
+    **Azure China regions**:
+    - ```privatelink.api.ml.azure.cn```
+    - ```privatelink.notebooks.chinacloudapi.cn```
+    
+    **Azure US Government regions**:
+    - ```privatelink.api.ml.azure.us```
+    - ```privatelink.notebooks.usgovcloudapi.net```
+
+    Following creation of the Private DNS Zone, it needs to be linked to the DNS Server VNet – the Virtual Network that contains the DNS Server. 
+
+    > [!NOTE]
+    > The DNS Server in the virtual network is separate from the On-premises DNS Server.
+
+    A Private DNS Zone overrides name resolution for all names within the scope of the root of the zone. This override applies to all Virtual Networks the Private DNS Zone is linked to. For example, if a Private DNS Zone rooted at `privatelink.api.azureml.ms` is linked to Virtual Network foo, all resources in Virtual Network foo that attempt to resolve `bar.workspace.westus2.privatelink.api.azureml.ms` will receive any record that is listed in the privatelink.api.azureml.ms zone.
+
+    However, records listed in Private DNS Zones are only returned to devices resolving domains using the default Azure DNS Virtual Server IP address. The Azure DNS Virtual Server IP address is only valid within the context of a Virtual Network. When using an on-premises DNS server, it is not able to query the Azure DNS Virtual Server IP address to retrieve records.
+
+    To get around this behavior, create an intermediary DNS Server in a virtual network. This DNS server can query the Azure DNS Virtual Server IP address to retrieve records for any Private DNS Zone linked to the virtual network.
+
+    While the On-premises DNS Server will resolve domains for devices spread throughout your network topology, it will resolve Azure Machine Learning-related domains against the DNS Server. The DNS Server will resolve those domains from the Azure DNS Virtual Server IP address.
+
+2. **Create private endpoint with private DNS integration targeting Private DNS Zone linked to DNS Server Virtual Network**:
+
+    The next step is to create a Private Endpoint to the Azure Machine Learning workspace. The private endpoint targets both Private DNS Zones created in step 1. This ensures all communication with the workspace is done via the Private Endpoint in the Azure Machine Learning Virtual Network.
+
+    > [!IMPORTANT]
+    > The private endpoint must have Private DNS integration enabled for this example to function correctly.
+
+3. **Create conditional forwarder in DNS Server to forward to Azure DNS**:
+
+    Next, create a conditional forwarder to the Azure DNS Virtual Server. The conditional forwarder ensures that the DNS server always queries the Azure DNS Virtual Server IP address for FQDNs related to your workspace. This means that the DNS Server will return the corresponding record from the Private DNS Zone.
+
+    The zones to conditionally forward are listed below. The Azure DNS Virtual Server IP address is 168.63.129.16.
+
+    **Azure Public regions**:
+    - ```api.azureml.ms```
+    - ```notebooks.azure.net```
+    
+    **Azure China regions**:
+    - ```api.ml.azure.cn```
+    - ```notebooks.chinacloudapi.cn```
+    
+    **Azure US Government regions**:
+    - ```api.ml.azure.us```
+    - ```notebooks.usgovcloudapi.net```
+
+    > [!IMPORTANT]
+    > Configuration steps for the DNS Server are not included here, as there are many DNS solutions available that can be used as a custom DNS Server. Refer to the documentation for your DNS solution for how to appropriately configure conditional forwarding.
+
+4. **Create conditional forwarder in On-premises DNS Server to forward to DNS Server**:
+
+    Next, create a conditional forwarder to the DNS Server in the DNS Server Virtual Network. This forwarder is for the zones listed in step 1. This is similar to step 3, but, instead of forwarding to the Azure DNS Virtual Server IP address, the On-premises DNS Server will be targeting the IP address of the DNS Server. As the On-premises DNS Server is not in Azure, it is not able to directly resolve records in Private DNS Zones. In this case the DNS Server proxies requests from the On-premises DNS Server to the Azure DNS Virtual Server IP. This allows the On-premises DNS Server to retrieve records in the Private DNS Zones linked to the DNS Server Virtual Network. 
+
+    The zones to conditionally forward are listed below. The IP addresses to forward to are the IP addresses of your DNS Servers:
+
+    **Azure Public regions**:
+    - ```api.azureml.ms```
+    - ```notebooks.azure.net```
+    
+    **Azure China regions**:
+    - ```api.ml.azure.cn```
+    - ```notebooks.chinacloudapi.cn```
+    
+    **Azure US Government regions**:
+    - ```api.ml.azure.us```
+    - ```notebooks.usgovcloudapi.net```
+
+    > [!IMPORTANT]
+    > Configuration steps for the DNS Server are not included here, as there are many DNS solutions available that can be used as a custom DNS Server. Refer to the documentation for your DNS solution for how to appropriately configure conditional forwarding.
+
+5. **Resolve workspace domain**:
+
+    At this point, all setup is done. Any client that uses on-premises DNS Server for name resolution, and has a route to the Azure Machine Learning Private Endpoint, can proceed to access the workspace.
+
+    The client will first start by querying On-premises DNS Server for the address of the following FQDNs:
+
+    **Azure Public regions**:
+    - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.azureml.ms```
+    - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>. notebooks.azure.net```
+    
+    **Azure China regions**:
+    - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.cn```
+    - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>. notebooks.chinacloudapi.cn```
+    
+    **Azure US Government regions**:
+    - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.us```
+    - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>. notebooks.usgovcloudapi.net```
+
+6. **On-premises DNS server recursively resolves workspace domain**:
+
+    The on-premises DNS Server will resolve the FQDNs from step 5 from the DNS Server. Because there is a conditional forwarder (step 4), the on-premises DNS Server will send the request to the DNS Server for resolution.
+
+7. **DNS Server resolves workspace domain to CNAME from Azure DNS**:
+
+    The DNS server will resolve the FQDNs from step 5 from the Azure DNS. Azure DNS will respond with one of the domains listed in step 1.
+
+8. **On-premises DNS Server recursively resolves workspace domain CNAME record from DNS Server**:
+
+    On-premises DNS Server will proceed to recursively resolve the CNAME received in step 7. Because there was a conditional forwarder setup in step 4, On-premises DNS Server will send the request to DNS Server for resolution.
+
+9. **DNS Server recursively resolves workspace domain CNAME record from Azure DNS**:
+
+    DNS Server will proceed to recursively resolve the CNAME received in step 7. Because there was a conditional forwarder setup in step 3, DNS Server will send the request to the Azure DNS Virtual Server IP address for resolution.
+
+10. **Azure DNS returns records from Private DNS zone**:
+
+    The corresponding records stored in the Private DNS Zones will be returned to DNS Server, which will mean the Azure DNS Virtual Server returns the IP addresses of the Private Endpoint.
+
+11. **On-premises DNS Server resolves workspace domain name to private endpoint address**:
+
+    The query from On-premises DNS Server to DNS Server in step 8 ultimately returns the IP addresses associated with the Private Endpoint to the Azure Machine Learning workspace. These IP addresses are returned to the original client, which will now communicate with the Azure Machine Learning workspace over the Private Endpoint configured in step 1.
+
+<a id="hosts"></a>
+## Example: Hosts file
+
+The `hosts` file is a text document that Linux, macOS, and Windows all use to override name resolution for the local computer. The file contains a list of IP addresses and the corresponding host name. When the local computer tries to resolve a host name, if the host name is listed in the `hosts` file, the name is resolved to the corresponding IP address.
+
+> [!IMPORTANT]
+> The `hosts` file only overrides name resolution for the local computer. If you want to use a `hosts` file with multiple computers, you must modify it individually on each computer.
+
+The following table lists the location of the `hosts` file:
+
+| Operating system | Location |
+| ----- | ----- |
+| Linux | `/etc/hosts` |
+| macOS | `/etc/hosts` |
+| Windows | `%SystemRoot%\System32\drivers\etc\hosts` |
+
+> [!TIP]
+> The name of the file is `hosts` with no extension. When editing the file, use administrator access. For example, on Linux or macOS you might use `sudo vi`. On Windows, run notepad as an administrator.
+
+The following is an example of `hosts` file entries for Azure Machine Learning:
+
+```
+# For core Azure Machine Learning hosts
+10.1.0.5    fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms
+10.1.0.5    fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.cert.api.azureml.ms
+10.1.0.6    ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net
+
+# For a compute instance named 'mycomputeinstance'
+10.1.0.5    mycomputeinstance.eastus.instances.azureml.ms
+```
+
+For more information on the `hosts` file, see [https://wikipedia.org/wiki/Hosts_(file)](https://wikipedia.org/wiki/Hosts_(file)).
+
+#### Troubleshooting
+
+If after running through the above steps you are unable to access the workspace from a virtual machine or jobs fail on compute resources in the Virtual Network containing the Private Endpoint to the Azure Machine learning workspace, follow the below steps to try to identify the cause.
+
+1. **Locate the workspace FQDNs on the Private Endpoint**:
+
+    Navigate to the Azure portal using one of the following links:
+    - [Azure Public regions](https://ms.portal.azure.com/?feature.privateendpointmanagedns=false)
+    - [Azure China regions](https://portal.azure.cn/?feature.privateendpointmanagedns=false)
+    - [Azure US Government regions](https://portal.azure.us/?feature.privateendpointmanagedns=false)
+
+    Navigate to the Private Endpoint to the Azure Machine Learning workspace. The workspace FQDNs will be listed on the “Overview” tab.
+
+1. **Access compute resource in Virtual Network topology**:
+
+    Proceed to access a compute resource in the Azure Virtual Network topology. This will likely require accessing a Virtual Machine in a Virtual Network that is peered with the Hub Virtual Network. 
+
+1. **Resolve workspace FQDNs**:
+
+    Open a command prompt, shell, or PowerShell. Then for each of the workspace FQDNs, run the following command:
+
+    ```nslookup <workspace FQDN>```
+        
+    The result of each nslookup should yield one of the two private IP addresses on the Private Endpoint to the Azure Machine Learning workspace. If it does not, then there is something misconfigured in the custom DNS solution.
+
+    Possible causes:
+    - The compute resource running the troubleshooting commands is not using DNS Server for DNS resolution
+    - The Private DNS Zones chosen when creating the Private Endpoint are not linked to the DNS Server VNet
+    - Conditional forwarders from DNS Server to Azure DNS Virtual Server IP were not configured correctly
+    - Conditional forwarders from On-premises DNS Server to DNS Server were not configured correctly
+
 ## Next steps
 
-For more information on using Azure Machine Learning with a virtual network, see the [virtual network overview](how-to-network-security-overview.md).
+This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
-For more information on integrating Private Endpoints into your DNS configuration, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+* [Virtual network overview](how-to-network-security-overview.md)
+* [Secure the workspace resources](how-to-secure-workspace-vnet.md)
+* [Secure the training environment](how-to-secure-training-vnet.md)
+* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+* [Enable studio functionality](how-to-enable-studio-virtual-network.md)
+* [Use a firewall](how-to-access-azureml-behind-firewall.md)
+
+For information on integrating Private Endpoints into your DNS configuration, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+
+For information on deploying models with a custom DNS name or TLS security, see [Secure web services using TLS](how-to-secure-web-service.md).

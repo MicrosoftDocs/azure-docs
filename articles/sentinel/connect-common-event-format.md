@@ -1,5 +1,5 @@
 ---
-title: Connect CEF data to Azure Sentinel Preview| Microsoft Docs
+title: Connect CEF data to Azure Sentinel | Microsoft Docs
 description: Connect an external solution that sends Common Event Format (CEF) messages to Azure Sentinel, using a Linux machine as a log forwarder.
 services: sentinel
 documentationcenter: na
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2020
+ms.date: 07/26/2021
 ms.author: yelevin
 
 ---
 # Connect your external solution using Common Event Format
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 When you connect an external solution that sends CEF messages, there are three steps to connecting with Azure Sentinel:
 
@@ -47,6 +49,8 @@ Make sure to configure the machine's security according to your organization's s
 To use TLS communication between the Syslog source and the Syslog Forwarder, you will need to configure the Syslog daemon (rsyslog or syslog-ng) to communicate in TLS: [Encrypting Syslog Traffic with TLS -rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [Encrypting log messages with TLS –syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
  
 ## Prerequisites
+
+An Azure Sentinel workspace is required in order to ingest CEF data into Log Analytics.
 
 Make sure the Linux machine you use as a log forwarder is running one of the following operating systems:
 

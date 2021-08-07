@@ -26,7 +26,7 @@ The need for access to privileged Azure resource roles by employees changes over
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)] For more information about licenses for PIM, refer to [License requirements to use Privileged Identity Management](subscription-requirements.md).
 
 > [!Note]
->  Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles (Preview) with an Azure Active Directory Premium P2 edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required.
+> Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles (Preview) with an Azure Active Directory Premium P2 edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required.
 
 ## Prerequisite role
 
@@ -37,10 +37,12 @@ The need for access to privileged Azure resource roles by employees changes over
 1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is assigned to one of the prerequisite roles.
 
 1. Select **Identity Governance**
- 
+
 1. In the left menu, select **Azure resources** under **Azure AD Privileged Identity Management**.
 
 1. Select the resource you want to manage, such as a subscription.
+
+    ![Azure resources - Select a resource to create an access review](./media/pim-resource-roles-start-access-review/access-review-select-resource.png)
 
 1. Under Manage, select **Access reviews**.
 
@@ -60,7 +62,9 @@ The need for access to privileged Azure resource roles by employees changes over
 
 1. Use the **End** setting to specify how to end the recurring access review series. The series can end in three ways: it runs continuously to start reviews indefinitely, until a specific date, or after a defined number of occurrences has been completed. You, another User administrator, or another Global administrator can stop the series after creation by changing the date in **Settings**, so that it ends on that date.
 
-1. In the **Users** section,  select the scope of the review. To review users, select **Users or select (Preview) Service Principals** to review the machine accounts with access to the Azure role.   
+1. In the **Users** section,  select the scope of the review. To review users, select **Users or select (Preview) Service Principals** to review the machine accounts with access to the Azure role.
+
+    When **Users** is selected, membership of groups assigned to the role will be expanded to the individual members of the group. When **Service Principals** is selected, only those with direct membership (not via nested groups) will be reviewed.  
 
     ![Users scope to review role membership of](./media/pim-resource-roles-start-access-review/users.png)
 
@@ -68,15 +72,12 @@ The need for access to privileged Azure resource roles by employees changes over
 1. Under **Review role membership**, select the privileged Azure roles to review. 
 
     > [!NOTE]
-    > - Roles selected here include both [permanent and eligible roles](../privileged-identity-management/pim-how-to-add-role-to-user.md).
-    > - Selecting more than one role will create multiple access reviews. For example, selecting five roles will create five separate access reviews.
+    > Selecting more than one role will create multiple access reviews. For example, selecting five roles will create five separate access reviews.
     If you are creating an access review of **Azure AD roles**, the following shows an example of the Review membership list.
 
-    ![Review membership pane listing Azure AD roles you can select](./media/pim-resource-roles-start-access-review/review-membership.png)
+1. In **assignment type**, scope the review by how the principal was assigned to the role. Choose **(Preview) eligible assignments only** to review eligible assignments (regardless of activation status when the review is created) or **(Preview) active assignments only** to review active assignments. Choose **all active and eligible assignments** to review all assignments regardless of type.
 
-    If you are creating an access review of **Azure resource roles**, the following image shows an example of the Review membership list.
-
-    ![Review membership pane listing Azure resource roles you can select](./media/pim-resource-roles-start-access-review/review-membership-azure-resource-roles.png)
+    ![Reviewers list of assignment types](./media/pim-resource-roles-start-access-review/assignment-type-select.png)
 
 1. In the **Reviewers** section, select one or more people to review all the users. Or you can select to have the members review their own access.
 

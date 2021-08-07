@@ -135,5 +135,6 @@ You should see something like following screenshot once your policy. In case you
 
 ## Next steps 
 
+-	Learn about [Traffic Analytics Built-in Policies](./traffic-analytics-policy-portal.md)
 -	Use this [tutorial](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md) Go deeper by using ARM templates to deploy Flow Logs and Traffic Analytics.
 -	Learn more about [Network Watcher](./index.yml)

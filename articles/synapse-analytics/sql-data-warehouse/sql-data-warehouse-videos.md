@@ -2,13 +2,13 @@
 title: Videos 
 description: Links to various video playlists for Azure Synapse Analytics.
 services: synapse-analytics
-author: anumjs
+author: rothja
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 02/15/2019
-ms.author: anjangsh
+ms.author: jroth
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---

@@ -1,11 +1,14 @@
 ---
 title: Copy data from Teradata Vantage by using Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: The Teradata Connector of the Data Factory service lets you copy data from a Teradata Vantage to data stores supported by Data Factory as sinks. 
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 01/22/2021
-ms.author: jingwang
+ms.author: jianleishen
 ---
 
 # Copy data from Teradata Vantage by using Azure Data Factory
@@ -36,13 +39,13 @@ Specifically, this Teradata connector supports:
 
 ## Prerequisites
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 If you use Self-hosted Integration Runtime, note it provides a built-in Teradata driver starting from version 3.18. You don't need to manually install any driver. The driver requires "Visual C++ Redistributable 2012 Update 4" on the self-hosted integration runtime machine. If you don't yet have it installed, download it from [here](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to the Teradata connector.
 

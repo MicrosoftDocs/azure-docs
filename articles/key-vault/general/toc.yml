@@ -43,6 +43,8 @@
   items:
   - name: Key Vault Code Samples
     href: /samples/browse/?expanded=azure&products=azure-key-vault
+  - name: Azure Resource Graph queries
+    href: ../resource-graph-samples.md
 
 - name: Concepts 
   items:
@@ -54,8 +56,8 @@
     items:
     - name: Security features
       href: security-features.md
-    - name: Key Vault authentication fundamentals
-      href: authentication-fundamentals.md
+    - name: Key Vault authentication
+      href: authentication.md
     - name: Security worlds and geographies
       href: overview-security-worlds.md
     - name: Network Security
@@ -88,10 +90,8 @@
 
 - name: How-to guides
   items:
-  - name: Authenticate & Authorize
+  - name: Authorize access
     items:
-    - name: Authenticate to Key Vault
-      href: authentication.md
     - name: Assign an access policy
       items:
       - name: CLI
@@ -136,14 +136,16 @@
       href: backup.md
   - name: Secure
     items:
+    - name: Configure key vault networking settings 
+      href: how-to-azure-key-vault-network-security.md
+    - name: Access Key Vault behind a firewall
+      href: access-behind-firewall.md
     - name: Azure Private Link
       items:
       - name: Integrate with Azure Private Link Service
         href: private-link-service.md
       - name: Diagnose Private Links Configuration Issues
         href: private-link-diagnostics.md
-    - name: Access Key Vault behind a firewall
-      href: access-behind-firewall.md
   - name: Move Key Vault
     items: 
     - name: Move Key Vault to Another Resource Group

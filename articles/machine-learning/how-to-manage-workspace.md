@@ -1,7 +1,7 @@
 ---
-title: Create workspaces in the portal
+title: Manage workspaces in portal or Python SDK
 titleSuffix: Azure Machine Learning
-description: Learn how to create, view, and delete Azure Machine Learning workspaces in the Azure portal or with the SDK for Python.
+description: Learn how to manage Azure Machine Learning workspaces in the Azure portal or with the SDK for Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,19 +9,19 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 04/22/2021
 ms.topic: how-to
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4
 
 ---
 
-# Create and manage Azure Machine Learning workspaces 
+# Manage Azure Machine Learning workspaces in the portal or with the Python SDK
 
-In this article, you'll create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-ml.md), using the Azure portal or the [SDK for Python](/python/api/overview/azure/ml/)
+In this article, you create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), using the Azure portal or the [SDK for Python](/python/api/overview/azure/ml/)
 
-As your needs change or requirements for automation increase you can also create and delete workspaces [using the CLI](reference-azure-machine-learning-cli.md),  or [via the VS Code extension](tutorial-setup-vscode-extension.md).
+As your needs change or requirements for automation increase you can also manage workspaces [using the CLI](reference-azure-machine-learning-cli.md),  or [via the VS Code extension](how-to-setup-vs-code.md).
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 * If using the Python SDK, [install the SDK](/python/api/overview/azure/ml/install).
 
 ## Limitations
@@ -248,7 +248,7 @@ from azureml.core import Workspace
 
 ### Download a configuration file
 
-If you will be creating a [compute instance](tutorial-1st-experiment-sdk-setup.md#azure), skip this step.  The compute instance has already created a copy of this file for you.
+If you will be creating a [compute instance](quickstart-create-resources.md), skip this step.  The compute instance has already created a copy of this file for you.
 
 # [Python](#tab/python)
 
@@ -387,9 +387,10 @@ The Azure Machine Learning workspace uses Azure Container Registry (ACR) for som
 ## Examples
 
 Examples of creating a workspace:
-* Use Azure portal to [create a workspace and compute instance](tutorial-1st-experiment-sdk-setup.md)
-* Use Python SDK to [create a workspace in your own environment](tutorial-1st-experiment-sdk-setup-local.md)
+* Use Azure portal to [create a workspace and compute instance](quickstart-create-resources.md)
 
 ## Next steps
 
 Once you have a workspace, learn how to [Train and deploy a model](tutorial-train-models-with-aml.md).
+
+To learn more about planning a workspace for your organization's requirements, see [Organize and set up Azure Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization).

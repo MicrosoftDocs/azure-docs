@@ -1,19 +1,19 @@
 ---
-title: Automate tasks and workflows with Visual Studio
-description: Create, schedule, and run automated workflows for enterprise integration by using Azure Logic Apps and Visual Studio
+title: Quickstart - Create integration workflows with multi-tenant Azure Logic Apps in Visual Studio
+description: Create automated integration workflows with multi-tenant Azure Logic Apps and Visual Studio Code.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/24/2021
+ms.date: 05/25/2021
 
 # Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio
 ---
 
-# Quickstart: Create automated tasks, processes, and workflows with Azure Logic Apps - Visual Studio
+# Quickstart: Create automated integration workflows with multi-tenant Azure Logic Apps and Visual Studio
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and Visual Studio, you can create workflows for automating tasks and processes that integrate apps, data, systems, and services across enterprises and organizations. This quickstart shows how you can design and build these workflows by creating logic apps in Visual Studio and deploying those apps to Azure. Although you can perform these tasks in the Azure portal, Visual Studio lets you add your logic apps to source control, publish different versions, and create Azure Resource Manager templates for different deployment environments.
+This quickstart shows how to design, develop, and deploy automated workflows that integrate apps, data, systems, and services across enterprises and organizations by using multi-tenant [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and Visual Studio. Although you can perform these tasks in the Azure portal, Visual Studio lets you add your logic apps to source control, publish different versions, and create Azure Resource Manager templates for different deployment environments. For more information about multi-tenant versus single-tenant model, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
 If you're new to Azure Logic Apps and just want the basic concepts, try the [quickstart for creating a logic app in the Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md). The Logic App Designer works similarly in both the Azure portal and Visual Studio.
 

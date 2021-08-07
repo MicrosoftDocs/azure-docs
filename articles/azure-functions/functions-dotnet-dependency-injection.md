@@ -94,9 +94,9 @@ namespace MyNamespace
         private readonly HttpClient _client;
         private readonly IMyService _service;
 
-        public MyHttpTrigger(HttpClient httpClient, IMyService service)
+        public MyHttpTrigger(IHttpClientFactory httpClientFactory, IMyService service)
         {
-            this._client = httpClient;
+            this._client = httpClientFactory.CreateClient();
             this._service = service;
         }
 

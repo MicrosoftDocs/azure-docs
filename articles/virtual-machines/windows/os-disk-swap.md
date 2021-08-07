@@ -7,7 +7,8 @@ ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/24/2018
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Change the OS disk used by an Azure VM using PowerShell
@@ -19,7 +20,7 @@ If you have an existing VM, but you want to swap the disk for a backup disk or a
 The VM does need to be stopped\deallocated, then the resource ID of the managed disk can be replaced with the resource ID of a different managed disk.
 
 Make sure that the VM size and storage type are compatible with the disk you want to attach. For example, if the disk you want to use is in Premium Storage, then the VM needs to be capable of Premium Storage (like a DS-series size). Both disks must also be the same size.
-And ensure that you're not mixing an un-encrypted VM with an encrypted OS disk, this is not supported. If the VM doesn't use Azure Disk Encryption, then the OS disk being swapped in shouldn't be using Azure Disk Encryption.
+And ensure that you're not mixing an un-encrypted VM with an encrypted OS disk, this is not supported. If the VM doesn't use Azure Disk Encryption, then the OS disk being swapped in shouldn't be using Azure Disk Encryption. If disks are using Disk Encryption Sets, both disks should belong to same Disk Encryption set.
 
 Get a list of disks in a resource group using [Get-AzDisk](/powershell/module/az.compute/get-azdisk)
 

@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 05/18/2021
 ms.author: apimpm 
 ms.custom: devx-track-azurepowershell
 
@@ -34,14 +34,10 @@ The following table provides brief descriptions of the built-in roles. You can a
 | API Management Service Contributor | ✓ | ✓ | ✓ | ✓ | Super user. Has full CRUD access to API Management services and entities (for example, APIs and policies). Has access to the legacy publisher portal. |
 | API Management Service Reader | ✓ | | || Has read-only access to API Management services and entities. |
 | API Management Service Operator | ✓ | | ✓ | | Can manage API Management services, but not entities.|
-| API Management Service Editor<sup>*</sup> | ✓ | ✓ | |  | Can manage API Management entities, but not services.|
-| API Management Content Manager<sup>*</sup> | ✓ | | | ✓ | Can manage the developer portal. Read-only access to services and entities.|
 
 <sup>[1] Read access to API Management services and entities (for example, APIs and policies).</sup>
 
 <sup>[2] Write access to API Management services and entities except the following operations: instance creation, deletion, and scaling; VPN configuration; and custom domain setup.</sup>
-
-<sup>\* The Service Editor role will be available after we migrate all the admin UI from the existing publisher portal to the Azure portal. The Content Manager role will be available after the publisher portal is refactored to only contain functionality related to managing the developer portal.</sup>  
 
 ## Custom roles
 

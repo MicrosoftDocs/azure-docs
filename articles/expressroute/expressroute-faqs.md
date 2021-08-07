@@ -56,7 +56,9 @@ The ExpressRoute gateway will advertise the *Address Space(s)* of the Azure VNet
 
 ### How many prefixes can be advertised from a VNet to on-premises on ExpressRoute Private Peering?
 
-There is a maximum of 1000 prefixes advertised on a single ExpressRoute connection, or through VNet peering using gateway transit. For example, if you have 999 address spaces on a single VNet connected to an ExpressRoute circuit, all 999 of those prefixes will be advertised to on-premises. Alternatively, if you have a VNet enabled to allow gateway transit with 1 address space and 500 spoke VNets enabled using the "Allow Remote Gateway" option, the VNet deployed with the gateway will advertise 501 prefixes to on-premises.
+There is a maximum of 1000 IPv4 prefixes advertised on a single ExpressRoute connection, or through VNet peering using gateway transit. For example, if you have 999 address spaces on a single VNet connected to an ExpressRoute circuit, all 999 of those prefixes will be advertised to on-premises. Alternatively, if you have a VNet enabled to allow gateway transit with 1 address space and 500 spoke VNets enabled using the "Allow Remote Gateway" option, the VNet deployed with the gateway will advertise 501 prefixes to on-premises.
+
+If you are using a dual-stack circuit, there is a maximum of 100 IPv6 prefixes on a single ExpressRoute connection, or through VNet peering using gateway transit. This in addition to the limits described above.
 
 ### What happens if I exceed the prefix limit on an ExpressRoute connection?
 
@@ -167,7 +169,7 @@ See [here](./designing-for-high-availability-with-expressroute.md) for designing
 
 ### How do I ensure high availability on a virtual network connected to ExpressRoute?
 
-You can achieve high availability by connecting up to 16 ExpressRoute circuits in the same peering location to your virtual network, or by connecting ExpressRoute circuits in different peering locations (for example, Singapore, Singapore2) to your virtual network. If one ExpressRoute circuit goes down, connectivity will fail over to another ExpressRoute circuit. By default, traffic leaving your virtual network is routed based on Equal Cost Multi-path Routing (ECMP). You can use Connection Weight to prefer one circuit to another. For more information, see [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md).
+You can achieve high availability by connecting up to 4 ExpressRoute circuits in the same peering location to your virtual network, or by connecting up to 16 ExpressRoute circuits in different peering locations (for example, Singapore, Singapore2) to your virtual network. If one ExpressRoute circuit goes down, connectivity will fail over to another ExpressRoute circuit. By default, traffic leaving your virtual network is routed based on Equal Cost Multi-path Routing (ECMP). You can use Connection Weight to prefer one circuit to another. For more information, see [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md).
 
 ### How do I ensure that my traffic destined for Azure Public services like Azure Storage and Azure SQL on Microsoft peering or public peering is preferred on the ExpressRoute path?
 
@@ -236,7 +238,7 @@ No. From a routing perspective, all virtual networks linked to the same ExpressR
 
 ### Can I have one virtual network connected to more than one ExpressRoute circuit?
 
-Yes. You can link a single virtual network with up to four ExpressRoute circuits in either the same or different peering locations. 
+Yes. You can link a single virtual network with up to four ExpressRoute circuits in the same location or up to 16 ExpressRoute circuits in different peering locations. 
 
 ### Can I access the Internet from my virtual networks connected to ExpressRoute circuits?
 

@@ -163,7 +163,10 @@ If you use AD FS, see [Verify and manage single sign-on with AD FS](/previous-ve
 
 Users get SSO from Azure AD joined devices if the device has access to a domain controller. 
 
-**Recommendation:** Deploy [Azure AD App proxy](../manage-apps/application-proxy.md) to enable secure access for these applications.
+> [!NOTE]
+> Azure AD joined devices can seamlessly provide access to both, on-premises and cloud applications. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
+
+**Recommendation:** Deploy [Azure AD App proxy](../app-proxy/application-proxy.md) to enable secure access for these applications.
 
 ### On-premises network shares
 
@@ -184,6 +187,11 @@ Azure AD joined devices don't support on-premises applications relying on machin
 Remote desktop connection to an Azure AD joined devices requires the host machine to be either Azure AD joined or Hybrid Azure AD joined. Remote desktop from an unjoined or non-Windows device is not supported. For more information, see [Connect to remote Azure AD joined pc](/windows/client-management/connect-to-remote-aadj-pc)
 
 Starting Windows 10 2004 update, users can also use remote desktop from an Azure AD registered Windows 10 device to an Azure AD joined device. 
+
+### RADIUS and Wi-Fi authentication
+
+Currently, Azure AD joined devices do not support RADIUS authentication for connecting to Wi-Fi access points, since RADIUS relies on presence of an on-premises computer object. As an alternative, you can use certificates pushed via Intune or user credentials to authenticate to Wi-Fi. 
+
 
 ## Understand your provisioning options
 **Note**: Azure AD joined devices cannot be deployed using  System Preparation Tool (Sysprep) or similar imaging tools
@@ -234,7 +242,7 @@ Choose **Selected** and selects the users you want to add to the local administr
 
 ### Require multi-factor authentication (MFA) to join devices
 
-Select **“Yes** if you require users to perform MFA while joining devices to Azure AD. For the users joining devices to Azure AD using MFA, the device itself becomes a 2nd factor.
+Select **“Yes** if you require users to perform MFA while joining devices to Azure AD.
 
 ![Require multi-factor Auth to join devices](./media/azureadjoin-plan/03.png)
 

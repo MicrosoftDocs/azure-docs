@@ -7,37 +7,35 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/19/2021
+ms.date: 05/14/2021
 ms.author: tamram
 ms.subservice: common
 ---
 
 # Storage account overview
 
-An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, tables, and disks. The storage account provides a unique namespace for your Azure Storage data that is accessible from anywhere in the world over HTTP or HTTPS. Data in your Azure storage account is durable and highly available, secure, and massively scalable.
+An Azure storage account contains all of your Azure Storage data objects: blobs, file shares, queues, tables, and disks. The storage account provides a unique namespace for your Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS. Data in your storage account is durable and highly available, secure, and massively scalable.
 
 To learn how to create an Azure storage account, see [Create a storage account](storage-account-create.md).
 
 ## Types of storage accounts
 
-Azure Storage offers several types of storage accounts. Each type supports different features and has its own pricing model. Consider these differences before you create a storage account to determine the type of account that is best for your applications.
+Azure Storage offers several types of storage accounts. Each type supports different features and has its own pricing model. Consider these differences before you create a storage account to determine the type of account that's best for your applications.
 
-The following table describes the types of storage accounts recommended by Microsoft for most scenarios:
+The following table describes the types of storage accounts recommended by Microsoft for most scenarios. All of these use the [Azure Resource Manager](../../azure-resource-manager/management/overview.md) deployment model.
 
-| Type of storage account | Supported services | Redundancy options | Deployment model | Usage |
-|--|--|--|--|--|
-| Standard general-purpose v2 | Blob, File, Queue, Table, and Data Lake Storage<sup>1</sup> | LRS/GRS/RA-GRS<br /><br />ZRS/GZRS/RA-GZRS<sup>2</sup> | Resource Manager<sup>3</sup> | Basic storage account type for blobs, files, queues, and tables. Recommended for most scenarios using Azure Storage. |
-| Premium block blobs<sup>4</sup> | Block blobs only | LRS<br /><br />ZRS<sup>2</sup> | Resource Manager<sup>3</sup> | Storage accounts with premium performance characteristics for block blobs and append blobs. Recommended for scenarios with high transactions rates, or scenarios that use smaller objects or require consistently low storage latency.<br />[Learn more...](../blobs/storage-blob-performance-tiers.md) |
-| Premium file shares<sup>4</sup> | File shares only | LRS<br /><br />ZRS<sup>2</sup> | Resource Manager<sup>3</sup> | Files-only storage accounts with premium performance characteristics. Recommended for enterprise or high performance scale applications.<br />[Learn more...](../files/storage-files-planning.md#management-concepts) |
-| Premium page blobs<sup>4</sup> | Page blobs only | LRS | Resource Manager<sup>3</sup> | Premium storage account type for page blobs only.<br />[Learn more...](../blobs/storage-blob-pageblob-overview.md) |
+| Type of storage account | Supported storage services | Redundancy options | Usage |
+|--|--|--|--|
+| Standard general-purpose v2 | Blob (including Data Lake Storage<sup>1</sup>), Queue, and Table storage, Azure Files  | LRS/GRS/RA-GRS<br /><br />ZRS/GZRS/RA-GZRS<sup>2</sup> | Standard storage account type for blobs, file shares, queues, and tables. Recommended for most scenarios using Azure Storage. Note that if you want support for NFS file shares in Azure Files, use the premium file shares account type. |
+| Premium block blobs<sup>3</sup> | Blob storage (including Data Lake Storage<sup>1</sup>) | LRS<br /><br />ZRS<sup>2</sup> | Premium storage account type for block blobs and append blobs. Recommended for scenarios with high transactions rates, or scenarios that use smaller objects or require consistently low storage latency. [Learn more about example workloads.](../blobs/storage-blob-performance-tiers.md#premium-performance) |
+| Premium file shares<sup>3</sup> | Azure Files | LRS<br /><br />ZRS<sup>2</sup> | Premium storage account type for file shares only. Recommended for enterprise or high-performance scale applications. Use this account type if you want a storage account that supports both SMB and NFS file shares. |
+| Premium page blobs<sup>3</sup> | Page blobs only | LRS | Premium storage account type for page blobs only. [Learn more about page blobs and sample use cases.](../blobs/storage-blob-pageblob-overview.md) |
 
-<sup>1</sup> Data Lake Storage is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. For more information, see [Introduction to Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md).
+<sup>1</sup> Data Lake Storage is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. For more information, see [Introduction to Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) and [Create a storage account to use with Data Lake Storage Gen2](../blobs/create-data-lake-storage-account.md).
 
-<sup>2</sup> Zone-redundant storage (ZRS) and geo-zone-redundant storage (GZRS/RA-GZRS) are available only for standard general-purpose v2, premium block blob, and premium file share accounts in certain regions. For more information about Azure Storage redundancy options, see [Azure Storage redundancy](storage-redundancy.md).
+<sup>2</sup> Zone-redundant storage (ZRS) and geo-zone-redundant storage (GZRS/RA-GZRS) are available only for standard general-purpose v2, premium block blobs, and premium file shares accounts in certain regions. For more information, see [Azure Storage redundancy](storage-redundancy.md).
 
-<sup>3</sup> Azure Resource Manager is the recommended deployment model for Azure resources, including storage accounts. For more information, see [Resource Manager overview](../../azure-resource-manager/management/overview.md).
-
-<sup>4</sup> Storage accounts in a premium performance tier use solid state disks (SSDs) for low latency and high throughput.
+<sup>3</sup> Storage accounts in a premium performance tier use solid-state drives (SSDs) for low latency and high throughput.
 
 Legacy storage accounts are also supported. For more information, see [Legacy storage account types](#legacy-storage-account-types).
 
@@ -66,9 +64,9 @@ Construct the URL for accessing an object in a storage account by appending the 
 
 You can also configure your storage account to use a custom domain for blobs. For more information, see [Configure a custom domain name for your Azure Storage account](../blobs/storage-custom-domain-name.md).  
 
-## Migrating a storage account
+## Migrate a storage account
 
-The following table summarizes and points to guidance on moving, upgrading, or migrating a storage account:
+The following table summarizes and points to guidance on how to move, upgrade, or migrate a storage account:
 
 | Migration scenario | Details |
 |--|--|
@@ -76,9 +74,9 @@ The following table summarizes and points to guidance on moving, upgrading, or m
 | Move a storage account to a different resource group | Azure Resource Manager provides options for moving a resource to a different resource group. For more information, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md). |
 | Move a storage account to a different region | To move a storage account, create a copy of your storage account in another region. Then, move your data to that account by using AzCopy, or another tool of your choice. For more information, see [Move an Azure Storage account to another region](storage-account-move.md). |
 | Upgrade to a general-purpose v2 storage account | You can upgrade a general-purpose v1 storage account or Blob storage account to a general-purpose v2 account. Note that this action cannot be undone. For more information, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md). |
-| Migrate a classic storage account to Azure Resource Manager | The Azure Resource Manager deployment model is superior to the classic deployment model in terms of functionality, scalability, and security. For more information about migrating a classic storage account to Azure Resource Manager, see [Migration of storage accounts](../../virtual-machines/migration-classic-resource-manager-overview.md#migration-of-storage-accounts) in **Platform-supported migration of IaaS resources from classic to Azure Resource Manager**. |
+| Migrate a classic storage account to Azure Resource Manager | The Azure Resource Manager deployment model is superior to the classic deployment model in terms of functionality, scalability, and security. For more information about migrating a classic storage account to Azure Resource Manager, see the "Migration of storage accounts" section of [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md#migration-of-storage-accounts). |
 
-## Transferring data into a storage account
+## Transfer data into a storage account
 
 Microsoft provides services and utilities for importing your data from on-premises storage devices or third-party cloud storage providers. Which solution you use depends on the quantity of data you're transferring. For more information, see [Azure Storage migration overview](storage-migration-overview.md).
 
@@ -106,10 +104,10 @@ The [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/sto
 
 The following table describes the legacy storage account types. These account types are not recommended by Microsoft, but may be used in certain scenarios:
 
-| Type of legacy storage account | Supported services | Redundancy options | Deployment model | Usage |
+| Type of legacy storage account | Supported storage services | Redundancy options | Deployment model | Usage |
 |--|--|--|--|--|
-| Standard general-purpose v1 | Blob, File, Queue, Table, and Data Lake Storage | LRS/GRS/RA-GRS | Resource Manager, Classic | General-purpose v1 accounts may not have the latest features or the lowest per-gigabyte pricing. Consider using for these scenarios:<br /><ul><li>Your applications require the Azure classic deployment model.</li><li>Your applications are transaction-intensive or use significant geo-replication bandwidth, but don't require large capacity. In this case, general-purpose v1 may be the most economical choice.</li><li>You use a version of the Azure Storage REST API that is earlier than 2014-02-14 or a client library with a version lower than 4.x, and you can't upgrade your application.</li></ul> |
-| Standard Blob storage | Blob (block blobs and append blobs only) | LRS/GRS/RA-GRS | Resource Manager | Microsoft recommends using standard general-purpose v2 accounts instead when possible. |
+| Standard general-purpose v1 | Blob, Queue, and Table storage, Azure Files | LRS/GRS/RA-GRS | Resource Manager, Classic | General-purpose v1 accounts may not have the latest features or the lowest per-gigabyte pricing. Consider using for these scenarios:<br /><ul><li>Your applications require the Azure [classic deployment model](../../azure-portal/supportability/classic-deployment-model-quota-increase-requests.md).</li><li>Your applications are transaction-intensive or use significant geo-replication bandwidth, but don't require large capacity. In this case, general-purpose v1 may be the most economical choice.</li><li>You use a version of the Azure Storage REST API that is earlier than 2014-02-14 or a client library with a version lower than 4.x, and you can't upgrade your application.</li></ul> |
+| Standard Blob storage | Blob storage (block blobs and append blobs only) | LRS/GRS/RA-GRS | Resource Manager | Microsoft recommends using standard general-purpose v2 accounts instead when possible. |
 
 ## Next steps
 

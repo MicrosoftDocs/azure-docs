@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 06/16/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
 ---
@@ -26,9 +26,9 @@ If you switch to pay by invoice, that means you pay your bill within 30 days of 
 ## Request to pay by invoice
 
 1. Sign in to the Azure portal to submit a support request. Search for and select **Help + support**.  
-    ![Search for Help and support, Microsoft Azure portal](./media/pay-by-invoice/search-for-help-and-support.png)
+    :::image type="content" source="./media/pay-by-invoice/search-for-help-and-support.png" alt-text="Screenshot of searching for Help and support." lightbox="./media/pay-by-invoice/search-for-help-and-support.png" :::
 1. Select **New support request**.  
-    ![New support request link, Help and support screen, Microsoft Azure portal](./media/pay-by-invoice/help-and-support.png)
+    :::image type="content" source="./media/pay-by-invoice/help-and-support.png" alt-text="Screenshot of the New support request link." lightbox="./media/pay-by-invoice/help-and-support.png" :::
 1. Select **Billing** as the **Issue type**. The *issue type* is the support request category. Select the subscription for which you want to pay by invoice, select a support plan, and then select **Next**.
 1. Select **Payment** as the **Problem Type**. The *problem type* is the support request subcategory.
 1. Select **Switch to Pay by Invoice** as the **Problem subtype**.
@@ -70,11 +70,11 @@ If you have a Microsoft Online Services Program account, you can switch your Azu
 Follow the steps below to switch your Azure subscription to invoice pay (check/wire transfer). *Once you switch to invoice pay (check/wire transfer), you can't switch back to a credit card*.
 
 1. Go to the Azure portal to sign in as the Account Administrator. Search for and select **Cost Management + Billing**.  
-    ![Screenshot shows search for Cost Management and Billing in the Azure portal.](./media/pay-by-invoice/search.png)
+    :::image type="content" source="./media/pay-by-invoice/search.png" alt-text="Screenshot showing search for Cost Management + Billing in the Azure portal." lightbox="./media/pay-by-invoice/search.png" :::
 1. Select the subscription you'd like to switch to invoice payment.
 1. Select **Payment methods**.
 1. In the command bar, select the **Pay by invoice** button.  
-    ![Pay by invoice button, Payment methods, Microsoft Azure portal](./media/pay-by-invoice/pay-by-invoice.png)
+    :::image type="content" source="./media/pay-by-invoice/pay-by-invoice.png" alt-text="Screenshot showing Pay by invoice." lightbox="./media/pay-by-invoice/pay-by-invoice.png" :::
 
 ### Switch billing profile to check/wire transfer
 
@@ -82,12 +82,12 @@ Follow the steps below to switch a billing profile to check/wire transfer. Only 
 
 1. Go to the Azure portal view your billing information. Search for and select **Cost Management + Billing**.
 1. In the menu, choose **Billing profiles**.  
-    ![Billing profiles menu item, Cost Management and Billing, Microsoft Azure portal](./media/pay-by-invoice/billing-profile.png)
+    :::image type="content" source="./media/pay-by-invoice/billing-profile.png" alt-text="Screenshot showing Billing profiles menu item." lightbox="./media/pay-by-invoice/billing-profile.png" :::
 1. Select a billing profile.
 1. In the **Billing profile** menu, select **Payment methods**.  
-   ![Payment methods menu item, Billing profiles, Cost Management, Microsoft Azure portal](./media/pay-by-invoice/billing-profile-payment-methods.png)
-1. Select the banner that says you're eligible to pay by check/wire transfer.  
-    ![Banner to switch to check/wire, Payment methods, Microsoft Azure portal](./media/pay-by-invoice/customer-led-switch-to-invoice.png)
+   :::image type="content" source="./media/pay-by-invoice/billing-profile-payment-methods.png" alt-text="Screenshot showing Payment methods menu item." lightbox="./media/pay-by-invoice/billing-profile-payment-methods.png" :::
+1. Under the *Other payment methods* heading, select the ellipsis (...) symbol, and then select **Make default**.  
+    :::image type="content" source="./media/pay-by-invoice/customer-led-switch-to-invoice.png" alt-text="Screenshot showing Check/wire transfer ellipsis and Made default option." lightbox="./media/pay-by-invoice/customer-led-switch-to-invoice.png" :::
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

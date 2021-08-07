@@ -1,13 +1,15 @@
 ---
 title: Create schedule triggers in Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to create a trigger in Azure Data Factory that runs a pipeline on a schedule.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 10/30/2020
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurepowershell, synapse
 ---
 
 # Create a trigger that runs a pipeline on a schedule
@@ -49,6 +51,8 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
         > For time zones that observe daylight saving, trigger time will auto-adjust for the twice a year change. To opt out of the daylight saving change, please select a time zone that does not observe daylight saving, for instance UTC
 
     1. Specify **Recurrence** for the trigger. Select one of the values from the drop-down list (Every minute, Hourly, Daily, Weekly, and Monthly). Enter the multiplier in the text box. For example, if you want the trigger to run once for every 15 minutes, you select **Every Minute**, and enter **15** in the text box. 
+    1. In the **Recurrence**, if you choose "Day(s), Week(s) or Month(s)" from the drop-down, you can find "Advanced recurrence options".
+    :::image type="content" source="./media/how-to-create-schedule-trigger/advanced.png" alt-text="Advanced recurrence options of Day(s), Week(s) or Month(s)":::
     1. To specify an end date time, select **Specify an End Date**, and specify _Ends On_, then select **OK**. There is a cost associated with each pipeline run. If you are testing, you may want to ensure that the pipeline is triggered only a couple of times. However, ensure that there is enough time for the pipeline to run between the publish time and the end time. The trigger comes into effect only after you publish the solution to Data Factory, not when you save the trigger in the UI.
 
         ![Trigger settings](./media/how-to-create-schedule-trigger/trigger-settings-01.png)

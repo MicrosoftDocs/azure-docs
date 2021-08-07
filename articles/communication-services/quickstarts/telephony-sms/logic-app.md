@@ -7,7 +7,7 @@ manager: anvalent
 services: azure-communication-services
 
 ms.author: chpalm
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
@@ -48,14 +48,40 @@ To add the **Send SMS** action as a new step in your workflow by using the Azure
    :::image type="content" source="./media/logic-app/select-send-sms-action.png" alt-text="Screenshot that shows the Logic App Designer and the Azure Communication Services connector with the Send SMS action selected.":::
 
 1. Now create a connection to your Communication Services resource.
+    1. Within the same subscription:
 
-   1. Provide a name for the connection.
+       1. Provide a name for the connection.
 
-   1. Select your Azure Communication Services resource.
+       1. Select your Azure Communication Services resource.
 
-   1. Select **Create**.
+       1. Select **Create**.
 
-   :::image type="content" source="./media/logic-app/send-sms-configuration.png" alt-text="Screenshot that shows the Send SMS action configuration with sample information.":::
+       :::image type="content" source="./media/logic-app/send-sms-configuration.png" alt-text="Screenshot that shows the Send SMS action configuration with sample information.":::
+
+    1. Using the connection string from your Communication Services resource:
+        
+        1. Provide a name for the connection.
+        
+        1. Select ConnectionString Authentication from the drop down options.
+        
+        1. Enter the connection string of your Communication Services resource.
+        
+        1. Select **Create**.
+        
+        :::image type="content" source="./media/logic-app/connection-string-auth.png" alt-text="Screenshot that shows the Connection String Authentication configuration.":::
+        
+    1. Using Service Principal ([Refer Services Principal Creation](../identity/service-principal-from-cli.md)):
+        1. Provide a name for the connection.
+        
+        1. Select Service principal (Azure AD application) Authentication from the drop down options.
+        
+        1. Enter the Tenant ID, Client ID & Client Secret of your Service Principal.
+        
+        1. Enter the Communication Services Endpoint URL value of your Communication Services resource.
+        
+        1. Select **Create**.
+        
+        :::image type="content" source="./media/logic-app/service-principal-auth.png" alt-text="Screenshot that shows the Service Principal Authentication configuration.":::     
 
 1. In the **Send SMS** action, provide the following information: 
 

@@ -1,8 +1,8 @@
 ---
 title:  Tutorial - Integrate Azure Spring Cloud with Azure Load Balance Solutions
 description: How to integrate Azure Spring Cloud with Azure Load Balance Solutions
-author:  MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020

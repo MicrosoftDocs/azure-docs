@@ -151,12 +151,21 @@ In this section, a user called Britta Simon is created in Box. Box supports just
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on **Test this application** in Azure portal. This will redirect to Box Sign-on URL where you can initiate the login flow.
+* Select **Test this application** in the Azure portal. You're redirected to the Box Sign-on URL, where you can initiate the login flow.
 
 * Go to Box Sign-on URL directly and initiate the login flow from there.
 
 * You can use Microsoft My Apps. When you click the Box tile in the My Apps, this will redirect to Box Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
+### Push an Azure group to Box
+
+You can push an Azure group to Box and sync that group. Azure pushes groups to Box via an API-level integration.
+
+1. In **Users & Groups**, search for the group you want to assign to Box.
+1. In **Provisioning**, ensure that **Synchronize Azure Active Directory Groups to Box** is selected. This setting syncs the groups that you allocated in the preceding step. It might take some time for these groups to be pushed from Azure.
+
+> [!NOTE]
+> If you need to create a user manually, contact [Box support team](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire).
 
 ## Next steps
 

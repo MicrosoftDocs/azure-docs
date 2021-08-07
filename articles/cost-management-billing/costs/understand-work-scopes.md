@@ -3,7 +3,7 @@ title: Understand and work with Azure Cost Management scopes
 description: This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management and APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/19/2021
+ms.date: 05/05/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -68,7 +68,7 @@ Cost Management Contributor is the recommended least-privilege role. The role al
 - **Schedule cost data export** – Cost Management Contributors also need access to manage storage accounts to schedule an export to copy data into a storage account. Consider granting [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) to a resource group that contains the storage account where cost data is exported.
 - **Viewing cost-saving recommendations** – Cost Management Readers and Cost Management Contributors have access to *view* cost recommendations by default. However, access to act on the cost recommendations requires access to individual resources. Consider granting a [service-specific role](../../role-based-access-control/built-in-roles.md#all) if you want to act on a cost-based recommendation.
 
-Management groups are only supported if they contain Enterprise Agreement (EA), Pay-as-you-go (PAYG), or Microsoft internal subscriptions. Management groups with any other subscription types, like Microsoft Customer Agreement or Azure Active Directory subscriptions, can't view costs. If you have a mix of subscriptions, move the unsupported subscriptions to a separate arm of the management group hierarchy to enable Cost Management for the supported subscriptions. As an example, create two management groups under the root management group: **Azure AD** and **My Org**. Move your Azure AD subscription to the **Azure AD** management group and then view and manage costs using the **My Org** management group.
+Management groups are only supported if they contain up to 3,000 Enterprise Agreement (EA), Pay-as-you-go (PAYG), or Microsoft internal subscriptions. Management groups with more than 3,000 subscriptions or subscriptions with other offer types, like Microsoft Customer Agreement or Azure Active Directory subscriptions, can't view costs. If you have a mix of subscriptions, move the unsupported subscriptions to a separate arm of the management group hierarchy to enable Cost Management for the supported subscriptions. As an example, create two management groups under the root management group: **Azure AD** and **My Org**. Move your Azure AD subscription to the **Azure AD** management group and then view and manage costs using the **My Org** management group.
 
 ### Feature behavior for each role
 
@@ -182,7 +182,7 @@ Microsoft Customer Agreement billing accounts have the following scopes:
 
 - **Customer** - Represents a group of subscriptions that are associated to a specific customer that is onboarded to a Microsoft Customer Agreement by partner. This scope is specific to Cloud Solution Providers (CSP).
 
-Unlike EA billing scopes, Customer Agreement billing accounts _are_ bound to a single directory and can't have subscriptions across multiple Azure AD directories.
+Unlike EA billing scopes, Customer Agreement billing accounts _are_ managed by a single directory. Microsoft Customer Agreement billing accounts can have *linked* subscriptions that could be in different Azure AD directories.
 
 Customer Agreement billing scopes don't apply to partners. Partner roles and permissions are documented at [Assign users roles and permissions](/partner-center/permissions-overview).
 

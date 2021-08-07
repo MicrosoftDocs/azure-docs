@@ -1,11 +1,11 @@
 ---
 title: "Tutorial: Map an existing custom domain to Azure Spring Cloud"
 description: How to map an existing custom Distributed Name Service (DNS) name to Azure Spring Cloud
-author: MikeDodaro
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/19/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 ---
 
@@ -84,7 +84,7 @@ To upload your certificate to key vault:
 1. On the upper menu, click **Generate/import**.
 1. In the **Create a certificate** dialog under **Method of certificate creation**, select `Import`.
 1. Under **Upload Certificate File**, navigate to certificate location and select it.
-1. Under **Password**, enter the private key for your certificate.
+1. Under **Password**, if you are uploading a password protected certificate file, provide that password here. Otherwise, leave it blank. Once the certificate file is successfully imported, key vault will remove that password.
 1. Click **Create**.
 
     ![Import certificate 1](./media/custom-dns-tutorial/import-certificate-a.png)
@@ -113,7 +113,7 @@ You need to grant Azure Spring Cloud access to your key vault before you import 
 
 #### [CLI](#tab/Azure-CLI)
 
-Grant Azure Spring Cloud read access to key vault, replace the `<key vault resource group>` and `<key vault name>` in the following command.
+Grant Azure Spring Cloud read access to key vault, replace the *\<key vault resource group>* and *\<key vault name>* in the following command.
 ```
 az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id 938df8e2-2b9d-40b1-940c-c75c33494239 --certificate-permissions get list --secret-permissions get list
 ``` 

@@ -1,17 +1,11 @@
 ---
 title: Secure score in Azure Security Center
 description: Description of Azure Security Center's secure score and its security controls 
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetd: c42d02e4-201d-4a95-8527-253af903a5c6
 ms.service: security-center
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/03/2021
+ms.date: 05/05/2021
 ms.author: memildin
 
 ---
@@ -31,7 +25,7 @@ Security Center continually assesses your resources, subscriptions, and organiza
 
 The secure score is shown in the Azure portal pages as a percentage value, but the underlying values are also clearly presented:
 
-:::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-ui.png" alt-text="Overall secure score as shown in the portal":::
+:::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-ui.png" alt-text="Overall secure score as shown in the portal.":::
 
 To increase your security, review Security Center's recommendations page for the outstanding actions necessary to raise your score. Each recommendation includes instructions to help you remediate the specific issue.
 
@@ -43,28 +37,35 @@ For more information, see [How your secure score is calculated](secure-score-sec
 
 The contribution of each security control towards the overall secure score is shown clearly on the recommendations page.
 
-[![The enhanced secure score introduces security controls](media/secure-score-security-controls/security-controls.png)](media/secure-score-security-controls/security-controls.png#lightbox)
+:::image type="content" source="./media/secure-score-security-controls/security-controls.png" alt-text="Azure Security Center's security controls and their impact on your secure score" lightbox="./media/secure-score-security-controls/security-controls.png":::
 
 To get all the possible points for a security control, all your resources must comply with all of the security recommendations within the security control. For example, Security Center has multiple recommendations regarding how to secure your management ports. You'll need to remediate them all to make a difference to your secure score.
 
-For example, the security control called "Apply system updates" has a maximum score of six points, which you can see in the tooltip on the potential increase value of the control:
+### Example scores for a control
 
-[![The security control "Apply system updates"](media/secure-score-security-controls/apply-system-updates-control.png)](media/secure-score-security-controls/apply-system-updates-control.png#lightbox)
+:::image type="content" source="./media/secure-score-security-controls/remediate-vulnerabilities-control.png" alt-text="Apply system updates security control." lightbox="./media/secure-score-security-controls/remediate-vulnerabilities-control.png":::
 
-The maximum score for this control, Apply system updates, is always 6. In this example, there are 50 resources. So we divide the max score by 50, and the result is that every resource contributes 0.12 points. 
 
-* **Potential increase** (0.12 x 8 unhealthy resources = 0.96) - The remaining points available to you within the control. If you remediate all the recommendations in this control, your score will increase by 2% (in this case, 0.96 points rounded up to 1 point). 
-* **Current score** (0.12 x 42 healthy resources = 5.04) - The current score for this control. Each control contributes towards the total score. In this example, the control is contributing 5.04 points to current secure total.
-* **Max score** - The maximum number of points you can gain by completing all recommendations within a control. The maximum score for a control indicates the relative significance of that control. Use the max score values to triage the issues to work on first. 
+In this example:
+
+| #  | Name                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|:-:|------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1 | **Remediate vulnerabilities security control** | This control groups multiple recommendations related to discovering and resolving known vulnerabilities.                                                                                                                                                                                                                                                                                                                                   |
+| 2 | **Max score**                                  | The maximum number of points you can gain by completing all recommendations within a control. The maximum score for a control indicates the relative significance of that control and is fixed for every environment. Use the max score values to triage the issues to work on first.<br>For a list of all controls and their max scores, see [Security controls and their recommendations](#security-controls-and-their-recommendations). |
+| 3 | **Number of resources**                        | There are 35 resources affected by this control.<br>To understand the possible contribution of every resource, divide the max score by the number of resources.<br>For this example, 6/35=0.1714<br>**Every resource contributes 0.1714 points.**                                                                                                                                                                                          |
+| 4 | **Current score**                              | The current score for this control.<br>Current score=[Score per resource]*[Number of healthy resources]<br> 0.1714 x 5 healthy resources = 0.86<br>Each control contributes towards the total score. In this example, the control is contributing 0.86 points to current total secure score.                                                                                                                                               |
+| 5 | **Potential score increase**                   | The remaining points available to you within the control. If you remediate all the recommendations in this control, your score will increase by 9%.<br>Potential score increase=[Score per resource]*[Number of unhealthy resources]<br> 0.1714 x 30 unhealthy resources = 5.14<br>                                                                                                                                                        |
+|   |                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+
 
 
 ### Calculations - understanding your score
 
 |Metric|Formula and example|
 |-|-|
-|**Security control's current score**|<br>![Equation for calculating a security control's score](media/secure-score-security-controls/secure-score-equation-single-control.png)<br><br>Each individual security control contributes towards the Security Score. Each resource affected by a recommendation within the control, contributes towards the control's current score. The current score for each control is a measure of the status of the resources *within* the control.<br>![Tooltips showing the values used when calculating the security control's current score](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>In this example, the max score of 6 would be divided by 78 because that's the sum of the healthy and unhealthy resources.<br>6 / 78 = 0.0769<br>Multiplying that by the number of healthy resources (4) results in the current score:<br>0.0769 * 4 = **0.31**<br><br>|
+|**Security control's current score**|<br>![Equation for calculating a security control's score.](media/secure-score-security-controls/secure-score-equation-single-control.png)<br><br>Each individual security control contributes towards the Security Score. Each resource affected by a recommendation within the control, contributes towards the control's current score. The current score for each control is a measure of the status of the resources *within* the control.<br>![Tooltips showing the values used when calculating the security control's current score](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>In this example, the max score of 6 would be divided by 78 because that's the sum of the healthy and unhealthy resources.<br>6 / 78 = 0.0769<br>Multiplying that by the number of healthy resources (4) results in the current score:<br>0.0769 * 4 = **0.31**<br><br>|
 |**Secure score**<br>Single subscription|<br>![Equation for calculating a subscription's secure score](media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>In this example, there is a single subscription with all security controls available (a potential maximum score of 60 points). The score shows 28 points out of a possible 60 and the remaining 32 points are reflected in the "Potential score increase" figures of the security controls.<br>![List of controls and the potential score increase](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
-|**Secure score**<br>Multiple subscriptions|<br>![Equation for calculating the secure score for multiple subscriptions](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>When calculating the combined score for multiple subscriptions, Security Center includes a *weight* for each subscription. The relative weights for your subscriptions are determined by Security Center based on factors such as the number of resources.<br>The current score for each subscription is calculated in the same way as for a single subscription, but then the weight is applied as shown in the equation.<br>When viewing multiple subscriptions, secure score evaluates all resources within all enabled policies and groups their combined impact on each security control's maximum score.<br>![Secure score for multiple subscriptions with all controls enabled](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>The combined score is **not** an average; rather it's the evaluated posture of the status of all resources across all subscriptions.<br>Here too, if you go to the recommendations page and add up the potential points available, you will find that it's the difference between the current score (24) and the maximum score available (60).|
+|**Secure score**<br>Multiple subscriptions|<br>![Equation for calculating the secure score for multiple subscriptions.](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>When calculating the combined score for multiple subscriptions, Security Center includes a *weight* for each subscription. The relative weights for your subscriptions are determined by Security Center based on factors such as the number of resources.<br>The current score for each subscription is calculated in the same way as for a single subscription, but then the weight is applied as shown in the equation.<br>When viewing multiple subscriptions, secure score evaluates all resources within all enabled policies and groups their combined impact on each security control's maximum score.<br>![Secure score for multiple subscriptions with all controls enabled](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>The combined score is **not** an average; rather it's the evaluated posture of the status of all resources across all subscriptions.<br>Here too, if you go to the recommendations page and add up the potential points available, you will find that it's the difference between the current score (24) and the maximum score available (60).|
 
 
 ### Which recommendations are included in the secure score calculations?
@@ -75,7 +76,7 @@ Recommendations flagged as **Preview** aren't included in the calculations of yo
 
 An example of a preview recommendation:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recommendation with the preview flag":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recommendation with the preview flag.":::
 
 ## Improve your secure score
 
@@ -94,7 +95,7 @@ We recommend every organization carefully review their assigned Azure Policy ini
 > [!TIP]
 > For details of reviewing and editing your initiatives, see [Working with security policies](tutorial-security-policy.md). 
 
-Even though Security Center's default security initiative is based on industry best practices and standards, there are scenarios in which the built-in recommendations listed below might not completely fit your organization. Consequently, it'll sometimes be necessary to adjust the default initiative - without compromising security - to ensure it's aligned with your organization's own policies. industry standards, regulatory standards, and benchmarks you're obligated to meet.<br><br>
+Even though Security Center's default security initiative is based on industry best practices and standards, there are scenarios in which the built-in recommendations listed below might not completely fit your organization. Consequently, it'll sometimes be necessary to adjust the default initiative - without compromising security - to ensure it's aligned with your organization's own policies, industry standards, regulatory standards, and benchmarks you're obligated to meet.<br><br>
 <div class="foo">
 
 <style type="text/css">
@@ -114,7 +115,7 @@ Even though Security Center's default security initiative is based on industry b
 
 
 
-## Secure score FAQ
+## FAQ - Secure score
 
 ### If I address only three out of four recommendations in a security control, will my secure score change?
 No. It won't change until you remediate all of the recommendations for a single resource. To get the maximum score for a control, you must remediate all recommendations, for all resources.

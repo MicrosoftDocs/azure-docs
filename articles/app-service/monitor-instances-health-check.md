@@ -1,19 +1,20 @@
 ---
 title: Monitor the health of App Service instances
 description: Learn how to monitor the health of App Service instances using Health check.
-keywords: azure app service, web app, health check, route traffic, healthy instances, path, monitoring,
+keywords: azure app service, web app, health check, route traffic, healthy instances, path, monitoring, remove faulty instances, unhealthy instances, remove workers
 author: msangapu-msft
 
 ms.topic: article
-ms.date: 12/03/2020
+ms.date: 07/19/2021
 ms.author: msangapu
-
+ms.custom: contperf-fy22q1
 ---
+
 # Monitor App Service instances using Health check
 
-![Health check failure][2]
+This article uses Health check in the Azure portal to monitor App Service instances. Health check increases your application's availability by re-routing requests away from unhealthy instances, and replacing instances if they remain unhealthy. Your [App Service plan](./overview-hosting-plans.md) should be scaled to two or more instances to fully utilize Health check. The Health check path should check critical components of your application. For example, if your application depends on a database and a messaging system, the Health check endpoint should connect to those components. If the application cannot connect to a critical component, then the path should return a 500-level response code to indicate the app is unhealthy.
 
-This article uses Health check in the Azure portal to monitor App Service instances. Health check increases your application's availability by removing unhealthy instances. Your [App Service plan](./overview-hosting-plans.md) should be scaled to two or more instances to use Health check. The Health check path should check critical components of your application. For example, if your application depends on a database and a messaging system, the Health check endpoint should connect to those components. If the application cannot connect to a critical component, then the path should return a 500-level response code to indicate the app is unhealthy.
+![Health check failure][1]
 
 ## What App Service does with Health checks
 
@@ -46,14 +47,14 @@ In addition to configuring the Health check options, you can also configure the 
 
 | App setting name | Allowed values | Description |
 |-|-|-|
-|`WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | 2 - 10 | The maximum number of ping failures. For example, when set to `2`, your instances will be removed after `2` failed pings. Furthermore, when you are scaling up or out, App Service pings the Health check path to ensure new instances are ready. |
-|`WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` | 0 - 100 | To avoid overwhelming healthy instances, no more than half of the instances will be excluded. For example, if an App Service Plan is scaled to four instances and three are unhealthy, at most two will be excluded. The other two instances (one healthy and one unhealthy) will continue to receive requests. In the worst-case scenario where all instances are unhealthy, none will be excluded. To override this behavior, set app setting to a value between `0` and `100`. A higher value means more unhealthy instances will be removed (default is 50). |
+|`WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | 2 - 10 | The required number of failed requests for an instance to be deemed unhealthy and removed from the load balancer. For example, when set to `2`, your instances will be removed after `2` failed pings. (Default value is `10`) |
+|`WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` | 0 - 100 | By default, no more than half of the instances will be excluded from the load balancer at one time to avoid overwhelming the remaining healthy instances. For example, if an App Service Plan is scaled to four instances and three are unhealthy, two will be excluded. The other two instances (one healthy and one unhealthy) will continue to receive requests. In the worst-case scenario where all instances are unhealthy, none will be excluded. <br /> To override this behavior, set app setting to a value between `0` and `100`. A higher value means more unhealthy instances will be removed (default value is `50`). |
 
 #### Authentication and security
 
-Health check integrates with App Service's authentication and authorization features. No additional settings are required if these security features are enabled. However, if you're using your own authentication system, the Health check path must allow anonymous access. If the site is HTTP**S**-Only  enabled, the Health check request will be sent via HTTP**S**.
+Health check integrates with App Service's [authentication and authorization features](overview-authentication-authorization.md). No additional settings are required if these security features are enabled.
 
-Large enterprise development teams often need to adhere to security requirements for exposed APIs. To secure the Health check endpoint, you should first use features such as [IP restrictions](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](app-service-ip-restrictions.md#set-an-ip-address-based-rule), or a Virtual Network to restrict application access. You can secure the Health check endpoint by requiring the `User-Agent` of the incoming request matches `HealthCheck/1.0`. The User-Agent can't be spoofed since the request would already secured by prior security features.
+If you're using your own authentication system, the Health check path must allow anonymous access. To secure the Health check endpoint, you should first use features such as [IP restrictions](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](app-service-ip-restrictions.md#set-an-ip-address-based-rule), or a Virtual Network to restrict application access. You can secure the Health check endpoint by requiring the `User-Agent` of the incoming request matches `HealthCheck/1.0`. The User-Agent can't be spoofed since the request would already secured by prior security features.
 
 ## Monitoring
 
@@ -61,12 +62,45 @@ After providing your application's Health check path, you can monitor the health
 
 ## Limitations
 
-Health check should not be enabled on Premium Functions sites. Due to the rapid scaling of Premium Functions, the health check requests can cause unnecessary fluctuations in HTTP traffic. Premium Functions have their own internal health probes that are used to inform scaling decisions.
+- Health check should not be enabled on Premium Functions sites. Due to the rapid scaling of Premium Functions, the Health check requests can cause unnecessary fluctuations in HTTP traffic. Premium Functions have their own internal health probes that are used to inform scaling decisions.
+- Health check can be enabled for **Free** and **Shared** App Service Plans so you can have metrics on the site's health and set up alerts, but because **Free** and **Shared** sites cannot scale out, any unhealthy instances will not be replaced. You should scale up to the **Basic** tier or higher so you can scale out to 2 or more instances and utilize the full benefit of Health check. This is recommended for production-facing applications as it will increase your app's availability and performance.
+
+## Frequently Asked Questions
+
+### What happens if my app is running on a single instance?
+
+If your app is only scaled to one instance and becomes unhealthy, it will not be removed from the load balancer because that would take your application down entirely. Scale out to two or more instances to two or more instances to get the re-routing benefit of Health check. If your app is running on a single instance, you can still use Health check's [monitoring](#monitoring) feature to keep track of your application's health.
+ 
+### Why are the Health check request not showing in my frontend logs?
+
+The Health check request are sent to your site internally, so the request will not show in [the frontend logs](troubleshoot-diagnostic-logs.md#enable-web-server-logging). This also means the request will have an origin of `127.0.0.1` since it the request being sent internally. You can add log statements in your Health check code to keep logs of when your Health check path is pinged.
+
+### Are the Health check requests sent over HTTP or HTTPS?
+
+The Health check requests will be sent via HTTPS when [HTTPS Only](configure-ssl-bindings.md#enforce-https) is enabled on the site. Otherwise, they are sent over HTTP.
+
+### What if I have multiple apps on the same App Service Plan?
+
+Unhealthy instances will be always be removed from the load balancer rotation regardless of other apps on the App Service Plan (up to the percentage specified in [`WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT`](#configuration)). When an app on an instance remains unhealthy for over one hour, the instance will only be replaced if all other apps with Health check enabled are also unhealthy. Apps which do not have Health check enabled will not be taken into account. 
+
+#### Example 
+
+Imagine you have two applications (or one app with a slot) with Health check enabled, called App A and App B. They are on the same App Service Plan and that the Plan is scaled out to 4 instances. If App A becomes unhealthy on two instances, the load balancer will stop sending requests to App A on those two instances. Requests will still be routed to App B on those instances assuming App B is healthy. If App A remains unhealthy for over an hour on those two instances, those instances will only be replaced if App B is **also** unhealthy on those instances. If App B is healthy, the instance will not be replaced.
+
+![Visual diagram explaining the example scenario above.][2]
+
+> [!NOTE]
+> If there were another site or slot on the Plan (Site C) without Health check enabled, it would not be taken into consideration for the instance replacement.
+
+### What if all my instances are unhealthy?
+
+In the scenario where all instances of your application are unhealthy, App Service will remove instances from the load balancer up to the percentage specified in `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT`. In this scenario, taking all unhealthy app instances out of the load balancer rotation would effectively cause an outage for your application.
 
 ## Next steps
-- [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
-- [Create an Activity Log Alert to monitor all failed Autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+- [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
+- [Create an Activity Log Alert to monitor all failed Autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert)
+- [Environment variables and app settings reference](reference-app-settings.md)
 
-[1]: ./media/app-service-monitor-instances-health-check/health-check-success-diagram.png
-[2]: ./media/app-service-monitor-instances-health-check/health-check-failure-diagram.png
+[1]: ./media/app-service-monitor-instances-health-check/health-check-diagram.png
+[2]: ./media/app-service-monitor-instances-health-check/health-check-multi-app-diagram.png
 [3]: ./media/app-service-monitor-instances-health-check/azure-portal-navigation-health-check.png

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
-ms.date: 03/30/2021
+ms.date: 07/16/2021
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -1087,7 +1087,7 @@ And returns this result: `"hello"`
 
 ### binary
 
-Return the binary version for a string.
+Return the base64-encoded binary version of a string.
 
 ```
 binary('<value>')
@@ -1100,20 +1100,12 @@ binary('<value>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*binary-for-input-value*> | String | The binary version for the specified string |
+| <*binary-for-input-value*> | String | The base64-encoded binary version for the specified string |
 ||||
 
 *Example*
 
-This example converts the "hello" string to a binary string:
-
-```
-binary('hello')
-```
-
-And returns this result:
-
-`"0110100001100101011011000110110001101111"`
+For example, you're using an HTTP action that returns an image or video file. You can use `binary()` to convert the value to a base-64 encoded content envelope model. Then, you can reuse the content envelope in other actions, such as `Compose`.
 
 <a name="body"></a>
 
@@ -1272,6 +1264,9 @@ concat('Hello', 'World')
 ```
 
 And returns this result: `"HelloWorld"`
+  
+> [!NOTE]
+> The length of the result must not exceed 104,857,600 characters.
 
 <a name="contains"></a>
 
@@ -2670,7 +2665,7 @@ And returns this result:
 
 This example uses the `json()` and `xml()` functions to convert XML that has a single child element in the root element into a JSON object named `person` for that child element:
 
-`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))`
+`json(xml('<?xml version="1.0"?> <root> <person id="1"> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))`
 
 And returns this result:
 
@@ -2693,7 +2688,7 @@ And returns this result:
 
 This example uses the `json()` and `xml()` functions to convert XML that has multiple child elements in the root element into an array named `person` that contains JSON objects for those child elements:
 
-`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> <person id='2'> <name>John Doe</name> <occupation>Engineer</occupation> </person> </root>'))`
+`json(xml('<?xml version="1.0"?> <root> <person id="1"> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> <person id="2"> <name>John Doe</name> <occupation>Engineer</occupation> </person> </root>'))`
 
 And returns this result:
 
@@ -2787,6 +2782,9 @@ join(createArray('a', 'b', 'c'), '.')
 ```
 
 And returns this result: `"a.b.c"`
+  
+> [!NOTE]
+> The length of the result must not exceed 104,857,600 characters.
 
 <a name="last"></a>
 
@@ -3419,6 +3417,9 @@ range(1, 4)
 ```
 
 And returns this result: `[1, 2, 3, 4]`
+  
+> [!NOTE]
+> The `count` parameter value must be a positive integer that doesn't exceed 100,000. The sum of the `startIndex` and `count` values must not exceed 2,147,483,647.
 
 <a name="replace"></a>
 
@@ -4884,10 +4885,9 @@ xml('<value>')
 
 *Example 1*
 
-This example creates the XML version for this string,
-which contains a JSON object:
+This example converts the string to XML:
 
-`xml(json('{ \"name\": \"Sophia Owen\" }'))`
+`xml('<name>Sophia Owen</name>')`
 
 And returns this result XML:
 
@@ -4896,6 +4896,19 @@ And returns this result XML:
 ```
 
 *Example 2*
+
+This example creates the XML version for this string,
+which contains a JSON object:
+
+`xml(json('{ "name": "Sophia Owen" }'))`
+
+And returns this result XML:
+
+```xml
+<name>Sophia Owen</name>
+```
+
+*Example 3*
 
 Suppose you have this JSON object:
 
@@ -4910,7 +4923,7 @@ Suppose you have this JSON object:
 
 This example creates XML for a string that contains this JSON object:
 
-`xml(json('{\"person\": {\"name\": \"Sophia Owen\", \"city\": \"Seattle\"}}'))`
+`xml(json('{"person": {"name": "Sophia Owen", "city": "Seattle"}}'))`
 
 And returns this result XML:
 

@@ -34,7 +34,7 @@ Before you get started, make sure to install the [Azure Databases extension](htt
 
 2. Click **Create a resource** > **Databases** > **Azure Cosmos DB**.
    
-    :::image type="content" source="../../includes/media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png" alt-text="The Azure portal Databases pane" border="true":::
+    :::image type="content" source="../cosmos-db/includes/media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png" alt-text="The Azure portal Databases pane" border="true":::
 
 3. In the **Create Azure Cosmos DB Account** page, enter the settings for your new Azure Cosmos DB account. 
  

@@ -38,6 +38,12 @@ You may use this solution independently or in addition to the native backup solu
 - Only the data is recovered at the time of restore. "Roles" aren't restored.
 - In preview, we recommend that you run the solution only on your test environment.
 
+## Prerequisite permissions for configure backup and restore
+
+Azure Backup follows strict security guidelines. Even though it's a native Azure service, permissions on the resource aren't assumed, and need to be explicitly given by the user.  Similarly, credentials to connect to the database aren't stored. This is important to safeguard your data. Instead, we use Azure Active Directory authentication.
+
+[Download this document](https://download.microsoft.com/download/7/4/d/74d689aa-909d-4d3e-9b18-f8e465a7ebf5/OSSbkpprep_automated.docx) to get an automated script and related instructions. It will grant an appropriate set of permissions to an Azure PostgreSQL server, for backup and restore.
+
 ## Backup process
 
 1. This solution uses **pg_dump** to take backups of your Azure PostgreSQL databases.
@@ -207,11 +213,7 @@ Follow this step-by-step guide to trigger a restore:
 >[!NOTE]
 >Archive support for Azure Database for PostgreSQL is in limited public preview.
 
-## Prerequisite permissions for configure backup and restore
 
-Azure Backup follows strict security guidelines. Even though itâ€™s a native Azure service, permissions on the resource aren't assumed, and need to be explicitly given by the user.  Similarly, credentials to connect to the database aren't stored. This is important to safeguard your data. Instead, we use Azure Active Directory authentication.
-
-[Download this document](https://download.microsoft.com/download/7/4/d/74d689aa-909d-4d3e-9b18-f8e465a7ebf5/OSSbkpprep_automated.docx) to get an automated script and related instructions. It will grant an appropriate set of permissions to an Azure PostgreSQL server, for backup and restore.
 
 ## Manage the backed-up Azure PostgreSQL databases
 

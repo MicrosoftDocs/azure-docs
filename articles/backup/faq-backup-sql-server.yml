@@ -4,7 +4,7 @@ metadata:
   description: Find answers to common questions about backing up SQL Server databases on Azure VMs with Azure Backup.
   ms.reviewer: vijayts
   ms.topic: conceptual
-  ms.date: 04/23/2019
+  ms.date: 05/07/2021
     
 title: FAQ about SQL Server databases that are running on an Azure VM backup
 summary: |
@@ -31,12 +31,15 @@ sections:
           - If you choose to overwrite the database during Restore, the next log/differential backup fails and a full backup is triggered instead.
           - In cases where a full backup is required to reset the log chains due to change in database recovery model, a full gets triggered automatically on the next schedule.
           
-          Auto-heal as a capability is enabled for all users by default. However if you choose to opt-out of it, then perform the following steps:
+      - question: |
+          Can I cancel an auto-heal backup job?
+        answer: |
+          No, you can’t cancel an auto-heal job. However, you can opt-out of it by following these steps:
           
-          - On the SQL Server instance, in the *C:\Program Files\Azure Workload Backup\bin* folder, create or edit the **ExtensionSettingsOverrides.json** file.
-          - In the **ExtensionSettingsOverrides.json**, set *{"EnableAutoHealer": false}*.
-          - Save your changes and close the file.
-          - On the SQL Server instance, open **Task Manage** and then restart the **AzureWLBackupCoordinatorSvc** service.
+          1. On the SQL Server instance, in the *C:\Program Files\Azure Workload Backup\bin* folder, create or edit the **ExtensionSettingsOverrides.json** file.
+          1. In the **ExtensionSettingsOverrides.json** file, set *{"EnableAutoHealer": false}*.
+          1. Save the changesl and close the file.
+          1. On the SQL Server instance, open **Task Manage**, and then restart the **AzureWLBackupCoordinatorSvc** service.
           
       - question: |
           Can I control how many concurrent backups run on the SQL server?
@@ -110,7 +113,7 @@ sections:
       - question: |
           Why can’t I see an added database for an autoprotected instance?
         answer: |
-          A database that you [add to an autoprotected instance](backup-sql-server-database-azure-vms.md#enable-auto-protection) might not immediately appear under protected items. This is because the discovery typically runs every 8 hours. However, you can discover and protect new databases immediately if you manually run a discovery by selecting **Rediscover DBs**, as shown in the following image:
+          A database that you [add to an autoprotected instance](backup-sql-server-database-azure-vms.md#enable-auto-protection) might not immediately appear under protected items. This is because the discovery typically runs every 8 hours, and the actual protection of the system can take additional time as it depends on the size of the VM. However, you can discover new databases immediately if you manually run a discovery by selecting **Rediscover DBs**, as shown in the following image:
           
             ![Manually discover a newly added database](./media/backup-azure-sql-database/view-newly-added-database.png)
           

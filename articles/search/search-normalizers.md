@@ -13,8 +13,8 @@ ms.date: 02/23/2021
 
 # Text normalization for case-insensitive filtering, faceting and sorting
 
- > [!IMPORTANT]
- > Normalizer is in public preview, available through the **2020-06-30-preview REST API**. Preview features are offered as-is, under Supplemental Terms of Use.
+> [!IMPORTANT] 
+> This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature.
 
 Searching and retrieving documents from an Azure Cognitive Search index requires matching the query to the contents of the document. The content can be analyzed to produce tokens for matching as is the case when `search` parameter is used, or can be used as-is for strict keyword matching as seen with `$filter`, `facets`, and `$orderby`. This all-or-nothing approach covers most scenarios but falls short where simple pre-processing like casing, accent removal, asciifolding and so forth is required without undergoing through the entire analysis chain.
 

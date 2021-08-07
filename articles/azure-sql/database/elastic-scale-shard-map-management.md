@@ -7,9 +7,9 @@ ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: scoriani 
+ms.author: scoriani
+ms.reviewer: mathoma
 ms.date: 01/25/2019
 ---
 # Scale out databases with the shard map manager

@@ -75,6 +75,16 @@ When creating a cluster with specific attributes, you will need the following ad
 | `Microsoft.Network/virtualNetworks/subnets/read` | Required if using an internal load balancer in another resource group. Required to verify if a subnet already exists for the internal load balancer in the resource group. |
 | `Microsoft.Network/privatednszones/*` | Required if using a private DNS zone in another resource group such as a custom privateDNSZone. |
 
+## AKS Node Access
+
+By default Node Access is not required for AKS.  The following access is needed for the node if a specific component is leveraged.
+
+| Access | Reason |
+|---|---|
+| `kubelet` | Required for customer to grant MSI access to ACR. |
+| `http app routing` | Required for write permission to "random name".aksapp.io. |
+| `container insights` | Required for customer to grant permission to the Log Analytics workspace. |
+
 ## Kubernetes RBAC
 
 Kubernetes RBAC provides granular filtering of user actions. With this control mechanism:
@@ -181,7 +191,7 @@ There are two levels of access needed to fully operate an AKS cluster:
   * Pull your `kubeconfig`.
 * Access to the Kubernetes API. This access is controlled by either:
   * [Kubernetes RBAC](#kubernetes-rbac) (traditionally).
-  * [Integrating Azure RBAC with AKS for Kubernetes authorization](#azure-rbac-for-kubernetes-authorization-preview).
+  * [Integrating Azure RBAC with AKS for Kubernetes authorization](#azure-rbac-for-kubernetes-authorization).
 
 ### Azure RBAC to authorize access to the AKS resource
 
@@ -191,7 +201,7 @@ Alternatively, you could give your user the general [Contributor](../role-based-
 
 [Use Azure RBAC to define access to the Kubernetes configuration file in AKS](control-kubeconfig-access.md).
 
-### Azure RBAC for Kubernetes Authorization (Preview)
+### Azure RBAC for Kubernetes Authorization
 
 With the Azure RBAC integration, AKS will use a Kubernetes Authorization webhook server so you can manage Azure AD-integrated Kubernetes cluster resource permissions and assignments using Azure role definition and role assignments.
 

@@ -1,8 +1,8 @@
 ---
 title: View your Azure Percept DK's RTSP video stream
 description: Learn how to view the RTSP video stream from Azure Percept DK
-author: philmea
-ms.author: philmea
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021

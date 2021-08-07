@@ -2,7 +2,8 @@
 title: Encryption of backup data using customer-managed keys
 description: Learn how Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK).
 ms.topic: conceptual
-ms.date: 04/19/2021
+ms.date: 05/12/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Encryption of backup data using customer-managed keys
@@ -149,6 +150,9 @@ You now need to permit the Recovery Services vault to access the Azure Key Vault
 
 1. Select **Save** to save changes made to the access policy of the Azure Key Vault.
 
+>[!NOTE] 
+>You can also assign an RBAC role to the Recovery Services vault that contains the above mentioned permissions, such as the _[Key Vault Crypto Officer](../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations)_ role.<br><br>These roles may contain additional permissions other than the ones discussed above.
+
 ## Enable soft-delete and purge protection on the Azure Key Vault
 
 You need to **enable soft delete and purge protection** on your Azure Key Vault that stores your encryption key. You can do this from the Azure Key Vault UI as shown below. (Alternatively, these properties can be set while creating the Key Vault). Read more about these Key Vault properties [here](../key-vault/general/soft-delete-overview.md).
@@ -277,11 +281,11 @@ Before proceeding to configure protection, we strongly recommend you ensure the 
 >[!IMPORTANT]
 > Before proceeding to configure protection, you must have **successfully** completed the following steps:
 >
->1. Created your Backup vault
+>1. Created your Recovery Services vault
 >1. Enabled the Recovery Services vault's system-assigned managed identity or assigned a user-assigned managed identity to the vault
->1. Assigned permissions to your Backup Vault (or the user-assigned managed identity) to access encryption keys from your Key Vault
+>1. Assigned permissions to your Recovery Services vault (or the user-assigned managed identity) to access encryption keys from your Key Vault
 >1. Enabled soft delete and purge protection for your Key Vault
->1. Assigned a valid encryption key for your Backup vault
+>1. Assigned a valid encryption key for your Recovery Services vault
 >
 >If all the above steps have been confirmed, only then proceed with configuring backup.
 

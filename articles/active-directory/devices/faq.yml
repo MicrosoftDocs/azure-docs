@@ -199,17 +199,6 @@ sections:
           
           
           
-      - question: Why don't some of my users get Azure AD Multi-Factor Authentication prompts on Azure AD joined devices?
-        answer: |
-          A user might join or register a device with Azure AD by using Multi-Factor Authentication. Then the device itself becomes a trusted second factor for that user. Whenever the same user signs in to the device and accesses an application, Azure AD considers the device as a second factor. It enables that user to seamlessly access applications without additional Multi-Factor Authentication prompts. 
-          
-          This behavior:
-          
-          - Is applicable to Azure AD joined and Azure AD registered devices - but not for hybrid Azure AD joined devices.
-          - Isn't applicable to any other user who signs in to that device. So all other users who access that device get a Multi-Factor Authentication challenge. Then they can access applications that require Multi-Factor Authentication.
-          
-          
-          
       - question: Why do I get a 'username or password is incorrect' message for a device I just joined to Azure AD?
         answer: |
           Common reasons for this scenario are as follows:
@@ -219,14 +208,15 @@ sections:
           - Federated sign-ins require your federation server to support WS-Trust endpoints that are enabled and accessible. 
           - You enabled pass-through authentication. So your temporary password needs to be changed when you sign in.
           
-          
+      - question: How can users change their temporary or expired password on Azure AD joined devices?
+        answer: |
+              Currently, Azure AD joined devices do not force users to change password on the lock screen. So, users with temporary or expired passwords will be forced to change passwords only when they access an application (that requires an Azure AD token) after they login to Windows.
           
       - question: Why do I see the 'Oops… an error occurred!' dialog when I try to Azure AD join my PC?
         answer: |
-          This error happens when you set up Azure Active Directory enrollment with Intune. Make sure that the user who tries to Azure AD join has the correct Intune license assigned. For more information, see [Set up enrollment for Windows devices](/intune/windows-enroll).  
+          This error happens when you set up Azure Active Directory auto-enrollment with Intune without proper license assigned. Make sure that the user who tries to Azure AD join has the correct Intune license assigned. For more information, see [Set up enrollment for Windows devices](/intune/windows-enroll).  
           
-          
-          
+     
       - question: Why did my attempt to Azure AD join a PC fail, although I didn't get any error information?
         answer: |
           A likely cause is that you signed in to the device by using the local built-in administrator account. 
@@ -248,7 +238,7 @@ sections:
   - name: Hybrid Azure AD join FAQ
     questions:
       - question: How do I unjoin a Hybrid Azure AD joined device locally on the device?
-        answer: For hybrid Azure AD joined devices, make sure to turn off automatic registration. Then the scheduled task doesn't register the device again. Next, open a command prompt as an administrator and enter `dsregcmd.exe /debug /leave`. Or run this command as a script across several devices to unjoin in bulk.
+        answer: For hybrid Azure AD joined devices, make sure to turn off automatic registration in AD using the [Controlled validation](hybrid-azuread-join-control.md) article. Then the scheduled task won't register the device again. Next, open a command prompt as an administrator and enter `dsregcmd.exe /debug /leave`. Or run this command as a script across several devices to unjoin in bulk.
 
       - question: Where can I find troubleshooting information to diagnose hybrid Azure AD join failures?
         answer: |

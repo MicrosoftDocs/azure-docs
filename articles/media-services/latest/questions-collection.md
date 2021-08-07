@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/25/2021
+ms.date: 05/25/2021
 ms.author: inhenkel
 ---
 <!-- NOTE this file is temporary and a placeholder until the FAQ file update is completed. -->
@@ -34,7 +34,7 @@ This article gives answers to frequently asked questions about Azure Media Servi
 
 ### What are the Azure portal limitations for Media Services v3?
 
-You can use the [Azure portal](https://portal.azure.com/) to manage v3 live events, view v3 assets and jobs, get info about accessing APIs, encrypt content. <br/>For all other management tasks (for example, managing transforms and jobs or analyzing v3 content), use the [REST API](/rest/api/media/accountfilters), [CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+You can use the [Azure portal](https://portal.azure.com/) to manage v3 live events, view v3 assets and jobs, get info about accessing APIs, encrypt content. <br/>For all other management tasks (for example, managing transforms and jobs or analyzing v3 content), use the [CLI](/cli/azure/ams), or one of the supported client [SDKs](media-services-apis-overview.md#sdks).
 
 If your video was previously uploaded into the Media Services account using Media Services v3 API or the content was generated based on a live output, you will not see the **Encode**, **Analyze**, or **Encrypt** buttons in the Azure portal. Use the Media Services v3 APIs to perform these tasks.  
 
@@ -109,7 +109,7 @@ For more information, see [Protect your content by using Media Services dynamic 
 
 ### How and where did I get a JWT token before using it to request a license or key?
 
-For production, you need to have Secure Token Service (that is, a web service), which issues a JWT token upon an HTTPS request. For test, you can use the code shown in the `GetTokenAsync` method defined in [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+For production, you need to have Secure Token Service (that is, a web service), which issues a JWT token upon an HTTPS request. For test, you can use the code shown in the `GetTokenAsync` method defined in [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 
 The player makes a request, after a user is authenticated, to STS for such a token and assigns it as the value of the token. You can use the [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/).
 
@@ -119,7 +119,7 @@ For an example of running STS with either a symmetric key or an asymmetric key, 
 
 The correct approach is to use Secure Token Service. In STS, depending on the user profile, add different claims (such as "Premium User," "Basic User," "Free Trial User"). With different claims in a JWT, the user can see different contents. For different contents or assets, `ContentKeyPolicyRestriction` will have the corresponding `RequiredClaims` value.
 
-Use Azure Media Services APIs for configuring license/key delivery and encrypting your assets (as shown in [this sample](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
+Use Azure Media Services APIs for configuring license/key delivery and encrypting your assets (as shown in [this sample](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithAES/Program.cs)).
 
 For more information, see:
 

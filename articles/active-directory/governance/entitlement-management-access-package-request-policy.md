@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/16/2020
+ms.date: 07/01/2021
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -52,7 +52,7 @@ For information about the priority logic that is used when multiple policies app
 
 If you have a set of users that should have different request and approval settings, you'll likely need to create a new policy. Follow these steps to start adding a new policy to an existing access package:
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -139,7 +139,7 @@ Follow these steps if you want to allow users not in your directory to request t
 1. Once you've selected all your connected organizations, click **Select**.
 
     > [!NOTE]
-    > All users from the selected connected organizations will be able to request this access package. This includes users in Azure AD from all subdomains associated with the organization, unless those domains are blocked by the Azure B2B allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md).
+    > All users from the selected connected organizations will be able to request this access package. This includes users in Azure AD from all subdomains associated with the organization, unless those domains are blocked by the Azure B2B allow or blocklist. For more information, see [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md).
 
 1. If you want to require approval, use the steps in [Change approval settings for an access package in Azure AD entitlement management](entitlement-management-access-package-approval-policy.md) to configure approval settings.
  
@@ -196,12 +196,18 @@ To change the request and approval settings for an access package, you need to o
 
 1. Click **Next**.
 
-1. If you want to require requestors to provide additional information when requesting access to an access package, use the steps in [Change approval and requestor information (preview) settings for an access package in Azure AD entitlement management](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval-preview)
- to configure requestor information (preview).
+1. If you want to require requestors to provide additional information when requesting access to an access package, use the steps in [Change approval and requestor information settings for an access package in Azure AD entitlement management](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval)
+ to configure requestor information.
 
 1. Configure lifecycle settings.
 
 1. If you are editing a policy click **Update**. If you are adding a new policy, click **Create**.
+
+## Prevent requests from users with incompatible access (preview)
+
+In addition to the policy checks on who can request, you may wish to further restrict access, in order to avoid a user who already has some access - via a group or another access package - from obtaining excessive access.
+
+if you want to configure that a user cannot request an access package, if they already have an assignment to another access package, or are a member of a group, use the steps at [Configure separation of duties checks for an access package](entitlement-management-access-package-incompatible.md).
 
 ## Next steps
 

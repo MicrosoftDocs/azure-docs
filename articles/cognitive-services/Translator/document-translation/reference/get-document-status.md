@@ -21,7 +21,7 @@ The Get Document Status method returns the status for a specific document. The m
 
 Send a `GET` request to:
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}/documents/{documentId}
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches/{id}/documents/{documentId}
 ```
 
 Learn how to find your [custom domain name](../get-started-with-document-translation.md#find-your-custom-domain-name).
@@ -66,10 +66,11 @@ The following are the possible HTTP status codes that a request returns.
 |Name|Type|Description|
 |--- |--- |--- |
 |path|string|Location of the document or folder.|
+|sourcePath|string|Location of the source document.|
 |createdDateTimeUtc|string|Operation created date time.|
 |lastActionDateTimeUtc|string|Date time in which the operation's status has been updated.|
 |status|String|List of possible statuses for job or document: <ul><li>Canceled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul>|
-|to|string|Two letter language code of To Language. See the list of languages.|
+|to|string|Two letter language code of To Language. [See the list of languages](../../language-support.md).|
 |progress|number|Progress of the translation if available|
 |id|string|Document ID.|
 |characterCharged|integer|Characters charged by the API.|
@@ -80,9 +81,10 @@ The following are the possible HTTP status codes that a request returns.
 |--- |--- |--- |
 |code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
 |message|string|Gets high-level error message.|
-|innerError|InnerErrorV2|New Inner Error format, which conforms to Cognitive Services API Guidelines. It contains required properties ErrorCode, message, and optional properties target, details(key value pair), inner error (can be nested).|
+|innerError|InnerTranslationError|New Inner Error format which conforms to Cognitive Services API Guidelines. This contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error(this can be nested).|
 |innerError.code|string|Gets code error string.|
 |innerError.message|string|Gets high-level error message.|
+|innerError.target|string|Gets the source of the error. For example it would be "documents" or "document id" in case of invalid document.|
 
 ## Examples
 
@@ -92,6 +94,7 @@ The following JSON object is an example of a successful response.
 ```JSON
 {
   "path": "https://myblob.blob.core.windows.net/destinationContainer/fr/mydoc.txt",
+  "sourcePath": "https://myblob.blob.core.windows.net/sourceContainer/fr/mydoc.txt",
   "createdDateTimeUtc": "2020-03-26T00:00:00Z",
   "lastActionDateTimeUtc": "2020-03-26T01:00:00Z",
   "status": "Running",

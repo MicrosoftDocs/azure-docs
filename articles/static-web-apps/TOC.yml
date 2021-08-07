@@ -4,6 +4,8 @@
   items:
     - name: About Static Web Apps
       href: overview.md
+    - name: Hosting plans
+      href: plans.md
 - name: Quickstarts
   expanded: true
   items:
@@ -18,31 +20,37 @@
           href: get-started-cli.md
 - name: Concepts
   items:
-    - name: Configuration
-      href: configuration.md
-      displayName: Routing
     - name: API support with Azure Functions
       href: apis.md
-    - name: Routes
-      href: routes.md
-    - name: Authentication and authorization
-      href: authentication-authorization.md
-    - name: Access user information
-      href: user-information.md
+    - name: Configuration
+      items:
+        - name: Application configuration
+          href: configuration.md
+          displayName: routing, routes
+        - name: Build and workflow configuration
+          href: github-actions-workflow.md
+    - name: Security
+      items:
+        - name: Authentication and authorization
+          href: authentication-authorization.md
+        - name: Access user information
+          href: user-information.md
+        - name: Custom authentication
+          href: authentication-custom.md
     - name: Review pull requests in pre-production environments
       href: review-publish-pull-requests.md
     - name: Custom domain
       href: custom-domain.md
-    - name: Build and workflow configuration
-      href: github-actions-workflow.md
 - name: How-to guides
   items:
-    - name: Setup local development
+    - name: Set up local development
       href: local-development.md
     - name: Add an API
       href: add-api.md
     - name: Configure app settings
       href: application-settings.md
+    - name: Publish with Azure DevOps
+      href: publish-devops.md
     - name: Configure front-end frameworks and libraries
       href: front-end-frameworks.md
     - name: Enable monitoring
@@ -50,9 +58,15 @@
       displayName: Application Insights
     - name: Reset deployment tokens
       href: deployment-token-management.md
-    - name: Troubleshooting errors
+    - name: Troubleshoot errors
       href: troubleshooting.md
       displayName: deployment, runtime, errors
+    - name: Bring your own functions
+      href: functions-bring-your-own.md
+    - name: Secure authentication secrets
+      href: key-vault-secrets.md
+    - name: Set up a private endpoint
+      href: private-endpoint.md
 - name: Tutorials
   items:
     - name: Publish from a static site generator
@@ -77,6 +91,8 @@
       href: add-mongoose.md
     - name: Publish with Azure DevOps
       href: publish-devops.md
+    - name: Publish with an ARM template
+      href: publish-azure-resource-manager.md
 - name: Reference
   items:
     - name: Azure CLI
@@ -93,5 +109,7 @@
           href: /learn/modules/create-deploy-static-webapp-gatsby-app-service
         - name: Create and publish a static web app with Blazor
           href: /learn/modules/publish-app-service-static-web-app-api-dotnet
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/app-service/static/
     - name: Quotas
       href: quotas.md

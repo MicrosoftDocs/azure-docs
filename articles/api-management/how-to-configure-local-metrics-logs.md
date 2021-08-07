@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/01/2021
+ms.date: 05/11/2021
 ms.author: apimpm
 
 ---
@@ -63,7 +63,7 @@ spec:
     spec:
       containers:
       - name: sputnik-metrics-statsd
-        image: mcr.microsoft.com/aks/hcp/prom/statsd-exporter
+        image: prom/statsd-exporter
         ports:
         - name: tcp
           containerPort: 9102
@@ -78,7 +78,7 @@ spec:
           - mountPath: /tmp
             name: sputnik-metrics-config-files
       - name: sputnik-metrics-prometheus
-        image: mcr.microsoft.com/oss/prometheus/prometheus
+        image: prom/prometheus
         ports:
         - name: tcp
           containerPort: 9090
@@ -209,12 +209,13 @@ The self-hosted gateway also supports a number of protocols including `localsysl
 | Field  | Default | Description |
 | ------------- | ------------- | ------------- |
 | telemetry.logs.std  | `text` | Enables logging to standard streams. Value can be `none`, `text`, `json` |
-| telemetry.logs.local  | `none` | Enables local logging. Value can be `none`, `auto`, `localsyslog`, `rfc5424`, `journal`  |
+| telemetry.logs.local  | `auto` | Enables local logging. Value can be `none`, `auto`, `localsyslog`, `rfc5424`, `journal`, `json`  |
 | telemetry.logs.local.localsyslog.endpoint  | n/a | Specifies localsyslog endpoint.  |
 | telemetry.logs.local.localsyslog.facility  | n/a | Specifies localsyslog [facility code](https://en.wikipedia.org/wiki/Syslog#Facility). e.g., `7`
 | telemetry.logs.local.rfc5424.endpoint  | n/a | Specifies rfc5424 endpoint.  |
 | telemetry.logs.local.rfc5424.facility  | n/a | Specifies facility code per [rfc5424](https://tools.ietf.org/html/rfc5424). e.g., `7`  |
 | telemetry.logs.local.journal.endpoint  | n/a | Specifies journal endpoint.  |
+| telemetry.logs.local.json.endpoint | 127.0.0.1:8888 | Specifies UDP endpoint that accepts JSON data: file path, IP:port, or hostname:port.
 
 Here is a sample configuration of local logging:
 

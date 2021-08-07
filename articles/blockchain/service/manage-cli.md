@@ -11,6 +11,7 @@ ms.reviewer: ravastra
 
 In addition to the Azure portal, you can use Azure CLI to manage blockchain members and transaction nodes for your Azure Blockchain Service.
 
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 ## Launch Azure Cloud Shell
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
@@ -87,7 +88,7 @@ az blockchain member update \
 | **name** | Name that identifies your Azure Blockchain Service member. |
 | **password** | The password for the member's default transaction node. Use the password for basic authentication when connecting to blockchain member's default transaction node public endpoint. The password must meet three of the following four requirements: length needs to be between 12 & 72 characters, 1 lower case character, 1 upper case character, 1 number, and 1 special character that is not number sign(#), percent(%), comma(,), star(*), back quote(\`), double quote("), single quote('), dash(-) and semicolumn(;)|
 | **consortium-management-account-password** | The consortium account password is also known as the member account password. The member account password is used to encrypt the private key for the Ethereum account that is created for your member. You use the member account and member account password for consortium management. |
-| **firewall-rules** | Start and end IP address for IP allow list. |
+| **firewall-rules** | Start and end IP address for IP allowlist. |
 
 ## Create transaction node
 

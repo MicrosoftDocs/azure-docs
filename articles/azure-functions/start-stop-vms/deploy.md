@@ -2,14 +2,17 @@
 title: Deploy Start/Stop VMs v2 (preview)
 description: This article tells how to deploy the Start/Stop VMs v2 (preview) feature for your Azure VMs in your Azure subscription.
 services: azure-functions
-ms.subservice: 
-ms.date: 03/29/2021
+ms.subservice: start-stop-vms
+ms.date: 06/25/2021
 ms.topic: conceptual
 ---
 
 # Deploy Start/Stop VMs v2 (preview)
 
 Perform the steps in this topic in sequence to install the Start/Stop VMs v2 (preview) feature. After completing the setup process, configure the schedules to customize it to your requirements.
+
+> [!NOTE]
+> If you run into problems during deployment, you encounter an issue when using Start/Stop VMs v2 (preview), or if you have a related question, you can submit an issue on [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). Filing an Azure support incident from the [Azure support site](https://azure.microsoft.com/support/options/) is not available for this preview version. 
 
 ## Deploy feature
 
@@ -44,6 +47,9 @@ To simplify management and removal, we recommend you deploy Start/Stop VMs v2 (p
 1. Select **Go to resource group** from the notification pane. You shall see a screen similar to:
 
     :::image type="content" source="media/deploy/deployment-results-resource-list.png" alt-text="Start/Stop VMs template deployment resource list":::
+
+> [!NOTE]
+> The naming format for the function app and storage account has changed. To guarantee global uniqueness, a random and unique string is now appended to the names of these resource.  
 
 ## Enable multiple subscriptions
 

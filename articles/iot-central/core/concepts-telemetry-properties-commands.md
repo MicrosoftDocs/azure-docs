@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
+
+# This article applies to device developers.
 ---
 
 # Telemetry, property, and command payloads
-
-_This article applies to device developers._
 
 A device template in Azure IoT Central is a blueprint that defines the:
 
@@ -20,7 +20,7 @@ A device template in Azure IoT Central is a blueprint that defines the:
 * Properties a device synchronizes with IoT Central.
 * Commands that IoT Central calls on a device.
 
-This article describes, for device developers, the JSON payloads that devices send and receive for telemetry, properties, and commands defined in a device template.
+This article describes the JSON payloads that devices send and receive for telemetry, properties, and commands defined in a device template.
 
 The article doesn't describe every possible type of telemetry, property, and command payload, but the examples illustrate all the key types.
 
@@ -475,7 +475,7 @@ A device client should send a JSON payload that looks like the following example
 { "BooleanProperty": false }
 ```
 
-The following snippet from a device model shows the definition of a `boolean` property type:
+The following snippet from a device model shows the definition of a `long` property type:
 
 ```json
 {
@@ -1131,4 +1131,4 @@ If you enable the **Queue if offline** option in the device template UI for the 
 
 ## Next steps
 
-As a device developer, now that you've learned about device templates, a suggested next steps is to read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.
+Now that you've learned about device templates, a suggested next steps is to read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.

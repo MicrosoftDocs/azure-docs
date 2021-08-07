@@ -12,7 +12,7 @@ manager: eliotgra
 
 # Tutorial: Deploy and walkthrough a continuous patient monitoring app template
 
-This tutorial shows you, as a solution builder, how to get started by deploying an IoT Central continuous patient monitoring application template. You learn how to deploy and use the template.
+This tutorial shows you how to get started by deploying an IoT Central continuous patient monitoring application template. You learn how to deploy and use the template.
 
 In this tutorial, you learn how to:
 

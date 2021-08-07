@@ -1,6 +1,6 @@
 ﻿---
-title: Connect all Azure SQL database diagnostics and auditing logs to Azure Sentinel
-description: Learn how to use Azure Policy to enforce the connection of Azure SQL database diagnostics logs and security auditing logs to Azure Sentinel.
+title: Connect all Azure SQL Database diagnostics and auditing logs to Azure Sentinel
+description: Learn how to use Azure Policy to enforce the connection of Azure SQL Database diagnostics logs and security auditing logs to Azure Sentinel.
 author: yelevin
 manager: rkarlin
 ms.service: azure-sentinel
@@ -9,17 +9,20 @@ ms.topic: how-to
 ms.date: 04/21/2021
 ms.author: yelevin
 ---
-# Connect Azure SQL database diagnostics and auditing logs
+# Connect Azure SQL Database diagnostics and auditing logs
 
 Azure SQL is a fully managed, Platform-as-a-Service (PaaS) database engine that handles most database management functions, such as upgrading, patching, backups, and monitoring, without necessitating user involvement. 
 
-The Azure SQL database connector lets you stream your databases' auditing and diagnostic logs into Azure Sentinel, allowing you to continuously monitor activity in all your instances.
+The Azure SQL Database connector lets you stream your databases' auditing and diagnostic logs into Azure Sentinel, allowing you to continuously monitor activity in all your instances.
 
 - Connecting diagnostics logs allows you to send database diagnostics logs of different data types to your Azure Sentinel workspace.
 
 - Connecting auditing logs allows you to stream security audit logs from all your Azure SQL databases at the server level.
 
 Learn more about [Azure SQL Database diagnostic telemetry](../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) and about [Azure SQL server auditing](../azure-sql/database/auditing-overview.md).
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 
 ## Prerequisites
 
@@ -29,7 +32,7 @@ Learn more about [Azure SQL Database diagnostic telemetry](../azure-sql/database
 
 - To use Azure Policy to apply a log streaming policy to Azure SQL database and server resources, you must have the Owner role for the policy assignment scope.
 
-## Connect to Azure SQL database
+## Connect to an Azure SQL database
 
 This connector uses Azure Policy to apply a single Azure SQL log streaming configuration to a collection of instances, defined as a scope. The Azure SQL Database connector sends two types of logs to Azure Sentinel: diagnostics logs (from SQL databases) and auditing logs (at the SQL server level). You can see the log types ingested from Azure SQL databases and servers on the left side of connector page, under **Data types**.
 
@@ -77,7 +80,7 @@ This connector uses Azure Policy to apply a single Azure SQL log streaming confi
 
 ## Next steps
 
-In this document, you learned how to use Azure Policy to connect Azure SQL database diagnostics and auditing logs to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+In this document, you learned how to use Azure Policy to connect Azure SQL Database diagnostics and auditing logs to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 
 - Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).

@@ -1,9 +1,12 @@
 ---
 title: Supported file formats in Azure Data Factory (legacy)
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 'This topic describes the file formats and compression codes that are supported by file-based connectors in Azure Data Factory.'
-author: linda33wj
-ms.author: jingwang
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 12/10/2019
 ---

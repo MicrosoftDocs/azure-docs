@@ -6,8 +6,8 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: how-to
-ms.date: 04/28/2021
+ms.topic: conceptual
+ms.date: 07/09/2021
 ms.author: alkohli
 ---
 
@@ -49,13 +49,14 @@ To figure out the size and the number of VMs that you can deploy on your device,
 |Master VM|4 cores, 4-GB RAM|
 |Worker VM|12 cores, 32-GB RAM|
 
-
 For the usable compute and memory on your device, see the [Compute and memory specifications](azure-stack-edge-gpu-technical-specifications-compliance.md#compute-and-memory-specifications) for your device model. 
+
+For a GPU virtual machine, you must use a [VM size from the NCasT4-v3-series](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
 
 
 ### VM limits
 
-You can run a maximum of up to 24 VMs on your device. This is another factor to consider when deploying your workload.
+You can run a maximum of 24 VMs on your device. This is another factor to consider when deploying your workload.
 
 ### Operating system disks and images
 
@@ -74,7 +75,7 @@ Custom script extensions are available for the VMs on your device that help conf
 
 For more information, see [Deploy Custom Script Extension on VMs running on your device](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md)
 
-You can also use GPU extensions for your VM when you want to install GPU drivers when the GPU VMs are provisioned. For more information, see [Create GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms) and [Install GPU extensions](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#install-gpu-extension).
+You can also use GPU extensions for your VM if you want to install GPU drivers when the GPU VMs are provisioned. For more information, see [Create GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms) and [Install GPU extensions](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md).
 
 ## Create a VM
 

@@ -70,7 +70,7 @@ Data is available via the dataframe named **df**. Load it into a Spark database 
    ```
 
 1. Run the cell to show the NYC Taxi data we loaded into the **nyctaxi** Spark database.
-1. Create a new code cell and enter the following code. We will analysis this data and save the results into a table called **nyctaxi.passengercountstats**.
+1. Create a new code cell and enter the following code. We will analyze this data and save the results into a table called **nyctaxi.passengercountstats**.
 
    ```py
    %%pyspark

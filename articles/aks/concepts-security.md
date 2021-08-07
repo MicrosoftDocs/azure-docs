@@ -40,24 +40,22 @@ You can control access to the API server using Kubernetes role-based access cont
 ## Node security
 
 AKS nodes are Azure virtual machines (VMs) that you manage and maintain. 
-* Linux nodes run an optimized Ubuntu distribution using the `containerd` or Moby container runtime. 
-* Windows Server nodes run an optimized Windows Server 2019 release using the `containerd` or Moby container runtime. 
+* Linux nodes run an optimized Ubuntu distribution using the `containerd` or Docker container runtime. 
+* Windows Server nodes run an optimized Windows Server 2019 release using the `containerd` or Docker container runtime.
 
 When an AKS cluster is created or scaled up, the nodes are automatically deployed with the latest OS security updates and configurations.
 
 > [!NOTE]
 > AKS clusters using:
-> * Kubernetes version 1.19 node pools and greater use `containerd` as its container runtime. 
-> * Kubernetes prior to v1.19 node pools use [Moby](https://mobyproject.org/) (upstream docker) as its container runtime.
+> * Kubernetes version 1.19 and greater for Linux node pools use `containerd` as its container runtime. Using `containerd` with Windows Server 2019 node pools is currently in preview. For more details, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
+> * Kubernetes prior to v1.19 for Linux node pools use Docker as its container runtime. For Windows Server 2019 node pools, Docker is the default container runtime.
 
 ### Node security patches
 
 #### Linux nodes
-The Azure platform automatically applies OS security patches to Linux nodes on a nightly basis. If a Linux OS security update requires a host reboot, it won't automatically reboot. You can either:
-* Manually reboot the Linux nodes.
-* Use [Kured][kured], an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet][aks-daemonsets] and monitors each node for a file indicating that a reboot is required. 
+Each evening, Linux nodes in AKS get security patches through their distro security update channel. This behavior is automatically configured as the nodes are deployed in an AKS cluster. To minimize disruption and potential impact to running workloads, nodes are not automatically rebooted if a security patch or kernel update requires it. For more information about how to handle node reboots, see [Apply security and kernel updates to nodes in AKS][aks-kured].
 
-Reboots are managed across the cluster using the same [cordon and drain process](#cordon-and-drain) as a cluster upgrade.
+Nightly updates apply security updates to the OS on the node, but the node image used to create nodes for your cluster remains unchanged. If a new Linux node is added to your cluster, the original image is used to create the node. This new node will receive all the security and kernel updates available during the automatic check every night but will remain unpatched until all checks and restarts are complete. You can use node image upgrade to check for and update node images used by your cluster. For more details on node image upgrade, see [Azure Kubernetes Service (AKS) node image upgrade][node-image-upgrade].
 
 #### Windows Server nodes
 
@@ -155,11 +153,13 @@ For more information on core Kubernetes and AKS concepts, see:
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
 [aks-aad]: ./managed-aad.md
+[aks-add-np-containerd]: windows-container-cli.md#add-a-windows-server-node-pool-with-containerd-preview
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[aks-kured]: node-updates-kured.md
 [aks-limit-egress-traffic]: limit-egress-traffic.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
@@ -168,3 +168,4 @@ For more information on core Kubernetes and AKS concepts, see:
 [authorized-ip-ranges]: api-server-authorized-ip-ranges.md
 [private-clusters]: private-clusters.md
 [network-policy]: use-network-policies.md
+[node-image-upgrade]: node-image-upgrade.md

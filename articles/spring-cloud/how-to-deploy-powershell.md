@@ -1,8 +1,8 @@
 ---
 title: How to deploy Azure Spring Cloud with Azure PowerShell
 description: How to deploy Azure Spring Cloud with Azure PowerShell
-author: bmitchell287
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.topic: conceptual
 ms.service: spring-cloud
 ms.devlang: azurepowershell

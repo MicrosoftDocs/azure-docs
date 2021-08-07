@@ -2,11 +2,12 @@
 title: Customize the setup for an Azure-SSIS Integration Runtime
 description: This article describes how to use the custom setup interface for an Azure-SSIS Integration Runtime to install additional components or change settings
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
-ms.date: 04/29/2021
+ms.date: 04/30/2021
 ---
 
 # Customize the setup for an Azure-SSIS Integration Runtime
@@ -129,23 +130,23 @@ If you select the **Install Azure PowerShell** type for your express custom setu
 
 If you select the **Install licensed component** type for your express custom setup, you can then select an integrated component from our ISV partners in the **Component name** drop-down list:
 
-   * If you select the **SentryOne's Task Factory** component, you can install the [Task Factory](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) suite of components from SentryOne on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **2020.1.3**.
+* If you select the **SentryOne's Task Factory** component, you can install the [Task Factory](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) suite of components from SentryOne on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **2020.21.2**.
 
-   * If you select the **oh22's HEDDA.IO** component, you can install the [HEDDA.IO](https://github.com/oh22is/HEDDA.IO/tree/master/SSIS-IR) data quality/cleansing component from oh22 on your Azure-SSIS IR. To do so, you need to purchase their service beforehand. The current integrated version is **1.0.14**.
+* If you select the **oh22's HEDDA.IO** component, you can install the [HEDDA.IO](https://github.com/oh22is/HEDDA.IO/tree/master/SSIS-IR) data quality/cleansing component from oh22 on your Azure-SSIS IR. To do so, you need to purchase their service beforehand. The current integrated version is **1.0.14**.
 
-   * If you select the **oh22's SQLPhonetics.NET** component, you can install the [SQLPhonetics.NET](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) data quality/matching component from oh22 on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **1.0.45**.
+* If you select the **oh22's SQLPhonetics.NET** component, you can install the [SQLPhonetics.NET](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) data quality/matching component from oh22 on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **1.0.45**.
+   
+* If you select the **KingswaySoft's SSIS Integration Toolkit** component, you can install the [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) suite of connectors for CRM/ERP/marketing/collaboration apps, such as Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce Marketing Cloud, etc. from KingswaySoft on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **20.2**.
 
-   * If you select the **KingswaySoft's SSIS Integration Toolkit** component, you can install the [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) suite of connectors for CRM/ERP/marketing/collaboration apps, such as Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce Marketing Cloud, etc. from KingswaySoft on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **2020.1**.
+* If you select the **KingswaySoft's SSIS Productivity Pack** component, you can install the [SSIS Productivity Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) suite of components from KingswaySoft on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **20.2**.
 
-   * If you select the **KingswaySoft's SSIS Productivity Pack** component, you can install the [SSIS Productivity Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) suite of components from KingswaySoft on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **20.1**.
+* If you select the **Theobald Software's Xtract IS** component, you can install the [Xtract IS](https://theobald-software.com/en/xtract-is/) suite of connectors for SAP system (ERP, S/4HANA, BW) from Theobald Software on your Azure-SSIS IR by dragging & dropping/uploading the product license file that you purchased from them into the **License file** box. The current integrated version is **6.5.13.18**.
 
-   * If you select the **Theobald Software's Xtract IS** component, you can install the [Xtract IS](https://theobald-software.com/en/xtract-is/) suite of connectors for SAP systems (ERP, S/4HANA, BW) from Theobald Software on your Azure-SSIS IR. To do so, drag & drop/upload the product license file that you purchased from them beforehand into the **License file** input box. The current integrated version is **6.1.1.3**.
+* If you select the **AecorSoft's Integration Service** component, you can install the [Integration Service](https://www.aecorsoft.com/en/products/integrationservice) suite of connectors for SAP and Salesforce systems from AecorSoft on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **3.0.00**.
 
-   * If you select the **AecorSoft's Integration Service** component, you can install the [Integration Service](https://www.aecorsoft.com/en/products/integrationservice) suite of connectors for SAP and Salesforce systems from AecorSoft on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **3.0.00**.
+* If you select the **CData's SSIS Standard Package** component, you can install the [SSIS Standard Package](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#standard) suite of most popular components from CData, such as Microsoft SharePoint connectors, on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **19.7354**.
 
-   * If you select the **CData's SSIS Standard Package** component, you can install the [SSIS Standard Package](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#standard) suite of most popular components from CData, such as Microsoft SharePoint connectors, on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **19.7354**.
-
-   * If you select the **CData's SSIS Extended Package** component, you can install the [SSIS Extended Package](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#extended) suite of all components from CData, such as Microsoft Dynamics 365 Business Central connectors and other components in their **SSIS Standard Package**, on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **19.7354**. Due to its large size, to avoid installation timeout, please ensure that your Azure-SSIS IR has at least 4 CPU cores per node.
+* If you select the **CData's SSIS Extended Package** component, you can install the [SSIS Extended Package](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#extended) suite of all components from CData, such as Microsoft Dynamics 365 Business Central connectors and other components in their **SSIS Standard Package**, on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **19.7354**. Due to its large size, to avoid installation timeout, please ensure that your Azure-SSIS IR has at least 4 CPU cores per node.
 
 Your added express custom setups will appear on the **Advanced settings** page. To remove them, select their check boxes, and then select **Delete**.
 
@@ -294,6 +295,8 @@ To view and reuse some samples of standard custom setups, complete the following
       * A *MYSQL ODBC* folder, which contains a custom setup script (*main.cmd*) to install the MySQL ODBC drivers on each node of your Azure-SSIS IR. This setup lets you use the ODBC connectors (Connection Manager, Source, and Destination) to connect to the MySQL server. 
      
         First, [download the latest 64-bit and 32-bit versions of the MySQL ODBC driver installers](https://dev.mysql.com/downloads/connector/odbc/) (for example, *mysql-connector-odbc-8.0.13-winx64.msi* and *mysql-connector-odbc-8.0.13-win32.msi*), and then upload them all together with *main.cmd* to your blob container.
+        
+        If Data Source Name (DSN) is used in connection, DSN configuration is needed in setup script. For example: C:\Windows\SysWOW64\odbcconf.exe /A {CONFIGSYSDSN "MySQL ODBC 8.0 Unicode Driver" "DSN=\<dsnname\>|PORT=3306|SERVER=\<servername\>"}
 
       * An *ORACLE ENTERPRISE* folder, which contains a custom setup script (*main.cmd*) and silent installation config file (*client.rsp*) to install the Oracle connectors and OCI driver on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the Oracle Connection Manager, Source, and Destination to connect to the Oracle server. 
       

@@ -158,7 +158,7 @@ Inside the message, the `data` field contains the data of the affected digital t
 
 For creation events, the `data` payload reflects the state of the twin after the resource is created, so it should include all system generated-elements just like a `GET` call.
 
-Here is an example of a the data for an [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) device, with components and no top-level properties. Properties that do not make sense for devices (such as reported properties) should be omitted. This is the information that will go in the `data` field of the lifecycle notification message.
+Here is an example of a the data for an [IoT Plug and Play (PnP)](../iot-develop/overview-iot-plug-and-play.md) device, with components and no top-level properties. Properties that do not make sense for devices (such as reported properties) should be omitted. This is the information that will go in the `data` field of the lifecycle notification message.
 
 ```json
 {
@@ -235,7 +235,7 @@ Here are the fields in the body of a relationship change notification.
 | `specversion` | *1.0*<br>The message conforms to this version of the [CloudEvents spec](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete` |
 | `datacontenttype` | `application/json` |
-| `subject` | ID of the relationship, like `<twinID>/relationships/<relationshipID>` |
+| `subject` | ID of the relationship, like `<twin-ID>/relationships/<relationshipID>` |
 | `time` | Timestamp for when the operation occurred on the relationship |
 | `traceparent` | A W3C trace context for the event |
 
@@ -281,7 +281,7 @@ Here are the fields in the body of a telemetry message.
 | Name    | Value |
 | --- | --- |
 | `id` | Identifier of the notification, which is provided by the customer when calling the telemetry API. |
-| `source` | Fully qualified name of the twin that the telemetry event was sent to. Uses the following format: `<yourDigitalTwinInstance>.api.<yourRegion>.digitaltwins.azure.net/<twinId>`. |
+| `source` | Fully qualified name of the twin that the telemetry event was sent to. Uses the following format: `<your-Digital-Twin-instance>.api.<your-region>.digitaltwins.azure.net/<twin-ID>`. |
 | `specversion` | *1.0*<br>The message conforms to this version of the [CloudEvents spec](https://github.com/cloudevents/spec). |
 | `type` | `microsoft.iot.telemetry` |
 | `data` | The telemetry message that has been sent to twins. The payload is unmodified and may not align with the schema of the twin that has been sent the telemetry. |
@@ -313,4 +313,4 @@ Here is an example telemetry message body:
 ## Next steps
 
 Learn about delivering events to different destinations, using endpoints and routes:
-* [Concepts: Event routes](concepts-route-events.md)
+* [Event routes](concepts-route-events.md)

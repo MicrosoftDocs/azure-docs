@@ -1,12 +1,14 @@
 ---
 title: Copy data to or from Azure Data Explorer
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data to or from Azure Data Explorer by using a copy activity in an Azure Data Factory pipeline.
-ms.author: orspodek
-author: linda33wj
+ms.author: susabat
+author: ssabat
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 03/24/2020
+ms.custom: synapse
+ms.date: 07/19/2020
 ---
 
 # Copy data to or from Azure Data Explorer by using Azure Data Factory
@@ -41,7 +43,7 @@ With the Azure Data Explorer connector, you can do the following:
 >[!TIP]
 >For a walkthrough of Azure Data Explorer connector, see [Copy data to/from Azure Data Explorer using Azure Data Factory](/azure/data-explorer/data-factory-load-data) and [Bulk copy from a database to Azure Data Explorer](/azure/data-explorer/data-factory-template).
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure Data Explorer connector.
 
@@ -50,7 +52,8 @@ The following sections provide details about properties that are used to define 
 The Azure Data Explorer connector supports the following authentication types. See the corresponding sections for details:
 
 - [Service principal authentication](#service-principal-authentication)
-- [Managed identities for Azure resources authentication](#managed-identity)
+- [System-assigned managed identity authentication](#managed-identity)
+- [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
 
 ### Service principal authentication
 
@@ -103,9 +106,11 @@ The following properties are supported for the Azure Data Explorer linked servic
 }
 ```
 
-### <a name="managed-identity"></a> Managed identities for Azure resources authentication
+### <a name="managed-identity"></a> System-assigned managed identity authentication
 
-To use managed identities for Azure resource authentication, follow these steps to grant permissions:
+To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+
+To use system-assigned managed identity authentication, follow these steps to grant permissions:
 
 1. [Retrieve the Data Factory managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the **managed identity object ID** generated along with your factory.
 
@@ -126,7 +131,7 @@ The following properties are supported for the Azure Data Explorer linked servic
 | database | Name of database. | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If not specified, the default Azure integration runtime is used. |No |
 
-**Example: using managed identity authentication**
+**Example: using system-assigned managed identity authentication**
 
 ```json
 {
@@ -136,6 +141,46 @@ The following properties are supported for the Azure Data Explorer linked servic
         "typeProperties": {
             "endpoint": "https://<clusterName>.<regionName>.kusto.windows.net ",
             "database": "<database name>",
+        }
+    }
+}
+```
+
+### User-assigned managed identity authentication
+To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
+
+To use user-assigned managed identity authentication, follow these steps:
+
+1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant permission in Azure Data Explorer. See [Manage Azure Data Explorer database permissions](/azure/data-explorer/manage-database-permissions) for detailed information about roles and permissions and about managing permissions. In general, you must:
+
+    - **As source**, grant at least the **Database viewer** role to your database
+    - **As sink**, grant at least the **Database ingestor** role to your database
+     
+2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](data-factory-service-identity.md#credentials) for each user-assigned managed identity.
+
+The following properties are supported for the Azure Data Explorer linked service:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The **type** property must be set to **AzureDataExplorer**. | Yes |
+| endpoint | Endpoint URL of the Azure Data Explorer cluster, with the format as `https://<clusterName>.<regionName>.kusto.windows.net`. | Yes |
+| database | Name of database. | Yes |
+| credentials | Specify the user-assigned managed identity as the credential object. | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If not specified, the default Azure integration runtime is used. |No |
+
+**Example: using user-assigned managed identity authentication**
+```json
+{
+    "name": "AzureDataExplorerLinkedService",
+    "properties": {
+        "type": "AzureDataExplorer",
+        "typeProperties": {
+            "endpoint": "https://<clusterName>.<regionName>.kusto.windows.net ",
+            "database": "<database name>",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            }
         }
     }
 }

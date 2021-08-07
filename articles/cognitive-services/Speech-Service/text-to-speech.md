@@ -3,13 +3,13 @@ title: Text-to-speech overview - Speech service
 titleSuffix: Azure Cognitive Services
 description: The text-to-speech feature in the Speech service enables your applications, tools, or devices to convert text into natural human-like synthesized speech. This article is an overview of the benefits and capabilities of the text-to-speech service.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.author: trbye
+ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
 keywords: text to speech
 ---
@@ -39,12 +39,9 @@ This documentation contains the following article types:
 
 * Neural voices - Deep neural networks are used to overcome the limits of traditional speech synthesis with regard to stress and intonation in spoken language. Prosody prediction and voice synthesis are performed simultaneously, which results in more fluid and natural-sounding outputs. Neural voices can be used to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks, and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, neural voices significantly reduce listening fatigue when you interact with AI systems. For a full list of neural voices, see [supported languages](language-support.md#text-to-speech).
 
-* Adjust speaking styles with SSML - Speech Synthesis Markup Language (SSML) is an XML-based markup language used to customize speech-to-text outputs. With SSML, you can adjust pitch, add pauses, improve pronunciation, speed up or slow down speaking rate, increase or decrease volume, and attribute multiple voices to a single document. See the [how-to](speech-synthesis-markup.md) for adjusting speaking styles.
+* Fine-tune TTS output with SSML - Speech Synthesis Markup Language (SSML) is an XML-based markup language used to customize text-to-speech outputs. With SSML, you can not only adjust pitch, add pauses, improve pronunciation, change speaking rate, adjust volume, and attribute multiple voices to a single document, but also define your own lexicons or switch to different speaking styles. With the multi-lingual voices, you can also adjust the speaking languages via SSML. See [how to use SSML](speech-synthesis-markup.md) to fine-tune the voice output for your scenario. 
 
-* Visemes - [Visemes](how-to-speech-synthesis-viseme.md) are the key poses in observed speech, including the position of the lips, jaw and tongue when producing a particular phoneme. Visemes have a strong correlation with voices and phonemes. Using viseme events in Speech SDK, you can generate facial animation data, which can be used to animate faces in lip-reading communication, education, entertainment, and customer service.
-
-> [!NOTE]
-> Viseme events are currently only supported for the `en-US-AriaNeural` voice.
+* Visemes - [Visemes](how-to-speech-synthesis-viseme.md) are the key poses in observed speech, including the position of the lips, jaw and tongue when producing a particular phoneme. Visemes have a strong correlation with voices and phonemes. Using viseme events in Speech SDK, you can generate facial animation data, which can be used to animate faces in lip-reading communication, education, entertainment, and customer service. Viseme is currently only supported for the `en-US` English (United States) [neural voices](language-support.md#text-to-speech).
 
 ## Get started
 
@@ -59,7 +56,7 @@ Sample code for text-to-speech is available on GitHub. These samples cover text-
 
 ## Customization
 
-In addition to neural voices, you can create and fine-tune custom voices unique to your product or brand. All it takes to get started are a handful of audio files and the associated transcriptions. For more information, see [Get started with Custom Voice](how-to-custom-voice.md)
+In addition to neural voices, you can create and fine-tune custom voices unique to your product or brand. All it takes to get started are a handful of audio files and the associated transcriptions. For more information, see [Get started with Custom Neural Voice](how-to-custom-voice.md)
 
 ## Pricing note
 

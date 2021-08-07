@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.subservice: blobs
+ms.subservice: blobs 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure anonymous public read access for containers and blobs
@@ -74,7 +75,7 @@ $location = "<location>"
 
 # Create a storage account with AllowBlobPublicAccess set to true (or null).
 New-AzStorageAccount -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -Name $accountName `
     -Location $location `
     -SkuName Standard_GRS
     -AllowBlobPublicAccess $false
@@ -84,7 +85,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
 
 # Set AllowBlobPublicAccess set to false
 Set-AzStorageAccount -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -Name $accountName `
     -AllowBlobPublicAccess $false
 
 # Read the AllowBlobPublicAccess property.
@@ -204,7 +205,7 @@ When public access is disallowed for the storage account, a container's public a
 
 # [PowerShell](#tab/powershell)
 
-To update the public access level for one or more containers with PowerShell, call the [Set-AzStorageContainerAcl](/powershell/module/az.storage/set-azstoragecontaineracl) command. Authorize this operation by passing in your account key, a connection string, or a shared access signature (SAS). The [Set Container ACL](/rest/api/storageservices/set-container-acl) operation that sets the container's public access level does not support authorization with Azure AD. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+To update the public access level for one or more containers with PowerShell, call the [Set-AzStorageContainerAcl](/powershell/module/az.storage/set-azstoragecontaineracl) command. Authorize this operation by passing in your account key, a connection string, or a shared access signature (SAS). The [Set Container ACL](/rest/api/storageservices/set-container-acl) operation that sets the container's public access level does not support authorization with Azure AD. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
 The following example creates a container with public access disabled, and then updates the container's public access setting to permit anonymous access to the container and its blobs. Remember to replace the placeholder values in brackets with your own values:
 
@@ -235,7 +236,7 @@ When public access is disallowed for the storage account, a container's public a
 
 # [Azure CLI](#tab/azure-cli)
 
-To update the public access level for one or more containers with Azure CLI, call the [az storage container set permission](/cli/azure/storage/container#az_storage_container_set_permission) command. Authorize this operation by passing in your account key, a connection string, or a shared access signature (SAS). The [Set Container ACL](/rest/api/storageservices/set-container-acl) operation that sets the container's public access level does not support authorization with Azure AD. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+To update the public access level for one or more containers with Azure CLI, call the [az storage container set permission](/cli/azure/storage/container#az_storage_container_set_permission) command. Authorize this operation by passing in your account key, a connection string, or a shared access signature (SAS). The [Set Container ACL](/rest/api/storageservices/set-container-acl) operation that sets the container's public access level does not support authorization with Azure AD. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
 The following example creates a container with public access disabled, and then updates the container's public access setting to permit anonymous access to the container and its blobs. Remember to replace the placeholder values in brackets with your own values:
 
@@ -296,4 +297,4 @@ Get-AzStorageContainer -Context $ctx | Select Name, PublicAccess
 
 - [Prevent anonymous public read access to containers and blobs](anonymous-read-access-prevent.md)
 - [Access public containers and blobs anonymously with .NET](anonymous-read-access-client.md)
-- [Authorizing access to Azure Storage](../common/storage-auth.md)
+- [Authorizing access to Azure Storage](../common/authorize-data-access.md)

@@ -121,7 +121,7 @@ The storage client library uses the Key Vault interfaces in the core library in 
 
 ### Interface and dependencies
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 There are two necessary packages for Key Vault integration:
 
@@ -130,7 +130,7 @@ There are two necessary packages for Key Vault integration:
 
 Key Vault is designed for high-value master keys, and throttling limits per Key Vault are designed with this in mind. As of Azure.Security.KeyVault.Keys 4.1.0, there is not an `IKeyEncryptionKeyResolver` implementation that supports key caching. Should caching be necessary due to throttling, [this sample](/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) can be followed to inject a caching layer into an `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` instance.
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 There are three Key Vault packages:
 
@@ -175,7 +175,7 @@ Users can optionally enable a mode of operation where all uploads and downloads 
 
 ### Blob service encryption
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 Create a **ClientSideEncryptionOptions** object and set it on client creation with **SpecializedBlobClientOptions**. You cannot set encryption options on a per-API basis. Everything else will be handled by the client library internally.
 
@@ -225,7 +225,7 @@ ClientSideEncryptionOptions encryptionOptions;
 BlobClient clientSideEncryptionBlob = plaintextBlob.WithClientSideEncryptionOptions(encryptionOptions);
 ```
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 Create a **BlobEncryptionPolicy** object and set it in the request options (per API or at a client level by using **DefaultRequestOptions**). Everything else will be handled by the client library internally.
 
@@ -251,7 +251,7 @@ blob.DownloadToStream(outputStream, null, options, null);
 
 ### Queue service encryption
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 Create a **ClientSideEncryptionOptions** object and set it on client creation with **SpecializedQueueClientOptions**. You cannot set encryption options on a per-API basis. Everything else will be handled by the client library internally.
 
@@ -329,7 +329,7 @@ QueueMessage[] messages = queue.ReceiveMessages(maxMessages: 5).Value;
 Debug.Assert(messages.Length == 4)
 ```
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 Create a **QueueEncryptionPolicy** object and set it in the request options (per API or at a client level by using **DefaultRequestOptions**). Everything else will be handled by the client library internally.
 

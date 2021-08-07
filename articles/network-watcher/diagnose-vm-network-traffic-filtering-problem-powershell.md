@@ -16,7 +16,7 @@ ms.tgt_pltfrm: network-watcher
 ms.devlang: na
 tags:
   - azure-resource-manager
-ms.custom:
+ms.custom: devx-track-azurepowershell
   - mvc
   - devx-track-azurepowershell
   - mode-api

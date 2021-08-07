@@ -62,16 +62,7 @@
       displayName: standards, Australian, Government, ISM, PROTECTED
       href: ./samples/ism-protected/deploy.md
   - name: Canada Federal PBMM
-    items:
-    - name: Overview
-      displayName: standards, canada, federal, pbmm
-      href: ./samples/canada-federal-pbmm/index.md
-    - name: Control mapping
-      displayName: standards, canada, federal, pbmm
-      href: ./samples/canada-federal-pbmm/control-mapping.md
-    - name: Steps to deploy
-      displayName: standards, canada, federal, pbmm
-      href: ./samples/canada-federal-pbmm/deploy.md
+    href: ./samples/canada-federal-pbmm.md
   - name: CIS Microsoft Azure Foundations Benchmark v1.3.0
     displayName: standards, cis
     href: ./samples/cis-azure-1-3-0.md
@@ -129,16 +120,7 @@
     displayName: standards, HIPAA HITRUST
     href: ./samples/hipaa-hitrust-9-2.md
   - name: IRS 1075
-    items:
-    - name: Overview
-      displayName: standards, irs, 1075
-      href: ./samples/irs-1075/index.md
-    - name: Control mapping
-      displayName: standards, irs, 1075
-      href: ./samples/irs-1075/control-mapping.md
-    - name: Steps to deploy
-      displayName: standards, irs, 1075
-      href: ./samples/irs-1075/deploy.md
+    href: ./samples/irs-1075-sept2016.md
   - name: ISO 27001
     displayName: standards, iso, 27001, 2013
     href: ./samples/iso-27001-2013.md
@@ -207,16 +189,7 @@
       displayName: standards, SWIFT CSP-CSCF v2020
       href: ./samples/swift-2020/deploy.md
   - name: UK OFFICIAL and UK NHS
-    items:
-    - name: Overview
-      displayName: standards, uk official, uk nhs
-      href: ./samples/ukofficial/index.md
-    - name: Control mapping
-      displayName: standards, uk official, uk nhs
-      href: ./samples/ukofficial/control-mapping.md
-    - name: Steps to deploy
-      displayName: standards, uk official, uk nhs
-      href: ./samples/ukofficial/deploy.md
+    href: ./samples/ukofficial-uknhs.md
   - name: CAF Foundation
     items:
     - name: Overview
@@ -295,8 +268,8 @@
     href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
   - name: Azure Friday - Azure Blueprints Overview
     href: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice

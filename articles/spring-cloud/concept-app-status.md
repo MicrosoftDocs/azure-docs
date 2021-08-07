@@ -1,11 +1,11 @@
 ---
 title: App status in Azure Spring Cloud
 description: Learn the app status categories in Azure Spring Cloud
-author: MikeDodaro
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 ---
 

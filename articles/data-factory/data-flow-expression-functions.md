@@ -1,12 +1,14 @@
 ---
 title: Expression functions in the mapping data flow
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about expression functions in mapping data flow.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 04/01/2021
+ms.date: 07/04/2021
 ---
 
 # Data transformation expressions in mapping data flow
@@ -15,7 +17,7 @@ ms.date: 04/01/2021
 
 ## Expression functions
 
-In Data Factory, use the expression language of the mapping data flow feature to configure data transformations.
+In Data Factory and Synapse pipelines, use the expression language of the mapping data flow feature to configure data transformations.
 ___
 ### <code>abs</code>
 <code><b>abs(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
@@ -239,7 +241,19 @@ ___
 <code><b>divide(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
 Divides pair of numbers. Same as the `/` operator.  
 * ``divide(20, 10) -> 2``  
-* ``20 / 10 -> 2``  
+* ``20 / 10 -> 2``
+___
+### <code>dropLeft</code>
+<code><b>dropLeft(<i>&lt;value1&gt;</i> : string, <i>&lt;value2&gt;</i> : integer) => string</b></code><br/><br/>
+Removes as many characters from the left of the string. If the drop requested exceeds the length of the string, an empty string is returned.
+*	dropLeft('bojjus', 2) => 'jjus' 
+*	dropLeft('cake', 10) => ''
+___
+### <code>dropRight</code>
+<code><b>dropRight(<i>&lt;value1&gt;</i> : string, <i>&lt;value2&gt;</i> : integer) => string</b></code><br/><br/>
+Removes as many characters from the right of the string. If the drop requested exceeds the length of the string, an empty string is returned.
+*	dropRight('bojjus', 2) => 'bojj' 
+*	dropRight('cake', 10) => ''
 ___
 ### <code>endsWith</code>
 <code><b>endsWith(<i>&lt;string&gt;</i> : string, <i>&lt;substring to check&gt;</i> : string) => boolean</b></code><br/><br/>
@@ -268,7 +282,7 @@ ___
 ### <code>expr</code>
 <code><b>expr(<i>&lt;expr&gt;</i> : string) => any</b></code><br/><br/>
 Results in a expression from a string. This is the same as writing this expression in a non-literal form. This can be used to pass parameters as string representations.
-*	expr(‘price * discount’) => any
+*    expr('price * discount') => any
 ___
 ### <code>factorial</code>
 <code><b>factorial(<i>&lt;value1&gt;</i> : number) => long</b></code><br/><br/>
@@ -288,7 +302,7 @@ Returns the largest integer not greater than the number.
 ___
 ### <code>fromBase64</code>
 <code><b>fromBase64(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
-Encodes the given string in base64.  
+Decodes the given base64-encoded string.
 * ``fromBase64('Z3VuY2h1cw==') -> 'gunchus'``  
 ___
 ### <code>fromUTC</code>
@@ -408,6 +422,11 @@ ___
 Checks if the row is marked for insert. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1.  
 * ``isUpsert()``  
 * ``isUpsert(1)``  
+___
+### <code>jaroWinkler</code>
+<code><b>jaroWinkler(<i>&lt;value1&gt;</i> : string, <i>&lt;value2&gt;</i> : string) => double</b></code><br/><br/>
+Gets the JaroWinkler distance between two strings. 
+* ``jaroWinkler('frog', 'frog') => 1.0``  
 ___
 ### <code>lastDayOfMonth</code>
 <code><b>lastDayOfMonth(<i>&lt;value1&gt;</i> : datetime) => date</b></code><br/><br/>
@@ -562,7 +581,7 @@ ___
 ### <code>normalize</code>
 <code><b>normalize(<i>&lt;String to normalize&gt;</i> : string) => string</b></code><br/><br/>
 Normalizes the string value to separate accented unicode characters.  
-* ``regexReplace(normalize('bo²s'), `\p{M}`, '') -> 'boys'``  
+* ``regexReplace(normalize('bo²s'), `\p{M}`, '') -> 'boys'``
 ___
 ### <code>not</code>
 <code><b>not(<i>&lt;value1&gt;</i> : boolean) => boolean</b></code><br/><br/>
@@ -604,13 +623,18 @@ Positive Modulus of pair of numbers.
 ___
 ### <code>partitionId</code>
 <code><b>partitionId() => integer</b></code><br/><br/>
-Returns the current partition id the input row is in.  
+Returns the current partition ID the input row is in.  
 * ``partitionId()``  
 ___
 ### <code>power</code>
 <code><b>power(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Raises one number to the power of another.  
 * ``power(10, 2) -> 100``  
+___
+### <code>radians</code>
+<code><b>radians(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
+Converts degrees to radians
+* ``radians(180) => 3.141592653589793``  
 ___
 ### <code>random</code>
 <code><b>random(<i>&lt;value1&gt;</i> : integral) => long</b></code><br/><br/>
@@ -843,6 +867,12 @@ Gets the year value of a date.
 
 ## Aggregate functions
 The following functions are only available in aggregate, pivot, unpivot, and window transformations.
+
+___
+### <code>approxDistinctCount</code>
+<code><b>approxDistinctCount(<i>&lt;value1&gt;</i> : any, [ <i>&lt;value2&gt;</i> : double ]) => long</b></code><br/><br/>
+Gets the approximate aggregate count of distinct values for a column. The optional second parameter is to control the estimation error.
+* ``approxDistinctCount(ProductID, .05) => long``  
 ___
 ### <code>avg</code>
 <code><b>avg(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
@@ -899,17 +929,20 @@ ___
 Based on a criteria, gets the sample covariance of two columns.  
 * ``covarianceSampleIf(region == 'West', sales, profit)``  
 ___
+
 ### <code>first</code>
 <code><b>first(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : boolean]) => any</b></code><br/><br/>
 Gets the first value of a column group. If the second parameter ignoreNulls is omitted, it is assumed false.  
 * ``first(sales)``  
 * ``first(sales, false)``  
 ___
+
 ### <code>isDistinct</code>
 <code><b>isDistinct(<i>&lt;value1&gt;</i> : any , <i>&lt;value1&gt;</i> : any) => boolean</b></code><br/><br/>
 Finds if a column or set of columns is distinct. It does not count null as a distinct value
-*	``isDistinct(custId, custName) => boolean``
-*	___
+*    ``isDistinct(custId, custName) => boolean``
+___
+
 ### <code>kurtosis</code>
 <code><b>kurtosis(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Gets the kurtosis of a column.  
@@ -1063,11 +1096,27 @@ Creates an array of items. All items should be of the same type. If no items are
 * ``['Seattle', 'Washington'][1]``
 * ``'Washington'``
 ___
+### <code>at</code>
+<code><b>at(<i>&lt;value1&gt;</i> : array/map, <i>&lt;value2&gt;</i> : integer/key type) => array</b></code><br/><br/>
+Finds the element at an array index. The index is 1-based. Out of bounds index results in a null value. Finds a value in a map given a key. If the key is not found it returns null.
+*	``at(['apples', 'pears'], 1) => 'apples'``
+*	``at(['fruit' -> 'apples', 'vegetable' -> 'carrot'], 'fruit') => 'apples'``
+___
 ### <code>contains</code>
 <code><b>contains(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => boolean</b></code><br/><br/>
 Returns true if any element in the provided array evaluates as true in the provided predicate. Contains expects a reference to one element in the predicate function as #item.  
 * ``contains([1, 2, 3, 4], #item == 3) -> true``  
 * ``contains([1, 2, 3, 4], #item > 5) -> false``  
+___
+### <code>distinct</code>
+<code><b>distinct(<i>&lt;value1&gt;</i> : array) => array</b></code><br/><br/>
+Returns a distinct set of items from an array.
+* ``distinct([10, 20, 30, 10]) => [10, 20, 30]``
+___
+### <code>except</code>
+<code><b>except(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : array) => array</b></code><br/><br/>
+Returns a difference set of one array from another dropping duplicates.
+* ``except([10, 20, 30], [20, 40]) => [10, 30]``  
 ___
 ### <code>filter</code>
 <code><b>filter(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => array</b></code><br/><br/>
@@ -1108,11 +1157,22 @@ Find the first item from an array that match the condition. It takes a filter fu
     )
   ``  
 ___
+### <code>flatten</code>
+<code><b>flatten(<i>&lt;array&gt;</i> : array, <i>&lt;value2&gt;</i> : array ..., <i>&lt;value2&gt;</i> : boolean) => array</b></code><br/><br/>
+Flattens array or arrays into a single array. Arrays of atomic items are returned unaltered. The last argument is optional and is defaulted to false to flatten recursively more than one level deep.
+*	``flatten([['bojjus', 'girl'], ['gunchus', 'boy']]) => ['bojjus', 'girl', 'gunchus', 'boy']``
+*	``flatten([[['bojjus', 'gunchus']]] , true) => ['bojjus', 'gunchus']``
+___
 ### <code>in</code>
 <code><b>in(<i>&lt;array of items&gt;</i> : array, <i>&lt;item to find&gt;</i> : any) => boolean</b></code><br/><br/>
 Checks if an item is in the array.  
 * ``in([10, 20, 30], 10) -> true``  
 * ``in(['good', 'kid'], 'bad') -> false``  
+___
+### <code>intersect</code>
+<code><b>intersect(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : array) => array</b></code><br/><br/>
+Returns an intersection set of distinct items from 2 arrays.
+* ``intersect([10, 20, 30], [20, 40]) => [20]``  
 ___
 ### <code>map</code>
 <code><b>map(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => any</b></code><br/><br/>
@@ -1121,9 +1181,9 @@ Maps each element of the array to a new element using the provided expression. M
 * ``map(['a', 'b', 'c', 'd'], #item + '_processed') -> ['a_processed', 'b_processed', 'c_processed', 'd_processed']``  
 ___
 ### <code>mapIf</code>
-<code><b>mapIf (<value1> : array, <value2> : binaryfunction, <value3>: binaryFunction) => any</b></code><br/><br/>
+<code><b>mapIf (<i>\<value1\></i> : array, <i>\<value2\></i> : binaryfunction, \<value3\>: binaryFunction) => any</b></code><br/><br/>
 Conditionally maps an array to another array of same or smaller length. The values can be of any datatype including structTypes. It takes a mapping function where you can address the item in the array as #item and current index as #index. For deeply nested maps you can refer to the parent maps using the ``#item_[n](#item_1, #index_1...)`` notation.
-*	``mapIf([10, 20, 30], #item > 10, #item + 5) -> [25, 35]``
+*    ``mapIf([10, 20, 30], #item > 10, #item + 5) -> [25, 35]``
 * ``mapIf(['icecream', 'cake', 'soda'], length(#item) > 4, upper(#item)) -> ['ICECREAM', 'CAKE']``
 ___
 ### <code>mapIndex</code>
@@ -1132,9 +1192,9 @@ Maps each element of the array to a new element using the provided expression. M
 * ``mapIndex([1, 2, 3, 4], #item + 2 + #index) -> [4, 6, 8, 10]``  
 ___
 ### <code>mapLoop</code>
-<code><b>mapLoop(<value1> : integer, <value2> : unaryfunction) => any</b></code><br/><br/>
+<code><b>mapLoop(<i>\<value1\></i> : integer, <i>\<value2\></i> : unaryfunction) => any</b></code><br/><br/>
 Loops through from 1 to length to create an array of that length. It takes a mapping function where you can address the index in the array as #index. For deeply nested maps you can refer to the parent maps using the #index_n(#index_1, #index_2...) notation.
-*	``mapLoop(3, #index * 10) -> [10, 20, 30]``
+*    ``mapLoop(3, #index * 10) -> [10, 20, 30]``
 ___
 ### <code>reduce</code>
 <code><b>reduce(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : any, <i>&lt;value3&gt;</i> : binaryfunction, <i>&lt;value4&gt;</i> : unaryfunction) => any</b></code><br/><br/>
@@ -1162,7 +1222,19 @@ ___
 Sorts the array using the provided predicate function. Sort expects a reference to two consecutive elements in the expression function as #item1 and #item2.  
 * ``sort([4, 8, 2, 3], compare(#item1, #item2)) -> [2, 3, 4, 8]``  
 * ``sort(['a3', 'b2', 'c1'], iif(right(#item1, 1) >= right(#item2, 1), 1, -1)) -> ['c1', 'b2', 'a3']``  
-
+___
+### <code>unfold</code>
+<code><b>unfold (<i>&lt;value1&gt;</i>: array) => any</b></code><br/><br/>
+Unfolds an array into a set of rows and repeats the values for the remaining columns in every row.
+*	``unfold(addresses) => any``
+*	``unfold( @(name = salesPerson, sales = salesAmount) ) => any``
+___  
+### <code>union</code>
+<code><b>union(<i>&lt;value1&gt;</i>: array, <i>&lt;value2&gt;</i> : array) => array</b></code><br/><br/>
+Returns a union set of distinct items from 2 arrays.
+* ``union([10, 20, 30], [20, 40]) => [10, 20, 30, 40]``
+___  
+  
 ## Cached lookup functions
 The following functions are only available when using a cached lookup when you've included a cached sink.
 ___
@@ -1187,83 +1259,87 @@ Returns the entire output row set of the results of the cache sink
 * ``cacheSink#outputs()``
 ___
 
-
 ## Conversion functions
 
 Conversion functions are used to convert data and test for data types
 
 ### <code>isBitSet</code>
-<code><b>isBitSet (<value1> : array, <value2>:integer ) => boolean</b></code><br/><br/>
+<code><b>isBitSet (<i><i>\<value1\></i></i> : array, <i>\<value2\></i>:integer ) => boolean</b></code><br/><br/>
 Checks if a bit position is set in this bitset
 * ``isBitSet(toBitSet([10, 32, 98]), 10) => true``
 ___
 ### <code>setBitSet</code>
-<code><b>setBitSet (<value1> : array, <value2>:array) => array</b></code><br/><br/>
+<code><b>setBitSet (<i>\<value1\></i>: array, <i>\<value2\></i>:array) => array</b></code><br/><br/>
 Sets bit positions in this bitset
 * ``setBitSet(toBitSet([10, 32]), [98]) => [4294968320L, 17179869184L]``
 ___  
 ### <code>isBoolean</code>
-<code><b>isBoolean(<value1> : string) => boolean</b></code><br/><br/>
+<code><b>isBoolean(<i>\<value1\></i>: string) => boolean</b></code><br/><br/>
 Checks if the string value is a boolean value according to the rules of ``toBoolean()``
 * ``isBoolean('true') -> true``
 * ``isBoolean('no') -> true``
 * ``isBoolean('microsoft') -> false``
 ___
 ### <code>isByte</code>
-<code><b>isByte(<value1> : string) => boolean</b></code><br/><br/>
+<code><b>isByte(<i>\<value1\></i> : string) => boolean</b></code><br/><br/>
 Checks if the string value is a byte value given an optional format according to the rules of ``toByte()``
 * ``isByte('123') -> true``
 * ``isByte('chocolate') -> false``
 ___
 ### <code>isDate</code>
-<code><b>isDate (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+<code><b>isDate (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
 Checks if the input date string is a date using an optional input date format. Refer Java's SimpleDateFormat for available formats. If the input date format is omitted, default format is ``yyyy-[M]M-[d]d``. Accepted formats are ``[ yyyy, yyyy-[M]M, yyyy-[M]M-[d]d, yyyy-[M]M-[d]dT* ]``
 * ``isDate('2012-8-18') -> true``
 * ``isDate('12/18--234234' -> 'MM/dd/yyyy') -> false``
 ___
 ### <code>isShort</code>
-<code><b>isShort (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+<code><b>isShort (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
 Checks of the string value is a short value given an optional format according to the rules of ``toShort()``
 * ``isShort('123') -> true``
 * ``isShort('$123' -> '$###') -> true``
 * ``isShort('microsoft') -> false``
 ___
 ### <code>isInteger</code>
-<code><b>isInteger (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+<code><b>isInteger (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
 Checks of the string value is a integer value given an optional format according to the rules of ``toInteger()``
 * ``isInteger('123') -> true``
 * ``isInteger('$123' -> '$###') -> true``
 * ``isInteger('microsoft') -> false``
 ___
 ### <code>isLong</code>
-<code><b>isLong (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+<code><b>isLong (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
 Checks of the string value is a long value given an optional format according to the rules of ``toLong()``
 * ``isLong('123') -> true``
 * ``isLong('$123' -> '$###') -> true``
 * ``isLong('gunchus') -> false``
 ___
+### <code>isNan</code>
+<code><b>isNan (<i>\<value1\></i> : integral) => boolean</b></code><br/><br/>
+Check if this is not a number.
+* ``isNan(10.2) => false``
+___
 ### <code>isFloat</code>
-<code><b>isFloat (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+<code><b>isFloat (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
 Checks of the string value is a float value given an optional format according to the rules of ``toFloat()``
 * ``isFloat('123') -> true``
 * ``isFloat('$123.45' -> '$###.00') -> true``
 * ``isFloat('icecream') -> false``
 ___
 ### <code>isDouble</code>
-<code><b>isDouble (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+<code><b>isDouble (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
 Checks of the string value is a double value given an optional format according to the rules of ``toDouble()``
 * ``isDouble('123') -> true``
 * ``isDouble('$123.45' -> '$###.00') -> true``
 * ``isDouble('icecream') -> false``
 ___
 ### <code>isDecimal</code>
-<code><b>isDecimal (<value1> : string) => boolean</b></code><br/><br/>
+<code><b>isDecimal (<i>\<value1\></i> : string) => boolean</b></code><br/><br/>
 Checks of the string value is a decimal value given an optional format according to the rules of ``toDecimal()``
 * ``isDecimal('123.45') -> true``
 * ``isDecimal('12/12/2000') -> false``
 ___
 ### <code>isTimestamp</code>
-<code><b>isTimestamp (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+<code><b>isTimestamp (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
 Checks if the input date string is a timestamp using an optional input timestamp format. Refer to Java's SimpleDateFormat for available formats. If the timestamp is omitted the default pattern ``yyyy-[M]M-[d]d hh:mm:ss[.f...]`` is used. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. Timestamp supports up to millisecond accuracy with value of 999 Refer to Java's SimpleDateFormat for available formats.
 * ``isTimestamp('2016-12-31 00:12:00') -> true``
 * ``isTimestamp('2016-12-31T00:12:00' -> 'yyyy-MM-dd\\'T\\'HH:mm:ss' -> 'PST') -> true``
@@ -1372,6 +1448,31 @@ Converts the timestamp to UTC. You can pass an optional timezone in the form of 
 * ``toUTC(currentTimestamp()) == toTimestamp('2050-12-12 19:18:12') -> false``  
 * ``toUTC(currentTimestamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
 
+## Map functions
+  
+Map functions perform operations on map data types
+
+### <code>associate</code>
+<code><b>reassociate(<i>&lt;value1&gt;</i> : map, <i>&lt;value2&gt;</i> : binaryFunction) => map</b></code><br/><br/>
+Creates a map of key/values. All the keys & values should be of the same type. If no items are specified, it is defaulted to a map of string to string type.Same as a ```[ -> ]``` creation operator. Keys and values should alternate with each other.
+*	``associate('fruit', 'apple', 'vegetable', 'carrot' )=> ['fruit' -> 'apple', 'vegetable' -> 'carrot']``
+___
+### <code>keyValues</code>
+<code><b>keyValues(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : array) => map</b></code><br/><br/>
+Creates a map of key/values. The first parameter is an array of keys and second is the array of values. Both arrays should have equal length.
+*	``keyValues(['bojjus', 'appa'], ['gunchus', 'ammi']) => ['bojjus' -> 'gunchus', 'appa' -> 'ammi']``
+___ 
+### <code>mapAssociation</code>
+<code><b>mapAssociation(<i>&lt;value1&gt;</i> : map, <i>&lt;value2&gt;</i> : binaryFunction) => array</b></code><br/><br/>
+Transforms a map by associating the keys to new values. Returns an array. It takes a mapping function where you can address the item as #key and current value as #value. 
+*	``mapAssociation(['bojjus' -> 'gunchus', 'appa' -> 'ammi'], @(key = #key, value = #value)) => [@(key = 'bojjus', value = 'gunchus'), @(key = 'appa', value = 'ammi')]``
+___ 
+### <code>reassociate</code>
+<code><b>reassociate(<i>&lt;value1&gt;</i> : map, <i>&lt;value2&gt;</i> : binaryFunction) => map</b></code><br/><br/>
+Transforms a map by associating the keys to new values. It takes a mapping function where you can address the item as #key and current value as #value.  
+* ``reassociate(['fruit' -> 'apple', 'vegetable' -> 'tomato'], substring(#key, 1, 1) + substring(#value, 1, 1)) => ['fruit' -> 'fa', 'vegetable' -> 'vt']``
+___
+  
 ## Metafunctions
 
 Metafunctions primarily function on metadata in your data flow
@@ -1435,17 +1536,22 @@ ___
 <code><b>hasPath(<i>&lt;value1&gt;</i> : string, [<i>&lt;streamName&gt;</i> : string]) => boolean</b></code><br/><br/>
 Checks if a certain hierarchical path exists by name in the stream. You can pass an optional stream name as the second argument. Column names/paths known at design time should be addressed just by their name or dot notation path. Computed inputs are not supported but you can use parameter substitutions.  
 * ``hasPath('grandpa.parent.child') => boolean``
-___
+___  
+### <code>originColumns</code>
+<code><b>originColumns(<i>&lt;streamName&gt;</i> : string) => any</b></code><br/><br/>
+Gets all output columns for a origin stream where columns were created. Must be enclosed in another function.
+* ``array(toString(originColumns('source1')))``
+___  
 ### <code>hex</code>
-<code><b>hex(<value1>: binary) => string</b></code><br/><br/>
+<code><b>hex(<i>\<value1\></i>: binary) => string</b></code><br/><br/>
 Returns a hex string representation of a binary value
 * ``hex(toBinary([toByte(0x1f), toByte(0xad), toByte(0xbe)])) -> '1fadbe'``
 ___
 ### <code>unhex</code>
-<code><b>unhex(<value1>: string) => binary</b></code><br/><br/>
+<code><b>unhex(<i>\<value1\></i>: string) => binary</b></code><br/><br/>
 Unhexes a binary value from its string representation. This can be used in conjunction with sha2, md5 to convert from string to binary representation
-*	``unhex('1fadbe') -> toBinary([toByte(0x1f), toByte(0xad), toByte(0xbe)])``
-*	``unhex(md5(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4'))) -> toBinary([toByte(0x4c),toByte(0xe8),toByte(0xa8),toByte(0x80),toByte(0xbd),toByte(0x62),toByte(0x1a),toByte(0x1f),toByte(0xfa),toByte(0xd0),toByte(0xbc),toByte(0xa9),toByte(0x05),toByte(0xe1),toByte(0xbc),toByte(0x5a)])``
+*    ``unhex('1fadbe') -> toBinary([toByte(0x1f), toByte(0xad), toByte(0xbe)])``
+*    ``unhex(md5(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4'))) -> toBinary([toByte(0x4c),toByte(0xe8),toByte(0xa8),toByte(0x80),toByte(0xbd),toByte(0x62),toByte(0x1a),toByte(0x1f),toByte(0xfa),toByte(0xd0),toByte(0xbc),toByte(0xa9),toByte(0x05),toByte(0xe1),toByte(0xbc),toByte(0x5a)])``
 
 ## Window functions
 The following functions are only available in window transformations.

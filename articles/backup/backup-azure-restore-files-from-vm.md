@@ -127,19 +127,24 @@ Also, ensure that you have the [right machine to execute the ILR script](#step-2
 
 If you run the script on a computer with restricted access, ensure there's access to:
 
-- `download.microsoft.com` or `AzureFrontDoor.FirstParty` service tag in NSG
-- Recovery Service URLs (GEO-NAME refers to the region where the Recovery Services vault resides)
+- `download.microsoft.com` or `AzureFrontDoor.FirstParty` service tag in NSG on port 443 (outbound)
+- Recovery Service URLs (GEO-NAME refers to the region where the Recovery Services vault resides) on port 3260 (outbound)
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (For Azure public regions) or `AzureBackup` service tag in NSG
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (For Azure China 21Vianet) or `AzureBackup` service tag in NSG
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (For Azure US Government) or `AzureBackup` service tag in NSG
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (For Azure Germany) or `AzureBackup` service tag in NSG
-- Outbound ports 53 (DNS), 443, 3260
+- Public DNS resolution on port 53 (outbound)
 
 > [!NOTE]
 >
-> The script file you downloaded in step 1 [above](#step-1-generate-and-download-script-to-browse-and-recover-files) will have the **geo-name** in the name of the file. Use that **geo-name** to fill in the URL. The downloaded script name will begin with: \'VMname\'\_\'geoname\'_\'GUID\'.<br><br>
-> So for example, if the script filename is *ContosoVM_wcus_12345678*, the **geo-name** is *wcus* and the URL would be:<br> <https://pod01-rec2.wcus.backup.windowsazure.com>
+> In case, the backed up VM is Windows, then the geo-name will be mentioned in the password generated.<br><br>
+> For eg, if the generated password is *ContosoVM_wcus_GUID*, then then geo-name is wcus and the URL would be: <https://pod01-rec2.wcus.backup.windowsazure.com><br><br>
 >
+>
+> If the backed up VM is Linux, then the script file you downloaded in step 1 [above](#step-1-generate-and-download-script-to-browse-and-recover-files) will have the **geo-name** in the name of the file. Use that **geo-name** to fill in the URL. The downloaded script name will begin with: \'VMname\'\_\'geoname\'_\'GUID\'.<br><br>
+> So for example, if the script filename is *ContosoVM_wcus_12345678*, the **geo-name** is *wcus* and the URL would be: <https://pod01-rec2.wcus.backup.windowsazure.com><br><br>
+>
+
 
 For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If the components don't exist on the computer where the script is run, the script asks for permission to install the components. Provide consent to install the necessary components.
 
@@ -148,6 +153,12 @@ The access to `download.microsoft.com` is required to download components used t
 Also, ensure that you have the [right machine to execute the ILR script](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) and it meets the [OS requirements](#step-3-os-requirements-to-successfully-run-the-script).
 
 ## Step 5: Running the script and identifying volumes
+
+> [!NOTE]
+>
+> The script is generated in English language only and is not localized. Hence it might require that the system locale is in English for the script to execute properly
+> 
+
 
 ### For Windows
 
