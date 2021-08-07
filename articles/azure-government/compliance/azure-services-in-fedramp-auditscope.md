@@ -1,358 +1,413 @@
 ---
-title: Azure Services in FedRAMP and DoD SRG Audit Scope
-description: This article contains tables for Azure Public and Azure Government that illustrate what FedRAMP (Moderate vs. High) and DoD SRG (Impact level 2, 4, 5 or 6) audit scope a given service has reached.
-author: Jain-Garima  
-ms.author: gjain
-ms.date: 08/04/2021
+title: Azure Services in compliance audit scope
+description: This article tracks FedRAMP, DoD, and ICD 503 compliance scope for services across Azure, Azure Government, and Azure Government Secret cloud environments.
 ms.topic: article
 ms.service: azure-government
-ms.reviewer: rochiou
+ms.custom: references_regions
+ms.date: 08/05/2021
 ---
 
-# Azure services by FedRAMP and DoD CC SRG audit scope
+# Azure services in compliance audit scope
 
-Microsoft's government cloud services meet the demanding requirements of the US Federal Risk & Authorization Management Program (FedRAMP) and of the US Department of Defense, from information impact levels 2 through 6. By deploying protected services including Azure Government, Office 365 U.S. Government, and Dynamics 365 Government, federal and defense agencies can leverage a rich array of compliant services.
+Microsoft Azure cloud environments meet demanding US government compliance requirements that produce formal authorizations, including:
 
-This article provides a detailed list of in-scope cloud services across Azure Public and Azure Government for FedRAMP and DoD CC SRG compliance offerings.
+- [Federal Risk and Authorization Management Program](https://www.fedramp.gov/) (FedRAMP)
+- Department of Defense (DoD) Cloud Computing [Security Requirements Guide](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html) (SRG) Impact Level (IL) 2, 4, 5, and 6
+- [Intelligence Community Directive (ICD) 503](http://www.dni.gov/files/documents/ICD/ICD_503.pdf)
 
-#### Terminology/symbols used
+**Azure** (also known as Azure Commercial, Azure Public, or Azure Global) maintains the following authorizations:
 
-* DoD CC SRG = Department of Defense Cloud Computing Security Requirements Guide
-* IL = Impact Level
-* FedRAMP = Federal Risk and Authorization Management Program  
-* 3PAO = Third Party Assessment Organization
-* JAB = Joint Authorization Board 
-* :heavy_check_mark: = indicates the service has achieved this audit scope.
-* Planned 2021 = indicates the service will be reviewed by 3PAO and JAB in 2021. Once the service is authorized, status will be updated 
+- [FedRAMP High](/azure/compliance/offerings/offering-fedramp) Provisional Authorization to Operate (P-ATO) issued by the FedRAMP Joint Authorization Board (JAB)
+- [DoD IL2](/azure/compliance/offerings/offering-dod-il2) Provisional Authorization (PA) issued by the Defense Information Systems Agency (DISA)
+
+**Azure Government** maintains the following authorizations that pertain to Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia:
+
+- [FedRAMP High](/azure/compliance/offerings/offering-fedramp) P-ATO issued by the JAB
+- [DoD IL2](/azure/compliance/offerings/offering-dod-il2) PA issued by DISA
+- [DoD IL4](/azure/compliance/offerings/offering-dod-il4) PA issued by DISA
+- [DoD IL5](/azure/compliance/offerings/offering-dod-il5) PA issued by DISA
+
+For current Azure Government regions and available services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
+
+> [!NOTE]
+>
+> - Some Azure services deployed in Azure Government regions (US Gov Arizona, US Gov Texas, and US Gov Virginia) require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in **[Isolation guidelines for Impact Level 5 workloads](../documentation-government-impact-level-5.md).**
+> - For DoD IL5 PA compliance scope in Azure Government DoD regions (US DoD Central and US DoD East), see **[Azure Government DoD regions IL5 audit scope](../documentation-government-overview-dod.md#azure-government-dod-regions-il5-audit-scope).**
+
+**Azure Government Secret** maintains:
+
+- [DoD IL6](/azure/compliance/offerings/offering-dod-il6) PA issued by DISA
+- [ICD 503](/azure/compliance/offerings/offering-icd-503) with facilities at ICD 705 (for authorization details, contact your Microsoft account representative)
+
+This article provides a detailed list of cloud services in scope for the above authorizations across Azure, Azure Government, and Azure Government Secret cloud environments.
 
 ## Azure public services by audit scope
-| _Last Updated: August 2021_ |
+*Last Updated: August 2021*
 
-| Azure Service| DoD CC SRG IL 2 | FedRAMP Moderate | FedRAMP High | Planned 2021 |
-| ------------ |:---------------:|:----------------:|:------------:|:------------:|
-| [AI Builder](/ai-builder/overview) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [API Management](https://azure.microsoft.com/services/api-management/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Application Change Analysis](../../azure-monitor/app/change-analysis.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Application Gateway](https://azure.microsoft.com/services/application-gateway/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Automation](https://azure.microsoft.com/services/automation/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Active Directory (Free and Basic)](https://azure.microsoft.com/services/active-directory/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Active Directory (Premium P1 + P2)](https://azure.microsoft.com/services/active-directory/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Active Directory Provisioning Service](../../active-directory/app-provisioning/user-provisioning.md)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Microsoft Defender for Identity](https://azure.microsoft.com/features/azure-advanced-threat-protection/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Advisor](https://azure.microsoft.com/services/advisor/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure App Configuration](https://azure.microsoft.com/services/app-configuration/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure API for FHIR](https://azure.microsoft.com/services/azure-api-for-fhir/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Arc enabled Servers](../../azure-arc/servers/overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Blueprints](https://azure.microsoft.com/services/blueprints/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Bot Service](/azure/bot-service/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Archive Storage](https://azure.microsoft.com/services/storage/archive/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Cost Management](https://azure.microsoft.com/services/cost-management/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Stack Edge (Data Box Edge)](https://azure.microsoft.com/services/databox/edge/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Data Box](https://azure.microsoft.com/services/databox/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:**&ast;**  |  |
-| [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Data Share](https://azure.microsoft.com/services/data-share/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Database for MariaDB](https://azure.microsoft.com/services/mariadb/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Databricks](https://azure.microsoft.com/services/databricks/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:**&ast;&ast;** |  |
-| [Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Dedicated HSM](https://azure.microsoft.com/services/azure-dedicated-hsm/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure DNS](https://azure.microsoft.com/services/dns/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure for Education](https://azure.microsoft.com/developer/students/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure File Sync](https://azure.microsoft.com/services/storage/files/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Firewall Manager](https://azure.microsoft.com/services/firewall-manager/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Microsoft Intune](/intune/what-is-intune) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure IoT Security](https://azure.microsoft.com/overview/iot/security/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Internet Analyzer](https://azure.microsoft.com/services/internet-analyzer/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Lab Services](https://azure.microsoft.com/services/lab-services/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Machine Learning Services](https://azure.microsoft.com/services/machine-learning-service/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Managed Applications](https://azure.microsoft.com/services/managed-applications/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Marketplace Portal](https://azuremarketplace.microsoft.com/en-us)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Maps](https://azure.microsoft.com/services/azure-maps/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Monitor](https://azure.microsoft.com/services/monitor/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Policy](https://azure.microsoft.com/services/azure-policy/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Private Link](https://azure.microsoft.com/services/private-link/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Public IP](../../virtual-network/public-ip-addresses.md)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure RedHat OpenShift](https://azure.microsoft.com/services/openshift/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Resource Graph](../../governance/resource-graph/overview.md)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Cognitive Search](https://azure.microsoft.com/services/search/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Service Health](https://azure.microsoft.com/features/service-health/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Sphere](https://azure.microsoft.com/services/azure-sphere/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware/) |  |  |  | :heavy_check_mark: |
-| [Backup](https://azure.microsoft.com/services/backup/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Batch](https://azure.microsoft.com/services/batch/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Cloud Services](https://azure.microsoft.com/services/cloud-services/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Cognitive Services: Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Cognitive Services: Content Moderator](https://azure.microsoft.com/services/cognitive-services/content-moderator/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Cognitive Services Containers](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Cognitive Services: Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Cognitive Services: Face](https://azure.microsoft.com/services/cognitive-services/face/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Cognitive Services: Form Recognizer](https://azure.microsoft.com/services/cognitive-services/form-recognizer/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Cognitive Services: Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Cognitive Services Personalizer](https://azure.microsoft.com/services/cognitive-services/personalizer/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Cognitive Services: QnA Maker](https://azure.microsoft.com/services/cognitive-services/qna-maker/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Cognitive Services: Speech Services](https://azure.microsoft.com/services/cognitive-services/directory/speech/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Cognitive Services: Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Cognitive Services: Translator Text](https://azure.microsoft.com/services/cognitive-services/speech-translation/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Cognitive Services: Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Container Instances](https://azure.microsoft.com/services/container-instances/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Container Registry](https://azure.microsoft.com/services/container-registry/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Content Delivery Network](https://azure.microsoft.com/services/cdn/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Data Factory](https://azure.microsoft.com/services/data-factory/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Data Integrator](/power-platform/admin/data-integrator) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Dynamics 365 Commerce](https://dynamics.microsoft.com/commerce/overview/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Dynamics 365 Customer Service](https://dynamics.microsoft.com/customer-service/overview/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Dynamics 365 Field Service](https://dynamics.microsoft.com/field-service/overview/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Dynamics 365 Finance](https://dynamics.microsoft.com/finance/overview/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Dynamics 365 Guides](/dynamics365/mixed-reality/guides/get-started)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Dynamics 365 Sales](https://docs.microsoft.com/dynamics365/sales-enterprise/overview) |  |  |  | :heavy_check_mark: |
-| [Dynamics 365 Sales Professional](https://docs.microsoft.com/dynamics365/sales-professional/sales-professional-overview) |  |  |  | :heavy_check_mark: |
-| [Dynamics 365 Supply Chain](https://dynamics.microsoft.com/supply-chain-management/overview/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Dynamics 365 Chat (Dynamics 365 Omni-Channel Engagement Hub)](/dynamics365/omnichannel/introduction-omnichannel) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Dataverse (Common Data Service)](/powerapps/maker/common-data-service/data-platform-intro) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Event Grid](https://azure.microsoft.com/services/event-grid/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Microsoft Defender for Endpoint](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Event Hubs](https://azure.microsoft.com/services/event-hubs/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [ExpressRoute](https://azure.microsoft.com/services/expressroute/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Power Automate](https://powerplatform.microsoft.com/power-automate/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Functions](https://azure.microsoft.com/services/functions/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | |
-| [GitHub AE](https://docs.github.com/en/github-ae@latest/admin/overview/about-github-ae) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | |
-| [Guest Configuration](../../governance/policy/concepts/guest-configuration.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | |
-| [HDInsight](https://azure.microsoft.com/services/hdinsight/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Import / Export](https://azure.microsoft.com/services/storage/import-export/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [IoT Central](https://azure.microsoft.com/services/iot-central/) |  |  |  | :heavy_check_mark: |
-| [IoT Hub](https://azure.microsoft.com/services/iot-hub/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Key Vault](https://azure.microsoft.com/services/key-vault/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Load Balancer](https://azure.microsoft.com/services/load-balancer/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Log Analytics](../../azure-monitor/logs/data-platform-logs.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Logic Apps](https://azure.microsoft.com/services/logic-apps/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Media Services](https://azure.microsoft.com/services/media-services/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Microsoft 365 Defender](https://docs.microsoft.com/microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Microsoft Azure Attestation](https://azure.microsoft.com/services/azure-attestation/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Microsoft Azure portal](https://azure.microsoft.com/features/azure-portal/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Microsoft Azure Peering Service](../../peering-service/about.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Microsoft Graph](https://developer.microsoft.com/en-us/graph)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Health Bot](/healthbot/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Power Apps](/powerapps/powerapps-overview) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Power Apps Portal](https://powerapps.microsoft.com/portals/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Microsoft Stream](/stream/overview) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Microsoft Threat Experts](/windows/security/threat-protection/microsoft-defender-atp/microsoft-threat-experts) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Network Watcher](https://azure.microsoft.com/services/network-watcher/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Network Watcher Traffic Analytics](../../network-watcher/traffic-analytics.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Power Virtual Agents](/power-virtual-agents/fundamentals-what-is-power-virtual-agents) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Redis Cache](https://azure.microsoft.com/services/cache/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Scheduler](../../scheduler/scheduler-intro.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Security Center](https://azure.microsoft.com/services/security-center/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Service Bus](https://azure.microsoft.com/services/service-bus/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Service Fabric](https://azure.microsoft.com/services/service-fabric/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Synapse Analytics](https://azure.microsoft.com/services/sql-data-warehouse/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [SQL Database](https://azure.microsoft.com/services/sql-database/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [SQL Server Stretch Database](https://azure.microsoft.com/services/sql-server-stretch-database/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Storage: Blobs (Incl. Azure Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/blobs/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Storage: Disks (incl. Managed Disks)](https://azure.microsoft.com/services/storage/disks/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Storage: Files](https://azure.microsoft.com/services/storage/files/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Storage: Queues](https://azure.microsoft.com/services/storage/queues/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Storage: Tables](https://azure.microsoft.com/services/storage/tables/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [StorSimple](https://azure.microsoft.com/services/storsimple/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [UEBA for Sentinel](https://docs.microsoft.com/azure/sentinel/identify-threats-with-entity-behavior-analytics#what-is-user-and-entity-behavior-analytics-ueba) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Virtual Machines (incl. Reserved Instances)](https://azure.microsoft.com/services/virtual-machines/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Virtual Network](https://azure.microsoft.com/services/virtual-network/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Virtual Network NAT](../../virtual-network/nat-gateway/nat-overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Virtual WAN](https://azure.microsoft.com/services/virtual-wan/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Visual Studio Codespaces](https://azure.microsoft.com/services/visual-studio-online/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Web Apps (App Service)](https://azure.microsoft.com/services/app-service/web/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Web Application Firewall)](https://azure.microsoft.com/services/web-application-firewall/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Windows 10 IoT Core Services](https://azure.microsoft.com/services/windows-10-iot-core/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+### Terminology used
 
-**&ast;** FedRAMP high certification covers Datacenter Infrastructure Services & Databox Pod and Disk Service which are the online software components supporting Data Box hardware appliance.
+- FedRAMP High = FedRAMP High P-ATO in Azure
+- DoD IL2 = DoD SRG Impact Level 2 PA in Azure
+- &#x2705; = service is included in audit scope and has been authorized
+- Planned 2021 = indicates the service will be assessed in 2021 for FedRAMP High - once the service is authorized, status will be updated
 
-**&ast;&ast;** FedRAMP High certification for Azure Databricks is applicable for limited regions in Azure Commercial. To configure Azure Databricks for FedRAMP High use, please reach out to your Microsoft or Databricks Representative.
+| Service | DoD IL 2 | FedRAMP High | Planned 2021 |
+| ------- |:--------:|:------------:|:------------:|
+| [AI Builder](/ai-builder/overview) | &#x2705; | &#x2705; | |
+| [API Management](https://azure.microsoft.com/services/api-management/) | &#x2705; | &#x2705; | |
+| [App Configuration](https://azure.microsoft.com/services/app-configuration/) | &#x2705; | &#x2705; | |
+| [Application Gateway](https://azure.microsoft.com/services/application-gateway/) | &#x2705; | &#x2705; | |
+| [Automation](https://azure.microsoft.com/services/automation/) | &#x2705; | &#x2705; | |
+| [Azure Active Directory (Free and Basic)](../../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) | &#x2705; | &#x2705; | |
+| [Azure Active Directory (Premium P1 + P2)](../../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) | &#x2705; | &#x2705; | |
+| [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) | &#x2705; | &#x2705; | |
+| [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) | &#x2705; | &#x2705; | |
+| [Azure Active Directory Provisioning Service](../../active-directory/app-provisioning/user-provisioning.md)| &#x2705; | &#x2705; | |
+| [Azure Advisor](https://azure.microsoft.com/services/advisor/) | &#x2705; | &#x2705; | |
+| [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | &#x2705; | &#x2705; | |
+| [Azure Arc-enabled Servers](../../azure-arc/servers/overview.md) | &#x2705; | &#x2705; | |
+| [Azure Archive Storage](https://azure.microsoft.com/services/storage/archive/) | &#x2705; | &#x2705; | |
+| [Azure Backup](https://azure.microsoft.com/services/backup/) | &#x2705; | &#x2705; | |
+| **Service** | **DoD IL 2** | **FedRAMP High** | **Planned 2021** |
+| [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) | &#x2705; | &#x2705; | |
+| [Azure Blueprints](https://azure.microsoft.com/services/blueprints/) | &#x2705; | &#x2705; | |
+| [Azure Bot Service](/azure/bot-service/) | &#x2705; | &#x2705; | |
+| [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) | &#x2705; | &#x2705; | |
+| [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) | &#x2705; | &#x2705; | |
+| [Azure Cognitive Search](https://azure.microsoft.com/services/search/) | &#x2705; | &#x2705; | |
+| [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) | &#x2705; | &#x2705; | |
+| [Azure Cost Management and Billing](https://azure.microsoft.com/services/cost-management/) | &#x2705; | &#x2705; | |
+| [Azure Data Box](https://azure.microsoft.com/services/databox/) **&ast;** | &#x2705; | &#x2705; | |
+| [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) | &#x2705; | &#x2705; | |
+| [Azure Data Share](https://azure.microsoft.com/services/data-share/) | &#x2705; | &#x2705; | |
+| [Azure Database for MariaDB](https://azure.microsoft.com/services/mariadb/) | &#x2705; | &#x2705; | |
+| [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) | &#x2705; | &#x2705; | |
+| **Service** | **DoD IL 2** | **FedRAMP High** | **Planned 2021** |
+| [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) | &#x2705; | &#x2705; | |
+| [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) | &#x2705; | &#x2705; | |
+| [Azure Databricks](https://azure.microsoft.com/services/databricks/) **&ast;&ast;** | &#x2705; | &#x2705; | |
+| [Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/) | &#x2705; | &#x2705; | |
+| [Azure Dedicated HSM](https://azure.microsoft.com/services/azure-dedicated-hsm/) | &#x2705; | &#x2705; | |
+| [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) | &#x2705; | &#x2705; | |
+| [Azure DNS](https://azure.microsoft.com/services/dns/) | &#x2705; | &#x2705; | |
+| [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) | &#x2705; | &#x2705; | |
+| [Azure File Sync](../../storage/file-sync/file-sync-introduction.md) | &#x2705; | &#x2705; | |
+| [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/)  | &#x2705; | &#x2705; | |
+| [Azure Firewall Manager](https://azure.microsoft.com/services/firewall-manager/)  | &#x2705; | &#x2705; | |
+| [Azure for Education](https://azure.microsoft.com/developer/students/) | &#x2705; | &#x2705; | |
+| [Azure Form Recognizer](https://azure.microsoft.com/services/form-recognizer/) | &#x2705; | &#x2705; | |
+| [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) | &#x2705; | &#x2705; | |
+| [Azure Functions](https://azure.microsoft.com/services/functions/) | &#x2705; | &#x2705; | |
+| **Service** | **DoD IL 2** | **FedRAMP High** | **Planned 2021** |
+| [Azure Health Bot](/healthbot/) | &#x2705; | &#x2705; | |
+| [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) | &#x2705; | &#x2705; | |
+| [Azure Healthcare APIs](https://azure.microsoft.com/services/healthcare-apis/) (formerly Azure API for FHIR) | &#x2705; | &#x2705; | |
+| [Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache/) | &#x2705; | &#x2705; | |
+| [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) | &#x2705; | &#x2705; | |
+| [Azure Internet Analyzer](https://azure.microsoft.com/services/internet-analyzer/) | &#x2705; | &#x2705; | |
+| [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) | | | &#x2705; |
+| [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) | &#x2705; | &#x2705; | |
+| [Azure IoT Security](https://azure.microsoft.com/overview/iot/security/) | &#x2705; | &#x2705; | |
+| [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) | &#x2705; | &#x2705; | |
+| [Azure Lab Services](https://azure.microsoft.com/services/lab-services/) | &#x2705; | &#x2705; | |
+| [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) | &#x2705; | &#x2705; | |
+| [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) | &#x2705; | &#x2705; | |
+| [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) | &#x2705; | &#x2705; | |
+| [Azure Managed Applications](https://azure.microsoft.com/services/managed-applications/) | &#x2705; | &#x2705; | |
+| **Service** | **DoD IL 2** | **FedRAMP High** | **Planned 2021** |
+| [Azure Marketplace portal](https://azuremarketplace.microsoft.com/) | &#x2705; | &#x2705; | |
+| [Azure Maps](https://azure.microsoft.com/services/azure-maps/) | &#x2705; | &#x2705; | |
+| [Azure Media Services](https://azure.microsoft.com/services/media-services/) | &#x2705; | &#x2705; | |
+| [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | &#x2705; | &#x2705; | |
+| [Azure Monitor](https://azure.microsoft.com/services/monitor/) (incl. [Application Insights](../../azure-monitor/app/app-insights-overview.md), [Log Analytics](../../azure-monitor/logs/data-platform-logs.md), and [Application Change Analysis](../../azure-monitor/app/change-analysis.md)) | &#x2705; | &#x2705; | |
+| [Azure Monitor Application Change Analysis](../../azure-monitor/app/change-analysis.md) | &#x2705; | &#x2705; | |
+| [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) | &#x2705; | &#x2705; | |
+| [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) | &#x2705; | &#x2705; | |
+| [Azure Peering Service](../../peering-service/about.md) | &#x2705; | &#x2705; | |
+| [Azure Policy](https://azure.microsoft.com/services/azure-policy/) | &#x2705; | &#x2705; | |
+| [Azure Policy Guest Configuration](../../governance/policy/concepts/guest-configuration.md) | &#x2705; | &#x2705; | |
+| [Azure Public IP](../../virtual-network/public-ip-addresses.md) | &#x2705; | &#x2705; | |
+| [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/) | &#x2705; | &#x2705; | |
+| [Azure Resource Graph](../../governance/resource-graph/overview.md) | &#x2705; | &#x2705; | |
+| [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) | &#x2705; | &#x2705; | |
+| **Service** | **DoD IL 2** | **FedRAMP High** | **Planned 2021** |
+| [Azure Scheduler](../../scheduler/scheduler-intro.md) | &#x2705; | &#x2705; | |
+| [Azure Security Center](https://azure.microsoft.com/services/security-center/) | &#x2705; | &#x2705; | |
+| [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | &#x2705; | &#x2705; | |
+| [Azure Service Health](https://azure.microsoft.com/features/service-health/) | &#x2705; | &#x2705; | |
+| [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | &#x2705; | &#x2705; | |
+| [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) (incl. [UEBA](../../sentinel/identify-threats-with-entity-behavior-analytics.md#what-is-user-and-entity-behavior-analytics-ueba)) | &#x2705; | &#x2705; | |
+| [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/) | &#x2705; | &#x2705; | |
+| [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) | &#x2705; | &#x2705; | |
+| [Azure Sphere](https://azure.microsoft.com/services/azure-sphere/) | &#x2705; | &#x2705; | |
+| [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) (incl. [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance/)) | &#x2705; | &#x2705; | |
+| [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) (formerly Data Box Edge) **&ast;** | &#x2705; | &#x2705; | |
+| [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) | &#x2705; | &#x2705; | |
+| [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) | &#x2705; | &#x2705; | |
+| [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) | &#x2705; | &#x2705; | |
+| [Azure Video Analyzer](https://azure.microsoft.com/products/video-analyzer/) | &#x2705; | &#x2705; | |
+| **Service** | **DoD IL 2** | **FedRAMP High** | **Planned 2021** |
+| [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) (formerly Windows Virtual Desktop) | &#x2705; | &#x2705; | |
+| [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware/) | | | &#x2705; |
+| [Azure Web Application Firewall)](https://azure.microsoft.com/services/web-application-firewall/) | &#x2705; | &#x2705; | |
+| [Batch](https://azure.microsoft.com/services/batch/) | &#x2705; | &#x2705; | |
+| [Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) | &#x2705; | &#x2705; | |
+| [Cognitive Services: Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) | &#x2705; | &#x2705; | |
+| [Cognitive Services: Content Moderator](https://azure.microsoft.com/services/cognitive-services/content-moderator/) | &#x2705; | &#x2705; | |
+| [Cognitive Services Containers](../../cognitive-services/cognitive-services-container-support.md) | &#x2705; | &#x2705; | |
+| [Cognitive Services: Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) | &#x2705; | &#x2705; | |
+| [Cognitive Services: Face API](https://azure.microsoft.com/services/cognitive-services/face/) | &#x2705; | &#x2705; | |
+| [Cognitive Services: Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) | &#x2705; | &#x2705; | |
+| [Cognitive Services: Personalizer](https://azure.microsoft.com/services/cognitive-services/personalizer/) | &#x2705; | &#x2705; | |
+| [Cognitive Services: QnA Maker](https://azure.microsoft.com/services/cognitive-services/qna-maker/) | &#x2705; | &#x2705; | |
+| [Cognitive Services: Speech](https://azure.microsoft.com/services/cognitive-services/speech-services/) | &#x2705; | &#x2705; | |
+| [Cognitive Services: Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) | &#x2705; | &#x2705; | |
+| **Service** | **DoD IL 2** | **FedRAMP High** | **Planned 2021** |
+| [Cognitive Services: Translator](https://azure.microsoft.com/services/cognitive-services/translator/) | &#x2705; | &#x2705; | |
+| [Container Instances](https://azure.microsoft.com/services/container-instances/) | &#x2705; | &#x2705; | |
+| [Container Registry](https://azure.microsoft.com/services/container-registry/) | &#x2705; | &#x2705; | |
+| [Content Delivery Network](https://azure.microsoft.com/services/cdn/) | &#x2705; | &#x2705; | |
+| [Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md) | &#x2705; | &#x2705; | |
+| [Data Factory](https://azure.microsoft.com/services/data-factory/) | &#x2705; | &#x2705; | |
+| [Data Integrator](/power-platform/admin/data-integrator) | &#x2705; | &#x2705; | |
+| [Dataverse](/powerapps/maker/common-data-service/data-platform-intro) (formerly Common Data Service) | &#x2705; | &#x2705; | |
+| [Dynamics 365 Chat (Omnichannel Engagement Hub)](/dynamics365/omnichannel/introduction-omnichannel) | &#x2705; | &#x2705; | |
+| [Dynamics 365 Commerce](https://dynamics.microsoft.com/commerce/overview/)| &#x2705; | &#x2705; | |
+| [Dynamics 365 Customer Service](https://dynamics.microsoft.com/customer-service/overview/)| &#x2705; | &#x2705; | |
+| [Dynamics 365 Field Service](https://dynamics.microsoft.com/field-service/overview/)| &#x2705; | &#x2705; | |
+| [Dynamics 365 Finance](https://dynamics.microsoft.com/finance/overview/)| &#x2705; | &#x2705; | |
+| [Dynamics 365 Guides](https://dynamics.microsoft.com/mixed-reality/guides/)| &#x2705; | &#x2705; | |
+| [Dynamics 365 Sales](https://dynamics.microsoft.com/sales/overview/) | | | &#x2705; |
+| **Service** | **DoD IL 2** | **FedRAMP High** | **Planned 2021** |
+| [Dynamics 365 Sales Professional](https://dynamics.microsoft.com/sales/professional/) | | | &#x2705; |
+| [Dynamics 365 Supply Chain Management](https://dynamics.microsoft.com/supply-chain-management/overview/)| &#x2705; | &#x2705; | |
+| [Event Grid](https://azure.microsoft.com/services/event-grid/) | &#x2705; | &#x2705; | |
+| [Event Hubs](https://azure.microsoft.com/services/event-hubs/) | &#x2705; | &#x2705; | |
+| [GitHub AE](https://docs.github.com/github-ae@latest/admin/overview/about-github-ae) | &#x2705; | &#x2705; | |
+| [GitHub Codespaces](https://visualstudio.microsoft.com/services/github-codespaces/) (formerly Visual Studio Codespaces) | &#x2705; | &#x2705; | |
+| [Import/Export](https://azure.microsoft.com/services/storage/import-export/) | &#x2705; | &#x2705; | |
+| [Key Vault](https://azure.microsoft.com/services/key-vault/) | &#x2705; | &#x2705; | |
+| [Load Balancer](https://azure.microsoft.com/services/load-balancer/) | &#x2705; | &#x2705; | |
+| [Microsoft 365 Defender](/microsoft-365/security/defender/) (formerly Microsoft Threat Protection) | &#x2705; | &#x2705; | |
+| [Microsoft Azure Attestation](https://azure.microsoft.com/services/azure-attestation/)| &#x2705; | &#x2705; | |
+| [Microsoft Azure Marketplace portal](https://azuremarketplace.microsoft.com/marketplace/)| &#x2705; | &#x2705; | |
+| [Microsoft Azure portal](https://azure.microsoft.com/features/azure-portal/)| &#x2705; | &#x2705; | |
+| [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) | &#x2705; | &#x2705; | |
+| [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) (formerly Microsoft Defender Advanced Threat Protection) | &#x2705; | &#x2705; | |
+| **Service** | **DoD IL 2** | **FedRAMP High** | **Planned 2021** |
+| [Microsoft Defender for Identity](/defender-for-identity/what-is) (formerly Azure Advanced Threat Protection) | &#x2705; | &#x2705; | |
+| [Microsoft Graph](/graph/overview) | &#x2705; | &#x2705; | |
+| [Microsoft Intune](/mem/intune/fundamentals/) | &#x2705; | &#x2705; | |
+| [Microsoft Stream](/stream/overview) | &#x2705; | &#x2705; | |
+| [Microsoft Threat Experts](/microsoft-365/security/defender-endpoint/microsoft-threat-experts) | &#x2705; | &#x2705; | |
+| [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; | |
+| [Network Watcher](https://azure.microsoft.com/services/network-watcher/) | &#x2705; | &#x2705; | |
+| [Network Watcher Traffic Analytics](../../network-watcher/traffic-analytics.md) | &#x2705; | &#x2705; | |
+| [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) | &#x2705; | &#x2705; | |
+| [Power Apps](/powerapps/powerapps-overview) | &#x2705; | &#x2705; | |
+| [Power Apps Portal](https://powerapps.microsoft.com/portals/) | &#x2705; | &#x2705; | |
+| [Power Automate](/power-automate/getting-started) (formerly Microsoft Flow) | &#x2705; | &#x2705; | |
+| [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/) | &#x2705; | &#x2705; | |
+| [Power Virtual Agents](/power-virtual-agents/fundamentals-what-is-power-virtual-agents) | &#x2705; | &#x2705; | |
+| [Private Link](https://azure.microsoft.com/services/private-link/) | &#x2705; | &#x2705; | |
+| **Service** | **DoD IL 2** | **FedRAMP High** | **Planned 2021** |
+| [Service Bus](https://azure.microsoft.com/services/service-bus/) | &#x2705; | &#x2705; | |
+| [SQL Server Registry](/sql/sql-server/end-of-support/sql-server-extended-security-updates) | &#x2705; | &#x2705; | |
+| [SQL Server Stretch Database](https://azure.microsoft.com/services/sql-server-stretch-database/) | &#x2705; | &#x2705; | |
+| [Storage: Blobs](https://azure.microsoft.com/services/storage/blobs/) (incl. [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)) | &#x2705; | &#x2705; | |
+| [Storage: Data Movement)](../../storage/common/storage-use-data-movement-library.md) | &#x2705; | &#x2705; | |
+| [Storage: Disks (incl. Managed Disks)](https://azure.microsoft.com/services/storage/disks/) | &#x2705; | &#x2705; | |
+| [Storage: Files](https://azure.microsoft.com/services/storage/files/) | &#x2705; | &#x2705; | |
+| [Storage: Queues](https://azure.microsoft.com/services/storage/queues/) | &#x2705; | &#x2705; | |
+| [Storage: Tables](https://azure.microsoft.com/services/storage/tables/) | &#x2705; | &#x2705; | |
+| [StorSimple](https://azure.microsoft.com/services/storsimple/) | &#x2705; | &#x2705; | |
+| [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) | &#x2705; | &#x2705; | |
+| [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) | &#x2705; | &#x2705; | |
+| [Virtual Machines (incl. Reserved Instances)](https://azure.microsoft.com/services/virtual-machines/) | &#x2705; | &#x2705; | |
+| [Virtual Network](https://azure.microsoft.com/services/virtual-network/) | &#x2705; | &#x2705; | |
+| [Virtual Network NAT](../../virtual-network/nat-gateway/nat-overview.md) | &#x2705; | &#x2705; | |
+| [Virtual WAN](https://azure.microsoft.com/services/virtual-wan/) | &#x2705; | &#x2705; | |
+| [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/) | &#x2705; | &#x2705; | |
+| [Web Apps (App Service)](https://azure.microsoft.com/services/app-service/web/) | &#x2705; | &#x2705; | |
+| [Windows 10 IoT Core Services](https://azure.microsoft.com/services/windows-10-iot-core/) | &#x2705; | &#x2705; | |
+
+**&ast;** FedRAMP High authorization for edge devices applies to Azure services that support on-premises, customer-managed devices. For example, FedRAMP High authorization for Azure Data Box covers datacenter infrastructure services and Databox pod and disk service, which are the online software components supporting Data Box hardware appliance. You are wholly responsible for the authorization package that covers the physical devices. For assistance with accelerating your onboarding and authorization of devices, contact your Microsoft account representative.
+
+**&ast;&ast;** FedRAMP High authorization for Azure Databricks is applicable to limited regions in Azure. To configure Azure Databricks for FedRAMP High use, contact your Microsoft or Databricks representative.
 
 ## Azure Government services by audit scope
-| _Last Updated: July 2021_ |
+*Last Updated: August 2021*
 
-| Azure Service | DoD CC SRG IL 2 | DoD CC SRG IL 4 | DoD CC SRG IL 5 (Azure Gov)**&ast;** | DoD CC SRG IL 5 (Azure DoD) **&ast;&ast;** | FedRAMP High | DoD CC SRG IL 6 
-| ------------- |:---------------:|:---------------:|:---------------:|:------------:|:------------:|:------------:
-| [API Management](https://azure.microsoft.com/services/api-management/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Application Gateway](https://azure.microsoft.com/services/application-gateway/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 
-| [Automation](https://azure.microsoft.com/services/automation/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Azure Active Directory (Free and Basic)](https://azure.microsoft.com/services/active-directory/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 
-| [Azure Active Directory (Premium P1 + P2)](https://azure.microsoft.com/services/active-directory/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 
-| [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Microsoft Defender for Identity](https://azure.microsoft.com/features/azure-advanced-threat-protection/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Azure Advisor](https://azure.microsoft.com/services/advisor/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure API for FHIR](https://azure.microsoft.com/services/azure-api-for-fhir/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Azure App Configuration](https://azure.microsoft.com/services/app-configuration/)  | :heavy_check_mark: |  |  |  | :heavy_check_mark: |
-| [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Azure Blueprints](https://azure.microsoft.com/services/blueprints/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Azure Bot Service](/azure/bot-service/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Azure Archive Storage](https://azure.microsoft.com/services/storage/archive/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Container Registry](https://azure.microsoft.com/services/container-registry/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: 
-| [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: |
-| [Azure Cost Management](https://azure.microsoft.com/services/cost-management/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Azure Cognitive Search](https://azure.microsoft.com/services/search/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Azure Stack Edge (Data Box Edge)](https://azure.microsoft.com/services/databox/edge/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Azure Data Box](https://azure.microsoft.com/services/databox/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |  :heavy_check_mark: |
-| [Azure Data Share](https://azure.microsoft.com/services/data-share/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Azure Databricks](https://azure.microsoft.com/services/databricks/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Azure DB for MySQL](https://azure.microsoft.com/services/mysql/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure DB for PostgreSQL](https://azure.microsoft.com/services/postgresql/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure DB for MariaDB](https://azure.microsoft.com/services/mariadb/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Azure Dedicated HSM](https://azure.microsoft.com/services/azure-dedicated-hsm/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Azure DNS](https://azure.microsoft.com/services/dns/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure File Sync](https://azure.microsoft.com/services/storage/files/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Microsoft Intune](/intune/what-is-intune) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Azure IoT Security](https://azure.microsoft.com/overview/iot/security/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Azure Lab Services](https://azure.microsoft.com/services/lab-services/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Managed Applications](https://azure.microsoft.com/services/managed-applications/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 
-| [Azure Maps](https://azure.microsoft.com/services/azure-maps/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Azure Monitor](https://azure.microsoft.com/services/monitor/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Azure Policy](https://azure.microsoft.com/services/azure-policy/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Azure Private Link](https://azure.microsoft.com/services/private-link/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Azure Public IP](../../virtual-network/public-ip-addresses.md) | :heavy_check_mark: |  |  |  | :heavy_check_mark: |
-| [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Resource Graph](../../governance/resource-graph/overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Azure Security Center](https://azure.microsoft.com/services/security-center/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Azure Service Health](https://azure.microsoft.com/features/service-health/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Stack Hub](/azure-stack/operator/azure-stack-overview)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Backup](https://azure.microsoft.com/services/backup/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Batch](https://azure.microsoft.com/services/batch/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Cloud Services](https://azure.microsoft.com/services/cloud-services/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Cognitive Services: Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Cognitive Services: Content Moderator](https://azure.microsoft.com/services/cognitive-services/content-moderator/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Cognitive Services: Face](https://azure.microsoft.com/services/cognitive-services/face/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Cognitive Services: Form Recognizer](https://azure.microsoft.com/services/cognitive-services/form-recognizer/)  | :heavy_check_mark: |  |  |  | :heavy_check_mark: |
-| [Cognitive Services: Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Cognitive Services: Speech Services](https://azure.microsoft.com/services/cognitive-services/directory/speech/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Cognitive Services: Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Cognitive Services: Translator](https://azure.microsoft.com/services/cognitive-services/translator/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Cognitive Services: Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Cognitive Services Personalizer](https://azure.microsoft.com/services/cognitive-services/personalizer/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Cognitive Services: QnA Maker](https://azure.microsoft.com/services/cognitive-services/qna-maker/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Container Instances](https://azure.microsoft.com/services/container-instances/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Content Delivery Network](https://azure.microsoft.com/services/cdn/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Data Integrator](/power-platform/admin/data-integrator) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Dynamics 365 Chat (Dynamics 365 Service Omni-Channel Engagement Hub)](/dynamics365/omnichannel/introduction-omnichannel) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Dynamics 365 Customer Voice](/forms-pro/get-started) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Dynamics 365 Customer Insights](/dynamics365/ai/customer-insights/overview)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Dataverse (Common Data Service)](/dynamics365/customerengagement/on-premises/overview)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Dynamics 365 Customer Service](/dynamics365/customer-service/overview)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Dynamics 365 Field Service](/dynamics365/field-service/overview)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Dynamics 365 Project Service Automation](/dynamics365/project-service/overview)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Dynamics 365 Sales](/dynamics365/sales-enterprise/overview)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Event Hubs](https://azure.microsoft.com/services/event-hubs/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake) | :heavy_check_mark: |  |  |  | :heavy_check_mark: |
-| [ExpressRoute](https://azure.microsoft.com/services/expressroute/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Power Automate](/flow/getting-started) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 
-| [Functions](https://azure.microsoft.com/services/functions/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [GitHub AE](https://docs.github.com/en/github-ae@latest/admin/overview/about-github-ae)  | :heavy_check_mark: |  |  |  | :heavy_check_mark: |
-| [Guest Configuration](../../governance/policy/concepts/guest-configuration.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |  
-| [HDInsight](https://azure.microsoft.com/services/hdinsight/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Import / Export](https://azure.microsoft.com/services/storage/import-export/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [IoT Hub](https://azure.microsoft.com/services/iot-hub/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Key Vault](https://azure.microsoft.com/services/key-vault/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Load Balancer](https://azure.microsoft.com/services/load-balancer/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Log Analytics](../../azure-monitor/logs/data-platform-logs.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Logic Apps](https://azure.microsoft.com/services/logic-apps/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Machine Learning Services](https://azure.microsoft.com/services/machine-learning-service/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Media Services](https://azure.microsoft.com/services/media-services/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Microsoft Azure Peering Service](../../peering-service/about.md)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Microsoft Azure portal](https://azure.microsoft.com/features/azure-portal/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Microsoft Defender for Endpoint](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 
-| [Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide)  | :heavy_check_mark: |  |  |  | :heavy_check_mark: |
-| [Microsoft Graph](/graph/overview) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Power Apps](/powerapps/powerapps-overview) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 
-| [Power Apps Portal](https://powerapps.microsoft.com/portals/)  | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: | 
-| [Microsoft Stream](/stream/overview) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Network Watcher](https://azure.microsoft.com/services/network-watcher/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Network Watcher(Traffic Analytics)](../../network-watcher/traffic-analytics.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Planned Maintenance](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-portal)  | :heavy_check_mark: |  |  |  | :heavy_check_mark: |
-| [Power BI](https://powerbi.microsoft.com/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Power Virtual Agents](/power-virtual-agents/fundamentals-what-is-power-virtual-agents)  | :heavy_check_mark: |  |  |  | :heavy_check_mark: |
-| [Redis Cache](https://azure.microsoft.com/services/cache/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Scheduler](../../scheduler/scheduler-intro.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Service Bus](https://azure.microsoft.com/services/service-bus/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Service Fabric](https://azure.microsoft.com/services/service-fabric/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Synapse Analytics](https://azure.microsoft.com/services/sql-data-warehouse/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [SQL Database](https://azure.microsoft.com/services/sql-database/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [SQL Server Stretch Database](https://azure.microsoft.com/services/sql-server-stretch-database/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Storage: Blobs (Incl. Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Storage: Disks (incl. Managed Disks)](https://azure.microsoft.com/services/storage/disks/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Storage: Files](https://azure.microsoft.com/services/storage/files/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Storage: Queues](https://azure.microsoft.com/services/storage/queues/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Storage: Tables](https://azure.microsoft.com/services/storage/tables/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [StorSimple](https://azure.microsoft.com/services/storsimple/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Network](https://azure.microsoft.com/services/virtual-network/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Network NAT](../../virtual-network/nat-gateway/nat-overview.md)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Virtual WAN](https://azure.microsoft.com/services/virtual-wan/) | :heavy_check_mark: |  |  |  | :heavy_check_mark: | :heavy_check_mark: 
-| [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Web Apps (App Service)](https://azure.microsoft.com/services/app-service/web/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Web Application Firewall)](https://azure.microsoft.com/services/web-application-firewall/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
+### Terminology used
 
+- FR High = FedRAMP High P-ATO in Azure Government
+- DoD IL2 = DoD SRG Impact Level 2 PA in Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia
+- DoD IL4 = DoD SRG Impact Level 4 PA in Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia
+- DoD IL5 = DoD SRG Impact Level 5 PA in Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia
+- DoD IL6 = DoD SRG Impact Level 6 PA in Azure Government Secret
+- ICD 503 = Intelligence Community Directive 503 PA in Azure Government Secret
+- &#x2705; = service is included in audit scope and has been authorized
 
-**&ast;** DoD CC SRG IL5 (Azure Gov) column shows DoD CC SRG IL5 certification status of services in Azure Government. For details, please refer to [Azure Government Isolation Guidelines for Impact Level 5](../documentation-government-impact-level-5.md)
+> [!NOTE]
+>
+> - Some services deployed in Azure Government regions (US Gov Arizona, US Gov Texas, and US Gov Virginia) require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in **[Isolation guidelines for Impact Level 5 workloads](../documentation-government-impact-level-5.md).**
+> - For DoD IL5 PA compliance scope in Azure Government DoD regions (US DoD Central and US DoD East), see **[Azure Government DoD regions IL5 audit scope](../documentation-government-overview-dod.md#azure-government-dod-regions-il5-audit-scope).**
 
-**&ast;&ast;** DoD CC SRG IL5 (Azure DoD) column shows DoD CC SRG IL5 certification status for services in Azure Government DoD regions.
+| Service | FR High / DoD IL2 | DoD IL4 | DoD IL5 | DoD IL6 | ICD 503 |
+| ------- |:-----------------:|:-------:|:-------:|:-------:|:-------:|
+| [API Management](https://azure.microsoft.com/services/api-management/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [App Configuration](https://azure.microsoft.com/services/app-configuration/) | &#x2705; | | | | |
+| [Application Gateway](https://azure.microsoft.com/services/application-gateway/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Automation](https://azure.microsoft.com/services/automation/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Active Directory (Free and Basic)](../../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure Active Directory (Premium P1 + P2)](../../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Advisor](https://azure.microsoft.com/services/advisor/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Archive Storage](https://azure.microsoft.com/services/storage/archive/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Backup](https://azure.microsoft.com/services/backup/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Blueprints](https://azure.microsoft.com/services/blueprints/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Bot Service](/azure/bot-service/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| **Service** | **FR High / DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** | **ICD 503** |
+| [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure Cognitive Search](https://azure.microsoft.com/services/search/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure Cost Management and Billing](https://azure.microsoft.com/services/cost-management/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Data Box](https://azure.microsoft.com/services/databox/) **&ast;** | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure Data Share](https://azure.microsoft.com/services/data-share/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Database for MariaDB](https://azure.microsoft.com/services/mariadb/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Dedicated HSM](https://azure.microsoft.com/services/azure-dedicated-hsm/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) | &#x2705; | &#x2705; | &#x2705; | | |
+| **Service** | **FR High / DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** | **ICD 503** |
+| [Azure DNS](https://azure.microsoft.com/services/dns/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure File Sync](../../storage/file-sync/file-sync-introduction.md) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Form Recognizer](https://azure.microsoft.com/services/form-recognizer/) | &#x2705; | | | | |
+| [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Functions](https://azure.microsoft.com/services/functions/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Healthcare APIs](https://azure.microsoft.com/services/healthcare-apis/) (formerly Azure API for FHIR) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure IoT Security](https://azure.microsoft.com/overview/iot/security/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Lab Services](https://azure.microsoft.com/services/lab-services/) | &#x2705; | &#x2705; | &#x2705; | | |
+| **Service** | **FR High / DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** | **ICD 503** |
+| [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/)| &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Managed Applications](https://azure.microsoft.com/services/managed-applications/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Maps](https://azure.microsoft.com/services/azure-maps/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Media Services](https://azure.microsoft.com/services/media-services/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Monitor](https://azure.microsoft.com/services/monitor/) (incl. [Log Analytics](../../azure-monitor/logs/data-platform-logs.md)) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Peering Service](../../peering-service/about.md) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Policy](https://azure.microsoft.com/services/azure-policy/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Policy Guest Configuration](../../governance/policy/concepts/guest-configuration.md) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Public IP](../../virtual-network/public-ip-addresses.md) | &#x2705; | | | | |
+| [Azure Resource Graph](../../governance/resource-graph/overview.md) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| **Service** | **FR High / DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** | **ICD 503** |
+| [Azure Scheduler](../../scheduler/scheduler-intro.md) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Security Center](https://azure.microsoft.com/services/security-center/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure Service Health](https://azure.microsoft.com/features/service-health/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) (incl. [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance/)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure Stack Bridge](/azure-stack/operator/azure-stack-usage-reporting) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) (formerly Data Box Edge) **&ast;** | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake) | &#x2705; | | | | |
+| [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) (formerly Windows Virtual Desktop) | &#x2705; | &#x2705; | &#x2705; | | |
+| **Service** | **FR High / DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** | **ICD 503** |
+| [Azure Web Application Firewall)](https://azure.microsoft.com/services/web-application-firewall/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Batch](https://azure.microsoft.com/services/batch/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Cognitive Services: Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Cognitive Services: Content Moderator](https://azure.microsoft.com/services/cognitive-services/content-moderator/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Cognitive Services: Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Cognitive Services: Face API](https://azure.microsoft.com/services/cognitive-services/face/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Cognitive Services: Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Cognitive Services: Personalizer](https://azure.microsoft.com/services/cognitive-services/personalizer/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Cognitive Services: QnA Maker](https://azure.microsoft.com/services/cognitive-services/qna-maker/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Cognitive Services: Speech](https://azure.microsoft.com/services/cognitive-services/speech-services/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Cognitive Services: Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Cognitive Services: Translator](https://azure.microsoft.com/services/cognitive-services/translator/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Container Instances](https://azure.microsoft.com/services/container-instances/)| &#x2705; | &#x2705; | &#x2705; | | |
+| [Container Registry](https://azure.microsoft.com/services/container-registry/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| **Service** | **FR High / DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** | **ICD 503** |
+| [Content Delivery Network](https://azure.microsoft.com/services/cdn/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Data Factory](https://azure.microsoft.com/services/data-factory/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Data Integrator](/power-platform/admin/data-integrator) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Dataverse](/powerapps/maker/common-data-service/data-platform-intro) (formerly Common Data Service) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Dynamics 365 Chat (Omnichannel Engagement Hub)](/dynamics365/omnichannel/introduction-omnichannel) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Dynamics 365 Customer Insights](/dynamics365/customer-insights/audience-insights/overview) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Dynamics 365 Customer Voice](/dynamics365/customer-voice/about) (formerly Forms Pro) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Dynamics 365 Customer Service](/dynamics365/customer-service/overview) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Dynamics 365 Field Service](/dynamics365/field-service/overview) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Dynamics 365 Project Service Automation](/dynamics365/project-operations/psa/overview) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Dynamics 365 Sales](https://dynamics.microsoft.com/sales/overview/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Event Grid](https://azure.microsoft.com/services/event-grid/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Event Hubs](https://azure.microsoft.com/services/event-hubs/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [GitHub AE](https://docs.github.com/en/github-ae@latest/admin/overview/about-github-ae) | &#x2705; | | | | |
+| **Service** | **FR High / DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** | **ICD 503** |
+| [Import/Export](https://azure.microsoft.com/services/storage/import-export/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Key Vault](https://azure.microsoft.com/services/key-vault/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Load Balancer](https://azure.microsoft.com/services/load-balancer/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Microsoft 365 Defender](/microsoft-365/security/defender/) (formerly Microsoft Threat Protection) | &#x2705; | | | | |
+| [Microsoft Azure portal](https://azure.microsoft.com/features/azure-portal/) | &#x2705; | &#x2705; | &#x2705;| &#x2705; | &#x2705; |
+| [Microsoft Azure Government portal](../azure-government/documentation-government-get-started-connect-with-portal.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; | &#x2705; |
+| [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)| &#x2705; | &#x2705; | &#x2705; | | |
+| [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) (formerly Microsoft Defender Advanced Threat Protection) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Microsoft Defender for Identity](/defender-for-identity/what-is) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Microsoft Graph](/graph/overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Microsoft Intune](/mem/intune/fundamentals/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Microsoft Stream](/stream/overview) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Network Watcher](https://azure.microsoft.com/services/network-watcher/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Network Watcher Traffic Analytics](../../network-watcher/traffic-analytics.md) | &#x2705; | &#x2705; | &#x2705; | | |
+| **Service** | **FR High / DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** | **ICD 503** |
+| [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Planned Maintenance for VMs](../../virtual-machines/maintenance-control-portal.md) | &#x2705; | | | | |
+| [Power Apps](/powerapps/powerapps-overview) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Power Automate](/power-automate/getting-started) (formerly Microsoft Flow) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Power BI](https://powerbi.microsoft.com/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Power Query Online](/powerquery.microsoft.com/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Power Virtual Agents](/power-virtual-agents/fundamentals-what-is-power-virtual-agents) | &#x2705; | | | | |
+| [Private Link](https://azure.microsoft.com/services/private-link/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Service Bus](https://azure.microsoft.com/services/service-bus/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [SQL Server Stretch Database](https://azure.microsoft.com/services/sql-server-stretch-database/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Storage: Blobs](https://azure.microsoft.com/services/storage/blobs/) (incl. [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Storage: Disks (incl. Managed Disks)](https://azure.microsoft.com/services/storage/disks/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Storage: Files](https://azure.microsoft.com/services/storage/files/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Storage: Queues](https://azure.microsoft.com/services/storage/queues/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| **Service** | **FR High / DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** | **ICD 503** |
+| [Storage: Tables](https://azure.microsoft.com/services/storage/tables/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [StorSimple](https://azure.microsoft.com/services/storsimple/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Virtual Network](https://azure.microsoft.com/services/virtual-network/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Virtual Network NAT](../../virtual-network/nat-gateway/nat-overview.md) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Virtual WAN](https://azure.microsoft.com/services/virtual-wan/) | &#x2705; | | | &#x2705; | &#x2705; |
+| [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Web Apps (App Service)](https://azure.microsoft.com/services/app-service/web/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+
+**&ast;** Authorizations for edge devices apply to Azure services that support on-premises, customer-managed devices. You are wholly responsible for the authorization package that covers the physical devices. For assistance with accelerating your onboarding and authorization of devices, contact your Microsoft account representative.
