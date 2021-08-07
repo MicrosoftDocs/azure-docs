@@ -6,7 +6,7 @@ ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
 ms.custom: subject-monitoring
-ms.date: 08/10/2021
+ms.date: 08/18/2021
 ms.author: v-hborys
 
 ---
@@ -123,7 +123,7 @@ Azure Monitor for SAP Solutions does not support metrics. See the following sect
 
 Azure Monitor for SAP Solutions doesn't support resource logs. It does, however, support the activity log. The [Activity log](/azure/azure-monitor/platform/activity-log) is a type of platform log within Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics. 
 
-For a list of the tables used by Azure Monitor Logs that can be queried by Log Analytics, see [Monitoring SAP on Azure data reference](monitor-service-reference.md##azure-monitor-logs-tables). 
+For a list of the tables used by Azure Monitor Logs that can be queried by Log Analytics, see [Monitor SAP on Azure data reference](monitor-sap-on-azure-reference.md##azure-monitor-logs-tables). 
 
 ### Sample Kusto queries
 
@@ -158,5 +158,5 @@ Azure Monitor for SAP Solutions is a free product (no license fee). You're respo
 
 Learn more about:
 
-- [Azure monitor for SAP solutions providers](azure-monitor-providers.md)
-- [Monitoring SAP on Azure data reference](monitor-service-reference.md)
+- [Azure monitor for SAP Solutions providers](azure-monitor-providers.md)
+- [Monitor SAP on Azure data reference](monitor-sap-on-azure-reference.md)
