@@ -1,16 +1,19 @@
 ---
-title: Use patient-everything in Azure API for FHIR
-description: This article explains how to use the patient-everything operation in the Azure API for FHIR
+title: Patient-everything
+description: This article explains how to use the patient-everything operation
 services: healthcare-apis
 author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 08/03/2021
 ms.author: cavoeg
 ---
 
-# Patient-everything in FHIR
+# Using $patient-everything in FHIR service
+
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 The [$patient-everything](https://www.hl7.org/fhir/patient-operation-everything.html) operation is used to provide a patient with access to their entire record or for a provider or other user to perform a bulk data download. This operation is used to return all the information related to one or more patients described in the resource or context on which this operation is invoked.  
 
@@ -20,19 +23,15 @@ To call patient-everything, use the following command:
 ```json
 GET {FHIRURL}/Patient/{ID}/$everything
 ```
-The Azure API for FHIR validates that it can find the patient matching the provided patient ID. If a result is found, the response will be a bundle of type “searchset” with the following information: 
+The FHIR service in the Azure Healthcare APIs (hear by called the FHIR service) validates that it can find the patient matching the provided patient ID. If a result is found, the response will be a bundle of type “searchset” with the following information: 
 * [Patient resource](https://www.hl7.org/fhir/patient.html) 
-*  Resources that are directly referenced by the Patient resource (except link) 
-*  Resources in the [Patient Compartment](https://www.hl7.org/fhir/compartmentdefinition-patient.html)
-*  [Device resources](https://www.hl7.org/fhir/device.html) that reference the Patient resource. This is limited to 100 devices. If the patient has more than 100 devices linked to them, only 100 will be returned. 
-
- 
-> [!Note]
-> The capability statement for the FHIR Server is missing support for $patient-everything, which is tracked here: Issue [1989](https://github.com/microsoft/fhir-server/issues/1989). 
+* Resources that are directly referenced by the Patient resource (except link) 
+* Resources in the [Patient Compartment](https://www.hl7.org/fhir/compartmentdefinition-patient.html)
+* [Device resources](https://www.hl7.org/fhir/device.html) that reference the Patient resource. This is limited to 100 devices. If the patient has more than 100 devices linked to them, only 100 will be returned. 
 
 
 ## Patient-everything parameters
-The Azure API for FHIR supports the following query parameters. All of these parameters are optional:
+The FHIR service supports the following query parameters. All of these parameters are optional:
 
 |Query parameter        |  Description|
 |-----------------------|------------|
@@ -42,7 +41,7 @@ The Azure API for FHIR supports the following query parameters. All of these par
 | end | Specifying the end date will pull in resources where their clinical date is before the specified end date. If no end date is provided, all records after the start date are in scope. |
 
 > [!Note]
-> You must specify an ID for a specific patient. If you need all data for all patients, see [$export](export-data.md). 
+> You must specify an ID for a specific patient. If you need all data for all patients, see [$export](../data-transformation/export-data.md). 
 
 
 ## Examples of $patient-everything 
@@ -66,7 +65,7 @@ To use $patient-everything to query a patient’s “everything” since 2021-05
 GET {FHIRURL}/Patient/{ID}/$everything?_since=2021-05-27T05:00:00Z 
 ```
 
-If a Patient is found for each of these calls, you'll get back a 200 response with a Bundle of the corresponding resources.
+If a patient is found for each of these calls, you'll get back a 200 response with a `Bundle` of the corresponding resources.
 
 ## Next step
 Now that you know how to use the patient-everything operation, you can learn about more search options on the overview of search guide.

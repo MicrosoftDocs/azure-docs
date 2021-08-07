@@ -1,11 +1,11 @@
 ---
 title: How to prepare an application for deployment in Azure Spring Cloud
 description: Learn how to prepare an application for deployment to Azure Spring Cloud.
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 09/08/2020
-ms.author: brendm
+ms.date: 07/06/2021
+ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ---
@@ -143,10 +143,11 @@ Spring Boot version | Spring Cloud version
 ---|---
 2.2 | Hoxton.SR8+
 2.3 | Hoxton.SR8+
-2.4.1+ | 2020.0.0
+2.4.1+ | 2020.0.2+
 
 > [!NOTE]
-> We've identified an issue with Spring Boot 2.4.0 on TLS authentication between your apps and Eureka, please use 2.4.1 or above. Please refer to our [FAQ](./faq.md?pivots=programming-language-java#development) for the workaround if you insist on using 2.4.0.
+> - Please upgrade Spring Boot to 2.5.2 or 2.4.8 to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you are using Spring Security, please upgrade it to 5.5.1, 5.4.7, 5.3.10 or 5.2.11. 
+> - An issue was identified with Spring Boot 2.4.0 on TLS authentication between apps and Spring Cloud Service Registry, please use 2.4.1 or above. Please refer to [FAQ](./faq.md?pivots=programming-language-java#development) for the workaround if you insist on using 2.4.0.
 
 ### Dependencies for Spring Boot version 2.2/2.3
 
@@ -183,7 +184,7 @@ For Spring Boot version 2.2 add the following dependencies to the application PO
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.1.RELEASE</version>
+        <version>2.4.8</version>
     </parent>
 
     <!-- Spring Cloud dependencies -->
@@ -192,7 +193,7 @@ For Spring Boot version 2.2 add the following dependencies to the application PO
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>2020.0.0</version>
+                <version>2020.0.2</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -255,6 +256,10 @@ To enable Distributed Configuration, include the following `spring-cloud-config-
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-config-client</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-bootstrap</artifactId>
 </dependency>
 ```
 

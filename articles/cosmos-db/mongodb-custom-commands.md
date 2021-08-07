@@ -1,12 +1,12 @@
 ---
 title: MongoDB extension commands to manage data in Azure Cosmos DB’s API for MongoDB 
 description: This article describes how to use MongoDB extension commands to manage data stored in Azure Cosmos DB’s API for MongoDB.  
-author: christopheranderson
+author: gahl-levy
+ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 03/02/2021
-ms.author: chrande
+ms.date: 07/30/2021
 ms.custom: devx-track-js
 ---
 
@@ -203,7 +203,7 @@ The create collection extension command creates a new MongoDB collection. The da
   shardKey: "<Shard key path>",
   // Replace the line below with "autoScaleSettings: { maxThroughput: (int) }" to use Autoscale instead of Provisioned Throughput. Fill the required Autoscale max throughput setting.
   offerThroughput: (int) // Provisioned Throughput enabled with required throughput amount set.
-  indexes: [{key: {_id: 1}}, ... ] // Optional indexes (3.6+ accounts only).
+  indexes: [{key: {_id: 1}, name: "_id_1"}, ... ] // Optional indexes (3.6+ accounts only).
 }
 ```
 
@@ -216,7 +216,7 @@ The following table describes the parameters within the command:
 | `offerThroughput` | `int` | Optional | Provisioned throughput to set on the database. If this parameter is not provided, it will default to the minimum, 400 RU/s. * To specify throughput beyond 10,000 RU/s, the `shardKey` parameter is required.|
 | `shardKey` | `string` | Required for collections with large throughput | The path to the Shard Key for the sharded collection. This parameter is required if you set more than 10,000 RU/s in `offerThroughput`.  If it is specified, all documents inserted will require this key and value. |
 | `autoScaleSettings` | `Object` | Required for [Autoscale mode](provision-throughput-autoscale.md) | This object contains the settings associated with the Autoscale capacity mode. You can set up the `maxThroughput` value, which describes the highest amount of Request Units that the collection will be increased to dynamically. |
-| `indexes` | `Array` | Optionally configure indexes. This parameter is supported for 3.6+ accounts only. | When present, an index on _id is required. Each entry in the array must include a key of one or more fields, and may contain index options. For example, to create a compound unique index on the fields a and b use this entry: `{key: {a: 1, b: 1}, unique: true}`.
+| `indexes` | `Array` | Optionally configure indexes. This parameter is supported for 3.6+ accounts only. | When present, an index on _id is required. Each entry in the array must include a key of one or more fields, a name, and may contain index options. For example, to create a compound unique index on the fields a and b use this entry: `{key: {a: 1, b: 1}, name:"a_1_b_1", unique: true}`.
 
 ### Output
 
@@ -297,7 +297,7 @@ The update collection extension command updates the properties associated with t
   collection: "<Name of the collection that you want to update>",
   // Replace the line below with "autoScaleSettings: { maxThroughput: (int) }" if using Autoscale instead of Provisioned Throughput. Fill the required Autoscale max throughput setting. Changing between Autoscale and Provisioned throughput is only supported in the Azure Portal.
   offerThroughput: (int) // Provisioned Throughput enabled with required throughput amount set.
-  indexes: [{key: {_id: 1}}, ... ] // Optional indexes (3.6+ accounts only).
+  indexes: [{key: {_id: 1}, name: "_id_1"}, ... ] // Optional indexes (3.6+ accounts only).
 }
 ```
 
@@ -309,7 +309,7 @@ The following table describes the parameters within the command:
 |  `collection`   |   `string`      |  	Name of the collection.       |
 | `offerThroughput`	| `int` |	Provisioned throughput to set on the collection.|
 | `autoScaleSettings` | `Object` | Required for [Autoscale mode](provision-throughput-autoscale.md). This object contains the settings associated with the Autoscale capacity mode. The `maxThroughput` value describes the highest amount of Request Units that the collection will be increased to dynamically. |
-| `indexes` | `Array` | Optionally configure indexes. This parameter is supported for 3.6+ accounts only. When present, the existing indexes of the collection are replaced by the set of indexes specified (including dropping indexes). An index on _id is required. Each entry in the array must include a key of one or more fields, and may contain index options. For example, to create a compound unique index on the fields a and b use this entry: `{key: {a: 1, b: 1}, unique: true}`.
+| `indexes` | `Array` | Optionally configure indexes. This parameter is supported for 3.6+ accounts only. When present, the existing indexes of the collection are replaced by the set of indexes specified (including dropping indexes). An index on _id is required. Each entry in the array must include a key of one or more fields, a name, and may contain index options. For example, to create a compound unique index on the fields a and b use this entry: `{key: {a: 1, b: 1}, name: "a_1_b_1", unique: true}`.
 
 ## Output
 
@@ -413,6 +413,44 @@ If the collection is sharing [database-level throughput](set-throughput.md#set-t
         "ok" : 1
 }
 ```
+
+## <a id="parallel-change-stream"></a> Parallelizing change streams 
+When using [change streams](../cosmos-db/mongodb-change-streams.md) at scale, it is best to evenly spread the load. The following command will return one or more change stream resume tokens - each one corresponding to data from a single physical shard/partition (multiple logical shards/partitions can exist on one physical partition). Each resume token will cause watch() to only return data from that physical shard/partition.
+
+Calling db.collection.watch() on each resume token (one thread per token), will scale change streams efficiently.
+
+```javascript
+{
+        customAction: "GetChangeStreamTokens", 
+        collection: "<Name of the collection>", 
+        startAtOperationTime: "<BSON Timestamp>" // Optional. Defaults to the time the command is run.
+} 
+```
+
+### Example
+Run the custom command to get a resume token for each physical shard/partition.
+
+```javascript
+use test
+db.runCommand({customAction: "GetChangeStreamTokens", collection: "<Name of the collection>"})
+```
+
+Run a watch() thread/process for each resume token returned from the GetChangeStreamTokens custom command. Below is an example for one thread.
+
+```javascript
+db.test_coll.watch([{ $match: { "operationType": { $in: ["insert", "update", "replace"] } } }, { $project: { "_id": 1, "fullDocument": 1, "ns": 1, "documentKey": 1 } }], 
+{fullDocument: "updateLookup", 
+resumeAfter: { "_data" : BinData(0,"eyJWIjoyLCJSaWQiOiJQeFVhQUxuMFNLRT0iLCJDb250aW51YXRpb24iOlt7IkZlZWRSYW5nZSI6eyJ0eXBlIjoiRWZmZWN0aXZlIFBhcnRpdGlvbiBLZXkgUmFuZ2UiLCJ2YWx1ZSI6eyJtaW4iOiIiLCJtYXgiOiJGRiJ9fSwiU3RhdGUiOnsidHlwZSI6ImNvbnRpbndkFLbiIsInZhbHVlIjoiXCIxODQ0XCIifX1dfQ=="), "_kind" : NumberInt(1)}})
+```
+
+The document (value) in the resumeAfter field represents the resume token. watch() will return a curser for all documents that were inserted, updated, or replaced from that physical partition since the GetChangeStreamTokens custom command was run. A sample of the data returned is below.
+
+```javascript
+{ "_id" : { "_data" : BinData(0,"eyJWIjoyLCJSaWQiOiJQeFVhQUxuMFNLRT0iLCJDfdsfdsfdsft7IkZlZWRSYW5nZSI6eyJ0eXBlIjoiRWZmZWN0aXZlIFBhcnRpdGlvbiBLZXkgUmFuZ2UiLCJ2YWx1ZSI6eyJtaW4iOiIiLCJtYXgiOiJGRiJ9fSwiU3RhdGUiOnsidHlwZSI6ImNvbnRpbnVhdGlvbiIsInZhbHVlIjoiXCIxOTgwXCIifX1dfQ=="), "_kind" : 1 },
+ "fullDocument" : { "_id" : ObjectId("60da41ec9d1065b9f3b238fc"), "name" : John, "age" : 6 }, "ns" : { "db" : "test-db", "coll" : "test_coll" }, "documentKey" : { "_id" : ObjectId("60da41ec9d1065b9f3b238fc") }}
+```
+
+Note that each document returned includes a resume token (they are all the same for each page). This resume token should be stored and reused if the thread/process dies. This resume token will pick up from where you left off, and receive data only from that physical partition.
 
 
 ## <a id="default-output"></a> Default output of a custom command

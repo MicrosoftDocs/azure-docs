@@ -74,11 +74,9 @@ On the **SQL Server settings** tab, scroll down to **Automated backup** and sele
 
 ## Configure existing VMs
 
-[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
-
 For existing SQL Server VMs, you can enable and disable automated backups, change the retention period, specify the storage account, and enable encryption from the Azure portal. 
 
-Navigate to the [SQL virtual machines resource](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) for your SQL Server 2014 virtual machine and then select **Backups**. 
+Navigate to the [SQL virtual machines resource](manage-sql-vm-portal.md#access-the-resource) for your SQL Server 2014 virtual machine and then select **Backups**. 
 
 ![SQL Automated Backup for existing VMs](./media/automated-backup-sql-2014/azure-sql-rm-autobackup-existing-vms.png)
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/11/2021
+ms.date: 06/22/2021
 ms.author: jeedes
 
 ---
@@ -35,6 +35,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * IBMid supports **SP and IDP** initiated SSO.
 * IBMid supports **Just In Time** user provisioning.
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Add IBMid from the gallery
 
@@ -76,7 +79,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     | Identifier |
     | ---------- |
+    | Production : |
     | `https://ibmlogin.ice.ibmcloud.com/saml/sps/saml20sp/saml20` |
+    | Pre-Production : |
     | `https://prepiam.ice.ibmcloud.com/saml/sps/saml20sp/saml20` |
     |
 
@@ -84,7 +89,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     | Reply URL |
     | ---------- |
+    | Production : |
     | `https://login.ibm.com/saml/sps/saml20sp/saml20/login` |
+    | Pre-Production : |
     | `https://prepiam.ice.ibmcloud.com/saml/sps/saml20sp/saml20/login` |
     |
 

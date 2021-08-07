@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 08/02/2021
 ms.reviewer: sngun
 ---
 
@@ -38,7 +38,7 @@ Here's some key differences between the change feed processor and pull model:
 | Keeping track of current point in processing change feed | Lease (stored in an Azure Cosmos DB container) | Continuation token (stored in memory or manually persisted) |
 | Ability to replay past changes | Yes, with push model | Yes, with pull model|
 | Polling for future changes | Automatically checks for changes based on user-specified `WithPollInterval` | Manual |
-| Behavior where there are no new changes | Automatically wait `WithPollInterval` and recheck | Must catch exception and manually recheck |
+| Behavior where there are no new changes | Automatically wait `WithPollInterval` and recheck | Must check status and manually recheck |
 | Process changes from entire container | Yes, and automatically parallelized across multiple threads/machine consuming from the same container| Yes, and manually parallelized using FeedRange |
 | Process changes from just a single partition key | Not supported | Yes|
 
@@ -47,9 +47,11 @@ Here's some key differences between the change feed processor and pull model:
 
 ## Consuming an entire container's changes
 
-You can create a `FeedIterator` to process the change feed using the pull model. When you initially create a `FeedIterator`, you must specify a required `ChangeFeedStartFrom` value which consists of both the starting position for reading changes as well as the desired `FeedRange`. The `FeedRange` is a range of partition key values and specifies the items that will be read from the change feed using that specific `FeedIterator`.
+You can create a `FeedIterator` to process the change feed using the pull model. When you initially create a `FeedIterator`, you must specify a required `ChangeFeedStartFrom` value, which consists of both the starting position for reading changes and the desired `FeedRange`. The `FeedRange` is a range of partition key values and specifies the items that will be read from the change feed using that specific `FeedIterator`.
 
-You can optionally specify `ChangeFeedRequestOptions` to set a `PageSizeHint`. The `PageSizeHint` is the maximum number of items that will be returned in a single page.
+You can optionally specify `ChangeFeedRequestOptions` to set a `PageSizeHint`. When set, this property sets the maximum number of items received per page. If operations in the monitored collection are performed
+through stored procedures, transaction scope is preserved when reading items from the Change Feed. As a result, the number of items received could be higher than the specified value so that the items changed by the same transaction are returned as part of
+one atomic batch.
 
 The `FeedIterator` comes in two flavors. In addition to the examples below that return entity objects, you can also obtain the response with `Stream` support. Streams allow you to read data without having it first deserialized, saving on client resources.
 
@@ -65,23 +67,23 @@ Here's an example for obtaining a `FeedIterator` that returns a `Stream`:
 FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator<User>(ChangeFeedStartFrom.Beginning(), ChangeFeedMode.Incremental);
 ```
 
-If you don't supply a `FeedRange` to a `FeedIterator`, you can process an entire container's change feed at your own pace. Here's an example which starts reading all changes starting at the current time:
+If you don't supply a `FeedRange` to a `FeedIterator`, you can process an entire container's change feed at your own pace. Here's an example, which starts reading all changes starting at the current time:
 
 ```csharp
 FeedIterator iteratorForTheEntireContainer = container.GetChangeFeedStreamIterator<User>(ChangeFeedStartFrom.Now(), ChangeFeedMode.Incremental);
 
 while (iteratorForTheEntireContainer.HasMoreResults)
 {
-    FeedResponse<User> users = await iteratorForTheEntireContainer.ReadNextAsync();
+    FeedResponse<User> response = await iteratorForTheEntireContainer.ReadNextAsync();
 
-    if (users.Status == HttpStatusCode.NotModified)
+    if (response.StatusCode == HttpStatusCode.NotModified)
     {
         Console.WriteLine($"No new changes");
         await Task.Delay(TimeSpan.FromSeconds(5));
     }
     else 
     {
-        foreach (User user in users)
+        foreach (User user in response)
         {
             Console.WriteLine($"Detected change for user with id {user.id}");
         }
@@ -89,7 +91,7 @@ while (iteratorForTheEntireContainer.HasMoreResults)
 }
 ```
 
-Because the change feed is effectively an infinite list of items encompassing all future writes and updates, the value of `HasMoreResults` is always true. When you try to read the change feed and there are no new changes available, you'll receive an exception. In the above example, the exception is handled by waiting 5 seconds before rechecking for changes.
+Because the change feed is effectively an infinite list of items encompassing all future writes and updates, the value of `HasMoreResults` is always true. When you try to read the change feed and there are no new changes available, you'll receive a response with `NotModified` status. In the above example, it is handled by waiting 5 seconds before rechecking for changes.
 
 ## Consuming a partition key's changes
 
@@ -101,16 +103,16 @@ FeedIterator<User> iteratorForPartitionKey = container.GetChangeFeedIterator<Use
 
 while (iteratorForThePartitionKey.HasMoreResults)
 {
-    FeedResponse<User> users = await iteratorForThePartitionKey.ReadNextAsync();
+    FeedResponse<User> response = await iteratorForThePartitionKey.ReadNextAsync();
 
-    if (users.Status == HttpStatusCode.NotModified)
+    if (response.StatusCode == HttpStatusCode.NotModified)
     {
         Console.WriteLine($"No new changes");
         await Task.Delay(TimeSpan.FromSeconds(5));
     }
     else
     {
-        foreach (User user in users)
+        foreach (User user in response)
         {
             Console.WriteLine($"Detected change for user with id {user.id}");
         }
@@ -130,7 +132,7 @@ IReadOnlyList<FeedRange> ranges = await container.GetFeedRangesAsync();
 
 When you obtain of list of FeedRanges for your container, you'll get one `FeedRange` per [physical partition](partitioning-overview.md#physical-partitions).
 
-Using a `FeedRange`, you can then create a `FeedIterator` to parallelize the processing of the change feed across multiple machines or threads. Unlike the previous example that showed how to obtain a `FeedIterator` for the entire container or a single partition key, you can use FeedRanges to obtain multiple FeedIterators which can process the change feed in parallel.
+Using a `FeedRange`, you can then create a `FeedIterator` to parallelize the processing of the change feed across multiple machines or threads. Unlike the previous example that showed how to obtain a `FeedIterator` for the entire container or a single partition key, you can use FeedRanges to obtain multiple FeedIterators, which can process the change feed in parallel.
 
 In the case where you want to use FeedRanges, you need to have an orchestrator process that obtains FeedRanges and distributes them to those machines. This distribution could be:
 
@@ -145,16 +147,16 @@ Machine 1:
 FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[0]), ChangeFeedMode.Incremental);
 while (iteratorA.HasMoreResults)
 {
-    FeedResponse<User> users = await iteratorA.ReadNextAsync();
+    FeedResponse<User> response = await iteratorA.ReadNextAsync();
 
-    if (users.Status == HttpStatusCode.NotModified)
+    if (response.StatusCode == HttpStatusCode.NotModified)
     {
         Console.WriteLine($"No new changes");
         await Task.Delay(TimeSpan.FromSeconds(5));
     }
     else
     {
-        foreach (User user in users)
+        foreach (User user in response)
         {
             Console.WriteLine($"Detected change for user with id {user.id}");
         }
@@ -168,16 +170,16 @@ Machine 2:
 FeedIterator<User> iteratorB = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[1]), ChangeFeedMode.Incremental);
 while (iteratorB.HasMoreResults)
 {
-    FeedResponse<User> users = await iteratorA.ReadNextAsync();
+    FeedResponse<User> response = await iteratorA.ReadNextAsync();
 
-    if (users.Status == HttpStatusCode.NotModified)
+    if (response.StatusCode == HttpStatusCode.NotModified)
     {
         Console.WriteLine($"No new changes");
         await Task.Delay(TimeSpan.FromSeconds(5));
     }
     else
     {
-        foreach (User user in users)
+        foreach (User user in response)
         {
             Console.WriteLine($"Detected change for user with id {user.id}");
         }
@@ -187,7 +189,7 @@ while (iteratorB.HasMoreResults)
 
 ## Saving continuation tokens
 
-You can save the position of your `FeedIterator` by obtaining the continuation token. A continuation token is a string value that keeps of track of your FeedIterator's last processed changes. This allows the `FeedIterator` to resume at this point later. The following code will read through the change feed since container creation. After no more changes are available, it will persist a continuation token so that change feed consumption can be later resumed.
+You can save the position of your `FeedIterator` by obtaining the continuation token. A continuation token is a string value that keeps of track of your FeedIterator's last processed changes and allows the `FeedIterator` to resume at this point later. The following code will read through the change feed since container creation. After no more changes are available, it will persist a continuation token so that change feed consumption can be later resumed.
 
 ```csharp
 FeedIterator<User> iterator = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(), ChangeFeedMode.Incremental);
@@ -196,18 +198,18 @@ string continuation = null;
 
 while (iterator.HasMoreResults)
 {
-    FeedResponse<User> users = await iterator.ReadNextAsync();
+    FeedResponse<User> response = await iterator.ReadNextAsync();
 
-    if (users.Status == HttpStatusCode.NotModified)
+    if (response.StatusCode == HttpStatusCode.NotModified)
     {
         Console.WriteLine($"No new changes");
-        continuation = users.ContinuationToken;
+        continuation = response.ContinuationToken;
         // Stop the consumption since there are no new changes
         break;
     }
     else
     {
-        foreach (User user in users)
+        foreach (User user in response)
         {
             Console.WriteLine($"Detected change for user with id {user.id}");
         }

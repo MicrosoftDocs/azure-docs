@@ -470,3 +470,6 @@ Use the Azure portal, PowerShell, or the Azure CLI to delete the resource group.
 
 > [!div class="nextstepaction"]
 > [Create an NFS volume](azure-netapp-files-create-volumes.md)
+
+> [!div class="nextstepaction"]
+> [Solution architectures using Azure NetApp Files](azure-netapp-files-solution-architectures.md)

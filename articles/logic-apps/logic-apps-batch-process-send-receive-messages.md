@@ -218,5 +218,4 @@ Your batch sender logic app runs every minute, generates a random number between
 
 * [Batch and send EDI messages](../logic-apps/logic-apps-scenario-edi-send-batch-messages.md)
 * [Build on logic app definitions by using JSON](../logic-apps/logic-apps-author-definitions.md)
-* [Build a serverless app in Visual Studio with Azure Logic Apps and Functions](../logic-apps/logic-apps-serverless-get-started-vs.md)
 * [Exception handling and error logging for logic apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)

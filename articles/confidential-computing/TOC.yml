@@ -23,7 +23,7 @@
     - name: Confidential nodes with Azure CLI
       href: confidential-nodes-aks-get-started.md
     - name: Confidential nodes on AKS FAQ
-      href: confidential-nodes-aks-faq.md
+      href: confidential-nodes-aks-faq.yml
   
 - name: Concepts
   expanded: true
@@ -35,7 +35,7 @@
     - name: Solutions on virtual machines
       href: virtual-machine-solutions.md
     - name: Confidential computing VM FAQ 
-      href: faq.md
+      href: faq.yml
 
   
   - name: Container Compute

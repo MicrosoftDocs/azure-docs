@@ -33,10 +33,10 @@ The [OPENROWSET](develop-openrowset.md) function enables you to read the content
 The easiest way to see to the content of your `DELTA` file is to provide the file URL to the [OPENROWSET](develop-openrowset.md) function and specify `DELTA` format. If the file is publicly available or if your Azure AD identity can access this file, you should be able to see the content of the file using a query like the one shown in the following example:
 
 ```sql
-select top 10 *
-from openrowset(
-    bulk 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/covid/',
-    format = 'delta') as rows
+SELECT TOP 10 *
+FROM OPENROWSET(
+    BULK 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/covid/',
+    FORMAT = 'delta') as rows;
 ```
 
 Column names and data types are automatically read from Delta Lake files. The `OPENROWSET` function uses best guess types like VARCHAR(1000) for the string columns.
@@ -83,16 +83,16 @@ If you created your database, and switched the context to your database (using `
 your external data source containing the root URI to your data set and use it to query Delta Lake files:
 
 ```sql
-create external data source DeltaLakeStorage
-with ( location = 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/' );
-go
+CREATE EXTERNAL DATA SOURCE DeltaLakeStorage
+WITH ( LOCATION = 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/' );
+GO
 
-select top 10 *
-from openrowset(
-        bulk 'covid',
-        data_source = 'DeltaLakeStorage',
-        format = 'delta'
-    ) as rows
+SELECT TOP 10 *
+FROM OPENROWSET(
+        BULK 'covid',
+        DATA_SOURCE = 'DeltaLakeStorage',
+        FORMAT = 'delta'
+    ) as rows;
 ```
 
 If a data source is protected with SAS key or custom identity, you can configure [data source with database scoped credential](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential).
@@ -102,16 +102,16 @@ If a data source is protected with SAS key or custom identity, you can configure
 `OPENROWSET` enables you to explicitly specify what columns you want to read from the file using `WITH` clause:
 
 ```sql
-select top 10 *
-from openrowset(
-        bulk 'covid',
-        data_source = 'DeltaLakeStorage',
-        format = 'delta'
+SELECT TOP 10 *
+FROM OPENROWSET(
+        BULK 'covid',
+        DATA_SOURCE = 'DeltaLakeStorage',
+        FORMAT = 'delta'
     )
-    with ( date_rep date,
+    WITH ( date_rep date,
            cases int,
            geo_id varchar(6)
-           ) as rows
+           ) as rows;
 ```
 
 With the explicit specification of the result set schema, you can minimize the type sizes and use the more precise types VARCHAR(6) for string columns instead of pessimistic VARCHAR(1000). Minimization of types might significantly improve performance of your queries.
@@ -177,8 +177,7 @@ The second argument of `DeltaTable.convertToDeltaLake` function represents the p
 
 ## Limitations
 
-- Schema inference doesn't work if you have complex data types. For complex data types, use explicit `WITH` schema and specify `VARCHAR(MAX)` type. 
-- The `OPENROWSET` function doesn't support updating a Delta Lake file or time travel. Use Apache Spark engine to perform these actions.
+This feature is in public preview and there are some known issues and limitations. Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
 
 ## Next steps
 
@@ -191,3 +190,4 @@ If you want to continue building Delta Lake solution, learn how to create [views
 - [Learn how to use Delta Lake in Apache Spark pools for Azure Synapse Analytics](../spark/apache-spark-delta-lake-overview.md)
 - [Azure Databricks Delta Lake best practices](/azure/databricks/best-practices-index)
 - [Delta Lake Documentation Page](https://docs.delta.io/latest/delta-intro.html)
+- [Know issues and limitations](resources-self-help-sql-on-demand.md#delta-lake)

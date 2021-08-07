@@ -5,7 +5,7 @@ author: j-patrick
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 06/08/2021
+ms.date: 07/02/2021
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp, devx-track-azurecli
@@ -15,11 +15,17 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 # Use system-assigned managed identities to access Azure Cosmos DB data
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
+> [!TIP]
+> [Data plane role-based access control (RBAC)](how-to-setup-rbac.md) is now available on Azure Cosmos DB, providing a seamless way to authorize your requests with Azure Active Directory.
+
 In this article, you'll set up a *robust, key rotation agnostic* solution to access Azure Cosmos DB keys by using [managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). The example in this article uses Azure Functions, but you can use any service that supports managed identities. 
 
 You'll learn how to create a function app that can access Azure Cosmos DB data without needing to copy any Azure Cosmos DB keys. The function app will wake up every minute and record the current temperature of an aquarium fish tank. To learn how to set up a timer-triggered function app, see the [Create a function in Azure that is triggered by a timer](../azure-functions/functions-create-scheduled-function.md) article.
 
-To simplify the scenario, a [Time To Live](./time-to-live.md) setting is already configured to clean up older temperature documents. 
+To simplify the scenario, a [Time To Live](./time-to-live.md) setting is already configured to clean up older temperature documents.
+
+> [!IMPORTANT]
+> Because this approach fetches your account's primary key through the Azure Cosmos DB control plane, it will not work if [a read-only lock has been applied](../azure-resource-manager/management/lock-resources.md) to your account. In this situation, consider using the Azure Cosmos DB [data plane RBAC](how-to-setup-rbac.md) instead.
 
 ## Assign a system-assigned managed identity to a function app
 
@@ -43,9 +49,6 @@ In this step, you'll assign a role to the function app's system-assigned managed
 |---------|---------|
 |[DocumentDB Account Contributor](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Can manage Azure Cosmos DB accounts. Allows retrieval of read/write keys. |
 |[Cosmos DB Account Reader Role](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Can read Azure Cosmos DB account data. Allows retrieval of read keys. |
-
-> [!IMPORTANT]
-> Support for role-based access control in Azure Cosmos DB applies to control plane operations only. Data plane operations are secured through primary keys or resource tokens. To learn more, see the [Secure access to data](secure-access-to-data.md) article.
 
 > [!TIP] 
 > When you assign roles, assign only the needed access. If your service requires only reading data, then assign the **Cosmos DB Account Reader** role to the managed identity. For more information about the importance of least privilege access, see the [Lower exposure of privileged accounts](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts) article.
@@ -99,13 +102,13 @@ The List Keys API returns the `DatabaseAccountListKeysResult` object. This type 
 ```csharp 
 namespace Monitor 
 {
-  public class DatabaseAccountListKeysResult
-  {
-      public string primaryMasterKey {get;set;}
-      public string primaryReadonlyMasterKey {get; set;}
-      public string secondaryMasterKey {get; set;}
-      public string secondaryReadonlyMasterKey {get;set;}
-  }
+    public class DatabaseAccountListKeysResult
+    {
+        public string primaryMasterKey { get; set; }
+        public string primaryReadonlyMasterKey { get; set; }
+        public string secondaryMasterKey { get; set; }
+        public string secondaryReadonlyMasterKey { get; set; }
+    }
 }
 ```
 
@@ -121,7 +124,6 @@ namespace Monitor
         public string id { get; set; } = Guid.NewGuid().ToString();
         public DateTime RecordTime { get; set; }
         public int Temperature { get; set; }
-
     }
 }
 ```

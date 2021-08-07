@@ -136,7 +136,7 @@ Weak identifiers of a host entity:
 | ----- | ---- | ----------- |
 | Type | String | ‘ip’ |
 | Address | String | The IP address as string, e.g. 127.0.0.1 (either in IPv4 or IPv6). |
-| Location | GeoLocation | The geo-location context attached to the IP entity. |
+| Location | GeoLocation | The geo-location context attached to the IP entity. <br><br>For more information, see also [Enrich entities in Azure Sentinel with geolocation data via REST API (Public preview)](geolocation-data-api.md). |
 |
 
 Strong identifiers of an IP entity:

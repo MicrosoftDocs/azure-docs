@@ -2,15 +2,16 @@
 title: Azure AD secure hybrid access | Microsoft Docs
 description: This article describes partner solutions for integrating your legacy on-premises, public cloud, or private cloud applications with Azure AD. Secure your legacy apps by connecting app delivery controllers or networks to Azure AD. 
 services: active-directory
-author: gargi-sinha
+author: davidmu1
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 2/16/2021
-ms.author: gasinh
+ms.author: davidmu
 ms.collection: M365-identity-device-management
+ms.reviewer: miccohen
 ---
 
 # Secure hybrid access: Secure legacy apps with Azure Active Directory
@@ -72,7 +73,6 @@ The following SDP vendors offer pre-built solutions and detailed guidance for in
 - [Datawiza Access Broker](./add-application-portal-setup-oidc-sso.md)
 
 - [Perimeter 81](../saas-apps/perimeter-81-tutorial.md)
-
 
 - [Silverfort Authentication Platform](./add-application-portal-setup-oidc-sso.md)
 

@@ -1,0 +1,52 @@
+### YamlMime:Landing
+
+title: Azure Defender for IoT for organizations documentation
+summary: Azure Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options including fully on-premises, cloud-connected, or hybrid.
+
+metadata: 
+   title: Azure Defender for IoT for organizations documentation
+   description: Azure Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options including fully on-premises, cloud-connected, or hybrid.
+   services: service
+   ms.service: defender-for-iot
+   ms.topic: landing-page
+   ms.collection: M365-security-compliance
+   author: elazark
+   ms.author: v-ekrieg
+   manager: raynew
+   ms.date: 06/17/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  - title: About Azure Defender for IoT for organizations
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Defender for IoT for organizations?
+            url: overview.md
+          - text: Agentless solution for organizations architecture
+            url: architecture.md
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: System prerequisites
+            url: quickstart-system-prerequisites.md
+          - text: Get started with Defender for IoT for organizations
+            url: concept-key-concepts.md
+  - title: How-to
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: About Azure Defender for IoT network setup
+            url: how-to-set-up-your-network.md
+          - text: Activate and set up your on-premises management console
+            url: how-to-activate-and-set-up-your-on-premises-management-console.md
+          - text: Activate and set up your sensor
+            url: how-to-activate-and-set-up-your-sensor.md
+  - title: New in docs
+    linkLists:
+      - linkListType: whats-new
+        links:
+          - text: What's new for organizations?
+            url: release-notes.md

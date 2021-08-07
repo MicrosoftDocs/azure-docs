@@ -16,7 +16,7 @@ ms.date: 05/29/2020
 **APPLIES TO:**  ![This is a check mark, which means that this article applies to Machine Learning Studio (classic).](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classic)   ![This is an X, which means that this article applies to Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
-Once you deploy an Azure Machine Learning Studio (classic) predictive model as a Web service, you can use a REST API to send it data and get predictions. You can send the data in real-time or in batch mode.
+Once you deploy an Machine Learning Studio (classic) predictive model as a Web service, you can use a REST API to send it data and get predictions. You can send the data in real-time or in batch mode.
 
 You can find more information about how to create and deploy a Machine Learning Web service using Machine Learning Studio (classic) here:
 
@@ -27,9 +27,9 @@ You can find more information about how to create and deploy a Machine Learning 
 
 
 ## Overview
-With the Azure Machine Learning Web service, an external application communicates with a Machine Learning workflow scoring model in real time. A Machine Learning Web service call returns prediction results to an external application. To make a Machine Learning Web service call, you pass an API key that is created when you deploy a prediction. The Machine Learning Web service is based on REST, a popular architecture choice for web programming projects.
+With the Machine Learning Web service, an external application communicates with a Machine Learning workflow scoring model in real time. A Machine Learning Web service call returns prediction results to an external application. To make a Machine Learning Web service call, you pass an API key that is created when you deploy a prediction. The Machine Learning Web service is based on REST, a popular architecture choice for web programming projects.
 
-Azure Machine Learning Studio (classic) has two types of services:
+Machine Learning Studio (classic) has two types of services:
 
 * Request-Response Service (RRS) – A low latency, highly scalable service that provides an interface to the stateless models created and deployed from the Machine Learning Studio (classic).
 * Batch Execution Service (BES) – An asynchronous service that scores a batch for data records.
@@ -39,12 +39,12 @@ For more information about Machine Learning Web services, see [Deploy a Machine 
 ## Get an authorization key
 When you deploy your experiment, API keys are generated for the Web service. You can retrieve the keys from several locations.
 
-### From the Microsoft Azure Machine Learning Web Services portal
-Sign in to the [Microsoft Azure Machine Learning Web Services](https://services.azureml.net) portal.
+### From the Machine Learning Web Services portal
+Sign in to the [Machine Learning Web Services](https://services.azureml.net) portal.
 
 To retrieve the API key for a New Machine Learning Web service:
 
-1. In the Azure Machine Learning Web Services portal, click **Web Services** the top menu.
+1. In the Machine Learning Web Services portal, click **Web Services** the top menu.
 2. Click the Web service for which you want to retrieve the key.
 3. On the top menu, click **Consume**.
 4. Copy and save the **Primary Key**.
@@ -78,7 +78,7 @@ The Machine Learning API help contains details about a prediction Web service.
 
 **To view Machine Learning API help for a New Web service**
 
-In the [Azure Machine Learning Web Services Portal](https://services.azureml.net/):
+In the [Machine Learning Web Services Portal](https://services.azureml.net/):
 
 1. Click **WEB SERVICES** on the top menu.
 2. Click the Web service for which you want to retrieve the key.

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2021
+ms.date: 06/17/2021
 ms.author: bagol
 
 ---
@@ -36,6 +36,16 @@ Organizations that already use Microsoft Teams for communication and collaborati
 
 An Azure Sentinel incident team always has the most updated and recent data from Azure Sentinel, ensuring that your teams have the most relevant data right at hand.
 
+## Required permissions
+
+In order to create teams from Azure Sentinel:
+
+- The user creating the team must have Incident write permissions in Azure Sentinel. For example, the [Azure Sentinel Responder](../role-based-access-control/built-in-roles.md#azure-sentinel-responder) role is an ideal, minimum role for this privilege.
+
+- The user creating the team must also have permissions to create teams in Microsoft teams.
+
+- Any Azure Sentinel user, including users with the [Reader](../role-based-access-control/built-in-roles.md#azure-sentinel-reader), [Responder](../role-based-access-control/built-in-roles.md#azure-sentinel-responder), or [Contributor](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) roles, can gain access to the created team by requesting access.
+
 ## Use an incident team to investigate
 
 Investigate together with an *incident team* by integrating Microsoft Teams directly from your incident.
@@ -52,7 +62,7 @@ Investigate together with an *incident team* by integrating Microsoft Teams dire
 
     - **Team name**: Automatically defined as the name of your incident. Modify the name as needed so that it's easily identifiable to you.
     - **Description**: Enter a meaningful description for your incident team.
-    - **Add groups**: Select one or more Azure AD groups to add to your incident team. Individual users aren't supported.
+    - **Add groups**: Select one or more Azure AD groups to add to your incident team. Individual users aren't supported in this page. If you need to add individual users, [do so in Microsoft Teams](#more-users) after you've created the team.
 
         > [!TIP]
         > If you regularly work with the same teams, you may want to select the star :::image type="icon" source="media/collaborate-in-microsoft-teams/save-as-favorite.png" border="false"::: to save them as favorites.
@@ -74,9 +84,9 @@ Investigate together with an *incident team* by integrating Microsoft Teams dire
 Continue the conversation about the investigation in Teams for as long as needed. You have the full incident details directly in teams.
 
 > [!TIP]
-> When you [close an incident](tutorial-investigate-cases.md#closing-an-incident), the related incident team you've created in Microsoft Teams is archived.
+> - <a name="more-users"></a>If you need to add individual users to your team, you can do so in Microsoft Teams using the **Add more people** button on the **Posts** tab.
 >
-> If the incident is ever re-opened, the related incident team is also re-opened in Microsoft Teams so that you can continue your conversation, right where you left off.
+> - When you [close an incident](tutorial-investigate-cases.md#closing-an-incident), the related incident team you've created in Microsoft Teams is archived. If the incident is ever re-opened, the related incident team is also re-opened in Microsoft Teams so that you can continue your conversation, right where you left off.
 >
 
 ## Next steps

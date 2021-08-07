@@ -1,13 +1,15 @@
 ---
-title: Create schedule triggers in Azure Data Factory 
-description: Learn how to create a trigger in Azure Data Factory that runs a pipeline on a schedule.
+title: Create schedule triggers
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to create a trigger in Azure Data Factory or Azure Synapse Analytics that runs a pipeline on a schedule.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 10/30/2020
-ms.custom: devx-track-python, devx-track-azurepowershell
+ms.custom: devx-track-python, devx-track-azurepowershell, synapse
 ---
 
 # Create a trigger that runs a pipeline on a schedule
@@ -20,18 +22,24 @@ When creating a schedule trigger, you specify a schedule (start date, recurrence
 
 The following sections provide steps to create a schedule trigger in different ways. 
 
-## Data Factory UI
+## UI Experience
 
 You can create a **schedule trigger** to schedule a pipeline to run periodically (hourly, daily, etc.). 
 
 > [!NOTE]
 > For a complete walkthrough of creating a pipeline and a schedule trigger, which associates the trigger with the pipeline, and runs and monitors the pipeline, see [Quickstart: create a data factory using Data Factory UI](quickstart-create-data-factory-portal.md).
 
-1. Switch to the **Edit** tab, shown with a pencil symbol. 
+1. Switch to the **Edit** tab in Data Factory or the Integrate tab in Azure Synapse. 
 
+    # [Azure Data Factory](#tab/data-factory)
     ![Switch to Edit tab](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
 
-1. Select **Trigger** on the menu, then select **New/Edit**. 
+    # [Azure Synapse](#tab/synapse-analytics)
+    ![Switch to Edit tab](./media/how-to-create-schedule-trigger/switch-edit-tab-synapse.png)
+
+---
+    
+2. Select **Trigger** on the menu, then select **New/Edit**. 
 
     ![New trigger menu](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
 
@@ -49,7 +57,9 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
         > For time zones that observe daylight saving, trigger time will auto-adjust for the twice a year change. To opt out of the daylight saving change, please select a time zone that does not observe daylight saving, for instance UTC
 
     1. Specify **Recurrence** for the trigger. Select one of the values from the drop-down list (Every minute, Hourly, Daily, Weekly, and Monthly). Enter the multiplier in the text box. For example, if you want the trigger to run once for every 15 minutes, you select **Every Minute**, and enter **15** in the text box. 
-    1. To specify an end date time, select **Specify an End Date**, and specify _Ends On_, then select **OK**. There is a cost associated with each pipeline run. If you are testing, you may want to ensure that the pipeline is triggered only a couple of times. However, ensure that there is enough time for the pipeline to run between the publish time and the end time. The trigger comes into effect only after you publish the solution to Data Factory, not when you save the trigger in the UI.
+    1. In the **Recurrence**, if you choose "Day(s), Week(s) or Month(s)" from the drop-down, you can find "Advanced recurrence options".
+    :::image type="content" source="./media/how-to-create-schedule-trigger/advanced.png" alt-text="Advanced recurrence options of Day(s), Week(s) or Month(s)":::
+    1. To specify an end date time, select **Specify an End Date**, and specify _Ends On_, then select **OK**. There is a cost associated with each pipeline run. If you are testing, you may want to ensure that the pipeline is triggered only a couple of times. However, ensure that there is enough time for the pipeline to run between the publish time and the end time. The trigger comes into effect only after you publish the solution, not when you save the trigger in the UI.
 
         ![Trigger settings](./media/how-to-create-schedule-trigger/trigger-settings-01.png)
 
@@ -63,17 +73,31 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
 
     ![Trigger settings - Finish button](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
 
-1. Select **Publish all** to publish the changes to Data Factory. Until you publish the changes to Data Factory, the trigger doesn't start triggering the pipeline runs. 
+1. Select **Publish all** to publish the changes. Until you publish the changes, the trigger doesn't start triggering the pipeline runs. 
 
     ![Publish button](./media/how-to-create-schedule-trigger/publish-2.png)
 
 1. Switch to the **Pipeline runs** tab on the left, then select **Refresh** to refresh the list. You will see the pipeline runs triggered by the scheduled trigger. Notice the values in the **Triggered By** column. If you use the **Trigger Now** option, you will see the manual trigger run in the list. 
 
+    # [Azure Data Factory](#tab/data-factory)
+
     ![Monitor triggered runs](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
 
-1. Switch to the **Trigger Runs** \ **Schedule** view. 
+    # [Azure Synapse](#tab/synapse-analytics)
+    ![Monitor triggered runs](./media/how-to-create-schedule-trigger/monitor-triggered-runs-synapse.png)
+    
+---
+
+9. Switch to the **Trigger Runs** \ **Schedule** view. 
+
+    # [Azure Data Factory](#tab/data-factory)
 
     ![Monitor trigger runs](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
+
+    # [Azure Synapse](#tab/synapse-analytics)
+    ![Monitor trigger runs](./media/how-to-create-schedule-trigger/monitor-trigger-runs-synapse.png)
+    
+---
 
 ## Azure PowerShell
 
@@ -281,7 +305,7 @@ You can use an Azure Resource Manager template to create a trigger. For step-by-
 
 ## Pass the trigger start time to a pipeline
 
-Azure Data Factory version 1 supports reading or writing partitioned data by using the system variables: **SliceStart**, **SliceEnd**, **WindowStart**, and **WindowEnd**. In the current version of Azure Data Factory, you can achieve this behavior by using a pipeline parameter. The start time and scheduled time for the trigger are set as the value for the pipeline parameter. In the following example, the scheduled time for the trigger is passed as a value to the pipeline **scheduledRunTime** parameter:
+Azure Data Factory version 1 supports reading or writing partitioned data by using the system variables: **SliceStart**, **SliceEnd**, **WindowStart**, and **WindowEnd**. In the current version of Azure Data Factory and Synapse pipelines, you can achieve this behavior by using a pipeline parameter. The start time and scheduled time for the trigger are set as the value for the pipeline parameter. In the following example, the scheduled time for the trigger is passed as a value to the pipeline **scheduledRunTime** parameter:
 
 ```json
 "parameters": {
@@ -386,7 +410,7 @@ Here are some of time zones supported for Schedule triggers:
 | India Standard Time (IST) | +5:30 | `India Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
 | China Standard Time | +8 | `China Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
 
-This list is incomplete. For complete list of time zone options, explore in Data Factory portal [Trigger creation page](#data-factory-ui)
+This list is incomplete. For complete list of time zone options, explore in the portal [Trigger creation page](#ui-experience)
 
 ### startTime property
 The following table shows you how the **startTime** property controls a trigger run:

@@ -27,7 +27,7 @@ This article applies to Resource Manager VNets that have a RouteBased VPN gatewa
 Verify the following items:
 
 * You are not configuring a new coexisting ExpressRoute and VPN Gateway configuration.
-* You have a virtual network that was created using the Resource Manager deployment model with an existing connection.
+* You have a virtual network that was created using the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) with an existing connection.
 * The virtual network gateway for your VNet is RouteBased. If you have a PolicyBased VPN gateway, you must delete the virtual network gateway and create a new VPN gateway as RouteBased.
 * None of the address ranges overlap for any of the VNets that this VNet is connecting to.
 * You have compatible VPN device and someone who is able to configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you.

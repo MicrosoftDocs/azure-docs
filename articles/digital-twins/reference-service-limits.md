@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Azure Digital Twins service limits
 
-These are the service limits of Azure Digital Twins.
+The following sections describe the service limits of Azure Digital Twins.
 
 > [!NOTE]
 > Some areas of this service have adjustable limits. This is represented in the tables below with the *Adjustable?* column. When the limit can be adjusted, the *Adjustable?* value is *Yes*.
@@ -30,14 +30,14 @@ These are the service limits of Azure Digital Twins.
 
 ## Working with limits
 
-When a limit is reached, the service throttles additional requests. This will result in a 429 error response from these requests.
+When a limit is reached, the service throttles requests beyond it, which will result in a 429 error response from these requests.
 
 To manage this, here are some recommendations for working with limits.
-* **Use retry logic.** The [Azure Digital Twins SDKs](concepts-apis-sdks.md) implement retry logic for failed requests, so if you are working with a provided SDK, this is already built-in. Otherwise, consider implementing retry logic in your own application. The service sends back a `Retry-After` header in the failure response, which you can use to determine how long to wait before retrying.
+* **Use retry logic.** The [Azure Digital Twins SDKs](concepts-apis-sdks.md) implement retry logic for failed requests, so if you're working with a provided SDK, this functionality is already built-in. Otherwise, consider implementing retry logic in your own application. The service sends back a `Retry-After` header in the failure response, which you can use to determine how long to wait before retrying.
 * **Use thresholds and notifications to warn about approaching limits.** Some of the service limits for Azure Digital Twins have corresponding [metrics](troubleshoot-metrics.md) that can be used to track usage in these areas. To configure thresholds and set up an alert on any metric when a threshold is approached, see the instructions in [Troubleshooting: Set up alerts](troubleshoot-alerts.md). To set up notifications for other limits where metrics aren't provided, consider implementing this logic in your own application code.
 * **Deploy at scale across multiple instances.** Avoid having a single point of failure. Instead of one large graph for your entire deployment, consider sectioning out subsets of twins logically (like by region or tenant) across multiple instances. 
 
 ## Next steps
 
 Learn more about the current release of Azure Digital Twins in the service overview:
-* [Overview: What is Azure Digital Twins?](overview.md)
+* [What is Azure Digital Twins?](overview.md)

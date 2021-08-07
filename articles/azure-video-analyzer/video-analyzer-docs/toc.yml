@@ -101,6 +101,8 @@
       href: deploy-iot-edge-device.md
     - name: Deploy to an IoT Edge for Linux on Windows
       href: deploy-iot-edge-linux-on-windows.md
+    - name: Deploy on Azure Stack Edge
+      href: deploy-on-stack-edge.md
   - name: Playback
     items:      
     - name: Playback a recording
@@ -160,6 +162,6 @@
   - name: Available regions
     href: https://azure.microsoft.com/global-infrastructure/services/?products=video-analyzer&regions=all
   - name: FAQs
-    href: faq-edge.md 
+    href: faq-edge.yml 
   - name: Quotas and limitations
     href: quotas-limitations.md

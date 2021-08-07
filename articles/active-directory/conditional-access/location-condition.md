@@ -87,7 +87,7 @@ For the next 24 hours, if the user is still accessing the resource and granted t
 A Conditional Access policy with GPS-based named locations in report-only mode prompts users to share their GPS location, even though they are not blocked from signing in.
 
 > [!IMPORTANT]
-> Users may receive prompts every hour letting them know that Azure AD is checking their location in the Authenticator app. The preview should only be used to protect very sensitive apps where this behavior is acceptable or where access needs to be restricted to a specific country.
+> Users may receive prompts every hour letting them know that Azure AD is checking their location in the Authenticator app. The preview should only be used to protect very sensitive apps where this behavior is acceptable or where access needs to be restricted to a specific country/region.
 
 #### Include unknown countries/regions
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 07/01/2021
 ms.author: alkohli
 ---
 
@@ -22,7 +22,7 @@ Many machine learning or other compute workloads may not need a dedicated GPU. G
 
 ## Using GPU with VMs
 
-On your Azure Stack Edge Pro device, a GPU can't be shared when deploying VM workloads. A GPU can only be mapped to one VM. This implies that you can only have one GPU VM on a device with one GPU and two VMs on a device that is equipped with two GPUs. There are other factors that must also be considered when using GPU VMs on a device that has Kubernetes configured for containerized workloads. For more information, see [GPU VMs and Kubernetes](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#gpu-vms-and-kubernetes).
+On your Azure Stack Edge Pro device, a GPU can't be shared when deploying VM workloads. A GPU can only be mapped to one VM. This implies that you can only have one GPU VM on a device with one GPU and two VMs on a device that is equipped with two GPUs. There are other factors that must also be considered when using GPU VMs on a device that has Kubernetes configured for containerized workloads. For more information, see [GPU VMs and Kubernetes](azure-stack-edge-gpu-overview-gpu-virtual-machines.md#gpu-vms-and-kubernetes).
 
 
 ## Using GPU with containers

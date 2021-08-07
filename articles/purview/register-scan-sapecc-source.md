@@ -68,7 +68,7 @@ The only supported authentication for SAP ECC source is **Basic authentication**
 To register a new SAP ECC source in your data catalog, do the following:
 
 1.  Navigate to your Purview account.
-2.  Select **Sources** on the left navigation.
+2.  Select **Data Map** on the left navigation.
 3.  Select **Register**
 4.  On Register sources, select **SAP ECC**. Select **Continue.**
 
@@ -129,6 +129,8 @@ To create and run a new scan, do the following:
     f.  **Maximum memory available:** Maximum memory(in GB) available on
         customer's VM to be used by scanning processes. This is
         dependent on the size of SAP ECC source to be scanned.
+    > [!Note] 
+    > As a thumb rule, please provide 1GB memory for every 1000 tables
 
     :::image type="content" source="media/register-scan-sapecc-source/scan-sapecc.png" alt-text="scan SAPECC" border="true":::
 

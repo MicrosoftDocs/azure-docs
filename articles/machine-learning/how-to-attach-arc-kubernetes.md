@@ -189,7 +189,7 @@ The following custom compute target properties can be configured using a configu
     >    "defaultInstanceType": "defaultInstanceType",
     >    "instanceTypes": {
     >       "defaultInstanceType": {
-    >          "nodeSelector": "null",
+    >          "nodeSelector": null,
     >          "resources": {
     >             "requests": {
     >                "cpu": "1",
@@ -311,4 +311,4 @@ else:
 - [Train a TensorFlow model](how-to-train-tensorflow.md)
 - [Train a PyTorch model](how-to-train-pytorch.md)
 - [Train using Azure Machine Learning pipelines](how-to-create-machine-learning-pipelines.md)
-- [Train model on-premise with outbound proxy server](/azure-arc/kubernetes/quickstart-connect-cluster.md#5-connect-using-an-outbound-proxy-server)
+- [Train model on-premise with outbound proxy server](../azure-arc/kubernetes/quickstart-connect-cluster.md#5-connect-using-an-outbound-proxy-server)

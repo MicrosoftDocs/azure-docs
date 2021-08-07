@@ -3,8 +3,8 @@ title: 'Tutorial: Configure LimbleCMMS for automatic user provisioning with Azur
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to LimbleCMMS.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 5e0d5369-7230-4a16-bc3f-9eac2bc80a8c
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure LimbleCMMS for automatic user provisioning

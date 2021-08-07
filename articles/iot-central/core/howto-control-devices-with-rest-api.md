@@ -29,9 +29,9 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 ## Components and modules
 
-Components let you group and reuse device capabilities. To learn more about components and device models, see the [IoT Plug and Play modeling guide](../../iot-pnp/concepts-modeling-guide.md).
+Components let you group and reuse device capabilities. To learn more about components and device models, see the [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md).
 
-Not all device templates use components. The following screenshot shows the device template for a simple [thermostat](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/thermostat-2.json) where all the capabilities are defined in a single interface called the **Default component**:
+Not all device templates use components. The following screenshot shows the device template for a simple [thermostat](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/thermostat-2.json) where all the capabilities are defined in a single interface called the **Root component**:
 
 :::image type="content" source="media/howto-control-devices-with-rest-api/thermostat-device.png" alt-text="Screenshot that shows a simple no component thermostat device.":::
 
@@ -481,4 +481,4 @@ GET https://{your app subdomain}.azureiotcentral.com/api/devices/temperature-con
 
 ## Next steps
 
-Now that you've learned how to control devices with the REST API, a suggested next step is to [Manage IoT Central applications with the REST API](/learn/modules/manage-iot-central-apps-with-rest-api/).
+Now that you've learned how to control devices with the REST API, a suggested next step is to learn [How to use the IoT Central REST API to create and manage jobs](howto-manage-jobs-with-rest-api.md).

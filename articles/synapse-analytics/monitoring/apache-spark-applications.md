@@ -9,6 +9,7 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
+ms.custom: contperf-fy21q4
 ---
 
 # Use Synapse Studio to monitor your Apache Spark applications
@@ -16,23 +17,6 @@ ms.reviewer: mahi
 With Azure Synapse Analytics, you can use Apache Spark to run notebooks, jobs, and other kinds of applications on your Apache Spark pools in your workspace.
 
 This article explains how to monitor your Apache Spark applications, allowing you to keep an eye on the latest status, issues, and progress.
-
-This tutorial covers the following tasks:
-
-* Monitor running Apache Spark Application
-* View completed Apache Spark Application
-* View canceled Apache Spark Application
-* Debug failed Apache Spark Application
-* View input data and output data for Apache Spark Application
-* Compare Apache Spark Applications
-
-## Prerequisites
-
-Before you start with this tutorial, make sure to meet the following requirements:
-
-- A Synapse Studio workspace. For instructions, see [Create a Synapse Studio workspace](../../machine-learning/how-to-manage-workspace.md#create-a-workspace).
-
-- An Apache Spark pool.
 
 ## View Apache Spark applications 
 You can view all Apache Spark applications from **Monitor** -> **Apache Spark applications**.
@@ -199,7 +183,7 @@ Select an Apache Spark application, and click on **Input data/Output data tab** 
 
 There are two ways to compare applications. You can compare by choose a **Compare Application**, or click the **Compare in notebook** button to view it in the notebook.
 
-### Compare by choose an application
+### Compare by choosing an application
 
 Click on **Compare applications** button and choose an application to compare performance, you can intuitively see the difference between the two applications.
 

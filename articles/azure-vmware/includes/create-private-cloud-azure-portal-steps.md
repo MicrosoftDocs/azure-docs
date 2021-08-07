@@ -23,7 +23,7 @@ You can create an Azure VMware Solution private cloud by using the Azure portal 
 1. On the **Basics** tab, enter values for the fields. 
 
    >[!TIP]
-   >You gathered this information during the [planning phase](../production-ready-deployment-steps.md) of this quick start.
+   >You gathered this information during the [planning phase](../plan-private-cloud-deployment.md) of this quick start.
 
    | Field   | Value  |
    | ---| --- |
@@ -36,16 +36,16 @@ You can create an Azure VMware Solution private cloud by using the Azure portal 
    | **Address block** | Provide an IP address block for the private cloud.  The CIDR represents the private cloud management network and will be used for the cluster management services, such as vCenter Server and NSX-T Manager. Use /22 address space, for example, 10.175.0.0/22.  The address should be unique and not overlap with other Azure Virtual Networks as well as with on-premises networks. |
    | **Virtual Network** | Leave this blank because the Azure VMware Solution ExpressRoute circuit is established as a post-deployment step.   |
 
-   :::image type="content" source="../media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="On the Basics tab, enter values for the fields." border="true":::
+   :::image type="content" source="../media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="Screenshot showing the Basics tab on the Create a private cloud window." border="true":::
 
-1. Once finished, select **Review + Create**. On the next screen, verify the information entered. If the information is all correct, select **Create**.
+1. Once finished, select **Review + Create**. On the next screen, verify the information entered. If the information is all correct, select **Create**.  
 
    > [!NOTE]
    > This step takes roughly 3-4 hours. Adding a single host in an existing or the same cluster takes between 30 - 45 minutes.
 
 1. Verify that the deployment was successful. Navigate to the resource group you created and select your private cloud.  You'll see the status of **Succeeded** when the deployment has completed. 
 
-   :::image type="content" source="../media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Verify that the deployment was successful." border="true":::
+   :::image type="content" source="../media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Screenshot showing that the deployment was successful." border="true":::
 
 
 ### [Azure CLI](#tab/azure-cli)

@@ -1,19 +1,21 @@
 ---
-title: Troubleshoot Azure Data Factory connectors
-description: Learn how to troubleshoot connector issues in Azure Data Factory. 
+title: Troubleshoot connectors
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to troubleshoot connector issues in Azure Data Factory and Azure Synapse Analytics. 
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 06/07/2021
+ms.date: 07/30/2021
 ms.author: jianleishen
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, synapse
 ---
 
-# Troubleshoot Azure Data Factory connectors
+# Troubleshoot Azure Data Factory and Azure Synapse Analytics connectors
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article explores common ways to troubleshoot problems with Azure Data Factory connectors.
+This article explores common ways to troubleshoot problems with Azure Data Factory and Azure Synapse connectors.
 
 ## Azure Blob Storage
 
@@ -81,7 +83,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Symptoms**: When you import a schema for Azure Cosmos DB for column mapping, some columns are missing. 
 
-- **Cause**: Data Factory infers the schema from the first 10 Azure Cosmos DB documents. If some document columns or properties don't contain values, the schema isn't detected by Data Factory and consequently isn't displayed.
+- **Cause**: Azure Data Factory and Synapse pipelines infer the schema from the first 10 Azure Cosmos DB documents. If some document columns or properties don't contain values, the schema isn't detected and consequently isn't displayed.
 
 - **Resolution**: You can tune the query as shown in the following code to force the column values to be displayed in the result set with empty values. Assume that the *impossible* column is missing in the first 10 documents). Alternatively, you can manually add the column for mapping.
 
@@ -135,7 +137,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Cause**: One possible cause is that the service principal or managed identity you use doesn't have permission to access certain folders or files.
 
-- **Resolution**: Grant appropriate permissions to all the folders and subfolders you need to copy. For more information, see [Copy data to or from Azure Data Lake Storage Gen1 using Azure Data Factory](connector-azure-data-lake-store.md#linked-service-properties).
+- **Resolution**: Grant appropriate permissions to all the folders and subfolders you need to copy. For more information, see [Copy data to or from Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties).
 
 ### Error message: Failed to get access token by using service principal. ADAL Error: service_unavailable
 
@@ -160,7 +162,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
   | Cause analysis                                               | Recommendation                                               |
   | :----------------------------------------------------------- | :----------------------------------------------------------- |
   | If Azure Data Lake Storage Gen2 throws error indicating some operation failed.| Check the detailed error message thrown by Azure Data Lake Storage Gen2. If the error is a transient failure, retry the operation. For further help, contact Azure Storage support, and provide the request ID in error message. |
-  | If the error message contains the string "Forbidden", the service principal or managed identity you use might not have sufficient permission to access Azure Data Lake Storage Gen2. | To troubleshoot this error, see [Copy and transform data in Azure Data Lake Storage Gen2 by using Azure Data Factory](./connector-azure-data-lake-storage.md#service-principal-authentication). |
+  | If the error message contains the string "Forbidden", the service principal or managed identity you use might not have sufficient permission to access Azure Data Lake Storage Gen2. | To troubleshoot this error, see [Copy and transform data in Azure Data Lake Storage Gen2](./connector-azure-data-lake-storage.md#service-principal-authentication). |
   | If the error message contains the string "InternalServerError", the error is returned by Azure Data Lake Storage Gen2. | The error might be caused by a transient failure. If so, retry the operation. If the issue persists, contact Azure Storage support and provide the request ID from the error message. |
 
 ### Request to Azure Data Lake Storage Gen2 account caused a timeout error
@@ -216,7 +218,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
     | For Azure SQL, if the error message contains an SQL error code such as "SqlErrorNumber=[errorcode]", see the Azure SQL troubleshooting guide. | For a recommendation, see [Troubleshoot connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance](../azure-sql/database/troubleshoot-common-errors-issues.md). |
     | Check to see whether port 1433 is in the firewall allowlist. | For more information, see [Ports used by SQL Server](/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-). |
     | If the error message contains the string "SqlException", SQL Database the error indicates that some specific operation failed. | For more information, search by SQL error code in [Database engine errors](/sql/relational-databases/errors-events/database-engine-events-and-errors). For further help, contact Azure SQL support. |
-    | If this is a transient issue (for example, an instable network connection), add retry in the activity policy to mitigate. | For more information, see [Pipelines and activities in Azure Data Factory](./concepts-pipelines-activities.md#activity-policy). |
+    | If this is a transient issue (for example, an instable network connection), add retry in the activity policy to mitigate. | For more information, see [Pipelines and activities](./concepts-pipelines-activities.md#activity-policy). |
     | If the error message contains the string "Client with IP address '...' is not allowed to access the server", and you're trying to connect to Azure SQL Database, the error is usually caused by an Azure SQL Database firewall issue. | In the Azure SQL Server firewall configuration, enable the **Allow Azure services and resources to access this server** option. For more information, see [Azure SQL Database and Azure Synapse IP firewall rules](../azure-sql/database/firewall-configure.md). |
     
 ### Error code: SqlOperationFailed
@@ -229,7 +231,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
     | :----------------------------------------------------------- | :----------------------------------------------------------- |
     | If the error message contains the string "SqlException", SQL Database throws an error indicating some specific operation failed. | If the SQL error is not clear, try to alter the database to the latest compatibility level '150'. It can throw the latest version SQL errors. For more information, see the [documentation](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat). <br/> For more information about troubleshooting SQL issues, search by SQL error code in [Database engine errors](/sql/relational-databases/errors-events/database-engine-events-and-errors). For further help, contact Azure SQL support. |
     | If the error message contains the string "PdwManagedToNativeInteropException", it's usually caused by a mismatch between the source and sink column sizes. | Check the size of both the source and sink columns. For further help, contact Azure SQL support. |
-    | If the error message contains the string "InvalidOperationException", it's usually caused by invalid input data. | To identify which row has encountered the problem, enable the fault tolerance feature on the copy activity, which can redirect problematic rows to the storage for further investigation. For more information, see [Fault tolerance of copy activity in Azure Data Factory](./copy-activity-fault-tolerance.md). |
+    | If the error message contains the string "InvalidOperationException", it's usually caused by invalid input data. | To identify which row has encountered the problem, enable the fault tolerance feature on the copy activity, which can redirect problematic rows to the storage for further investigation. For more information, see [Fault tolerance of copy activity](./copy-activity-fault-tolerance.md). |
 
 
 ### Error code: SqlUnauthorizedAccess
@@ -327,7 +329,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Cause**: SQL Bulk Copy failed because it received an invalid column length from the bulk copy program utility (bcp) client.
 
-- **Recommendation**:  To identify which row has encountered the problem, enable the fault tolerance feature on the copy activity. This can redirect problematic rows to the storage for further investigation. For more information, see [Fault tolerance of copy activity in Azure Data Factory](./copy-activity-fault-tolerance.md).
+- **Recommendation**:  To identify which row has encountered the problem, enable the fault tolerance feature on the copy activity. This can redirect problematic rows to the storage for further investigation. For more information, see [Fault tolerance of copy activity](./copy-activity-fault-tolerance.md).
 
 
 ### Error code: SqlConnectionIsClosed
@@ -338,6 +340,37 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Recommendation**:  Retry the connection. If the problem persists, contact Azure SQL support.
 
+### Error code: SqlServerInvalidLinkedServiceCredentialMissing
+
+- **Message**: `The SQL Server linked service is invalid with its credential being missing.`
+
+- **Cause**: The linked service was not configured properly.
+
+- **Recommendation**: Validate and fix the SQL server linked service. 
+
+### Error code: SqlParallelFailedToDetectPartitionColumn
+
+- **Message**: `Failed to detect the partition column with command '%command;', %message;.`
+
+- **Cause**: There is no primary key or unique key in the table.
+
+- **Recommendation**: Check the table to make sure that a primary key or a unique index is created. 
+
+### Error code: SqlParallelFailedToDetectPhysicalPartitions
+
+- **Message**: `Failed to detect the physical partitions with command '%command;', %message;.`
+
+- **Cause**: No physical partitions are created for the table. Check your database.
+
+- **Recommendation**: Reference [Create Partitioned Tables and Indexes](/sql/relational-databases/partitions/create-partitioned-tables-and-indexes?view=sql-server-ver15&preserve-view=true) to solve this issue.
+
+### Error code: SqlParallelFailedToGetPartitionRangeSynapse
+
+- **Message**: `Failed to get the partitions for azure synapse with command '%command;', %message;.`
+
+- **Cause**: No physical partitions are created for the table. Check your database.
+
+- **Recommendation**: Reference [Partitioning tables in dedicated SQL pool](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition.md) to solve this issue.
 
 ### Error message: Conversion failed when converting from a character string to uniqueidentifier
 
@@ -446,6 +479,12 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
     3. Update the table schema accordingly.
 
+### Error code: FailedDbOperation
+
+- **Message**: `User does not have permission to perform this action.`
+
+- **Recommendation**: Make sure the user configured in the Azure Synapse Analytics connector must have 'CONTROL' permission on the target database while using PolyBase to load data. For more detailed information, refer to this [document](./connector-azure-sql-data-warehouse.md#required-database-permission).
+
 
 ## Azure Table Storage
 
@@ -466,7 +505,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Message**: `Error thrown from driver. Sql code: '%code;'`
 
-- **Cause**: If the error message contains the string "SQLSTATE=51002 SQLCODE=-805", follow the "Tip" in [Copy data from DB2 by using Azure Data Factory](./connector-db2.md#linked-service-properties).
+- **Cause**: If the error message contains the string "SQLSTATE=51002 SQLCODE=-805", follow the "Tip" in [Copy data from DB2](./connector-db2.md#linked-service-properties).
 
 - **Recommendation**:  Try to set "NULLID" in the `packageCollection`  property.
 
@@ -491,7 +530,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
   | Cause analysis                                               | Recommendation                                               |
   | :----------------------------------------------------------- | :----------------------------------------------------------- |
   | The problematic row's column count is larger than the first row's column count. It might be caused by a data issue or incorrect column delimiter or quote char settings. | Get the row count from the error message, check the row's column, and fix the data. |
-  | If the expected column count is "1" in an error message, you might have specified wrong compression or format settings, which caused Data Factory to parse your files incorrectly. | Check the format settings to make sure they match your source files. |
+  | If the expected column count is "1" in an error message, you might have specified wrong compression or format settings, which caused the files to be parsed incorrectly. | Check the format settings to make sure they match your source files. |
   | If your source is a folder, the files under the specified folder might have a different schema. | Make sure that the files in the specified folder have an identical schema. |
 
 
@@ -510,7 +549,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Symptoms**: Some columns are missing when you import a schema or preview data. Error message: `The valid structure information (column name and type) are required for Dynamics source.`
 
-- **Cause**: This issue is by design, because Data Factory is unable to show columns that contain no values in the first 10 records. Make sure that the columns you've added are in the correct format. 
+- **Cause**: This issue is by design, because Data Factory and Synapse pipelines are unable to show columns that contain no values in the first 10 records. Make sure that the columns you've added are in the correct format. 
 
 - **Recommendation**: Manually add the columns in the mapping tab.
 
@@ -677,6 +716,14 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Recommendation**:  Check the port of the target server. FTP uses port 21.
 
+### Error code: FtpFailedToReadFtpData
+
+- **Message**: `Failed to read data from ftp: The remote server returned an error: 227 Entering Passive Mode (*,*,*,*,*,*).`
+
+- **Cause**: Port range between 1024 to 65535 is not open for data transfer under passive mode supported by the data factory or Synapse pipeline.
+
+- **Recommendation**:  Check the firewall settings of the target server. Open port 1024-65535 or port range specified in FTP server to SHIR/Azure IR IP address.
+
 
 ## HTTP
 
@@ -684,7 +731,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Message**: `Failed to read data from http server. Check the error from http server：%message;`
 
-- **Cause**: This error occurs when Azure Data Factory talks to the HTTP server, but the HTTP request operation fails.
+- **Cause**: This error occurs when a data factory or a Synapse pipeline talks to the HTTP server, but the HTTP request operation fails.
 
 - **Recommendation**:  Check the HTTP status code in the error message, and fix the remote server issue.
 
@@ -695,11 +742,11 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Message**: `Hour, Minute, and Second parameters describe an un-representable DateTime.`
 
-- **Cause**: In Data Factory, DateTime values are supported in the range from 0001-01-01 00:00:00 to 9999-12-31 23:59:59. However, Oracle supports a wider range of DateTime values, such as the BC century or min/sec>59, which leads to failure in Data Factory.
+- **Cause**: In Azure Data Factory and Synapse pipelines, DateTime values are supported in the range from 0001-01-01 00:00:00 to 9999-12-31 23:59:59. However, Oracle supports a wider range of DateTime values, such as the BC century or min/sec>59, which leads to failure.
 
 - **Recommendation**: 
 
-    To see whether the value in Oracle is in the range of Data Factory, run `select dump(<column name>)`. 
+    To see whether the value in Oracle is in the supported range of dates, run `select dump(<column name>)`. 
 
     To learn the byte sequence in the result, see [How are dates stored in Oracle?](https://stackoverflow.com/questions/13568193/how-are-dates-stored-in-oracle).
 
@@ -755,9 +802,9 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Message**: `Unsupported Parquet type. PrimitiveType: %primitiveType; OriginalType: %originalType;.`
 
-- **Cause**: The Parquet format is not supported in Azure Data Factory.
+- **Cause**: The Parquet format is not supported in Azure Data Factory and Synapse pipelines.
 
-- **Recommendation**:  Double-check the source data by going to [Supported file formats and compression codecs by copy activity in Azure Data Factory](./supported-file-formats-and-compression-codecs.md).
+- **Recommendation**:  Double-check the source data by going to [Supported file formats and compression codecs by copy activity](./supported-file-formats-and-compression-codecs.md).
 
 
 ### Error code: ParquetMissedDecimalPrecisionScale
@@ -793,7 +840,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Cause**: The data can't be converted into the type that's specified in mappings.source.
 
-- **Recommendation**:  Double-check the source data or specify the correct data type for this column in the copy activity column mapping. For more information, see [Supported file formats and compression codecs by copy activity in Azure Data Factory](./supported-file-formats-and-compression-codecs.md).
+- **Recommendation**:  Double-check the source data or specify the correct data type for this column in the copy activity column mapping. For more information, see [Supported file formats and compression codecs by the copy activity](./supported-file-formats-and-compression-codecs.md).
 
 
 ### Error code: ParquetDataCountNotMatchColumnCount
@@ -878,6 +925,21 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
     - The first row with white spaces is used as the column name.
     - The type OriginalType is supported. Try to avoid using these special characters: `,;{}()\n\t=`. 
 
+### Error code: ParquetDateTimeExceedLimit
+
+- **Message**: `The Ticks value '%ticks;' for the datetime column must be between valid datetime ticks range -621355968000000000 and 2534022144000000000.`
+
+- **Cause**: If the datetime value is '0001-01-01 00:00:00', it could be caused by the difference between Julian Calendar and Gregorian Calendar. For more details, reference [Difference between Julian and proleptic Gregorian calendar dates](https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar#Difference_between_Julian_and_proleptic_Gregorian_calendar_dates).
+
+- **Resolution**: Check the ticks value and avoid using the datetime value '0001-01-01 00:00:00'.
+
+### Error code: ParquetInvalidColumnName
+
+- **Message**: `The column name is invalid. Column name cannot contain these character:[,;{}()\n\t=]`
+
+- **Cause**: The column name contains invalid characters.
+
+- **Resolution**: Add or modify the column mapping to make the sink column name valid.
 
 ## REST
 
@@ -885,9 +947,17 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Message**: `Rest Endpoint responded with Failure from server. Check the error from server:%message;`
 
+- **Cause**: This error occurs when a data factory or Synapse pipeline talks to the REST endpoint over HTTP protocol, and the request operation fails.
+
+- **Recommendation**: Check the HTTP status code or the message in the error message and fix the remote server issue.
+
+### Error code: RestSourceCallFailed
+
+- **Message**: `The HttpStatusCode %statusCode; indicates failure.&#xA;Request URL: %requestUri;&#xA;Response payload:%payload;`
+
 - **Cause**: This error occurs when Azure Data Factory talks to the REST endpoint over HTTP protocol, and the request operation fails.
 
-- **Recommendation**:  Check the HTTP status code or the message in the error message and fix the remote server issue.
+- **Recommendation**: Check the HTTP status code or the request URL or the response payload in the error message and fix the remote server issue.
 
 ### Unexpected network response from the REST connector
 
@@ -904,7 +974,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
       You can also use 'curl--help' for more advanced usage of the command.
 
-    - If only the Data Factory REST connector returns an unexpected response, contact Microsoft support for further troubleshooting.
+    - If only the REST connector returns an unexpected response, contact Microsoft support for further troubleshooting.
     
     - Note that 'curl' might not be suitable to reproduce an SSL certificate validation issue. In some scenarios, the 'curl' command was executed successfully without encountering any SSL certificate validation issues. But when the same URL is executed in a browser, no SSL certificate is actually returned for the client to establish trust with server.
 
@@ -941,7 +1011,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
     If the private key content is from your key vault, the original key file can work if you upload it directly to the SFTP linked service.
 
-    For more information, see [Copy data from and to the SFTP server by using Azure Data Factory](./connector-sftp.md#use-ssh-public-key-authentication). The private key content is base64 encoded SSH private key content.
+    For more information, see [Copy data from and to the SFTP server by using data factory or Synapse pipelines](./connector-sftp.md#use-ssh-public-key-authentication). The private key content is base64 encoded SSH private key content.
 
     Encode *entire* original private key file with base64 encoding, and store the encoded string in your key vault. The original private key file is the one that can work on the SFTP linked service if you select **Upload** from the file.
 
@@ -970,7 +1040,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Recommendation**:  
 
-    PKCS#8 format SSH private key (start with "-----BEGIN ENCRYPTED PRIVATE KEY-----") is currently not supported to access the SFTP server in Data Factory. 
+    PKCS#8 format SSH private key (start with "-----BEGIN ENCRYPTED PRIVATE KEY-----") is currently not supported to access the SFTP server. 
 
     To convert the key to traditional SSH key format, starting with "-----BEGIN RSA PRIVATE KEY-----", run the following commands:
 
@@ -1003,7 +1073,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Recommendation**:  Check the port of the target server. By default, SFTP uses port 22.
 
-- **Cause**: If the error message contains the string "Server response does not contain SSH protocol identification", one possible cause is that the SFTP server throttled the connection. Data Factory will create multiple connections to download from the SFTP server in parallel, and sometimes it will encounter SFTP server throttling. Ordinarily, different servers return different errors when they encounter throttling.
+- **Cause**: If the error message contains the string "Server response does not contain SSH protocol identification", one possible cause is that the SFTP server throttled the connection. Multiple connections are created to download from the SFTP server in parallel, and sometimes it will encounter SFTP server throttling. Ordinarily, different servers return different errors when they encounter throttling.
 
 - **Recommendation**:  
 
@@ -1014,6 +1084,16 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
     * If you're using Self-hosted IR, add the Self-hosted IR machine's IP to the allowlist.
     * If you're using Azure IR, add [Azure Integration Runtime IP addresses](./azure-integration-runtime-ip-addresses.md). If you don't want to add a range of IPs to the SFTP server allowlist, use Self-hosted IR instead.
 
+
+#### Error code: SftpPermissionDenied
+
+- **Message**: `Permission denied to access '%path;'`
+
+- **Cause**: The specified user does not have read or write permission to the folder or file when operating.
+
+- **Recommendation**:  Grant the user with permission to read or write to the folder or files on SFTP server.
+ 
+ 
 ## SharePoint Online list
 
 ### Error code: SharePointOnlineAuthFailed
@@ -1091,7 +1171,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Resolution**: Learn [why we’re not recommending “FIPS Mode” anymore](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/why-we-8217-re-not-recommending-8220-fips-mode-8221-anymore/ba-p/701037), and evaluate whether you can disable FIPS on your self-hosted IR machine.
 
-    Alternatively, if you only want to let Azure Data Factory bypass FIPS and make the activity runs succeed, do the following:
+    Alternatively, if you only want to bypass FIPS and make the activity runs succeed, do the following:
 
     1. Open the folder where Self-hosted IR is installed. The path is usually *C:\Program Files\Microsoft Integration Runtime \<IR version>\Shared*.
 

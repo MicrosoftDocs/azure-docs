@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/11/2021
+ms.date: 07/29/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -34,7 +34,7 @@ The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic
 
 ## List of Functions
 
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [AppRoleAssignmentsComplex](#approleassignmentscomplex) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IgnoreFlowIfNullOrEmpty](#ignoreflowifnullorempty) &nbsp;&nbsp;&nbsp;&nbsp;[IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) &nbsp;&nbsp; &nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
 ### Append
@@ -53,7 +53,7 @@ Takes a source string value and appends the suffix to the end of it.
 | **suffix** |Required |String |The string that you want to append to the end of the source value. |
 
 
-### Append constant suffix to user name
+#### Append constant suffix to user name
 Example: If you are using a Salesforce Sandbox, you might need to append an additional suffix to all your user names before synchronizing them.
 
 **Expression:** 
@@ -64,6 +64,20 @@ Example: If you are using a Salesforce Sandbox, you might need to append an addi
 * **INPUT**: (userPrincipalName): "John.Doe@contoso.com"
 * **OUTPUT**:  "John.Doe@contoso.com.test"
 
+---
+### AppRoleAssignmentsComplex
+
+**Function:** 
+AppRoleAssignmentsComplex([appRoleAssignments])
+
+**Description:** 
+Used to provision multiple roles for a user. For detailed usage, see [Tutorial - Customize user provisioning attribute-mappings for SaaS applications in Azure Active Directory](customize-application-attributes.md#provisioning-a-role-to-a-scim-app).
+
+**Parameters:** 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **[appRoleAssignments]** |Required |String |**[appRoleAssignments]** object. |
 
 ---
 ### BitAnd
@@ -109,6 +123,44 @@ In other words, it returns 0 in all cases except when the corresponding bits of 
 Returns True if both attributes have the same value.
 
 ---
+### CDate
+**Function:**  
+`CDate(expression)`
+
+**Description:**  
+The CDate function returns a UTC DateTime from a string. DateTime is not a native attribute type but it can be used within date functions such as [FormatDateTime](#formatdatetime) and [DateAdd](#dateadd).
+
+**Parameters:** 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **expression** |Required | expression | Any valid string that represents a date/time. For supported formats, refer to [.NET custom date and time format strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+
+**Remarks:**  
+The returned string is always in UTC and follows the format **M/d/yyyy h:mm:ss tt**.
+
+**Example 1:** <br> 
+`CDate([StatusHireDate])`  
+**Sample input/output:** 
+
+* **INPUT** (StatusHireDate): "2020-03-16-07:00"
+* **OUTPUT**:  "3/16/2020 7:00:00 AM" <-- *Note that UTC equivalent of the above DateTime is returned*
+
+**Example 2:** <br> 
+`CDate("2021-06-30+08:00")`  
+**Sample input/output:** 
+
+* **INPUT**: "2021-06-30+08:00"
+* **OUTPUT**:  "6/29/2021 4:00:00 PM" <-- *Note that UTC equivalent of the above DateTime is returned*
+
+**Example 3:** <br> 
+`CDate("2009-06-15T01:45:30-07:00")`  
+**Sample input/output:** 
+
+* **INPUT**: "2009-06-15T01:45:30-07:00"
+* **OUTPUT**:  "6/15/2009 8:45:30 AM" <-- *Note that UTC equivalent of the above DateTime is returned*
+
+---
 ### Coalesce
 **Function:** 
 Coalesce(source1, source2, ..., defaultValue)
@@ -123,7 +175,7 @@ Returns the first source value that is not NULL. If all arguments are NULL and d
 | **source1  … sourceN** | Required | String |Required, variable-number of times. Usually name of the attribute from the source object. |
 | **defaultValue** | Optional | String | Default value to be used when all source values are NULL. Can be empty string ("").
 
-### Flow mail value if not NULL, otherwise flow userPrincipalName
+#### Flow mail value if not NULL, otherwise flow userPrincipalName
 Example: You wish to flow the mail attribute if it is present. If it is not, you wish to flow the value of userPrincipalName instead.
 
 **Expression:** 
@@ -208,6 +260,60 @@ The CStr function converts a value to a string data type.
 Returns "cn=Joe,dc=contoso,dc=com"
 
 ---
+### DateAdd
+**Function:**  
+`DateAdd(interval, value, dateTime)`
+
+**Description:**  
+Returns a date/time string representing a date to which a specified time interval has been added. The returned date is in the format: **M/d/yyyy h:mm:ss tt**.
+
+**Parameters:** 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **interval** |Required | String | Interval of time you want to add. See accepted values below this table. |
+| **value** |Required | Number | The number of units you want to add. It can be positive (to get dates in the future) or negative (to get dates in the past). |
+| **dateTime** |Required | DateTime | DateTime representing date to which the interval is added. |
+
+The **interval** string must have one of the following values: 
+ * yyyy Year 
+ * q Quarter
+ * m Month
+ * y Day of year
+ * d Day
+ * w Weekday
+ * ww Week
+ * h Hour
+ * n Minute
+ * s Second
+
+**Example 1: Add 7 days to hire date**  
+`DateAdd("d", 7, CDate([StatusHireDate]))`
+* **INPUT** (StatusHireDate): 2012-03-16-07:00
+* **OUTPUT**: 3/23/2012 7:00:00 AM
+
+**Example 2: Get a date 10 days prior to hire date**  
+`DateAdd("d", -10, CDate([StatusHireDate]))`
+* **INPUT** (StatusHireDate): 2012-03-16-07:00
+* **OUTPUT**: 3/6/2012 7:00:00 AM
+
+**Example 3: Add 2 weeks to hire date**  
+`DateAdd("ww", 2, CDate([StatusHireDate]))`
+* **INPUT** (StatusHireDate): 2012-03-16-07:00
+* **OUTPUT**: 3/30/2012 7:00:00 AM
+
+**Example 4: Add 10 months to hire date**  
+`DateAdd("m", 10, CDate([StatusHireDate]))`
+* **INPUT** (StatusHireDate): 2012-03-16-07:00
+* **OUTPUT**: 1/16/2013 7:00:00 AM
+
+**Example 5: Add 2 years to hire date**  
+`DateAdd("yyyy", 2, CDate([StatusHireDate]))`
+* **INPUT** (StatusHireDate): 2012-03-16-07:00
+* **OUTPUT**: 3/16/2014 7:00:00 AM
+
+---
+
 ### DateFromNum
 **Function:** 
 DateFromNum(value)
@@ -242,12 +348,12 @@ Takes a date string from one format and converts it into a different format.
 | --- | --- | --- | --- |
 | **source** |Required |String |Usually name of the attribute from the source object. |
 | **dateTimeStyles** | Optional | String | Use this to specify the formatting options that customize string parsing for some date and time parsing methods. For supported values, see [DateTimeStyles doc](/dotnet/api/system.globalization.datetimestyles). If left empty, the default value used is DateTimeStyles.RoundtripKind, DateTimeStyles.AllowLeadingWhite, DateTimeStyles.AllowTrailingWhite  |
-| **inputFormat** |Required |String |Expected format of the source value. For supported formats, see [/dotnet/standard/base-types/custom-date-and-time-format-strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| **inputFormat** |Required |String |Expected format of the source value. For supported formats, see [.NET custom date and time format strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 | **outputFormat** |Required |String |Format of the output date. |
 
 
 
-### Output date as a string in a certain format
+#### Output date as a string in a certain format
 Example: You want to send dates to a SaaS application like ServiceNow in a certain format. You can consider using the following expression. 
 
 **Expression:** 
@@ -267,6 +373,33 @@ Guid()
 
 **Description:** 
 The function Guid generates a new random GUID
+
+**Example:** <br>
+`Guid()`<br>
+Sample output: "1088051a-cd4b-4288-84f8-e02042ca72bc"
+
+---
+### IgnoreFlowIfNullOrEmpty
+**Function:** 
+IgnoreFlowIfNullOrEmpty(expression)
+
+**Description:** 
+The IgnoreFlowIfNullOrEmpty function instructs the provisioning service to ignore the attribute and drop it from the flow if the enclosed function or attribute is NULL or empty.
+
+**Parameters:** 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **expression** | Required | expression | Expression to be evaluated |
+
+**Example 1: Don't flow an attribute if it is null** <br>
+`IgnoreFlowIfNullOrEmpty([department])` <br>
+The above expression will drop the department attribute from the provisioning flow if it is null or empty. <br>
+
+**Example 2: Don't flow an attribute if the expression mapping evaluates to empty string or null** <br>
+Let's say the SuccessFactors attribute *prefix* is mapped to the on-premises Active Directory attribute *personalTitle* using the following expression mapping: <br>
+`IgnoreFlowIfNullOrEmpty(Switch([prefix], "", "3443", "Dr.", "3444", "Prof.", "3445", "Prof. Dr."))` <br>
+The above expression first evaluates the [Switch](#switch) function. If the *prefix* attribute does not have any of the values listed within the *Switch* function, then *Switch* will return an empty string and the attribute *personalTitle* will not be included in the provisioning flow to on-premises Active Directory.
 
 ---
 ### IIF
@@ -473,7 +606,7 @@ Requires one string argument. Returns the string, but with any diacritical chara
 | **source** |Required |String | Usually a first name or last name attribute. |
 
 
-### Remove diacritics from a string
+#### Remove diacritics from a string
 Example: You need to replace characters containing accent marks with equivalent characters that don't contain accent marks.
 
 **Expression:** 
@@ -498,6 +631,18 @@ Flips the boolean value of the **source**. If **source** value is True, returns 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Required |Boolean String |Expected **source** values are "True" or "False". |
+
+---
+### Now
+**Function:** 
+Now()
+
+**Description:**  
+The Now function returns a string representing the current UTC DateTime in the format **M/d/yyyy h:mm:ss tt**.
+
+**Example:**
+`Now()` <br>
+Example value returned *7/2/2021 3:33:38 PM*
 
 ---
 ### NumFromDate
@@ -578,7 +723,7 @@ Replaces values within a string in a case-sensitive manner. The function behaves
 | **replacementAttributeName** |Optional |String |Name of the attribute to be used for replacement value |
 | **template** |Optional |String |When **template** value is provided, we will look for **oldValue** inside the template and replace it with **source** value. |
 
-### Replace characters using a regular expression
+#### Replace characters using a regular expression
 Example: You need to find characters that match a regular expression value and remove them.
 
 **Expression:** 
@@ -612,7 +757,7 @@ Requires a minimum of two arguments, which are unique value generation rules def
 | --- | --- | --- | --- |
 | **uniqueValueRule1  … uniqueValueRuleN** |At least 2 are required, no upper bound |String | List of unique value generation rules to evaluate. |
 
-### Generate unique value for userPrincipalName (UPN) attribute
+#### Generate unique value for userPrincipalName (UPN) attribute
 Example: Based on the user's first name, middle name and last name, you need to generate a value for the UPN attribute and check for its uniqueness in the target AD directory before assigning the value to the UPN attribute.
 
 **Expression:** 
@@ -664,7 +809,7 @@ Splits a string into a multi-valued array, using the specified delimiter charact
 | **source** |Required |String |**source** value to update. |
 | **delimiter** |Required |String |Specifies the character that will be used to split the string (example: ",") |
 
-### Split a string into a multi-valued array
+#### Split a string into a multi-valued array
 Example: You need to take a comma-delimited list of strings, and split them into an array that can be plugged into a multi-value attribute like Salesforce's PermissionSets attribute. In this example, a list of permission sets has been populated in extensionAttribute5 in Azure AD.
 
 **Expression:** 
@@ -707,7 +852,7 @@ When **source** value matches a **key**, returns **value** for that **key**. If 
 | **key** |Required |String |**Key** to compare **source** value with. |
 | **value** |Required |String |Replacement value for the **source** matching the key. |
 
-### Replace a value based on predefined set of options
+#### Replace a value based on predefined set of options
 Example: You need to define the time zone of the user based on the state code stored in Azure AD. 
 If the state code doesn't match any of the predefined options, use default value of "Australia/Sydney".
 
@@ -728,6 +873,8 @@ ToLower(source, culture)
 **Description:** 
 Takes a *source* string value and converts it to lower case using the culture rules that are specified. If there is no *culture* info specified, then it will use Invariant culture.
 
+If you would like to set existing values in the target system to lower case, [update the schema for your target application](./customize-application-attributes.md#editing-the-list-of-supported-attributes) and set the property caseExact to 'true' for the attribute that you are interested in. 
+
 **Parameters:** 
 
 | Name | Required/ Repeating | Type | Notes |
@@ -735,7 +882,7 @@ Takes a *source* string value and converts it to lower case using the culture ru
 | **source** |Required |String |Usually name of the attribute from the source object |
 | **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code is not available, a three-letter code derived from ISO 639-2 is used.|
 
-### Convert generated userPrincipalName (UPN) value to lower case
+#### Convert generated userPrincipalName (UPN) value to lower case
 Example: You would like to generate the UPN value by concatenating the PreferredFirstName and PreferredLastName source fields and converting all characters to lower case. 
 
 `ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
@@ -754,6 +901,8 @@ ToUpper(source, culture)
 
 **Description:** 
 Takes a *source* string value and converts it to upper case using the culture rules that are specified. If there is no *culture* info specified, then it will use Invariant culture.
+
+If you would like to set existing values in the target system to upper case, please [update the schema for your target application](./customize-application-attributes.md#editing-the-list-of-supported-attributes) and set the property caseExact to 'true' for the attribute that you are interested in. 
 
 **Parameters:** 
 

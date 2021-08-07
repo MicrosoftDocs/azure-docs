@@ -26,7 +26,6 @@ To ensure that virtual machines for your organization are compatible with an app
       {
         "field": "type",
         "in": [
-          "Microsoft.Compute/disks",
           "Microsoft.Compute/virtualMachines",
           "Microsoft.Compute/VirtualMachineScaleSets"
         ]

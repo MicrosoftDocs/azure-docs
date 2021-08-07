@@ -2,17 +2,19 @@
 title: Back up Azure Blobs using Azure CLI
 description: Learn how to back up Azure Blobs using Azure CLI.
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 08/06/2021
 ---
 
 # Back up Azure Blobs in a storage account using Azure CLI
 
-This article describes how to back up [Azure Blobs](/azure/backup/blob-backup-overview) using Azure CLI.
+This article describes how to back up [Azure Blobs](./blob-backup-overview.md) using Azure CLI.
 
 > [!IMPORTANT]
-> Support for Azure Blobs backup and restore via CLI is in preview and available as an extension in Az 2.15.0 version and later. The extension isk automatically installed when you run the **az dataprotection** commands. [Learn more](/cli/azure/azure-cli-extensions-overview) about extensions.
+> Support for Azure Blobs backup and restore via CLI is in preview and available as an extension in Az 2.15.0 version and later. The extension is automatically installed when you run the **az dataprotection** commands. [Learn more](/cli/azure/azure-cli-extensions-overview) about extensions.
 
 In this article, you'll learn how to:
+
+- Before you start
 
 - Create a Backup vault
 
@@ -22,7 +24,11 @@ In this article, you'll learn how to:
 
 - Run an on-demand backup job
 
-For information on the Azure Blobs regions availability, supported scenarios, and limitations, see the [support matrix](disk-backup-support-matrix.md).
+For information on the Azure Blobs regions availability, supported scenarios, and limitations, see the [support matrix](blob-backup-support-matrix.md).
+
+## Before you start
+
+See the [prerequisites](/azure/backup/blob-backup-configure-manage#before-you-start) and [support matrix](/azure/backup/blob-backup-support-matrix) before you get started.
 
 ## Create a Backup vault
 
@@ -133,7 +139,7 @@ The policy template consists of a lifecycle only (which decides when to delete/c
 Once the policy JSON has all the required values, proceed to create a new policy from the policy object using the [az dataprotection backup-policy create](/cli/azure/dataprotection/backup-policy?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_policy_create) command.
 
 ```azurecli-interactive
-az dataprotection backup-policy get-default-policy-template --datasource-type AzureDisk > policy.json
+az dataprotection backup-policy get-default-policy-template --datasource-type AzureBlob > policy.json
 az dataprotection backup-policy create -g testBkpVaultRG --vault-name TestBkpVault -n BlobBackup-Policy --policy policy.json
 
 {
@@ -198,7 +204,7 @@ You need to assign a few permissions via RBAC to vault (represented by vault MSI
 Once all the relevant permissions are set, the configuration of backup is performed in 2 steps. First, we prepare the relevant request by using the relevant vault, policy, storage account using the [az dataprotection backup-instance initialize](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_initialize) command. Then, we submit the request to protect the disk using the [az dataprotection backup-instance create](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_create) command.
 
 ```azurecli-interactive
-az dataprotection backup-instance initialize --datasource-type AzureBlob  -l southeastasia --policy-id "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupPolicies/BlobBackup-Policy" --datasource-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA" > backup_instance.json
+az dataprotection backup-instance initialize --datasource-type AzureBlob  -l southeastasia --policy-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupPolicies/BlobBackup-Policy" --datasource-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA" > backup_instance.json
 ```
 
 ```azurecli-interactive

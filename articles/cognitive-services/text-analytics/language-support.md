@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/14/2021
+ms.date: 07/06/2021
 ms.author: aahi
 ---
 # Text Analytics API v3 language support 
 
-> [!NOTE]
-> Languages are added as new model versions are released for specific Text Analytics features. See [Model versioning](concepts/model-versioning.md) for the latest model version for the features you're using, and for more information.   
-
 #### [Sentiment Analysis](#tab/sentiment-analysis)
+
+> [!NOTE]
+> Languages are added as new [model versions](concepts/model-versioning.md) are released for specific Text Analytics features. The current model version for Sentiment Analysis is `2020-04-01`.
 
 | Language              | Language code | v3 support | Starting v3 model version: |              Notes |
 |:----------------------|:-------------:|:----------:|:--------------------------:|-------------------:|
@@ -36,7 +36,7 @@ ms.author: aahi
 | Spanish               |     `es`      |     ✓      |         2019-10-01         |                    |
 | Turkish               |     `tr`      |     ✓       |         2020-04-01        |                    |
 
-### Opinion mining (v3.1-preview only)
+### Opinion mining (v3.1 only)
 
 | Language              | Language code | Starting with v3 model version: |              Notes |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
@@ -47,6 +47,7 @@ ms.author: aahi
 
 > [!NOTE]
 > * Only "Person", "Location" and "Organization" entities are returned for languages marked with *.
+> * Languages are added as new [model versions](concepts/model-versioning.md) are released for specific Text Analytics features. The current model version for NER is `2021-06-01`.
 
 | Language               | Language code | v3 support | Starting with v3 model version: |       Notes        |
 |:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
@@ -74,7 +75,10 @@ ms.author: aahi
 | Swedish               |     `sv`      |     ✓*      |               2019-10-01        |                    |
 | Turkish               |     `tr`      |     ✓*      |               2019-10-01        |                    |
 
-#### [Key phrase extraction](#tab/key-phrase-extraction)
+#### [Key Phrase Extraction](#tab/key-phrase-extraction)
+
+> [!NOTE]
+> Languages are added as new [model versions](concepts/model-versioning.md) are released for specific Text Analytics features. The current model version for Key Phrase Extraction is `2021-06-01`.
 
 | Language              | Language code |  v3 support | Starting with v3 model version: |       Notes        |
 |:----------------------|:-------------:|:----------:|:-----------------------------------------:|:------------------:|
@@ -109,14 +113,33 @@ ms.author: aahi
 | Swedish               |     `sv`      |     ✓      |                2019-10-01                 |                    |
 | Turkish               |     `tr`      |     ✓      |                2020-07-01                 |                    |
 
-#### [Entity linking](#tab/entity-linking)
+#### [Entity Linking](#tab/entity-linking)
+
+> [!NOTE]
+> Languages are added as new [model versions](concepts/model-versioning.md) are released for specific Text Analytics features. The current model version for Entity Linking is `2020-02-01`.
 
 | Language | Language code |  v3 support | Starting with v3 model version: | Notes |
 |:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
 | English  |     `en`      |     ✓      |                2019-10-01                 |       |
 | Spanish  |     `es`      |    ✓      |                2019-10-01                 |       |
 
+#### [Text Analytics for health](#tab/health)
+
+> [!NOTE]
+> * The container uses different model versions than the API endpoints and SDK.
+> * Languages are added as new model versions are released for specific Text Analytics features. The current [model versions](concepts/model-versioning.md) for Text Analytics for health are:
+>    * API and SDK: `2021-05-15`
+>    * Container: `2021-03-01`
+
+
+| Language | Language code |  v3 support | Starting with v3 model version: | Notes |
+|:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
+| English  |     `en`      |     ✓      |                API endpoint: 2019-10-01 <br> Container: 2020-04-16                |       |
+
 #### [Personally Identifiable Information (PII)](#tab/pii)
+
+> [!NOTE]
+> Languages are added as new [model versions](concepts/model-versioning.md) are released for specific Text Analytics features. The current model version for PII is `2021-01-15`.
 
 | Language               | Language code | v3 support | Starting with v3 model version: |       Notes        |
 |:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
@@ -132,6 +155,9 @@ ms.author: aahi
 | Spanish               |     `es`      |     ✓       |               2020-04-01        |                    |
 
 #### [Language Detection](#tab/language-detection)
+
+> [!NOTE]
+> Languages are added as new [model versions](concepts/model-versioning.md) are released for specific Text Analytics features. The current model version for Language Detection is `2021-01-05`.
 
 The Text Analytics API can detect a wide range of languages, variants, dialects, and some regional/cultural languages, and return detected languages with their name and code. Text Analytics Language Detection language code parameters conform to [BCP-47](https://tools.ietf.org/html/bcp47) standard with most of them conforming to [ISO-639-1](https://www.iso.org/iso-639-language-codes.html) identifiers. 
 

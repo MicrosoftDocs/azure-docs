@@ -12,6 +12,9 @@ ms.custom: seodec18, devx-track-azurepowershell
 # Create an ASE by using an Azure Resource Manager template
 
 ## Overview
+> [!NOTE]
+> This article is about the App Service Environment v2 which is used with Isolated App Service plans
+> 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -149,7 +152,7 @@ However, just like apps that run on the public multitenant service, developers c
 ## App Service Environment v1 ##
 App Service Environment has two versions: ASEv1 and ASEv2. The preceding information was based on ASEv2. This section shows you the differences between ASEv1 and ASEv2.
 
-In ASEv1, you manage all of the resources manually. That includes the front ends, workers, and IP addresses used for IP-based SSL. Before you can scale out your App Service plan, you must scale out the worker pool that you want to host it.
+In ASEv1, you manage all of the resources manually. That includes the front ends, workers, and IP addresses used for IP-based TLS/SSL binding. Before you can scale out your App Service plan, you must scale out the worker pool that you want to host it.
 
 ASEv1 uses a different pricing model from ASEv2. In ASEv1, you pay for each vCPU allocated. That includes vCPUs that are used for front ends or workers that aren't hosting any workloads. In ASEv1, the default maximum-scale size of an ASE is 55 total hosts. That includes workers and front ends. One advantage to ASEv1 is that it can be deployed in a classic virtual network and a Resource Manager virtual network. To learn more about ASEv1, see [App Service Environment v1 introduction][ASEv1Intro].
 

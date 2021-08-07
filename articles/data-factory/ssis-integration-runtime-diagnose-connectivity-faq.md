@@ -2,6 +2,7 @@
 title: Use the diagnose connectivity feature in the SSIS integration runtime
 description: Troubleshoot connection issues in the SSIS integration runtime by using the diagnose connectivity feature. 
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 ms.author: meiyl
 author: meiyl
@@ -96,6 +97,6 @@ Use the following sections to learn about the most common errors that occur when
 
 ## Next steps
 
-- [Migrate SSIS jobs with SSMS](https://docs.microsoft.com/azure/data-factory/how-to-migrate-ssis-job-ssms)
-- [Run SSIS packages in Azure with SSDT](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssdt)
-- [Schedule SSIS packages in Azure](https://docs.microsoft.com/azure/data-factory/how-to-schedule-azure-ssis-integration-runtime)
+- [Migrate SSIS jobs with SSMS](how-to-migrate-ssis-job-ssms.md)
+- [Run SSIS packages in Azure with SSDT](how-to-invoke-ssis-package-ssdt.md)
+- [Schedule SSIS packages in Azure](how-to-schedule-azure-ssis-integration-runtime.md)

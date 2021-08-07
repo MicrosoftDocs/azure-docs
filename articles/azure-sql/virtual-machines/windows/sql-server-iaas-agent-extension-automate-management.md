@@ -72,6 +72,7 @@ The following table details these benefits:
 | **View disk utilization in portal** | Allows you to view a graphical representation of the disk utilization of your SQL data files in the Azure portal.  <br/> Management mode: Full | 
 | **Flexible licensing** | Save on cost by [seamlessly transitioning](licensing-model-azure-hybrid-benefit-ahb-change.md) from the bring-your-own-license (also known as the Azure Hybrid Benefit) to the pay-as-you-go licensing model and back again. <br/> Management mode: Lightweight & full| 
 | **Flexible version / edition** | If you decide to change the [version](change-sql-server-version.md) or [edition](change-sql-server-edition.md) of SQL Server, you can update the metadata within the Azure portal without having to redeploy the entire SQL Server VM.  <br/> Management mode: Lightweight & full| 
+| **Security Center Portal integration** | If you've enabled [Azure Defender for SQL](/azure/security-center/defender-for-sql-usage), then you can view Security Center recommendations directly in the [SQL virtual machines](manage-sql-vm-portal.md) resource of the Azure portal. See [Security best practices](security-considerations-best-practices.md) to learn more.  <br/> Management mode: Lightweight & full| 
 
 
 ## Management modes
@@ -167,4 +168,4 @@ To install the SQL Server IaaS extension to SQL Server on Azure VMs, see the art
 
 For more information about running SQL Server on Azure Virtual Machines, see the [What is SQL Server on Azure Virtual Machines?](sql-server-on-azure-vm-iaas-what-is-overview.md).
 
-To learn more, see [frequently asked questions](frequently-asked-questions-faq.yml). 
+To learn more, see [frequently asked questions](frequently-asked-questions-faq.yml).

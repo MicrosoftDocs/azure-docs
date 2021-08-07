@@ -18,7 +18,7 @@ In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 > * Use the Azure IoT Central water consumption monitoring template to create your water consumption monitoring application.
-> * Explore and customize the operator dashboard.
+> * Explore and customize the dashboard.
 > * Explore device templates.
 > * Explore simulated devices.
 > * Explore and configure rules.
@@ -44,7 +44,7 @@ To create a new Azure IoT Central water consumption monitoring application:
   
 
 1. Select the **Water consumption monitoring** application template.
-This template includes a sample water consumption device template, a simulated device, an operator dashboard, and preconfigured monitoring rules.
+This template includes a sample water consumption device template, a simulated device, an dashboard, and preconfigured monitoring rules.
 
 1. Select **Create app** to open the **New application** creation form with the following fields:
     * **Application name**: By default, the application uses *Water consumption monitoring* followed by a unique ID string that Azure IoT Central generates. Optionally, choose a friendly application name. You can change the application name later, too.
@@ -61,7 +61,7 @@ You've now created a water consumption monitoring app by using the Azure IoT Cen
 
 The water consumption monitoring application comes with preconfigured:
 
-* Sample operator dashboards.
+* Sample dashboards.
 * Sample predefined water flow and valve device templates.
 * Simulated water flow and smart valve devices.
 * Rules and jobs.
@@ -69,7 +69,7 @@ The water consumption monitoring application comes with preconfigured:
 
 It's your application, and you can modify it anytime. Next, you explore the application and make some customizations.
 
-## Explore and customize the operator dashboard
+## Explore and customize the dashboard
 
 After you create the application, the sample **Wide World water consumption dashboard** opens.
   
@@ -87,7 +87,7 @@ The dashboard consists of different kinds of tiles:
 * **Average water flow KPI tile**: The KPI tile is configured to display as an example *the average in the last 30 minutes*. You can customize the KPI tile and set it to a different type and time range.
 * **Device command tiles**: These tiles include the **Close valve**, **Open valve**, and **Set valve position** tiles. Selecting the commands takes you to the simulated device command page. In Azure IoT Central, a *command* is a *device capability* type. We'll explore this concept later in the [Device template](../government/tutorial-water-consumption-monitoring.md#explore-the-device-template) section of this tutorial.
 
-* **Water distribution area map**: The map uses Azure Maps, which you can configure directly in Azure IoT Central. The map tile displays the device location. Hover over the map and try the controls over the map, like *zoom in*, *zoom out*, or *expand*.
+* **Water distribution area map**: The map uses Azure Maps, which you can configure directly in Azure IoT Central. The map tile displays the device [location](../core/howto-use-location-data.md). Hover over the map and try the controls over the map, like *zoom in*, *zoom out*, or *expand*.
 
     :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-dashboard-map.png" alt-text="Water consumption monitoring dashboard map":::
 
@@ -104,7 +104,7 @@ You can customize views in the dashboard for operators.
 
     :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-edit-dashboard.png" alt-text="Edit dashboard":::
 
-To learn more, see [Create and customize dashboards](../core/howto-create-personal-dashboards.md).
+To learn more, see [Create and customize dashboards](../core/howto-manage-dashboards.md).
 
 ## Explore the device template
 
@@ -190,7 +190,7 @@ In Azure IoT Central, you can create simulated devices to test your device templ
 
 Add new devices by selecting **+ New** on the **Devices** tab.
 
-To learn more, see [Manage devices](../core/howto-manage-devices.md).
+To learn more, see [Manage devices](../core/howto-manage-devices-individually.md).
 
 ## Explore rules
 
@@ -238,7 +238,7 @@ In Azure IoT Central, jobs allow you to trigger device or cloud property updates
 1. Select **Jobs** on the left pane.
 1. Select **+ New**, and configure one or more jobs.
 
-To learn more, see [How to run a job](../core/howto-run-a-job.md).
+To learn more, see [How to run a job](../core/howto-manage-devices-in-bulk.md).
 
 ## Customize your application
 

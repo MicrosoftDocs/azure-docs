@@ -4,7 +4,7 @@ description: Migrate Azure Data Lake Storage from Gen1 to Gen2, which is built o
 author: normesta
 ms.topic: how-to
 ms.author: normesta
-ms.date: 03/11/2020
+ms.date: 07/13/2021
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
@@ -13,6 +13,8 @@ ms.subservice: data-lake-storage-gen2
 # Migrate Azure Data Lake Storage from Gen1 to Gen2
 
 You can migrate your data, workloads, and applications from Data Lake Storage Gen1 to Data Lake Storage Gen2.
+
+On **Feb 29, 2024** Azure Data Lake Storage Gen1 will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/). If you use Azure Data Lake Storage Gen1, make sure to migrate to Azure Data Lake Storage Gen2 prior to that date. This article shows you how to do that.
 
 ‎Azure Data Lake Storage Gen2 is built on [Azure Blob storage](storage-blobs-introduction.md) and provides a set of capabilities dedicated to big data analytics. [Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/data-lake-storage/) combines features from [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml), such as file system semantics, directory, and file level security and scale with low-cost, tiered storage, high availability/disaster recovery capabilities from [Azure Blob storage](storage-blobs-introduction.md).
 
@@ -64,13 +66,22 @@ To migrate to Gen2, we recommend the following approach.
 
 Migrate data, workloads, and applications by using the pattern that you prefer. We recommend that you validate scenarios incrementally.
 
-1. [Create a storage account](../common/storage-account-create.md) and enable the hierarchical namespace feature. 
+1. [Create a storage account](create-data-lake-storage-account.md) and enable the hierarchical namespace feature. 
 
 2. Migrate your data. 
 
 3. Configure [services in your workloads](./data-lake-storage-supported-azure-services.md) to point to your Gen2 endpoint. 
    
-4. Update applications to use Gen2 APIs. See guides for [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md), [JavaScript](data-lake-storage-directory-file-acl-javascript.md) and [REST](/rest/api/storageservices/data-lake-storage-gen2). 
+4. Update applications to use Gen2 APIs. See these guides:
+
+| Environment | Article |
+|--------|-----------|
+|Azure Storage Explorer |[Use Azure Storage Explorer to manage directories and files in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md)|
+|.NET |[Use .NET to manage directories and files in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md)|
+|Java|[Use Java to manage directories and files in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md)|
+|Python|[Use Python to manage directories and files in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md)|
+|JavaScript (Node.js)|[Use JavaScript SDK in Node.js to manage directories and files in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-javascript.md)|
+|REST API |[Azure Data Lake Store REST API](/rest/api/storageservices/data-lake-storage-gen2)|
    
 5. Update scripts to use Data Lake Storage Gen2 [PowerShell cmdlets](data-lake-storage-directory-file-acl-powershell.md), and [Azure CLI commands](data-lake-storage-directory-file-acl-cli.md).
    
@@ -121,7 +132,7 @@ This is the simplest pattern.
 
 1. Stop all writes to Gen1.
 
-2. Move data from Gen1 to Gen2. We recommend [Azure Data Factory](../../data-factory/connector-azure-data-lake-storage.md). ACLs copy with the data.
+2. Move data from Gen1 to Gen2. We recommend [Azure Data Factory](../../data-factory/connector-azure-data-lake-storage.md) or by using the [Azure portal](data-lake-storage-migrate-gen1-to-gen2-azure-portal.md). ACLs copy with the data.
 
 3. Point ingest operations and workloads to Gen2.
 
@@ -139,6 +150,9 @@ Check out our sample code for the lift and shift pattern in our [Lift and Shift 
 :heavy_check_mark: Expect downtime during the migration and the cutover period.
 
 :heavy_check_mark: Ideal for pipelines that can afford downtime and all apps can be upgraded at one time.
+
+> [!TIP]
+> Consider using the [Azure portal](data-lake-storage-migrate-gen1-to-gen2-azure-portal.md) to shorten downtime and reduce the number of steps required by you to complete the migration.
 
 ### Incremental copy pattern
 

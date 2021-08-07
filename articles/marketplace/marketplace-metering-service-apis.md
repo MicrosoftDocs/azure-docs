@@ -272,4 +272,4 @@ Follow the instruction in [Support for the commercial marketplace program in Par
 
 ## Next steps
 
-For more information on metering service APIs , see [Marketplace metering service APIs FAQ](marketplace-metering-service-apis-faq.md).
+For more information on metering service APIs , see [Marketplace metering service APIs FAQ](marketplace-metering-service-apis-faq.yml).

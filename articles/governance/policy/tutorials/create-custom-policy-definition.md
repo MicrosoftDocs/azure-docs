@@ -79,7 +79,7 @@ to browse resources in your environment and see the Resource Manager properties 
 ### ARM templates
 
 There are several ways to look at an
-[ARM](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) that
+[ARM template](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) that
 includes the property you're looking to manage.
 
 #### Existing resource in the portal

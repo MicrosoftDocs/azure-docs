@@ -282,10 +282,10 @@ conceptualContent:
 
     - title: Roles
       links:
-        - url: ./roles/groups-assign-role.md
+        - url: ./roles/concept-understand-roles.md
           itemType: concept
           text:  Understand Azure AD roles
-        - url: ./roles/concept-understand-roles.md
+        - url: ./roles/custom-create.md
           itemType: how-to-guide
           text:  Create a custom role
         - url: ./roles/groups-view-assignments.md

@@ -1,11 +1,11 @@
 ---
 title: Analyze logs and metrics in Azure Spring Cloud | Microsoft Docs
 description: Learn how to analyze diagnostics data in Azure Spring Cloud
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 ---
 

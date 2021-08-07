@@ -173,25 +173,15 @@ File preview:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'csv/population-unix-hdr/population.csv',
-        DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV', PARSER_VERSION = '2.0',
-        FIELDTERMINATOR =',',
-        FIRSTROW = 2,
-        HEADER_ROW = TRUE
-    )
-    WITH (
-        [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-        [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
-        [year] smallint,
-        [population] bigint
+    BULK 'csv/population-unix-hdr/population.csv',
+    DATA_SOURCE = 'SqlOnDemandDemo',
+    FORMAT = 'CSV', PARSER_VERSION = '2.0',
+    FIELDTERMINATOR =',',
+    HEADER_ROW = TRUE
     ) AS [r]
-WHERE
-    country_name = 'Luxembourg'
-    AND year = 2017;
 ```
 
-Option `HEADER_ROW = { TRUE | FALSE }` reads first row in the CSV file as HEADER ROW and shows values as column names instead of default names (C1, C2, etc).
+Option `HEADER_ROW = TRUE` will result in reading column names from the header row in file. It is great for exploration purposes when you are not familiar with file content. For best performance see [Use appropriate data types section in Best practices](best-practices-serverless-sql-pool.md#use-appropriate-data-types). Also, you can read more about [OPENROWSET syntax here](develop-openrowset.md#syntax).
 
 ## Custom quote character
 

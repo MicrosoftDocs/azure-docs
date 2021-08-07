@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 12/09/2020
+ms.date: 07/13/2021
 ms.author: cherylmc
 
 ---
@@ -45,7 +45,7 @@ This figure shows the architecture of an Azure Bastion deployment in a hub-and-s
 3. To see Bastion in the **Connect** drop down menu, you must select the subs you have access to in **Subscription > global subscription**.
 4. Select the virtual machine to connect to.
 5. Azure Bastion is seamlessly detected across the peered VNet.
-6. With a single click, the RDP/SSH session opens in the browser. For RDP and SSH concurrent session limits, see [RDP and SSH sessions](bastion-faq.md#limits).
+6. With a single click, the RDP/SSH session opens in the browser.
 
   :::image type="content" source="../../includes/media/bastion-vm-rdp/connect-vm.png" alt-text="Connect":::
 
@@ -56,7 +56,7 @@ This figure shows the architecture of an Azure Bastion deployment in a hub-and-s
 
 ## FAQ
 
-[!INCLUDE [FAQ for VNet peering](../../includes/bastion-faq-peering-include.md)]
+For frequently asked questions, see the Bastion VNet Peering [FAQ](bastion-faq.md#peering).
 
 ## Next steps
 

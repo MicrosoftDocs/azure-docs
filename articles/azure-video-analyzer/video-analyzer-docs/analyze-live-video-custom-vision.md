@@ -2,7 +2,7 @@
 title: Get started with Azure Video Analyzer
 description: This tutorial walks you through the steps to analyze live video with Azure Video Analyzer on IoT Edge and Azure Custom Vision.
 ms.topic: tutorial
-ms.date: 04/21/2021
+ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
 
 ---
@@ -108,24 +108,16 @@ After you're finished, you can export the model to a Docker container by using t
    2. `docker image ls`
 
       This command checks if the new image is in your local registry.
-   3. `docker run -p 127.0.0.1:80:80 -d cvtruck`
+   
+## Set up your development environment
 
-      This command should publish the Docker's exposed port (80) onto your local machine's port (80).
-   4. `docker container ls`
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [setup development environment](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
+::: zone-end
 
-      This command checks the port mappings and if the Docker container is running successfully on your machine. The output should be something like:
-      
-      ```
-      CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                      NAMES
-      8b7505398367        cvtruck             "/bin/sh -c 'python …"   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
-      ```
-   5. `curl -X POST http://127.0.0.1:80/score -F imageData=@<path to any image file that has the toy delivery truck in it>`
-
-      This command tests the container on the local machine. If the image has the same delivery truck as we trained the model on, the output should be something like the following example. It suggests the delivery truck was detected with 90.12% probability.
-
-      ```
-      {"created":"2020-03-20T07:10:47.827673","id":"","iteration":"","predictions":[{"boundingBox":{"height":0.66167289,"left":-0.03923762,"top":0.12781593,"width":0.70003178},"probability":0.90128148,"tagId":0,"tagName":"delivery truck"},{"boundingBox":{"height":0.63733053,"left":0.25220079,"top":0.0876643,"width":0.53331227},"probability":0.59745145,"tagId":0,"tagName":"delivery truck"}],"project":""}
-      ```
+::: zone pivot="programming-language-python"
+[!INCLUDE [setup development environment](./includes/set-up-dev-environment/python/python-set-up-dev-env.md)]
+::: zone-end
 
 ## Examine the sample files
 
@@ -147,7 +139,7 @@ After you're finished, you can export the model to a Docker container by using t
    1. `"topologyName" : "InferencingWithHttpExtension"`
    2. Add the following to the top of the parameters array: `{"name": "inferencingUrl","value": "http://cv/score"},`
    3. Change the `rtspUrl` parameter value to `"rtsp://rtspsim:554/media/t2.mkv"`.
-4. Under `livePipelineDelete`, ensure `"name": "InferencingWithHttpExtension"`.
+4. Under `pipelineTopologyDelete`, ensure `"name": "InferencingWithHttpExtension"`.
 5. Right-click the src/edge/ deployment.customvision.template.json file, and select **Generate IoT Edge Deployment Manifest**.
 
    ![Screenshot that shows Generate IoT Edge Deployment Manifest.](./media/custom-vision/deployment-template-json.png)
@@ -184,15 +176,11 @@ After you're finished, you can export the model to a Docker container by using t
     - A module named `rtspsim`, which simulates an RTSP server that acts as the source of a live video feed.
     - A module named `cv`, which as the name suggests is the Custom Vision toy truck detection model that applies Custom Vision to the images and returns multiple tag types. (Our model was trained on only one tag, delivery truck.)
 
-## Prepare for monitoring events
 
-Right-click the ava-sample-device, and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the **OUTPUT** window of Visual Studio Code.
-
-![Screenshot that shows Start Monitoring Built-in Event Endpoint.](./media/custom-vision/start-monitoring.png)
 
 ## Run the sample program
 
-If you open the topology for this tutorial in a browser, you'll see that the value of `inferencingUrl` has been set to `http://cv/image`. This setting means the inference server will return results after detecting toy trucks, if any, in the live video.
+If you open the topology for this tutorial in a browser, you'll see that the value of `inferencingUrl` has been set to `http://cv/score`. This setting means the inference server will return results after detecting toy trucks, if any, in the live video.
 
 1. In Visual Studio Code, open the **Extensions** tab (or select **Ctrl+Shift+X**) and search for Azure IoT Hub.
 2. Right-click and select **Extension Settings**.
@@ -201,7 +189,14 @@ If you open the topology for this tutorial in a browser, you'll see that the val
 3. Search and enable **Show Verbose Message**.
 
    ![Screenshot that shows Show Verbose Message.](./media/custom-vision/show-verbose-message.png)
-4. To start a debugging session, select the **F5** key. You see messages printed in the **TERMINAL** window.
+4.  ::: zone pivot="programming-language-csharp"
+    [!INCLUDE [header](includes/common-includes/csharp-run-program.md)]
+    ::: zone-end
+
+    ::: zone pivot="programming-language-python"
+    [!INCLUDE [header](includes/common-includes/python-run-program.md)]
+    ::: zone-end  
+
 5. The operations.json code starts off with calls to the direct methods `livePipelineList` and `livePipelineList`. If you cleaned up resources after you completed previous quickstarts, this process will return empty lists and then pause. To continue, select the **Enter** key.
 
    The **TERMINAL** window shows the next set of direct method calls:
@@ -219,7 +214,7 @@ If you open the topology for this tutorial in a browser, you'll see that the val
             "parameters": [
               { 
                 "name": "inferencingUrl",
-                "value": "http://cv/image"
+                "value": "http://cv/score"
               },
               {
                 "name": "rtspUrl",
