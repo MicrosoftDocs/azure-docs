@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 04/12/2021
 ms.author: danlep
 ---
-* **A Standard SKU [public IPv4 address](../articles/virtual-network/public-ip-addresses.md#standard)**, if your API Management instance is hosted on the [v2 infrastructure](../articles/api-management/hosting-infratructure.md). The public IP address resource is required when setting up the virtual network for either external or internal access. With an internal virtual network, the public IP address is used only for management operations. Learn more about [IP addresses of API Management](../articles/api-management/api-management-howto-ip-addresses.md).
+* **A Standard SKU [public IPv4 address](../articles/virtual-network/public-ip-addresses.md#standard)**. The public IP address resource is required when setting up the virtual network for either external or internal access. With an internal virtual network, the public IP address is used only for management operations. Learn more about [IP addresses of API Management](../articles/api-management/api-management-howto-ip-addresses.md).
 
   * The IP address must be in the same region and subscription as the API Management instance and the virtual network.
 
