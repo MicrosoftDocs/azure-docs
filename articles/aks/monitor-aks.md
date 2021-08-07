@@ -62,7 +62,7 @@ If you're unsure about which resource logs to initially enable, use the recommen
 
 | Category | Enable? | Destination |
 |:---|:---|:---|
-| cluster-autoscale       | Enable if autoscale is enabled | Log Analytics workspace |
+| cluster-autoscaler      | Enable if autoscale is enabled | Log Analytics workspace |
 | guard                   | Enable if Azure Active Directory is enabled | Log Analytics workspace |
 | kube-apiserver          | Enable | Log Analytics workspace |
 | kube-audit              | Enable | Azure storage. This keeps costs to a minimum yet retains the audit logs if they're required by an auditor. |
