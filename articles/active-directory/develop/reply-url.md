@@ -30,7 +30,7 @@ The Azure Active Directory (Azure AD) application model specifies these restrict
     * `https://contoso.com` is returned as `https://contoso.com/`
     * `http://localhost:7071` is returned as `http://localhost:7071/`
 
-* Redirect URIs that contain a path segment or whose response mode is `query` or `fragment` are *not* appended with a trailing slash in the response.
+* Redirect URIs that contain a path segment are *not* appended with a trailing slash in the response.
 
     Examples:
 
@@ -56,14 +56,14 @@ You can use a maximum of 256 characters for each redirect URI you add to an app 
 
 **HTTP**: The HTTP scheme (`http://`) is supported *only* for *localhost* URIs and should be used only during active local application development and testing.
 
-| Example redirect URI | Validity of example URI |
-| -------------------- | ------------------------------ |
-| `https://contoso.com` | Valid |
-| `https://contoso.com/abc/response-oidc` | Valid |
-| `https://localhost` | Valid |
-| `http://contoso.com/abc/response-oidc` | Invalid |
-| `http://localhost` | Valid |
-| `http://localhost/abc` | Valid |
+| Example redirect URI                    | Validity |
+|-----------------------------------------|----------|
+| `https://contoso.com`                   | Valid    |
+| `https://contoso.com/abc/response-oidc` | Valid    |
+| `https://localhost`                     | Valid    |
+| `http://contoso.com/abc/response-oidc`  | Invalid  |
+| `http://localhost`                      | Valid    |
+| `http://localhost/abc`                  | Valid    |
 
 ### Localhost exceptions
 
