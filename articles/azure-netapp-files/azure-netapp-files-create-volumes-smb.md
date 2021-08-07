@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 08/06/2021
 ms.author: b-juche
 ---
 # Create an SMB volume for Azure NetApp Files
 
-Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3, or dual protocol (NFSv3 and SMB). A volume's capacity consumption counts against its pool's provisioned capacity. 
+Azure NetApp Files supports creating volumes using NFS (NFSv3 or NFSv4.1), SMB3, or dual protocol (NFSv3 and SMB, or NFSv4.1 and SMB). A volume's capacity consumption counts against its pool's provisioned capacity. 
 
 This article shows you how to create an SMB3 volume. For NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volumes.md). For dual-protocol volumes, see [Create a dual-protocol volume](create-volumes-dual-protocol.md).
 
@@ -96,7 +96,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
         - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.   
         
-    * If you want to enable encryption for SMB3, select **Enable SMB3 Protocol Encryption**.   
+    * <a name="smb3-encryption"></a>If you want to enable encryption for SMB3, select **Enable SMB3 Protocol Encryption**.   
         This feature enables encryption for in-flight SMB3 data. SMB clients not using SMB3 encryption will not be able to access this volume.  Data at rest is encrypted regardless of this setting.  
         See [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption) for additional information. 
 
@@ -116,7 +116,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
         ```
         
         You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status.  
-    * If you want to enable Continuous Availability for the SMB volume, select **Enable Continuous Availability**.    
+    * <a name="continuous-availability"></a>If you want to enable Continuous Availability for the SMB volume, select **Enable Continuous Availability**.    
 
         > [!IMPORTANT]   
         > The SMB Continuous Availability feature is currently in public preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files SMB Continuous Availability Shares Public Preview waitlist submission page](https://aka.ms/anfsmbcasharespreviewsignup)**. Wait for an official confirmation email from the Azure NetApp Files team before using the Continuous Availability feature.   

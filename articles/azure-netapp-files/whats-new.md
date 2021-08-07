@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/12/2021
+ms.date: 08/06/2021
 ms.author: b-juche
 ---
 
@@ -21,13 +21,26 @@ ms.author: b-juche
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
-## August 2021
 
 * [Network features](configure-network-features.md) (Preview)  
 
     
+## August 2021
+* [NFS `Chown Mode` export policy and UNIX export permissions](configure-unix-permissions-change-ownership-mode.md) (Preview)   
 
-## June 2021
+    You can now set the Unix permissions and the change ownership mode (`Chown Mode`) options on Azure NetApp Files NFS volumes or dual-protocol volumes with the Unix security style. You can specify these settings during volume creation or after volume creation.   
+
+    The change ownership mode (`Chown Mode`) functionality enables you to set the ownership management capabilities of files and directories. You can specify or modify the setting under a volume's export policy. Two options for `Chown Mode` are available: *Restricted* (default),  where only the root user can change the ownership of files and directories, and *Unrestricted*, where non-root users can change the ownership for files and directories that they own.   
+
+    The Azure NetApp Files Unix Permissions functionality enables you to specify change permissions for the mount path. 
+
+    These new features provide options to move access control of certain files and directories into the hands of the data user instead of the service operator.   
+
+* [Dual-protocol (NFSv4.1 and SMB) volume](create-volumes-dual-protocol.md) (Preview)   
+
+    Azure NetApp Files already supports dual-protocol access to NFSv3 and SMB volumes as of [July 2020](#july-2020). You can now create an Azure NetApp Files volume that allows simultaneous dual-protocol (NFSv4.1 and SMB) access with support for LDAP user mapping. This feature enables use cases where you might have a Linux-based workload using NFSv4.1 for its access, and the workload generates and stores data in an Azure NetApp Files volume. At the same time, your staff might need to use Windows-based clients and software to analyze the newly generated data from the same Azure NetApp Files volume. The simultaneous dual-protocol access feature removes the need to copy the workload-generated data to a separate volume with a different protocol for post-analysis, saving storage cost and operational time. This feature is free of charge (normal Azure NetApp Files storage cost still applies) and is generally available. Learn more from the [simultaneous dual-protocol NFSv4.1/SMB access](create-volumes-dual-protocol.md) documentation.
+
+## June 2021  
 
 * [Azure NetApp Files storage service add-ons](storage-service-add-ons.md)
 
@@ -88,11 +101,11 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Users have requested direct control over provisioned capacity. Users want to control and balance storage capacity and utilization. They also want to control cost along with the application-side and client-side visibility of available, used, and provisioned capacity and the performance of their application volumes. With this new behavior, all this capability has now been enabled.
 
-* [SMB Continuous Availability (CA) shares support for FSLogix user profile containers](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (Preview)  
+* [SMB Continuous Availability (CA) shares support for FSLogix user profile containers](azure-netapp-files-create-volumes-smb.md#continuous-availability) (Preview)  
 
-    [FSLogix](/fslogix/overview) is a set of solutions that enhance, enable, and simplify non-persistent Windows computing environments. FSLogix solutions are appropriate for virtual environments in both public and private clouds. FSLogix solutions can also be used to create more portable computing sessions when you use physical devices. FSLogix can be used to provide dynamic access to persistent user profile containers stored on SMB shared networked storage, including Azure NetApp Files. To further enhance FSLogix resiliency to storage service maintenance events, Azure NetApp Files has extended support for SMB Transparent Failover via [SMB Continuous Availability (CA) shares on Azure NetApp Files](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) for user profile containers. See Azure NetApp Files [Windows Virtual Desktop solutions](azure-netapp-files-solution-architectures.md#windows-virtual-desktop) for additional information.  
+    [FSLogix](/fslogix/overview) is a set of solutions that enhance, enable, and simplify non-persistent Windows computing environments. FSLogix solutions are appropriate for virtual environments in both public and private clouds. FSLogix solutions can also be used to create more portable computing sessions when you use physical devices. FSLogix can be used to provide dynamic access to persistent user profile containers stored on SMB shared networked storage, including Azure NetApp Files. To further enhance FSLogix resiliency to storage service maintenance events, Azure NetApp Files has extended support for SMB Transparent Failover via [SMB Continuous Availability (CA) shares on Azure NetApp Files](azure-netapp-files-create-volumes-smb.md#continuous-availability) for user profile containers. See Azure NetApp Files [Azure Virtual Desktop solutions](azure-netapp-files-solution-architectures.md#windows-virtual-desktop) for additional information.  
 
-* [SMB3 Protocol Encryption](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (Preview) 
+* [SMB3 Protocol Encryption](azure-netapp-files-create-volumes-smb.md#smb3-encryption) (Preview) 
 
     You can now enable SMB3 Protocol Encryption on Azure NetApp Files SMB and dual-protocol volumes. This feature enables encryption for in-flight SMB3 data, using the [AES-CCM algorithm on SMB 3.0, and the AES-GCM algorithm on SMB 3.1.1](/windows-server/storage/file-server/file-server-smb-overview#features-added-in-smb-311-with-windows-server-2016-and-windows-10-version-1607) connections. SMB clients not using SMB3 encryption will not be able to access this volume. Data at rest is encrypted regardless of this setting. SMB encryption further enhances security. However, it might impact the client (CPU overhead for encrypting and decrypting messages). It might also impact storage resource utilization (reductions in throughput). You should test the encryption performance impact against your applications before deploying workloads into production.
 

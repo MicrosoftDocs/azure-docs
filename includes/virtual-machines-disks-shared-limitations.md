@@ -48,7 +48,7 @@ Shared disks on P1-P15 sizes are currently only available in the following regio
 - West US 2
 - South Central US
 
-Shared disks on all other other premium SSD sizes are available in all regions that managed disks are available.
+Shared disks on all other premium SSD sizes are available in all regions that managed disks are available.
 
 
 ### Standard SSDs
@@ -75,4 +75,4 @@ Shared disks on E1-E20 sizes are currently only available in the following regio
 - West US 2
 - South Central US
 
-Shared disks on all other other standard SSD sizes are available in all regions that managed disks are available.
+Shared disks on all other standard SSD sizes are available in all regions that managed disks are available.
