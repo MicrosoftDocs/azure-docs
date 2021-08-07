@@ -66,9 +66,7 @@ The type of projection you specify in this structure determines the type of stor
 
 ## Create a knowledge store
 
-To create knowledge store, use the portal or an API.
-
-You will need [Azure Storage](../storage/index.yml), a [skillset](cognitive-search-working-with-skillsets.md), and an [indexer](search-indexer-overview.md). Because indexers require a search index, you will also need to provide an index definition.
+To create knowledge store, use the portal or an API. You will need [Azure Storage](../storage/index.yml), a [skillset](cognitive-search-working-with-skillsets.md), and an [indexer](search-indexer-overview.md). Because indexers require a search index, you will also need to provide an index definition.
 
 ### [**Azure portal**](#tab/kstore-portal)
 

@@ -16,11 +16,9 @@ This article is for developers who need a deeper understanding of skillset conce
 
 A skillset is a reusable resource in Azure Cognitive Search that is attached to [an indexer](search-indexer-overview.md). It contains one or more skills, which are atomic operations that call built-in AI or external custom processing over documents retrieved from an external data source.
 
-From the onset of skillset processing to its conclusion, skills read and write to an enriched document. An enriched document is initially just the raw content extracted from a data source, but with each skill execution, it gains structure and substance. Skills that create content, such as translated strings, will write their output to the enriched document. Likewise, skills that consume the output of upstream skills will read from the enriched document to get the necessary inputs. 
+From the onset of skillset processing to its conclusion, skills read and write to an enriched document. An enriched document is initially just the raw content extracted from a data source, but with each skill execution, it gains structure and substance. Ultimately, nodes from an enriched document are then [mapped to fields](cognitive-search-output-field-mapping.md) in a search index, or [mapped to projections](knowledge-store-projection-overview.md) in a knowledge store, so that the content can be queried or consumed by other apps.
 
-:::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-def-enrichment-tree.png" alt-text="Skills read and write from enrichment tree" border="false":::
-
-Ultimately, nodes from an enriched document are then [mapped to fields](cognitive-search-output-field-mapping.md) in a search index or knowledge store, so that the content can be queried or consumed by other apps.
+:::image type="content" source="media/knowledge-store-concept-intro/knowledge-store-concept-intro.png" alt-text="Knowledge store in pipeline diagram" border="false":::
 
 ## Skillset definition
 
@@ -95,9 +93,11 @@ Articulation of the root node of an enrichment tree varies for each data source 
 |Azure SQL|/document/{column1}<br>/document/{column2}<br>…|N/A |
 |Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/A|
 
-As skills execute, they add new nodes to the enrichment tree. These new nodes can then be used as inputs for downstream skills, and will eventually be projected into a knowledge store, or mapped to index fields. 
+As skills execute, they add new nodes to the enrichment tree. These new nodes can then be used as inputs for downstream skills, and will eventually be projected into a knowledge store, or mapped to index fields. Skills that create content, such as translated strings, will write their output to the enriched document. Likewise, skills that consume the output of upstream skills will read from the enriched document to get the necessary inputs. 
 
-An enrichment tree consists of extracted content, plus any new fields that contain content created by a skill, such as `translated_text` from the [Text Translation skill](cognitive-search-skill-text-translation.md), `keyPhrases` from the [Key Phrase Extraction skill](cognitive-search-skill-keyphrases.md), or `locations` from [Entity Recognition skill](cognitive-search-skill-entity-recognition-v3.md). Although you can [visualize and work with an enrichment tree](cognitive-search-debug-session.md) through a visual editor, it's mostly an internal structure. 
+:::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-def-enrichment-tree.png" alt-text="Skills read and write from enrichment tree" border="false":::
+
+An enrichment tree consists of extracted content and metadata pulled from the source, plus any new nodes that are created by a skill, such as `translated_text` from the [Text Translation skill](cognitive-search-skill-text-translation.md), `keyPhrases` from the [Key Phrase Extraction skill](cognitive-search-skill-keyphrases.md), or `locations` from [Entity Recognition skill](cognitive-search-skill-entity-recognition-v3.md). Although you can [visualize and work with an enrichment tree](cognitive-search-debug-session.md) through a visual editor, it's mostly an internal structure. 
 
 Enrichments aren't mutable: once created, nodes cannot be edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. You can selectively persist just a subset of the enrichment outputs so that you are only keeping what you intend to use.
 
