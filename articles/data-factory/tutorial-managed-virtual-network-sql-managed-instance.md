@@ -243,9 +243,9 @@ link service list.
     
     :::image type="content" source="./media/tutorial-managed-virtual-network/sql-mi-host.png" alt-text="Screenshot that shows SQL MI host." lightbox="./media/tutorial-managed-virtual-network/sql-mi-host-expanded.png":::
 
-    :::image type="content" source="./media/tutorial-managed-virtual-network/link-service-nat-ip.png" alt-text="Screenshot that shows the NAT IP in the linked service." lightbox="./media/tutorial-managed-virtual-network/link-service-nat-ip-expanded.png":::
+    :::image type="content" source="./media/tutorial-managed-virtual-network/link-service-fqdn.png" alt-text="Screenshot that shows the NAT IP in the linked service." :::
 
-    :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-2.png" alt-text="Screenshot that shows the private endpoint settings.":::
+    :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-4.png" alt-text="Screenshot that shows the private endpoint settings.":::
 
 8. Create private endpoint.
 
