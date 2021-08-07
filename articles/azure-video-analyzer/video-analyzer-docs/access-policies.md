@@ -126,31 +126,88 @@ Customers must create their own JWT tokens and will be validated using the follo
 > [!NOTE]  
 > Video Analyzer supports a maximum of 20 policies.  ${System.Runtime.BaseResourceUrlPattern} allows for greater flexibility to access specific resources by using one access policy and multiple tokens.  These tokens then allow access to different Video Analyzer resources based on the audience. 
 
+## Creating a token
+
+In this section, we will create a JWT token that we will use later in the article.  We will use a sample application that will generate the JWT token and provide you with all the fields required to create the access policy.
+
+> [!NOTE] 
+> If you are familiar with how to generate a JWT token based on either an RSA or ECC certificate, you can skip this section.
+
+1. Clone the [AVA C# samples repository](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp). Then, go to the JWTTokenIssuer application folder *src/jwt-token-issuer* and find the JWTTokenIssuer application.
+
+    > [!NOTE] 
+    > For more information about configuring your audience values, see [Access policies](./access-policies.md).
+
+2. Open Visual Studio Code, and then go to the folder where you downloaded the JWTTokenIssuer application. This folder should contain the *\*.csproj* file.
+3. In the explorer pane, go to the *program.cs* file.
+4. On line 77, change the audience to your Video Analyzer endpoint, followed by /videos/\*, so it looks like:
+
+   ```
+   https://{Azure Video Analyzer Account ID}.api.{Azure Long Region Code}.videoanalyzer.azure.net/videos/*
+   ```
+
+   > [!NOTE] 
+   > The Video Analyzer endpoint can be found in overview section of the Video Analyzer resource in the Azure portal. This value is referenced as `clientApiEndpointUrl` in [List Video Analyzer video resources](#list-video-analyzer-video-resources) later in this article.
+
+   :::image type="content" source="media/player-widget/client-api-url.png" alt-text="Screenshot that shows the player widget endpoint.":::
+    
+5. On line 78, change the issuer to the issuer value of your certificate. Example: `https://contoso.com`
+6. Save the file.    
+
+   > [!NOTE]
+   > You might be prompted with the message `Required assets to build and debug are missing from 'jwt token issuer'. Add them?` Select `Yes`.
+   
+   :::image type="content" source="media/player-widget/visual-studio-code-required-assets.png" alt-text="Screenshot that shows the required asset prompt in Visual Studio Code.":::
+   
+7. Open a Command Prompt window and go to the folder with the JWTTokenIssuer files. Run the following two commands: `dotnet build`, followed by `dotnet run`. If you have the C# extension on Visual Studio Code, you also can select F5 to run the JWTTokenIssuer application.
+
+The application builds and then executes. After it builds, it creates a self-signed certificate and generates the JWT token information from that certificate. You also can run the JWTTokenIssuer.exe file that's located in the debug folder of the directory where the JWTTokenIssuer built from. The advantage of running the application is that you can specify input options as follows:
+
+- `JwtTokenIssuer [--audience=<audience>] [--issuer=<issuer>] [--expiration=<expiration>] [--certificatePath=<filepath> --certificatePassword=<password>]`
+
+JWTTokenIssuer creates the JWT token and the following needed components:
+
+- `Issuer`, `Audience`, `Key Type`, `Algorithm`, `Key Id`, `RSA Key Modulus`, `RSA Key Exponent`, `Token`
+
+Be sure to copy these values for later use.
+
+
 ## Creating an Access Policy
 
 There are two ways to create an access policy.
 
 ### In the Azure portal
 
-1. Log into the Azure portal and navigate to your Resource Group where your Video Analyzer account is located.
-2. Select the Video Analyzer resource.
-3. Under Video Analyzer select Access Policies
+1. Sign in to the Azure portal and go to your resource group where your Video Analyzer account is located.
+1. Select the Video Analyzer resource.
+1. Under **Video Analyzer**, select **Access Policies**.
 
-   :::image type="content" source="./media/access-policies/access-policies-menu.png" alt-text="Access Policies menu in Azure portal":::
-4. Click on new and enter the following:
+   :::image type="content" source="./media/player-widget/portal-access-policies.png" alt-text="Player widget - portal access policies.":::
+   
+1. Select **New** and enter the following information:
+
+   > [!NOTE] 
+   > These values come from the JWTTokenIssuer application created in the previous step.
 
    - Access policy name - any name
+
    - Issuer - must match the JWT Token Issuer 
-   - Audience - Audience for the JWT Token -- ${System.Runtime.BaseResourceUrlPattern} is the default. 
-   - Key Type - kty 
-   - Algorithm - alg
-   - Key ID - kid 
-   - N / X value 
-   - E / Y Value 
 
-   :::image type="content" source="./media/access-policies/access-policies-portal.png" alt-text="Access Policy in Azure portal":::
-5. Click `Save`.
+   - Audience - Audience for the JWT Token -- `${System.Runtime.BaseResourceUrlPattern}` is the default. To learn more about Audience and `${System.Runtime.BaseResourceUrlPattern}`, see [Access policies](./access-policies.md).
 
+   - Key Type - RSA 
+
+   - Algorithm - supported values are RS256, RS384, RS512
+
+   - Key ID - generated from your certificate. For more information, see [Create a token](#create-a-token).
+
+   - RSA Key Modulus - generated from your certificate. For more information, see [Create a token](#create-a-token).
+
+   - RSA Key Exponent - generated from your certificate. For more information, see [Create a token](#create-a-token).
+
+   :::image type="content" source="./media/player-widget/access-policies-portal.png" alt-text="Player widget - access policies portal"::: 
+   
+1. Select **Save**.
 ### Create Access Policy via API
 
 See Azure Resource Manager (ARM) API 
