@@ -26,13 +26,13 @@ Dashboards are an insightful way to monitor your business and view all your most
 
 ## Create a token
 
-1. Follow steps to [create a token](https://docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/player-widget#create-a-token).
+1. Follow steps to [create a token](video-analyzer-docs.md#player-widget#create-a-token).
 2. Make sure to save values generated for _Issuer, Audience, Key Type, Algorithm, Key Id, RSA Key Modulus, RSA Key Exponent, Token_. You will need these values when creating an access policy below.
 
 ## Get embed code for player widget
 
 1. Login to [Azure portal](https://portal.azure.com/) with your credentials. Locate your Video Analyzer account used to complete the prerequisites and open the Video Analyzer account pane.
-2. Follow steps to [Create an access policy](https://docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/player-widget#create-an-access-policy).
+2. Follow steps to [Create an access policy](player-widget.md#create-an-access-policy).
 3. Select **Videos** in the **Video Analyzer** section.
 4. Select any video from the list.
 5. Click on **Widget** setup. A pane **Use widget in your application** opens on the right-hand side. Scroll down to **Option 2 – using HTML** and copy the code and paste it in a text editor. Click the **Close** button.
