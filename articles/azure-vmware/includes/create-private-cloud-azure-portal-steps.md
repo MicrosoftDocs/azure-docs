@@ -20,7 +20,7 @@ You can create an Azure VMware Solution private cloud by using the Azure portal 
 
 1. On the **Azure VMware Solution** window, select **Create**.
 
-1. On the **Basics** tab, enter values for the fields. 
+1. On the **Basics** tab, enter values for the fields and then select **Review + Create**. 
 
    >[!TIP]
    >You gathered this information during the [planning phase](../plan-private-cloud-deployment.md) of this quick start.
@@ -30,15 +30,15 @@ You can create an Azure VMware Solution private cloud by using the Azure portal 
    | **Subscription** | Select the subscription you plan to use for the deployment. All resources in an Azure subscription are billed together.|
    | **Resource group** | Select the resource group for your private cloud. An Azure resource group is a logical container into which Azure resources are deployed and managed. Alternatively, you can create a new resource group for your private cloud. |
    | **Resource name** | Provide the name of your Azure VMware Solution private cloud. |
-   | **Location** | Select a location, such as **east us**. This is the *region* you defined during the planning phase. |
+   | **Location** | Select a location, such as **east us**. It's the *region* you defined during the planning phase. |
    | **Size of host** | Select **AV36**.  |
    | **Number of hosts** | Shows the number of hosts allocated for the private cloud cluster. The default value is 3, which can be raised or lowered after deployment.  |
-   | **Address block for private cloud** | Provide an IP address block for the private cloud.  The CIDR represents the private cloud management network and will be used for the cluster management services, such as vCenter Server and NSX-T Manager. Use /22 address space, for example, 10.175.0.0/22.  The address should be unique and not overlap with other Azure Virtual Networks as well as with on-premises networks. |
+   | **Address block for private cloud** | Provide an IP address block for the private cloud.  The CIDR represents the private cloud management network and is used for the cluster management services, such as vCenter Server and NSX-T Manager. Use /22 address space, for example, 10.175.0.0/22.  The address should be unique and not overlap with other Azure Virtual Networks and with on-premises networks. |
    
 
    :::image type="content" source="../media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="Screenshot showing the Basics tab on the Create a private cloud window." border="true":::
 
-1. Once finished, select **Review + Create**. On the next screen, verify the information entered. If the information is all correct, select **Create**.  
+1. Verify the information entered. If the information is all correct, select **Create**.  
 
    > [!NOTE]
    > This step takes roughly 3-4 hours. Adding a single host in an existing or the same cluster takes between 30 - 45 minutes.
