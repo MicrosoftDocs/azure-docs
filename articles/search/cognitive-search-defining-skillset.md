@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ---
 
-# How to create a skillset in an AI enrichment pipeline in Azure Cognitive Search 
+# Create a skillset in Azure Cognitive Search
 
 ![indexer stages](media/cognitive-search-defining-skillset/indexer-stages-skillset.png "indexer stages")
 
@@ -43,99 +43,109 @@ The following diagram illustrates a hypothetical enrichment pipeline:
 
 ![A hypothetical enrichment pipeline](media/cognitive-search-defining-skillset/sample-skillset.png "A hypothetical enrichment pipeline")
 
-
 Once you have fair idea of what you want in the pipeline, you can express the skillset that provides these steps. Functionally, the skillset is expressed when you upload your indexer definition to Azure Cognitive Search. To learn more about how to upload your indexer, see the [indexer-documentation](/rest/api/searchservice/create-indexer).
-
 
 In the diagram, the *document cracking* step happens automatically. Essentially, Azure Cognitive Search knows how to open well-known files and creates a *content* field containing the text extracted from each document. The white boxes are built-in enrichers, and the dotted "Bing Entity Search" box represents a custom enricher that you are creating. As illustrated, the skillset contains three skills.
 
 ## Skillset definition in REST
 
-A skillset is defined as an array of skills. Each skill defines the source of its inputs and the name of the outputs produced. Using the [Create Skillset REST API](/rest/api/searchservice/create-skillset), you can define a skillset that corresponds to the previous diagram: 
+A skillset is defined as an array of skills. Each skill defines the source of its inputs and the name of the outputs produced. The following example uses the [Create Skillset REST API](/rest/api/searchservice/create-skillset).
 
-<!-- The `skills` structure is an unordered collection of skills, where `inputs` and `outputs` determine the dependency graph. If skills are independent, they can execute in parallel. Skills can be utilitarian (like splitting text), transformational (based on AI from Cognitive Services), or custom skills that you provide. -->
+After the name and description, a skillset has four main properties:
 
-```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
-api-key: [admin key]
-Content-Type: application/json
-```
++ `skills`, an unordered collection of skills, for which the search service determines the sequence of execution based on the inputs required for each skill. If skills are independent, they can execute in parallel. Skills can be utilitarian (like splitting text), transformational (based on AI from Cognitive Services), or custom skills that you provide.
+
++ `cognitiveServices`, the key of a Cognitive Services resource that performs image and text processing for skillsets that include built-in skills.
+
++ `knowledgeStore`, (optional) a set of properties that specify an Azure Storage account and instructions for projecting data into tables, blobs, and files. 
+
++ `encryptionKey`, (optional) a set of properties that specify an Azure Key Vault and specifications for retrieving customer-managed keys used to encrypt sensitive content.
+
+A skillset is authored in JSON. The following example shows the main sections:
 
 ```json
 {
-  "description": 
-  "Extract sentiment from financial records, extract company names, and then find additional information about each company mentioned.",
-  "skills":
-  [
+  "name": "reviews-ss",
+  "description": "Extract company names from customer reviews, and detect positive or negative sentiment from the same reviews.",
+  "skills": [ ],
+  "cognitiveServices": 
     {
-      "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
-      "context": "/document",
-      "categories": [ "Organization" ],
-      "defaultLanguageCode": "en",
-      "inputs": [
-        {
-          "name": "text",
-          "source": "/document/content"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "organizations",
-          "targetName": "orgs"
-        }
-      ]
+       "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
+       "description": "mycogsvcs resource in West US 2",
+       "key": "<your cognitive services all-in-one key goes here>"
     },
-    {
-      "@odata.type": "#Microsoft.Skills.Text.SentimentSkill",
-      "inputs": [
-        {
-          "name": "text",
-          "source": "/document/content"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "score",
-          "targetName": "mySentiment"
-        }
-      ]
-    },
-    {
-      "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-     "description": "Calls an Azure function, which in turn calls Bing Entity Search",
-      "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/InvokeTextAnalyticsV3?code=foo",
-      "httpHeaders": {
-          "Ocp-Apim-Subscription-Key": "foobar"
-      },
-      "context": "/document/orgs/*",
-      "inputs": [
-        {
-          "name": "query",
-          "source": "/document/orgs/*"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "description",
-          "targetName": "companyDescription"
-        }
-      ]
-    }
-  ]
+  "knowledgeStore": { },
+  "encryptionKey": { }
 }
+```
+
+### Example of a skills definition
+
+The skills property specifies the skills used in the skillset. This example shows two built-in skills, with a third for a custom skill that is part of the skillset, but executes externally in a module that you provide.
+
+```json
+"skills":
+[
+  {
+    "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
+    "context": "/document",
+    "categories": [ "Organization" ],
+    "defaultLanguageCode": "en",
+    "inputs": [
+      {
+        "name": "text",
+        "source": "/document/content"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "organizations",
+        "targetName": "orgs"
+      }
+    ]
+  },
+  {
+    "@odata.type": "#Microsoft.Skills.Text.SentimentSkill",
+    "inputs": [
+      {
+        "name": "text",
+        "source": "/document/content"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "score",
+        "targetName": "mySentiment"
+      }
+    ]
+  },
+  {
+    "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+    "description": "Calls an Azure function, which in turn calls Bing Entity Search",
+    "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/InvokeTextAnalyticsV3?code=foo",
+    "httpHeaders": {
+        "Ocp-Apim-Subscription-Key": "foobar"
+    },
+    "context": "/document/orgs/*",
+    "inputs": [
+      {
+        "name": "query",
+        "source": "/document/orgs/*"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "description",
+        "targetName": "companyDescription"
+      }
+    ]
+  }
+]
 ```
 
 ## Create a skillset
 
 While creating a skillset, you can provide a description to make the skillset self-documenting. A description is optional, but useful for keeping track of what a skillset does. Because skillset is a JSON document, which does not allow comments, you must use a `description` element for this.
-
-```json
-{
-  "description": 
-  "This is our first skill set, it extracts sentiment from financial records, extract company names, and then finds additional information about each company mentioned.",
-  ...
-}
-```
 
 The next piece in the skillset is an array of skills. You can think of each skill as a primitive of enrichment. Each skill performs a small task in this enrichment pipeline. Each one takes an input (or a set of inputs), and returns some outputs. The next few sections focus on how to specify built-in and custom skills, chaining skills together through input and output references. Inputs can come from source data or from another skill. Outputs can be mapped to a field in a search index or used as an input to a downstream skill.
 
