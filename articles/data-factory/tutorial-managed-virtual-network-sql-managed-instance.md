@@ -239,7 +239,7 @@ data factory from the resources list.
 5. Select the **Private Link Service** tile from the list and select **Continue**.
 6. Enter the name of private endpoint and select **myPrivateLinkService** in private 
 link service list.
-7. Add FQDN of your target SQL Managed Instance and NAT IPs of your private link Service.
+7. Add FQDN of your target SQL Managed Instance and your private link Service.
     
     :::image type="content" source="./media/tutorial-managed-virtual-network/sql-mi-host.png" alt-text="Screenshot that shows SQL MI host." lightbox="./media/tutorial-managed-virtual-network/sql-mi-host-expanded.png":::
 
