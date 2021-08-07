@@ -1,6 +1,6 @@
 ---
-title: Monitoring AKS data reference
-description: Important reference material needed when you monitor AKS 
+title: Monitoring Azure virtual machines data reference
+description: Important reference material needed when you monitor Azure virtual machines 
 ms.service: container-service
 ms.custom: subject-monitoring
 ms.date: 06/21/2021
