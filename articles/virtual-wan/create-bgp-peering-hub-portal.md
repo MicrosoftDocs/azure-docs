@@ -13,7 +13,7 @@ ms.author: cherylmc
 ---
 # How to create BGP peering with virtual hub (Preview) - Azure portal
 
-This article helps you configure an Azure Virtual WAN hub router to peer with a Network Virtual Appliance (NVA) in your virtual network using the Azure portal. The hub router learns routes from the NVA in a spoke VNet that is connected to a virtual WAN hub. The hub router also advertises the virtual network routes to the NVA. For more information, see [About BGP peering with a virtual hub](scenario-bgp-peering-hub.md).
+This article helps you configure an Azure Virtual WAN hub router to peer with a Network Virtual Appliance (NVA) in your virtual network using the Azure portal. The virtual hub router learns routes from the NVA in a spoke VNet that is connected to a virtual WAN hub. The virtual hub router also advertises the virtual network routes to the NVA. For more information, see [About BGP peering with a virtual hub](scenario-bgp-peering-hub.md).
 
 [!INCLUDE [Gated public preview SLA link](../../includes/virtual-wan-gated-public-preview-sla.md)]
 
@@ -22,7 +22,7 @@ This article helps you configure an Azure Virtual WAN hub router to peer with a 
 ## Prerequisites
 
 > [!IMPORTANT]
-> The BGP peering with Virtual WAN hub router feature is currently in gated public preview. If you are interested in trying this feature, please email **previewbgpwithvhub@microsoft.com** along with the Resource ID of your Virtual WAN resource. 
+> The BGP peering with Virtual WAN hub feature is currently in gated public preview. If you are interested in trying this feature, please email **previewbgpwithvhub@microsoft.com** along with the Resource ID of your Virtual WAN resource. 
 >
 > To locate the Resource ID, open the Azure portal, navigate to your Virtual WAN resource, and click **Settings > Properties > Resource ID.**<br> Example: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualWans/<virtualWANname>`
 >
