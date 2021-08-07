@@ -29,6 +29,6 @@ To get automated builds from Azure App Service build server, make sure that your
 To customize your deployment, include a *.deployment* file in the repository root. For more information, see [Customize deployments](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) and [Custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 
 > [!NOTE]
-> If you develop in Visual Studio, let [Visual Studio create a repository for you](/azure/devops/repos/git/creatingrepo?tabs=visual-studio). The project is immediately ready to be deployed via Git.
+> If you use Visual Studio, let [Visual Studio create a repository for you](/azure/devops/repos/git/creatingrepo?tabs=visual-studio). Your project will immediately be ready for deployment via Git.
 >
 

@@ -13,7 +13,7 @@ ms.custom: seodec18
 [Azure App Service](overview.md) enables continuous deployment from [GitHub](https://help.github.com/articles/create-a-repo), [Bitbucket](https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html), and [Azure Repos](/azure/devops/repos/git/creatingrepo) repositories by pulling in the latest updates.
 
 > [!NOTE]
-> The **Development Center (Classic)** page in the Azure portal, an earlier version of the deployment experience, was deprecated in March 2021. This change doesn't affect existing deployment settings in your app, and you can continue to manage app deployment from the **Deployment Center** page in the portal.
+> The **Development Center (Classic)** page in the Azure portal, an earlier version of the deployment functionality, was deprecated in March 2021. This change doesn't affect existing deployment settings in your app, and you can continue to manage app deployment from the **Deployment Center** page in the portal.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -69,7 +69,7 @@ See [Local Git deployment to Azure App Service](deploy-local-git.md).
 # [Azure Repos](#tab/repos)
    
    > [!NOTE]
-   > Azure Repos as a deployment source is support for Windows apps.
+   > Azure Repos is supported as a deployment source for Windows apps.
    >
 
 4. App Service Build Service (Kudu) is the default build provider.
@@ -99,7 +99,7 @@ See [Local Git deployment to Azure App Service](deploy-local-git.md).
 
 ## How the GitHub Actions build provider works
 
-The GitHub Actions build provider is an option for [CI/CD from GitHub](#configure-deployment-source). It completes these actions to set up CI/CD:
+The GitHub Actions build provider is an option for [CI/CD from GitHub](#configure-the-deployment-source). It completes these actions to set up CI/CD:
 
 - Deposits a GitHub Actions workflow file into your GitHub repository to handle build and deploy tasks to App Service.
 - Adds the publishing profile for your app as a GitHub secret. The workflow file uses this secret to authenticate with App Service.
@@ -108,8 +108,8 @@ The GitHub Actions build provider is an option for [CI/CD from GitHub](#configur
 You can customize the GitHub Actions build provider in these ways:
 
 - Customize the workflow file after it's generated in your GitHub repository. For more information, see [Workflow syntax for GitHub Actions](https://docs.github.com/actions/reference/workflow-syntax-for-github-actions). Just make sure that the workflow deploys to App Service with the [azure/webapps-deploy](https://github.com/Azure/webapps-deploy) action.
-- If the selected branch is protected, you can still preview the workflow file without saving the configuration, and then manually add it into your repository. This method doesn't give you log integration with the Azure portal.
-- Instead of a publishing profile, deploy by using a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) in Azure Active Directory.
+- If the selected branch is protected, you can still preview the workflow file without saving the configuration and then manually add it into your repository. This method doesn't give you log integration with the Azure portal.
+- Instead of using a publishing profile, deploy by using a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) in Azure Active Directory.
 
 #### Authenticate by using a service principal
 
@@ -159,6 +159,6 @@ For Windows apps, you can manually configure continuous deployment from a cloud 
 ## More resources
 
 * [Deploy from Azure Pipelines to Azure App Services](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps)
-* [Investigate common issues with continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
+* [Investigate common problems with continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 * [Use Azure PowerShell](/powershell/azure/)
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
