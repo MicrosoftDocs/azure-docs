@@ -2,7 +2,7 @@
 title: Monitor Azure Backup protected workloads
 description: In this article, learn about the monitoring and notification capabilities for Azure Backup workloads using the Azure portal.
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 08/06/2021
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 ---
 
@@ -16,7 +16,7 @@ Azure Backup provides multiple backup solutions based on the backup requirement 
 
 You can monitor all your backup items via a Recovery Services vault. Navigating to the **Backup Items** section in the vault opens up a view that provides the number of backup items of each workload type associated with the vault. Clicking on any row opens up a detailed view listing all backup items of the given workload type, with information on the last backup status for each item, latest restore point available, and so on.
 
-![RS vault backup items](media/backup-azure-monitoring-laworkspace/backup-items-view.png)
+![Screenshot for viewing RS vault backup items](media/backup-azure-monitoring-laworkspace/backup-items-view.png)
 
 > [!NOTE]
 > For items backed up to Azure using DPM, the list will show all the data sources protected (both disk and online) using the DPM server. If the protection is stopped for the datasource with backup data retained, the datasource will be still listed in the portal. You can go to the details of the data source to see if the recovery points are present in disk, online or both. Also, datasources for which the online protection is stopped but data is retained,  billing for the online recovery points continue until the data is completely deleted.
@@ -27,7 +27,7 @@ You can monitor all your backup items via a Recovery Services vault. Navigating 
 
 Azure Backup provides in-built monitoring and alerting capabilities for workloads being protected by Azure Backup. In the Recovery Services vault settings, the **Monitoring** section provides in-built jobs and alerts.
 
-![RS vault inbuilt monitoring](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltmonitoring.png)
+![Screenshot for RS vault inbuilt monitoring](media/backup-azure-monitoring-laworkspace/rs-vault-inbuilt-monitoring-menu.png)
 
 Jobs are generated when operations such as configuring backup, back up, restore, delete backup, and so on, are performed.
 
@@ -95,7 +95,7 @@ Based on alert severity, alerts can be defined in three types:
 
 Once an alert is raised, users are notified. Azure Backup provides an inbuilt notification mechanism via e-mail. One can specify individual email addresses or distribution lists to be notified when an alert is generated. You can also choose whether to get notified for each individual alert or to group them in an hourly digest and then get notified.
 
-![RS Vault inbuilt email notification](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification.png)
+![RS vault inbuilt email notification screenshot](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification.png)
 
 When notification is configured, you'll receive a welcome or introductory email. This confirms that Azure Backup can send emails to these addresses when an alert is raised.<br>
 
@@ -110,7 +110,7 @@ If the frequency was set to an hourly digest and an alert was raised and resolve
 
 To inactivate/resolve an active alert, you can select the list item corresponding to the alert you wish to inactivate. This opens up a screen that displays detailed information about the alert, with an **Inactivate** button on the top. Selecting this button will change the status of the alert to **Inactive**. You may also inactivate an alert by right-clicking on the list item corresponding to that alert and selecting **Inactivate**.
 
-![RS Vault alert inactivation](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
+![Screenshot for RS vault alert inactivation](media/backup-azure-monitoring-laworkspace/vault-alert-inactivate.png)
 
 ## Azure Monitor alerts for Azure Backup (preview)
 
@@ -138,42 +138,41 @@ To opt-in to Azure Monitor alerts for backup failure and restore failure scenari
 
 1. Navigate to the Azure portal and search for **Preview Features**.
 
-    ![Preview Features](media/backup-azure-monitoring-laworkspace/portal-preview-features.png)
+    ![Screenshot for viewing preview features in portal](media/backup-azure-monitoring-laworkspace/portal-preview-features.png)
 
 2. You can view the list of all preview features that are available for you to opt-in to.
 
     * If you wish to receive job failure alerts for workloads backed up to Recovery Services vaults, select the flag named **EnableAzureBackupJobFailureAlertsToAzureMonitor** corresponding to Microsoft.RecoveryServices provider (column 3).
     * If you wish to receive job failure alerts for workloads backed up to Backup vaults, select the flag named **EnableAzureBackupJobFailureAlertsToAzureMonitor** corresponding to Microsoft.DataProtection provider (column 3).
 
-    ![Alerts Preview](media/backup-azure-monitoring-laworkspace/alert-preview-feature-flags.png)
+    ![Screenshot for Alerts preview registration](media/backup-azure-monitoring-laworkspace/alert-preview-feature-flags.png)
 
 3. Click **Register** to enable this feature for your subscription.
     > [!NOTE]
-    > It may take up to 24 hours for the registration to take effect. If you wish to enable this feature for multiple subscriptions, repeat the above process by selecting the relevant subscription at the top of the screen. It is also recommended to re-register the preview flag if a new resource has been created in the subscription after the initial registration, to continue receiving alerts.
+    > It may take up to 24 hours for the registration to take effect. To enable this feature for multiple subscriptions, repeat the above process by selecting the relevant subscription at the top of the screen. We also recommend to re-register the preview flag if a new resource has been created in the subscription after the initial registration to continue receiving alerts.
 
 ### Viewing fired alerts in the Azure portal 
 
-Once an alert is fired for a vault, you can view the alert in the Azure portal by navigating to Backup center. In the **Overview** tab, you can see a summary of active alerts split by severity. There are two kinds of alerts displayed:
+Once an alert is fired for a vault, you can view the alert in the Azure portal by navigating to Backup center. On the **Overview** tab, you can see a summary of active alerts split by severity. There're two kinds of alerts displayed:
 
-* **Datasource Alerts**: Alerts which are tied to a specific datasource being backed up, for example, backup or restore failure for a VM, deleting backup data for a database etc., appear under the **Datasource Alerts** section.
-* **Global Alerts**: Alerts which are not tied to a specific datasource, for example, disabling soft-delete functionality for a vault, appear under the **Global Alerts** section.
+* **Datasource Alerts**: Alerts that are tied to a specific datasource being backed up (for example, back up or restore failure for a VM, deleting backup data for a database, and so on) appear under the **Datasource Alerts** section.
+* **Global Alerts**: Alerts that are not tied to a specific datasource (for example, disabling soft-delete functionality for a vault) appear under the **Global Alerts** section.
 
-Each of the above types of alerts are further split into **Security** and **Configured** alerts. Currently, Security alerts includes the scenarios of deleting backup data, disabling soft-delete for vault (for the applicable workloads as detailed in the above section). Configured alerts include backup failure and restore failure since these alerts are only fired after registering the feature in the preview portal.
+Each of the above types of alerts are further split into **Security** and **Configured** alerts. Currently, Security alerts include the scenarios of deleting backup data, or disabling soft-delete for vault (for the applicable workloads as detailed in the above section). Configured alerts include backup failure and restore failure since these alerts are only fired after registering the feature in the preview portal.
 
-![Viewing Alerts](media/backup-azure-monitoring-laworkspace/backup-center-azure-monitor-alerts.png)
+![Screenshot for viewing alerts in Backup center](media/backup-azure-monitoring-laworkspace/backup-center-azure-monitor-alerts.png)
 
-Clicking on any of the numbers (or on the **Alerts** menu item) opens up a list of all active alerts fired with the relevant filters applied. You can filter on a range of properties such as subscription, resource group, vault, severity, state, and so on. You can click any of the alerts to get more details about the alert, such as the affected datasource, alert description and recommended action, and so on. 
+Clicking on any of the numbers (or on the **Alerts** menu item) opens up a list of all active alerts fired with the relevant filters applied. You can filter on a range of properties, such as subscription, resource group, vault, severity, state, and so on. You can click any of the alerts to get more details about the alert, such as the affected datasource, alert description and recommended action, and so on.
 
-![Alert Details](media/backup-azure-monitoring-laworkspace/backup-center-alert-details.png) 
+![Screenshot for viewing details of the alert](media/backup-azure-monitoring-laworkspace/backup-center-alert-details.png) 
 
 You can change the state of an alert to **Acknowledged** or **Closed** by clicking on **Change Alert State**.
 
-![Change Alert State](media/backup-azure-monitoring-laworkspace/backup-center-change-alert-state.png) 
+![Screenshot for changing state of the alert](media/backup-azure-monitoring-laworkspace/backup-center-change-alert-state.png) 
 
 > [!NOTE]
-> 1. In Backup center, only alerts for Azure-based workloads are visible currently. To view alerts for on-premises resources, you can navigate to the Recovery Services vault and click on the **Alerts** menu item.
-> 2. Only Azure Monitor alerts are visible in Backup center. Alerts raised by the older alerting solution (accessed via the [Backup Alerts](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor#backup-alerts-in-recovery-services-vault) tab in Recovery Services vault) are not visible in Backup center.
-
+> 1. In Backup center, only alerts for Azure-based workloads are displayed currently. To view alerts for on-premises resources, navigate to the Recovery Services vault and click the **Alerts** menu item.
+> 2. Only Azure Monitor alerts are displayed in Backup center. Alerts raised by the older alerting solution (accessed via the [Backup Alerts](/azure/backup/backup-azure-monitoring-built-in-monitor#backup-alerts-in-recovery-services-vault) tab in Recovery Services vault) are not displayed in Backup center.
 For more information about Azure Monitor alerts, see [Overview of alerts in Azure](../azure-monitor/alerts/alerts-overview.md).
 
 ### Configuring notifications for alerts
@@ -182,27 +181,27 @@ To configure notifications for Azure Monitor alerts, you must create an action r
 
 1. Navigate to **Backup center** in the Azure portal. Click the **Alerts** menu item and select **Manage actions**.
 
-    ![Manage Actions](media/backup-azure-monitoring-laworkspace/backup-center-manage-actions.png) 
+    ![Screenshot for Manage Actions in Backup center](media/backup-azure-monitoring-laworkspace/backup-center-manage-actions.png) 
 
 2. Navigate to the **Action rules (preview)** tab and click **New action rule**.
 
-    ![New Action Rule](media/backup-azure-monitoring-laworkspace/azure-monitor-create-action-rule.png) 
+    ![Screenshot for creating a new action rule](media/backup-azure-monitoring-laworkspace/azure-monitor-create-action-rule.png) 
 
 3. Select the scope for which the action rule should be applied. You can apply the action rule for all resources within a subscription. Optionally, you can also apply filters on the alerts, for example, to only generate notifications for alerts of a certain severity.
 
-    ![Action Rule Scope](media/backup-azure-monitoring-laworkspace/azure-monitor-action-rule-scope.png) 
+    ![Screenshot for setting the action rule scope](media/backup-azure-monitoring-laworkspace/azure-monitor-action-rule-scope.png) 
 
 4. Create an action group. An action group is the destination to which the notification for an alert should be sent, for example, an email address.
  
-    ![Create Action Group](media/backup-azure-monitoring-laworkspace/azure-monitor-create-action-group.png) 
+    ![Screenshot for creating a new action group](media/backup-azure-monitoring-laworkspace/azure-monitor-create-action-group.png) 
 
 5. On the **Basics** tab, select the name of the action group and the subscription and resource group under which it should be created.
 
-    ![Action Groups Basic](media/backup-azure-monitoring-laworkspace/azure-monitor-action-groups-basic.png) 
+    ![Screenshot for basic properties of action group](media/backup-azure-monitoring-laworkspace/azure-monitor-action-groups-basic.png) 
 
 6. On the **Notifications** tab, select **Email/SMS message/Push/Voice** and enter the recipient email id.
 
-    ![Action Groups Notification](media/backup-azure-monitoring-laworkspace/azure-monitor-email.png) 
+    ![Screenshot for setting notification properties](media/backup-azure-monitoring-laworkspace/azure-monitor-email.png) 
 
 7. Click **Review+Create** and then **Create** to deploy the action group.
 
