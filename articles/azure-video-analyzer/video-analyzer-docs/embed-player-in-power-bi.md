@@ -26,7 +26,7 @@ Dashboards are an insightful way to monitor your business and view all your most
 
 ## Create a token
 
-1. Follow steps to [create a token](video-analyzer-docs.md#player-widget#create-a-token).
+1. Follow steps to [create a token](player-widget.md#create-a-token).
 2. Make sure to save values generated for _Issuer, Audience, Key Type, Algorithm, Key Id, RSA Key Modulus, RSA Key Exponent, Token_. You will need these values when creating an access policy below.
 
 ## Get embed code for player widget
