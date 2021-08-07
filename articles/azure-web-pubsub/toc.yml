@@ -9,9 +9,11 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Try the chatroom live demo
+  - name: Create instance
+    href: howto-develop-create-instance.md
+  - name: Try a simple Pub/Sub demo
     href: quickstart-live-demo.md
-  - name: Start with a simple chatroom serverless application
+  - name: Build a serverless chat
     href: quickstart-serverless.md
 
 - name: How-to guides

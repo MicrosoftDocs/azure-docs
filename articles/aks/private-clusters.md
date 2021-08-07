@@ -95,7 +95,9 @@ The Public DNS option can be leveraged to simplify routing options for your Priv
 
 ![Public DNS](https://user-images.githubusercontent.com/50749048/124776520-82629600-df0d-11eb-8f6b-71c473b6bd01.png)
 
-1. By specifying "None" for the Private DNS Zone when a private cluster is provisioned, a private endpoint (1) and a public DNS zone (2) are created in the cluster-managed resource group. The cluster uses an A record in the private zone to resolve the IP of the private endpoint for communication to the API server.
+1. By specifying `--enable-public-fqdn` when you provision a private AKS cluster, AKS creates an additional A record for its FQDN in Azure public DNS. The agent nodes still use the A record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server.
+
+2. If you use both `--enable-public-fqdn` and `--private-dns-zone none`, the cluster will only have a public FQDN. When using this option, no Private DNS Zone is created or used for the name resolution of the FQDN of the API Server. The IP of the API is still private and not publicly routable.
 
 ### Register the `EnablePrivateClusterPublicFQDN` preview feature
 
@@ -122,7 +124,7 @@ az provider register --namespace Microsoft.ContainerService
 ### Create a private AKS cluster with a Public DNS address
 
 ```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone none --enable-public-fqdn
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <private-dns-zone-mode> --enable-public-fqdn
 ```
 
 ## Options for connecting to the private cluster

@@ -2,14 +2,14 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 07/07/2021
+ms.date: 08/04/2021
 ms.author: dacoulte
 ms.custom: generated
 ---
 
-### Get enabled resource types for Azure Arc enabled custom locations
+### Get enabled resource types for Azure Arc-enabled custom locations
 
-Provides a list of enabled resource types for Azure Arc enabled custom locations.
+Provides a list of enabled resource types for Azure Arc-enabled custom locations.
 
 ```kusto
 ExtendedLocationResources
@@ -38,9 +38,9 @@ Search-AzGraph -Query "ExtendedLocationResources | where type == 'microsoft.exte
 
 ---
 
-### List Azure Arc enabled custom locations with VMware or SCVMM enabled
+### List Azure Arc-enabled custom locations with VMware or SCVMM enabled
 
-Provides a list of all Azure Arc enabled custom locations that have either VMware or SCVMM resource types enabled.
+Provides a list of all Azure Arc-enabled custom locations that have either VMware or SCVMM resource types enabled.
 
 ```kusto
 Resources

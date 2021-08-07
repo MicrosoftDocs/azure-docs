@@ -79,7 +79,7 @@
         href: solutions-benefits-azure-netapp-files-oracle-database.md
       - name: Benefits of using Azure NetApp Files for electronic design automation
         href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
-      - name: Benefits of using Azure NetApp Files with Windows Virtual Desktop
+      - name: Benefits of using Azure NetApp Files with Azure Virtual Desktop
         href: solutions-windows-virtual-desktop.md
       - name: Benefits of using Azure NetApp Files for SQL Server deployment
         href: solutions-benefits-azure-netapp-files-sql-server.md
@@ -133,6 +133,8 @@
     href: azure-netapp-files-configure-export-policy.md
   - name: Mount or unmount a volume
     href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
+  - name: Configure Unix permissions and change ownership mode
+    href: configure-unix-permissions-change-ownership-mode.md
   - name: Manage snapshots
     href: azure-netapp-files-manage-snapshots.md
   - name: Resize a capacity pool or a volume

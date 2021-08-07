@@ -4,7 +4,7 @@ description: Overview of the Azure Monitor agent (AMA), which collects monitorin
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/25/2021
+ms.date: 07/22/2021
 ms.custom: references_regions
 ---
 
@@ -24,6 +24,16 @@ In addition to consolidating this functionality into a single agent, the Azure M
 - Linux multi-homing: Send data from Linux VMs to multiple workspaces.
 - Windows event filtering: Use XPATH queries to filter which Windows events are collected.
 - Improved extension management: Azure Monitor agent uses a new method of handling extensibility that is more transparent and controllable than management packs and Linux plug-ins in the current Log Analytics agents.
+
+### Current limitations
+When compared with the existing agents, this new agent does not yet have full parity:  
+- **Comparison with Log Analytics Agents (MMA/OMS)**
+	- Not all Log Analytics Solutions are supported today. See [what's supported](#supported-services-and-features)
+	- No support for Private Links 
+	- No support for collecting custom logs or IIS logs
+          
+- **Comparison with Azure Diagnostic Extensions (WAD/LAD)**
+	- No support for Event Hubs and Storage accounts as destinations
 
 ### Changes in data collection
 The methods for defining data collection for the existing agents are distinctly different from each other, and each have challenges that are addressed with Azure Monitor agent.
@@ -92,10 +102,11 @@ The Azure Monitor agent sends data to Azure Monitor Metrics or a Log Analytics w
 
 | Data Source | Destinations | Description |
 |:---|:---|:---|
-| Performance        | Azure Monitor Metrics<br>Log Analytics workspace | Numerical values measuring performance of different aspects of operating system and workloads. |
+| Performance        | Azure Monitor Metrics<sup>1</sup><br>Log Analytics workspace | Numerical values measuring performance of different aspects of operating system and workloads. |
 | Windows Event logs | Log Analytics workspace | Information sent to the Windows event logging system. |
 | Syslog             | Log Analytics workspace | Information sent to the Linux event logging system. |
 
+<sup>1</sup> There's a limitation today on Azure Monitor Agent for Linux wherein using Azure Monitor Metrics as the *only* destination is not supported. Using it alongwith Azure Monitor Logs works. This limitation will be addressed in the next extension update.
 
 ## Supported operating systems
 See [Supported operating systems](agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent.

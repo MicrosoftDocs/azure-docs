@@ -4,7 +4,7 @@
   items: 
     - name: What is Azure Machine Learning?
       displayName: AML, services, overview, introduction
-      href: overview-what-is-azure-ml.md
+      href: overview-what-is-azure-machine-learning.md
     - name: What is Azure Machine Learning studio?
       displayName: AML, studio, designer
       href: overview-what-is-machine-learning-studio.md
@@ -508,7 +508,7 @@
         href: how-to-deploy-and-where.md
       - name: Deploy with endpoints
         items: 
-          - name: Online
+          - name: Real-time
             items:
             - name: Deploy an ML model with a managed online endpoint
               href: how-to-deploy-managed-online-endpoints.md
@@ -591,9 +591,6 @@
           href: how-to-enable-app-insights.md
       - name: High-performance serving with Triton
         href: how-to-deploy-with-triton.md
-      - name: Continuously deploy models
-        displayName: ci cd azure devops models
-        href: how-to-deploy-continuously-deploy.md
       - name: Deploy encrypted inferencing service
         displayName: homomorhic,encryption,deployment
         href: how-to-homomorphic-encryption-seal.md
@@ -685,16 +682,60 @@
   items: 
     - name: REST API
       href: /rest/api/azureml/
+    - name: Python SDK
+      displayName: api, core, package, python, class
+      href: /python/api/overview/azure/ml/intro
     - name: CLI (v2)
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: /cli/azure/ml/
     - name: CLI (v2) YAML schemas
       items:
-        - name: Online endpoints
-          href: reference-online-endpoint-yaml.md
-    - name: Python SDK
-      displayName: api, core, package, python, class
-      href: /python/api/overview/azure/ml/intro
+        - name: Overview
+          href: reference-yaml-overview.md
+        - name: Assets
+          items:
+            - name: Workspace
+              href: reference-yaml-workspace.md
+            - name: Compute
+              href: reference-yaml-compute.md
+            - name: Environment
+              href: reference-yaml-environment.md
+            - name: Dataset
+              href: reference-yaml-dataset.md
+            - name: Model
+              href: reference-yaml-model.md
+        - name: Datastores
+          items:
+            - name: Azure Blob
+              href: reference-yaml-datastore-blob.md
+            - name: Azure Files
+              href: reference-yaml-datastore-files.md
+            - name: Azure Data Lake Gen1
+              href: reference-yaml-datastore-data-lake-gen1.md
+            - name: Azure Data Lake Gen2
+              href: reference-yaml-datastore-data-lake-gen2.md
+        - name: Jobs
+          items:
+            - name: Command
+              href: reference-yaml-job-command.md
+            - name: Sweep 
+              href: reference-yaml-job-sweep.md
+        - name: Endpoints
+          items:
+            - name: Managed online (real-time)
+              href: reference-yaml-endpoint-managed-online.md
+            - name: Managed batch
+              href: reference-yaml-endpoint-managed-batch.md
+            - name: Kubernetes (k8s) online
+              href: reference-yaml-endpoint-k8s-online.md
+        - name: Deployments
+          items:
+            - name: Managed online (real-time)
+              href: reference-yaml-deployment-managed-online.md
+            - name: Managed batch
+              href: reference-yaml-deployment-managed-batch.md
+            - name: Kubernetes (k8s) online
+              href: reference-yaml-deployment-k8s-online.md
     - name: CLI (v1)
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: reference-azure-machine-learning-cli.md
@@ -703,9 +744,7 @@
       href: algorithm-module-reference/module-reference.md
     - name: Monitor data reference
       href: monitor-resource-reference.md
-    - name: Managed online endpoint YAML reference
-      href: reference-online-endpoint-yaml.md
-    - name: Machine learning pipeline YAML reference
+    - name: Machine learning CLI (v1) pipeline YAML reference
       href: reference-pipeline-yaml.md
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions

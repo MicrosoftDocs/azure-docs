@@ -86,7 +86,7 @@ Consider the following when configuring Virtual WAN routing:
 * Branch-to-branch via Azure Firewall is currently not supported.
 * When using Azure Firewall in multiple regions, all spoke virtual networks must be associated to the same route table. For example, having a subset of the VNets going through the Azure Firewall while other VNets bypass the Azure Firewall in the same virtual hub is not possible.
 * A single next hop IP can be configured per VNet connection.
-
+* All information pertaining to 0.0.0.0/0 route is confined to a local hub's route table. This route does not propagate across hubs.
 ## Next steps
 
 * To configure routing, see [How to configure virtual hub routing](how-to-virtual-hub-routing.md).

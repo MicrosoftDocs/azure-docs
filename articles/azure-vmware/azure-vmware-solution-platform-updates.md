@@ -2,14 +2,14 @@
 title: Platform updates for Azure VMware Solution
 description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
-ms.date: 07/20/2021
+ms.date: 07/23/2021
 ---
 
 # Platform updates for Azure VMware Solution
 
 Azure VMware Solution will apply important updates starting in March 2021. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
 
-## July 20, 2021
+## July 23, 2021
 
 All new Azure VMware Solution private clouds are now deployed with NSX-T version 3.1.2. NSX-T version in existing private clouds will be upgraded through September, 2021 to NSX-T 3.1.2 release.
  

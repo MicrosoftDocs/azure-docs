@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 07/15/2021
+ms.date: 07/20/2021
 ms.custom: references_regions 
 ---
 # What's new in Azure Cognitive Search
@@ -18,8 +18,9 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
 |------------------------------------|--------------|---------------|
-| [Role-based authorization (preview)](search-security-rbac.md) | Authenticate using Azure Active Directory and use new built-in roles to control access to indexes and indexing, eliminating or reducing the dependency on API keys. | Public preview, using Azure portal or the Management REST API version 2021-04-01-Preview to configure a search service for data plane authentication.|
-| [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/) | Modifies [Create or Update](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) service operations to support new [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions). | Public preview |
+| [Search REST API 2021-04-30-Preview](/rest/api/searchservice/index-preview) | Adds REST API support for indexer connections made using [managed identities](search-howto-managed-identities-data-sources.md) and Azure Active Directory (Azure AD) authentication. | Public preview |
+| [Role-based authorization (preview)](search-security-rbac.md) | Authenticate using Azure Active Directory and new built-in roles for data plane access to indexes and indexing, eliminating or reducing the dependency on API keys. | Public preview ([by request](https://aka.ms/azure-cognitive-search/rbac-preview)). After your subscription is on-boarded, use Azure portal or the Management REST API version 2021-04-01-Preview to configure a search service for data plane authentication.|
+| [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/) | Modifies [Create or Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) to support new [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions). | Public preview |
 
 ## May 2021
 
@@ -105,7 +106,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 |November | [Document Extraction skill (preview)](cognitive-search-skill-document-extraction.md) | A cognitive skill to extract the contents of a file from within a skillset.|
 |November | [Text Translation skill](cognitive-search-skill-text-translation.md) | A cognitive skill used during indexing that evaluates and translates text. Generally available.|
 |November | [Power BI templates](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) | Template for visualizing content in knowledge store |
-|November | [Azure Data Lake Storage Gen2 (preview)](search-howto-index-azure-data-lake-storage.md), [Cosmos DB Gremlin API (preview)](search-howto-index-cosmosdb.md), and [Cosmos DB Cassandra API (preview)](search-howto-index-cosmosdb.md) | New indexer data sources in public preview. |
+|November | [Azure Data Lake Storage Gen2 (preview)](search-howto-index-azure-data-lake-storage.md) and [Cosmos DB Gremlin API (preview)](search-howto-index-cosmosdb.md) | New indexer data sources in public preview. |
 |July | [Azure Government Cloud support](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&products=search) | Generally available.|
 
 <a name="new-service-name"></a>

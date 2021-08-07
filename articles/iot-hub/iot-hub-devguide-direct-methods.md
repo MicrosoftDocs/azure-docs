@@ -219,5 +219,5 @@ Now you have learned how to use direct methods, you may be interested in the fol
 
 If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorial:
 
-* [Use direct methods](quickstart-control-device-node.md)
+* [Use direct methods](quickstart-control-device.md)
 * [Device management with Azure IoT Tools for VS Code](iot-hub-device-management-iot-toolkit.md)

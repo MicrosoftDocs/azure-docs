@@ -2,10 +2,36 @@
 title: What's new in Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server gives you enhanced backup capabilities for protecting VMs, files and folders, workloads, and more.
 ms.topic: conceptual
-ms.date: 05/24/2020
+ms.date: 07/27/2021
 ---
 
 # What's new in Microsoft Azure Backup Server (MABS)
+
+## What’s new in MABS v3 UR2
+
+Microsoft Azure Backup Server (MABS) version 3 UR2 supports the following new features/feature updates.
+
+For information about the UR2 issues fixes and the installation instructions, see the [KB article](https://support.microsoft.com/topic/update-rollup-2-for-microsoft-azure-backup-server-v3-350de164-0ae4-459a-8acf-7777dbb7fd73).
+
+### Support for Azure Stack HCI
+
+With MABS v3 UR2, you can backup Virtual Machines on Azure Stack HCI. [Learn more](/azure/backup/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines).
+
+### Support for VMware 7.0
+
+With MABS v3 UR2, you can back up VMware 7.0 VMs. [Learn more](/azure/backup/backup-azure-backup-server-vmware).
+
+### Support for SQL Server Failover Cluster Instance (FCI) using Cluster Shared Volume (CSV)
+
+MABS v3 UR2 supports SQL Server Failover Cluster Instance (FCI) using Cluster Shared Volume (CSV). With CSV, the management of your SQL Server Instance is simplified. This helps you to manage the underlying storage from any node as there is an abstraction to which node owns the disk. [Learn more](/azure/backup/backup-azure-sql-mabs).
+
+### Optimized Volume Migration
+
+MABS v3 UR2 supports optimized volume migration. The optimized volume migration allows you to move data sources to the new volume much faster. The enhanced migration process migrates only the active backup copy (Active Replica) to the new volume. All new recovery points are created on the new volume, while existing recovery points are maintained on the existing volume and are purged based on the retention policy. [Learn more](/system-center/dpm/volume-to-volume-migration?view=sc-dpm-2019&preserve-view=true).
+
+### Offline Backup using Azure Data Box
+
+MABS v3 UR2 supports Offline backup using Azure Data Box. With Microsoft Azure Data Box integration, you can overcome the challenge of moving terabytes of backup data from on-premises to Azure storage. Azure Data Box saves the effort required to procure your own Azure-compatible disks and connectors or to provision temporary storage as a staging location. Microsoft also handles the end-to-end transfer logistics, which you can track through the Azure portal. [Learn more](/azure/backup/offline-backup-azure-data-box-dpm-mabs).
 
 ## What's new in MABS V3 UR1
 
@@ -57,7 +83,7 @@ With MABS V3 UR1, an additional a layer of authentication is added for critical 
 MABS v3 UR1 improves the experience of offline backup with Azure Import/Export Service. For more information, see the updated steps [here](./backup-azure-backup-server-import-export.md).
 
 >[!NOTE]
->The update also brings the preview for Offline Backup using Azure Data Box in MABS. Contact [SystemCenterFeedback@microsoft.com](mailto:SystemCenterFeedback@microsoft.com) to learn more.
+>From MABS v3 UR2, MABS can perform offline backup using Azure Data Box. [Learn more](/azure/backup/offline-backup-azure-data-box-dpm-mabs).
 
 ### New cmdlet parameter
 
