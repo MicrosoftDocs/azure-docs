@@ -40,19 +40,19 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
 
 Use any of the following PowerShell cmdlets to deploy Cloud Services (extended support):
 
-1. [**Quick Create Cloud Service using a Storage Account**](https://docs.microsoft.com/azure/cloud-services-extended-support/deploy-powershell#quick-create-cloud-service-using-a-storage-account)
+1. [**Quick Create Cloud Service using a Storage Account**](#quick-create-cloud-service-using-a-storage-account)
 
     - This parameter set inputs the .cscfg, .cspkg and .csdef files as inputs along with the storage account. 
     - The cloud service role profile, network profile, and OS profile are created by the cmdlet with minimal input from the user. 
     - For certificate input, the keyvault name is to be specified. The certificate thumbprints in the keyvault are validated against those specified in the .cscfg file.
     
- 2. [**Quick Create Cloud Service using a SAS URI**](https://docs.microsoft.com/azure/cloud-services-extended-support/deploy-powershell#quick-create-cloud-service-using-a-sas-uri)
+ 2. [**Quick Create Cloud Service using a SAS URI**](#quick-create-cloud-service-using-a-sas-uri)
  
     - This parameter set inputs the SAS URI of the .cspkg along with the local paths of .csdef and .cscfg files. There is no storage account input required. 
     - The cloud service role profile, network profile, and OS profile are created by the cmdlet with minimal input from the user. 
     - For certificate input, the keyvault name is to be specified. The certificate thumbprints in the keyvault are validated against those specified in the .cscfg file.
     
-3. [**Create Cloud Service with role, OS, network and extension profile and SAS URIs**](https://docs.microsoft.com/azure/cloud-services-extended-support/deploy-powershell#create-cloud-service-using-profile-objects--sas-uris)
+3. [**Create Cloud Service with role, OS, network and extension profile and SAS URIs**](#create-cloud-service-using-profile-objects--sas-uris)
 
     - This parameter set inputs the SAS URIs of the .cscfg and .cspkg files.
     - The role, network, OS, and extension profile must be specified by the user and must match the values in the .cscfg and .csdef. 
