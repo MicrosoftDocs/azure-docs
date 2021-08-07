@@ -5,7 +5,7 @@ description: A description of the restrictions and limitations on redirect URI (
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 06/23/2021
+ms.date: 08/06/2021
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: contperf-fy21q4-portal, aaddev
@@ -17,15 +17,25 @@ ms.reviewer: marsma, lenalepa, manrath
 
 A redirect URI, or reply URL, is the location where the authorization server sends the user once the app has been successfully authorized and granted an authorization code or access token. The authorization server sends the code or token to the redirect URI, so it's important you register the correct location as part of the app registration process.
 
- The following restrictions apply to redirect URIs:
+The Azure Active Directory (Azure AD) application model specifies these restrictions to redirect URIs:
 
-* The redirect URI must begin with the scheme `https`. There are some [exceptions for localhost](#localhost-exceptions) redirect URIs.
+* Redirect URIs must begin with the scheme `https`. There are some [exceptions for localhost](#localhost-exceptions) redirect URIs.
 
-* The redirect URI is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the redirect URI. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
+* Redirect URIs are case-sensitive and must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the redirect URI. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
 
-* A Redirect Uri without a path segment appends a trailing slash to the URI in the response. For e.g. URIs such as https://contoso.com and http://localhost:7071 will return as https://contoso.com/ and http://localhost:7071/ respectively. This is applicable only when the response mode is either query or fragment.
+* Redirect URIs *not* configured with a path segment are returned with a trailing slash ('`/`') in the response. This applies only when the response mode is `query` or `fragment`.
 
-* Redirect Uris containing path segment do not append a trailing slash. (Eg. https://contoso.com/abc, https://contoso.com/abc/response-oidc will be used as it is in the response)
+    Examples:
+
+    * `https://contoso.com` is returned as `https://contoso.com/`
+    * `http://localhost:7071` is returned as `http://localhost:7071/`
+
+* Redirect URIs that contain a path segment or whose response mode is `query` or `fragment` are *not* appended with a trailing slash in the response.
+
+    Examples:
+
+    * `https://contoso.com/abc` is returned as `https://contoso.com/abc`
+    * `https://contoso.com/abc/response-oidc` is returned as `https://contoso.com/abc/response-oidc`
 
 ## Maximum number of redirect URIs
 
@@ -42,11 +52,20 @@ You can use a maximum of 256 characters for each redirect URI you add to an app 
 
 ## Supported schemes
 
-The Azure Active Directory (Azure AD) application model currently supports both HTTP and HTTPS schemes for apps that sign in work or school accounts in any organization's Azure AD tenant. These account types are specified by the `AzureADMyOrg` and `AzureADMultipleOrgs` values in the `signInAudience` field of the application manifest. For apps that sign in personal Microsoft accounts (MSA) *and* work and school accounts (that is, the `signInAudience` is set to `AzureADandPersonalMicrosoftAccount`), only the HTTPS scheme is allowed.
+**HTTPS**: The HTTPS scheme (`https://`) is supported for all HTTP-based redirect URIs.
 
-To add redirect URIs with an HTTP scheme to app registrations that sign in work or school accounts, use the application manifest editor in [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) in the Azure portal. However, though it's possible to set an HTTP-based redirect URI by using the manifest editor, we *strongly* recommend that you use the HTTPS scheme for your redirect URIs.
+**HTTP**: The HTTP scheme (`http://`) is supported *only* for *localhost* URIs and should be used only during active local application development and testing.
 
-## Localhost exceptions
+| Example redirect URI | Validity of example URI |
+| -------------------- | ------------------------------ |
+| `https://contoso.com` | Valid |
+| `https://contoso.com/abc/response-oidc` | Valid |
+| `https://localhost` | Valid |
+| `http://contoso.com/abc/response-oidc` | Invalid |
+| `http://localhost` | Valid |
+| `http://localhost/abc` | Valid |
+
+### Localhost exceptions
 
 Per [RFC 8252 sections 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) and [7.3](https://tools.ietf.org/html/rfc8252#section-7.3), "loopback" or "localhost" redirect URIs come with two special considerations:
 
