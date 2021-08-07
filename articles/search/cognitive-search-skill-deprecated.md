@@ -1,5 +1,5 @@
 ---
-title: Deprecated cognitive skills
+title: Deprecated Cognitive Skills
 titleSuffix: Azure Cognitive Search
 description: This page contains a list of cognitive skills that are considered deprecated and will not be supported in the near future in Azure Cognitive Search skillsets.
 
@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ---
 
-# Deprecated cognitive skills in Azure Cognitive Search
+# Deprecated Cognitive Skills in Azure Cognitive Search
 
 This document describes cognitive skills that are considered deprecated. Use the following guide for the contents:
 
-* Skill Name: The name of the skill that will be deprecated, it maps to the @odata.type attribute.
+* Skill Name: The name of the skill that will be deprecated; it maps to the @odata.type attribute.
 * Last available api version: The last version of the Azure Cognitive Search public API through which skillsets containing the corresponding deprecated skill can be created/updated. Indexers with attached skillsets with these skills will continue to run even in future API versions until the "End of support" date, at which point they will start failing.
 * End of support: The day after which the corresponding skill is considered unsupported and will stop working. Previously created skillsets should still continue to function, but users are recommended to migrate away from a deprecated skill.
 * Recommendations: Migration path forward to use a supported skill. Users are advised to follow the recommendations to continue to receive support.
@@ -43,9 +43,9 @@ To migrate to the [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-se
 
 1. *(Required)* Change the `@odata.type` from `"#Microsoft.Skills.Text.EntityRecognitionSkill"` to `"#Microsoft.Skills.Text.V3.EntityRecognitionSkill"`.
 
-2. *(Optional)* The `includeTypelessEntities` parameter is no longer supported as the new skill will only ever return entities with known types, so if your previous skill definition referenced it it should now be removed.
+2. *(Optional)* The `includeTypelessEntities` parameter is no longer supported as the new skill will only ever return entities with known types, so if your previous skill definition referenced it, it should now be removed.
 
-3. *(Optional)* If you making use of the `namedEntities` output, there are a few minor changes to the property names.
+3. *(Optional)* If you are making use of the `namedEntities` output, there are a few minor changes to the property names.
     1. `value` is renamed to `text`
     2. `confidence` is renamed to `confidenceScore`
 
@@ -90,7 +90,7 @@ To migrate to the [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-se
     }
     ```
 
-4. *(Optional)* If you are making use of the `entities` output to link entities to well known entities, this feature is now a new skill, the [Microsoft.Skills.Text.V3.EntityLinkingSkill](cognitive-search-skill-entity-linking-v3.md). Add the entity linking skill to your skillset to generate the linked entities. There are also a few minor changes to the property names of the `entities` output between the `EntityRecognitionSkill` and the new `EntityLinkingSkill`.
+4. *(Optional)* If you are making use of the `entities` output to link entities to well-known entities, this feature is now a new skill, the [Microsoft.Skills.Text.V3.EntityLinkingSkill](cognitive-search-skill-entity-linking-v3.md). Add the entity linking skill to your skillset to generate the linked entities. There are also a few minor changes to the property names of the `entities` output between the `EntityRecognitionSkill` and the new `EntityLinkingSkill`.
     1. `wikipediaId` is renamed to `id`
     2. `wikipediaLanguage` is renamed to `language`
     3. `wikipediaUrl` is renamed to `url`
