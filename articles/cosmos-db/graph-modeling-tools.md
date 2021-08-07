@@ -45,7 +45,7 @@ After modification of data model, the tool can generate the gremlin script, whic
 
 The following image demonstrates reverse engineering from RDBMS & Hackolade in action:
 :::image type="content" source="./media/graph-modeling-tools/cosmos-db-gremlin-hackolade.gif" alt-text="Hackolade in action":::
-
+**Figure-2:** Hackolade in action (demonstrating SQL to Gremlin data model conversion)
 ### Useful links 
 -	[Download a 14-day free trial](https://hackolade.com/download.html)
 -	[Schedule a demo](https://c.x.ai/pdesmarets)

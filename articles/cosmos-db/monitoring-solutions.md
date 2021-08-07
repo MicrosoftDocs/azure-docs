@@ -34,6 +34,7 @@ Datadog is being used by various Cosmos DB customers, which include
 
 
 :::image type="content" source="./media/monitor-solutions/datadog-demo.gif" alt-text="Datadog demo" border="false":::
+**Figure:**  Datadog in action
 
 Useful links:
 - [Pricing details](https://www.datadoghq.com/pricing/)
