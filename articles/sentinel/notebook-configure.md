@@ -33,6 +33,10 @@ Run the **Configuring your Notebook Environment** notebook in Azure Sentinel to 
 
 ## Configure the msticpyconfig.yaml file
 
+Configure MSTICPy settings using the **msticpyconfig.yaml** file, created when you launched your **Configuring your Notebook Environment** notebook.
+
+Many settings in the **msticconfig.yaml** file are optional, but incorrect configuration may cause loss of functionality. For example, using 
+
 Most of this notebook covers configuring MSTICPy by setting up the *msticpyconfig.yaml* file. Many of the settings are optional, but configuring them incorrectly causes some loss of functionality. For example, using Threat Intelligence (TI) providers usually requires an API key. You can enter the key every time you run the notebook, but to save time and avoid errors, you should put the key in the configuration file. Every IP address lookup should be in the configuration file.
 
 The configuration section takes you through creating settings for:
