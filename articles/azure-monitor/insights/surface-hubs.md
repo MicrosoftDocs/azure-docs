@@ -14,7 +14,7 @@ ms.date: 01/16/2018
 
 This article describes how you can use the Surface Hub solution in Azure Monitor to monitor Microsoft Surface Hub devices. The solution helps you track the health of your Surface Hubs as well as understand how they are being used.
 
-Each Surface Hub has the Microsoft Monitoring Agent installed. Its through the agent that you can send data from your Surface Hub to a Log Analytics workspace in Azure Monitor. Log files are read from your Surface Hubs and are then are sent to Azure Monitor. Issues like servers being offline, the calendar not syncing, or if the device account is unable to log into Skype are shown in the Surface Hub dashboard in Azure Monitor. By using the data in the dashboard, you can identify devices that are not running, or that are having other problems, and potentially apply fixes for the detected issues.
+Each Surface Hub has the Microsoft Monitoring Agent installed. Its through the agent that you can send data from your Surface Hub to a Log Analytics workspace in Azure Monitor. Log files are read from your Surface Hubs and are then sent to Azure Monitor. Issues like servers being offline, the calendar not syncing, or if the device account is unable to log into Skype are shown in the Surface Hub dashboard in Azure Monitor. By using the data in the dashboard, you can identify devices that are not running, or that are having other problems, and potentially apply fixes for the detected issues.
 
 ## Install and configure the solution
 Use the following information to install and configure the solution. In order to manage your Surface Hubs in Azure Monitor, you'll need the following:
@@ -34,14 +34,16 @@ You'll need the workspace ID and workspace key for the Log Analytics workspace t
 
 Intune is a Microsoft product that allows you to centrally manage the Log Analytics workspace configuration settings that are applied to one or more of your devices. Follow these steps to configure your devices through Intune:
 
-1. Sign in to Intune.
-2. Navigate to **Settings** > **Connected Sources**.
-3. Create or edit a policy based on the Surface Hub template.
-4. Navigate to the Azure Operational Insights section of the policy, and add the Log Analytics *Workspace ID* and *Workspace Key* to the policy.
-5. Save the policy.
-6. Associate the policy with the appropriate group of devices.
+1. Sign in to [Microsoft Endpoint Manager Admin Center](https://endpoint.microsoft.com/).
+2. Go to **Devices** > **Configuration profiles**.
+3. Create a new Windows 10 profile, and then select **templates**.
+4. In the list of templates, select **Device restrictions (Windows 10 Team)**.
+5. Enter a name and description for the profile.
+6. For **Azure Operational Insights**, select **Enable**.
+7. Enter the Log Analytics **Workspace ID** and enter the **Workspace Key** for the policy.
+8. Assign the policy to your group of Surface Hub devices and save the policy.
 
-   ![Intune policy](./media/surface-hubs/intune.png)
+    :::image type="content" source="./media/surface-hubs/intune.png" alt-text="Screenshot that shows setting an Intune policy.":::
 
 Intune then syncs the Log Analytics settings with the devices in the target group, enrolling them in your Log Analytics workspace.
 
@@ -54,9 +56,10 @@ If you don't use Intune to manage your environment, you can enroll devices manua
 2. Enter the device admin credentials when prompted.
 3. Click **This device**, and the under **Monitoring**, click **Configure Log Analytics Settings**.
 4. Select **Enable monitoring**.
-5. In the Log Analytics settings dialog, type the Log Analytics **Workspace ID** and type the **Workspace Key**.  
-   ![Screenshot shows the Microsoft Operations Manager Suite settings with Enable monitoring selected and text boxes for Workspace ID and Workspace Key.](./media/surface-hubs/settings.png)
-6. Click **OK** to complete the configuration.
+5. In the Log Analytics settings dialog, type the Log Analytics **Workspace ID** and type the **Workspace Key**. 
+
+    ![Screenshot shows the Microsoft Operations Manager Suite settings with Enable monitoring selected and text boxes for Workspace ID and Workspace Key.](./media/surface-hubs/settings.png)
+1. Click **OK** to complete the configuration.
 
 A confirmation appears telling you whether or not the configuration was successfully applied to the device. If it was, a message appears stating that the agent successfully connected to Azure Monitor. The device then starts sending data to Azure Monitor where you can view and act on it.
 

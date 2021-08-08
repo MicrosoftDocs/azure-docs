@@ -33,7 +33,7 @@ Use the following steps to register a new source.
 
 ## View sources
 
-You can view all registered sources on the **Sources** tab of Azure Purview Studio. There are two view types: map view and list view.
+You can view all registered sources on the **Data Map** tab of Azure Purview Studio. There are two view types: map view and list view.
 
 ### Map view
 

@@ -76,6 +76,8 @@ from openrowset(
            ) as rows
 ```
 
+Delta Lake is in public preview and there are some known issues and limitations. Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
+
 ## Partitioned views
 
 If you have a set of files that is partitioned in the hierarchical folder structure, you can describe the partition pattern using the wildcards in the file path. Use the  `FILEPATH` function to expose parts of the folder path as partitioning columns.
@@ -115,7 +117,9 @@ The folder name in the `OPENROWSET` function (`yellow` in this example) that is 
 > [!div class="mx-imgBorder"]
 >![Yellow Taxi Delta Lake folder](./media/shared/yellow-taxi-delta-lake.png)
 
-Do not use the `WITH` clause in the `OPENROWSET` function when you query partitioned Delta Lake data. Due to the known issue in the preview, the `WITH` clause will not properly return the values from the underlying partitioning columns. Partition elimination works fine if you are directly using the `OPENROWSET` function with the `WITH` clause (without views).  
+Do not use the `WITH` clause in the `OPENROWSET` function when you query partitioned Delta Lake data. Due to the known issue in the preview, the `WITH` clause will [not properly return the values from the underlying partitioning columns](resources-self-help-sql-on-demand.md#partitioning-column-returns-null-values). Partition elimination works fine if you are directly using the `OPENROWSET` function with the `WITH` clause (without views).  
+
+Delta Lake is in public preview and there are some known issues and limitations. Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
 
 ## Use a view
 

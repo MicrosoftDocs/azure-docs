@@ -8,12 +8,16 @@
   items:
   - name: License requirements
     href: subscription-requirements.md
+  - name: Privileged Access groups
+    href: groups-features.md
   - name: Roles you can't manage with PIM 
     href: pim-roles.md
   - name: Secure privileged access in Azure AD
     href: ../roles/security-planning.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
   - name: MFA and PIM
     href: pim-how-to-require-mfa.md
+  - name: Role-assignable v. Privileged Access groups
+    href: concept-privileged-access-versus-role-assignable.md
   - name: Overview dashboards
     href: pim-resource-roles-overview-dashboards.md
   - name: Email notifications
@@ -41,10 +45,12 @@
       href: pim-how-to-activate-role.md
     - name: Azure roles
       href: pim-resource-roles-activate-your-roles.md
+    - name: Privileged Access groups
+      href: groups-activate-roles.md 
   - name: Approve
     items:
     - name: Azure AD roles
-      href: pim-how-to-activate-role.md
+      href: azure-ad-pim-approval-workflow.md
     - name: Azure roles
       href: pim-resource-roles-approval-workflow.md
     - name: Privileged Access groups
@@ -61,7 +67,7 @@
       href: pim-resource-roles-renew-extend.md
     - name: Privileged Access groups
       href: groups-renew-extend.md
-  - name: Settings
+  - name: Set role settings
     items:
     - name: Azure AD roles
       href: pim-how-to-change-default-settings.md
@@ -69,13 +75,13 @@
       href: pim-resource-roles-configure-role-settings.md
     - name: Privileged Access groups
       href: groups-role-settings.md
-  - name: Alerts
+  - name: Set up alerts
     items:
     - name: Azure AD roles
       href: pim-how-to-configure-security-alerts.md
     - name: Azure roles
       href: pim-resource-roles-configure-alerts.md
-  - name: Audit logs
+  - name: Audit activity
     items:
     - name: Azure AD roles
       href: pim-how-to-use-audit-log.md
@@ -83,7 +89,7 @@
       href: azure-pim-resource-rbac.md
     - name: Privileged Access groups
       href: groups-audit.md
-  - name: Access reviews
+  - name: Review access
     items:
     - name: Azure AD roles
       items:
@@ -105,7 +111,7 @@
     href: pim-security-wizard.md
   - name: Elevate access to manage Azure subscriptions
     href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
-  - name: Troubleshoot PIM
+  - name: Troubleshoot resource access denied
     href: pim-troubleshoot.md
 - name: Reference
   items:

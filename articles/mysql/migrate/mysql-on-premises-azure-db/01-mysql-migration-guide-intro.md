@@ -13,7 +13,7 @@ ms.date: 06/21/2021
 
 # Migrate MySQL on-premises to Azure Database for MySQL
 
-[!INCLUDE[applies-to-single-flexible-server](../../includes/applies-to-single-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 This migration guide is designed to provide stackable and actionable information for MySQL customers and software integrators seeking to migrate MySQL workloads to [Azure Database for MySQL](../../overview.md). This guide gives applicable knowledge that applies to most cases and provides guidance that leads to the successful planning and execution of a MySQL migration to Azure.
 

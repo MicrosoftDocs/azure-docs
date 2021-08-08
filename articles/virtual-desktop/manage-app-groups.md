@@ -3,7 +3,7 @@ title: Manage app groups for Azure Virtual Desktop portal - Azure
 description: How to manage Azure Virtual Desktop app groups with the Azure portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 05/28/2021
+ms.date: 07/20/2021
 ms.author: helohr
 manager: femila
 ---
@@ -13,6 +13,9 @@ manager: femila
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
 
 The default app group created for a new Azure Virtual Desktop host pool also publishes the full desktop. In addition, you can create one or more RemoteApp application groups for the host pool. Follow this tutorial to create a RemoteApp app group and publish individual Start menu apps.
+
+>[!NOTE]
+>You can dynamically attach MISX apps to user sessions or add your app packages to a custom virtual machine (VM) image to publish your organization's apps. Learn more at [How to host custom apps with Azure Virtual Desktop](./remote-app-streaming/custom-apps.md).
 
 In this tutorial, learn how to:
 
@@ -28,6 +31,8 @@ If you've already created a host pool and session host VMs using the Azure porta
    
     >[!NOTE]
     > If you're signing in to the US Gov portal, go to [https://portal.azure.us/](https://portal.azure.us/) instead.
+    >
+    >If you're accessing the Azure China portal, go to [https://portal.azure.cn/](https://portal.azure.cn/).
 
 2.  Search for and select **Azure Virtual Desktop**.
 

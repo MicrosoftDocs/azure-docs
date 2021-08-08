@@ -11,7 +11,7 @@ ms.date: 09/22/2020
 
 # Connect and query overview for Azure database for MySQL- Single Server
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 The following document includes links to examples showing how to connect and query with Azure Database for MySQL Single Server. This guide also includes TLS recommendations and libraries that you can use to connect to the server in supported languages below.
 

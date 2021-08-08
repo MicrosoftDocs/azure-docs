@@ -33,4 +33,4 @@ There are several URLs you can also use to verify that the container is running.
 |`http://localhost:5000/swagger`|Through this URL, the container provides a full set of documentation for the endpoints and a `Try it now` feature. With this feature, you can enter your settings into a web-based HTML form and make the query without having to write any code. After the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format that's required. |
 |`http://localhost:5000/demo`| Requested through a browser, this feature provides an interactive visualization of the results from queries of input text samples or one you provide.  |
 
-Use this request URL - `http://localhost:5000/text/analytics/v3.1-preview.4/entities/health` - to submit a query to the container.
+Use this request URL - `http://localhost:5000/text/analytics/v3.1/entities/health` - to submit a query to the container.

@@ -11,7 +11,7 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 
 # Connect with Managed Identity to Azure Database for MySQL
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 This article shows you how to use a user-assigned identity for an Azure Virtual Machine (VM) to access an Azure Database for MySQL server. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. 
 

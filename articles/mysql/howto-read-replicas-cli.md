@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli
 
 # How to create and manage read replicas in Azure Database for MySQL using the Azure CLI and REST API
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 In this article, you will learn how to create and manage read replicas in the Azure Database for MySQL service using the Azure CLI and REST API. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
 
@@ -57,7 +57,9 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 > To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md). 
 
 > [!NOTE]
-> Read replicas are created with the same server configuration as the master. The replica server configuration can be changed after it has been created. It is recommended that the replica server's configuration should be kept at equal or greater values than the source to ensure the replica is able to keep up with the master.
+> * The `az mysql server replica create` command has `--sku-name` argument which allows you to specify the sku (`{pricing_tier}_{compute generation}_{vCores}`) while you create a replica using Azure CLI. </br>
+> * The primary server and read replica should be on same pricing tier (General Purpose or Memory Optimized). </br>
+> * The replica server configuration can also be changed after it has been created. It is recommended that the replica server's configuration should be kept at equal or greater values than the source to ensure the replica is able to keep up with the master.
 
 
 ### List replicas for a source server
@@ -177,6 +179,14 @@ When you delete a source server, replication to all read replicas is stopped. Th
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}?api-version=2017-12-01
 ```
 
+### Known issue
+
+There are two generations of storage which the servers in General Purpose and Memory Optimized tier use, General purpose storage v1 (Supports up to 4-TB) & General purpose storage v2 (Supports up to 16-TB storage).
+Source server and the replica server should have same storage type. As [General purpose storage v2](./concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage) is not available in all regions, please make sure you choose the correct replica region while you use location with the CLI or REST API for read replica creation. On how to identify the storage type of your source server refer to link [How can I determine which storage type my server is running on](./concepts-pricing-tiers.md#how-can-i-determine-which-storage-type-my-server-is-running-on). 
+
+If you choose a region where you cannot create a read replica for your source server, you will encounter the issue where the deployment will keep running as shown in the figure below and then will timeout with the error *“The resource provision operation did not complete within the allowed timeout period.”*
+
+[ :::image type="content" source="media/howto-read-replicas-cli/replcia-cli-known-issue.png" alt-text="Read replica cli error.":::](media/howto-read-replicas-cli/replcia-cli-known-issue.png#lightbox)
 
 ## Next steps
 

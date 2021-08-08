@@ -4,15 +4,17 @@
   items:
   - name: What is Cost Management and Billing?
     href: cost-management-billing-overview.md
+  - name: What's new?
+    href: https://azure.microsoft.com/blog/tag/cost-management/
 - name: Quickstarts
-  expanded: true
   items:
   - name: Start analyzing costs
-    href: costs/quick-acm-cost-analysis.md
     displayName: Azure CLI, az costmanagement query, az costmanagement export
+    href: costs/quick-acm-cost-analysis.md
   - name: Create a budget - ARM template
-    href: costs/quick-create-budget-template.md
     displayName: ARM template, resource manager template
+    href: costs/quick-create-budget-template.md
+  expanded: true
 - name: Tutorials
   items:
   - name: Review your individual account bill
@@ -26,8 +28,8 @@
   - name: Create and manage budgets
     href: costs/tutorial-acm-create-budgets.md
   - name: Export data
-    href: costs/tutorial-export-acm-data.md
     displayName: Azure CLI, az costmanagement query, az costmanagement export
+    href: costs/tutorial-export-acm-data.md
   - name: Act on recommendations
     href: costs/tutorial-acm-opt-recommendations.md
 - name: Concepts
@@ -96,9 +98,9 @@
         href: manage/understand-vm-reservation-charges.md?toc=/azure/cost-management-billing/toc.json
     - name: Windows and SQL costs not included
       href: reservations/reserved-instance-windows-software-costs.md?toc=/azure/cost-management-billing/toc.json
-    - name: Usage data for individual subscriptions
+    - name: Reservation usage data for individual subscriptions
       href: reservations/understand-reserved-instance-usage.md?toc=/azure/cost-management-billing/toc.json
-    - name: Enterprise and Microsoft Customer Agreement usage data
+    - name: Reservation usage data for EA and Microsoft Customer Agreement
       href: reservations/understand-reserved-instance-usage-ea.md?toc=/azure/cost-management-billing/toc.json
   - name: Billing
     items:
@@ -112,6 +114,8 @@
       href: understand/mca-understand-your-invoice.md
     - name: Microsoft Customer Agreement price sheet terms
       href: manage/mca-understand-pricesheet.md
+    - name: Microsoft Customer Agreement FAQ
+      href: understand/mca-faq.md
     - name: Microsoft Partner Agreement invoice terms
       href: understand/mpa-invoice-terms.md
     - name: Changes to your updated pay-as-you-go billing account
@@ -254,7 +258,7 @@
         href: understand/download-azure-invoice.md
       - name: View and download your Azure usage and charges
         href: understand/download-azure-daily-usage.md
-      - name: Download your invoice and daily usage data
+      - name: Download your invoice
         href: manage/download-azure-invoice-daily-usage-date.md
       - name: View and download tax documents
         href: understand/mca-download-tax-document.md
@@ -296,6 +300,8 @@
       href: manage/spending-limit.md
     - name: Track credits for Microsoft Customer Agreement
       href: manage/mca-check-azure-credits-balance.md
+    - name: Track your Microsoft Azure Consumption Commitment
+      href: manage/track-consumption-commitment.md
     - name: Migrate from EA to MCA APIs
       href: costs/migrate-cost-management-api.md
     - name: Assign roles to EA SPNs
@@ -452,59 +458,3 @@
       href: manage/review-enterprise-billing.md
     - name: Review subscription use
       href: manage/review-subscription-billing.md
-- name: Cloudyn
-  items:
-  - name: Overview
-    items:
-    - name: What is Cloudyn?
-      href: cloudyn/overview.md
-  - name: Quickstarts
-    items:
-    - name: View cost data - CSP
-      href: cloudyn/quick-register-csp.md
-  - name: Tutorials
-    items:
-    - name: Review usage and costs
-      href: cloudyn/tutorial-review-usage.md
-    - name: Forecast spending
-      href: cloudyn/tutorial-forecast-spending.md
-    - name: Manage costs
-      href: cloudyn/tutorial-manage-costs.md
-    - name: Optimize reserved instances
-      href: cloudyn/tutorial-optimize-reserved-instances.md
-    - name: Control access to data
-      href: cloudyn/tutorial-user-access.md
-  - name: Concepts
-    items:
-    - name: Understanding cost reports
-      href: cloudyn/understanding-cost-reports.md
-  - name: How-to guides
-    items:
-    - name: Activate Azure subscriptions and accounts
-      href: cloudyn/activate-subs-accounts.md
-    - name: Add extended metrics for VMs
-      href: cloudyn/azure-vm-extended-metrics.md
-    - name: Connect an AWS account
-      href: cloudyn/connect-aws-account.md
-    - name: Configure storage accounts
-      href: cloudyn/storage-accounts.md
-    - name: Use Cloudyn reports
-      href: cloudyn/use-reports.md
-    - name: Use dashboards
-      href: cloudyn/dashboards.md
-    - name: Manage budgets
-      href: cloudyn/manage-budgets.md
-  - name: Resources
-    items:
-    - name: Cloudyn videos
-      href: cloudyn/ref-videos.md
-    - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/
-    - name: Cloudyn Pricing
-      href: https://azure.microsoft.com/pricing/details/cost-management
-    - name: Cloudyn Regional Availability
-      href: https://azure.microsoft.com/regions/services/
-    - name: Cloudyn FAQ
-      href: cloudyn/cost-mgt-faq.md
-    - name: Contact Cloudyn support
-      href: ./costs/open-support-request.md

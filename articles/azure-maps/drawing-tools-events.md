@@ -19,6 +19,7 @@ When using drawing tools on a map, it's useful to react to certain events as the
 | `drawingchanged` | Fired when any coordinate in a shape has been added or changed. | 
 | `drawingchanging` | Fired when any preview coordinate for a shape is being displayed. For example, this event will fire multiple times as a coordinate is dragged. | 
 | `drawingcomplete` | Fired when a shape has finished being drawn or taken out of edit mode. |
+| `drawingerased` | Fired when a shape is erased from the drawing manager when in `erase-geometry` mode. |
 | `drawingmodechanged` | Fired when the drawing mode has changed. The new drawing mode is passed into the event handler. |
 | `drawingstarted` | Fired when the user starts drawing a shape or puts a shape into edit mode.  |
 

@@ -13,7 +13,7 @@ ms.date: 06/21/2021
 
 # Migrate MySQL on-premises to Azure Database for MySQL: Data Migration with MySQL Workbench
 
-[!INCLUDE[applies-to-single-flexible-server](../../includes/applies-to-single-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ Depending on the type of migration You've chosen (offline vs. online), you want 
 
 ## Configuring server parameters (Target)
 
-Review the server parameters before starting the import process into Azure Database for MySQL. Server parameters can be retrieved and set using the [Azure portal](/azure/mysql/howto-server-parameters) or by calling the [Azure PowerShell for MySQL cmdlets](/azure/mysql/howto-configure-server-parameters-using-powershell) to make the changes.
+Review the server parameters before starting the import process into Azure Database for MySQL. Server parameters can be retrieved and set using the [Azure portal](../../howto-server-parameters.md) or by calling the [Azure PowerShell for MySQL cmdlets](../../howto-configure-server-parameters-using-powershell.md) to make the changes.
 
 Execute the following PowerShell script to get all parameters:
 
@@ -47,7 +47,7 @@ Get-AzMySqlConfiguration -ResourceGroupName $rgName -ServerName $serverName
 - To do the same with the mysql tool, download the [CA root certification](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) to c:\\temp (make this directory).
 
     > [!NOTE]
-    > The certificate is subject to change. Reference [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](/azure/mysql/howto-configure-ssl) for the latest certificate information.
+    > The certificate is subject to change. Reference [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](../../howto-configure-ssl.md) for the latest certificate information.
     
 - Run the following in a command prompt, be sure to update the tokens:
 
@@ -63,7 +63,7 @@ To support the migration, set the target MySQL instance parameters to allow for 
 
 - `max\_allowed\_packet` – set the parameter to `1073741824` (that is, 1 GB) or the largest size of a row in the database to prevent any overflow issue due to long rows. Consider adjusting this parameter if there are large BLOB rows that need to be pulled out (or read).
 
-- `innodb\_buffer\_pool\_size` – Scale up the server to 32 vCore Memory Optimized SKU from the Pricing tier of the portal during migration to increase the innodb\_buffer\_pool\_size. Innodb\_buffer\_pool\_size can only be increased by scaling up compute for Azure Database for MySQL server. Reference [Server parameters in Azure Database for MySQL](/azure/mysql/concepts-server-parameters#innodb_buffer_pool_size) for the max value for the tier. The maximum value in a Memory Optimized 32 vCore system is `132070244352`.
+- `innodb\_buffer\_pool\_size` – Scale up the server to 32 vCore Memory Optimized SKU from the Pricing tier of the portal during migration to increase the innodb\_buffer\_pool\_size. Innodb\_buffer\_pool\_size can only be increased by scaling up compute for Azure Database for MySQL server. Reference [Server parameters in Azure Database for MySQL](../../concepts-server-parameters.md#innodb_buffer_pool_size) for the max value for the tier. The maximum value in a Memory Optimized 32 vCore system is `132070244352`.
 
 - `innodb\_io\_capacity` & `innodb\_io\_capacity\_max` - Change the parameter to `9000` to improve the IO utilization to optimize for migration speed.
 
@@ -177,7 +177,7 @@ With the database objects and users from the source system migrated, the migrati
 
 ## Revert server parameters
 
-The following parameters can be changed on the Azure Database for MySQL target instance. These parameters can be set through the Azure portal or by using the [Azure PowerShell for MySQL cmdlets.](/azure/mysql/howto-configure-server-parameters-using-powershell)
+The following parameters can be changed on the Azure Database for MySQL target instance. These parameters can be set through the Azure portal or by using the [Azure PowerShell for MySQL cmdlets.](../../howto-configure-server-parameters-using-powershell.md)
 
 ```
 $rgName = "YourRGName";

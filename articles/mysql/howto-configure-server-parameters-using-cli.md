@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli
 ---
 # Configure server parameters in Azure Database for MySQL using the Azure CLI
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 You can list, show, and update configuration parameters for an Azure Database for MySQL server by using Azure CLI, the Azure command-line utility. A subset of engine configurations is exposed at the server-level and can be modified. 
 
 >[!Note]

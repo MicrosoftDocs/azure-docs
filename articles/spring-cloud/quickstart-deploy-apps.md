@@ -1,8 +1,8 @@
 ---
 title: "Quickstart - Build and deploy apps to Azure Spring Cloud"
 description: Describes app deployment to Azure Spring Cloud.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/03/2020
@@ -208,7 +208,6 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
 
     ```azurecli
     az configure --defaults group=<resource group name> spring-cloud=<service name>  
-    az spring-cloud config-server git set -n <service instance name> --uri https://github.com/azure-samples/spring-petclinic-microservices-config
     ```
 
 1. Create the 2 core microservices for PetClinic: API gateway and customers-service.
@@ -240,7 +239,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
 
 ## Verify the services
 
-Access the app gateway and customers service from browser with the **Public Url** shown above, in the format of "https://<service name>-api-gateway.azuremicroservices.io".
+Access the app gateway and customers service from browser with the **Public Url** shown above, in the format of `https://<service name>-api-gateway.azuremicroservices.io`.
 
 ![Access petclinic customers service](media/build-and-deploy/access-customers-service.png)
 
@@ -312,7 +311,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
     
 ## Verify the services
 
-A successful deployment command will return a the URL of the form: "https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io". Use it to navigate to the running service.
+A successful deployment command will return a the URL of the form: `https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io`. Use it to navigate to the running service.
 
 ![Access Pet Clinic](media/build-and-deploy/access-customers-service.png)
 

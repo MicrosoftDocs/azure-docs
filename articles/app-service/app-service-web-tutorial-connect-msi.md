@@ -141,29 +141,63 @@ Type `Ctrl+F5` to run the app again. The same CRUD app in your browser is now co
 In Visual Studio, open the Package Manager Console and add the NuGet package [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication):
 
 ```powershell
-Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
+Install-Package Microsoft.Data.SqlClient -Version 2.1.2
+Install-Package Azure.Identity -Version 1.4.0
 ```
 
 In the [ASP.NET Core and SQL Database tutorial](tutorial-dotnetcore-sqldb-app.md), the `MyDbConnection` connection string isn't used at all because the local development environment uses a Sqlite database file, and the Azure production environment uses a connection string from App Service. With Active Directory authentication, you want both environments to use the same connection string. In *appsettings.json*, replace the value of the `MyDbConnection` connection string with:
 
 ```json
-"Server=tcp:<server-name>.database.windows.net,1433;Database=<database-name>;"
+"Server=tcp:<server-name>.database.windows.net;Authentication=Active Directory Device Code Flow; Database=<database-name>;"
 ```
 
-Next, you supply the Entity Framework database context with the access token for the SQL Database. In *Data\MyDatabaseContext.cs*, add the following code inside the curly braces of the empty `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` constructor:
+> [!NOTE]
+> We use the `Active Directory Device Code Flow` authentication type because this is the closest we can get to a custom option. Ideally, a `Custom Authentication` type would be available. Without a better term to use at this time, we're using `Device Code Flow`.
+>
+
+Next, you need to create a custom authentication provider class to acquire and supply the Entity Framework database context with the access token for the SQL Database. In the *Data\\* directory, add a new class `CustomAzureSQLAuthProvider.cs` with the following code inside:
 
 ```csharp
-var connection = (SqlConnection)Database.GetDbConnection();
-connection.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
+public class CustomAzureSQLAuthProvider : SqlAuthenticationProvider
+{
+    private static readonly string[] _azureSqlScopes = new[]
+    {
+        "https://database.windows.net//.default"
+    };
+
+    private static readonly TokenCredential _credential = new DefaultAzureCredential();
+
+    public override async Task<SqlAuthenticationToken> AcquireTokenAsync(SqlAuthenticationParameters parameters)
+    {
+        var tokenRequestContext = new TokenRequestContext(_azureSqlScopes);
+        var tokenResult = await _credential.GetTokenAsync(tokenRequestContext, default);
+        return new SqlAuthenticationToken(tokenResult.Token, tokenResult.ExpiresOn);
+    }
+
+    public override bool IsSupported(SqlAuthenticationMethod authenticationMethod) => authenticationMethod.Equals(SqlAuthenticationMethod.ActiveDirectoryDeviceCodeFlow);
+}
+```
+
+In *Startup.cs*, update the `ConfigureServices()` method with the following code:
+
+```csharp
+services.AddControllersWithViews();
+services.AddDbContext<MyDatabaseContext>(options =>
+{
+    SqlAuthenticationProvider.SetProvider(
+        SqlAuthenticationMethod.ActiveDirectoryDeviceCodeFlow, 
+        new CustomAzureSQLAuthProvider());
+    var sqlConnection = new SqlConnection(Configuration.GetConnectionString("MyDbConnection"));
+    options.UseSqlServer(sqlConnection);
+});
 ```
 
 > [!NOTE]
 > This demonstration code is synchronous for clarity and simplicity.
 
-That's every thing you need to connect to SQL Database. When debugging in Visual Studio, your code uses the Azure AD user you configured in [Set up Visual Studio](#set-up-visual-studio). You'll set up SQL Database later to allow connection from the managed identity of your App Service app. The `AzureServiceTokenProvider` class caches the token in memory and retrieves it from Azure AD just before expiration. You don't need any custom code to refresh the token.
+The preceding code uses the `Azure.Identity` library so that it can authenticate and retrieve an access token for the database, no matter where the code is running. If you're running on your local machine, `DefaultAzureCredential()` loops through a number of options to find a valid account that is logged in. You can read more about the [DefaultAzureCredential class](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
 
-> [!TIP]
-> If the Azure AD user you configured has access to multiple tenants, call `GetAccessTokenAsync("https://database.windows.net/", tenantid)` with the desired tenant ID to retrieve the proper access token.
+That's everything you need to connect to SQL Database. When debugging in Visual Studio, your code uses the Azure AD user you configured in [Set up Visual Studio](#set-up-visual-studio). You'll set up SQL Database later to allow connection from the managed identity of your App Service app. The `DefaultAzureCredential` class caches the token in memory and retrieves it from Azure AD just before expiration. You don't need any custom code to refresh the token.
 
 Type `Ctrl+F5` to run the app again. The same CRUD app in your browser is now connecting to the Azure SQL Database directly, using Azure AD authentication. This setup lets you run database migrations from Visual Studio.
 

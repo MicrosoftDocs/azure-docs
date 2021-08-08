@@ -1,5 +1,5 @@
 ---
-title: How to configure a container for Form Recognizer
+title: Configure Form Recognizer containers
 titleSuffix: Azure Applied AI Services
 description: Learn how to configure the Form Recognizer container to parse form and table data.
 author: laujan
@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/23/2021
+ms.date: 07/01/2021
 ms.author: lajanuar
 ---
 # Configure Form Recognizer containers
@@ -16,7 +16,7 @@ ms.author: lajanuar
 >
 > Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and have it approved. See [**Request approval to run container**](form-recognizer-container-install-run.md#request-approval-to-run-the-container) below for more information.
 
-With Azure Form Recognizer containers, you can build an application architecture that's optimized to take advantage of both robust cloud capabilities and edge locality. Containers provide a minimalist, virtually-isolated environment that can be easily deployed on-premise and in the cloud. In this article, you will learn to configure the Form Recognizer container run-time environment by using the `docker compose` command arguments. Form Recognizer features are supported by seven Form Recognizer containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom API**, and **Custom Supervised**—plus the **Read** OCR container. These containers have several required settings and a few optional settings. For a few examples, see the [Example docker-compose.yml file](#example-docker-composeyml-file) section.
+With Azure Form Recognizer containers, you can build an application architecture that's optimized to take advantage of both robust cloud capabilities and edge locality. Containers provide a minimalist, virtually-isolated environment that can be easily deployed on-premise and in the cloud. In this article, you will learn to configure the Form Recognizer container run-time environment by using the `docker compose` command arguments. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom**. These containers have several required settings and a few optional settings. For a few examples, see the [Example docker-compose.yml file](#example-docker-composeyml-file) section.
 
 ## Configuration settings
 
@@ -41,7 +41,7 @@ The `ApiKey` setting specifies the Azure resource key that's used to track billi
 
 The `Billing` setting specifies the endpoint URI of the resource on Azure that's used to meter billing information for the container. The value for this configuration setting must be a valid endpoint URI for a resource on Azure. The container reports usage about every 10 to 15 minutes.
 
- You can find these settings in the Azure portal on the **Keys and Endpoint* *page.
+ You can find these settings in the Azure portal on the **Keys and Endpoint** page.
 
    :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 

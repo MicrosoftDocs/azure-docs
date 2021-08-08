@@ -2,12 +2,12 @@
 title: Troubleshoot issues with advanced diagnostics queries for Mongo API
 titleSuffix: Azure Cosmos DB
 description: Learn how to query diagnostics logs for troubleshooting data stored in Azure Cosmos DB for Mongo API
-author: StefArroyo
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/12/2021
-ms.author: esarroyo 
+ms.author: esarroyo
+author: StefArroyo 
 ---
 
 # Troubleshoot issues with advanced diagnostics queries for Mongo API
@@ -17,7 +17,7 @@ ms.author: esarroyo
 > [!div class="op_single_selector"]
 > * [SQL (Core) API](cosmos-db-advanced-queries.md)
 > * [MongoDB API](queries-mongo.md)
-> * [Cassandra API](queries-cassandra.md)
+> * [Cassandra API](cassandra/diagnostic-queries-cassandra.md)
 > * [Gremlin API](queries-gremlin.md)
 >
 
@@ -51,9 +51,9 @@ For [resource-specific tables](cosmosdb-monitor-resource-logs.md#create-setting-
    | project  requestCharge_s , TimeGenerated, activityId_g;
    AzureDiagnostics
    | where Category == "MongoRequests"
-   | project piiCommandText_s, activityId_g, databasename_s , collectionname_s
+   | project piiCommandText_s, activityId_g, databaseName_s , collectionName_s
    | join kind=inner topRequestsByRUcharge on activityId_g
-   | project databasename_s , collectionname_s , piiCommandText_s , requestCharge_s, TimeGenerated
+   | project databaseName_s , collectionName_s , piiCommandText_s , requestCharge_s, TimeGenerated
    | order by requestCharge_s desc
    | take 10
    ```    
@@ -80,9 +80,9 @@ For [resource-specific tables](cosmosdb-monitor-resource-logs.md#create-setting-
    | project  OperationName , TimeGenerated, activityId_g;
    AzureDiagnostics
    | where Category == "MongoRequests"
-   | project piiCommandText_s, activityId_g, databasename_s , collectionname_s
+   | project piiCommandText_s, activityId_g, databaseName_s , collectionName_s
    | join kind=inner throttledRequests on activityId_g
-   | project databasename_s , collectionname_s , piiCommandText_s , OperationName, TimeGenerated
+   | project databaseName_s , collectionName_s , piiCommandText_s , OperationName, TimeGenerated
    ```    
 ---
 
@@ -106,9 +106,9 @@ For [resource-specific tables](cosmosdb-monitor-resource-logs.md#create-setting-
    | project  OperationName , TimeGenerated, activityId_g;
    AzureDiagnostics
    | where Category == "MongoRequests"
-   | project piiCommandText_s, activityId_g, databasename_s , collectionname_s
+   | project piiCommandText_s, activityId_g, databaseName_s , collectionName_s
    | join kind=inner throttledRequests on activityId_g
-   | project databasename_s , collectionname_s , piiCommandText_s , OperationName, TimeGenerated
+   | project databaseName_s , collectionName_s , piiCommandText_s , OperationName, TimeGenerated
    ```    
 ---
 
@@ -133,7 +133,7 @@ For [resource-specific tables](cosmosdb-monitor-resource-logs.md#create-setting-
    AzureDiagnostics
    | where Category == "MongoRequests"
    //specify collection and database
-   //| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
+   //| where databaseName_s == "DBNAME" and collectionName_s == "COLLECTIONNAME"
    | join kind=inner operationsbyUserAgent on activityId_g
    | summarize max(responseLength_s1) by piiCommandText_s
    | order by max_responseLength_s1 desc
@@ -160,7 +160,7 @@ For [resource-specific tables](cosmosdb-monitor-resource-logs.md#create-setting-
    | where TimeGenerated >= now(-1d)
    | where Category == 'PartitionKeyRUConsumption'
    //specify collection and database
-   //| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
+   //| where databaseName_s == "DBNAME" and collectionName_s == "COLLECTIONNAME"
    // filter by operation type
    //| where operationType_s == 'Create'
    | summarize sum(todouble(requestCharge_s)) by toint(partitionKeyRangeId_s)
@@ -187,7 +187,7 @@ For [resource-specific tables](cosmosdb-monitor-resource-logs.md#create-setting-
    | where TimeGenerated >= now(-1d)
    | where Category == 'PartitionKeyRUConsumption'
    //specify collection and database
-   //| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
+   //| where databaseName_s == "DBNAME" and collectionName_s == "COLLECTIONNAME"
    // filter by operation type
    //| where operationType_s == 'Create'
    | summarize sum(todouble(requestCharge_s)) by partitionKey_s, partitionKeyRangeId_s

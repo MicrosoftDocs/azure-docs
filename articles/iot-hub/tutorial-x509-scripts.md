@@ -6,7 +6,7 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 02/26/2021
+ms.date: 06/26/2021
 ms.author: robinsh
 ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to introduce me to Microsoft scripts that I can use to generate test certificates. 
@@ -54,13 +54,15 @@ After running the script, add the new CA certificate (RootCA.pem) to your IoT Hu
 
 1. Enter a display name for the CA certificate.
 
+1. To skip proof of possession, check the box next to **Set certificate status to verified on upload**.
+
 1. Upload the CA certificate.
 
 1. Select **Save**.
 
-### Step 3 - Prove possession
+### (Optional) Step 3 - Prove possession
 
-Now that  you've uploaded your CA certificate to your IoT Hub, you'll need to prove that you actually own it:
+If you didn't choose to automatically verify the certificate during upload, you manually prove possession:
 
 1. Select the new CA certificate.
 

@@ -22,8 +22,8 @@ To get started with Security Center, you must have a subscription to Microsoft A
 |-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Release state:          | **Feature**: Auto provisioning is generally available (GA)<br>**Agent and extensions**: Log Analytics agent for Azure VMs is GA, Microsoft Dependency agent is in preview, Policy Add-on for Kubernetes is GA                |
 | Pricing:                | Free                                                                                                                                                                                                                         |
-| Supported destinations: | ![Yes](./media/icons/yes-icon.png) Azure machines<br>![No](./media/icons/no-icon.png) Azure Arc machines<br>![No](./media/icons/no-icon.png) Kubernetes nodes<br>![No](./media/icons/no-icon.png) Virtual Machine Scale Sets |
-| Clouds:                 | ![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov, Azure China                                                                                                      |
+| Supported destinations: | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure machines<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Arc machines<br>:::image type="icon" source="./media/icons/no-icon.png"::: Kubernetes nodes<br>:::image type="icon" source="./media/icons/no-icon.png"::: Virtual Machine Scale Sets |
+| Clouds:                 | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: US Gov, Azure China                                                                                                      |
 |                         |                                                                                                                                                                                                                              |
 
 ## How does Security Center collect data?
@@ -81,9 +81,9 @@ To enable auto provisioning of the Log Analytics agent:
         > [!TIP]
         > For questions regarding default workspaces, see:
         >
-        > - [Am I billed for Azure Monitor logs on the workspaces created by Security Center?](/azure/security-center/faq-data-collection-agents#am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center-)
-        > - [Where is the default Log Analytics workspace created?](/azure/security-center/faq-data-collection-agents#where-is-the-default-log-analytics-workspace-created-)
-        > - [Can I delete the default workspaces created by Security Center?](/azure/security-center/faq-data-collection-agents#can-i-delete-the-default-workspaces-created-by-security-center-)
+        > - [Am I billed for Azure Monitor logs on the workspaces created by Security Center?](./faq-data-collection-agents.yml#am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center-)
+        > - [Where is the default Log Analytics workspace created?](./faq-data-collection-agents.yml#where-is-the-default-log-analytics-workspace-created-)
+        > - [Can I delete the default workspaces created by Security Center?](./faq-data-collection-agents.yml#can-i-delete-the-default-workspaces-created-by-security-center-)
 
     - **Connect Azure VMs to a different workspace** - From the dropdown list, select the workspace to store collected data. The dropdown list includes all workspaces across all of your subscriptions. You can use this option to collect data from virtual machines running in different subscriptions and store it all in your selected workspace.  
 
@@ -177,7 +177,7 @@ Here is a complete breakdown of the Security and App Locker event IDs for each s
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
 
 > [!NOTE]
-> - If you are using Group Policy Object (GPO), it is recommended that you enable audit policies Process Creation Event 4688 and the *CommandLine* field inside event 4688. For more information about Process Creation Event 4688, see Security Center's [FAQ](/azure/security-center/faq-data-collection-agents#what-happens-when-data-collection-is-enabled-). For more information about these audit policies, see [Audit Policy Recommendations](/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
+> - If you are using Group Policy Object (GPO), it is recommended that you enable audit policies Process Creation Event 4688 and the *CommandLine* field inside event 4688. For more information about Process Creation Event 4688, see Security Center's [FAQ](./faq-data-collection-agents.yml#what-happens-when-data-collection-is-enabled-). For more information about these audit policies, see [Audit Policy Recommendations](/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
 > -  To enable data collection for [Adaptive Application Controls](security-center-adaptive-application.md), Security Center configures a local AppLocker policy in Audit mode to allow all applications. This will cause AppLocker to generate events which are then collected and leveraged by Security Center. It is important to note that this policy will not be configured on any machines on which there is already a configured AppLocker policy. 
 > - To collect Windows Filtering Platform [Event ID 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156), you need to enable [Audit Filtering Platform Connection](/windows/security/threat-protection/auditing/audit-filtering-platform-connection) (Auditpol /set /subcategory:"Filtering Platform Connection" /Success:Enable)
 >
@@ -267,7 +267,7 @@ To turn off automatic provisioning of an agent:
 
 
 > [!NOTE]
->  Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs where the agent was provisioned. For information on removing the OMS extension, see [How do I remove OMS extensions installed by Security Center](/azure/security-center/faq-data-collection-agents#how-do-i-remove-oms-extensions-installed-by-security-center-).
+>  Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs where the agent was provisioned. For information on removing the OMS extension, see [How do I remove OMS extensions installed by Security Center](./faq-data-collection-agents.yml#how-do-i-remove-oms-extensions-installed-by-security-center-).
 >
 
 

@@ -1,11 +1,11 @@
 ---
 title: Metrics for Azure Spring Cloud
 description: Learn how to review metrics in Azure Spring Cloud
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 ---
 

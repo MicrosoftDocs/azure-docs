@@ -57,7 +57,7 @@ If public endpoint is restricted on your data sources, to scan Azure data source
 > [!IMPORTANT]
 > Scanning multiple data sources which contain databases as Azure SQL database with _Deny public network access_, would fail. To scan these data sources using private Endpoint, instead use registering single data source option.
 
-For more information about setting up a self-hosted integration runtime, see [Ingestion private endpoints and scanning sources in private networks, Vnets and behind private endpoints](catalog-private-link.md#ingestion-private-endpoints-and-scanning-sources-in-private-networks-vnets-and-behind-private-endpoints)
+For more information about setting up a self-hosted integration runtime, see [Ingestion private endpoints and scanning sources](catalog-private-link.md#ingestion-private-endpoints-and-scanning-sources)
 
 For more information how to create a new credential in Azure Purview, see [Credentials for source authentication in Azure Purview](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 

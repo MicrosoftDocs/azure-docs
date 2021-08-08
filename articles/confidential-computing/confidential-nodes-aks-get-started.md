@@ -20,8 +20,8 @@ Features of confidential computing nodes include:
 
 - Linux worker nodes supporting Linux containers.
 - Generation 2 virtual machine (VM) with Ubuntu 18.04 VM nodes.
-- Intel SGX capable CPU to help run your containers in confidentiality protected enclave leveraging Encrypted Page Cache Memory (EPC). For more information, see [Frequently asked questions for Azure confidential computing](./faq.md).
-- Intel SGX DCAP Driver preinstalled on the confidential computing nodes. For more information, see [Frequently asked questions for Azure confidential computing](./faq.md).
+- Intel SGX capable CPU to help run your containers in confidentiality protected enclave leveraging Encrypted Page Cache Memory (EPC). For more information, see [Frequently asked questions for Azure confidential computing](./faq.yml).
+- Intel SGX DCAP Driver preinstalled on the confidential computing nodes. For more information, see [Frequently asked questions for Azure confidential computing](./faq.yml).
 
 > [!NOTE]
 > DCsv2 VMs use specialized hardware that's subject to higher pricing and region availability. For more information, see the [available SKUs and supported regions](virtual-machine-solutions.md).
@@ -56,7 +56,7 @@ az group create --name myResourceGroup --location westus2
 Now create an AKS cluster, with the confidential computing add-on enabled, by using the [az aks create][az-aks-create] command:
 
 ```azurecli-interactive
-az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom
+az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addons confcom
 ```
 
 ### Add a user node pool with confidential computing capabilities to the AKS cluster 

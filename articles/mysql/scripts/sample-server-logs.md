@@ -12,7 +12,7 @@ ms.date: 12/02/2019
 
 # Enable and download server slow query logs of an Azure Database for MySQL server using Azure CLI
 
-[[!INCLUDE[applies-to-single-flexible-server](../includes/applies-to-single-flexible-server.md)]
+[[!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
 This sample CLI script enables and downloads the slow query logs of a single Azure Database for MySQL server.
 

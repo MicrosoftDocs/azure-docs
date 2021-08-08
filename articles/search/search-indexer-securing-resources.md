@@ -42,7 +42,7 @@ Customers can secure these resources via several network isolation mechanisms of
 | --- | --- | ---- |
 | Azure Storage (blobs, tables, ADLS Gen 2) | Supported only if the storage account and search service are in different regions | Supported |
 | Azure Cosmos DB - SQL API | Supported | Supported |
-| Azure Cosmos DB - Cassandra, Mongo, and Gremlin API | Supported | Unsupported |
+| Azure Cosmos DB - MongoDB and Gremlin API | Supported | Unsupported |
 | Azure SQL Database | Supported | Supported |
 | SQL Server on Azure virtual machines | Supported | N/A |
 | SQL Managed Instance | Supported | N/A |

@@ -6,27 +6,24 @@ author: ravithanneeru
 manager: joseys
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 06/08/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: joseys
 ---
 
-## Sample Code
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/OutboundCallReminder).
-
 ## Prerequisites
 Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/).
-- [Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) version 11 or above.
+- [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 11 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource). You'll need to record your resource **connection string** for this sample.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource). You'll need to record your resource **connection string** for this sample.
 - Get a phone number for your new Azure Communication Services resource. For details, see [Get a phone number](https://docs.microsoft.com/azure/communication-services/quickstarts/telephony-sms/get-phone-number?pivots=platform-azp).
 - Download and install [ngrok](https://www.ngrok.com/download). As the sample is run locally, ngrok will enable the receiving of all the events.
-- (Optional) Create Azure Speech resource for generating custom message to be played by application. Follow [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview#try-the-speech-service-for-free) to create the resource.
+- (Optional) Create Azure Speech resource for generating custom message to be played by application. Follow [this guidance](../../../../../cognitive-services/speech-service/overview.md#try-the-speech-service-for-free) to create the resource.
 
 > [!NOTE]
-> The samples make use of the Microsoft Cognitive Services Speech SDK. By downloading the Microsoft Cognitive Services Speech SDK, you acknowledge its license, see [Speech SDK license agreement](https://aka.ms/csspeech/license201809).
+> You can find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/OutboundCallReminder). This sample makes use of the Microsoft Cognitive Services Speech SDK. By downloading the Microsoft Cognitive Services Speech SDK, you acknowledge its [license](https://aka.ms/csspeech/license201809).
 
 ## Add the package references for the calling server SDK
 
@@ -36,18 +33,24 @@ In your POM file, reference the `azure-communication-callingserver` package with
 <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-communication-callingserver</artifactId>
-      <version>1.0.0-beta.1</version>
+      <version>1.0.0-beta.2</version>
 </dependency>
 ```
 
 For create the user identity, your application needs to reference the `azure-communication-identity` package:
 
 ```java
-<dependency>
-	<groupId>com.azure</groupId>
-	<artifactId>azure-communication-identity</artifactId>
-	<version>1.0.0</version>
-</dependency>
+  <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-communication-identity</artifactId>
+      <version>1.1.1</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.azure</groupId>
+          <artifactId>azure-communication-common</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
 ```
 
 ## Object model

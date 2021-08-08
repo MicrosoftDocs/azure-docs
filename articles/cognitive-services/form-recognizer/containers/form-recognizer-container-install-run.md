@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/23/2021
+ms.date: 07/01/2021
 ms.author: lajanuar
 keywords: on-premises, Docker, container, identify
 ---
@@ -16,11 +16,13 @@ keywords: on-premises, Docker, container, identify
 
 > [!IMPORTANT]
 >
-> Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and have it approved. See [**Request approval to run container**](#request-approval-to-run-the-container) below for more information.
+> * Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and receive approval. See [**Request approval to run container**](#request-approval-to-run-the-container) below for more information.
+>
+> * The online request form requires that you provide a valid email address that belongs to the organization that owns the Azure subscription ID and that you have or have been granted access to that subscription.
 
 Azure Form Recognizer is an Azure Applied AI Service that lets you build automated data processing software using machine learning technology. Form Recognizer enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your form documents and output structured data that includes the relationships in the original file.
 
-In this article you'll learn how to download, install, and run Form Recognizer containers. Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements. Form Recognizer features are supported by seven Form Recognizer containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom API**, and **Custom Supervised**—plus the **Read** OCR container. The **Read** container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API how-to guide](../../computer-vision/vision-api-how-to-topics/call-read-api.md).
+In this article you'll learn how to download, install, and run Form Recognizer containers. Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom** (for Receipt, Business Card and ID Document containers you will also need the **Read** OCR container). 
 
 ## Prerequisites
 
@@ -93,7 +95,7 @@ The following host machine requirements are applicable to **train and analyze** 
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-| Custom API| 0.3 cores, 0.5-GB memory| 0.6 cores, 1-GB memory |
+| Custom API| 0.5 cores, 0.5-GB memory| 1 cores, 1-GB memory |
 |Custom Supervised | 4 cores, 2-GB memory | 8 cores, 4-GB memory|
 
 If you are only making analyze calls, the host machine requirements are as follows:
@@ -400,11 +402,11 @@ http {
 
 * Gather a set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*). Download the training files to the **shared** folder you created above.
 
-* If you want to label your data, download the [Form OCR Test Tool (FOTT) for Windows](https://github.com/microsoft/OCR-Form-Tools/releases/tag/v2.1-ga). The download will import the labeling tool .exe file that you'll use to label the data present on your local file system. You can ignore any warnings that occur during the download process.
+* If you want to label your data, download the [Form Recognizer sample labeling tool for Windows](https://github.com/microsoft/OCR-Form-Tools/releases/tag/v2.1-ga). The download will import the labeling tool .exe file that you'll use to label the data present on your local file system. You can ignore any warnings that occur during the download process.
 
-#### Create a new FOTT project
+#### Create a new sample labeling tool project
 
-* Open the labeling tool but double-clicking on the FOTT .exe file.
+* Open the labeling tool by double-clicking on the sample labeling tool .exe file.
 * On the left pane of the tool, select the connections tab.
 * Select to create a new project and give it a name and description.
 * For the provider, choose the local file system option. For the local folder, make sure you enter the path to the folder where you stored the sample data files.
@@ -591,7 +593,7 @@ For more information about these options, see [Configure containers](form-recogn
 That's it! In this article, you learned concepts and workflows for downloading, installing, and running Form Recognizer containers. In summary:
 
 * Form Recognizer provides seven Linux containers for Docker.
-* Container images are downloaded from the private container registry in Azure.
+* Container images are downloaded from mcr.
 * Container images run in Docker.
 * You must specify the billing information when you instantiate a container.
 
@@ -600,5 +602,6 @@ That's it! In this article, you learned concepts and workflows for downloading, 
 
 ## Next steps
 
-* Review [Configure containers](form-recognizer-container-configuration.md) for configuration settings.
-* Use more [Cognitive Services Containers](../../cognitive-services-container-support.md).
+* [Form Recognizer container configuration settings](form-recognizer-container-configuration.md) 
+* [Form Recognizer container image tags](../../containers/container-image-tags.md?tabs=current#form-recognizer)
+* [Cognitive Services container support page and release notes](../../containers/container-image-tags.md?tabs=current#form-recognizer)

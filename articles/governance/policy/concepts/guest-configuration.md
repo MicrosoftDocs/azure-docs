@@ -119,9 +119,10 @@ To communicate with the Guest Configuration resource provider in Azure, machines
 access to Azure datacenters on port **443**. If a network in Azure doesn't allow outbound traffic,
 configure exceptions with [Network Security
 Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules. The
-[service tag](../../../virtual-network/service-tags-overview.md) "AzureArcInfrastructure" can be
-used to reference the Guest Configuration service rather than manually maintaining the [list of IP
-ranges](https://www.microsoft.com/en-us/download/details.aspx?id=56519) for Azure datacenters.
+[service tags](../../../virtual-network/service-tags-overview.md) "AzureArcInfrastructure" and "Storage" can be
+used to reference the Guest Configuration and Storage services rather than manually maintaining the [list of IP
+ranges](https://www.microsoft.com/download/details.aspx?id=56519) for Azure datacenters. Both tags are required
+because Guest Configuration content packages are hosted by Azure Storage.
 
 ### Communicate over Private Link in Azure
 
@@ -259,6 +260,12 @@ For machines protected by
 [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md),
 ensure that machines in a secondary site are within scope of Azure Policy assignments
 for the same definitions using the same parameter values as machines in the primary site.
+
+## Data residency
+
+Guest configuration stores/processes customer data. By default, customer data is replicated to the
+[paired region.](../../../best-practices-availability-paired-regions.md)
+For single resident region all customer data is stored and processed in the region.
 
 ## Troubleshooting guest configuration
 

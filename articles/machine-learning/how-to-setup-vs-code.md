@@ -9,6 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 05/25/2021
 ms.topic: how-to
+ms.custom: devplatv2
 ---
 
 # Set up the Visual Studio Code Azure Machine Learning extension (preview)

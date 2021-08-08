@@ -32,6 +32,7 @@
       items:
       - name: Resource declaration
         href: resource-declaration.md
+        displayName: existing
       - name: Conditional deployment
         href: conditional-resource-deployment.md
         displayName: runtime
@@ -55,7 +56,7 @@
     - name: Loops
       items:
       - name: Resources
-        displayName: iteration,copy,multiple,batches,child
+        displayName: iteration,copy,multiple,batches,child,condition,filter
         href: loop-resources.md
       - name: Properties
         displayName: iteration,copy,multiple
@@ -80,6 +81,8 @@
       - name: Tenant
         href: deploy-to-tenant.md
         displayName: assign role
+    - name: Linter
+      href: linter.md
     - name: Best practices
       href: best-practices.md
   - name: Deploy
@@ -151,6 +154,8 @@
     items:
     - name: All operators
       href: operators.md
+    - name: Accessor operators
+      href: operators-access.md
     - name: Comparison operators
       href: operators-comparison.md
     - name: Logical operators

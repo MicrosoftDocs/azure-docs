@@ -2,7 +2,7 @@
 title: Continuous video recording and playback tutorial - Azure Video Analyzer
 description: In this tutorial, you'll learn how to use Azure Video Analyzer to continuously record video to the cloud and play back that recording.
 ms.topic: tutorial
-ms.date: 04/01/2021
+ms.date: 06/01/2021
 
 ---
 # Tutorial: Continuous video recording and playback
@@ -278,12 +278,11 @@ You can examine the Video Analyzer video resource that was created by the live p
 1. Select the video.
 1. The video details page will open and the playback should start automatically.
 
-> [!NOTE]
-> Because the source of the video was a container simulating a camera feed, the time stamps in the video are related to when you activated the live pipeline and when you deactivated it.
+[!INCLUDE [activate-deactivate-pipeline](./includes/common-includes/activate-deactivate-pipeline.md)]
 
 ## Clean up resources
 
-If you intend to try the other tutorials, hold on to the resources you created. Otherwise, go to the Azure portal, browse to your resource groups, select the resource group under which you ran this tutorial, and delete the resource group.
+[!INCLUDE [prerequisites](./includes/common-includes/clean-up-resources.md)]
 
 ## Next steps
 

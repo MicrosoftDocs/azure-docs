@@ -7,7 +7,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -23,7 +23,7 @@ Get started with Azure Communication Services by using Azure Event Grid to handl
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure Communication Service resource. Further details can be found in the [Create an Azure Communication Resource](../create-communication-resource.md) quickstart.
+- An Azure Communication Service resource. Further details can be found in the [Create an Azure Communication Services resource](../create-communication-resource.md) quickstart.
 - An SMS enabled telephone number. [Get a phone number](./get-phone-number.md).
 
 ## Setting up

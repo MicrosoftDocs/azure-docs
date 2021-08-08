@@ -12,20 +12,20 @@ ms.author: mbaldwin
 ---
 # Migrate from vault access policy to an Azure role-based access control permission model
 
-Vault access policy model is an existing authorization system built in Key Vault to provide access to keys, secrets, and certificates. You can control access by assigning individual permissions to security principal(user, group, service principal, managed identity) at Key Vault scope. 
+The vault access policy model is an existing authorization system built in Key Vault to provide access to keys, secrets, and certificates. You can control access by assigning individual permissions to security principals (user, group, service principal, managed identity) at Key Vault scope. 
 
-Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource Manager](../../azure-resource-manager/management/overview.md) that provides fine-grained access management of Azure resources. With Azure RBAC you control access to resources by creating roles assignments, which consists of three elements: security principal, role definition (predefined set of permissions), and scope (group of resources or individual resource). For more information, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
+Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource Manager](../../azure-resource-manager/management/overview.md) that provides fine-grained access management of Azure resources. With Azure RBAC you control access to resources by creating role assignments, which consist of three elements: a security principal, a role definition (predefined set of permissions), and a scope (group of resources or individual resource). For more information, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 Before migrating to Azure RBAC, it's important to understand its benefits and limitations.
 
 Azure RBAC key benefits over vault access policies:
-- Provides unified access control model for Azure resources - same API across Azure services
+- Provides a unified access control model for Azure resources by using the same API across Azure services
 - Centralized access management for administrators - manage all Azure resources in one view
 - Integrated with [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) for time-based access control
-- Deny assignments - ability to exclude security principal at particular scope. For information, see [Understand Azure Deny Assignments](../../role-based-access-control/deny-assignments.md)
+- Deny assignments - ability to exclude security principals at a particular scope. For information, see [Understand Azure Deny Assignments](../../role-based-access-control/deny-assignments.md)
 
 Azure RBAC disadvantages:
-- Latency for role assignments - it can take several minutes for role assignment to be applied. Vault access policies are assigned instantly.
+- Latency for role assignments - it can take several minutes for role assignments to be applied. Vault access policies are assigned instantly.
 - Limited number of role assignments - 2000 roles assignments per subscription versus 1024 access policies per Key Vault
 
 ## Access policies to Azure roles mapping
@@ -46,7 +46,7 @@ For more information about existing built-in roles, see [Azure built-in roles](.
 
 Vault access policies can be assigned with individually selected permissions or with predefined permission templates.
 
-Access policies predefined permission templates:
+Access policy predefined permission templates:
 - Key, Secret, Certificate Management
 - Key & Secret Management
 - Secret & Certificate Management
@@ -60,7 +60,7 @@ Access policies predefined permission templates:
 - SharePoint Online Customer Key
 - Azure Information BYOK
 
-### Access policies templates to Azure roles mapping
+### Access policy templates to Azure roles mapping
 | Access policy template | Operations | Azure role |
 | --- | --- | --- |
 | Key, Secret, Certificate Management | Keys: all operations <br>Certificates: all operations<br>Secrets: all operations | Key Vault Administrator |
@@ -86,7 +86,7 @@ Azure RBAC for Key Vault allows roles assignment at following scopes:
 - Key Vault resource
 - Individual key, secret, and certificate
 
-Vault access policy permission model is limited to assign policy only at Key Vault resource level, which 
+The vault access policy permission model is limited to assigning policies only at Key Vault resource level.
 
 In general, it's best practice to have one key vault per application and manage access at key vault level. There are scenarios when managing access at other scopes can simplify access management.
 

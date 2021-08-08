@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: shortpatti 
   ms.author: v-patsho 
-  ms.date: 05/11/2021 
+  ms.date: 08/02/2021 
 
 
 # card 1
@@ -46,7 +46,7 @@ landingContent:
       - linkListType: reference
         links:
         - text: General
-          url: ./faq.yml
+          url: /azure/azure-vmware/faq
         - text: Customer communication
           url: /azure/azure-vmware/faq#customer-communication
         - text: Configuration and setup 
@@ -71,14 +71,16 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: 1 - Plan the deployment
-            url: production-ready-deployment-steps.md
-          - text: 2 - Deploy Azure VMware Solution
-            url: deploy-azure-vmware-solution.md
-          - text: 3 - Connect to on-premises
-            url: tutorial-expressroute-global-reach-private-cloud.md
-          - text: 4 - Deploy and configure HCX
-            url: tutorial-deploy-vmware-hcx.md
+        - text: 1 - Plan the deployment
+          url: plan-private-cloud-deployment.md
+        - text: 2 - Deploy Azure VMware Solution
+          url: deploy-azure-vmware-solution.md
+        - text: 3 - Connect to on-premises environment
+          url: tutorial-expressroute-global-reach-private-cloud.md
+        - text: 4 - Install VMware HCX Connector
+          url: install-vmware-hcx.md
+        - text: 5 - Configure on-premises VMware HCX Connector
+          url: configure-vmware-hcx.md
       - linkListType: tutorial
         links:
           - text: Network planning checklist 
@@ -89,10 +91,8 @@ landingContent:
             url: tutorial-access-private-cloud.md
           - text: Configure networking
             url: tutorial-configure-networking.md
-          - text: Create an NSX-T network segment 
+          - text: Create a network segment 
             url: tutorial-nsx-t-network-segment.md
-          - text: Peer on-premises to private cloud 
-            url: tutorial-expressroute-global-reach-private-cloud.md
           - text: Expand or shrink clusters in a private cloud 
             url: tutorial-scale-private-cloud.md
           - text: Delete a private cloud
@@ -122,12 +122,14 @@ landingContent:
             url: reserved-instance.md
       - linkListType: how-to-guide
         links:
-          - text: Configure DHCP 
+          - text: Configure DHCP server or relay 
             url: configure-dhcp-azure-vmware-solution.md
-          - text: Configure DHCP on L2 stretched VMware HCX networks
+          - text: Configure DHCP on L2 stretched networks
             url: configure-l2-stretched-vmware-hcx-networks.md
-          - text: Configure NSX components using Azure 
-            url: configure-nsx-network-components-azure-portal.md
+          - text: Configure DNS forwarder
+            url: configure-dns-azure-vmware-solution.md
+          - text: Configure port mirroring 
+            url: configure-port-mirroring-azure-vmware-solution.md
           - text: Configure GitHub Enterprise Server
             url: ./configure-github-enterprise-server.md
           - text: Enable public internet access
@@ -136,6 +138,8 @@ landingContent:
             url: configure-site-to-site-vpn-gateway.md
           - text: Configure Windows Server Failover Cluster
             url: configure-windows-server-failover-cluster.md
+          - text: Connect multiple private clouds in same region 
+            url: connect-multiple-private-clouds-same-region.md            
 
 # card 5
   - title: Azure native integration
@@ -154,18 +158,18 @@ landingContent:
             url: deploy-traffic-manager-balance-workloads.md
           - text: Configure alerts and work with metrics 
             url: configure-alerts-for-azure-vmware-solution.md
+          - text: Attach disk pools to Azure VMware Solution hosts
+            url: attach-disk-pools-to-azure-vmware-solution-hosts.md
 
 # card 6 == backup and restore
-  - title: Backup and restore with Azure Backup Server
+  - title: Backup with Azure Backup Server
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Back up VMware VMs
-            url: ../backup/backup-azure-backup-server-vmware.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-          - text: Restore VMware VMs 
-            url: ../backup/restore-azure-backup-server-vmware.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-          - text: Monitor Azure Backup workloads 
-            url: ../backup/backup-azure-monitoring-built-in-monitor.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+        - text: Set up Backup Server
+          url: set-up-backup-server-for-azure-vmware-solution.md
+        - text: Back up private cloud VMs with Backup Server
+          url: backup-azure-vmware-solution-virtual-machines.md
 
 # card 7
   - title: VMware solutions
@@ -178,10 +182,12 @@ landingContent:
             url: azure-vmware-solution-horizon.md
           - text: Deploy VMs from the content library
             url: deploy-vm-content-library.md   
+          - text: Deploy disaster recovery using VMware SRM 
+            url: disaster-recovery-using-vmware-site-recovery-manager.md
           - text: Deploy disaster recovery using VMware HCX
             url: deploy-disaster-recovery-using-vmware-hcx.md     
           - text: Upgrade the VMware HCX appliance
-            url: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html            
+            url: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html           
 
 # card 8
   - title: VMware ecosystem
@@ -237,6 +243,6 @@ landingContent:
       - linkListType: reference
         links:
           - text: Open a support request for deployment failures
-            url: fix-deployment-provisioning-failures.md
+            url: fix-deployment-failures.md
           - text: VMware tools vix error code = 21009
             url: https://kb.vmware.com/s/article/2129927

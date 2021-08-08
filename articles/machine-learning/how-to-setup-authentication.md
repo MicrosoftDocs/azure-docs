@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 05/27/2021
 ms.topic: how-to
-ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2
+ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows
@@ -135,9 +135,17 @@ The easiest way to create an SP and grant access to your workspace is by using t
 
 1. Enable a [system-assigned managed identity for Azure resources on the VM](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
 
-1. From the [Azure portal](https://portal.azure.com), select your workspace and then select __Access Control (IAM)__, __Add Role Assignment__, and select __Virtual Machine__ from the __Assign Access To__ dropdown. Finally, select your VM's identity.
+1. From the [Azure portal](https://portal.azure.com), select your workspace and then select __Access Control (IAM)__.
+1. Select __Add__, __Add Role Assignment__ to open the __Add role assignment page__.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. Select the role to assign to this identity. For example, contributor or a custom role. For more information, see, [Control access to resources](how-to-assign-roles.md).
+    | Setting | Value |
+    | ----- | ----- |
+    | Role | The role you want to assign. |
+    | Assign access to | Managed Identity |
+    | Members | The managed identity you created earlier |
+
+    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ### Managed identity with compute cluster
 

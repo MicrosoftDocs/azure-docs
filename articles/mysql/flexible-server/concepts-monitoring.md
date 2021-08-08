@@ -10,7 +10,7 @@ ms.date: 9/21/2020
 
 # Monitor Azure Database for MySQL Flexible Servers with built-in metrics
 
-[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.

@@ -1195,11 +1195,11 @@ items:
       - name: Azure integration runtime
         href: ../data-factory/create-azure-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Self-hosted integration runtime
-        href: ../data-factory/create-self-hosted-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ../data-factory/create-self-hosted-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&tabs=synapse-analytics
     - name: Create triggers
       items:
       - name: Create an event-based trigger
-        href: ../data-factory/how-to-create-event-trigger.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ../data-factory/how-to-create-event-trigger.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&tabs=synapse-analytics
       - name: Create a schedule trigger
         href: ../data-factory/how-to-create-schedule-trigger.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Create a tumbling window trigger
@@ -1217,7 +1217,7 @@ items:
       - name: Security and access control
         href: ../data-factory/security-and-access-control-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Self-hosted Integration Runtimes troubleshooting
-        href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&tabs=synapse-analytics
 - name: Machine Learning
   items:
   - name: Overview
@@ -1228,40 +1228,61 @@ items:
     items:
     - name: Use a sample notebook from the gallery
       href: machine-learning/quickstart-gallery-sample-notebook.md
-    - name: Create a new Azure Machine Learning linked service
-      href: machine-learning/quickstart-integrate-azure-machine-learning.md
+    - name: Create a linked service
+      items:
+      - name: Azure Machine Learning
+        displayName: linked service
+        href: machine-learning/quickstart-integrate-azure-machine-learning.md
+      - name: Cognitive Services
+        displayName: linked service, configure
+        href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
   - name: Concepts
     items:
-    - name: Train models
+    - name: Train machine learning models
       href: ./spark/apache-spark-machine-learning-training.md
   - name: Tutorials
     items:
-    - name: Visualize data with Apache Spark
-      displayname: machine learning
-      href: ./spark/apache-spark-data-visualization-tutorial.md
-    - name: Use the scoring wizard for dedicated SQL pools
-      displayname: machine learning
-      href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
-    - name: Train a model code-free with automated ML
-      displayname: machine learning
-      href: ./machine-learning/tutorial-automl.md
-    - name: Train a model in Python with automated ML
-      displayname: machine learning
-      href: ./spark/apache-spark-azure-machine-learning-tutorial.md
-    - name: Create a model with Apache Spark MLlib
-      displayname: machine learning
-      href: ./spark/apache-spark-machine-learning-mllib-notebook.md
-    - name: Configure Cognitive Services for Azure Synapse
-      href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
-    - name: Sentiment analysis with Cognitive Services
-      href: ./machine-learning/tutorial-cognitive-services-sentiment.md
-    - name: Anomaly detection with Cognitive Services
-      href: ./machine-learning/tutorial-cognitive-services-anomaly.md
-    - name: Build machine learning applications using Microsoft Machine Learning for Apache Spark (Preview)
-      href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
-    - name: ADLS read/write using filesystem spec and linked service
-      displayname: machine learning
-      href: ./machine-learning/tutorial-spark-pool-filesystem-spec.md
+    - name: Data access and preparation
+      items:
+      - name: Read/write ADLS with filesystem spec
+        displayName: data prep, data preparation
+        href: ./machine-learning/tutorial-spark-pool-filesystem-spec.md
+      - name: Visualize data with Apache Spark
+        displayName: data prep, data preparation, visualization
+        href: ./spark/apache-spark-data-visualization-tutorial.md
+    - name: Train a model
+      items:
+      - name: With Apache Spark MLlib
+        displayName: train model
+        href: ./spark/apache-spark-machine-learning-mllib-notebook.md
+      - name: With automated machine learning
+        items:
+        - name: Code-free
+          displayName: train model, automated machine learning, automated ml, automl
+          href: ./machine-learning/tutorial-automl.md
+        - name: In Python
+          displayName: train model, automated machine learning, automated ml, automl
+          href: ./spark/apache-spark-azure-machine-learning-tutorial.md
+    - name: Score a model
+      items:
+      - name: Use the scoring wizard for dedicated SQL pools
+        displayName: score model
+        href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
+      - name: With Cognitive Services
+        items:
+        - name: Overview
+          displayName: cognitive services, score model
+          href: machine-learning/overview-cognitive-services.md
+        - name: Sentiment analysis wizard
+          displayName: cognitive services, score model
+          href: ./machine-learning/tutorial-cognitive-services-sentiment.md
+        - name: Anomaly detection wizard
+          displayName: cognitive services, score model
+          href: ./machine-learning/tutorial-cognitive-services-anomaly.md
+        - name: With Apache Spark (MMLSpark)
+          displayName: cognitive services, score model, applications
+          href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
+  
 - name: Data Catalog and Governance
   items:
   - name: Quickstarts

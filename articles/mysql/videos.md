@@ -9,7 +9,7 @@ ms.date: 02/28/2018
 ---
 # Azure Database for MySQL videos
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 This page provides video content for learning about Azure Database for MySQL.
 

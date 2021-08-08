@@ -7,12 +7,17 @@ manager: anvalent
 services: azure-communication-services
 
 ms.author: joseys
-ms.date: 06/08/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---
-# Call Automation API Quickstart
+
+# Quickstart: Use the call automation APIs
+
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+
+
 Get started with Azure Communication Services by using the Communication Services Calling server SDKs to build an automated call routing solution.
 
 ::: zone pivot="programming-language-csharp"

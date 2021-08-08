@@ -6,7 +6,7 @@ manager: akania
 services: azure-communication-services
 
 ms.author: srahaman
-ms.date: 06/18/2021
+ms.date: 06/30/2021
 ms.topic: troubleshooting
 ms.service: azure-communication-services
 ---
@@ -47,9 +47,13 @@ Azure Communication Services will raise the `microphoneMuteUnexpectedly` call di
 It's recommended to hang up the call ( `call.hangUp` ) when this situation occurs.
 
 ### Device management
-Developers should use SDK for device and media operations.
-- Application should use `DeviceManager.askDevicePermission` to get user consent to use devices
-- Application should not use browser APIs like `getUserMedia` or `getDisplayMedia` to acquire streams outside of SDK. If it does so, please make sure it disposes stream before using DeviceManager or accessing any other device via ACS SDK.
+You can use the Azure Communication Services SDK to manage your devices and media operations.
+- Your application shouldn't use native browser APIs like `getUserMedia` or `getDisplayMedia` to acquire streams outside of the SDK. If you do, you'll have to manually dispose your media stream(s) before using `DeviceManager` or other device management APIs via the Communication Services SDK.
+
+### Request device permissions
+You can request device permissions using the SDK:
+- Your application should use `DeviceManager.askDevicePermission` to request access to audio and/or video devices.
+- If the user denies access, `DeviceManager.askDevicePermission` will return 'false' for a given device type (audio or video) on subsequent calls, even after the page is refreshed. In this scenario, your application must detect that the user previously denied access and instruct the user to manually reset or explicitly grant access to a given device type.
 
 ## Next steps
 For more information, see the following articles:

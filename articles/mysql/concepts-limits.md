@@ -9,7 +9,7 @@ ms.date: 10/1/2020
 ---
 # Limitations in Azure Database for MySQL
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service. Also see [general limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicable to the MySQL database engine.
 
@@ -55,7 +55,8 @@ The following are unsupported:
 - `LOAD_FILE(file_name)`: Not supported in the service.
 
 ### Supported
-- `LOAD DATA INFILE` is supported, but the `[LOCAL]` parameter must be specified and directed to a UNC path (Azure storage mounted through SMB).
+- `LOAD DATA INFILE` is supported, but the `[LOCAL]` parameter must be specified and directed to a UNC path (Azure storage mounted through SMB). Additionally, if you are using MySQL client version >= 8.0 you need to include `-–local-infile=1` parameter in your connection string.
+
 
 ## Functional limitations
 
@@ -63,8 +64,8 @@ The following are unsupported:
 - Dynamic scaling to and from the Basic pricing tiers is currently not supported.
 - Decreasing server storage size is not supported.
 
-### Server version upgrades
-- Automated migration between major database engine versions is currently not supported. If you would like to upgrade to the next major version, take a [dump and restore](./concepts-migrate-dump-restore.md) it to a server that was created with the new engine version.
+### Major version upgrades
+- [Major version upgrade is supported for v5.6 to v5.7 upgrades only](how-to-major-version-upgrade.md). Upgrades to v8.0 is not supported yet.
 
 ### Point-in-time-restore
 - When using the PITR feature, the new server is created with the same configurations as the server it is based on.
@@ -74,7 +75,7 @@ The following are unsupported:
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
 ### Storage size
-- Please refer to [pricing tiers](concepts-pricing-tiers.md) for the storage size limits per pricing tier.
+- Please refer to [pricing tiers](concepts-pricing-tiers.md#storage) for the storage size limits per pricing tier.
 
 ## Current known issues
 - MySQL server instance displays the wrong server version after connection is established. To get the correct server instance engine version, use the `select version();` command.

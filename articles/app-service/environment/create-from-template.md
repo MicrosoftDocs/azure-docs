@@ -12,6 +12,9 @@ ms.custom: seodec18, devx-track-azurepowershell
 # Create an ASE by using an Azure Resource Manager template
 
 ## Overview
+> [!NOTE]
+> This article is about the App Service Environment v2 which is used with Isolated App Service plans
+> 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

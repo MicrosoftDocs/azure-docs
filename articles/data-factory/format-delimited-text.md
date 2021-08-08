@@ -1,8 +1,11 @@
 ---
 title: Delimited text format in Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 'This topic describes how to deal with delimited text format in Azure Data Factory.'
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.author: jianleishen
@@ -151,6 +154,9 @@ The below table lists the properties supported by a delimited text source. You c
 | After completion | Delete or move the files after processing. File path starts from the container root | no | Delete: `true` or `false` <br> Move: `['<from>', '<to>']` | purgeFiles <br> moveFiles |
 | Filter by last modified | Choose to filter files based upon when they were last altered | no | Timestamp | modifiedAfter <br> modifiedBefore |
 | Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
+
+> [!NOTE]
+> Data flow sources support for list of files is limited to 1024 entries in your file. To include more files, use wildcards in your file list.
 
 ### Source example
 

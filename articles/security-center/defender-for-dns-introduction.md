@@ -3,7 +3,7 @@ title: Azure Defender for DNS - the benefits and features
 description: Learn about the benefits and features of Azure Defender for DNS
 author: memildin
 ms.author: memildin
-ms.date: 05/12/2021
+ms.date: 07/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
@@ -25,7 +25,7 @@ Azure Defender for DNS provides an additional layer of protection for your resou
 |----|:----|
 |Release state:|General Availability (GA)|
 |Pricing:|**Azure Defender for DNS** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, Azure China)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure China<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government|
 |||
 
 ## What are the benefits of Azure Defender for DNS?
