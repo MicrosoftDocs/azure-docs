@@ -6,7 +6,7 @@ ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: troubleshooting
 ms.custom: mvc
-ms.date: 08/05/2021
+ms.date: 08/08/2021
 ms.subservice: azure-sentinel
 
 ---
@@ -56,11 +56,9 @@ wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP
 **To disable debug mode printing again, run**:
 
 ```bash
-root@NetWeaver75-Docker:~/sapcon/[SID]/sapcon/[SID]# mv loggingconfig.yaml loggingconfig.old
-root@NetWeaver75-Docker:~/sapcon/[SID]/sapcon/[SID]# ls
-inst  loggingconfig.old  metadata.db  metadata.old  sapcon-instance-update.sh  systemconfig.ini
-root@NetWeaver75-Docker:~/sapcon/[SID]/sapcon/[SID]# docker restart sapcon-[SID]
-sapcon-[SID]
+mv loggingconfig.yaml loggingconfig.old
+ls
+docker restart sapcon-[SID]
 ```
 
 ## View all Docker execution logs
@@ -195,7 +193,7 @@ If ABAP runtime errors appear on large systems, try setting a smaller chunk size
 
 If you realize that you've entered an incorrect workspace ID or key in your [deployment script](sap-deploy-solution.md#create-key-vault-for-your-sap-credentials), update the credentials stored in Azure KeyVault.
 
-Then restart the container:
+After verifying your credentials in Azure KeyVault, restart the container:
 
 ```bash
 docker restart sapcon-[SID]
@@ -211,10 +209,13 @@ Use base64 encryption to encrypt the user and password. You can use online encry
 
 ### Incorrect SAP ABAP user credentials in key vault
 
-Check your credentials and fix them as needed.
+Check your credentials and fix them as needed, applying the correct values to the **ABAPUSER** and **ABAPPASS** values in Azure Key Vault.
 
-Apply the correct values to the **ABAPUSER** and **ABAPPASS** values in Azure Key Vault.
+Then, restart the container:
 
+```bash
+docker restart sapcon-[SID]
+```
 
 
 ### Missing ABAP (SAP user) permissions
