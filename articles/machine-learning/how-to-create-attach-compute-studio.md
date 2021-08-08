@@ -77,7 +77,7 @@ Follow the previous steps to view the list of compute targets. Then use these st
 
     :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="View compute status from a list":::
 
-Gollow the steps in [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md?tabs=azure-studio#create).
+Follow the steps in [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md?tabs=azure-studio#create).
 
 
 ## <a name="amlcompute"></a> Create compute clusters
