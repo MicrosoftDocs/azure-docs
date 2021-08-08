@@ -27,7 +27,7 @@ Updates in August include:
 
 - [Microsoft Defender for Endpoint for Linux now supported by Azure Defender for servers (in preview)](#microsoft-defender-for-endpoint-for-linux-now-supported-by-azure-defender-for-servers-in-preview)
 - [Two new recommendations for managing endpoint protection solutions (in preview)](#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview)
-- 
+- [Built-in troubleshooting and guidance for solving common issues](#built-in-troubleshooting-and-guidance-for-solving-common-issues)
 
 ### Microsoft Defender for Endpoint for Linux now supported by Azure Defender for servers (in preview)
 
@@ -60,9 +60,9 @@ We've added two **preview** recommendations to deploy and maintain the endpoint 
 
 ### Built-in troubleshooting and guidance for solving common issues
 
-A new, dedicated area of the Security Center page in the Azure portal provides a collated, ever-growing set of self-help materials for solving common challenges with Security Center and Azure Defender.
+A new, dedicated area of the Security Center pages in the Azure portal provides a collated, ever-growing set of self-help materials for solving common challenges with Security Center and Azure Defender.
 
-When you're facing an issue, or are seeking advice from our support team, **Diagnose and solve problems** is the best place to start:
+When you're facing an issue, or are seeking advice from our support team, **Diagnose and solve problems** is another tool to help you find the solution:
 
 :::image type="content" source="media/release-notes/solve-problems.png" alt-text="Security Center's 'Diagnose and solve problems' page":::
  
