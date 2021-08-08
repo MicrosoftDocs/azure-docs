@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/10/2021
 author: smannepalle
-ms.author: subhaset
+ms.author: smannepalle
 ---
 
 # License dashboard in commercial marketplace analytics
