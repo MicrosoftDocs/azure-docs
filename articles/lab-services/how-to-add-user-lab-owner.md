@@ -10,20 +10,18 @@ ms.custom: subject-rbac-steps
 This article shows you how you, as an administrator, can add additional owners to an existing lab.
 
 ## Add user to the reader role for the lab account
-1. Select **Access control (IAM)**.
+1. Back on the **Lab Account** page, select **All labs** on the left menu.
+2. Select the **lab** to which you want to add user as an owner. 
 
-1. Select **Add** > **Add role assignment** to open the Add role assignment page.
-
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    ![Select the lab ](./media/how-to-add-user-lab-owner/select-lab.png)  
+3. On the **Lab** page, select **Access control (IAM)** on the left menu.
+4. On the **Access control (IAM)** page, select **Add** on the toolbar, and the select **Add role assignment**.
+5. On the **Add a role assignment** page, do the following steps: 
+    1. Select **READER** for the **role**. 
+    2. Select the user. 
+    3. Select **Save**. 
     
-    | Setting | Value |
-    | --- | --- |
-    | Role | [Reader] |
-    | Assign access to | [USER] |
-    | Members | [MEMBERS] |
-
-    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
-
+![Select the lab ](./media/how-to-add-user-lab-owner/reader-lab-account.png)
 ## Add user to the owner role for the lab
 
 > [!NOTE]
