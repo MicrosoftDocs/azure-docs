@@ -74,11 +74,7 @@
     - name: Multistage attacks (Fusion)
       href: fusion.md
   - name: Threat hunting
-    items:
-    - name: Overview
-      href: hunting.md
-    - name: Jupyter notebooks
-      href: jupyter.md
+    href: hunting.md
   - name: SOAR
     items:
     - name: Orchestration, automation, and response
