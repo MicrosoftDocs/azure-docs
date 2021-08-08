@@ -99,7 +99,7 @@ Azure Defender for IoT uses SSL/TLS certificates to:
 
 When validation is on, the appliance should be able to establish connection to the CRL server defined by the certificate. By default, the certificate will reference the CRL URL on HTTP port 80. Some organizational security policies may block access to this port. If your organization does not have access to port 80, you can:
 1. Define another URL and a specific port in the certificate. 
-- The URL should be defined as http://<URL>:<Port> instead of http://<URL>.
+- The URL should be defined as http:// rather than https://.
 - Verify that the destination CRL server can listen on the port you defined. 
 1. Use a proxy server that will access the CRL on port 80.
 1. Not carry out CRL validation. In this case, remove the CRL URL reference in the certificate.
