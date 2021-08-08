@@ -53,7 +53,7 @@ The virtual hub router now also exposes the ability to peer with it, thereby exc
 
 ## BGP peering scenarios
 
-This section describes scenarios where BGP peering feature can be utilised to configure routing.
+This section describes scenarios where BGP peering feature can be utilized to configure routing.
 
 ## <a name="vnet-vnet"></a>Transit VNet connectivity
 
