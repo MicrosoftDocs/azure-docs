@@ -1,11 +1,11 @@
 ---
-title: Enable replication of encrypted Azure VMs in Azure Site Recovery 
+title: Enable replication of encrypted Azure VMs in Azure Site Recovery
 description: This article describes how to configure replication for VMs with customer-managed key (CMK) enabled disks from one Azure region to another by using Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 07/25/2021
 ms.author: mayg
 
 ---
@@ -33,7 +33,7 @@ For this example, the primary Azure region is East Asia, and the secondary regio
 
 4. In **Settings**, you can configure the following target-site settings.
 
-    - **Target location**: The location where your source virtual machine data will be replicated. Site Recovery provides a list of suitable target regions based on the selected machine's location. We recommend that you use the same location as the Recovery Services vault's location.
+    - **Target location**: The location where your source virtual machine data will be replicated to. We recommend that you use the same location as the Recovery Services vault's location.
     - **Target subscription**: The target subscription that's used for disaster recovery. By default, the target subscription is the same as the source subscription.
     - **Target resource group**: The resource group to which all your replicated virtual machines belong. By default, Site Recovery creates a new resource group in the target region. The name gets the `asr` suffix. If a resource group already exists that was created by Azure Site Recovery, it's reused. You can also choose to customize it, as shown in the following section. The location of the target resource group can be any Azure region except the region where the source virtual machines are hosted.
     - **Target virtual network**: By default, Site Recovery creates a new virtual network in the target region. The name gets the `asr` suffix. It's mapped to your source network and used for any future protection. [Learn more](./azure-to-azure-network-mapping.md) about network mapping.
@@ -81,4 +81,3 @@ Follow these steps to modify the Site Recovery default target settings.
 * I have enabled both platform and customer managed keys, how can I protect my disks?
 
     Enabling double encryption with both platform and customer managed keys is suppprted by Site Recovery. Follow the instructions in this article to protect your machine. You need to create a double encryption enabled DES in the target region in advance. At the time of enabling the replication for such a VM, you can provide this DES to Site Recovery.
-

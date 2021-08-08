@@ -1,11 +1,11 @@
 ---
 
 title: Enable Azure Site Recovery for your VMs using Azure Policy
-description: Learn how to enable Policy Support to protect your VMs using Azure Site Recovery. 
+description: Learn how to enable Policy Support to protect your VMs using Azure Site Recovery.
 author: rishjai-msft
 ms.author: rishjai
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 07/25/2021
 ms.custom: template-how-to
 
 ---
@@ -45,7 +45,7 @@ Zone to Zone DR  | Supported
 Interoperability with other policies applied as default by Azure (if any) | Supported
 
 >[!NOTE]
->In the following cases, Site Recovery will not be enabled for them. However, they will reflect as _Non-compliant_ in Resource Compliance: 
+>In the following cases, Site Recovery will not be enabled for them. However, they will reflect as _Non-compliant_ in Resource Compliance:
 >1. If a not-supported VM is created within the scope of policy.
 >1. If a VM is a part of both an Availability Set as well as PPG.
 
@@ -76,7 +76,7 @@ You are on the way to create a Policy to enable Azure Site Recovery. Let us now 
     - **Source Region**: The Source Region of the Virtual Machines for which the Policy will be applicable.
     >[!NOTE]
     >The policy will apply to all the Virtual Machines belonging to the Source Region in the scope of the Policy. Virtual Machines not present in the Source Region will not be included in _Resource Compliance_.
-    - **Target Region**: The location where your source virtual machine data will be replicated. Site Recovery provides a list of suitable target regions based on the selected machine's location. We recommend that you use the same location as the Recovery Services vault's location.
+    - **Target Region**: The location where your source virtual machine data will be replicated. Site Recovery provides the list of target regions that the customer can replicate to. We recommend that you use the same location as the Recovery Services vault's location.
     - **Target Resource Group**: The resource group to which all your replicated virtual machines belong. By default, Site Recovery creates a new resource group in the target region.
     - **Vault Resource Group**: The resource group in which Recovery Services Vault exists.
     - **Recovery Services Vault**: The Vault against which all the VMs of the Scope will get protected. Policy can create a new vault on your behalf if required.

@@ -4,8 +4,8 @@ description: Use this API to execute a report query for commercial marketplace a
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
 ms.date: 3/08/2021
 ---
 

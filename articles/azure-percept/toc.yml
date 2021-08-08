@@ -77,6 +77,10 @@
           href: how-to-configure-voice-assistant.md
         - name: Configure your voice assistant in Azure Percept Studio
           href: how-to-manage-voice-assistant.md
+        - name: Return to your voice assistant application
+          href: return-to-voice-assistant-application-window.md
+        - name: Delete your voice assistant application
+          href: delete-voice-assistant-application.md
     - name: Update your Azure Percept devices
       items:
         - name: Set up over-the-air updates
