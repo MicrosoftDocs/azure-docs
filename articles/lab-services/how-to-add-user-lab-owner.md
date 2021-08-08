@@ -21,7 +21,7 @@ This article shows you how you, as an administrator, can add additional owners t
     2. Select the user. 
     3. Select **Save**. 
     
-![Select the lab ](./media/how-to-add-user-lab-owner/reader-lab-account.png)
+![Reader lab role ](./media/how-to-add-user-lab-owner/reader-lab-account.png)
 ## Add user to the owner role for the lab
 
 > [!NOTE]
