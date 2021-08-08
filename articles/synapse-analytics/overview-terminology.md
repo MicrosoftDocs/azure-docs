@@ -64,5 +64,5 @@ Azure Synapse Analytics Data Explorer provides customers with an interactive que
 * [Get started with Azure Synapse Analytics](get-started.md)
 * [Create a workspace](quickstart-create-workspace.md)
 * [Use serverless SQL pool](quickstart-sql-on-demand.md)
-* [Quickstart: Create a Data Explorer pool using Synapse Studio](data-explorer-create-pool-studio.md)
-* [Quickstart: Query data with data explorer pools](data-explorer-query-with-pool.md)
+* [Create a Data Explorer pool using Synapse Studio](data-explorer/data-explorer-create-pool-studio.md)
+* [Query data with data explorer pools](data-explorer/data-explorer-query-with-pool.md)
