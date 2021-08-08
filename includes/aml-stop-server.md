@@ -14,7 +14,7 @@ If you used a compute instance, stop the VM when you aren't using it to reduce c
 
 1. In your workspace, select **Compute**.
 
-1. From the list, select the name of th ecompute instance.
+1. From the list, select the name of the compute instance.
 
 1. Select **Stop**.
 
