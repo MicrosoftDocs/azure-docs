@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 05/31/2021
+ms.date: 08/08/2021
 ---
 # How to connect Azure Data Factory and Azure Purview
 
@@ -118,6 +118,7 @@ The integration between Data Factory and Purview supports only a subset of the d
 | Azure SQL Managed Instance \* | Yes | 
 | Azure Synapse Analytics \* | Yes | 
 | Azure Table Storage | Yes |
+| Amazon RDS (public preview) | Yes |
 | Amazon S3 | Yes | 
 | Hive \* | Yes | 
 | SAP ECC \* | Yes |
@@ -145,7 +146,7 @@ Currently, if you use the following copy activity features, the lineage is not y
 In additional to lineage, the data asset schema (shown in Asset -> Schema tab) is reported for the following connectors:
 
 - CSV and Parquet files on Azure Blob, Azure File Storage, ADLS Gen1, ADLS Gen2, and Amazon S3
-- Azure Data Explorer, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, Teradata
+- Azure Data Explorer, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, Teradata, Amazon RDS (public preview)
 
 ### Data Factory Data Flow support
 

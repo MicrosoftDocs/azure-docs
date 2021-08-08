@@ -165,6 +165,8 @@ items:
         href: register-scan-saps4hana-source.md
       - name: Teradata 
         href: register-scan-teradata-source.md
+      - name: Amazon RDS
+        href: register-scan-amazon-rds.md
       - name: Amazon S3
         href: register-scan-amazon-s3.md
       # - name: Power BI tenant - PowerShell

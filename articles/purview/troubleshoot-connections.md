@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 06/04/2021
+ms.date: 08/08/2021
 ---
 # Troubleshoot your connections in Azure Purview
 
@@ -29,6 +29,7 @@ There are specific instructions for each source type:
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#setting-up-authentication-for-a-scan)
 - [SQL Server](register-scan-on-premises-sql-server.md#setting-up-authentication-for-a-scan)
 - [Power BI](register-scan-power-bi-tenant.md)
+- [Amazon RDS](register-scan-amazon-rds.md#create-a-purview-credential-for-your-aws-database-scan) (public preview)
 - [Amazon S3](register-scan-amazon-s3.md#create-a-purview-credential-for-your-aws-bucket-scan)
 
 ## Verifying Azure Role-based Access Control to enumerate Azure resources in Azure Purview Studio

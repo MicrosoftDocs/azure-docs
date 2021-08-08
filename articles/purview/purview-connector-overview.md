@@ -6,7 +6,7 @@ ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 08/08/2021
 ---
 
 # Supported data stores
@@ -38,6 +38,7 @@ details.
 ||[Looker](register-scan-looker-source.md)|Yes| Yes| No| No| No| Yes|
 ||[SAP ECC](register-scan-sapecc-source.md)|Yes| Yes| No| No| No| Yes|
 ||[SAP S4HANA](register-scan-saps4hana-source.md)|Yes| Yes| No| No| No| Yes|
+|Multi-cloud|[Amazon RDS](register-scan-amazon-rds.md) )public preview) |Yes| Yes| Yes| Yes| Yes| Yes|
 |Multi-cloud|[Amazon S3](register-scan-amazon-s3.md)|Yes| Yes| Yes| Yes| Yes| Yes|
 
 ## Scan regions

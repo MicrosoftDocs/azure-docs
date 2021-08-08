@@ -6,7 +6,7 @@ ms.author: suvirdi
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 05/08/2021
+ms.date: 08/08/2021
 ---
 
 # Frequently asked questions (FAQ) about Azure Purview
@@ -32,7 +32,7 @@ This FAQ answers common questions that customers and field teams often ask. It's
 |Azure Data Explorer|SAP S/4 HANA (Available by end of 2020)|
 |Azure Data Lake Storage Gen1|Hive Metastore (Available by end of 2020)|
 |Azure Data Lake Storage Gen2|Amazon S3|
-|Azure Files|--|
+|Azure Files|Amazon RDS (public preview) |
 |Azure SQL Database|--|
 
 ### What data systems/processors can we connect and get lineage?

@@ -6,7 +6,7 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 07/23/2021
+ms.date: 08/08/2021
 ---
 
 # Asset normalization
@@ -27,14 +27,14 @@ Before: `https://myaccount.file.core.windows.net/myshare/{folderA}/folder{B/`
 After: 	`https://myaccount.file.core.windows.net/myshare/%7BfolderA%7D/folder%7BB/`
 
 ### Trim section spaces
-Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure Data Factory, Azure SQL Database, Azure SQL Database Managed Instance, Azure SQL pool, Azure Cosmos DB, Azure Cognitive Search, Azure Data Explorer, Azure Data Share, Amazon S3
+Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure Data Factory, Azure SQL Database, Azure SQL Database Managed Instance, Azure SQL pool, Azure Cosmos DB, Azure Cognitive Search, Azure Data Explorer, Azure Data Share, Amazon S3, Amazon RDS (public preview)
 
 Before: `https://myaccount.file.core.windows.net/myshare/  folder A/folderB   /`
 
 After: 	`https://myaccount.file.core.windows.net/myshare/folder A/folderB/`
 
 ### Remove hostname spaces
-Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Database Managed Instance, Azure SQL pool, Azure Cosmos DB, Azure Cognitive Search, Azure Data Explorer, Azure Data Share, Amazon S3
+Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Database Managed Instance, Azure SQL pool, Azure Cosmos DB, Azure Cognitive Search, Azure Data Explorer, Azure Data Share, Amazon S3, Amazon RDS (public preview)
 
 Before: `https://myaccount .file. core.win dows. net/myshare/folderA/folderB/`
 
@@ -51,28 +51,28 @@ After: 	`mssql://foo.database.windows.net/bar/dbo/foo%20bar`
 > Spaces between two square brackets will be encoded
 
 ### Lowercase scheme
-Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Database Managed Instance, Azure SQL pool, Azure Cosmos DB, Azure Cognitive Search, Azure Data Explorer, Amazon S3
+Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Database Managed Instance, Azure SQL pool, Azure Cosmos DB, Azure Cognitive Search, Azure Data Explorer, Amazon S3, Amazon RDS (public preview)
 
 Before: `HTTPS://myaccount.file.core.windows.net/myshare/folderA/folderB/`
 
 After: 	`https://myaccount.file.core.windows.net/myshare/folderA/folderB/`
 
 ### Lowercase hostname
-Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Database Managed Instance, Azure SQL pool, Azure Cosmos DB, Azure Cognitive Search, Azure Data Explorer, Amazon S3
+Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Database Managed Instance, Azure SQL pool, Azure Cosmos DB, Azure Cognitive Search, Azure Data Explorer, Amazon S3, Amazon RDS (public preview)
 
 Before: `https://myAccount.file.Core.Windows.net/myshare/folderA/folderB/`
 
 After: 	`https://myaccount.file.core.windows.net/myshare/folderA/folderB/`
 
 ### Lowercase file extension
-Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Amazon S3
+Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Amazon S3, Amazon RDS (public preview)
 
 Before: `https://myAccount.file.core.windows.net/myshare/folderA/data.TXT`
 
 After: 	`https://myaccount.file.core.windows.net/myshare/folderA/data.txt`
 
 ### Remove duplicate slash
-Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure Data Factory, Azure SQL Database, Azure SQL Database Managed Instance, Azure SQL pool, Azure Cosmos DB, Azure Cognitive Search, Azure Data Explorer, Azure Data Share, Amazon S3
+Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure Data Factory, Azure SQL Database, Azure SQL Database Managed Instance, Azure SQL pool, Azure Cosmos DB, Azure Cognitive Search, Azure Data Explorer, Azure Data Share, Amazon S3, Amazon RDS (public preview)
 
 Before: `https://myAccount.file.core.windows.net//myshare/folderA////folderB/`
 
