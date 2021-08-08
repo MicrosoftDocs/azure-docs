@@ -60,7 +60,8 @@ Dashboards are an insightful way to monitor your business and view all your most
 
 5. To add more videos from Azure Video Analyzer Videos section, follow the same steps in this section.
 
-> [!NOTE] To add multiple videos from the same Video Analyzer account, a single set of access policy and token is sufficient.
+> [!NOTE] 
+> To add multiple videos from the same Video Analyzer account, a single set of access policy and token is sufficient.
 
 Here is a sample of multiple videos pinned to a single Power BI dashboard.
 
