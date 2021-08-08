@@ -1,17 +1,19 @@
 ---
-title: Create Azure integration runtime in Azure Data Factory 
-description: Learn how to create Azure integration runtime in Azure Data Factory, which is used to copy data and dispatch transform activities. 
+title: Create Azure integration runtime
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to create Azure integration runtime in Azure Data Factory and Azure Synapse Analytics, which is used to copy data and dispatch transform activities. 
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.date: 06/04/2021
 author: lrtoyou1223
 ms.author: lle 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, synapse
 ---
 # How to create and configure Azure Integration Runtime
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-The Integration Runtime (IR) is the compute infrastructure used by Azure Data Factory to provide data integration capabilities across different network environments. For more information about IR, see [Integration runtime](concepts-integration-runtime.md).
+The Integration Runtime (IR) is the compute infrastructure used by Azure Data Factory and Synapse pipelines to provide data integration capabilities across different network environments. For more information about IR, see [Integration runtime](concepts-integration-runtime.md).
 
 Azure IR provides a fully managed compute to natively perform data movement and dispatch data transformation activities to compute services like HDInsight. It is hosted in Azure environment and supports connecting to resources in public network environment with public accessible endpoints.
 
@@ -20,7 +22,7 @@ This document introduces how you can create and configure Azure Integration Runt
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Default Azure IR
-By default, each data factory has an Azure IR in the backend that supports  operations on cloud data stores and compute services in public network. The location of that Azure IR is autoresolve. If **connectVia** property is not specified in the linked service definition, the default Azure IR is used. You only need to explicitly create an Azure IR when you would like to explicitly define the location of the IR, or if you would like to virtually group the activity executions on different IRs for management purpose. 
+By default, each data factory or Synapse workspace has an Azure IR in the backend that supports  operations on cloud data stores and compute services in public network. The location of that Azure IR is autoresolve. If **connectVia** property is not specified in the linked service definition, the default Azure IR is used. You only need to explicitly create an Azure IR when you would like to explicitly define the location of the IR, or if you would like to virtually group the activity executions on different IRs for management purpose. 
 
 ## Create Azure IR
 
@@ -36,18 +38,34 @@ For Azure IR, the type must be set to **Managed**. You do not need to specify co
 
 You can configure an existing Azure IR to change its location using the Set-AzDataFactoryV2IntegrationRuntime PowerShell cmdlet. For more information about the location of an Azure IR, see [Introduction to integration runtime](concepts-integration-runtime.md).
 
-### Create an Azure IR via Azure Data Factory UI
-Use the following steps to create an Azure IR using Azure Data Factory UI.
+### Create an Azure IR via UI
+Use the following steps to create an Azure IR using UI.
 
-1. On the home page of Azure Data Factory UI, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
+1. On the home page for the service, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
 
-   ![The home page Manage button](media/doc-common-process/get-started-page-manage-button.png)
+    # [Azure Data Factory](#tab/data-factory)
+    
+    :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="The home page Manage button":::
 
-1. Select **Integration runtimes** on the left pane, and then select **+New**.
+    # [Azure Synapse](#tab/synapse-analytics)
 
-   ![Screenshot that highlights Integration runtimes in the left pane and the +New button.](media/doc-common-process/manage-new-integration-runtime.png)
+    :::image type="content" source="media/doc-common-process/get-started-page-manage-button-synapse.png" alt-text="The home page Manage button":::
 
-1. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**. 
+---
+
+2. Select **Integration runtimes** on the left pane, and then select **+New**.
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/manage-new-integration-runtime.png" alt-text="Screenshot that highlights Integration runtimes in the left pane and the +New button.":::
+   
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/manage-new-integration-runtime-synapse.png" alt-text="Screenshot that highlights Integration runtimes in the left pane and the +New button.":::
+
+---
+
+3. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**. 
 
 1. On the following page, select **Azure** to create an Azure IR, and then select **Continue**.
    ![Create an integration runtime](media/create-azure-integration-runtime/new-azure-integration-runtime.png)
