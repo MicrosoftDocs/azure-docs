@@ -18,7 +18,7 @@ A skillset is a reusable resource in Azure Cognitive Search that is attached to 
 
 From the onset of skillset processing to its conclusion, skills read and write to an enriched document. An enriched document is initially just the raw content extracted from a data source, but with each skill execution, it gains structure and substance. Ultimately, nodes from an enriched document are then [mapped to fields](cognitive-search-output-field-mapping.md) in a search index, or [mapped to projections](knowledge-store-projection-overview.md) in a knowledge store, so that the content can be routed appropriately, where it will be queried or consumed by other apps.
 
-:::image type="content" source="media/knowledge-store-concept-intro/knowledge-store-concept-intro.png" alt-text="Pipeline with skillset" border="false":::
+:::image type="content" source="media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg" alt-text="Pipeline with skillset" border="false":::
 
 ## Skillset definition
 
