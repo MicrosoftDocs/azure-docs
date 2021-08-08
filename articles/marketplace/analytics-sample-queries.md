@@ -4,9 +4,9 @@ description: Use these sample queries to programmatically access Microsoft comme
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
-ms.date: 3/08/2021
+author: smannepalle
+ms.author: smannepalle
+ms.date: 8/06/2021
 ---
 
 # Sample queries for programmatic analytics
@@ -57,6 +57,8 @@ These sample queries apply to the Orders report.
 | Orders report for specific offer name for the last 6M | `SELECT OrderId, OrderPurchaseDate FROM ISVOrder WHERE OfferName = ‘Example Offer Name’ TIMESPAN LAST_6_MONTHS` |
 | Orders report for active orders for the last 6M | `SELECT OrderId, OrderPurchaseDate FROM ISVOrder WHERE OrderStatus = ‘Active’ TIMESPAN LAST_6_MONTHS` |
 | Orders report for canceled orders for the last 6M | `SELECT OrderId, OrderPurchaseDate FROM ISVOrder WHERE OrderStatus = ‘Cancelled’ TIMESPAN LAST_6_MONTHS` |
+| Orders report with term start, term end date and estimatedcharges, currency | `SELECT OrderId, TermStartId, TermEndId, estimatedcharges from ISVOrderV2 WHERE OrderStatus = ‘Active’ TIMESPAN LAST_6_MONTHS` |
+| Orders report for trial orders active for the last 6M | `SELECT OrderId from ISVOrderV2 WHERE OrderStatus = ‘Active’ and HasTrial = ‘True’ TIMESPAN LAST_6_MONTHS` |
 |||
 
 ## Next steps

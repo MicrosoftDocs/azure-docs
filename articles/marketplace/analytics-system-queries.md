@@ -4,9 +4,9 @@ description: Learn about system queries you can use to programmatically get anal
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
-ms.date: 3/08/2021
+ms.date: 08/06/2021
+author: smannepalle
+ms.author: smannepalle
 ---
 
 # List of system queries
@@ -36,11 +36,19 @@ The following sections provide report queries for various reports.
 
 **Report description**: Orders report for the last 6M
 
-**QueryID**:  `fd0f299c-5a1c-4929-9f48-bfc6cc44355d`
+**QueryID**: `fd0f299c-5a1c-4929-9f48-bfc6cc44355d`
 
 **Report query**:
 
 `SELECT MarketplaceSubscriptionId,MonthStartDate,OfferType,AzureLicenseType,MarketplaceLicenseType,Sku,CustomerCountry,IsPreviewSKU,OrderId,OrderQuantity,CloudInstanceName,IsNewCustomer,OrderStatus,OrderCancelDate,CustomerCompanyName,CustomerName,OrderPurchaseDate,OfferName,TrialEndDate,CustomerId,BillingAccountId FROM ISVOrder TIMESPAN LAST_6_MONTHS`
+
+**Report description**: OrdersV2 report for the last 6M
+
+**QueryID**: `bd1b0cc1-ce45-4578-beba-6fe5a69fd421`
+
+**Report query**:
+
+`SELECT MarketplaceSubscriptionId,MonthStartDate,OfferType,AzureLicenseType,MarketplaceLicenseType,Sku,CustomerCountry,IsPreviewSKU,OrderId,OrderQuantity,CloudInstanceName,IsNewCustomer,OrderStatus,OrderCancelDate,CustomerCompanyName,CustomerName,OrderPurchaseDate,OfferName,TrialEndDate,CustomerId,BillingAccountId,TermStartDate,TermEndDate,PurchaseRecordId,PurchaseRecordLineItemId,HasTrial,IsTrialDeployment,estimatedcharges FROM ISVOrderV2 TIMESPAN LAST_6_MONTHS`
 
 ## Usage report queries
 
