@@ -15,6 +15,8 @@
   items:
   - name: Investigate incidents
     href: tutorial-investigate-cases.md
+  - name: Get started with ML notebooks
+    href: notebook-get-started.md
   - name: Use automation to respond to threats
     href: tutorial-respond-threats-playbook.md
   - name: Integrate with Microsoft 365 Defender
@@ -72,7 +74,11 @@
     - name: Multistage attacks (Fusion)
       href: fusion.md
   - name: Threat hunting
-    href: hunting.md
+    items:
+    - name: Overview
+      href: hunting.md
+    - name: Jupyter notebooks
+      href: jupyter.md
   - name: SOAR
     items:
     - name: Orchestration, automation, and response
@@ -345,6 +351,8 @@
     items:
     - name: Hunt with Jupyter notebooks
       href: notebooks.md
+    - name: Configure ML notebooks and MSTICPy
+      href: notebook-configure.md
     - name: Hunt with bookmarks
       href: bookmarks.md
     - name: Hunt with livestream
