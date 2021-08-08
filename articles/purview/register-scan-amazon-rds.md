@@ -85,7 +85,7 @@ Ensure that you've performed the following prerequisites before adding your Amaz
 
 
 > [!NOTE]
-> Additional steps are required to support Amazon RDS databases behind private networks (VPC). For more information, see <x>.
+> Additional steps are required to support Amazon RDS databases behind private networks (VPC). For more information, see [Prepare an RDS database in a VPC](#prepare-an-rds-database-in-a-vpc). If you don't have a VPC, start with [Register an Amazon RDS data source](#register-an-amazon-rds-data-source).
 >
 
 ## Prepare an RDS database in a VPC
