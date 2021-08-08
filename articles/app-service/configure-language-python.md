@@ -426,13 +426,9 @@ If you're encountering this error with the sample in [Tutorial: Deploy a Django 
 
 - **You see the message, "Fatal SSL Connection is Required"**: Check any usernames and passwords used to access resources (such as databases) from within the app.
 
-## Next steps
+## More resources:
 
-> [!div class="nextstepaction"]
-> [Tutorial: Python app with PostgreSQL](tutorial-python-postgresql-app.md)
-
-> [!div class="nextstepaction"]
-> [Tutorial: Deploy from private container repository](tutorial-custom-container.md?pivots=container-linux)
-
-> [!div class="nextstepaction"]
-> [App Service Linux FAQ](faq-app-service-linux.yml)
+- [Tutorial: Python app with PostgreSQL](tutorial-python-postgresql-app.md)
+- [Tutorial: Deploy from private container repository](tutorial-custom-container.md?pivots=container-linux)
+- [App Service Linux FAQ](faq-app-service-linux.yml)
+- [Environment variables and app settings reference](reference-app-settings.md)
