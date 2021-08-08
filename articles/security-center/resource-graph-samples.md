@@ -1,7 +1,7 @@
 ---
 title: Azure Resource Graph sample queries for Azure Security Center
 description: Sample Azure Resource Graph queries for Azure Security Center showing use of resource types and tables to access Azure Security Center related resources and properties.
-ms.date: 07/21/2021
+ms.date: 08/04/2021
 ms.topic: sample
 author: memildin
 ms.author: memildin

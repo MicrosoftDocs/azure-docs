@@ -131,4 +131,4 @@ So that's it - The 5 questions data science can answer.
 
 ## Next steps
 * [Try a first data science experiment with Machine Learning Studio (classic)](create-experiment.md)
-* [Get an introduction to Machine Learning on Microsoft Azure](../overview-what-is-azure-ml.md)
+* [Get an introduction to Azure Machine Learning](../overview-what-is-azure-machine-learning.md)

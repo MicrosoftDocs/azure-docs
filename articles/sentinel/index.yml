@@ -33,6 +33,11 @@ landingContent:
         links:
           - text: What's new in Azure Sentinel?
             url: whats-new.md
+      - linkListType: concept
+        links:
+          - text: Best practices
+            url: best-practices.md
+
 
   # Card (optional)
   - title: Get started
@@ -41,6 +46,10 @@ landingContent:
         links:
           - text: Onboard Azure Sentinel
             url: quickstart-onboard.md
+      - linkListType: concept
+        links:
+          - text: Prerequisites
+            url: prerequisites.md
       - linkListType: how-to-guide
         links:
           - text: Connect data to Azure Sentinel
@@ -59,6 +68,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: Data collection best practices
+            url: best-practices-data.md
           - text: Normalizing and parsing data
             url: normalization.md
       - linkListType: how-to-guide
@@ -174,10 +185,16 @@ landingContent:
 
 
   # Card
-  - title: Work with multiple tenants
+  - title: Manage Azure Sentinel
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Workspace architecture best practices
+            url: best-practices-workspace-architecture.md
       - linkListType: how-to-guide
         links:
+          - text: Design your workspace architecture
+            url: design-your-workspace-architecture.md
           - text: Manage multiple tenants
             url: multiple-tenants-service-providers.md
           - text: Work with incidents in multiple workspaces

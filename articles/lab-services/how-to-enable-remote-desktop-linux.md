@@ -20,12 +20,15 @@ To connect to a Linux VM using a **GUI** (graphical user interface), we recommen
 To use RDP, the instructor must:
   - Enable remote desktop connection; this is specifically needed to open the VM's port for RDP.
   - Install the RDP remote desktop server.
-  - Install a Linux graphical desktop environment (such as MATE, XFCE, and so on).
+  - Install a Linux graphical desktop environment (such as XFCE, MATE, and so on).
+
+> [!WARNING]
+>  We recommend using a different graphical desktop environment than [GNOME](https://www.gnome.org/).  You should avoid installing GNOME on lab VMs because GNOME has a conflict with the Azure Linux Agent which is needed for the VMs to work properly in Azure Lab Services.  As mentioned above, we recommend using a graphical desktop environment, such as XFCE or MATE.
 
 ### X2Go Setup
 To use X2Go, the instructor must:
 - Install the X2Go remote desktop server.
-- Install a Linux graphical desktop environment (such as MATE, XFCE, and so on).
+- Install a Linux graphical desktop environment (such as XFCE, MATE, and so on).
 
 X2Go uses the same port that is already enabled for SSH.  As a result, no extra configuration required to open a port on the VM for X2Go.
 

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, rarayudu, azla
 ms.topic: reference
-ms.date: 07/01/2021
+ms.date: 08/02/2021
 ---
 
 # Limits and configuration reference for Azure Logic Apps
@@ -53,7 +53,7 @@ The following table lists the values for a single workflow run:
 
 | Name | Multi-tenant | Single-tenant | Integration service environment | Notes |
 |------|--------------|---------------|---------------------------------|-------|
-| Run history retention in storage | 90 days | 90 days | 366 days | The amount of time to keep workflow run history in storage after a run starts. If the run's duration exceeds the current run history retention limit, the run is removed from the runs history in storage. <p>Whether the run completes or times out, run history retention is always calculated by using the run's start time and the current limit specified in the workflow setting, [**Run history retention in days**](#change-retention). No matter the previous limit, the current limit is always used for calculating retention. <p><p>For more information, review [Change duration and run history retention in storage](#change-retention). <p><p>**Tip**: For scenarios that require different limits, [contact the Logic Apps team](mailto://logicappspm@microsoft.com) to discuss your requirements. |
+| Run history retention in storage | 90 days | 90 days | 366 days | The amount of time to keep a workflow's run history in storage after a run starts. <p>**Note**: If the workflow's run duration exceeds the retention limit, that run is removed from the run history in storage. If a run isn't immediately removed after reaching the retention limit, the run is removed within 7 days. <p><p>Whether a run completes or times out, run history retention is always calculated by using the run's start time and the current limit specified in the workflow setting, [**Run history retention in days**](#change-retention). No matter the previous limit, the current limit is always used for calculating retention. For more information, review [Change duration and run history retention in storage](#change-retention). <p><p>**Tip**: For scenarios that require different limits, [contact the Logic Apps team](mailto://logicappspm@microsoft.com) to discuss your requirements. |
 | Run duration | 90 days | - Stateful workflow: 90 days <p><p>- Stateless workflow: 5 min | 366 days | The amount of time that a workflow can continue running before forcing a timeout. <p>The run duration is calculated by using a run's start time and the limit that's specified in the workflow setting, [**Run history retention in days**](#change-duration) at that start time. <p>**Important**: Make sure the run duration value is always less than or equal to the run history retention in storage value. Otherwise, run histories might be deleted before the associated jobs are complete. <p><p>For more information, review [Change run duration and history retention in storage](#change-duration). <p><p>**Tip**: For scenarios that require different limits, [contact the Logic Apps team](mailto://logicappspm@microsoft.com) to discuss your requirements. |
 | Recurrence interval | - Min: 1 sec <p><p>- Max: 500 days | - Min: 1 sec <p><p>- Max: 500 days  | - Min: 1 sec <p><p>- Max: 500 days ||
 ||||||
@@ -170,18 +170,16 @@ The following table lists the values for an **Until** loop:
 
 The following table lists the values for a single workflow definition:
 
-### Multi-tenant & single-tenant
-
-| Name | Limit | Notes |
-| ---- | ----- | ----- |
-| Action - Executions per 5-minute rolling interval | - Default: 100,000 executions <p><p>- High throughput mode: 300,000 executions  | To raise the default value to the maximum value for your workflow, see [Run in high throughput mode](#run-high-throughput-mode), which is in preview. Or, you can [distribute the workload across more than one workflow](handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary. |
-| Action - Concurrent outbound calls | ~2,500 calls | You can reduce the number of concurrent requests or reduce the duration as necessary. |
-| Managed connector throttling | - Multi-tenant: Throttling limit varies based on connector <p><p>- Single-tenant: 50 requests per minute per connection | For multi-tenant, review [each managed connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors). <p><p>For more information about handling connector throttling, review [Handle throttling problems ("429 - Too many requests" errors)](handle-throttling-problems-429-errors.md#connector-throttling). |
-| Runtime endpoint - Concurrent inbound calls | ~1,000 calls | You can reduce the number of concurrent requests or reduce the duration as necessary. |
-| Runtime endpoint - Read calls per 5 min  | 60,000 read calls | This limit applies to calls that get the raw inputs and outputs from a workflow's run history. You can distribute the workload across more than one workflow as necessary. |
-| Runtime endpoint - Invoke calls per 5 min | 45,000 invoke calls | You can distribute workload across more than one workflow as necessary. |
-| Content throughput per 5 min | 600 MB | You can distribute workload across more than one workflow as necessary. |
-||||
+| Name | Multi-tenant | Single-tenant | Notes |
+|------|--------------|---------------|-------|
+| Action - Executions per 5-minute rolling interval | Default: 100,000 executions <br>- High throughput mode: 300,000 executions | None | You can raise the default value to the maximum value for your workflow. For more information, see [Run in high throughput mode](#run-high-throughput-mode), which is in preview. Or, you can [distribute the workload across more than one workflow](handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary. |
+| Action - Concurrent outbound calls | ~2,500 calls | None | You can reduce the number of concurrent requests or reduce the duration as necessary. |
+| Managed connector throttling | Throttling limit varies based on connector | Throttling limit varies based on connector | For multi-tenant, review [each managed connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors). <p><p>For more information about handling connector throttling, review [Handle throttling problems ("429 - Too many requests" errors)](handle-throttling-problems-429-errors.md#connector-throttling). |
+| Runtime endpoint - Concurrent inbound calls | ~1,000 calls | None | You can reduce the number of concurrent requests or reduce the duration as necessary. |
+| Runtime endpoint - Read calls per 5 min  | 60,000 read calls | None | This limit applies to calls that get the raw inputs and outputs from a workflow's run history. You can distribute the workload across more than one workflow as necessary. |
+| Runtime endpoint - Invoke calls per 5 min | 45,000 invoke calls | None | You can distribute workload across more than one workflow as necessary. |
+| Content throughput per 5 min | 600 MB | None | You can distribute workload across more than one workflow as necessary. |
+|||||
 
 <a name="run-high-throughput-mode"></a>
 
