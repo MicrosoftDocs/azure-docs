@@ -89,10 +89,11 @@ For a full list of the Azure App Service alerts, see the [Reference table of ale
 
 In this article, you learned about Azure Defender for App Service. 
 
+> [!div class="nextstepaction"]
+> [Enable Azure Defender](enable-azure-defender.md)
+
 For related material, see the following articles: 
 
 - To export your alerts to Azure Sentinel, any third-party SIEM, or any other external tool, follow the instructions in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
 - For a list of the Azure Defender for App Service alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azureappserv).
 - For more information on App Service plans, see [App Service plans](https://azure.microsoft.com/pricing/details/app-service/plans/).
-> [!div class="nextstepaction"]
-> [Enable Azure Defender](enable-azure-defender.md)
