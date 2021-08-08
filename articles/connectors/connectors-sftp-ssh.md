@@ -256,9 +256,9 @@ This section describes possible solutions to common errors or problems.
 
 This error can happen when your logic app can't successfully establish a connection with the SFTP server. There might be different reasons for this problem, so try these troubleshooting options:
 
-* The connection timeout is 20 seconds. Check that your SFTP server has good performance and intermediate devices, such as firewalls, aren't adding overhead. 
+* The connection timeout is 20 seconds. Check that your SFTP server has good performance and intermediate devices, such as firewalls, aren't adding overhead.
 
-* If you have a firewall set up, make sure that you add the **Managed connector IP** addresses to the approved list. To find the IP addresses for your logic app's region, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#multi-tenant-azure---outbound-ip-addresses).
+* If you have a firewall set up, make sure that you add the **Managed connector IP** addresses for your region to the approved list. To find the IP addresses for your logic app's region, see [Managed connector outbound IPs - Azure Logic Apps](/connectors/common/outbound-ip-addresses).
 
 * If this error happens intermittently, change the **Retry policy** setting on the SFTP-SSH action to a retry count higher than the default four retries.
 
