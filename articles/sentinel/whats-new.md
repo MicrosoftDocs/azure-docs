@@ -30,12 +30,12 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## August 2021
 
-- [Fusion detections for possible Ransomware activities](#fusion-detections-for-possible-ransomware-activities-public-preview)
+- [Fusion detection for Ransomware (Public preview)](#fusion-detection-for-ransomware-public-preview)
 - [Watchlist templates for UEBA data](#watchlist-templates-for-ueba-data-public-preview)
 - [File event normalization schema (Public preview)](#file-event-normalization-schema-public-preview)
 - [New in docs: Best practice guidance](#new-in-docs-best-practice-guidance)
 
-### Fusion detections for possible Ransomware activities (Public preview)
+### Fusion detection for Ransomware (Public preview)
 
 Azure Sentinel now provides new Fusion detections for possible Ransomware activities, generating incidents titled as **Multiple alerts possibly related to Ransomware activity detected**.
 
