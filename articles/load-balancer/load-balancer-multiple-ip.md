@@ -2,56 +2,41 @@
 title: 'Tutorial: Load balancing with multiple IP configurations - Azure portal'
 titleSuffix: Azure Load Balancer
 description: In this article, learn about load balancing across primary and secondary IP configurations using the Azure portal.
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. slug assigned by ACOM.
-ms.topic: tutorial #Required; leave this attribute/value as-is.
-ms.date: #Required; mm/dd/yyyy format.
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+author: asudbring
+ms.author: allensu
+ms.service: load-balancer
+ms.topic: tutorial
+ms.date: 08/08/2021
+ms.custom: template-tutorial
 ---
 
-# Tutorial: <do something with X> 
+# Tutorial: Load balancing with multiple IP configurations using the Azure portal 
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes, in customer-friendly language, 
-what the customer will learn, or do, or accomplish. Answer the fundamental “why 
-would I want to do this?” question. Keep it short.
--->
+One of the ways to host multiple websites is to use multiple IP addresses associated with the network interface controller (NIC) of a virtual machine. Azure Load Balancer supports deployment of load-balancing to support the high availability of the websites.
 
-[Add your introductory paragraph]
+The following diagram shows the resources used in this tutorial:
 
-<!-- 3. Tutorial outline 
-Required. Use the format provided in the list below.
--->
+![Load balancer scenario](./media/load-balancer-multiple-ip/lb-multi-ip.png)
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
-
-<!-- 4. Prerequisites 
-Required. First prerequisite is a link to a free trial account if one exists. If there 
-are no prerequisites, state that no prerequisites are needed for this tutorial.
--->
+> * Create and configure an Azure Load Balancer
+> * Create two Windows server virtual machines
+> * Create a secondary NIC and network configurations for each virtual machine
+> * Create two Internet Information Server (IIS) websites on each virtual machine
+> * Bind the websites to the network configurations
+> * Test the load balancer
 
 ## Prerequisites
 
-- <!-- An Azure account with an active subscription. [Create an account for free]
-  (https://azure.microsoft.com/free/?WT.mc_id=A261C142F). -->
-- <!-- prerequisite 2 -->
-- <!-- prerequisite n -->
+- An Azure account with an active subscription. [Create an account for free]
+  (https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-<!-- 5. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
-
-## [Section 1 heading]
+## Create load balancer
 <!-- Introduction paragraph -->
 
-1. Sign in to the [<service> portal](url).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. <!-- Step 2 -->
 1. <!-- Step n -->
 

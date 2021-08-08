@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.custom: se0dec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 08/07/2021
 ms.author: allensu
 ---
 
@@ -24,7 +24,7 @@ ms.author: allensu
 
 In this article, we're going to show you how to use Azure Load Balancer with multiple IP addresses on a secondary network interface controller (NIC). The following diagram illustrates our scenario:
 
-![Load balancer scenario](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
+![Load balancer scenario](./media/load-balancer-multiple-ip/lb-multi-ip.png)
 
 In our scenario, we're using the following configuration:
 
