@@ -287,8 +287,6 @@ If you have a Docker container already running with an earlier version of the SA
 
     ```azurecli
     wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
-    root@NetWeaver75-Docker:~/sapcon/NPL/sapcon/NPL# chmod +x sapcon-instance-update.sh
-    root@NetWeaver75-Docker:~/sapcon/NPL/sapcon/NPL# ./sapcon-instance-update.sh
     ```
 1. Run the following command on your SAP data connector machine:
 
