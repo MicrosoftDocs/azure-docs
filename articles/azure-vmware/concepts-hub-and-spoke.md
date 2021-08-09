@@ -75,7 +75,7 @@ For more information on Azure VMware Solution networking and connectivity concep
 
 ### Traffic segmentation
 
-[Azure Firewall](../firewall/index.yml) is the Hub and Spoke topology's central piece, deployed on the Hub virtual network. Use Azure Firewall or another Azure supported network virtual appliance to establish traffic rules and segment the communication between the different spokes and Azure VMware Solution workloads.
+[Azure Firewall](../firewall/index.yml) is the Hub and Spoke topology's central piece, deployed on the Hub virtual network. Use Azure Firewall or another Azure supported network virtual appliance (NVA) to establish traffic rules and segment the communication between the different spokes and Azure VMware Solution workloads.
 
 Create route tables to direct the traffic to Azure Firewall.  For the Spoke virtual networks, create a route that sets the default route to the internal interface of Azure Firewall. This way, when a workload in the Virtual Network needs to reach the Azure VMware Solution address space, the firewall can evaluate it and apply the corresponding traffic rule to either allow or deny it.  
 
