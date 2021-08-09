@@ -24,7 +24,7 @@ Azure Defender for Resource Manager automatically monitors the resource manageme
 |----|:----|
 |Release state:|General Availability (GA)|
 |Pricing:|**Azure Defender for Resource Manager** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: US Gov<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure China|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure China 21Vianet|
 |||
 
 ## What are the benefits of Azure Defender for Resource Manager?
