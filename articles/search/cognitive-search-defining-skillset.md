@@ -44,21 +44,19 @@ Once you have fair idea of what you want in the pipeline, you can express the sk
 
 In the diagram, the *document cracking* step happens automatically. Essentially, Azure Cognitive Search knows how to open well-known files and creates a *content* field containing the text extracted from each document. The white boxes are built-in enrichers, and the dotted "Bing Entity Search" box represents a custom enricher that you are creating. As illustrated, the skillset contains three skills.
 
-## Skillset definition in REST
+## Skillset definition
 
-A skillset is defined as an array of skills. Each skill defines the source of its inputs and the name of the outputs produced. The following example uses the [Create Skillset REST API](/rest/api/searchservice/create-skillset).
-
-After the name and description, a skillset has four main properties:
+In the [REST API](/rest/api/searchservice/create-skillset), a skillset is authored in JSON. After the name and description, a skillset has four main properties:
 
 + `skills`, an unordered collection of skills, for which the search service determines the sequence of execution based on the inputs required for each skill. If skills are independent, they can execute in parallel. Skills can be utilitarian (like splitting text), transformational (based on AI from Cognitive Services), or custom skills that you provide.
 
 + `cognitiveServices`, the key of a Cognitive Services resource that performs image and text processing for skillsets that include built-in skills.
 
-+ `knowledgeStore`, (optional) a set of properties that specify an Azure Storage account and instructions for projecting data into tables, blobs, and files. 
++ `knowledgeStore`, (optional) properties that specify an Azure Storage account and how to project enriched data into tables, blobs, and files. 
 
-+ `encryptionKey`, (optional) a set of properties that specify an Azure Key Vault and specifications for retrieving customer-managed keys used to encrypt sensitive content.
++ `encryptionKey`, (optional) properties that specify an Azure Key Vault and customer-managed keys used to encrypt sensitive content.
 
-A skillset is authored in JSON. The following example shows the main sections:
+The following example shows the main sections:
 
 ```json
 {
