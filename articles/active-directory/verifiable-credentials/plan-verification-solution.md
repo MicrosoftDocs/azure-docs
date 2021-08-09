@@ -27,7 +27,7 @@ This content covers the technical aspects of planning for a verifiable credentia
 
 Supporting technologies that are not specific to verification solutions are out of scope. For example, websites are used in a verifiable credential verification solution but planning a website deployment is not covered in detail.
 
-As you plan your verification solution you must consider what business capability is being added or modified and what IT capabilities can be leveraged or must be added to create the solution. You must also consider what training is needed for the people involved in the business process as well as the people that support the end users and staff of the solution. These topics are not covered in this content. We recommend reviewing the [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/) for information covering these topics.
+As you plan your verification solution you must consider what business capability is being added or modified and what IT capabilities can be leveraged or must be added to create the solution. You must also consider what training is needed for the people involved in the business process as well as the people that support the end users and staff of the solution. These topics are not covered in this content. We recommend reviewing the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/) for information covering these topics.
 
 ## Components of the solution
 
@@ -346,4 +346,3 @@ Implement Verifiable Credentials
    * [Get started with Verifiable Credentials](get-started-verifiable-credentials.md)
 
 [FAQs](verifiable-credentials-faq.md)
-

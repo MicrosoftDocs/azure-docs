@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 08/06/2021
 ms.author: tisande
 
 ---
@@ -13,6 +13,9 @@ ms.author: tisande
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The Azure Cosmos DB query provider performs a best effort mapping from a LINQ query into a Cosmos DB SQL query. If you want to get the SQL query that is translated from LINQ, use the `ToString()` method on the generated `IQueryable`object. The following description assumes a basic familiarity with [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries). In addition to LINQ, Azure Cosmos DB also supports [Entity Framework Core](/ef/core/providers/cosmos/?tabs=dotnet-core-cli) which works with SQL API.
+
+> [!NOTE]
+> We recommend using the latest [.NET SDK version](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.20.1)
 
 The query provider type system supports only the JSON primitive types: numeric, Boolean, string, and null.
 
