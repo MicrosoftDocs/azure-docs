@@ -17,7 +17,7 @@ The following table includes links to sample Azure CLI scripts for Azure Cosmos 
 
 These samples require Azure CLI version 2.12.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli)
 
-For Azure CLI samples for other APIs see [CLI Samples for Cassandra](cassandra/cli-samples.md), [CLI Samples for MongoDB API](cli-samples-mongodb.md), [CLI Samples for Gremlin](cli-samples-gremlin.md), [CLI Samples for Table](table/cli-samples.md)
+For Azure CLI samples for other APIs see [CLI Samples for Cassandra](cassandra/cli-samples.md), [CLI Samples for MongoDB API](mongodb/cli-samples.md), [CLI Samples for Gremlin](cli-samples-gremlin.md), [CLI Samples for Table](table/cli-samples.md)
 
 ## Common Samples
 

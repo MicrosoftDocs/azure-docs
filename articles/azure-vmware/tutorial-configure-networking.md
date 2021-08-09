@@ -9,7 +9,7 @@ ms.date: 07/30/2021
 
 # Tutorial: Configure networking for your VMware private cloud in Azure
 
-An Azure VMware Solution private cloud requires an Azure Virtual Network. Because Azure VMware Solution doesn't support your on-premises vCenter, extra steps are needed for integration with your on-premises environment. Setting up an ExpressRoute circuit and a virtual network gateway is also required.
+An Azure VMware Solution private cloud requires an Azure Virtual Network. Because Azure VMware Solution doesn't support your on-premises vCenter, you'll need to do additional steps to integrate with your on-premises environment. Setting up an ExpressRoute circuit and a virtual network gateway is also required.
 
 [!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)]
 
@@ -46,7 +46,7 @@ When you select an existing vNet, the Azure Resource Manager (ARM) template that
 
 3. Select **Save**.
 
-   At this point, the vNet validates if overlapping IP address spaces between Azure VMware Solution and vNet are detected. If detected, then change the network address of either the private cloud or the vNet so they don't overlap. 
+   At this point, the vNet validates if overlapping IP address spaces between Azure VMware Solution and vNet are detected. If detected, change the network address of either the private cloud or the vNet so they don't overlap. 
 
 
 ### Create a new vNet

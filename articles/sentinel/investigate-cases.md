@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2021
+ms.date: 08/02/2021
 ms.author: yelevin
 
 ---
 # Investigate incidents with Azure Sentinel
 
 > [!IMPORTANT]
-> The investigation graph is now in **General Availability**.
+> Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 
 This article helps you investigate incidents with Azure Sentinel. After you connected your data sources to Azure Sentinel, you want to be notified when something suspicious happens. To enable you to do this, Azure Sentinel lets you create advanced alert rules, that generate incidents that you can assign and investigate.
 
@@ -44,7 +45,7 @@ An incident can include multiple alerts. It's an aggregation of all the relevant
 
     ![View incident severity](media/tutorial-investigate-cases/incident-severity.png)
 
-1. You can filter the incidents as needed, for example by status or severity.
+1. You can filter the incidents as needed, for example by status or severity. For more information, see [Search for incidents](#search-for-incidents).
 
 1. To begin an investigation, select a specific incident. On the right, you can see detailed information for the incident including its severity, summary of the number of entities involved, the raw events that triggered this incident, and the incident’s unique ID.
 
@@ -65,6 +66,8 @@ An incident can include multiple alerts. It's an aggregation of all the relevant
     ![Assign incident to user](media/tutorial-investigate-cases/assign-incident-to-user.png)
 
 1. Select **Investigate** to view the investigation map.
+
+
 
 ## Use the investigation graph to deep dive
 
@@ -113,6 +116,7 @@ To use the investigation graph:
 
     ![Use timeline in map to investigate alerts](media/tutorial-investigate-cases/use-timeline.png)
 
+
 ## Closing an incident
 
 Once you have resolved a particular incident (for example, when your investigation has reached its conclusion), you should set the incident’s status to **Closed**. When you do so, you will be asked to classify the incident by specifying the reason you are closing it. This step is mandatory. Click **Select classification** and choose one of the following from the drop-down list:
@@ -131,9 +135,46 @@ After choosing the appropriate classification, add some descriptive text in the 
 
 :::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
 
+## Search for incidents
+
+To find a specific incident quickly, enter a search string in the search box above the incidents grid and press **Enter** to modify the list of incidents shown accordingly. If your incident isn't included in the results, you may want to narrow your search by using **Advanced search** options.
+
+To modify the search parameters, select the **Search** button and then select the parameters where you want to run your search.
+
+For example:
+
+:::image type="content" source="media/tutorial-investigate-cases/advanced-search.png" alt-text="Enter text and select the search button to the right of the search box to select basic and/or advanced search options.":::
+
+By default, incident searches run across the **Incident ID**, **Title**, **Tags**, **Owner**, and **Product name** values only. In the search pane, scroll down the list to select one or more other parameters to search, and select **Apply** to update the search parameters. Select **Set to default** reset the selected parameters to the default option.
+
+
+> [!NOTE]
+> Searches in the **Owner** field support both names and email addresses.
+>
+
+Using advanced search options changes the search behavior as follows:
+
+|Search behavior  |Description  |
+|---------|---------|
+|**Search button color**     |The color of the search button changes, depending on the types of parameters currently being used in the search. <br><br>- As long as only the default parameters are selected, the button is grey. <br>- As soon as different parameters are selected, such as advanced search parameters, the button turns blue.         |
+|**Auto-refresh**     | Using advanced search parameters prevents you from selecting to automatically refresh your results.        |
+|**Entity parameters**     |All entity parameters are supported for advanced searches. When searching in any entity parameter, the search runs in all entity parameters.         |
+|**Search strings**     |    Searching for a string of words includes all of the words in the search query. Search strings are case sensitive.     |
+|**Cross workspace support**     |    Advanced searches are not supported for cross-workspace views.     |
+| **Number of search results displayed** | When you're using advanced search parameters, only 50 results are shown at a time. |
+|     |         |
+
+> [!NOTE]
+> Advanced search is currently in public preview.
+>
+
+> [!TIP]
+>  If you're unable to find the incident you're looking for, remove search parameters to expand your search. If your search results in too many items, add more filters to narrow down your results.
+>
+
 
 ## Next steps
 In this article, you learned how to get started investigating incidents using Azure Sentinel. For more information, see:
 
-- [Tutorial: Use playbooks with automation rules in Azure Sentinel](tutorial-respond-threats-playbook.md) 
-- [Tutorial: Investigate incidents with UEBA data](investigate-with-ueba.md)
+- [Tutorial: Use playbooks with automation rules in Azure Sentinel](tutorial-respond-threats-playbook.md)
+- [Investigate incidents with UEBA data](investigate-with-ueba.md)
