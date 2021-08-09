@@ -41,7 +41,7 @@ You might need to upload a new activation file for an onboarded sensor when:
 
 - You want to assign a new Defender for IoT hub to a cloud-connected sensor.
 
-To add a new activation file:
+**To add a new activation file:**
 
 1. Go to the **Sensor Management** page.
 
@@ -83,56 +83,17 @@ You'll receive an error message if the activation file could not be uploaded. Th
 
 Following sensor installation, a local self-signed certificate is generated and used to access the sensor web application. When logging in to the sensor for the first time, Administrator users are prompted to provide an SSL/TLS certificate.  For more information about first-time setup, see [Sign in and activate a sensor](how-to-activate-and-set-up-your-sensor.md).
 
-This article provides information on updating certificates, working with certificate CLI commands, and supported certificates and certificate parameters.
+This article provides information on how-to:
 
-### About certificates
+- Update a new CA-signed trusted certificate to your Sensor. You may need to do this because TBD. If you do, check with IT, etc.
 
-Azure Defender for IoT uses SSL/TLS certificates to:
+- Enable or disable validation of the certificate you uploaded as well as other certificates used by the system. This includes certificates used for integrations and forwarding rules, where the appliance is the client and initiator of the session.  You may need to do this when TBD.
 
-- Meet specific certificate and encryption requirements requested by your organization by uploading the CA-signed certificate.
-
-- Allow validation between the management console and connected sensors, and between a management console and a High Availability management console. Validations is evaluated against a Certificate Revocation List, and the certificate expiration date. *If validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console*. This option is enabled by default after installation.
-
-- Third party Forwarding rules, for example alert information sent to SYSLOG, Splunk or ServiceNow; or communications with Active Directory are not validated.
-
-### About CRL servers
-
-When validation is on, the appliance should be able to establish connection to the CRL server defined by the certificate. By default, the certificate will reference the CRL URL on HTTP port 80. Some organizational security policies may block access to this port. If your organization does not have access to port 80, you can:
-1. Define another URL and a specific port in the certificate. 
-- The URL should be defined as http://<URL>:<Port> instead of http://<URL>.
-- Verify that the destination CRL server can listen on the port you defined. 
-1. Use a proxy server that will access the CRL on port 80.
-1. Not carry out CRL validation. In this case, remove the CRL URL reference in the certificate.
-
-
-### About SSL certificates
-
-The Defender for IoT sensor, and on-premises management console use SSL, and TLS certificates for the following functions: 
-
- - Secure communications between users, and the web console of the appliance. 
- 
- - Secure communications to the REST API on the sensor and on-premises management console.
- 
- - Secure communications between the sensors and an on-premises management console. 
-
-Once installed, the appliance generates a local self-signed certificate to allow preliminary access to the web console. Enterprise SSL, and TLS certificates may be installed using the [`cyberx-xsense-certificate-import`](#cli-commands) command-line tool.
-
- > [!NOTE]
- > For integrations and forwarding rules where the appliance is the client and initiator of the session, specific certificates are used and are not related to the system certificates.  
- >
- >In these cases, the certificates are typically received from the server, or use asymmetric encryption where a specific certificate will be provided to set up the integration.
-
-Appliances may use unique certificate files. If you need to replace a certificate, you have uploaded;
-
-- From version 10.0, the certificate can be replaced from the System Settings menu.
-
-- For versions previous to 10.0, the SSL certificate can be replaced using the command-line tool.
-
-### Update certificates
+For information about creating a certificate, supported certificates and certificate parameters, working with certificate CLI commands, and more see, [Create Certificates](how-to-set-up-your-network.md#create-certificates)
 
 Sensor Administrator users can update certificates.
 
-To update a certificate:  
+**To update the certificate used:** 
 
 1. Select **System Settings**.
 
@@ -144,7 +105,7 @@ To update a certificate:
     - Upload a CRT file and key file and enter a passphrase.
     - Upload a PEM file if necessary.
 
-To change the validation setting:
+**To change the validation setting:**
 
 1. Enable or Disable the **Enable Certificate Validation** toggle.
 
