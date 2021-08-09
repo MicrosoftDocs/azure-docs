@@ -160,4 +160,4 @@ additionalContent: |
   ## Next steps
   
   * [Azure Cosmos DB Gremlin wire protocol support](../gremlin-support.md)
-  * Create, query, and traverse an Azure Cosmos DB graph database using the [Gremlin console](create-graph-gremlin-console.md)
+  * Create, query, and traverse an Azure Cosmos DB graph database using the [Gremlin console](create-graph-console.md)

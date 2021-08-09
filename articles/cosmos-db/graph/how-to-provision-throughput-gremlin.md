@@ -85,7 +85,7 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 ## Azure Resource Manager
 
-Azure Resource Manager templates can be used to provision autoscale throughput on database or container-level resources for all Azure Cosmos DB APIs. See [Azure Resource Manager templates for Azure Cosmos DB](resource-manager-templates-samples.md) for samples.
+Azure Resource Manager templates can be used to provision autoscale throughput on database or container-level resources for all Azure Cosmos DB APIs. See [Azure Resource Manager templates for Azure Cosmos DB](resource-manager-template-samples.md) for samples.
 
 ## Azure CLI
 

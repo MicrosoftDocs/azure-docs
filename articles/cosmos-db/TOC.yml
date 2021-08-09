@@ -1221,78 +1221,78 @@
     - name: Overview
       items:
         - name: What is Gremlin API in Cosmos DB?
-          href: graph-introduction.md
+          href: graph/graph-introduction.md
         - name: Wire protocol support
-          href: gremlin-support.md
+          href: graph/gremlin-support.md
     - name: Quickstarts
       items:
         - name: Gremlin console
-          href: create-graph-console.md
+          href: graph/create-graph-console.md
         - name: .NET
-          href: create-graph-dotnet.md
+          href: graph/create-graph-dotnet.md
         - name: Java
-          href: create-graph-java.md
+          href: graph/create-graph-java.md
         - name: Node.js
-          href: create-graph-nodejs.md
+          href: graph/create-graph-nodejs.md
         - name: Python
-          href: create-graph-python.md
+          href: graph/create-graph-python.md
         - name: PHP
-          href: create-graph-php.md
+          href: graph/create-graph-php.md
     - name: Tutorials
       items:
         - name: 1 - Query data
-          href: tutorial-query-graph.md
+          href: graph/tutorial-query-graph.md
     - name: Concepts
       items:
         - name: FAQ
-          href: gremlin-api-faq.yml
+          href: graph/gremlin-api-faq.yml
         - name: Response headers
-          href: gremlin-headers.md
+          href: graph/gremlin-headers.md
         - name: Limits
-          href: gremlin-limits.md
+          href: vgremlin-limits.md
     - name: How-to guides
       items:
         - name: Graph data modeling
-          href: graph-modeling.md
+          href: graph/graph-modeling.md
         - name: Third-party Graph Modeling solutions
-          href: graph-modeling-tools.md
+          href: graph/graph-modeling-tools.md
         - name: Graph data partitioning
-          href: graph-partitioning.md
+          href: graph/graph-partitioning.md
         - name: Import graph data
-          href: bulk-executor-graph-dotnet.md
+          href: graph/bulk-executor-graph-dotnet.md
         - name: Optimize Gremlin queries
           href: graph/graph-execution-profile.md
         - name: Create a container - Gremlin API
-          href: how-to-create-container-gremlin.md
+          href: graph/how-to-create-container-gremlin.md
         - name: Provision throughput- Gremlin API
           displayName: request units, RUs, RU, collection level
-          href: how-to-provision-throughput-gremlin.md
+          href: graph/how-to-provision-throughput-gremlin.md
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
-          href: find-request-unit-charge-gremlin.md
+          href: graph/find-request-unit-charge-gremlin.md
         - name: Use resource tokens
-          href: how-to-use-resource-tokens-gremlin.md
+          href: graph/how-to-use-resource-tokens-gremlin.md
         - name: Use regional endpoints
-          href: use-regional-gremlin-endpoints.md
+          href: graph/use-regional-endpoints.md
         - name: Access system document properties
-          href: how-to-access-system-properties-gremlin.md
+          href: graph/access-system-properties-gremlin.md
         - name: Visualize graph data
-          href: graph-visualization-partners.md
+          href: graph/graph-visualization-partners.md
         - name: Monitor using Diagnostics Logs
-          href: queries-gremlin.md
+          href: graph/diagnostic-queries-gremlin.md
         - name: Store and manage Spring Data
           href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Manage using Resource Manager templates
-          href: templates-samples-gremlin.md
+          href: graph/resource-manager-template-samples.md
           displayName: ARM
         - name: Manage using PowerShell
-          href: powershell-samples-gremlin.md
+          href: graph/powershell-samples.md
         - name: Manage using Azure CLI
-          href: cli-samples-gremlin.md
+          href: graph/cli-samples.md
     - name: Reference
       items:
         - name: Response Headers
-          href: gremlin-headers.md
+          href: graph/gremlin-headers.md
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: REST resource provider
