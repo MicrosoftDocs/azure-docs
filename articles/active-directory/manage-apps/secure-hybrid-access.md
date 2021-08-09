@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 2/16/2021
 ms.author: davidmu
 ms.collection: M365-identity-device-management
+ms.reviewer: miccohen
 ---
 
 # Secure hybrid access: Secure legacy apps with Azure Active Directory
@@ -72,7 +73,6 @@ The following SDP vendors offer pre-built solutions and detailed guidance for in
 - [Datawiza Access Broker](./add-application-portal-setup-oidc-sso.md)
 
 - [Perimeter 81](../saas-apps/perimeter-81-tutorial.md)
-
 
 - [Silverfort Authentication Platform](./add-application-portal-setup-oidc-sso.md)
 

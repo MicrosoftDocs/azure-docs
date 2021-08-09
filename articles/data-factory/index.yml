@@ -19,8 +19,10 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Data Factory?
+          - text: Introduction to Azure Data Factory
             url: ./introduction.md
+          - text: What's New in Azure Data Factory
+            url: ./whats-new.md
       - linkListType: reference
         links:
           - text: Whitepapers

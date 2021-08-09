@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 01/14/2019
 ms.author: davidmu
 ms.collection: M365-identity-device-management
+ms.reviewer: alamaral
 ---
 
 # Use the AD FS application activity report to migrate applications to Azure AD
@@ -31,15 +32,15 @@ The AD FS application activity data is available to users who are assigned any o
 * Your organization must be currently using AD FS to access applications.
 * Azure AD Connect Health must be enabled in your Azure AD tenant.
 * The Azure AD Connect Health for AD FS agent must be installed.
-   * [Learn more about Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md)
-   * [Get started with setting up Azure AD Connect Health and install the AD FS agent](../hybrid/how-to-connect-health-agent-install.md)
+* [Learn more about Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md)
+* [Get started with setting up Azure AD Connect Health and install the AD FS agent](../hybrid/how-to-connect-health-agent-install.md)
 
->[!IMPORTANT] 
+>[!IMPORTANT]
 >There are a couple reasons you won't see all the applications you are expecting after you have installed Azure AD Connect Health. The AD FS application activity report only shows AD FS relying parties with user logins in the last 30 days. Also, the report won't display Microsoft related relying parties such as Office 365.
 
-## Discover AD FS applications that can be migrated 
+## Discover AD FS applications that can be migrated
 
-The AD FS application activity report is available in the Azure portal under Azure AD **Usage & insights** reporting. The AD FS application activity report analyzes each AD FS application to determine if it can be migrated as-is, or if additional review is needed. 
+The AD FS application activity report is available in the Azure portal under Azure AD **Usage & insights** reporting. The AD FS application activity report analyzes each AD FS application to determine if it can be migrated as-is, or if additional review is needed.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an admin role that has access to AD FS application activity data (global administrator, report reader, security reader, application administrator, or cloud application administrator).
 
@@ -57,7 +58,7 @@ The AD FS application activity report is available in the Azure portal under Azu
 
    * **Additional steps required** means Azure AD doesn't support some of the application's settings, so the application can’t be migrated in its current state.
 
-## Evaluate the readiness of an application for migration 
+## Evaluate the readiness of an application for migration
 
 1. In the AD FS application activity list, click the status in the **Migration status** column to open migration details. You'll see a summary of the configuration tests that passed, along with any potential migration issues.
 
@@ -124,16 +125,12 @@ The following table lists all claim rule tests that are performed on AD FS appli
 ### Can't see all my AD FS applications in the report
 
  If you have installed Azure AD Connect health but you still see the prompt to install it or you don't see all your AD FS applications in the report it may be that you don't have active AD FS applications or your AD FS applications are microsoft application.
- 
+
  The AD FS application activity report lists all the AD FS applications in your organization with active users sign-in in the last 30 days. Also, the report doesn't display microsoft related relying parties in AD FS such as Office 365. For example, relying parties with name 'urn:federation:MicrosoftOnline', 'microsoftonline', 'microsoft:winhello:cert:prov:server' won't show up in the list.
-
-
-
-
 
 ## Next steps
 
-- [Video: How to use the AD FS activity report to migrate an application](https://www.youtube.com/watch?v=OThlTA239lU)
-- [Managing applications with Azure Active Directory](what-is-application-management.md)
-- [Manage access to apps](what-is-access-management.md)
-- [Azure AD Connect federation](../hybrid/how-to-connect-fed-whatis.md)
+* [Video: How to use the AD FS activity report to migrate an application](https://www.youtube.com/watch?v=OThlTA239lU)
+* [Managing applications with Azure Active Directory](what-is-application-management.md)
+* [Manage access to apps](what-is-access-management.md)
+* [Azure AD Connect federation](../hybrid/how-to-connect-fed-whatis.md)

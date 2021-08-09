@@ -2,17 +2,19 @@
 title: Back up Azure Blobs using Azure CLI
 description: Learn how to back up Azure Blobs using Azure CLI.
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 08/06/2021
 ---
 
 # Back up Azure Blobs in a storage account using Azure CLI
 
-This article describes how to back up [Azure Blobs](/azure/backup/blob-backup-overview) using Azure CLI.
+This article describes how to back up [Azure Blobs](./blob-backup-overview.md) using Azure CLI.
 
 > [!IMPORTANT]
 > Support for Azure Blobs backup and restore via CLI is in preview and available as an extension in Az 2.15.0 version and later. The extension is automatically installed when you run the **az dataprotection** commands. [Learn more](/cli/azure/azure-cli-extensions-overview) about extensions.
 
 In this article, you'll learn how to:
+
+- Before you start
 
 - Create a Backup vault
 
@@ -23,6 +25,10 @@ In this article, you'll learn how to:
 - Run an on-demand backup job
 
 For information on the Azure Blobs regions availability, supported scenarios, and limitations, see the [support matrix](blob-backup-support-matrix.md).
+
+## Before you start
+
+See the [prerequisites](/azure/backup/blob-backup-configure-manage#before-you-start) and [support matrix](/azure/backup/blob-backup-support-matrix) before you get started.
 
 ## Create a Backup vault
 

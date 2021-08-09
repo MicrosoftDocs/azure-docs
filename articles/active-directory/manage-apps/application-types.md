@@ -10,19 +10,25 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 01/07/2021
 ms.author: davidmu
+ms.reviewer: alamaral
 ---
 
 # Viewing apps using your Azure AD tenant for identity management
+
 The [Quickstart Series on Application Management](view-applications-portal.md) walks you the basics. In it, you learn how to view all of the apps using your Azure AD tenant for identity management. This article dives a bit deeper into the types of apps you'll find.
 
 ## Why does a specific application appear in my all applications list?
+
 When filtered to **All Applications**, the **All Applications** **List** shows every Service Principal object in your tenant. Service Principal objects can appear in this list in a various ways:
+
 - When you add any application from the application gallery, including:
-   - **Azure AD - Enterprise applications** – Apps added to your tenant using the **Enterprise applications** option on the Azure AD portal. Usually apps integrated using the SAML standard.
-   - **Azure AD - App registrations** – Apps added to your tenant using the **App registrations** option on the Azure AD portal. Usually custom developed apps using the Open ID Connect and OAuth standards.
-   - **Application Proxy Applications** – An application running in your on-premises environment that you want to provide secure single-sign on to externally
+
+  - **Azure AD - Enterprise applications** – Apps added to your tenant using the **Enterprise applications** option on the Azure AD portal. Usually apps integrated using the SAML standard.
+  - **Azure AD - App registrations** – Apps added to your tenant using the **App registrations** option on the Azure AD portal. Usually custom developed apps using the Open ID Connect and OAuth standards.
+  - **Application Proxy Applications** – An application running in your on-premises environment that you want to provide secure single-sign on to externally
 - When signing up for, or signing in to, a third-party application integrated with Azure Active Directory. One example is [Smartsheet](https://app.smartsheet.com/b/home) or [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
 - Microsoft apps such as Microsoft 365.
+- When you use managed identities for Azure resources. For more information, see [Managed identity types](../managed-identities-azure-resources/overview.md#managed-identity-types).
 - When you add a new application registration by creating a custom-developed application using the [Application Registry](../develop/quickstart-register-app.md)
 - When you add a new application registration by creating a custom-developed application using the [V2.0 Application Registration portal](../develop/quickstart-register-app.md)
 - When you add an application, you’re developing using Visual Studio’s [ASP.NET Authentication Methods](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) or [Connected Services](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/)
@@ -34,4 +40,5 @@ When filtered to **All Applications**, the **All Applications** **List** shows e
 Learn more about how, and why, apps are added to your directory, see [How applications are added to Azure AD](../develop/active-directory-how-applications-are-added.md).
 
 ## Next steps
+
 [Managing Applications with Azure Active Directory](what-is-application-management.md)

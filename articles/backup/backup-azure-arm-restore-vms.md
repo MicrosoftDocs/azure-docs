@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 05/01/2021
+ms.date: 08/05/2021
 ---
 # How to restore Azure VM data in Azure portal
 
@@ -114,6 +114,9 @@ After the disk is restored, use the template that was generated as part of the r
 1. In **Restore**, select **Deploy Template** to initiate template deployment.
 
     ![Restore job drill-down](./media/backup-azure-arm-restore-vms/restore-job-drill-down1.png)
+   
+   >[!Note]
+   >For a shared access signature (SAS) that has **Allow storage account key access** set to disabled, the template won't deploy when you select **Deploy Template**.
 
 1. To customize the VM setting provided in the template, select **Edit template**. If you want to add more customizations, select **Edit parameters**.
     - [Learn more](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) about deploying resources from a custom template.
@@ -221,6 +224,51 @@ There are many common scenarios in which you might need to restore VMs.
 **Restore multiple domains in one forest** | We recommend a [forest recovery](/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 
 For more information, see [Back up and restore Active Directory domain controllers](active-directory-backup-restore.md).
+
+## Restore VMs with managed identities
+
+Managed identities eliminate the need for the user to maintain the credentials. Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication.  
+
+Azure Backup offers the flexibility to restore the managed Azure VM with [managed identities](/azure/active-directory/managed-identities-azure-resources/overview). You can choose to select [system-managed identities](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) or user-managed identities as shown in the figure below. This is introduced as one of the input parameters in the [**Restore configuration** blade](/azure/backup/backup-azure-arm-restore-vms#create-a-vm) of Azure VM. Managed identities used as one of the input parameter is only used for accessing the storage accounts, which is used as staging location during restore and not for any other Azure resource controlling. These managed identities have to be associated to the vault.
+
+:::image type="content" source="./media/backup-azure-arm-restore-vms/select-system-managed-identities-or-user-managed-identities.png" alt-text="Screenshot for choice to select  system managed identities or user managed identities.":::
+
+If you choose to select system-assigned or user-assigned managed identities, check for the below actions for managed identity on the target staging Storage Account.
+
+```json
+"permissions": [
+            {
+                "actions": [
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/write"
+                ],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action"
+                ],
+                "notDataActions": []
+            }
+```
+
+Or, add the role assignment on the staging location (Storage Account) to have [Storage account Backup Contributor](/azure/backup/blob-backup-configure-manage#grant-permissions-to-the-backup-vault-on-storage-accounts) and [Storage Blob data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) for the successful restore operation.
+
+:::image type="content" source="./media/backup-azure-arm-restore-vms/add-role-assignment-on-staging-location.png" alt-text="Screenshot for adding the role assignment on the staging location.":::
+
+You can also select the [user-managed identity](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) by providing the input as their MSI Resource ID as provided in the figure below.   
+
+:::image type="content" source="./media/backup-azure-arm-restore-vms/select-user-managed-identity-by-providing-input-as-msi-resource-id.png" alt-text="Screenshot for selecting the user-managed identity by providing the input as their MSI Resource ID.":::
+
+>[!Note]
+>The support is available for only managed VMs, and not supported for classic VMs and unmanaged VMs. For the [storage accounts that are restricted with firewalls](/azure/storage/common/storage-network-security?tabs=azure-portal), system MSI is only supported.
+>
+>Cross Region Restore isn't supported with managed identities.
+>
+>Currently, this is available in all Azure public regions, except Germany West Central and India Central.
 
 ## Track the restore operation
 

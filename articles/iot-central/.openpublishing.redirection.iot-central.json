@@ -197,7 +197,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-add-tiles-to-your-dashboard.md",
-      "redirect_url": "/azure/iot-central/core/howto-add-tiles-to-your-dashboard/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-dashboards/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-add-tiles-to-your-dashboard.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-dashboards/",
       "redirect_document_id": false
     },
     {
@@ -367,7 +372,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-create-personal-dashboards.md",
-      "redirect_url": "/azure/iot-central/core/howto-create-personal-dashboards/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-dashboards/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-create-personal-dashboards.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-dashboards/",
       "redirect_document_id": false
     },
     {
@@ -567,7 +577,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-personalize-dashboard.md",
-      "redirect_url": "/azure/iot-central/core/howto-personalize-dashboard/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-dashboards/",
       "redirect_document_id": false
     },
     {
@@ -1178,6 +1188,11 @@
     {
       "source_path_from_root": "/articles/iot-central/core/howto-monitor-application-health.md",
       "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/government/how-to-configure-connected-field-services.md",
+      "redirect_url": "/azure/iot-central/government/concepts-connectedwastemanagement-architecture#business-applications",
       "redirect_document_id": false
     }
   ]

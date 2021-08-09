@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 03/01/2021
 ms.author: davidmu
-ms.reviewer: baselden
+ms.reviewer: alamaral
 ---
 
 # Moving application authentication from Active Directory Federation Services to Azure Active Directory
@@ -130,7 +130,7 @@ Both AD FS and Azure AD provide token encryption—the ability to encrypt the SA
 For information about Azure AD SAML token encryption and how to configure it, see [How to: Configure Azure AD SAML token encryption](howto-saml-token-encryption.md).  
 
 > [!NOTE]
-> Token encryption is an Azure Active Directory (Azure AD) premium feature. To learn more about Azure AD editions, features, and pricing, see [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+> Token encryption is an Azure Active Directory (Azure AD) premium feature. To learn more about Azure AD editions, features, and pricing, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ### Apps and configurations that can be moved today
 
@@ -149,8 +149,8 @@ The following require additional configuration steps to migrate to Azure AD:
 * Apps with multiple Reply URL endpoints. You configure them in Azure AD using PowerShell or the Azure portal interface.
 * WS-Federation apps such as SharePoint apps that require SAML version 1.1 tokens. You can configure them manually using PowerShell. You can also add a pre-integrated generic template for SharePoint and SAML 1.1 applications from the gallery. We support the SAML 2.0 protocol.
 * Complex claims issuance transforms rules. For information about supported claims mappings, see:
-   *  [Claims mapping in Azure Active Directory](../develop/active-directory-claims-mapping.md).
-   * [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
+  * [Claims mapping in Azure Active Directory](../develop/active-directory-claims-mapping.md).
+  * [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
 
 ### Apps and configurations not supported in Azure AD today
 
@@ -304,7 +304,7 @@ Specify MFA rules for a user or a group in Azure AD:
 
     ‎![Screenshot shows the Grant pane where you can grant access.](media/migrate-adfs-apps-to-azure/mfa-users-groups.png)
 
- #### Example 2: Enforce MFA for unregistered devices
+#### Example 2: Enforce MFA for unregistered devices
 
 Specify MFA rules for unregistered devices in Azure AD:
 

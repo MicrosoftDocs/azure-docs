@@ -24,7 +24,7 @@ You may need to inspect or block traffic from clients to the services exposed vi
 The following limitations apply:
 
 * Network security groups (NSG) are bypassed by traffic coming from private endpoints
-* User-defined routes (UDR) are bypassed by traffic coming from private endpoints
+* User-defined routes (UDR) are bypassed by traffic coming from private endpoints. User-defined routes can be used to override traffic destined for the private endpoint.
 * A single route table can be attached to a subnet
 * A route table supports up to 400 routes
 

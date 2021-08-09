@@ -25,8 +25,8 @@ The Communication Services Web Calling SDK must be used through `https`. For loc
 
 ## Documentation support
 - [Submit issues/bugs on github](https://github.com/Azure/Communication/issues)
-- [Sample Applications](https://docs.microsoft.com/azure/communication-services/samples/overview)
-- [API Reference](https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js&preserve-view=true)
+- [Sample Applications](../../../../samples/overview.md)
+- [API Reference](/javascript/api/azure-communication-services/@azure/communication-calling/?preserve-view=true&view=azure-communication-services-js)
 
 ## Models
 ### Object model
@@ -71,95 +71,88 @@ Use the `on()` method to subscribe to objects' events, and use the `off()` metho
 const { CallClient, VideoStreamRenderer, LocalVideoStream } = require('@azure/communication-calling');
 const { AzureCommunicationTokenCredential } = require('@azure/communication-common');
 const { AzureLogger, setLogLevel } = require("@azure/logger");
+// Set the log level and output
 setLogLevel('verbose');
 AzureLogger.log = (...args) => {
     console.log(...args);
 };
 
+// Calling web sdk objects
 let callAgent;
 let deviceManager;
 let call;
 let incomingCall;
-let camera;
 let localVideoStream;
+let localVideoStreamRenderer;
 
-document.getElementById('initialize-calling-sdk').addEventListener("click", async () => {
+// UI widgets
+let userAccessToken = document.getElementById('user-access-token');
+let calleeAcsUserId = document.getElementById('callee-acs-user-id');
+let initializeCallAgentButton = document.getElementById('initialize-call-agent');
+let startCallButton = document.getElementById('start-call-button');
+let acceptCallButton = document.getElementById('accept-call-button');
+let startVideoButton = document.getElementById('start-video-button');
+let stopVideoButton = document.getElementById('stop-video-button');
+let connectedLabel = document.getElementById('connectedLabel');
+let remoteVideoContainer = document.getElementById('remoteVideoContainer');
+let localVideoContainer = document.getElementById('localVideoContainer');
+
+// Instantiate the Call Agent.
+initializeCallAgentButton.onclick = async () => {
     try {
-        // Instantiate the Call Agent.
-        // For more info on instantiating the Call Agent, see the "Initialize a CallClient instance..." section below.	
         const callClient = new CallClient(); 
-        const userTokenCredential = document.getElementById('user-access-token').value;
-        tokenCredential = new AzureCommunicationTokenCredential(userTokenCredential);
+        tokenCredential = new AzureCommunicationTokenCredential(userAccessToken.value.trim());
         callAgent = await callClient.createCallAgent(tokenCredential)
         // Set up a camera device to use.
         deviceManager = await callClient.getDeviceManager();
         await deviceManager.askDevicePermission({ video: true });
         await deviceManager.askDevicePermission({ audio: true });
-        camera = (await deviceManager.getCameras())[0];
         // Listen for an incoming call to accept.
         callAgent.on('incomingCall', async (args) => {
             try {
                 incomingCall = args.incomingCall;
-                document.getElementById('accept-incoming-call-button').disabled = false;
-                document.getElementById('start-outgoing-call-button').disabled = true;
+                acceptCallButton.disabled = false;
+                startCallButton.disabled = true;
             } catch (error) {
                 console.error(error);
             }
         });
 
-        document.getElementById('start-outgoing-call-button').disabled = false;
-        document.getElementById('initialize-calling-sdk').disabled = true;
+        startCallButton.disabled = false;
+        initializeCallAgentButton.disabled = true;
     } catch(error) {
         console.error(error);
     }
-})
+}
 
 // Start an out-going call.
-// For more info on starting a call, see the "Place a call" section below.
-startCall = async () => {
+startCallButton.onclick = async () => {
     try {
-        const calleeUserId = document.getElementById('callee-acs-user-id-input').value.trim();
-	const videoOptions = camera ? { localVideoStreams: [new LocalVideoStream(camera)] } : undefined;
-        call = callAgent.startCall([{ communicationUserId: calleeUserId }], { videoOptions });
-        await displayLocalVideoStream();
+        const localVideoStream = await createLocalVideoStream();
+        const videoOptions = localVideoStream ? { localVideoStreams: [localVideoStream] } : undefined;
+        call = callAgent.startCall([{ communicationUserId: calleeAcsUserId.value.trim() }], { videoOptions });
         // Subscribe to the call's properties and events.
         subscribeToCall(call);
     } catch (error) {
         console.error(error);
     }
 }
-document.getElementById('start-outgoing-call-button').addEventListener("click", startCall);
 
 // Accept the incoming call.
-// For more info on accepting an incoming call, see the "Receive an incoming call" section below.
-acceptIncomingCall = async () => {
+acceptCallButton.onclick = async () => {
     try {
-        const videoOptions = camera ? { localVideoStreams: [new LocalVideoStream(camera)] } : undefined;
+        const localVideoStream = await createLocalVideoStream();
+        const videoOptions = localVideoStream ? { localVideoStreams: [localVideoStream] } : undefined;
         call = await incomingCall.accept({ videoOptions });
-        await displayLocalVideoStream();
         // Subscribe to the call's properties and events.
         subscribeToCall(call);
     } catch (error) {
         console.error(error);
     }
 }
-document.getElementById('accept-incoming-call-button').addEventListener("click", acceptIncomingCall);
 
-// Display your local video stream preview in your UI
-// For more info on starting a call, see the "Local camera preview" section below.
-displayLocalVideoStream = async() => {
-    try {
-        if (camera) {
-            const videoStreamRenderer = new VideoStreamRenderer(new LocalVideoStream(camera));
-            const view = await videoStreamRenderer.createView();
-            document.getElementById('localVideoContainer').removeAttribute('hidden');
-            document.getElementById('localVideoContainer').appendChild(view.target);
-        }
-    } catch (error) {
-        console.error(error);
-    } 
-}
-
+// Subscribe to a call obj.
+// Listen for property changes and collection udpates.
 subscribeToCall = (call) => {
     try {
         // Inspect the initial call.id value.
@@ -172,15 +165,35 @@ subscribeToCall = (call) => {
         // Inspect the initial call.state value.
         console.log(`Call state: ${call.state}`);
         // Subscribe to call's 'stateChanged' event for value changes.
-        call.on('stateChanged', () => {
+        call.on('stateChanged', async () => {
             console.log(`Call state changed: ${call.state}`);
             if(call.state === 'Connected') {
-                document.getElementById('connectedLabel').removeAttribute('hidden');
+                connectedLabel.hidden = false;
+                acceptCallButton.disabled = true;
+                startCallButton.disabled = true;
+                startVideoButton.disabled = false;
+                stopVideoButton.disabled = false
             } else if (call.state === 'Disconnected') {
-                document.getElementById('connectedLabel').addAttribute('hidden');
+                connectedLabel.hidden = true;
+                startCallButton.disabled = false;
+                console.log(`Call ended, call end reason={code=${call.callEndReason.code}, subCode=${call.callEndReason.subCode}}`);
             }   
         });
 
+        call.localVideoStreams.forEach(async (lvs) => {
+            localVideoStream = lvs;
+            await displayLocalVideoStream();
+        });
+        call.on('localVideoStreamsUpdated', e => {
+            e.added.forEach(async (lvs) => {
+                localVideoStream = lvs;
+                await displayLocalVideoStream();
+            });
+            e.removed.forEach(lvs => {
+               removeLocalVideoStream();
+            });
+        });
+        
         // Inspect the call's current remote participants and subscribe to them.
         call.remoteParticipants.forEach(remoteParticipant => {
             subscribeToRemoteParticipant(remoteParticipant);
@@ -202,6 +215,8 @@ subscribeToCall = (call) => {
     }
 }
 
+// Subscribe to a remote participant obj.
+// Listen for property changes and collection udpates.
 subscribeToRemoteParticipant = (remoteParticipant) => {
     try {
         // Inspect the initial remoteParticipant.state value.
@@ -209,13 +224,6 @@ subscribeToRemoteParticipant = (remoteParticipant) => {
         // Subscribe to remoteParticipant's 'stateChanged' event for value changes.
         remoteParticipant.on('stateChanged', () => {
             console.log(`Remote participant state changed: ${remoteParticipant.state}`);
-        });
-
-        // Inspect the initial remoteParticipant.isMuted value.
-        console.log(`Remote participant isMuted: ${remoteParticipant.isMuted}`);
-        // Subscribe to remoteParticipant's 'isMutedChanged' event for value changes.
-        remoteParticipant.on('isMutedChanged', () => {
-            console.log(`Remote participant isMuted changed: ${remoteParticipant.isMuted}`);
         });
 
         // Inspect the remoteParticipants's current videoStreams and subscribe to them.
@@ -239,17 +247,19 @@ subscribeToRemoteParticipant = (remoteParticipant) => {
     }
 }
 
+// Subscribe to a remote participant's remote video stream obj.
+// Listen for property changes and collection udpates.
+// When their remote video streams become available, display them in the UI.
 subscribeToRemoteVideoStream = async (remoteVideoStream) => {
     // Create a video stream renderer for the remote video stream.
     let videoStreamRenderer = new VideoStreamRenderer(remoteVideoStream);
     let view;
-    const remoteVideoContainer = document.getElementById('remoteVideoContainer');
     const renderVideo = async () => {
         try {
             // Create a renderer view for the remote video stream.
             view = await videoStreamRenderer.createView();
             // Attach the renderer view to the UI.
-            remoteVideoContainer.removeAttribute('hidden');
+            remoteVideoContainer.hidden = false;
             remoteVideoContainer.appendChild(view.target);
         } catch (e) {
             console.warn(`Failed to createView, reason=${e.message}, code=${e.code}`);
@@ -275,10 +285,62 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
         await renderVideo();
     }
 }
+
+// Start your local video stream.
+// This will send your local video stream to remote participants so they can view it.
+startVideoButton.onclick = async () => {
+    try {
+        const localVideoStream = await createLocalVideoStream();
+        await call.startVideo(localVideoStream);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+// Stop your local video stream.
+// This will stop your local video stream from being sent to remote participants.
+stopVideoButton.onclick = async () => {
+    try {
+        await call.stopVideo(localVideoStream);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+// Create a local video stream for your camera device
+createLocalVideoStream = async () => {
+    const camera = (await deviceManager.getCameras())[0];
+    if (camera) {
+        return new LocalVideoStream(camera);
+    } else {
+        console.error(`No camera device found on the system`);
+    }
+}
+
+// Display your local video stream preview in your UI
+displayLocalVideoStream = async () => {
+    try {
+        localVideoStreamRenderer = new VideoStreamRenderer(localVideoStream);
+        const view = await localVideoStreamRenderer.createView();
+        localVideoContainer.hidden = false;
+        localVideoContainer.appendChild(view.target);
+    } catch (error) {
+        console.error(error);
+    } 
+}
+
+// Remove your local video stream preview from your UI
+removeLocalVideoStream = async() => {
+    try {
+        localVideoStreamRenderer.dispose();
+        localVideoContainer.hidden = true;
+    } catch (error) {
+        console.error(error);
+    } 
+}
 ```
 
 An HTML example code that can use a bundle generated from the above JavaScript example (`client.js`).
-
 ```html
 <!-- index.html -->
 <!DOCTYPE html>
@@ -292,20 +354,24 @@ An HTML example code that can use a bundle generated from the above JavaScript e
             type="text"
             placeholder="User access token"
             style="margin-bottom:1em; width: 500px;"/>
-        <button id="initialize-calling-sdk" type="button">Initialize Calling SDK</button>
-        <input id="callee-acs-user-id-input"
+        <button id="initialize-call-agent" type="button">Initialize Call Agent</button>
+        <br>
+        <br>
+        <input id="callee-acs-user-id"
             type="text"
             placeholder="Enter callee's ACS user identity in format: '8:acs:resourceId_userId'"
             style="margin-bottom:1em; width: 500px; display: block;"/>
-        <button id="start-outgoing-call-button" type="button" disabled="true">Start Call</button>
-        <button id="accept-incoming-call-button" type="button" disabled="true">Accept Call</button>
+        <button id="start-call-button" type="button" disabled="true">Start Call</button>
+        <button id="accept-call-button" type="button" disabled="true">Accept Call</button>
+        <button id="start-video-button" type="button" disabled="true">Start Video</button>
+        <button id="stop-video-button" type="button" disabled="true">Stop Video</button>
         <br>
         <br>
         <div id="connectedLabel" style="color: #13bb13;" hidden>Call is connected!</div>
         <br>
-        <div id="remoteVideoContainer" style="width: 25%;" hidden>Remote participants' video streams:</div>
+        <div id="remoteVideoContainer" style="width: 40%;" hidden>Remote participants' video streams:</div>
         <br>
-	<div id="localVideoContainer" style="width: 25%;" hidden>Local video stream:</div>
+        <div id="localVideoContainer" style="width: 30%;" hidden>Local video stream:</div>
         <!-- points to the bundle generated from client.js -->
         <script src="./bundle.js"></script>
     </body>
@@ -630,7 +696,10 @@ To stop local video, pass the `localVideoStream` instance that's available in th
 
 ```js
 await call.stopVideo(localVideoStream);
+// or
+await call.stopVideo(call.localVideoStreams[0]);
 ```
+Note that there are 4 apis in which you can pass a localVideoStream instance to start video in a call, callAgent.startCall() api, callAgent.join() api, call.accept() api, and call.startVideo() api. To the call.stopVideo() api, you must pass that same localVideoStream instance that you passed in those 4 apis.
 
 You can switch to a different camera device while a video is sending by invoking `switchSource` on a `localVideoStream` instance:
 
@@ -641,7 +710,6 @@ localVideoStream.switchSource(camera);
 ```
 
 If the specified video device is being used by another process, or if it is disabled in the system:
-
 - While in a call, if your video is off and you start video using the call.startVideo() api, this API will throw with a SourceUnavailableError and a cameraStartFiled: true call diagnostic will be raised.
 - A call to the localVideoStream.switchSource() api will cause a cameraStartFailed: true call diagnostic to be raised.
 See Call Diagnostics section to see how to handle call diagnostics.
@@ -926,7 +994,7 @@ console.log(result.video);
 - The 'videoDevicesUpdated' event fires when video devices are plugging-in/unplugged.
 - The 'audioDevicesUpdated' event fires when audio devices are plugged
 - When the DeviceManager is created, at first it does not know about any devices if permissions have not been granted yet and so initially it's device lists are empty. If we then call the DeviceManager.askPermission() API, the user is prompted for device access and if the user clicks on 'allow' to grant the access, then the device manager will learn about the devices on the system, update it's device lists and emit the 'audioDevicesUpdated' and 'videoDevicesUpdated' events. Lets say we then refresh the page and create device manager, the device manager will be able to learn about devices because user has already previously granted access, and so it will initially it will have it's device lists filled and it will not emit 'audioDevicesUpdated' nor 'videoDevicesUpdated' events.
-- Speaker enumeration/selection is not supported on Android, iOS, nor macOS Safari.
+- Speaker enumeration/selection is not supported on Android Cheome, iOS Safari, nor macOS Safari.
 
 ## Call Feature Extensions
 
@@ -1174,7 +1242,7 @@ subscribeToRemoteVideoStream = async (stream: RemoteVideoStream, participant: Re
 Call diagnostics is an extended feature of the core `Call` API and allows you to diagnose an active call.
 
 ```js
-const callQualityApi = call.api(Features.Diagnostics);
+const callDiagnostics = call.api(Features.Diagnostics);
 ```
 
 The following users facing diagnostics are available:
@@ -1230,13 +1298,13 @@ const diagnosticChangedListener = (diagnosticInfo: NetworkDiagnosticChangedEvent
     }
 };
 
-call.api(Features.Diagnostics).network.on('diagnosticChanged', diagnosticChangedListener);
-call.api(Features.Diagnostics).media.on('diagnosticChanged', diagnosticChangedListener);
+callDiagnostics.network.on('diagnosticChanged', diagnosticChangedListener);
+callDiagnostics.media.on('diagnosticChanged', diagnosticChangedListener);
 ```
 
 - Get the latest call diagnostic values that were raised. If a diagnostic is undefined, that is because it was never raised.
 ```js
-const latestNetworkDiagnostics = call.api(Features.Diagnostics).network.getLatest();
+const latestNetworkDiagnostics = callDiagnostics.network.getLatest();
 	
 console.log(`noNetwork: ${latestNetworkDiagnostics.noNetwork.value}, ` +
     `value type = ${latestNetworkDiagnostics.noNetwork.valueType}`);
@@ -1248,7 +1316,7 @@ console.log(`networkReceiveQuality: ${latestNetworkDiagnostics.networkReceiveQua
     `value type = ${latestNetworkDiagnostics.networkReceiveQuality.valueType}`);
 
 
-const latestMediaDiagnostics = call.api(Features.Diagnostics).media.getLatest();
+const latestMediaDiagnostics = callDiagnostics.media.getLatest();
 	
 console.log(`speakingWhileMicrophoneIsMuted: ${latestMediaDiagnostics.speakingWhileMicrophoneIsMuted.value}, ` +
     `value type = ${latestMediaDiagnostics.speakingWhileMicrophoneIsMuted.valueType}`);

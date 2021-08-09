@@ -8,6 +8,8 @@
     href: core/overview-iot-central-tour.md
   - name: Recent updates
     items:
+    - name: June 2021 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-june-2021/
     - name: May 2021 new and updated features
       href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-may-2021/
     - name: April 2021 new and updated features
@@ -226,8 +228,8 @@
           href: core/howto-connect-rigado-cascade-500.md
     - name: Build integrated solutions
       items:
-        - name: Add tiles to your dashboard
-          href: core/howto-add-tiles-to-your-dashboard.md
+        - name: Create dashboards
+          href: core/howto-manage-dashboards.md
         - name: Use location data
           href: core/howto-use-location-data.md
         - name: Configure rules
@@ -250,8 +252,6 @@
           href: core/howto-connect-powerbi.md
         - name: Connect other IoT clouds
           href: core/howto-build-iotc-device-bridge.md
-        - name: Connect your application with Dynamics 365 Field Services
-          href: government/how-to-configure-connected-field-services.md
     - name: Use the REST API
       items:
         - name: Authenticate and authorize REST API calls
@@ -286,20 +286,16 @@
           href: core/howto-manage-iot-central-from-cli.md
         - name: Manage from CSP portal
           href: core/howto-create-and-manage-applications-csp.md
-    - name: Personalize your solution
-      items:
-        - name: Create a personal dashboard
-          href: core/howto-create-personal-dashboards.md
-        - name: Manage your personal preferences
-          href: core/howto-manage-preferences.md
-        - name: Toggle live chat
-          href: core/howto-show-hide-chat.md
     - name: Troubleshoot
       items:
       - name: Device connections
         href: core/troubleshoot-connection.md
     - name: FAQ
-      href: core/howto-faq.md
+      href: core/howto-faq.yml
+    - name: Manage your personal preferences
+      href: core/howto-manage-preferences.md
+    - name: Toggle live chat
+      href: core/howto-show-hide-chat.md
 
 - name: Reference
   items:
@@ -327,7 +323,7 @@
     - name: IoT solution accelerators
       href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
-      href: ../iot-pnp/index.yml
+      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
     - name: Time Series Insights

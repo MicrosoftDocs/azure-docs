@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2021
+ms.date: 07/12/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -21,11 +21,11 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ### GA release updates
 
-* General availability for Text Analytics for health for both containers and hosted API (/health).
-* General availability for Opinion Mining.
-* General availability for PII extraction and redaction.
-* General availability for Asynchronous (`/analyze`) endpoint.
-* Updated [quickstart](quickstarts/client-libraries-rest-api.md) examples. 
+* General availability for [Text Analytics for health](how-tos/text-analytics-for-health.md?tabs=ner) for both containers and hosted API (/health).
+* General availability for [Opinion Mining](how-tos/text-analytics-how-to-sentiment-analysis.md?tabs=version-3-1#opinion-mining).
+* General availability for [PII extraction and redaction](how-tos/text-analytics-how-to-entity-linking.md?tabs=version-3-1#personally-identifiable-information-pii).
+* General availability for [Asynchronous (`/analyze`) endpoint](how-tos/text-analytics-how-to-call-api.md?tabs=synchronous#using-the-api-asynchronously).
+* Updated [quickstart](quickstarts/client-libraries-rest-api.md) examples with new SDK. 
 
 ## June 2021
 

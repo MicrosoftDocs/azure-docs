@@ -227,6 +227,14 @@ Update your container spec to reference your *PersistentVolumeClaim* and update 
       claimName: azurefile
 ```
 
+As the pod spec can't be updated in place, use `kubectl` commands to delete, and then re-create the pod:
+
+```console
+kubectl delete pod mypod
+
+kubectl apply -f azure-files-pod.yaml
+```
+
 ## Next steps
 
 For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].

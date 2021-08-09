@@ -26,7 +26,7 @@ SQL engine build 15.0.2000.1559
 
 ## Azure SQL Edge 1.0.3
 
-SQL engine build 15.0.2000.1554
+SQL engine build 15.0.2000.1557
 
 ### Fixes
 

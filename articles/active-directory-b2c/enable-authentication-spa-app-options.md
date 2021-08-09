@@ -1,6 +1,6 @@
 ---
-title: Enable spa application options using Azure Active Directory B2C
-description:  Enable the use of spa application options by using several ways.
+title: Enable SPA application options by using Azure Active Directory B2C
+description:  This article discusses several ways to enable the use of SPA applications.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -13,15 +13,17 @@ ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
 
-# Configure authentication options in a Single Page application using Azure Active Directory B2C
+# Configure authentication options in a single-page application by using Azure AD B2C
 
-This article describes ways you can customize and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your Single Page Application. Before you start, familiarize yourself with the following article: [Configure authentication in a sample web application](configure-authentication-sample-spa-app.md).
+This article describes how to customize and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your single-page application (SPA). 
+
+Before you start, familiarize yourself with the following article: [Configure authentication in a sample web application](configure-authentication-sample-spa-app.md).
 
 [!INCLUDE [active-directory-b2c-app-integration-custom-domain](../../includes/active-directory-b2c-app-integration-custom-domain.md)]
 
-To use a custom domain and your tenant ID in the authentication URL, follow the guidance in [Enable custom domains](custom-domain.md). Find your MSAL configuration object and change the **authorities** and **knownAuthorities** to use your custom domain name and tenant ID.
+To use a custom domain and your tenant ID in the authentication URL, follow the guidance in [Enable custom domains](custom-domain.md). Find your Microsoft Authentication Library (MSAL) configuration object and change the *authorities* and *knownAuthorities* to use your custom domain name and tenant ID.
 
-The following JavaScript shows the MSAL config object before the change: 
+The following JavaScript code shows the MSAL configuration object *before* the change: 
 
 ```Javascript
 const msalConfig = {
@@ -35,7 +37,7 @@ const msalConfig = {
 }
 ```  
 
-The following JavaScript shows the MSAL config object after the change: 
+The following JavaScript code shows the MSAL configuration object *after* the change: 
 
 ```Javascript
 const msalConfig = {
@@ -51,8 +53,8 @@ const msalConfig = {
 
 [!INCLUDE [active-directory-b2c-app-integration-login-hint](../../includes/active-directory-b2c-app-integration-login-hint.md)]
 
-1. If you're using a custom policy, add the required input claim as described in [Set up direct sign-in](direct-signin.md#prepopulate-the-sign-in-name). 
-1. Create an object to store the **login_hint** and pass this object into the **MSAL loginPopup()** method.
+1. If you're using a custom policy, add the required input claim, as described in [Set up direct sign-in](direct-signin.md#prepopulate-the-sign-in-name). 
+1. Create an object to store the **login_hint**, and pass this object into the **MSAL loginPopup()** method.
 
     ```javascript
     let loginRequest = {
@@ -65,7 +67,7 @@ const msalConfig = {
 [!INCLUDE [active-directory-b2c-app-integration-domain-hint](../../includes/active-directory-b2c-app-integration-domain-hint.md)]
 
 1. Check the domain name of your external identity provider. For more information, see [Redirect sign-in to a social provider](direct-signin.md#redirect-sign-in-to-a-social-provider). 
-1. Create an object to store **extraQueryParameters** and pass this object into the **MSAL loginPopup()** method.
+1. Create an object to store **extraQueryParameters**, and pass this object into the **MSAL loginPopup()** method.
 
     ```javascript
     let loginRequest = {
@@ -77,8 +79,8 @@ const msalConfig = {
 
 [!INCLUDE [active-directory-b2c-app-integration-ui-locales](../../includes/active-directory-b2c-app-integration-ui-locales.md)]
 
-1. [Configure Language customization](language-customization.md).
-1. Create an object to store **extraQueryParameters** and pass this object into the **MSAL loginPopup()** method.
+1. [Configure language customization](language-customization.md).
+1. Create an object to store **extraQueryParameters**, and pass this object into the **MSAL loginPopup()** method.
 
     ```javascript
     let loginRequest = {
@@ -91,7 +93,7 @@ const msalConfig = {
 [!INCLUDE [active-directory-b2c-app-integration-custom-parameters](../../includes/active-directory-b2c-app-integration-custom-parameters.md)]
 
 1. Configure the [ContentDefinitionParameters](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri) element.
-1. Create an object to store **extraQueryParameters** and pass this object into the **MSAL loginPopup()** method.
+1. Create an object to store **extraQueryParameters**, and pass this object into the **MSAL loginPopup()** method.
 
     ```javascript
     let loginRequest = {
@@ -104,7 +106,7 @@ const msalConfig = {
 [!INCLUDE [active-directory-b2c-app-integration-id-token-hint](../../includes/active-directory-b2c-app-integration-id-token-hint.md)]
 
 1. In your custom policy, define an [ID token hint technical profile](id-token-hint.md).
-1. Create an object to store **extraQueryParameters** and pass this object into the **MSAL loginPopup()** method.
+1. Create an object to store **extraQueryParameters**, and pass this object into the **MSAL loginPopup()** method.
 
     ```javascript
     let loginRequest = {
@@ -114,15 +116,15 @@ const msalConfig = {
     myMSALObj.loginPopup(loginRequest);
     ```
 
-## Enable Single Logout
+## Enable single logout
 
-Single logout in Azure AD B2C uses OpenId Connect front channel logout to make logout requests to all applications the user has signed into through Azure AD B2C.
+Single logout in Azure AD B2C uses OpenId Connect front-channel logout to make logout requests to all applications the user has signed into through Azure AD B2C.
 
-These logout requests are made from the Azure AD B2C logout page, in a hidden Iframe. The Iframes will make HTTP requests to all of the front channel logout endpoints registered for the apps Azure AD B2C has recorded as being logged in. 
+These logout requests are made from the Azure AD B2C logout page, in a hidden Iframe. The Iframes make HTTP requests to all the front-channel logout endpoints registered for the apps that Azure AD B2C has recorded as being logged in. 
 
-Your logout endpoint for each application must call the **MSAL logout()** method. MSAL must also be explicitly configured to execute within an Iframe in this scenario by setting `allowRedirectInIframe` to `true`.
+Your logout endpoint for each application must call the **MSAL logout()** method. You must also explicitly configure MSAL to run within an Iframe in this scenario by setting `allowRedirectInIframe` to `true`.
 
-See the code sample below which sets `allowRedirectInIframe` to `true`:
+The following code sample sets `allowRedirectInIframe` to `true`:
 
 ```javascript
 const msalConfig = {
@@ -148,4 +150,4 @@ async function logoutSilent(MSAL) {
 
 ## Next steps
 
-- Learn more: [MSAL.js configuration options](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md)
+Learn more about [MSAL.js configuration options](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md).

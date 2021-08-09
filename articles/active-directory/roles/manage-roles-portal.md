@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 06/29/2021
+ms.date: 07/15/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -34,7 +34,7 @@ Follow these steps to assign Azure AD roles using the Azure portal. Your experie
 
 ### Assign a role
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
 1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
 
@@ -58,7 +58,7 @@ If you have [Azure AD Privileged Identity Management (PIM)](../privileged-identi
 
 Follow these steps to assign roles using the [Roles and administrators](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) page. If you want to assign roles using the [Privileged Identity Management](https://portal.azure.com/#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) page, see [Assign Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
 1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
 
@@ -157,11 +157,17 @@ If PIM is enabled, you have additional capabilities, such as making a user eligi
     ```
 
 ## Microsoft Graph API
-In this example, a security principal with objectID `f8ca5a85-489a-49a0-b555-0a6d81e56f0d` is assigned Billing Administrator role (role definition ID `b0f54661-2d74-4c50-afa3-1ec803f12efe`) at tenant scope. If you want to see the list of immutable role template IDs of all built-in roles, see this page [Azure AD built-in roles](permissions-reference.md)
+
+Follow these instructions to assign a role using the Microsoft Graph API in [Graph Explorer](https://aka.ms/ge).
+
+### Assign a role
+
+In this example, a security principal with objectID `f8ca5a85-489a-49a0-b555-0a6d81e56f0d` is assigned the Billing Administrator role (role definition ID `b0f54661-2d74-4c50-afa3-1ec803f12efe`) at tenant scope. If you want to see the list of immutable role template IDs of all built-in roles, see [Azure AD built-in roles](permissions-reference.md).
+
 1. Sign in to the [Graph Explorer](https://aka.ms/ge).
 2. Select **POST** as the HTTP method from the dropdown. 
 3. Select the API version to **beta**.
-4. Add following details to the URL and Request Body and select **Run query**.
+4. Use the [roleAssignments](/graph/api/rbacapplication-post-roleassignments) API to assign roles. Add following details to the URL and Request Body and select **Run query**.
 
 ```HTTP
 POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
@@ -173,6 +179,77 @@ Content-type: application/json
     "principalId": "f8ca5a85-489a-49a0-b555-0a6d81e56f0d",
     "directoryScopeId": "/"
 }
+```
+
+### Assign a role using PIM
+
+In this example, a security principal with objectID `f8ca5a85-489a-49a0-b555-0a6d81e56f0d` is assigned a time-bound eligible role assignment to Billing Administrator (role definition ID `b0f54661-2d74-4c50-afa3-1ec803f12efe`) for 180 days.
+
+1. Sign in to the [Graph Explorer](https://aka.ms/ge).
+2. Select **POST** as the HTTP method from the dropdown. 
+3. Select the API version to **beta**.
+4. Add following details to the URL and Request Body and select **Run query**.
+
+```HTTP
+POST https://graph.microsoft.com/beta/rolemanagement/directory/roleEligibilityScheduleRequests
+
+Content-type: application/json
+
+{
+    "action": "AdminAssign",
+    "justification": "for managing admin tasks",
+    "directoryScopeId": "/",
+    "principalId": "f8ca5a85-489a-49a0-b555-0a6d81e56f0d",
+    "roleDefinitionId": "b0f54661-2d74-4c50-afa3-1ec803f12efe",
+    "scheduleInfo": {
+        "startDateTime": "2021-07-15T19:15:08.941Z",
+        "expiration": {
+            "type": "AfterDuration",
+            "duration": "PT180D"
+        }
+    }
+}
+
+```
+
+In the following example, a security principal is assigned a permanent eligible role assignment to Billing Administrator.
+
+```HTTP
+POST https://graph.microsoft.com/beta/rolemanagement/directory/roleEligibilityScheduleRequests
+
+Content-type: application/json
+
+{
+    "action": "AdminAssign",
+    "justification": "for managing admin tasks",
+    "directoryScopeId": "/",
+    "principalId": "f8ca5a85-489a-49a0-b555-0a6d81e56f0d",
+    "roleDefinitionId": "b0f54661-2d74-4c50-afa3-1ec803f12efe",
+    "scheduleInfo": {
+        "startDateTime": "2021-07-15T19:15:08.941Z",
+        "expiration": {
+            "type": "NoExpiration"
+        }
+    }
+}
+
+```
+
+To activate the role assignment, use the following API.
+
+```HTTP
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentScheduleRequests
+
+Content-type: application/json
+
+{
+    "action": "SelfActivate",
+    "justification": "activating role assignment for admin privileges",
+    "roleDefinitionId": "b0f54661-2d74-4c50-afa3-1ec803f12efe",
+    "directoryScopeId": "/",
+    "principalId": "f8ca5a85-489a-49a0-b555-0a6d81e56f0d"
+}
+
 ```
 
 ## Next steps

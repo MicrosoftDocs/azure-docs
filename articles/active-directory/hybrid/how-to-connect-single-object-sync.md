@@ -53,7 +53,7 @@ The HTML report has the following:
 
 In order to use the Single Object Sync tool, you will need to use the following:  
  - 2021 March release ([1.6.4.0](reference-connect-version-history.md#1640)) of Azure AD Connect or later.
- -  [PowerShell 5.0](https://docs.microsoft.com/powershell/scripting/windows-powershell/whats-new/what-s-new-in-windows-powershell-50?view=powershell-7.1)
+ -  [PowerShell 5.0](/powershell/scripting/windows-powershell/whats-new/what-s-new-in-windows-powershell-50?view=powershell-7.1)
 
 ### Run the Single Object Sync tool 
 

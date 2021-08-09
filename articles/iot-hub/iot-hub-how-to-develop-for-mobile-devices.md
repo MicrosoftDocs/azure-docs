@@ -24,7 +24,7 @@ Azure IoT Hub C SDK is written in C99 for maximum portability to various platfor
 
 These documentations walk through how to develop a device application or service application on an iOS device:
 
-* [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-ios.md)  
+* [Quickstart: Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md)  
 * [Send messages from the cloud to your device with IoT hub](iot-hub-ios-swift-c2d.md) 
 
 ### Develop with Azure IoT Hub CocoaPod libraries
@@ -42,7 +42,7 @@ Azure IoT Hub Java SDK supports Android platform.
 
 These documentations walk through how to develop a device application or service application on an Android device using Gradle and Android Studio:
 
-* [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-android.md)  
+* [Quickstart: Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md)  
 * [Quickstart: Control a device](quickstart-control-device-android.md) 
 
 ## Next steps

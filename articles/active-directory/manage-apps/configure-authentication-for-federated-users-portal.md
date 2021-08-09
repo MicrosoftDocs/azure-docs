@@ -12,6 +12,7 @@ ms.date: 02/12/2021
 ms.author: davidmu
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
+ms.reviewer: hirsin
 ---
 
 # Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy
@@ -249,7 +250,7 @@ To check which applications have HRD policy configured, use the **Get-AzureADPol
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
-#### Step 5: You're done!
+#### Step 5: You're done
 
 Try the application to check that the new policy is working.
 

@@ -2,7 +2,7 @@
 title: Log alerts from Container insights | Microsoft Docs
 description: This article describes how to create custom log alerts for memory and CPU utilization from Container insights.
 ms.topic: conceptual
-ms.date: 01/05/2021
+ms.date: 07/29/2021
 
 ---
 
@@ -18,13 +18,27 @@ Container insights monitors the performance of container workloads that are depl
 
 To alert for high CPU or memory utilization, or low free disk space on cluster nodes, use the queries that are provided to create a metric alert or a metric measurement alert. While metric alerts have lower latency than log alerts, log alerts provide advanced querying and greater sophistication. Log alert queries compare a datetime to the present by using the *now* operator and going back one hour. (Container insights stores all dates in Coordinated Universal Time (UTC) format.)
 
+> [!IMPORTANT]
+> Most alert rules have a cost that's dependent on the type of rule, how many dimensions it includes, and how frequently it's run. Refer to **Alert rules** in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) before you create any alert rules.
+
 If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../alerts/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](../alerts/alerts-unified-log.md). For more about metric alerts, see [Metric alerts in Azure Monitor](../alerts/alerts-metric-overview.md).
 
-## Resource utilization log search queries
+## Log query measurements
+Log query alerts can perform two different measurements of the result of a log query, each of which support distinct scenarios for monitoring virtual machines.
 
-The queries in this section support each alerting scenario. They're used in step 7 of the [create alert](#create-an-alert-rule) section of this article.
+[Metric measurement](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) create a separate alert for each record in the query results that has a numeric value that exceeds a threshold defined in the alert rule. These are ideal for numeric data such as CPU.
 
-The following query calculates average CPU utilization as an average of member nodes' CPU utilization every minute.  
+[Number of results](../alerts/alerts-unified-log.md#count-of-the-results-table-rows) create a single alert when a query returns at least a specified number of records. These are ideal for non-numeric data such or for analyzing performance trends across multiple computers. You may also choose this strategy if you want to minimize your number of alerts or possibly create an alert only when multiple components have the same error condition.
+
+> [!NOTE]
+> Resource-centric log alert rules, currently in public preview, will simplify log query alerts and replace the functionality currently provided by metric measurement queries. You can use the AKS cluster as a target for the rule which will better identify it as the affected resource. When resource-center log query alerts become generally available, the guidance in this scenario will be updated.
+
+## Create a log query alert rule
+[Comparison of log query alert measures](../vm/monitor-virtual-machine-alerts.md#comparison-of-log-query-alert-measures) provides a complete walkthrough of log query alert rules for each type of measurement, including a comparison of the log queries supporting each. You can use these same processes to create alert rules for AKS clusters using queries similar to the ones in this article.
+
+## Resource utilization 
+
+**Average CPU utilization as an average of member nodes' CPU utilization every minute (metric measurement)**
 
 ```kusto
 let endDateTime = now();
@@ -59,7 +73,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 
-The following query calculates average memory utilization as an average of member nodes' memory utilization every minute.
+**Average memory utilization as an average of member nodes' memory utilization every minute (metric measurement)**
 
 ```kusto
 let endDateTime = now();
@@ -93,10 +107,12 @@ KubeNodeInventory
 | project ClusterName, Computer, TimeGenerated, UsagePercent = UsageValue * 100.0 / LimitValue
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
+
+
 >[!IMPORTANT]
 >The following queries use the placeholder values \<your-cluster-name> and \<your-controller-name> to represent your cluster and controller. Replace them with values specific to your environment when you set up alerts.
 
-The following query calculates the average CPU utilization of all containers in a controller as an average of CPU utilization of every container instance in a controller every minute. The measurement is a percentage of the limit set up for a container.
+**Average CPU utilization of all containers in a controller as an average of CPU utilization of every container instance in a controller every minute (metric measurement)**
 
 ```kusto
 let endDateTime = now();
@@ -136,7 +152,7 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-The following query calculates the average memory utilization of all containers in a controller as an average of memory utilization of every container instance in a controller every minute. The measurement is a percentage of the limit set up for a container.
+**Average memory utilization of all containers in a controller as an average of memory utilization of every container instance in a controller every minute (metric measurement)**
 
 ```kusto
 let endDateTime = now();
@@ -176,7 +192,9 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-The following query returns all nodes and counts that have a status of *Ready* and *NotReady*.
+## Resource availability 
+
+**Nodes and counts that have a status of Ready and NotReady (metric measurement)**
 
 ```kusto
 let endDateTime = now();
@@ -269,38 +287,29 @@ InsightsMetrics
 | where AggregatedValue >= 90
 ```
 
-## Create an alert rule
 
-This section walks through the creation of a metric measurement alert rule using performance data from Container insights. You can use this basic process with a variety of log queries to alert on different performance counters. Use one of the log search queries provided earlier to start with. To create using an ARM template, see [Samples of Log alert creation using Azure Resource Template](../alerts/alerts-log-create-templates.md).
 
->[!NOTE]
->The following procedure to create an alert rule for container resource utilization requires you to switch to a new log alerts API as described in [Switch API preference for log alerts](../alerts/alerts-log-api-switch.md).
->
+**Individual container restarts (number of results)**<br>
+Alerts when the individual system container restart count exceeds a threshold for last 10 minutes.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the Azure portal, search for and select **Log Analytics workspaces**.
-3. In your list of Log Analytics workspaces, select the workspace supporting Container insights. 
-4. In the pane on the left side, select **Logs** to open the Azure Monitor logs page. You use this page to write and execute Azure log queries.
-5. On the **Logs** page, paste one of the [queries](#resource-utilization-log-search-queries) provided earlier into the **Search query** field and then select **Run** to validate the results. If you do not perform this step, the **+New alert** option is not available to select.
-6. Select **+New alert** to create a log alert.
-7. In the **Condition** section, select the **Whenever the Custom log search is \<logic undefined>** pre-defined custom log condition. The **custom log search** signal type is automatically selected because we're creating an alert rule directly from the Azure Monitor logs page.  
-8. Paste one of the [queries](#resource-utilization-log-search-queries) provided earlier into the **Search query** field.
-9. Configure the alert as follows:
-
-    1. From the **Based on** drop-down list, select **Metric measurement**. A metric measurement creates an alert for each object in the query that has a value above our specified threshold.
-    1. For **Condition**, select **Greater than**, and enter **75** as an initial baseline **Threshold** for the CPU and memory utilization alerts. For the low disk space alert, enter **90**. Or enter a different value that meets your criteria.
-    1. In the **Trigger Alert Based On** section, select **Consecutive breaches**. From the drop-down list, select **Greater than**, and enter **2**.
-    1. To configure an alert for container CPU or memory utilization, under **Aggregate on**, select **ContainerName**. To configure for cluster node low disk alert, select **ClusterId**.
-    1. In the **Evaluated based on** section, set the **Period** value to **60 minutes**. The rule will run every 5 minutes and return records that were created within the last hour from the current time. Setting the time period to a wide window accounts for potential data latency. It also ensures that the query returns data to avoid a false negative in which the alert never fires.
-
-10. Select **Done** to complete the alert rule.
-11. Enter a name in the **Alert rule name** field. Specify a **Description** that provides details about the alert. And select an appropriate severity level from the options provided.
-12. To immediately activate the alert rule, accept the default value for **Enable rule upon creation**.
-13. Select an existing **Action Group** or create a new group. This step ensures that the same actions are taken every time that an alert is triggered. Configure based on how your IT or DevOps operations team  manages incidents.
-14. Select **Create alert rule** to complete the alert rule. It starts running immediately.
+ 
+```kusto
+let _threshold = 10m; 
+let _alertThreshold = 2;
+let Timenow = (datetime(now) - _threshold); 
+let starttime = ago(5m); 
+KubePodInventory
+| where TimeGenerated >= starttime
+| where Namespace in ('default', 'kube-system') // the namespace filter goes here
+| where ContainerRestartCount > _alertThreshold
+| extend Tags = todynamic(ContainerLastStatus)
+| extend startedAt = todynamic(Tags.startedAt)
+| where startedAt >= Timenow
+| summarize arg_max(TimeGenerated, *) by Name
+```
 
 ## Next steps
 
-- View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.
+- View [log query examples](container-insights-log-query.md) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.
 
 - To learn more about Azure Monitor and how to monitor other aspects of your Kubernetes cluster, see [View Kubernetes cluster performance](container-insights-analyze.md) and [View Kubernetes cluster health](./container-insights-overview.md).

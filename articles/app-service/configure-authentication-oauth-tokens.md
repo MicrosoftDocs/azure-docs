@@ -38,15 +38,24 @@ When your provider's access token (not the [session token](#extend-session-token
 - **Twitter**: Access tokens don't expire (see [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/authentication/faq)).
 - **Azure Active Directory**: In [https://resources.azure.com](https://resources.azure.com), do the following steps:
     1. At the top of the page, select **Read/Write**.
-    2. In the left browser, navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > **_\<resource\_group\_name>_** > **providers** > **Microsoft.Web** > **sites** > **_\<app\_name>_** > **config** > **authsettings**. 
+    2. In the left browser, navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > **_\<resource\_group\_name>_** > **providers** > **Microsoft.Web** > **sites** > **_\<app\_name>_** > **config** > **authsettingsV2**.
     3. Click **Edit**.
-    4. Modify the following property. Replace _\<app\_id>_ with the Azure Active Directory application ID of the service you want to access.
+    4. Modify the following property.
 
         ```json
-        "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
+        "identityProviders": {
+          "azureActiveDirectory": {
+            "login": {
+              "loginParameters": ["scope=openid offline_access"]
+            }
+          }
+        }
         ```
 
-    5. Click **Put**. 
+    5. Click **Put**.
+
+> [!NOTE]
+> If you configured your application with the Authentication (Classic) blade, instead of navigating to the the **authSettingsV2** section in [https://resources.azure.com](https://resources.azure.com), navigate to **authsettings**. Then edit the setting ```"additionalLoginParams": ["scope=openid offline_access"]```.
 
 Once your provider is configured, you can [find the refresh token and the expiration time for the access token](#retrieve-tokens-in-app-code) in the token store. 
 

@@ -129,6 +129,10 @@
     items:
     - name: Monitor and logging
       href: monitor-log-edge.md 
+  - name: Visualize
+    items:
+    - name: Embed player widget in Power BI
+      href: embed-player-in-power-bi.md
   - name: Troubleshoot
     href: troubleshoot.md
 - name: Reference 
@@ -162,6 +166,6 @@
   - name: Available regions
     href: https://azure.microsoft.com/global-infrastructure/services/?products=video-analyzer&regions=all
   - name: FAQs
-    href: faq-edge.md 
+    href: faq-edge.yml 
   - name: Quotas and limitations
     href: quotas-limitations.md

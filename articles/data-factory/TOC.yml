@@ -1,3 +1,4 @@
+items: 
 - name: Data Factory Documentation
   href: index.yml
 - name: Switch to version 1 documentation
@@ -6,6 +7,8 @@
   items:
   - name: Introduction to Data Factory
     href: introduction.md
+  - name: What's new in Azure Data Factory
+    href: whats-new.md
   - name: Compare current version to version 1
     href: compare-versions.md
     displayName: timeout
@@ -714,8 +717,11 @@
         - name: Automation scripts of self-hosted integration runtime
           href: self-hosted-integration-runtime-automation-scripts.md
           displayName: self hosted
-        - name: Run Self-Hosted Integration Runtime in Windows container
+        - name: Run self-Hosted Integration Runtime in Windows container
           href: how-to-run-self-hosted-integration-runtime-in-windows-container.md
+          displayName: self hosted
+        - name: Diagnostic tool for self-hosted integration runtime
+          href: self-hosted-integration-runtime-diagnostic-tool.md
           displayName: self hosted
       displayName: self hosted, runtime
     - name: Azure-SSIS integration runtime
@@ -759,7 +765,7 @@
       href: configure-azure-ssis-integration-runtime-performance.md
     - name: Configure disaster recovery for Azure-SSIS IR
       href: configure-bcdr-azure-ssis-integration-runtime.md
-    - name: Clean up SSISDB logs with Elastic Database Jobs
+    - name: Clean up SSISDB logs automatically
       href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
     - name: Use Azure SQL Managed Instance with Azure-SSIS IR
       href: how-to-use-sql-managed-instance-with-ir.md

@@ -2,8 +2,8 @@
 title: "Access Config Server and Service Registry"
 titleSuffix: Azure Spring Cloud
 description: How to access Config Server and Service Registry Endpoints with Azure Active Directory role-based access control.
-author:  MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/04/2021

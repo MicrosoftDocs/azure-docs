@@ -33,6 +33,11 @@ landingContent:
         links:
           - text: What's new in Azure Sentinel?
             url: whats-new.md
+      - linkListType: concept
+        links:
+          - text: Best practices
+            url: best-practices.md
+
 
   # Card (optional)
   - title: Get started
@@ -41,6 +46,10 @@ landingContent:
         links:
           - text: Onboard Azure Sentinel
             url: quickstart-onboard.md
+      - linkListType: concept
+        links:
+          - text: Prerequisites
+            url: prerequisites.md
       - linkListType: how-to-guide
         links:
           - text: Connect data to Azure Sentinel
@@ -59,6 +68,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: Data collection best practices
+            url: best-practices-data.md
           - text: Normalizing and parsing data
             url: normalization.md
       - linkListType: how-to-guide
@@ -67,8 +78,6 @@ landingContent:
             url: connect-microsoft-365-defender.md
           - text: Create a custom connector
             url: create-custom-connector.md
-          - text: Connect threat intelligence
-            url: connect-threat-intelligence.md
           - text: Monitor connector health
             url: monitor-data-connector-health.md
           - text: Integrate Azure Data Explorer
@@ -87,25 +96,18 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Import threat intelligence into Azure Sentinel
-            url: import-threat-intelligence.md
+          - text: Understand threat intelligence in Azure Sentinel
+            url: understand-threat-intelligence.md
           - text: Threat intelligence integrations
             url: threat-intelligence-integration.md
-      - linkListType: tutorial
-        links:
-          - text: Use built-in-analytics to detect threats
-            url: tutorial-detect-threats-built-in.md
-          - text: Create custom detection rules
-            url: tutorial-detect-threats-custom.md
       - linkListType: how-to-guide
         links:
-          - text: Connect threat intelligence
-            url: connect-threat-intelligence.md
-      - linkListType: reference
-        links:
-          - text: Entities reference
-            url: entities-reference.md
-
+          - text: Connect threat intelligence platforms to Azure Sentinel
+            url: connect-threat-intelligence-tip.md
+          - text: Connect Azure Sentinel to STIX/TAXII feeds
+            url: connect-threat-intelligence-taxii.md
+          - text: Work with threat indicators
+            url: work-with-threat-indicators.md
 
  # Card (optional)
   - title: Threat detection
@@ -116,8 +118,16 @@ landingContent:
             url: identify-threats-with-entity-behavior-analytics.md
           - text: SOC-ML anomalies
             url: soc-ml-anomalies.md
+      - linkListType: tutorial
+        links:
+          - text: Use built-in-analytics to detect threats
+            url: tutorial-detect-threats-built-in.md
+          - text: Create custom detection rules
+            url: tutorial-detect-threats-custom.md
       - linkListType: reference
         links:
+          - text: Entities reference
+            url: entities-reference.md
           - text: UEBA enrichments
             url: ueba-enrichments.md
 
@@ -173,10 +183,16 @@ landingContent:
 
 
   # Card
-  - title: Work with multiple tenants
+  - title: Manage Azure Sentinel
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Workspace architecture best practices
+            url: best-practices-workspace-architecture.md
       - linkListType: how-to-guide
         links:
+          - text: Design your workspace architecture
+            url: design-your-workspace-architecture.md
           - text: Manage multiple tenants
             url: multiple-tenants-service-providers.md
           - text: Work with incidents in multiple workspaces

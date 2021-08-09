@@ -7,7 +7,7 @@ ms.date: 04/19/2021
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc, contperf-fy21q2
+ms.custom: mvc, contperf-fy21q2, contperf-fy22q1
 ---
 
 # What is Azure IoT Central?
@@ -20,10 +20,10 @@ This article outlines, for IoT Central:
 
 - The typical user roles associated with a project.
 - How to create your application.
-- How to connect your devices to your application
-- How to manage your application.
-- Azure IoT Edge capabilities in IoT Central.
-- How to connect your Azure IoT Edge runtime powered devices to your application.
+- How to connect your devices to your application.
+- How to integrate your application with other services.
+- How to administer your application.
+- Pricing options.
 
 ## User roles
 
@@ -65,13 +65,13 @@ Every [device template](howto-set-up-template.md) includes:
   - The commands called from IoT Central.
 
 - Cloud properties that aren't stored on the device.
-- Customizations, dashboards, and forms that are part of your IoT Central application.
+- Customizations, forms, and device views that are part of your IoT Central application.
 
 You have several options for creating device templates:
 
 - Design the device template in IoT Central and then implement its device model in your device code.
 - Create a device model using Visual Studio code and publish the model to a repository. Implement your device code from the model, and connect your device to your IoT Central application. IoT Central finds the device model from the repository and creates a simple device template for you.
-- Create a device model using Visual Studio code. Implement your device code from the model. Manually import the device model into your IoT Central application and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
+- Create a device model using Visual Studio code. Implement your device code from the model. Manually import the device model into your IoT Central application and then add any cloud properties, customizations, and views your IoT Central application needs.
 
 ### Customize the UI
 
@@ -95,7 +95,7 @@ As with any IoT solution designed to operate at scale, a structured approach to 
 
 ### Dashboards
 
-Built-in [dashboards](./howto-set-up-template.md#generate-default-views) provide a customizable UI to monitor device health and telemetry. Start with a pre-built dashboard in an application template or create your own dashboards tailored to the needs of your operators. You can share dashboards with all users in your application, or keep them private.
+Start with a pre-built dashboard in an application template or create your own dashboards tailored to the needs of your operators. You can share dashboards with all users in your application, or keep them private.
 
 ### Rules and actions
 

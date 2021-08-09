@@ -45,7 +45,7 @@ The operator can add and remove devices to your IoT Central application either i
 
 ## Personalize
 
-Operators can create personalized dashboards in an IoT Central application that contain links to the resources they use most often. To learn more, see [Manage dashboards](howto-create-personal-dashboards.md#manage-dashboards).
+Operators can create personal dashboards in an IoT Central application that contain links to the resources they use most often. To learn more, see [Manage dashboards](howto-manage-dashboards.md).
 
 ## Next steps
 
