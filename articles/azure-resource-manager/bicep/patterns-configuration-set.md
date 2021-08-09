@@ -38,7 +38,7 @@ Suppose you have a template that can be deployed to two types of environment: no
 | Capacity (number of instances) | 1 | 3 |
 | **App Service app** |
 | Always On | Disabled | Enabled |
-| **Storage account ** |
+| **Storage account** |
 | SKU name | Standard_LRS | Standard_ZRS |
 
 You could use the configuration set pattern for this template.
@@ -55,12 +55,11 @@ When you define the resources, use the configuration map to define the resource 
 
 ::: code language="bicep" source="code/patterns-configuration-set/main.bicep" range="51-74" highlight="4, 14, 23" :::
 
-<!-- TODO
 ## Considerations
 
-- Can use for other situations than just environment type. TODO other examples?
-- Consider grouping the properties by resource, like we've done here
--->
+- In your map variable, consider grouping the properties by resource to simplify their definition.
+- In your map variable, you can define both individual property values (like the `alwaysOn` property in the example), or object variables that set an object property (like the SKU properties in the example).
+- Consider using a configuration set with [resource conditions](conditional-resource-deployment.md). This enables your Bicep code to deploy certain resources for specific environments, and not in others.
 
 ## Next steps
 
