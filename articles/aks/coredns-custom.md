@@ -200,7 +200,9 @@ data:
           }
 ```
 
-## Enable logging for DNS query debugging 
+## Troubleshooting
+
+For general CoreDNS troubleshooting steps, such as checking the endpoints or resolution, see [Debugging DNS Resolution][coredns-troubleshooting].
 
 To enable DNS query logging, apply the following configuration in your coredns-custom ConfigMap:
 
@@ -213,6 +215,12 @@ metadata:
 data:
   log.override: | # you may select any name here, but it must end with the .override file extension
         log
+```
+
+After you apply the configuration changes, use the `kubectl logs` command to view the CoreDNS debug logging. For example:
+
+```console
+kubectl logs --namespace kube-system --selector k8s-app=kube-dns
 ```
 
 ## Next steps
@@ -230,6 +238,7 @@ To learn more about core network concepts, see [Network concepts for application
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [coredns hosts]: https://coredns.io/plugins/hosts/
+[coredns-troubleshooting]: https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/
 
 <!-- LINKS - internal -->
 [concepts-network]: concepts-network.md
