@@ -110,7 +110,7 @@ If the frequency was set to an hourly digest and an alert was raised and resolve
 
 To inactivate/resolve an active alert, you can select the list item corresponding to the alert you wish to inactivate. This opens up a screen that displays detailed information about the alert, with an **Inactivate** button on the top. Selecting this button will change the status of the alert to **Inactive**. You may also inactivate an alert by right-clicking on the list item corresponding to that alert and selecting **Inactivate**.
 
-![Screenshot for RS vault alert inactivation](media/backup-azure-monitoring-laworkspace/vault-alert-inactivate.png)
+![Screenshot for Backup center alert inactivation](media/backup-azure-monitoring-laworkspace/vault-alert-inactivate.png)
 
 ## Azure Monitor alerts for Azure Backup (preview)
 
