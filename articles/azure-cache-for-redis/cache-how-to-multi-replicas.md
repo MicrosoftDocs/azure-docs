@@ -38,6 +38,10 @@ To create a cache, follow these steps:
 1. On the **Advanced** page, choose **Replica count**.
    
     :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Replica count.":::
+    
+    > [!NOTE]
+    > Multiple replicas (more than one) don't support AOF persistence or work with Geo-replication currently.
+    >
 
 1. Leave other options in their default settings. 
 
