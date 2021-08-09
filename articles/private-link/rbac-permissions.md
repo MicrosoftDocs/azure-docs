@@ -40,6 +40,38 @@ This section lists the granular permissions required to deploy a private endpoin
 | Microsoft.Network/privateEndpoints/write                            | Creates a new private endpoint, or updates an existing private endpoint       |
 | Microsoft.Network/locations/availablePrivateEndpointTypes/read      | Read available private endpoint resources                                     |
 
+Here is the JSON format of the above permissions. Input your own roleName, description, and assignableScopes:
+
+```JSON
+{
+ "properties": {
+   "roleName": "Role Name",
+   "description": "Description",
+   "assignableScopes": [
+     "/subscriptions/SubscriptionID/resourceGroups/ResourceGroupName"
+   ],
+   "permissions": [
+     {
+       "actions": [
+         "Microsoft.Resources/deployments/*",
+         "Microsoft.Resources/subscriptions/resourceGroups/read",
+         "Microsoft.Network/virtualNetworks/read",
+         "Microsoft.Network/virtualNetworks/subnets/read",
+         "Microsoft.Network/virtualNetworks/subnets/write",
+         "Microsoft.Network/virtualNetworks/subnets/join/action",
+         "Microsoft.Network/privateEndpoints/read",
+         "Microsoft.Network/privateEndpoints/write",
+         "Microsoft.Network/locations/availablePrivateEndpointTypes/read"
+       ],
+       "notActions": [],
+       "dataActions": [],
+       "notDataActions": []
+     }
+   ]
+ }
+}
+```
+
 ## Private link service
 
 This section lists the granular permissions required to deploy a private link service.
@@ -59,10 +91,43 @@ This section lists the granular permissions required to deploy a private link se
 | Microsoft.Network/loadBalancers/read | Read a load balancer definition |
 | Microsoft.Network/loadBalancers/write | Creates a load balancer or updates an existing load balancer |
 
+```JSON
+{
+  "properties": {
+    "roleName": "Role Name",
+    "description": "Description",
+    "assignableScopes": [
+      "/subscriptions/SubscriptionID/resourceGroups/ResourceGroupName"
+    ],
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Network/virtualNetworks/read",
+          "Microsoft.Network/virtualNetworks/subnets/read",
+          "Microsoft.Network/virtualNetworks/subnets/write",
+          "Microsoft.Network/virtualNetworks/subnets/join/action",
+          "Microsoft.Network/privateLinkServices/read",
+          "Microsoft.Network/privateLinkServices/write",
+          "Microsoft.Network/privateLinkServices/privateEndpointConnections/read",
+          "Microsoft.Network/privateLinkServices/privateEndpointConnections/write",
+          "Microsoft.Network/networkSecurityGroups/join/action",
+          "Microsoft.Network/loadBalancers/read",
+          "Microsoft.Network/loadBalancers/write"
+        ],
+        "notActions": [],
+        "dataActions": [],
+        "notDataActions": []
+      }
+    ]
+  }
+}
+```
+
 ## Next steps
 
 For more information on private endpoint and private link services in Azure Private link, see:
 
 - [What is Azure Private Endpoint?](private-endpoint-overview.md)
 - [What is Azure Private Link service?](private-link-service-overview.md)
-
