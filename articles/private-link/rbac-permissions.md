@@ -40,7 +40,7 @@ This section lists the granular permissions required to deploy a private endpoin
 | Microsoft.Network/privateEndpoints/write                            | Creates a new private endpoint, or updates an existing private endpoint       |
 | Microsoft.Network/locations/availablePrivateEndpointTypes/read      | Read available private endpoint resources                                     |
 
-Here is the JSON format of the above permissions. Imput your own roleName, description, and assignableScopes:
+Here is the JSON format of the above permissions. Input your own roleName, description, and assignableScopes:
 
 ```JSON
 {
@@ -131,4 +131,3 @@ For more information on private endpoint and private link services in Azure Priv
 
 - [What is Azure Private Endpoint?](private-endpoint-overview.md)
 - [What is Azure Private Link service?](private-link-service-overview.md)
-
