@@ -83,7 +83,7 @@ sections:
           | Cortana Intelligence | No | Microsoft has evolved the product road map for Cortana Intelligence, so we de-listed Cortana Intelligence live offers from AppSource. These offers are no longer discoverable by customers and haven't been moved to Partner Center. To make your offers available in the commercial marketplace, adapt your offers to Software as a Service (SaaS) offers and submit them in [Partner Center](https://partner.microsoft.com/). Learn more at [How to plan a SaaS offer for the commercial marketplace](./plan-saas-offer.md). |
           
       - question: |
-          I can't sign in and I need to open a support ticket
+          I can't sign in and need to open a support ticket
         answer: |
           If you can't sign in to your account, you can open a [support ticket](https://go.microsoft.com/fwlink/?linkid=2165533) here.
           
