@@ -95,7 +95,7 @@ To create and run a new scan, do the following:
         to:
 
     - Select **Basic Authentication** as the Authentication method
-    - Provide the email ID of the service account in the User name          field. For example,\xyz\@developer.gserviceaccount.com
+    - Provide the email ID of the service account in the User name          field. For example, xyz\@developer.gserviceaccount.com
     - Save your Private key file of the service account in the JSON format in the key vault's secret
 
     To create a new private key from Google's cloud platform, in the

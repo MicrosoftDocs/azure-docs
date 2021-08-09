@@ -46,10 +46,6 @@ For more information, see [Azure Machine Learning pricing](https://azure.microso
 Azure Machine Learning runs on Azure infrastructure that accrues costs along with Azure Machine Learning when you deploy the new resource. It's important to understand that additional infrastructure might accrue cost. You need to manage that cost when you make changes to deployed resources. 
 
 
-
-
-
-
 ### Costs that typically accrue with Azure Machine Learning
 
 When you create resources for an Azure Machine Learning workspace, resources for other Azure services are also created. They are:
@@ -58,6 +54,8 @@ When you create resources for an Azure Machine Learning workspace, resources for
 * [Azure Block Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) (general purpose v1)
 * [Key Vault](https://azure.microsoft.com/pricing/details/key-vault?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 * [Application Insights](https://azure.microsoft.com/en-us/pricing/details/monitor?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+
+When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  [Set up a schedule](how-to-create-manage-compute-instance.md#schedule) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
  
 ### Costs might accrue before resource deletion
 
@@ -159,6 +157,7 @@ Use the following tips to help you manage and optimize your compute resource cos
 - Set quotas on your subscription and workspaces
 - Set termination policies on your training run
 - Use low-priority virtual machines (VM)
+- Schedule compute instances to shut down and start up automatically
 - Use an Azure Reserved VM Instance
 - Train locally
 - Parallelize training
