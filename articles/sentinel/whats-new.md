@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 08/05/2021
+ms.date: 08/09/2021
 ---
 
 # What's new in Azure Sentinel
@@ -30,9 +30,26 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## August 2021
 
+- [Fusion detection for Ransomware (Public preview)](#fusion-detection-for-ransomware-public-preview)
 - [Watchlist templates for UEBA data](#watchlist-templates-for-ueba-data-public-preview)
 - [File event normalization schema (Public preview)](#file-event-normalization-schema-public-preview)
 - [New in docs: Best practice guidance](#new-in-docs-best-practice-guidance)
+
+### Fusion detection for Ransomware (Public preview)
+
+Azure Sentinel now provides new Fusion detections for possible Ransomware activities, generating incidents titled as **Multiple alerts possibly related to Ransomware activity detected**.
+
+Incidents are generated for alerts that are possibly associated with Ransomware activities, when they occur during a specific time-frame, and are associated with the Execution and Defense Evasion stages of an attack. You can use the alerts listed in the incident to analyze the techniques possibly used by attackers to compromise a host/device and to evade detection.
+
+Supported data connectors include:
+
+- [Azure Defender (Azure Security Center)](connect-azure-security-center.md)
+- [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
+- [Microsoft Defender for Identity](connect-azure-atp.md)
+- [Microsoft Cloud App Security](connect-cloud-app-security.md)
+- [Azure Sentinel scheduled analytics rules](tutorial-detect-threats-built-in.md#scheduled)
+
+For more information, see [Multiple alerts possibly related to Ransomware activity detected](fusion.md#multiple-alerts-possibly-related-to-ransomware-activity-detected-public-preview).
 
 ### Watchlist templates for UEBA data (Public preview)
 
@@ -89,6 +106,7 @@ For more information, see:
 - [Watchlists are in general availability](#watchlists-are-in-general-availability)
 - [Support for data residency in more geos](#support-for-data-residency-in-more-geos)
 - [Bidirectional sync in Azure Defender connector (Public preview)](#bidirectional-sync-in-azure-defender-connector-public-preview)
+
 
 ### Microsoft Threat Intelligence Matching Analytics (Public preview)
 
