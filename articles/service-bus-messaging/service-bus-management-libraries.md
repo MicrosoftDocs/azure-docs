@@ -9,15 +9,15 @@ ms.date: 08/06/2021
 Azure Service Bus provides libraries to help dynamically provision Service Bus namespaces and entities. This enables complex deployments and messaging scenarios and makes it possible to programmatically determine what entities to provision.
 
 ## Overview
-There are two approaches you can take to manage Azure Service Bus resources programmatically. The first is to use the [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md)-based libraries, which allows you to manage namespaces, queues, topics, subscriptions, rules, and SAS policies. ARM-based libraries have support for authentication through Azure Active Directory, but not through connection strings. The second approach is to leverage the same Service Bus client libraries that you use to send and receive messages. These client libraries also provide APIs to help you manage queues, topics, subscriptions, and rules in an *existing* namespace. They have support for authentication with connection strings. When deciding which approach to take, consider the following. 
+There are two approaches you can take to manage Azure Service Bus resources programmatically. The first is to use the [Azure Resource Manager](../azure-resource-manager/management/overview.md)-based libraries, which allow you to manage namespaces, queues, topics, subscriptions, rules, and SAS policies. Azure Resource Manager-based libraries have support for authentication through Azure Active Directory, but not through connection strings. The second approach is to leverage the same Service Bus client libraries that you use to send and receive messages. The client libraries also provide APIs to help you manage queues, topics, subscriptions, and rules in an *existing* namespace. They have support for authentication with connection strings. When deciding which approach to take, consider the following. 
 
-The ARM-based library offers the same functionality as Azure Portal, CLI, and Powershell when it comes to managing Service Bus namespaces and entities like queues, topics, subscriptions, etc. If you have been using Azure Portal, CLI, or Powershell for your management operations and would like a dynamic way of doing that, then the ARM-based library might be a better choice for you. 
+The Azure Resource Manager-based libraries offer the same functionality as Azure Portal, CLI, and Powershell when it comes to managing Service Bus namespaces and entities like queues, topics, subscriptions, etc. If you have been using Azure Portal, CLI, or Powershell for your management operations and would like a dynamic way of doing that, then these libraries might be a better choice for you. 
 
-However, if you are already using a Service Bus client library for service specific operations like send and receive messages and you need to manage Service Bus entities as well, then using the same library might be more convenient for you. The client libraries have a `ServiceBusAdministrationClient` (called `ServiceBusManagementClient` in the older libraries) that provides a subset of the management features provided by the ARM-based library. It must be emphasized that while the ARM-based library allows you to manage both Service Bus namespaces and entities, the client libraries only allow you to manage entities in an existing namespace but *not* the namespace itself.
+However, if you are already using a Service Bus client library for service specific operations like send and receive messages and you need to manage Service Bus entities as well, then using the same library might be more convenient for you. The client libraries have a `ServiceBusAdministrationClient` (called `ServiceBusManagementClient` in the older libraries) that provides a subset of the management features provided by the Azure Resource Manager-based libraries. It must be emphasized that while the Azure Resource Manager-based libraries allow you to manage both Service Bus namespaces and entities, the client libraries only allow you to manage entities in an existing namespace but *not* the namespace itself.
 
-## Manage Service Bus namespaces, queues, topics, subscriptions, rules, SAS policies using ARM-based library
+## Manage using Azure Resource Manager-based libraries
 
-The ARM-based library allows you to manage namespaces, queues, topics, subscriptions, rules, and SAS policies.  It supports authentication with Azure Active Directory (AAD) only; it does not support connection strings. 
+The Azure Resource Manager-based libraries allow you to manage namespaces, queues, topics, subscriptions, rules, and SAS policies.  They support authentication with Azure Active Directory (AAD) *only*; they do not support connection strings. 
 
 | Language | Package | Documentation | Samples|
 |-|-|-|-|
@@ -28,14 +28,14 @@ The ARM-based library allows you to manage namespaces, queues, topics, subscript
 
 
 ### Fluent .NET and Java libraries
-There is a Fluent version of the ARM-based library. 
+There is a Fluent version of the Azure Resource Manager-based libraries. 
 
 |Language|Package|Documentation|
 |-|-|-|
 |.NET|[Microsoft.Azure.Management.ServiceBus.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.ServiceBus.Fluent/) |[API reference for Microsoft.Azure.Management.ServiceBus.Fluent](/dotnet/api/microsoft.azure.management.servicebus.fluent) |
 | Java|[azure-resourcemanager-servicebus](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-servicebus)|[API reference for com.azure.resourcemanager.servicebus.fluent](/java/api/com.azure.resourcemanager.servicebus.fluent) |
 
-## Manage Service Bus queues, topics, subscriptions and rules in an existing namespace
+## Manage using Service Bus client libraries 
 
 Service Bus client libraries that are used for operations like send and receive messages can also be used to manage queues, topics, subscriptions, and rules in an *existing* Service Bus namespace. This feature is available via the `ServiceBusAdministrationClient` in the latest libraries and via the `ServiceBusManagementClient` in the older libraries. It is highly recommended that you use the latest libraries.
 
