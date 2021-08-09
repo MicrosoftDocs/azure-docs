@@ -37,7 +37,7 @@ Suppose you are interested in processing a set of financial analyst comments. Fo
 
 | record-text | companies | sentiment | company descriptions |
 |--------|-----|-----|-----|
-|sample-record| ["Microsoft", "LinkedIn"] | 0.99 | ["Microsoft Corporation is an American multinational technology company ..." , "LinkedIn is a business- and employment-oriented social networking..."]
+|sample-record| ["Microsoft", "LinkedIn"] | 0.99 | ["Microsoft Corporation is an American multinational technology company ...", "LinkedIn is a business- and employment-oriented social networking ..."]
 
 The following diagram illustrates a hypothetical enrichment pipeline:
 

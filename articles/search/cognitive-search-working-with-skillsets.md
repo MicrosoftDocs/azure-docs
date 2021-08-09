@@ -170,7 +170,7 @@ A text split skill is typically first in a skillset.
 }
 ```
 
-With the skill context of `"/document/reviews_text"`, the split skill will execute once for the `reviews_text`. The skill output is a list where the `reviews_text` is chunked into 5000 character segments. The output from the split skill is named `pages` and it is added to the enrichment tree. The `targetName` feature allows you to rename a skill output before being added to the enrichment tree.
+With the skill context of `"/document/reviews_text"`, the split skill executes once for the `reviews_text`. The skill output is a list where the `reviews_text` is chunked into 5000 character segments. The output from the split skill is named `pages` and it is added to the enrichment tree. The `targetName` feature allows you to rename a skill output before being added to the enrichment tree.
 
 The enrichment tree now has a new node placed under the context of the skill. This node is available to any skill, projection, or output field mapping. 
  
@@ -180,7 +180,7 @@ To access any of the enrichments added to a node by a skill, the full path for t
 
 ### Skill #2 Language detection
 
-Hotel review documents include customer feedback expressed in multiple languages. The language detection skill determines which language is used. The result will then passed to key phrase extraction and sentiment detection (not shown), taking language into consideration when detecting sentiment and phrases.
+Hotel review documents include customer feedback expressed in multiple languages. The language detection skill determines which language is used. The result will then be passed to key phrase extraction and sentiment detection (not shown), taking language into consideration when detecting sentiment and phrases.
 
 While the language detection skill is the third (skill #3) skill defined in the skillset, it is the next skill to execute. Since it is not blocked by requiring any inputs, it will execute in parallel with the previous skill. Like the split skill that preceded it, the language detection skill is also invoked once for each document. The enrichment tree now has a new node for language.
 
