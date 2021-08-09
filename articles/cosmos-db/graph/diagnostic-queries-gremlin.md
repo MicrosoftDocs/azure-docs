@@ -12,20 +12,20 @@ ms.author: esarroyo
 
 # Troubleshoot issues with advanced diagnostics queries for Gremlin API
 
-[!INCLUDE[appliesto-all-apis-except-table](includes/appliesto-all-apis-except-table.md)]
+[!INCLUDE[appliesto-all-apis-except-table](../includes/appliesto-all-apis-except-table.md)]
 
 > [!div class="op_single_selector"]
-> * [SQL (Core) API](cosmos-db-advanced-queries.md)
-> * [MongoDB API](mongodb/diagnostic-queries-mongodb.md)
-> * [Cassandra API](cassandra/diagnostic-queries-cassandra.md)
-> * [Gremlin API](queries-gremlin.md)
+> * [SQL (Core) API](../cosmos-db-advanced-queries.md)
+> * [MongoDB API](../mongodb/diagnostic-queries-mongodb.md)
+> * [Cassandra API](../cassandra/diagnostic-queries-cassandra.md)
+> * [Gremlin API](diagnostic-queries-gremlin.md)
 >
 
 In this article, we'll cover how to write more advanced queries to help troubleshoot issues with your Azure Cosmos DB account using diagnostics logs sent to **AzureDiagnostics (legacy)** and **Resource-specific (preview)** tables.
 
-For Azure Diagnostics tables, all data is written into one single table and users will need to specify which category they'd like to query. If you'd like to view the full-text query of your request, [follow this article](cosmosdb-monitor-resource-logs.md#full-text-query) to learn how to enable this feature.
+For Azure Diagnostics tables, all data is written into one single table and users will need to specify which category they'd like to query. If you'd like to view the full-text query of your request, [follow this article](../cosmosdb-monitor-resource-logs.md#full-text-query) to learn how to enable this feature.
 
-For [resource-specific tables](cosmosdb-monitor-resource-logs.md#create-setting-portal), data is written into individual tables for each category of the resource. We recommend this mode since it makes it much easier to work with the data, provides better discoverability of the schemas, and improves performance across both ingestion latency and query times.
+For [resource-specific tables](../cosmosdb-monitor-resource-logs.md#create-setting-portal), data is written into individual tables for each category of the resource. We recommend this mode since it makes it much easier to work with the data, provides better discoverability of the schemas, and improves performance across both ingestion latency and query times.
 
 ## Common queries
 
@@ -169,6 +169,6 @@ For [resource-specific tables](cosmosdb-monitor-resource-logs.md#create-setting-
 ---
 
 ## Next steps 
-* For more information on how to create diagnostic settings for Cosmos DB see [Creating Diagnostics settings](cosmosdb-monitor-resource-logs.md) article.
+* For more information on how to create diagnostic settings for Cosmos DB see [Creating Diagnostics settings](../cosmosdb-monitor-resource-logs.md) article.
 
-* For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) article.
+* For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md) article.
