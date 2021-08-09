@@ -2,7 +2,7 @@
 title: Quickstart - Provision Azure Spring Cloud using Azure CLI
 description: This quickstart shows you how to use Azure CLI to deploy a Spring Cloud cluster into an existing virtual network.
 services: azure-cli
-author: vinodramasubbu
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, devx-track-java
