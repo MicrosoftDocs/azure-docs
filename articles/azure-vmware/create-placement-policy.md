@@ -70,6 +70,8 @@ In addition to choosing a name and cluster for the policy, a **VM-Host** policy 
 
 Azure VMware Solution attempts to prevent certain DRS rule violations from occurring when performing cluster scale-in operations.
 
+You can't remove the last host from a VM-Host policy. If you need to remove the last host from the policy, you can remediate this by adding another host to the policy prior to removing the host from the cluster. Alternatively, you can delete the placement policy        prior to removing the host.
+
 You can't have a VM-VM Anti Affinity policy with more VMs than the number of hosts in a cluster. If removing a host would result in fewer hosts in the cluster than VMs, you'll receive an error preventing the operation. You can remediate this by first removing VMs from the rule and then removing the host from the cluster.
 
 
