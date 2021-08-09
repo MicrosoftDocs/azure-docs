@@ -44,7 +44,7 @@ To learn about the Azure Connected Machine agent package and details about the E
 > [!NOTE]
 > Recently support for the DSC VM extension was removed for Arc-enabled servers. Alternatively, we recommend using the Custom Script Extension to manage the post-deployment configuration of your server or machine.
 
-Arc-enabled servers supports moving machines with one or more VM extensions installed between resource groups or subscriptions without experiencing any impact to their configuration. 
+Arc-enabled servers supports moving machines with one or more VM extensions installed between resource groups or another Azure subscription without experiencing any impact to their configuration. The source and destination subscriptions must exist within the same [Azure Active Directory tenant](../../active-directory/develop/quickstart-create-new-tenant.md). For more information about moving resources and considerations before proceeding, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ### Windows extensions
 
