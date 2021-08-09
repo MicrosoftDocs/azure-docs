@@ -586,10 +586,11 @@ You will also be unable to change (rotate) the encryption key. The resolution st
 
 **User-assigned identity**
 
-If this issue occurs with a user-assigned identity, first reassign the identity using the GUID displayed in the error message. For example:
+If this issue occurs with a user-assigned identity, first reassign the identity using the resource ID or name displayed in the error message. For example:
 
 ```azurecli
-az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
+az acr identity assign -n myRegistry \
+    --identities identities /subscriptions/mysubscription/resourcegroups/myresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myidentity
 ```
         
 Then, after changing the key and assigning a different identity, you can remove the original user-assigned identity.
