@@ -472,12 +472,14 @@ To use IPython Widget
    display(w)
    ```
 3. Run the cell, the widget will display at the output area.
-![ipython-widgets-slider](./media/apache-spark-development-using-notebooks/ipython-widgets-slider.png)
+![ipython widgets slider](./media/apache-spark-development-using-notebooks/ipython-widgets-slider.png)
 4. User could use `display()` to show the same widget multiple times, the displayed instances in the front end will remain in sync with each widget.
-![ipython-widgets-sliders](./media/apache-spark-development-using-notebooks/ipython-widgets-sliders.png)
+![ipython widgets sliders](./media/apache-spark-development-using-notebooks/ipython-widgets-multiple-sliders.png)
 
 
 We support multiple types of widgets as below:
+
+
 |Widgets Type|Widgets|
 |--|--|
 |Numeric widgets|IntSlider, FloatSlider, FloatLogSlider, IntRangeSlider, FloatRangeSlider, IntProgress, FloatProgress, BoundedIntText, BoundedFloatText, IntText, FloatText|
