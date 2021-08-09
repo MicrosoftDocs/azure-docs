@@ -86,7 +86,6 @@ If you have never connected to this VM before you will be asked to verify the ho
 
 To run the command using CLI, use the [`az vm run-command invoke` command](/cli/azure/vm/run-command).
 
-
 If you configured a passphrase when you created your key pair, enter the passphrase when prompted.
 
 If the VM is using the just-in-time access policy, you need to request access before you can connect to the VM. For more information about the just-in-time policy, see [Manage virtual machine access using the just in time policy](../../security-center/security-center-just-in-time.md).
