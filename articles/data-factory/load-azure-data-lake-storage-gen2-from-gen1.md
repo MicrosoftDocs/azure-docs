@@ -57,7 +57,7 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 1. On the home page, select the **Ingest** tile to launch the copy data tool. 
 
    ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png )
-2. On the **Properties** page,choose **Built-in copy task** under **Task type**, and choose **Run once now** under **Task cadence or task schedule**, then select Next.
+2. On the **Properties** page, choose **Built-in copy task** under **Task type**, and choose **Run once now** under **Task cadence or task schedule**, then select **Next**.
 
 3. On the **Source data store** page, select **+ New connection**.
     
@@ -95,7 +95,9 @@ This article shows you how to use the Data Factory copy data tool to copy data f
    
    ![Specify Azure Data Lake Storage Gen2 account](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 
-9. On the **Destination data store** page, select the newly created connection in the **Connection** block. Then under **Folder path**, enter **copyfromadlsgen1** as the output folder name, and select **Next**. Data Factory creates the corresponding Azure Data Lake Storage Gen2 file system and subfolders during copy if they don't exist.
+9. On the **Destination data store** page, complete the following steps. 
+    1. Select the newly created connection in the **Connection** block. 
+    1. Under **Folder path**, enter **copyfromadlsgen1** as the output folder name, and select **Next**. Data Factory creates the corresponding Azure Data Lake Storage Gen2 file system and subfolders during copy if they don't exist.
 
     :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-store-page.png" alt-text="Screenshot showing the destination data store page.":::
 
