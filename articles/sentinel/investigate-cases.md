@@ -143,7 +143,7 @@ To modify the search parameters, select the **Search** button and then select th
 
 For example:
 
-:::image type="content" source="media/tutorial-investigate-cases/advanced-search.png" alt-text="Enter text and select the search button to the right of the search box to select basic and/or advanced search options.":::
+:::image type="content" source="media/tutorial-investigate-cases/advanced-search.png" alt-text="Screenshot of the incident search box and button to select basic and/or advanced search options.":::
 
 By default, incident searches run across the **Incident ID**, **Title**, **Tags**, **Owner**, and **Product name** values only. In the search pane, scroll down the list to select one or more other parameters to search, and select **Apply** to update the search parameters. Select **Set to default** reset the selected parameters to the default option.
 
