@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/06/2021
+ms.date: 08/09/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure. 
 ---
@@ -170,7 +170,7 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
     
     After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
     
-    ![Screenshot of the Review Plus Create tab for an Azure Stack Edge order.](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-1.png)
+    ![Screenshot of the Overview pane for an Azure Stack Edge order that has been successfully created.](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-1.png)
     
 After the order is placed, Microsoft reviews the order and reaches out to you (via email) with shipping details.
 
