@@ -2,7 +2,6 @@
 title: Best practices for Azure Cache for Redis
 description: Learn how to use your Azure Cache for Redis effectively by following these best practices.
 author: carldc
-reviewer: shpathak
 ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
