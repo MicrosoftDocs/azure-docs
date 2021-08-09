@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 08/08/2021
 ---
 
-## Try a simple Pub/Sub demo
+## Try the instance with a simple demo
 
 ### Get client URL with a temp access token
 
-As the first step, you need to get the Client URL from the Azure Web PubSub instance. 
+Azure portal provides a simple client URL Generator to generate a temp URL for quick test/validation purpose. Let's use this tool to get a temp Client Access URL and connect to the instance.
 
 - Go to Azure portal and find out the Azure Web PubSub instance.
 - Go to the `Client URL Generator` in `Key` blade. 
