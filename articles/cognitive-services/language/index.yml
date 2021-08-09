@@ -29,7 +29,7 @@ landingContent:
     - linkListType: how-to-guide
       links:
         - text: Sentiment analysis
-          url: sentiment-opinion-mining/how-to-call.md
+          url: sentiment-opinion-mining/how-to/call-api.md
     - linkListType: concept
       links:
         - text: Multilingual and emoji support

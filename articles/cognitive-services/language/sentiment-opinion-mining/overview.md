@@ -19,7 +19,7 @@ Azure Language services is a cloud-based service that provides Natural Language 
 
 This documentation contains the following types of articles:
 
-* [How-to guides](how-to-call.md) contain instructions for using the service in more specific or customized ways.
+* [How-to guides](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
 
 ## Sentiment analysis
 
