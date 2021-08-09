@@ -19,7 +19,7 @@ On 31 August 2024, we'll retire Basic and Standard A-series VMs. Before that dat
 
 ## Migrate workloads from Basic and Standard A-series VMs to Av2-series VMs 
 
-You can resize your virtual machines to the Av2-series using the [Azure portal](https://portal.azure.com), [PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-6.3.0) and [CLI](https://docs.microsoft.com/cli/azure/). Below are examples on how to resize using the Azure portal and PowerShell. 
+You can resize your virtual machines to the Av2-series using the [Azure portal](https://portal.azure.com), [PowerShell](windows/resize-vm.md) and [CLI](/linux/change-vm-size.md). Below are examples on how to resize your VM using Azure portal and PowerShell. 
 
 ### Azure Portal 
 1. Open the [Azure portal](https://portal.azure.com).
