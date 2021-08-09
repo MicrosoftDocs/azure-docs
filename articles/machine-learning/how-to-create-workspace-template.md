@@ -536,8 +536,8 @@ New-AzResourceGroupDeployment `
 
 ## Use the Azure portal
 
-1. Follow the steps in [Deploy resources from custom template](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template). When you arrive at the __Select a template__ screen, choose the **quickstarts** entry. When it appears, select the link labled "Click here to open template repository". This link takes you to the `quickstarts` directory in the Azure quickstart templates repository.
-1. In the list of quickstart templates, select `microsoft.machinelearningservices'. Finally, select `Deploy to Azure`.
+1. Follow the steps in [Deploy resources from custom template](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template). When you arrive at the __Select a template__ screen, choose the **quickstarts** entry. When it appears, select the link labeled "Click here to open template repository". This link takes you to the `quickstarts` directory in the Azure quickstart templates repository.
+1. In the list of quickstart templates, select `microsoft.machinelearningservices`. Finally, select `Deploy to Azure`.
 1. When the template appears, provide the following required information and any other parameters depending on your deployment scenario.
 
    * Subscription: Select the Azure subscription to use for these resources.

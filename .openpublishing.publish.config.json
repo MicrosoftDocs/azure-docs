@@ -811,6 +811,7 @@
     ".openpublishing.redirection.media-services.json",
     ".openpublishing.redirection.security-benchmark.json",
     ".openpublishing.redirection.key-vault.json",
+    ".openpublishing.redirection.iot-hub.json",
     "articles/azure-relay/.openpublishing.redirection.relay.json",
     "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json",
     "articles/cost-management-billing/.openpublishing.redirection.cost-management-billing.json",
