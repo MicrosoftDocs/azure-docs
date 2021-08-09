@@ -41,8 +41,6 @@ To find out whether a domain issue is preventing a share connection:
 
 ## Account locked out of device
 
-If your admin account is locked out of your device, you won't be able to access shares on the device via SMB. 
-
 If you enter an incorrect password three times while signing in on your device, your account will be locked out of the device for 15 minutes. During that time, you won't be able to access shares on the device.
 
 Wait 15 minutes, and log on to your device using the correct password. After a successful logon, you should be able to access shares on your device via SMB.
