@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 08/06/2021
+ms.date: 08/09/2021
 ms.author: alkohli
 ---
 
@@ -18,7 +18,8 @@ This article describes what to do when you can't connect to an SMB share on your
 The most common reasons for being unable to connect to a share on your device are:
 
 - [a domain issue](#check-for-a-domain-issue)
-- [a group policy that's preventing a connection](#check-for-a-blocking-group-policy)
+- [your account is locked out of the device](#account-locked-out-of-device)
+- [a group policy is preventing a connection](#check-for-a-blocking-group-policy)
 - [a permissions issue](#check-for-permissions-issues)
 
 ## Check for a domain issue
@@ -37,6 +38,13 @@ To find out whether a domain issue is preventing a share connection:
     `net use \\<IP address of the device>\<share name> /u:<IP address of the device>\<user name for the share>`
 
     For a procedure, see [Copy data to Data Box via SMB](data-box-deploy-copy-data.md).
+
+## Account locked out of device
+
+If your admin account is locked out of your device, you won't be able to access shares on the device. If you enter an incorrect password three times while signing on to your device, your account will be locked out of the device for 15 minutes. During that time, you won't be able to access shares on the device.
+
+Wait 15 minutes, and log on to your device using the correct password. After a successful logon, you should be able to access the shares on your device via SMB.
+
 
 ## Check for a blocking group policy
 
