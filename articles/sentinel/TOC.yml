@@ -15,8 +15,6 @@
   items:
   - name: Investigate incidents
     href: tutorial-investigate-cases.md
-  - name: Get started with ML notebooks
-    href: notebook-get-started.md
   - name: Use automation to respond to threats
     href: tutorial-respond-threats-playbook.md
   - name: Integrate with Microsoft 365 Defender
@@ -345,10 +343,14 @@
       href: watchlists.md
   - name: Hunt for threats
     items:
-    - name: Hunt with Jupyter notebooks
-      href: notebooks.md
-    - name: Configure ML notebooks and MSTICPy
-      href: notebook-configure.md
+    - name: Hunt with notebooks
+      items:
+      - name: Overview
+        href: notebooks.md
+      - name: Get started with ML notebooks
+        href: notebook-get-started.md
+      - name: Configure ML notebooks and MSTICPy
+        href: notebook-configure.md
     - name: Hunt with bookmarks
       href: bookmarks.md
     - name: Hunt with livestream

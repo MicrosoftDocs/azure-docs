@@ -1,5 +1,5 @@
 --- 
-title: Get started with ML notebooks in Azure Sentinel | Microsoft Docs
+title: Tutorial - Get started with ML notebooks in Azure Sentinel | Microsoft Docs
 description: Walk through the Azure Sentinel Getting Started Guide For Azure Sentinel ML Notebooks to learn the basics of Azure Sentinel notebooks and queries.
 services: sentinel
 author: batamig
@@ -9,27 +9,23 @@ ms.topic: how-to
 ms.date: 07/22/2021
 ---
 
-# Get started with ML notebooks in Azure Sentinel
+# Tutorial: Get started with ML notebooks in Azure Sentinel
 
-This article walks through the Azure Sentinel **Getting Started Guide For Azure Sentinel ML Notebooks** notebook. This notebook covers the basics of getting started with Azure Machine Learning (ML) notebooks in Azure Sentinel. The notebook focuses on setup and basic data queries. This article assumes you're running the notebook in Azure ML, but most of the guidance applies to other notebook environments, including local notebooks.
+This tutorial walks through the Azure Sentinel **Getting Started Guide For Azure Sentinel ML Notebooks** notebook, which focuses on setup and basic data queries.
 
-You can run this notebook in the Azure Sentinel portal to set up and run queries. Select **Notebooks** from the Azure Sentinel left navigation, and from the **Templates** tab, select **A Getting Started Guide For Azure Sentinel ML Notebooks**. Select **Save notebook** to save the notebook to your Azure ML workspace. Then select **Launch notebook** to run the notebook.
+While this tutorial provides steps for running the notebook in your Azure ML workspace via Azure Sentinel, you can use similar steps to run notebooks in other environments, including local notebooks.
+
+> [!NOTE]
+> Jupyter notebooks are created, edited, and run in the Azure Sentinel **Notebooks** page, which provides access to your Azure Machine Learning (ML) workspace and terminal. For more information, see [Use notebooks to power investigations](hunting.md#use-notebooks-to-power-investigations).
 >
-## Jupyter notebooks
 
-[Jupyter](http://jupyter.org/) is an interactive development and data manipulation environment presented in a browser. A Jupyter notebook is a document made up of cells that contain interactive code, the code output, and other items such as text and images.
+## Prerequisites
 
-The name Jupyter comes from the core programming languages that it supports, **Ju**lia, **Pyt**hon, and **R**. You can use any of these languages, and others such as PowerShell, in Jupyter notebooks. This notebook uses Python.
+## Run the Getting Started Guide notebook
 
-Python is a well-established language with many materials and libraries to use for data analysis and security investigation. This capability makes it ideal for Azure Sentinel notebooks. Most notebooks in the [Azure Sentinel GitHub repo](https://github.com/Azure/Azure-Sentinel-Notebooks) use Python.
+1. In Azure Sentinel, select **Notebooks**. From the **Templates** tab, select **A Getting Started Guide For Azure Sentinel ML Notebooks** > **Save notebook** to save it to your Azure ML workspace. Then select **Launch notebook** to run the notebook.
 
-- For more technical details about Jupyter, see [The Jupyter Project documentation](https://jupyter.org/documentation).
-- For more information about notebooks, see [The Infosec Jupyter Book](https://infosecjupyterbook.com).
-- For a comprehensive set of Python learnings and tutorials, see [Real Python](https://realpython.com).
 
-### Use a Jupyter notebook
-
-To use a Jupyter notebook, you need a Jupyter server to render the notebook and execute its code. You can use a local [Jupyter installation](https://pypi.org/project/jupyter/), or a remotely hosted version such as [Azure ML Notebooks](/azure/machine-learning/how-to-run-jupyter-notebooks).
 
 ### Run Azure Machine Learning (ML) notebooks
 
