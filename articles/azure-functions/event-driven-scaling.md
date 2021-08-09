@@ -41,6 +41,7 @@ You may wish to restrict the maximum number of instances an app used to scale ou
 ```azurecli
 az resource update --resource-type Microsoft.Web/sites -g <RESOURCE_GROUP> -n <FUNCTION_APP-NAME>/config/web --set properties.functionAppScaleLimit=<SCALE_LIMIT>
 ```
+
 ```azurepowershell
 $resource = Get-AzResource -ResourceType Microsoft.Web/sites -ResourceGroupName <RESOURCE_GROUP> -Name <FUNCTION_APP-NAME>/config/web
 $resource.Properties.functionAppScaleLimit = <SCALE_LIMIT>
