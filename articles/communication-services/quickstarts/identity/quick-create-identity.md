@@ -27,7 +27,7 @@ In the [Azure portal](https://portal.azure.com), navigate to the **Identities & 
 
 Choose the scope of the access tokens. You can select none, one, or multiple. Click **Generate**.
 
-You'll see an identity and corresponding user access token generated. You can copy these strings and use them in the [sample apps](https://docs.microsoft.com/azure/communication-services/samples/overview) and other testing scenarios.
+You'll see an identity and corresponding user access token generated. You can copy these strings and use them in the [sample apps](../../samples/overview.md) and other testing scenarios.
 
 ## Next steps
 

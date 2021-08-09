@@ -219,7 +219,7 @@ You can now automate creating, updating, and deleting user accounts for these ne
 - [Zip](../saas-apps/zip-provisioning-tutorial.md)
 - [TimeClock 365](../saas-apps/timeclock-365-provisioning-tutorial.md)
 
-For more information about how to better secure your organization by using automated user account provisioning, read [Automate user provisioning to SaaS applications with Azure AD](../manage-apps/user-provisioning.md).
+For more information about how to better secure your organization by using automated user account provisioning, read [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
 
 ---
 
@@ -428,7 +428,7 @@ The [device code flow](../develop/v2-oauth2-device-code.md) has been updated to 
 **Service category:** User Management  
 **Product capability:** User Management
  
-You can now view your users' last sign-in date and time stamp on the Azure portal. The information is available for each user on the user profile page. This information helps you identify inactive users and effectively manage risky events. [Learn more](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=/azure/active-directory/enterprise-users/context/ugr-context).
+You can now view your users' last sign-in date and time stamp on the Azure portal. The information is available for each user on the user profile page. This information helps you identify inactive users and effectively manage risky events. [Learn more](./active-directory-users-profile-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context).
  
 ---
 

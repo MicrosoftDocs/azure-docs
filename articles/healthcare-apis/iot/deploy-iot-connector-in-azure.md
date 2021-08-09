@@ -44,13 +44,13 @@ Before getting started, you should have already deployed the Azure Healthcare AP
 2. Enter a name for the IoT Connector.
 
 3. Enter a name for the Event Hub.
-For more information about Event Hubs, see [Azure Event Hubs overview](https://docs.microsoft.com/azure/event-hubs/).
+For more information about Event Hubs, see [Azure Event Hubs overview](../../event-hubs/index.yml).
 
 4. Enter a name for the Consumer Group.
-For more information about Consumer Groups,  see [Features and terminology in Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-features?WT.mc_id=Portal-Microsoft_Healthcare_APIs#event-consumers).
+For more information about Consumer Groups,  see [Features and terminology in Azure Event Hubs](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#event-consumers).
 
 5. Enter a namespace for the IoT Connector.
-For more information about Event Hub namespaces,  see [Namespace](https://docs.microsoft.com/azure/event-hubs/event-hubs-features?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) in the Features and terminology in Azure Event Hubs document].
+For more information about Event Hub namespaces,  see [Namespace](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) in the Features and terminology in Azure Event Hubs document].
 
 6. To review and create the IoT Connector, select **Review + create**, or select **Next: Destination >**. To enter the destination mapping properties associated with the IoT Connector, refer to the instructions in the following section. 
 
@@ -98,5 +98,3 @@ Tags are name/value pairs used for categorizing resources. For more information 
 
 >[!div class="nextstepaction"]
 >[IoT Connector overview](iot-connector-overview.md)
-
-

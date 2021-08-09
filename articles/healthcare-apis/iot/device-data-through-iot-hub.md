@@ -21,7 +21,7 @@ Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)*
 
 - An active Azure subscription - [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - FHIR service resource with at least one Azure IoT Connector for FHIR - [Deploy Azure IoT Connector for FHIR (preview) using Azure portal](deploy-iot-connector-in-azure.md)
-- Azure IoT Hub resource connected with real or simulated device(s) - [Create an IoT hub using the Azure portal](../../iot-hub/quickstart-send-telemetry-dotnet.md)
+- Azure IoT Hub resource connected with real or simulated device(s) - [Create an IoT hub using the Azure portal](../../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)
 
 > [!TIP]
 > If you are using an Azure IoT Hub simulated device application, feel free to pick the application of your choice amongst different supported languages and systems.
