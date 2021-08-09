@@ -23,13 +23,13 @@ You can run **Diagnose and solve** at any time from the appliance configuration 
 **Prerequisite checks** | Connectivity checks | Checks if the appliance has connectivity to Azure either directly or via proxy.
 || Time sync check | Checks if the appliance server time is in sync with network time.
 || Auto update check | Checks if auto-update is enabled and if all agents running on the appliance are up to date.
-||VDDK check | Checks if the required VDDK files have been downloaded and copied at the required location on the appliance server
+||VDDK check | Checks if the required VDDK files have been downloaded and copied at the required location on the appliance server.
 **Service health checks** |Operational status |Checks if the agents on the appliance are in running state. <br>*If not, appliance will auto-resolve by restarting the agents.* 
 ||Service endpoint connectivity |Checks if the agents can communicate to their respective services on Azure either directly or via proxy.
 **Azure-specific checks** |AAD App availability | Checks if the AAD App created during the appliance registration is available and is accessible from the appliance.
 ||Migrate project availability | Checks if the Migrate project to which the appliance has been registered still exists and is accessible from the appliance.
 ||Essential resources availability| Checks if the Migrate resources created during appliance registration still exist and are accessible from the appliance.
-**Appliance-specific checks** | Key Vault certificate availability | Checks if the certificate downloaded from Key Vault during appliance registration is still available on the appliance server. <br> *If not, appliance will auto-resolve by downloading the certificate again, provided the Key Vault is available and accessible*
+**Appliance-specific checks** | Key Vault certificate availability | Checks if the certificate downloaded from Key Vault during appliance registration is still available on the appliance server. <br> *If not, appliance will auto-resolve by downloading the certificate again, provided the Key Vault is available and accessible*.
 || Credential store availability | Checks if the Credential store resources on the appliance server have not been moved/deleted/edited.
 || Replication appliance/ASR components | Checks if the same server has also been used to install any ASR/replication appliance components. *It is currently not supported to install both Azure Migrate and replication appliance (for agent-based migration) on the same server.*
 || OS license availability | Checks if the evaluation license on the appliance server created from OVA/VHD is still valid. *The Windows Server 2016 evaluation license is valid for 180 days.*
@@ -42,7 +42,7 @@ If you are getting any issues with the appliance during its configuration or see
 > [!NOTE]
 Currently **Diagnose and solve** can perform checks related to appliance connectivity to Azure, availability of required resources on appliance server and/or Azure. The connectivity or discovery issues with the source environment like vCenter Server/ESXi hosts/Hyper-V hosts/VMs/physical servers are currently not covered under **Diagnose and solve*.
  
-1. Select **Diagnose and solve** from the ribbon at the top of the configuration manager
+1. Select **Diagnose and solve** from the ribbon at the top of the configuration manager.
 
     ![Select diagnose and solve](./media/troubleshoot-appliance-diagnostic-solve/appliance-configuration-manager-diagnose-solve.png)
     
