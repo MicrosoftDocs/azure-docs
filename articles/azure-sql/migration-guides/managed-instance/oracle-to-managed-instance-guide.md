@@ -85,7 +85,7 @@ To convert the schema:
 
     ![Screenshot that shows Connect to Azure SQL Managed Instance.](./media/oracle-to-managed-instance-guide/connect-to-sql-managed-instance.png)
 
-1. In **Oracle Metadata Explorer**, right-click the Oracle schema and then select **Convert Schema**. Instead, you can select your schema and then select the **Convert Schema** tab.
+1. In **Oracle Metadata Explorer**, right-click the Oracle schema and then select **Convert Schema**. Or, you can select your schema and then select the **Convert Schema** tab.
 
    ![Screenshot that shows Convert Schema.](./media/oracle-to-managed-instance-guide/convert-schema.png)
 
@@ -105,6 +105,7 @@ To convert the schema:
 After you've completed assessing your databases and addressing any discrepancies, the next step is to run the migration process. Migration involves two steps: publishing the schema and migrating the data.
 
 To publish your schema and migrate your data:
+
 1. Publish the schema by right-clicking the database from the **Databases** node in **Azure SQL Managed Instance Metadata Explorer** and selecting **Synchronize with Database**.
 
    ![Screenshot that shows Synchronize with Database.](./media/oracle-to-managed-instance-guide/synchronize-with-database.png)
@@ -114,7 +115,7 @@ To publish your schema and migrate your data:
 
    ![Screenshot that shows Synchronize with the Database review.](./media/oracle-to-managed-instance-guide/synchronize-with-database-review.png)
 
-1. Migrate the data by right-clicking the schema or object you want to migrate in **Oracle Metadata Explorer** and selecting **Migrate Data**. Instead, you can select the **Migrate Data** tab. To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand **Tables**, and then select the check boxes next to the tables. To omit data from individual tables, clear the check boxes.
+1. Migrate the data by right-clicking the schema or object you want to migrate in **Oracle Metadata Explorer** and selecting **Migrate Data**. Or, you can select the **Migrate Data** tab. To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand **Tables**, and then select the checkboxes next to the tables. To omit data from individual tables, clear the checkboxes.
 
    ![Screenshot that shows Migrate Data.](./media/oracle-to-managed-instance-guide/migrate-data.png)
 
@@ -127,7 +128,7 @@ To publish your schema and migrate your data:
 
    ![Screenshot that shows validation in SSMA for Oracle.](./media/oracle-to-managed-instance-guide/validate-data.png)
 
-Instead, you can also use SQL Server Integration Services to perform the migration. To learn more, see:
+Or, you can also use SQL Server Integration Services to perform the migration. To learn more, see:
 
 - [Getting started with SQL Server Integration Services](/sql/integration-services/sql-server-integration-services)
 - [SQL Server Integration Services for Azure and Hybrid Data Movement](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
@@ -151,37 +152,37 @@ The test approach to database migration consists of the following activities:
 3. **Run validation tests**: Run validation tests against the source and the target, and then analyze the results.
 4. **Run performance tests**: Run performance tests against the source and the target, and then analyze and compare the results.
 
-### Validate Migrated Data
+### Validate migrated objects
 
-Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows you to test the migrated database objects the migrated data. The tester is primarily used to verify that converted objects behave in the same way.
+Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows you to test migrated database objects. The SSMA Tester is used to verify that converted objects behave in the same way.
 
 #### Create test case
 
-1. Open SSMA for Oracle, select Tester followed by New Test Case.
+1. Open SSMA for Oracle, select **Tester** followed by **New Test Case**.
 
    :::image type="content" source="./media/oracle-to-managed-instance-guide/ssma-tester-new.png" alt-text="Screenshot that shows new test case.":::
 
-1. On the Test Case wizard, provide the following information.
+1. On the Test Case wizard, provide the following information:
 
-   Name: Enter the name to identify the test case.
+   **Name:** Enter the name to identify the test case.
 
-   Creation date: Today's current date, defined automatically.
+   **Creation date:** Today's current date, defined automatically.
 
-   Last Modified date: Filled in automatically, should not be changed.
+   **Last Modified date:** Filled in automatically, should not be changed.
 
-   Description: Enter any additional information to identify the purpose of the test case.
+   **Description:** Enter any additional information to identify the purpose of the test case.
 
    :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-init-test-case.png" alt-text="Screenshot that shows step to initialize a test case.":::
 
-1. Select the objects that are part of the test case from the Oracle object tree located on the left side.
+1. Select the objects that are part of the test case from the Oracle object tree located in the left side.
 
    :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-select-configure-objects.png" alt-text="Screenshot that shows step to  select and configure object.":::
 
-   In this example, stored procedure ADD_REGION and table REGION are selected.
+   In this example, stored procedure `ADD_REGION` and table `REGION` is selected.
 
    To learn more, see  [Selecting and configuring objects to test.](/sql/ssma/oracle/selecting-and-configuring-objects-to-test-oracletosql)
 
-1. Next, select the tables ,foreign keys and other dependent objects from the Oracle object tree located on the left window.
+1. Next, select the tables ,foreign keys and other dependent objects from the Oracle object tree in the left window.
 
    :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-select-configure-affected.png" alt-text="Screenshot that shows step to select and configure affected object.":::
 
@@ -191,7 +192,7 @@ Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows 
 
    :::image type="content" source="./media/oracle-to-managed-instance-guide/test-call-ordering.png" alt-text="Screenshot that shows step to sequence test object execution.":::
 
-1. Finalize  the test case by reviewing the information provided in the previous steps. Also, configure the test execution options as per the test scenario.
+1. Finalize  the test case by reviewing the information provided in the previous steps.Configure the test execution options based on the test scenario.
 
    :::image type="content" source="./media//oracle-to-managed-instance-guide/tester-finalize-case.png" alt-text="Screenshot that shows step to  finalize object.":::
 
@@ -201,7 +202,7 @@ Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows 
 
    :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-test-repo.png" alt-text="Screenshot that shows step to test repo.":::
 
-#### Run and view test case
+#### Run test case
 
 When SSMA Tester runs a test case, the test engine executes the objects selected for testing and generates a verification  report.
 

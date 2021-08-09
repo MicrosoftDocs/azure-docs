@@ -52,7 +52,7 @@ To use MAP Toolkit to do an inventory scan, follow these steps:
 
    ![Screenshot that shows the Create/Select database option.](./media/oracle-to-sql-on-azure-vm-guide/select-database.png)
 
-1. Select **Create an inventory database**. Enter the name for the new inventory database and a brief description, and then select **OK**:
+1. Select **Create an inventory database**. Enter the name for the new inventory database and a brief description, and then select **OK**
 
    :::image type="content" source="media/oracle-to-sql-on-azure-vm-guide/create-inventory-database.png" alt-text="Screenshot that shows the interface for creating an inventory database.":::
 
@@ -197,9 +197,7 @@ To publish your schema and migrate the data, follow these steps:
 
 
 
-1. Migrate the data: right-click the database or object that you want to migrate in **Oracle Metadata Explorer** and select **Migrate Data**. Instead, you can select **Migrate Data** in the top menu.
-
-   To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand **Tables**, and then select the check box next to the table. To omit data from individual tables, clear appropriate the check boxes.
+1. Migrate the data: right-click the database or object that you want to migrate in **Oracle Metadata Explorer** and select **Migrate Data**. Or, you can select the **Migrate Data** tab. To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand **Tables**, and then select the checkboxes next to the tables. To omit data from individual tables, clear the checkboxes.
 
    ![Screenshot that shows the Migrate Data command.](./media/oracle-to-sql-on-azure-vm-guide/migrate-data.png)
 
@@ -240,13 +238,13 @@ To test your database migration, complete these activities:
 
 4. **Run performance tests**. Run performance test against the source and the target, and then analyze and compare the results.
 
-### Validate Migrated Objects
+### Validate migrated objects
 
-Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows you to test the migrated database objects the migrated data. The tester is primarily used to verify that converted objects behave in the same way.
+Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows you to test migrated database objects. The SSMA Tester is used to verify that converted objects behave in the same way.
 
 #### Create test case
 
-1. Open SSMA for Oracle, select Tester followed by New Test Case.
+1. Open SSMA for Oracle, select **Tester** followed by **New Test Case**.
 
    :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/ssma-tester-new.png" alt-text="Screenshot that shows new test case.":::
 
@@ -260,25 +258,17 @@ Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows 
 
    **Description**: Enter any additional information to identify the purpose of the test case.
 
-   Name: Enter the name to identify the test case.
-
-   Creation date: Today's current date, defined automatically.
-
-   Last Modified date: filled in automatically, should not be changed.
-
-   Description: Enter any additional information to identify the purpose of the test case.
-
    :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-init-test-case.png" alt-text="Screenshot that shows step to initialize a test case.":::
 
 1. Select the objects that are part of the test case from the Oracle object tree located on the left side.
 
    :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-select-configure-objects.png" alt-text="Screenshot that shows step to  select and configure object.":::
 
-   In this example, stored procedure ADD_REGION and table REGION are selected.
+   In this example, stored procedure `ADD_REGION` and table `REGION` are selected.
 
    To learn more, see  [Selecting and configuring objects to test.](/sql/ssma/oracle/selecting-and-configuring-objects-to-test-oracletosql)
 
-1. Next, select the tables ,foreign keys and other dependent objects from the Oracle object tree located on the left window.
+1. Next, select the tables ,foreign keys and other dependent objects from the Oracle object tree in the left window.
 
    :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-select-configure-affected.png" alt-text="Screenshot that shows step to select and configure affected object.":::
 
@@ -288,7 +278,7 @@ Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows 
 
    :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/test-call-ordering.png" alt-text="Screenshot that shows step to sequence test object execution.":::
 
-1. Finalize  the test case by reviewing the information provided in the previous steps. Also, configure the test execution options as per the test scenario.
+1. Finalize  the test case by reviewing the information provided in the previous steps. Configure the test execution options based on the test scenario.
 
    :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-finalize-case.png" alt-text="Screenshot that shows step to  finalize object.":::
 
@@ -298,7 +288,7 @@ Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows 
 
    :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-test-repo.png" alt-text="Screenshot that shows step to test repo.":::
 
-#### Run and view test case
+#### Run test case
 
 When SSMA Tester runs a test case, the test engine executes the objects selected for testing and generates a verification report.
 
@@ -317,7 +307,7 @@ When SSMA Tester runs a test case, the test engine executes the objects selected
 
    :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-sqlservervm-connect.png" alt-text="Screenshot that shows step to connect to  sql target.":::
 
-   On success, the test case moves to initialization stage.
+On success, the test case moves to initialization stage.
 
 1. A real-time progress bar shows the execution status of the test run.
 
@@ -329,10 +319,10 @@ When SSMA Tester runs a test case, the test engine executes the objects selected
 
 7.Click details to get more information.
 
-  Example of positive data validation.
+   Example of positive data validation.
    :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-test-success.png" alt-text="Screenshot that shows a sample  tester success report.":::
 
- Example of failed data validation.
+   Example of failed data validation.
    :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-test-failed.png" alt-text="Screenshot that shows tester failure report.":::
 
 ### Optimize

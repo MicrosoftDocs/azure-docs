@@ -83,7 +83,7 @@ To convert the schema:
 
     ![Screenshot that shows Connect to Azure SQL Database.](./media/oracle-to-sql-database-guide/connect-to-sql-database.png)
 
-1. In **Oracle Metadata Explorer**, right-click the Oracle schema and then select **Convert Schema**. Instead, you can select your schema and then select the **Convert Schema** tab.
+1. In **Oracle Metadata Explorer**, right-click the Oracle schema and then select **Convert Schema**. Or, you can select your schema and then select the **Convert Schema** tab.
 
    ![Screenshot that shows Convert Schema.](./media/oracle-to-sql-database-guide/convert-schema.png)
 
@@ -149,7 +149,7 @@ The test approach to database migration consists of the following activities:
 1. **Run validation tests**: Run validation tests against the source and the target, and then analyze the results.
 1. **Run performance tests**: Run performance tests against the source and the target, and then analyze and compare the results.
 
-### Validate Migrated Data
+### Validate migrated objects
 
 Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows you to test migrated database objects. The SSMA Tester is used to verify that converted objects behave in the same way.
 
@@ -158,19 +158,19 @@ Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows 
 1. Open SSMA for Oracle, select **Tester**  followed by **New Test Case**.
    ![Screenshot that shows to create new test case.](./media/oracle-to-sql-database-guide/ssma-tester-new.png)
 
-1. Provide the following information for the new test case.
+1. Provide the following information for the new test case:
 
-   Name: Enter the name to identify the test case.
+   **Name:** Enter the name to identify the test case.
 
-   Creation date: Today's current date, defined automatically.
+   **Creation date:** Today's current date, defined automatically.
 
-   Last Modified date: filled in automatically, should not be changed.
+   **Last Modified date:** Filled in automatically, should not be changed.
 
-**Description:**Enter any additional information to identify the purpose of the test case.
+   **Description:** Enter any additional information to identify the purpose of the test case.
 
    ![Screenshot that shows steps to initialize a test case .](./media/oracle-to-sql-database-guide/tester-init-test-case.png)
 
-1. Select the objects that are part of the test case from the Oracle object tree located on the left side.
+1. Select the objects that are part of the test case from the Oracle object tree located in the left side.
 
    :::image type="content" source="./media/oracle-to-sql-database-guide/tester-select-configure-objects.png" alt-text="Screenshot that shows step to  select and configure object.":::
 
@@ -230,7 +230,7 @@ When SSMA Tester runs a test case, the test engine executes the objects selected
 
 1. Click details to get more information.
 
-    Example of positive data validation.
+   Example of positive data validation.
    :::image type="content" source="./media/oracle-to-sql-database-guide/tester-test-success.png" alt-text="Screenshot that shows a sample  tester success report.":::
 
    Example of failed data validation.
