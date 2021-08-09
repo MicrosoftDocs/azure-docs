@@ -5,6 +5,7 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 03/08/2020
 ---
@@ -20,7 +21,7 @@ In this document, we will primarily focus on learning fundamental concepts with 
 
 ## Azure data factory UI and parameters
 
-If you are new to Azure data factory parameter usage in ADF user interface, please review [Data factory UI for linked services with parameters](https://docs.microsoft.com/azure/data-factory/parameterize-linked-services#data-factory-ui)  and [Data factory UI for metadata driven pipeline with parameters](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization#data-factory-ui) for visual explanation.
+If you are new to Azure data factory parameter usage in ADF user interface, please review [Data factory UI for linked services with parameters](./parameterize-linked-services.md#ui-experience)  and [Data factory UI for metadata driven pipeline with parameters](./how-to-use-trigger-parameterization.md#data-factory-ui) for visual explanation.
 
 ## Parameter and expression concepts 
 
@@ -310,11 +311,11 @@ This [Azure Data factory copy pipeline parameter passing tutorial](https://azure
 
 ### Detailed  Mapping data flow pipeline with parameters 
 
-Please follow [Mapping data flow with parameters](https://docs.microsoft.com/azure/data-factory/parameters-data-flow) for comprehensive example on how to use parameters in data flow.
+Please follow [Mapping data flow with parameters](./parameters-data-flow.md) for comprehensive example on how to use parameters in data flow.
 
 ### Detailed Metadata driven pipeline with parameters
 
-Please follow [Metadata driven pipeline with parameters](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization) to learn more about how to use parameters to design metadata driven pipelines. This is a popular use case for parameters.
+Please follow [Metadata driven pipeline with parameters](./how-to-use-trigger-parameterization.md) to learn more about how to use parameters to design metadata driven pipelines. This is a popular use case for parameters.
 
 
 ## Next steps

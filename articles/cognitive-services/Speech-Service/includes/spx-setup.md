@@ -3,7 +3,7 @@ author: v-demjoh
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/15/2020
+ms.date: 04/28/2021
 ms.author: v-demjoh
 ---
 
@@ -18,14 +18,12 @@ Follow these steps to install the Speech CLI on Windows:
 2. Install the Speech CLI using NuGet by entering this command:
 
    ```console
-   dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0
+   dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI
    ```
 Type `spx` to see help for the Speech CLI.
 
 > [!NOTE]
-> As an alternative to NuGet, you can download and extract the Speech CLI [zip archive](https://aka.ms/speech/spx-zips.zip), 
-> find and extract your platform from the `spx-zips` directory, and add the `spx` path to your system **PATH** variable.
-
+> As an alternative to NuGet, you can download and extract the Speech CLI for Windows as a [zip file](https://aka.ms/speech/spx-windows).
 
 ### Font limitations
 
@@ -41,7 +39,7 @@ The following Linux distributions are supported for x64 architectures using the 
 * CentOS 7/8
 * Debian 9/10 
 * Red Hat Enterprise Linux (RHEL) 7/8
-* Ubuntu 16.04/18.04/20.04
+* Ubuntu 16.04 (until September), Ubuntu 18.04/20.04
 
 > [!NOTE]
 > Additional architectures are supported by the Speech SDK (not the Speech CLI). For more information, see [About the Speech SDK](../speech-sdk.md).
@@ -51,18 +49,24 @@ Follow these steps to install the Speech CLI on Linux on an x64 CPU:
 1. Install [.NET Core 3.1 SDK](/dotnet/core/install/linux).
 2. Install the Speech CLI using NuGet by entering this command:
 
-    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
+    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI`
+
+3. On RHEL/CentOS Linux, [Configure OpenSSL for Linux](../how-to-configure-openssl-linux.md).
+4. On Ubunutu 20.04 Linux, [install GStreamer](../how-to-use-codec-compressed-audio-input-streams.md).
 
 Type `spx` to see help for the Speech CLI.
 
 > [!NOTE]
 > As an alternative to NuGet, 
-> you can download the binaries at [zip archive](https://aka.ms/speech/spx-zips.zip),
-> extract `spx-netcore-30-linux-x64.zip` to a new `~/spx` directory, type `sudo chmod +r+x spx` on the binary,
+> you can download the Linux binaries as a [zip file](https://aka.ms/speech/spx-linux).
+> Extract `spx-netcore-30-linux-x64.zip` to a new `~/spx` directory, type `sudo chmod +r+x spx` on the binary,
 > and add the `~/spx` path to your PATH system variable.
 
 
 #### [Docker Install (Windows, Linux, macOS)](#tab/dockerinstall)
+
+> [!WARNING]
+> You cannot use your computer's microphone when you run Speech CLI within a Docker container. However, you can read from and save audio files in your local mounted directory. 
 
 Follow these steps to install the Speech CLI in a Docker container:
 
@@ -127,9 +131,6 @@ On Windows, enter this command to start a container that exposes an interactive 
 ```console
 docker run -it --entrypoint=/bin/bash -v c:\spx-data:/data --rm msftspeech/spx
 ```
-
-> [!WARNING]
-> You cannot use your computer's microphone when you run Speech CLI within a Docker container. However, you can read from and save audio files in your local mounted directory. 
 
 <!-- Need to troubleshoot issues with docker pull image
 

@@ -21,13 +21,13 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 You'll need to be running the Azure CLI version 2.0, or later, locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-Sign in to your account by using the [az login](/cli/azure/reference-index#az-login) command. 
+Sign in to your account by using the [az login](/cli/azure/reference-index#az_login) command. 
 
 ```azurecli-interactive
 az login
 ```
 
-Select your subscription by using the [az account set](/cli/azure/account) command. Make a note of the **id** value from the **az login** output to use as the value for the **subscription** argument in the following command. If you have multiple subscriptions, choose the subscription to which the resource should be billed. To identify all your subscriptions, use the [az account list](/cli/azure/account#az-account-list) command.
+Select your subscription by using the [az account set](/cli/azure/account) command. Make a note of the **id** value from the **az login** output to use as the value for the **subscription** argument in the following command. If you have multiple subscriptions, choose the subscription to which the resource should be billed. To identify all your subscriptions, use the [az account list](/cli/azure/account#az_account_list) command.
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -126,7 +126,7 @@ az postgres flexible-server update --resource-group myresourcegroup --name mydem
 
 ## Delete a server
 
-To delete the Azure Database for PostgreSQL flexible server, run the [az postgres flexible-server delete](/cli/azure/postgres/flexible-server#az-PostgreSQL-flexible-server-delete) command.
+To delete the Azure Database for PostgreSQL flexible server, run the [az postgres flexible-server delete](/cli/azure/postgres/flexible-server#az_postgresql_flexible_server_delete) command.
 
 ```azurecli-interactive
 az postgres flexible-server delete --resource-group myresourcegroup --name mydemoserver

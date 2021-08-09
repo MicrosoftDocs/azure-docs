@@ -10,10 +10,6 @@ ms.date: 12/24/2019
 
 # Connect computers without internet access by using the Log Analytics gateway in Azure Monitor
 
->[!NOTE]
->As Microsoft Operations Management Suite (OMS) transitions to Microsoft Azure Monitor, terminology is changing. This article refers to OMS Gateway as the Azure Log Analytics gateway. 
->
-
 This article describes how to configure communication with Azure Automation and Azure Monitor by using the Log Analytics gateway when computers that are directly connected or that are monitored by Operations Manager have no internet access. 
 
 The Log Analytics gateway is an HTTP forward proxy that supports HTTP tunneling using the HTTP CONNECT command. This gateway sends data to Azure Automation and a Log Analytics workspace in Azure Monitor on behalf of the computers that cannot directly connect to the internet. 
@@ -85,6 +81,9 @@ The Log Analytics gateway is available in these languages:
 The Log Analytics gateway supports only Transport Layer Security (TLS) 1.0, 1.1, and 1.2.  It doesn't support Secure Sockets Layer (SSL).  To ensure the security of data in transit to Log Analytics, configure the gateway to use at least TLS 1.2. Older versions of TLS or SSL are vulnerable. Although they currently allow backward compatibility, avoid using them.  
 
 For additional information, review [Sending data securely using TLS 1.2](../logs/data-security.md#sending-data-securely-using-tls-12). 
+
+>[!NOTE]
+>The gateway is a forwarding proxy that doesn’t store any data. Once the agent establishes connection with Azure Monitor, it follows the same encryption flow with or without the gateway. The data is encrypted between the client and the endpoint. Since the gateway is just a tunnel, it doesn’t have the ability the inspect what is being sent.
 
 ### Supported number of agent connections
 

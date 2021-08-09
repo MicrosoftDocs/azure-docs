@@ -287,7 +287,7 @@ If no other server has offline seeding configured and no other server is depende
 
 From the server you're trying to configure for offline backup, perform the following actions.
 
-1. Go to the **Manage computer certificate application** > **Personal** tab, and look for the certificate with the name `CB_AzureADCertforOfflineSeeding_<ResourceId>`.
+1. Go to the **Manage computer certificate application** > **Personal** tab, and look for the certificate with the name `CB_AzureADCertforOfflineSeeding_<Timestamp>`.
 
 2. Select the certificate, right-click **All Tasks**, and select **Export** without a private key in the .cer format.
 

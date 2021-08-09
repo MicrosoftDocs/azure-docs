@@ -137,4 +137,4 @@ SELECT * FROM sys.dm_external_data_processed
 
 ## Next steps
 
-To learn how to optimize your queries for performance, see [Best practices for serverless SQL pool](best-practices-sql-on-demand.md).
+To learn how to optimize your queries for performance, see [Best practices for serverless SQL pool](./best-practices-serverless-sql-pool.md).

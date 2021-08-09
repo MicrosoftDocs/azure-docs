@@ -1,12 +1,12 @@
 ---
 title: "Set Immersive Reader Cookie Policy"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: This article will show you how to set the cookie policy for the Immersive Reader.
 services: cognitive-services
 author: nitinme
 manager: guillasi
 
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/06/2020
@@ -43,7 +43,7 @@ ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, YOUR_DATA, options);
 ## Next steps
 
 * View the [Node.js quickstart](../quickstarts/client-libraries.md?pivots=programming-language-nodejs) to see what else you can do with the Immersive Reader SDK using Node.js
-* View the [Android tutorial](../tutorial-android.md) to see what else you can do with the Immersive Reader SDK using Java or Kotlin for Android
-* View the [iOS tutorial](../tutorial-ios.md) to see what else you can do with the Immersive Reader SDK using Swift for iOS
-* View the [Python tutorial](../tutorial-python.md) to see what else you can do with the Immersive Reader SDK using Python
+* View the [Android tutorial](../how-to-launch-immersive-reader.md) to see what else you can do with the Immersive Reader SDK using Java or Kotlin for Android
+* View the [iOS tutorial](../how-to-launch-immersive-reader.md) to see what else you can do with the Immersive Reader SDK using Swift for iOS
+* View the [Python tutorial](../how-to-launch-immersive-reader.md) to see what else you can do with the Immersive Reader SDK using Python
 * Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](../reference.md)

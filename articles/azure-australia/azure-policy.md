@@ -89,7 +89,7 @@ Azure Blueprints extend the capability of Azure Policy by combining them with:
 
 * Azure RBAC
 * Azure Resource Groups
-* [Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md)
+* [Azure Resource Manager Templates](../azure-resource-manager/templates/syntax.md)
 
 Blueprints allow for the creation of environment designs that deploy Azure resources from Resource Manager templates, configure Azure RBAC, and enforce and audit configuration by assigning Azure Policy. Blueprints form an editable and redeployable environment template. Once the Blueprint has been created, it can then be assigned to an Azure Subscription. Once assigned, all of the Azure resources defined within the Blueprint will be created and the Azure Policies applied. The deployment and configuration of resources defined in an Azure Blueprint can be monitored from the Azure Blueprint console in the Azure portal.
 

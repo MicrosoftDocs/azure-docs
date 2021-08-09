@@ -65,8 +65,6 @@ Follow these steps to add a redirect URI for a single-page app that uses MSAL.js
 
 You've now completed the registration of your single-page application (SPA) and configured a redirect URI to which the client will be redirected and any security tokens will be sent. By selecting one or both of **ID tokens** and **Access tokens**, you've enabled the implicit grant flow.
 
-Follow the [tutorial](tutorial-v2-javascript-spa.md) for further guidance.
-
 ## Note about authorization flows
 
 By default, an app registration created by using single-page application platform configuration enables the authorization code flow. To take advantage of this flow, your application must use MSAL.js 2.0 or later.

@@ -1,13 +1,13 @@
 ---
 title: Copy data in bulk using Azure portal
 description: Use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
+ms.subservice: tutorials
 ms.workload: data-services 
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/29/2021
+ms.date: 07/06/2021
 ---
 
 # Copy multiple tables in bulk by using Azure Data Factory in the Azure portal
@@ -78,7 +78,7 @@ To verify and turn on this setting, go to your server > Security > Firewalls and
 1. Click **Create**.
 1. After the creation is complete, select **Go to resource** to navigate to the **Data Factory** page. 
    
-1. Click **Author & Monitor** tile to launch the Data Factory UI application in a separate tab.
+1. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Data Factory UI application in a separate tab.
 
 
 ## Create linked services
@@ -249,7 +249,7 @@ The  **IterateAndCopySQLTables** pipeline takes a list of tables as a parameter.
     1. Click the **Pre-copy Script** input box -> select the **Add dynamic content** below -> enter the following expression as script -> select **Finish**. 
 
         ```sql
-        TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
+        IF EXISTS (SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]) TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ```
 
         ![Copy sink settings](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)

@@ -46,7 +46,7 @@ The steps for this task use a VNet based on the values in the following configur
 You can view a [Video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) of these steps before beginning your configuration.
 
 > [!IMPORTANT]
-> IPv6 support for private peering is currently in **Public Preview**. If you would like to connect your virtual network to an ExpressRoute circuit with IPv6-based private peering configured, please make sure that your virtual network is dual stack and follows the guidelines for [IPv6 for Azure VNet](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> IPv6 support for private peering is currently in **Public Preview**. If you would like to connect your virtual network to an ExpressRoute circuit with IPv6-based private peering configured, please make sure that your virtual network is dual stack and follows the guidelines for [IPv6 for Azure VNet](../virtual-network/ipv6-overview.md).
 > 
 > 
 
@@ -58,7 +58,7 @@ You can view a [Video](https://azure.microsoft.com/documentation/videos/azure-ex
    
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-gateway-subnet.png" alt-text="Add the gateway subnet":::
 
-1. The **Name** for your subnet is automatically filled in with the value 'GatewaySubnet'. This value is required in order for Azure to recognize the subnet as the gateway subnet. Adjust the autofilled **Address range** values to match your configuration requirements. We recommend creating a gateway subnet with a /27 or larger (/26, /25, and so on.).
+1. The **Name** for your subnet is automatically filled in with the value 'GatewaySubnet'. This value is required in order for Azure to recognize the subnet as the gateway subnet. Adjust the autofilled **Address range** values to match your configuration requirements. We recommend creating a gateway subnet with a /27 or larger (/26, /25, and so on.). If you plan on connecting 16 ExpressRoute circuits to your gateway, you **must** create a gateway subnet of /26 or larger.
 
     If you are using a dual stack virtual network and plan to use IPv6-based private peering over ExpressRoute, click **Add IP6 address space** and input **IPv6 address range** values.
 
@@ -84,7 +84,7 @@ You can view a [Video](https://azure.microsoft.com/documentation/videos/azure-ex
     | Public IP address name | Provide a name for the public IP address. |
 
     > [!IMPORTANT]
-    > If you plan to use IPv6-based private peering over ExpressRoute, make sure to select an AZ SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ) for **SKU**.
+    > If you plan to use IPv6-based private peering over ExpressRoute, please refer to the [PowerShell documentation](./expressroute-howto-add-gateway-resource-manager.md) for creating your gateway with a Public IP address of type Standard, Static.
     > 
     > 
 

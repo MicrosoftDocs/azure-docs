@@ -3,7 +3,7 @@ title: Remove Azure Automation Start/Stop VMs during off-hours overview
 description: This article describes how to remove the Start/Stop VMs during off-hours feature and unlink an Automation account from the Log Analytics workspace.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/04/2021
+ms.date: 04/15/2021
 ms.topic: conceptual
 ---
 
@@ -16,6 +16,9 @@ After you enable the Start/Stop VMs during off-hours feature to manage the runni
 * Delete the feature from an Automation account and linked workspace that are supporting other management and monitoring objectives.
 
 Deleting this feature only removes the associated runbooks, it doesn't delete the schedules or variables that were created during deployment or any custom-defined ones created after.
+
+> [!NOTE]
+> Before proceeding, verify there aren't any [Resource Manager locks](../azure-resource-manager/management/lock-resources.md) applied at the subscription, resource group, or resource which prevents accidental deletion or modification of critical resources. When you deploy the Start/Stop VMs during off-hours solution, it sets the lock level to **CanNotDelete** against several dependent resources in the Automation account (specifically its runbooks and variables). Any locks need to be removed before you can delete the Automation account.
 
 ## Delete the dedicated resource group
 

@@ -4,7 +4,7 @@ description: Learn about Azure Analysis Services, a fully managed platform as a 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 01/20/2021
+ms.date: 03/29/2021
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for our organization.
@@ -80,6 +80,7 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 |Canada Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |Canada Central     |     S8v2, S9v2   |    1    |
 |East US     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
+|East US     |     S8v2, S9v2   |    1    |
 |East US 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
 |East US 2     |     S8v2, S9v2   |    1    |
 |North Central US     |     B1, B2, S0, S1, S2, S4, D1     |    1     |

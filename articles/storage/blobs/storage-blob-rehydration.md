@@ -2,14 +2,15 @@
 title: Rehydrate blob data from the archive tier
 description: Rehydrate your blobs from archive storage so you can access the blob data. Copy an archived blob to an online tier.
 services: storage
-author: mhopkins-msft
+author: tamram
 
-ms.author: mhopkins
+ms.author: tamram
 ms.date: 03/11/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.reviewer: hux
+ms.reviewer: hux 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Rehydrate blob data from the archive tier
@@ -27,7 +28,7 @@ While a blob is in the archive access tier, it's considered offline and can't be
 
 ### Lifecycle management
 
-Rehydrating a blob doesn't change it's `Last-Modified` time. Using the [lifecycle management](storage-lifecycle-management-concepts.md) feature can create a scenario where a blob is rehydrated, then a lifecycle management policy moves the blob back to archive because the `Last-Modified` time is beyond the threshold set for the policy. To avoid this scenario, use the *[Copy an archived blob to an online tier](#copy-an-archived-blob-to-an-online-tier)* method. The copy method creates a new instance of the blob with an updated `Last-Modified` time and won't trigger the lifecycle management policy.
+Rehydrating a blob doesn't change its `Last-Modified` time. Using the [lifecycle management](storage-lifecycle-management-concepts.md) feature can create a scenario where a blob is rehydrated, then a lifecycle management policy moves the blob back to archive because the `Last-Modified` time is beyond the threshold set for the policy. To avoid this scenario, use the *[Copy an archived blob to an online tier](#copy-an-archived-blob-to-an-online-tier)* method. The copy method creates a new instance of the blob with an updated `Last-Modified` time and won't trigger the lifecycle management policy.
 
 ## Monitor rehydration progress
 

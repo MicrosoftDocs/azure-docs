@@ -41,7 +41,7 @@ The first step is to identify the records that will get the custom field.  You s
 
 1. Go to **Logs** and use a [query to retrieve the records](./log-query-overview.md) that will have the custom field.
 2. Select a record that Log Analytics will use to act as a model for extracting data to populate the custom field.  You will identify the data that you want to extract from this record, and Log Analytics will use this information to determine the logic to populate the custom field for all similar records.
-3. Expand the record properties, click the ellipse to the left of the top property of the record, and select **Extract fields from**.
+3. Expand the record properties, click the ellipsis to the left of the top property of the record, and select **Extract fields from**.
 4. The **Field Extraction Wizard** is opened, and the record you selected is displayed in the **Main Example** column.  The custom field will be defined for those records with the same values in the properties that are selected.  
 5. If the selection is not exactly what you want, select additional fields to narrow the criteria.  In order to change the field values for the criteria, you must cancel and select a different record matching the criteria you want.
 
@@ -82,7 +82,7 @@ We then select and expand any record with event ID 7036.
 
 ![Source record](media/custom-fields/source-record.png)
 
-We define custom fields by clicking the ellipse next to the top property.
+We define custom fields by clicking the ellipsis next to the top property.
 
 ![Extract fields](media/custom-fields/extract-fields.png)
 

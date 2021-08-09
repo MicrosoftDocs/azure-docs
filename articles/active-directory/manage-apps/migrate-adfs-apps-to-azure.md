@@ -2,15 +2,15 @@
 title: Moving application authentication from AD FS to Azure Active Directory
 description: Learn how to use Azure Active Directory to replace Active Directory Federation Services (AD FS), giving users single sign-on to all their applications.
 services: active-directory
-author: kenwith
-manager: daveba
+author: davidmu1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 03/01/2021
-ms.author: kenwith
-ms.reviewer: baselden
+ms.author: davidmu
+ms.reviewer: alamaral
 ---
 
 # Moving application authentication from Active Directory Federation Services to Azure Active Directory
@@ -43,7 +43,7 @@ Your applications may use modern or legacy protocols for authentication. When yo
 
 For more information, see:
 
-* [Using Azure AD Application Proxy to publish on-premises apps for remote users](what-is-application-proxy.md).
+* [Using Azure AD Application Proxy to publish on-premises apps for remote users](../app-proxy/what-is-application-proxy.md).
 * [What is application management?](what-is-application-management.md)
 * [AD FS application activity report to migrate applications to Azure AD](migrate-adfs-application-activity.md).
 * [Monitor AD FS using Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md).
@@ -115,7 +115,7 @@ If your users sign in to SaaS apps such as Salesforce, ServiceNow, or Workday, a
 
 Most SaaS applications can be configured in Azure AD. Microsoft has many preconfigured connections to SaaS apps in the  [Azure AD app gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps), which makes your transition easier. SAML 2.0 applications can be integrated with Azure AD via the Azure AD app gallery or as [non-gallery applications](add-application-portal.md).
 
-Apps that use OAuth 2.0 or OpenID Connect can be similarly integrated with Azure AD as [app registrations](../develop/quickstart-register-app.md). Apps that use legacy protocols can use [Azure AD Application Proxy](application-proxy.md) to authenticate with Azure AD.
+Apps that use OAuth 2.0 or OpenID Connect can be similarly integrated with Azure AD as [app registrations](../develop/quickstart-register-app.md). Apps that use legacy protocols can use [Azure AD Application Proxy](../app-proxy/application-proxy.md) to authenticate with Azure AD.
 
 For any issues with onboarding your SaaS apps, you can contact the [SaaS Application Integration support alias](mailto:SaaSApplicationIntegrations@service.microsoft.com).
 
@@ -130,7 +130,7 @@ Both AD FS and Azure AD provide token encryption—the ability to encrypt the SA
 For information about Azure AD SAML token encryption and how to configure it, see [How to: Configure Azure AD SAML token encryption](howto-saml-token-encryption.md).  
 
 > [!NOTE]
-> Token encryption is an Azure Active Directory (Azure AD) premium feature. To learn more about Azure AD editions, features, and pricing, see [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+> Token encryption is an Azure Active Directory (Azure AD) premium feature. To learn more about Azure AD editions, features, and pricing, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ### Apps and configurations that can be moved today
 
@@ -149,8 +149,8 @@ The following require additional configuration steps to migrate to Azure AD:
 * Apps with multiple Reply URL endpoints. You configure them in Azure AD using PowerShell or the Azure portal interface.
 * WS-Federation apps such as SharePoint apps that require SAML version 1.1 tokens. You can configure them manually using PowerShell. You can also add a pre-integrated generic template for SharePoint and SAML 1.1 applications from the gallery. We support the SAML 2.0 protocol.
 * Complex claims issuance transforms rules. For information about supported claims mappings, see:
-   *  [Claims mapping in Azure Active Directory](../develop/active-directory-claims-mapping.md).
-   * [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
+  * [Claims mapping in Azure Active Directory](../develop/active-directory-claims-mapping.md).
+  * [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
 
 ### Apps and configurations not supported in Azure AD today
 
@@ -173,7 +173,7 @@ Apps that require the following protocol capabilities can't be migrated today:
 
 Apps that require the following claims in token capabilities can't be migrated today.
 
-* Claims from attribute stores other than the Azure AD directory, unless that data is synced to Azure AD. For more information, see the [Azure AD synchronization API overview](/graph/api/resources/synchronization-overview?view=graph-rest-beta).
+* Claims from attribute stores other than the Azure AD directory, unless that data is synced to Azure AD. For more information, see the [Azure AD synchronization API overview](/graph/api/resources/synchronization-overview).
 * Issuance of directory multiple-value attributes. For example, we can't issue a multivalued claim for proxy addresses at this time.
 
 ## Map app settings from AD FS to Azure AD
@@ -304,7 +304,7 @@ Specify MFA rules for a user or a group in Azure AD:
 
     ‎![Screenshot shows the Grant pane where you can grant access.](media/migrate-adfs-apps-to-azure/mfa-users-groups.png)
 
- #### Example 2: Enforce MFA for unregistered devices
+#### Example 2: Enforce MFA for unregistered devices
 
 Specify MFA rules for unregistered devices in Azure AD:
 
@@ -322,7 +322,7 @@ Specify MFA rules based on a user's location in Azure AD:
 
 1. Create a [new conditional access policy](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 1. Set the **Assignments** to **All users**.
-1. [Configure named locations in Azure AD](../reports-monitoring/quickstart-configure-named-locations.md). Otherwise, federation from inside your corporate network is trusted.
+1. [Configure named locations in Azure AD](../conditional-access/location-condition.md). Otherwise, federation from inside your corporate network is trusted.
 1. Configure the **Conditions rules** to specify the locations for which you would like to enforce MFA.
 
     ![Screenshot shows the Locations pane for Conditions rules.](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
@@ -361,7 +361,7 @@ In this table, we've listed some useful Permit and Except options and how they m
 
 | Option | How to configure Permit option in Azure AD?| How to configure Except option in Azure AD? |
 | - | - | - |
-| From specific network| Maps to [Named Location](../reports-monitoring/quickstart-configure-named-locations.md) in Azure AD| Use the **Exclude** option for [trusted locations](../conditional-access/location-condition.md) |
+| From specific network| Maps to [Named Location](../conditional-access/location-condition.md) in Azure AD| Use the **Exclude** option for [trusted locations](../conditional-access/location-condition.md) |
 | From specific groups| [Set a User/Groups Assignment](assign-user-or-group-access-portal.md)| Use the **Exclude** option in Users and Groups |
 | From Devices with Specific Trust Level| Set this from the **Device State** control under Assignments -> Conditions| Use the **Exclude** option under Device State Condition and Include **All devices** |
 | With Specific Claims in the Request| This setting can't be migrated| This setting can't be migrated |
@@ -410,7 +410,7 @@ Depending on how you configure your app, verify that SSO works properly.
 | OAuth / OpenID Connect| Select **Enterprise applications > Permissions** and ensure you have consented to the application in the user settings for your app.|
 | SAML-based SSO | Use the [Test SAML Settings](debug-saml-sso-issues.md) button found under **Single Sign-On**. |
 | Password-Based SSO |  Download and install the [MyApps Secure Sign](../user-help/my-apps-portal-end-user-access.md)[-](../user-help/my-apps-portal-end-user-access.md)[in Extension](../user-help/my-apps-portal-end-user-access.md). This extension helps you start any of your organization's cloud apps that require you to use an SSO process. |
-| Application Proxy | Ensure your connector is running and assigned to your application. Visit the [Application Proxy troubleshooting guide](application-proxy-troubleshoot.md) for further assistance. |
+| Application Proxy | Ensure your connector is running and assigned to your application. Visit the [Application Proxy troubleshooting guide](../app-proxy/application-proxy-troubleshoot.md) for further assistance. |
 
 > [!NOTE]
 > Cookies from the old AD FS environment persist on the user machines. These cookies might cause problems with the migration, as users could be directed to the old AD FS login environment versus the new Azure AD login. You may need to clear the user browser cookies manually or using a script. You can also use the System Center Configuration Manager or a similar platform.

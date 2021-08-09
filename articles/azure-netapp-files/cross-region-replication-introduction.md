@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 07/12/2021
 ms.author: b-juche
 ms.custom: references_regions
 ---
@@ -22,7 +22,7 @@ ms.custom: references_regions
 The Azure NetApp Files replication functionality provides data protection through cross-region volume replication. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region.  This capability enables you to failover your critical application in case of a region-wide outage or disaster.
 
 > [!IMPORTANT]
-> The cross-region replication feature is currently in public preview. You need to submit a waitlist request for accessing the feature through the [Azure NetApp Files cross-region replication waitlist submission page](https://aka.ms/anfcrrpreviewsignup). Wait for an official confirmation email from the Azure NetApp Files team before using the cross-region replication feature.
+> The cross-region replication feature is currently in preview. You need to submit a waitlist request for accessing the feature through the [Azure NetApp Files cross-region replication waitlist submission page](https://aka.ms/anfcrrpreviewsignup). Wait for an official confirmation email from the Azure NetApp Files team before using the cross-region replication feature.
 
 ## <a name="supported-region-pairs"></a>Supported cross-region replication pairs
 
@@ -40,7 +40,7 @@ Azure NetApp Files volume replication is supported between various [Azure region
 * North Europe and West Europe
 * UK South and UK West
 
-### Azure regional non-pairs
+### Azure regional non-standard pairs
 
 *	West US 2 and East US
 *	South Central US and Central US
@@ -50,14 +50,16 @@ Azure NetApp Files volume replication is supported between various [Azure region
 *	East US 2 and West US 2
 *	Australia East and Southeast Asia 
 *	Germany West Central and UK South
+*	Germany West Central and West Europe
+*	Germany West Central and France Central
 
 ## Service-level objectives
 
-Recovery Point Objectives (RPO), or the maximum tolerable data loss, is defined as twice the replication schedule.  The actual RPO observed might vary based on factors such as the total dataset size along with the change rate, the percentage of data overwrites, and the replication bandwidth available for transfer.   
+Recovery Point Objective (RPO) indicates the point in time to which data can be recovered. The RPO target is typically less than twice the replication schedule, but it can vary. In some cases, it can go beyond the target RPO based on factors such as the total dataset size, the change rate, the percentage of data overwrites, and the replication bandwidth available for transfer.   
 
-* For the replication schedule of 10 minutes, the maximum RPO is 20 minutes.  
-* For the hourly replication schedule, the maximum RPO is two hours.  
-* For the daily replication schedule, the maximum RPO is two days.  
+* For the replication schedule of 10 minutes, the typical RPO is less than 20 minutes.  
+* For the hourly replication schedule, the typical RPO is less than two hours.  
+* For the daily replication schedule, the typical RPO is less than two days.  
 
 Recovery Time Objective (RTO), or the maximum tolerable business application downtime, is determined by factors in bringing up the application and providing access to the data at the second site. The storage portion of the RTO for breaking the peering relationship to activate the destination volume and provide read and write data access in the second site is expected to be complete within a minute.
 

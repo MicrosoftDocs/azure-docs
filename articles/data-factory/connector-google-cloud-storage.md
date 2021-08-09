@@ -1,11 +1,14 @@
 ---
 title: Copy data from Google Cloud Storage by using Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to copy data from Google Cloud Storage to supported sink data stores by using Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.author: jingwang
+ms.author: jianleishen
 ---
 
 # Copy data from Google Cloud Storage by using Azure Data Factory
@@ -46,7 +49,7 @@ For the full list of Google Cloud Storage roles and associated permissions, see 
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)] 
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)] 
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Google Cloud Storage.
 
@@ -87,7 +90,7 @@ Here's an example:
 
 ## Dataset properties
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for Google Cloud Storage under `location` settings in a format-based dataset:
 
@@ -131,7 +134,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### Google Cloud Storage as a source type
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for Google Cloud Storage under `storeSettings` settings in a format-based copy source:
 

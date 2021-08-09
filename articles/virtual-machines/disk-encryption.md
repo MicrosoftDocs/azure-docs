@@ -2,10 +2,10 @@
 title: Server-side encryption of Azure managed disks
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can use customer-managed keys to manage encryption with your own keys, or you can rely on Microsoft-managed keys for the encryption of your managed disks.
 author: roygara
-ms.date: 03/11/2021
+ms.date: 06/29/2021
 ms.topic: conceptual
 ms.author: rogarana
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
 ---
@@ -16,7 +16,7 @@ Most Azure managed disks are encrypted with Azure Storage encryption, which uses
 
 Data in Azure managed disks is encrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant. For more information about the cryptographic modules underlying Azure managed disks, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal)
 
-Azure Storage encryption does not impact the performance of managed disks and there is no additional cost. For more information about Azure Storage encryption, see [Azure Storage encryption](/azure/storage/common/storage-service-encryption).
+Azure Storage encryption does not impact the performance of managed disks and there is no additional cost. For more information about Azure Storage encryption, see [Azure Storage encryption](../storage/common/storage-service-encryption.md).
 
 > [!NOTE]
 > Temporary disks are not managed disks and are not encrypted by SSE, unless you enable encryption at host.
@@ -47,17 +47,6 @@ For now, customer-managed keys have the following restrictions:
 
 Customer-managed keys are available in all regions that managed disks are available.
 
-Automatic key rotation is in preview and only available in the following regions:
-
-- East US
-- East US 2
-- South Central US
-- West US
-- West US 2
-- North Europe
-- West Europe
-- France Central
-
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with managed disks isn't transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
@@ -76,6 +65,8 @@ Temporary disks and ephemeral OS disks are encrypted at rest with platform-manag
 #### Supported VM sizes
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
+
+You may also find the VM sizes programmatically. To learn how to retrieve them programmatically, refer to the finding supported VM sizes section of either the [Azure PowerShell module](windows/disks-enable-host-based-encryption-powershell.md#finding-supported-vm-sizes) or [Azure CLI](linux/disks-enable-host-based-encryption-cli.md#finding-supported-vm-sizes) articles.
 
 To enable end-to-end encryption using encryption at host, see our articles covering how to enable it with either the [Azure PowerShell module](windows/disks-enable-host-based-encryption-powershell.md), the [Azure CLI](linux/disks-enable-host-based-encryption-cli.md), or the [Azure portal](disks-enable-host-based-encryption-portal.md).
 

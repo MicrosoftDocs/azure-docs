@@ -7,7 +7,7 @@ manager: nimag
 services: azure-communication-services
 
 ms.author: dademath
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 
@@ -15,19 +15,11 @@ ms.service: azure-communication-services
 
 # Get started with the group chat hero sample
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-
-<!----
-> [!WARNING]
-> links to our Hero Sample repo need to be updated when the sample is publicly available.
----->
-
 > [!IMPORTANT]
-> [This sample is available on GitHub.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
+> [This sample is available **on GitHub**.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 
-The Azure Communication Services **Group Chat Hero Sample** demonstrates how the Communication Services Chat Web client library can be used to build a group calling experience.
+The Azure Communication Services **Group Chat Hero Sample** demonstrates how the Communication Services Chat Web SDK can be used to build a group calling experience.
 
 In this Sample quickstart, we'll learn how the sample works before we run the sample on your local machine. We'll then deploy the sample to Azure using your own Azure Communication Services resources.
 
@@ -62,7 +54,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
 - [Node.js (8.11.2 and above)](https://nodejs.org/en/download/)
 - [Visual Studio (2017 and above)](https://visualstudio.microsoft.com/vs/)
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
 
 ## Locally deploying the service & client app
 
@@ -77,7 +69,7 @@ You can test the sample locally by opening multiple browser sessions with the UR
 
 1. Open an instance of PowerShell, Windows Terminal, Command Prompt or equivalent and navigate to the directory that you'd like to clone the sample to.
 2. `git clone https://github.com/Azure-Samples/communication-services-web-chat-hero.git`
-3. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Resources](../quickstarts/create-communication-resource.md)
+3. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Services resources](../quickstarts/create-communication-resource.md)
 4. Once you get the `Connection String`, Add the connection string to the **Chat/appsettings.json** file found under the Chat folder. Input your connection string in the variable: `ResourceConnectionString`.
 
 ### Local run
@@ -109,7 +101,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 For more information, see the following articles:
 
 - Learn about [chat concepts](../concepts/chat/concepts.md)
-- Familiarize yourself with our [chat client library](../concepts/chat/sdk-features.md)
+- Familiarize yourself with our [Chat SDK](../concepts/chat/sdk-features.md)
 - Review the [Contoso Med App](https://github.com/Azure-Samples/communication-services-contoso-med-app) sample
 
 ## Additional reading

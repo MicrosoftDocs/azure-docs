@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/17/2021
+ms.date: 08/01/2021
 ms.custom: azure-synapse, sqldbrb=1
 ---
 # Auditing for Azure SQL Database and Azure Synapse Analytics
@@ -34,7 +34,7 @@ You can use SQL Database auditing to:
 - **Analyze** reports. You can find suspicious events, unusual activity, and trends.
 
 > [!IMPORTANT]
-> Auditing for Azure SQL Database and Azure Synapse is optimized for availability and performance. During very high activity, or high network load, Azure SQL Database and Azure Synapse allow operations to proceed and may not record some audited events..
+> Auditing for Azure SQL Database, Azure Synapse and Azure SQL Managed Instance is optimized for availability and performance. During very high activity, or high network load, Azure SQL Database, Azure Synapse and Azure SQL Managed Instance allow operations to proceed and may not record some audited events.
 
 ### Auditing limitations
 
@@ -75,9 +75,10 @@ An auditing policy can be defined for a specific database or as a default [serve
 - You can write audit logs to a an Azure Storage account behind a VNet or firewall. For specific instructions see, [Write audit to a storage account behind VNet and firewall](audit-write-storage-account-behind-vnet-firewall.md).
 - For details about the log format, hierarchy of the storage folder and naming conventions, see the [Blob Audit Log Format Reference](./audit-log-format.md).
 - Auditing on [Read-Only Replicas](read-scale-out.md) is automatically enabled. For further details about the hierarchy of the storage folders, naming conventions, and log format, see the [SQL Database Audit Log Format](audit-log-format.md).
-- When using Azure AD Authentication, failed logins records will *not* appear in the SQL audit log. To view failed login audit records, you need to visit the [Azure Active Directory portal](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), which logs details of these events.
+- When using Azure AD Authentication, failed logins records will *not* appear in the SQL audit log. To view failed login audit records, you need to visit the [Azure Active Directory portal](../../active-directory/reports-monitoring/concept-sign-ins.md), which logs details of these events.
 - Logins are routed by the gateway to the specific instance where the database is located.  In the case of AAD logins, the credentials are verified before attempting to use that user to login into the requested database.  In the case of failure, the requested database is never accessed, so no auditing occurs.  In the case of SQL logins, the credentials are verified on the requested data, so in this case they can be audited.  Successful logins, which obviously reach the database, are audited in both cases.
 - After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](threat-detection-overview.md).
+- After a database with auditing enabled is copied to another Azure SQL logical server, you may receive an email notifying you that the audit failed. This is a known issue and auditing should work as expected on the newly copied database.
 
 ## <a id="setup-auditing"></a>Set up auditing for your server
 
@@ -94,7 +95,7 @@ The following section describes the configuration of auditing using the Azure po
 
   > [!NOTE]
   > - Enabling auditing on a paused dedicated SQL pool is not possible. To enable auditing, un-pause the dedicated SQL pool. Learn more about [dedicated SQL pool](../..//synapse-analytics/sql/best-practices-dedicated-sql-pool.md).
-  > - When auditing is configured to a Log Analytics workspace or to an Even Hub destination via the Azure portal or PowerShell cmdlet, a [Diagnostic Setting](../../azure-monitor/essentials/diagnostic-settings.md) is created with "SQLSecurityAuditEvents" category enabled.
+  > - When auditing is configured to a Log Analytics workspace or to an Event Hub destination via the Azure portal or PowerShell cmdlet, a [Diagnostic Setting](../../azure-monitor/essentials/diagnostic-settings.md) is created with "SQLSecurityAuditEvents" category enabled.
 
 1. Go to the [Azure portal](https://portal.azure.com).
 2. Navigate to **Auditing** under the Security heading in your **SQL database** or **SQL server** pane.
@@ -112,10 +113,7 @@ The following section describes the configuration of auditing using the Azure po
 
 Auditing of Microsoft Support operations for Azure SQL Server allows you to audit Microsoft support engineers' operations when they need to access your server during a support request. The use of this capability, along with your auditing, enables more transparency into your workforce and allows for anomaly detection, trend visualization, and data loss prevention.
 
-To enable Auditing of Microsoft Support operations navigate to **Auditing** under the Security heading in your **Azure SQL server** pane, and switch **Auditing of Microsoft support operations** to **ON**.
-
-  > [!IMPORTANT]
-  > Auditing of Microsoft support operations does not support storage account destination. To enable the capability, a Log Analytics workspace or an Event Hub destination has to be configured.
+To enable auditing of Microsoft Support operations navigate to **Auditing** under the Security heading in your Azure **SQL server** pane, and switch **Enable Auditing of Microsoft support operations** to **ON**.
 
 ![Screenshot of Microsoft Support Operations](./media/auditing-overview/support-operations.png)
 
@@ -125,6 +123,10 @@ To review the audit logs of Microsoft Support operations in your Log Analytics w
 AzureDiagnostics
 | where Category == "DevOpsOperationsAudit"
 ```
+
+You have the option of choosing a different storage destination for this auditing log, or use the same auditing configuration for your server.
+
+:::image type="content" source="media/auditing-overview/auditing-support-operation-log-destination.png" alt-text="Screenshot of Auditing configuration for auditing Support operations":::
 
 ### <a id="audit-storage-destination"></a>Audit to storage destination
 
@@ -284,9 +286,15 @@ Extended policy with WHERE clause support for additional filtering:
 
 You can manage Azure SQL Database auditing using [Azure Resource Manager](../../azure-resource-manager/management/overview.md) templates, as shown in these examples:
 
-- [Deploy an Azure SQL Database with Auditing enabled to write audit logs to Azure Blob storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
-- [Deploy an Azure SQL Database with Auditing enabled to write audit logs to Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
-- [Deploy an Azure SQL Database with Auditing enabled to write audit logs to Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+- [Deploy an Azure SQL Database with Auditing enabled to write audit logs to Azure Blob storage account](https://azure.microsoft.com/resources/templates/sql-auditing-server-policy-to-blob-storage/)
+- [Deploy an Azure SQL Database with Auditing enabled to write audit logs to Log Analytics](https://azure.microsoft.com/resources/templates/sql-auditing-server-policy-to-oms/)
+- [Deploy an Azure SQL Database with Auditing enabled to write audit logs to Event Hubs](https://azure.microsoft.com/resources/templates/sql-auditing-server-policy-to-eventhub/)
 
 > [!NOTE]
 > The linked samples are on an external public repository and are provided 'as is', without warranty, and are not supported under any Microsoft support program/service.
+
+## See also
+
+- Data Exposed episode [What's New in Azure SQL Auditing](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-in-Azure-SQL-Auditing) on Channel 9.
+- [Auditing for SQL Managed Instance](../managed-instance/auditing-configure.md)
+- [Auditing for SQL Server](/sql/relational-databases/security/auditing/sql-server-audit-database-engine)

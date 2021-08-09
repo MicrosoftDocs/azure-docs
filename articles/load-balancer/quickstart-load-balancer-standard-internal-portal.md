@@ -6,7 +6,7 @@ services: load-balancer
 documentationcenter: na
 author: asudbring 
 manager: KumudD
-Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
+# Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
@@ -266,6 +266,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Availability zone | **2** | **3** |
     | Network security group | Select the existing **myNSG**| Select the existing **myNSG** |
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 # [**Basic SKU**](#tab/option-1-create-internal-load-balancer-basic)
 
@@ -505,6 +506,8 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Name |  **myVM2** | **myVM3** |
     | Availability set | Select **myAvailabilitySet** | Select **myAvailabilitySet** |
     | Network security group | Select the existing **myNSG** | Select the existing **myNSG** |
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ### Add virtual machines to the backend pool
 

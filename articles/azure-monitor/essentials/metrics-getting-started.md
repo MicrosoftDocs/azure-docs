@@ -41,7 +41,7 @@ To create a metric chart, from your resource, resource group, subscription, or A
 ## Select a time range
 
 > [!WARNING]
-> [Most metrics in Azure are stored for 93 days](../essentials/data-platform-metrics.md#retention-of-metrics). However, you can query no more than 30 days worth of data on any single chart. This limitation doesn't apply to [log-based metrics](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
+> [Most metrics in Azure are stored for 93 days](../essentials/data-platform-metrics.md#retention-of-metrics). However, you can query no more than 30 days worth of data on any single chart. You can [pan](metrics-charts.md#pan) the chart to view the full retention. The 30 day limitation doesn't apply to [log-based metrics](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
 
 By default, the chart shows the most recent 24 hours of metrics data. Use the **time picker** panel to change the time range, zoom in, or zoom out on your chart. 
 

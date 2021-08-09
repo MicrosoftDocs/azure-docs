@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 08/20/2020
+ms.date: 07/27/2021
 ms.custom: seoapril2019, seodec18
-# As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
+#Customer intent: As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---
 
 # How Azure Machine Learning works: Architecture and concepts
 
-Learn about the architecture and concepts for [Azure Machine Learning](overview-what-is-azure-ml.md).  This article gives you a high-level understanding of the components and how they work together to assist in the process of building, deploying, and maintaining machine learning models.
+Learn about the architecture and concepts for [Azure Machine Learning](overview-what-is-azure-machine-learning.md).  This article gives you a high-level understanding of the components and how they work together to assist in the process of building, deploying, and maintaining machine learning models.
 
 ## <a name="workspace"></a> Workspace
 
@@ -113,9 +113,9 @@ When you submit a run, Azure Machine Learning compresses the directory that cont
 
 ### Logging
 
-Azure Machine Learning automatically logs standard run metrics for you. However, you can also [use the Python SDK to log arbitrary metrics](how-to-track-experiments.md).
+Azure Machine Learning automatically logs standard run metrics for you. However, you can also [use the Python SDK to log arbitrary metrics](how-to-log-view-metrics.md).
 
-There are multiple ways to view your logs: monitoring run status in real time, or viewing results after completion. For more information, see [Monitor and view ML run logs](how-to-monitor-view-training-logs.md).
+There are multiple ways to view your logs: monitoring run status in real time, or viewing results after completion. For more information, see [Monitor and view ML run logs](how-to-log-view-metrics.md).
 
 
 > [!NOTE]
@@ -253,8 +253,8 @@ Pipeline steps are reusable, and can be run without rerunning the previous steps
 Azure Machine Learning provides the following monitoring and logging capabilities:
 
 * For __Data Scientists__, you can monitor your experiments and log information from your training runs. For more information, see the following articles:
-   * [Start, monitor, and cancel training runs](how-to-manage-runs.md)
-   * [Log metrics for training runs](how-to-track-experiments.md)
+   * [Start, monitor, and cancel training runs](how-to-track-monitor-analyze-runs.md)
+   * [Log metrics for training runs](how-to-log-view-metrics.md)
    * [Track experiments with MLflow](how-to-use-mlflow.md)
    * [Visualize runs with TensorBoard](how-to-monitor-tensorboard.md)
 * For __Administrators__, you can monitor information about the workspace, related Azure resources, and events such as resource creation and deletion by using Azure Monitor. For more information, see [How to monitor Azure Machine Learning](monitor-azure-machine-learning.md).
@@ -281,15 +281,13 @@ The studio is also where you access the interactive tools that are part of Azure
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 +  Interact with the service in any Python environment with the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
-+ Interact with the service in any R environment with the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (preview).
 + Use [Azure Machine Learning designer](concept-designer.md) to perform the workflow steps without writing code. 
 + Use [Azure Machine Learning CLI](./reference-azure-machine-learning-cli.md) for automation.
-+ The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to train, operate, and manage hundreds or even thousands of machine learning models.
 
 ## Next steps
 
 To get started with Azure Machine Learning, see:
 
-* [What is Azure Machine Learning?](overview-what-is-azure-ml.md)
+* [What is Azure Machine Learning?](overview-what-is-azure-machine-learning.md)
 * [Create an Azure Machine Learning workspace](how-to-manage-workspace.md)
 * [Tutorial (part 1): Train a model](tutorial-train-models-with-aml.md)

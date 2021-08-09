@@ -7,16 +7,12 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: prakulka
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
 ---
 # Phone number types in Azure Communication Services
-
-
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 > [!IMPORTANT]
 > Phone number availability is currently restricted to paid Azure subscriptions that have a billing address in the United States and Communication Services resources that have a US data location. Phone numbers cannot be acquired on trial accounts or using Azure free credits. For more information, visit the [subscription eligibility](#azure-subscriptions-eligibility) section of this document.
@@ -26,7 +22,7 @@ Azure Communication Services allows you to use phone numbers to make voice calls
 
 ## Azure Subscriptions eligibility
 
-To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired on trial accounts or by Azure free credits. 
+To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired on trial accounts or by Azure free credits.
 
 Phone number availability is currently restricted to Azure subscriptions that have a billing address in the United States and Communication Services resources that have a US data location.
 
@@ -54,13 +50,13 @@ The table below summarizes these phone number types:
 | Toll-Free         | +1 (toll-free area *code*) XXX XX XX | US                      | Calling (Outbound), SMS (Inbound/Outbound)| Assigning phone numbers to Interactive Voice Response (IVR) systems/Bots, SMS applications                                        |
 
 
-### Phone number features in Azure Communication Services
+### Phone number capabilities in Azure Communication Services
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
-For most phone numbers, we allow you to configure an "a la carte" set of features. These features can be selected as you lease your telephone numbers within Azure Communication Services.
+For most phone numbers, we allow you to configure an "a la carte" set of capabilities. These capabilities can be selected as you lease your telephone numbers within Azure Communication Services.
 
-The features that are available to you depend on the country that you're operating within, your use case, and the phone number type that you've selected. These features vary by country due to regulatory requirements. Azure Communication Services offers the following phone number features:
+The capabilities that are available to you depend on the country that you're operating within, your use case, and the phone number type that you've selected. These capabilities vary by country due to regulatory requirements. Azure Communication Services offers the following phone number capabilities:
 
 - **One-way outbound SMS** This option allows you to send SMS messages to your users. This can be useful in notification and two-factor authentication scenarios.
 - **Two-way inbound and outbound SMS** This option allows you to send and receive messages from your users using phone numbers. This can be useful in customer service scenarios.

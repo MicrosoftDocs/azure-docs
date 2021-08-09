@@ -1,7 +1,7 @@
 ---
 title: Diagnose performance issues using Azure Application Insights | Microsoft Docs
 description: Tutorial to find and diagnose performance issues in your application using Azure Application Insights.
-ms.subservice: application-insights
+
 ms.topic: tutorial
 author: lgayhardt
 ms.author: lagayhar

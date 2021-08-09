@@ -94,7 +94,7 @@ conceptualContent:
       links:
         - itemType: overview
           text: About Custom Keyword
-          url: custom-keyword-overview.md
+          url: keyword-recognition-overview.md
         - itemType: quickstart
           text: Get started with Custom Keyword       
           url: custom-keyword-basics.md          
@@ -102,10 +102,13 @@ conceptualContent:
       links:
         - itemType: quickstart
           text: Recognize speech, intents, and entities
-          url: quickstarts/intent-recognition.md
+          url: get-started-intent-recognition.md
         - itemType: how-to-guide
           text: Recognize speech intents with LUIS and C#
           url: how-to-recognize-intents-from-speech-csharp.md
+        - itemType: how-to-guide
+          text: Recognize speech intents with simple pattern matching, C++
+          url: how-to-use-simple-language-pattern-matching.md
         - itemType: reference
           text: Language Understanding (LUIS) portal
           url: https://www.luis.ai
@@ -135,14 +138,11 @@ conceptualContent:
     - title: Tools
       links:
         - itemType: overview
-          text: About Speech CLI (no code command line tool)
-          url: spx-overview.md
-        - itemType: how-to-guide
-          text: Speech CLI basics (installation and examples)
-          url: spx-basics.md
+          text: About Speech Studio (no-code UI experience)
+          url: speech-studio-overview.md
         - itemType: overview
-          text: About Speech Studio (customizations)
-          url: https://speech.microsoft.com
+          text: About Speech CLI (no-code command line tool)
+          url: spx-overview.md
     - title: Hosting
       links:
         - itemType: how-to-guide

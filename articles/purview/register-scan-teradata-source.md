@@ -1,5 +1,5 @@
 ---
-title: Register a Teradata source and setup scans (preview) in Azure Purview
+title: Register a Teradata source and setup scans in Azure Purview
 description: This article outlines how to register a Teradata source in Azure Purview and set up a scan.
 author: chandrakavya
 ms.author: kchandra
@@ -8,7 +8,7 @@ ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
 ---
-# Register and scan Teradata source (preview)
+# Register and scan Teradata source
 
 This article outlines how to register a Teradata source in Purview and
 set up a scan.
@@ -21,7 +21,7 @@ Teradata database and fetches **Lineage** between data assets.
 ## Prerequisites
 
 1.  Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-    For more information, see [Create and configure a self-hosted    integration runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+    For more information, see [Create and configure a self-hosted    integration runtime](../data-factory/create-self-hosted-integration-runtime.md).
 
 2.  Make sure the [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
     is installed on your virtual machine where self-hosted integration
@@ -53,7 +53,7 @@ To register a new Teradata source in your data catalog, do the
 following:
 
 1.  Navigate to your Purview account.
-2.  Select **Sources** on the left navigation.
+2.  Select **Data Map** on the left navigation.
 3.  Select **Register**
 4.  On Register sources, select **Teradata**. Select **Continue**
 
@@ -78,13 +78,13 @@ On the **Register sources (Teradata)** screen, do the following:
 
 To create and run a new scan, do the following:
 
-1.  In the Management Center, click on **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](https://docs.microsoft.com/azure/purview/manage-integration-runtimes) to setup a self-hosted integration runtime
+1.  In the Management Center, click on **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to setup a self-hosted integration runtime
 
-2.  Navigate to the **Sources**
+2.  Select the **Data Map** tab on the left pane in the Purview Studio.
 
 3.  Select the registered Teradata source.
 
-4.  Select **+ New scan**
+4.  Select **New scan**
 
 5.  Provide the below details:
 
@@ -100,7 +100,7 @@ To create and run a new scan, do the following:
     -   Provide a user name to connect to database server in the User name input field
     -   Store the database server password in the secret key.
 
-        To understand more on credentials, refer to the link [here](https://docs.microsoft.com/azure/purview/manage-credentials)
+        To understand more on credentials, refer to the link [here](./manage-credentials.md)
 
 6.  **Schema**: List subset of schemas to import expressed as a
     semicolon separated list. e.g., schema1; schema2. All user schemas

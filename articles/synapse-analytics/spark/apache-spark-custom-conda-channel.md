@@ -16,7 +16,7 @@ When installing Python packages, the Conda package manager uses channels to look
 
 - your workspace is data exfiltration protected and outbound connections are blocked.  
 - you have packages that you don't want to upload to public repositories.
-- you want to set up am alternate repository for the users within your workspace.
+- you want to set up an alternate repository for the users within your workspace.
 
 In this article, we'll provide a step-by-step guide to help you create your custom Conda channel within your Azure Data Lake Storage account.
 
@@ -87,7 +87,7 @@ conda index channel1/linux-64
 conda index channel1 
 ```
 
-For more information, you can also [visit the Conda user guide](https://docs.conda.io/projects/conda/latest/user-guide/tasks/create-custom-channels.html) to creating custom channels. 
+For more information, you can also [visit the Conda user guide](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/create-custom-channels.html) to creating custom channels. 
 
 ## Storage account permissions
 Now, we will need to validate the permissions on the storage account. To set these permissions, navigate to the path where custom channel will be created. Then, create a SAS token for ```privatechannel``` that has read, list, and execute permissions. 
@@ -95,7 +95,7 @@ Now, we will need to validate the permissions on the storage account. To set the
 The channel name will now be the blob SAS URL that is generated from this process.  
 
 ## Create a sample Conda environment configuration file
-Last, verify the installation process by creating a sample Conda ```environment.yml``` file. If you have in a DEP enabled workspace, you must specify the ``nodefaults`` channel in your environment file.
+Last, verify the installation process by creating a sample Conda ```environment.yml``` file. If you have in a data exfiltration protection enabled workspace, you must specify the ``nodefaults`` channel in your environment file.
 
 Here is an example Conda configuration file:
 ```

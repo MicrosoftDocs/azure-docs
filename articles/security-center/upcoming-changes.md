@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 03/18/2021
+ms.date: 08/04/2021
 ms.author: memildin
 
 ---
@@ -22,113 +22,98 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ## Planned changes
 
-| Planned change                                                                                                                                                        | Estimated date for change |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated) | March 2021                |
-| [Deprecation of 11 Azure Defender alerts](#deprecation-of-11-azure-defender-alerts)                                                                                   | March 2021                |
-| [21 recommendations moving between security controls](#21-recommendations-moving-between-security-controls)                                                           | April 2021                |
-| [Two further recommendations from "Apply system updates" security control being deprecated](#two-further-recommendations-from-apply-system-updates-security-control-being-deprecated)                                                                                         | April 2021                |
-| [Recommendations from AWS will be released for general availability (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)                     | April 2021                |
-| [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)                                                     | Q2 2021                   |
-|                                                                                                                                                                       |                           |
+| Planned change                                                                                                                                                                                          | Estimated date for change |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)                                            | August 2021               |
+| [Deprecating recommendation 'Log Analytics agent health issues should be resolved on your machines'](#deprecating-recommendation-log-analytics-agent-health-issues-should-be-resolved-on-your-machines) | August 2021               |
+| [CSV exports to be limited to 20 MB](#csv-exports-to-be-limited-to-20-mb)                                                                                                                               | August 2021               |
+| [Enable Azure Defender security control to be included in secure score](#enable-azure-defender-security-control-to-be-included-in-secure-score)                                                         | Q3 2021                   |
+| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)                                                         | Q4 2021                   |
+| [Enhancements to recommendation to classify sensitive data in SQL databases](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                                               | Q1 2022                   ||                                                                                                                                                                                                         |                           |
 
 
-### Two recommendations from "Apply system updates" security control being deprecated 
+### Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013
 
-**Estimated date for change:** March 2021
+**Estimated date for change:** August 2021
 
-The following two recommendations are scheduled to be deprecated in February 2021:
+The legacy implementation of ISO 27001 will be removed from Security Center's regulatory compliance dashboard. If you're tracking your ISO 27001 compliance with Security Center, onboard the new ISO 27001:2013 standard for all relevant management groups or subscriptions, and the current legacy ISO 27001 will soon be removed from the dashboard.
 
-- **Your machines should be restarted to apply system updates**. This might result in a slight impact on your secure score.
-- **Monitoring agent should be installed on your machines**. This recommendation relates to on-premises machines only and some of its logic will be transferred to another recommendation, **Log Analytics agent health issues should be resolved on your machines**. This might result in a slight impact on your secure score.
+:::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="Security Center's regulatory compliance dashboard showing the message about the removal of the legacy implementation of ISO 27001." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
 
-We recommend checking your continuous export and workflow automation configurations to see whether these recommendations are included in them. Also, any dashboards or other monitoring tools that might be using them should be updated accordingly.
+### Deprecating recommendation 'Log Analytics agent health issues should be resolved on your machines'
 
-Learn more about these recommendations in the [security recommendations reference page](recommendations-reference.md).
+**Estimated date for change:** August 2021
 
-### Deprecation of 11 Azure Defender alerts
+We've found that recommendation **Log Analytics agent health issues should be resolved on your machines** impacts secure scores in ways that are inconsistent with Security Center's Cloud Security Posture Management (CSPM) focus. Typically, CSPM relates to identifying security misconfigurations. Agent health issues don't fit into this category of issues.
 
-**Estimated date for change:** March 2021
+Also, the recommendation is an anomaly when compared with the other agents related to Security Center: this is the only agent with a recommendation related to health issues.
 
-Next month, the eleven Azure Defender alerts listed below will be deprecated.
+The recommendation will be deprecated.
 
-- New alerts will replace these two alerts and provide better coverage:
+As a result of this deprecation, we'll also be making minor changes to the recommendations for installing the Log Analytics agent (**Log Analytics agent should be installed on...**).
 
-    | AlertType                | AlertDisplayName                                                         |
-    |--------------------------|--------------------------------------------------------------------------|
-    | ARM_MicroBurstDomainInfo | PREVIEW - MicroBurst toolkit "Get-AzureDomainInfo" function run detected |
-    | ARM_MicroBurstRunbook    | PREVIEW - MicroBurst toolkit "Get-AzurePasswords" function run detected  |
-    |                          |                                                                          |
+It's likely that this change will impact your secure scores. For most subscriptions, we expect the change to lead to an increased score, but it's possible the updates to the installation recommendation might result in decreased scores in some cases.
 
-- These nine alerts relate to an Azure Active Directory Identity Protection connector that has already been deprecated:
+> [!TIP]
+> The [asset inventory](asset-inventory.md) page will also be affected by this change as it also displays information about whether or not a machine is monitored, not monitored, or partially monitored (a state which refers to an agent with health issues). 
 
-    | AlertType           | AlertDisplayName              |
-    |---------------------|-------------------------------|
-    | UnfamiliarLocation  | Unfamiliar sign-in properties |
-    | AnonymousLogin      | Anonymous IP address          |
-    | InfectedDeviceLogin | Malware linked IP address     |
-    | ImpossibleTravel    | Atypical travel               |
-    | MaliciousIP         | Malicious IP address          |
-    | LeakedCredentials   | Leaked credentials            |
-    | PasswordSpray       | Password Spray                |
-    | LeakedCredentials   | Azure AD threat intelligence  |
-    | AADAI               | Azure AD AI                   |
-    |                     |                               |
- 
+### CSV exports to be limited to 20 MB
 
+**Estimated date for change:** August 2021
 
+When exporting Security Center recommendations data, there's currently no limit on the amount of data that you can download.
 
+:::image type="content" source="media/upcoming-changes/download-csv-report.png" alt-text="Security Center's 'download CSV report' button to export recommendation data.":::
 
-### 21 recommendations moving between security controls 
+With this change, we're instituting a limit of 20 MB.
 
-**Estimated date for change:** April 2021
+If you need to export larger amounts of data, use the available filters before selecting, or select subsets of your subscriptions and download the data in batches.
 
-The following recommendations are being moved to a different security control. Security controls are logical groups of related security recommendations, and reflects your vulnerable attack surfaces. This move ensures that each of these recommendations is in the most appropriate control to meet its objective. 
+:::image type="content" source="media/upcoming-changes/filter-subscriptions.png" alt-text="Filtering subscriptions in the Azure portal.":::
 
-Learn which recommendations are in each security control in Security controls and their recommendations.
+Learn more about [performing a CSV export of your security recommendations](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations).
 
-|Recommendation |Change and impact  |
-|---------|---------|
-|Vulnerability assessment should be enabled on your SQL servers<br>Vulnerability assessment should be enabled on your SQL managed instances<br>Vulnerabilities on your SQL databases should be remediated new<br>Vulnerabilities on your SQL databases in VMs should be remediated     |Moving from Remediate vulnerabilities (worth 6 points)<br>to Remediate security configurations (worth 4 points).<br>Depending on your environment, these recommendations will have a reduced impact on your score.|
-|There should be more than one owner assigned to your subscription<br>Automation account variables should be encrypted<br>IoT Devices - Auditd process stopped sending events<br>IoT Devices - Operating system baseline validation failure<br>IoT Devices - TLS cipher suite upgrade needed<br>IoT Devices - Open Ports On Device<br>IoT Devices - Permissive firewall policy in one of the chains was found<br>IoT Devices - Permissive firewall rule in the input chain was found<br>IoT Devices - Permissive firewall rule in the output chain was found<br>Diagnostic logs in IoT Hub should be enabled<br>IoT Devices - Agent sending underutilized messages<br>IoT Devices - Default IP Filter Policy should be Deny<br>IoT Devices - IP Filter rule large IP range<br>IoT Devices - Agent message intervals and size should be adjusted<br>IoT Devices - Identical Authentication Credentials<br>IoT Devices - Audited process stopped sending events<br>IoT Devices - Operating system (OS) baseline configuration should be fixed|Moving to **Implement security best practices**.<br>When a recommendation moves to the Implement security best practices security control, which is worth no points, the recommendation no longer affects your secure score.|
-|||
+### Enable Azure Defender security control to be included in secure score
 
+**Estimated date for change:** Q3 2021
 
-### Two further recommendations from "Apply system updates" security control being deprecated
+Security Center's hardening recommendations are grouped into security controls. Each control is a logical group of related security recommendations, and reflects a vulnerable attack surface. The contribution of each security control towards the overall secure score is shown clearly on the recommendations page as well as in the list of controls in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
 
-**Estimated date for change:** April 2021
+Since its introduction, the **Enable Azure Defender** control has had a maximum possible score of 0 points. **With this change, the control will contribute towards your secure score**.
 
-The following two recommendations are being deprecated:
+When you enable Azure Defender you'll extend the capabilities of Security Center's free mode to your workloads running in private and other public clouds, providing unified security management and threat protection across your hybrid cloud workloads. Some of the major features of Azure Defender are: integrated Microsoft Defender for Endpoint licenses for your servers, vulnerability scanning for virtual machines and container registries, security alerts based on advanced behavioral analytics and machine learning, and container security features. For a full list, see [Azure Security Center free vs Azure Defender enabled](security-center-pricing.md).
 
-- **OS version should be updated for your cloud service roles** - By default, Azure periodically updates your guest OS to the latest supported image within the OS family that you've specified in your service configuration (.cscfg), such as Windows Server 2016.
-- **Kubernetes Services should be upgraded to a non-vulnerable Kubernetes version** - This recommendation's evaluations aren't as wide-ranging as we'd like them to be. The current version of this recommendation will eventually be replaced with an enhanced version that's better aligned with our customer's security needs.
+With this change, there will be an impact on the secure score of any subscriptions that aren't protected by Azure Defender. We suggest you enable Azure Defender before this change occurs to ensure there is no impact on your scores. 
 
+Learn more in [Quickstart: Enable Azure Defender](enable-azure-defender.md).
 
-### Recommendations from AWS will be released for general availability (GA)
+### Changes to recommendations for managing endpoint protection solutions
 
-**Estimated date for change:** April 2021
+**Estimated date for change:** Q4 2021
 
-Azure Security Center protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
+In August 2021, we added two new **preview** recommendations to deploy and maintain the endpoint protection solutions on your machines. For full details, see [the release note](release-notes.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview).
 
-The recommendations coming from AWS Security Hub have been in preview since the cloud connectors were introduced. Recommendations flagged as **Preview** aren't included in the calculations of your secure score, but should still be remediated wherever possible, so that when the preview period ends they'll contribute towards your score.
+When the recommendations are released to general availability, they will replace the following existing recommendations:
 
-With this change, two sets of AWS recommendations will move to GA:
+- **Endpoint protection should be installed on your machines** will replace:
+    - [Install endpoint protection solution on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/83f577bd-a1b6-b7e1-0891-12ca19d1e6df)
+    - [Install endpoint protection solution on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/383cf3bc-fdf9-4a02-120a-3e7e36c6bfee) 
 
-- [Security Hub's PCI DSS controls](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-pci-controls.html)
-- [Security Hub's CIS AWS Foundations Benchmark controls](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cis-controls.html)
+- **Endpoint protection health issues should be resolved on your machines** will replace the existing recommendation that has the same name. The two recommendations have different assessment keys:
+    - Assessment key for the **preview** recommendation: 37a3689a-818e-4a0e-82ac-b1392b9bb000
+    - Assessment key for the **GA** recommendation: 3bcd234d-c9c7-c2a2-89e0-c01f419c1a8a
 
-When these are GA and the assessments run on your AWS resources, the results will impact your combined secure score for all your multi and hybrid cloud resources. 
+Learn more:
+- [Security Center's supported endpoint protection solutions](security-center-services.md#endpoint-supported)
+- [How these recommendations assess the status of your deployed solutions](security-center-endpoint-protection.md)
 
+### Enhancements to recommendation to classify sensitive data in SQL databases
 
-
-### Enhancements to SQL data classification recommendation
-
-**Estimated date for change:** Q2 2021
+**Estimated date for change:** Q1 2022
 
 The recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result the recommendation's ID will also change (currently, it's b0df6f56-862d-4730-8597-38c0fd4ebd59).
 
 
-
 ## Next steps
 
-For all recent changes to the product, see [What's new in Azure Security Center?](release-notes.md).
+For all recent changes to Security Center, see [What's new in Azure Security Center?](release-notes.md)

@@ -21,7 +21,7 @@ Most [ontologies](concepts-ontologies.md) are based on semantic web standards su
 
 To use a model with Azure Digital Twins, it must be in DTDL format. This articles describes general design guidance in the form of a **conversion pattern** for converting RDF-based models to DTDL so that they can be used with Azure Digital Twins. 
 
-The article also contains [**sample converter code**](#converter-samples) for RDF and OWL converters, which can be extended for other schemas in the building industry.
+The article also contains [sample converter code](#converter-samples) for RDF and OWL converters, which can be extended for other schemas in the building industry.
 
 ## Conversion pattern
 
@@ -36,7 +36,7 @@ The following table is an example of how RDFS and OWL constructs can be mapped t
 | Datatype Properties | `owl:DatatypeProperty`<br>`rdfs:label` or `INode`<br>`rdfs:label`<br>`rdfs:range` | Interface Properties | `@type:Property`<br>`name`<br>`displayName`<br>`schema` 
 | Object Properties | `owl:ObjectProperty`<br>`rdfs:label` or `INode`<br>`rdfs:range`<br>`rdfs:comment`<br>`rdfs:label` | Relationship | `type:Relationship`<br>`name`<br>`target` (or omitted if no `rdfs:range`)<br>`comment`<br>`displayName`<br>
 
-The following C# code snippet shows how an RDF model file is loaded into a graph and converted to DTDL, using the [**dotNetRDF**](https://www.dotnetrdf.org/) library. 
+The following C# code snippet shows how an RDF model file is loaded into a graph and converted to DTDL, using the [dotNetRDF](https://www.dotnetrdf.org/) library. 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/convertRDF.cs":::
 
@@ -46,22 +46,22 @@ The following C# code snippet shows how an RDF model file is loaded into a graph
 
 There is a sample application available that converts an RDF-based model file to [DTDL (version 2)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) for use by the Azure Digital Twins service. It has been validated for the [Brick](https://brickschema.org/ontology/) schema, and can be extended for other schemas in the building industry (such as [Building Topology Ontology (BOT)](https://w3c-lbd-cg.github.io/bot/), [Semantic Sensor Network](https://www.w3.org/TR/vocab-ssn/), or [buildingSmart Industry Foundation Classes (IFC)](https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/)).
 
-The sample is a .NET Core command-line application called **RdfToDtdlConverter**.
+The sample is a [.NET Core command-line application called RdfToDtdlConverter](/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/).
 
-You can get the sample here: [**RdfToDtdlConverter**](/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). 
+To download the code to your machine, select the **Browse code** button underneath the title on the sample page, which will take you to the GitHub repo for the sample. Select the **Code** button and **Download ZIP** to download the sample as a .zip file called *RdfToDtdlConverter-main.zip*. You can then unzip the file and explore the code.
 
-To download the code to your machine, hit the *Download ZIP* button underneath the title on the sample landing page. This will download a *ZIP* file under the name *RdfToDtdlConverter_sample_application_to_convert_RDF_to_DTDL.zip*, which you can then unzip and explore.
+:::image type="content" source="media/concepts-ontologies-convert/download-repo-zip.png" alt-text="Screenshot of the RdfToDtdlConverter repo on GitHub. The Code button is selected, producing a dialog box where the Download ZIP button is highlighted." lightbox="media/concepts-ontologies-convert/download-repo-zip.png":::
 
 You can use this sample to see the conversion patterns in context, and to have as a building block for your own applications performing model conversions according to your own specific needs.
 
 ### OWL2DTDL converter 
 
-The [**OWL2DTDL Converter**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/OWL2DTDL) is a sample that translates an OWL ontology into a set of DTDL interface declarations, which can be used with the Azure Digital Twins service. It also works for ontology networks, made of one root ontology reusing other ontologies through `owl:imports` declarations.
+The [OWL2DTDL Converter](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/OWL2DTDL) is a sample that translates an OWL ontology into a set of DTDL interface declarations, which can be used with the Azure Digital Twins service. It also works for ontology networks, made of one root ontology reusing other ontologies through `owl:imports` declarations.
 
 This converter was used to translate the [Real Estate Core Ontology](https://doc.realestatecore.io/3.1/full.html) to DTDL and can be used for any OWL-based ontology.
 
 ## Next steps 
 
-* Learn more about extending industry-standard ontologies to meet your specifications: [*Concepts: Extending industry ontologies*](concepts-ontologies-extend.md).
+* Learn more about extending industry-standard ontologies to meet your specifications: [Extending industry ontologies](concepts-ontologies-extend.md).
 
-* Or, continue on the path for developing models based on ontologies: [*Using ontology strategies in a model development path*](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).
+* Or, continue on the path for developing models based on ontologies: [Using ontology strategies in a model development path](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).

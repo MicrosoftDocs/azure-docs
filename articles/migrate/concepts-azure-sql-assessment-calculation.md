@@ -10,7 +10,7 @@ ms.date: 02/07/2021
 
 # Assessment Overview (migrate to Azure SQL)
 
-This article provides an overview of assessments for migrating on-premises SQL Server instances from a VMware environment to Azure SQL databases or Managed Instances using the [Azure Migrate: Discovery and assessment tool](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-server-assessment-tool).
+This article provides an overview of assessments for migrating on-premises SQL Server instances from a VMware environment to Azure SQL databases or Managed Instances using the [Azure Migrate: Discovery and assessment tool](./migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool).
 
 ## What's an assessment?
 An assessment with the Discovery and assessment tool is a point in time snapshot of data and measures the readiness and estimates the effect of migrating on-premises servers to Azure.
@@ -24,6 +24,9 @@ There are three types of assessments you can create using the Azure Migrate: Dis
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. <br/><br/> You can assess your on-premises servers in [VMware](how-to-set-up-appliance-vmware.md) and [Hyper-V](how-to-set-up-appliance-hyper-v.md) environment, and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
 **Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware environment to Azure SQL Database or Azure SQL Managed Instance.
 **Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
+
+> [!NOTE]
+> If the number of Azure VM or AVS assessments are incorrect on the Discovery and assessment tool, click on the total number of assessments to navigate to all the assessments and recalculate the Azure VM or AVS assessments. The Discovery and assessment tool will then show the correct count for that assessment type. 
 
 An Azure SQL assessment provides one sizing criteria:
 
@@ -76,7 +79,7 @@ Here's what's included in Azure SQL assessment properties:
 **Percentile utilization** | Percentile utilization specifies the percentile value of the performance sample used for rightsizing.
 **Comfort factor** | The buffer used during assessment. It accounts for issues like seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, a 10-core instance with 20% utilization normally results in a two-core instance. With a comfort factor of 2.0, the result is a four-core instance instead.
 **Offer/Licensing program** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) in which you're enrolled. Currently you can only choose from Pay-as-you-go and Pay-as-you-go Dev/Test. Note that you can avail additional discount by applying reserved capacity and Azure Hybrid Benefit on top of Pay-as-you-go offer.
-**Service tier** | The most appropriate service tier option to accommodate your business needs for migration to Azure SQL Database and/or Azure SQL Managed Instance:<br/><br/>**Recommended** if you want Azure Migrate to recommend the best suited service tier for your servers. This can be General purpose or Business critical. <br/><br/> **General Purpose** If you want an Azure SQL configuration designed for budget-oriented workloads. [Learn More](https://docs.microsoft.com/azure/azure-sql/database/service-tier-general-purpose) <br/><br/> **Business Critical** If you want an Azure SQL configuration designed for low-latency workloads with high resiliency to failures and fast failovers. [Learn More](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical)
+**Service tier** | The most appropriate service tier option to accommodate your business needs for migration to Azure SQL Database and/or Azure SQL Managed Instance:<br/><br/>**Recommended** if you want Azure Migrate to recommend the best suited service tier for your servers. This can be General purpose or Business critical. <br/><br/> **General Purpose** If you want an Azure SQL configuration designed for budget-oriented workloads. [Learn More](../azure-sql/database/service-tier-general-purpose.md) <br/><br/> **Business Critical** If you want an Azure SQL configuration designed for low-latency workloads with high resiliency to failures and fast failovers. [Learn More](../azure-sql/database/service-tier-business-critical.md)
 **Currency** | The billing currency for your account.
 **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
 **Azure Hybrid Benefit** | Specifies whether you already have a SQL Server license. <br/><br/> If you do and they're covered with active Software Assurance of SQL Server Subscriptions, you can apply for the Azure Hybrid Benefit when you bring licenses to Azure.
@@ -120,7 +123,7 @@ If you select the target deployment type as **Recommended** in the Azure SQL ass
 If the SQL instance is not ready for Azure SQL Database and Azure SQL Managed Instance, the Recommended deployment type is marked as *Potentially ready for Azure VM*.
 - The user is recommended to create an assessment in Azure Migrate with assessment type as "Azure VM" to determine if the server on which the instance is running is ready to migrate to an Azure VM instead. Note that:
     - Azure VM assessments in Azure Migrate are currently lift and shift focused and will not consider the specific performance metrics for running SQL instances and databases on the Azure virtual machine. 
-    - When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [review the performance guidelines](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) for SQL Server on Azure virtual machines.
+    - When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [review the performance guidelines](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md) for SQL Server on Azure virtual machines.
 
 
 ## Calculate sizing

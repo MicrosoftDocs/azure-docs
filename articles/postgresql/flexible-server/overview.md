@@ -3,13 +3,13 @@ title: Azure Database for PostgreSQL - Flexible Server
 description: Provides an overview of Azure Database for PostgreSQL - Flexible Server.
 author: sunilagarwal
 ms.author: sunila
-ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 03/17/2021
+ms.date: 07/30/2021
+ms.custom: "mvc, references_regions"
 ---
 
-# Azure Database for PostgreSQL - Flexible Server
+# Overview - Azure Database for PostgreSQL - Flexible Server
 
 [Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
 
@@ -81,25 +81,43 @@ Flexible servers allows full private access to the servers using Azure virtual n
 
 The flexible server service is equipped with built-in performance monitoring and alerting features. All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. The service exposes host server metrics to monitor resources utilization and allows configuring slow query logs. Using these tools, you can quickly optimize your workloads, and configure your server for best performance.
 
+## Built-in PgBouncer
+
+The flexible server comes with a built-in PgBouncer, a connection pooler. You can optionally enable it and connect your applications to your database server via PgBouncer using the same host name and the port 6432.
+
 ## Azure regions
 
-One of the advantage of running your workload in Azure is it's global reach. The flexible server is available today in following Azure regions:
+One advantage of running your workload in Azure is global reach. The flexible server is currently available in the following Azure regions:
 
 | Region | Availability | Zone-redundant HA | 
 | --- | --- | --- |
-| West Europe | :heavy_check_mark: | :heavy_check_mark: |
-| North Europe | :heavy_check_mark: | :heavy_check_mark: |
-| UK South | :heavy_check_mark: | :heavy_check_mark: | 
-| East US 2 | :heavy_check_mark: | :heavy_check_mark: |
-| West US 2 | :heavy_check_mark: | :heavy_check_mark: |
-| Central US | :heavy_check_mark: | :heavy_check_mark: | 
-| East US | :heavy_check_mark: | :heavy_check_mark: | 
-| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
-| Japan East | :heavy_check_mark: | :heavy_check_mark: | 
 | Australia East | :heavy_check_mark: | :heavy_check_mark: | 
+| Australia Southeast | :heavy_check_mark: | :x: | 
+| Brazil South | :heavy_check_mark: | :x: |
 | Canada Central | :heavy_check_mark: | :heavy_check_mark: | 
+| Central US | :heavy_check_mark: | :heavy_check_mark: | 
+| East Asia | :heavy_check_mark: | :x: |
+| East US | :heavy_check_mark: | :heavy_check_mark: | 
+| East US 2 | :heavy_check_mark: | :heavy_check_mark: |
+| France Central | :heavy_check_mark: | :heavy_check_mark: | 
+| Germany West Central | :heavy_check_mark: | :heavy_check_mark: |
+| Japan East | :heavy_check_mark: | :heavy_check_mark: | 
+| Korea Central | :heavy_check_mark: | :x: | 
+| Korea South | :heavy_check_mark: | :x: | 
+| North Europe | :heavy_check_mark: | :heavy_check_mark: |
+| Norway East | :heavy_check_mark: | :x: |
+| South Africa North | :heavy_check_mark: | :x: |
+| South Central US | :heavy_check_mark: | :heavy_check_mark: | 
+| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
+| Switzerland North | :heavy_check_mark: | :x: |
+| UAE North | :heavy_check_mark: | :x: |
+| UK South | :heavy_check_mark: | :heavy_check_mark: | 
+| UK West | :heavy_check_mark: | :x: | 
+| West Europe | :heavy_check_mark: | :heavy_check_mark: |
+| West US | :heavy_check_mark: | :x: |
+| West US 2 | :heavy_check_mark: | :heavy_check_mark: |
 
-We continue to add more regions for flexible server.
+<!-- We continue to add more regions for flexible server. -->
 
 ## Migration
 

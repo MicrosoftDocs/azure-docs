@@ -1,7 +1,7 @@
 ---
 title: Document Extraction cognitive skill
 titleSuffix: Azure Cognitive Search
-description: Extracts content from a file within the enrichment pipeline. This skill is currently in public preview.
+description: Extracts content from a file within the enrichment pipeline.
 manager: nitinme
 author: careyjmac
 
@@ -22,6 +22,12 @@ The **Document Extraction** skill extracts content from a file within the enrich
 ## @odata.type  
 Microsoft.Skills.Util.DocumentExtractionSkill
 
+## Supported document formats
+
+The DocumentExtractionSkill can extract text from the following document formats:
+
+[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
+
 ## Skill parameters
 
 Parameters are case-sensitive.
@@ -34,7 +40,7 @@ Parameters are case-sensitive.
 
 | Configuration Parameter	| Allowed Values | Description |
 |-------------------------|----------------|-------------|
-| `imageAction`           | `none`<br/> `generateNormalizedImages`<br/> `generateNormalizedImagePerPage` | Set to `none` to ignore embedded images or image files in the data set. This is the default. <br/>For [image analysis using cognitive skills](cognitive-search-concept-image-scenarios.md), set to `generateNormalizedImages` to have the skill create an array of normalized images as part of document cracking. This action requires that `parsingMode` is set to `default` and `dataToExtract` is set to `contentAndMetadata`. A normalized image refers to additional processing resulting in uniform image output, sized and rotated to promote consistent rendering when you include images in visual search results (for example, same-size photographs in a graph control as seen in the [JFK demo](https://github.com/Microsoft/AzureSearch_JFK_Files)). This information is generated for each image when you use this option.  <br/>If you set to `generateNormalizedImagePerPage`, PDF files will be treated differently in that instead of extracting embedded images, each page will be rendered as an image and normalized accordingly.  Non-PDF file types will be treated the same as if `generateNormalizedImages` was set.
+| `imageAction`           | `none`<br/> `generateNormalizedImages`<br/> `generateNormalizedImagePerPage` | Set to `none` to ignore embedded images or image files in the data set. This is the default. <br/>For [image analysis using cognitive skills](cognitive-search-concept-image-scenarios.md), set to `generateNormalizedImages` to have the skill create an array of normalized images as part of [document cracking](search-indexer-overview.md#document-cracking). This action requires that `parsingMode` is set to `default` and `dataToExtract` is set to `contentAndMetadata`. A normalized image refers to additional processing resulting in uniform image output, sized and rotated to promote consistent rendering when you include images in visual search results (for example, same-size photographs in a graph control as seen in the [JFK demo](https://github.com/Microsoft/AzureSearch_JFK_Files)). This information is generated for each image when you use this option.  <br/>If you set to `generateNormalizedImagePerPage`, PDF files will be treated differently in that instead of extracting embedded images, each page will be rendered as an image and normalized accordingly.  Non-PDF file types will be treated the same as if `generateNormalizedImages` was set.
 | `normalizedImageMaxWidth` | Any integer between 50-10000 | The maximum width (in pixels) for normalized images generated. The default is 2000. | 
 | `normalizedImageMaxHeight` | Any integer between 50-10000 | The maximum height (in pixels) for normalized images generated. The default is 2000. |
 
@@ -55,13 +61,23 @@ The "file_data" input must be an object defined as follows:
 }
 ```
 
+or
+
+```json
+{
+  "$type": "file",
+  "url": "URL to download file",
+  "sasToken": "OPTIONAL: SAS token for authentication if the URL provided is for a file in blob storage"
+}
+```
+
 This file reference object can be generated one of 3 ways:
 
  - Setting the `allowSkillsetToReadFileData` parameter on your indexer definition to "true".  This will create a path `/document/file_data` that is an object representing the original file data downloaded from your blob data source. This parameter only applies to data in Blob storage.
 
  - Setting the `imageAction` parameter on your indexer definition to a value other than `none`.  This creates an array of images  that follows the required convention for input to this skill if passed individually (i.e. `/document/normalized_images/*`).
 
- - Having a custom skill return a json object defined EXACTLY as above.  The `$type` parameter must be set to exactly `file` and the `data` parameter must be the base 64 encoded byte array data of the file content.
+ - Having a custom skill return a json object defined EXACTLY as above.  The `$type` parameter must be set to exactly `file` and the `data` parameter must be the base 64 encoded byte array data of the file content, or the `url` parameter must be a correctly formatted URL with access to download the file at that location.
 
 ## Skill outputs
 

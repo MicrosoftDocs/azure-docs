@@ -68,7 +68,7 @@ After you create an Azure Functions project, the project template creates a C# p
 
 * **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
 
-* **local.settings.json**: Maintains settings used when running functions locally. These settings aren't used when running in Azure. For more information, see [Local settings file](#local-settings-file).
+* **local.settings.json**: Maintains settings used when running functions locally. These settings aren't used when running in Azure. For more information, see [Local settings file](#local-settings).
 
     >[!IMPORTANT]
     >Because the local.settings.json file can contain secrets, you must exclude it from your project source control. Ensure the **Copy to Output Directory** setting for this file is set to **Copy if newer**. 
@@ -119,7 +119,7 @@ In C# class library functions, the bindings used by the function are defined by 
 
     ![Create a Queue storage trigger function](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
 
-    This trigger example uses a connection string with a key named `QueueStorage`. Define this connection string setting in the [local.settings.json file](functions-run-local.md#local-settings-file).
+    This trigger example uses a connection string with a key named `QueueStorage`. Define this connection string setting in the [local.settings.json file](functions-develop-local.md#local-settings-file).
 
 4. Examine the newly added class. You see a static `Run()` method that's attributed with the `FunctionName` attribute. This attribute indicates that the method is the entry point for the function.
 
@@ -159,7 +159,7 @@ As with triggers, input and output bindings are added to your function as bindin
 
    For more information, see [C# class library with Visual Studio](./functions-bindings-register.md#local-csharp). Find the binding-specific NuGet package requirements in the reference article for the binding. For example, find package requirements for the Event Hubs trigger in the [Event Hubs binding reference article](functions-bindings-event-hubs.md).
 
-3. If there are app settings that the binding needs, add them to the `Values` collection in the [local setting file](functions-run-local.md#local-settings-file). 
+3. If there are app settings that the binding needs, add them to the `Values` collection in the [local setting file](functions-develop-local.md#local-settings-file). 
 
    The function uses these values when it runs locally. When the function runs in the function app in Azure, it uses the [function app settings](#function-app-settings).
 
@@ -232,7 +232,7 @@ You can also manage application settings in one of these other ways:
 
 * [Use the Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Use the `--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish).
-* [Use the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
+* [Use the Azure CLI](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set).
 
 ## Monitoring functions
 

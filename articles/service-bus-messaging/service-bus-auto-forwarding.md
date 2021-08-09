@@ -2,7 +2,7 @@
 title: Auto-forwarding Azure Service Bus messaging entities
 description: This article describes how to chain an Azure Service Bus queue or subscription to another queue or topic.
 ms.topic: article
-ms.date: 01/20/2021
+ms.date: 04/23/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -13,22 +13,16 @@ The Service Bus *autoforwarding* feature enables you to chain a queue or subscri
 > [!NOTE]
 > The basic tier of Service Bus doesn't support the autoforwarding feature. The standard and premium tiers support the feature. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
 
-## Using autoforwarding
-
-You can enable autoforwarding by setting the [QueueDescription.ForwardTo][QueueDescription.ForwardTo] or [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] properties on the [QueueDescription][QueueDescription] or [SubscriptionDescription][SubscriptionDescription] objects for the source, as in the following example:
-
-```csharp
-SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
-srcSubscription.ForwardTo = destTopic;
-namespaceManager.CreateSubscription(srcSubscription));
-```
-
 The destination entity must exist at the time the source entity is created. If the destination entity does not exist, Service Bus returns an exception when asked to create the source entity.
 
+## Scenarios
+
+### Scale out an individual topic
 You can use autoforwarding to scale out an individual topic. Service Bus limits the [number of subscriptions on a given topic](service-bus-quotas.md) to 2,000. You can accommodate additional subscriptions by creating second-level topics. Even if you are not bound by the Service Bus limitation on the number of subscriptions, adding a second level of topics can improve the overall throughput of your topic.
 
 ![Diagram of an autoforwarding scenario showing a message processed through an Orders Topic that can branch to any of three second-level Orders Topics.][0]
 
+### Decouple message senders from receivers
 You can also use autoforwarding to decouple message senders from receivers. For example, consider an ERP system that consists of three modules: order processing, inventory management, and customer relations management. Each of these modules generates messages that are enqueued into a corresponding topic. Alice and Bob are sales representatives that are interested in all messages that relate to their customers. To receive those messages, Alice and Bob each create a personal queue and a subscription on each of the ERP topics that automatically forward all messages to their queue.
 
 ![Diagram of an autoforwarding scenario showing three processing modules sending messages through three corresponding topics to two separate queues.][1]
@@ -54,22 +48,9 @@ To create a subscription that is chained to another queue or topic, the creator 
 Don't create a chain that exceeds 4 hops. Messages that exceed 4 hops are dead-lettered.
 
 ## Next steps
+To learn how to set enable or disable auto forwarding in different ways (Azure portal, PowerShell, CLI, Azure Resource Management template, etc.), see [Enable auto forwarding for queues and subscriptions](enable-auto-forward.md).
 
-For detailed information about autoforwarding, see the following reference topics:
 
-* [ForwardTo][QueueDescription.ForwardTo]
-* [QueueDescription][QueueDescription]
-* [SubscriptionDescription][SubscriptionDescription]
-
-To learn more about Service Bus performance improvements, see 
-
-* [Best Practices for performance improvements using Service Bus Messaging](service-bus-performance-improvements.md)
-* [Partitioned messaging entities][Partitioned messaging entities].
-
-[QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
-[SubscriptionDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.forwardto#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo
-[QueueDescription]: /dotnet/api/microsoft.servicebus.messaging.queuedescription
-[SubscriptionDescription]: /dotnet/api/microsoft.servicebus.messaging.queuedescription
 [0]: ./media/service-bus-auto-forwarding/IC628631.gif
 [1]: ./media/service-bus-auto-forwarding/IC628632.gif
 [Partitioned messaging entities]: service-bus-partitioning.md

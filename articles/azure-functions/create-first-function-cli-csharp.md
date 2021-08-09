@@ -3,7 +3,7 @@ title: Create a C# function from the command line - Azure Functions
 description: Learn how to create a C# function from the command line, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 10/03/2020
 ms.topic: quickstart
-ms.custom: [devx-track-csharp, devx-track-azurecli]
+ms.custom: [devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell]
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
@@ -26,7 +26,7 @@ Before you begin, you must have the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
++ The [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
 
 + The [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
 
@@ -78,7 +78,7 @@ In Azure Functions, a function project is a container for one or more individual
     cd LocalFunctionProj
     ```
 
-    This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    This folder contains various files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
 1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
 
@@ -112,7 +112,7 @@ The return object is an [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.acti
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime dotnet --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
     
-    The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure. 
+    The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command     creates the function app in Azure. 
     
     # [Azure PowerShell](#tab/azure-powershell)
     

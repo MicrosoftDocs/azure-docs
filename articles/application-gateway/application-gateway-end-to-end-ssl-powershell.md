@@ -6,7 +6,8 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure end to end TLS by using Application Gateway with PowerShell

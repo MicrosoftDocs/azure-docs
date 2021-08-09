@@ -8,12 +8,12 @@ ms.author: trbye
 
 :::row:::
     :::column span="3":::
-        The Speech SDK only supports **Ubuntu 16.04/18.04/20.04**, **Debian 9/10**, **Red Hat Enterprise Linux (RHEL) 7/8**, and **CentOS 7/8** on the following target architectures when used with Linux:
+        The Speech SDK only supports **Ubuntu 16.04** (until September), **Ubuntu 18.04/20.04**, **Debian 9/10**, **Red Hat Enterprise Linux (RHEL) 7/8**, and **CentOS 7/8** on the following target architectures when used with Linux:
     :::column-end:::
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Linux" src="https://docs.microsoft.com/media/logos/logo_linux-color.svg" width="60px">
+            <img alt="Linux" src="/media/logos/logo_linux-color.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::
@@ -41,7 +41,7 @@ For a native application, the Speech SDK relies on `libMicrosoft.CognitiveServic
 
 ```Bash
 sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2
+sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
 
 > [!NOTE]
@@ -51,7 +51,7 @@ sudo apt-get install build-essential libssl1.0.0 libasound2
 
 ```Bash
 sudo apt-get update
-sudo apt-get install build-essential libssl1.0.2 libasound2
+sudo apt-get install build-essential libssl1.0.2 libasound2 wget
 ```
 
 > [!NOTE]
@@ -61,7 +61,8 @@ sudo apt-get install build-essential libssl1.0.2 libasound2
 
 ```Bash
 sudo yum update
-sudo yum install alsa-lib openssl
+sudo yum groupinstall "Development tools"
+sudo yum install alsa-lib openssl wget
 ```
 
 > [!IMPORTANT]

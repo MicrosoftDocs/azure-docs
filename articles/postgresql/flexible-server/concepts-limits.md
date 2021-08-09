@@ -1,11 +1,11 @@
 ---
 title: Limits - Azure Database for PostgreSQL - Flexible Server
 description: This article describes limits in Azure Database for PostgreSQL - Flexible Server, such as number of connection and storage engine options.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 08/02/2021
 ---
 
 # Limits in Azure Database for PostgreSQL - Flexible Server
@@ -91,7 +91,7 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 
 - Postgres 10 and older are not supported. We recommend using the [Single Server](../overview-single-server.md) option if you require older Postgres versions.
 - Extension support is currently limited to the Postgres `contrib` extensions.
-- Built-in PgBouncer connection pooler is currently not available for database servers within a VNET, or for Burstable servers.
+- Built-in PgBouncer connection pooler is currently not available for Burstable servers.
 
 ### Stop/start operation
 

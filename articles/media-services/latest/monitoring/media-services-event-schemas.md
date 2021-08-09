@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: reference
-ms.date: 03/17/2021
+ms.date: 07/08/2021
 ms.author: inhenkel
 ---
 
@@ -326,7 +326,7 @@ The data object has the following properties:
 | encoderPort | string | Port of the encoder from where this stream is coming. |
 | resultCode | string | The reason the connection was rejected. The result codes are listed in the following table. |
 
-You can find the error result codes in [live Event error codes](../live-event-error-codes.md).
+You can find the error result codes in [live Event error codes](../live-event-error-codes-reference.md).
 
 ### LiveEventEncoderConnected
 
@@ -396,7 +396,7 @@ The data object has the following properties:
 | encoderPort | string | Port of the encoder from where this stream is coming. |
 | resultCode | string | The reason for the encoder disconnecting. It could be graceful disconnect or from an error. The result codes are listed in the following table. |
 
-You can find the error result codes in [live Event error codes](../live-event-error-codes.md).
+You can find the error result codes in [live Event error codes](../live-event-error-codes-reference.md).
 
 The graceful disconnect result codes are:
 
@@ -426,8 +426,8 @@ The following example shows the schema of the **LiveEventIncomingDataChunkDroppe
       "trackType": "Video",
       "trackName": "Video",
       "bitrate": 300000,
-      "timestamp": 36656620000,
-      "timescale": 10000000,
+      "timestamp": "36656620000",
+      "timescale": "10000000",
       "resultCode": "FragmentDrop_OverlapTimestamp"
     },
     "dataVersion": "1.0",
@@ -571,21 +571,25 @@ The following example shows the schema of the **LiveEventIngestHeartbeat** event
     "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
     "subject": "liveEvent/mle1",
     "eventType": "Microsoft.Media.LiveEventIngestHeartbeat",
-    "eventTime": "2018-08-07T23:17:57.4610506",
+    "eventTime": "2021-05-14T23:50:00.324",
     "id": "7f450938-491f-41e1-b06f-c6cd3965d786",
     "data": {
-      "trackType": "audio",
-      "trackName": "audio",
-      "bitrate": 160000,
-      "incomingBitrate": 155903,
-      "lastTimestamp": "15336837535253637",
-      "timescale": "10000000",
-      "overlapCount": 0,
-      "discontinuityCount": 0,
-      "nonincreasingCount": 0,
-      "unexpectedBitrate": false,
-      "state": "Running",
-      "healthy": true
+      "trackType":"video",
+      "trackName":"video",
+      "bitrate":2500000,
+      "incomingBitrate":2462597,
+      "lastTimestamp":"106999",
+      "timescale":"1000",
+      "overlapCount":0,
+      "discontinuityCount":0,
+      "nonincreasingCount":0,
+      "unexpectedBitrate":false,
+      "state":"Running",
+      "healthy":true,
+      "lastFragmentArrivalTime":"2021-05-14T23:50:00.324",
+      "ingestDriftValue":"0",
+      "transcriptionState":"",
+      "transcriptionLanguage":""
     },
     "dataVersion": "1.0",
     "metadataVersion": "1"
@@ -609,6 +613,11 @@ The data object has the following properties:
 | unexpectedBitrate | bool | If expected and actual bitrates differ by more than allowed limit in last 20 seconds. It's true if and only if, incomingBitrate >= 2* bitrate OR incomingBitrate <= bitrate/2 OR IncomingBitrate = 0. |
 | state | string | State of the live event. |
 | healthy | bool | Indicates whether ingest is healthy based on the counts and flags. Healthy is true if overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
+| lastFragmentArrivalTime | string |The last time stamp in UTC that a fragment arrived at the ingest endpoint. Example date format is "2020-11-11 12:12:12:888999" |
+| ingestDriftValue | string | Indicates the speed of delay, in seconds-per-minute, of the incoming audio or video data during the last minute. The value is greater than zero if data is arriving to the live event slower than expected in the last minute; zero if data arrived with no delay; and "n/a" if no audio or video data was received. For example, if you have a contribution encoder sending in live content, and it is slowing down due to processing issues, or network latency, it may be only able to deliver a total of 58 seconds of audio or video in a one minute period. This would be reported as 2 seconds-per-minute of drift. If the encoder is able to catch up and send all 60 seconds or more of data every minute you will see this value reported as 0. If there was a disconnection, or discontinuity from the encoder, this value may still display as 0, as it does not account for breaks in the data - only data that is delayed in timestamps.|
+| transcriptionState | string | This value is "On" for audio track heartbeats if live transcription is turned on, otherwise you will see an empty string. This state is only applicable to tracktype of "audio" for Live transcription. All other tracks will have an empty value.|
+| transcriptionLanguage | string  | The language code (in BCP-47 format) of the transcription language. For example “de-de” indicates German (Germany). The value is empty for the video track heartbeats, or when live transcription is turned off. |
+
 
 ### LiveEventTrackDiscontinuityDetected
 
@@ -672,4 +681,4 @@ An event has the following top-level data:
 
 - [EventGrid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definitions of Media Services events](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
-- [Live Event error codes](../live-event-error-codes.md)
+- [Live Event error codes](../live-event-error-codes-reference.md)

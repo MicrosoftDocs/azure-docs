@@ -21,7 +21,7 @@ There are three types of service accounts native to Azure Active Directory: Mana
 
 ## Types of Azure Active Directory service accounts
 
-For services hosted in Azure, we recommend using a managed identity if possible, and a service principal if not. Managed identities can’t be used for services hosted outside of Azure. In that case, we recommend a service principal. If you can use a managed identity or a service principal, do so. We recommend that you not use an Azure Active Directory user account as a service principal. See the following table for a summary.
+For services hosted in Azure, we recommend using a managed identity if possible, and a service principal if not. Managed identities can’t be used for services hosted outside of Azure. In that case, we recommend a service principal. If you can use a managed identity or a service principal, do so. We recommend that you not use an Azure Active Directory user account as a service account. See the following table for a summary.
  
 
 | Service hosting| Managed identity| Service principal| Azure user account |
@@ -49,7 +49,7 @@ A service principal is the local representation of an application object in a si
 
 There are two mechanisms for authentication using service principals—client certificates and client secrets. Certificates are more secure: use client certificates if possible. Unlike client secrets, client certificates cannot accidentally be embedded in code.
 
-For information on securing service principals, see Securing service principals.
+For information on securing service principals, see [Securing service principals](service-accounts-principal.md).
 
  
 ## Next steps

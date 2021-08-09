@@ -33,7 +33,7 @@ az group create --name myResourceGroup --location francecentral
 ## Create an App Service Plan
 
 You need to create an App Service Plan to host your Web App.
-Create an App Service Plan with [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create).
+Create an App Service Plan with [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create).
 This example creates App Service Plan named *myAppServicePlan* in the *francecentral* location with *P1V2* sku and only one worker: 
 
 ```azurecli-interactive
@@ -48,7 +48,7 @@ az appservice plan create \
 ## Create a Web App
 
 Now that you have an App Service Plan you can deploy a Web App.
-Create a Web App with [az appservice plan create](/cli/azure/webapp#az-webapp-create.
+Create a Web App with [az appservice plan create](/cli/azure/webapp#az_webapp_create.
 This example creates a Web App named *mySiteName* in the Plan named *myAppServicePlan*
 
 ```azurecli-interactive
@@ -74,7 +74,7 @@ az network vnet create \
 
 ## Configure the Subnet 
 
-You need to update the subnet to disable private endpoint network policies. Update a subnet configuration named *mySubnet* with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+You need to update the subnet to disable private endpoint network policies. Update a subnet configuration named *mySubnet* with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update):
 
 ```azurecli-interactive
 az network vnet subnet update \

@@ -5,10 +5,10 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.subservice: management
-ms.date: 11/12/2020
+ms.subservice: maintenance-control
+ms.date: 04/26/2021
 ms.reviewer: jushiman
-ms.custom: mimckitt, devx-track-azurecli
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 
@@ -108,12 +108,12 @@ After you start maintenance, the affected VMs in your virtual machine scale set 
  
 ## Check maintenance status by using PowerShell
 
-You can use Azure PowerShell to see when VMs in your virtual machine scale sets are scheduled for maintenance. Planned maintenance information is available by using the [Get-AzVmss](/powershell/module/az.compute/get-azvmss) cmdlet when you use the `-InstanceView` parameter.
+You can use Azure PowerShell to see when VMs in your virtual machine scale sets are scheduled for maintenance. Planned maintenance information is available by using the [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) cmdlet when you use the `-InstanceView` parameter.
  
 Maintenance information is returned only if maintenance is planned. If no maintenance is scheduled that affects the VM instance, the cmdlet doesn't return any maintenance information. 
 
 ```powershell
-Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
+Get-AzVmssVm -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
 ```
 
 The following properties are returned under **MaintenanceRedeployStatus**: 
@@ -131,15 +131,15 @@ The following properties are returned under **MaintenanceRedeployStatus**:
 
 ### Start maintenance on your VM instance by using PowerShell
 
-You can start maintenance on a VM if **IsCustomerInitiatedMaintenanceAllowed** is set to **true**. Use the [Set-AzVmss](/powershell/module/az.compute/set-azvmss) cmdlet with `-PerformMaintenance` parameter.
+You can start maintenance on a VM if **IsCustomerInitiatedMaintenanceAllowed** is set to **true**. Use the [Set-AzVmssVM](/powershell/module/az.compute/set-azvmssvm) cmdlet with `-PerformMaintenance` parameter.
 
 ```powershell
-Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
+Set-AzVmssVM -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
 ```
 
 ## Check maintenance status by using the CLI
 
-You can view planned maintenance information by using [az vmss list-instances](/cli/azure/vmss#az-vmss-list-instances).
+You can view planned maintenance information by using [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances).
  
 Maintenance information is returned only if maintenance is planned. If no maintenance that affects the VM instance is scheduled, the command doesn't return any maintenance information. 
 

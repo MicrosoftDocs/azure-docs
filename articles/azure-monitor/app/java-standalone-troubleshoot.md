@@ -11,7 +11,7 @@ In this article, we cover some of the common issues that you might face while in
 
 ## Check the self-diagnostic log file
 
-By default, the Java 3.0 agent for Application Insights produces a log file named `applicationinsights.log` in the same directory that holds the `applicationinsights-agent-3.0.2.jar` file.
+By default, Application Insights Java 3.x produces a log file named `applicationinsights.log` in the same directory that holds the `applicationinsights-agent-3.1.1.jar` file.
 
 This log file is the first place to check for hints to any issues you might be experiencing.
 
@@ -22,7 +22,11 @@ try re-downloading the agent jar file because it may have been corrupted during 
 
 ## Upgrade from the Application Insights Java 2.x SDK
 
-If you're already using the Application Insights Java 2.x SDK in your application, you can keep using it. The Java 3.0 agent will detect it. For more information, see [Upgrade from the Java 2.x SDK](./java-standalone-upgrade-from-2x.md).
+If you're already using the Application Insights Java 2.x SDK in your application, you can keep using it.
+The Application Insights Java 3.x agent will detect it,
+and capture and correlate any custom telemetry you're sending via the 2.x SDK,
+while suppressing any auto-collection performed by the 2.x SDK to prevent duplicate telemetry.
+For more information, see [Upgrade from the Java 2.x SDK](./java-standalone-upgrade-from-2x.md).
 
 ## Upgrade from Application Insights Java 3.0 Preview
 

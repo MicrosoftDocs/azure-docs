@@ -32,8 +32,10 @@ To complete this quickstart, make sure you have:
 * A Windows machine with the following installed:
   * <a href="https://git-scm.com" target="_blank">Git for Windows</a>
   * <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> with the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.18362.0 or newer)** component
-* A HoloLens 2 device that is up to date and has [developer mode](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio#enabling-developer-mode) enabled.
+* A HoloLens 2 device that is up to date and has [developer mode](/windows/mixed-reality/using-visual-studio#enabling-developer-mode) enabled.
   * To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, and then select **Check for updates**.
+
+[!INCLUDE [Create Account](../../../includes/object-anchors-get-started-create-account.md)]
 
 ## Open the sample project
 
@@ -41,7 +43,21 @@ To complete this quickstart, make sure you have:
 
 Open `quickstarts/apps/directx/DirectXAoaSampleApp.sln` in Visual Studio.
 
-Change the **Solution Configuration** to **Release**, change **Solution Platform** to **ARM64**, select **Device** from the deployment target options. Then build the **AoaSampleApp** project by right-clicking the project and selecting **Build**.
+Change the **Solution Configuration** to **Release**, change **Solution Platform** to **ARM64**, select **Device** from the deployment target options.
+
+## Configure the account information
+
+The next step is to configure the app to use your account information. You took note of the **Account Key**, **Account ID**, and **Account Domain** values, in the ["Create an Object Anchors account"](#create-an-object-anchors-account) section.
+
+Open `Assets\ObjectAnchorsConfig.json`.
+
+Locate the `AccountId` field and replace `Set me` with your Account ID.
+
+Locate the `AccountKey` field and replace `Set me` with your Account Key.
+
+Locate the `AccountDomain` field and replace `Set me` with your Account Domain.
+
+Now, build the **AoaSampleApp** project by right-clicking the project and selecting **Build**.
 
 :::image type="content" source="./media/vs-deploy-to-device.png" alt-text="Configure Visual Studio project to deploy":::
 
@@ -90,3 +106,6 @@ The app aligns a 3D model to its physical counterpart closely. A user can air ta
 
 > [!div class="nextstepaction"]
 > [FAQ](../faq.md)
+
+> [!div class="nextstepaction"]
+> [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)

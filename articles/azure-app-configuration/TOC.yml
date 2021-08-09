@@ -25,9 +25,8 @@
           href: quickstart-java-spring-app.md
         - name: Python
           href: quickstart-python.md
-        - name: ARM template
-          href: quickstart-resource-manager.md
-          displayName: ARM, azure resource manager template
+        - name: JavaScript/Node.js
+          href: quickstart-javascript.md
     - name: Feature management
       items:
         - name: ASP.NET Core
@@ -38,6 +37,11 @@
           href: quickstart-feature-flag-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-feature-flag-spring-boot.md
+    - name: ARM template
+      href: quickstart-resource-manager.md
+      displayName: ARM, azure resource manager template
+    - name: .NET App in Visual Studio
+      href: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
 - name: Tutorials
   items:
     - name: Enable dynamic configuration using poll model
@@ -56,21 +60,21 @@
       items:
         - name: .NET Core
           href: enable-dynamic-configuration-dotnet-core-push-refresh.md
-    - name: Use feature flags
-      items:
-        - name: ASP.NET Core
-          href: use-feature-flags-dotnet-core.md
-        - name: Spring Boot
-          href: use-feature-flags-spring-boot.md
-    - name: Manage feature flags
-      href: manage-feature-flags.md
+        - name: Java Spring
+          href: enable-dynamic-configuration-java-spring-push-refresh.md
     - name: Use Key Vault references
       items:
-        - name: ASP.NET Core
-          href: use-key-vault-references-dotnet-core.md
-        - name: Spring Boot
-          href: use-key-vault-references-spring-boot.md
-    - name: CI/CD pipeline integration
+        - name: Use Key Vault references
+          items:
+            - name: ASP.NET Core
+              href: use-key-vault-references-dotnet-core.md
+            - name: Spring Boot
+              href: use-key-vault-references-spring-boot.md
+        - name: Reload secrets and certificates automatically
+          items:
+            - name: .NET
+              href: reload-key-vault-secrets-dotnet.md
+    - name: Build, deploy, and CI/CD
       items:
         - name: Push using Azure Pipelines
           href: push-kv-devops-pipeline.md
@@ -80,12 +84,34 @@
           href: concept-github-action.md
         - name: Build project using exported configuration
           href: integrate-ci-cd-pipeline.md
-    - name: Integrate with Kubernetes deployment using Helm
-      href: integrate-kubernetes-deployment-helm.md
+        - name: Deploy to Kubernetes using Helm
+          href: integrate-kubernetes-deployment-helm.md
+    - name: Feature management
+      items:
+        - name: Manage feature flags
+          href: manage-feature-flags.md
+        - name: Use feature flags
+          items:
+            - name: ASP.NET Core
+              href: use-feature-flags-dotnet-core.md
+            - name: Spring Boot
+              href: use-feature-flags-spring-boot.md
+        - name: Use conditional feature flags
+          href: howto-feature-filters-aspnet-core.md
+        - name: Enable a feature for specified users/groups
+          href: howto-targetingfilter-aspnet-core.md
+    - name: Enable Azure monitoring
+      items:
+        - name: Monitor App Configuration
+          href: monitor-app-configuration.md
+        - name: Monitor data reference
+          href: monitor-app-configuration-reference.md
 - name: Samples
   items:
     - name: Azure CLI
       href: cli-samples.md
+    - name: Samples on GitHub
+      href: https://github.com/Azure/AppConfiguration/tree/main/examples
 - name: Concepts
   items:
     - name: Keys and values
@@ -107,7 +133,9 @@
         - name: Assign an Azure Managed Identity
           href: overview-managed-identity.md
         - name: Security baseline
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/app-config-security-baseline?toc=/azure/azure-app-configuration/TOC.json
+        - name: Disable access key authentication (preview)
+          href: howto-disable-access-key-authentication.md
         - name: Security controls by Azure Policy
           href: ./security-controls-policy.md
     - name: High availability
@@ -116,10 +144,6 @@
           href: concept-disaster-recovery.md
 - name: How-to guides
   items:
-    - name: Use conditional feature flags
-      href: howto-feature-filters-aspnet-core.md
-    - name: Enable a feature for specified users/groups
-      href: howto-targetingfilter-aspnet-core.md
     - name: Use labels for per-environment configuration
       href: howto-labels-aspnet-core.md
     - name: Import or export configuration data
@@ -132,22 +156,20 @@
       href: howto-backup-config-store.md
     - name: Use managed identities to access App Configuration
       href: howto-integrate-azure-managed-service-identity.md
-    - name: Integrate App Configuration in Visual Studio
-      href: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
+    - name: Update to the New Spring Boot Library
+      href: howto-convert-to-the-new-spring-boot.md
 - name: Reference
   items:
-    - name: Configuration
+    - name: Client libraries
       items:
-        - name: Azure CLI
-          href: /cli/azure/appconfig
-        - name: .NET Core provider
+        - name: .NET provider
           href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
         - name: .NET Framework builder
           href: https://go.microsoft.com/fwlink/?linkid=2074663
+        - name: Java Spring provider
+          href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/appconfiguration
         - name: Azure SDK for .NET
           href: https://go.microsoft.com/fwlink/?linkid=2092056
-        - name: Java Spring provider
-          href: https://github.com/microsoft/spring-cloud-azure/tree/master/
         - name: Azure SDK for Java
           href: https://go.microsoft.com/fwlink/?linkid=2098196
         - name: Azure SDK for Python
@@ -156,64 +178,70 @@
           href: https://go.microsoft.com/fwlink/?linkid=2103664
     - name: Feature management
       items:
-        - name: .NET Core library
+        - name: .NET Core/.NET Standard
           href: /dotnet/api/microsoft.featuremanagement
-        - name: .NET Core filter library
+        - name: .NET built-in feature filters
           href: /dotnet/api/microsoft.featuremanagement.featurefilters
-    - name: Config store management
+    - name: Control plane
       items:
         - name: REST API
           href: /rest/api/appconfiguration/
+        - name: Azure CLI
+          href: /cli/azure/appconfig
         - name: PowerShell
           href: /powershell/module/az.appconfiguration/
         - name: Terraform
           href: https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html
-    - name: REST API
+    - name: Data plane
       items:
-        - name: Overview
-          href: rest-api.md
-        - name: Resources
+        - name: REST API
           items:
-          - name: Keys
-            href: ./rest-api-keys.md
-          - name: Key-values
-            href: ./rest-api-key-value.md
-          - name: Labels
-            href: ./rest-api-labels.md
-          - name: Locks
-            href: ./rest-api-locks.md
-          - name: Revisions
-            href: ./rest-api-revisions.md
-        - name: Protocol
-          items:
-          - name: Authentication
-            href: ./rest-api-authentication-index.md
-            items:
-              - name: Azure Active Directory authentication
-                href: rest-api-authentication-azure-ad.md
-              - name: HMAC Authentication
-                href: rest-api-authentication-hmac.md   
-          - name: Authorization
-            href: ./rest-api-authorization-index.md
-            items:
-              - name: Azure Active Directory authorization
-                href: rest-api-authorization-azure-ad.md
-              - name: HMAC authorization
-                href: rest-api-authorization-hmac.md
-          - name: Consistency model
-            href: ./rest-api-consistency.md
-          - name: Common headers
-            href: ./rest-api-headers.md
-          - name: Throttling
-            href: ./rest-api-throttling.md
-          - name: Versioning
-            href: ./rest-api-versioning.md
-        - name: Development
-          items:
-          - name: Fiddler
-            href: ./rest-api-fiddler.md
-          - name: Postman
-            href: ./rest-api-postman.md
+            - name: Overview
+              href: rest-api.md
+            - name: Resources
+              items:
+              - name: Keys
+                href: ./rest-api-keys.md
+              - name: Key-values
+                href: ./rest-api-key-value.md
+              - name: Labels
+                href: ./rest-api-labels.md
+              - name: Locks
+                href: ./rest-api-locks.md
+              - name: Revisions
+                href: ./rest-api-revisions.md
+            - name: Protocol
+              items:
+              - name: Authentication
+                href: ./rest-api-authentication-index.md
+                items:
+                  - name: Azure Active Directory authentication
+                    href: rest-api-authentication-azure-ad.md
+                  - name: HMAC Authentication
+                    href: rest-api-authentication-hmac.md
+              - name: Authorization
+                href: ./rest-api-authorization-index.md
+                items:
+                  - name: Azure Active Directory authorization
+                    href: rest-api-authorization-azure-ad.md
+                  - name: HMAC authorization
+                    href: rest-api-authorization-hmac.md
+              - name: Consistency model
+                href: ./rest-api-consistency.md
+              - name: Common headers
+                href: ./rest-api-headers.md
+              - name: Throttling
+                href: ./rest-api-throttling.md
+              - name: Versioning
+                href: ./rest-api-versioning.md
+            - name: Development
+              items:
+              - name: Fiddler
+                href: ./rest-api-fiddler.md
+              - name: Postman
+                href: ./rest-api-postman.md
+        - name: Azure CLI
+          href: /cli/azure/appconfig
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md

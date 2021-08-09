@@ -2,13 +2,13 @@
 title: Action rules for Azure Monitor alerts
 description: Understanding what action rules in Azure Monitor are and how to configure and manage them.
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 04/08/2021
 
 ---
 
 # Action rules (preview)
 
-Action rules help you define or suppress actions at any Azure Resource Manager scope (Azure subscription, resource group, or target resource). They have various filters that help you narrow down the specific subset of alert instances that you want to act on.
+Action rules let you add or suppress the action groups on your fired alerts. A single rule can cover different scopes of target resources, for example - any alert on a specific resource (like a specific virtual machine) or any alert fired on any resource in a subscription. You can optionally add various filters to control which alerts are covered by a rule and define a schedule for it, for example for it to be in effect only outside business hours or during a planned maintenance window.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rBZ2]
 
@@ -27,7 +27,7 @@ Although alert rules help you define the action group that triggers when the ale
 Action rules help you simplify this process. By defining actions at scale, an action group can be triggered for any alert that's generated on the configured scope. In the previous example, the team can define one action rule on **ContosoRG** that will trigger the same action group for all alerts generated within it.
 
 > [!NOTE]
-> Action rules currently don't apply to Azure Service Health alerts.
+> Action rules do not apply to Azure Service Health alerts.
 
 ## Configuring an action rule
 
@@ -63,7 +63,7 @@ The available filters are:
 
 * **Severity**  
 This rule will apply only to alerts with the selected severities.  
-For example, **severity = Sev1** means that the rule will apply only to alerts with Sev1 severity.
+For example, **severity = "Sev1"** means that the rule will apply only to alerts with Sev1 severity.
 * **Monitor service**  
 This rule will apply only to alerts coming from the selected monitoring services.  
 For example, **monitor service = “Azure Backup”** means that the rule will apply only to backup alerts (coming from  Azure Backup).
@@ -75,15 +75,22 @@ This rule will apply only to alerts coming from a specific alert rule. The value
 For example, **alert rule ID = "/subscriptions/SubId1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/API-Latency"** means this rule will apply only to alerts coming from "API-Latency" metric alert rule.  
 _NOTE - you can get the proper alert rule ID by listing your alert rules from the CLI, or by opening a specific alert rule in the portal, clicking "Properties", and copying the "Resource ID" value._
 * **Monitor condition**  
-This rule will apply only to alert events with the specified monitor condition - either **Fired** or **Resolved**.
+This rule will apply only to alert events with the specified monitor condition - either **"Fired"** or **"Resolved"**.
 * **Description**  
 This rule will apply only to alerts that contains a specific string in the alert description field. That field contains the alert rule description.  
-For example, **description contains 'prod'** means that the rule will only match alerts that contain the string "prod" in their description.
+For example, **description contains "prod"** means that the rule will only match alerts that contain the string "prod" in their description.
 * **Alert context (payload)**  
 This rule will apply only to alerts that contain any of one or more specific values in the alert context fields.  
-For example, **alert context (payload) contains 'Computer-01'** means that the rule will only apply to alerts whose payload contain the string "Computer-01".
+For example, **alert context (payload) contains "Computer-01"** means that the rule will only apply to alerts whose payload contain the string "Computer-01".
 
-If you set multiple filters in a rule, all of them apply. For example, if you set **resource type' = Virtual Machines** and **severity' = Sev0**, then the rule will apply only for Sev0 alerts on virtual machines.
+> [!NOTE]
+> Each filter may include up to five values.  
+> For example, a filter on monitor service may include up to five monitor service names.
+
+
+
+
+If you set multiple filters in a rule, all of them apply. For example, if you set **resource type = "Virtual Machines"** and **severity = "Sev0"**, then the rule will apply only for Sev0 alerts on virtual machines.
 
 ![Action rule filters](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 
@@ -118,7 +125,7 @@ Last, configure the following details for the action rule:
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can create action rules with the Azure CLI using the [az monitor action-rule create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) command.  The `az monitor action-rule` reference is just one of many [Azure CLI references for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
+You can create action rules with the Azure CLI using the [az monitor action-rule create](/cli/azure/monitor/action-rule#az_monitor_action_rule_create) command.  The `az monitor action-rule` reference is just one of many [Azure CLI references for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
 
 ### Prepare your environment
 
@@ -132,7 +139,7 @@ You can create action rules with the Azure CLI using the [az monitor action-rule
 
 1. Sign in.
 
-   If you're using a local install of the CLI, sign in using the [az login](/cli/azure/reference-index#az-login) command.  Follow the steps displayed in your terminal to complete the authentication process.
+   If you're using a local install of the CLI, sign in using the [az login](/cli/azure/reference-index#az_login) command.  Follow the steps displayed in your terminal to complete the authentication process.
 
     ```azurecli
     az login
@@ -154,7 +161,7 @@ You can create action rules with the Azure CLI using the [az monitor action-rule
 
 ### Create action rules with the Azure CLI
 
-See the Azure CLI reference content for [az monitor action-rule create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) to learn about required and optional parameters.
+See the Azure CLI reference content for [az monitor action-rule create](/cli/azure/monitor/action-rule#az_monitor_action_rule_create) to learn about required and optional parameters.
 
 Create an action rule to suppress notifications in a resource group.
 
@@ -240,7 +247,7 @@ From here, you can enable, disable, or delete action rules at scale by selecting
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can view and manage your action rules using the [az monitor action-rule](/cli/azure/ext/alertsmanagement/monitor) command from the Azure CLI.
+You can view and manage your action rules using the [az monitor action-rule](/cli/azure/monitor) command from the Azure CLI.
 
 Before you manage action rules with the Azure CLI, prepare your environment using the instructions provided in [Configuring an action rule](#configuring-an-action-rule).
 
@@ -304,7 +311,7 @@ In the [alerts list page](./alerts-managing-alert-instances.md), you can choose 
 
 Suppression always takes precedence on the same scope.
 
-### What happens if I have a resource that's monitored in two separate action rules? Do I get one or two notifications? For example, **VM2** in the following scenario:
+### What happens if I have a resource that is covered by two action rules? Do I get one or two notifications? For example, **VM2** in the following scenario:
 
    `action rule AR1 defined for VM1 and VM2 with action group AG1`
 

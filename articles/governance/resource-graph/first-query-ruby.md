@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Your first Ruby query"
 description: In this quickstart, you follow the steps to enable the Resource Graph gem for Ruby and run your first query.
-ms.date: 01/27/2021
+ms.date: 07/09/2021
 ms.topic: quickstart
 ---
 # Quickstart: Run your first Resource Graph query using Ruby

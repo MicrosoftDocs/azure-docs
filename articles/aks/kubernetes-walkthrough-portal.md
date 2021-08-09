@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using the Azure portal.
 services: container-service
 ms.topic: quickstart
-ms.date: 03/15/2021
+ms.date: 07/01/2021
 
 ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3
 
@@ -39,13 +39,17 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
         * Select an Azure **Subscription**.
         * Select or create an Azure **Resource group**, such as *myResourceGroup*.
     - **Cluster details**: 
+        * Ensure the the **Preset configuration** is *Standard ($$)*. For more details on preset configurations, see [Cluster configuration presets in the Azure portal][preset-config].
         * Enter a **Kubernetes cluster name**, such as *myAKSCluster*. 
         * Select a **Region** and **Kubernetes version** for the AKS cluster.
     - **Primary node pool**: 
-        * Select a VM **Node size** for the AKS nodes. The VM size *cannot* be changed once an AKS cluster has been deployed.
-        * Select the number of nodes to deploy into the cluster. For this quickstart, set **Node count** to *1*. Node count *can* be adjusted after the cluster has been deployed.
+        * Leave the default values selected.
     
     ![Create AKS cluster - provide basic information](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
+
+    > [!NOTE]
+    > You can change the preset configuration when creating your cluster by selecting *View all preset configurations* and choosing a different option.
+    > ![Create AKS cluster - portal preset options](media/kubernetes-walkthrough-portal/cluster-preset-options.png)
 
 4. Select **Next: Node pools** when complete.
 
@@ -101,8 +105,9 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     Output shows the single node created in the previous steps. Make sure the node status is *Ready*:
 
     ```output
-    NAME                       STATUS    ROLES     AGE       VERSION
-    aks-agentpool-14693408-0   Ready     agent     15m       v1.11.5
+    NAME                                STATUS   ROLES   AGE   VERSION
+    aks-agentpool-12345678-vmss000000   Ready    agent   23m   v1.19.11
+    aks-agentpool-12345678-vmss000001   Ready    agent   24m   v1.19.11
     ```
 
 ## Run the application
@@ -136,55 +141,80 @@ Two Kubernetes Services are also created:
           app: azure-vote-back
       template:
         metadata:
-          name: azure-vote-back
-        spec:
-          ports:
-          - port: 6379
-          selector:
+          labels:
             app: azure-vote-back
-        ---
-        apiVersion: apps/v1
-        kind: Deployment
-        metadata:
-          name: azure-vote-front
         spec:
-          replicas: 1
-          selector:
-            matchLabels:
-              app: azure-vote-front
-          template:
-            metadata:
-              labels:
-                app: azure-vote-front
-            spec:
-              nodeSelector:
-                "beta.kubernetes.io/os": linux
-              containers:
-              - name: azure-vote-front
-                image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
-                resources:
-                  requests:
-                    cpu: 100m
-                    memory: 128Mi
-                  limits:
-                    cpu: 250m
-                    memory: 256Mi
-                ports:
-                - containerPort: 80
-                env:
-                - name: REDIS
-                  value: "azure-vote-back"
-        ---
-        apiVersion: v1
-        kind: Service
+          nodeSelector:
+            "beta.kubernetes.io/os": linux
+          containers:
+          - name: azure-vote-back
+            image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+            env:
+            - name: ALLOW_EMPTY_PASSWORD
+              value: "yes"
+            resources:
+              requests:
+                cpu: 100m
+                memory: 128Mi
+              limits:
+                cpu: 250m
+                memory: 256Mi
+            ports:
+            - containerPort: 6379
+              name: redis
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: azure-vote-back
+    spec:
+      ports:
+      - port: 6379
+      selector:
+        app: azure-vote-back
+    ---
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: azure-vote-front
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: azure-vote-front
+      template:
         metadata:
-          name: azure-vote-front
-        spec:
-          type: LoadBalancer
-          ports:
-          - port: 80
-          selector:
+          labels:
             app: azure-vote-front
+        spec:
+          nodeSelector:
+            "beta.kubernetes.io/os": linux
+          containers:
+          - name: azure-vote-front
+            image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
+            resources:
+              requests:
+                cpu: 100m
+                memory: 128Mi
+              limits:
+                cpu: 250m
+                memory: 256Mi
+            ports:
+            - containerPort: 80
+            env:
+            - name: REDIS
+              value: "azure-vote-back"
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: azure-vote-front
+    spec:
+      type: LoadBalancer
+      ports:
+      - port: 80
+      selector:
+        app: azure-vote-front
     ```
 
 1. Deploy the application using the `kubectl apply` command and specify the name of your YAML manifest:
@@ -246,7 +276,7 @@ The `azure-vote-back` and `azure-vote-front` containers will display, as shown i
 
 ![View the health of running containers in AKS](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-To view logs for the `azure-vote-front` pod, select **View container logs** from the containers list drop-down. These logs include the *stdout* and *stderr* streams from the container.
+To view logs for the `azure-vote-front` pod, select **View in Log Analytics** from the top of the *azure-vote-front | Overview* area on the right side. These logs include the *stdout* and *stderr* streams from the container.
 
 ![View the containers logs in AKS](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 
@@ -285,10 +315,11 @@ To learn more about AKS by walking through a complete example, including buildin
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-aks-delete]: /cli/azure/aks#az-aks-delete
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-aks-delete]: /cli/azure/aks#az_aks_delete
 [aks-monitor]: ../azure-monitor/containers/container-insights-overview.md
 [aks-network]: ./concepts-network.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md
+[preset-config]: ./quotas-skus-regions.md#cluster-configuration-presets-in-the-azure-portal
 [sp-delete]: kubernetes-service-principal.md#additional-considerations

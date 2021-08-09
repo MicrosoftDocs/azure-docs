@@ -4,8 +4,8 @@ description: Describes how to enable VM insights guest health in your subscripti
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/16/2020
-ms.custom: references_regions
+ms.date: 04/05/2021
+ms.custom: references_regions, devx-track-azurepowershell
 
 ---
 
@@ -16,11 +16,14 @@ VM insights guest health allows you to view the health of a virtual machine as d
 VM insights guest health has the following limitations in public preview:
 
 - Only Azure virtual machines are currently supported. Azure Arc for servers is not currently supported.
+- Network proxies aren't currently supported.
 
 
 ## Supported operating systems
 Virtual Machine must run one of the following operating systems: 
 
+  - CentOS 7.5, 7.6, 7.7, 7.8, 7.9
+  - RedHat 7.5, 7.6, 7.7, 7.8, 7.9
   - Ubuntu 16.04 LTS, Ubuntu 18.04 LTS
   - Windows Server 2012 or later
 
@@ -31,6 +34,8 @@ Virtual machine must be located in one of the following regions:
 - Australia Central
 - Australia East
 - Australia Southeast
+- Brazil South
+- Brazil Southeast
 - Canada Central
 - Central India
 - Central US
@@ -41,13 +46,17 @@ Virtual machine must be located in one of the following regions:
 - France Central
 - Germany West Central
 - Japan East
+- Japan West
 - Korea Central
 - North Central US
 - North Europe
+- Norway East
 - South Central US
 - South Africa North
 - Southeast Asia
 - Switzerland North
+- Switzerland West
+- UAE North
 - UK South
 - UK West
 - West Central US
@@ -348,13 +357,13 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
         "publisher": "Microsoft.Azure.Monitor", 
         "type": "AzureMonitorWindowsAgent", 
         "typeHandlerVersion": "1.0", 
-        "autoUpgradeMinorVersion": false 
+        "autoUpgradeMinorVersion": true 
       },
       "linux": {
         "publisher": "Microsoft.Azure.Monitor", 
         "type": "AzureMonitorLinuxAgent", 
-        "typeHandlerVersion": "1.5", 
-        "autoUpgradeMinorVersion": false 
+        "typeHandlerVersion": "1.0", 
+        "autoUpgradeMinorVersion": true 
       }
     }
   },

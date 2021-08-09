@@ -5,7 +5,7 @@ description: Learn how to deploy apps to a non-production slot and autoswap into
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, devx-track-azurepowershell
 
 ---
 # Set up staging environments in Azure App Service
@@ -91,6 +91,9 @@ When you swap two slots (usually from a staging slot into the production slot), 
 
 At any point of the swap operation, all work of initializing the swapped apps happens on the source slot. The target slot remains online while the source slot is being prepared and warmed up, regardless of where the swap succeeds or fails. To swap a staging slot with the production slot, make sure that the production slot is always the target slot. This way, the swap operation doesn't affect your production app.
 
+> [!NOTE]
+> The instances in your former production instances (those that will be swapped into staging after this swap operation) will be recycled quickly in the last step of the swap process. In case you have any long running operations in your application, they will be abandoned, when the workers recycle. This also applies to function apps. Therefore your application code should be written in a fault tolerant way. 
+
 ### Which settings are swapped?
 
 [!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
@@ -169,7 +172,7 @@ If any errors occur in the target slot (for example, the production slot) after 
 ## Configure auto swap
 
 > [!NOTE]
-> Auto swap isn't supported in web apps on Linux.
+> Auto swap isn't supported in web apps on Linux and Web App for Containers.
 
 Auto swap streamlines Azure DevOps scenarios where you want to deploy your app continuously with zero cold starts and zero downtime for customers of the app. When auto swap is enabled from a slot into production, every time you push your code changes to that slot, App Service automatically [swaps the app into production](#swap-operation-steps) after it's warmed up in the source slot.
 
@@ -244,8 +247,7 @@ After the setting is saved, the specified percentage of clients is randomly rout
 After a client is automatically routed to a specific slot, it's "pinned" to that slot for the life of that client session. On the client browser, you can see which slot your session is pinned to by looking at the `x-ms-routing-name` cookie in your HTTP headers. A request that's routed to the "staging" slot has the cookie `x-ms-routing-name=staging`. A request that's routed to the production slot has the cookie `x-ms-routing-name=self`.
 
    > [!NOTE]
-   > Next to the Azure portal, you can also use the [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) command in the Azure CLI to set the routing percentages from CI/CD tools like DevOps pipelines or other automation systems.
-   > 
+   > You can also use the [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az_webapp_traffic_routing_set) command in the Azure CLI to set the routing percentages from CI/CD tools like GitHub Actions, DevOps pipelines, or other automation systems.
 
 ### Route production traffic manually
 
@@ -266,6 +268,9 @@ To let users opt in to your beta app, set the same query parameter to the name o
 ```
 
 By default, new slots are given a routing rule of `0%`, shown in grey. When you explicitly set this value to `0%` (shown in black text), your users can access the staging slot manually by using the `x-ms-routing-name` query parameter. But they won't be routed to the slot automatically because the routing percentage is set to 0. This is an advanced scenario where you can "hide" your staging slot from the public while allowing internal teams to test changes on the slot.
+
+> [!NOTE]
+> There is a known limitation affecting Private Endpoints and traffic routing with slots. As of April 2021, automatic and manual request routing between slots will result in a "403 Access Denied". This limitation will be removed in a future release. 
 
 <a name="Delete"></a>
 

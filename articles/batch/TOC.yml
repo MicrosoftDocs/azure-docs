@@ -67,7 +67,7 @@
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/batch-security-baseline?toc=/azure/batch/TOC.json
     - name: Security best practices
       href: security-best-practices.md
   - name: Batch service workflow and resources
@@ -114,6 +114,8 @@
       href: private-connectivity.md
     - name: Configure customer-managed keys
       href: batch-customer-managed-key.md
+    - name: Move between regions
+      href: account-move.md
   - name: Authenticate with Azure AD
     items:
     - name: Azure AD with Batch service
@@ -149,6 +151,9 @@
       href: batch-sig-images.md
     - name: Create a pool with a managed image resource
       href: batch-custom-images.md
+    - name: Create a pool across Availability Zones
+      displayName: region, zonal policy
+      href: create-pool-availability-zones.md
     - name: Create a pool with disk encryption enabled
       href: disk-encryption.md
     - name: Create a pool in a virtual network
@@ -160,9 +165,14 @@
     - name: Create a pool without public IP addresses
       displayName: private
       href: batch-pool-no-public-ip-address.md
+    - name: Use extensions with pools
+      href: create-pool-extensions.md
     - name: Configure managed identities
       displayName: user-assigned
       href: managed-identity-pools.md
+    - name: Enable certificate rotation
+      displayName: key vault, keyvault, automatic
+      href: automatic-certificate-rotation.md
     - name: Mount a virtual file system
       href: virtual-file-mount.md
     - name: Mount an Azure file share
@@ -229,11 +239,11 @@
       displayName: command line
       href: batch-cli-get-started.md
     - name: Use Batch CLI templates
-      diplayName: extension
+      displayName: extension
       href: batch-cli-templates.md
-  - name: Use Batch Node.js SDK
+  - name: Use Batch JavaScript SDK
     displayName: json
-    href: batch-nodejs-get-started.md
+    href: batch-js-get-started.md
   - name: Run workloads
     items:
     - name: MPI 
@@ -271,7 +281,7 @@
     href: /dotnet/api/overview/azure/batch
   - name: Java
     href: /java/api/overview/azure/batch
-  - name: Node.js
+  - name: JavaScript
     href: /javascript/api/overview/azure/batch
   - name: Python
     href: /python/api/overview/azure/batch

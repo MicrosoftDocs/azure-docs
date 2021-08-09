@@ -58,7 +58,7 @@ Before you begin moving the resources associated with a Maintenance Control conf
         ```
         Get-AzConfigurationAssignment -ResourceGroupName $rgName -ResourceName $vmName -ProviderName Microsoft.Compute -ResourceType virtualMachines | Format-Table Name
         ```
-3. To retrieve the maintenance configurations using the CLI [az maintenance assignment](/cli/azure/ext/maintenance/maintenance/assignment) command:
+3. To retrieve the maintenance configurations using the CLI [az maintenance assignment](/cli/azure/maintenance/assignment) command:
 
     - For Azure Dedicated Hosts:
 

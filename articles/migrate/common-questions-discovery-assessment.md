@@ -82,6 +82,13 @@ The confidence rating is calculated for "Performance-based" assessments based on
 
 - For Azure SQL assessments, few SQL instances or databases were created after discovery had started. For example, if you are creating an assessment for the performance history of last one month, but few SQL instances or databases were created in the environment only a week ago. In this case, the performance data for the new servers will not be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
 
+## > The number of Azure VM or AVS assessments on the Discovery and assessment tool are incorrect
+ To remediate this, click on the total number of assessments to navigate to all the assessments and recalculate the Azure VM or AVS assessment. The discovery and assessment tool will then show the correct count for that assessment type.
+
+
+## I want to try out the new Azure SQL assessment
+Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. Get started with [this tutorial](tutorial-discover-vmware.md). If you want to try out this feature in an existing project, please ensure that you have completed the [prerequisites](how-to-discover-sql-existing-project.md) in this article.
+
 ## I can't see some servers when I am creating an Azure SQL assessment
 
 - Azure SQL assessment can only be done on servers running where SQL instances were discovered. If you don't see the servers and SQL instances that you wish to assess, please wait for some time for the discovery to get completed and then create the assessment. 
@@ -136,7 +143,7 @@ If your instance is ready for both Azure SQL DB and Azure SQL MI, we recommend t
 This can happen when the target deployment type chosen in the assessment properties is **Recommended** and the SQL instance is not ready for Azure SQL Database and Azure SQL Managed Instance. The user is recommended to create an assessment in Azure migrate with assessment type as **Azure VM** to determine if the Server on which the instance is running is ready to migrate to an Azure VM.
 The user is recommended to create an assessment in Azure Migrate with assessment type as **Azure VM** to determine if the server on which the instance is running is ready to migrate to an Azure VM instead:
 - Azure VM assessments in Azure Migrate are currently lift-an-shift focused and will not consider the specific performance metrics for running SQL instances and databases on the Azure virtual machine. 
-- When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [review the performance guidelines](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) for SQL Server on Azure virtual machines.
+- When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [review the performance guidelines](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md) for SQL Server on Azure virtual machines.
 
 ## I can't see some databases in my assessment even though the instance is part of the assessment
 
@@ -144,7 +151,7 @@ The Azure SQL assessment only includes databases that are in online status. In c
 
 ## I want to compare costs for running my SQL instances on Azure VM Vs Azure SQL Database/Azure SQL Managed Instance
 
-You can create an assessment with type **Azure VM** on the same group that was used in your **Azure SQL** assessment. You can then compare the two reports side by side. Though, Azure VM assessments in Azure Migrate are currently lift-and-shift focused and will not consider the specific performance metrics for running SQL instances and databases on the Azure virtual machine. When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [review the performance guidelines](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) for SQL Server on Azure virtual machines.
+You can create an assessment with type **Azure VM** on the same group that was used in your **Azure SQL** assessment. You can then compare the two reports side by side. Though, Azure VM assessments in Azure Migrate are currently lift-and-shift focused and will not consider the specific performance metrics for running SQL instances and databases on the Azure virtual machine. When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [review the performance guidelines](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md) for SQL Server on Azure virtual machines.
 
 ## The storage cost in my Azure SQL assessment is zero
 For Azure SQL Managed Instance, there is no storage cost added for the first 32 GB/instance/month storage and additional storage cost is added for storage in 32GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)
@@ -213,7 +220,7 @@ Import-based Azure VM assessments are assessments created with machines that are
 
 ## Why is the suggested migration tool in import-based AVS assessment marked as unknown?
 
-For machines imported via a CSV file, the default migration tool in an AVS assessment is unknown. Though, for VMware machines, it is recommended to use the VMware Hybrid Cloud Extension (HCX) solution. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+For machines imported via a CSV file, the default migration tool in an AVS assessment is unknown. Though, for VMware machines, it is recommended to use the VMware Hybrid Cloud Extension (HCX) solution. [Learn More](../azure-vmware/install-vmware-hcx.md).
 
 
 ## What is dependency visualization?
@@ -271,7 +278,7 @@ For agent-based dependency visualization:
 
 - Use a [script to install the Dependency agent](../azure-monitor/vm/vminsights-enable-hybrid.md#dependency-agent).
 - For MMA, [use the command line or automation](../azure-monitor/agents/log-analytics-agent.md#installation-options), or use a [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
-- In addition to scripts, you can use deployment tools like Microsoft Endpoint Configuration Manager and [Intigua](https://www.intigua.com/intigua-for-azure-migration) to deploy the agents.
+- In addition to scripts, you can use deployment tools like Microsoft Endpoint Configuration Manager and Intigua to deploy the agents.
 
 ## What operating systems does MMA support?
 

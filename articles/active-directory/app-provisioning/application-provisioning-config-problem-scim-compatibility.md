@@ -3,12 +3,12 @@ title: Known issues with System for Cross-Domain Identity Management (SCIM) 2.0 
 description: How to solve common protocol compatibility issues faced when adding a non-gallery application that supports SCIM 2.0 to Azure AD
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/05/2020
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -45,71 +45,40 @@ Use the flags below in the tenant URL of your application in order to change the
 
 :::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="SCIM flags to later behavior.":::
 
-* Use the following URL to update PATCH behavior and ensure SCIM compliance (e.g. active as boolean and proper group membership removals). This behavior is currently only available when using the flag, but will become the default behavior over the next few months. Note this preview flag currently does not work with on-demand provisioning. 
-  * **URL (SCIM Compliant):** AzureAdScimPatch062020
+Use the following URL to update PATCH behavior and ensure SCIM compliance. The flag will alter the following behaviors:                
+- Requests made to disable users
+- Requests to add a single-value string attribute
+- Requests to replace multiple attributes
+- Requests to remove a group member        
+                                                                                     
+This behavior is currently only available when using the flag, but will become the default behavior over the next few months. Note this preview flag currently does not work with on-demand provisioning. 
+  * **URL (SCIM Compliant):** aadOptscim062020
   * **SCIM RFC references:** 
-    * https://tools.ietf.org/html/rfc7644#section-3.5.2
-  * **Behavior:**
+    * https://tools.ietf.org/html/rfc7644#section-3.5.2    
+
+Below are sample requests to help outline what the sync engine currently sends versus the requests that are sent once the feature flag is enabled. 
+                           
+**Requests made to disable users:**
+
+**Without feature flag**
   ```json
-   PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
-   {
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
     "Operations": [
         {
-            "op": "remove",
-            "path": "members[value eq \"16b083c0-f1e8-4544-b6ee-27a28dc98761\"]"
+            "op": "Replace",
+            "path": "active",
+            "value": "False"
         }
     ]
-   }
+}
+  ```
 
-    PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
-    {
-    "schemas": [
-        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
-    ],
-    "Operations": [
-        {
-            "op": "add",
-            "path": "members",
-            "value": [
-                {
-                    "value": "10263a6910a84ef9a581dd9b8dcc0eae"
-                }
-            ]
-        }
-    ]
-    } 
-
-    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
-    {
-    "schemas": [
-        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
-    ],
-    "Operations": [
-        {
-            "op": "replace",
-            "path": "emails[type eq \"work\"].value",
-            "value": "someone@contoso.com"
-        },
-        {
-            "op": "replace",
-            "path": "emails[type eq \"work\"].primary",
-            "value": true
-        },
-        {
-            "op": "replace",
-            "value": {
-                "active": false,
-                "userName": "someone"
-            }
-        }
-    ]
-    }
-
-    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
-    {
+**With feature flag**
+  ```json
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
@@ -120,23 +89,152 @@ Use the flags below in the tenant URL of your application in order to change the
             "value": false
         }
     ]
-    }
+}
+  ```
 
-    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
-    {
+**Requests made to add a single-value string attribute:**
+
+**Without feature flag**
+  ```json
+{
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
     "Operations": [
         {
-            "op": "add",
-            "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department",
-            "value": "Tech Infrastructure"
+            "op": "Add",
+            "path": "nickName",
+            "value": [
+                {
+                    "value": "Babs"
+                }
+            ]
         }
     ]
-    }
-   
+}   
   ```
+
+**With feature flag**
+  ```json
+  {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "replace",
+            "path": "active",
+            "value": false
+        }
+    ]
+}
+  ```
+
+**Requests to replace multiple attributes:**
+
+**Without feature flag**
+  ```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "Replace",
+            "path": "displayName",
+            "value": "Pvlo"
+        },
+        {
+            "op": "Replace",
+            "path": "emails[type eq \"work\"].value",
+            "value": "TestBcwqnm@test.microsoft.com"
+        },
+        {
+            "op": "Replace",
+            "path": "name.givenName",
+            "value": "Gtfd"
+        },
+        {
+            "op": "Replace",
+            "path": "name.familyName",
+            "value": "Pkqf"
+        },
+        {
+            "op": "Replace",
+            "path": "externalId",
+            "value": "Eqpj"
+        },
+        {
+            "op": "Replace",
+            "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber",
+            "value": "Eqpj"
+        }
+    ]
+}
+  ```
+
+**With feature flag**
+  ```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "replace",
+            "path": "emails[type eq \"work\"].value",
+            "value": "TestMhvaes@test.microsoft.com"
+        },
+        {
+            "op": "replace",
+            "value": {
+                "displayName": "Bjfe",
+                "name.givenName": "Kkom",
+                "name.familyName": "Unua",
+                "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber": "Aklq"
+            }
+        }
+    ]
+} 
+  ```
+
+**Requests made to remove a group member:**
+
+**Without feature flag**
+  ```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "Remove",
+            "path": "members",
+            "value": [
+                {
+                    "value": "u1091"
+                }
+            ]
+        }
+    ]
+} 
+  ```
+
+**With feature flag**
+  ```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "remove",
+            "path": "members[value eq \"7f4bc1a3-285e-48ae-8202-5accb43efb0e\"]"
+        }
+    ]
+}
+  ```
+
 
   * **Downgrade URL:** Once the new SCIM compliant behavior becomes the default on the non-gallery application, you can use the following URL to roll back to the old, non SCIM compliant behavior: AzureAdScimPatch2017
   

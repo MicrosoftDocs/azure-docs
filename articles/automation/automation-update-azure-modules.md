@@ -4,7 +4,8 @@ description: This article tells how to update common Azure PowerShell modules pr
 services: automation
 ms.subservice: process-automation
 ms.date: 06/14/2019
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Update Azure PowerShell modules

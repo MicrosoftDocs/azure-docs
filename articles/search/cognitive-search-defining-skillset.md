@@ -3,9 +3,8 @@ title: Create a skillset
 titleSuffix: Azure Cognitive Search
 description: Define data extraction, natural language processing, or image analysis steps to enrich and extract structured information from your data for use in Azure Cognitive Search.
 
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
@@ -67,7 +66,7 @@ Content-Type: application/json
   "skills":
   [
     {
-      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
       "context": "/document",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
@@ -80,7 +79,7 @@ Content-Type: application/json
       "outputs": [
         {
           "name": "organizations",
-          "targetName": "organizations"
+          "targetName": "orgs"
         }
       ]
     },
@@ -106,11 +105,11 @@ Content-Type: application/json
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       },
-      "context": "/document/organizations/*",
+      "context": "/document/orgs/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/organizations/*"
+          "source": "/document/orgs/*"
         }
       ],
       "outputs": [
@@ -140,11 +139,11 @@ The next piece in the skillset is an array of skills. You can think of each skil
 
 ## Add built-in skills
 
-Let's look at the first skill, which is the built-in [entity recognition skill](cognitive-search-skill-entity-recognition.md):
+Let's look at the first skill, which is the built-in [entity recognition skill](cognitive-search-skill-entity-recognition-v3.md):
 
 ```json
     {
-      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
       "context": "/document",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
@@ -157,7 +156,7 @@ Let's look at the first skill, which is the built-in [entity recognition skill](
       "outputs": [
         {
           "name": "organizations",
-          "targetName": "organizations"
+          "targetName": "orgs"
         }
       ]
     }
@@ -165,19 +164,21 @@ Let's look at the first skill, which is the built-in [entity recognition skill](
 
 * Every built-in skill has `odata.type`, `input`, and `output` properties. Skill-specific properties provide additional information applicable to that skill. For entity recognition, `categories` is one entity among a fixed set of entity types that the pretrained model can recognize.
 
-* Each skill should have a ```"context"```. The context represents the level at which operations take place. In the skill above, the context is the whole document, meaning that the entity recognition skill is called once per document. Outputs are also produced at that level. More specifically, ```"organizations"``` are generated as a member of ```"/document"```. In downstream skills, you can refer to this newly created information as ```"/document/organizations"```.  If the ```"context"``` field is not explicitly set, the default context is the document.
+* Each skill should have a ```"context"```. The context represents the level at which operations take place. In the skill above, the context is the whole document, meaning that the entity recognition skill is called once per document. Outputs are also produced at that level. The skill returns a property called ```organizations``` that is captured as ```orgs```. More specifically, ```"orgs"``` is now added as a member of ```"/document"```. In downstream skills, you can refer to this newly created enrichment as ```"/document/orgs"```.  If the ```"context"``` field is not explicitly set, the default context is the document.
 
-* The skill has one input called "text", with a source input set to ```"/document/content"```. The skill (entity recognition) operates on the *content* field of each document, which is a standard field created by the Azure blob indexer. 
+* Outputs from the one skill can conflict with outputs from a different skill. If you have multiple skills returning a ```result``` property, you can use the ```targetName``` property of skill outputs to capture a named JSON output from a skill into a different property.
 
-* The skill has one output called ```"organizations"```. Outputs exist only during processing. To chain this output to a downstream skill's input, reference the output as ```"/document/organizations"```.
+* The skill has one input called "text", with a source input set to ```"/document/content"```. The skill (entity recognition) operates on the *content* field of each document, which is a standard field created by the Azure Blob indexer. 
 
-* For a particular document, the value of ```"/document/organizations"``` is an array of organizations extracted from the text. For example:
+* The skill has one output called ```"organizations"``` that is captured in a property ```orgs```. Outputs exist only during processing. To chain this output to a downstream skill's input, reference the output as ```"/document/orgs"```.
+
+* For a particular document, the value of ```"/document/orgs"``` is an array of organizations extracted from the text. For example:
 
   ```json
   ["Microsoft", "LinkedIn"]
   ```
 
-Some situations call for referencing each element of an array separately. For example, suppose you want to pass each element of ```"/document/organizations"``` separately to another skill (such as the custom Bing entity search enricher). You can refer to each element of the array by adding an asterisk to the path: ```"/document/organizations/*"``` 
+Some situations call for referencing each element of an array separately. For example, suppose you want to pass each element of ```"/document/orgs"``` separately to another skill (such as the custom Bing entity search enricher). You can refer to each element of the array by adding an asterisk to the path: ```"/document/orgs/*"``` 
 
 The second skill for sentiment extraction follows the same pattern as the first enricher. It takes ```"/document/content"``` as input, and returns a sentiment score for each content instance. Since you did not set the ```"context"``` field explicitly, the output (mySentiment) is now a child of ```"/document"```.
 
@@ -211,11 +212,11 @@ Recall the structure of the custom Bing entity search enricher:
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       },
-      "context": "/document/organizations/*",
+      "context": "/document/orgs/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/organizations/*"
+          "source": "/document/orgs/*"
         }
       ],
       "outputs": [
@@ -229,9 +230,9 @@ Recall the structure of the custom Bing entity search enricher:
 
 This definition is a [custom skill](cognitive-search-custom-skill-web-api.md) that calls a web API as part of the enrichment process. For each organization identified by entity recognition, this skill calls a web API to find the description of that organization. The orchestration of when to call the web API and how to flow the information received is handled internally by the enrichment engine. However, the initialization necessary for calling this custom API must be provided in the JSON (such as uri, httpHeaders, and the inputs expected). For guidance in creating a custom web API for the enrichment pipeline, see [How to define a custom interface](cognitive-search-custom-skill-interface.md).
 
-Notice that the "context" field is set to ```"/document/organizations/*"``` with an asterisk, meaning the enrichment step is called *for each* organization under ```"/document/organizations"```. 
+Notice that the "context" field is set to ```"/document/orgs/*"``` with an asterisk, meaning the enrichment step is called *for each* organization under ```"/document/orgs"```. 
 
-Output, in this case a company description, is generated for each organization identified. When referring to the description in a downstream step (for example, in key phrase extraction), you would use the path ```"/document/organizations/*/description"``` to do so. 
+Output, in this case a company description, is generated for each organization identified. When referring to the description in a downstream step (for example, in key phrase extraction), you would use the path ```"/document/orgs/*/description"``` to do so. 
 
 ## Add structure
 

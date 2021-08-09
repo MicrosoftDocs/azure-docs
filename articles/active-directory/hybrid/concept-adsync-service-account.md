@@ -48,10 +48,10 @@ Legend:
 - Non-bold - Supported option 
 - Local account - Local user account on the server 
 - Domain account - Domain user account 
-- sMSA - [standalone Managed Service account](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
-- gMSA - [group Managed Service account](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) 
+- sMSA - [standalone Managed Service account](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
+- gMSA - [group Managed Service account](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) 
 
- ||**LocalDB</br> Express**|**LocalDB/LocalSQL</br> Custom**|**Remote SQL</br> Custom**|
+|Machine type |**LocalDB</br> Express**|**LocalDB/LocalSQL</br> Custom**|**Remote SQL</br> Custom**|
 |-----|-----|-----|-----|
 |**domain-joined machine**|**VSA**|**VSA**</br> *sMSA*</br> *gMSA*</br> Local account</br> Domain account| *gMSA* </br>Domain account|
 |Domain Controller| **sMSA**|**sMSA** </br>*gMSA*</br> Domain account|*gMSA*</br>Domain account| 
@@ -64,11 +64,11 @@ A Virtual Service Account is a special type of managed local account that does n
 
 The Virtual Service Account is intended to be used with scenarios where the sync engine and SQL are on the same server. If you use remote SQL, then we recommend using a group Managed Service Account instead. 
 
-The Virtual Service Account cannot be used on a Domain Controller due to [Windows Data Protection API (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) issues. 
+The Virtual Service Account cannot be used on a Domain Controller due to [Windows Data Protection API (DPAPI)](/previous-versions/ms995355(v=msdn.10)) issues. 
 
 ## Managed Service Account 
 
-If you use a remote SQL Server, then we recommend to using a group Managed Service Account. For more information on how to prepare your Active Directory for group Managed Service account, see [Group Managed Service Accounts Overview](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)). 
+If you use a remote SQL Server, then we recommend to using a group Managed Service Account. For more information on how to prepare your Active Directory for group Managed Service account, see [Group Managed Service Accounts Overview](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)). 
 
 To use this option, on the [Install required components](how-to-connect-install-custom.md#install-required-components) page, select **Use an existing service account**, and select **Managed Service Account**. 
 

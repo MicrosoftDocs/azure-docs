@@ -7,7 +7,8 @@ author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.author: duau
+ms.author: duau 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Create and manage ExpressRoute public peering

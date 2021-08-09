@@ -1,11 +1,13 @@
 ---
-title: Deploy Live Video Analytics on an IoT Edge device - Azure
-description: This article lists the steps that will help you deploy Live Video Analytics on your IoT Edge device. You would do this, for example, if you have access to a local Linux machine, and/or have previously created an Azure Media Services account.
+title: Deploy Azure Live Video Analytics on an IoT Edge device 
+description: This article lists the steps that will help you deploy Azure Live Video Analytics on your IoT Edge device. You would do this, for example, if you have access to a local Linux machine, and/or have previously created an Azure Media Services account.
 ms.topic: how-to
 ms.date: 09/09/2020
 
 ---
-# Deploy Live Video Analytics on an IoT Edge device
+# Deploy Azure Live Video Analytics on an IoT Edge device
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 This article lists the steps that will help you deploy Live Video Analytics on your IoT Edge device. You would do this, for example, if you have access to a local Linux machine, and/or have previously created an Azure Media Services account.
 
@@ -20,7 +22,7 @@ This article lists the steps that will help you deploy Live Video Analytics on y
 * [Create and setup IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
 * [Register IoT Edge device](../../iot-edge/how-to-register-device.md)
 * [Install the Azure IoT Edge runtime on Debian-based Linux systems](../../iot-edge/how-to-install-iot-edge.md)
-* [Create an Azure Media Services account](../latest/create-account-howto.md)
+* [Create an Azure Media Services account](../latest/account-create-how-to.md)
 
     * Use one of these regions: East US 2, East US, Central US, North Central US, Japan East, West US, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.
     * It is recommended that you use General-purpose v2 (GPv2) Storage accounts
@@ -33,7 +35,7 @@ See [Create custom Azure Resource Manager role](create-custom-azure-resource-man
 
 ### Set up a premium streaming endpoint
 
-If you intend to use Live Video Analytics to record video continuously to the cloud, and subsequently use [query APIs](playback-recordings-how-to.md#query-api) before playing it back, then we recommend updating your Media Service to use a [premium streaming endpoint](../latest/streaming-endpoint-concept.md#types).  
+If you intend to use Live Video Analytics to record video continuously to the cloud, and subsequently use [query APIs](playback-recordings-how-to.md#query-api) before playing it back, then we recommend updating your Media Service to use a [premium streaming endpoint](../latest/stream-streaming-endpoint-concept.md#types).  
 
 This is an optional step. You can use this Azure CLI command to do so:
 

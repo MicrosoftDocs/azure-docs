@@ -44,7 +44,7 @@ You can find below compliance offerings on Azure Storage to ensure your service 
 ## Industry
 
 * [23 NYCRR Part 500](https://www.microsoft.com/trustcenter/compliance/NYCRR)
-* [APRA (Australia)](https://aka.ms/AzureCompliance)
+* [APRA (Australia)](https://www.microsoft.com/trustcenter/compliance/apra)
 * [CDSA](https://www.microsoft.com/trustcenter/compliance/cdsa)
 * [DPP (UK)](https://aka.ms/AzureCompliance)
 * [FACT (UK)](https://www.microsoft.com/trustcenter/compliance/fact)

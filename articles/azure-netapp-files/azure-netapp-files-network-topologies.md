@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 04/09/2021
 ms.author: ramakk
 ---
 # Guidelines for Azure NetApp Files network planning
@@ -41,7 +41,7 @@ The features below are currently unsupported for Azure NetApp Files:
 
 The following network restrictions apply to Azure NetApp Files:
 
-* The number of IPs in use in a VNet with Azure NetApp Files (including peered VNets) cannot exceed 1000. We are working towards increasing this limit to meet customer scale demands. 
+* The number of IPs in use in a VNet with Azure NetApp Files (including *immediately* peered VNets) cannot exceed 1000. We are working towards increasing this limit to meet customer scale demands. 
 * In each Azure Virtual Network (VNet), only one subnet can be delegated to Azure NetApp Files.
 
 

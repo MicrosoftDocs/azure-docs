@@ -23,7 +23,7 @@ landingContent:
       - text: Send telemetry from a device to a hub using CLI
         url: quickstart-send-telemetry-cli.md
       - text: Control a device connected to a hub
-        url: quickstart-control-device-node.md
+        url: quickstart-control-device.md
     - linkListType: get-started
       links:
       - text: Device management 
@@ -115,7 +115,7 @@ landingContent:
         - text: Using IoT Tools for VS Code
           url: iot-hub-create-use-iot-toolkit.md
         - text: IoT Explorer
-          url: ../iot-pnp/howto-use-iot-explorer.md
+          url: ../iot-fundamentals/howto-use-iot-explorer.md
  -   title: Monitor and troubleshoot IoT Hub
      linkLists:
      -  linkListType: how-to-guide
@@ -137,7 +137,7 @@ landingContent:
          - text: Device Authentication using X.509 CA certs
            url: iot-hub-x509ca-overview.md
          - text: X.509 security with IoT Hub
-           url: iot-hub-security-x509-get-started.md
+           url: ./tutorial-x509-scripts.md
          - text: X.509 CA cert security concepts
            url: iot-hub-x509ca-concept.md
  - title: Use Azure CLI for Iot Hub

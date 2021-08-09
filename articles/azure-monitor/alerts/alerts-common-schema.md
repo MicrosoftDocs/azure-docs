@@ -28,7 +28,6 @@ The common alert schema will primarily manifest itself in your alert notificatio
 
 | Action | Enhancements|
 |:---|:---|
-| SMS | A consistent SMS template for all alert types. |
 | Email | A consistent and detailed email template, allowing you to easily diagnose issues at a glance. Embedded deep-links to the alert instance on the portal and the affected resource ensure that you can quickly jump into the remediation process. |
 | Webhook/Logic App/Azure Function/Automation Runbook | A consistent JSON structure for all alert types, which allows you to easily build integrations across the different alert types. |
 

@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
+monikerRange: "=iotedge-2018-06"
 ---
 
 # Tutorial: Develop IoT Edge modules using Windows containers
@@ -18,7 +19,7 @@ ms.custom: mvc
 Use Visual Studio to develop and deploy code to Windows devices running IoT Edge.
 
 >[!NOTE]
->IoT Edge 1.1 LTS is the last release channel that will support Windows containers. Starting with version 1.2, Windows containers are not supported. Consider using or moving to [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) to run IoT Edge on Windows devices.
+>IoT Edge 1.1 LTS is the last release channel that supports Windows containers. Starting with version 1.2, Windows containers are not supported. Consider using or moving to [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) to run IoT Edge on Windows devices.
 
 This tutorial walks through what it takes to develop and deploy your own code to an IoT Edge device. This tutorial is a useful prerequisite for the other tutorials, which go into more detail about specific programming languages or Azure services.
 
@@ -174,6 +175,9 @@ The IoT Edge runtime needs your registry credentials to pull your container imag
 1. Add the **Username** and **Password** values that you copied from your Azure container registry.
 
 1. Save your changes to the .env file.
+
+>[!NOTE]
+>This tutorial uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
 
 ### Review the sample code
 

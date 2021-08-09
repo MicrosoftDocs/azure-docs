@@ -16,6 +16,9 @@ Each lab uses single public IP address and multiple ports.  All VMs, both the te
 >[!IMPORTANT]
 >Each lab will have a different public IP address.
 
+> [!NOTE]
+> If your school needs to perform content filtering, such as for compliance with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), you will need to use 3rd party software.  For more information, read guidance on [content filtering with Lab Services](./administrator-guide.md#content-filtering).
+
 ## Find public IP for a lab
 
 The public IP addresses for each lab are listed in the **All labs** page of the Lab Services lab account.  For directions how to find the **All labs** page, see [View labs in a lab account](manage-labs.md#view-labs-in-a-lab-account).  

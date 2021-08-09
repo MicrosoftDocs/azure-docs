@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 11/05/2020
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -22,11 +22,20 @@ ms.collection: M365-identity-device-management
 This article describes how you can assign an Azure Active Directory (Azure AD) role to a group using Azure AD Privileged Identity Management (PIM).
 
 > [!NOTE]
-> You must be using the updated version of Privileged Identity Management to be able to assign a group to an Azure AD role using PIM. You might be on older version of PIM if your Azure AD organization leverages the Privileged Identity Management API. If so, please reach out to the alias pim_preview@microsoft.com to move your organization and update your API. Learn more at [Azure AD roles and features in PIM](../privileged-identity-management/azure-ad-roles-features.md).
+> You must be using the updated version of Privileged Identity Management to be able to assign a group to an Azure AD role using PIM. You might be on older version of PIM if your Azure AD organization leverages the Privileged Identity Management API. If so, please reach out to the alias pim_preview@microsoft.com to move your organization and update your API. Learn more at [Azure AD roles and features in PIM](../privileged-identity-management/pim-configure.md).
 
-## Using Azure AD admin center
+## Prerequisites
 
-1. Sign in to [Azure AD Privileged Identity Management](https://ms.portal.azure.com/?Microsoft_AAD_IAM_GroupRoles=true&Microsoft_AAD_IAM_userRolesV2=true&Microsoft_AAD_IAM_enablePimIntegration=true#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) as a Privileged role administrator or Global administrator in your organization.
+- Azure AD Premium P2 license
+- Privileged Role Administrator or Global Administrator
+- AzureADPreview module when using PowerShell
+- Admin consent when using Graph explorer for Microsoft Graph API
+
+For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
+
+## Azure portal
+
+1. Sign in to [Azure AD Privileged Identity Management](https://ms.portal.azure.com/?Microsoft_AAD_IAM_GroupRoles=true&Microsoft_AAD_IAM_userRolesV2=true&Microsoft_AAD_IAM_enablePimIntegration=true#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart).
 
 1. Select **Privileged Identity Management** > **Azure AD roles** > **Roles** > **Add assignments**
 
@@ -38,22 +47,7 @@ This article describes how you can assign an Azure Active Directory (Azure AD) r
 
     ![select the user to whom you're assigning the role](./media/groups-pim-eligible/set-assignment-settings.png)
 
-## Using PowerShell
-
-### Download the Azure AD Preview PowerShell module
-
-To install the Azure AD #PowerShell module, use the following cmdlets:
-
-```powershell
-Install-Module -Name AzureADPreview
-Import-Module -Name AzureADPreview
-```
-
-To verify that the module is ready to use, use the following cmdlet:
-
-```powershell
-Get-Module -Name AzureADPreview
-```
+## PowerShell
 
 ### Assign a group as an eligible member of a role
 
@@ -65,7 +59,7 @@ $schedule.endDateTime = "2019-07-25T20:49:11.770Z"
 Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId aadRoles -Schedule $schedule -ResourceId "[YOUR TENANT ID]" -RoleDefinitionId "9f8c1837-f885-4dfd-9a75-990f9222b21d" -SubjectId "[YOUR GROUP ID]" -AssignmentState "Eligible" -Type "AdminAdd"
 ```
 
-## Using Microsoft Graph API
+## Microsoft Graph API
 
 ```http
 POST
@@ -87,7 +81,7 @@ https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequest
 
 ## Next steps
 
-- [Use cloud groups to manage role assignments](groups-concept.md)
-- [Troubleshooting roles assigned to cloud groups](groups-faq-troubleshooting.md)
+- [Use Azure AD groups to manage role assignments](groups-concept.md)
+- [Troubleshoot Azure AD roles assigned to groups](groups-faq-troubleshooting.yml)
 - [Configure Azure AD admin role settings in Privileged Identity Management](../privileged-identity-management/pim-how-to-change-default-settings.md)
 - [Assign Azure resource roles in Privileged Identity Management](../privileged-identity-management/pim-resource-roles-assign-roles.md)

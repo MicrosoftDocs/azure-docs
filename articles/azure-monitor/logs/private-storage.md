@@ -17,7 +17,7 @@ Log Analytics relies on Azure Storage in various scenarios. This use is typicall
 ## Ingesting Azure Diagnostics extension logs (WAD/LAD)
 The Azure Diagnostics extension agents (also called WAD and LAD for Windows and Linux agents respectively) collect various operating system logs and store them on a customer-managed storage account. You can then ingest these logs into Log Analytics to review and analyze them.
 ### How to collect Azure Diagnostics extension logs from your storage account
-Connect the storage account to your Log Analytics workspace as a storage data source using [the Azure portal](../agents/diagnostics-extension-logs.md#collect-logs-from-azure-storage) or by calling the [Storage Insights API](/rest/api/loganalytics/storage%20insights/createorupdate).
+Connect the storage account to your Log Analytics workspace as a storage data source using [the Azure portal](../agents/diagnostics-extension-logs.md#collect-logs-from-azure-storage) or by calling the [Storage Insights API](/rest/api/loganalytics/storage-insights/create-or-update).
 
 Supported data types:
 * Syslog
@@ -45,7 +45,7 @@ For the storage account to successfully connect to your private link, it must:
 * Allow Azure Monitor to access the storage account. If you chose to allow only select networks to access your storage account, you should select the exception: “Allow trusted Microsoft services to access this storage account”.
 ![Storage account trust MS services image](./media/private-storage/storage-trust.png)
 * If your workspace handles traffic from other networks as well, you should configure the storage account to allow incoming traffic coming from the relevant networks/internet.
-* Coordinate TLS version between the agents and the storage account - It's recommended that you send data to Log Analytics using TLS 1.2 or higher. Review [platform-specific guidance](https://docs.microsoft.com/azure/azure-monitor/logs/data-security#sending-data-securely-using-tls-12), and if required [configure your agents to use TLS 1.2](https://docs.microsoft.com/azure/azure-monitor/agents/agent-windows#configure-agent-to-use-tls-12). If for some reason that's not possible, configure the storage account to accept TLS 1.0.
+* Coordinate TLS version between the agents and the storage account - It's recommended that you send data to Log Analytics using TLS 1.2 or higher. Review [platform-specific guidance](./data-security.md#sending-data-securely-using-tls-12), and if required [configure your agents to use TLS 1.2](../agents/agent-windows.md#configure-agent-to-use-tls-12). If for some reason that's not possible, configure the storage account to accept TLS 1.0.
 
 ### Using a customer-managed storage account for CMK data encryption
 Azure Storage encrypts all data at rest in a storage account. By default, it uses Microsoft-managed keys (MMK) to encrypt the data; However, Azure Storage also allows you to use CMK from Azure Key vault to encrypt your storage data. You can either import your own keys into Azure Key Vault, or you can use the Azure Key Vault APIs to generate keys.
@@ -98,7 +98,7 @@ To replace a storage account used for ingestion,
 When using your own storage account, retention is up to you. Log Analytics won't delete logs stored on your private storage. Instead, you should set up a policy to handle the load according to your preferences.
 
 #### Consider load
-Storage accounts can handle a certain load of read and write requests before they start throttling requests (For more information, see [Scalability and performance targets for Blob storage](../../storage/common/scalability-targets-standard-account.md)). Throttling affects the time it takes to ingest logs. If your storage account is overloaded, register an additional storage account to spread the load between them. To monitor your storage account’s capacity and performance review its [Insights in the Azure portal]( https://docs.microsoft.com/azure/azure-monitor/insights/storage-insights-overview).
+Storage accounts can handle a certain load of read and write requests before they start throttling requests (For more information, see [Scalability and performance targets for Blob storage](../../storage/common/scalability-targets-standard-account.md)). Throttling affects the time it takes to ingest logs. If your storage account is overloaded, register an additional storage account to spread the load between them. To monitor your storage account’s capacity and performance review its [Insights in the Azure portal](../insights/storage-insights-overview.md).
 
 ### Related charges
 Storage accounts are charged by the volume of stored data, the type of the storage, and the type of redundancy. For details see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs) and [Table Storage pricing](https://azure.microsoft.com/pricing/details/storage/tables).

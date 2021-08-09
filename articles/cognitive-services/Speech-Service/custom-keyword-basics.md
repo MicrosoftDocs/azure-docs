@@ -3,13 +3,13 @@ title: Create Keyword quickstart - Speech service
 titleSuffix: Azure Cognitive Services
 description: Your device is always listening for a keyword (or phrase). When the user says the keyword, the device sends all subsequent audio to the cloud, until the user stops speaking. Customizing your keyword is an effective way to differentiate your device and strengthen your branding.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/03/2020
-ms.author: trbye
+ms.author: nitinme
 ms.custom: devx-track-csharp
 zone_pivot_groups: keyword-quickstart
 ---
@@ -34,7 +34,7 @@ Before you can use a custom keyword, you need to create a keyword using the [Cus
 
 1. At the [Custom Keyword](https://aka.ms/sdsdk-wakewordportal) page, create a **New project**. 
 
-1. Enter a **Name**, an optional **Description**, and select the language. You need one project per language, and support is currently limited to the `en-US` language.
+1. Enter a **Name**, an optional **Description**, and select the language. You need one project per language, and support is currently limited to English (United States) and Chinese (Mandarin, Simplified).
 
     ![Describe your keyword project](media/custom-keyword/custom-kws-portal-new-project.png)
 
@@ -44,7 +44,7 @@ Before you can use a custom keyword, you need to create a keyword using the [Cus
 
 1. To create a new keyword model, click **Train model**.
 
-1. Enter a **Name** for the model, an optional **Description**, and the **Keyword** of your choice, then click **Next**. See the [guidelines](./custom-keyword-overview.md#choose-an-effective-keyword) on choosing an effective keyword.
+1. Enter a **Name** for the model, an optional **Description**, and the **Keyword** of your choice, then click **Next**. See the [guidelines](keyword-recognition-guidelines.md#choosing-an-effective-keyword) on choosing an effective keyword.
 
     ![Enter your keyword](media/custom-keyword/custom-kws-portal-new-model.png)
 
@@ -58,7 +58,7 @@ Before you can use a custom keyword, you need to create a keyword using the [Cus
 
 1. The downloaded file is a `.zip` archive. Extract the archive, and you see a file with the `.table` extension. This is the file you use with the SDK in the next section, so make sure to note its path. the file name mirrors your keyword name, for example a keyword **Activate device** has the file name `Activate_device.table`.
 
-## Use a keyword model with the SDK
+## Use a keyword model with the Speech SDK
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# Basics include](includes/how-to/keyword-recognition/keyword-basics-csharp.md)]
@@ -74,4 +74,5 @@ Before you can use a custom keyword, you need to create a keyword using the [Cus
 
 ## Next steps
 
-Test your custom keyword with the [Speech Devices SDK Quickstart](./speech-devices-sdk-quickstart.md?pivots=platform-android).
+> [!div class="nextstepaction"]
+> [Get the Speech SDK](speech-sdk.md)

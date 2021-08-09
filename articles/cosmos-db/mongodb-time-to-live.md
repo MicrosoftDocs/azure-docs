@@ -1,8 +1,8 @@
 ---
 title: MongoDB per-document TTL feature in Azure Cosmos DB
 description: Learn how to set time to live value for documents using Azure Cosmos DB's API for MongoDB to automatically purge them from the system after a period of time.
-author: sivethe
-ms.author: sivethe
+author: gahl-levy
+ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: javascript
@@ -16,10 +16,11 @@ ms.custom: devx-track-js, devx-track-csharp
 Time-to-live (TTL) functionality allows the database to automatically expire data. Azure Cosmos DB's API for MongoDB utilizes Cosmos DB's core TTL capabilities. Two modes are supported: setting a default TTL value on the whole collection, and setting individual TTL values for each document. The logic governing TTL indexes and per-document TTL values in Cosmos DB's API for MongoDB is the [same as in Cosmos DB](../cosmos-db/mongodb-indexing.md).
 
 ## TTL indexes
-To enable TTL universally on a collection, a ["TTL index" (time-to-live index)](../cosmos-db/mongodb-indexing.md) needs to be created. The TTL index is an index on the _ts field with an "expireAfterSeconds" value.
+To enable TTL universally on a collection, a ["TTL index" (time-to-live index)](../cosmos-db/mongodb-indexing.md) needs to be created. The TTL index is an index on the `_ts` field with an "expireAfterSeconds" value.
 
-Example:
-```JavaScript
+JavaScript example:
+
+```js
 globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 {
         "_t" : "CreateIndexesResponse",
@@ -33,10 +34,17 @@ globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 The command in the above example will create an index with TTL functionality. Once the index is created, the database will automatically delete any documents in that collection that have not been modified in the last 10 seconds. 
 
 > [!NOTE]
-> **_ts** is a Cosmos DB-specific field and is not accessible from MongoDB clients. It is a reserved (system) property that contains the timestamp of the document's last modification.
->
-	
-Additionally, a C# example: 
+> `_ts` is a Cosmos DB-specific field and is not accessible from MongoDB clients. It is a reserved (system) property that contains the timestamp of the document's last modification.
+
+Java example:
+
+```java
+MongoCollection collection = mongoDB.getCollection("collectionName");
+String index = collection.createIndex(Indexes.ascending("_ts"),
+new IndexOptions().expireAfter(10L, TimeUnit.SECONDS));
+```
+
+C# example: 
 
 ```csharp
 var options = new CreateIndexOptions {ExpireAfter = TimeSpan.FromSeconds(10)}; 
@@ -66,12 +74,6 @@ The following documents have invalid TTL values. The documents will be inserted,
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: 20.5}) //TTL value contains non-zero decimal part. 
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(2147483649)}) //TTL value is greater than Int32.MaxValue (2,147,483,648). 
 ``` 
-
-## How to activate the per-document TTL feature
-
-The per-document TTL feature can be activated with Azure Cosmos DB's API for MongoDB.
-
-:::image type="content" source="./media/mongodb-ttl/mongodb_portal_ttl.png" alt-text="Screenshot of the Per-document TTL feature activation in Portal":::
 
 ## Next steps
 * [Expire data in Azure Cosmos DB automatically with time to live](../cosmos-db/time-to-live.md)

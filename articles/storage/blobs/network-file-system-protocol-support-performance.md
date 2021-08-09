@@ -1,22 +1,19 @@
 ---
-title: NFS 3.0 performance considerations in Azure Blob storage (preview) | Microsoft Docs
+title: NFS 3.0 performance considerations in Azure Blob storage| Microsoft Docs
 description: Optimize the performance of your Network File System (NFS) 3.0 storage requests by using the recommendations in this article.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/23/2021
+ms.date: 06/21/2021
 ms.author: normesta
 ms.reviewer: yzheng
-ms.custom: references_regions
+
 ---
 
-# Network File System (NFS) 3.0 performance considerations in Azure Blob storage (preview)
+# Network File System (NFS) 3.0 performance considerations in Azure Blob storage
 
-Blob storage now supports the Network File System (NFS) 3.0 protocol. This article contains recommendations that help you to optimize the performance of your storage requests. To learn more about NFS 3.0 support in Azure Blob Storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)](network-file-system-protocol-support.md).
-
-> [!NOTE]
-> NFS 3.0 protocol support in Azure Blob storage is in public preview. It supports GPV2 storage accounts with standard tier performance in the following regions: Australia East, Korea Central, and South Central US. The preview also supports block blob with premium performance tier in all public regions.
+Blob storage now supports the Network File System (NFS) 3.0 protocol. This article contains recommendations that help you to optimize the performance of your storage requests. To learn more about NFS 3.0 support in Azure Blob Storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage](network-file-system-protocol-support.md).
 
 ## Add clients to increase throughput 
 
@@ -34,7 +31,7 @@ The following chart shows this same effect when applied to an account that uses 
 
 ## Use premium performance tier for small scale applications
 
-Not all applications can scale up by adding more clients. For those applications, [Azure premium block blob storage account](storage-blob-create-account-block-blob.md) offers consistent low-latency and high transaction rates. The premium block blob storage account can reach maximum bandwidth with fewer threads and clients. For example, with a single client, a premium block blob storage account can achieve **2.3x** bandwidth compared to the same setup used with a standard performance general purpose v2 storage account. 
+Not all applications can scale up by adding more clients. For those applications, [Azure premium block blob storage account](../common/storage-account-create.md) offers consistent low-latency and high transaction rates. The premium block blob storage account can reach maximum bandwidth with fewer threads and clients. For example, with a single client, a premium block blob storage account can achieve **2.3x** bandwidth compared to the same setup used with a standard performance general purpose v2 storage account. 
 
 Each bar in the following chart shows the difference in achieved bandwidth between premium and standard performance storage accounts. As the number of clients increases, that difference decreases.  
 
@@ -44,6 +41,11 @@ Each bar in the following chart shows the difference in achieved bandwidth betwe
 ## Avoid frequent overwrites on data
 
 It takes longer time to complete an overwrite operation than a new write operation. That's because an NFS overwrite operation, especially a partial in-place file edit, is a combination of several underlying blob operations: a read, a modify, and a write operation. Therefore, an application that requires frequent in place edits is not suited for NFS enabled blob storage accounts. 
+
+## Deploy Azure HPC Cache for latency sensitive applications
+
+Some applications may require low latency in addition to high throughput. You can deploy [Azure HPC Cache](../../hpc-cache/nfs-blob-considerations.md) to improve latency significantly. 
+Learn more about [Latency in Blob storage](storage-blobs-latency.md). 
 
 ## Other best practice recommendations 
 
@@ -59,6 +61,6 @@ It takes longer time to complete an overwrite operation than a new write operati
 
 ## Next steps
 
-- To learn more about NFS 3.0 support in Azure Blob Storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)](network-file-system-protocol-support.md).
+- To learn more about NFS 3.0 support in Azure Blob Storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage](network-file-system-protocol-support.md).
 
-- To get started, see [Mount Blob storage by using the Network File System (NFS) 3.0 protocol (preview)](network-file-system-protocol-support-how-to.md).
+- To get started, see [Mount Blob storage by using the Network File System (NFS) 3.0 protocol](network-file-system-protocol-support-how-to.md).

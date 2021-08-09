@@ -8,6 +8,7 @@ metadata:
   ms.topic: conceptual
   ms.date: 02/19/2020
   ms.author: alkemper
+  ms.custom: references_regions
     
 title: Azure App Configuration FAQ
 summary: This article answers frequently asked questions about Azure App Configuration.
@@ -39,10 +40,6 @@ sections:
           
       - question: Does App Configuration encrypt my data?
         answer: Yes. App Configuration encrypts all key values it holds, and it encrypts network communication. Key names and labels are used as indexes for retrieving configuration data and aren't encrypted.
-
-      - question: Where does data stored in App Configuration reside? 
-        answer: |
-          Customer data stored in App Configuration resides in the region where the customer's App Configuration store was created. This applies to all available regions. Customers and end users may move, copy, or access their customer data from any location globally.
 
       - question: How is App Configuration different from Azure App Service settings?
         answer: |
@@ -99,6 +96,16 @@ sections:
           
           You can't downgrade a store from the Standard tier to the Free tier. You can create a new store in the Free tier and then [import configuration data into that store](howto-import-export-data.md).
           
+      - question: Where does data stored in App Configuration reside? 
+        answer: |
+          Customer data stored in App Configuration resides in the region where the customer's App Configuration store was created. This applies to all available regions. Customers and end users may move, copy, or access their customer data from any location globally.
+
+      - question: How does App Configuration ensure high data availability? 
+        answer: |
+
+         Azure App Configuration supports Azure Availability Zones to protect your application and data from single datacenter failures. All Availability Zone enabled regions consists of a minimum of 3 availability zones, where each is a physically independent datacenter. For resiliency, this support in App Configuration is enabled for all customers at no extra cost. Regions that App Configuration has enabled Availability Zones are East US, East US 2, Central US, West US 2, North Europe, West Europe, France Central, UK South, Southeast Asia, and Japan East. For more information, see [Regions and Availability Zones in Azure.](../availability-zones/az-overview.md)
+
+          
       - question: Are there any limits on the number of requests made to App Configuration?
         answer: |
           Configuration stores in the Free tier are limited to 1,000 requests per day. Configuration stores in the Standard tier may experience temporary throttling when the request rate exceeds 20,000 requests per hour.
@@ -117,7 +124,15 @@ sections:
           * Attempting to create or modify a key when the storage quote is exceeded.
           
           Check the body of the 429 response for the specific reason why the request failed.
-          
+
+      - question: Why can't I create an App Configuration store with the same name as one that I just deleted?
+        answer: |
+          When a standard tier App Configuration store is deleted the name is reserved for three days after deletion. It is possible to recreate a store with the same name before the reservation period has elapsed but it must be in the same subscription, resource group, and region as the original store. If the resource group that contained the store was deleted it will need to be recreated in the same subscription first before recreating the store inside of it.
+
+      - question: How can I restore an App Configuration store that I deleted mistakenly?
+        answer: |
+          Standard tier App Configuration stores can be recovered within three days of being deleted. To recover a mistakenly deleted App Configuration store contact Microsoft Support.
+
       - question: How can I receive announcements on new releases and other information related to App Configuration?
         answer: |
           Subscribe to our [GitHub announcements repo](https://github.com/Azure/AppConfiguration-Announcements).
@@ -129,4 +144,3 @@ sections:
       - question: Next steps
         answer: |
           * [About Azure App Configuration](./overview.md)
-          

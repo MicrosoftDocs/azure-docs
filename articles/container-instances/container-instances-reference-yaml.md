@@ -463,5 +463,4 @@ See the tutorial [Deploy a multi-container group using a YAML file](container-in
 See examples of using a YAML file to deploy container groups in a [virtual network](container-instances-vnet.md) or that [mount an external volume](container-instances-volume-azure-files.md).
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-
+[az-container-create]: /cli/azure/container#az_container_create

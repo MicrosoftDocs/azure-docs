@@ -1,5 +1,5 @@
 ---
-title: Clustering point data on a map | Microsoft Azure Maps
+title: Clustering point data in the Web SDK | Microsoft Azure Maps
 description: Learn how to cluster point data on maps. See how to use the Azure Maps Web SDK to cluster data, react to cluster mouse events, and display cluster aggregates.
 author: rbrundritt
 ms.author: richbrun
@@ -11,7 +11,7 @@ manager: cpendle
 ms.custom: codepen, devx-track-js
 ---
 
-# Clustering point data
+# Clustering point data in the Web SDK
 
 When visualizing many data points on the map, data points may overlap over each other. The overlap may cause the map may become unreadable and difficult to use. Clustering point data is the process of combining point data that are near each other and representing them on the map as a single clustered data point. As the user zooms into the map, the clusters break apart into their individual data points. When you work with large number of data points, use the clustering processes to improve your user experience.
 
@@ -21,7 +21,7 @@ When visualizing many data points on the map, data points may overlap over each 
 
 ## Enabling clustering on a data source
 
-Enable clustering in the `DataSource` class by setting the `cluster` option to true. Set `clusterRadius` to select nearby points and combines them into a cluster. The value of `clusterRadius` is in pixels. Use `clusterMaxZoom` to specify a zoom level at which to disable the clustering logic. Here is an example of how to enable clustering in a data source.
+Enable clustering in the `DataSource` class by setting the `cluster` option to `true`. Set `clusterRadius` to select nearby points and combines them into a cluster. The value of `clusterRadius` is in pixels. Use `clusterMaxZoom` to specify a zoom level at which to disable the clustering logic. Here is an example of how to enable clustering in a data source.
 
 ```javascript
 //Create a data source and enable clustering.

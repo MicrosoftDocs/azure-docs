@@ -5,7 +5,7 @@ summary: Learn how Language Understanding enables your applications to understan
 
 metadata:
   ms.topic: landing-page
-  ms.date: 06/15/2020
+  ms.date: 04/16/2021
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -58,7 +58,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: "Portal: Create a new LUIS app"
-            url: get-started-portal-build-app.md
+            url: luis-get-started-create-app.md
           - text: Using C# SDK
             url: ./client-libraries-rest-api.md?pivots=rest-api
           - text: Using Python SDK
@@ -82,14 +82,12 @@ landingContent:
           - text: Versioning
             url: ./luis-concept-app-iteration.md
           - text: Interactive testing
-            url: luis-concept-test.md
+            url: ./luis-interactive-test.md
           - text: Batch testing
             url: ./luis-how-to-batch-test.md
 
       - linkListType: quickstart
         links:
-          - text: "Portal: Deploy app to prediction endpoint"
-            url: get-started-portal-deploy-app.md
           - text: Using SDK
             url: ./client-libraries-rest-api.md?pivots=rest-api
 
@@ -135,7 +133,7 @@ landingContent:
           - text: Prebuilt entities
             url: luis-reference-prebuilt-entities.md
           - text: Custom Entities
-            url: luis-concept-entity-types.md#types-of-entities
+            url: reference-entity-machine-learned-entity.md
           - text: Prebuilt domains
             url: luis-reference-prebuilt-domains.md
 
@@ -146,4 +144,4 @@ landingContent:
         - text: Support and help options
           url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
         - text: Troubleshooting
-          url: troubleshooting.md
+          url: troubleshooting.yml

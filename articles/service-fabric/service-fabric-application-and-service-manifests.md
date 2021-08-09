@@ -178,6 +178,7 @@ For more information about other features supported by application manifests, re
 
 ## Next steps
 - [Package an application](service-fabric-package-apps.md) and make it ready to deploy.
+- [Use StartupServices.xml in an application](service-fabric-startupservices-model.md).
 - [Deploy and remove applications](service-fabric-deploy-remove-applications.md).
 - [Configure parameters and environment variables for different application instances](service-fabric-manage-multiple-environment-app-configuration.md).
 - [Configure security policies for your application](service-fabric-application-runas-security.md).

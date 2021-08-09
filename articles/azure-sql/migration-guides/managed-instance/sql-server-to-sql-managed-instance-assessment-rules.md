@@ -1,17 +1,17 @@
 ---
-title: "Assessment rules for SQL Server to SQL Managed Instance migration"
+title: "Assessment rules for SQL Server to Azure SQL Managed Instance migration"
 description: Assessment rules to identify issues with the source SQL Server instance that must be addressed before migrating to Azure SQL Managed Instance. 
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
 ms.custom: 
 ms.devlang: 
 ms.topic: how-to
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: MashaMSFT
+author: rajeshsetlem
+ms.author: rsetlem
+ms.reviewer: mathoma, cawrites
 ms.date: 12/15/2020
 ---
-# Assessment rules for SQL Server to SQL Managed Instance migration
+# Assessment rules for SQL Server to  Azure SQL Managed Instance migration
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 Migration tools validate your source SQL Server instance by running a number of assessment rules to identify issues that must be addressed before migrating your SQL Server database to Azure SQL Managed Instance. 
@@ -50,14 +50,13 @@ More information: [SQL Server Agent differences in Azure SQL Managed Instance ](
 ## Assembly from file<a id="AssemblyFromFile"></a>
 
 **Title: 'CREATE ASSEMBLY' and 'ALTER ASSEMBLY' with a file parameter are unsupported in Azure SQL Managed Instance.**   
-**Category**: Warning   
+**Category**: Issue   
 
 **Description**   
-Azure SQL Managed Instance cannot access file shares or Windows folders. See the "Impacted Objects" section for the specific uses of BULK INSERT statements that do not reference an Azure blob. Objects with 'BULK INSERT' where the source is not Azure blob storage will not work after migrating to Azure SQL Managed Instance.
-
+Azure SQL Managed Instance does not support 'CREATE ASSEMBLY' or 'ALTER ASSEMBLY' with a file parameter. A binary parameter is supported. See the Impacted Objects section for the specific object where the file parameter is used.
 
 **Recommendation**   
-You will need to convert BULK INSERT statements that use local files or file shares to use files from Azure blob storage instead, when migrating to Azure SQL Managed Instance. Alternatively, migrate to SQL Server on Azure Virtual Machine. 
+Review objects using 'CREATE ASSEMBLY' or 'ALTER ASSEMBLY with a file parameter. If any such objects that are required, convert the file parameter to a binary parameter. Alternatively, migrate to SQL Server on Azure Virtual Machine. 
 
 More information: [CLR differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#clr)
 
@@ -79,7 +78,7 @@ More information: [Bulk Insert and OPENROWSET differences in Azure SQL Managed I
 ## CLR Security<a id="ClrStrictSecurity"></a>
 
 **Title: CLR assemblies marked as SAFE or EXTERNAL_ACCESS are considered UNSAFE**   
-**Category**: Issue   
+**Category**: Warning   
 
 **Description**   
 CLR Strict Security mode is enforced in Azure SQL Managed Instance. This mode is enabled by default and introduces breaking changes for databases containing user-defined CLR assemblies marked either SAFE or EXTERNAL_ACCESS.
@@ -381,10 +380,8 @@ More information: [Azure SQL Managed Instance Resource Limits ](../../managed-in
 **Description**   
 OPENROWSET supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset. OPENROWSET with non-Azure blob storage data source is not supported in Azure SQL Managed Instance. 
 
-
-
 **Recommendation**   
-OPENROWSET function can be used to execute queries only on SQL Server instances (either managed, on-premises, or in Virtual Machines). Only SQLNCLI, SQLNCLI11, and SQLOLEDB values are supported as provider. Therefore, the recommendation action is that identify the dependent database(s) from remote non-SQL Servers and consider moving these into the database being migrated. Alternatively, migrate to SQL Server on Azure Virtual Machine
+Azure SQL Managed Instance cannot access file shares and Windows folders, so the files must be imported from Azure blob storage. Therefore, only blob type DATASOURCE is supported in OPENROWSET function. Alternatively, migrate to SQL Server on Azure Virtual Machine.
 
 More information: [Bulk Insert and OPENROWSET differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#bulk-insert--openrowset)
 
@@ -449,19 +446,6 @@ Rewrite the statement using the current RAISERROR syntax, or evaluate if the mod
 
 More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## Service broker<a id="ServiceBrokerWithNonLocalAddress"></a>
-
-**Title: Service Broker feature is partially supported in Azure SQL Managed Instance.**   
-**Category**: Issue   
-
-**Description**   
-SQL Server Service Broker provides native support for messaging and queuing applications in the SQL Server Database Engine. This database has cross-instance Service Broker enabled which is not supported in Azure SQL Managed Instance. 
-
-
-**Recommendation**   
-Azure SQL Managed Instance does not support cross-instance service broker, i.e. where the address is not local. You need to disable Service Broker using the following command before migrating this database to Azure: `ALTER DATABASE [database_name] SET DISABLE_BROKER`; In addition, you may also need to remove or stop the Service Broker endpoint in order to prevent messages from arriving in the SQL instance. Once the database has been migrated to Azure, you can look into Azure Service Bus functionality to implement a generic, cloud-based messaging system instead of Service Broker. Alternatively, migrate to SQL Server on Azure Virtual Machine. 
-
-More information: [Service Broker differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#service-broker)
 
 ## SQL Mail<a id="SqlMail"></a>
 

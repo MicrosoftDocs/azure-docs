@@ -125,4 +125,4 @@ In this example, we'll modify a redirection URL by rewriting the location header
 
 ## Next steps
 
-To learn more about how to set up some common use cases, see [common header rewrite scenarios](./rewrite-http-headers.md).
+To learn more about how to set up some common use cases, see [common header rewrite scenarios](./rewrite-http-headers-url.md).

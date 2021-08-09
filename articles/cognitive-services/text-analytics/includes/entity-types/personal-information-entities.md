@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include 
-ms.date: 03/15/2021
+ms.date: 08/02/2021
 ms.author: aahi
 ---
 
 > [!NOTE]
 > To detect protected health information (PHI), use the `domain=phi` parameter and model version `2020-04-01` or later.
 >
-> For example: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii?domain=phi&model-version=2021-01-15`
+> For example: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/recognition/pii?domain=phi&model-version=2021-01-15`
  
-The following entity categories are returned when you're sending requests to the `/v3.1-preview.3/entities/recognition/pii` endpoint.
+The following entity categories are returned when you're sending requests to the `/v3.1/entities/recognition/pii` endpoint.
 
 
 | Category   |  Description                          |
@@ -28,7 +28,7 @@ The following entity categories are returned when you're sending requests to the
 | [Address](#category-address) | Full mailing addresses.  |
 | [Email](#category-email) | Email addresses.   |
 | [URL](#category-url) | URLs to websites.  |
-| [IP](#category-ip) | Network IP addresses.  |
+| [IPAddress](#category-ipaddress) | Network IP addresses.  |
 | [DateTime](#category-datetime) | Dates and times of day. | 
 | [Quantity](#category-quantity) | Numbers and numeric quantities.  |
 | [Azure information](#azure-information) | Identifiable Azure information, such as authentication information.  |
@@ -48,7 +48,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        Names of people. 
+        Names of people. Also returned with `domain=phi`.
 
         To get this entity category, add `Person` to the `pii-categories` parameter. `Person` will be returned in the API response if detected.
       
@@ -135,7 +135,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. Nationalities and religions are not included in this entity type.
+        Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. Nationalities and religions are not included in this entity type. Also returned with `domain=phi`.
 
         To get this entity category, add `Organization` to the `pii-categories` parameter. `Organization` will be returned in the API response if detected.
       
@@ -236,7 +236,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        Full mailing address.
+        Full mailing address. Also returned with `domain=phi`.
 
         To get this entity category, add `Address` to the `pii-categories` parameter. `Address` will be returned in the API response if detected.
       
@@ -265,7 +265,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        Email addresses.
+        Email addresses. Also returned with `domain=phi`.
       
         To get this entity category, add `Email` to the `pii-categories` parameter. `Email` will be returned in the API response if detected.
 
@@ -293,7 +293,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        URLs to websites. 
+        URLs to websites. Also returned with `domain=phi`.
 
         To get this entity category, add `URL` to the `pii-categories` parameter. `URL` will be returned in the API response if detected.
       
@@ -308,7 +308,7 @@ This category contains the following entity:
 
 :::row-end:::
 
-### Category: IP
+### Category: IPAddress
 
 This category contains the following entity:
 
@@ -316,15 +316,15 @@ This category contains the following entity:
     :::column span="":::
         **Entity**
 
-        IP
+        IPAddress
 
     :::column-end:::
     :::column span="2":::
         **Details**
 
-        network IP addresses. 
+        Network IP addresses. Also returned with `domain=phi`.
 
-        To get this entity category, add `IP` to the `pii-categories` parameter. `IP` will be returned in the API response if detected.
+        To get this entity category, add `IPAddress` to the `pii-categories` parameter. `IPAddress` will be returned in the API response if detected.
       
     :::column-end:::
 
@@ -377,7 +377,7 @@ The entity in this category can have the following subcategories.
     :::column span="2":::
         **Details**
 
-        Calender dates.
+        Calender dates. Also returned with `domain=phi`.
 
         To get this entity category, add `Date` to the `pii-categories` parameter. `Date` will be returned in the API response if detected.
       
@@ -431,7 +431,7 @@ The entity in this category can have the following subcategories.
     :::column span="2":::
         **Details**
 
-        Ages.
+        Ages. 
 
         To get this entity category, add `Age` to the `pii-categories` parameter. `Age` will be returned in the API response if detected.
       

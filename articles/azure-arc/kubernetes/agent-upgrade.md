@@ -48,7 +48,7 @@ az connectedk8s update --name AzureArcTest1 --resource-group AzureArcTest --auto
 If you have disabled auto-upgrade for agents, you can manually initiate upgrades for these agents using the `az connectedk8s upgrade` command as shown below:
 
 ```console
-az connectedk8s upgrade -g AzureArcTest1 -n AzureArcTest --agent-version 1.0.1
+az connectedk8s upgrade -g AzureArcTest1 -n AzureArcTest --agent-version 1.1.0
 ```
 
 Azure Arc enabled Kubernetes follows the standard [semantic versioning scheme](https://semver.org/) of `MAJOR.MINOR.PATCH` for versioning its agents. 
@@ -79,6 +79,6 @@ One minor version of Azure Arc enabled Kubernetes agents is released approximate
 
 ## Next steps
 
-* Walk through our quickstart to [connect a Kubernetes cluster to Azure Arc](./connect-cluster.md).
-* Already have a Kubernetes cluster connected Azure Arc? [Create configurations on your Arc enabled Kubernetes cluster](./use-gitops-connected-cluster.md).
+* Walk through our quickstart to [connect a Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md).
+* Already have a Kubernetes cluster connected Azure Arc? [Create configurations on your Arc enabled Kubernetes cluster](./tutorial-use-gitops-connected-cluster.md).
 * Learn how to [use Azure Policy to apply configurations at scale](./use-azure-policy.md).

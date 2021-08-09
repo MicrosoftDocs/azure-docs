@@ -26,7 +26,7 @@ For customers who provided an address in Australia or New Zealand, Azure AD keep
 - Azure AD Directory Management 
 - Authentication
 
-All other Azure AD services store customer data in global datacenters. To locate the datacenter for a service, see [Azure Active Directory – Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
+All other Azure AD services store customer data in global datacenters. To locate the datacenter for a service, see [Azure Active Directory – Where is your data located?](https://aka.ms/AADDataMap)
 
 ## Microsoft Azure AD Multi-Factor Authentication (MFA)
 

@@ -1,9 +1,9 @@
 ---
-author: MightyPen
+author: rothja
+ms.author: jroth
 ms.service: sql-database
 ms.topic: include
-ms.date: 11/09/2018	
-ms.author: genemi
+ms.date: 11/09/2018
 ---
 > [!div class="op_single_selector"]
 > * [Overview](../articles/azure-sql/database/xevent-db-diff-from-svr.md)

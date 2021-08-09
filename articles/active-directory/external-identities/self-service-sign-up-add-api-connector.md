@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: article
-ms.date: 03/02/2021
+ms.date: 07/13/2021
 
 ms.author: mimart
 author: msmimart
@@ -19,7 +19,9 @@ ms.collection: M365-identity-device-management
 To use an [API connector](api-connectors-overview.md), you first create the API connector and then enable it in a user flow.
 
 > [!IMPORTANT]
->**Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
+>
+> - **Starting July 12, 2021**,  if Azure AD B2B customers set up new Google integrations for use with self-service sign-up for their custom or line-of-business applications, authentication with Google identities won’t work until authentications are moved to system web-views. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+> - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
 
 ## Create an API connector
 
@@ -28,39 +30,15 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 3. In the left menu, select **External Identities**.
 4. Select **All API connectors**, and then select **New API connector**.
 
-   ![Add a new API connector](./media/self-service-sign-up-add-api-connector/api-connector-new.png)
+    :::image type="content" source="media/self-service-sign-up-add-api-connector/api-connector-new.png" alt-text="Providing the basic configuration like target URL and display name for an API connector during the creation experience.":::
 
 5. Provide a display name for the call. For example, **Check approval status**.
 6. Provide the **Endpoint URL** for the API call.
-7. Choose the **Authentication type** and configure the authentication information for calling your API. See the section below for options on securing your API.
+7. Choose the **Authentication type** and configure the authentication information for calling your API. Learn how to [Secure your API Connector](self-service-sign-up-secure-api-connector.md).
 
-    ![Configure an API connector](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
+    :::image type="content" source="media/self-service-sign-up-add-api-connector/api-connector-config.png" alt-text="Providing authentication configuration for an API connector during the creation experience.":::
 
 8. Select **Save**.
-
-## Securing the API endpoint
-You can protect your API endpoint by using either HTTP basic authentication or HTTPS client certificate authentication (preview). In either case, you provide the credentials that Azure Active Directory will use when calling your API endpoint. Your API endpoint then checks the credentials and performs authorization decisions.
-
-### HTTP basic authentication
-HTTP basic authentication is defined in [RFC 2617](https://tools.ietf.org/html/rfc2617). Azure Active Directory sends an HTTP request with the client credentials (`username` and `password`) in the `Authorization` header. The credentials are formatted as the base64-encoded string `username:password`. Your API then checks these values to determine whether to reject an API call or not.
-
-### HTTPS client certificate authentication (preview)
-
-> [!IMPORTANT]
-> This functionality is in preview and is provided without a service-level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Client certificate authentication is a mutual certificate-based authentication, where the client provides a client certificate to the server to prove its identity. In this case, Azure Active Directory will use the certificate that you upload as part of the API connector configuration. This happens as a part of the SSL handshake. Only services that have proper certificates can access your API service. The client certificate is an X.509 digital certificate. In production environments, it should be signed by a certificate authority. 
-
-To create a certificate, you can use [Azure Key Vault](../../key-vault/certificates/create-certificate.md), which has options for self-signed certificates and integrations with certificate issuer providers for signed certificates. You can then [export the certificate](../../key-vault/certificates/how-to-export-certificate.md) and upload it for use in the API connectors configuration. Note that password is only required for certificate files protected by a password. You can also use PowerShell's [New-SelfSignedCertificate cmdlet](../../active-directory-b2c/secure-rest-api.md#prepare-a-self-signed-certificate-optional) to generate a self-signed certificate.
-
-For Azure App Service and Azure Functions, see [configure TLS mutual authentication](../../app-service/app-service-web-configure-tls-mutual-auth.md) to learn how to enable and validate the certificate from your API endpoint.
-
-It's recommended you set reminder alerts for when your certificate will expire. To upload a new certificate to an existing API connector, select the API connector under **All API connectors** and click on **Upload new certificate**. The most recently uploaded certificate which is not expired and is past the start date will be used automatically by Azure Active Directory.
-
-### API Key
-Some services use an "API key" mechanism to obfuscate access to your HTTP endpoints during development. For [Azure Functions](../../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), you can accomplish this by including the `code` as a query parameter in the **Endpoint URL**. For example, `https://contoso.azurewebsites.net/api/endpoint`<b>`?code=0123456789`</b>). 
-
-This is not a mechanism that should be used alone in production. Therefore, configuration for basic or certificate authentication is always required. If you do not wish to implement any authentication method (not recommended) for development purposes, you can choose basic authentication and use temporary values for `username` and `password` that your API can disregard while you implement the authorization in your API.
 
 ## The request sent to your API
 An API connector materializes as an **HTTP POST** request, sending user attributes ('claims') as key-value pairs in a JSON body. Attributes are serialized similarly to [Microsoft Graph](/graph/api/resources/user#properties) user properties. 
@@ -98,13 +76,16 @@ Only user properties and custom attributes listed in the **Azure Active Director
 
 Custom attributes exist in the **extension_\<extensions-app-id>_AttributeName**  format in the directory. Your API should expect to receive claims in this same serialized format. For more information on custom attributes, see [define custom attributes for self-service sign-up flows](user-flow-add-custom-attributes.md).
 
-Additionally, the **UI Locales ('ui_locales')** claim is sent by default in all requests. It provides a user's locale(s) as configured on their device that can be used by the API to return internationalized responses.
+Additionally, the claims are typically sent in all request:
+- **UI Locales ('ui_locales')** -  An end-user's locale(s) as configured on their device. This can be used by your API to return internationalized responses.
+<!-- - **Step ('step')** - The step or point on the user flow that the API connector was invoked for. Values include:
+  - `PostFederationSignup` - corresponds to "After federating with an identity provider during sign-up"
+  - `PostAttributeCollection` - corresponds to "Before creating the user"
+- **Client ID ('client_id')** - The `appId` value of the application that an end-user is authenticating to in a user flow. This is *not* the resource application's `appId` in access tokens. -->
+- **Email Address ('email')** or [**identities ('identities')**](/graph/api/resources/objectidentity) - these claims can be used by your API to identify the end-user that is authenticating to the application.
 
 > [!IMPORTANT]
 > If a claim does not have a value at the time the API endpoint is called, the claim will not be sent to the API. Your API should be designed to explicitly check and handle the case in which a claim is not in the request.
-
-> [!TIP] 
-> [**identities ('identities')**](/graph/api/resources/objectidentity) and the **Email Address ('email')** claims can be used by your API to identify a user before they have an account in your tenant. The 'identities' claim is sent when a user authenticates with an identity provider such as Google or Facebook. 'email' is always sent.
 
 ## Enable the API connector in a user flow
 
@@ -116,16 +97,16 @@ Follow these steps to add an API connector to a self-service sign-up user flow.
 4. Select **User flows**, and then select the user flow you want to add the API connector to.
 5. Select **API connectors**, and then select the API endpoints you want to invoke at the following steps in the user flow:
 
-   - **After signing in with an identity provider**
+   - **After federating with an identity provider during sign-up**
    - **Before creating the user**
 
-   ![Add APIs to the user flow](./media/self-service-sign-up-add-api-connector/api-connectors-user-flow-select.png)
+    :::image type="content" source="media/self-service-sign-up-add-api-connector/api-connectors-user-flow-select.png" alt-text="Selecting which API connector to use for a step in the user flow like 'Before creating the user'.":::
 
 6. Select **Save**.
 
-## After signing in with an identity provider
+## After federating with an identity provider during sign-up
 
-An API connector at this step in the sign-up process is invoked immediately after the user authenticates with an identity provider (like Google, Facebook, & Azure AD). This step precedes the ***attribute collection page***, which is the form presented to the user to collect user attributes. This step is not invoked if a user is registering with a local account.
+An API connector at this step in the sign-up process is invoked immediately after the user authenticates with an identity provider (like Google, Facebook, & Azure AD). This step precedes the ***attribute collection page***, which is the form presented to the user to collect user attributes.
 
 ### Example request sent to the API at this step
 ```http
@@ -253,10 +234,10 @@ Content-type: application/json
 
 | Parameter                                          | Type              | Required | Description                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| version                                            | String            | Yes      | The version of the API.                                                                                                                                                                                                                                                                |
+| version                                            | String            | Yes      | The version of your API.                                                                                                                                                                                                                                                                |
 | action                                             | String            | Yes      | Value must be `Continue`.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | No       | Values can be stored in the directory if they selected as a **Claim to receive** in the API connector configuration and **User attributes** for a user flow. Values can be returned in the token if selected as an **Application claim**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The returned claim does not need to contain `_<extensions-app-id>_`. Returned values can overwrite values collected from a user. They can also be returned in the token if configured as part of the application.  |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The claim does not need to contain `_<extensions-app-id>_`, it is *optional*. Returned values can overwrite values collected from a user.  |
 
 ### Example of a blocking response
 
@@ -274,13 +255,13 @@ Content-type: application/json
 
 | Parameter   | Type   | Required | Description                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| version     | String | Yes      | The version of the API.                                                    |
+| version     | String | Yes      | The version of your API.                                                    |
 | action      | String | Yes      | Value must be `ShowBlockPage`                                              |
 | userMessage | String | Yes      | Message to display to the user.                                            |
 
 **End-user experience with a blocking response**
 
-![Example  block page](./media/api-connectors-overview/blocking-page-response.png)
+:::image type="content" source="media/api-connectors-overview/blocking-page-response.png" alt-text="An example image of what the end-user experience looks like after an API returns a blocking response.":::
 
 ### Example of a validation-error response
 
@@ -300,7 +281,7 @@ Content-type: application/json
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | String  | Yes      | The version of your API.                                                    |
 | action      | String  | Yes      | Value must be `ValidationError`.                                           |
-| status      | Integer | Yes      | Must be value `400` for a ValidationError response.                        |
+| status      | Integer / String | Yes      | Must be value `400`, or `"400"` for a ValidationError response.  |
 | userMessage | String  | Yes      | Message to display to the user.                                            |
 
 > [!NOTE]
@@ -308,28 +289,34 @@ Content-type: application/json
 
 **End-user experience with a validation-error response**
 
-![Example  validation page](./media/api-connectors-overview/validation-error-postal-code.png)
-
+:::image type="content" source="media/api-connectors-overview/validation-error-postal-code.png" alt-text="An example image of what the end-user experience looks like after an API returns a validation-error response.":::
 
 ## Best practices and how to troubleshoot
 
 ### Using serverless cloud functions
-Serverless functions, like HTTP triggers in Azure Functions, provide a simple way create API endpoints to use with the API connector. You can use the serverless cloud function to, [for example](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), perform validation logic and limit sign-ups to specific email domains. The serverless cloud function can also call and invoke other web APIs, user stores, and other cloud services for more complex scenarios.
+
+Serverless functions, like [HTTP triggers in Azure Functions](../../azure-functions/functions-bindings-http-webhook-trigger.md), provide a way create API endpoints to use with the API connector. You can use the serverless cloud function to, [for example](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), perform validation logic and limit sign-ups to specific email domains. The serverless cloud function can also call and invoke other web APIs, data stores, and other cloud services for complex scenarios.
 
 ### Best practices
 Ensure that:
 * Your API is following the API request and response contracts as outlined above. 
 * The **Endpoint URL** of the API connector points to the correct API endpoint.
-* Your API explicitly checks for null values of received claims.
+* Your API explicitly checks for null values of received claims that it depends on.
+* Your API implements an authentication method outlined in [secure your API Connector](self-service-sign-up-secure-api-connector.md).
 * Your API responds as quickly as possible to ensure a fluid user experience.
-    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm." in production. For Azure Functions, its recommended to use the [Premium plan](../../azure-functions/functions-scale.md)
-
+    * Azure AD will wait for a maximum of *20 seconds* to receive a response. If none is received, it will make *one more attempt (retry)* at calling your API.
+    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at minimum the [Premium plan](../../azure-functions/functions-scale.md)
+* Ensure high availability of your API.
+* Monitor and optimize performance of downstream APIs, databases, or other dependencies of your API.
+* Your endpoints must comply with the Azure AD TLS and cipher security requirements. For more information, see [TLS and cipher suite requirements](../../active-directory-b2c/https-cipher-tls-requirements.md). 
+ 
 ### Use logging
+
 In general, it's helpful to use the logging tools enabled by your web API service, like [Application insights](../../azure-functions/functions-monitoring.md), to monitor your API for unexpected error codes, exceptions, and poor performance.
 * Monitor for HTTP status codes that aren't HTTP 200 or 400.
 * A 401 or 403 HTTP status code typically indicates there's an issue with your authentication. Double-check your API's authentication layer and the corresponding configuration in the API connector.
-* Use more aggressive levels of logging (e.g. "trace" or "debug") in development if needed.
-* Monitor your API for long response times.
+* Use more aggressive levels of logging (for example "trace" or "debug") in development if needed.
+* Monitor your API for long response times. 
 
 ## Next steps
 - Learn how to [add a custom approval workflow to self-service sign-up](self-service-sign-up-add-approvals.md)

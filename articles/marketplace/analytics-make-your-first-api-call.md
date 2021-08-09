@@ -4,8 +4,8 @@ description: Examples to learn to use the API for accessing commercial marketpla
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
 ms.date: 3/08/2021
 ---
 
@@ -45,7 +45,7 @@ curl --location --request POST 'https://login.microsoftonline.com/{TenantId}/oau
 }
 ```
 
-For more information about how to obtain an Azure AD token for your application, see [Access analytics data using Store services](https://docs.microsoft.com/windows/uwp/monetize/access-analytics-data-using-windows-store-services#step-2-obtain-an-azure-ad-access-token).
+For more information about how to obtain an Azure AD token for your application, see [Access analytics data using Store services](/windows/uwp/monetize/access-analytics-data-using-windows-store-services#step-2-obtain-an-azure-ad-access-token).
 
 ## Programmatic API call
 
@@ -332,5 +332,5 @@ Curl
 
 ## Next steps
 
-- You can try out the APIs through the [Swagger API URL](https://partneranalytics-api.azure-api.net/analytics/cmp/swagger/index.html)
+- You can try out the APIs through the [Swagger API URL](https://api.partnercenter.microsoft.com/insights/v1/cmp/swagger/index.html)
 - [Programmatic access paradigm](analytics-programmatic-access.md)

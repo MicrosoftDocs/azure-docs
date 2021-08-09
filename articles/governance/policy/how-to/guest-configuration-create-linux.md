@@ -1,19 +1,19 @@
 ---
 title: How to create Guest Configuration policies for Linux
 description: Learn how to create an Azure Policy Guest Configuration policy for Linux.
-ms.date: 08/17/2020
-ms.topic: how-to 
+ms.date: 03/31/2021
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ---
 # How to create Guest Configuration policies for Linux
 
 Before creating custom policies, read the overview information at
 [Azure Policy Guest Configuration](../concepts/guest-configuration.md).
- 
+
 To learn about creating Guest Configuration policies for Windows, see the page
 [How to create Guest Configuration policies for Windows](./guest-configuration-create.md)
 
-When auditing Linux, Guest Configuration uses [Chef InSpec](https://www.inspec.io/). The InSpec
+When auditing Linux, Guest Configuration uses [Chef InSpec](https://community.chef.io/tools/chef-inspec). The InSpec
 profile defines the condition that the machine should be in. If the evaluation of the configuration
 fails, the policy effect **auditIfNotExists** is triggered and the machine is considered
 **non-compliant**.
@@ -26,12 +26,12 @@ non-Azure machine.
 
 > [!IMPORTANT]
 > Custom policy definitions with Guest Configuration in the Azure Government and
-> Azure China environments is a Preview feature.
+> Azure China 21Vianet environments is a Preview feature.
 >
 > The Guest Configuration extension is required to perform audits in Azure virtual machines. To
 > deploy the extension at scale across all Linux machines, assign the following policy definition:
 > `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
-> 
+>
 > Don't use secrets or confidential information in custom content packages.
 
 ## Install the PowerShell module
@@ -62,7 +62,7 @@ Operating Systems where the module can be installed:
 > The cmdlet `Test-GuestConfigurationPackage` requires OpenSSL version 1.0, due to a dependency on
 > OMI. This causes an error on any environment with OpenSSL 1.1 or later.
 >
-> Running the cmdlet `Test-GuestConfigurationPackage` is only supported on Windows 
+> Running the cmdlet `Test-GuestConfigurationPackage` is only supported on Windows
 > for Guest Configuration module version 2.1.0.
 
 The Guest Configuration resource module requires the following software:
@@ -106,20 +106,20 @@ The name of the custom configuration must be consistent everywhere. The name of 
 the content package, the configuration name in the MOF file, and the guest assignment name in the
 Azure Resource Manager template (ARM template), must be the same.
 
-PowerShell cmdlets assist in creating the package.
-No root level folder or version folder is required.
-The package format must be a .zip file. and cannot exceed a total size of 100MB when uncompressed.
+PowerShell cmdlets assist in creating the package. No root level folder or version folder is
+required. The package format must be a .zip file. and cannot exceed a total size of 100 MB when
+uncompressed.
 
 ### Custom Guest Configuration configuration on Linux
 
 Guest Configuration on Linux uses the `ChefInSpecResource` resource to provide the engine with the
-name of the [InSpec profile](https://www.inspec.io/docs/reference/profiles/). **Name** is the only
-required resource property. Create a YaML file and a Ruby script file, as detailed below.
+name of the [InSpec profile](https://docs.chef.io/inspec/profiles/). **Name** is the only
+required resource property. Create a YAML file and a Ruby script file, as detailed below.
 
-First, create the YaML file used by InSpec. The file provides basic information about the
+First, create the YAML file used by InSpec. The file provides basic information about the
 environment. An example is given below:
 
-```YaML
+```yaml
 name: linux-path
 title: Linux path
 maintainer: Test
@@ -134,7 +134,7 @@ Save this file with name `inspec.yml` to a folder named `linux-path` in your pro
 
 Next, create the Ruby file with the InSpec language abstraction used to audit the machine.
 
-```Ruby
+```ruby
 describe file('/tmp') do
     it { should exist }
 end
@@ -169,10 +169,10 @@ AuditFilePathExists -out ./Config
 ```
 
 Save this file with name `config.ps1` in the project folder. Run it in PowerShell by executing
-`./config.ps1` in the terminal. A new mof file will be created.
+`./config.ps1` in the terminal. A new MOF file is be created.
 
 The `Node AuditFilePathExists` command isn't technically required but it produces a file named
-`AuditFilePathExists.mof` rather than the default, `localhost.mof`. Having the .mof file name follow
+`AuditFilePathExists.mof` rather than the default, `localhost.mof`. Having the .MOF file name follow
 the configuration makes it easy to organize many files when operating at scale.
 
 You should now have a project structure as below:
@@ -184,7 +184,7 @@ You should now have a project structure as below:
     / linux-path
         inspec.yml
         / controls
-            linux-path.rb 
+            linux-path.rb
 ```
 
 The supporting files must be packaged together. The completed package is used by Guest Configuration
@@ -197,8 +197,8 @@ The `New-GuestConfigurationPackage` cmdlet creates the package. Parameters of th
 - **Configuration**: Compiled configuration document full path.
 - **Path**: Output folder path. This parameter is optional. If not specified, the package is created
   in current directory.
-- **ChefInspecProfilePath**: Full path to InSpec profile. This parameter is supported only when creating
-  content to audit Linux.
+- **ChefInspecProfilePath**: Full path to InSpec profile. This parameter is supported only when
+  creating content to audit Linux.
 
 Run the following command to create a package using the configuration given in the previous step:
 
@@ -246,10 +246,11 @@ Parameters of the `Publish-GuestConfigurationPackage` cmdlet:
 - **Path**: Location of the package to be published
 - **ResourceGroupName**: Name of the resource group where the storage account is located
 - **StorageAccountName**: Name of the storage account where the package should be published
-- **StorageContainerName**: (default: *guestconfiguration*) Name of the storage container in the storage account
+- **StorageContainerName**: (default: _guestconfiguration_) Name of the storage container in the
+  storage account
 - **Force**: Overwrite existing package in the storage account with the same name
 
-The example below publishes the package to a storage container name 'guestconfiguration'.
+The following example publishes the package to a storage container name 'guestconfiguration'.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditFilePathExists/AuditFilePathExists.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
@@ -261,7 +262,7 @@ package and creates a policy definition.
 
 Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 
-- **ContentUri**: Public http(s) uri of Guest Configuration content package.
+- **ContentUri**: Public HTTP(s) URI of Guest Configuration content package.
 - **DisplayName**: Policy display name.
 - **Description**: Policy description.
 - **Parameter**: Policy parameters provided in hashtable format.
@@ -305,17 +306,17 @@ Publish-GuestConfigurationPolicy `
   -Path './policies'
 ```
 
- The `Publish-GuestConfigurationPolicy` cmdlet accepts the path from the PowerShell pipeline. This
- feature means you can create the policy files and publish them in a single set of piped commands.
+The `Publish-GuestConfigurationPolicy` cmdlet accepts the path from the PowerShell pipeline. This
+feature means you can create the policy files and publish them in a single set of piped commands.
 
- ```azurepowershell-interactive
- New-GuestConfigurationPolicy `
+```azurepowershell-interactive
+New-GuestConfigurationPolicy `
   -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditFilePathExists.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
   -DisplayName 'Audit Linux file path.' `
   -Description 'Audit that a file path exists on a Linux machine.' `
   -Path './policies' `
- | Publish-GuestConfigurationPolicy
- ```
+| Publish-GuestConfigurationPolicy
+```
 
 With the policy created in Azure, the last step is to assign the definition. See how to assign the
 definition with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md), and
@@ -325,7 +326,7 @@ definition with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-poli
 
 Guest Configuration supports overriding properties of a Configuration at run time. This feature
 means that the values in the MOF file in the package don't have to be considered static. The
-override values are provided through Azure Policy and don't impact how the Configurations are
+override values are provided through Azure Policy and don't change how the Configurations are
 authored or compiled.
 
 With InSpec, parameters are typically handled as input either at runtime or as code using
@@ -337,7 +338,7 @@ project.
 Define the input in the Ruby file where you script what to audit on the machine. An example is given
 below.
 
-```Ruby
+```ruby
 attr_path = attribute('path', description: 'The file path to validate.')
 
 describe file(attr_path) do
@@ -345,9 +346,9 @@ describe file(attr_path) do
 end
 ```
 
-Add the property **AttributesYmlContent** in your configuration with any string as the value.
-The Guest Configuration agent automatically creates the YAML file
-used by InSpec to store attributes. See the example below.
+Add the property **AttributesYmlContent** in your configuration with any string as the value. The
+Guest Configuration agent automatically creates the YAML file used by InSpec to store attributes.
+See the following example.
 
 ```powershell
 Configuration AuditFilePathExists
@@ -401,11 +402,10 @@ New-GuestConfigurationPolicy -ContentUri $uri `
     -Version 1.0.0
 ```
 
-
 ## Policy lifecycle
 
-If you would like to release an update to the policy, make the change for both the Guest Configuration
-package and the Azure Policy definition details.
+If you would like to release an update to the policy, make the change for both the Guest
+Configuration package and the Azure Policy definition details.
 
 > [!NOTE]
 > The `version` property of the Guest Configuration assignment only effects packages that
@@ -413,12 +413,12 @@ package and the Azure Policy definition details.
 > the version in the file name.
 
 First, when running `New-GuestConfigurationPackage`, specify a name for the package that makes it
-unique from previous versions. You can include a version number in the name such as `PackageName_1.0.0`.
-The number in this example is only used to make the package unique, not to specify that the package
-should be considered newer or older than other packages.
+unique from previous versions. You can include a version number in the name such as
+`PackageName_1.0.0`. The number in this example is only used to make the package unique, not to
+specify that the package should be considered newer or older than other packages.
 
 Second, update the parameters used with the `New-GuestConfigurationPolicy` cmdlet following each of
-the explanations below.
+the following explanations.
 
 - **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a version
   number greater than what is currently published.
@@ -490,7 +490,7 @@ GuestConfiguration agent expects the certificate public key to be present in the
 `/usr/local/share/ca-certificates/extra` on Linux machines. For the node to verify signed content,
 install the certificate public key on the machine before applying the custom policy. This process
 can be done using any technique inside the VM, or by using Azure Policy. An example template is
-[provided here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows).
+[provided here](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-push-certificate-windows).
 The Key Vault access policy must allow the Compute resource provider to access certificates during
 deployments. For detailed steps, see
 [Set up Key Vault for virtual machines in Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).

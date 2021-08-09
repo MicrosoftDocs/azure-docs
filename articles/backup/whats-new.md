@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 08/05/2021
 ---
 
 # What's new in Azure Backup
@@ -13,7 +13,14 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- July 2021
+  - [Archive Tier support for SQL Server in Azure VM for Azure Backup is now generally available](#archive-tier-support-for-sql-server-in-azure-vm-for-azure-backup-is-now-generally-available)
+- May 2021
+  - [Backup for Azure Blobs is now generally available](#backup-for-azure-blobs-is-now-generally-available)
+- April 2021
+  - [Enhancements to encryption using customer-managed keys for Azure Backup (in preview)](#enhancements-to-encryption-using-customer-managed-keys-for-azure-backup-in-preview)
 - March 2021
+  - [Azure Disk Backup is now generally available](#azure-disk-backup-is-now-generally-available)
   - [Backup center is now generally available](#backup-center-is-now-generally-available)
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
@@ -34,6 +41,34 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Backup SAP HANA in RHEL Azure Virtual Machines (in preview)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [Zone redundant storage (ZRS) for backup data (in preview)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Soft delete for SQL Server and SAP HANA workloads in Azure VMs](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## Archive Tier support for SQL Server in Azure VM for Azure Backup is now generally available
+
+Azure Backup allows you to move your long-term retention points for Azure Virtual Machines and SQL Server in Azure Virtual Machines to the low-cost Archive Tier. You can also restore from the recovery points in the Vault-archive tier.
+
+In addition to the capability to move the recovery points:
+
+- Azure Backup provides recommendations to move a specific set of recovery points for Azure Virtual Machine backups that'll ensure cost savings.
+- You have the capability to move all their recovery points for a particular backup item at one go using sample scripts.
+- You can view Archive storage usage on the Vault dashboard.
+
+For more information, see [Archive Tier support](/azure/backup/archive-tier-support).
+
+## Backup for Azure Blobs is now generally available
+
+Operational backup for Azure Blobs is a managed-data protection solution that lets you protect your block blob data from various data loss scenarios, such as blob corruptions, blob deletions, and accidental deletion of storage accounts.
+
+Being an operational backup solution, the backup data is stored locally in the source storage account, and can be recovered from a selected point-in-time, giving you a simple and cost-effective means to protect your blob data. To do this, the solution uses the blob point-in-time restore capability available from blob storage.
+
+Operational backup for blobs integrates with the Azure Backup management tools, including Backup Center, to help you manage the protection of your blob data effectively and at-scale. In addition to previously available capabilities, you can now configure and manage operational backup for blobs using the **Data protection** view of the storage accounts, also  [through PowerShell](backup-blobs-storage-account-ps.md). Also, Backup now gives you an enhanced experience for managing role assignments required for configuring operational backup.
+
+For more information, see [Overview of operational backup for Azure Blobs](blob-backup-overview.md).
+
+## Azure Disk Backup is now generally available
+
+Azure Backup offers snapshot lifecycle management to Azure Managed Disks by automating periodic creation of snapshots and retaining these for configured durations using Backup policy.
+
+For more information, see [Overview of Azure Disk Backup](disk-backup-overview.md).
 
 ## Backup center is now generally available
 
@@ -77,7 +112,7 @@ For more information, see [Azure Resource Manager templates for Azure Backup](ba
 
 Azure Backup now supports incremental backups for SAP HANA databases hosted on Azure VMs. This allows for faster and more cost-efficient backups of your SAP HANA data.
 
-For more information, see [various options available during creation of a backup policy](sap-hana-faq-backup-azure-vm.md#policy) and [how to create a backup policy for SAP HANA databases](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
+For more information, see [various options available during creation of a backup policy](/azure/backup/sap-hana-faq-backup-azure-vm#policy) and [how to create a backup policy for SAP HANA databases](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
 
 ## Backup Center (in preview)
 
@@ -140,6 +175,22 @@ One such feature is soft delete. With soft delete, even if a malicious actor del
 Now, in addition to soft delete support for Azure VMs, SQL Server and SAP HANA workloads in Azure VMs are also protected with soft delete.
 
 For more information, see [Soft delete for SQL server in Azure VM and SAP HANA in Azure VM workloads](soft-delete-sql-saphana-in-azure-vm.md).
+
+## Enhancements to encryption using customer-managed keys for Azure Backup (in preview)
+
+Azure Backup now provides enhanced capabilities (in preview) to manage encryption with customer-managed keys. Azure Backup allows you to bring in your own keys to encrypt the backup data in the Recovery Services vaults, thus providing you a better control.
+
+- Supports user-assigned managed identities to grant permissions to the keys to manage data encryption in the Recovery Services vault.
+- Enables encryption with customer-managed keys while creating a Recovery Services vault.
+  >[!NOTE]
+  >This feature is currently in limited preview. To sign up, fill [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURDNTVVhGOUxXSVBZMEwxUU5FNDkyQkU4Ny4u), and write to us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+- Allows you to use Azure Policies to audit and enforce encryption using customer-managed keys.
+>[!NOTE]
+>- The above capabilities are supported through the Azure portal only, PowerShell is currently not supported.<br>If you are using PowerShell for managing encryption keys for Backup, we do not recommend to update the keys from the portal.<br>If you update the key from the portal, you can’t use PowerShell to update the encryption key further, till a PowerShell update to support the new model is available. However, you can continue updating the key from the Azure portal.
+>- You can use the audit policy for auditing vaults with encryption using customer-managed keys that are enabled after 04/01/2021.  
+>- For vaults with the CMK encryption enabled before this date, the policy might fail to apply, or might show false negative results (that is, these vaults may be reported as non-compliant, despite having CMK encryption enabled). [Learn more](encryption-at-rest-with-cmk.md#using-azure-policies-for-auditing-and-enforcing-encryption-utilizing-customer-managed-keys-in-preview).
+
+For more information, see [Encryption for Azure Backup using customer-managed keys](encryption-at-rest-with-cmk.md). 
 
 ## Next steps
 

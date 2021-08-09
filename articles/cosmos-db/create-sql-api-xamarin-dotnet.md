@@ -6,11 +6,11 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/09/2020
+ms.date: 03/07/2021
 ms.author: anfeldma
 ms.custom: devx-track-csharp
-
 ---
+
 # Quickstart: Build a todo app with Xamarin using Azure Cosmos DB SQL API account
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
@@ -19,6 +19,7 @@ ms.custom: devx-track-csharp
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java SDK v4](create-sql-api-java.md)
 > * [Spring Data v3](create-sql-api-spring-data.md)
+> * [Spark v3 connector](create-sql-api-spark.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -39,23 +40,23 @@ If you are developing on Windows and don't already have Visual Studio 2019 insta
 If you are using a Mac, you can download the **free** [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+[!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]
 
 ## Create a database account
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](includes/cosmos-db-create-dbaccount.md)]
 
 ## Add a container
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](includes/cosmos-db-create-collection.md)]
 
 ## Add sample data
 
-[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
 ## Query your data
 
-[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
+[!INCLUDE [cosmos-db-create-sql-api-query-data](includes/cosmos-db-create-sql-api-query-data.md)]
 
 ## Clone the sample application
 
@@ -91,21 +92,21 @@ Go back to the Azure portal to get your API key information and copy it into the
 
 2. In Visual Studio, open **ToDoItems.Core/Helpers/APIKeys.cs**.
 
-3. In the Azure Portal, using the copy button, copy the **URI** value and make it the value of the `CosmosEndpointUrl` variable in APIKeys.cs.
+3. In the Azure portal, using the copy button, copy the **URI** value and make it the value of the `CosmosEndpointUrl` variable in APIKeys.cs.
 
     ```csharp
     //#error Enter the URL of your Azure Cosmos DB endpoint here
-            public static readonly string CosmosEndpointUrl = "[URI Copied from Azure Portal]";
+    public static readonly string CosmosEndpointUrl = "[URI Copied from Azure portal]";
     ```
 
-4. In the Azure Portal, using the copy button, copy the **PRIMARY KEY** value and make it the value of the `Cosmos Auth Key` in APIKeys.cs.
+4. In the Azure portal, using the copy button, copy the **PRIMARY KEY** value and make it the value of the `Cosmos Auth Key` in APIKeys.cs.
 
     ```csharp
     //#error Enter the read/write authentication key of your Azure Cosmos DB endpoint here
-            public static readonly string CosmosAuthKey = "[PRIMARY KEY copied from Azure Portal";
+    public static readonly string CosmosAuthKey = "[PRIMARY KEY copied from Azure portal";
     ```
 
-[!INCLUDE [cosmos-db-auth-key-info](../../includes/cosmos-db-auth-key-info.md)]
+[!INCLUDE [cosmos-db-auth-key-info](includes/cosmos-db-auth-key-info.md)]
 
 ## Review the code
 
@@ -139,9 +140,9 @@ Now let's take a quick review of how the app communicates with Azure Cosmos DB.
 
     The `CreateDocumentQuery<T>` takes a URI that points to the container created in the previous section. And you are also able to specify LINQ operators such as a `Where` clause. In this case only todo items that are not completed are returned.
 
-    The `CreateDocumentQuery<T>` function is executed synchronously, and returns an `IQueryable<T>`. However, the `AsDocumentQuery` method converts the `IQueryable<T>` to an `IDocumentQuery<T>` object which can be executed asynchronously. Thus not blocking the UI thread for mobile applications.
+    The `CreateDocumentQuery<T>` function is executed synchronously, and returns an `IQueryable<T>`. However, the `AsDocumentQuery` method converts the `IQueryable<T>` to an `IDocumentQuery<T>` object, which can be executed asynchronously. Thus not blocking the UI thread for mobile applications.
 
-    The `IDocumentQuery<T>.ExecuteNextAsync<T>` function retrieves the page of results from Azure Cosmos DB, which `HasMoreResults` checking to see if additional results remain to be returned.
+    The `IDocumentQuery<T>.ExecuteNextAsync<T>` function retrieves the page of results from Azure Cosmos DB, which `HasMoreResults` will examine in order to see if additional results remain to be returned.
 
 > [!TIP]
 > Several functions that operate on Azure Cosmos containers and documents take an URI as a parameter which specifies the address of the container or document. This URI is constructed using the `URIFactory` class. URIs for databases, containers, and documents can all be created with this class.
@@ -183,7 +184,7 @@ The following steps will demonstrate how to run the app using the Visual Studio 
 
     :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-start-debug.png" alt-text="Starting to debug in Visual Studio for Mac":::
 
-3. When the iOS simulator or Android emulator finishes launching, the app will display 2 tabs at the bottom of the screen for iOS and the top of the screen for Android. The first shows todo items which are not completed, the second shows todo items which are completed.
+3. When the iOS simulator or Android emulator finishes launching, the app will display two tabs at the bottom of the screen for iOS and the top of the screen for Android. The first shows todo items, which are not completed, the second shows todo items, which are completed.
 
     :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-droid-started.png" alt-text="Launch screen of ToDo app":::
 
@@ -201,15 +202,15 @@ The following steps will demonstrate how to run the app using the Visual Studio 
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos account, create a container using the Data Explorer, and build and deploy a Xamarin app. You can now import additional data to your Azure Cosmos account.
+In this quickstart, you've learned how to create an Azure Cosmos account, create a container using the Data Explorer, and build and deploy a Xamarin app. You can now import more data to your Azure Cosmos account.
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)

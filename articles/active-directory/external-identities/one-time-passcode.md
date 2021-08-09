@@ -7,19 +7,21 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 07/26/2021
 
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.reviewer: mal
-ms.custom: "it-pro, seo-update-azuread-jan, seoapril2019"
+ms.custom: "it-pro, seo-update-azuread-jan, seoapril2019, contperf-fy21q4-portal"
 ms.collection: M365-identity-device-management
 ---
 
 # Email one-time passcode authentication
 
-This article describes how to enable email one-time passcode authentication for B2B guest users. The email one-time passcode feature authenticates B2B guest users when they can't be authenticated through other means like Azure AD, a Microsoft account (MSA), or Google federation. With one-time passcode authentication, there's no need to create a Microsoft account. When the guest user redeems an invitation or accesses a shared resource, they can request a temporary code, which is sent to their email address. Then they enter this code to continue signing in.
+The email one-time passcode feature is a way to authenticate B2B collaboration users when they can't be authenticated through other means, such as Azure AD, Microsoft account (MSA), or social identity providers. When a B2B guest user tries to redeem your invitation or sign in to your shared resources, they can request a temporary passcode, which is sent to their email address. Then they enter this passcode to continue signing in.
+
+You can enable this feature at any time in the Azure portal by configuring the Email one-time passcode identity provider under your tenant's External Identities settings. You can choose to enable the feature, disable it, or wait for automatic enablement in October 2021.
 
 ![Email one-time passcode overview diagram](media/one-time-passcode/email-otp.png)
 
@@ -53,20 +55,37 @@ When a guest user redeems an invitation or uses a link to a resource that has be
 
 - They do not have an Azure AD account
 - They do not have a Microsoft account
-- The inviting tenant did not set up Google federation for @gmail.com and @googlemail.com users
+- The inviting tenant did not set up federation with social (like [Google](google-federation.md)) or other identity providers.
 
 At the time of invitation, there's no indication that the user you're inviting will use one-time passcode authentication. But when the guest user signs in, one-time passcode authentication will be the fallback method if no other authentication methods can be used.
 
-You can see whether a guest user authenticates using one-time passcodes by viewing the **Source** property in the user's details. In the Azure portal, go to **Azure Active Directory** > **Users**, and then select the user to open the details page.
-
-![Screenshot showing a one-time passcode user with Source value of OTP](media/one-time-passcode/guest-user-properties.png)
 
 > [!NOTE]
-> When a user redeems a one-time passcode and later obtains an MSA, Azure AD account, or other federated account, they'll continue to be authenticated using a one-time passcode. If you want to update their authentication method, you can delete their guest user account and reinvite them.
+> When a user redeems a one-time passcode and later obtains an MSA, Azure AD account, or other federated account, they'll continue to be authenticated using a one-time passcode. If you want to update the user's authentication method, you can [reset their redemption status](reset-redemption-status.md).
 
 ### Example
 
 Guest user teri@gmail.com is invited to Fabrikam, which does not have Google federation set up. Teri does not have a Microsoft account. They'll receive a one-time passcode for authentication.
+
+## Enable email one-time passcode
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD global administrator.
+
+2. In the navigation pane, select **Azure Active Directory**.
+
+3. Select **External Identities** > **All identity providers**.
+
+4. Select **Email one-time passcode** to open the configuration pane.
+
+5. Under **Email one-time passcode for guests**, select one of the following:
+
+   - **Automatically enable email one-time passcode for guests starting October 2021** if you don't want to enable the feature immediately and want to wait for the October 2021 automatic enablement date.
+   - **Enable email one-time passcode for guests effective now** to enable the feature now.
+   - **Yes** to enable the feature now if you see a Yes/No toggle (this toggle appears if the feature was previously disabled).
+
+   ![Email one-time passcode toggle enabled](media/one-time-passcode/enable-email-otp-options.png)
+
+5. Select **Save**.
 
 ## Disable email one-time passcode
 
@@ -74,7 +93,7 @@ Starting October 2021, the email one-time passcode feature will be turned on for
 
 > [!NOTE]
 >
-> If the email one-time passcode feature has been enabled in your tenant and you turn it off, any guest users who have redeemed a one-time passcode will not be able to sign in. You can delete the guest user and reinvite them so they can sign in again using another authentication method.
+> If the email one-time passcode feature has been enabled in your tenant and you turn it off, any guest users who have redeemed a one-time passcode will not be able to sign in. You can [reset their redemption status](reset-redemption-status.md) so they can sign in again using another authentication method.
 
 ### To disable the email one-time passcode feature
 
@@ -84,13 +103,13 @@ Starting October 2021, the email one-time passcode feature will be turned on for
 
 3. Select **External Identities** > **All identity providers**.
 
-4. Select **Email one-time passcode**, and then select **Disable email one-time passcode for guests**.
+4. Select **Email one-time passcode**, and then under **Email one-time passcode for guests**, select **Disable email one-time passcode for guests** (or **No** if the feature was previously enabled, disabled, or opted into during preview).
+
+   ![Email one-time passcode toggle disabled](media/one-time-passcode/disable-email-otp-options.png)
 
    > [!NOTE]
    > Email one-time passcode settings have moved in the Azure portal from **External collaboration settings** to **All identity providers**.
    > If you see a toggle instead of the email one-time passcode options, this means you've previously enabled, disabled, or opted into the preview of the feature. Select **No** to disable the feature.
-   >
-   >![Email one-time passcode toggle disabled](media/one-time-passcode/enable-email-otp-disabled.png)
 
 5. Select **Save**.
 
@@ -112,7 +131,7 @@ However, if you'd prefer to opt out of the feature and allow it to be automatica
 
 ## Note for Azure US Government customers
 
-The email one-time passcode feature is disabled by default in the Azure US Government cloud.  
+The email one-time passcode feature is disabled by default in the Azure US Government cloud. Your partners will be unable to sign in unless this feature is enabled. Unlike the Azure public cloud, the Azure US Government cloud doesn't support redeeming invitations with self-service Azure Active Directory accounts.
 
  ![Email one-time passcode disabled](media/one-time-passcode/enable-email-otp-disabled.png)
 
@@ -120,7 +139,7 @@ To enable the email one-time passcode feature in Azure US Government cloud:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD global administrator.
 2. In the navigation pane, select **Azure Active Directory**.
-3. Select **Organizational relationships** > **Settings**.
+3. Select **Organizational relationships** > **All identity providers**.
 
    > [!NOTE]
    > - If you don't see **Organizational relationships**, search for "External Identities” in the search bar at the top.

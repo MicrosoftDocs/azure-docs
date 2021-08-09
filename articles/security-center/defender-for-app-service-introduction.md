@@ -32,7 +32,7 @@ To protect your Azure App Service plan with Azure Defender for App Service, you'
 | Release state:               | General Availability (GA)                                                                                                                                                                      |
 | Pricing:                     | [Azure Defender for App Service](azure-defender.md) is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)<br>Billing is according to total compute instances in all plans       |
 | Supported App Service plans: | [All App Service plans](https://azure.microsoft.com/pricing/details/app-service/plans/) are supported except [Azure Functions on the consumption plan](../azure-functions/functions-scale.md). |
-| Clouds:                      | ![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)                                                     |
+| Clouds:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (US Gov, Azure China)                                                     |
 |                              |                                                                                                                                                                                                |
 
 ## What are the benefits of Azure Defender for App Service?
@@ -89,10 +89,11 @@ For a full list of the Azure App Service alerts, see the [Reference table of ale
 
 In this article, you learned about Azure Defender for App Service. 
 
+> [!div class="nextstepaction"]
+> [Enable Azure Defender](enable-azure-defender.md)
+
 For related material, see the following articles: 
 
 - To export your alerts to Azure Sentinel, any third-party SIEM, or any other external tool, follow the instructions in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
 - For a list of the Azure Defender for App Service alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azureappserv).
 - For more information on App Service plans, see [App Service plans](https://azure.microsoft.com/pricing/details/app-service/plans/).
-> [!div class="nextstepaction"]
-> [Enable Azure Defender](enable-azure-defender.md)

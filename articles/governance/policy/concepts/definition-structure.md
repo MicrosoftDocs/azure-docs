@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 02/17/2021
+ms.date: 05/01/2021
 ms.topic: conceptual
 ---
 # Azure Policy definition structure
@@ -19,7 +19,8 @@ resources have a particular tag. Policy assignments are inherited by child resou
 assignment is applied to a resource group, it's applicable to all the resources in that resource
 group.
 
-The policy definition _policyRule_ schema is found here: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
+The policy definition _policyRule_ schema is found here:
+[https://schema.management.azure.com/schemas/2020-10-01/policyDefinition.json](https://schema.management.azure.com/schemas/2020-10-01/policyDefinition.json)
 
 You use JSON to create a policy definition. The policy definition contains elements for:
 
@@ -118,7 +119,7 @@ We recommend that you set **mode** to `all` in most cases. All policy definition
 the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the **mode**
 parameter manually. If the policy definition doesn't include a **mode** value, it defaults to `all`
 in Azure PowerShell and to `null` in Azure CLI. A `null` mode is the same as using `indexed` to
-support backwards compatibility.
+support backward compatibility.
 
 `indexed` should be used when creating policies that enforce tags or locations. While not required,
 it prevents resources that don't support tags and locations from showing up as non-compliant in the
@@ -162,7 +163,7 @@ _common_ properties used by Azure Policy and in built-ins. Each `metadata` prope
 ### Common metadata properties
 
 - `version` (string): Tracks details about the version of the contents of a policy definition.
-- `category` (string): Determines under which category in Azure portal the policy definition is
+- `category` (string): Determines under which category in the Azure portal the policy definition is
   displayed.
 - `preview` (boolean): True or false flag for if the policy definition is _preview_.
 - `deprecated` (boolean): True or false flag for if the policy definition has been marked as
@@ -179,7 +180,7 @@ _common_ properties used by Azure Policy and in built-ins. Each `metadata` prope
 ## Parameters
 
 Parameters help simplify your policy management by reducing the number of policy definitions. Think
-of parameters like the fields on a form – `name`, `address`, `city`, `state`. These parameters
+of parameters like the fields on a form - `name`, `address`, `city`, `state`. These parameters
 always stay the same, however their values change based on the individual filling out the form.
 Parameters work the same way when building policies. By including parameters in a policy definition,
 you can reuse that policy for different scenarios by using different values.
@@ -212,7 +213,7 @@ A parameter has the following properties that are used in the policy definition:
 - `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given.
   Required when updating an existing policy definition that is assigned.
 - `allowedValues`: (Optional) Provides an array of values that the parameter accepts during
-  assignment. Allowed value comparisons are case-sensitive. 
+  assignment. Allowed value comparisons are case-sensitive.
 
 As an example, you could define a policy definition to limit the locations where resources can be
 deployed. A parameter for that policy definition could be **allowedLocations**. This parameter would
@@ -254,9 +255,9 @@ properties](#parameter-properties).
 
 ### strongType
 
-Within the `metadata` property, you can use **strongType** to provide a multi-select list of options
+Within the `metadata` property, you can use **strongType** to provide a multiselect list of options
 within the Azure portal. **strongType** can be a supported _resource type_ or an allowed value. To
-determine if a _resource type_ is valid for **strongType**, use
+determine whether a _resource type_ is valid for **strongType**, use
 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). The format for a
 _resource type_ **strongType** is `<Resource Provider>/<Resource Type>`. For example,
 `Microsoft.Network/virtualNetworks/subnets`.
@@ -886,6 +887,7 @@ Parameter value:
 ```
 
 Policy:
+
 ```json
 {
     "count": {
@@ -975,36 +977,41 @@ The following functions are only available in policy rules:
   - **dateTime**: [Required] string - String in the Universal ISO 8601 DateTime format
     'yyyy-MM-ddTHH:mm:ss.FFFFFFFZ'
   - **numberOfDaysToAdd**: [Required] integer - Number of days to add
+
 - `field(fieldName)`
   - **fieldName**: [Required] string - Name of the [field](#fields) to retrieve
   - Returns the value of that field from the resource that is being evaluated by the If condition.
   - `field` is primarily used with **AuditIfNotExists** and **DeployIfNotExists** to reference
     fields on the resource that are being evaluated. An example of this use can be seen in the
     [DeployIfNotExists example](effects.md#deployifnotexists-example).
+
 - `requestContext().apiVersion`
   - Returns the API version of the request that triggered policy evaluation (example: `2019-09-01`).
     This value is the API version that was used in the PUT/PATCH request for evaluations on resource
     creation/update. The latest API version is always used during compliance evaluation on existing
     resources.
+
 - `policy()`
   - Returns the following information about the policy that is being evaluated. Properties can be
     accessed from the returned object (example: `[policy().assignmentId]`).
-  
-  ```json
-  {
-    "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
-    "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
-    "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
-    "definitionReferenceId": "StorageAccountNetworkACLs"
-  }
-  ```
+
+    ```json
+    {
+      "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
+      "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
+      "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
+      "definitionReferenceId": "StorageAccountNetworkACLs"
+    }
+    ```
 
 - `ipRangeContains(range, targetRange)`
-  - **range**: [Required] string - String specifying a range of IP addresses.
-  - **targetRange**: [Required] string - String specifying a range of IP addresses.
-
-  Returns whether the given IP address range contains the target IP address range. Empty ranges, or
-  mixing between IP families isn't allowed and results in evaluation failure.
+  - **range**: [Required] string - String specifying a range of IP addresses to check if the
+    _targetRange_ is within.
+  - **targetRange**: [Required] string - String specifying a range of IP addresses to validate as
+    included within the _range_.
+  - Returns a _boolean_ for whether the _range_ IP address range contains the _targetRange_ IP
+    address range. Empty ranges, or mixing between IP families isn't allowed and results in
+    evaluation failure.
 
   Supported formats:
   - Single IP address (examples: `10.0.0.0`, `2001:0DB8::3:FFFE`)

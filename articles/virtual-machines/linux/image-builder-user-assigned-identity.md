@@ -1,13 +1,14 @@
 ---
-title: Create a Virtual Machine image and use a user-assigned managed identity to access files in Azure Storage (preview)
+title: Create a Virtual Machine image and use a user-assigned managed identity to access files in Azure Storage
 description: Create virtual machine image using Azure Image Builder, that can access files stored in Azure Storage using user-assigned managed identity.
-author: cynthn
-ms.author: cynthn
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
+
 ---
 
 # Create an image and use a user-assigned managed identity to access files in Azure Storage 
@@ -19,13 +20,8 @@ This article shows how to create a customized image using the Azure VM Image Bui
 In the example below, you will create two resource groups, one will be used for the custom image, and the other will host an Azure Storage Account, that contains a script file. This simulates a real life scenario, where you may have build artifacts, or image files in different storage accounts, outside of Image Builder. You will create a user-assigned identity, then grant that read permissions on the script file, but you will not set any public access to that file. You will then use the Shell customizer to download and run that script from the storage account.
 
 
-> [!IMPORTANT]
-> Azure Image Builder is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Register the features
-To use Azure Image Builder during the preview, you need to register the new feature.
+To use Azure Image Builder, you need to register the feature.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview

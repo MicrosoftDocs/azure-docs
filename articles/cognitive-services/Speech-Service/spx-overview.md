@@ -3,13 +3,13 @@ title: The Azure Speech CLI
 titleSuffix: Azure Cognitive Services
 description: The Speech CLI is a command-line tool for using the Speech service without writing any code. The Speech CLI requires minimal setup, and it's easy to immediately start experimenting with key features of the Speech service to see if your use-cases can be met.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.author: trbye 
+ms.author: nitinme
 ms.custom: devx-track-azurecli
 ---
 
@@ -31,7 +31,7 @@ Use the Speech SDK when:
 
 * Speech recognition - Convert speech-to-text either from audio files or directly from a microphone, or transcribe a recorded conversation.
 
-* Speech synthesis - Convert text-to-speech using either input from text files, or input directly from the command line. Customize speech output characteristics using [SSML configurations](speech-synthesis-markup.md), and either [standard or neural voices](speech-synthesis-markup.md#standard-neural-and-custom-voices).
+* Speech synthesis - Convert text-to-speech using either input from text files, or input directly from the command line. Customize speech output characteristics using [SSML configurations](speech-synthesis-markup.md), and either [standard or neural voices](speech-synthesis-markup.md#neural-and-custom-voices).
 
 * Speech translation - Translate audio in a source language to text or audio in a target language.
 

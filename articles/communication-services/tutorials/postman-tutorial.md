@@ -5,18 +5,18 @@ description: Learn how to sign and makes requests for ACS with Postman to send a
 author: ProbablePrime
 services: azure-communication-services
 ms.author: rifox
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
 # Tutorial: Sign and make requests with Postman
-In this tutorial, we'll be setting up and using Postman to make a request against Azure Communication Services(ACS) services using HTTP. By the end of this tutorial, you'll have successfully sent an SMS message using ACS and Postman and be able to use Postman to explore other APIs within ACS.
+In this tutorial, we'll be setting up and using Postman to make a request against Azure Communication Services using HTTP. By the end of this tutorial, you'll have successfully sent an SMS message using Communication Services and Postman. You'll then be able to use Postman to explore other APIs within Azure Communication Services.
 
 In this tutorial we'll be:
 > [!div class="checklist"]
 > * Downloading Postman
 > * Setting up Postman to sign HTTP Requests
-> * Making a request against ACS' SMS API to send a message.
+> * Making a request against the Communication Services SMS API to send a message.
 
 ## Prerequisites
 
@@ -40,15 +40,15 @@ Postman, can organize requests in many ways. For the purposes of this tutorial. 
 
 Once selected, click "Create new Collection", to start the collection creation process. A new tab will open in the center area of Postman. Name the collection whatever you'd like. Here the collection is named "ACS":
 
-:::image type="content" source="media/postman/acs-collection.png" alt-text="Postman with an ACS Collection opened and the name of the collection highlighted.":::
+:::image type="content" source="media/postman/acs-collection.png" alt-text="Postman with a Communication Services Collection opened and the name of the collection highlighted.":::
 
 Once your collection is created and named, you are ready to configure it.
 
 ### Adding collection variables
 
-To handle authentication and to make requests easier, we'll be specifying two collection variables within the newly created ACS collection. These variables are available to all requests within your ACS collection. To get started in creating variables, visit the Collection's Variable's Tab.
+To handle authentication and to make requests easier, we'll be specifying two collection variables within the newly created Communication Services collection. These variables are available to all requests within your Communication Services collection. To get started in creating variables, visit the Collection's Variable's Tab.
 
-:::image type="content" source="media/postman/variable-stab.png" alt-text="Postman with an ACS Collection's Variables Tab.":::
+:::image type="content" source="media/postman/variable-stab.png" alt-text="Postman with a Communication Services Collection's Variables Tab.":::
 
 Once on the collection tab, create two variables:
 - key - This variable should be one of your keys from your Azure Communication Services' key page within the Azure portal. For example, `oW...A==`.
@@ -56,17 +56,17 @@ Once on the collection tab, create two variables:
 
 Enter these values into the "Initial Value" column of the variables screen. Once entered, press the "Persist All" button just above the table on the right. When configured correctly your Postman screen should look something like this:
 
-:::image type="content" source="media/postman/acs-variables-set.png" alt-text="Postman with an ACS Collection's variables set up correctly.":::
+:::image type="content" source="media/postman/acs-variables-set.png" alt-text="Postman with a Communication Services Collection's variables set up correctly.":::
 
 You can learn more about variables by reading [Postman's documentation on them](https://learning.postman.com/docs/sending-requests/variables).
 
 ### Creating a pre-request script
 
-The next step is to create a pre-request Script within Postman. A pre-request script, is a script that runs before each request in Postman and can modify or alter request parameters on your behalf. We'll be using this to sign our HTTP requests so that they can be authorized by ACS' Services. For more information about the Signing requirements, you can [read our guide on authentication](https://docs.microsoft.com/rest/api/communication/authentication).
+The next step is to create a pre-request Script within Postman. A pre-request script, is a script that runs before each request in Postman and can modify or alter request parameters on your behalf. We'll be using this to sign our HTTP requests so that they can be authorized by Azure Communication Services. For more information about the Signing requirements, you can [read our guide on authentication](/rest/api/communication/authentication).
 
 We'll be creating this script within the Collection such that it runs on any request within the collection. To do this, within the collection tab click the "Pre-request Script" Sub-Tab.
 
-:::image type="content" source="media/postman/start-pre-request-script.png" alt-text="Postman with an ACS Collection's pre-request Script Sub-Tab Selected.":::
+:::image type="content" source="media/postman/start-pre-request-script.png" alt-text="Postman with a Communication Services Collection's pre-request Script Sub-Tab Selected.":::
 
 On this Sub-Tab, you can create a pre-request script by entering it into the text area below. It may be easier to write this, within a full code editor such as [Visual Studio Code](https://code.visualstudio.com/) before pasting it in when complete. We'll be going through each part of the script in this tutorial. Feel free to skip to the end if you'd like to just copy it into Postman and get started. Let's start writing the script.
 
@@ -111,7 +111,7 @@ const url = pm.request.url.toString().replace('{{endpoint}}','');
 const stringToSign = pm.request.method + '\n' + url + '\n' + dateStr + ';' + hostStr + ';' + hashedBodyStr;
 ```
 
-Lastly, we need to sign this string using our ACS key and then add that to our request in the `Authorization` header:
+Lastly, we need to sign this string using our Communication Services key and then add that to our request in the `Authorization` header:
 
 ```JavaScript
 // Decode our access key from previously created variables, into bytes from base64.
@@ -176,13 +176,13 @@ Once entered, press CTRL + S or press the save button this will save the script 
 
 ## Creating a request in Postman
 
-Now that everything is set up, we're ready to create an ACS request within Postman. To get started click the plus(+) icon next to the ACS Collection:
+Now that everything is set up, we're ready to create a Communication Services request within Postman. To get started click the plus(+) icon next to the Communication Services Collection:
 
 :::image type="content" source="media/postman/create-request.png" alt-text="Postman's plus button.":::
 
-This will create a new tab for our request within Postman. With it created we need to configure it. We'll be making a request against the SMS Send API so be sure to refer to the [documentation for this API for assistance](https://docs.microsoft.com/rest/api/communication/sms/send). Let's configure Postman's request.
+This will create a new tab for our request within Postman. With it created we need to configure it. We'll be making a request against the SMS Send API so be sure to refer to the [documentation for this API for assistance](/rest/api/communication/sms/send). Let's configure Postman's request.
 
-Start by setting, the request type to `POST` and entering `{{endpoint}}/sms?api-version=2021-03-07` into the request URL field. This URL uses our previously created `endpoint` variable to automatically send it to your ACS Resource.
+Start by setting, the request type to `POST` and entering `{{endpoint}}/sms?api-version=2021-03-07` into the request URL field. This URL uses our previously created `endpoint` variable to automatically send it to your Communication Services resource.
 
 :::image type="content" source="media/postman/post-request-and-url.png" alt-text="A Postman request, with the type set to POST and the URL set correctly.":::
 
@@ -206,15 +206,15 @@ In the text area below you'll need to enter a request body, it should be in the 
 }
 ```
 
-For the "from" value, you'll need to [get a telephone number](../quickstarts/telephony-sms/get-phone-number.md) in the ACS Portal as previously mentioned. Enter it without any spaces and prefixed by your country code. For example: `+15555551234`. Your "message" can be whatever you'd like to send but `Hello from ACS` is a good example. The "to" value should be a phone you have access to that can receive SMS messages. Using your own mobile is a good idea.
+For the "from" value, you'll need to [get a telephone number](../quickstarts/telephony-sms/get-phone-number.md) in the Azure Communication Services Portal as previously mentioned. Enter it without any spaces and prefixed by your country code. For example: `+15555551234`. Your "message" can be whatever you'd like to send but `Hello from ACS` is a good example. The "to" value should be a phone you have access to that can receive SMS messages. Using your own mobile is a good idea.
 
-Once entered, we need to save this request into the ACS Collection that we previously created. This will ensure that it picks up the variables and pre-request script that we previously created. To do, this click the "save" button in the top right of the request area.
+Once entered, we need to save this request into the Communication Services Collection that we previously created. This will ensure that it picks up the variables and pre-request script that we previously created. To do, this click the "save" button in the top right of the request area.
 
 :::image type="content" source="media/postman/postman-save.png" alt-text="The save button for a Postman request.":::
 
-This will make a dialog window appear that asks you, what you'd like to call the request and where you'd like to save it. You can name it anything you'd like but ensure you select your ACS collection in the lower half of the dialog:
+This will make a dialog window appear that asks you, what you'd like to call the request and where you'd like to save it. You can name it anything you'd like but ensure you select your Communication Services collection in the lower half of the dialog:
 
-:::image type="content" source="media/postman/postman-save-to-acs.png" alt-text="The Postman save request dialog with the ACS collection selected.":::
+:::image type="content" source="media/postman/postman-save-to-acs.png" alt-text="The Postman save request dialog with the Communication Services collection selected.":::
 
 ## Sending a request
 
@@ -222,18 +222,18 @@ Now that everything is set up, you should be able to send the request and get an
 
 :::image type="content" source="media/postman/postman-send.png" alt-text="A Postman request, with the Send button highlighted.":::
 
-If everything went well, you should now see the response from ACS, which should be 202 Status code:
+If everything went well, you should now see the response from Communication Services, which should be 202 Status code:
 
 :::image type="content" source="media/postman/postman-202.png" alt-text="A Postman request, sent successfully with a 202 status code.":::
 
-The Mobile phone, which owns the number you provided in the "to" value, should also have received an SMS message. You've now got a working Postman set up, which can talk to ACS' Services and send SMS messages.
+The Mobile phone, which owns the number you provided in the "to" value, should also have received an SMS message. You now have a functional Postman configuration that can talk to Azure Communication Services and send SMS messages.
 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Explore ACS APIs](https://docs.microsoft.com/rest/api/communication/)
-> [Read more about Authentication](https://docs.microsoft.com/rest/api/communication/authentication)
+> [Explore Azure Communication Services APIs](/rest/api/communication/)
+> [Read more about Authentication](/rest/api/communication/authentication)
 > [Learn more about Postman](https://learning.postman.com/)
 
 You might also want to:

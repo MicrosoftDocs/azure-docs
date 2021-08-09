@@ -47,7 +47,7 @@ landingContent:
           - text: Create a storage account
             url: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - text: Create a block blob storage account
-            url: storage-blob-create-account-block-blob.md
+            url: ../common/storage-account-create.md
           - text: Configure a custom domain
             url: storage-custom-domain-name.md
   # Card
@@ -127,7 +127,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Authorize access to Azure Storage
-            url: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: ../common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - text: Data Lake access control
             url: data-lake-storage-access-control.md
       - linkListType: how-to-guide
@@ -135,7 +135,7 @@ landingContent:
           - text: Access blob data with an Azure AD account
             url: authorize-data-operations-portal.md
           - text: Manage access rights with Azure RBAC
-            url: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: assign-azure-role-data-access.md
           - text: Use a managed identity to authorize access to Blob storage
             url: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   # Card

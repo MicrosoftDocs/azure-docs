@@ -3,7 +3,7 @@ title: Inbound/Outbound IP addresses
 description: Learn how inbound and outbound IP addresses are used in Azure App Service, when they change, and how to find the addresses for your app.
 ms.topic: article
 ms.date: 08/25/2020
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 
 ---
 
@@ -47,7 +47,7 @@ The set of outbound IP addresses for your app changes when you perform one of th
 
 - Delete an app and recreate it in a different resource group (deployment unit may change).
 - Delete the last app in a resource group _and_ region combination and recreate it (deployment unit may change).
-- Scale your app between the lower tiers (**Basic**, **Standard**, and **Premium**) and the **Premium V2** tier (IP addresses may be added to or subtracted from the set).
+- Scale your app between the lower tiers (**Basic**, **Standard**, and **Premium**), the **PremiumV2**, and the **PremiumV3** tier (IP addresses may be added to or subtracted from the set).
 
 You can find the set of all possible outbound IP addresses your app can use, regardless of pricing tiers, by looking for the `possibleOutboundIpAddresses` property or in the **Additional Outbound IP Addresses** field in the **Properties** blade in the Azure portal. See [Find outbound IPs](#find-outbound-ips).
 
@@ -76,6 +76,9 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```azurepowershell
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).PossibleOutboundIpAddresses
 ```
+
+## Get a static outbound IP
+You can control the IP address of outbound traffic from your app by using regional VNet integration together with a virtual network NAT gateway to direct traffic through a static public IP address. [Regional VNet integration](/azure/app-service/web-sites-integration-with-vnet) is available on **Standard**, **Premium**, **PremiumV2** and **PremiumV3** App Service plans. To learn more about this setup, see [NAT gateway integration](/azure/app-service/networking/nat-gateway-integration).
 
 ## Next steps
 

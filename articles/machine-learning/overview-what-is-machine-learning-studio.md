@@ -13,7 +13,7 @@ adobe-target: true
  
 # What is Azure Machine Learning studio?
 
-In this article, you learn about Azure Machine Learning studio, the web portal for data scientist developers in [Azure Machine Learning](overview-what-is-azure-ml.md). The studio combines no-code and code-first experiences for an inclusive data science platform.
+In this article, you learn about Azure Machine Learning studio, the web portal for data scientist developers in [Azure Machine Learning](overview-what-is-azure-machine-learning.md). The studio combines no-code and code-first experiences for an inclusive data science platform.
 
 In this article you learn:
 >[!div class="checklist"]
@@ -47,7 +47,7 @@ The studio offers multiple authoring experiences depending on the type project a
 
   Learn how to create [automated ML experiments](tutorial-first-experiment-automated-ml.md) with an easy-to-use interface. 
 
-  [![Azure Machine Learning studio navigation pane](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)
+  ![AutoML in the Azure Machine Learning studio navigation pane](./media/overview-what-is-azure-ml-studio/azure-machine-learning-automated-ml-ui.jpg)
 
 + **Data labeling**
 
@@ -71,7 +71,9 @@ Even if you're an experienced developer, the studio can simplify how you manage 
 
 ## ML Studio (classic) vs Azure Machine Learning studio
 
-Released in 2015, **ML Studio (classic)** was our first drag-and-drop machine learning builder. 
+Released in 2015, **ML Studio (classic)** was the first drag-and-drop machine learning model builder in Azure
+
+. 
 
 **ML Studio (classic)** is a standalone service that only offers a visual experience. Studio (classic) does not interoperate with Azure Machine Learning.
 
@@ -100,8 +102,10 @@ Here are some of the benefits of switching to Azure Machine Learning:
 
 Visit the [studio](https://ml.azure.com), or explore the different authoring options with these tutorials:  
 
-- + [Get started in your own development environment](tutorial-1st-experiment-sdk-setup-local.md)
-  + [Use Jupyter notebooks on a compute instance to train & deploy models](tutorial-1st-experiment-sdk-setup.md)
+Start with [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md).  Then use these resources to create your first experiment with your preferred method:
+
+  + [Run a "Hello world!" Python script (part 1 of 3)](tutorial-1st-experiment-hello-world.md)
+  + [Use a Jupyter notebook to train image classification models](tutorial-train-models-with-aml.md)
   + [Use automated machine learning to train & deploy models](tutorial-first-experiment-automated-ml.md)  
   + [Use the designer to train & deploy models](tutorial-designer-automobile-price-train-score.md)
   + [Use studio in a secured virtual network](how-to-enable-studio-virtual-network.md)

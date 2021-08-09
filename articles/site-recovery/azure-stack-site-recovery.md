@@ -76,7 +76,7 @@ Make sure that the VMs are running one of the operating systems summarized in th
 
 **Operating system** | **Details**
 --- | ---
-**64-bit Windows** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 (from SP1)
+**64-bit Windows** | Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 (from SP1)
 **CentOS** | 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.3
 **Ubuntu** | 14.04 LTS server, 16.04 LTS server. Review [supported kernels](vmware-physical-azure-support-matrix.md#ubuntu-kernel-versions)
 
@@ -309,7 +309,7 @@ Then run a failover as follows:
 
 ### Fail back to Azure Stack
 
-When your primary site is up and running again, you can fail back from Azure to Azure Stack. To do this, follow the steps listed out [here](/azure-stack/operator/site-recovery-failback?view=azs-2005).
+When your primary site is up and running again, you can fail back from Azure to Azure Stack. To do this, follow the steps listed out [here](/azure-stack/operator/site-recovery-failback).
 
 ## Conclusion
 

@@ -5,7 +5,7 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/18/2021
+ms.date: 04/28/2021
 ms.author: amverma
 ms.reviewer: cynthn
 
@@ -15,12 +15,28 @@ ms.reviewer: cynthn
 
 This article attempts to list recent common issues and their solutions when using the [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) HPC and GPU VMs.
 
-## MOFED installation on Ubuntu
-On Ubuntu-18.04, the kernel version 5.4.0-1041-azure is incompatible with the MOFED versions 5.2-2 and 5.2-1.0.4.0. We recommend rolling back to kernel version 5.4.0-1040-azure or using a Marketplace image with older kernel, and not updating the kernel. This issue is expected to be resolved with a newer MOFED (TBD).
+## Cache topology on Standard_HB120rs_v3
+`lstopo` displays incorrect cache topology on the Standard_HB120rs_v3 VM size. It may display that there’s only 32 MB L3 per NUMA. However in practice there is indeed 120 MB L3 per NUMA as expected since the same 480 MB of L3 to the entire VM is available as with the other constrained-core HBv3 VM sizes. This is a cosmetic error in displaying the correct value which should not impact workloads.
 
-## Known Issues on HBv3
-- Currently, InfiniBand is supported only on the 120-core VM (Standard_HB120rs_v3).
-- Currently, Azure Accelerated Networking is not supported on HBv3-series in all regions.
+## qp0 Access Restriction
+To prevent low-level hardware access that can result in security vulnerabilities, Queue Pair 0 is not accessible to guest VMs. This should only affect actions typically associated with administration of the ConnectX InfiniBand NIC, and running some InfiniBand diagnostics like ibdiagnet, but not end-user applications.
+
+## MOFED installation on Ubuntu
+On Ubuntu-18.04 based marketplace VM images with kernels version `5.4.0-1039-azure #42` and newer, some older Mellanox OFED are incompatible causing an increase in VM boot time up to 30 minutes in some cases. This has been reported for both Mellanox OFED versions 5.2-1.0.4.0 and 5.2-2.2.0.0. The issue is resolved with Mellanox OFED 5.3-1.0.0.1.
+If it is necessary to use the incompatible OFED, a solution is to use the **Canonical:UbuntuServer:18_04-lts-gen2:18.04.202101290** marketplace VM image or older and not to update the kernel.
+
+## MPI QP creation errors
+If in the midst of running any MPI workloads, InfiniBand QP creation errors such as shown below, are thrown, we suggest rebooting the VM and re-trying the workload. This issue will be fixed in the future.
+
+```bash
+ib_mlx5_dv.c:150  UCX  ERROR mlx5dv_devx_obj_create(QP) failed, syndrome 0: Invalid argument
+```
+
+You may verify the values of the maximum number of queue-pairs when the issue is observed as follows.
+```bash
+[user@azurehpc-vm ~]$ ibv_devinfo -vv | grep qp
+max_qp: 4096
+```
 
 ## Accelerated Networking on HB, HC, HBv2, and NDv2
 
@@ -29,7 +45,7 @@ More details on this are available on this [TechCommunity article](https://techc
 
 ## InfiniBand driver installation on non-SR-IOV VMs
 
-Currently H16r, H16mr and NC24r are not SR-IOV enabled. Some details on the InfiniBand stack bifurcation are [here](../../sizes-hpc.md#rdma-capable-instances).
+Currently H16r, H16mr and NC24r are not SR-IOV enabled. For more information on the InfiniBand stack bifurcation, see [Azure VM sizes - HPC](../../sizes-hpc.md#rdma-capable-instances).
 InfiniBand can be configured on the SR-IOV enabled VM sizes with the OFED drivers while the non-SR-IOV VM sizes require ND drivers. This IB support is available appropriately for [CentOS, RHEL, and Ubuntu](configure.md).
 
 ## Duplicate MAC with cloud-init with Ubuntu on H-series and N-series VMs
@@ -57,10 +73,6 @@ This 'duplicate MAC with cloud-init on Ubuntu" is a known issue. This will be re
       version: 2
     EOF
     ```
-
-## qp0 Access Restriction
-
-To prevent low-level hardware access that can result in security vulnerabilities, Queue Pair 0 is not accessible to guest VMs. This should only affect actions typically associated with administration of the ConnectX-5 NIC, and running some InfiniBand diagnostics like ibdiagnet, but not end-user applications themselves.
 
 ## DRAM on HB-series VMs
 

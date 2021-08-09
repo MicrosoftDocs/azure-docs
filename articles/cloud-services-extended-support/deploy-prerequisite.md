@@ -12,28 +12,7 @@ ms.custom:
 
 # Prerequisites for deploying Azure Cloud Services (extended support)
 
-> [!IMPORTANT]
-> Cloud Services (extended support) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 To ensure a successful Cloud Services (extended support) deployment review the below steps and complete each item prior to attempting any deployments. 
-
-## Register the CloudServices feature
-Register the feature for your subscription. The registration may take several minutes to complete. 
-
-```powershell
-Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
-```
-
-Check the status of registration using the following:  
-```powershell
-Get-AzProviderFeature 
-
-#Sample output
-FeatureName               ProviderName      RegistrationState
-CloudServices           Microsoft.Compute    Registered
-```
 
 ## Required Service Configuration (.cscfg) file updates
 
@@ -126,13 +105,16 @@ Deployments that utilized the old diagnostics plugins need the settings removed 
 ```xml
 <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
+## Access Control
+
+The subscription containing networking resources needs to have [network contributor](../role-based-access-control/built-in-roles.md#network-contributor) access or above for Cloud Services (extended support). For more details on please refer to [RBAC built in roles](../role-based-access-control/built-in-roles.md)
 
 ## Key Vault creation 
 
-Key Vault is used to store certificates that are associated to Cloud Services (extended support). Add the certificates to Key Vault, then reference the certificate thumbprints in Service Configuration file. You also need to enable Key Vault 'Access policies' (in portal) for access to 'Azure Virtual Machines for deployment' and 'Azure Resource Manager for template deployment' so that Cloud Services (extended support) resource can retrieve certificate stored as secrets from Key Vault. You can create a key vault in the [Azure portal](../key-vault/general/quick-create-portal.md) or by using [PowerShell](../key-vault/general/quick-create-powershell.md). The key vault must be created in the same region and subscription as the cloud service. For more information, see [Use certificates with Azure Cloud Services (extended support)](certificates-and-key-vault.md).
+Key Vault is used to store certificates that are associated to Cloud Services (extended support). Add the certificates to Key Vault, then reference the certificate thumbprints in Service Configuration file. You also need to enable Key Vault 'Access policies' (in portal) for  'Azure Virtual Machines for deployment' so that Cloud Services (extended support) resource can retrieve certificate stored as secrets from Key Vault. You can create a key vault in the [Azure portal](../key-vault/general/quick-create-portal.md) or by using [PowerShell](../key-vault/general/quick-create-powershell.md). The key vault must be created in the same region and subscription as the cloud service. For more information, see [Use certificates with Azure Cloud Services (extended support)](certificates-and-key-vault.md).
 
 ## Next steps 
 - Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
 - Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).
-- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Review [frequently asked questions](faq.yml) for Cloud Services (extended support).
 - Visit the [Cloud Services (extended support) samples repository](https://github.com/Azure-Samples/cloud-services-extended-support)

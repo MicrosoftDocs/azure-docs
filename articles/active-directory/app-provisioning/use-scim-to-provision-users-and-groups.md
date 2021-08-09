@@ -1,19 +1,18 @@
 ---
-title: Tutorial - Develop a SCIM endpoint for user provisioning to apps from Azure AD
+title: Tutorial - Develop a SCIM endpoint for user provisioning to apps from Azure Active Directory
 description: System for Cross-domain Identity Management (SCIM) standardizes automatic user provisioning. In this tutorial, you learn to develop a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and start automating provisioning users and groups into your cloud applications. 
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/01/2021
+ms.date: 07/26/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.custom: contperf-fy21q2
 ---
-# Tutorial: Develop and plan provisioning for a SCIM endpoint
+# Tutorial: Develop and plan provisioning for a SCIM endpoint in Azure Active Directory
 
 As an application developer, you can use the System for Cross-Domain Identity Management (SCIM) user management API to enable automatic provisioning of users and groups between your application and Azure AD (AAD). This article describes how to build a SCIM endpoint and integrate with the AAD provisioning service. The SCIM specification provides a common user schema for provisioning. When used in conjunction with federation standards like SAML or OpenID Connect, SCIM gives administrators an end-to-end, standards-based solution for access management.
 
@@ -56,7 +55,7 @@ The SCIM standard defines a schema for managing users and groups.
 The **core** user schema only requires three attributes (all other attributes are optional):
 
 - `id`, service provider defined identifier
-- `externalId`, client defined identifier
+- `userName`, a unique identifier for the user (generally maps to the Azure AD user principal name)
 - `meta`, *read-only* metadata maintained by the service provider
 
 In addition to the **core** user schema, the SCIM standard defines an **enterprise** user extension with a model for extending the user schema to meet your application’s needs. 
@@ -78,7 +77,7 @@ To design your schema, follow these steps:
 |lastName|name.familyName|surName|
 |workMail|emails[type eq “work”].value|Mail|
 |manager|manager|manager|
-|tag|urn:ietf:params:scim:schemas:extension:2.0:CustomExtension:tag|extensionAttribute1|
+|tag|urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:tag|extensionAttribute1|
 |status|active|isSoftDeleted (computed value not stored on user)|
 
 **Example list of required attributes**
@@ -98,7 +97,7 @@ To design your schema, follow these steps:
      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
      "Manager": "123456"
    },
-     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User": {
      "tag": "701984",
    },
    "meta": {
@@ -162,10 +161,10 @@ There are several endpoints defined in the SCIM RFC. You can start with the `/Us
 |--|--|
 |/User|Perform CRUD operations on a user object.|
 |/Group|Perform CRUD operations on a group object.|
-|/ServiceProviderConfig|Provides details about the features of the SCIM standard that are supported, for example the resources that are supported and the authentication method.|
-|/ResourceTypes|Specifies metadata about each resource|
 |/Schemas|The set of attributes supported by each client and service provider can vary. One service provider might include `name`, `title`, and `emails`, while another service provider uses `name`, `title`, and `phoneNumbers`. The schemas endpoint allows for discovery of the attributes supported.|
 |/Bulk|Bulk operations allow you to perform operations on a large collection of resource objects in a single operation (e.g. update memberships for a large group).|
+|/ServiceProviderConfig|Provides details about the features of the SCIM standard that are supported, for example the resources that are supported and the authentication method.|
+|/ResourceTypes|Specifies metadata about each resource.|
 
 **Example list of endpoints**
 
@@ -187,24 +186,45 @@ Within the [SCIM 2.0 protocol specification](http://www.simplecloud.info/#Specif
 |Modify users or groups with PATCH requests|[section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). Supporting ensures that groups and users are provisioned in a performant manner.|
 |Retrieve a known resource for a user or group created earlier|[section 3.4.1](https://tools.ietf.org/html/rfc7644#section-3.4.1)|
 |Query users or groups|[section 3.4.2](https://tools.ietf.org/html/rfc7644#section-3.4.2).  By default, users are retrieved by their `id` and queried by their `username` and `externalId`, and groups are queried by `displayName`.|
-|Query user by ID and by manager|section 3.4.2|
-|Query groups by ID and by member|section 3.4.2|
 |The filter [excludedAttributes=members](#get-group) when querying the group resource|section 3.4.2.5|
 |Accept a single bearer token for authentication and authorization of AAD to your application.||
 |Soft-deleting a user `active=false` and restoring the user `active=true`|The user object should be returned in a request whether or not the user is active. The only time the user should not be returned is when it is hard deleted from the application.|
+|Support the /Schemas endpoint|[section 7](https://tools.ietf.org/html/rfc7643#page-30) The schema discovery endpoint will be used to discover additional attributes.|
 
 Use the general guidelines when implementing a SCIM endpoint to ensure compatibility with AAD:
 
+##### General: 
 * `id` is a required property for all resources. Every response that returns a resource should ensure each resource has this property, except for `ListResponse` with zero members.
-* Response to a query/filter request should always be a `ListResponse`.
-* Groups are optional, but only supported if the SCIM implementation supports **PATCH** requests.
+* Values sent should be stored in the same format as what the were sent in. Invalid values should be rejected with a descriptive, actionable error message. Transformations of data should not happen between data being sent by Azure AD and data being stored in the SCIM application. (e.g. A phone number sent as 55555555555 should not be saved/returned as +5 (555) 555-5555)
 * It isn't necessary to include the entire resource in the **PATCH** response.
-* Microsoft AAD only uses the following operators: `eq`, `and`
 * Don't require a case-sensitive match on structural elements in SCIM, in particular **PATCH** `op` operation values, as defined in [section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). AAD emits the values of `op` as **Add**, **Replace**, and **Remove**.
 * Microsoft AAD makes requests to fetch a random user and group to ensure that the endpoint and the credentials are valid. It's also done as a part of the **Test Connection** flow in the [Azure portal](https://portal.azure.com). 
-* The attribute that the resources can be queried on should be set as a matching attribute on the application in the [Azure portal](https://portal.azure.com), see [Customizing User Provisioning Attribute Mappings](customize-application-attributes.md).
-* Support HTTPS on your SCIM endpoint
+* Support HTTPS on your SCIM endpoint.
+* Custom complex and multivalued attributes are supported but AAD does not have many complex data structures to pull data from in these cases. Simple paired name/value type complex attributes can be mapped to easily, but flowing data to complex attributes with three or more subattributes are not well supported at this time.
 
+##### Retrieving Resources:
+* Response to a query/filter request should always be a `ListResponse`.
+* Microsoft AAD only uses the following operators: `eq`, `and`
+* The attribute that the resources can be queried on should be set as a matching attribute on the application in the [Azure portal](https://portal.azure.com), see [Customizing User Provisioning Attribute Mappings](customize-application-attributes.md).
+
+##### /Users:
+* The entitlements attribute is not supported.
+* Any attributes that are considered for user uniqueness must be usable as part of a filtered query. (e.g. if user uniqueness is evaluated for both userName and emails[type eq "work"], a GET to /Users with a filter must allow for both _userName eq "user@contoso.com"_ and _emails[type eq "work"] eq "user@contoso.com"_ queries.
+
+##### /Groups:
+* Groups are optional, but only supported if the SCIM implementation supports **PATCH** requests.
+* Groups must have uniqueness on the 'displayName' value for the purpose of matching between Azure Active Directory and the SCIM application. This is not a requirement of the SCIM protocol, but is a requirement for integrating a SCIM service with Azure Active Directory.
+
+##### /Schemas (Schema discovery):
+
+* [Sample request/response](#schema-discovery)
+* Schema discovery is not currently supported on the custom non-gallery SCIM application, but it is being used on certain gallery applications. Going forward, schema discovery will be used as the sole method to add additional attributes to the schema of an existing gallery SCIM application. 
+* If a value is not present, do not send null values.
+* Property values should be camel cased (e.g. readWrite).
+* Must return a list response.
+* The /schemas request will be made by the Azure AD SCIM client every time someone saves the provisioning configuration in the Azure Portal or every time  a user lands on the edit provisioning page in the Azure Portal. Any additional attributes discovered will be surfaced to customers in the attribute mappings under the target attribute list. Schema discovery only leads to additional target attributes being added. It will not result in attributes being removed. 
+
+  
 ### User provisioning and deprovisioning
 
 The following illustration shows the messages that AAD sends to a SCIM service to manage the lifecycle of a user in your application's identity store.  
@@ -246,6 +266,9 @@ This section provides example SCIM requests emitted by the AAD SCIM client and e
   - [Update Group [Add Members]](#update-group-add-members) ([Request](#request-11) / [Response](#response-11))
   - [Update Group [Remove Members]](#update-group-remove-members) ([Request](#request-12) / [Response](#response-12))
   - [Delete Group](#delete-group) ([Request](#request-13) / [Response](#response-13))
+
+[Schema discovery](#schema-discovery)
+  - [Discover schema](#discover-schema) ([Request](#request-15) / [Response](#response-15))
 
 ### User Operations
 
@@ -744,6 +767,105 @@ This section provides example SCIM requests emitted by the AAD SCIM client and e
 
 *HTTP/1.1 204 No Content*
 
+### Schema discovery
+#### Discover schema
+
+##### <a name="request-15"></a>Request
+*GET /Schemas* 
+##### <a name="response-15"></a>Response
+*HTTP/1.1 200 OK*
+```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+    ],
+    "itemsPerPage": 50,
+    "startIndex": 1,
+    "totalResults": 3,
+    "Resources": [
+  {
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
+    "id" : "urn:ietf:params:scim:schemas:core:2.0:User",
+    "name" : "User",
+    "description" : "User Account",
+    "attributes" : [
+      {
+        "name" : "userName",
+        "type" : "string",
+        "multiValued" : false,
+        "description" : "Unique identifier for the User, typically
+used by the user to directly authenticate to the service provider.
+Each User MUST include a non-empty userName value.  This identifier
+MUST be unique across the service provider's entire set of Users.
+REQUIRED.",
+        "required" : true,
+        "caseExact" : false,
+        "mutability" : "readWrite",
+        "returned" : "default",
+        "uniqueness" : "server"
+      },                
+    ],
+    "meta" : {
+      "resourceType" : "Schema",
+      "location" :
+        "/v2/Schemas/urn:ietf:params:scim:schemas:core:2.0:User"
+    }
+  },
+  {
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
+    "id" : "urn:ietf:params:scim:schemas:core:2.0:Group",
+    "name" : "Group",
+    "description" : "Group",
+    "attributes" : [
+      {
+        "name" : "displayName",
+        "type" : "string",
+        "multiValued" : false,
+        "description" : "A human-readable name for the Group.
+REQUIRED.",
+        "required" : false,
+        "caseExact" : false,
+        "mutability" : "readWrite",
+        "returned" : "default",
+        "uniqueness" : "none"
+      },
+    ],
+    "meta" : {
+      "resourceType" : "Schema",
+      "location" :
+        "/v2/Schemas/urn:ietf:params:scim:schemas:core:2.0:Group"
+    }
+  },
+  {
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
+    "id" : "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+    "name" : "EnterpriseUser",
+    "description" : "Enterprise User",
+    "attributes" : [
+      {
+        "name" : "employeeNumber",
+        "type" : "string",
+        "multiValued" : false,
+        "description" : "Numeric or alphanumeric identifier assigned
+to a person, typically based on order of hire or association with an
+organization.",
+        "required" : false,
+        "caseExact" : false,
+        "mutability" : "readWrite",
+        "returned" : "default",
+        "uniqueness" : "none"
+      },
+    ],
+    "meta" : {
+      "resourceType" : "Schema",
+      "location" :
+"/v2/Schemas/urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+    }
+  }
+]
+}
+```
+
 ### Security requirements
 **TLS Protocol Versions**
 
@@ -772,6 +894,8 @@ TLS 1.2 Cipher Suites minimum bar:
 
 ### IP Ranges
 The Azure AD provisioning service currently operates under the IP Ranges for AzureActiveDirectory as listed [here](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). You can add the IP ranges listed under the AzureActiveDirectory tag to allow traffic from the Azure AD provisioning service into your application. Note that you will need to review the IP range list carefully for computed addresses. An address such as '40.126.25.32' could be represented in the IP range list as  '40.126.0.0/18'. You can also programmatically retrieve the IP range list using the following [API](/rest/api/virtualnetwork/servicetags/list).
+
+Azure AD also supports an agent based solution to provide connectivity to applications in private networks (on-premises, hosted in Azure, hosted in AWS, etc.). Customers can deploy a lightweight agent, which provides connectivity to Azure AD without opening an inbound ports, on a server in their private network. Learn more [here](/app-provisioning/on-premises-scim-provisioning).
 
 ## Build a SCIM endpoint
 
@@ -1217,16 +1341,16 @@ Use the checklist to onboard your application quickly and customers have a smoot
 > * 3 Non-expiring test credentials for your application (Required)
 > * Support the OAuth authorization code grant or a long lived token as described below (Required)
 > * Establish an engineering and support point of contact to support customers post gallery onboarding (Required)
+> * [Support schema discovery (required)](https://tools.ietf.org/html/rfc7643#section-6)
 > * Support updating multiple group memberships with a single PATCH
 > * Document your SCIM endpoint publicly
-> * [Support schema discovery](https://tools.ietf.org/html/rfc7643#section-6)
 
 ### Authorization to provisioning connectors in the application gallery
 The SCIM spec doesn't define a SCIM-specific scheme for authentication and authorization and relies on the use of existing industry standards.
 
 |Authorization method|Pros|Cons|Support|
 |--|--|--|--|
-|Username and password (not recommended or supported by Azure AD)|Easy to implement|Insecure - [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Supported on a case-by-case basis for gallery apps. Not supported for non-gallery apps.|
+|Username and password (not recommended or supported by Azure AD)|Easy to implement|Insecure - [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Not supported for new gallery or non-gallery apps.|
 |Long-lived bearer token|Long-lived tokens do not require a user to be present. They are easy for admins to use when setting up provisioning.|Long-lived tokens can be hard to share with an admin without using insecure methods such as email. |Supported for gallery and non-gallery apps. |
 |OAuth authorization code grant|Access tokens are much shorter-lived than passwords, and have an automated refresh mechanism that long-lived bearer tokens do not have.  A real user must be present during initial authorization, adding a level of accountability. |Requires a user to be present. If the user leaves the organization, the token is invalid and authorization will need to be completed again.|Supported for gallery apps, but not non-gallery apps. However, you can provide an access token in the UI as the secret token for short term testing purposes. Support for OAuth code grant on non-gallery is in our backlog, in addition to support for configurable auth / token URLs on the gallery app.|
 |OAuth client credentials grant|Access tokens are much shorter-lived than passwords, and have an automated refresh mechanism that long-lived bearer tokens do not have. Both the authorization code grant and the client credentials grant create the same type of access token, so moving between these methods is transparent to the API.  Provisioning can be completely automated, and new tokens can be silently requested without user interaction. ||Not supported for gallery and non-gallery apps. Support is in our backlog.|

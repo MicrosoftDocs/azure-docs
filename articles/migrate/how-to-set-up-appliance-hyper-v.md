@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 03/13/2021
 ---
 
-
 # Set up an appliance for servers on Hyper-V
 
-Follow this article to set up the Azure Migrate appliance for discovery and assessment of servers on Hyper-V with the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool.
+Follow this article to set up the Azure Migrate appliance for discovery and assessment of servers on Hyper-V with the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool.
 
 The [Azure Migrate appliance](migrate-appliance.md)  is a lightweight appliance used by Azure Migrate: Discovery and assessment/ Migration to discover on-premises servers on Hyper-V, and send server metadata/performance data to Azure.
 
@@ -20,35 +19,34 @@ You can deploy the appliance using a couple of methods:
 - Set up on a server on Hyper-V using a downloaded VHD. This method described in this article.
 - Set up on a server on Hyper-V or physical server with a PowerShell installer script. [This method](deploy-appliance-script.md) should be used if you can't set up a server using a VHD, or if you're in Azure Government.
 
-After creating the appliance, you check that it can connect to Azure Migrate: Discovery and assessment, configure it for the first time, and register it with the Azure Migrate project.
+After creating the appliance, you check that it can connect to Azure Migrate: Discovery and assessment, configure it for the first time, and register it with the project.
 
 ## Appliance deployment (VHD)
 
 To set up the appliance using a VHD template:
 
-- Provide an appliance name and generate an Azure Migrate project key in the portal.
+- Provide an appliance name and generate a project key in the portal.
 - Download a compressed Hyper-V VHD from the Azure portal.
 - Create the appliance, and check that it can connect to Azure Migrate: Discovery and assessment.
-- Configure the appliance for the first time, and register it with the Azure Migrate project using the Azure Migrate project key.
+- Configure the appliance for the first time, and register it with the project using the project key.
 
-### Generate the Azure Migrate project key
+### Generate the project key
 
 1. In **Migration Goals** > **Windows, Linux and SQL Servers** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Yes, with Hyper-V**.
-3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of servers on Hyper-V.The name should be alphanumeric with 14 characters or fewer.
+3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of servers on Hyper-V. The name should be alphanumeric with 14 characters or fewer.
 1. Click on **Generate key** to start the creation of the required Azure resources. Do not close the Discover servers page during the creation of resources.
-1. After the successful creation of the Azure resources, an **Azure Migrate project key** is generated.
+1. After the successful creation of the Azure resources, a **project key** is generated.
 1. Copy the key as you will need it to complete the registration of the appliance during its configuration.
 
 ### Download the VHD
 
 In **2: Download Azure Migrate appliance**, select the .VHD file and click on **Download**.
 
-   ![Selections for Discover machines](./media/tutorial-assess-hyper-v/servers-discover.png)
+   ![Selections for Discover servers](./media/tutorial-assess-hyper-v/servers-discover.png)
 
 
    ![Selections for Generate Key](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)
-
 
 ### Verify security
 
@@ -59,9 +57,7 @@ Check that the zipped file is secure, before you deploy it.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
-
-
-
+Verify the latest hash value by comparing the outcome of above command to the value documented [here](./tutorial-discover-hyper-v.md#verify-security)
 
 ## Create the appliance
 
@@ -81,7 +77,6 @@ Import the downloaded file, and create an appliance.
 5. In **Choose Network**, specify the virtual switch that the server will use. The switch needs internet connectivity to send data to Azure.
 6. In **Summary**, review the settings. Then click **Finish**.
 7. In Hyper-V Manager > **Virtual Machines**, start the VM.
-
 
 ### Verify appliance access to Azure
 
@@ -124,8 +119,6 @@ Set up the appliance for the first time.
 1. After you successfully logged in, go back to the previous tab with the appliance configuration manager.
 4. If the Azure user account used for logging has the right [permissions](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) on the Azure resources created during key generation, the appliance registration will be initiated.
 1. After appliance is successfully registered, you can see the registration details by clicking on **View details**.
-
-
 
 ### Delegate credentials for SMB VHDs
 

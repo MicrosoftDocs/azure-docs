@@ -4,7 +4,8 @@ description: Quickstart that shows the conversion steps for a custom model.
 author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
-ms.topic: quickstart
+ms.topic: quickstart 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Convert a model for rendering

@@ -46,7 +46,7 @@ The following table lists supported third-party vendors and their Syslog or Comm
 | **Network** |	Fortigate	| ALL	| CommonSecurityLog	| [Log Schema Structure](https://docs.fortinet.com/document/fortigate/6.2.3/fortios-log-message-reference/738142/log-schema-structure)         |
 | **Network** |	Barracuda |	Web Application Firewall |	CommonSecurityLog	| [How to Configure Syslog and Other Logs](https://campus.barracuda.com/product/webapplicationfirewall/doc/4259935/how-to-configure-syslog-and-other-logs/)  |
 | **Network** |	Cisco |	ASA	| CommonSecurityLog	| [Cisco ASA Series Syslog Messages](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/b_syslog/about.html)    |
-| **Network** |	Cisco |	Firepower	| CommonSecurityLog	| [Cisco Firepower Threat Defense Syslog Messages](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/b_fptd_syslog_guide.pdf)    |
+| **Network** |	Cisco |	Firepower	| CommonSecurityLog	| [Cisco Firepower Threat Defense Syslog Messages](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/b_fptd_syslog_guide.html)    |
 | **Network** | Cisco	| Umbrella	| Custom Logs Table	 | [Log Formats and Versioning](https://docs.umbrella.com/deployment-umbrella/docs/log-formats-and-versioning)   |
 | **Network**	| Cisco	| Meraki	| CommonSecurityLog |	[Syslog Event Types and Log Samples](https://documentation.meraki.com/zGeneral_Administration/Monitoring_and_Reporting/Syslog_Event_Types_and_Log_Samples)    |
 | **Network**	| Zscaler |	Nano Streaming Service (NSS)|	CommonSecurityLog |	[Formatting NSS Feeds](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-feeds/formatting-nss-feeds) (Web, Firewall, DNS, and Tunnel logs only) |

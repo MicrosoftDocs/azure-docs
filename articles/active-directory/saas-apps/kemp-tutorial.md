@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 07/30/2021
 ms.author: jeedes
 ---
 
@@ -28,11 +28,14 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Kemp LoadMaster Azure AD integration single sign-on (SSO) enabled subscription.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Kemp LoadMaster Azure AD integration supports **IDP** initiated SSO
+* Kemp LoadMaster Azure AD integration supports **IDP** initiated SSO.
 
 ## Add Kemp LoadMaster Azure AD integration from the gallery
 
@@ -206,7 +209,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
  
 ### Import IdP certificate
 
-Go to Kemp LoadMaster Azure AD integration Web Console 
+Go to Kemp LoadMaster Azure AD integration Web Console. 
 
 1. Click Intermediate Certificates under Certificates and Authority.
 
@@ -248,7 +251,7 @@ Go to Manage SSO under Virtual Services.
 
 ### Set Authentication  
  
-On Kemp LoadMaster Azure AD integration Web Console
+On Kemp LoadMaster Azure AD integration Web Console.
 
 1. Click on Virtual Services.
 
@@ -270,7 +273,7 @@ On Kemp LoadMaster Azure AD integration Web Console
 
 ### Verify the changes 
  
-Browse to the application URL 
+Browse to the application URL. 
 
 You should see your tenanted login page instead of unauthenticated access previously. 
 
@@ -368,8 +371,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on Test this application in Azure portal and you should be automatically signed in to the Kemp LoadMaster Azure AD integration for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the Kemp LoadMaster Azure AD integration tile in the My Apps, you should be automatically signed in to the Kemp LoadMaster Azure AD integration for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the Kemp LoadMaster Azure AD integration tile in the My Apps, you should be automatically signed in to the Kemp LoadMaster Azure AD integration for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure Kemp LoadMaster Azure AD integration you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Once you configure Kemp LoadMaster Azure AD integration you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -1,8 +1,8 @@
 ---
 title: Set up an Azure Migrate appliance for physical servers
 description: Learn how to set up an Azure Migrate appliance for physical server discovery and assessment.
-author: vineetvikram 
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
@@ -25,11 +25,11 @@ The Azure Migrate appliance is a lightweight appliance, used by Azure Migrate: D
 
 To set up the appliance you:
 
-- Provide an appliance name and generate a project key in the portal.
-- Download a zipped file with Azure Migrate installer script from the Azure portal.
-- Extract the contents from the zipped file. Launch the PowerShell console with administrative privileges.
-- Execute the PowerShell script to launch the appliance web application.
-- Configure the appliance for the first time, and register it with the project using the project key.
+1. Provide an appliance name and generate a project key in the portal.
+2. Download a zipped file with Azure Migrate installer script from the Azure portal.
+3. Extract the contents from the zipped file. Launch the PowerShell console with administrative privileges.
+4. Execute the PowerShell script to launch the appliance configuration manager.
+5. Configure the appliance for the first time, and register it with the project using the project key.
 
 ### Generate the project key
 
@@ -40,57 +40,57 @@ To set up the appliance you:
 1. After the successful creation of the Azure resources, a **project key** is generated.
 1. Copy the key as you will need it to complete the registration of the appliance during its configuration.
 
+   ![Selections for Generate Key](./media/tutorial-assess-physical/generate-key-physical-1.png)
+
 ### Download the installer script
 
 In **2: Download Azure Migrate appliance**, click on **Download**.
-
-   ![Selections for Discover machines](./media/tutorial-assess-physical/servers-discover.png)
-
-
-   ![Selections for Generate Key](./media/tutorial-assess-physical/generate-key-physical.png)
 
 ### Verify security
 
 Check that the zipped file is secure, before you deploy it.
 
-1. On the servers to which you downloaded the file, open an administrator command window.
+1. On the server to which you downloaded the file, open an administrator command window.
 2. Run the following command to generate the hash for the zipped file:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage for public cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
-    - Example usage for government cloud: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
-3.  Verify the latest version of the appliance, and [hash values](tutorial-discover-physical.md#verify-security) settings.
- 
+    - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+3.  Verify the latest appliance version and hash value:
 
-## Run the Azure Migrate installer script
-The installer script does the following:
+    **Download** | **Hash value**
+    --- | ---
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2140334) | 15a94b637a39c53ac91a2d8b21cc3cca8905187e4d9fb4d895f4fa6fd2f30b9f
 
-- Installs agents and a web application for physical server discovery and assessment.
-- Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
-- Download and installs an IIS rewritable module. [Learn more](https://www.microsoft.com/download/details.aspx?id=7435).
-- Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
-- Creates the following files under the path:
-    - **Config Files**: %Programdata%\Microsoft Azure\Config
-    - **Log Files**: %Programdata%\Microsoft Azure\Logs
+> [!NOTE]
+> The same script can be used to set up Physical appliance for either Azure public or Azure Government cloud with public or private endpoint connectivity.
 
-Run the script as follows:
+### Run the Azure Migrate installer script
 
-1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a server having an existing Azure Migrate appliance.
+1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a server with an existing Azure Migrate appliance.
 2. Launch PowerShell on the above server with administrative (elevated) privilege.
 3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
 4. Run the script named **AzureMigrateInstaller.ps1** by running the following command:
 
-    - For the public cloud: 
     
-        ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 ```
-    - For Azure Government: 
-    
-        ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
 
-    The script will launch the appliance web application when it finishes successfully.
+5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **physical servers** _(or servers running on other clouds like AWS, GCP, Xen etc.)_ to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure public cloud**.
 
-If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
+    :::image type="content" source="./media/tutorial-discover-physical/script-physical-default-1.png" alt-text="Screenshot that shows how to set up appliance with desired configuration.":::
 
+6. The installer script does the following:
 
+    - Installs agents and a web application.
+    - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
+    - Download and installs an IIS rewritable module.
+    - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
+    - Creates the following files under the path:
+        - **Config Files**: %Programdata%\Microsoft Azure\Config
+        - **Log Files**: %Programdata%\Microsoft Azure\Logs
+
+After the script has executed successfully, the appliance configuration manager will be launched automatically.
+
+> [!NOTE]
+> If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
 
 ### Verify appliance access to Azure
 

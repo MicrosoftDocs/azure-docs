@@ -1,11 +1,13 @@
 ---
 title: Copy activity performance optimization features
-description: Learn about the key features that help you optimize the copy activity performance in Azure Data Factory。
-ms.author: jingwang
-author: linda33wj
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn about the key features that help you optimize the copy activity performance in Azure Data Factory and Azure Synapse Analytics pipelines.
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 09/24/2020
 ---
 
@@ -13,13 +15,13 @@ ms.date: 09/24/2020
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines the copy activity performance optimization features that you can leverage in Azure Data Factory.
+This article outlines the copy activity performance optimization features that you can leverage in Azure Data Factory and Synapse pipelines.
 
 ## Data Integration Units
 
-A Data Integration Unit is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Azure Data Factory. Data Integration Unit only applies to [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime), but not [self-hosted integration runtime](concepts-integration-runtime.md#self-hosted-integration-runtime).
+A Data Integration Unit is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit within the service. Data Integration Unit only applies to [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime), but not [self-hosted integration runtime](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-The allowed DIUs to empower a copy activity run is **between 2 and 256**. If not specified or you choose "Auto" on the UI, Data Factory dynamically applies the optimal DIU setting based on your source-sink pair and data pattern. The following table lists the supported DIU ranges and default behavior in different copy scenarios:
+The allowed DIUs to empower a copy activity run is **between 2 and 256**. If not specified or you choose "Auto" on the UI, the service dynamically applies the optimal DIU setting based on your source-sink pair and data pattern. The following table lists the supported DIU ranges and default behavior in different copy scenarios:
 
 | Copy scenario | Supported DIU range | Default DIUs determined by service |
 |:--- |:--- |---- |
@@ -72,10 +74,10 @@ You can set parallel copy (`parallelCopies` property) on copy activity to indica
 
 The parallel copy is orthogonal to [Data Integration Units](#data-integration-units) or [Self-hosted IR nodes](#self-hosted-integration-runtime-scalability). It is counted across all the DIUs or Self-hosted IR nodes.
 
-For each copy activity run, by default Azure Data Factory dynamically applies the optimal parallel copy setting based on your source-sink pair and data pattern. 
+For each copy activity run, by default the service dynamically applies the optimal parallel copy setting based on your source-sink pair and data pattern. 
 
 > [!TIP]
-> The default behavior of parallel copy usually gives you the best throughput, which is auto-determined by ADF based on your source-sink pair, data pattern and number of DIUs or the Self-hosted IR's CPU/memory/node count. Refer to [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md) on when to tune parallel copy.
+> The default behavior of parallel copy usually gives you the best throughput, which is auto-determined by the service based on your source-sink pair, data pattern and number of DIUs or the Self-hosted IR's CPU/memory/node count. Refer to [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md) on when to tune parallel copy.
 
 The following table lists the parallel copy behavior:
 
@@ -126,7 +128,7 @@ When you copy data from a source data store to a sink data store, you might choo
 
 ### How staged copy works
 
-When you activate the staging feature, first the data is copied from the source data store to the staging storage (bring your own Azure Blob or Azure Data Lake Storage Gen2). Next, the data is copied from the staging to the sink data store. Azure Data Factory copy activity automatically manages the two-stage flow for you, and also cleans up temporary data from the staging storage after the data movement is complete.
+When you activate the staging feature, first the data is copied from the source data store to the staging storage (bring your own Azure Blob or Azure Data Lake Storage Gen2). Next, the data is copied from the staging to the sink data store. The copy activity automatically manages the two-stage flow for you, and also cleans up temporary data from the staging storage after the data movement is complete.
 
 ![Staged copy](media/copy-activity-performance/staged-copy.png)
 

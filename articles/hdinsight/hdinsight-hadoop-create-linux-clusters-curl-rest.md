@@ -9,7 +9,7 @@ ms.date: 12/10/2019
 
 # Create Apache Hadoop clusters using the Azure REST API
 
-[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[!INCLUDE [selector](includes/hdinsight-create-linux-cluster-selector.md)]
 
 Learn how to create an HDInsight cluster using an Azure Resource Manager template and the Azure REST API.
 
@@ -22,7 +22,7 @@ The Azure REST API allows you to perform management operations on services hoste
 
 Azure Resource Manager templates are JSON documents that describe a **resource group** and all resources in it (such as HDInsight.) This template-based approach allows you to define the resources that you need for HDInsight in one template.
 
-The following JSON document is a merger of the template and parameters files from [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), which creates a Linux-based cluster using a password to secure the SSH user account.
+The following JSON document is a merger of the template and parameters files from [https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-linux-ssh-password/azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-linux-ssh-password/azuredeploy.json), which creates a Linux-based cluster using a password to secure the SSH user account.
 
    ```json
    {

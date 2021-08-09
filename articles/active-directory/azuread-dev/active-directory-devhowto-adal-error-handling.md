@@ -192,7 +192,7 @@ In cases of failure, an application can present UI to allow the end user to perf
 
 Error handling in native applications can be defined by two cases:
 
-|  |  |
+| Case | Description  |
 |------|-------------|
 | **Case 1**:<br>Non-Retryable Error (most cases) | 1. Do not attempt immediate retry. Present the end-user UI based on the specific error that invokes a retry (for example, "Try to Sign in again" or "Download Azure AD broker application"). |
 | **Case 2**:<br>Retryable Error | 1. Perform a single retry as the end user may have entered a state that results in a success.<br><br>2. If retry fails, present the end-user UI based on the specific error that invokes a retry ("Try to Sign in again", "Download Azure AD broker app", etc.). |
@@ -366,7 +366,7 @@ If you're building a single-page application using adal.js with AcquireToken, th
 
 A failed AcquireToken has the following cases:
 
-|  |  |
+| Case | Description  |
 |------|-------------|
 | **Case 1**:<br>Resolvable with an interactive request | 1. If login() fails, do not perform immediate retry. Only retry after user action prompts a retry.|
 | **Case 2**:<br>Not Resolvable with an interactive request. Error is retryable. | 1. Perform a single retry as the end user major have entered a state that results in a success.<br><br>2. If retry fails, present the end user with an action based on the specific error that can invoke a retry ("Try to Sign in again"). |

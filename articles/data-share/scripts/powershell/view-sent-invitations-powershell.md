@@ -5,7 +5,8 @@ author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: article
-ms.date: 07/07/2019
+ms.date: 07/07/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Use PowerShell to get a data share invitation

@@ -45,11 +45,11 @@ The outline of this process is as follows:
 
 The following code examples show how to construct an **If-Match** condition on the write request that checks the ETag value for a blob. Azure Storage evaluates whether the blob's current ETag is the same as the ETag provided on the request and performs the write operation only if the two ETag values match. If another process has updated the blob in the interim, then Azure Storage returns an HTTP 412 (Precondition Failed) status message.  
 
-# [\.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Concurrency.cs" id="Snippet_DemonstrateOptimisticConcurrencyBlob":::
 
-# [\.NET v11](#tab/dotnetv11)
+# [.NET v11 SDK](#tab/dotnetv11)
 
 ```csharp
 public void DemonstrateOptimisticConcurrencyBlob(string containerName, string blobName)
@@ -112,11 +112,11 @@ Leases enable different synchronization strategies to be supported, including ex
 
 The following code examples show how to acquire an exclusive lease on a blob, update the content of the blob by providing the lease ID, and then release the lease. If the lease is active and the lease ID is not provided on a write request, then the write operation fails with error code 412 (Precondition Failed).  
 
-# [\.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Concurrency.cs" id="Snippet_DemonstratePessimisticConcurrencyBlob":::
 
-# [\.NET v11](#tab/dotnetv11)
+# [.NET v11 SDK](#tab/dotnetv11)
 
 ```csharp
 public void DemonstratePessimisticConcurrencyBlob(string containerName, string blobName)

@@ -19,11 +19,11 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-In the [Add claims and customize user input using custom policies](configure-user-input.md) article you learn how to use built-in [user profile attributes](user-profile-attributes.md). In this article, you enable a custom attribute in your Azure Active Directory B2C (Azure AD B2C) directory. Later, you can use the new attribute as a custom claim in [user flows](user-flow-overview.md) or [custom policies](custom-policy-get-started.md) simultaneously.
+In the [Add claims and customize user input using custom policies](configure-user-input.md) article you learn how to use built-in [user profile attributes](user-profile-attributes.md). In this article, you enable a custom attribute in your Azure Active Directory B2C (Azure AD B2C) directory. Later, you can use the new attribute as a custom claim in [user flows](user-flow-overview.md) or [custom policies](user-flow-overview.md) simultaneously.
 
 Your Azure AD B2C directory comes with a [built-in set of attributes](user-profile-attributes.md). However, you often need to create your own attributes to manage your specific scenario, for example when:
 
-* A customer-facing application needs to persist a **LoyaltyId** attribute.
+* A customer-facing application needs to persist a **loyaltyId** attribute.
 * An identity provider has a unique user identifier, **uniqueUserGUID**, that must be persisted.
 * A custom user journey needs to persist the state of the user, **migrationStatus**, for other logic to operate on.
 

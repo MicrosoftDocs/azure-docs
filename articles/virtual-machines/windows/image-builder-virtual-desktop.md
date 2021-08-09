@@ -1,14 +1,15 @@
 ---
 title: Image Builder - Create a Windows Virtual Desktop image
 description: Create an Azure VM image of Windows Virtual Desktop using Azure Image Builder in PowerShell.
-author: danielsollondon
-ms.author: danis
+author: kof-f
+ms.author: kofiforson
 ms.reviewer: cynthn
-ms.date: 01/27/2021
+ms.date: 05/12/2021
 ms.topic: article
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.collection: windows
-ms.subservice: imaging
+ms.subservice: image-builder 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a Windows Virtual Desktop image using Azure VM Image Builder and PowerShell
@@ -17,11 +18,11 @@ This article shows you how to create a Windows Virtual Desktop image with these 
 
 * Installing [FsLogix](https://github.com/DeanCefola/Azure-WVD/blob/master/PowerShell/FSLogixSetup.ps1).
 * Running a [Windows Virtual Desktop Optimization script](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) from the community repo.
-* Install [Microsoft Teams](https://docs.microsoft.com/azure/virtual-desktop/teams-on-wvd).
-* [Restart](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#windows-restart-customizer)
-* Run [Windows Update](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#windows-update-customizer)
+* Install [Microsoft Teams](../../virtual-desktop/teams-on-avd.md).
+* [Restart](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-restart-customizer)
+* Run [Windows Update](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-update-customizer)
 
-We will show you how to automate this using the Azure VM Image Builder, and distribute the image to a [Shared Image Gallery](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), where you can replicate to other regions, control the scale, and share the image inside and outside your organizations.
+We will show you how to automate this using the Azure VM Image Builder, and distribute the image to a [Shared Image Gallery](../shared-image-galleries.md), where you can replicate to other regions, control the scale, and share the image inside and outside your organizations.
 
 
 To simplify deploying an Image Builder configuration, this example uses an Azure Resource Manager template with the Image Builder template nested inside. This gives you some other benefits, like variables and parameter inputs. You can also pass parameters from the command line.
@@ -49,7 +50,7 @@ This article is intended to be a copy and paste exercise.
           "name": "installFsLogix",
           "runElevated": true,
           "runAsSystem": true,
-          "scriptUri": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/0_installConfFsLogix.ps1"
+          "scriptUri": "https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/14_Building_Images_WVD/0_installConfFsLogix.ps1"
     ```
 - Comment your code - The AIB build log (customization.log) is extremely verbose, if you comment your scripts using 'write-host' these will be sent to the logs, and make troubleshooting easier.
 
@@ -68,23 +69,16 @@ This article is intended to be a copy and paste exercise.
 
 ## Prerequisites
 
-You must have the latest Azure PowerShell CmdLets installed, see [here](https://docs.microsoft.com/powershell/azure/overview) for install details.
+You must have the latest Azure PowerShell CmdLets installed, see [Overview of Azure PowerShell](/powershell/azure/overview) for install details.
 
 ```PowerShell
-# Register for Azure Image Builder Feature
-Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-
-Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-
-# wait until RegistrationState is set to 'Registered'
-
 # check you are registered for the providers, ensure RegistrationState is set to 'Registered'.
 Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
 Get-AzResourceProvider -ProviderNamespace Microsoft.Storage 
 Get-AzResourceProvider -ProviderNamespace Microsoft.Compute
 Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 
-# If they do not saw registered, run the commented out code below.
+# If they do not show as registered, run the commented out code below.
 
 ## Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
 ## Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
@@ -145,7 +139,7 @@ $idenityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageRe
 Assign permissions to the identity to distribute images. This command will download and update the template with the parameters specified earlier.
 
 ```azurepowershell-interactive
-$aibRoleImageCreationUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
+$aibRoleImageCreationUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
 $aibRoleImageCreationPath = "aibRoleImageCreation.json"
 
 # download config
@@ -163,8 +157,7 @@ New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imag
 ```
 
 > [!NOTE] 
-> If you see this error: 'New-AzRoleDefinition: Role definition limit exceeded. No more role definitions can be created.' see this article to resolve: https://docs.microsoft.com/azure/role-based-access-control/troubleshooting.
-
+> If you see this error: 'New-AzRoleDefinition: Role definition limit exceeded. No more role definitions can be created.' see [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md).
 
 
 ## Create the Shared Image Gallery 
@@ -221,7 +214,7 @@ Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsDesktop -Offer
 Now, you need to download the template and configure it for your use.
 
 ```azurepowershell-interactive
-$templateUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/armTemplateWVD.json"
+$templateUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/14_Building_Images_WVD/armTemplateWVD.json"
 $templateFilePath = "armTemplateWVD.json"
 
 Invoke-WebRequest -Uri $templateUrl -OutFile $templateFilePath -UseBasicParsing
@@ -238,7 +231,7 @@ Invoke-WebRequest -Uri $templateUrl -OutFile $templateFilePath -UseBasicParsing
 
 ```
 
-Feel free to view the [template](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/armTemplateWVD.json), all the code is viewable.
+Feel free to view the [template](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/14_Building_Images_WVD/armTemplateWVD.json), all the code is viewable.
 
 
 ## Submit the template
@@ -274,7 +267,7 @@ $getStatus.LastRunStatusMessage
 $getStatus.LastRunStatusRunSubState
 ```
 ## Create a VM
-Now the build is finished you can build a VM from the image, use the examples from [here](https://docs.microsoft.com/powershell/module/az.compute/new-azvm#examples).
+Now the build is finished you can build a VM from the image, use the examples from [New-AzVM (Az.Compute)](/powershell/module/az.compute/new-azvm#examples).
 
 ## Clean up
 
@@ -306,4 +299,5 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 
 ## Next steps
 
-You can try more examples [on GitHub](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
+You can try more examples [on GitHub](https://github.com/azure/azvmimagebuilder/tree/master/quickquickstarts).
+

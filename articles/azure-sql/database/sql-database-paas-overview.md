@@ -4,12 +4,12 @@ description: 'Get an introduction to SQL Database: technical details and capabil
 keywords: introduction to sql,intro to sql,what is sql database
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: sqldbrb=3
 ms.devlang: 
 ms.topic: overview
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer:
 ms.date: 09/21/2020
 ---

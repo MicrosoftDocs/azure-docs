@@ -3,22 +3,22 @@ title: Telemetry and logging for Spatial Analysis containers
 titleSuffix: Azure Cognitive Services
 description: Spatial Analysis provides each container with a common configuration framework insights, logging, and security settings.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/12/2021
-ms.author: aahi
+ms.date: 06/08/2021
+ms.author: pafarley
 ---
 
 # Telemetry and troubleshooting
 
-Spatial analysis includes a set of features to monitor the health of the system and help with diagnosing issues.
+Spatial Analysis includes a set of features to monitor the health of the system and help with diagnosing issues.
 
 ## Enable visualizations
 
-To enable a visualization of AI Insights events in a video frame, you need to use the `.debug` version of a [spatial analysis operation](spatial-analysis-operations.md) on a desktop machine. The visualization is not possible on Azure Stack Edge devices. There are four debug operations available.
+To enable a visualization of AI Insights events in a video frame, you need to use the `.debug` version of a [Spatial Analysis operation](spatial-analysis-operations.md) on a desktop machine. The visualization is not possible on Azure Stack Edge devices. There are four debug operations available.
 
 If your device is not an Azure Stack Edge device, edit the deployment manifest file for [desktop machines](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) to use the correct value for the `DISPLAY` environment variable. It needs to match the `$DISPLAY` variable on the host computer. After updating the deployment manifest, redeploy the container.
 
@@ -34,10 +34,10 @@ xhost +
 
 ## Collect system health telemetry
 
-Telegraf is an open source image that works with spatial analysis, and is available in the Microsoft Container Registry. It takes the following inputs and sends them to Azure Monitor. The telegraf module can be built with desired custom inputs and outputs. The telegraf module configuration in spatial analysis is part of the deployment manifest (linked above). This module is optional and can be removed from the manifest if you don't need it. 
+Telegraf is an open source image that works with Spatial Analysis, and is available in the Microsoft Container Registry. It takes the following inputs and sends them to Azure Monitor. The telegraf module can be built with desired custom inputs and outputs. The telegraf module configuration in Spatial Analysis is part of the deployment manifest (linked above). This module is optional and can be removed from the manifest if you don't need it. 
 
 Inputs: 
-1. Spatial analysis Metrics
+1. Spatial Analysis Metrics
 2. Disk Metrics
 3. CPU Metrics
 4. Docker Metrics
@@ -46,7 +46,7 @@ Inputs:
 Outputs:
 1. Azure Monitor
 
-The supplied spatial analysis telegraf module will publish all the telemetry data emitted by the spatial analysis container to Azure Monitor. See the [Azure Monitor](../../azure-monitor/overview.md) for information on adding Azure Monitor to your subscription.
+The supplied Spatial Analysis telegraf module will publish all the telemetry data emitted by the Spatial Analysis container to Azure Monitor. See the [Azure Monitor](../../azure-monitor/overview.md) for information on adding Azure Monitor to your subscription.
 
 After setting up Azure Monitor, you will need to create credentials that enable the module to send telemetry. You can use the Azure portal to create a new Service Principal, or use the Azure CLI command below to create one.
 
@@ -98,21 +98,21 @@ Once the telegraf module is deployed, the reported metrics can be accessed eithe
 
 ### System health events
 
-| Event Name | Description|
-|------|---------|
-|archon_exit     |Sent when a user changes the spatial analysis module status from *running* to *stopped*.  |
-|archon_error     |Sent when any of the processes inside the container crash. This is a critical error.  |
-|InputRate     |The rate at which the graph processes video input. Reported every 5 minutes. | 
-|OutputRate     |The rate at which the graph outputs AI insights. Reported every 5 minutes. |
-|archon_allGraphsStarted | Sent when all graphs have finished starting up. |
-|archon_configchange     | Sent when a graph configuration has changed. |
-|archon_graphCreationFailed     |Sent when the graph with the reported `graphId` fails to start. |
-|archon_graphCreationSuccess     |Sent when the graph with the reported `graphId` starts successfully. |
-|archon_graphCleanup     | Sent when the graph with the reported `graphId` cleans up and exits. |
-|archon_graphHeartbeat     |Heartbeat sent every minute for every graph of a skill. |
-|archon_apiKeyAuthFail |Sent when the Computer Vision resource key fails to authenticate the container for more than 24 hours, due to the following reasons: Out of Quota, Invalid, Offline. |
-|VideoIngesterHeartbeat     |Sent every hour to indicate that video is streamed from the Video source, with the number of errors in that hour. Reported for each graph. |
-|VideoIngesterState | Reports *Stopped* or *Started* for video streaming. Reported for each graph. |
+| Event Name                  | Description    |
+|-----------------------------|-------------------------------------------------------------------------------------------|
+| archon_exit                 | Sent when a user changes the Spatial Analysis module status from *running* to *stopped*.  |
+| archon_error                | Sent when any of the processes inside the container crash. This is a critical error.      |
+| InputRate                   | The rate at which the graph processes video input. Reported every 5 minutes.              |
+| OutputRate                  | The rate at which the graph outputs AI insights. Reported every 5 minutes.                |
+| archon_allGraphsStarted     | Sent when all graphs have finished starting up.                                           |
+| archon_configchange         | Sent when a graph configuration has changed.                                              |
+| archon_graphCreationFailed  | Sent when the graph with the reported `graphId` fails to start.                           |
+| archon_graphCreationSuccess | Sent when the graph with the reported `graphId` starts successfully.                      |
+| archon_graphCleanup         | Sent when the graph with the reported `graphId` cleans up and exits.                      |
+| archon_graphHeartbeat       | Heartbeat sent every minute for every graph of a skill.                                   |
+| archon_apiKeyAuthFail       | Sent when the Computer Vision resource key fails to authenticate the container for more than 24 hours, due to the following reasons: Out of Quota, Invalid, Offline. |
+| VideoIngesterHeartbeat      | Sent every hour to indicate that video is streamed from the Video source, with the number of errors in that hour. Reported for each graph. |
+| VideoIngesterState          | Reports *Stopped* or *Started* for video streaming. Reported for each graph.              |
 
 ##  Troubleshooting an IoT Edge Device
 
@@ -124,7 +124,7 @@ You can use `iotedge` command line tool to check the status and logs of the runn
 
 ## Collect log files with the diagnostics container
 
-Spatial analysis generates Docker debugging logs that you can use to diagnose runtime issues, or include in support tickets. The spatial analysis diagnostics module is available in the Microsoft Container Registry for you to download. In the manifest deployment file for your [Azure Stack Edge Device](https://go.microsoft.com/fwlink/?linkid=2142179), [desktop machine](https://go.microsoft.com/fwlink/?linkid=2152270), or [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189) look for the *diagnostics* module.
+Spatial Analysis generates Docker debugging logs that you can use to diagnose runtime issues, or include in support tickets. The Spatial Analysis diagnostics module is available in the Microsoft Container Registry for you to download. In the manifest deployment file for your [Azure Stack Edge Device](https://go.microsoft.com/fwlink/?linkid=2142179), [desktop machine](https://go.microsoft.com/fwlink/?linkid=2152270), or [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189) look for the *diagnostics* module.
 
 In the "env" section add the following configuration:
 
@@ -156,7 +156,7 @@ To optimize logs uploaded to a remote endpoint, such as Azure Blob Storage, we r
 Log level configuration allows you to control the verbosity of the generated logs. Supported log levels are: `none`, `verbose`, `info`, `warning`,  and `error`. The default log verbose level for both nodes and platform is `info`. 
 
 Log levels can be modified globally by setting the `ARCHON_LOG_LEVEL` environment variable to one of the allowed values.
-It can also be set through the IoT Edge Module Twin document either globally, for all deployed skills, or for every specific skill by setting the values for `platformLogLevel` and `nodeLogLevel` as shown below.
+It can also be set through the IoT Edge Module Twin document either globally, for all deployed skills, or for every specific skill by setting the values for `platformLogLevel` and `nodesLogLevel` as shown below.
 
 ```json
 {
@@ -168,7 +168,7 @@ It can also be set through the IoT Edge Module Twin document either globally, fo
             },
             "graphs": {
                 "samplegraph": {
-                    "nodeLogLevel": "verbose",
+                    "nodesLogLevel": "verbose",
                     "platformLogLevel": "verbose"
                 }
             }
@@ -195,7 +195,7 @@ From the IoT Edge portal, select your device and then the **diagnostics** module
 
 1. Create your own Azure Blob Storage account, if you haven't already.
 2. Get the **Connection String** for your storage account from the Azure portal. It will be located in **Access Keys**.
-3. Spatial analysis logs will be automatically uploaded into a Blob Storage container named *rtcvlogs* with the following file name format: `{CONTAINER_NAME}/{START_TIME}-{END_TIME}-{QUERY_TIME}.log`.
+3. Spatial Analysis logs will be automatically uploaded into a Blob Storage container named *rtcvlogs* with the following file name format: `{CONTAINER_NAME}/{START_TIME}-{END_TIME}-{QUERY_TIME}.log`.
 
 ```json
 "env":{
@@ -205,7 +205,7 @@ From the IoT Edge portal, select your device and then the **diagnostics** module
 }
 ```
 
-### Uploading spatial analysis logs
+### Uploading Spatial Analysis logs
 
 Logs are uploaded on-demand with the `getRTCVLogs` IoT Edge method, in the `diagnostics` module. 
 
@@ -234,7 +234,7 @@ The below table lists the parameters you can use when querying logs.
 | ContainerId | Target container for fetching logs.| `null`, when there is no container ID. The API returns all available containers information with IDs.|
 | DoPost | Perform the upload operation. When this is set to `false`, it performs the requested operation and returns the upload size without performing the upload. When set to `true`, it will initiate the asynchronous upload of the selected logs | `false`, do not upload.|
 | Throttle | Indicate how many lines of logs to upload per batch | `1000`, Use this parameter to adjust post speed. |
-| Filters | Filters logs to be uploaded | `null`, filters can be specified as key value pairs based on the spatial analysis logs structure: `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]`. For example: `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
+| Filters | Filters logs to be uploaded | `null`, filters can be specified as key value pairs based on the Spatial Analysis logs structure: `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]`. For example: `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
 
 The following table lists the attributes in the query response.
 
@@ -296,14 +296,6 @@ The following table lists the attributes in the query response.
 Check fetch log's lines, times, and sizes, if those settings look good replace ***DoPost*** to `true` and that will push the logs with same filters to destinations. 
 
 You can export logs from the Azure Blob Storage when troubleshooting issues. 
-
-## Common issues
-
-If you see the following message in the module logs, it might mean your Azure subscription needs to be approved: 
-
-"Container is not in a valid state. Subscription validation failed with status 'Mismatch'. Api Key is not intended for the given container type."
-
-For more information, see [Request approval to run the container](spatial-analysis-container.md#request-approval-to-run-the-container).
 
 ## Troubleshooting the Azure Stack Edge device
 
@@ -397,9 +389,9 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 | `Enable-HcsSupportAccess` | Generates access credentials to start a support session. |
 
 
-## How to file a support ticket for spatial analysis 
+## How to file a support ticket for Spatial Analysis 
 
-If you need more support in finding a solution to a problem you're having with the spatial analysis container, follow these steps to fill out and submit a support ticket. Our team will get back to you with additional guidance. 
+If you need more support in finding a solution to a problem you're having with the Spatial Analysis container, follow these steps to fill out and submit a support ticket. Our team will get back to you with additional guidance. 
 
 ### Fill out the basics 
 Create a new support ticket at the [New support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) page. Follow the prompts to fill in the following parameters:
@@ -407,9 +399,9 @@ Create a new support ticket at the [New support request](https://ms.portal.azure
 ![Support basics](./media/support-ticket-page-1-final.png)
 
 1. Set **Issue Type** to be `Technical`.
-2. Select the subscription that you are utilizing to deploy the spatial analysis container.
+2. Select the subscription that you are utilizing to deploy the Spatial Analysis container.
 3. Select `My services` and select `Cognitive Services` as the the service.
-4. Select the resource that you are utilizing to deploy the spatial analysis container.
+4. Select the resource that you are utilizing to deploy the Spatial Analysis container.
 5. Write a brief description detailing the problem you are facing. 
 6. Select `Spatial Analysis` as your problem type.
 7. Select the appropriate subtype from the drop down.
@@ -427,6 +419,6 @@ Review the details of your support request to ensure everything is accurate and 
 ## Next steps
 
 * [Deploy a People Counting web application](spatial-analysis-web-app.md)
-* [Configure spatial analysis operations](./spatial-analysis-operations.md)
+* [Configure Spatial Analysis operations](./spatial-analysis-operations.md)
 * [Camera placement guide](spatial-analysis-camera-placement.md)
 * [Zone and line placement guide](spatial-analysis-zone-line-placement.md)

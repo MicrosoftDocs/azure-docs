@@ -6,11 +6,14 @@ author: tomaschladek
 manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
 ---
+
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/access-tokens-quickstart)
 
 ## Prerequisites
 
@@ -35,16 +38,16 @@ ms.author: tchladek
    from azure.communication.identity import CommunicationIdentityClient, CommunicationUserIdentifier
 
    try:
-      print('Azure Communication Services - Access Tokens Quickstart')
+      print("Azure Communication Services - Access Tokens Quickstart")
       # Quickstart code goes here
    except Exception as ex:
-      print('Exception:')
+      print("Exception:")
       print(ex)
    ```
 
 ### Install the package
 
-While still in the application directory, install the Azure Communication Services Identity client library for Python package by using the `pip install` command.
+While still in the application directory, install the Azure Communication Services Identity SDK for Python package by using the `pip install` command.
 
 ```console
 pip install azure-communication-identity
@@ -52,23 +55,23 @@ pip install azure-communication-identity
 
 ## Authenticate the client
 
-Instantiate a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../create-communication-resource.md#store-your-connection-string).
+Instantiate a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../create-communication-resource.md#store-your-connection-string).
 
 Add this code inside the `try` block:
 
 ```python
 # This code demonstrates how to fetch your connection string
 # from an environment variable.
-connection_string = os.environ['COMMUNICATION_SERVICES_CONNECTION_STRING']
+connection_string = os.environ["COMMUNICATION_SERVICES_CONNECTION_STRING"]
 
 # Instantiate the identity client
 client = CommunicationIdentityClient.from_connection_string(connection_string)
 ```
 
-Alternatively, if you have managed identity set up, see [Use managed identities](../managed-identity.md), you may also authenticate with managed identity.
+Alternatively, if you have an Azure Active Directory(AD) application set up, see [Use service principals](../identity/service-principal.md), you may also authenticate with AD.
 ```python
-const endpoint = os.environ["COMMUNICATION_SERVICES_ENDPOINT"];
-var client = new CommunicationIdentityClient(endpoint, DefaultAzureCredential());
+endpoint = os.environ["COMMUNICATION_SERVICES_ENDPOINT"]
+client = CommunicationIdentityClient(endpoint, DefaultAzureCredential())
 ```
 
 ## Create an identity
@@ -77,7 +80,7 @@ Azure Communication Services maintains a lightweight identity directory. Use the
 
 ```python
 identity = client.create_user()
-print("\nCreated an identity with ID: " + identity.identifier)
+print("\nCreated an identity with ID: " + identity.properties['id'])
 ```
 
 ## Issue access tokens
@@ -87,7 +90,7 @@ Use the `get_token` method to issue an access token for already existing Communi
 ```python
 # Issue an access token with the "voip" scope for an identity
 token_result = client.get_token(identity, ["voip"])
-expires_on = token_result.expires_on.strftime('%d/%m/%y %I:%M %S %p')
+expires_on = token_result.expires_on.strftime("%d/%m/%y %I:%M %S %p")
 print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
 print(token_result.token)
 ```
@@ -101,9 +104,9 @@ Use the `create_user_and_token` method to create a Communication Services identi
 ```python
 # Issue an identity and an access token with the "voip" scope for the new identity
 identity_token_result = client.create_user_and_token(["voip"])
-identity = identity_token_result[0].identifier
+identity = identity_token_result[0].properties['id']
 token = identity_token_result[1].token
-expires_on = identity_token_result[1].expires_on.strftime('%d/%m/%y %I:%M %S %p')
+expires_on = identity_token_result[1].expires_on.strftime("%d/%m/%y %I:%M %S %p")
 print("\nCreated an identity with ID: " + identity)
 print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
 print(token)
@@ -125,7 +128,7 @@ In some cases, you may explicitly revoke access tokens. For example, when an app
 
 ```python
 client.revoke_tokens(identity)
-print("\nSuccessfully revoked all access tokens for identity with ID: " + identity.identifier)
+print("\nSuccessfully revoked all access tokens for identity with ID: " + identity.properties['id'])
 ```
 
 ## Delete an identity
@@ -134,7 +137,7 @@ Deleting an identity revokes all active access tokens and prevents you from issu
 
 ```python
 client.delete_user(identity)
-print("\nDeleted the identity with ID: " + identity.identifier)
+print("\nDeleted the identity with ID: " + identity.properties['id'])
 ```
 
 ## Run the code

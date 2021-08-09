@@ -13,11 +13,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 12/14/2020
+ms.date: 08/04/2021
 ms.author: phjensen
 ---
 
-# Test Azure Application Consistent Snapshot tool (preview)
+# Test Azure Application Consistent Snapshot tool
 
 This article explains how to run the test command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 
@@ -82,18 +82,6 @@ PASSED: Task#2/2 Storage test successful for Volume
 PASSED: Task#1/2 Storage test successful for Volume
 END   : Storage tests complete
 END   : Test process complete for 'storage'
-```
-
-> [!NOTE]
-> For Azure Large Instance, `azacsnap -c test --test storage` command extrapolates the storage
-generation and HLI SKU.  Based on this information it then provides guidance on configuring 'boot'
-snapshots (see the line starting with `Action:` output).
-
-```output
-SID1   : Generation 4
-Storage: ams07-a700s-saphan-1-01v250-client25-nprod
-HLI SKU: S96
-Action : Configure the 'boot' snapshots on ALL the servers.
 ```
 
 ## Next steps

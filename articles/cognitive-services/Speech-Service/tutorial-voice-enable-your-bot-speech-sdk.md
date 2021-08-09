@@ -3,13 +3,13 @@ title: "Tutorial: Voices enable your bot using Speech SDK - Speech service"
 titleSuffix: Azure Cognitive Services
 description: In this tutorial, you'll create an Echo Bot using Microsoft Bot Framework, deploy it to Azure, and register it with the Bot Framework Direct Line Speech channel. Then you'll configure a sample client app for Windows that lets you speak to your bot and hear it respond back to you.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.author: trbye
+ms.author: nitinme
 ms.custom: devx-track-csharp
 ---
 
@@ -79,7 +79,7 @@ The client app that you'll create in this tutorial uses a handful of Azure servi
 If you'd like to use a different region for this tutorial these factors may limit your choices:
 
 * Ensure that you use a [supported Azure region](regions.md#voice-assistants).
-* The Direct Line Speech channel uses the text-to-speech service, which has standard and neural voices. Neural voices are [limited to specific Azure regions](regions.md#standard-and-neural-voices).
+* The Direct Line Speech channel uses the text-to-speech service, which has neural and standard voices. Neural and standard voices all are available at these [Azure regions](regions.md#neural-and-standard-voices).
 
 For more information about regions, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
 
@@ -325,9 +325,9 @@ If you get an error message in your main app window, use this table to identify 
 |Error (AuthenticationFailure) : WebSocket Upgrade failed with an authentication error (401). Check for correct subscription key (or authorization token) and region name| In the Settings page of the app, make sure you entered the Speech Subscription key and its region correctly.<br>Make sure your speech key and key region were entered correctly. |
 |Error (ConnectionFailure) : Connection was closed by the remote host. Error code: 1011. Error details: We could not connect to the bot before sending a message | Make sure you [checked the "Enable Streaming Endpoint"](#register-the-direct-line-speech-channel) box and/or [toggled **Web sockets**](#enable-web-sockets) to On.<br>Make sure your Azure App Service is running. If it is, try restarting your App Service.|
 |Error (ConnectionFailure) : Connection was closed by the remote host. Error code: 1002. Error details: The server returned status code '503' when status code '101' was expected | Make sure you [checked the "Enable Streaming Endpoint"](#register-the-direct-line-speech-channel) box and/or [toggled **Web sockets**](#enable-web-sockets) to On.<br>Make sure your Azure App Service is running. If it is, try restarting your App Service.|
-|Error (ConnectionFailure) : Connection was closed by the remote host. Error code: 1011. Error details: Response status code does not indicate success: 500 (InternalServerError)| Your bot specified a neural voice in its output Activity [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) field, but the Azure region associated with your Speech subscription key does not support neural voices. See [Standard and neural voices](./regions.md#standard-and-neural-voices).|
+|Error (ConnectionFailure) : Connection was closed by the remote host. Error code: 1011. Error details: Response status code does not indicate success: 500 (InternalServerError)| Your bot specified a neural voice in its output Activity [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) field, but the Azure region associated with your Speech subscription key does not support neural voices. See [Neural and standard voices](./regions.md#neural-and-standard-voices).|
 
-If your issue isn't addressed in the table, see [Voice assistants: Frequently asked questions](faq-voice-assistants.md). If your are still not able to resolve your issue after following all the steps in this tutorial, please enter a new issue in the  [Voice Assistant GitHub page](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/issues).
+If your issue isn't addressed in the table, see [Voice assistants: Frequently asked questions](faq-voice-assistants.yml). If your are still not able to resolve your issue after following all the steps in this tutorial, please enter a new issue in the  [Voice Assistant GitHub page](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/issues).
 
 #### A note on connection time out
 
@@ -472,7 +472,7 @@ If you're not going to continue using the echo-bot deployed in this tutorial, yo
 ## See also
 
 * Deploying to an [Azure region near you](https://azure.microsoft.com/global-infrastructure/locations/) to see bot response time improvement
-* Deploying to an [Azure region that supports high quality Neural TTS voices](./regions.md#standard-and-neural-voices)
+* Deploying to an [Azure region that supports high quality Neural TTS voices](./regions.md#neural-and-standard-voices)
 * Pricing associated with Direct Line Speech channel:
   * [Bot Service pricing](https://azure.microsoft.com/pricing/details/bot-service/)
   * [Speech service](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)

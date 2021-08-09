@@ -16,8 +16,12 @@
     href: multi-factor-authentication-end-user-app-passwords.md
   - name: How to sign in
     href: user-help-sign-in.md?toc=./toc.json
+  - name: Work or school account sign-in
+    href: multi-factor-authentication-end-user-signin.md
   - name: Get help
     href: multi-factor-authentication-end-user-troubleshoot.md
+  - name: Received code in error
+    href: multi-factor-authentication-change-sms-phone.md
 - name: Password reset help
   items:
   - name: Sign up for password reset

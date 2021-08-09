@@ -36,13 +36,15 @@ Here's sample code to retrieve all metadata for an instance. To access a specifi
 #### [Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | ConvertTo-Json -Depth 64
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | ConvertTo-Json -Depth 64
 ```
+
+`-NoProxy` requires PowerShell V6 or greater. See our [samples repository](https://github.com/microsoft/azureimds) for examples with older PowerShell versions.
 
 #### [Linux](#tab/linux/)
 
 ```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | jq
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | jq
 ```
 
 ---
@@ -66,6 +68,10 @@ Any request that does not meet **both** of these requirements will be rejected b
 
 > [!IMPORTANT]
 > IMDS is **not** a channel for sensitive data. The API is unauthenticated and open to all processes on the VM. Information exposed through this service should be considered as shared information to all applications running inside the VM.
+
+If it is not necessry for every process on the VM to access IMDS endpoint, you can set local firewall rules to limit the access. 
+For example, if only a known system service needs to access instance metadata service, you can set a firewall rule on IMDS endpoint, only allowing the specific process(es) to access, or denying access for the rest of the processes. 
+
 
 ## Proxies
 
@@ -95,14 +101,14 @@ Endpoints may support required and/or optional parameters. See [Schema](#schema)
 IMDS endpoints support HTTP query string parameters. For example: 
 
 ```
-http://169.254.169.254/metadata/instance/compute?api-version=2019-06-04&format=json
+http://169.254.169.254/metadata/instance/compute?api-version=2021-01-01&format=json
 ```
 
 Specifies the parameters:
 
 | Name | Value |
 |------|-------|
-| `api-version` | `2019-06-04`
+| `api-version` | `2021-01-01`
 | `format` | `json`
 
 Requests with duplicate query parameter names will be rejected.
@@ -190,7 +196,7 @@ To access a non-default response format, specify the requested format as a query
 #### [Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 #### [Linux](#tab/linux/)
@@ -243,6 +249,8 @@ When you don't specify a version, you get an error with a list of the newest sup
 - 2020-09-01
 - 2020-10-01
 - 2020-12-01
+- 2021-01-01
+- 2021-02-01
 
 ### Swagger
 
@@ -328,7 +336,7 @@ Schema breakdown:
 | Data | Description | Version introduced |
 |------|-------------|--------------------|
 | `azEnvironment` | Azure Environment where the VM is running in | 2018-10-01
-| `customData` | This feature is currently disabled. We will update this documentation when it becomes available | 2019-02-01
+| `customData` | This feature is deprecated and disabled [in IMDS](#frequently-asked-questions). It has been superseded by `userData` | 2019-02-01
 | `evictionPolicy` | Sets how a [Spot VM](../articles/virtual-machines/spot-vms.md) will be evicted. | 2020-12-01
 | `isHostCompatibilityLayerVm` | Identifies if the VM runs on the Host Compatibility Layer | 2020-06-01
 | `licenseType` | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). This is only present for AHB-enabled VMs | 2020-09-01
@@ -356,6 +364,7 @@ Schema breakdown:
 | `subscriptionId` | Azure subscription for the Virtual Machine | 2017-08-01
 | `tags` | [Tags](../articles/azure-resource-manager/management/tag-resources.md) for your Virtual Machine  | 2017-08-01
 | `tagsList` | Tags formatted as a JSON array for easier programmatic parsing  | 2019-06-04
+| `userData` | The set of data specified when the VM was created for use during or after provisioning (Base64 encoded)  | 2021-01-01
 | `version` | Version of the VM image | 2017-04-02
 | `vmId` | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2017-04-02
 | `vmScaleSetName` | [Virtual machine scale set Name](../articles/virtual-machine-scale-sets/overview.md) of your virtual machine scale set | 2017-12-01
@@ -364,7 +373,7 @@ Schema breakdown:
 
 **Storage profile**
 
-The storage profile of a VM is divided into three categories: image reference, OS disk, and data disks.
+The storage profile of a VM is divided into three categories: image reference, OS disk, and data disks, plus an additional object for the local temporary disk.
 
 The image reference object contains the following information about the OS image:
 
@@ -407,6 +416,13 @@ Data | Description |
 | `vhd` | Virtual hard disk
 | `writeAcceleratorEnabled` | Whether or not writeAccelerator is enabled on the disk
 
+The resource disk object contains the size of the [Local Temp Disk](../articles/virtual-machines/managed-disks-overview.md#temporary-disk) attached to the VM, if it has one, in kilobytes.
+If there is [no local temp disk for the VM](../articles/virtual-machines/azure-vms-no-temp-disk.yml), this value is 0. 
+
+| Data | Description | Version introduced |
+|------|-------------|--------------------|
+| `resourceDisk.size` | Size of the local temp disk for the VM (in kB) | 2021-02-01
+
 **Network**
 
 | Data | Description | Version introduced |
@@ -418,6 +434,31 @@ Data | Description |
 | `ipv6.ipAddress` | Local IPv6 address of the VM | 2017-04-02
 | `macAddress` | VM mac address | 2017-04-02
 
+### Get user data
+
+When creating a new VM, you can specify a set of data to be used during or after the VM provision, and retrieve it through IMDS. Check the end to end user data experience [here](../articles/virtual-machines/user-data.md). 
+
+To set up user data, utilize the quickstart template [here](https://aka.ms/ImdsUserDataArmTemplate). The sample below shows how to retrieve this data through IMDS. This feature is released with version `2021-01-01` and above.
+
+> [!NOTE]
+> Security notice: IMDS is open to all applications on the VM, sensitive data should not be placed in the user data.
+
+
+#### [Windows](#tab/windows/)
+
+```powershell
+$userData = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/userData?api-version=2021-01-01&format=text"
+[System.Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($userData))
+```
+
+#### [Linux](#tab/linux/)
+
+```bash
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/userData?api-version=2021-01-01&format=text" | base64 --decode
+```
+
+---
+
 
 #### Sample 1: Tracking VM running on Azure
 
@@ -428,7 +469,7 @@ As a service provider, you may require to track the number of VMs running your s
 #### [Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
 #### [Linux](#tab/linux/)
@@ -457,7 +498,7 @@ You can query this data directly via IMDS.
 #### [Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
 ```
 
 #### [Linux](#tab/linux/)
@@ -484,7 +525,7 @@ Tags may have been applied to your Azure VM to logically organize them into a ta
 #### [Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/tags?api-version=2017-08-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/tags?api-version=2017-08-01&format=text"
 ```
 
 #### [Linux](#tab/linux/)
@@ -508,7 +549,7 @@ The `tags` field is a string with the tags delimited by semicolons. This output 
 #### [Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04" | ConvertTo-Json -Depth 64
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04" | ConvertTo-Json -Depth 64
 ```
 
 #### [Linux](#tab/linux/)
@@ -574,7 +615,7 @@ As a service provider, you may get a support call where you would like to know m
 #### [Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01" | ConvertTo-Json -Depth 64
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01" | ConvertTo-Json -Depth 64
 ```
 
 #### [Linux](#tab/linux/)
@@ -679,6 +720,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
                 "uri": ""
             },
             "writeAcceleratorEnabled": "false"
+        },
+        "resourceDisk": {
+            "size": "4096"
         }
     },
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
@@ -780,6 +824,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
                 "uri": ""
             },
             "writeAcceleratorEnabled": "false"
+        },
+        "resourceDisk": {
+            "size": "4096"
         }
     },
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
@@ -803,7 +850,7 @@ Azure has various sovereign clouds like [Azure Government](https://azure.microso
 #### [Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 #### [Linux](#tab/linux/)
@@ -837,7 +884,7 @@ The cloud and the values of the Azure environment are listed here.
 #### [Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01" | ConvertTo-Json  -Depth 64
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01" | ConvertTo-Json  -Depth 64
 ```
 
 #### [Linux](#tab/linux/)
@@ -882,7 +929,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 #### [Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
 #### [Linux](#tab/linux/)
@@ -976,7 +1023,7 @@ Vendors in Azure Marketplace want to ensure that their software is licensed to r
 
 ```powershell
 # Get the signature
-$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri http://169.254.169.254/metadata/attested/document?api-version=2020-09-01
+$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/attested/document?api-version=2020-09-01
 # Decode the signature
 $signature = [System.Convert]::FromBase64String($attestedDoc.signature)
 ```
@@ -1132,7 +1179,7 @@ If there is a data element not found or a malformed request, the Instance Metada
 | `404 Not Found` | The requested element doesn't exist
 | `405 Method Not Allowed` | The HTTP method (verb) is not supported on the endpoint.
 | `410 Gone` | Retry after some time for a max of 70 seconds
-| `429 Too Many Requests` | API [Rate Limits](#rate-limiting) has been exceeded
+| `429 Too Many Requests` | API [Rate Limits](#rate-limiting) have been exceeded
 | `500 Service Error` | Retry after some time
 
 ## Frequently asked questions
@@ -1145,6 +1192,9 @@ If there is a data element not found or a malformed request, the Instance Metada
 
 - I created my VM through Azure Resource Manager some time ago. Why am I not seeing compute metadata information?
   - If you created your VM after September 2016, add a [tag](../articles/azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. If you created your VM before September 2016, add or remove extensions or data disks to the VM instance to refresh metadata.
+
+- Is user data the same as custom data?
+  - User data offers the similar functionality to custom data, allowing you to pass your own metadata to the VM instance. The difference is, user data is retrieved through IMDS, and is persistent throughout the lifetime of the VM instance. Existing custom data feature will continue to work as described in [this article](../articles/virtual-machines/custom-data.md). However you can only get custom data through local system folder, not through IMDS.
 
 - Why am I not seeing all data populated for a new version?
   - If you created your VM after September 2016, add a [tag](../articles/azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. If you created your VM before September 2016, add or remove extensions or data disks to the VM instance to refresh metadata.

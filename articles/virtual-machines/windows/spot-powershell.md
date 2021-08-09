@@ -8,7 +8,8 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: cynthn
-ms.reviewer: jagaveer
+ms.reviewer: jagaveer 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Deploy Azure Spot Virtual Machines using Azure PowerShell
@@ -94,7 +95,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 
 This first response could take up to 2 minutes. From now on, they should display output almost immediately.
 
-From a computer that has the Az PowerShell module installed (like your local machine), simulate an eviction using [Set-AzVM](https://docs.microsoft.com/powershell/module/az.compute/set-azvm). Replace the resource group name and VM name with your own. 
+From a computer that has the Az PowerShell module installed (like your local machine), simulate an eviction using [Set-AzVM](/powershell/module/az.compute/set-azvm). Replace the resource group name and VM name with your own. 
 
 ```azurepowershell-interactive
 Set-AzVM -ResourceGroupName "mySpotRG" -Name "mySpotVM" -SimulateEviction

@@ -28,4 +28,4 @@ This article helps find a reservation purchaser with information from your direc
 
 ## Next steps
 
-- If needed, billing administrators can [take ownership of a reservation](view-reservations.md#how-billing-administrators-view-or-manage-reservations).
+- If needed, billing administrators can [take ownership of a reservation](view-reservations.md#how-billing-administrators-can-view-or-manage-reservations).

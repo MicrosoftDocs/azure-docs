@@ -1,13 +1,14 @@
 ---
 title: "Quickstart: Create a Linux SQL Server VM in Azure"
 description: This tutorial shows how to create a Linux SQL Server 2017 virtual machine in the Azure portal.
-services: virtual-machines-linux
+services: virtual-machines-sql
 author: MashaMSFT 
 ms.date: 10/22/2019
 tags: azure-service-management
 
 ms.topic: quickstart
 ms.service: virtual-machines-sql
+ms.subservice: deployment
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth

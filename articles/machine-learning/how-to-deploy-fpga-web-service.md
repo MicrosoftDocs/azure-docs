@@ -9,13 +9,13 @@ ms.reviewer: larryfr
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2020
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q2, devx-track-python, deploy
+ms.topic: how-to
+ms.custom: contperf-fy21q2, devx-track-python, deploy
 ---
 
 # Deploy ML models to field-programmable gate arrays (FPGAs) with Azure Machine Learning 
 
-In this article, you learn about FPGAs and how to deploy your ML models to an Azure FPGA using the [hardware-accelerated models Python package](/python/api/azureml-accel-models/azureml.accel) from [Azure Machine Learning](overview-what-is-azure-ml.md).
+In this article, you learn about FPGAs and how to deploy your ML models to an Azure FPGA using the [hardware-accelerated models Python package](/python/api/azureml-accel-models/azureml.accel) from [Azure Machine Learning](overview-what-is-azure-machine-learning.md).
 
 ## What are FPGAs?
 FPGAs contain an array of programmable logic blocks, and a hierarchy of reconfigurable interconnects. The interconnects allow these blocks to be configured in various ways after manufacturing. Compared to other chips, FPGAs provide a combination of programmability and performance. 

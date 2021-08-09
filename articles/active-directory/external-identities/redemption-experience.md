@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/04/2021
+ms.date: 07/13/2021
 
 ms.author: mimart
 author: msmimart
@@ -23,8 +23,10 @@ This article describes the ways guest users can access your resources and the co
 When you add a guest user to your directory, the guest user account has a consent status (viewable in PowerShell) that’s initially set to **PendingAcceptance**. This setting remains until the guest accepts your invitation and agrees to your privacy policy and terms of use. After that, the consent status changes to **Accepted**, and the consent pages are no longer presented to the guest.
 
    > [!IMPORTANT]
-   > - **Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
-   > - **Starting October 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md). We welcome your feedback on this public preview feature and are excited to create even more ways to collaborate.
+   >
+   > - **Starting July 12, 2021**,  if Azure AD B2B customers set up new Google integrations for use with self-service sign-up for their custom or line-of-business applications, authentication with Google identities won’t work until authentications are moved to system web-views. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+   > - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+   > - **Starting October 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md), which is now generally available.
 
 ## Redemption and sign-in through a common endpoint
 
@@ -58,6 +60,20 @@ When you add a guest user to your directory by [using the Azure portal](./b2b-qu
 2. The guest selects **Accept invitation** in the email.
 3. The guest will use their own credentials to sign in to your directory. If the guest does not have an account that can be federated to your directory and the [email one-time passcode (OTP)](./one-time-passcode.md) feature is not enabled; the guest is prompted to create a personal [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) or an [Azure AD self-service account](../enterprise-users/directory-self-service-signup.md). Refer to the [invitation redemption flow](#invitation-redemption-flow) for details.
 4. The guest is guided through the [consent experience](#consent-experience-for-the-guest) described below.
+
+## Redemption limitation with conflicting Contact object
+Sometimes the invited external guest user's email may conflict with an existing [Contact object](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true), resulting in the guest user being created without a proxyAddress. This is a known limitation that prevents guest users from: 
+- Redeeming an invitation through a direct link using [SAML/WS-Fed IdP](./direct-federation.md), [Microsoft Accounts](./microsoft-account.md), [Google Federation](./google-federation.md), or [Email One-Time Passcode](./one-time-passcode.md) accounts. 
+- Redeeming an invitation through an invitation email redemption link using [SAML/WS-Fed IdP](./direct-federation.md) and [Email One-Time Passcode](./one-time-passcode.md) accounts.
+- Signing back into an application after redemption using [SAML/WS-Fed IdP](./direct-federation.md) and [Google Federation](./google-federation.md) accounts.
+
+To unblock users who can't redeem an invitation due to a conflicting [Contact object](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true), follow these steps:
+1. Delete the conflicting Contact object.
+2. Delete the guest user in the Azure portal (the user's "Invitation accepted" property should be in a pending state).
+3. Re-invite the guest user.
+4. Wait for the user to redeem invitation.
+5. Add the user's Contact email back into Exchange and any DLs they should be a part of.
+
 ## Invitation redemption flow
 
 When a user clicks the **Accept invitation** link in an [invitation email](invitation-email-elements.md), Azure AD automatically redeems the invitation based on the redemption flow as shown below:
@@ -68,7 +84,7 @@ When a user clicks the **Accept invitation** link in an [invitation email](invit
 
 1. Azure AD performs user-based discovery to determine if the user exists in an [existing Azure AD tenant](./what-is-b2b.md#easily-invite-guest-users-from-the-azure-ad-portal).
 
-2. If an admin has enabled [direct federation](./direct-federation.md), Azure AD checks if the user’s domain suffix matches the domain of a configured SAML/WS-Fed identity provider and redirects the user to the pre-configured identity provider.
+2. If an admin has enabled [SAML/WS-Fed IdP federation](./direct-federation.md), Azure AD checks if the user’s domain suffix matches the domain of a configured SAML/WS-Fed identity provider and redirects the user to the pre-configured identity provider.
 
 3. If an admin has enabled [Google federation](./google-federation.md), Azure AD checks if the user’s domain suffix is gmail.com or googlemail.com and redirects the user to Google.
 
@@ -111,7 +127,13 @@ When a guest signs in to access resources in a partner organization for the firs
 
    ![Screenshot showing the Apps access panel](media/redemption-experience/myapps.png) 
 
+> [!NOTE]
+> The consent experience appears only after the user signs in, and not before. There are some scenarios where the consent experience will not be displayed to the user, for example:
+> - The user already accepted the consent experience
+> - The admin [grants tenant-wide admin consent to an application](/azure/active-directory/manage-apps/grant-admin-consent)
+
 In your directory, the guest's **Invitation accepted** value changes to **Yes**. If an MSA was created, the guest’s **Source** shows **Microsoft Account**. For more information about guest user account properties, see [Properties of an Azure AD B2B collaboration user](user-properties.md). 
+If you see an error that requires admin consent while accessing an application, see [how to grant admin consent to apps](../develop/v2-admin-consent.md).
 
 ## Next steps
 

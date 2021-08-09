@@ -23,6 +23,8 @@ Assessments you create with Azure Migrate: Discovery and assessment tool are a p
 **Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware environment to Azure SQL Database or Azure SQL Managed Instance. [Learn More](concepts-azure-sql-assessment-calculation.md)
 **Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
+> [!NOTE]
+> If the number of Azure VM or AVS assessments are incorrect on the Discovery and assessment tool, click on the total number of assessments to navigate to all the assessments and recalculate the Azure VM or AVS assessments. The Discovery and assessment tool will then show the correct count for that assessment type. 
 
 ### Sizing criteria
 Sizing criteria options in Azure Migrate assessments:
@@ -153,7 +155,7 @@ An assessment might not have all the data points for a number of reasons:
 ### Migration Tool Guidance for AVS assessments
 
 In the Azure readiness report for Azure VMware Solution (AVS) assessment, you can see the following suggested tools: 
-- **VMware HCX or Enterprise**: For VMware servers, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+- **VMware HCX or Enterprise**: For VMware servers, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/install-vmware-hcx.md).
 - **Unknown**: For servers imported via a CSV file, the default migration tool is unknown. Though, for servers in VMware environment, its is recommended to use the VMware Hybrid Cloud Extension (HCX) solution.
 
 

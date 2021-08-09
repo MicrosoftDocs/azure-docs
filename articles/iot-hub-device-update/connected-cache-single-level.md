@@ -17,23 +17,23 @@ The diagram below describes the scenario where an Azure IoT Edge gateway that ha
 
   :::image type="content" source="media/connected-cache-overview/disconnected-device-update.png" alt-text="Microsoft Connected Cache Disconnected Device Update" lightbox="media/connected-cache-overview/disconnected-device-update.png":::
 
-1. Add the Microsoft Connected Cache module to your Azure IoT Edge gateway device deployment in Azure IoT Hub (see `MCC concepts` for details on how to get the module).
+1. Add the Microsoft Connected Cache module to your Azure IoT Edge gateway device deployment in Azure IoT Hub (see [Support for Disconnected Devices](connected-cache-disconnected-device-update.md) for details on how to get the module).
 2. Add the environment variables for the deployment. Below is an example of the environment variables.
 
     **Environment Variables**
     
-    | Name                 | Value                                       |
-    | ----------------------------- | --------------------------------------------| 
-    | CACHE_NODE_ID                 | See environment variable description above. |
-    | CUSTOMER_ID                   | See environment variable description above. |
-    | CUSTOMER_KEY                  | See environment variable description above. |
-    | STORAGE_*N*_SIZE_GB           | N = 5                                       |
+    | Name                          | Value                                                                 |
+    | ----------------------------- | ----------------------------------------------------------------------| 
+    | CACHE_NODE_ID                 | See [environment variable](connected-cache-configure.md) descriptions |
+    | CUSTOMER_ID                   | See [environment variable](connected-cache-configure.md) descriptions |
+    | CUSTOMER_KEY                  | See [environment variable](connected-cache-configure.md) descriptions |
+    | STORAGE_1_SIZE_GB             | 10                                                                    |
 
 3. Add the container create options for the deployment. Below is an example of the container create options.
 
 ### Container create options
 
-```markdown
+```json
 {
     "HostConfig": {
         "Binds": [
@@ -52,12 +52,13 @@ The diagram below describes the scenario where an Azure IoT Edge gateway that ha
             ]
         }
     }
+}
 ```
 
-For a validation of properly functioning Microsoft Connected Cache, execute the following command in the terminal of the IoT Edge device hosting the module or any device on the network.
+For a validation of properly functioning Microsoft Connected Cache, execute the following command in the terminal of the IoT Edge device hosting the module or any device on the network. Replace \<Azure IoT Edge Gateway IP\> with the IP address or hostname of your IoT Edge gateway. (see environment variable details for information on visibility of this report).
 
 ```bash
-    wget "http://<IOT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com
+    wget http://<IoT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com
 ```
 
 ## Single level Azure IoT Edge gateway with outbound unauthenticated proxy
@@ -71,16 +72,16 @@ In this scenario there is an Azure IoT Edge Gateway that has access to CDN resou
 
     **Environment Variables**
 
-    | Name                 | Value                                       |
-    | ----------------------------- | --------------------------------------------| 
-    | CACHE_NODE_ID                 | See environment variable description above. |
-    | CUSTOMER_ID                   | See environment variable description above. |
-    | CUSTOMER_KEY                  | See environment variable description above. |
-    | STORAGE_*N*_SIZE_GB           | N = 5                                       |
-    | CACHEABLE_CUSTOM_1_HOST       | Packagerepo.com:80                          |
-    | CACHEABLE_CUSTOM_1_CANONICAL  | Packagerepo.com                             |
-    | IS_SUMMARY_ACCESS_UNRESTRICTED| true                                        |
-    | UPSTREAM_PROXY                | Proxy server IP or FQDN                     |
+    | Name                          | Value                                                                 |
+    | ----------------------------- | ----------------------------------------------------------------------| 
+    | CACHE_NODE_ID                 | See [environment variable](connected-cache-configure.md) descriptions |
+    | CUSTOMER_ID                   | See [environment variable](connected-cache-configure.md) descriptions |
+    | CUSTOMER_KEY                  | See [environment variable](connected-cache-configure.md) descriptions |
+    | STORAGE_1_SIZE_GB             | 10                                                                    |
+    | CACHEABLE_CUSTOM_1_HOST       | Packagerepo.com:80                                                    |
+    | CACHEABLE_CUSTOM_1_CANONICAL  | Packagerepo.com                                                       |
+    | IS_SUMMARY_ACCESS_UNRESTRICTED| true                                                                  |
+    | UPSTREAM_PROXY                | Your proxy server IP or FQDN                                          |
 
 3. Add the container create options for the deployment. There is no difference in MCC container create options from the previous example. Below is an example of the container create options.
 
@@ -105,10 +106,11 @@ In this scenario there is an Azure IoT Edge Gateway that has access to CDN resou
             ]
         }
     }
+}
 ```
 
-For a validation of properly functioning Microsoft Connected Cache, execute the following command in the terminal of the Azure IoT Edge device hosting the module or any device on the network.
+For a validation of properly functioning Microsoft Connected Cache, execute the following command in the terminal of the Azure IoT Edge device hosting the module or any device on the network. Replace \<Azure IoT Edge Gateway IP\> with the IP address or hostname of your IoT Edge gateway. (see environment variable details for information on visibility of this report).
 
 ```bash
-    wget "http://<Azure IOT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com
+    wget http://<Azure IoT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com 
 ```

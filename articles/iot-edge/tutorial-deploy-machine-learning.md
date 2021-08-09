@@ -15,7 +15,7 @@ ms.custom: mvc
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Use Azure Notebooks to develop a machine learning module and deploy it to a Linux device running Azure IoT Edge.
+Use Azure Notebooks to develop a machine learning module and deploy it to a device running Azure IoT Edge with Linux containers.
 You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through deploying an Azure Machine Learning module that predicts when a device fails based on simulated machine temperature data. For more information about Azure Machine Learning on IoT Edge, see [Azure Machine Learning documentation](../machine-learning/how-to-deploy-and-where.md).
 
 >[!NOTE]
@@ -45,7 +45,7 @@ An Azure IoT Edge device:
 Cloud resources:
 
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-* An Azure Machine Learning workspace. Follow the instructions in [Use the Azure portal to get started with Azure Machine Learning](../machine-learning/tutorial-1st-experiment-sdk-setup.md) to create one and learn how to use it.
+* An Azure Machine Learning workspace. Follow the instructions in [Use the Azure portal to get started with Azure Machine Learning](../machine-learning/quickstart-create-resources.md) to create one and learn how to use it.
   * Make a note of the workspace name, resource group, and subscription ID. These values are all available on the workspace overview in the Azure portal. You'll use these values later in the tutorial to connect an Azure Notebooks file to your workspace resources.
 
 ## Create and deploy Azure Machine Learning module

@@ -10,9 +10,9 @@ ms.date: 09/22/2020
 ms.author: mbullwin
 ---
 
-Get started with the Anomaly Detector client library for .NET. Follow these steps to install the package start using the algorithms provided by the service. The Anomaly Detector service enables you to find abnormalities in your time series data by automatically using the best-fitting models on it, regardless of industry, scenario, or data volume.
+Get started with the Anomaly Detector client library for C#. Follow these steps to install the package start using the algorithms provided by the service. The Anomaly Detector service enables you to find abnormalities in your time series data by automatically using the best-fitting models on it, regardless of industry, scenario, or data volume.
 
-Use the Anomaly Detector client library for .NET to:
+Use the Anomaly Detector client library for C# to:
 
 * Detect anomalies throughout your time series data set, as a batch request
 * Detect the anomaly status of the latest data point in your time series

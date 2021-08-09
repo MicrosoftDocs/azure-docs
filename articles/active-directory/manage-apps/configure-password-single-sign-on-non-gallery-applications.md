@@ -2,19 +2,20 @@
 title: Understand password-based single sign-on (SSO) for apps in Azure Active Directory
 description: Understand password-based single sign-on (SSO) for apps in Azure Active Directory
 services: active-directory
-author: kenwith
-manager: daveba
+author: davidmu1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.author: kenwith
+ms.author: davidmu
+ms.reviewer: ergreenl
 ---
 
 # Understand password-based single sign-on
 
-In the [quickstart series](view-applications-portal.md) on application management, you learned how to use Azure AD as the Identity Provider (IdP) for an application. In the quickstart guide, you configure SAML-based or OIDC-based SSO. Another option is password-based SSO. This article goes into more detail about the password-based SSO option. 
+In the [quickstart series](view-applications-portal.md) on application management, you learned how to use Azure AD as the Identity Provider (IdP) for an application. In the quickstart guide, you configure SAML-based or OIDC-based SSO. Another option is password-based SSO. This article goes into more detail about the password-based SSO option.
 
 This option is available for any website with an HTML sign-in page. Password-based SSO is also known as password vaulting. Password-based SSO enables you to manage user access and passwords to web applications that don't support identity federation. It's also useful where several users need to share a single account, such as to your organization's social media app accounts.
 
@@ -28,21 +29,20 @@ Password-based SSO is a great way to get started integrating applications into A
 
 - Allow your users to provide their own usernames and passwords for any existing application accounts they're typing in manually.
 
-- Allow a member of the business group to specify the usernames and passwords assigned to a user by using the [Self-Service Application Access](./manage-self-service-access.md) feature
+- Allow a member of the business group to specify the usernames and passwords assigned to a user by using the [Self-Service Application Access](./manage-self-service-access.md) feature.
 
--   Allow an administrator to specify a username and password to be used by individuals or groups when they sign in to the application with the Update Credentials feature 
+- Allow an administrator to specify a username and password to be used by individuals or groups when they sign in to the application with the Update Credentials feature.
 
 ## Before you begin
 
 Using Azure AD as your Identity Provider (IdP) and configuring single sign-on (SSO) can be simple or complex depending on the application being used. Some applications can be configured with just a few actions. Others require in-depth configuration. To ramp knowledge quickly, walk through the [quickstart series](view-applications-portal.md) on application management. If the application you're adding is simple, then you probably don't need to read this article. If the application you're adding requires custom configuration and you need to use password-based SSO, then this article is for you.
 
-> [!IMPORTANT] 
-> There are some scenarios where the **Single sign-on** option will not be in the navigation for an application in **Enterprise applications**. 
+> [!IMPORTANT]
+> There are some scenarios where the **Single sign-on** option will not be in the navigation for an application in **Enterprise applications**.
 >
-> If the application was registered using **App registrations** then the single sign-on capability is configured to use OIDC OAuth by default. In this case, the **Single sign-on** option won't show in the navigation under **Enterprise applications**. When you use **App registrations** to add your custom app, you configure options in the manifest file. To learn more about the manifest file, see [Azure Active Directory app manifest](../develop/reference-app-manifest.md). To learn more about SSO standards, see [Authentication and authorization using Microsoft identity platform](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-the-microsoft-identity-platform). 
+> If the application was registered using **App registrations** then the single sign-on capability is configured to use OIDC OAuth by default. In this case, the **Single sign-on** option won't show in the navigation under **Enterprise applications**. When you use **App registrations** to add your custom app, you configure options in the manifest file. To learn more about the manifest file, see [Azure Active Directory app manifest](../develop/reference-app-manifest.md). To learn more about SSO standards, see [Authentication and authorization using Microsoft identity platform](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-the-microsoft-identity-platform).
 >
 > Other scenarios where **Single sign-on** will be missing from the navigation include when an application is hosted in another tenant or if your account does not have the required permissions (Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal). Permissions can also cause a scenario where you can open **Single sign-on** but won't be able to save. To learn more about Azure AD administrative roles, see (https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
-
 
 ## Basic configuration
 
@@ -54,15 +54,13 @@ In the [quickstart series](view-applications-portal.md), you learned how to add 
 The configuration page for password-based SSO is simple. It includes only the URL of the sign-on page that the app uses. This string must be the page that includes the username input field.
 
 After you enter the URL, select **Save**. Azure AD parses the HTML of the sign-in page for username and password input fields. If the attempt succeeds, you're done.
- 
 Your next step is to [Assign users or groups to the application](./assign-user-or-group-access-portal.md). After you've assigned users and groups, you can provide credentials to be used for a user when they sign in to the application. Select **Users and groups**, select the checkbox for the user's or group's row, and then select **Update Credentials**. Finally, enter the username and password to be used for the user or group. If you don't, users will be prompted to enter the credentials themselves upon launch.
- 
 
 ## Manual configuration
 
 If Azure AD's parsing attempt fails, you can configure sign-on manually.
 
-1. Under **\<application name> Configuration**, select **Configure \<application name> Password Single Sign-on Settings** to display the **Configure sign-on** page. 
+1. Under **\<application name> Configuration**, select **Configure \<application name> Password Single Sign-on Settings** to display the **Configure sign-on** page.
 
 2. Select **Manually detect sign-in fields**. Additional instructions describing the manual detection of sign-in fields appear.
 

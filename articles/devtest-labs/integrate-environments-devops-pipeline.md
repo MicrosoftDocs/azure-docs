@@ -21,8 +21,8 @@ This section describes how to create and configure a lab where the Azure environ
 
 1. [Create a lab](devtest-lab-create-lab.md) if you don't already have one. 
 2. Configure the lab and create an environment template by following instructions from this article: [Create multi-VM environments and PaaS resources with Azure Resource Manager templates](devtest-lab-create-environment-from-arm.md).
-3. For this example, use an existing Azure Quickstart Template [https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/](https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/).
-4. Copy the **201-web-app-redis-cache-sql-database** folder into the **ArmTemplate** folder in the repository configured in the step 2.
+3. For this example, use an existing Azure Quickstart Template [https://azure.microsoft.com/resources/templates/web-app-redis-cache-sql-database](https://azure.microsoft.com/resources/templates/web-app-redis-cache-sql-database).
+4. Copy the **web-app-redis-cache-sql-database** folder into the **ArmTemplate** folder in the repository configured in the step 2.
 
 ## Create a release definition
 To create the release definition, do the following:

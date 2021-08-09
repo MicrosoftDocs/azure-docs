@@ -1,13 +1,13 @@
 ---
 title: 'Scenario: Route traffic through a Network Virtual Appliance (NVA)'
 titleSuffix: Azure Virtual WAN
-description: Route traffic through an NVA
+description: Learn about Virtual WAN routing scenarios to route traffic through a Network Virtual Appliance (NVA).
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 
@@ -42,7 +42,7 @@ The following connectivity matrix, summarizes the flows supported in this scenar
 | **Non-NVA VNets**| &#8594; | Over NVA VNet | Direct | Direct | Direct |
 | **Branches**     | &#8594; | Over NVA VNet | Direct | Direct | Direct |
 
-Each of the cells in the connectivity matrix describes how a VNet or branch (the "From" side of the flow, the row headers in the table) communicates with a destination VNet or branch (the "To" side of the flow, the column headers in italics in the table). "Direct" means that connectivity is provided natively by Virtual WAN, "Peering" means that connectivity is provided by a User-Defined Route int he VNet, "Over NVA VNet" means that the connectivity traverses the NVA deployed in the NVA VNet. Consider the following:
+Each of the cells in the connectivity matrix describes how a VNet or branch (the "From" side of the flow, the row headers in the table) communicates with a destination VNet or branch (the "To" side of the flow, the column headers in italics in the table). "Direct" means that connectivity is provided natively by Virtual WAN, "Peering" means that connectivity is provided by a User-Defined Route in the VNet, "Over NVA VNet" means that the connectivity traverses the NVA deployed in the NVA VNet. Consider the following:
 
 * NVA Spokes are not managed by Virtual WAN. As a result, the mechanisms with which they will communicate to other VNets or branches are maintained by the user. Connectivity to the NVA VNet is provided by a VNet peering, and a Default route to 0.0.0.0/0 pointing to the NVA as next hop should cover connectivity to the Internet, to other spokes, and to branches
 * NVA VNets will know about their own NVA spokes, but not about NVA spokes connected to other NVA VNets. For example, in the Figure 2 further down in this article, VNet 2 knows about VNet 5 and VNet 6, but not about other spokes such as VNet 7 and VNet 8. A static route is required to inject other spokes' prefixes into NVA VNets

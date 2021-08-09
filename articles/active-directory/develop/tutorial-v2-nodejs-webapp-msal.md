@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Sign-in users in a Node.js & Express web app | Azure"
+title: "Tutorial: Sign in users in a Node.js & Express web app | Azure"
 titleSuffix: Microsoft identity platform
 description: In this tutorial, you add support for signing-in users in a web app.
 services: active-directory
@@ -13,7 +13,7 @@ ms.date: 02/17/2021
 ms.author: v-doeris
 ---
 
-# Tutorial: Sign-in users in a Node.js & Express web app
+# Tutorial: Sign in users in a Node.js & Express web app
 
 In this tutorial, you build a web app that signs-in users. The web app you build uses the [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node).
 

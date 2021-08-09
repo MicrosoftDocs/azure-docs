@@ -4,7 +4,7 @@ description: Learn how to configure function app settings in Azure Functions.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.custom: cc996988-fb4f-47, devx-track-azurecli
+ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Manage your function app 
@@ -42,14 +42,14 @@ To add a setting in the portal, select **New application setting** and add the n
 
 # [Azure CLI](#tab/azurecli)
 
-The [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) command returns the existing application settings, as in the following example:
+The [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_list) command returns the existing application settings, as in the following example:
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <FUNCTION_APP_NAME> \
 --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-The [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command adds or updates an application setting. The following example creates a setting with a key named `CUSTOM_FUNCTION_APP_SETTING` and a value of `12345`:
+The [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) command adds or updates an application setting. The following example creates a setting with a key named `CUSTOM_FUNCTION_APP_SETTING` and a value of `12345`:
 
 
 ```azurecli-interactive
@@ -78,7 +78,7 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 
 [!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
-When you develop a function app locally, you must maintain local copies of these values in the local.settings.json project file. To learn more, see [Local settings file](functions-run-local.md#local-settings-file).
+When you develop a function app locally, you must maintain local copies of these values in the local.settings.json project file. To learn more, see [Local settings file](functions-develop-local.md#local-settings-file).
 
 ## Hosting plan type
 
@@ -256,7 +256,7 @@ When you configure the **Allowed origins** list for your function app, the `Acce
 
 When the wildcard (`*`) is used, all other domains are ignored. 
 
-Use the [`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add) command to add a domain to the allowed origins list. The following example adds the contoso.com domain:
+Use the [`az functionapp cors add`](/cli/azure/functionapp/cors#az_functionapp_cors_add) command to add a domain to the allowed origins list. The following example adds the contoso.com domain:
 
 ```azurecli-interactive
 az functionapp cors add --name <FUNCTION_APP_NAME> \
@@ -264,7 +264,7 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 --allowed-origins https://contoso.com
 ```
 
-Use the [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) command to list the current allowed origins.
+Use the [`az functionapp cors show`](/cli/azure/functionapp/cors#az_functionapp_cors_show) command to list the current allowed origins.
 
 ### <a name="auth"></a>Authentication
 

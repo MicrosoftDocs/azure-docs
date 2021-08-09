@@ -3,7 +3,7 @@ title: How to disable functions in Azure Functions
 description: Learn how to disable and enable functions in Azure Functions.
 ms.topic: conceptual
 ms.date: 03/15/2021 
-ms.custom: "devx-track-csharp, devx-track-azurecli"
+ms.custom: "devx-track-csharp, devx-track-azurepowershell"
 ---
 
 # How to disable functions in Azure Functions
@@ -11,9 +11,6 @@ ms.custom: "devx-track-csharp, devx-track-azurecli"
 This article explains how to disable a function in Azure Functions. To *disable* a function means to make the runtime ignore the automatic trigger that's defined for the function. This lets you prevent a specific function from running without stopping the entire function app.
 
 The recommended way to disable a function is with an app setting in the format `AzureWebJobs.<FUNCTION_NAME>.Disabled` set to `true`. You can create and modify this application setting in a number of ways, including by using the [Azure CLI](/cli/azure/) and from your function's **Overview** tab in the [Azure portal](https://portal.azure.com). 
-
-> [!NOTE]  
-> When you disable an HTTP triggered function by using the methods described in this article, the endpoint may still by accessible when running on your local computer.  
 
 ## Disable a function
 
@@ -30,7 +27,7 @@ Even when you publish to your function app from a local project, you can still u
 
 # [Azure CLI](#tab/azurecli)
 
-In the Azure CLI, you use the [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command to create and modify the app setting. The following command disables a function named `QueueTrigger` by creating an app setting named `AzureWebJobs.QueueTrigger.Disabled` and setting it to `true`. 
+In the Azure CLI, you use the [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) command to create and modify the app setting. The following command disables a function named `QueueTrigger` by creating an app setting named `AzureWebJobs.QueueTrigger.Disabled` and setting it to `true`. 
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
@@ -169,6 +166,13 @@ In the second example, the function is disabled when there is an app setting tha
 >[!IMPORTANT]  
 >The portal uses application settings to disable v1.x functions. When an application setting conflicts with the function.json file, an error can occur. You should remove the `disabled` property from the function.json file to prevent errors. 
 
+## Considerations
+
+Keep the following considerations in mind when you disable functions:
+
++ When you disable an HTTP triggered function by using the methods described in this article, the endpoint may still by accessible when running on your local computer.  
+
++ At this time, function names that contain a hyphen (`-`) can't be disabled when running on Linux in a Dedicated (App Service) plan. If you need to disable your functions when running on Linux in a Dedicated plan, don't use hyphens in your function names.
 
 ## Next steps
 

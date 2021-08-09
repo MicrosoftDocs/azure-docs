@@ -18,12 +18,12 @@ ms.collection: M365-identity-device-management
 
 # AD FS sign-ins in Azure AD with Connect Health - preview
 
-AD FS sign-ins can now be integrated into the Azure Active Directory sign-ins report by using Connect Health. The [Azure AD sign-ins Report](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-all-sign-ins#:~:text=Interactive%20user%20sign-ins%20are%20sign-ins%20where%20a%20user,to%20Azure%20AD%20or%20to%20a%20helper%20app.) report includes information about when users, applications, and managed resources sign in to Azure AD and access resources. 
+AD FS sign-ins can now be integrated into the Azure Active Directory sign-ins report by using Connect Health. The [Azure AD sign-ins Report](../reports-monitoring/concept-all-sign-ins.md) report includes information about when users, applications, and managed resources sign in to Azure AD and access resources. 
 
 The Connect Health for AD FS agent correlates multiple Event IDs from AD FS, dependent on the server version, to provide information about the request and error details if the request fails. This information is correlated to the Azure AD sign-ins report schema and displayed in the Azure AD Sign-In Report UX. Alongside the report, a new Log Analytics stream is available with the AD FS data and a new Azure Monitor Workbook template. The template can be used and modified for an in-depth analysis for scenarios such as AD FS account lockouts, bad password attempts, and spikes of unexpected sign-in attempts.
 
 ## Prerequisites
-* Azure AD Connect Health for AD FS installed and upgraded to latest version.
+* Azure AD Connect Health for AD FS installed and upgraded to latest version (3.1.95.0 or later).
 * Global administrator or reports reader role to view the Azure AD sign-ins
 
 ## What data is displayed in the report?
@@ -101,6 +101,9 @@ The Azure AD Connect Health agent for AD FS correlates event IDs from AD FS depe
 ***Why do I see NotSet or NotApplicable in the Application ID/Name for some AD FS sign-ins?***
 The AD FS Sign-In Report will display OAuth Ids in the Application ID field for OAuth sign-ins. In the WS-Fed, WS-Trust sign-in scenarios, the application ID will be NotSet or NotApplicable and the Resource IDs and Relying Party identifiers will be present in the Resource ID field.
 
+***Why do I see Resource ID and Resource Name fields as "Not Set"?***
+The ResourceId/Name fields will be "NotSet" in some error cases, such as "Username and Password incorrect" and in WSTrust based failed sign-ins.
+
 ***Are there any more known issues with the report in preview?***
 The report has a known issue where the "Authentication Requirement" field in the "Basic Info" tab will be populated as a single factor authentication value for AD FS sign-ins regardless of the sign-in. Additionally, the Authentication Details tab will display "Primary or Secondary" under the Requirement field, with a fix in progress to differentiate Primary or Secondary authentication types.
 
@@ -109,8 +112,3 @@ The report has a known issue where the "Authentication Requirement" field in the
 * [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Azure AD Connect Health Agent Installation](how-to-connect-health-agent-install.md)
 * [Risky IP report](how-to-connect-health-adfs-risky-ip.md)
-
-
-
-
-

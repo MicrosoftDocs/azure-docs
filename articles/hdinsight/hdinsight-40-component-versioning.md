@@ -3,8 +3,6 @@ title: Apache Hadoop components and versions - Azure HDInsight 4.0
 description: Learn about the Apache Hadoop components and versions in Azure HDInsight 4.0.
 ms.service: hdinsight
 ms.topic: conceptual
-author: deshriva
-ms.author: deshriva
 ms.date: 02/08/2021
 ---
 
@@ -28,9 +26,9 @@ The OSS component versions associated with HDInsight 4.0 are listed in the follo
 | Apache Oozie           | 4.3.1         |
 | Apache Zookeeper       | 3.4.6         |
 | Apache Phoenix         | 5             |
-| Apache Spark           | 2.4.4         |
+| Apache Spark           | 2.4.4, 3.0.0(Preview)|
 | Apache Livy            | 0.5           |
-| Apache Kafka           | 2.1.1         |
+| Apache Kafka           | 2.1.1, 2.4.1(Preview)        |
 | Apache Ambari          | 2.7.0         |
 | Apache Zeppelin        | 0.8.0         |
 | Mono                   | 4.2.1         |

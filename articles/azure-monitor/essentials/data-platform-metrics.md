@@ -9,7 +9,7 @@ manager: carmonm
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2019
+ms.date: 04/27/2021
 ms.author: bwren
 ---
 
@@ -24,13 +24,13 @@ Azure Monitor Metrics is a feature of Azure Monitor that collects numeric data f
 ## What can you do with Azure Monitor Metrics?
 The following table lists the different ways that you can use Metrics in Azure Monitor.
 
-|  |  |
+|  | Description |
 |:---|:---|
 | **Analyze** | Use [metrics explorer](metrics-charts.md) to analyze collected metrics on a chart and compare metrics from different resources. |
 | **Alert** | Configure a [metric alert rule](../alerts/alerts-metric.md) that sends a notification or takes [automated action](../alerts/action-groups.md) when the metric value crosses a threshold. |
 | **Visualize** | Pin a chart from metrics explorer to an [Azure dashboard](../app/tutorial-app-dashboards.md).<br>Create a [workbook](../visualize/workbooks-overview.md) to combine with multiple sets of data in an interactive report.Export the results of a query to [Grafana](../visualize/grafana-plugin.md) to leverage its dashboarding and combine with other data sources. |
 | **Automate** |  Use [Autoscale](../autoscale/autoscale-overview.md) to increase or decrease resources based on a metric value crossing a threshold. |
-| **Retrieve** | Access metric values from a command line using  [PowerShell cmdlets](/powershell/module/az.applicationinsights)<br>Access metric values from custom application using [REST API](./rest-api-walkthrough.md).<br>Access metric values from a command line using  [CLI](/cli/azure/monitor/metrics). |
+| **Retrieve** | Access metric values from a command line using  [PowerShell cmdlets](/powershell/module/az.monitor)<br>Access metric values from custom application using [REST API](./rest-api-walkthrough.md).<br>Access metric values from a command line using  [CLI](/cli/azure/monitor/metrics). |
 | **Export** | [Route Metrics to Logs](./resource-logs.md#send-to-azure-storage) to analyze data in Azure Monitor Metrics together with data in Azure Monitor Logs and to store metric values for longer than 93 days.<br>Stream Metrics to an [Event Hub](./stream-monitoring-data-event-hubs.md) to route them to external systems. |
 | **Archive** | [Archive](./platform-logs-overview.md) the performance or health history of your resource for compliance, auditing, or offline reporting purposes. |
 
@@ -97,21 +97,42 @@ This non-dimensional metric can only answer a basic question like "what was my n
 
 This metric can answer questions such as "what was the network throughput for each IP address?", and "how much data was sent versus received?" Multi-dimensional metrics carry additional analytical and diagnostic value compared to non-dimensional metrics.
 
+### View multi-dimensional performance counter metrics in metrics explorer 
+It is not possible to send performance counter metrics that contain an asterisk (\*) to Azure Monitor via the Classic Guest Metrics API. This API cannot display metrics that contain an asterisk because it is a multi-dimensional metric, which Classic metrics do not support.
+Below are the instructions on how to configure and view multi-dimensional performance counter metrics:
+1.	Go to the diagnostic settings page for your Virtual Machine
+2.	Select the “Performance counters” tab. 
+3.	Click on “Custom” to configure the performance counters you would like to collect.
+![Screenshot of performance counters section of diagnostic setting page](media/data-platform-metrics/azure-monitor-perf-counter.png)
+
+4.	After you have configured your performance counters, click on “Sinks”. Then select enable to send your data to Azure Monitor.
+![Screenshot of sinks section of diagnostic setting page](media/data-platform-metrics/azure-monitor-sink.png)
+
+5.	To view your metric in Azure Monitor, select “Virtual Machine Guest” in the metric namespace dropdown.
+![Screenshot of metric namespace](media/data-platform-metrics/vm-guest-namespace.png)
+
+6.	Split metric by instance to see the metric broken down by each of the possible values represented by the "\*" in the configuration.  In this example, the "\*" represents the different logical disk volumes plus the total.
+![Screenshot of splitting metric by instance](media/data-platform-metrics/split-by-instance.png)
+
+
+
 ## Retention of Metrics
-For most resources in Azure, metrics are stored for 93 days. There are some exceptions:
+For most resources in Azure, platform metrics are stored for 93 days. There are some exceptions:
 
 **Guest OS metrics**
--	**Classic guest OS metrics**. These are performance counters collected by the [Windows Diagnostic Extension (WAD)](../agents/diagnostics-extension-overview.md) or the [Linux Diagnostic Extension (LAD)](../../virtual-machines/extensions/diagnostics-linux.md) and routed to an Azure storage account. Retention for these metrics is 14 days.
--	**Guest OS metrics sent to Azure Monitor Metrics**. These are performance counters collected by the [Windows Diagnostic Extension (WAD)](../agents/diagnostics-extension-overview.md) and sent to the [Azure Monitor data sink](../agents/diagnostics-extension-overview.md#data-destinations), or via the [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/) on Linux machines. Retention for these metrics is 93 days.
--	**Guest OS metrics collected by Log Analytics agent**. These are performance counters collected by the Log Analytics agent and sent to a Log Analytics workspace. Retention for these metrics is 31 days, and can be extended up to 2 years.
+-	**Classic guest OS metrics** - 14 days and sometimes more. These are performance counters collected by the [Windows Diagnostic Extension (WAD)](../agents/diagnostics-extension-overview.md) or the [Linux Diagnostic Extension (LAD)](../../virtual-machines/extensions/diagnostics-linux.md) and routed to an Azure storage account. Retention for these metrics is guaranteed to be at least 14 days, though no actual expiration date is written to the storage account. For performance reasons, the portal limits how much data it displays based on volume. Therefore, the actual number of days retrieved by the portal can be longer than 14 days if the volume of data being written is not very large.  
+-	**Guest OS metrics sent to Azure Monitor Metrics** - 93 days. These are performance counters collected by the [Windows Diagnostic Extension (WAD)](../agents/diagnostics-extension-overview.md) and sent to the [Azure Monitor data sink](../agents/diagnostics-extension-overview.md#data-destinations), or the [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/) on Linux machines, or the newer [Azure Monitor Agent](../agents/azure-monitor-agent-overview.md) (AMA) via data collection rules. Retention for these metrics is 93 days.
+-	**Guest OS metrics collected by Log Analytics agent** - 31 days to 2 years. These are performance counters collected by the Log Analytics agent and sent to a Log Analytics workspace. Retention for these metrics is 31 days, and can be extended up to 2 years.
 
-**Application Insights log-based metrics**. 
-- Behind the scene, [log-based metrics](../app/pre-aggregated-metrics-log-metrics.md) translate into log queries. Their retention matches the retention of events in underlying logs. For Application Insights resources, logs are stored for 90 days.
+**Application Insights log-based metrics**. varies. - Behind the scene, [log-based metrics](../app/pre-aggregated-metrics-log-metrics.md) translate into log queries. Their retention matches the retention of events in underlying logs (31 days to 2 years). For Application Insights resources, logs are stored for 90 days.
 
 
 > [!NOTE]
 > You can [send platform metrics for Azure Monitor resources to a Log Analytics workspace](./resource-logs.md#send-to-azure-storage) for long term trending.
 
+
+> [!NOTE]
+> As mentioned above, for most resources in Azure, platform metrics are stored for 93 days. However, you can only query (in Metrics tile) for no more than 30 days worth of data on any single chart. This limitation doesn't apply to log-based metrics. In case you see a blank chart or your chart only displays part of metric data, verify the difference between start and end dates in the time picker doesn't exceed the 30-day interval. Once you have selected a 30 day interval, you can [pan](./metrics-charts.md#pan) the chart to view the full retention window.
 
 
 

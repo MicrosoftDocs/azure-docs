@@ -1,8 +1,8 @@
 ---
 title: Overview of features - Azure Event Hubs | Microsoft Docs
 description: This article provides details about features and terminology of Azure Event Hubs. 
-ms.topic: article
-ms.date: 03/15/2021
+ms.topic: overview
+ms.date: 08/03/2021
 ---
 
 # Features and terminology in Azure Event Hubs
@@ -20,7 +20,9 @@ This article builds on the information in the [overview article](./event-hubs-ab
 
 
 ## Namespace
-An Event Hubs namespace provides DNS integrated network endpoints and a range of access control and network integration management features such as [IP filtering](event-hubs-ip-filtering.md), [virtual network service endpoint](event-hubs-service-endpoints.md), and [Private Link](private-link-service.md) and is the management container for one of multiple Event Hub instances (or topics, in Kafka parlance).
+An Event Hubs namespace is a management container for event hubs (or topics, in Kafka parlance). It provides DNS integrated network endpoints and a range of access control and network integration management features such as [IP filtering](event-hubs-ip-filtering.md), [virtual network service endpoint](event-hubs-service-endpoints.md), and [Private Link](private-link-service.md) and 
+
+:::image type="content" source="./media/event-hubs-features/namespace.png" alt-text="Image showing an Event Hubs namespace":::
 
 ## Event publishers
 
@@ -46,7 +48,7 @@ Published events are removed from an Event Hub based on a configurable, timed-ba
 
 - The **default** value and **shortest** possible retention period is **1 day (24 hours)**.
 - For Event Hubs **Standard**, the maximum retention period is **7 days**. 
-- For Event Hubs **Dedicated**, the maximum retention period is **90 days**.
+- For Event Hubs  **Premium** and **Dedicated**, the maximum retention period is **90 days**.
 - If you change the retention period, it applies to all messages including messages that are already in the event hub. 
 
 Event Hubs retains events for a configured retention time that applies across
@@ -97,8 +99,14 @@ You don't have to create publisher names ahead of time, but they must match the 
 
 [Event Hubs Capture](event-hubs-capture-overview.md) enables you to automatically capture the streaming data in Event Hubs and save it to your choice of either a Blob storage account, or an Azure Data Lake Service account. You can enable Capture from the Azure portal, and specify a minimum size and time window to perform the capture. Using Event Hubs Capture, you specify your own Azure Blob Storage account and container, or Azure Data Lake Service account, one of which is used to store the captured data. Captured data is written in the Apache Avro format.
 
+:::image type="content" source="./media/event-hubs-features/capture.png" alt-text="Image showing capturing of Event Hubs data into Azure Storage or Azure Data Lake Storage":::
+
+The files produced by Event Hubs Capture have the following Avro schema:
+
+:::image type="content" source="./media/event-hubs-capture-overview/event-hubs-capture3.png" alt-text="Image showing the structure of captured data":::
+
 ## Partitions
-[!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
+[!INCLUDE [event-hubs-partitions](./includes/event-hubs-partitions.md)]
 
 
 ## SAS tokens
@@ -113,7 +121,7 @@ Any entity that reads event data from an event hub is an *event consumer*. All E
 
 The publish/subscribe mechanism of Event Hubs is enabled through *consumer groups*. A consumer group is a view (state, position, or offset) of an entire event hub. Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets.
 
-In a stream processing architecture, each downstream application equates to a consumer group. If you want to write event data to long-term storage, then that storage writer application is a consumer group. Complex event processing can then be performed by another, separate consumer group. You can only access partitions through a consumer group. There is always a default consumer group in an event hub, and you can create up to 20 consumer groups for a Standard tier event hub.
+In a stream processing architecture, each downstream application equates to a consumer group. If you want to write event data to long-term storage, then that storage writer application is a consumer group. Complex event processing can then be performed by another, separate consumer group. You can only access partitions through a consumer group. There is always a default consumer group in an event hub, and you can create up to the [maximum number of consumer groups](event-hubs-quotas.md) for the corresponding pricing tier. 
 
 There can be at most 5 concurrent readers on a partition per consumer group; however **it is recommended that there is only one active receiver on a partition per consumer group**. Within a single partition, each reader receives all of the messages. If you have multiple readers on the same partition, then you process duplicate messages. You need to handle this in your code, which may not be trivial. However, it's a valid approach in some scenarios.
 
@@ -149,7 +157,7 @@ If a reader disconnects from a partition, when it reconnects it begins reading a
 > If you are using Azure Blob Storage as the checkpoint store in an environment that supports a different version of Storage Blob SDK than those typically available on Azure, you'll need to use code to change the Storage service API version to the specific version supported by that environment. For example, if you are running [Event Hubs on an Azure Stack Hub version 2002](/azure-stack/user/event-hubs-overview), the highest available version for the Storage service is version 2017-11-09. In this case, you need to use code to target the Storage service API version to 2017-11-09. For an example on how to target a specific Storage API version, see these samples on GitHub: 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
-> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) or  [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
+> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/javascript) or  [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/typescript)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/)
 
 ### Common consumer tasks
@@ -161,7 +169,7 @@ All Event Hubs consumers connect via an AMQP 1.0 session, a state-aware bidirect
 When connecting to partitions, it's common practice to use a leasing mechanism to coordinate reader connections to specific partitions. This way, it's possible for every partition in a consumer group to have only one active reader. Checkpointing, leasing, and managing readers are simplified by using the clients within the Event Hubs SDKs, which act as intelligent consumer agents. These are:
 
 - The [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) for .NET
-- The [EventProcessorClient](/java/api/com.azure.messaging.eventhubs.eventprocessorclient) for Java
+- The [EventProcessorClient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/main/java/com/azure/messaging/eventhubs/EventProcessorClient.java) for Java
 - The [EventHubConsumerClient](/python/api/azure-eventhub/azure.eventhub.aio.eventhubconsumerclient) for Python
 - The [EventHubConsumerClient](/javascript/api/@azure/event-hubs/eventhubconsumerclient) for JavaScript/TypeScript
 
@@ -189,5 +197,5 @@ For more information about Event Hubs, visit the following links:
     - [JavaScript](event-hubs-node-get-started-send.md)
 * [Event Hubs programming guide](event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
+* [Event Hubs FAQ](event-hubs-faq.yml)
 * [Event Hubs samples](event-hubs-samples.md)

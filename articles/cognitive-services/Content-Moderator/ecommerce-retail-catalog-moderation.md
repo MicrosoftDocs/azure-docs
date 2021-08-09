@@ -13,10 +13,12 @@ ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
 
-#As a developer at an e-commerce company, I want to use machine learning to both categorize product images and tag objectionable images for further review by my team.
+#Customer intent: As a developer at an e-commerce company, I want to use machine learning to both categorize product images and tag objectionable images for further review by my team.
 ---
 
 # Tutorial: Moderate e-commerce product images with Azure Content Moderator
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 In this tutorial, you'll learn how to use Azure Cognitive Services, including Content Moderator, to classify and moderate product images for an e-commerce scenario. You'll use Computer Vision and Custom Vision to apply tags (labels) to images, and then you'll create a team review, which combines Content Moderator's machine-learning-based technologies with human review teams to provide an intelligent moderation system.
 

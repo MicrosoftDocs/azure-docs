@@ -59,6 +59,8 @@ Sign in to the [Azure portal](https://portal.azure.com) if you haven't already.
 
 	![Screenshot showing how to copy the IP address for the virtual machine](./media/quick-create-portal/ip-address.png)
 
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+
 ## Connect to virtual machine
 
 Create an SSH connection with the VM.

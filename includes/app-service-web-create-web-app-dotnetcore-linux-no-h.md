@@ -5,9 +5,9 @@ services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: "include"
-ms.date: 04/22/2020
+ms.date: 04/29/2021
 ms.author: cephalin
-ms.custom: "include file"
+ms.custom: "include file, devx-track-azurecli"
 ---
 
 Create a [web app](../articles/app-service/overview.md#app-service-on-linux) in the `myAppServicePlan` App Service plan. 
@@ -24,7 +24,7 @@ az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --
 When the web app has been created, the Azure CLI shows output similar to the following example:
 
 <pre>
-Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git'
+Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git'
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -32,14 +32,14 @@ Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebs
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app-name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git",
+  "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git",
   "enabled": true,
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
 }
 </pre>
 
-You’ve created an empty web app in a Linux container, with git deployment enabled.
+You've created an empty web app in a Linux container, with git deployment enabled.
 
 > [!NOTE]
 > The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Save this URL as you need it later.

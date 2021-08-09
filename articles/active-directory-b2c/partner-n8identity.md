@@ -40,7 +40,7 @@ To get started, you'll need:
 
 - [Optional] Connection and credential information for any databases or Lightweight Directory Access Protocols (LDAPs) you want to migrate customer data from.
 
-- [Optional] Configured Azure AD B2C environment for using [custom policies](./custom-policy-get-started.md), if you wish to integrate TheAccessHub Admin Tool into your sign-up policy flow.
+- [Optional] Configured Azure AD B2C environment for using [custom policies](./tutorial-create-user-flows.md?pivots=b2c-custom-policy), if you wish to integrate TheAccessHub Admin Tool into your sign-up policy flow.
 
 ## Scenario description
 
@@ -354,7 +354,7 @@ To synchronize data from Azure AD B2C into TheAccessHub Admin Tool:
 
 ## Configure Azure AD B2C policies
 
-Occasionally syncing TheAccessHub Admin Tool is limited in its ability to keep its state up to date with Azure AD B2C. We can leverage TheAccessHub Admin Tool’s API and Azure AD B2C policies to inform TheAccessHub Admin Tool of changes as they happen. This solution requires technical knowledge of [Azure AD B2C custom policies](./custom-policy-get-started.md). In the next section, we'll  give you an example policy steps and a secure certificate to notify TheAccessHub Admin Tool of new accounts in your Sign-Up custom policies.
+Occasionally syncing TheAccessHub Admin Tool is limited in its ability to keep its state up to date with Azure AD B2C. We can leverage TheAccessHub Admin Tool’s API and Azure AD B2C policies to inform TheAccessHub Admin Tool of changes as they happen. This solution requires technical knowledge of [Azure AD B2C custom policies](./user-flow-overview.md). In the next section, we'll  give you an example policy steps and a secure certificate to notify TheAccessHub Admin Tool of new accounts in your Sign-Up custom policies.
 
 ### Create a secure credential to invoke TheAccessHub Admin Tool’s API
 
@@ -382,7 +382,7 @@ Occasionally syncing TheAccessHub Admin Tool is limited in its ability to keep i
 
 5. Select **Download** to get a zip file with basic policies that add customers into TheAccessHub Admin Tool as customers sign up.
 
-6. Follow this [tutorial](./custom-policy-get-started.md) to get started with designing custom policies in Azure AD B2C.
+6. Follow this [tutorial](./tutorial-create-user-flows.md?pivots=b2c-custom-policy) to get started with designing custom policies in Azure AD B2C.
 
 ## Next steps
 
@@ -390,4 +390,4 @@ For additional information, review the following articles:
 
 - [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

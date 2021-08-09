@@ -22,11 +22,6 @@ In this quickstart, you download and run a code sample that demonstrates how a J
 
 See [How the sample works](#how-the-sample-works) for an illustration.
 
-This quickstart uses MSAL React with the authorization code flow. For a similar quickstart that uses MSAL.js with the implicit flow, see [Quickstart: Sign in users in JavaScript single-page apps](./quickstart-v2-javascript.md).
-
-> [!IMPORTANT]
-> MSAL React [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
-
 ## Prerequisites
 
 * Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -40,7 +35,7 @@ This quickstart uses MSAL React with the authorization code flow. For a similar 
 >
 > ### Option 1 (Express): Register and auto configure your app and then download your code sample
 >
-> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
+> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/ReactSpaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 > 1. Enter a name for your application.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Select **Register**.

@@ -1,19 +1,19 @@
 ---
 title: Azure Policy extension for Visual Studio Code
 description: Learn how to use the Azure Policy extension for Visual Studio Code to look up Azure Resource Manager aliases.
-ms.date: 01/11/2021
+ms.date: 04/25/2021
 ms.topic: how-to
 ---
 # Use Azure Policy extension for Visual Studio Code
 
-> Applies to Azure Policy extension version **0.1.1** and newer
+> Applies to Azure Policy extension version **0.1.2** and newer
 
 Learn how to use the Azure Policy extension for Visual Studio Code to look up
-[aliases](../concepts/definition-structure.md#aliases), review resources and policies, export
-objects, and evaluate policy definitions. First, we'll describe how to install the Azure Policy
-extension in Visual Studio Code. Then we'll walk through how to look up aliases.
+[aliases](../concepts/definition-structure.md#aliases), review resources and policy definitions,
+export objects, and evaluate policy definitions. First, we'll describe how to install the Azure
+Policy extension in Visual Studio Code. Then we'll walk through how to look up aliases.
 
-The Azure Policy extension for Visual Studio Code can be installed on Windows.
+The Azure Policy extension for Visual Studio Code can be installed on Linux, Mac, and Windows.
 
 ## Prerequisites
 
@@ -45,8 +45,8 @@ For a national cloud user, follow these steps to set the Azure environment first
 ## Using the Policy extension
 
 > [!NOTE]
-> Changes made locally to policies viewed in the Azure Policy extension for Visual Studio Code
-> aren't synced to Azure.
+> Changes made locally to policy definitions viewed in the Azure Policy extension for Visual Studio
+> Code aren't synced to Azure.
 
 ### Connect to an Azure account
 
@@ -72,9 +72,9 @@ to connect to Azure from Visual Studio Code:
 
 ### Select subscriptions
 
-When you first sign in, only the default subscription resources and policies are loaded by the Azure
-Policy extension. To add or remove subscriptions from displaying resources and policies, follow
-these steps:
+When you first sign in, only the default subscription resources and policy definitions are loaded by
+the Azure Policy extension. To add or remove subscriptions from displaying resources and policy
+definitions, follow these steps:
 
 1. Start the subscription command from the Command Palette or the window footer.
 
@@ -121,7 +121,7 @@ resource with the following steps:
 
    - Command Palette:
 
-     From the menu bar, go to **View** > **Command Palette**, and enter **Resources: Search
+     From the menu bar, go to **View** > **Command Palette**, and enter **Azure Policy: Search
      Resources**.
 
 1. If more than one subscription is selected for display, use the filter to select which
@@ -151,13 +151,13 @@ matching aliases.
 > The VS Code extension only supports evaluation of Resource Manager mode properties. For more
 > information about the modes, see the [mode definitions](../concepts/definition-structure.md#mode).
 
-### Search for and view policies and assignments
+### Search for and view policy definitions and assignments
 
 The Azure Policy extension lists policy types and policy assignments as a treeview for the
 subscriptions selected to be displayed in the **Policies** pane. Customers with hundreds or
-thousands of policies or assignments in a single subscription may prefer a searchable way to locate
-their policies or assignments. The Azure Policy extension makes it possible to search for a specific
-policy or assignment with the following steps:
+thousands of policy definitions or assignments in a single subscription may prefer a searchable way
+to locate their policy definitions or assignments. The Azure Policy extension makes it possible to
+search for a specific policy or assignment with the following steps:
 
 1. Start the search interface from the Azure Policy extension or the Command Palette.
 
@@ -168,7 +168,7 @@ policy or assignment with the following steps:
 
    - Command Palette:
 
-     From the menu bar, go to **View** > **Command Palette**, and enter **Policies: Search
+     From the menu bar, go to **View** > **Command Palette**, and enter **Azure Policy: Search
      Policies**.
 
 1. If more than one subscription is selected for display, use the filter to select which
@@ -219,7 +219,9 @@ policy assignment.
 > [!NOTE]
 > For [AuditIfNotExists](../concepts/effects.md#auditifnotexists) or
 > [DeployIfNotExists](../concepts/effects.md#deployifnotexists) policy definitions, use the plus
-> icon in the **Evaluation** pane to select a _related_ resource for the existence check.
+> icon in the **Evaluation** pane or **Azure Policy: Select a resource for existence check (only
+> used for if-not-exists policies)** from the Command Palette to select a _related_ resource for the
+> existence check.
 
 The evaluation results provide information about the policy definition and policy assignment along
 with the **policyEvaluations.evaluationResult** property. The output looks similar to the following
@@ -257,6 +259,6 @@ From the menu bar, go to **View** > **Command Palette**, and then enter **Azure:
 - Review examples at [Azure Policy samples](../samples/index.md).
 - Review the [Azure Policy definition structure](../concepts/definition-structure.md).
 - Review [Understanding policy effects](../concepts/effects.md).
-- Understand how to [programmatically create policies](programmatically-create.md).
+- Understand how to [programmatically create policy definitions](programmatically-create.md).
 - Learn how to [remediate non-compliant resources](remediate-resources.md).
 - Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

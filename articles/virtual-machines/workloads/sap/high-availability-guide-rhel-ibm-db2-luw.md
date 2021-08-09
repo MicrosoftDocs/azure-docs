@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/16/2020
+ms.date: 04/27/2021
 ms.author: juergent
 
 ---
@@ -379,12 +379,12 @@ To configure Azure Load Balancer, we recommend that you use the [Azure Standard 
 
 **[A]** Add firewall rule for probe port:
 
-<pre><code>sudo firewall-cmd --add-port=<b><probe-port></b>/tcp --permanent
+<pre><code>sudo firewall-cmd --add-port=<b>&lt;probe-port&gt;</b>/tcp --permanent
 sudo firewall-cmd --reload</code></pre>
 
 ## Create the Pacemaker cluster
 	
-To create a basic Pacemaker cluster for this IBM Db2 server, see [Setting up Pacemaker on Red Hat Enterprise Linux in Azure][rhel-pcs-azr]. 
+To create a basic Pacemaker cluster for this IBM Db2 server, see [Setting up Pacemaker on Red Hat Enterprise Linux in Azure][rhel-pcs-azr]. 
 
 ## Db2 Pacemaker configuration
 

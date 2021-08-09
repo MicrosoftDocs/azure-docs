@@ -1,9 +1,9 @@
 ---
 title: Integrate Azure Key Vault with Azure Policy
 description: Learn how to integrate Azure Key Vault with Azure Policy
-author: ShaneBala-keyvault
-ms.author: sudbalas
-ms.date: 10/15/2020
+author: msmbaldwin
+ms.author: mbaldwin
+ms.date: 03/31/2021
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
@@ -31,7 +31,7 @@ Example Usage Scenarios:
 
 ## Available "Built-In" Policy Definitions
 
-Key Vault has created a set of policies, which can be used to manage key, certificate, and secret objects. These policies are 'Built-In', which means they don't require you to write any custom JSON to enable them and they are available in the Azure portal for you to assign. You can still customize certain parameters to fit your organization's needs.
+Key Vault has created a set of policies, which can be used to manage key vaults and its key, certificate, and secret objects. These policies are 'Built-In', which means they don't require you to write any custom JSON to enable them and they are available in the Azure portal for you to assign. You can still customize certain parameters to fit your organization's needs.
 
 # [Certificate Policies](#tab/certificates)
 
@@ -155,6 +155,20 @@ If a secret is too close to expiration, an organizational delay to rotate the se
 
 Manage your organizational compliance requirements by specifying the maximum amount of time in days that a secret can be valid within your key vault. Secrets that are valid longer than the threshold you set will be marked as non-compliant. You can also use this policy to block the creation of new secrets that have an expiration date set longer than the maximum validity period you specify.
 
+# [Key Vault Policies](#tab/keyvault)
+
+### Key Vault should use a virtual network service endpoint
+
+This policy audits any Key Vault not configured to use a virtual network service endpoint.
+
+### Resource logs in Key Vault should be enabled
+
+Audit enabling of resource logs. This enables you to recreate activity trails to use for investigation purposes when a security incident occurs or when your network is compromised
+
+### Key vaults should have purge protection enabled
+
+Malicious deletion of a key vault can lead to permanent data loss. A malicious insider in your organization can potentially delete and purge key vaults. Purge protection protects you from insider attacks by enforcing a mandatory retention period for soft deleted key vaults. No one inside your organization or Microsoft will be able to purge your key vaults during the soft delete retention period.
+
 ---
 
 ## Example Scenario
@@ -242,3 +256,4 @@ If the compliance results show up as "Not Started" it may be due to the followin
 
 - Learn more about the [Azure Policy service](../../governance/policy/overview.md)
 - See Key Vault samples: [Key Vault built-in policy definitions](../../governance/policy/samples/built-in-policies.md#key-vault)
+- Learn about [Azure Security Benchmark guidance on Key vault](/security/benchmark/azure/baselines/key-vault-security-baseline?source=docs#network-security)

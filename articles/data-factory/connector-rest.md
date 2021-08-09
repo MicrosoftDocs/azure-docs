@@ -1,18 +1,22 @@
 ---
-title: Copy data from and to a REST endpoint by using Azure Data Factory 
-description: Learn how to copy data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink by using a copy activity in an Azure Data Factory pipeline.
-author: linda33wj
+title: Copy data from and to a REST endpoint
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to copy data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink by using the copy activity in Azure Data Factory or Azure Synapse Analytics pipelines.
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/16/2021
-ms.author: jingwang
+ms.date: 07/27/2021
+ms.author: makromer
 ---
-# Copy data from and to a REST endpoint by using Azure Data Factory
+# Copy data from and to a REST endpoint using Azure Data Factory or Azure Synapse Analytics
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to a REST endpoint. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
+This article outlines how to use the Copy Activity in Azure Data Factory and Azure Synapse Analytics pipelines to copy data from and to a REST endpoint. The article builds on [Copy Activity in Azure Data Factory and Azure Synapse pipelines](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
-The difference among this REST connector, [HTTP connector](connector-http.md), and the [Web table connector](connector-web-table.md) are:
+The differences between this REST connector, [HTTP connector](connector-http.md), and the [Web table connector](connector-web-table.md) are:
 
 - **REST connector** specifically supports copying data from RESTful APIs; 
 - **HTTP connector** is generic to retrieve data from any HTTP endpoint, for example, to download file. Before this REST connector you may happen to use HTTP connector to copy data from RESTful API, which is supported but less functional comparing to REST connector.
@@ -30,17 +34,17 @@ Specifically, this generic REST connector supports:
 - For REST as source, copying the REST JSON response [as-is](#export-json-response-as-is) or parse it by using [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping). Only response payload in **JSON** is supported.
 
 > [!TIP]
-> To test a request for data retrieval before you configure the REST connector in Data Factory, learn about the API specification for header and body requirements. You can use tools like Postman or a web browser to validate.
+> To test a request for data retrieval before you configure the REST connector, learn about the API specification for header and body requirements. You can use tools like Postman or a web browser to validate.
 
 ## Prerequisites
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties you can use to define Data Factory entities that are specific to the REST connector.
+The following sections provide details about properties you can use to define entities that are specific to the REST connector.
 
 ## Linked service properties
 
@@ -62,7 +66,7 @@ Set the **authenticationType** property to **Basic**. In addition to the generic
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | userName | The user name to use to access the REST endpoint. | Yes |
-| password | The password for the user (the **userName** value). Mark this field as a **SecureString** type to store it securely in Data Factory. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| password | The password for the user (the **userName** value). Mark this field as a **SecureString** type to store it securely. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 
 **Example**
 
@@ -95,10 +99,10 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | servicePrincipalId | Specify the Azure Active Directory application's client ID. | Yes |
-| servicePrincipalKey | Specify the Azure Active Directory application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| servicePrincipalKey | Specify the Azure Active Directory application's key. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes |
 | aadResourceId | Specify the AAD resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
-| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your AAD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your AAD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory or Synapse pipeline's cloud environment is used. | No |
 
 **Example**
 
@@ -126,7 +130,7 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
 }
 ```
 
-### <a name="managed-identity"></a> Use managed identities for Azure resources authentication
+### <a name="managed-identity"></a> Use system-assigned managed identity authentication
 
 Set the **authenticationType** property to **ManagedServiceIdentity**. In addition to the generic properties that are described in the preceding section, specify the following properties:
 
@@ -145,6 +149,39 @@ Set the **authenticationType** property to **ManagedServiceIdentity**. In additi
             "url": "<REST endpoint e.g. https://www.example.com/>",
             "authenticationType": "ManagedServiceIdentity",
             "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### Use user-assigned managed identity authentication
+Set the **authenticationType** property to **ManagedServiceIdentity**. In addition to the generic properties that are described in the preceding section, specify the following properties:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| aadResourceId | Specify the AAD resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
+| credentials | Specify the user-assigned managed identity as the credential object. | Yes |
+
+
+**Example**
+
+```json
+{
+    "name": "RESTLinkedService",
+    "properties": {
+        "type": "RestService",
+        "typeProperties": {
+            "url": "<REST endpoint e.g. https://www.example.com/>",
+            "authenticationType": "ManagedServiceIdentity",
+            "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            }    
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -372,6 +409,57 @@ REST connector as sink works with the REST APIs that accept JSON. The data will 
 ]
 ```
 
+## Mapping data flow properties
+
+REST is supported in data flows for both integration datasets and inline datasets.
+
+### Source transformation
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| requestMethod | The HTTP method. Allowed values are **GET** and **POST**. | Yes |
+| relativeUrl | A relative URL to the resource that contains the data. When this property isn't specified, only the URL that's specified in the linked service definition is used. The HTTP connector copies data from the combined URL: `[URL specified in linked service]/[relative URL specified in dataset]`. | No |
+| additionalHeaders | Additional HTTP request headers. | No |
+| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to write the data. The default value is **00:01:40**.  | No |
+| requestInterval | The interval time between different requests in millisecond. Request interval value should be a number between [10, 60000]. |  No |
+| QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter" is user-defined, which references one query parameter name in the next HTTP request URL. | No |
+
+### Sink transformation
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| additionalHeaders | Additional HTTP request headers. | No |
+| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to write the data. The default value is **00:01:40**.  | No |
+| requestInterval | The interval time between different requests in millisecond. Request interval value should be a number between [10, 60000]. |  No |
+| httpCompressionType | HTTP compression type to use while sending data with Optimal Compression Level. Allowed values are **none** and **gzip**. | No |
+| writeBatchSize | Number of records to write to the REST sink per batch. The default value is 10000. | No |
+
+You can set the delete, insert, update, and upsert methods as well as the relative row data to send to the REST sink for CRUD operations.
+
+![Data flow REST sink](media/data-flow/data-flow-sink.png)
+
+## Sample data flow script
+
+Notice the use of an alter row transformation prior to the sink to instruct ADF what type of action to take with your REST sink. I.e. insert, update, upsert, delete.
+
+```
+AlterRow1 sink(allowSchemaDrift: true,
+	validateSchema: false,
+	deletable:true,
+	insertable:true,
+	updateable:true,
+	upsertable:true,
+	rowRelativeUrl: 'periods',
+	insertHttpMethod: 'PUT',
+	deleteHttpMethod: 'DELETE',
+	upsertHttpMethod: 'PUT',
+	updateHttpMethod: 'PATCH',
+	timeout: 30,
+	requestFormat: ['type' -> 'json'],
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true) ~> sink1
+```
+
 ## Pagination support
 
 When copying data from REST APIs, normally, the REST API limits its response payload size of a single request under a reasonable number; while to return large amount of data, it splits the result into multiple pages and requires callers to send consecutive requests to get next page of the result. Usually, the request for one page is dynamic and composed by the information returned from the response of previous page.
@@ -489,8 +577,8 @@ The template defines two parameters:
 5. Select **Web** activity. In **Settings**, specify the corresponding **URL**, **Method**, **Headers**, and **Body** to retrieve OAuth bearer token from the login API of the service that you want to copy data from. The placeholder in the template showcases a sample of Azure Active Directory (AAD) OAuth. Note AAD authentication is natively supported by REST connector, here is just an example for OAuth flow. 
 
     | Property | Description |
-    |:--- |:--- |:--- |
-    | URL |Specify the url to retrieve OAuth bearer token from. for example, in the sample here it's https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
+    |:--- |:--- |
+    | URL |Specify the url to retrieve OAuth bearer token from. for example, in the sample here it's https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |
     | Method | The HTTP method. Allowed values are **Post** and **Get**. | 
     | Headers | Header is user-defined, which references one header name in the HTTP request. | 
     | Body | The body for the HTTP request. | 
@@ -500,7 +588,7 @@ The template defines two parameters:
 6. In **Copy data** activity, select *Source* tab, you could see that the bearer token (access_token)  retrieved from previous step would be passed to Copy data activity as **Authorization** under Additional headers. Confirm settings for following properties before starting a pipeline run.
 
     | Property | Description |
-    |:--- |:--- |:--- | 
+    |:--- |:--- |
     | Request method | The HTTP method. Allowed values are **Get** (default) and **Post**. | 
     | Additional headers | Additional HTTP request headers.| 
 
@@ -534,4 +622,4 @@ To copy data from REST endpoint to tabular sink, refer to [schema mapping](copy-
 
 ## Next steps
 
-For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory and Synapse pipelines, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

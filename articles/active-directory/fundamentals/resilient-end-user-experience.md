@@ -35,13 +35,13 @@ To help you set up the most common identity tasks, Azure AD B2C provides built-i
 
 Choose built-in user flows if your business requirements can be met by them. Since extensively tested by Microsoft, you can minimize the testing needed for validating policy-level functional, performance, or scale of these identity user flows. You still need to test your applications for functionality, performance, and scale.
 
-Should you [choose custom policies](../../active-directory-b2c/custom-policy-get-started.md) because of your business requirements, make sure you perform policy-level testing for functional, performance, or scale in addition to application-level testing.
+Should you [choose custom policies](../../active-directory-b2c/user-flow-overview.md) because of your business requirements, make sure you perform policy-level testing for functional, performance, or scale in addition to application-level testing.
 
-See the article that [compares user flows and custom polices](../../active-directory-b2c/custom-policy-overview.md#comparing-user-flows-and-custom-policies) to help you decide.
+See the article that [compares user flows and custom polices](../../active-directory-b2c/user-flow-overview.md#comparing-user-flows-and-custom-policies) to help you decide.
 
 ## Choose multiple IDPs
 
-When using an [external identity provider](../../active-directory-b2c/technical-overview.md#external-identity-providers) such as Facebook, make sure to have a fallback plan in case the external provider becomes unavailable.
+When using an [external identity provider](../../active-directory-b2c/add-identity-provider.md) such as Facebook, make sure to have a fallback plan in case the external provider becomes unavailable.
 
 ### How to set up multiple IDPs
 
@@ -57,7 +57,7 @@ As part of the external identity provider registration process, include a verifi
 
 ## Availability of Multi-factor authentication
 
-When using a [phone service for Multi-factor authentication (MFA)](../../active-directory-b2c/phone-authentication.md), make sure to consider an alternative service provider. The local Telco or phone service provider may experience disruptions in their service.
+When using a [phone service for Multi-factor authentication (MFA)](../../active-directory-b2c/phone-authentication-user-flows.md), make sure to consider an alternative service provider. The local Telco or phone service provider may experience disruptions in their service.
 
 ### How to choose an alternate MFA  
 

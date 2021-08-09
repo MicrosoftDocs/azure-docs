@@ -3,9 +3,9 @@ title: Create FSLogix profile container Azure Files Active Directory Domain Serv
 description: This article describes how to create an FSLogix profile container with Azure Files and Azure Active Directory Domain Services.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 04/09/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 
 # Create a profile container with Azure Files and Azure AD DS
@@ -105,10 +105,10 @@ To get the Storage Account access key:
     For example:
 
      ```cmd
-     net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
+     net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile
      ```
 
-8. Run the following commands to allow your Windows Virtual Desktop users to create their own profile container while blocking access to the profile containers from other users.
+8. Run the following commands to allow your Azure Virtual Desktop users to create their own profile container while blocking access to the profile containers from other users.
 
      ```cmd
      icacls <mounted-drive-letter>: /grant <user-email>:(M)
@@ -170,7 +170,7 @@ Now you'll need to assign users to your session host.
 
 To assign users:
 
-1. Run Windows PowerShell as an administrator, then run the following cmdlet to sign in to Windows Virtual Desktop with PowerShell:
+1. Run Windows PowerShell as an administrator, then run the following cmdlet to sign in to Azure Virtual Desktop with PowerShell:
 
    ```powershell
    Import-Module Microsoft.RdInfra.RdPowershell
@@ -183,7 +183,7 @@ To assign users:
    Add-RdsAccount -DeploymentUrl $brokerurl
    ```
 
-   When prompted for credentials, enter the same user that was granted the TenantCreator, RDS Owner, or RDS Contributor role on the Windows Virtual Desktop tenant.
+   When prompted for credentials, enter the same user that was granted the TenantCreator, RDS Owner, or RDS Contributor role on the Azure Virtual Desktop tenant.
 
 2. Run the following cmdlets to assign the user to the remote desktop group:
 
@@ -221,7 +221,7 @@ Now all you have to do is make sure the profile you created exists and works as 
 
 To verify your profile:
 
-1. Open a browser and go to [the Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/arm/webclient).
+1. Open a browser and go to [the Azure Virtual Desktop web client](https://rdweb.wvd.microsoft.com/arm/webclient).
 
 2. Sign in with the user account assigned to the Remote Desktop group.
 

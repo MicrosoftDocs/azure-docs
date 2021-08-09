@@ -10,7 +10,7 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2020
+ms.date: 4/23/2021
 ms.author: kumud
 ms.reviewer: kumud
 ---
@@ -20,7 +20,10 @@ ms.reviewer: kumud
 
 A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules.
 
-You can use service tags to define network access controls on [network security groups](./network-security-groups-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md). Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name, such as **ApiManagement**, in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service.
+You can use service tags to define network access controls on [network security groups](./network-security-groups-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md). Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name, such as **ApiManagement**, in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service. 
+
+> [!NOTE] 
+> As of March 2021, you can also use Service Tags in place of explicit IP ranges in [user defined routes](./virtual-networks-udr-overview.md). This feature is currently in Public Preview. 
 
 You can use service tags to achieve network isolation and protect your Azure resources from the general Internet while accessing Azure services that have public endpoints. Create inbound/outbound network security group rules to deny traffic to/from **Internet** and allow traffic to/from **AzureCloud** or other [available service tags](#available-service-tags) of specific Azure services.
 
@@ -35,7 +38,7 @@ The columns indicate whether the tag:
 - Supports [regional](https://azure.microsoft.com/regions) scope.
 - Is usable in [Azure Firewall](../firewall/service-tags.md) rules.
 
-By default, service tags reflect the ranges for the entire cloud. Some service tags also allow more granular control by restricting the corresponding IP ranges to a specified region. For example, the service tag **Storage** represents Azure Storage for the entire cloud, but **Storage.WestUS** narrows the range to only the storage IP address ranges from the WestUS region. The following table indicates whether each service tag supports such regional scope.  
+By default, service tags reflect the ranges for the entire cloud. Some service tags also allow more granular control by restricting the corresponding IP ranges to a specified region. For example, the service tag **Storage** represents Azure Storage for the entire cloud, but **Storage.WestUS** narrows the range to only the storage IP address ranges from the WestUS region. The following table indicates whether each service tag supports such regional scope. Note that the direction listed for each tag is a recommendation. For example, the AzureCloud tag may be used to allow inbound traffic. However, we don't recommend this in most scenarios since this means allowing traffic from all Azure IP's, including those used by other Azure customers. 
 
 | Tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|
@@ -48,8 +51,8 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureActiveDirectory** | Azure Active Directory. | Outbound | No | Yes |
 | **AzureActiveDirectoryDomainServices** | Management traffic for deployments dedicated to Azure Active Directory Domain Services. | Both | No | Yes |
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection. | Outbound | No | No |
-| **AzureAPIForFHIR** | Azure API for FHIR (Fast Healthcare Interoperability Resources).<br/><br/> *Note: This tag is not currently configurable via Azure Portal.*| Outbound | No | No |
 | **AzureArcInfrastructure** | Azure Arc enabled servers, Azure Arc enabled Kubernetes, and Guest Configuration traffic.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory**,**AzureTrafficManager**, and **AzureResourceManager** tags. *This tag is not currently configurable via Azure Portal*.| Outbound | No | Yes |
+| **AzureAttestation** | Azure Attestation.<br/><br/>*Note: This tag is not currently configurable via Azure Portal* | Outbound | No | Yes | 
 | **AzureBackup** |Azure Backup.<br/><br/>*Note:* This tag has a dependency on the **Storage** and **AzureActiveDirectory** tags. | Outbound | No | Yes |
 | **AzureBotService** | Azure Bot Service. | Outbound | No | No |
 | **AzureCloud** | All [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=56519). | Outbound | Yes | Yes |
@@ -84,6 +87,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **DataFactory**  | Azure Data Factory | Both | No | No |
 | **DataFactoryManagement** | Management traffic for Azure Data Factory. | Outbound | No | No |
 | **Dynamics365ForMarketingEmail** | The address ranges for the marketing email service of Dynamics 365. | Outbound | Yes | No |
+| **EOPExternalPublishedIPs** | This tag represents the IP addresses used for Security & Compliance Center Powershell. Refer to the [Connect to Security & Compliance Center PowerShell using the EXO V2 module for more details](/powershell/exchange/connect-to-scc-powershell). <br/><br/> *Note: This tag is not currently configurable via Azure Portal.* | Both | No | Yes |
 | **EventHub** | Azure Event Hubs. | Outbound | Yes | Yes |
 | **GatewayManager** | Management traffic for deployments dedicated to Azure VPN Gateway and Application Gateway. | Inbound | No | No |
 | **GuestAndHybridManagement** | Azure Automation and Guest Configuration. | Outbound | No | Yes |
@@ -127,11 +131,13 @@ You can programmatically retrieve the current list of service tags together with
 
 - [REST](/rest/api/virtualnetwork/servicetags/list)
 - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
-- [Azure CLI](/cli/azure/network#az-network-list-service-tags)
+- [Azure CLI](/cli/azure/network#az_network_list_service_tags)
 
 > [!NOTE]
-> While it's in public preview, the Discovery API might return information that's less current than information returned by the JSON downloads. (See the next section.)
+> It takes up to 4 weeks for new Service Tag data to propagate in the API results. The change number in the response metadata will be incremented when this happens. There may be temporary differences in results when different location values are specified. When using the results to create NSG rules, you should set the location paramater to match the NSG's region. 
 
+> [!NOTE]
+> The API data will represent those tags which can be used with NSG rules, a subset of the tags currently in the downloadable JSON file. While in public preview, we do not guarantee that the data will remain the same from one update to the next. 
 
 ### Discover service tags by using downloadable JSON files 
 You can download JSON files that contain the current list of service tags together with IP address range details. These lists are updated and published weekly. Locations for each cloud are:

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 07/21/2021
 ---
 
 # How to estimate and manage costs of an Azure Cognitive Search service
@@ -44,13 +44,14 @@ A solution built on Azure Cognitive Search can incur costs in the following ways
 
 + Bandwidth charges (outbound data transfer)
 
-+ Add-on services required for specific capabilities or features:
++ Add-on services required for specific capabilities or premium features:
 
   + AI enrichment (requires [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/))
-  + knowledge store (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/))
-  + incremental enrichment (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/), applies to AI enrichment)
-  + customer-managed keys and double encryption (requires [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/))
-  + private endpoints for a no-internet access model (requires [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/))
+  + Knowledge store (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/))
+  + Incremental enrichment (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/), applies to AI enrichment)
+  + Customer-managed keys and double encryption (requires [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/))
+  + Private endpoints for a no-internet access model (requires [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/))
+  + Semantic search is a premium feature on Standard tiers (see the [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/) for costs). You can [disable semantic search](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) to prevent accidental usage.
 
 ### Service costs
 
@@ -60,7 +61,7 @@ The minimum charge is the first search unit (one replica x one partition) at the
 
 Beyond the minimum, you can add replicas and partitions independently of each other. Incremental increases in capacity through replicas and partitions will increase your bill based on the following formula: **(replicas x partitions x billing rate)**, where the rate you're charged depends on the pricing tier you select.
 
-When you're estimating the cost of a search solution, keep in mind that pricing and capacity aren't linear (doubling capacity more than doubles the cost). For an example of how of the formula works, see [How to allocate replicas and partitions](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
+When you're estimating the cost of a search solution, keep in mind that pricing and capacity aren't linear (doubling capacity more than doubles the cost on the same tier). Also, at some point, switching up to a higher tier can give you better and faster performance at roughly the same price point. For more information and an example, see [Upgrade to a Standard S2 tier](search-performance-tips.md#tip-upgrade-to-a-standard-s2-tier).
 
 ### Bandwidth charges
 
@@ -107,7 +108,7 @@ In terms of the service itself, the only way to lower your bill is to reduce rep
 
 ## Next steps
 
-Learn how to monitor and manage costs across your Azure subscription.
+Want to optimize and save on your cloud spending?
 
 > [!div class="nextstepaction"]
-> [Azure Cost Management and Billing documentation](../cost-management-billing/cost-management-billing-overview.md)
+> [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

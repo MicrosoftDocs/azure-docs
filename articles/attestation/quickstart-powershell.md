@@ -6,7 +6,8 @@ author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
-ms.author: mbaldwin
+ms.author: mbaldwin 
+ms.custom: devx-track-azurepowershell
 
 
 ---
@@ -116,6 +117,10 @@ $attestationResourceGroup = "<attestation provider resource group name>"
 New-AzResourceGroup -Name $attestationResourceGroup -Location $location 
 ```
 
+ > [!NOTE]
+   > Once an attestation provider is created in this resource group, an Azure AD user must have **Attestation Contributor** role on the provider to perform operations like policy configuration/ policy signer certificates management. These permissions can be also be inherited with roles such as **Owner** (wildcard permissions)/ **Contributor** (wildcard permissions) on  the subscription/ resource group.  
+
+
 ## Create and manage an attestation provider
 
 New-AzAttestation creates an attestation provider.
@@ -166,12 +171,12 @@ In order to manage policies, an Azure AD user requires the following permissions
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
-These permissions can be assigned to an AD user through a role such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) or "Attestation Contributor" (specific permissions for Azure Attestation only).  
+ To perform these actions, an Azure AD user must have **Attestation Contributor** role on the attestation provider. These permissions can be also be inherited with roles such as **Owner** (wildcard permissions)/ **Contributor** (wildcard permissions) on  the subscription/ resource group.  
 
 In order to read policies, an Azure AD user requires the following permission for "Actions":
 - Microsoft.Attestation/attestationProviders/attestation/read
 
-This permission can be assigned to an AD user through a role such as "Reader" (wildcard permissions) or "Attestation Reader" (specific permissions for Azure Attestation only).
+ To perform this action, an Azure AD user must have **Attestation Reader** role on the attestation provider. The read permission can be also be inherited with roles such as **Reader** (wildcard permissions) on  the subscription/ resource group.  
 
 Below PowerShell cmdlets provide policy management for an attestation provider (one TEE at a time).
 

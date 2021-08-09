@@ -13,7 +13,7 @@ ms.service: iot-hub-device-update
 The Device Update Agent consists of two conceptual layers:
 
 * The Interface Layer builds on top of [Azure IoT Plug and Play
-(PnP)](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
+(PnP)](../iot-develop/overview-iot-plug-and-play.md)
 allowing for messaging to flow between the Device Update Agent and Device Update Services.
 * The Platform Layer is responsible for the high-level update actions of Download, Install, and Apply that may be platform, or device specific.
 
@@ -79,7 +79,7 @@ mostly no-ops. The implementation of the Simulator Update Handler can be found b
 Note: The InstalledCriteria field in
 the AzureDeviceUpdateCore PnP interface should be the sha256 hash of the
 content. This is the same hash that is present in the [Import Manifest
-Object](import-update.md#create-device-update-import-manifest). [Learn
+Object](import-update.md#create-a-device-update-import-manifest). [Learn
 More](device-update-plug-and-play.md) about `installedCriteria` and the `AzureDeviceUpdateCore` interface.
 
 ### `SWUpdate` Update Handler
@@ -95,8 +95,7 @@ install or update the specified Debian package(s).
 
 ## Self-update Device update agent
 
-The device update agent and its dependencies can be updated through the Device Update for IoT Hub pipeline. If you are using an image-based update, include the latest device update agent in your new image. If you are using a package-based update, include the device update agent and its desired version in the apt manifest like any other package. [Learn more](device-update-apt-manifest.md) about apt manifest. You can check installed version of the Device Update agent and the Delivery Optimization agent in the Device Properties section of your [IoT device twin](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins). [Learn more about device properties under ADU Core Interface](device-update-plug-and-play.md#device-properties).
+The device update agent and its dependencies can be updated through the Device Update for IoT Hub pipeline. If you are using an image-based update, include the latest device update agent in your new image. If you are using a package-based update, include the device update agent and its desired version in the apt manifest like any other package. [Learn more](device-update-apt-manifest.md) about apt manifest. You can check installed version of the Device Update agent and the Delivery Optimization agent in the Device Properties section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md). [Learn more about device properties under ADU Core Interface](device-update-plug-and-play.md#device-properties).
 
 ## Next Steps
 [Understand Device Update agent configuration file](device-update-configuration-file.md)
-

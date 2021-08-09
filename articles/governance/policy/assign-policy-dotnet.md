@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: New policy assignment with .NET Core"
 description: In this quickstart, you use .NET Core to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 09/30/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ---
@@ -58,7 +58,7 @@ required packages.
    using Microsoft.Rest;
    using Microsoft.Azure.Management.ResourceManager;
    using Microsoft.Azure.Management.ResourceManager.Models;
-   
+
    namespace policyAssignment
    {
        class Program
@@ -74,7 +74,7 @@ required packages.
                string strPolicyDefID = args[6];
                string strDescription = args[7];
                string strScope = args[8];
-   
+
                var authContext = new AuthenticationContext($"https://login.microsoftonline.com/{strTenant}");
                var authResult = await authContext.AcquireTokenAsync(
                    "https://management.core.windows.net",
@@ -135,7 +135,7 @@ The preceding commands use the following information:
   _audit-vm-manageddisks_.
 - **displayName** - Display name for the policy assignment. In this case, you're using _Audit VMs
   without managed disks Assignment_.
-- **policyDefID** – The policy definition path, based on which you're using to create the
+- **policyDefID** - The policy definition path, based on which you're using to create the
   assignment. In this case, it's the ID of policy definition _Audit VMs that do not use managed
   disks_.
 - **description** - A deeper explanation of what the policy does or why it's assigned to this scope.
@@ -181,7 +181,7 @@ Now that your policy assignment is created, you can identify resources that aren
    using Microsoft.Rest;
    using Microsoft.Azure.Management.PolicyInsights;
    using Microsoft.Azure.Management.PolicyInsights.Models;
-   
+
    namespace policyAssignment
    {
        class Program
@@ -193,12 +193,12 @@ Now that your policy assignment is created, you can identify resources that aren
                string strClientSecret = args[2];
                string strSubscriptionId = args[3];
                string strName = args[4];
-   
+
                var authContext = new AuthenticationContext($"https://login.microsoftonline.com/{strTenant}");
                var authResult = await authContext.AcquireTokenAsync(
                    "https://management.core.windows.net",
                    new ClientCredential(strClientId, strClientSecret));
-   
+
                using (var client = new PolicyInsightsClient(new TokenCredentials(authResult.AccessToken)))
                {
                    var policyQueryOptions = new QueryOptions
@@ -206,7 +206,7 @@ Now that your policy assignment is created, you can identify resources that aren
                        Filter = $"IsCompliant eq false and PolicyAssignmentId eq '{strName}'",
                        Apply = "groupby(ResourceId)"
                    };
-   
+
                    var response = await client.PolicyStates.ListQueryResultsForSubscriptionAsync(
                        "latest", strSubscriptionId, policyQueryOptions);
                    Console.WriteLine(response.Odatacount);

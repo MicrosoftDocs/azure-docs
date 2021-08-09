@@ -5,10 +5,9 @@ services: api-management
 documentationcenter: ''
 author: vladvino
 
-ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.topic: article
-ms.date: 02/26/2021
+ms.date: 06/22/2021
 ms.author: apimpm
 ---
 
@@ -25,6 +24,7 @@ This topic provides a reference for the following API Management policies. For i
 -   [Set usage quota by subscription](#SetUsageQuota) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
 -   [Set usage quota by key](#SetUsageQuotaByKey) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis.
 -   [Validate JWT](#ValidateJWT) - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.
+-  [Validate client certificate](#validate-client-certificate) - Enforces that a certificate presented by a client to an API Management instance matches specified validation rules and claims.
 
 > [!TIP]
 > You can use access restriction policies in different scopes for different purposes. For example, you can secure the whole API with AAD authentication by applying the `validate-jwt` policy on the API level or you can apply it on the API operation level and use `claims` for more granular control.
@@ -134,7 +134,7 @@ In the following example, the per subscription rate limit is 20 calls per 90 sec
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | The name of the API for which to apply the rate limit.                                                | Yes      | N/A     |
 | calls          | The maximum total number of calls allowed during the time interval specified in `renewal-period`. | Yes      | N/A     |
-| renewal-period | The length in seconds of the sliding window during which the number of allowed requests should nor exceed the value specified in `calls`.                                              | Yes      | N/A     |
+| renewal-period | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`.                                              | Yes      | N/A     |
 | retry-after-header-name    | The name of a response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
@@ -210,7 +210,7 @@ In the following example, the rate limit of 10 calls per 60 seconds is keyed by 
 | calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. | Yes      | N/A     |
 | counter-key         | The key to use for the rate limit policy.                                                             | Yes      | N/A     |
 | increment-condition | The boolean expression specifying if the request should be counted towards the rate (`true`).        | No       | N/A     |
-| renewal-period      | The length in seconds of the sliding window during which the number of allowed requests should nor exceed the value specified in `calls`.                                           | Yes      | N/A     |
+| renewal-period      | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`.                                           | Yes      | N/A     |
 | retry-after-header-name    | The name of a response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
@@ -572,6 +572,95 @@ This example shows how to use the [Validate JWT](api-management-access-restricti
 | separator                       | String. Specifies a separator (e.g. ",") to be used for extracting a set of values from a multi-valued claim.                                                                                                                                                                                                                                                                                                                                          | No                                                                               | N/A                                                                               |
 | url                             | Open ID configuration endpoint URL from where Open ID configuration metadata can be obtained. The response should be according to specs as defined at URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. For Azure Active Directory use the following URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituting your directory tenant name, e.g. `contoso.onmicrosoft.com`. | Yes                                                                              | N/A                                                                               |
 | output-token-variable-name      | String. Name of context variable that will receive token value as an object of type [`Jwt`](api-management-policy-expressions.md) upon successful token validation                                                                                                                                                                                                                                                                                     | No                                                                               | N/A                                                                               |
+
+### Usage
+
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
+
+-   **Policy sections:** inbound
+-   **Policy scopes:** all scopes
+
+
+## Validate client certificate
+
+Use the `validate-client-certificate` policy to enforce that a certificate presented by a client to an API Management instance matches specified validation rules and claims such as subject or issuer for one or more certificate identities.
+
+To be considered valid, a client certificate must match all the validation rules defined by the attributes at the top-level element and match all defined claims for at least one of the defined identities. 
+
+Use this policy to check incoming certificate properties against desired properties. Also use this policy to override default validation of client certificates in these cases:
+
+* If you have uploaded custom CA certificates to validate client requests to the managed gateway
+* If you configured custom certificate authorities to validate client requests to a self-managed gateway
+
+For more information about custom CA certificates and certificate authorities, see [How to add a custom CA certificate in Azure API Management](api-management-howto-ca-certificates.md). 
+
+### Policy statement
+
+```xml
+<validate-client-certificate 
+    validate-revocation="true|false"
+    validate-trust="true|false" 
+    validate-not-before="true|false" 
+    validate-not-after="true|false" 
+    ignore-error="true|false">
+    <identities>
+        <identity 
+            thumbprint="certificate thumbprint"
+            serial-number="certificate serial number"
+            common-name="certificate common name"
+            subject="certificate subject string"
+            dns-name="certificate DNS name"
+            issuer-subject="certificate issuer"
+            issuer-thumbprint="certificate issuer thumbprint"
+            issuer-certificate-id="certificate identifier" />
+    </identities>
+</validate-client-certificate> 
+```
+
+### Example
+
+The following example validates a client certificate to match the policy's default validation rules and checks whether the subject and issuer name match specified values.
+
+```xml
+<validate-client-certificate 
+    validate-revocation="true" 
+    validate-trust="true" 
+    validate-not-before="true" 
+    validate-not-after="true" 
+    ignore-error="false">
+    <identities>
+        <identity
+            subject="C=US, ST=Illinois, L=Chicago, O=Contoso Corp., CN=*.contoso.com"
+            issuer-subject="C=BE, O=FabrikamSign nv-sa, OU=Root CA, CN=FabrikamSign Root CA" />
+    </identities>
+</validate-client-certificate> 
+```
+
+### Elements
+
+| Element             | Description                                  | Required |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| validate-client-certificate        | Root element.      | Yes      |
+|   identities      |  Contains a list of identities with defined claims on the client certificate.       |    No        |
+
+### Attributes
+
+| Name                            | Description      | Required |  Default    |
+| ------------------------------- |   ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| validate-revocation  | Boolean. Specifies whether certificate is validated against online revocation list.  | no   | True  |
+| validate-trust | Boolean. Specifies if validation should fail in case chain cannot be successfully built up to trusted CA. | no | True |
+| validate-not-before | Boolean. Validates value against current time. | no | True | 
+| validate-not-after  | Boolean. Validates value against current time. | no | True| 
+| ignore-error  | Boolean. Specifies if policy should proceed to the next handler or jump to on-error upon failed validation. | no. | False |  
+| identity | String. Combination of certificate claim values that make certificate valid. | yes | N/A | 
+| thumbprint | Certificate thumbprint. | no | N/A |
+| serial-number | Certificate serial number. | no | N/A |
+| common-name | Certificate common name (part of Subject string). | no | N/A |
+| subject | Subject string. Must follow format of Distinguished Name. | no | N/A |
+| dns-name | Value of dnsName entry inside Subject Alternative Name claim. | no | N/A | 
+| issuer-subject | Issuer’s subject. Must follow format of Distinguished Name. | no | N/A | 
+| issuer-thumbprint | Issuer thumbprint. | no | N/A | 
+| issuer-certificate-id | Identifier of existing certificate entity representing the issuer’s public key. Mutually exclusive with other issuer attributes.  | no | N/A | 
 
 ### Usage
 

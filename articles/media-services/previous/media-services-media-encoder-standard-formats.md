@@ -21,7 +21,7 @@ ms.reviewer: anilmur
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Version 2](media-services-media-encoder-standard-formats.md)
-> * [Version 3](../latest/media-encoder-standard-formats.md)
+> * [Version 3](../latest/encode-media-encoder-standard-formats-reference.md)
 
 This document contains a list of the most common import and export file formats that you can use with Media Encoder Standard.
 

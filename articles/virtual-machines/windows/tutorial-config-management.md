@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 
 #Customer intent: As an IT administrator, I want to learn about tracking configuration changes and performing software updates, so I can review changes made and install updates on Windows virtual machines.
 ---
@@ -175,7 +175,7 @@ The available settings options for Windows are:
 * Windows Registry
 * Windows Files
 
-For detailed information on Change Tracking, see [Troubleshoot changes on a VM](../../automation/automation-tutorial-troubleshoot-changes.md).
+For detailed information on Change Tracking, see [Troubleshoot changes on a VM](../../automation/troubleshoot/change-tracking.md).
 
 ### View inventory
 

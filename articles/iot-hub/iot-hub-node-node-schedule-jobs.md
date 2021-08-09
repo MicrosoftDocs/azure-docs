@@ -9,7 +9,7 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.custom: mqtt, devx-track-js
+ms.custom: mqtt, devx-track-js, devx-track-azurecli
 ---
 
 # Schedule and broadcast jobs (Node.js)
@@ -28,7 +28,7 @@ Learn more about each of these capabilities in these articles:
 
 * Device twin and properties: [Get started with device twins](iot-hub-node-node-twin-getstarted.md) and [Tutorial: How to use device twin properties](tutorial-device-twins.md)
 
-* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Tutorial: direct methods](quickstart-control-device-node.md)
+* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Quickstart: direct methods](/azure/iot-hub/quickstart-control-device?pivots=programming-language-nodejs)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

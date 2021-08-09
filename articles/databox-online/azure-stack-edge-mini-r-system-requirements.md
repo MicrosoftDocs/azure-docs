@@ -102,6 +102,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Azu
 | https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft container registry (required)               |
 | https://\*.azurecr.io                     | Personal and third-party container registries (optional) | 
 | https://\*.azure-devices.net              | IoT Hub access (required)                             | 
+| https://\*.docker.com              | StorageClass (required)                             |
 
 ### URL patterns for gateway for Azure Government
 

@@ -138,7 +138,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 | $limit | Yes |
 | $listLocalSessions | No |
 | $listSessions | No |
-| $lookup | Yes |
+| $lookup | Partial |
 | $match | Yes |
 | $out | Yes |
 | $project | Yes |
@@ -150,6 +150,9 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 | $sort | Yes |
 | $sortByCount | Yes |
 | $unwind | Yes |
+
+> [!NOTE]
+> `$lookup` does not yet support the [uncorrelated subqueries](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#join-conditions-and-uncorrelated-sub-queries) feature introduced in server version 3.6. You will receive an error with a message containing `let is not supported` if you attempt to use the `$lookup` operator with `let` and `pipeline` fields.
 
 ### Boolean expressions
 

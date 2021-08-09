@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 03/16/2021
+  ms.date: 07/09/2021
 
 highlightedContent:
   items:
@@ -120,7 +120,7 @@ additionalContent:
             - text: Azure SDK for Python
               url: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
             - text: REST
-              url: /rest/api/resources/managementgroups
+              url: /rest/api/managementgroups
             - text: Resource Manager templates
               url: /azure/templates/microsoft.management/managementgroups
         - title: Azure Policy
@@ -165,7 +165,7 @@ additionalContent:
             - text: Blueprint functions
               url: ./blueprints/reference/blueprint-functions.md
             - text: Azure CLI
-              url: /cli/azure/ext/blueprint/blueprint
+              url: /cli/azure/blueprint
             - text: Azure PowerShell
               url: /powershell/module/az.blueprint/#blueprint
             - text: Azure PowerShell
@@ -178,7 +178,7 @@ additionalContent:
         - title: Azure Resource Graph
           links:
             - text: Azure CLI
-              url: /cli/azure/ext/resource-graph/graph
+              url: /cli/azure/graph
             - text: Azure PowerShell
               url: /powershell/module/az.resourcegraph/#resourcegraph
             - text: Azure SDK for .NET
@@ -187,11 +187,11 @@ additionalContent:
               url: https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/
               note: (NuGet)
             - text: Azure SDK for Go
-              url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph
+              url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2021-03-01/resourcegraph
             - text: Azure SDK for Java
               url: /java/api/overview/azure/resourcegraph/management
             - text: Azure SDK for Java
-              url: https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar
+              url: https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0/jar
               note: (Maven)
             - text: Azure SDK for JavaScript
               url: /javascript/api/@azure/arm-resourcegraph

@@ -3,7 +3,7 @@ title: Deploy the log forwarder to connect CEF data to Azure Sentinel | Microsof
 description: Learn how to deploy the agent to connect CEF data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: yelevin
+author: batamig
 manager: rkarlin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
-ms.author: yelevin
+ms.author: bagol
 
 ---
 # Step 1: Deploy the log forwarder
@@ -34,7 +34,7 @@ In this step, you will designate and configure the Linux machine that will forwa
 
 - You must have elevated permissions (sudo) on your designated Linux machine.
 
-- You must have **python 2.7** or **3** installed on the Linux machine.<br>Use the `python -version` command to check.
+- You must have **python 2.7** or **3** installed on the Linux machine.<br>Use the `python --version` or `python3 --version` command to check.
 
 - The Linux machine must not be connected to any Azure workspaces before you install the Log Analytics agent.
 
@@ -151,7 +151,7 @@ Choose a syslog daemon to see the appropriate description.
     - <a name="mapping-command"></a>If there is an issue with the mapping, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct mapping and restart the agent.
     
         ```bash
-        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        sudo sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
         ```
 
 # [syslog-ng daemon](#tab/syslogng)

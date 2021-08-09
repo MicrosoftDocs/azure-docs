@@ -10,7 +10,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/25/2018
+ms.date: 10/25/2018 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Deploy an app in Azure Government with Azure Pipelines

@@ -127,11 +127,11 @@ string GetSignedClientAssertion()
     var header = new Dictionary<string, string>()
          {
               { "alg", "RS256"},
-              { "kid", Encode(Certificate.GetCertHash()) }
+              { "kid", Encode(certificate.GetCertHash()) }
          };
 
     //Please see the previous code snippet on how to craft claims for the GetClaims() method
-    string token = Encode(Encoding.UTF8.GetBytes(JObject.FromObject(header).ToString())) + "." + Encode(Encoding.UTF8.GetBytes(JObject.FromObject(GetClaims())));
+    string token = Encode(Encoding.UTF8.GetBytes(JObject.FromObject(header).ToString())) + "." + Encode(Encoding.UTF8.GetBytes(JObject.FromObject(GetClaims()).ToString()));
 
     string signature = Encode(rsa.SignData(Encoding.UTF8.GetBytes(token), new SHA256Cng()));
     string signedClientAssertion = string.Concat(token, ".", signature);

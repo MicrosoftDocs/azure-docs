@@ -4,15 +4,13 @@ description: Get an overview of tracking customer usage for Azure Applications o
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: cpercy737
-ms.author: camper
-ms.date: 03/22/2021
-ms.custom: devx-track-terraform
+ms.date: 04/12/2021
+ms.custom: devx-track-terraform, devx-track-azurepowershell
 ---
 
 # Azure customer usage attribution
 
-Customer usage attribution associates usage from Azure resources in customer subscriptions created while deploying your IP with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. For [Azure Application offers in the commercial marketplace](#commercial-marketplace-azure-apps), this tracking capability helps you align with Microsoft sales teams and gain credit for Microsoft partner programs.
+Customer usage attribution associates usage from Azure resources in customer subscriptions created while deploying your IP with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. For [Azure Application offers in the commercial marketplace](#commercial-marketplace-azure-apps), this tracking capability helps you align with Microsoft sales teams and gain credit for Microsoft partner programs. Customer usage attribution isn’t applicable to [Azure virtual machine offers in the commercial marketplace](marketplace-virtual-machines.md). There is nothing a marketplace publisher needs to do for virtual machine offers to ensure their Azure consumption is tracked in end-customer subscriptions.
 
 Customer usage attribution supports three deployment options:
 
@@ -29,7 +27,12 @@ There are secondary use cases for customer usage attribution outside of the comm
 
 ## Commercial marketplace Azure apps
 
-Tracking Azure usage from Azure apps published to the commercial marketplace is largely automatic. When you upload a Resource Manager template as part of the [technical configuration of your marketplace Azure app's plan](https://docs.microsoft.com/azure/marketplace/create-new-azure-apps-offer-solution#define-the-technical-configuration), Partner Center will add a tracking ID readable by Azure Resource Manager.
+Tracking Azure usage from Azure apps published to the commercial marketplace is largely automatic. When you upload a Resource Manager template as part of the [technical configuration of your marketplace Azure app's plan](./azure-app-solution.md#define-the-technical-configuration), Partner Center will add a tracking ID readable by Azure Resource Manager.
+
+>[!NOTE]
+>To ensure your application's usage is attributed accurately in our systems:
+>1. If you define the tracking ID in the resource type Microsoft.Resources/deployment with a variable, replace the variable with the tracking ID visible in Partner Center on the plan's **Technical Configuration** page (see [Add a GUID to a Resource Manager template](#add-a-guid-to-a-resource-manager-template) below).
+>2. If your Resource Manager template uses resources of type Microsoft.Resources/deployments for purposes other than customer usage attribution, Microsoft will be unable to add a customer usage attribution tracking ID on your behalf. Add a new resource of type Microsoft.Resources/deployments and add the tracking ID visible in Partner Center on the plan's **Technical configuration** page (see [Add a GUID to a Resource Manager template](#add-a-guid-to-a-resource-manager-template) below).
 
 If you use Azure Resource Manager APIs, you will need to add your tracking ID per the [instructions below](#use-resource-manager-apis) to pass it to Azure Resource Manager as your code deploys resources. This ID is visible in Partner Center on your plan's Technical Configuration page. 
 
@@ -38,7 +41,7 @@ If you use Azure Resource Manager APIs, you will need to add your tracking ID pe
 >
 >As you update your offers, you no longer need to add the **Microsoft.Resources/deployments** resource type in your main template file.
 
-## Other use cases 
+## Other use cases
 
 You may use customer usage attribution to track Azure usage of solutions not available in the commercial marketplace. These solutions usually reside in the Quickstart repository, private GitHub repositories, or come from 1:1 customer engagements that create durable IP (such as a deployable and scalable app).
 
@@ -62,9 +65,9 @@ You should create a unique GUID for each product and distribution channel. You c
 
 GUIDs must next be registered in Partner Center so they can be associated with you as a partner:
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507).
 
-1. Sign up as a [commercial marketplace publisher](https://aka.ms/JoinMarketplace).
+1. Sign up as a [commercial marketplace publisher](https://go.microsoft.com/fwlink/?linkid=2165614).
 
 1. Select **Settings** (gear icon) in the top-right corner, then **Account settings**.
 
@@ -250,7 +253,7 @@ Learn about the support options in the commercial marketplace at [Support for th
 1. Enter a title and a detailed description of the problem.
 1. Select **Submit**.
 
-View step-by-step instructions with screenshots at [Using Technical Presales and Deployment Services](https://aka.ms/TechConsultInstructions).
+View step-by-step instructions with screenshots at [Using Technical Presales and Deployment Services](/partner-center/technical-benefits).
 
 You will be contacted by a Microsoft Partner Technical Consultant to set up a call to scope your needs.
 

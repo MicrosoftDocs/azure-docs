@@ -2,11 +2,12 @@
 title: Source control
 description: Learn how to configure source control in Azure Data Factory
 ms.service: data-factory
-author: dcstwh
-ms.author: weetok
+ms.subservice: ci-cd
+author: nabhishek
+ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/26/2021
+ms.date: 06/04/2021
 ---
 
 # Source control in Azure Data Factory
@@ -21,7 +22,7 @@ By default, the Azure Data Factory user interface experience (UX) authors direct
 To provide a better authoring experience, Azure Data Factory allows you to configure a Git repository with either Azure Repos or GitHub. Git is a version control system that allows for easier change tracking and collaboration. This article will outline how to configure and work in a git repository along with highlighting best practices and a troubleshooting guide.
 
 > [!NOTE]
-> For Azure Government Cloud, only GitHub Enterprise is available.
+> For Azure Government Cloud, only *GitHub Enterprise Server* is available.
 
 To learn more about how Azure Data Factory integrates with Git, view the 15-minute tutorial video below:
 
@@ -50,9 +51,9 @@ There are four different ways to connect a Git repository to your data factory f
 
 ### Configuration method 1: Home page
 
-In the Azure Data Factory home page, select **Set up code repository**.
+In the Azure Data Factory home page, select **Set up code repository** at the top.
 
-![Configure a code repository from home page](media/author-visually/configure-repo.png)
+![Configure a code repository from home page](media/doc-common-process/set-up-code-repository.png)
 
 ### Configuration method 2: Authoring canvas
 

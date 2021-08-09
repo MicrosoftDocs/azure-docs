@@ -3,13 +3,13 @@ title: Speech-to-text overview - Speech service
 titleSuffix: Azure Cognitive Services
 description: Speech-to-text software enables real-time transcription of audio streams into text. Your applications, tools, or devices can consume, display, and take action on this text input. This article is an overview of the benefits and capabilities of the speech-to-text service.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.author: trbye
+ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
 keywords: speech to text, speech to text software
 ---
@@ -21,7 +21,12 @@ Speech-to-text, also known as speech recognition, enables real-time transcriptio
 
 The speech-to-text service defaults to using the Universal language model. This model was trained using Microsoft-owned data and is deployed in the cloud. It's optimal for conversational and dictation scenarios. When using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models. Customization is helpful for addressing ambient noise or industry-specific vocabulary.
 
-With additional reference text as input, speech-to-text service also enables [pronunciation assessment](rest-speech-to-text.md#pronunciation-assessment-parameters) capability to evaluate speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. With pronunciation assessment, language learners can practice, get instant feedback, and improve their pronunciation so that they can speak and present with confidence. Educators can use the capability to evaluate pronunciation of multiple speakers in real-time. The feature currently supports US English, and correlates highly with speech assessments conducted by experts.
+This documentation contains the following article types:
+
+* **Quickstarts** are getting-started instructions to guide you through making requests to the service.
+* **How-to guides** contain instructions for using the service in more specific or customized ways.
+* **Concepts** provide in-depth explanations of the service functionality and features.
+* **Tutorials** are longer guides that show you how to use the service as a component in broader business solutions.
 
 > [!NOTE]
 > Bing Speech was decommissioned on October 15, 2019. If your applications, tools, or products are using the Bing Speech APIs, we've created guides to help you migrate to the Speech service.

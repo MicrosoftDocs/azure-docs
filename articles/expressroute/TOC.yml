@@ -99,13 +99,13 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
-  - name: Security attributes
-    href: ./security-baseline.md
+      href: /security/benchmark/azure/baselines/expressroute-security-baseline?toc=/azure/expressroute/TOC.json
   - name: BFD over ExpressRoute
     href: expressroute-bfd.md
   - name: QoS requirements
     href: expressroute-qos.md
+  - name: Routing Microsoft 365 traffic over ExpressRoute 
+    href: using-expressroute-for-microsoft365.md
   - name: High Availability - Design
     href: designing-for-high-availability-with-expressroute.md
   - name: Disaster Recovery - Design
@@ -144,9 +144,17 @@
       href: expressroute-howto-add-ipv6-powershell.md
   - name: Monitoring
     items:
+    - name: Monitoring ExpressRoute
+      href: monitor-expressroute.md
+    - name: Network Insights
+      href: expressroute-network-insights.md
+    - name: Configure Connection Monitoring for ExpressRoute
+      href: how-to-configure-connection-monitor.md
     - name: ExpressRoute monitoring, metrics, and alerts
       href: expressroute-monitoring-metrics-alerts.md
-    - name: Configure Network Performance Monitor for ExpressRoute
+    - name: View and configure maintenance alerts
+      href: maintenance-alerts.md
+    - name: Configure Network Performance Monitor for ExpressRoute (deprecated)
       href: how-to-npm.md
     - name: Configure custom alerts to monitor advertised routes
       href: how-to-custom-route-alert.md
@@ -206,10 +214,12 @@
       href: expressroute-troubleshooting-arp-classic.md
 - name: Reference
   items:
+  - name: Monitor data reference
+    href: monitor-expressroute-reference.md
   - name: Azure PowerShell
     href: /powershell/module/az.network#expressroute
   - name: Azure CLI
-    href: /cli/azure/network/express-route
+    href: /cli/azure/azure-cli-reference-for-network
   - name: REST
     href: /rest/api/expressroute/
   - name: REST (classic)

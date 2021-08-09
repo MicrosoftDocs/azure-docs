@@ -1,5 +1,5 @@
 ---
-title: Set up WinRM access for an Azure VM 
+title: Set up WinRM access for an Azure VM
 description: Setup WinRM access for use with an Azure virtual machine created in the Resource Manager deployment model.
 author: mimckitt
 manager: vashan
@@ -7,7 +7,8 @@ ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/16/2016
-ms.author: mimckitt
+ms.author: mimckitt 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Setting up WinRM access for Virtual Machines in Azure Resource Manager
@@ -20,7 +21,7 @@ Here are the steps you need to take to set up a VM with WinRM connectivity
 4. Get the URL for your self-signed certificate in the Key Vault
 5. Reference your self-signed certificates URL while creating a VM
 
- 
+
 
 ## Step 1: Create a Key Vault
 You can use the below command to create the Key Vault
@@ -53,11 +54,12 @@ $fileContentBytes = Get-Content $fileName -Encoding Byte
 $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
 
 [System.Collections.HashTable]$TableForJSON = @{
-    "data"     = $filecontentencoded;
+    "data"     = $fileContentEncoded;
     "dataType" = "pfx";
     "password" = "<password>";
 }
-[System.String]$JSONObject = $TableForJSON | ConvertTo-Json
+[System.String]$jsonObject = $TableForJSON | ConvertTo-Json
+$jsonEncoded = [System.Convert]::ToBase64String($jsonObject)
 
 $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText –Force
 Set-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
@@ -122,9 +124,9 @@ While creating a VM through templates, the certificate gets referenced in the se
     },
 ```
 
-A sample template for the above can be found here at [201-vm-winrm-keyvault-windows](https://azure.microsoft.com/documentation/templates/201-vm-winrm-keyvault-windows)
+A sample template for the above can be found here at [vm-winrm-keyvault-windows](https://azure.microsoft.com/resources/templates/vm-winrm-keyvault-windows/)
 
-Source code for this template can be found on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
+Source code for this template can be found on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows)
 
 #### PowerShell
 ```azurepowershell
@@ -146,8 +148,8 @@ Enable-PSRemoting -Force
 
 > [!NOTE]
 > You might need to make sure the WinRM service is running if the above does not work. You can do that using `Get-Service WinRM`
-> 
-> 
+>
+>
 
 Once the setup is done, you can connect to the VM using the below command
 

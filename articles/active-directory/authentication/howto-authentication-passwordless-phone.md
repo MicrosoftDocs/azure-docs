@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/11/2020
+ms.date: 07/02/2021
 
 ms.author: justinha
 author: justinha
@@ -33,15 +33,21 @@ People who enabled phone sign-in from the Microsoft Authenticator app see a mess
 
 To use passwordless phone sign-in with the Microsoft Authenticator app, the following prerequisites must be met:
 
-- Azure AD Multi-Factor Authentication, with push notifications allowed as a verification method.
+- Azure AD Multi-Factor Authentication, with push notifications allowed as a verification method. Push notifications to your smartphone or tablet help the Authenticator app to prevent unauthorized access to accounts and stop fraudulent transactions. The Authenticator app automatically generates codes when set up to do push notifications so a user has a backup sign-in method even if their device doesn't have connectivity. 
+  
+  Azure Multi-Factor Auth Connector must be enabled to allow users to register for push notifications for phone sign-in.
+
+  ![Screenshot of Azure Multi-Factor Auth Connector enabled.](media/howto-authentication-passwordless-phone/connector.png)
+
 - Latest version of Microsoft Authenticator installed on devices running iOS 8.0 or greater, or Android 6.0 or greater.
+- The device on which the Microsoft Authenticator app is installed must be registered within the Azure AD tenant to an individual user. 
 
 > [!NOTE]
 > If you enabled Microsoft Authenticator passwordless sign-in using Azure AD PowerShell, it was enabled for your entire directory. If you enable using this new method, it supercedes the PowerShell policy. We recommend you enable for all users in your tenant via the new *Authentication Methods* menu, otherwise users not in the new policy are no longer be able to sign in without a password.
 
 ## Enable passwordless authentication methods
 
-To use passwordless authentication in Azure AD, first enable the combined registration experience, then enable users for the password less method.
+To use passwordless authentication in Azure AD, first enable the combined registration experience, then enable users for the passwordless method.
 
 ### Enable the combined registration experience
 
@@ -49,18 +55,18 @@ Registration features for passwordless authentication methods rely on the combin
 
 ### Enable passwordless phone sign-in authentication methods
 
-Azure AD lets you choose which authentication methods can be used during the sign-in process. Users then register for the methods they'd like to use.
+Azure AD lets you choose which authentication methods can be used during the sign-in process. Users then register for the methods they'd like to use. The **Microsoft Authenticator** authentication method policy manages both the traditional push MFA method, as well as the passwordless authentication method. 
 
 To enable the authentication method for passwordless phone sign-in, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with a *global administrator* account.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an *authentication policy administrator* account.
 1. Search for and select *Azure Active Directory*, then browse to **Security** > **Authentication methods** > **Policies**.
 1. Under **Microsoft Authenticator**, choose the following options:
    1. **Enable** - Yes or No
    1. **Target** - All users or Select users
 1. Each added group or user is enabled by default to use Microsoft Authenticator in both passwordless and push notification modes ("Any" mode). To change this, for each row:
    1. Browse to **...** > **Configure**.
-   1. For **Authentication mode** - Any, Passwordless, or Push
+   1. For **Authentication mode** - choose **Any**, or **Passwordless**. Choosing **Push** prevents the use of the passwordless phone sign-in credential. 
 1. To apply the new policy, select **Save**.
 
 ## User registration and management of Microsoft Authenticator
@@ -140,5 +146,5 @@ Currently, a device can only be registered in a single tenant. This limit means 
 To learn about Azure AD authentication and passwordless methods, see the following articles:
 
 - [Learn how passwordless authentication works](concept-authentication-passwordless.md)
-- [Learn about device registration](../devices/overview.md#getting-devices-in-azure-ad)
+- [Learn about device registration](../devices/overview.md)
 - [Learn about Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

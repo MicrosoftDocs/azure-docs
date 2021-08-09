@@ -7,12 +7,12 @@ ms.service: app-service
 ms.topic: "include"
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.custom: "include file"
+ms.custom: "include file, devx-track-azurecli"
 ---
 
 Create a [web app](../articles/app-service/overview.md#app-service-on-linux) in the `myAppServicePlan` App Service plan. 
 
-In the Cloud Shell, you can use the [`az webapp create`](/cli/azure/webapp#az-webapp-create) command. In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). 
+In the Cloud Shell, you can use the [`az webapp create`](/cli/azure/webapp#az_webapp_create) command. In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --deployment-local-git

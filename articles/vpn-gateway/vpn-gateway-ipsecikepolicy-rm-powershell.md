@@ -1,19 +1,20 @@
-﻿---
-title: 'IPsec/IKE policy for S2S VPN & VNet-to-VNet connections'
+---
+title: 'IPsec/IKE policy for S2S VPN & VNet-to-VNet connections: PowerShell'
 titleSuffix: Azure VPN Gateway
-description: Configure IPsec/IKE policy for S2S or VNet-to-VNet connections with Azure VPN Gateways using Azure Resource Manager and PowerShell.
+description: Learn how to configure IPsec/IKE policy for S2S or VNet-to-VNet connections with Azure VPN Gateways using PowerShell.
 services: vpn-gateway
 author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.author: yushwang
+ms.author: yushwang 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections
 
-This article walks you through the steps to configure IPsec/IKE policy for Site-to-Site VPN or VNet-to-VNet connections using the Resource Manager deployment model and PowerShell.
+This article walks you through the steps to configure IPsec/IKE policy for Site-to-Site VPN or VNet-to-VNet connections using PowerShell.
 
 
 
@@ -58,7 +59,7 @@ The following table lists the supported cryptographic algorithms and key strengt
 | IKEv2 Integrity  | SHA384, SHA256, SHA1, MD5  |
 | DH Group         | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, None |
 | IPsec Encryption | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None    |
-| IPsec Integrity  | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5 |
+| IPsec Integrity  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5 |
 | PFS Group        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None 
 | QM SA Lifetime   | (**Optional**: default values are used if not specified)<br>Seconds (integer; **min. 300**/default 27000 seconds)<br>KBytes (integer; **min. 1024**/default 102400000 KBytes)   |
 | Traffic Selector | UsePolicyBasedTrafficSelectors** ($True/$False; **Optional**, default $False if not specified)    |
@@ -79,8 +80,8 @@ The following table lists the supported cryptographic algorithms and key strengt
 > 3. In the table above:
 >    * IKEv2 corresponds to Main Mode or Phase 1
 >    * IPsec corresponds to Quick Mode or Phase 2
->    * DH Group specifies the Diffie-Hellmen Group used in Main Mode or Phase 1
->    * PFS Group specified the Diffie-Hellmen Group used in Quick Mode or Phase 2
+>    * DH Group specifies the Diffie-Hellman Group used in Main Mode or Phase 1
+>    * PFS Group specified the Diffie-Hellman Group used in Quick Mode or Phase 2
 > 4. IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways
 > 5. Setting "UsePolicyBasedTrafficSelectors" to $True on a connection will configure the Azure VPN gateway to connect to policy-based VPN firewall on premises. If you enable PolicyBasedTrafficSelectors, you need to ensure your VPN device has the matching traffic selectors defined with all combinations of your on-premises network (local network gateway) prefixes to/from the Azure virtual network prefixes, instead of any-to-any. For example, if your on-premises network prefixes are 10.1.0.0/16 and 10.2.0.0/16, and your virtual network prefixes are 192.168.0.0/16 and 172.16.0.0/16, you need to specify the following traffic selectors:
 >    * 10.1.0.0/16 <====> 192.168.0.0/16

@@ -1,11 +1,8 @@
 ---
 title: Monitor a Service Fabric cluster in Azure 
 description: In this tutorial, you learn how to monitor a cluster by viewing Service Fabric events, querying the EventStore APIs, monitoring perf counters, and viewing health reports.
-author: srrengar
-
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: srrengar
 ms.custom: "mvc, devx-track-csharp"
 ---
 # Tutorial: Monitor a Service Fabric cluster in Azure

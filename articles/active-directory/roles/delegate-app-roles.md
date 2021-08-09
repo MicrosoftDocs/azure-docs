@@ -13,9 +13,9 @@ ms.date: 11/04/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
-#As an Azure AD administrator, I want to reduce overusing the Global Administrator role by delegating app access management to lower-privilege roles.
-
 ms.collection: M365-identity-device-management
+#Customer intent: As an Azure AD administrator, I want to reduce overusing the Global Administrator role by delegating app access management to lower-privilege roles.
+
 ---
 
 # Delegate app registration permissions in Azure Active Directory
@@ -27,7 +27,7 @@ This article describes how to use permissions granted by custom roles in Azure A
 - [Assigning a built-in administrative role](#assign-built-in-application-admin-roles) that grants access to manage configuration in Azure AD for all applications. This is the recommended way to grant IT experts access to manage broad application configuration permissions without granting access to manage other parts of Azure AD not related to application configuration.
 - [Creating a custom role](#create-and-assign-a-custom-role-preview) defining very specific permissions and assigning it to someone either to the scope of a single application as a limited owner, or at the directory scope (all applications) as a limited administrator.
 
-It's important to consider granting access using one of the above methods for two reasons. First, delegating the ability to perform administrative tasks reduces global administrator overhead. Second, using limited permissions improves your security posture and reduces the potential for unauthorized access. For guidelines about role security planning, see [Securing privileged access for hybrid and cloud deployments in Azure AD](security-planning.md).
+It's important to consider granting access using one of the above methods for two reasons. First, delegating the ability to perform administrative tasks reduces Global Administrator overhead. Second, using limited permissions improves your security posture and reduces the potential for unauthorized access. For guidelines about role security planning, see [Securing privileged access for hybrid and cloud deployments in Azure AD](security-planning.md).
 
 ## Restrict who can create applications
 
@@ -35,7 +35,7 @@ By default in Azure AD, all users can register applications and manage all aspec
 
 ### To disable the default ability to create application registrations or consent to applications
 
-1. Sign in to your Azure AD organization with an account that eligible for the Global administrator role in your Azure AD organization.
+1. Sign in to your Azure AD organization with an account that eligible for the Global Administrator role in your Azure AD organization.
 1. Set one or both of the following:
 
     - On the [User settings page for your organization](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), set the **Users can register applications** setting to No. This will disable the default ability for users to create application registrations.
@@ -43,7 +43,7 @@ By default in Azure AD, all users can register applications and manage all aspec
 
 ### Grant individual permissions to create and consent to applications when the default ability is disabled
 
-Assign the Application developer role to grant the ability to create application registrations when the **Users can register applications** setting is set to No. This role also grants permission to consent on one's own behalf when the **Users can consent to apps accessing company data on their behalf** setting is set to No. As a system behavior, when a user creates a new application registration, they are automatically added as the first owner. Ownership permissions give the user the ability to manage all aspects of an application registration or enterprise application that they own.
+Assign the Application Developer role to grant the ability to create application registrations when the **Users can register applications** setting is set to No. This role also grants permission to consent on one's own behalf when the **Users can consent to apps accessing company data on their behalf** setting is set to No. As a system behavior, when a user creates a new application registration, they are automatically added as the first owner. Ownership permissions give the user the ability to manage all aspects of an application registration or enterprise application that they own.
 
 ## Assign application owners
 
@@ -51,16 +51,19 @@ Assigning owners is a simple way to grant the ability to manage all aspects of A
 
 ### Enterprise application owners
 
-As an owner, a user can manage the organization-specific configuration of the enterprise application, such as the single sign-on configuration, provisioning, and user assignments. An owner can also add or remove other owners. Unlike Global administrators, owners can manage only the enterprise applications they own.
+As an owner, a user can manage the organization-specific configuration of the enterprise application, such as the single sign-on configuration, provisioning, and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the enterprise applications they own.
 
 In some cases, enterprise applications created from the application gallery include both an enterprise application and an application registration. When this is true, adding an owner to the enterprise application automatically adds the owner to the corresponding application registration as an owner.
 
 ### To assign an owner to an enterprise application
 
-1. Sign in to [your Azure AD organization](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that eligible for the Application administrator or Cloud application administrator for the organization.
-1. On the [App registrations page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) for the organization, select an app to open the Overview page for the app.
+1. Sign in to [your Azure AD organization](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that eligible for the Application Administrator or Cloud Application Administrator for the organization.
+1. On the [Enterprise applications page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) for the organization, select an app to open the Overview page for the app.
 1. Select **Owners** to see the list of the owners for the app.
 1. Select **Add** to select one or more owners to add to the app.
+
+> [!NOTE]
+> If the user setting "[Restrict access to Azure AD administration portal](../fundamentals/users-default-permissions.md)" is set to Yes, non-admin users wil not be able to use the Azure portal to manage the applications they own.
 
 > [!IMPORTANT]
 > Users and service principals can be owners of application registrations. Only users can be owners of enterprise applications. Groups cannot be assigned as owners of either.
@@ -92,8 +95,8 @@ Creating custom roles and assigning custom roles are separate steps:
 This separation allows you to create a single role definition and then assign it many times at different *scopes*. A custom role can be assigned at organization-wide scope, or it can be assigned at the scope if a single Azure AD object. An example of an object scope is a single app registration. Using different scopes, the same role definition can be assigned to Sally over all app registrations in the organization and then to Naveen over only the Contoso Expense Reports app registration.
 
 Tips when creating and using custom roles for delegating application management:
-- Custom roles only grant access in the most current app registration blades of the Azure AD portal. They do not grant access in the legacy app registrations blades.
-- Custom roles do not grant access to the Azure AD portal when the “Restrict access to Azure AD administration portal” user setting is set to Yes.
+- Custom roles only grant access in the most current app registration blades of the Azure portal. They do not grant access in the legacy app registrations blades.
+- Custom roles do not grant access to the Azure portal when the “[Restrict access to Azure AD administration portal](../fundamentals/users-default-permissions.md)” user setting is set to Yes.
 - App registrations the user has access to using role assignments only show up in the ‘All applications’ tab on the App registration page. They do not show up in the ‘Owned applications’ tab.
 
 For more information on the basics of custom roles, see the [custom roles overview](custom-overview.md), as well as how to [create a custom role](custom-create.md) and how to [assign a role](custom-assign-powershell.md).
@@ -101,4 +104,4 @@ For more information on the basics of custom roles, see the [custom roles overvi
 ## Next steps
 
 - [Application registration subtypes and permissions](custom-available-permissions.md)
-- [Azure AD administrator role reference](permissions-reference.md)
+- [Azure AD built-in roles](permissions-reference.md)

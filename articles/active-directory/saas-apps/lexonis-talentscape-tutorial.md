@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/10/2021
+ms.date: 06/21/2021
 ms.author: jeedes
 
 ---
@@ -29,14 +29,17 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Lexonis TalentScape single sign-on (SSO) enabled subscription.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Lexonis TalentScape supports **SP and IDP** initiated SSO
-* Lexonis TalentScape supports **Just In Time** user provisioning
+* Lexonis TalentScape supports **SP and IDP** initiated SSO.
+* Lexonis TalentScape supports **Just In Time** user provisioning.
 
-## Adding Lexonis TalentScape from the gallery
+## Add Lexonis TalentScape from the gallery
 
 To configure the integration of Lexonis TalentScape into Azure AD, you need to add Lexonis TalentScape from the gallery to your list of managed SaaS apps.
 
@@ -46,7 +49,6 @@ To configure the integration of Lexonis TalentScape into Azure AD, you need to a
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Lexonis TalentScape** in the search box.
 1. Select **Lexonis TalentScape** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for Lexonis TalentScape
 
@@ -71,7 +73,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<CUSTOMER_NAME>.lexonis.com/`
@@ -99,11 +101,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| roles | user.assignedroles |
 
     > [!NOTE]
-    > Lexonis TalentScape expects roles for users assigned to the application. Please set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [here](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui).
+    > Lexonis TalentScape expects roles for users assigned to the application. Please set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [here](../develop/howto-add-app-roles-in-azure-ad-apps.md).
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -148,13 +151,11 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Lexonis TalentScape for which you set up the SSO 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Lexonis TalentScape for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Lexonis TalentScape tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Lexonis TalentScape for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Lexonis TalentScape tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Lexonis TalentScape for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps
 
-Once you configure Lexonis TalentScape you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Once you configure Lexonis TalentScape you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

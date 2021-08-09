@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: "mqtt, devx-track-azurecli, devx-track-csharp"
-# intent: As a customer using Azure IoT Hub, I want to add information to the messages that come through my IoT hub and are sent to another endpoint. For example, I'd like to pass the IoT hub name to the application that reads the messages from the final endpoint, such as Azure Storage.
+# Customer intent: As a customer using Azure IoT Hub, I want to add information to the messages that come through my IoT hub and are sent to another endpoint. For example, I'd like to pass the IoT hub name to the application that reads the messages from the final endpoint, such as Azure Storage.
 ---
 # Tutorial: Use Azure IoT Hub message enrichments
 
@@ -381,7 +381,7 @@ To remove all of the resources you created in this tutorial, delete the resource
 
 ### Use the Azure CLI to clean up resources
 
-To remove the resource group, use the [az group delete](/cli/azure/group#az-group-delete) command. Recall that `$resourceGroup` was set to **ContosoResourcesMsgEn** at the beginning of this tutorial.
+To remove the resource group, use the [az group delete](/cli/azure/group#az_group_delete) command. Recall that `$resourceGroup` was set to **ContosoResourcesMsgEn** at the beginning of this tutorial.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

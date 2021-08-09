@@ -4,7 +4,7 @@ description: Describes how to view support requests, send messages, change the r
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 05/25/2021
 # To add: close and reopen, review request status, update contact info
 ---
 
@@ -52,17 +52,17 @@ On this page, you can search, filter, and sort support requests. Select a suppor
 
 ## Share diagnostic information with Azure support
 
-When you create a support request, by default the **Share diagnostic information** option is selected. This allows Azure support to gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources:
+When you create a support request, the **Share diagnostic information** option is selected by default. This option allows Azure support to gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources that can potentially help resolve your issue.
 
-* You can't clear this option after a request is created.
+To change your **Share diagnostic information** selection after the request has been created:
 
-* If you cleared the option when creating a request, you can select it after the request is created.
-
-    1. On the **All support requests** page, select the support request.
+1. On the **All support requests** page, select the support request.
     
-    1. On the **Support Request** page, select **Grant permission**, then select **Yes** and **OK**.
+1. On the **Support Request** page, look for **Share diagnostic information** and then select **Change**.
     
-        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Grant permissions for diagnostic information":::
+1.  Select **Yes** or **No**, then select **OK** to confirm.
+    
+    :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Grant permissions for diagnostic information":::
 
 ## Upload files
 

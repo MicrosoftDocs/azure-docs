@@ -2,10 +2,11 @@
 title: Create a shared self-hosted integration runtime with PowerShell
 description: Learn how to create a shared self-hosted integration runtime in Azure Data Factory, so multiple data factories can access the integration runtime.
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.author: abnarain
-author: nabhishek
-ms.custom: seo-lt-2019
+ms.author: lle
+author: lrtoyou1223
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 06/10/2020
 ---
 
@@ -214,7 +215,6 @@ Remove-AzDataFactoryV2IntegrationRuntime `
     -ResourceGroupName $ResourceGroupName `
     -DataFactoryName $SharedDataFactoryName `
     -Name $SharedIntegrationRuntimeName `
-    -Links `
     -LinkedDataFactoryName $LinkedDataFactoryName
 ```
 

@@ -49,13 +49,13 @@ In the TSI Explorer, please note the Unassigned Time Series Instances. A TSI Ins
 
 The telemetry data can be visualized in the chart by right-clicking the TSI instance and selecting the Value. The time frame to be used in chart can be adjusted from the upper right corner. Value of multiple instances can be visualized on the same time basis selection.
 
-For more information, see [Quickstart: Explore the Azure Time Series Insights Preview](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart)
+For more information, see [Quickstart: Explore the Azure Time Series Insights Preview](../time-series-insights/quickstart-explore-tsi.md)
 
 ## Define and apply a new Model
 
 Since the telemetry instances are now just in raw format, they need to be contextualized with the appropriate 
 
-For detailed information on TSI models see [Time Series Model in Azure Time Series Insights Preview](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-tsm)
+For detailed information on TSI models see [Time Series Model in Azure Time Series Insights Preview](../time-series-insights/concepts-model-overview.md)
 
 1. Step 1 - In the model tab of the Explorer, define a new hierarchy for the telemetry data ingested. A hierarchy is the logical tree structure meant to enable the user to insert the meta-information required for a more intuitive navigation through the TSI instances. a user can create/delete/modify hierarchy templates that can be later on instantiated for the various TSI instances.
 
@@ -83,7 +83,7 @@ For detailed information on TSI models see [Time Series Model in Azure Time Seri
 
 ## Connect Time Series Insights to Power BI
 
-You can also connect the Time Series Insights environment to Power BI.  For more information, see [How to connect TSI to Power BI](https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi) and [Visualize data from TSI in Power BI](https://docs.microsoft.com/azure/time-series-insights/concepts-power-bi).
+You can also connect the Time Series Insights environment to Power BI.  For more information, see [How to connect TSI to Power BI](../time-series-insights/how-to-connect-power-bi.md) and [Visualize data from TSI in Power BI](../time-series-insights/concepts-power-bi.md).
 
 
 ## Next steps

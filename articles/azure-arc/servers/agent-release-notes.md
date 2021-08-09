@@ -1,29 +1,82 @@
 ---
-title: What's new with Azure Arc enabled servers agent
-description: This article has release notes for Azure Arc enabled servers agent. For many of the summarized issues, there are links to more details.
+title: What's new with Azure Arc-enabled servers agent
+description: This article has release notes for Azure Arc-enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 07/16/2021
 ---
 
-# What's new with Azure Arc enabled servers agent
+# What's new with Azure Arc-enabled servers agent
 
-The Azure Arc enabled servers Connected Machine agent receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
+The Azure Arc-enabled servers Connected Machine agent receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
 - The latest releases
 - Known issues
 - Bug fixes
 
+## July 2021
+
+Version 1.8
+
+### New features
+
+- Improved reliability when installing the Azure Monitor Agent extension on Red Hat and CentOS systems
+- Added agent-side enforcement of max resource name length (54 characters)
+- Guest Configuration policy improvements:
+  - Added support for PowerShell-based Guest Configuration policies on Linux operating systems
+  - Added support for multiple assignments of the same Guest Configuration policy on the same server
+  - Upgraded PowerShell Core to version 7.1 on Windows operating systems
+
+### Fixed
+
+- The agent will continue running if it is unable to write service start/stop events to the Windows application event log
+
+## June 2021
+
+Version 1.7
+
+### New features
+
+- Improved reliability during onboarding:
+  - Improved retry logic when HIMDS is unavailable
+  - Onboarding will now continue instead of aborting if OS information cannot be obtained
+- Improved reliability when installing the OMS agent extension on Red Hat and CentOS systems
+
+## May 2021
+
+Version 1.6
+
+### New features
+
+- Added support for SUSE Enterprise Linux 12
+- Updated Guest Configuration agent to version 1.26.12.0 to include:
+
+   - Policies are executed in a separate process.
+   - Added V2 signature support for extension validation.
+   - Minor update to data logging.
+
+## April 2021
+
+Version 1.5
+
+### New features
+
+- Added support for Red Hat Enterprise Linux 8 and CentOS Linux 8.
+- New `-useStderr` parameter to direct error and verbose output to stderr.
+- New `-json` parameter to direct output results in JSON format (when used with -useStderr).
+- Collect other instance metadata - Manufacturer, model, and cluster resource ID (for Azure Stack HCI nodes).
+ 
 ## March 2021
 
 Version 1.4
 
-## New feature
+### New features
 
-- Added support for private endpoints.
+- Added support for private endpoints, which is currently in limited preview.
 - Expanded list of exit codes for azcmagent.
-- Agent configuration parameters can now be read from a file with the --config parameter.
+- Agent configuration parameters can now be read from a file with the `--config` parameter.
+- Collect new instance metadata to determine if Microsoft SQL Server is installed on the server
 
-## Fixed
+### Fixed
 
 Network endpoint checks are now faster.
 
@@ -31,9 +84,9 @@ Network endpoint checks are now faster.
 
 Version: 1.3
 
-### New feature
+### New features
 
-Added support for Windows Server 2008 R2.
+Added support for Windows Server 2008 R2 SP1.
 
 ### Fixed
 
@@ -66,10 +119,10 @@ Version: 1.0 (General Availability)
 
 - Support for preview agents (all versions older than 1.0) will be removed in a future service update.
 - Removed support for fallback endpoint `.azure-automation.net`. If you have a proxy, you need to allow the endpoint `*.his.arc.azure.com`.
-- If the Connected Machine agent is installed on a virtual machine hosted in Azure, VM extensions can't be installed or modified from the Arc enabled servers resource. This is to avoid conflicting extension operations being performed from the virtual machine's **Microsoft.Compute** and **Microsoft.HybridCompute** resource. Use the **Microsoft.Compute** resource for the machine for all extension operations.
+- If the Connected Machine agent is installed on a virtual machine hosted in Azure, VM extensions can't be installed or modified from the Arc-enabled servers resource. This is to avoid conflicting extension operations being performed from the virtual machine's **Microsoft.Compute** and **Microsoft.HybridCompute** resource. Use the **Microsoft.Compute** resource for the machine for all extension operations.
 - Name of Guest Configuration process has changed, from *gcd* to *gcad* on Linux, and *gcservice* to *gcarcservice* on Windows.
 
-### New feature
+### New features
 
 - Added `azcmagent logs` option to collect information for support.
 - Added `azcmagent license` option to display EULA.
@@ -100,4 +153,6 @@ If you are using an older version of the Linux agent and it's configured to use 
 
 ## Next steps
 
-Before evaluating or enabling Arc enabled servers across multiple hybrid machines, review [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.
+- Before evaluating or enabling Arc-enabled servers across multiple hybrid machines, review [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.
+
+- Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.

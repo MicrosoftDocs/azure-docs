@@ -1,131 +1,140 @@
 ---
 title: "Access to Azure SQL Database: Migration guide"
-description: This guide teaches you to migrate your Microsoft Access databases to Azure SQL Database using SQL Server Migration Assistant for Access (SSMA for Access). 
+description: In this guide, you learn how to migrate your Microsoft Access databases to an Azure SQL database by using SQL Server Migration Assistant for Access (SSMA for Access). 
 ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom: 
 ms.devlang: 
-ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
+ms.topic: how-to
+author: mokabiru
+ms.author: mokabiru
+ms.reviewer: cawrites
 ms.date: 03/19/2021
 ---
 
 # Migration guide: Access to Azure SQL Database
 
-This migration guide teaches you to migrate your Microsoft Access databases to Azure SQL Database using the SQL Server Migration Assistant for Access.
+In this guide, you learn [how to migrate](https://azure.microsoft.com/migration/migration-journey) your Microsoft Access database to an Azure SQL database by using [SQL Server Migration](https://azure.microsoft.com/migration/sql-server/) Assistant for Access (SSMA for Access).
 
-For other migration guides, see [Database Migration](https://datamigration.microsoft.com/). 
+For other migration guides, see [Azure Database Migration Guide](/data-migration). 
 
 ## Prerequisites
 
-To migrate your Access database to Azure SQL Database, you need:
+Before you begin migrating your Access database to a SQL database, do the following:
 
-- to verify your source environment is supported. 
-- [SQL Server Migration Assistant for Access](https://www.microsoft.com/download/details.aspx?id=54255). 
+- Verify that your source environment is supported. 
+- Download and install [SQL Server Migration Assistant for Access](https://www.microsoft.com/download/details.aspx?id=54255).
+- Ensure that you have connectivity and sufficient permissions to access both source and target.
 
 ## Pre-migration
 
-After you have met the prerequisites, you are ready to discover the topology of your environment and assess the feasibility of your migration.
+After you've met the prerequisites, you're ready to discover the topology of your environment and assess the feasibility of your [Azure cloud migration](https://azure.microsoft.com/migration).
 
 
 ### Assess 
 
-Create an assessment using [SQL Server Migration Assistant for Access](https://www.microsoft.com/download/details.aspx?id=54255). 
+Use SSMA for Access to review database objects and data, and assess databases for migration. 
 
-To create an assessment, follow these steps: 
+To create an assessment, do the following: 
 
-1. Open SQL Server Migration Assistant for Access. 
-1. Select **File** and then choose **New Project**. Provide a name for your migration project. 
+1. Open [SSMA for Access](https://www.microsoft.com/download/details.aspx?id=54255). 
+1. Select **File**, and then select **New Project**. 
+1. Provide a project name and a location for your project and then, in the drop-down list, select **Azure SQL Database** as the migration target. 
+1. Select **OK**. 
 
-   ![Choose New Project](./media/access-to-sql-database-guide/new-project.png)
+   ![Screenshot of the "New Project" pane for entering your migration project name and location.](./media/access-to-sql-database-guide/new-project.png)
 
-1. Select **Add Databases** and choose databases to be added to your new project. 
+1. Select **Add Databases**, and then select the databases to be added to your new project. 
 
-   ![Choose Add databases](./media/access-to-sql-database-guide/add-databases.png)
+   ![Screenshot of the "Add Databases" tab in SSMA for Access.](./media/access-to-sql-database-guide/add-databases.png)
 
-1. In **Access Metadata Explorer**, right-click the database and then choose **Create Report**. 
+1. On the **Access Metadata Explorer** pane, right-click a database, and then select **Create Report**. Alternatively, you can select the **Create Report** tab at the upper right.
 
-   ![Right-click the database and choose Create Report](./media/access-to-sql-database-guide/create-report.png)
+   ![Screenshot of the "Create Report" command in Access Metadata Explorer.](./media/access-to-sql-database-guide/create-report.png)
 
-1. Review the sample assessment. For example: 
+1. Review the HTML report to understand the conversion statistics and any errors or warnings. You can also open the report in Excel to get an inventory of Access objects and understand the effort required to perform schema conversions. The default location for the report is in the report folder within SSMAProjects. For example:
 
-   ![Review the sample report assessment](./media/access-to-sql-database-guide/sample-assessment.png)
+   `drive:\<username>\Documents\SSMAProjects\MyAccessMigration\report\report_<date>`
 
-### Validate data types
+   ![Screenshot of an example database report assessment in SSMA.](./media/access-to-sql-database-guide/sample-assessment.png)
 
-Validate the default data type mappings and change them based on requirements if necessary. To do so, follow these steps:
+### Validate the data types
 
-1. Select **Tools** from the menu. 
-1. Select **Project Settings**. 
-1. Select the **Type mappings** tab. 
+Validate the default data type mappings, and change them based on your requirements, if necessary. To do so:
 
-   ![Type Mappings](./media/access-to-sql-database-guide/type-mappings.png)
+1. In SSMA for Access, select **Tools**, and then select **Project Settings**. 
+1. Select the **Type Mapping** tab. 
 
-1. You can change the type mapping for each table by selecting the table in the **Access Metadata Explorer**.
+   ![Screenshot of the "Type Mapping" pane in SSMA for Access.](./media/access-to-sql-database-guide/type-mappings.png)
+
+1. You can change the type mapping for each table by selecting the table name on the **Access Metadata Explorer** pane.
 
 
-### Convert schema
+### Convert the schema
 
-To convert database objects, follow these steps: 
+To convert database objects, do the following: 
 
-1. Select **Connect to Azure SQL Database** and provide connection details.
+1. Select the **Connect to Azure SQL Database** tab, and then do the following:
 
-   ![Connect to Azure SQL Database](./media/access-to-sql-database-guide/connect-to-sqldb.png)
+   a. Enter the details for connecting to your SQL database.  
+   b. In the drop-down list, select your target SQL database. Or you can enter a new name, in which case a database will be created on the target server.  
+   c. Provide authentication details.   
+   d. Select **Connect**.
 
-1. Right-click the database in **Access Metadata Explorer** and choose **Convert schema**. Alternatively, you can choose **Convert Schema** from the top navigation bar after selecting your database.
+   ![Screenshot of the "Connect to Azure SQL Database" pane for entering connection details.](./media/access-to-sql-database-guide/connect-to-sqldb.png)
 
-   ![Right-click the database and choose convert schema](./media/access-to-sql-database-guide/convert-schema.png)
+1. On the **Access Metadata Explorer** pane, right-click the database, and then select **Convert Schema**. Alternatively, you can select your database and then select the **Convert Schema** tab.
 
-   Compare converted queries to original queries: 
+   ![Screenshot of the "Convert Schema" command on the "Access Metadata Explorer" pane.](./media/access-to-sql-database-guide/convert-schema.png)
 
-   ![Converted queries can be compared with source code](./media/access-to-sql-database-guide/query-comparison.png)
+1. After the conversion is completed, compare the converted objects to the original objects to identify potential problems, and address the problems based on the recommendations.
 
-   Compare converted objects to original objects: 
+   ![Screenshot showing a comparison of the converted objects to the source objects.](./media/access-to-sql-database-guide/table-comparison.png)
 
-   ![Converted objects can be compared with source](./media/access-to-sql-database-guide/table-comparison.png)
+    Compare the converted Transact-SQL text to the original code, and review the recommendations.
 
-1. (Optional) To convert an individual object, right-click the object and choose **Convert schema**. Converted objects appear bold in the **Access Metadata Explorer**: 
+   ![Screenshot showing a comparison of converted queries to the source code.](./media/access-to-sql-database-guide/query-comparison.png) 
 
-   ![Bold objects in metadata explorer have been converted](./media/access-to-sql-database-guide/converted-items.png)
+1. (Optional) To convert an individual object, right-click the object, and then select **Convert Schema**. Converted objects appear in bold text in **Access Metadata Explorer**: 
+
+   ![Screenshot showing that the objects in Access Metadata Explorer are converted.](./media/access-to-sql-database-guide/converted-items.png)
  
-1. Select **Review results** in the Output pane, and review errors in the **Error list** pane. 
+1. On the **Output** pane, select the **Review results** icon, and review the errors on the **Error list** pane. 
+1. Save the project locally for an offline schema remediation exercise. To do so, select **File** > **Save Project**. This gives you an opportunity to evaluate the source and target schemas offline and perform remediation before you publish them to your SQL database.
 
+## Migrate the databases
 
-## Migrate
+After you've assessed your databases and addressed any discrepancies, you can run the migration process. Migrating data is a bulk-load operation that moves rows of data into an Azure SQL database in transactions. The number of rows to be loaded into your SQL database in each transaction is configured in the project settings.
 
-After you have completed assessing your databases and addressing any discrepancies, the next step is to execute the migration process. Migrating data is a bulk-load operation that moves rows of data into Azure SQL Database in transactions. The number of rows to be loaded into Azure SQL Database in each transaction is configured in the project settings.
+To publish your schema and migrate the data by using SSMA for Access, do the following: 
 
-To migrate data by using SSMA for Access, follow these steps: 
+1. If you haven't already done so, select **Connect to Azure SQL Database**, and provide connection details. 
 
-1. If you haven't already, select **Connect to Azure SQL Database** and provide connection details. 
-1. Right-click the database from the **Azure SQL Database Metadata Explorer** and choose **Synchronize with Database**. This action publishes the MySQL schema to Azure SQL Database.
+1. Publish the schema. On the **Azure SQL Database Metadata Explorer** pane, right-click the database you're working with, and then select **Synchronize with Database**. This action publishes the MySQL schema to the SQL database.
 
-   ![Synchronize with Database](./media/access-to-sql-database-guide/synchronize-with-database.png)
+1. On the **Synchronize with the Database** pane, review the mapping between your source project and your target:
 
-   Review the mapping between your source project and your target:
+   ![Screenshot of the "Synchronize with the Database" pane for reviewing the synchronization with the database.](./media/access-to-sql-database-guide/synchronize-with-database-review.png)
 
-   ![Review the synchronization with the database](./media/access-to-sql-database-guide/synchronize-with-database-review.png)
+1. On the **Access Metadata Explorer** pane, select the check boxes next to the items you want to migrate. To migrate the entire database, select the check box next to the database. 
 
-1. Use **Access Metadata Explorer** to check boxes next to the items you want to migrate. If you want to migrate the entire database, check the box next to the database. 
-1. Right-click the database or object you want to migrate, and choose **Migrate data**. 
-   To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand Tables, and then select the check box next to the table. To omit data from individual tables, clear the check box.
+1. Migrate the data. Right-click the database or object you want to migrate, and then select **Migrate Data**. Alternatively, you can select the **Migrate Data** tab at the upper right.  
 
-    ![Migrate Data](./media/access-to-sql-database-guide/migrate-data.png)
+   To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand **Tables**, and then select the check box next to the table. To omit data from individual tables, clear the check box.
 
-    Review the migrated data: 
+    ![Screenshot of the "Migrate Data" command on the "Access Metadata Explorer" pane.](./media/access-to-sql-database-guide/migrate-data.png)
 
-    ![Migrate Data Review](./media/access-to-sql-database-guide/migrate-data-review.png)
+1. After migration is completed, view the **Data Migration Report**.  
 
-1. Connect to your Azure SQL Database by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) and validate the migration by reviewing the data and schema.
+    ![Screenshot of the "Migrate Data Report" pane showing an example report for review.](./media/access-to-sql-database-guide/migrate-data-review.png)
 
-   ![Validate in SSMA](./media/access-to-sql-database-guide/validate-data.png)
+1. Connect to your Azure SQL database by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms), and validate the migration by reviewing the data and schema.
 
-
+   ![Screenshot of SQL Server Management Studio Object Explorer for validating your migration in SSMA.](./media/access-to-sql-database-guide/validate-data.png)
 
 ## Post-migration 
 
-After you have successfully completed the **Migration** stage, you need to go through a series of post-migration tasks to ensure that everything is functioning as smoothly and efficiently as possible.
+After you've successfully completed the *migration* stage, you need to complete a series of post-migration tasks to ensure that everything is functioning as smoothly and efficiently as possible.
 
 ### Remediate applications
 
@@ -133,46 +142,47 @@ After the data is migrated to the target environment, all the applications that 
 
 ### Perform tests
 
-The test approach for database migration consists of performing the following activities:
+The test approach to database migration consists of the following activities:
 
-  1. **Develop validation tests**. To test database migration, you need to use SQL queries. You must create the validation queries to run against both the source and the target databases. Your validation queries should cover the scope you have defined.
+1. **Develop validation tests**: To test the database migration, you need to use SQL queries. You must create the validation queries to run against both the source and target databases. Your validation queries should cover the scope you've defined.
 
-  2. **Set up test environment**. The test environment should contain a copy of the source database and the target database. Be sure to isolate the test environment.
+1. **Set up a test environment**: The test environment should contain a copy of the source database and the target database. Be sure to isolate the test environment.
 
-  3. **Run validation tests**. Run the validation tests against the source and the target, and then analyze the results.
+1. **Run validation tests**: Run validation tests against the source and the target, and then analyze the results.
 
-  4. **Run performance tests**. Run performance test against the source and the target, and then analyze and compare the results.
+1. **Run performance tests**: Run performance tests against the source and the target, and then analyze and compare the results.
+
 
 ### Optimize
 
-The post-migration phase is crucial for reconciling any data accuracy issues and verifying completeness, as well as addressing performance issues with the workload.
+The post-migration phase is crucial for reconciling any data accuracy issues, verifying completeness, and addressing performance issues with the workload.
 
-For additional detail about these issues and specific steps to mitigate them, see the [Post-migration Validation and Optimization Guide](/sql/relational-databases/post-migration-validation-and-optimization-guide).
+For more information about these issues and the steps to mitigate them, see the [Post-migration validation and optimization guide](/sql/relational-databases/post-migration-validation-and-optimization-guide).
 
 ## Migration assets 
 
-For additional assistance with completing this migration scenario, please see the following resources, which were developed in support of a real-world migration project engagement.
+For more assistance with completing this migration scenario, see the following resource. It was developed in support of a real-world migration project engagement.
 
-| **Title/link**                                                                                                                                          | **Description**                                                                                                                                                                                                                                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Data Workload Assessment Model and Tool](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | This tool provides suggested “best fit” target platforms, cloud readiness, and application/database remediation level for a given workload. It offers simple, one-click calculation and report generation that greatly helps to accelerate large estate assessments by providing and automated and uniform target platform decision process. |
+| Title | Description |
+| --- | --- |
+| [Data workload assessment model and tool](https://www.microsoft.com/download/details.aspx?id=103130) | Provides suggested “best fit” target platforms, cloud readiness, and application/database remediation levels for specified workloads. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing an automated, uniform target-platform decision process. |
 
-
-These resources were developed as part of the Data SQL Ninja Program, which is sponsored by the Azure Data Group engineering team. The core charter of the Data SQL Ninja program is to unblock and accelerate complex modernization and compete data platform migration opportunities to Microsoft's Azure Data platform. If you think your organization would be interested in participating in the Data SQL Ninja program, please contact your account team and ask them to submit a nomination.
+The Data SQL Engineering team developed these resources. This team's core charter is to unblock and accelerate complex modernization for data platform migration projects to Microsoft's Azure data platform.
 
 ## Next steps
 
-- For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see [Service and tools for data migration](../../../dms/dms-tools-matrix.md).
+- For a matrix of Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios and specialty tasks, see [Service and tools for data migration](../../../dms/dms-tools-matrix.md).
 
 - To learn more about Azure SQL Database see:
    - [An overview of SQL Database](../../database/sql-database-paas-overview.md)
-   - [Azure total Cost of Ownership Calculator](https://azure.microsoft.com/pricing/tco/calculator/) 
+   - [Azure total cost of ownership calculator](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 
-- To learn more about the framework and adoption cycle for Cloud migrations, see
+- To learn more about the framework and adoption cycle for cloud migrations, see:
    -  [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
-   -  [Best practices for costing and sizing workloads migrate to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Best practices for costing and sizing workloads for migration to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Cloud Migration Resources](https://azure.microsoft.com/migration/resources)
 
-- To assess the Application access layer, see [Data Access Migration Toolkit (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
-- For details on how to perform Data Access Layer A/B testing see [Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview).
 
+- To assess the application access layer, see [Data Access Migration Toolkit (preview)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
+- For information about how to perform Data Access Layer A/B testing, see [Overview of Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview).

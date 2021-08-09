@@ -14,15 +14,12 @@ This article describes how to discover installed software inventory, and SQL Ser
 
 Performing software inventory helps identify and tailor a migration path to Azure for your workloads. Software inventory uses the Azure Migrate appliance to perform discovery, using server credentials. It is completely agentless- no agents are installed on the servers to collect this data.
 
-> [!NOTE]
-> Software inventory is currently in preview for servers running in VMware environment only, and is limited to discovery only. Currently we do not offer applications-based assessment.<br/> Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. To try out this feature, use [**this link**](https://aka.ms/AzureMigrate/SQL) to create a project in **Australia East** region. If you already have a project in Australia East and want to try out this feature, please ensure that you have completed these [**prerequisites**](how-to-discover-sql-existing-project.md) on the portal.
-
 ## Before you start
 
 - Ensure that you have [created a project](./create-manage-projects.md) with the Azure Migrate: Discovery and assessment tool added to it.
 - Review [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) to perform software inventory.
 - Review [appliance requirements](migrate-support-matrix-vmware.md#azure-migrate-appliance-requirements) before setting up the appliance.
-- Review [application discovery requirements](migrate-support-matrix-vmware.md#application-discovery-requirements) before initiating software inventory on servers.
+- Review [application discovery requirements](migrate-support-matrix-vmware.md#software-inventory-requirements) before initiating software inventory on servers.
 
 ## Deploy and configure the Azure Migrate appliance
 
@@ -71,6 +68,9 @@ The software inventory is exported and downloaded in Excel format. The **Softwar
 
 - Software inventory also identifies the SQL Server instances running in your VMware environment.
 - If you have not provided Windows authentication or SQL Server authentication credentials on the appliance configuration manager, then add the credentials so that the appliance can use them to connect to respective SQL Server instances.
+
+    > [!NOTE]
+    > Appliance can connect to only those SQL Server instances to which it has network line of sight, whereas software inventory by itself may not need network line of sight.
 
 Once connected, appliance gathers configuration and performance data of SQL Server instances and databases. The SQL Server configuration data is updated once every 24 hours and the performance data are captured every 30 seconds. Hence any change to the properties of the SQL Server instance and databases such as database status, compatibility level etc. can take up to 24 hours to update on the portal.
 

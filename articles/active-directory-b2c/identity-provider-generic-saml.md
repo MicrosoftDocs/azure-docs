@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 04/30/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -53,7 +53,8 @@ The following components required are for this scenario:
 * A SAML **identity provider** with the ability to receive, decode, and respond to SAML requests from Azure AD B2C.
 * A publicly available SAML **metadata endpoint** for your identity provider.
 * An [Azure AD B2C tenant](tutorial-create-tenant.md).
- 
+
+[!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
 
 ## Create a policy key
 
@@ -224,7 +225,7 @@ Open a browser and navigate to the URL. Make sure you type the correct URL and t
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
-1. For **Application**, select a web application that you [previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
+1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run now** button.
 1. From the sign-up or sign-in page, select **Contoso** to sign in with Contoso account.
 

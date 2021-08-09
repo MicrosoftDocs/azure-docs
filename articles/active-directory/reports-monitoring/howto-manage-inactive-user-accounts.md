@@ -4,7 +4,7 @@ description: Learn about how to detect and handle user accounts in Azure AD that
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/21/2021
+ms.date: 05/06/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -25,6 +25,9 @@ ms.collection: M365-identity-device-management
 In large environments, user accounts are not always deleted when employees leave an organization. As an IT administrator, you want to detect and handle these obsolete user accounts because they represent a security risk.
 
 This article explains a method to handle obsolete user accounts in Azure AD. 
+
+> [!IMPORTANT]
+> APIs under the `/beta` version in Microsoft Graph are subject to change. Use of these APIs in production applications is not supported. To determine whether an API is available in v1.0, use the **Version** selector.
 
 ## What are inactive user accounts?
 
@@ -37,16 +40,15 @@ The last successful sign-in provides potential insights into a user's continued 
     
 ## How to detect inactive user accounts
 
-You detect inactive accounts by evaluating the **lastSignInDateTime** property exposed by the **signInActivity** resource type of the **Microsoft Graph** API. Using this property, you can implement a solution for the following scenarios:
+You detect inactive accounts by evaluating the **lastSignInDateTime** property exposed by the **signInActivity** resource type of the **Microsoft Graph** API. The **lastSignInDateTime** property shows the last time a user made a successful interactive sign-in to Azure AD. Using this property, you can implement a solution for the following scenarios:
 
 - **Users by name**: In this scenario, you search for a specific user by name, which enables you to evaluate the lastSignInDateTime: `https://graph.microsoft.com/beta/users?$filter=startswith(displayName,'markvi')&$select=displayName,signInActivity`
 
 - **Users by date**: In this scenario, you request a list of users with a lastSignInDateTime before a specified date: `https://graph.microsoft.com/beta/users?filter=signInActivity/lastSignInDateTime le 2019-06-01T00:00:00Z`
 
-
-
-
-
+> [!NOTE]
+> There may be the need to generate a report of the last sign in date of all users, if so you can use the following scenario.
+> **Last Sign In Date and Time for All Users**: In this scenario, you request a list of all users, and the last lastSignInDateTime for each respective user: `https://graph.microsoft.com/beta/users?$select=displayName,signInActivity` 
 
 ## What you need to know
 
@@ -54,7 +56,7 @@ This section lists what you need to know about the lastSignInDateTime property.
 
 ### How can I access this property?
 
-The **lastSignInDateTime** property is exposed by the [signInActivity resource type](/graph/api/resources/signinactivity?view=graph-rest-beta) of the [Microsoft Graph REST API](/graph/overview?view=graph-rest-beta#whats-in-microsoft-graph).   
+The **lastSignInDateTime** property is exposed by the [signInActivity resource type](/graph/api/resources/signinactivity?view=graph-rest-beta&preserve-view=true) of the [Microsoft Graph REST API](/graph/overview#whats-in-microsoft-graph).   
 
 ### Is the lastSignInDateTime property available through the Get-AzureAdUser cmdlet?
 
@@ -62,14 +64,14 @@ No.
 
 ### What edition of Azure AD do I need to access the property?
 
-You can access this property in all editions of Azure AD.
+To access this property, you need an Azure Active Directory Premium edition.
 
 ### What permission do I need to read the property?
 
 To read this property, you need to grant the following rights: 
 
 - AuditLogs.Read.All
-- Organisation.Read.All  
+- Organization.Read.All  
 
 
 ### When does Azure AD update the property?
@@ -87,5 +89,6 @@ To generate a lastSignInDateTime timestamp, you need a successful sign-in. Becau
 ## Next steps
 
 * [Get data using the Azure Active Directory reporting API with certificates](tutorial-access-api-with-certificates.md)
-* [Audit API reference](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
-* [Sign-in activity report API reference](/graph/api/resources/signin?view=graph-rest-beta)
+* [Audit API reference](/graph/api/resources/directoryaudit) 
+* [Sign-in activity report API reference](/graph/api/resources/signin)
+

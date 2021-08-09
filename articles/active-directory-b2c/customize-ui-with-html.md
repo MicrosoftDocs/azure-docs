@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 06/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -87,6 +87,10 @@ When using your own HTML and CSS files to customize the UI, host your UI content
 ## Localize content
 
 You localize your HTML content by enabling [language customization](language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to forward the OpenID Connect parameter `ui_locales` to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
+
+> [!NOTE]
+> Azure AD B2C doesn't pass OpenID Connect parameters, such as `ui_locales` to the [Exception pages](page-layout.md#exception-page-globalexception).
+
 
 Content can be pulled from different places based on the locale that's used. In your CORS-enabled endpoint, you set up a folder structure to host content for specific languages. You'll call the right one if you use the wildcard value `{Culture:RFC5646}`.
 
@@ -257,7 +261,7 @@ You should see a page similar to the following example with the elements centere
 
 To configure UI customization, copy the **ContentDefinition** and its child elements from the base file to the extensions file.
 
-1. Open the base file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>. This base file is one of the policy files included in the custom policy starter pack, which you should have obtained in the prerequisite, [Get started with custom policies](./custom-policy-get-started.md).
+1. Open the base file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>. This base file is one of the policy files included in the custom policy starter pack, which you should have obtained in the prerequisite, [Get started with custom policies](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 1. Search for and copy the entire contents of the **ContentDefinitions** element.
 1. Open the extension file. For example, *TrustFrameworkExtensions.xml*. Search for the **BuildingBlocks** element. If the element doesn't exist, add it.
 1. Paste the entire contents of the **ContentDefinitions** element that you copied as a child of the **BuildingBlocks** element.
@@ -384,9 +388,9 @@ To use the sample:
     https://your-storage-account.blob.core.windows.net/your-container/templates/src/fonts/segoeui.WOFF
     ```
     
-1. Save the `\*.html` files and upload them to Blob storage.
+1. Save the `\*.html` files and upload them to the Blob storage.
 1. Now modify the policy, pointing to your HTML file, as mentioned previously.
-1. If you see missing fonts, images, or CSS, check your references in the extensions policy and the \*.html files.
+1. If you see missing fonts, images, or CSS, check your references in the extensions policy and the `\*.html` files.
 
 ## Use company branding assets in custom HTML
 

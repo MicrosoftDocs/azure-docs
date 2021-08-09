@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page # Required
   author: cherylmc #Required; your GitHub user alias, with correct capitalization.
   ms.author: cherylmc #Required; microsoft alias of author; optional team alias.
-  ms.date: 08/28/2019 #Required; mm/dd/yyyy format.
+  ms.date: 07/07/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -35,6 +35,10 @@ landingContent:
             url: about-zone-redundant-vnet-gateways.md
           - text: VPN Gateway FAQ
             url: vpn-gateway-vpn-faq.md
+      - linkListType: learn
+        links:
+          - text: Connect your on-premises network to Azure with VPN Gateway
+            url:  /learn/modules/connect-on-premises-network-with-vpn-gateway/
   # Card
   - title: Get started
     linkLists:

@@ -1,11 +1,8 @@
 ---
 title: Event Aggregation with Linux Azure Diagnostics 
 description: Learn about aggregating and collecting events using LAD for monitoring and diagnostics of Azure Service Fabric clusters.
-author: srrengar
-
 ms.topic: conceptual
 ms.date: 2/25/2019
-ms.author: srrengar
 ---
 
 # Event aggregation and collection using Linux Azure Diagnostics

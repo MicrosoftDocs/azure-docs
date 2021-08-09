@@ -6,7 +6,7 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 03/22/2021
+ms.date: 06/10/2021
 ---
 
 # Azure Security Center free vs Azure Defender enabled
@@ -43,16 +43,17 @@ Security Center is offered in two modes:
 - [If a Log Analytics agent reports to multiple workspaces, will I be charged twice?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
 - [If a Log Analytics agent reports to multiple workspaces, is the 500-MB free data ingestion available on all of them?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
 - [Is the 500-MB free data ingestion calculated for an entire workspace or strictly per machine?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
-- [What data types are included in the 500-MB free data limit?](#what-data-types-are-included-in-the-500-mb-free-data-limit)
+- [What data types are included in the 500-MB data daily allowance?](#what-data-types-are-included-in-the-500-mb-data-daily-allowance)
+
 
 ### How can I track who in my organization enabled Azure Defender changes in Security Center?
 Azure Subscriptions may have multiple administrators with permissions to change the pricing settings. To find out which user made a change, use the Azure Activity Log.
 
-:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="Azure Activity log showing a pricing change event":::
+:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="Azure Activity log showing a pricing change event.":::
 
 If the user's info isn't listed in the **Event initiated by** column, explore the event's JSON for the relevant details.
 
-:::image type="content" source="media/security-center-pricing/tracking-pricing-changes-in-activity-log.png" alt-text="Azure Activity log JSON explorer":::
+:::image type="content" source="media/security-center-pricing/tracking-pricing-changes-in-activity-log.png" alt-text="Azure Activity log JSON explorer.":::
 
 
 ### What are the plans offered by Security Center? 
@@ -81,7 +82,9 @@ An alternative is to enable Azure Defender for servers at the Log Analytics work
 ### If I already have a license for Microsoft Defender for Endpoint can I get a discount for Azure Defender?
 If you've already got a license for Microsoft Defender for Endpoint, you won't have to pay for that part of your Azure Defender license.
 
-To confirm your discount, contact Security Center's support team and provide the relevant workspace ID, region, and license information for each relevant license.
+To request your discount, contact Security Center's support team and provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint licenses applied for machines in the given workspace.
+
+The discount will be effective starting from the approval date, and will not take place retroactively.
 
 ### My subscription has Azure Defender for servers enabled, do I pay for not-running servers? 
 No. When you enable [Azure Defender for servers](defender-for-servers-introduction.md) on a subscription, you won't be charged for any machines that are in the deallocated power state while they're in that state. Machines are billed according to their power state as shown in the following table:
@@ -95,26 +98,25 @@ No. When you enable [Azure Defender for servers](defender-for-servers-introducti
 | Deallocating | Transitional state. When completed, the VM will show as Deallocated.                                                                             | Not billed            |
 | Deallocated  | The VM has been stopped successfully and removed from the host.                                                                                  | Not billed            |
 
-:::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="Azure Virtual Machines showing a deallocated machine":::
+:::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="Azure Virtual Machines showing a deallocated machine.":::
 
 ### Will I be charged for machines without the Log Analytics agent installed?
 Yes. When you enable [Azure Defender for servers](defender-for-servers-introduction.md) on a subscription, the machines in that subscription get a range of protections even if you haven't installed the Log Analytics agent.
 
 ### If a Log Analytics agent reports to multiple workspaces, will I be charged twice? 
-Yes. If you've configured your Log Analytics agent to send data to two or more different Log Analytics workspaces (multi-homing), you'll be charged for every workspace that has a 'Security' or 'AntiMalware' solutions installed. 
+Yes. If you've configured your Log Analytics agent to send data to two or more different Log Analytics workspaces (multi-homing), you'll be charged for every workspace that has a 'Security' or 'AntiMalware' solution installed. 
 
 ### If a Log Analytics agent reports to multiple workspaces, is the 500-MB free data ingestion available on all of them?
-Yes. If you've configured your Log Analytics agent to send data to two or more different Log Analytics workspaces (multi-homing), you'll get 500-MB free data ingestion. It's calculated per node, per reported workspace, per day, and available for every workspace that has a 'Security' or 'AntiMalware' solutions installed. You'll be charged for any data ingested over the 500 MB.
+Yes. If you've configured your Log Analytics agent to send data to two or more different Log Analytics workspaces (multi-homing), you'll get 500-MB free data ingestion. It's calculated per node, per reported workspace, per day, and available for every workspace that has a 'Security' or 'AntiMalware' solution installed. You'll be charged for any data ingested over the 500-MB limit.
 
 ### Is the 500-MB free data ingestion calculated for an entire workspace or strictly per machine?
 You’ll get 500-MB free data ingestion per day, for every machine connected to the workspace. Specifically for security data types directly collected by Azure Security Center.
 
 This data is a daily rate averaged across all nodes. So even if some machines send 100-MB and others send 800-MB, if the total doesn’t exceed the **[number of machines] x 500-MB** free limit, you won’t be charged extra.
 
-### What data types are included in the 500-MB free data limit?
+### What data types are included in the 500-MB data daily allowance?
 
-Security Center's billing is closely tied to the billing for Log Analytics. Security Center provides a 500 MB/node/day allocation against the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category.md#security):
-- WindowsEvent
+Security Center's billing is closely tied to the billing for Log Analytics. Security Center provides a 500 MB/node/day allocation against the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
 - SecurityAlert
 - SecurityBaseline
 - SecurityBaselineSummary
@@ -122,7 +124,6 @@ Security Center's billing is closely tied to the billing for Log Analytics. Secu
 - SecurityEvent
 - WindowsFirewall
 - MaliciousIPCommunication
-- LinuxAuditLog
 - SysmonEvent
 - ProtectionStatus
 - Update and UpdateSummary data types when the Update Management solution is not running on the workspace or solution targeting is enabled

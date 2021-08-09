@@ -1,7 +1,7 @@
 ---
 title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
-ms.date: 03/17/2021
+ms.date: 04/14/2021
 ms.topic: conceptual
 ---
 # Azure Policy assignment structure
@@ -60,6 +60,40 @@ All Azure Policy samples are at [Azure Policy samples](../samples/index.md).
 You use **displayName** and **description** to identify the policy assignment and provide context
 for its use with the specific set of resources. **displayName** has a maximum length of _128_
 characters and **description** a maximum length of _512_ characters.
+
+## Metadata
+
+The optional `metadata` property stores information about the policy assignment. Customers can
+define any properties and values useful to their organization in `metadata`. However, there are some
+_common_ properties used by Azure Policy. Each `metadata` property has a limit of 1024 characters.
+
+### Common metadata properties
+
+- `assignedBy` (string): The friendly name of the security principal that created the assignment.
+- `createdBy` (string): The GUID of the security principal that created the assignment.
+- `createdOn` (string): The Universal ISO 8601 DateTime format of the assignment creation time.
+- `parameterScopes` (object): A collection of key-value pairs where the key matches a
+  [strongType](./definition-structure.md#strongtype) configured parameter name and the value defines
+  the resource scope used in Portal to provide the list of available resources by matching
+  _strongType_. Portal sets this value if the scope is different than the assignment scope. If set,
+  an edit of the policy assignment in Portal automatically sets the scope for the parameter to this
+  value. However, the scope isn't locked to the value and it can be changed to another scope.
+
+  The following example of `parameterScopes` is for a _strongType_ parameter named
+  **backupPolicyId** that sets a scope for resource selection when the assignment is edited in the
+  Portal.
+
+  ```json
+  "metadata": {
+      "parameterScopes": {
+          "backupPolicyId": "/subscriptions/{SubscriptionID}/resourcegroups/{ResourceGroupName}"
+      }
+  }
+  ```
+
+- `updatedBy` (string): The friendly name of the security principal that updated the assignment, if
+  any.
+- `updatedOn` (string): The Universal ISO 8601 DateTime format of the assignment update time, if any.
 
 ## Enforcement Mode
 

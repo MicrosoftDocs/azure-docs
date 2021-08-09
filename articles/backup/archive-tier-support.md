@@ -1,17 +1,18 @@
 ---
-title: Archive Tier support (Preview)
+title: Archive Tier support
 description: Learn about Archive Tier Support for Azure Backup
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 08/04/2021
+ms.custom: devx-track-azurepowershell
 ---
 
-# Archive Tier support (Preview)
+# Archive Tier support
 
 Customers rely on Azure Backup for storing backup data including their Long-Term Retention (LTR) backup data with retention needs being defined by the organization's compliance rules. In most cases, the older backup data is rarely accessed and is only stored for compliance needs.
 
 Azure Backup supports backup of long-term retention points in the archive tier, in addition to snapshots and the Standard tier.
 
-## Scope for preview
+## Scope
 
 Supported workloads:
 
@@ -30,18 +31,20 @@ Supported clients:
 
 - The capability is provided using PowerShell
 
->[!NOTE]
->Archive Tier Support for Azure VMs and SQL Server in Azure VMs is in limited public preview with limited signups. To sign up for archive support use this [link](https://aka.ms/ArchivePreviewInterestForm).
+>[!Note]
+>Archive Tier support for SQL Servers in Azure VMs is now generally available in North Europe, Central India, South East Asia, and Australia East. For the detailed list of supported regions, refer to the [support matrix](#support-matrix).    <br><br>    For the remaining regions for SQL Servers in Azure VMs, Archive Tier support is in limited public preview. Archive Tier support for Azure Virtual Machines is also in limited public preview. To sign up for limited public preview, use this [link](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR463S33c54tEiJLEM6Enqb9UNU5CVTlLVFlGUkNXWVlMNlRPM1lJWUxLRy4u).
 
 ## Get started with PowerShell
+
+1. Download the [latest](https://github.com/PowerShell/PowerShell/releases) version of PowerShell from GitHub.
 
 1. Run the following command in PowerShell:
   
     ```azurepowershell
-    install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.0.0-preview -AllowPrerelease -force
+    install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.4.0 -AllowPrerelease -force
     ```
 
-1. Connect to Azure using the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet.
+1. Connect to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 1. Sign into your subscription:
 
    `Set-AzContext -Subscription "SubscriptionName"`
@@ -52,7 +55,13 @@ Supported clients:
 
 1. Get the list of backup items:
 
-    `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureVM/AzureWorkload" -WorkloadType "AzureVM/MSSQL"`
+    - For Azure virtual machines:
+
+        `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureVM" -WorkloadType "AzureVM"`
+
+    - For SQL Server in Azure virtual machines:
+
+        `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureWorkload" -WorkloadType "MSSQL"`
 
 1. Get the backup item.
 
@@ -64,19 +73,29 @@ Supported clients:
 
         `$bckItm = $BackupItemList | Where-Object {$_.Name -match '<dbName>' -and $_.ContainerName -match '<vmName>'}`
 
+1. Add the date range for which you want to view the recovery  points. For example, if you want to view the recovery points from the last 124 days to last 95 days, use the following command:
+
+   ```azurepowershell
+    $startDate = (Get-Date).AddDays(-124)
+    $endDate = (Get-Date).AddDays(-95) 
+
+    ```
+    >[!NOTE]
+    >To view recovery points for a different time range, modify the start and the end date accordingly.
 ## Use PowerShell
 
 ### Check archivable recovery points
 
 ```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm  -IsReadyForMove $true -TargetTier VaultArchive
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -IsReadyForMove $true -TargetTier VaultArchive
 ```
 
-This will list all the recovery points associated with a particular backup item that are ready to be moved to archive.
+This will list all recovery points associated with a particular backup item that are ready to be moved to archive (from the start date to the end date). You can also modify the start dates and the end dates.
 
 ### Check why a recovery point cannot be moved to archive
 
 ```azurepowershell
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -IsReadyForMove $false -TargetTier VaultArchive
 $rp[0].RecoveryPointMoveReadinessInfo["ArchivedRP"]
 ```
 
@@ -106,8 +125,10 @@ $RecommendedRecoveryPointList = Get-AzRecoveryServicesBackupRecommendedArchivabl
 ### Move to archive
 
 ```azurepowershell
-Move-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -RecoveryPoint $rp[2] -SourceTier VaultStandard -DestinationTier VaultArchive
+Move-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -RecoveryPoint $rp[0] -SourceTier VaultStandard -DestinationTier VaultArchive
 ```
+
+Where, `$rp[0]` is the first recovery point in the list. If you want to move other recovery points, use `$rp[1]`, `$rp[2]`, and so on.
 
 This command moves an archivable recovery point to archive. It returns a job that can be used to track the move operation both from portal and with PowerShell.
 
@@ -116,14 +137,14 @@ This command moves an archivable recovery point to archive. It returns a job tha
 This command returns all the archived recovery points.
 
 ```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -Tier VaultArchive
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -Tier VaultArchive -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
 ```
 
 ### Restore with PowerShell
 
 For recovery points in archive, Azure Backup provides an integrated restore methodology.
 
-The integrated restore is a two-step process. The first step involves rehydrating the recovery points stored in archive and temporarily storing it in the vault-standard tier for a duration (also known as the rehydration duration) ranging from a period of 10 to 30 days. The default is 15 days. There are two different priorities of rehydration – Standard and High priority. Learn more about [rehydration priority](https://docs.microsoft.com/azure/storage/blobs/storage-blob-rehydration#rehydrate-an-archived-blob-to-an-online-tier).
+The integrated restore is a two-step process. The first step involves rehydrating the recovery points stored in archive and temporarily storing it in the vault-standard tier for a duration (also known as the rehydration duration) ranging from a period of 10 to 30 days. The default is 15 days. There are two different priorities of rehydration – Standard and High priority. Learn more about [rehydration priority](../storage/blobs/storage-blob-rehydration.md#rehydrate-an-archived-blob-to-an-online-tier).
 
 >[!NOTE]
 >
@@ -136,7 +157,7 @@ For more information about the various restore methods for Azure virtual machine
 Restore-AzRecoveryServicesBackupItem -VaultLocation $vault.Location -RehydratePriority "Standard" -RehydrateDuration 15 -RecoveryPoint $rp -StorageAccountName "SampleSA" -StorageAccountResourceGroupName "SArgName" -TargetResourceGroupName $vault.ResourceGroupName -VaultId $vault.ID
 ```
 
-To restore SQL Server, follow [these steps](backup-azure-sql-automation.md#restore-sql-dbs). The additional parameters required are **RehydrationPriority** and **RehydrationDuration**.
+To restore SQL Server, follow [these steps](backup-azure-sql-automation.md#restore-sql-dbs). The `Restore-AzRecoveryServicesBackupItem` command requires two additional parameters, **RehydrationDuration** and **RehydrationPriority**.
 
 ### View jobs from PowerShell
 
@@ -181,6 +202,13 @@ Recovery points that haven't stayed in archive for a minimum of six months will 
 
 Stop protection and delete data deletes all the recovery points. For recovery points in archive that haven't stayed for a duration of 180 days in archive tier, deletion of recovery points will lead to early deletion cost.
 
+## Support matrix
+
+| Workloads | Preview | Generally available |
+| --- | --- | --- |
+| SQL Server in Azure VM | East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, North Central US, Brazil South, Canada East, Canada Central, West Europe, UK South, UK West, East Asia, Japan East, South India | Australia East, Central India, North Europe, South East Asia |
+| Azure Virtual Machines | East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, North Central US, Brazil South, Canada East, Canada Central, West Europe, UK South, UK West, East Asia, Japan East, South India, South East Asia, Australia East, Central India, North Europe | None |
+
 ## Error codes and troubleshooting steps
 
 There are several error codes that come up when a recovery point can't be moved to archive.
@@ -191,7 +219,7 @@ There are several error codes that come up when a recovery point can't be moved 
 
 **Description** – This error code is shown when the selected recovery point type isn't eligible to be moved to archive.
 
-**Recommended action** – Check eligibility of the recovery point [here](#scope-for-preview)
+**Recommended action** – Check eligibility of the recovery point [here](#scope)
 
 ### RecoveryPointHaveActiveDependencies
 
@@ -199,7 +227,7 @@ There are several error codes that come up when a recovery point can't be moved 
 
 **Description –** The selected recovery point has active dependencies and so can’t be moved to archive.
 
-**Recommended action** – Check eligibility of the recovery point [here](#scope-for-preview)
+**Recommended action** – Check eligibility of the recovery point [here](#scope)
 
 ### MinLifeSpanInStandardRequiredForArchive
 
@@ -207,7 +235,7 @@ There are several error codes that come up when a recovery point can't be moved 
 
 **Description** – The recovery point has to stay in Standard tier for a minimum of three months for Azure virtual machines, and 45 days for SQL Server in Azure virtual machines
 
-**Recommended action** – Check eligibility of the recovery point [here](#scope-for-preview)
+**Recommended action** – Check eligibility of the recovery point [here](#scope)
 
 ### MinRemainingLifeSpanInArchiveRequired
 
@@ -215,7 +243,7 @@ There are several error codes that come up when a recovery point can't be moved 
 
 **Description** – The minimum lifespan required for a recovery point for archive move eligibility is six months.
 
-**Recommended action** – Check eligibility of the recovery point [here](#scope-for-preview)
+**Recommended action** – Check eligibility of the recovery point [here](#scope)
 
 ### UserErrorRecoveryPointAlreadyInArchiveTier
 
@@ -278,6 +306,12 @@ There are several error codes that come up when a recovery point can't be moved 
 ### What will happen to archive recovery points if I stop protection and retain data?
 
 The recovery point will remain in archive forever. For more information, see [Impact of stop protection on recovery points](manage-recovery-points.md#impact-of-stop-protection-on-recovery-points).
+
+### Is Cross Region restore supported from archive tier?
+
+When you move your data in GRS vaults from standard tier to archive tier, the data moves into GRS archive. This is true even when Cross region restore is enabled. Once backup data moves into archive tier, you can’t restore the data into the paired region. However, during region failures, the backup data in secondary region will become available for restore. 
+
+While restoring from recovery point in archive tier in primary region, the recovery point is copied to the Standard tier and is retained according to the rehydration duration, both in primary and secondary region. You can perform Cross region restore from these rehydrated recovery points.
 
 ## Next steps
 

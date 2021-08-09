@@ -27,7 +27,7 @@ landingContent:
     - linkListType: reference
       links:
         - text: Voice assistants FAQ
-          url: faq-voice-assistants.md
+          url: faq-voice-assistants.yml
         - text: Voice assistants pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
     - linkListType: get-started
@@ -74,8 +74,8 @@ landingContent:
           url: ./custom-keyword-basics.md
     - linkListType: reference
       links:
-        - text: Custom Keyword naming guidelines
-          url: ./custom-keyword-overview.md
+        - text: Choosing an effective keyword
+          url: ./keyword-recognition-guidelines.md
 - title: Help and feedback
   linkLists:
   - linkListType: reference

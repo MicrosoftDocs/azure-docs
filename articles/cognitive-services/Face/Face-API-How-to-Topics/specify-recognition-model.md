@@ -69,12 +69,12 @@ A **PersonGroup** should have one unique recognition model for all of the **Pers
 See the following code example for the .NET client library.
 
 ```csharp
-// Create an empty PersonGroup with "recognition_02" model
+// Create an empty PersonGroup with "recognition_04" model
 string personGroupId = "mypersongroupid";
-await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_04");
 ```
 
-In this code, a **PersonGroup** with ID `mypersongroupid` is created, and it is set up to use the _recognition_02_ model to extract face features.
+In this code, a **PersonGroup** with ID `mypersongroupid` is created, and it is set up to use the _recognition_04_ model to extract face features.
 
 Correspondingly, you need to specify which model to use when detecting faces to compare against this **PersonGroup** (through the [Face - Detect] API). The model you use should always be consistent with the **PersonGroup**'s configuration; otherwise, the operation will fail due to incompatible models.
 
@@ -82,7 +82,7 @@ There is no change in the [Face - Identify] API; you only need to specify the mo
 
 ## Find similar faces with specified model
 
-You can also specify a recognition model for similarity search. You can assign the model version with `recognitionModel` when creating the face list with [FaceList - Create] API or [LargeFaceList - Create]. If you do not specify this parameter, the `recognition_01` model is used by default. A face list will always use the recognition model it was created with, and new faces will become associated with this model when they are added to the list; you cannot change this after creation. To see what model a face list is configured with, use the [FaceList - Get] API with the _returnRecognitionModel_ parameter set as **true**.
+You can also specify a recognition model for similarity search. You can assign the model version with `recognitionModel` when creating the **FaceList** with [FaceList - Create] API or [LargeFaceList - Create]. If you do not specify this parameter, the `recognition_01` model is used by default. A **FaceList** will always use the recognition model it was created with, and new faces will become associated with this model when they are added to the list; you cannot change this after creation. To see what model a **FaceList** is configured with, use the [FaceList - Get] API with the _returnRecognitionModel_ parameter set as **true**.
 
 See the following code example for the .NET client library.
 
@@ -90,7 +90,7 @@ See the following code example for the .NET client library.
 await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_04");
 ```
 
-This code creates a face list called `My face collection`, using the _recognition_04_ model for feature extraction. When you search this face list for similar faces to a new detected face, that face must have been detected ([Face - Detect]) using the _recognition_04_ model. As in the previous section, the model needs to be consistent.
+This code creates a **FaceList** called `My face collection`, using the _recognition_04_ model for feature extraction. When you search this **FaceList** for similar faces to a new detected face, that face must have been detected ([Face - Detect]) using the _recognition_04_ model. As in the previous section, the model needs to be consistent.
 
 There is no change in the [Face - Find Similar] API; you only specify the model version in detection.
 
@@ -111,7 +111,7 @@ If you normally specify a confidence threshold (a value between zero and one tha
 
 ## Next steps
 
-In this article, you learned how to specify the recognition model to use with different Face service APIs. Next, follow a quickstart to get started using face detection.
+In this article, you learned how to specify the recognition model to use with different Face service APIs. Next, follow a quickstart to get started with face detection.
 
 * [Face .NET SDK](../quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [Face Python SDK](../quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)

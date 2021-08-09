@@ -1,11 +1,11 @@
 ---
 title: Analyze logs and metrics in Azure Spring Cloud | Microsoft Docs
 description: Learn how to analyze diagnostics data in Azure Spring Cloud
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 ---
 
@@ -22,7 +22,7 @@ Using the diagnostics functionality of Azure Spring Cloud, you can analyze logs 
 Choose the log category and metric category you want to monitor.
 
 > [!TIP]
-> Just want to stream your logs? Check out this [Azure CLI command](/cli/azure/ext/spring-cloud/spring-cloud/app#ext-spring-cloud-az-spring-cloud-app-logs)!
+> Just want to stream your logs? Check out this [Azure CLI command](/cli/azure/spring-cloud/app#az_spring_cloud_app_logs)!
 
 ## Logs
 
@@ -33,7 +33,7 @@ Choose the log category and metric category you want to monitor.
 
 ## Metrics
 
-For a complete list of metrics, see [Spring Cloud Metrics](./spring-cloud-concept-metrics.md#user-metrics-options).
+For a complete list of metrics, see [Spring Cloud Metrics](./concept-metrics.md#user-metrics-options).
 
 To get started, enable one of these services to receive the data. To learn about configuring Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
 
@@ -105,7 +105,7 @@ There are various methods to view logs and metrics as described under the follow
 > [!NOTE]
 > `==` is case sensitive, but `=~` is not.
 
-To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/).
+To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](/azure/data-explorer/query-monitor-data).
 
 ### Use your storage account
 
@@ -203,4 +203,4 @@ You may be able to use the same strategy for other Java log libraries.
 
 ## Next steps
 
-* [Quickstart: Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md)
+* [Quickstart: Deploy your first Azure Spring Cloud application](./quickstart.md)

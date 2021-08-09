@@ -36,7 +36,7 @@ The v3 SDK contains many usability and performance improvements, including:
 * Fluent hierarchy that replaces the need for URI factory
 * Built-in support for change feed processor library
 * Built-in support for bulk operations
-* Mockabale APIs for easier unit testing
+* Mockable APIs for easier unit testing
 * Transactional batch and Blazor support
 * Pluggable serializers
 * Scale non-partitioned and autoscale containers

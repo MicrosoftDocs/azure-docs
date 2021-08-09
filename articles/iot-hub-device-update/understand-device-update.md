@@ -63,7 +63,7 @@ Device Update for IoT Hub features provide a powerful and flexible experience, i
 * At-a-glance update compliance and status views across heterogenous device fleets
 * Support for resilient device updates (A/B) to deliver seamless rollback
 * Subscription and role-based access controls available through the Azure.com portal
-* On-premise content cache and Nested Edge support to enable updating cloud disconnected devices
+* On-premises content cache and Nested Edge support to enable updating cloud disconnected devices
 * Detailed update management and reporting tools 
 
 With Device Update for IoT Hub management and deployment controls, users can maximize productivity and save valuable time. Device Update for IoT Hub includes the ability to group devices and specify
@@ -100,12 +100,12 @@ Importing is how your updates are ingested into Device Update so they can be dep
 full-image updates that update an entire OS partition at once, or an apt Manifest that describes all the packages you want to update
 on your device. To import updates into Device Update, you first create an import manifest 
 describing the update, then upload the update file(s) and the import 
-manifest to an Internet-accessible location. After that, you can use the Azure portal or the [Device Update Import
-REST API](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) to initiate the asynchronous process of update import. Device Update uploads the files, processes
+manifest to an Internet-accessible location. After that, you can use the Azure portal or the [Device Update
+REST API](/rest/api/deviceupdate/) to initiate the asynchronous process of update import. Device Update uploads the files, processes
 them, and makes them available for distribution to IoT devices.
 
 For sensitive content, protect the download using a shared access signature (SAS), such as an ad-hoc SAS for Azure Blob Storage. [Learn more about
-SAS](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+SAS](../storage/common/storage-sas-overview.md)
 
 :::image type="content" source="media/understand-device-update/import-update.png" alt-text="Diagram of Device Update for IoT Hub importing workflow." lightbox="media/understand-device-update/import-update.png":::
 

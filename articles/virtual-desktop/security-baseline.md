@@ -1,6 +1,6 @@
 ---
-title: Azure security baseline for Windows Virtual Desktop
-description: The Windows Virtual Desktop security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
+title: Azure security baseline for Azure Virtual Desktop
+description: The Azure Virtual Desktop security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
 ms.service: virtual-desktop
 ms.topic: conceptual
@@ -12,13 +12,13 @@ ms.custom: subject-security-benchmark
 
 ---
 
-# Azure security baseline for Windows Virtual Desktop
+# Azure security baseline for Azure Virtual Desktop
 
-This security baseline applies guidance from the [Azure Security Benchmark version 2.0](../security/benchmarks/overview.md) to Windows Virtual Desktop. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Windows Virtual Desktop. **Controls** not applicable to Windows Virtual Desktop have been excluded.
+This security baseline applies guidance from the [Azure Security Benchmark version 2.0](../security/benchmarks/overview.md) to Azure Virtual Desktop. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Virtual Desktop. **Controls** not applicable to Azure Virtual Desktop have been excluded.
 
-Windows Virtual Desktop service includes the service itself, the Windows 10 Enterprise for multi-session virtual sku as well as FSLogix. For FSLogix-related security recommendations, see the [security baseline for storage](../storage/common/security-baseline.md). The service has an agent running on virtual machines but since the virtual machines are under full control of the customer, follow [security recommendations for compute](../virtual-machines/windows/security-baseline.md)
+Azure Virtual Desktop service includes the service itself, the Windows 10 Enterprise for multi-session virtual sku as well as FSLogix. For FSLogix-related security recommendations, see the [security baseline for storage](../storage/common/security-baseline.md). The service has an agent running on virtual machines but since the virtual machines are under full control of the customer, follow [security recommendations for compute](../virtual-machines/windows/security-baseline.md)
 
-To see how Windows Virtual Desktop completely maps to the Azure Security Benchmark, see the [full Windows Virtual Desktop security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+To see how Azure Virtual Desktop completely maps to the Azure Security Benchmark, see the [full Azure Virtual Desktop security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## Network Security
 
@@ -26,19 +26,19 @@ To see how Windows Virtual Desktop completely maps to the Azure Security Benchma
 
 ### NS-1: Implement security for internal traffic
 
-**Guidance**: You must create or use an existing virtual network when you deploy virtual machines to be registered to Windows Virtual Desktop. Ensure that all Azure virtual networks follow an enterprise segmentation principle that aligns to the business risks. Any system that could incur higher risk for the organization should be isolated within its own virtual network and sufficiently secured with either a network security group or Azure Firewall.
+**Guidance**: You must create or use an existing virtual network when you deploy virtual machines to be registered to Azure Virtual Desktop. Ensure that all Azure virtual networks follow an enterprise segmentation principle that aligns to the business risks. Any system that could incur higher risk for the organization should be isolated within its own virtual network and sufficiently secured with either a network security group or Azure Firewall.
 
 Use Adaptive Network Hardening features in Azure Security Center to recommend network security group configurations which limit ports and source IPs with reference to external network traffic rules.
 
 Based on your applications and enterprise segmentation strategy, restrict or allow traffic between internal resources based on network security group rules. For specific well-defined applications (such as a 3-tier app), this can be a highly secure "deny by default, permit by exception" approach. This might not scale well if you have many applications and endpoints interacting with each other. You can also use Azure Firewall in circumstances where central management is required over a large number of enterprise segments or spokes (in a hub/spoke topology)
 
-For the network security groups associated with your virtual machine (that are part of Windows Virtual Desktop) subnets, you must allow outgoing traffic to specific endpoints. 
+For the network security groups associated with your virtual machine (that are part of Azure Virtual Desktop) subnets, you must allow outgoing traffic to specific endpoints. 
 
-- [Find out what URLs are required to be allowed access for Windows Virtual Desktop](safe-url-list.md)
+- [Find out what URLs are required to be allowed access for Azure Virtual Desktop](safe-url-list.md)
 
 - [Adaptive Network Hardening in Azure Security Center](../security-center/security-center-adaptive-network-hardening.md) 
 
-- [Azure Firewall for Windows Virtual Desktop ](../firewall/protect-windows-virtual-desktop.md)
+- [Azure Firewall for Azure Virtual Desktop ](../firewall/protect-windows-virtual-desktop.md)
 
 - [How to create a network security group with security rules](../virtual-network/tutorial-filter-network-traffic.md)
 
@@ -70,9 +70,9 @@ Use virtual network peering to connect two or more virtual networks together in 
 
 ### NS-4: Protect applications and services from external network attacks
 
-**Guidance**: Use Azure Firewall to protect applications and services against potentially malicious traffic from the internet and other external locations. Protect your Windows Virtual Desktop resources against attacks from external networks, including distributed denial of service attacks, application specific attacks, unsolicited and potentially malicious internet traffic. Protect your assets against distributed denial of service attacks by enabling DDoS standard protection on your Azure Virtual Networks. Use Azure Security Center to detect misconfiguration risks related to your network related resources.
+**Guidance**: Use Azure Firewall to protect applications and services against potentially malicious traffic from the internet and other external locations. Protect your Azure Virtual Desktop resources against attacks from external networks, including distributed denial of service attacks, application specific attacks, unsolicited and potentially malicious internet traffic. Protect your assets against distributed denial of service attacks by enabling DDoS standard protection on your Azure Virtual Networks. Use Azure Security Center to detect misconfiguration risks related to your network related resources.
 
-Windows Virtual Desktop is not intended to run web applications, and does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks targeting web applications.
+Azure Virtual Desktop is not intended to run web applications, and does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks targeting web applications.
 
 - [Azure Firewall Documentation](../firewall/index.yml)
 
@@ -102,11 +102,11 @@ If you have a regulatory or other requirement for intrusion detection or prevent
 
 ### NS-6: Simplify network security rules
 
-**Guidance**: Use Azure Virtual Network service tags to define network access controls on network security groups or an Azure Firewall configured for your Windows Virtual Desktop resources. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (For example: WindowsVirtualDesktop) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
+**Guidance**: Use Azure Virtual Network service tags to define network access controls on network security groups or an Azure Firewall configured for your Azure Virtual Desktop resources. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (For example: WindowsVirtualDesktop) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
 - [Understand and using Service Tags](../virtual-network/service-tags-overview.md)
 
-- [Learn more about what is covered by the Windows Virtual Desktop Service Tag here ](safe-url-list.md)
+- [Learn more about what is covered by the Azure Virtual Desktop Service Tag here ](safe-url-list.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -118,7 +118,7 @@ If you have a regulatory or other requirement for intrusion detection or prevent
 
 ### IM-1: Standardize Azure Active Directory as the central identity and authentication system
 
-**Guidance**: Windows Virtual Desktop uses Azure Active Directory (Azure AD) as the default identity and access management service. You should standardize Azure AD to govern your organization’s identity and access management in:
+**Guidance**: Azure Virtual Desktop uses Azure Active Directory (Azure AD) as the default identity and access management service. You should standardize Azure AD to govern your organization’s identity and access management in:
 
 - Microsoft Cloud resources, such as the Azure portal, Azure Storage, Azure Virtual Machine (Linux and Windows), Azure Key Vault, PaaS, and SaaS applications.
 
@@ -134,7 +134,7 @@ Azure AD supports external identities which allow users without a Microsoft acco
 
 - [What is the identity secure score in Azure AD](../active-directory/fundamentals/identity-secure-score.md)
 
-- [Specific roles that you need to operate Windows Virtual Desktop ](faq.md#what-are-the-minimum-admin-permissions-i-need-to-manage-objects)
+- [Specific roles that you need to operate Azure Virtual Desktop ](/azure/virtual-desktop/faq#what-are-the-minimum-admin-permissions-i-need-to-manage-objects)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -142,9 +142,9 @@ Azure AD supports external identities which allow users without a Microsoft acco
 
 ### IM-2: Manage application identities securely and automatically
 
-**Guidance**: Windows Virtual Desktop supports Azure managed identities for non-human accounts such as services or automation. It is recommended to use Azure managed identity feature instead of creating a more powerful human account to access or execute your resources. 
+**Guidance**: Azure Virtual Desktop supports Azure managed identities for non-human accounts such as services or automation. It is recommended to use Azure managed identity feature instead of creating a more powerful human account to access or execute your resources. 
 
-Windows Virtual Desktop recommends using Azure Active Directory (Azure AD) to create a service principal with restricted permissions at the resource level to configure service principals with certificate credentials and fall back to client secrets. In both cases, Azure Key Vault can be used to in conjunction with Azure managed identities, so that the runtime environment (such as, an Azure Function) can retrieve the credential from the key vault.
+Azure Virtual Desktop recommends using Azure Active Directory (Azure AD) to create a service principal with restricted permissions at the resource level to configure service principals with certificate credentials and fall back to client secrets. In both cases, Azure Key Vault can be used to in conjunction with Azure managed identities, so that the runtime environment (such as, an Azure Function) can retrieve the credential from the key vault.
 
 - [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
@@ -160,7 +160,7 @@ Windows Virtual Desktop recommends using Azure Active Directory (Azure AD) to cr
 
 ### IM-3: Use Azure AD single sign-on (SSO) for application access
 
-**Guidance**: Windows Virtual Desktop uses Azure Active Directory (Azure AD) to provide identity and access management to Azure resources, cloud applications, and on-premises applications. This includes enterprise identities such as employees, as well as external identities such as partners, vendors, and suppliers. This enables single sign-on (SSO) to manage and secure access to your organization’s data and resources on-premises and in the cloud. Connect all your users, applications, and devices to Azure AD for seamless secure access with greater visibility and control.
+**Guidance**: Azure Virtual Desktop uses Azure Active Directory (Azure AD) to provide identity and access management to Azure resources, cloud applications, and on-premises applications. This includes enterprise identities such as employees, as well as external identities such as partners, vendors, and suppliers. This enables single sign-on (SSO) to manage and secure access to your organization’s data and resources on-premises and in the cloud. Connect all your users, applications, and devices to Azure AD for seamless secure access with greater visibility and control.
 
 - [Understand Application SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
@@ -170,13 +170,13 @@ Windows Virtual Desktop recommends using Azure Active Directory (Azure AD) to cr
 
 ### IM-4: Use strong authentication controls for all Azure Active Directory based access 
 
-**Guidance**: Windows Virtual Desktop uses Azure Active Directory (Azure AD), which supports strong authentication controls through multifactor authentication and strong passwordless methods.
+**Guidance**: Azure Virtual Desktop uses Azure Active Directory (Azure AD), which supports strong authentication controls through multifactor authentication and strong passwordless methods.
 
 - Multifactor authentication - Enable Azure AD multifactor authentication and follow Identity and Access Management recommendations from Azure Security Center for some best practices in your multifactor authentication setup. Multifactor authentication can be enforced on all, select users or at the per-user level based on sign-in conditions and risk factors.
 
 - Passwordless authentication – Three passwordless authentication options are available: Windows Hello for Business, Microsoft Authenticator app, and on-premises authentication methods such as smart cards.
 
-Windows Virtual Desktop supports legacy password-based authentication such as Cloud-only accounts (user accounts created directly in Azure) that have a baseline password policy or Hybrid accounts (user accounts from on-premise Azure AD which follow the on-premises password policies). When using password-based authentication, Azure AD provides a password protection capability that prevents users to set passwords that are easy to guess. Microsoft provides a global list of banned passwords that is updated based on telemetry, and customers can augment the list based on their needs (such as branding, cultural references, and so on). This password protection can be used for cloud-only and hybrid accounts.
+Azure Virtual Desktop supports legacy password-based authentication such as Cloud-only accounts (user accounts created directly in Azure) that have a baseline password policy or Hybrid accounts (user accounts from on-premise Azure AD which follow the on-premises password policies). When using password-based authentication, Azure AD provides a password protection capability that prevents users to set passwords that are easy to guess. Microsoft provides a global list of banned passwords that is updated based on telemetry, and customers can augment the list based on their needs (such as branding, cultural references, and so on). This password protection can be used for cloud-only and hybrid accounts.
 
 Authentication based on password credentials alone is susceptible to popular attack methods. For higher security, use strong authentication such as multifactor authentication and a strong password policy. For third-party applications and marketplace services which may have default passwords, you should change them upon the service initial setup.
 
@@ -194,7 +194,7 @@ For administrator and privileged users, ensure the highest level of strong authe
 
 ### IM-5: Monitor and alert on account anomalies
 
-**Guidance**: Windows Virtual Desktop is integrated with Azure Active Directory (Azure AD) which provides the following data sources:
+**Guidance**: Azure Virtual Desktop is integrated with Azure Active Directory (Azure AD) which provides the following data sources:
 
 - Sign in - The sign-in report provides information about the usage of managed applications and user sign in activities.
 
@@ -220,7 +220,7 @@ These data sources can be integrated with Azure Monitor, Azure Sentinel or a thi
 
 ### IM-6: Restrict Azure resource access based on conditions
 
-**Guidance**: Windows Virtual Desktop supports conditional access with Azure Active Directory (Azure AD) for a granular access-control based on user-defined conditions. For example, user logins from certain IP ranges could be required to use multifactor authentication for access. 
+**Guidance**: Azure Virtual Desktop supports conditional access with Azure Active Directory (Azure AD) for a granular access-control based on user-defined conditions. For example, user logins from certain IP ranges could be required to use multifactor authentication for access. 
 
 Additionally, granular authentication session management policy can also be used for different use cases.
 
@@ -230,7 +230,7 @@ Additionally, granular authentication session management policy can also be used
 
 - [Configure authentication session management with conditional access](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md) 
 
-- [Windows Virtual Desktop specific conditional access setup info can be found here](set-up-mfa.md)
+- [Azure Virtual Desktop specific conditional access setup info can be found here](set-up-mfa.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -242,7 +242,7 @@ Additionally, granular authentication session management policy can also be used
 
 ### PA-2: Restrict administrative access to business-critical systems
 
-**Guidance**: Windows Virtual Desktop uses Azure role-based access-control (Azure RBAC) to isolate access to business-critical systems. Ensure that you also restrict access to the management, identity, and security systems that have administrative access to your business critical access such as Active Directory Domain Controllers, security tools, and system management tools with agents installed on business-critical systems. Attackers who compromise these management and security systems can potentially immediately weaponize them to compromise business critical assets.
+**Guidance**: Azure Virtual Desktop uses Azure role-based access-control (Azure RBAC) to isolate access to business-critical systems. Ensure that you also restrict access to the management, identity, and security systems that have administrative access to your business critical access such as Active Directory Domain Controllers, security tools, and system management tools with agents installed on business-critical systems. Attackers who compromise these management and security systems can potentially immediately weaponize them to compromise business critical assets.
 
 All types of access controls should be aligned to your enterprise segmentation strategy to ensure consistent access control.
 
@@ -252,7 +252,7 @@ All types of access controls should be aligned to your enterprise segmentation s
 
 - [Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md)
 
-- [Minimum admin permissions needed to manage Windows Virtual Desktop](faq.md#what-are-the-minimum-admin-permissions-i-need-to-manage-objects)
+- [Minimum admin permissions needed to manage Azure Virtual Desktop](/azure/virtual-desktop#what-are-the-minimum-admin-permissions-i-need-to-manage-objects)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -260,7 +260,7 @@ All types of access controls should be aligned to your enterprise segmentation s
 
 ### PA-3: Review and reconcile user access regularly
 
-**Guidance**: Windows Virtual Desktop uses Azure Active Directory (Azure AD) accounts to manage its resources, review user accounts and access assignment regularly to ensure the accounts and their access are valid.
+**Guidance**: Azure Virtual Desktop uses Azure Active Directory (Azure AD) accounts to manage its resources, review user accounts and access assignment regularly to ensure the accounts and their access are valid.
 
 Use Azure AD access reviews to review group memberships, access to enterprise applications, and role assignments. Azure AD reporting can provide logs to help discover stale accounts.
 
@@ -268,7 +268,7 @@ In addition, Azure Privileged Identity Management can also be configured to aler
 
 Some Azure services support local users and roles which not managed through Azure AD. You will need to manage these users separately.
 
-- [Built-in roles for Windows Virtual Desktop](rbac.md)
+- [Built-in roles for Azure Virtual Desktop](rbac.md)
 
 - [Create an access review of Azure resource roles in Privileged Identity Management(PIM)](../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md)
 
@@ -280,7 +280,7 @@ Some Azure services support local users and roles which not managed through Azur
 
 ### PA-4: Set up emergency access in Azure AD
 
-**Guidance**: Windows Virtual Desktop uses Azure Active Directory (Azure AD) to manage its resources. To prevent being accidentally locked out of your Azure AD organization, set up an emergency access account for access when normal administrative accounts cannot be used. Emergency access accounts are usually highly privileged, and they should not be assigned to specific individuals. Emergency access accounts are limited to emergency or "break glass"' scenarios where normal administrative accounts can't be used.
+**Guidance**: Azure Virtual Desktop uses Azure Active Directory (Azure AD) to manage its resources. To prevent being accidentally locked out of your Azure AD organization, set up an emergency access account for access when normal administrative accounts cannot be used. Emergency access accounts are usually highly privileged, and they should not be assigned to specific individuals. Emergency access accounts are limited to emergency or "break glass"' scenarios where normal administrative accounts can't be used.
 
 You should ensure that the credentials (such as password, certificate, or smart card) for emergency access accounts are kept secure and known only to individuals who are authorized to use them only in an emergency.
 
@@ -292,7 +292,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 ### PA-5: Automate entitlement management 
 
-**Guidance**: Windows Virtual Desktop is integrated with Azure Active Directory (Azure AD) to manage its resources. Use Azure AD entitlement management features to automate access request workflows, including access assignments, reviews, and expirations. In additional, dual or multi-stage approvals are also supported.
+**Guidance**: Azure Virtual Desktop is integrated with Azure Active Directory (Azure AD) to manage its resources. Use Azure AD entitlement management features to automate access request workflows, including access assignments, reviews, and expirations. In additional, dual or multi-stage approvals are also supported.
 
 - [What are Azure AD access reviews](../active-directory/governance/access-reviews-overview.md) 
 
@@ -318,7 +318,7 @@ Use Azure Active Directory (Azure AD), Microsoft Defender Advanced Threat Protec
 
 ### PA-7: Follow just enough administration (least privilege principle) 
 
-**Guidance**: Windows Virtual Desktop is integrated with Azure role-based access-control (Azure RBAC) to manage its resources. Azure RBAC allows you to manage Azure resource access through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal. 
+**Guidance**: Azure Virtual Desktop is integrated with Azure role-based access-control (Azure RBAC) to manage its resources. Azure RBAC allows you to manage Azure resource access through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal. 
 
 The privileges you assign to resources with Azure RBAC should always be limited to the ones as required by the roles. This complements the just in time (JIT) approach of Privileged Identity Management (PIM), with Azure Active Directory (Azure AD), and should be reviewed periodically.
 
@@ -330,7 +330,7 @@ Additionally, use built-in roles to allocate permissions and only create custom 
 
 - [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
 
-- [Built-in roles for Windows Virtual Desktop](rbac.md)
+- [Built-in roles for Azure Virtual Desktop](rbac.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -338,7 +338,7 @@ Additionally, use built-in roles to allocate permissions and only create custom 
 
 ### PA-8: Choose approval process for Microsoft support  
 
-**Guidance**: In support scenarios where Microsoft needs to access customer data, Windows Virtual Desktop supports Customer Lockbox to provide an interface for you to review and approve or reject customer data access requests.
+**Guidance**: In support scenarios where Microsoft needs to access customer data, Azure Virtual Desktop supports Customer Lockbox to provide an interface for you to review and approve or reject customer data access requests.
 
 - [Understand Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md)
 
@@ -456,7 +456,7 @@ Use Azure Virtual Machine Inventory to automate the collection of information ab
 
 ### AM-4: Ensure security of asset lifecycle management
 
-**Guidance**: Not applicable. Windows Virtual Desktop cannot be used for ensuring security of assets in a lifecycle management process. It is the customer's responsibility to maintain attributes and network configurations of assets which are considered high-impact. 
+**Guidance**: Not applicable. Azure Virtual Desktop cannot be used for ensuring security of assets in a lifecycle management process. It is the customer's responsibility to maintain attributes and network configurations of assets which are considered high-impact. 
 
 It is recommended that the customer create a process to capture the attribute and network-configuration changes, measure the change-impact and create remediation tasks, as applicable.
 
@@ -490,9 +490,9 @@ It is recommended that the customer create a process to capture the attribute an
 
 ### LT-1: Enable threat detection for Azure resources
 
-**Guidance**: Use the Azure Security Center built-in threat detection capability and enable Azure Defender (Formally Azure Advanced Threat Protection) for your Windows Virtual Desktop resources. Azure Defender for Windows Virtual Desktop provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your Windows Virtual Desktop resources.
+**Guidance**: Use the Azure Security Center built-in threat detection capability and enable Azure Defender (Formally Azure Advanced Threat Protection) for your Azure Virtual Desktop resources. Azure Defender for Azure Virtual Desktop provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your Azure Virtual Desktop resources.
 
-Forward any logs from Windows Virtual Desktop to your security information event management (SIEM) solution which can be used to set up custom threat detections. Ensure you are monitoring different types of Azure assets for potential threats and anomalies. Focus on getting high-quality alerts to reduce false positives for analysts to sort through. Alerts can be sourced from log data, agents, or other data.
+Forward any logs from Azure Virtual Desktop to your security information event management (SIEM) solution which can be used to set up custom threat detections. Ensure you are monitoring different types of Azure assets for potential threats and anomalies. Focus on getting high-quality alerts to reduce false positives for analysts to sort through. Alerts can be sourced from log data, agents, or other data.
 
 - [Threat protection in Azure Security Center](../security-center/azure-defender.md) 
 
@@ -532,7 +532,7 @@ Azure Security Center can also alert on certain suspicious activities such as ex
 
 ### LT-3: Enable logging for Azure network activities
 
-**Guidance**: Windows Virtual Desktop does not produce or process domain name service (DNS) query logs. However resources that are registered to the service can produce flow logs.
+**Guidance**: Azure Virtual Desktop does not produce or process domain name service (DNS) query logs. However resources that are registered to the service can produce flow logs.
 
 Enable and collect network security group resource and flow logs, Azure Firewall logs and Web Application Firewall (WAF) logs for security analysis to support incident investigations, threat hunting, and security alert generation. You can send the flow logs to an Azure Monitor Log Analytics workspace and then use Traffic Analytics to provide insights.
 
@@ -550,7 +550,7 @@ Enable and collect network security group resource and flow logs, Azure Firewall
 
 ### LT-4: Enable logging for Azure resources
 
-**Guidance**: Activity logs, which are automatically enabled, contain all write operations (PUT, POST, DELETE) for your Windows Virtual Desktop resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
+**Guidance**: Activity logs, which are automatically enabled, contain all write operations (PUT, POST, DELETE) for your Azure Virtual Desktop resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
 - [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
@@ -695,7 +695,7 @@ You can use custom operating system images or Azure Automation State configurati
 
 - [Azure Automation State Configuration Overview](../automation/automation-dsc-overview.md) 
 
-- [Windows Virtual Desktop environment](environment-setup.md)
+- [Azure Virtual Desktop environment](environment-setup.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -723,7 +723,7 @@ Azure Security Center can also scan vulnerabilities in container image and perfo
 
 ### PV-5: Securely store custom operating system and container images
 
-**Guidance**: Windows Virtual Desktop allows customers to manage operating system images. Use Azure role-based access control (Azure RBAC) to ensure that only authorized users can access your custom images. Use an Azure Shared Image Gallery you can share your images to different users, service principals, or Active Directory groups within your organization. Store container images in Azure Container Registry and use RBAC to ensure that only authorized users have access.
+**Guidance**: Azure Virtual Desktop allows customers to manage operating system images. Use Azure role-based access control (Azure RBAC) to ensure that only authorized users can access your custom images. Use an Azure Shared Image Gallery you can share your images to different users, service principals, or Active Directory groups within your organization. Store container images in Azure Container Registry and use RBAC to ensure that only authorized users have access.
 
 - [Understand Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md) 
 
@@ -737,9 +737,9 @@ Azure Security Center can also scan vulnerabilities in container image and perfo
 
 ### PV-6: Perform software vulnerability assessments
 
-**Guidance**: Windows Virtual Desktop allows you to deploy your own virtual machines and register them to the service as well as have SQL database running in the environment.
+**Guidance**: Azure Virtual Desktop allows you to deploy your own virtual machines and register them to the service as well as have SQL database running in the environment.
 
-Windows Virtual Desktop can use a third-party solution for performing vulnerability assessments on network devices and web applications. When conducting remote scans, do not use a single, perpetual, administrative account. Consider implementing JIT provisioning methodology for the scan account. Credentials for the scan account should be protected, monitored, and used only for vulnerability scanning.
+Azure Virtual Desktop can use a third-party solution for performing vulnerability assessments on network devices and web applications. When conducting remote scans, do not use a single, perpetual, administrative account. Consider implementing JIT provisioning methodology for the scan account. Credentials for the scan account should be protected, monitored, and used only for vulnerability scanning.
 
 As require, export scan results at consistent intervals and compare the results with previous scans to verify that vulnerabilities have been remediated.
 
@@ -758,7 +758,7 @@ As required, export scan results at consistent intervals and compare the results
 
 ### PV-7: Rapidly and automatically remediate software vulnerabilities
 
-**Guidance**: Windows Virtual Desktop doesn't use or require any third-party software. However, Windows Virtual Desktop allows you to deploy your own virtual machines and register them to the service.
+**Guidance**: Azure Virtual Desktop doesn't use or require any third-party software. However, Azure Virtual Desktop allows you to deploy your own virtual machines and register them to the service.
 
 Use Azure Automation Update Management or a third-party solution to ensure that the most recent security updates are installed on your Windows Server virtual machines. For Windows virtual machines, ensure Windows Update has been enabled and set to update automatically.
 
@@ -768,7 +768,7 @@ Use a third-party patch management solution for third-party software or System C
 
 - [Manage updates and patches for your Azure VMs](../automation/update-management/manage-updates-for-vm.md)
 
-- [Configure Microsoft Endpoint Configuration Manager for Windows Virtual Desktop](configure-automatic-updates.md)
+- [Configure Microsoft Endpoint Configuration Manager for Azure Virtual Desktop](configure-automatic-updates.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -776,7 +776,7 @@ Use a third-party patch management solution for third-party software or System C
 
 ### PV-8: Conduct regular attack simulation
 
-**Guidance**: Windows Virtual Desktop does not allow customers to perform their own penetration testing on their Windows Virtual Desktop resources.
+**Guidance**: Azure Virtual Desktop does not allow customers to perform their own penetration testing on their Azure Virtual Desktop resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -788,7 +788,7 @@ Use a third-party patch management solution for third-party software or System C
 
 ### ES-1: Use Endpoint Detection and Response (EDR)
 
-**Guidance**: Windows Virtual Desktop does not provide any specific capabilities for endpoint detection and response (EDR) processes. However resources registered to the service can benefit from endpoint detection and response capabilities. 
+**Guidance**: Azure Virtual Desktop does not provide any specific capabilities for endpoint detection and response (EDR) processes. However resources registered to the service can benefit from endpoint detection and response capabilities. 
 
 Enable endpoint detection and response capabilities for servers and clients and integrate them with security information and event management (SIEM) solutions and Security Operations processes.
 
@@ -808,7 +808,7 @@ Advanced Threat Protection from Microsoft Defender provides Endpoint Detection a
 
 ### ES-2: Use centrally managed modern anti-malware software
 
-**Guidance**: Protect your Windows Virtual Desktop resources with a centrally managed and modern endpoint anti-malware solution capable of real time and periodic scanning.
+**Guidance**: Protect your Azure Virtual Desktop resources with a centrally managed and modern endpoint anti-malware solution capable of real time and periodic scanning.
 
 Azure Security Center can automatically identify the use of a number of popular anti-malware solutions for your virtual machines and report the endpoint protection running status and make recommendations.
 
@@ -856,7 +856,7 @@ For a higher level of redundancy, you can enable geo-redundant storage option to
 
 - [How to enable cross region restore](../backup/backup-azure-arm-restore-vms.md#cross-region-restore) 
 
-- [How to set up a business continuity and disaster recovery plan in Windows Virtual Desktop](disaster-recovery.md)
+- [How to set up a business continuity and disaster recovery plan in Azure Virtual Desktop](disaster-recovery.md)
 
 **Azure Security Center monitoring**: Currently not available
 

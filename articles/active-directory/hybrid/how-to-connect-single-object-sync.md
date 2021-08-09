@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 06/24/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -51,7 +51,9 @@ The HTML report has the following:
 
 ## Prerequisites 
 
-In order to use the Single Object Sync tool, you will need to use the 2021 March release of Azure AD Connect or later. 
+In order to use the Single Object Sync tool, you will need to use the following:  
+ - 2021 March release ([1.6.4.0](reference-connect-version-history.md#1640)) of Azure AD Connect or later.
+ -  [PowerShell 5.0](/powershell/scripting/windows-powershell/whats-new/what-s-new-in-windows-powershell-50?view=powershell-7.1)
 
 ### Run the Single Object Sync tool 
 
@@ -59,7 +61,7 @@ To run the Single Object Sync tool, perform the following steps:
 
  1. Open a new Windows PowerShell session on your Azure AD Connect server with the Run as Administrator option. 
 
- 2. Set the [execution policy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy) to RemoteSigned or Unrestricted. 
+ 2. Set the [execution policy](/powershell/module/microsoft.powershell.security/set-executionpolicy) to RemoteSigned or Unrestricted. 
 
  3. Disable the sync scheduler after verifying that no synchronization operations are running. 
 
@@ -90,4 +92,4 @@ The Single Object Sync tool **is** intended for investigating and troubleshootin
 ## Next steps
 - [Troubleshooting object synchronization](tshoot-connect-objectsync.md)
 - [Troubleshoot object not synchronizing](tshoot-connect-object-not-syncing.md)
-- [End-to-end troubleshooting of Azure AD Connect objects and attributes](https://docs.microsoft.com/troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes)
+- [End-to-end troubleshooting of Azure AD Connect objects and attributes](/troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes)

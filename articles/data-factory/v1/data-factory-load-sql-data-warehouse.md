@@ -201,7 +201,7 @@ Here are a few best practices for running your Azure Synapse Analytics database:
 * For faster load speeds, consider using heap for transient data.
 * Create statistics after you finish loading to Azure Synapse Analytics.
 
-See [Best practices for Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md) for details.
+See [Best practices for Azure Synapse Analytics](../../synapse-analytics/sql/best-practices-dedicated-sql-pool.md) for details.
 
 ## Next steps
 * [Data Factory Copy Wizard](data-factory-copy-wizard.md) - This article provides details about the Copy Wizard.

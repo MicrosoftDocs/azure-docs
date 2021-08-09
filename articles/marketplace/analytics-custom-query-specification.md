@@ -4,8 +4,8 @@ description: Learn how to use custom queries to programmatically extract data fr
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
 ms.date: 3/08/2021
 ---
 
@@ -55,10 +55,10 @@ These are some sample queries that show how to extract various types of data.
 
 | Query | Description |
 | ------------ | ------------- |
-| **SELECT** MarketplaceSubscriptionId,CustomerId **FROM** ISVUsage **TIMESPAN LAST_MONTH** | This query will get every unique `MarketplaceSubscriptionId` and its corresponding `CustomerId` in the last 1 month. |
+| **SELECT** MarketplaceSubscriptionId,CustomerId **FROM** ISVUsage **TIMESPAN LAST_MONTH** | This query will get every `MarketplaceSubscriptionId` and its corresponding `CustomerId` in the last 1 month. |
 | **SELECT** MarketplaceSubscriptionId, EstimatedExtendedChargeCC **FROM** ISVUsage **ORDER BY** EstimatedExtendedChargeCC **LIMIT** 10 | This query will get the top 10 subscriptions in decreasing order of the number of licenses sold under each subscription. |
-| **SELECT** CustomerId, NormalizedUsage, RawUsage **FROM** ISVUsage **ORDER BY** NormalizedUsage **WHERE** NormalizedUsage > 100000 **ORDER BY** NormalizedUsage **TIMESPAN** LAST_6_MONTHS | This query will get the NormalizedUsage and RawUsage of all the Customers who have NormalizedUsage greater than 100,000. |
-| **SELECT** MarketplaceSubscriptionId, MonthStartDate, NormalizedUsage **FROM** ISVUsage **WHERE** CustomerId IN (‘2a31c234-1f4e-4c60-909e-76d234f93161’, ‘80780748-3f9a-11eb-b378-0242ac130002’) | This query will get the `MarketplaceSubscriptionId` and the revenue generated for every month by the two `CustomerId` values: `2a31c234-1f4e-4c60-909e-76d234f93161` and `80780748-3f9a-11eb-b378-0242ac130002`. |
+| **SELECT** CustomerId, NormalizedUsage, RawUsage **FROM** ISVUsage **WHERE** NormalizedUsage > 100000 **ORDER BY** NormalizedUsage **TIMESPAN** LAST_6_MONTHS | This query will get the NormalizedUsage and RawUsage of all the Customers who have NormalizedUsage greater than 100,000. |
+| **SELECT** MarketplaceSubscriptionId, MonthStartDate, NormalizedUsage **FROM** ISVUsage **WHERE** CustomerId IN (‘2a31c234-1f4e-4c60-909e-76d234f93161’, ‘80780748-3f9a-11eb-b378-0242ac130002’) | This query will get the `MarketplaceSubscriptionId` and the normalized usage for every month by the two `CustomerId` values: `2a31c234-1f4e-4c60-909e-76d234f93161` and `80780748-3f9a-11eb-b378-0242ac130002`. |
 |||
 
 ## Query specification
@@ -113,10 +113,17 @@ Each part is described below.
 
 #### SELECT
 
-This part of the query specifies the columns that will get exported. The columns that can be selected are the fields listed in `selectableColumns` and `availableMetrics` sections of a dataset. The final exported rows will always contain distinct values in the selected columns. For example, there will be no duplicate rows in the exported file. Metrics will be calculated for every distinct combination of the selected columns.
+This part of the query specifies the columns that will get exported. The columns that can be selected are the fields listed in `selectableColumns` and `availableMetrics` sections of a dataset. If there is a metric column included in the selected field list, then metrics will be calculated for every distinct combination of the non-metric columns. 
 
 **Example**:
 - **SELECT** `OfferName`, `NormalizedUsage`
+
+#### DISTINCT
+
+Adding DISTINCT keyword after SELECT ensures the final exported data will not have any duplicate rows. DISTINCT keyword works irrespective of whether or not a metric column is selected.
+
+**Example**:
+- **SELECT DISTINCT** `MarketplaceSubscriptionId, OfferType`
 
 #### FROM
 

@@ -6,7 +6,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: manoskow
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 
@@ -30,11 +30,11 @@ To help you troubleshoot certain types of issues, you may be asked for any of th
 
 ## Access your MS-CV ID
 
-The MS-CV ID can be accessed by configuring diagnostics in the `clientOptions` object instance when initializing your client libraries. Diagnostics can be configured for any of the Azure client libraries including Chat, Identity, and VoIP calling.
+The MS-CV ID can be accessed by configuring diagnostics in the `clientOptions` object instance when initializing your SDKs. Diagnostics can be configured for any of the Azure SDKs including Chat, Identity, and VoIP calling.
 
 ### Client options example
 
-The following code snippets demonstrate diagnostics configuration. When the client libraries are used with diagnostics enabled, diagnostics details will be emitted to the configured event listener:
+The following code snippets demonstrate diagnostics configuration. When the SDKs are used with diagnostics enabled, diagnostics details will be emitted to the configured event listener:
 
 # [C#](#tab/csharp)
 ```
@@ -76,11 +76,11 @@ chat_client = ChatClient(
 
 ## Access your call ID
 
-When filing a support request through the Azure portal related to calling issues, you may be asked to provide ID of the call you're referring to. This can be accessed through the calling client library:
+When troubleshooting voice or video calls, you may be asked to provide a `call ID`. This can be accessed via the `id` property of the `call` object:
 
 # [JavaScript](#tab/javascript)
 ```javascript
-// `call` is an instance of a call created by `callAgent.call` or `callAgent.join` methods
+// `call` is an instance of a call created by `callAgent.startCall` or `callAgent.join` methods
 console.log(call.id)
 ```
 
@@ -94,7 +94,7 @@ print(call.callId)
 # [Android](#tab/android)
 ```java
 // The `call id` property can be retrieved by calling the `call.getCallId()` method on a call object after a call ends
-// `call` is an instance of a call created by `callAgent.call(…)` or `callAgent.join(…)` methods
+// `call` is an instance of a call created by `callAgent.startCall(…)` or `callAgent.join(…)` methods
 Log.d(call.getCallId())
 ```
 ---
@@ -124,17 +124,24 @@ console.log(result); // your message ID will be in the result
 
 # [JavaScript](#tab/javascript)
 
-The following code can be used to configure `AzureLogger` to output logs to the console using the JavaScript client library:
+The Azure Communication Services Calling SDK relies internally on [@azure/logger](https://www.npmjs.com/package/@azure/logger) library to control logging.
+Use the `setLogLevel` method from the `@azure/logger` package to configure the log output:
+
+```javascript
+import { setLogLevel } from '@azure/logger';
+setLogLevel('verbose');
+const callClient = new CallClient();
+```
+
+You can use AzureLogger to redirect the logging output from Azure SDKs by overriding the `AzureLogger.log` method:
+This may be useful if you want to redirect logs to a location other than console.
 
 ```javascript
 import { AzureLogger } from '@azure/logger';
-
-AzureLogger.verbose = (...args) => { console.info(...args); }
-AzureLogger.info = (...args) => { console.info(...args); }
-AzureLogger.warning = (...args) => { console.info(...args); }
-AzureLogger.error = (...args) => { console.info(...args); }
-
-callClient = new CallClient({logger: AzureLogger});
+// redirect log output
+AzureLogger.log = (...args) => {
+  console.log(...args); // to console, file, buffer, REST API..
+};
 ```
 
 # [iOS](#tab/ios)
@@ -151,19 +158,31 @@ When developing for Android, your logs are stored in `.blog` files. Note that yo
 
 On Android Studio, navigate to the Device File Explorer by selecting View > Tool Windows > Device File Explorer from both the simulator and the device. The `.blog` file will be located within your application's directory, which should look something like `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog`. You can attach this file to your support request.
 
-
 ---
 
-## Calling client library error codes
+## Enable and access call logs (Windows)
 
-The Azure Communication Services calling client library uses the following error codes to help you troubleshoot calling issues. These error codes are exposed through the `call.callEndReason` property after a call ends.
+When developing for Windows, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
+
+These can be accessed by looking at where your app is keeping its local data. There are many ways to figure out where a UWP app keeps its local data, the following steps are just one of these ways:
+1. Open a Windows Command Prompt (Windows Key + R)
+2. Type `cmd.exe`
+3. Type `where /r %USERPROFILE%\AppData acs*.blog`
+4. Please check if the app ID of your application matches with the one returned by the previous command.
+5. Open the folder with the logs by typing `start ` followed by the path returned by the step 3. For example: `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
+6. Please attach all the `*.blog` and `*.etl` files to your Azure support request.
+
+
+## Calling SDK error codes
+
+The Azure Communication Services Calling SDK uses the following error codes to help you troubleshoot calling issues. These error codes are exposed through the `call.callEndReason` property after a call ends.
 
 | Error code | Description | Action to take |
 | -------- | ---------------| ---------------|
 | 403 | Forbidden / Authentication failure. | Ensure that your Communication Services token is valid and not expired. |
 | 404 | Call not found. | Ensure that the number you're calling (or call you're joining) exists. |
 | 408 | Call controller timed out. | Call Controller timed out waiting for protocol messages from user endpoints. Ensure clients are connected and available. |
-| 410 | Local media stack or media infrastructure error. | Ensure that you're using the latest client library in a supported environment. |
+| 410 | Local media stack or media infrastructure error. | Ensure that you're using the latest SDK in a supported environment. |
 | 430 | Unable to deliver message to client application. | Ensure that the client application is running and available. |
 | 480 | Remote client endpoint not registered. | Ensure that the remote endpoint is available. |
 | 481 | Failed to handle incoming call. | File a support request through the Azure portal. |
@@ -171,6 +190,17 @@ The Azure Communication Services calling client library uses the following error
 | 490, 491, 496, 487, 498 | Local endpoint network issues. | Check your network. |
 | 500, 503, 504 | Communication Services infrastructure error. | File a support request through the Azure portal. |
 | 603 | Call globally declined by remote Communication Services participant | Expected behavior. |
+
+## Chat SDK error codes
+
+The Azure Communication Services Chat SDK uses the following error codes to help you troubleshoot chat issues. The error codes are exposed through the `error.code` property in the error response.
+
+| Error code | Description | Action to take |
+| -------- | ---------------| ---------------|
+| 401 | Unauthorized | Ensure that your Communication Services token is valid and not expired. |
+| 403 | Forbidden | Ensure that the initiator of the request has access to the resource. |
+| 429 | Too many requests | Ensure that your client-side application handles this scenario in a user-friendly manner. If the error persists please file a support request. |
+| 503 | Service Unavailable | File a support request through the Azure portal. |
 
 ## Related information
 - [Logs and diagnostics](logging-and-diagnostics.md)

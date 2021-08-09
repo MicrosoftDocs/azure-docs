@@ -3,13 +3,13 @@ title: Speech-to-text API reference (REST) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the speech-to-text REST API. In this article, you'll learn about authorization options, query options, how to structure a request and receive a response.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/08/2021
-ms.author: trbye
+ms.date: 07/01/2021
+ms.author: nitinme
 ms.custom: devx-track-csharp
 ---
 
@@ -148,7 +148,7 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 We strongly recommend streaming (chunked) uploading while posting the audio data, which can significantly reduce the latency. See [sample code in different programming languages](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment) for how to enable streaming.
 
 >[!NOTE]
->The pronunciation assessment feature is currently only available on `en-US` language.
+> The pronunciation assessment feature currently supports `en-US` language, which is available on all [speech-to-text regions](regions.md#speech-to-text). The support for `en-GB` and `zh-CN` languages is under preview, which is available on `westus`, `eastasia` and `centralindia` regions.
 
 ### Sample request
 
@@ -281,13 +281,20 @@ A typical response for `detailed` recognition:
   "Offset": "1236645672289",
   "Duration": "1236645672289",
   "NBest": [
-      {
-        "Confidence" : "0.87",
-        "Lexical" : "remind me to buy five pencils",
-        "ITN" : "remind me to buy 5 pencils",
-        "MaskedITN" : "remind me to buy 5 pencils",
-        "Display" : "Remind me to buy 5 pencils.",
-      }
+    {
+      "Confidence": 0.9052885,
+      "Display": "What's the weather like?",
+      "ITN": "what's the weather like",
+      "Lexical": "what's the weather like",
+      "MaskedITN": "what's the weather like"
+    },
+    {
+      "Confidence": 0.92459863,
+      "Display": "what is the weather like",
+      "ITN": "what is the weather like",
+      "Lexical": "what is the weather like",
+      "MaskedITN": "what is the weather like"
+    }
   ]
 }
 ```

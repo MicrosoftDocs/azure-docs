@@ -3,12 +3,12 @@ title: Troubleshoot common connection issues to Azure SQL Database
 description: Provides steps to troubleshoot Azure SQL Database connection issues and resolve other Azure SQL Database or Azure SQL Managed Instance specific issues
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: development
+ms.subservice: connect
 ms.topic: troubleshooting
 ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
-ms.reviewer: sstein,vanto
+ms.reviewer: mathoma,vanto
 ms.date: 01/14/2021
 ---
 
@@ -122,12 +122,12 @@ Typically, the service administrator can use the following steps to add the logi
 5. In SSMS Object Explorer, expand **Databases**.
 6. Select the database that you want to grant the user permission to.
 7. Right-click **Security**, and then select **New**, **User**.
-8. In the generated script with placeholders, edit and run the following SQL query:
+8. In the generated script with placeholders (sample shown below), replace template parameters by following the steps [here](/sql/ssms/template/replace-template-parameters) and execute it:
 
    ```sql
-   CREATE USER <user_name, sysname, user_name>
-   FOR LOGIN <login_name, sysname, login_name>
-   WITH DEFAULT_SCHEMA = <default_schema, sysname, dbo>;
+   CREATE USER [<user_name, sysname, user_name>]
+   FOR LOGIN [<login_name, sysname, login_name>]
+   WITH DEFAULT_SCHEMA = [<default_schema, sysname, dbo>];
    GO
 
    -- Add user to the database owner role
@@ -243,13 +243,13 @@ The following steps can either help you work around the problem or provide you w
 
 If you repeatedly encounter this error, try to resolve the issue by following these steps:
 
-1. Check the sys.dm_exec_requests view to see any open sessions that have a high value for the total_elapsed_time column. Perform this check by running the following SQL script:
+1. Check the `sys.dm_exec_requests` view to see any open sessions that have a high value for the `total_elapsed_time` column. Perform this check by running the following SQL script:
 
    ```sql
    SELECT * FROM sys.dm_exec_requests;
    ```
 
-2. Determine the **input buffer** for the head blocker using the [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) dynamic management function, and the session_id of the offending query, for example:
+2. Determine the input buffer for the head blocker using the [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) dynamic management function, and the `session_id` of the offending query, for example:
 
    ```sql 
    SELECT * FROM sys.dm_exec_input_buffer (100,0);
@@ -257,7 +257,7 @@ If you repeatedly encounter this error, try to resolve the issue by following th
 
 3. Tune the query.
 
-    > [!Note]
+    > [!NOTE]
     > For more information on troubleshooting blocking in Azure SQL Database, see [Understand and resolve Azure SQL Database blocking problems](understand-resolve-blocking.md).
 
 Also consider batching your queries. For information on batching, see [How to use batching to improve SQL Database application performance](../performance-improve-use-batching.md).
@@ -284,6 +284,10 @@ Try to reduce the number of rows that are operated on immediately by implementin
 
   > [!NOTE]
   > For an index rebuild, the average size of the field that's updated should be substituted by the average index size.
+
+  > [!NOTE]
+  > For more information on troubleshooting a full transaction log in Azure SQL Database and Azure SQL Managed Instance, see [Troubleshooting transaction log errors with Azure SQL Database and Azure SQL Managed Instance](troubleshoot-transaction-log-errors-issues.md).
+
 
 ### Error 40553: The session has been terminated because of excessive memory usage
 
@@ -391,3 +395,8 @@ For more information about how to enable logging, see [Enable diagnostics loggin
 
 - [Azure SQL Database connectivity architecture](./connectivity-architecture.md)
 - [Azure SQL Database and Azure Synapse Analytics network access controls](./network-access-controls-overview.md)
+
+## See also
+
+- [Troubleshooting transaction log errors with Azure SQL Database and Azure SQL Managed Instance](troubleshoot-transaction-log-errors-issues.md)
+- [Troubleshoot transient connection errors in SQL Database and SQL Managed Instance](troubleshoot-common-connectivity-issues.md)

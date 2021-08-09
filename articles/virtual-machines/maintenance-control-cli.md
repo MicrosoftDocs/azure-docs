@@ -89,7 +89,7 @@ az maintenance assignment create \
 
 To apply a configuration to a dedicated host, you need to include `--resource-type hosts`, `--resource-parent-name` with the name of the host group, and `--resource-parent-type hostGroups`. 
 
-The parameter `--resource-id` is the ID of the host. You can use [az vm host get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view) to get the ID of your dedicated host.
+The parameter `--resource-id` is the ID of the host. You can use [az vm host get-instance-view](/cli/azure/vm/host#az_vm_host_get_instance_view) to get the ID of your dedicated host.
 
 ```azurecli-interactive
 az maintenance assignment create \
@@ -187,7 +187,7 @@ az maintenance update list \
 
 ## Apply updates
 
-Use `az maintenance apply update` to apply pending updates. On success, this command will return JSON containing the details of the update.
+Use `az maintenance apply update` to apply pending updates. On success, this command will return JSON containing the details of the update. Apply update calls can take upto 2 hours to complete.
 
 ### Isolated VM
 

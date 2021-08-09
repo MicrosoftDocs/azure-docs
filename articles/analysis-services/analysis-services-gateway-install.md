@@ -4,14 +4,15 @@ description: Learn how to install and configure an On-premises data gateway to c
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 04/27/2021
 ms.author: owend
-ms.reviewer: minewiskan
+ms.reviewer: minewiskan 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Install and configure an on-premises data gateway
 
-An on-premises data gateway is required when one or more Azure Analysis Services servers in the same region connect to on-premises data sources.  While the gateway you install is the same as used by other services like Power BI, Power Apps, and Logic Apps, when installing for Azure Analysis Services, there are some additional steps you need to complete. This install article is specific to **Azure Analysis Services**. 
+An on-premises data gateway is required when one or more Azure Analysis Services servers in the same region connect to on-premises data sources. While the gateway you install is the same as used by other services like Power BI, Power Apps, and Logic Apps, when installing for Azure Analysis Services, there are some additional steps you need to complete. This install article is specific to **Azure Analysis Services**. 
 
 To learn more about how Azure Analysis Services works with the gateway, see [Connecting to on-premises data sources](analysis-services-gateway.md). To learn more about advanced installation scenarios and the gateway in general, see [On-premises data gateways documentation](/data-integration/gateway/service-gateway-onprem).
 
@@ -153,6 +154,7 @@ That's it. If you need to open ports or do any troubleshooting, be sure to check
 
 ## Next steps
 
-* [Manage Analysis Services](analysis-services-manage.md)   
-* [Get data from Azure Analysis Services](analysis-services-connect.md)   
-* [Use gateway for data sources on an Azure Virtual Network](analysis-services-vnet-gateway.md)
+* [Connecting to on-premises data sources](analysis-services-gateway.md)   
+* [Data sources supported in Azure Analysis Services](analysis-services-datasource.md)   
+* [Use gateway for data sources on an Azure Virtual Network](analysis-services-vnet-gateway.md)   
+* [Frequently asked questions about Analysis Services network connectivity](analysis-services-network-faq.yml) 

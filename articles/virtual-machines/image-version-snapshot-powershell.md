@@ -8,7 +8,8 @@ ms.subservice: shared-image-gallery
 ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
-ms.reviewer: akjosh
+ms.reviewer: akjosh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create an image from a Managed Disk or snapshot in a Shared Image Gallery using PowerShell
@@ -101,6 +102,10 @@ $imageDefinition = New-AzGalleryImageDefinition `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
+
+> [!NOTE]
+> For image definitions that will contain images descended from third-party images, the plan information must match exactly the plan information from the third-party image. Include the plan information in the image definition by adding `-PurchasePlanName`, `-PurchasePlanProduct`, and `-PurchasePlanPublisher` when you create the image definition.
+>
 
 ### Purchase plan information
 

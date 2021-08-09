@@ -19,20 +19,7 @@ To build and run [Azure Service Fabric applications][1] on your Windows developm
 
 ## Prerequisites
 
-### Supported operating system versions
-
-The following operating system versions are supported for development:
-
-* Windows 7
-* Windows 8/Windows 8.1
-* Windows Server 2012 R2
-* Windows Server 2016
-* Windows 10
-
-> [!NOTE]
-> Windows 7 support:
-> - Windows 7 only includes Windows PowerShell 2.0 by default. Service Fabric PowerShell cmdlets requires PowerShell 3.0 or higher. You can [download Windows PowerShell 5.1][powershell5-download] from the Microsoft Download Center.
-> - Service Fabric Reverse Proxy is not available on Windows 7.
+Ensure you are using a supported [Windows version](service-fabric-versions.md#supported-windows-versions-and-support-end-date).
 
 ## Install the SDK and tools
 
@@ -43,7 +30,7 @@ Web Platform Installer (WebPI) is the recommended way to install the SDK and too
 
 ### To use Visual Studio 2017 or 2019
 
-The Service Fabric Tools are part of the Azure Development workload in Visual Studio 2017 and 2019. Enable this workload as part of your Visual Studio installation.
+The Service Fabric Tools are part of the Azure Development workload in Visual Studio 2019 and 2017. Enable this workload as part of your Visual Studio installation.
 In addition, you need to install the Microsoft Azure Service Fabric SDK and runtime using Web Platform Installer.
 
 * [Install the Microsoft Azure Service Fabric SDK][core-sdk]
@@ -56,8 +43,8 @@ If you only need the SDK, you can install this package:
 
 The current versions are:
 
-* Service Fabric SDK and Tools 4.2.477
-* Service Fabric runtime 7.2.477
+* Service Fabric SDK and Tools 5.1.316
+* Service Fabric runtime 8.1.316
 
 For a list of supported versions, see [Service Fabric versions](service-fabric-versions.md)
 

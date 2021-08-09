@@ -44,7 +44,10 @@ Most on-prem datacenters enforce strict network rules that prevent inbound commu
         | `deployment.apps/cluster-metadata-operator` | Gathers cluster metadata, including cluster version, node count, and Azure Arc agent version. |
         | `deployment.apps/resource-sync-agent` | Syncs the above-mentioned cluster metadata to Azure. |
         | `deployment.apps/flux-logs-agent` | Collects logs from the flux operators deployed as a part of source control configuration. |
-    
+        | `deployment.apps/extension-manager` | Installs and manages lifecycle of extension helm charts |  
+        | `deployment.apps/clusterconnect-agent` | Reverse proxy agent that enables cluster connect feature to provide access to `apiserver` of cluster. This is an optional component deployed only if `cluster-connect` feature is enabled on the cluster   |
+        | `deployment.apps/guard` | Authentication and authorization webhook server used for AAD RBAC feature. This is an optional component deployed only if `azure-rbac` feature is enabled on the cluster   |
+
 1. Once all the Azure Arc enabled Kubernetes agent pods are in `Running` state, verify that your cluster connected to Azure Arc. You should see:
     * An Azure Arc enabled Kubernetes resource in [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Azure tracks this resource as a projection of the customer-managed Kubernetes cluster, not the actual Kubernetes cluster itself.
     * Cluster metadata (like Kubernetes version, agent version, and number of nodes) appears on the Azure Arc enabled Kubernetes resource as metadata.
@@ -88,5 +91,5 @@ Most on-prem datacenters enforce strict network rules that prevent inbound commu
 
 ## Next steps
 
-* Walk through our quickstart to [connect a Kubernetes cluster to Azure Arc](./connect-cluster.md).
+* Walk through our quickstart to [connect a Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md).
 * Learn more about the creating connections between your cluster and a Git repository as a [configuration resource with Azure Arc enabled Kubernetes](./conceptual-configurations.md).

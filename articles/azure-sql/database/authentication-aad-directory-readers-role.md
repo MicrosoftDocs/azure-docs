@@ -8,25 +8,22 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/14/2020
+ms.date: 07/30/2021
 ---
 
 # Directory Readers role in Azure Active Directory for Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-> [!NOTE]
-> This feature in this article is in **public preview**.
+Azure Active Directory (Azure AD) has introduced [using Azure AD groups to manage role assignments](../../active-directory/roles/groups-concept.md). This allows for Azure AD roles to be assigned to groups.
 
-Azure Active Directory (Azure AD) has introduced [using cloud groups to manage role assignments in Azure Active Directory (preview)](../../active-directory/roles/groups-concept.md). This allows for Azure AD roles to be assigned to groups.
-
-When enabling a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) for Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse Analytics, the Azure AD [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) role must be assigned to the identity to allow read access to the [Azure AD Graph API](../../active-directory/develop/active-directory-graph-api.md). The managed identity of SQL Database and Azure Synapse is referred to as the server identity. The managed identity of SQL Managed Instance is referred to as the managed instance identity, and is automatically assigned when the instance is created. For more information on assigning a server identity to SQL Database or Azure Synapse, see [Enable service principals to create Azure AD users](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users).
+When enabling a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) for Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse Analytics, the Azure AD [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) role must be assigned to the identity to allow read access to the [Azure AD Graph API](/graph/migrate-azure-ad-graph-planning-checklist). The managed identity of SQL Database and Azure Synapse is referred to as the server identity. The managed identity of SQL Managed Instance is referred to as the managed instance identity, and is automatically assigned when the instance is created. For more information on assigning a server identity to SQL Database or Azure Synapse, see [Enable service principals to create Azure AD users](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users).
 
 The **Directory Readers** role is necessary to:
 
 - Create Azure AD logins for SQL Managed Instance
 - Impersonate Azure AD users in Azure SQL
-- Migrate SQL Server users that use Windows authentication to SQL Managed Instance with Azure AD authentication (using the [ALTER USER (Transact-SQL)](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration) command)
+- Migrate SQL Server users that use Windows authentication to SQL Managed Instance with Azure AD authentication (using the [ALTER USER (Transact-SQL)](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration) command)
 - Change the Azure AD admin for SQL Managed Instance
 - Allow [service principals (Applications)](authentication-aad-service-principal.md) to create Azure AD users in Azure SQL
 
@@ -40,7 +37,7 @@ Assigning the **Directory Readers** role to the server identity isn't required f
 
 ## Granting the Directory Readers role to an Azure AD group
 
-Currently in **public preview**, you can now have a [Global Administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or [Privileged Role Administrator](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) create an Azure AD group and assign the [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) permission to the group. This will allow access to the Azure AD Graph API for members of this group. In addition, Azure AD users who are owners of this group are allowed to assign new members for this group, including identities of the Azure SQL logical servers.
+You can now have a [Global Administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or [Privileged Role Administrator](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) create an Azure AD group and assign the [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) permission to the group. This will allow access to the Azure AD Graph API for members of this group. In addition, Azure AD users who are owners of this group are allowed to assign new members for this group, including identities of the Azure SQL logical servers.
 
 This solution still requires a high privilege user (Global Administrator or Privileged Role Administrator) to create a group and assign users as a one time activity, but the Azure AD group owners will be able to assign additional members going forward. This eliminates the need to involve a high privilege user in the future to configure all SQL Databases, SQL Managed Instances, or Azure Synapse servers in their Azure AD tenant.
 

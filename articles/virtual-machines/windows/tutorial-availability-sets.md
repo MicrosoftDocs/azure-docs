@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 3/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 
 ---
 
@@ -92,6 +92,12 @@ It takes a few minutes to create and configure both VMs. When finished, you have
 If you look at the availability set in the portal by going to **Resource Groups** > **myResourceGroupAvailability** > **myAvailabilitySet**, you should see how the VMs are distributed across the two fault and update domains.
 
 ![Availability set in the portal](./media/tutorial-availability-sets/fd-ud.png)
+
+> [!NOTE]
+> Under certain circumstances, 2 VMs in the same AvailabilitySet could shared the same FaultDomain. This can be confirmed by going into your availability set and checking the Fault Domain column. This can be cause from the following sequence while deploying the VMs:
+> 1. Deploy the 1st VM
+> 1. Stop/Deallocate the 1st VM
+> 1. Deploy the 2nd VM Under these circumstances, the OS Disk of the 2nd VM might be created on the same Fault Domain as the 1st VM, and so the 2nd VM will also land on the same FaultDomain. To avoid this issue, it's recommended to not stop/deallocate the VMs between deployments.
 
 ## Check for available VM sizes 
 

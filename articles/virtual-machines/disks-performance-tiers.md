@@ -2,12 +2,12 @@
 title: Change the performance of Azure managed disks - CLI/PowerShell
 description: Learn how to change performance tiers for existing managed disks using either the Azure PowerShell module or the Azure CLI.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Change your performance tier using the Azure PowerShell module or the Azure CLI
@@ -112,8 +112,39 @@ $disk.Tier
 
 ## Change the performance tier of a disk without downtime (preview)
 
-You can also change your performance tier without downtime, so you don't have to deallocate your VM or detach your disk to change the tier. For more information and the sign up link for the preview, see the [Change performance tier without downtime (preview)](#change-performance-tier-without-downtime-preview) section.
+You can also change your performance tier without downtime, so you don't have to deallocate your VM or detach your disk to change the tier.
 
+### Prerequisites
+
+Your disk must meet the requirements laid out in the [Change performance tier without downtime (preview)](#change-performance-tier-without-downtime-preview) section, if it does not, then changing the performance tier will incur downtime.
+
+You must enable the feature for your subscription before you can change the performance tier of a disk without downtime. Please follow the steps below to enable the feature for your subscription:
+
+1.	Execute the following command to register the feature for your subscription
+
+    ```azurecli
+    az feature register --namespace Microsoft.Compute --name LiveTierChange
+    ```
+ 
+1.	Confirm that the registration state is **Registered** (may take a few minutes) using the following command before trying out the feature.
+
+    ```azurecli
+    az feature show --namespace Microsoft.Compute --name LiveTierChange
+    ```
+
+### Update the performance tier of a disk without downtime via Azure CLI
+
+The following script will update the tier of a disk higher than the baseline tier. Replace `<yourResourceGroupNameHere>`, `<yourDiskNameHere>`, and `<yourDesiredPerformanceTier>` then run the script:
+
+```azurecli
+resourceGroupName=<yourResourceGroupNameHere>
+diskName=<yourDiskNameHere>
+performanceTier=<yourDesiredPerformanceTier>
+ 
+az disk update -n $diskName -g $resourceGroupName --set tier=$performanceTier
+```
+
+### Update the performance tier of a disk without downtime via ARM template
 
 The following script will update the tier of a disk higher than the baseline tier using the sample template [CreateUpdateDataDiskWithTier.json](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateDataDiskWithTier.json). Replace `<yourSubScriptionID>`, `<yourResourceGroupName>`, `<yourDiskName>`, `<yourDiskSize>`, and `<yourDesiredPerformanceTier>` then run the script:
 
@@ -134,10 +165,20 @@ region=EastUS2EUAP
 --parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier" "dataDiskSizeInGb=$diskSize"
 ```
 
-A performance tier change can take up to 15 minutes to complete. To confirm your disk has changed tiers, use the following command:
+## Confirm your disk has changed tiers
+
+A performance tier change can take up to 15 minutes to complete. To confirm your disk has changed tiers, use one of the following methods:
+
+### Azure Resource Manager
 
 ```cli
 az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-12-01 --query [properties.tier] -o tsv
+```
+
+### Azure CLI
+
+```azurecli
+az disk show -n $diskName -g $resourceGroupName --query [tier] -o tsv
 ```
 
 ## Next steps

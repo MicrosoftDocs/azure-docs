@@ -47,7 +47,7 @@ In the preceding exception, there are several issues that are interesting:
 - Notice that in the `IOCP` section and the `WORKER` section you have a `Busy` value that is greater than the `Min` value. This difference means your `ThreadPool` settings need adjusting.
 - You can also see `in: 64221`. This value indicates that 64,211 bytes have been received at the client's kernel socket layer but haven't been read by the application. This difference typically means that your application (for example, StackExchange.Redis) isn't reading data from the network as quickly as the server is sending it to you.
 
-You can [configure your `ThreadPool` Settings](cache-management-faq.md#important-details-about-threadpool-growth) to make sure that your thread pool scales up quickly under burst scenarios.
+You can [configure your `ThreadPool` Settings](cache-management-faq.yml#important-details-about-threadpool-growth) to make sure that your thread pool scales up quickly under burst scenarios.
 
 ## High client CPU usage
 
@@ -103,4 +103,4 @@ Resolutions for large response sizes are varied but include:
 ## Additional information
 
 - [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)
-- [How can I benchmark and test the performance of my cache?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [How can I benchmark and test the performance of my cache?](cache-management-faq.yml#how-can-i-benchmark-and-test-the-performance-of-my-cache-)

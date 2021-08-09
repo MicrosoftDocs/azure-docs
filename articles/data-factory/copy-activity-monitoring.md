@@ -1,33 +1,44 @@
 ---
 title: Monitor copy activity
-description: Learn about how to monitor the copy activity execution in Azure Data Factory. 
-author: linda33wj
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn about how to monitor the copy activity execution in Azure Data Factory and Azure Synapse Analytics. 
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.author: jingwang
+ms.author: jianleishen
 ---
 # Monitor copy activity
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to monitor the copy activity execution in Azure Data Factory. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to monitor the copy activity execution in Azure Data Factory and Synapse pipelines. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Monitor visually
 
-Once you've created and published a pipeline in Azure Data Factory, you can associate it with a trigger or manually kick off an ad hoc run. You can monitor all of your pipeline runs natively in the Azure Data Factory user experience. Learn about Azure Data Factory monitoring in general from [Visually monitor Azure Data Factory](monitor-visually.md).
+Once you've created and published a pipeline, you can associate it with a trigger or manually kick off an ad hoc run. You can monitor all of your pipeline runs natively in the user experience. Learn about monitoring in general from [Visually monitor Azure Data Factory and Synapse pipelines](monitor-visually.md).
 
-To monitor the Copy activity run, go to your data factory **Author & Monitor** UI. On the **Monitor** tab, you see a list of pipeline runs, click the **pipeline name** link to access the list of activity runs in the pipeline run.
+To monitor the Copy activity run, go to the **Data Factory Studio** or **Azure Synapse Studio** UI for your service instance. On the **Monitor** tab, you see a list of pipeline runs, click the **pipeline name** link to access the list of activity runs in the pipeline run.
+
+# [Azure Data Factory](#tab/data-factory)
 
 ![Monitor pipeline run](./media/copy-activity-overview/monitor-pipeline-run.png)
+
+# [Azure Synapse](#tab/synapse-analytics)
+
+![Monitor pipeline run](./media/copy-activity-overview/monitor-pipeline-run-synapse.png)
+
+---
 
 At this level, you can see links to copy activity input, output, and errors (if the Copy activity run fails), as well as statistics like duration/status. Clicking the **Details** button (eyeglasses) next to the copy activity name will give you deep details on your copy activity execution. 
 
 ![Monitor copy activity run](./media/copy-activity-overview/monitor-copy-activity-run.png)
 
-In this graphical monitoring view, Azure Data Factory presents you the copy activity execution information, including data read/written volume, number of files/rows of data copied from source to sink, throughput, the configurations applied for your copy scenario, steps the copy activity goes through with corresponding durations and details, and more. Refer to [this table](#monitor-programmatically) on each possible metric and its detailed description. 
+In this graphical monitoring view, the service presents you the copy activity execution information, including data read/written volume, number of files/rows of data copied from source to sink, throughput, the configurations applied for your copy scenario, steps the copy activity goes through with corresponding durations and details, and more. Refer to [this table](#monitor-programmatically) on each possible metric and its detailed description. 
 
-In some scenarios, when you run a Copy activity in Data Factory, you'll see **"Performance tuning tips"**  at the top of the copy activity monitoring view as shown in the example. The tips tell you the bottleneck identified by ADF for the specific copy run, along with suggestion on what to change to boost copy throughput. Learn more about [auto performance tuning tips](copy-activity-performance-troubleshooting.md#performance-tuning-tips).
+In some scenarios, when you run a Copy activity, you'll see **"Performance tuning tips"**  at the top of the copy activity monitoring view as shown in the example. The tips tell you the bottleneck identified by the service for the specific copy run, along with suggestion on what to change to boost copy throughput. Learn more about [auto performance tuning tips](copy-activity-performance-troubleshooting.md#performance-tuning-tips).
 
 The bottom **execution details and durations** describes the key steps your copy activity goes through, which is especially useful for troubleshooting the copy performance. The bottleneck of your copy run is the one with the longest duration. Refer to [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md) on for what each stage represents and the detailed troubleshooting guidance.
 
@@ -37,7 +48,7 @@ The bottom **execution details and durations** describes the key steps your copy
 
 ## Monitor programmatically
 
-Copy activity execution details and performance characteristics are also returned in the **Copy Activity run result** > **Output** section, which is used to render the UI monitoring view. Following is a complete list of properties that might be returned. You'll see only the properties that are applicable to your copy scenario. For information about how to monitor activity runs programmatically in general, see [Programmatically monitor an Azure data factory](monitor-programmatically.md).
+Copy activity execution details and performance characteristics are also returned in the **Copy Activity run result** > **Output** section, which is used to render the UI monitoring view. Following is a complete list of properties that might be returned. You'll see only the properties that are applicable to your copy scenario. For information about how to monitor activity runs programmatically in general, see [Programmatically monitor an Azure Data Factory or Synapse pipeline](monitor-programmatically.md).
 
 | Property name  | Description | Unit in output |
 |:--- |:--- |:--- |

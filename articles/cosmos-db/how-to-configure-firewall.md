@@ -1,12 +1,12 @@
 ---
 title: Configure an IP firewall for your Azure Cosmos DB account
 description: Learn how to configure IP access control policies for firewall support on Azure Cosmos accounts.
-author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/03/2021
-ms.author: mjbrown 
-ms.custom: devx-track-azurecli
+ms.author: thweiss
+author: ThomasWeiss 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Configure IP firewall in Azure Cosmos DB
@@ -103,7 +103,7 @@ When you access your Azure Cosmos DB account from a computer on the internet, th
 
 To access a current list of outbound IP ranges to add to your firewall settings, please see [Download Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519).
 
-To automate the list, please see [Use the Service Tag Discovery API (public preview)](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview).
+To automate the list, please see [Use the Service Tag Discovery API (public preview)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview).
 
 ## <a id="configure-ip-firewall-arm"></a>Configure an IP firewall by using a Resource Manager template
 

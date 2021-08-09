@@ -169,7 +169,7 @@ The installer script does the following:
 
 - Installs agents and a web application for physical server discovery and assessment.
 - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
-- Download and installs an IIS rewritable module. [Learn more](https://www.microsoft.com/download/details.aspx?id=7435).
+- Download and installs an IIS rewritable module.
 - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
 - Creates the following files under the path:
     - **Config Files**: %Programdata%\Microsoft Azure\Config

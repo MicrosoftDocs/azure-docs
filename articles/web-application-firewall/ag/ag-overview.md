@@ -36,7 +36,7 @@ This section describes the core benefits that WAF on Application Gateway provide
 
 * Create custom WAF policies for different sites behind the same WAF 
 
-* Protect your web applications from malicious bots with the IP Reputation ruleset (preview)
+* Protect your web applications from malicious bots with the IP Reputation ruleset
 
 ### Monitoring
 
@@ -56,7 +56,8 @@ This section describes the core benefits that WAF on Application Gateway provide
 
 - SQL-injection protection.
 - Cross-site scripting protection.
-- Protection against other common web attacks, such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion.
+- Protection against other common web attacks, such as command injection, HTTP request smuggling, HTTP response splitting, 
+and remote file inclusion.
 - Protection against HTTP protocol violations.
 - Protection against HTTP protocol anomalies, such as missing host user-agent and accept headers.
 - Protection against crawlers and scanners.
@@ -64,8 +65,8 @@ This section describes the core benefits that WAF on Application Gateway provide
 - Configurable request size limits with lower and upper bounds.
 - Exclusion lists let you omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication or password fields.
 - Create custom rules to suit the specific needs of your applications.
-- Geo-filter traffic to allow or block certain countries/regions from gaining access to your applications. (preview)
-- Protect your applications from bots with the bot mitigation ruleset. (preview)
+- Geo-filter traffic to allow or block certain countries/regions from gaining access to your applications.
+- Protect your applications from bots with the bot mitigation ruleset.
 - Inspect JSON and XML in the request body
 
 ## WAF policy and rules
@@ -94,19 +95,13 @@ For more information, see [Web application firewall CRS rule groups and rules](a
 
 Application Gateway also supports custom rules. With custom rules, you can create your own rules, which are evaluated for each request that passes through WAF. These rules hold a higher priority than the rest of the rules in the managed rule sets. If a set of conditions is met, an action is taken to allow or block. 
 
-The geomatch operator is now available in public preview for custom rules. Please see [geomatch custom rules](custom-waf-rules-overview.md#geomatch-custom-rules-preview) for more information.
-
-> [!NOTE]
-> The geomatch operator for custom rules is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+The geomatch operator is now available for custom rules. See [geomatch custom rules](custom-waf-rules-overview.md#geomatch-custom-rules) for more information.
 
 For more information on custom rules, see [Custom Rules for Application Gateway.](custom-waf-rules-overview.md)
 
-### Bot Mitigation (preview)
+### Bot Mitigation
 
 A managed Bot protection rule set can be enabled for your WAF to block or log requests from known malicious IP addresses, alongside the managed ruleset. The IP addresses are sourced from the Microsoft Threat Intelligence feed. Intelligent Security Graph powers Microsoft threat intelligence and is used by multiple services including Azure Security Center.
-
-> [!NOTE]
-> Bot protection rule set is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
 If Bot Protection is enabled, incoming requests that match Malicious Bot's client IPs are logged in the Firewall log, see more information below. You may access WAF logs from storage account, event hub, or log analytics. 
 

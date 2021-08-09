@@ -1,18 +1,21 @@
 ---
 title: 'Quickstart: Create a CI/CD pipeline for Python with Azure DevOps Starter'
 description: DevOps Starter makes it easy to get started with Azure. It helps you launch an app on an Azure service of your choice in few quick steps.
-ms.prod: devops
-ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
+ms.author: mlearned
 manager: gwallace
+ms.date: 03/24/2020
+ms.prod: devops
+ms.technology: devops-cicd
+ms.topic: quickstart
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.topic: quickstart
-ms.date: 03/24/2020
-ms.author: mlearned
-ms.custom: mvc, devx-track-python
+ms.custom:
+  - mvc
+  - devx-track-python
+  - mode-api
 ---
 
 # Create a CI/CD pipeline for Python with Azure DevOps Starter

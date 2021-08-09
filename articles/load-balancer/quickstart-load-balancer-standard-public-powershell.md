@@ -5,17 +5,18 @@ description: This quickstart shows how to create a load balancer using Azure Pow
 services: load-balancer
 documentationcenter: na
 author: asudbring
-manager: KumudD
-Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
-ms.assetid: 
-ms.service: load-balancer
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/22/2020
 ms.author: allensu
-ms:custom: seodec18
+manager: KumudD
+ms.date: 11/22/2020
+ms.assetid: 
+ms.topic: quickstart
+ms.service: load-balancer
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.custom: devx-track-azurepowershell
+  - mode-api
+# Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---
 
 # Quickstart: Create a public load balancer to load balance VMs using Azure PowerShell
@@ -321,6 +322,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 3      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 4      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Create outbound rule configuration
 Load balancer outbound rules configure outbound source network address translation (SNAT) for VMs in the backend pool. 
@@ -716,6 +719,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 3      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 4      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Get policy compliance data
 description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details of your Azure resources.
-ms.date: 03/16/2021
+ms.date: 06/29/2021
 ms.topic: how-to
 ---
 # Get compliance data of Azure resources
@@ -53,6 +53,12 @@ Evaluations of assigned policies and initiatives happen as the result of various
   compliant status information for the individual resource becomes available in the portal and SDKs
   around 15 minutes later. This event doesn't cause an evaluation of other resources.
 
+- A subscription (resource type `Microsoft.Resource/subscriptions`) is created or moved within a
+  [management group hierarchy](../../management-groups/overview.md) with an assigned policy
+  definition targeting the subscription resource type. Evaluation of the subscription supported
+  effects (audit, auditIfNotExist, deployIfNotExists, modify), logging, and any remediation actions
+  takes around 30 minutes.
+
 - A [policy exemption](../concepts/exemption-structure.md) is created, updated, or deleted. In this
   scenario, the corresponding assignment is evaluated for the defined exemption scope.
 
@@ -85,22 +91,21 @@ that you get the latest compliance status at a convenient time. Optionally, this
 generate a report on the compliance state of scanned resources for further analysis or for
 archiving.
 
-The following example runs a compliance scan for a subscription. 
+The following example runs a compliance scan for a subscription.
 
 ```yaml
 on:
-  schedule:    
+  schedule:
     - cron:  '0 8 * * *'  # runs every morning 8am
 jobs:
-  assess-policy-compliance:    
+  assess-policy-compliance:
     runs-on: ubuntu-latest
-    steps:         
+    steps:
     - name: Login to Azure
       uses: azure/login@v1
       with:
-        creds: ${{secrets.AZURE_CREDENTIALS}} 
+        creds: ${{secrets.AZURE_CREDENTIALS}}
 
-    
     - name: Check for resource compliance
       uses: azure/policy-compliance-scan@v0
       with:
@@ -162,9 +167,9 @@ While the compliance scan is running, checking the `$job` object outputs results
 ```azurepowershell-interactive
 $job
 
-Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
---     ----            -------------   -----         -----------     --------             -------
-2      Long Running O… AzureLongRunni… Running       True            localhost            Start-AzPolicyCompliance…
+Id     Name              PSJobTypeName     State         HasMoreData     Location             Command
+--     ----              -------------     -----         -----------     --------             -------
+2      Long Running O... AzureLongRunni... Running       True            localhost            Start-AzPolicyCompliance...
 ```
 
 When the compliance scan completes, the **State** property changes to _Completed_.
@@ -240,11 +245,11 @@ evaluation for the resulting compliance state:
 > existence condition to be FALSE to be non-compliant. When TRUE, the IF condition triggers
 > evaluation of the existence condition for the related resources.
 
-For example, assume that you have a resource group – ContsoRG, with some storage accounts
+For example, assume that you have a resource group - ContsoRG, with some storage accounts
 (highlighted in red) that are exposed to public networks.
 
 :::image type="complex" source="../media/getting-compliance-data/resource-group01.png" alt-text="Diagram of storage accounts exposed to public networks in the Contoso R G resource group." border="false":::
-   Diagram showing images for five storage accounts in the Contoso R G resource group.  Storage accounts one and three are blue, while storage accounts two, four, and five are red.
+   Diagram showing images for five storage accounts in the Contoso R G resource group. Storage accounts one and three are blue, while storage accounts two, four, and five are red.
 :::image-end:::
 
 In this example, you need to be wary of security risks. Now that you've created a policy assignment,
@@ -266,11 +271,11 @@ Besides **Compliant** and **Non-compliant**, policies and resources have four ot
 - **Not registered**: The Azure Policy Resource Provider hasn't been registered or the account
   logged in doesn't have permission to read compliance data.
 
-Azure Policy uses the **type**, **name**, or **kind** fields in the definition to determine if a
-resource is a match. When the resource matches, it's considered applicable and has a status of
-either **Compliant**, **Non-compliant**, or **Exempt**. If either **type**, **name**, or **kind** is
-the only property in the definition, then all included and non-exempt resources are considered
-applicable and are evaluated.
+Azure Policy uses the **type**, **name**, or **kind** fields in the definition to determine whether
+a resource is a match. When the resource matches, it's considered applicable and has a status of
+either **Compliant**, **Non-compliant**, or **Exempt**. If either **name** or **kind** is the only
+property in the definition, then all included and non-exempt resources are considered applicable and
+are evaluated.
 
 The compliance percentage is determined by dividing **Compliant** and **Exempt** resources by _total
 resources_. _Total resources_ is defined as the sum of the **Compliant**, **Non-compliant**,
@@ -323,10 +328,10 @@ history.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Screenshot of Component Compliance tab and compliance details for a Resource Provider mode assignment." border="false":::
 
-Back on the resource compliance page, right-click on the row of the event you would like to gather
-more details on and select **Show activity logs**. The activity log page opens and is pre-filtered
-to the search showing details for the assignment and the events. The activity log provides
-additional context and information about those events.
+Back on the resource compliance page, select and hold (or right-click) on the row of the event you
+would like to gather more details on and select **Show activity logs**. The activity log page opens
+and is pre-filtered to the search showing details for the assignment and the events. The activity
+log provides additional context and information about those events.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Screenshot of the Activity Log for Azure Policy activities and evaluations." border="false":::
 
@@ -398,7 +403,7 @@ and the definition information for each assignment. Each policy object in the hi
 ### Query for resources
 
 In the example above, **value.policyAssignments.policyDefinitions.results.queryResultsUri** provides
-a sample Uri for all non-compliant resources for a specific policy definition. Looking at the
+a sample URI for all non-compliant resources for a specific policy definition. Looking at the
 **$filter** value, ComplianceState is equal (eq) to 'NonCompliant', PolicyAssignmentId is specified
 for the policy definition, and then the PolicyDefinitionId itself. The reason for including the
 PolicyAssignmentId in the filter is because the PolicyDefinitionId could exist in several policy or
@@ -455,7 +460,7 @@ definition.
 ### View events
 
 When a resource is created or updated, a policy evaluation result is generated. Results are called
-_policy events_. Use the following Uri to view recent policy events associated with the
+_policy events_. Use the following URI to view recent policy events associated with the
 subscription.
 
 ```http

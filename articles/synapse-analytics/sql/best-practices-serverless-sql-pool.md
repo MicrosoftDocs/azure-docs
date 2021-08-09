@@ -18,6 +18,15 @@ In this article, you'll find a collection of best practices for using serverless
 
 Serverless SQL pool allows you to query files in your Azure storage accounts. It doesn't have local storage or ingestion capabilities. So all files that the query targets are external to serverless SQL pool. Everything related to reading files from storage might have an impact on query performance.
 
+Some generic guidelines are:
+- Make sure that your client applications are collocated with the serverless SQL pool.
+  - If you are using client applications outside of Azure (for example Power BI Desktop, SSMS, ADS), make sure that you are using the serverless pool in some region that is close to your client computer.
+- Make sure that the storage (Azure Data Lake, Cosmos DB) and serverless SQL pool are in the same region.
+- Try to [optimize storage layout](#prepare-files-for-querying) using partitioning and keeping your files in the range between 100 MB and 10 GB.
+- If you are returning a large number of results, make sure that you are using SSMS or ADS and not Synapse Studio. Synapse Studio is a web tool that is not designed for large result-sets. 
+- If you are filtering results by string column, try to use some `BIN2_UTF8` collation.
+- Try to cache the results on the client side by using Power BI Import mode or Azure Analysis Services, and periodically refresh them. The serverless SQL pools cannot provide interactive experience in Power BI Direct Query mode if you are using complex queries or processing a large amount of data.
+
 ## Client applications and network connections
 
 Make sure that your client application is connected to the closest possible Synapse workspace with the optimal connection.
@@ -61,7 +70,11 @@ If possible, you can prepare files for better performance:
 
 ### Colocate your CosmosDB analytical storage and serverless SQL pool
 
-Make sure that your CosmosDB analytical storage is placed in the same region as Synapse workspace. Cross-region queries might cause huge latencies.
+Make sure that your CosmosDB analytical storage is placed in the same region as Synapse workspace. Cross-region queries might cause huge latencies. Use region property in the connection string to explicitly specify the region where analytical store is placed (see [query CosmosDb using serverless SQL pool](query-cosmos-db-analytical-store.md#overview)):
+
+```
+'account=<database account name>;database=<database name>;region=<region name>'
+```
 
 ## CSV optimizations
 
@@ -118,10 +131,10 @@ After you know the inferred data types for the query, you can specify appropriat
 
 ```sql  
 SELECT
-    vendor_id, pickup_datetime, passenger_count
+    vendorID, tpepPickupDateTime, passengerCount
 FROM 
 	OPENROWSET(
-		BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*',
+		BULK 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=2018/puMonth=*/*.snappy.parquet',
 		FORMAT='PARQUET'
     ) 
 	WITH (

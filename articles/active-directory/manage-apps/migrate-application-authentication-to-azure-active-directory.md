@@ -2,17 +2,15 @@
 title: 'Migrate application authentication to Azure Active Directory'
 description: This whitepaper details the planning for and benefits of migrating your application authentication to Azure AD.
 services: active-directory
-author: kenwith
-manager: daveba
+author: davidmu1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 02/05/2021
-ms.author: kenwith
-ms.reviewer: baselden
+ms.author: davidmu
+ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
 ---
 
@@ -80,7 +78,7 @@ Your organization may have multiple Identity Access Management (IAM) solutions i
 
 **With Azure AD, you can reduce infrastructure costs by:**
 
-- Providing secure remote access to on-premises apps using [Azure AD Application Proxy](./application-proxy.md).
+- Providing secure remote access to on-premises apps using [Azure AD Application Proxy](../app-proxy/application-proxy.md).
 
 - Decoupling apps from the on-prem credential approach in your tenant by [setting up Azure AD as the trusted universal identity provider](../hybrid/plan-connect-user-signin.md#choosing-the-user-sign-in-method-for-your-organization).
 
@@ -95,7 +93,7 @@ Economics and security benefits drive organizations to adopt Azure AD, but full 
 - Reduce administrative overhead by managing only a single identity for each user across cloud and on-premises environments:
 
   - [Automate provisioning](../app-provisioning/user-provisioning.md) of user accounts (in [Azure AD Gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps))based on Azure AD identities
-  - Access all your apps from MyApps panel in the [Azure portal ](https://portal.azure.com/)
+  - Access all your apps from MyApps panel in the [Azure portal](https://portal.azure.com/)
 
 - Enable developers to secure access to their apps and improve the end-user experience by using the [Microsoft Identity Platform](../develop/v2-overview.md) with the Microsoft Authentication Library (MSAL).
 
@@ -285,7 +283,7 @@ For certain apps using legacy authentication protocols, sometimes modernizing th
 
 Azure AD can bring great benefits to these legacy apps, as you can enable modern Azure AD security and governance features like [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md), [Conditional Access](../conditional-access/overview.md), [Identity Protection](../identity-protection/index.yml), [Delegated Application Access](./access-panel-manage-self-service-access.md), and [Access Reviews](../governance/manage-user-access-with-access-reviews.md#create-and-perform-an-access-review) against these apps without touching the app at all!
 
-Start by **extending these apps into the cloud** with Azure AD [Application Proxy](./application-proxy-configure-single-sign-on-password-vaulting.md) using simple means of authentication (like Password Vaulting) to get your users migrated quickly, or via our [partner integrations](https://azure.microsoft.com/services/active-directory/sso/secure-hybrid-access/) with application delivery controllers you might have deployed already.
+Start by **extending these apps into the cloud** with Azure AD [Application Proxy](../app-proxy/application-proxy-configure-single-sign-on-password-vaulting.md) using simple means of authentication (like Password Vaulting) to get your users migrated quickly, or via our [partner integrations](https://azure.microsoft.com/services/active-directory/sso/secure-hybrid-access/) with application delivery controllers you might have deployed already.
 
 ### New Line of Business (LoB) apps
 
@@ -474,7 +472,7 @@ Use the tools and guidance below to follow the precise steps needed to migrate y
 
 - **SaaS applications** – See our list of [hundreds of SaaS app tutorials](../saas-apps/tutorial-list.md) and the complete [Azure AD SSO deployment plan](https://aka.ms/ssodeploymentplan) to walk through the end-to-end process.
 
-- **Applications running on-premises** – Learn all [about the Azure AD Application Proxy](./application-proxy.md) and use the complete [Azure AD Application Proxy deployment plan](https://aka.ms/AppProxyDPDownload) to get going quickly.
+- **Applications running on-premises** – Learn all [about the Azure AD Application Proxy](../app-proxy/application-proxy.md) and use the complete [Azure AD Application Proxy deployment plan](https://aka.ms/AppProxyDPDownload) to get going quickly.
 
 - **Apps you’re developing** – Read our step-by-step [integration](../develop/quickstart-register-app.md) and [registration](../develop/quickstart-register-app.md) guidance.
 
@@ -484,7 +482,7 @@ After migration, you may choose to send communication informing the users of the
 
 During the process of the migration, your app may already have a test environment used during regular deployments. You can continue to use this environment for migration testing. If a test environment is not currently available, you may be able to set one up using Azure App Service or Azure Virtual Machines, depending on the architecture of the application. You may choose to set up a separate test Azure AD tenant to use as you develop your app configurations. This tenant will start in a clean state and will not configured to sync with any system.
 
-You can test each app by logging in with a test user and make sure all functionality is the same as prior to the migration. If you determine during testing that users will need to update their [MFA](/active-directory/authentication/howto-mfa-userstates) or [SSPR](../authentication/tutorial-enable-sspr.md)settings, or you are adding this functionality during the migration, be sure to add that to your end-user communication plan. See [MFA](https://aka.ms/mfatemplates) and [SSPR](https://aka.ms/ssprtemplates) end-user communication templates.
+You can test each app by logging in with a test user and make sure all functionality is the same as prior to the migration. If you determine during testing that users will need to update their [MFA](../authentication/howto-mfa-userstates.md) or [SSPR](../authentication/tutorial-enable-sspr.md)settings, or you are adding this functionality during the migration, be sure to add that to your end-user communication plan. See [MFA](https://aka.ms/mfatemplates) and [SSPR](https://aka.ms/ssprtemplates) end-user communication templates.
 
 Once you have migrated the apps, go to the [Azure portal](https://aad.portal.azure.com/) to test if the migration was a success. Follow the instructions below:
 
@@ -502,7 +500,7 @@ Depending on how you configure your app, verify that SSO works properly.
 | **SAML-based SSO** | Use the [Test SAML Settings](./debug-saml-sso-issues.md) button found under **Single Sign-On.** |
 | **Password-Based SSO** | Download and install the [MyApps Secure Sign-in Extension](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension). This extension helps you start any of your organization's cloud apps that require you to use an SSO process. |
 
-| **[Application Proxy](./application-proxy.md)** | Ensure your connector is running and assigned to your application. Visit the [Application Proxy troubleshooting guide](./application-proxy-troubleshoot.md) for further assistance. |
+| **[Application Proxy](../app-proxy/application-proxy.md)** | Ensure your connector is running and assigned to your application. Visit the [Application Proxy troubleshooting guide](../app-proxy/application-proxy-troubleshoot.md) for further assistance. |
 
 ### Troubleshoot
 
@@ -550,13 +548,11 @@ Once you have migrated the apps, you can enrich your user’s experience in many
 
 **Make apps discoverable**
 
-**Point your user** to the [MyApps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension)portal experience. Here, they can access all cloud-based apps, apps you make available by using [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md), and apps using [Application Proxy](./application-proxy.md) provided they have permissions to access those apps.
-
+**Point your user** to the [MyApps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension)portal experience. Here, they can access all cloud-based apps, apps you make available by using [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md), and apps using [Application Proxy](../app-proxy/application-proxy.md) provided they have permissions to access those apps.
 
 You can guide your users on how to discover their apps:
 
 - Use the [Existing Single Sign-on](./view-applications-portal.md) feature to **link your users to any app**
-
 
 - Enable [Self-Service Application Access](./manage-self-service-access.md)to an app and **let users add apps that you curate**
 
@@ -568,9 +564,9 @@ You can guide your users on how to discover their apps:
 
 Users can download an **Intune-managed browser**:
 
-- **For Android devices**, from the [Google play store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser)
+- **For Android devices**, from the [Google play store](https://play.google.com/store/apps/details?id=com.microsoft.intune)
 
-- **For Apple devices**, from the [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) or they can download the [My Apps mobile app for iOS ](https://apps.apple.com/us/app/my-apps-azure-active-directory/id824048653)
+- **For Apple devices**, from the [Apple App Store](https://apps.apple.com/us/app/intune-company-portal/id719171358) or they can download the [My Apps mobile app for iOS ](https://appadvice.com/app/my-apps-azure-active-directory/824048653)
 
 **Let users open their apps from a browser extension.**
 
@@ -578,7 +574,7 @@ Users can [download the MyApps Secure Sign-in Extension](https://www.microsoft.c
 
 - **Search for their apps and have their most-recently-used apps appear**
 
-- **Automatically convert internal URLs** that you have configured in [Application Proxy](./application-proxy.md) to the appropriate external URLs. Your users can now work with the links they are familiar with no matter where they are.
+- **Automatically convert internal URLs** that you have configured in [Application Proxy](../app-proxy/application-proxy.md) to the appropriate external URLs. Your users can now work with the links they are familiar with no matter where they are.
 
 **Let users open their apps from Office.com.**
 
@@ -600,7 +596,7 @@ Azure AD provides a centralized access location to manage your migrated apps. Go
 
 You can also use the [Azure portal](https://portal.azure.com/) to audit all your apps from a centralized location,
 
-- **Audit your app** using **Enterprise Applications, Audit, or access the same information from the [Azure AD Reporting API](../reports-monitoring/concept-reporting-api.md) to integrate into your favorite tools.
+- **Audit your app** using **Enterprise Applications, Audit**, or access the same information from the [Azure AD Reporting API](../reports-monitoring/concept-reporting-api.md) to integrate into your favorite tools.
 
 - **View the permissions for an app** using **Enterprise Applications, Permissions** for apps using OAuth / OpenID Connect.
 

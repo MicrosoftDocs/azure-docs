@@ -39,8 +39,8 @@ To learn how to perform the above, review the tutorial on [migrating VMware virt
 
 To add a scale-out appliance, follow the steps mentioned below:
 
-1. Click on **Discover** > **Are you machines virtualized?** 
-1. Select **Yes, with VMware VSphere Hypervisor.**
+1. Click on **Discover** > **Are your machines virtualized?** 
+1. Select **Yes, with VMware vSphere Hypervisor.**
 1. Select agentless replication in the next step.
 1. Select **Scale-out an existing primary appliance** in the select the type of appliance menu.
 1. Select the primary appliance (the appliance using which discovery was performed) that you wish to scale-out.
@@ -50,49 +50,52 @@ To add a scale-out appliance, follow the steps mentioned below:
 ### 1. Generate the Azure Migrate project key
 
 1. In **Generate Azure Migrate project key**, provide a suffix name for the scale-out appliance. The suffix can contain only alphanumeric characters and has a length limit of 14 characters.
-2. Click **Generate key** to start the creation of the required Azure resources. Please do not close the Discover page during the creation of resources.
+2. Click **Generate key** to start the creation of the required Azure resources. Do not close the Discover page during the creation of resources.
 3. Copy the generated key. You will need the key later to complete the registration of the scale-out appliance.
 
 ### 2. Download the installer for the scale-out appliance
 
 In **Download Azure Migrate appliance**, click  **Download**. You need to download the PowerShell installer script to deploy the scale-out appliance on an existing server running Windows Server 2016 and with the required hardware configuration (32-GB RAM, 8 vCPUs, around 80 GB of disk storage and internet access, either directly or through a proxy).
+
 :::image type="content" source="./media/how-to-scale-out-for-migration/download-scale-out.png" alt-text="Download script for scale-out appliance":::
 
 > [!TIP]
 > You can validate the checksum of the downloaded zip file using these steps:
 >
-> 1. Open command prompt as an administrator
+> 1. On the server to which you downloaded the file, open an administrator command window.
 > 2. Run the following command to generate the hash for the zipped file:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage for public cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-> 3. Download the latest version of the scale-out appliance installer from the portal if the computed hash value doesnt match this string:
-e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
+    - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+> 3. Download the latest version of the scale-out appliance installer from the portal if the computed hash value doesn't match this string:
+15a94b637a39c53ac91a2d8b21cc3cca8905187e4d9fb4d895f4fa6fd2f30b9f
 
 ### 3. Run the Azure Migrate installer script
-The installer script does the following:
 
-- Installs gateway agent and appliance configuration manager to perform more concurrent server replications.
-- Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
-- Download and installs an IIS rewritable module. [Learn more](https://www.microsoft.com/download/details.aspx?id=7435).
-- Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
-- Creates the following files under the path:
-    - **Config Files**: %Programdata%\Microsoft Azure\Config
-    - **Log Files**: %Programdata%\Microsoft Azure\Logs
-
-Run the script as follows:
-
-1. Extract the zip file to a folder on the server that will host the scale-out appliance.  Make sure you don't run the script on a server with an existing Azure Migrate appliance.
+1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a server with an existing Azure Migrate appliance.
 2. Launch PowerShell on the above server with administrative (elevated) privilege.
-3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zip file.
-4. Run the script named **AzureMigrateInstaller.ps1**  using the following command:
+3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
+4. Run the script named **AzureMigrateInstaller.ps1** by running the following command:
 
-    - For the public cloud: 
-    
-        ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 ```
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
 
-    The script will launch the appliance configuration manager when it completes the execution.
+5. Select from the scenario, cloud, configuration and connectivity options to deploy the desired appliance. For instance, the selection shown below sets up a **scale-out appliance** to initiate concurrent replications on servers running in your VMware environment to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure public cloud**.
 
-If you come across any issues, you can access the script logs at: <br/> C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
+    :::image type="content" source="./media/how-to-scale-out-for-migration/script-vmware-scaleout-inline.png" alt-text="Screenshot that shows how to set up scale-out appliance." lightbox="./media/how-to-scale-out-for-migration/script-vmware-scaleout-expanded.png":::
+
+6. The installer script does the following:
+
+    - Installs gateway agent and appliance configuration manager to perform more concurrent server replications.
+    - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
+    - Download and installs an IIS rewritable module.
+    - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
+    - Creates the following files under the path:
+        - **Config Files**: %Programdata%\Microsoft Azure\Config
+        - **Log Files**: %Programdata%\Microsoft Azure\Logs
+
+After the script has executed successfully, the appliance configuration manager will be launched automatically.
+
+> [!NOTE]
+> If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
 
 
 ### 4. Configure the appliance
@@ -105,7 +108,7 @@ Before you begin ensure that the [these Azure endpoints](migrate-appliance.md#pu
 - Accept the **license terms**, and read the third-party information.
 - In the configuration manager > **Set up prerequisites**, do the following:
    - **Connectivity**: The appliance checks that the server has internet access. If the server uses a proxy:
-     1. Click on **Set up proxy** to specify the proxy address (in the form http://ProxyIPAddress or http://ProxyFQDN) and listening port.
+     1. Click on **Setup proxy** to specify the proxy address (in the form http://ProxyIPAddress or http://ProxyFQDN) and listening port.
      2. Specify credentials if the proxy needs authentication.
      3. Only HTTP proxy is supported.
      4. If you have added proxy details or disabled the proxy and/or authentication, click on **Save** to trigger connectivity check again.
@@ -118,10 +121,11 @@ Before you begin ensure that the [these Azure endpoints](migrate-appliance.md#pu
 
 1. Paste the **Azure Migrate project key** copied from the portal. If you do not have the key, go to **Server Assessment> Discover> Manage existing appliances**, select the primary appliance name, find the scale-out appliance associated with it and copy the corresponding key.
 1. You will need a device code to authenticate with Azure. Clicking on **Login** will open a modal with the device code as shown below.
-:::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modal showing the device code":::
+
+   :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modal showing the device code":::
 
 1. Click on **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-1. On the new tab, paste the device code and sign in by using your Azure username and password.
+1. On the new tab, paste the device code and sign-in by using your Azure username and password.
    
    Sign-in with a PIN isn't supported.
 3. In case you close the login tab accidentally without logging in, you need to refresh the browser tab of the appliance configuration manager to enable the Login button again.
@@ -147,7 +151,7 @@ To complete the registration of the scale-out appliance, click **import** to get
 Once the files have been successfully imported, the registration of the scale-out appliance will complete and it will show you the timestamp of the last successful import. You can also see the registration details by clicking **View details**.
 :::image type="content" source="./media/how-to-scale-out-for-migration/import-success.png" alt-text="Screenshot shows scale-out appliance registration with Azure Migrate project.":::
 
-At this point you should revalidate that the scale-out appliance is able to connect to your vCenter server. Click **revalidate** to validate vCenter Server connectivity from scale-out appliance.
+At this point, you should revalidate that the scale-out appliance is able to connect to your vCenter server. Click **revalidate** to validate vCenter Server connectivity from scale-out appliance.
 :::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Screenshot shows view credentials and discovery sources to be validated.":::
 
 > [!IMPORTANT]
@@ -173,4 +177,4 @@ In this article, you learned:
 - How to replicate VMs using a scale-out appliance
 
 
-[Learn more](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware) about migrating servers to Azure using Azure Migrate: Server Migration tool.
+[Learn more](./tutorial-migrate-vmware.md) about migrating servers to Azure using Azure Migrate: Server Migration tool.

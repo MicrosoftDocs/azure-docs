@@ -2,14 +2,12 @@
 title: Concepts - Identity and access
 description: Learn about the identity and access concepts of Azure VMware Solution
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 07/29/2021
 ---
 
 # Azure VMware Solution identity concepts
 
-Azure VMware Solution private clouds are provisioned with a vCenter Server and NSX-T Manager. You use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the the CloudAdmin role for vCenter and restricted administrator rights for NSX-T Manager. 
-
-For more information, see [private cloud upgrades concepts article][concepts-upgrades].
+Azure VMware Solution private clouds are provisioned with a vCenter Server and NSX-T Manager. You use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter and restricted administrator rights for NSX-T Manager. 
 
 ## vCenter access and identity
 
@@ -28,13 +26,15 @@ The private cloud user doesn't have access to and can't configure specific manag
 
 You can view the privileges granted to the Azure VMware Solution CloudAdmin role on your Azure VMware Solution private cloud vCenter.
 
-1. Log into the SDDC vSphere Client and go to **Menu** > **Administration**.
+1. Sign into the vSphere Client and go to **Menu** > **Administration**.
+
 1. Under **Access Control**, select **Roles**.
+
 1. From the list of roles, select **CloudAdmin** and then select **Privileges**. 
 
-   :::image type="content" source="media/role-based-access-control-cloudadmin-privileges.png" alt-text="How to view the CloudAdmin role privileges in vSphere Client":::
+   :::image type="content" source="media/concepts/role-based-access-control-cloudadmin-privileges.png" alt-text="Screenshot showing the roles and privileges for CloudAdmin in the vSphere Client.":::
 
-The CloudAdmin role in Azure VMware Solution has the following privileges on vCenter. For more details, see the [VMware product documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
+The CloudAdmin role in Azure VMware Solution has the following privileges on vCenter. For more information, see the [VMware product documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
 
 | Privilege | Description |
 | --------- | ----------- |
@@ -61,50 +61,59 @@ The CloudAdmin role in Azure VMware Solution has the following privileges on vCe
 
 Azure VMware Solution supports the use of custom roles with equal or lesser privileges than the CloudAdmin role. 
 
-The CloudAdmin role can create, modify, or delete custom roles that have privileges lesser than or equal to their current role. You may be able to create roles that have privileges greater than CloudAdmin but you will not be able to assign the role to any users or groups or delete the role.
+You'll use the CloudAdmin role to create, modify, or delete custom roles with privileges lesser than or equal to their current role. You can create roles with privileges greater than CloudAdmin, but you can't assign the role to any users or groups or delete the role.
 
-To prevent the creation of roles that can't be assigned or deleted, Azure VMware Solution recommends cloning the CloudAdmin role as the basis for creating new custom roles.
+To prevent creating roles that can't be assigned or deleted, clone the CloudAdmin role as the basis for creating new custom roles.
 
 #### Create a custom role
 1. Sign into vCenter with cloudadmin\@vsphere.local or a user with the CloudAdmin role.
-2. Navigate to the **Roles** configuration section and select **Menu** > **Administration** > **Access Control** > **Roles**.
-3. Select the **CloudAdmin** role and select the **Clone role action** icon.
 
-   > [!NOTE] 
-   > Do not clone the **Administrator** role. This role cannot be used and the custom role created cannot be deleted by cloudadmin\@vsphere.local.
+1. Navigate to the **Roles** configuration section and select **Menu** > **Administration** > **Access Control** > **Roles**.
 
-4. Provide the name you want for the cloned role.
-5. Add or remove privileges for the role and select **OK**. The cloned role should now be visible in the **Roles** list.
+1. Select the **CloudAdmin** role and select the **Clone role action** icon.
+
+   >[!NOTE] 
+   >Don't clone the **Administrator** role because you can't use it. Also, the custom role created can't be deleted by cloudadmin\@vsphere.local.
+
+1. Provide the name you want for the cloned role.
+
+1. Add or remove privileges for the role and select **OK**. The cloned role is visible in the **Roles** list.
 
 
-#### Use a custom role
+#### Apply a custom role
 
-1. Navigate to the object that requires the added permission. For example, to apply the permission to a folder, navigate to **Menu** > **VMs and Templates** > **Folder Name**
+1. Navigate to the object that requires the added permission. For example, to apply the permission to a folder, navigate to **Menu** > **VMs and Templates** > **Folder Name**.
+
 1. Right-click the object and select **Add Permission**.
+
 1. In the **Add Permission** window, select the Identity Source in the **User** drop-down where the group or user can be found.
+
 1. Search for the user or group after selecting the Identity Source under the **User** section. 
+
 1. Select the role that will be applied for the user or group.
-1. Check the **Propagate to children** if needed, and select **OK**.
-   The added permission displays in the **Permissions** section for the object.
+
+1. Check the **Propagate to children** if needed, and select **OK**. The added permission displays in the **Permissions** section.
 
 ## NSX-T Manager access and identity
 
-Use the *administrator* account to access NSX-T Manager. It has full privileges and lets you create and manage Tier-1 (T1) Gateways, segments (logical switches), and all services. The privileges give you access to the NSX-T Tier-0 (T0) Gateway. A change to the T0 Gateway could result in degraded network performance or no private cloud access. Open a support request in the Azure portal to request any changes to your NSX-T T0 Gateway.
+>[!NOTE]
+>NSX-T 3.1.2 is currently supported for all new private clouds.
+
+Use the *admin* account to access NSX-T Manager. It has full privileges and lets you create and manage Tier-1 (T1) Gateways, segments (logical switches), and all services. The privileges give you access to the NSX-T Tier-0 (T0) Gateway. A change to the T0 Gateway could result in degraded network performance or no private cloud access. Open a support request in the Azure portal to request any changes to your NSX-T T0 Gateway.
 
  
 ## Next steps
 
 Now that you've covered Azure VMware Solution access and identity concepts, you may want to learn about:
 
-- [Private cloud upgrade concepts](concepts-upgrades.md).
-- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
-- [Details of each privilege](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
-- [How Azure VMware Solution monitors and repairs private clouds](concepts-monitor-repair-private-cloud.md).
-- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
+- [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)  
+- [Details of each privilege](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)
+- [How Azure VMware Solution monitors and repairs private clouds](./concepts-private-clouds-clusters.md#host-monitoring-and-remediation)
+
 
 
 <!-- LINKS - external-->
 [VMware product documentation]: https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html
 
 <!-- LINKS - internal -->
-[concepts-upgrades]: ./concepts-upgrades.md
+[concepts-upgrades]: ./concepts-private-clouds-clusters#host-maintenance-and-lifecycle-management

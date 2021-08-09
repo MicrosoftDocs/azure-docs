@@ -4,8 +4,8 @@ description: Understand the High-level flow of the API call pattern for programm
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
 ms.date: 3/08/2021
 ---
 
@@ -345,4 +345,4 @@ Key definitions of elements in the response.
 
 ## Next steps
 - You can try out the APIs through the [Swagger API URL](https://api.partnercenter.microsoft.com/insights/v1/cmp/swagger/index.html)
-- Get Started with programmatic access to analytics data
+- [Get Started with programmatic access to analytics data](analytics-get-started.md)

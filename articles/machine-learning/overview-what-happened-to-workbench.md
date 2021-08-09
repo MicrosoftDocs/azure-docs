@@ -15,7 +15,7 @@ ms.date: 03/05/2020
 
 The Azure Machine Learning Workbench application and some other early features were deprecated and replaced in the **September 2018** release to make way for an improved [architecture](concept-azure-machine-learning-architecture.md).
 
-To improve your experience, the release contains many significant updates prompted by customer feedback. The core functionality from experiment runs to model deployment hasn't changed. But now, you can use the robust <a href="/python/api/overview/azure/ml/intro" target="_blank">Python SDK</a>, R SDK, and the [Azure CLI](reference-azure-machine-learning-cli.md) to accomplish your machine learning tasks and pipelines.
+To improve your experience, the release contains many significant updates prompted by customer feedback. The core functionality from experiment runs to model deployment hasn't changed. But now, you can use the robust <a href="/python/api/overview/azure/ml/intro" target="_blank">Python SDK</a>, and the [Azure CLI](reference-azure-machine-learning-cli.md) to accomplish your machine learning tasks and pipelines.
 
 Most of the artifacts that were created in the earlier version of Azure Machine Learning are stored in your own local or cloud storage. These artifacts won't ever disappear.
 
@@ -29,13 +29,13 @@ In this article, you learn about what changed and how it affects your pre-existi
 
 The latest release of Azure Machine Learning includes the following features:
 + A [simplified Azure resources model](concept-azure-machine-learning-architecture.md).
-+ A [new portal UI](how-to-track-experiments.md) to manage your experiments and compute targets.
++ A [new portal UI](how-to-log-view-metrics.md) to manage your experiments and compute targets.
 + A new, more comprehensive Python <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK</a>.
 + The new expanded [Azure CLI extension](reference-azure-machine-learning-cli.md) for machine learning.
 
 The [architecture](concept-azure-machine-learning-architecture.md) was redesigned for ease of use. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning Workspace](concept-workspace.md). You can create workspaces quickly in the [Azure portal](how-to-manage-workspace.md). By using a workspace, multiple users can store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
 
-Although there are new improved CLI and SDK clients in the current release, the desktop workbench application itself has been retired. Experiments can be managed in the [workspace dashboard in Azure Machine Learning studio](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal). Use the dashboard to get your experiment history, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
+Although there are new improved CLI and SDK clients in the current release, the desktop workbench application itself has been retired. Experiments can be managed in the [workspace dashboard in Azure Machine Learning studio](how-to-log-view-metrics.md#view-the-experiment-in-the-web-portal). Use the dashboard to get your experiment history, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
 
 <a name="timeline"></a>
 
@@ -89,13 +89,12 @@ Learn more in these articles:
 
 Learn about the [latest architecture for Azure Machine Learning](concept-azure-machine-learning-architecture.md).
 
-For an overview of the service, read [What is Azure Machine Learning?](overview-what-is-azure-ml.md).
+For an overview of the service, read [What is Azure Machine Learning?](overview-what-is-azure-machine-learning.md).
 
-Create your first experiment with your preferred method:
+Start with [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md).  Then use these resources to create your first experiment with your preferred method:
 
-  + [Use your own environment](tutorial-1st-experiment-sdk-setup-local.md)
-  + [Use Python notebooks](tutorial-1st-experiment-sdk-setup.md)
-  + [Use R Markdown](https://github.com/Azure/azureml-sdk-for-r) 
+  + [Run a "Hello world!" Python script (part 1 of 3)](tutorial-1st-experiment-hello-world.md)
+  + [Use a Jupyter notebook to train image classification models](tutorial-train-models-with-aml.md)
   + [Use automated machine learning](tutorial-designer-automobile-price-train-score.md) 
   + [Use the designer's drag & drop capabilities](tutorial-first-experiment-automated-ml.md) 
-  + [Use the ML extension to the CLI](tutorial-train-deploy-model-cli.md)
+  + [Use the ML extension to the CLI](how-to-train-cli.md)

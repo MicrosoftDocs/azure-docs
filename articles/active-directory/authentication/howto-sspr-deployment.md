@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 07/13/2021
 
 ms.author: baselden
 author: barbaraselden
@@ -59,7 +59,7 @@ Azure Active Directory is licensed per-user meaning each user requires an approp
 
 To compare editions and features and enable group or user-based licensing, see [Licensing requirements for Azure AD self-service password reset](./concept-sspr-licensing.md).
 
-For more information about pricing, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+For more information about pricing, see [Azure Active Directory pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ### Prerequisites
 
@@ -84,7 +84,7 @@ For more information about pricing, see [Azure Active Directory pricing](https:/
 |Tutorials |[Complete an Azure AD self-service password reset pilot roll out](./tutorial-enable-sspr.md) |
 | |[Enabling password writeback](./tutorial-enable-sspr-writeback.md) |
 | |[Azure AD password reset from the login screen for Windows 10](./howto-sspr-windows.md) |
-| FAQ|[Password management frequently asked questions](./active-directory-passwords-faq.md) |
+| FAQ|[Password management frequently asked questions](./active-directory-passwords-faq.yml) |
 
 
 ### Solution architecture
@@ -325,7 +325,7 @@ Audit logs for registration and password reset are available for 30 days. If sec
 
 * Refer to [Troubleshoot self-service password reset](./troubleshoot-sspr.md) 
 
-* Follow [Password management frequently asked questions](./active-directory-passwords-faq.md) 
+* Follow [Password management frequently asked questions](./active-directory-passwords-faq.yml) 
 
 ### Helpful documentation
 

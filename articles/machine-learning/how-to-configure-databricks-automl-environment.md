@@ -9,8 +9,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 10/21/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.topic: how-to
+ms.custom: devx-track-python
 ---
 
 # Set up a development environment with Azure Databricks and AutoML in Azure Machine Learning 

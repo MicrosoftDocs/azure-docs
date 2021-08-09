@@ -2,33 +2,31 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: mikben
-manager: mikben
+author: ddematheu2
+manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
+ms.author: dademath
 ---
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-The Azure Communication Services **Group Calling Hero Sample for iOS** demonstrates how the Communication Services Calling iOS client library can be used to build a group calling experience that includes voice and video. In this sample quickstart, you will learn how to set up and run the sample. An overview of the sample is provided for context.
+The Azure Communication Services **Group Calling Hero Sample for iOS** demonstrates how the Communication Services Calling iOS SDK can be used to build a group calling experience that includes voice and video. In this sample quickstart, you will learn how to set up and run the sample. An overview of the sample is provided for context.
 
 ## Download code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero).
+Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero). A version of the sample with [Teams Interop](../../concepts/teams-interop.md) can be found on a separate [Branch](https://github.com/Azure-Samples/communication-services-ios-calling-hero/tree/feature/teams_interop).
 
 ## Overview
 
-The sample is a native iOS application that uses the Azure Communication Services iOS client libraries to build a calling experience that features both voice and video calling. The application uses a server-side component to provision access tokens that are then used to initialize the Azure Communication Services client library. To configure this server-side component, feel free to follow the [Trusted Service with Azure Functions](../../tutorials/trusted-service-tutorial.md) tutorial.
+The sample is a native iOS application that uses the Azure Communication Services iOS SDKs to build a calling experience that features both voice and video calling. The application uses a server-side component to provision access tokens that are then used to initialize the Azure Communication Services SDK. To configure this server-side component, feel free to follow the [Trusted Service with Azure Functions](../../tutorials/trusted-service-tutorial.md) tutorial.
 
 Here's what the sample looks like:
 
 :::image type="content" source="../media/calling/landing-page-ios.png" alt-text="Screenshot showing the landing page of the sample application.":::
 
-When you press the "Start new call" button, the iOS application creates a new call and joins it. The application allows you to join an existing Azure Communication Services call by specifying the existing call's ID. You can also join a Teams Meeting by providing the join link found in the Meeting's invite.  (The join link has the following format: `https://teams.microsoft.com/l/meetup-join/`). For more information on Teams Interop, visit the [Teams Interop conceptual documentation](../../concepts/teams-interop.md).
+When you press the "Start new call" button, the iOS application creates a new call and joins it. The application allows you to join an existing Azure Communication Services call by specifying the existing call's ID.
 
 After joining a call, you'll be prompted to give the application permission to access your camera and microphone. You'll also be asked to provide a display name.
 
@@ -49,7 +47,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
 
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532), along with a valid developer certificate installed into your Keychain.
-- An Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../quickstarts/create-communication-resource.md).
+- An Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md).
 - An Azure Function running the [Authentication Endpoint](../../tutorials/trusted-service-tutorial.md) to fetch access tokens.
 
 ## Running sample locally
@@ -98,12 +96,12 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 For more information, see the following articles:
 
-- Familiarize yourself with [using the calling client library](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarize yourself with [using the Calling SDK](../../quickstarts/voice-video-calling/calling-client-samples.md)
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)
 
 ### Additional reading
 
 - [Azure Communication GitHub](https://github.com/Azure/communication) - Find more examples and information on the official GitHub page
 - [Samples](./../overview.md) - Find more samples and examples on our samples overview page.
-- [Azure Communication Calling Features](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) - To learn more about the calling iOS sdk
+- [Azure Communication Calling Features](../../concepts/voice-video-calling/calling-sdk-features.md) - To learn more about the calling iOS sdk
 -[Azure Communication iOS Calling SDK](https://github.com/Azure/Communication/releases/)

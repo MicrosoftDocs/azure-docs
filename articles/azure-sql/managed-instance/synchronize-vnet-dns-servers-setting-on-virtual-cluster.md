@@ -3,10 +3,12 @@ title: Synchronize virtual network DNS servers setting on SQL Managed Instance v
 description: Learn how synchronize virtual network DNS servers setting on SQL Managed Instance virtual cluster.
 services: sql-database
 ms.service: sql-managed-instance
+ms.subservice: deployment-configuration
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.topic: how-to
-ms.date: 01/17/2021
+ms.date: 01/17/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Synchronize virtual network DNS servers setting on SQL Managed Instance virtual cluster
@@ -29,8 +31,7 @@ If this change is implemented after [virtual cluster](connectivity-architecture-
 
 User synchronizing DNS server configuration will need to have one of the following Azure roles:
 
-- Subscription Owner role, or
-- Managed Instance Contributor role, or
+- Subscription contributor role, or
 - Custom role with the following permission:
   - `Microsoft.Sql/virtualClusters/updateManagedInstanceDnsServers/action`
 

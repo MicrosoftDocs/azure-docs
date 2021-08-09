@@ -1,3 +1,4 @@
+items:
 - name: Device Update for IoT Hub Documentation
   href: index.yml
 - name: Overview
@@ -12,6 +13,8 @@
     href: device-update-simulator.md
   - name: Package update on Ubuntu Server 18.04 x64
     href: device-update-ubuntu-agent.md
+  - name: Device Update for Azure Real-time-operating-system
+    href: device-update-azure-real-time-operating-system.md
 - name: Concepts
   items:
   - name: Device update account and instance
@@ -44,6 +47,8 @@
     href: import-concepts.md
   - name: Import-related schema
     href: import-schema.md
+  - name: Device Update limits
+    href: device-update-limits.md
 
 - name: How-to guides
   items:
@@ -67,10 +72,28 @@
     items:
     - name: Troubleshoot device updates
       href: troubleshoot-device-update.md
+    - name: Device update client error codes
+      href: device-update-error-codes.md
 - name: Reference
   items:
-  - name: Device update client error codes
-    href: device-update-error-codes.md
+  - name: REST API
+    href: /rest/api/deviceupdate/
+  - name: Control Plane SDK
+    items:
+      - name: .NET
+        href: /dotnet/api/overview/azure/iot/management
+      - name: Python
+        href: /python/api/azure-mgmt-deviceupdate/
+  - name: Data Plane SDK
+    items:
+      - name: .NET
+        href: /dotnet/api/azure.iot.deviceupdate?view=azure-dotnet-preview&preserve-view=true
+      - name: JavaScript
+        href: /javascript/api/@azure/iot-device-update/?view=azure-node-preview&preserve-view=true
+      - name: Java
+        href: /java/api/com.azure.iot.deviceupdate?view=azure-java-preview&preserve-view=true
+      - name: Python
+        href: /python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate?view=azure-python-preview&preserve-view=true
 - name: Resources
   items:
   - name: Support and help options
@@ -88,7 +111,7 @@
     - name: IoT solution accelerators
       href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
-      href: ../iot-pnp/index.yml
+      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
     - name: Time Series Insights

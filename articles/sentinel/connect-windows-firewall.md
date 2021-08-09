@@ -27,7 +27,10 @@ The solution collects Windows firewall events from the Windows machines on which
 > [!NOTE]
 > - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
 >
-> - If Azure Defender alerts from Azure Security Center are already collected to the Azure Sentinel workspace, there is no need to enable the Windows Firewall solution through this connector. However, if you did enable it, it will not cause duplicated data. 
+> - If Azure Defender alerts from Azure Security Center are already collected to the Azure Sentinel workspace, there is no need to enable the Windows Firewall solution through this connector. However, if you did enable it, it will not cause duplicated data.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 
 ## Prerequisites
 
@@ -77,7 +80,13 @@ The solution collects Windows firewall events from the Windows machines on which
 
 ## Validate connectivity
  
-Because Windows Firewall logs are sent to Azure Sentinel only when the local log file reaches capacity, leaving the log at its default size of 4096 KB will most likely result in high collection latency. You can lower the latency by lowering the log file size. See the instructions to [configure the Windows Firewall log](/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log). Note that while defining the minimum possible log size (1 KB) will virtually eliminate collection latency, it might also negatively impact the local machine's performance. 
+Because Windows Firewall logs are sent to Azure Sentinel only when the local log file reaches capacity, leaving the log at its default size of 4096 KB will most likely result in high collection latency. You can lower the latency by lowering the log file size. For more information, see [configure the Windows Firewall log](/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log).
+
+> [!NOTE]
+>
+> - While smaller log sizes will reduce collection latency, they might also negatively impact the local machine's performance.
+> 
+> - The data collection configuration requires a minimum of 1000 new lines in the log file before data is collected. Therefore, the log file size should be set to no less than 100 (one hundred) KB, as this will ensure the accumulation of 1000 lines.
 
 ## Next steps
 In this document, you learned how to connect Windows firewall to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:

@@ -14,7 +14,7 @@ ms.custom: how-to, tracking-python
 
 # Create Azure Machine Learning datasets from Azure Open Datasets
 
-In this article, you learn how to bring curated enrichment data into your local or remote machine learning experiments with [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) datasets and [Azure Open Datasets](./index.yml). 
+In this article, you learn how to bring curated enrichment data into your local or remote machine learning experiments with [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) datasets and [Azure Open Datasets](./index.yml). 
 
 By creating an [Azure Machine Learning dataset](../machine-learning/how-to-create-register-datasets.md), you create a reference to the data source location, along with a copy of its metadata. Because datasets are lazily evaluated, and the data remains in its existing location, you
 * Incur no extra storage cost.
@@ -51,7 +51,7 @@ For this article, you need:
     * Work on your own Python environment and install the SDK yourself with [these instructions](/python/api/overview/azure/ml/install).
 
 > [!NOTE]
-> Some dataset classes have dependencies on the [azureml-dataprep](/python/api/azureml-dataprep/) package, which is only compatible with 64-bit Python. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9), and CentOS (7).
+> Some dataset classes have dependencies on the azureml-dataprep package, which is only compatible with 64-bit Python. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9), and CentOS (7).
 
 ## Create datasets with the SDK
 

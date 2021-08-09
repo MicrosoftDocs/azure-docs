@@ -7,7 +7,7 @@ ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: "devx-track-python, devx-track-azurepowershell, devx-track-azurecli"
 
 ---
 
@@ -77,17 +77,7 @@ az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-
 
 This application is using key vault name as an environment variable called `KEY_VAULT_NAME`.
 
-Windows
-```cmd
-set KEY_VAULT_NAME=<your-key-vault-name>
-````
-Windows PowerShell
-```powershell
-$Env:KEY_VAULT_NAME="<your-key-vault-name>"
-```
-
-macOS or Linux
-```cmd
+```bash
 export KEY_VAULT_NAME=<your-key-vault-name>
 ```
 
@@ -140,15 +130,15 @@ python kv_secrets.py
 ```
 
 - If you encounter permissions errors, make sure you ran the [`az keyvault set-policy` command](#grant-access-to-your-key-vault).
-- Re-running the code with the same secrete name may produce the error, "(Conflict) Secret <name> is currently in a deleted but recoverable state." Use a different secret name.
+- Re-running the code with the same secret name may produce the error, "(Conflict) Secret <name> is currently in a deleted but recoverable state." Use a different secret name.
 
 ## Code details
 
 ### Authenticate and create a client
 
-In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](../../active-directory/managed-identities-azure-resources/overview.md).
 
-In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using  ['DefaultAzureCredential()'](https://docs.microsoft.com/python/api/azure-identity/azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](https://docs.microsoft.com/python/api/overview/azure/identity-readme). 
+In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using  ['DefaultAzureCredential()'](/python/api/azure-identity/azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](/python/api/overview/azure/identity-readme). 
 
 ```python
 credential = DefaultAzureCredential()
@@ -177,7 +167,7 @@ retrieved_secret = client.get_secret(secretName)
 
 The secret value is contained in `retrieved_secret.value`.
 
-You can also retrieve a secret with the the Azure CLI command [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show).
+You can also retrieve a secret with the the Azure CLI command [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show).
 
 ### Delete a secret
 
@@ -190,7 +180,7 @@ deleted_secret = poller.result()
 
 The `begin_delete_secret` method is asynchronous and returns a poller object. Calling the poller's `result` method waits for its completion.
 
-You can verify that the secret had been removed with the Azure CLI command [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show).
+You can verify that the secret had been removed with the Azure CLI command [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show).
 
 Once deleted, a secret remains in a deleted but recoverable state for a time. If you run the code again, use a different secret name.
 
@@ -207,7 +197,7 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## Next steps
 
 - [Overview of Azure Key Vault](../general/overview.md)
-- [Secure access to a key vault](../general/secure-your-key-vault.md)
+- [Secure access to a key vault](../general/security-features.md)
 - [Azure Key Vault developer's guide](../general/developers-guide.md)
-- [Key Vault security overview](../general/security-overview.md)
+- [Key Vault security overview](../general/security-features.md)
 - [Authenticate with Key Vault](../general/authentication.md)

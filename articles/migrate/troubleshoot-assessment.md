@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot assessment and dependency visualization in Azure Migrate
-description: Get help with assessment and dependency visualization in Azure Migrate.
+title: Troubleshoot assessments in Azure Migrate
+description: Get help with assessment in Azure Migrate.
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
@@ -8,9 +8,9 @@ ms.topic: troubleshooting
 ms.date: 01/02/2020
 ---
 
-# Troubleshoot assessment/dependency visualization
+# Troubleshoot assessment
 
-This article helps you troubleshoot issues with assessment and dependency visualization with [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool).
+This article helps you troubleshoot issues with assessment and dependency visualization with [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool).
 
 
 ## Assessment readiness issues
@@ -46,7 +46,7 @@ Conditionally ready Internet Protocol | Only applicable to Azure VMware Solution
 
 ## Suggested migration tool in import-based AVS assessment marked as unknown
 
-For servers imported via a CSV file, the default migration tool in and AVS assessment is unknown. Though, for servers in VMware environment, its is recommended to use the VMware Hybrid Cloud Extension (HCX) solution. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+For servers imported via a CSV file, the default migration tool in and AVS assessment is unknown. Though, for servers in VMware environment, its is recommended to use the VMware Hybrid Cloud Extension (HCX) solution. [Learn More](../azure-vmware/configure-vmware-hcx.md).
 
 ## Linux VMs are "conditionally ready" in an Azure VM assessment
 
@@ -169,55 +169,6 @@ Readiness category may be incorrectly marked as "Not Ready" in the case of a phy
 ## Number of discovered NICs higher than actual for physical servers
 
 This can happen if the physical server has Hyper-V virtualization enabled. On these servers, Azure Migrate currently discovers both the physical and virtual adapters. Hence, the no. of NICs discovered is higher than actual.
-
-## Dependency visualization in Azure Government
-
-Agent-based dependency analysis is not supported in Azure Government. Please use agentless dependency analysis.
-
-
-## Dependencies don't show after agent install
-
-After you've installed the dependency visualization agents on on-premises VMs, Azure Migrate typically takes 15-30 minutes to display the dependencies in the portal. If you've waited for more than 30 minutes, make sure that the Microsoft Monitoring Agent (MMA) can connect to the Log Analytics workspace.
-
-For Windows VMs:
-1. In the Control Panel, start MMA.
-2. In the **Microsoft Monitoring Agent properties** > **Azure Log Analytics (OMS)**, make sure that the **Status** for the workspace is green.
-3. If the status isn't green, try removing the workspace and adding it again to MMA.
-
-    ![MMA status](./media/troubleshoot-assessment/mma-properties.png)
-
-For Linux VMs, make sure that the installation commands for MMA and the dependency agent succeeded. Refer to more troubleshooting guidance [here](../azure-monitor/vm/service-map.md#post-installation-issues).
-
-## Supported operating systems
-
-- **MMS agent**: Review the supported [Windows](../azure-monitor/agents/agents-overview.md#supported-operating-systems), and [Linux](../azure-monitor/agents/agents-overview.md#supported-operating-systems) operating systems.
-- **Dependency agent**: the supported [Windows and Linux](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) operating systems.
-
-## Visualize dependencies for > 1 hour
-
-With agentless dependency analysis, you can visualize dependencies or export them in a map for a duration of up to 30 days.
-
-With agent-based dependency analysis, Although Azure Migrate allows you to go back to a particular date in the last month, the maximum duration for which you can visualize the dependencies is one hour. For example, you can use the time duration functionality in the dependency map to view dependencies for yesterday, but you can view them for a one-hour period only. However, you can use Azure Monitor logs to [query the dependency data](./how-to-create-group-machine-dependencies.md) over a longer duration.
-
-## Visualized dependencies for > 10 servers
-
-In Azure Migrate, with agent-based dependency analysis, you can [visualize dependencies for groups](./how-to-create-a-group.md#refine-a-group-with-dependency-mapping) with up to 10 VMs. For larger groups, we recommend that you split the VMs into smaller groups to visualize dependencies.
-
-
-## Servers show "Install agent"
-
-After migrating servers with dependency visualization enabled to Azure, servers might show "Install agent" action instead of "View dependencies" due to the following behavior:
-
-- After migration to Azure, on-premises servers are turned off and equivalent VMs are spun up in Azure. These servers acquire a different MAC address.
-- Servers might also have a different IP address, based on whether you've retained the on-premises IP address or not.
-- If both MAC and IP addresses are different from on-premises, Azure Migrate doesn't associate the on-premises servers with any Service Map dependency data. In this case, it will show the option to install the agent rather than to view dependencies.
-- After a test migration to Azure, on-premises servers remain turned on as expected. Equivalent servers spun up in Azure acquire different MAC address and might acquire different IP addresses. Unless you block outgoing Azure Monitor log traffic from these servers, Azure Migrate won't associate the on-premises servers with any Service Map dependency data, and thus will show the option to install agents, rather than to view dependencies.
-
-## Dependencies export CSV shows "Unknown process"
-In agentless dependency analysis, the process names are captured on a best-effort basis. In certain scenarios, although the source and destination server names and the destination port are captured, it is not feasible to determine the process names at both ends of the dependency. In such cases, the process is marked as "Unknown process".
-
-## My Log Analytics workspace is not listed when trying to configure the workspace in Azure Migrate
-Azure Migrate currently supports creation of OMS workspace in East US, Southeast Asia and West Europe regions. If the workspace is created outside of Azure Migrate in any other region, it currently cannot be associated with an Azure Migrate project.
 
 
 ## Capture network traffic

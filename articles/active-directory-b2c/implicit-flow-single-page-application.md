@@ -24,7 +24,7 @@ Many modern applications have a single-page app front end that is written primar
 
 The recommended way of supporting single-page applications is [OAuth 2.0 Authorization code flow (with PKCE)](./authorization-code-flow.md).
 
-Some frameworks, like [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), only support the implicit grant flow. In these cases, Azure Active Directory B2C (Azure AD B2C) supports the OAuth 2.0 authorization implicit grant flow. Thee flow is described in [section 4.2 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). In implicit flow, the app receives tokens directly from the Azure Active Directory (Azure AD) authorize endpoint, without any server-to-server exchange. All authentication logic and session handling is done entirely in the JavaScript client with either a page redirect or a pop-up box.
+Some frameworks, like [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), only support the implicit grant flow. In these cases, Azure Active Directory B2C (Azure AD B2C) supports the OAuth 2.0 authorization implicit grant flow. The flow is described in [section 4.2 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). In implicit flow, the app receives tokens directly from the Azure Active Directory (Azure AD) authorize endpoint, without any server-to-server exchange. All authentication logic and session handling is done entirely in the JavaScript client with either a page redirect or a pop-up box.
 
 Azure AD B2C extends the standard OAuth 2.0 implicit flow to more than simple authentication and authorization. Azure AD B2C introduces the [policy parameter](user-flow-overview.md). With the policy parameter, you can use OAuth 2.0 to add policies to your app, such as sign-up, sign-in, and profile management user flows. In the example HTTP requests in this article, **{tenant}.onmicrosoft.com** is used as an example. Replace `{tenant}` with the name of your tenant if you have one and have also created a user flow.
 
@@ -241,12 +241,4 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 ## Next steps
 
-### Code sample: Azure AD B2C with Microsoft Authentication Library for JavaScript
-
-[Single-page application built with msal.js for Azure AD B2C][github-msal-js-example] (GitHub)
-
-This sample on GitHub is intended to help get you started to Azure AD B2C in a simple web application built with [msal.js][github-msal-js] and using pop-up-style authentication.
-
-<!-- Links - EXTERNAL -->
-[github-msal-js-example]: https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp
-[github-msal-js]: https://github.com/AzureAD/microsoft-authentication-library-for-js
+See the code sample: [Sign-in with Azure AD B2C in a JavaScript single-page application](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-core-samples/VanillaJSTestApp/app/b2c).

@@ -216,7 +216,7 @@ By convention, the `FeatureManagement` section of this JSON document is used for
 
 ## Use dependency injection to access IFeatureManager 
 
-For some operations, such as manually checking feature flag values, you need to get an instance of [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanager?view=azure-dotnet-preview). In ASP.NET Core MVC, you can access the feature manager `IFeatureManager` through dependency injection. In the following example, an argument of type `IFeatureManager` is added to the signature of the constructor for a controller. The runtime automatically resolves the reference and provides an of the interface when calling the constructor. If you're using an application template in which the controller already has one or more dependency injection arguments in the constructor, such as `ILogger`, you can just add `IFeatureManager` as an additional argument:
+For some operations, such as manually checking feature flag values, you need to get an instance of [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanager?preserve-view=true&view=azure-dotnet-preview). In ASP.NET Core MVC, you can access the feature manager `IFeatureManager` through dependency injection. In the following example, an argument of type `IFeatureManager` is added to the signature of the constructor for a controller. The runtime automatically resolves the reference and provides an of the interface when calling the constructor. If you're using an application template in which the controller already has one or more dependency injection arguments in the constructor, such as `ILogger`, you can just add `IFeatureManager` as an additional argument:
 
 ### [.NET 5.x](#tab/core5x)
     
@@ -320,7 +320,7 @@ public IActionResult Index()
 }
 ```
 
-When an MVC controller or action is blocked because the controlling feature flag is *off*, a registered [IDisabledFeaturesHandler](/dotnet/api/microsoft.featuremanagement.mvc.idisabledfeatureshandler?view=azure-dotnet-preview) interface is called. The default `IDisabledFeaturesHandler` interface returns a 404 status code to the client with no response body.
+When an MVC controller or action is blocked because the controlling feature flag is *off*, a registered [IDisabledFeaturesHandler](/dotnet/api/microsoft.featuremanagement.mvc.idisabledfeatureshandler?preserve-view=true&view=azure-dotnet-preview) interface is called. The default `IDisabledFeaturesHandler` interface returns a 404 status code to the client with no response body.
 
 ## MVC views
 

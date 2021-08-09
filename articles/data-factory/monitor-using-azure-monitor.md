@@ -1,10 +1,11 @@
 ---
 title: Monitor data factories using Azure Monitor 
 description: Learn how to use Azure Monitor to monitor /Azure Data Factory pipelines by enabling diagnostic logs with information from Data Factory.
-author: dcstwh
-ms.author: weetok
+author: minhe-msft
+ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 07/13/2020
 ---
@@ -71,7 +72,7 @@ Create or add diagnostic settings for your data factory.
    ![Name your settings and select a log-analytics workspace](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
     > [!NOTE]
-    > Because an Azure log table can't have more than 500 columns, we **highly recommended** you select _Resource-Specific mode_. For more information, see [AzureDiagnostics Logs reference](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column).
+    > Because an Azure log table can't have more than 500 columns, we **highly recommended** you select _Resource-Specific mode_. For more information, see [AzureDiagnostics Logs reference](/azure/azure-monitor/reference/tables/azurediagnostics).
 
 1. Select **Save**.
 
@@ -264,7 +265,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- |
 | **storageAccountId** |String | The resource ID of the storage account to which you want to send diagnostic logs. |
 | **serviceBusRuleId** |String | The service-bus rule ID of the service-bus namespace in which you want to have Event Hubs created for streaming diagnostic logs. The rule ID has the format `{service bus resource ID}/authorizationrules/{key name}`.|
-| **workspaceId** | Complex Type | An array of metric time grains and their retention policies. This property's value is empty. |
+| **workspaceId** | String | The workspace ID of the workspace where the logs will be saved. |
 |**metrics**| Parameter values of the pipeline run to be passed to the invoked pipeline| A JSON object that maps parameter names to argument values. |
 | **logs**| Complex Type| The name of a diagnostic-log category for a resource type. To get the list of diagnostic-log categories for a resource, perform a GET diagnostic-settings operation. |
 | **category**| String| An array of log categories and their retention policies. |

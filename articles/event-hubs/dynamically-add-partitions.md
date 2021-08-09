@@ -2,7 +2,7 @@
 title: Dynamically add partitions to an event hub in Azure Event Hubs
 description: This article shows you how to dynamically add partitions to an event hub in Azure Event Hubs. 
 ms.topic: how-to
-ms.date: 06/23/2020
+ms.date: 05/04/2021
 ---
 
 # Dynamically add partitions to an event hub (Apache Kafka topic) in Azure Event Hubs
@@ -11,7 +11,7 @@ Event Hubs provides message streaming through a partitioned consumer pattern in 
 You can specify the number of partitions at the time of creating an event hub. In some scenarios, you may need to add partitions after the event hub has been created. This article describes how to dynamically add partitions to an existing event hub. 
 
 > [!IMPORTANT]
-> Dynamic additions of partitions is available only on **Dedicated** Event Hubs clusters.
+> Dynamic additions of partitions is available only in **premium** and **dedicated** tiers of Event Hubs. 
 
 > [!NOTE]
 > For Apache Kafka clients, an **event hub** maps to a **Kafka topic**. For more mappings between Azure Event Hubs and Apache Kafka, see [Kafka and Event Hubs conceptual mapping](event-hubs-for-kafka-ecosystem-overview.md#kafka-and-event-hub-conceptual-mapping)
@@ -28,7 +28,7 @@ Set-AzureRmEventHub -ResourceGroupName MyResourceGroupName -Namespace MyNamespac
 ```
 
 ### CLI
-Use the [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub#az-eventhubs-eventhub-update) CLI command to update partitions in an event hub. 
+Use the [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub#az_eventhubs_eventhub_update) CLI command to update partitions in an event hub. 
 
 ```azurecli-interactive
 az eventhubs eventhub update --resource-group MyResourceGroupName --namespace-name MyNamespaceName --name MyEventHubName --partition-count 12
@@ -100,4 +100,3 @@ When a consumer group member performs a metadata refresh and picks up the newly 
 
 ## Next steps
 For more information about partitions, see [Partitions](event-hubs-scalability.md#partitions).
-

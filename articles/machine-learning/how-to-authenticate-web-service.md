@@ -9,8 +9,8 @@ ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 11/06/2020
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
+
 ---
 
 # Configure authentication for models deployed as web services

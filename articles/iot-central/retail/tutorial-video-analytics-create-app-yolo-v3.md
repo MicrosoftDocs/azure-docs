@@ -11,7 +11,7 @@ ms.date: 10/06/2020
 ---
 # Tutorial: Create a video analytics - object and motion detection application in Azure IoT Central (YOLO v3)
 
-As a solution builder, learn how to create a video analytics application with the IoT Central *video analytics - object and motion detection* application template, Azure IoT Edge devices, Azure Media Services, and the YOLO v3 real-time object and motion detection system. The solution uses a retail store to show how to meet the common business need to monitor security cameras. The solution uses automatic object detection in a video feed to quickly identify and locate interesting events.
+Learn how to create a video analytics application with the IoT Central *video analytics - object and motion detection* application template, Azure IoT Edge devices, Azure Media Services, and the YOLO v3 real-time object and motion detection system. The solution uses a retail store to show how to meet the common business need to monitor security cameras. The solution uses automatic object detection in a video feed to quickly identify and locate interesting events.
 
 > [!TIP]
 > To use OpenVINO&trade; instead of YOLO v3 for object an motion detection, see [Tutorial: Create a video analytics - object and motion detection application in Azure IoT Central (OpenVINO&trade;)](tutorial-video-analytics-create-app-openvino.md).
@@ -19,7 +19,7 @@ As a solution builder, learn how to create a video analytics application with th
 [!INCLUDE [iot-central-video-analytics-part1](../../../includes/iot-central-video-analytics-part1.md)]
 
 - [Scratchpad.txt](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt) - this file helps you record the various configuration options you need as you work through these tutorials.
-- [deployment.amd64.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/deployment.amd64.json)
+- [deployment.amd64.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/deploymentManifests/deployment.amd64.json)
 - [LvaEdgeGatewayDcm.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/LvaEdgeGatewayDcm.json)
 - [state.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/state.json) - you only need to download this file if you plan to use the Intel NUC device in the second tutorial.
 

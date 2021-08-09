@@ -5,12 +5,12 @@ description: 'Learn how to deploy your Azure Machine Learning models as a web se
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1, deploy
+ms.topic: how-to
+ms.custom: contperf-fy21q1, deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 09/01/2020
+ms.date: 07/28/2021
 ---
 
 # Deploy a model to an Azure Kubernetes Service cluster
@@ -32,13 +32,15 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
 >
 > You can also refer to Azure Machine Learning - [Deploy to Local Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
+
 ## Prerequisites
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 - A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](how-to-deploy-and-where.md).
 
-- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
+- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
 
 - The __Python__ code snippets in this article assume that the following variables are set:
 
@@ -65,7 +67,7 @@ In Azure Machine Learning, "deployment" is used in the more general sense of mak
 1. Building or downloading the dockerfile to the compute node (Relates to Kubernetes)
     1. The system calculates a hash of: 
         - The base image 
-        - Custom docker steps (see [Deploy a model using a custom Docker base image](./how-to-deploy-custom-docker-image.md))
+        - Custom docker steps (see [Deploy a model using a custom Docker base image](./how-to-deploy-custom-container.md))
         - The conda definition YAML (see [Create & use software environments in Azure Machine Learning](./how-to-use-environments.md))
     1. The system uses this hash as the key in a lookup of the workspace Azure Container Registry (ACR)
     1. If it is not found, it looks for a match in the global ACR
@@ -87,26 +89,35 @@ Azureml-fe scales both up (vertically) to use more cores, and out (horizontally)
 
 When scaling down and in, CPU usage is used. If the CPU usage threshold is met, the front end will first be scaled down. If the CPU usage drops to the scale-in threshold, a scale-in operation happens. Scaling up and out will only occur if there are enough cluster resources available.
 
+<a id="connectivity"></a>
+
 ## Understand connectivity requirements for AKS inferencing cluster
 
 When Azure Machine Learning creates or attaches an AKS cluster, AKS cluster is deployed with one of the following two network models:
 * Kubenet networking - The network resources are typically created and configured as the AKS cluster is deployed.
-* Azure Container Networking Interface (CNI) networking - The AKS cluster is connected to existing virtual network resources and configurations.
+* Azure Container Networking Interface (CNI) networking - The AKS cluster is connected to an existing virtual network resource and configurations.
 
-For the first network mode, networking is created and configured properly for Azure Machine Learning service. For the second networking mode, since the cluster is connected to existing virtual network, especially when custom DNS is used for existing virtual network, customer needs to pay extra attention to connectivity requirements for AKS inferencing cluster and ensure DNS resolution and outbound connectivity for AKS inferencing.
+For Kubenet networking, the network is created and configured properly for Azure Machine Learning service. For the CNI networking, you need to understand the connectivity requirements and ensure DNS resolution and outbound connectivity for AKS inferencing. For example, you may be using a firewall to block network traffic.
 
-Following diagram captures all connectivity requirements for AKS inferencing. Black arrows represent actual communication, and blue arrows represent the domain names, that customer-controlled DNS should resolve.
+The following diagram shows the connectivity requirements for AKS inferencing. Black arrows represent actual communication, and blue arrows represent the domain names. You may need to add entries for these hosts to your firewall or to your custom DNS server.
 
  ![Connectivity Requirements for AKS Inferencing](./media/how-to-deploy-aks/aks-network.png)
 
+For general AKS connectivity requirements, see [Control egress traffic for cluster nodes in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
+
 ### Overall DNS resolution requirements
-DNS resolution within existing VNET is under customer's control. The following DNS entries should be resolvable:
-* AKS API server in the form of \<cluster\>.hcp.\<region\>.azmk8s.io
-* Microsoft Container Registry (MCR): mcr.microsoft.com
-* Customer's Azure Container Registry (ARC) in the form of \<ACR name\>.azurecr.io
-* Azure Storage Account in the form of \<account\>.table.core.windows.net and \<account\>.blob.core.windows.net
-* (Optional) For AAD authentication: api.azureml.ms
-* Scoring endpoint domain name, either auto-generated by Azure ML or custom domain name. The auto-generated domain name would look like: \<leaf-domain-label \+ auto-generated suffix\>.\<region\>.cloudapp.azure.com
+
+DNS resolution within an existing VNet is under your control. For example, a firewall or custom DNS server. The following hosts must be reachable:
+
+| Host name | Used by |
+| ----- | ----- |
+| `<cluster>.hcp.<region>.azmk8s.io` | AKS API server |
+| `mcr.microsoft.com` | Microsoft Container Registry (MCR) |
+| `<ACR name>.azurecr.io` | Your Azure Container Registry (ACR) |
+| `<account>.table.core.windows.net` | Azure Storage Account (table storage) |
+| `<account>.blob.core.windows.net` | Azure Storage Account (blob storage) |
+| `api.azureml.ms` | Azure Active Directory (AAD) authentication |
+| `<leaf-domain-label + auto-generated suffix>.<region>.cloudapp.azure.com` | Endpoint domain name, if you autogenerated by Azure Machine Learning. If you used a custom domain name, you do not need this entry. |
 
 ### Connectivity requirements in chronological order: from cluster creation to model deployment
 
@@ -120,7 +131,7 @@ Right after azureml-fe is deployed, it will attempt to start and this requires t
 * Query AKS API server to discover other instances of itself (it is a multi-pod service)
 * Connect to other instances of itself
 
-Once azureml-fe is started, it requires additional connectivity to function properly:
+Once azureml-fe is started, it requires the following connectivity to function properly:
 * Connect to Azure Storage to download dynamic configuration
 * Resolve DNS for AAD authentication server api.azureml.ms and communicate with it when the deployed service uses AAD authentication.
 * Query AKS API server to discover deployed models
@@ -134,7 +145,7 @@ At model deployment time, for a successful model deployment AKS node should be a
 
 After the model is deployed and service starts, azureml-fe will automatically discover it using AKS API and will be ready to route request to it. It must be able to communicate to model PODs.
 >[!Note]
->If the deployed model requires any connectivity (e.g. querying external database or other REST service, downloading a BLOG etc), then both DNS resolution and outbound communication for these services should be enabled.
+>If the deployed model requires any connectivity (e.g. querying external database or other REST service, downloading a BLOB etc), then both DNS resolution and outbound communication for these services should be enabled.
 
 ## Deploy to AKS
 
@@ -174,16 +185,16 @@ For more information on the classes, methods, and parameters used in this exampl
 To deploy using the CLI, use the following command. Replace `myaks` with the name of the AKS compute target. Replace `mymodel:1` with the name and version of the registered model. Replace `myservice` with the name to give this service:
 
 ```azurecli-interactive
-az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
+az ml model deploy --ct myaks -m mymodel:1 -n myservice --ic inferenceconfig.json --dc deploymentconfig.json
 ```
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-For more information, see the [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy) reference.
+For more information, see the [az ml model deploy](/cli/azure/ml/model#az_ml_model_deploy) reference.
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
-For information on using VS Code, see [deploy to AKS via the VS Code extension](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model).
+For information on using VS Code, see [deploy to AKS via the VS Code extension](how-to-manage-resources-vscode.md).
 
 > [!IMPORTANT]
 > Deploying through VS Code requires the AKS cluster to be created or attached to your workspace in advance.
@@ -367,7 +378,7 @@ print(token)
 >
 > Microsoft strongly recommends that you create your Azure Machine Learning workspace in the same region as your Azure Kubernetes Service cluster. To authenticate with a token, the web service will make a call to the region in which your Azure Machine Learning workspace is created. If your workspace's region is unavailable, then you will not be able to fetch a token for your web service even, if your cluster is in a different region than your workspace. This effectively results in Token-based Authentication being unavailable until your workspace's region is available again. In addition, the greater the distance between your cluster's region and your workspace's region, the longer it will take to fetch a token.
 >
-> To retrieve a token, you must use the Azure Machine Learning SDK or the [az ml service get-access-token](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-get-access-token) command.
+> To retrieve a token, you must use the Azure Machine Learning SDK or the [az ml service get-access-token](/cli/azure/ml(v1)/computetarget/create#az_ml_service_get_access_token) command.
 
 
 ### Vulnerability scanning
@@ -378,7 +389,7 @@ Azure Security Center provides unified security management and advanced threat p
 
 * [Use Azure RBAC for Kubernetes authorization](../aks/manage-azure-rbac.md)
 * [Secure inferencing environment with Azure Virtual Network](how-to-secure-inferencing-vnet.md)
-* [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
+* [How to deploy a model using a custom Docker image](./how-to-deploy-custom-container.md)
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
 * [Update web service](how-to-deploy-update-web-service.md)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)

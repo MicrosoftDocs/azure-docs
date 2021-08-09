@@ -148,7 +148,7 @@ This table estimates the expected search space for each sensor type:
 | **BLE beacons** |  70 m | Determined by the range of the beacon. Depends on the frequency, transmission strength, physical obstructions, interference, and so on. |
 
 <!-- Reference links in article -->
-[1]: https://developers.google.com/beacons/eddystone
+[1]: https://developer.estimote.com/eddystone/
 [2]: https://developer.apple.com/ibeacon/
 [3]: https://developer.android.com/reference/android/location/LocationManager
 [4]: https://developer.apple.com/documentation/corelocation/cllocationmanager?language=objc

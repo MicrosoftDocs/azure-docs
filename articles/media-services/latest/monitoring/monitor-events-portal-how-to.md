@@ -30,7 +30,7 @@ When you're finished, you see that the event data has been sent to the web app.
 ## Prerequisites 
 
 * Have an active Azure subscription.
-* Create a new Azure Media Services account, as described in [this quickstart](../create-account-howto.md).
+* Create a new Azure Media Services account, as described in [this quickstart](../account-create-how-to.md).
 
 ## Create a message endpoint
 
