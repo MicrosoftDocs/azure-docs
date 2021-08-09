@@ -59,6 +59,8 @@ items:
       displayName: Transparency note for Text Analytics Key Phrase Analysis, Text Analytics Transparency for Key Phrase Analysis, Responsible AI, Responsible use of AI, Text Analytics Key Phrase Analysis, Key Phrase Analysis Transparency Note
     - name: For Language Detection
       href: /legal/cognitive-services/text-analytics/transparency-note-language-detection?context=/azure/cognitive-services/text-analytics/context/context
+    - name: For Text Summarization
+      href: /legal/cognitive-services/text-analytics/transparency-note-extractive-summarization?context=/azure/cognitive-services/text-analytics/context/context
       displayName: Transparency note for Text Analytics Language Detection, Text Analytics Transparency for Language Detection, Responsible AI, Responsible use of AI, Text Analytics Language Detection, Language Detection Transparency Note
   - name: Integration and responsible use
     href: /legal/cognitive-services/text-analytics/guidance-integration-responsible-use?context=/azure/cognitive-services/text-analytics/context/context
