@@ -57,6 +57,7 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 1. On the home page, select the **Ingest** tile to launch the copy data tool. 
 
    ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png )
+
 2. On the **Properties** page, choose **Built-in copy task** under **Task type**, and choose **Run once now** under **Task cadence or task schedule**, then select **Next**.
 
 3. On the **Source data store** page, select **+ New connection**.
@@ -66,10 +67,8 @@ This article shows you how to use the Data Factory copy data tool to copy data f
     ![Source data store Azure Data Lake Storage Gen1 page](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png)
     
 5. On the **New connection (Azure Data Lake Storage Gen1)** page, follow these steps:
-
-   a. Select your Data Lake Storage Gen1 for the account name, and specify or validate the **Tenant**.
-  
-   b. Select **Test connection** to validate the settings. Then select **Create**.
+   1. Select your Data Lake Storage Gen1 for the account name, and specify or validate the **Tenant**.
+   1. Select **Test connection** to validate the settings. Then select **Create**.
   
    > [!IMPORTANT]
    > In this walk-through, you use a managed identity for Azure resources to authenticate your Azure Data Lake Storage Gen1. To grant the managed identity the proper permissions in Azure Data Lake Storage Gen1, follow [these instructions](connector-azure-data-lake-store.md#managed-identity).
@@ -88,11 +87,9 @@ This article shows you how to use the Data Factory copy data tool to copy data f
     ![Destination data store page](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-store-page-adls-gen2.png)
 
 8. On the **New connection (Azure Data Lake Storage Gen2)** page, follow these steps:
+   1. Select your Data Lake Storage Gen2 capable account from the **Storage account name** drop-down list.
+   1. Select **Create** to create the connection. 
 
-   a. Select your Data Lake Storage Gen2 capable account from the **Storage account name** drop-down list.
-   
-   b. Select **Create** to create the connection.
-   
    ![Specify Azure Data Lake Storage Gen2 account](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 
 9. On the **Destination data store** page, complete the following steps. 
@@ -107,9 +104,11 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 11. On the **Summary** page, review the settings, and select **Next**.
 
     ![Summary page](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-summary.png)
+
 12. On the **Deployment page**, select **Monitor** to monitor the pipeline.
 
     ![Deployment page](./media/load-azure-data-lake-storage-gen2-from-gen1/deployment-page.png)
+
 13. Notice that the **Monitor** tab on the left is automatically selected. The **Pipeline name** column includes links to view activity run details and to rerun the pipeline.
 
     ![Monitor pipeline runs](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-pipeline-runs.png)
