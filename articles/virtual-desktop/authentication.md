@@ -68,7 +68,7 @@ Unless [single sign-on](#single-sign-on-sso) is enabled or you save your credent
 - macOS
     - Username and password
 
-Azure Virtual Desktop supports both NT LAN Manager (NTLM) and Kerberos for session host authentication. Smartcard and Windows Hello for Business can only use Kerberos to sign in. To use Kerberos, the client needs to get Kerberos security tickets from a Key Distribution Center (KDC) service running on a domain controller. To get tickets, the client needs a direct networking line-of-sight to the domain controller. You can get a line-of-sight by using your corporate network. You can also use a VPN connection to your corporate network or set up a [KDC Proxy server](key-distribution-center-proxy.md).
+Azure Virtual Desktop supports both NT LAN Manager (NTLM) and Kerberos for session host authentication. Smartcard and Windows Hello for Business can only use Kerberos to sign in. To use Kerberos, the client needs to get Kerberos security tickets from a Key Distribution Center (KDC) service running on a domain controller. To get tickets, the client needs a direct networking line-of-sight to the domain controller. You can get a line-of-sight by connecting directly within your corporate network, using a VPN connection or setting up a [KDC Proxy server](key-distribution-center-proxy.md).
 
 ### Single sign-on (SSO)
 
