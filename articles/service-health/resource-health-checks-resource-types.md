@@ -267,5 +267,5 @@ Below is a complete list of all the checks executed through resource health by r
 
 ## Next Steps
 -  See [Introduction to Azure Service Health dashboard](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them. 
--  [Frequently asked questions about Azure Resource Health](resource-health-faq.md)
+-  [Frequently asked questions about Azure Resource Health](resource-health-faq.yml)
 - Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](./alerts-activity-log-service-notifications-portal.md).
