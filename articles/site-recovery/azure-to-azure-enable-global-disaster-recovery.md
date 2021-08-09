@@ -79,4 +79,6 @@ Use the following steps for quickly replicating your appliances:
 
 ## Next steps
 
-Learn about [zone-to-zone disaster recovery](azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
+- Learn about [zone-to-zone disaster recovery](azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
+
+- Learn about [Azure to Azure disaster recovery architecture](azure-to-azure-architecture.md)
