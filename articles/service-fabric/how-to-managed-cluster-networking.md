@@ -394,7 +394,7 @@ or created via PowerShell using the principal ID, role definition name, and assi
 New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Network Contributor" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>"
 ```
 
-With this enabled the public endpoint is still created and managed by the resource provider. This does not allow you to specify the public ip/re-use static ip. You can [bring your own Azure Load Balancer](#byolb) in concert with this feature or by itself if you require those or other load balancer scenarios that aren't natively supported.
+When you bring your own VNet the public endpoint is still created and managed by the resource provider. The feature does not allow you to specify the public ip/re-use static ip on the Azure Load Balancer. You can [bring your own Azure Load Balancer](#byolb) in concert with this feature or by itself if you require those or other load balancer scenarios that aren't natively supported.
 
 <a id="byolb"></a>
 ## Bring your own Load Balancer
