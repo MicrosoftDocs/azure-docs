@@ -49,7 +49,7 @@ MSAL provides multiple benefits over ADAL, including the following features:
 
 ## AD FS support in MSAL.NET
 
-You can use MSAL.NET to get tokens from Active Directory Federation Services (AD FS) 2019 or later. Earlier versions of AD FS, including AD FS 2016, are unsupported by MSAL.NET. If you need to continue using AD FS, you should upgrade to AD FS 2019 or later before you update your .NET applications to MSAL.NET.
+You can use MSAL.NET, MSAL Java, and MSAL Python to get tokens from Active Directory Federation Services (AD FS) 2019 or later. Earlier versions of AD FS, including AD FS 2016, are unsupported by MSAL. If you need to continue using AD FS, you should upgrade to AD FS 2019 or later before you update your applications that use ADAL.
 
 ## How to migrate to MSAL
 
