@@ -268,7 +268,7 @@ Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows 
 
    To learn more, see  [Selecting and configuring objects to test.](/sql/ssma/oracle/selecting-and-configuring-objects-to-test-oracletosql)
 
-1. Next, select the tables ,foreign keys and other dependent objects from the Oracle object tree in the left window.
+1. Next, select the tables, foreign keys and other dependent objects from the Oracle object tree in the left window.
 
    :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-select-configure-affected.png" alt-text="Screenshot that shows step to select and configure affected object.":::
 
@@ -307,7 +307,7 @@ When SSMA Tester runs a test case, the test engine executes the objects selected
 
    :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-sqlservervm-connect.png" alt-text="Screenshot that shows step to connect to  sql target.":::
 
-On success, the test case moves to initialization stage.
+   On success, the test case moves to initialization stage.
 
 1. A real-time progress bar shows the execution status of the test run.
 
