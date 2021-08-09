@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: tutorial
-ms.date: 08/05/2021
+ms.date: 08/08/2021
 ms.author: memildin
 
 ---
@@ -57,6 +57,21 @@ Use the regulatory compliance dashboard to help focus your attention on the gaps
     The report provides a high-level summary of your compliance status for the selected standard based on Security Center assessments data. The report's organized according to the controls of that particular standard. The report can be shared with relevant stakeholders, and might provide evidence to internal and external auditors.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Download compliance report.":::
+
+1. To download Azure and Dynamics **certification reports** for the standards applied to your subscriptions, use the **Audit reports** option. 
+
+    :::image type="content" source="media/release-notes/audit-reports-regulatory-compliance-dashboard.png" alt-text="Regulatory compliance dashboard's toolbar":::
+
+    Select the tab for the relevant reports types (PCI, SOC, ISO, and others) and use filters to find the specific reports you need:
+
+    :::image type="content" source="media/release-notes/audit-reports-list-regulatory-compliance-dashboard-ga.png" alt-text="Filtering the list of available Azure Audit reports.":::
+
+    For example, from the PCI tab you can download a ZIP file containing a digitally signed certificate demonstrating Microsoft Azure, Dynamics 365, and Other Online Services' compliance with ISO22301 framework, together with the necessary collateral to interpret and present the certificate. 
+
+    > [!NOTE]
+    > When you download one of these certification reports, you'll be shown the following privacy notice:
+    > 
+    > _By downloading this file, you are giving consent to Microsoft to store the current user and the selected subscriptions at the time of download. This data is used in order to notify you in case of changes or updates to the downloaded audit report. This data is used by Microsoft and the audit firms that produce the certification/reports only when notification is required._
 
 ## Improve your compliance posture
 
