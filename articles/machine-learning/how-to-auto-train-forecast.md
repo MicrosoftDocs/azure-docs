@@ -400,6 +400,13 @@ Repeat the necessary steps to load this future data to a dataframe and then run 
 > [!NOTE]
 > In-sample predictions are not supported for forecasting with automated ML when `target_lags` and/or `target_rolling_window_size` are enabled.
 
+Forecasting model may be used for the prediction of forecasting intervals by running [forecast_quantiles()](/python/api/azureml-train-automl-client/azureml.train.automl.model_proxy.modelproxy#forecast-quantiles-x-values--typing-any--y-values--typing-union-typing-any--nonetype----none--forecast-destination--typing-union-typing-any--nonetype----none--ignore-data-errors--bool---false-----azureml-data-abstract-dataset-abstractdataset). This method accepts the same parameters as forecast().
+
+ Automated ML cannot currently estimate forecast errors beyond the forecast horizon set during training, so the forecast_quantiles() function returns missing values for quantiles not equal to 0.5 beyond the forecast horizon.
+
+```python
+ fitted_model.forecast_quantiles(X_test_long)
+ ```
 
 ## Example notebooks
 See the [forecasting sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) for detailed code examples of advanced forecasting configuration including:
