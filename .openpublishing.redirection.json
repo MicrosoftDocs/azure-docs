@@ -2164,18 +2164,53 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/aks/consul-install.md",
-      "redirect_url": "/azure/aks/servicemesh-consul-install",
+      "source_path_from_root": "/articles/aks/istio-install.md",
+      "redirect_url": "/azure/aks/servicemesh-about",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/aks/istio-install.md",
-      "redirect_url": "/azure/aks/servicemesh-istio-install",
+      "source_path_from_root": "/articles/aks/servicemesh-istio-about.md",
+      "redirect_url": "/azure/aks/servicemesh-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/servicemesh-istio-install.md",
+      "redirect_url": "/azure/aks/servicemesh-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/servicemesh-istio-scenario-routing.md",
+      "redirect_url": "/azure/aks/servicemesh-about",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/aks/istio-scenario-routing.md",
-      "redirect_url": "/azure/aks/servicemesh-istio-scenario-routing",
+      "redirect_url": "/azure/aks/servicemesh-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/servicemesh-linkerd-about.md",
+      "redirect_url": "/azure/aks/servicemesh-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/servicemesh-linkerd-install.md",
+      "redirect_url": "/azure/aks/servicemesh-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/consul-install.md",
+      "redirect_url": "/azure/aks/servicemesh-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/servicemesh-consul-about.md",
+      "redirect_url": "/azure/aks/servicemesh-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/servicemesh-consul-install.md",
+      "redirect_url": "/azure/aks/servicemesh-about",
       "redirect_document_id": false
     },
     {

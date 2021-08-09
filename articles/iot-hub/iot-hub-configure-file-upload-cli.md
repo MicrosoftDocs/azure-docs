@@ -105,6 +105,8 @@ The configuration requires the following values:
 
 * **File notification maximum delivery count**: The number of times the IoT Hub attempts to deliver a file upload notification. Set to 10 by default.
 
+* **File notification lock duration**: The lock duration for the file notification queue. Set to 60 seconds by default.
+
 * **Authentication type**: The type of authentication for IoT Hub to use with Azure Storage. This setting determines how your IoT hub authenticates and authorizes with Azure Storage. The default is key-based authentication; however, system-assigned and user-assigned managed identities can also be used. Managed identities provide Azure services with an automatically managed identity in Azure AD in a secure manner. To learn how to configure managed identities on your IoT hub and Azure Storage account, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md). Once configured, you can set one of your managed identities to use for authentication with Azure storage.
 
     > [!NOTE]
@@ -128,17 +130,15 @@ az iot hub update --name {your iot hub name} \
     --fileupload-sas-ttl 1 
 ```
 
-The following command enables file notifications and sets the file notification properties to their default values. (The file upload notification time to live is set to one hour.)
+The following command enables file notifications and sets the file notification properties to their default values. (The file upload notification time to live is set to one hour and the  lock duration is set to 60 seconds.)
 
 ```azurecli
 az iot hub update --name {your iot hub name} \
     --fileupload-notifications true  \
     --fileupload-notification-max-delivery-count 10 \
     --fileupload-notification-ttl 1 \
-    --set properties.messagingEndpoints.fileNotifications.lockDurationAsIso8601=PT0H1M0S
+    --fileupload-notification-lock-duration 60
 ```
-> [!NOTE]
-> The lock duration can only be set by using the `--set` parameter. There is not currently a named parameter available.
 
 The following command configures key-based authentication:
 
