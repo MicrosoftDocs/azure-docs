@@ -1227,7 +1227,7 @@
     - name: Quickstarts
       items:
         - name: Gremlin console
-          href: create-graph-gremlin-console.md
+          href: create-graph-console.md
         - name: .NET
           href: create-graph-dotnet.md
         - name: Java
@@ -1273,7 +1273,7 @@
         - name: Use resource tokens
           href: how-to-use-resource-tokens-gremlin.md
         - name: Use regional endpoints
-          href: how-to-use-regional-gremlin.md
+          href: use-regional-gremlin-endpoints.md
         - name: Access system document properties
           href: how-to-access-system-properties-gremlin.md
         - name: Visualize graph data

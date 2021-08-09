@@ -10,7 +10,7 @@ ms.author: mansha
 ---
 
 # Azure Cosmos DB Gremlin server response headers
-[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
 This article covers headers that Cosmos DB Gremlin server returns to the caller upon request execution. These headers are useful for troubleshooting request performance, building application that integrates natively with Cosmos DB service and simplifying customer support.
 
@@ -20,8 +20,8 @@ Keep in mind that taking dependency on these headers you are limiting portabilit
 
 | Header | Type | Sample Value | When Included | Explanation |
 | --- | --- | --- | --- | --- |
-| **x-ms-request-charge** | double | 11.3243 | Success and Failure | Amount of collection or database throughput consumed in [request units (RU/s or RUs)](request-units.md) for a partial response message. This header is present in every continuation for requests that have multiple chunks. It reflects the charge of a particular response chunk. Only for requests that consist of a single response chunk this header matches total cost of traversal. However, for majority of complex traversals this value represents a partial cost. |
-| **x-ms-total-request-charge** | double | 423.987 | Success and Failure | Amount of collection or database throughput consumed in [request units (RU/s or RUs)](request-units.md) for entire request. This header is present in every continuation for requests that have multiple chunks. It indicates cumulative charge  since the beginning of request. Value of this header in the last chunk indicates complete request charge. |
+| **x-ms-request-charge** | double | 11.3243 | Success and Failure | Amount of collection or database throughput consumed in [request units (RU/s or RUs)](../request-units.md) for a partial response message. This header is present in every continuation for requests that have multiple chunks. It reflects the charge of a particular response chunk. Only for requests that consist of a single response chunk this header matches total cost of traversal. However, for majority of complex traversals this value represents a partial cost. |
+| **x-ms-total-request-charge** | double | 423.987 | Success and Failure | Amount of collection or database throughput consumed in [request units (RU/s or RUs)](../request-units.md) for entire request. This header is present in every continuation for requests that have multiple chunks. It indicates cumulative charge  since the beginning of request. Value of this header in the last chunk indicates complete request charge. |
 | **x-ms-server-time-ms** | double | 13.75 | Success and Failure | This header is included for latency troubleshooting purposes. It indicates the amount of time, in milliseconds, that Cosmos DB Gremlin server took to execute and produce a partial response message. Using value of this header and comparing it to overall request latency applications can calculate network latency overhead. |
 | **x-ms-total-server-time-ms** | double | 130.512 | Success and Failure | Total time, in milliseconds, that Cosmos DB Gremlin server took to execute entire traversal. This header is included in every partial response. It represents cumulative execution time since the start of request. The last response indicates total execution time. This header is useful to differentiate between client and server as a source of latency. You can compare traversal execution time on the client to the value of this header. |
 | **x-ms-status-code** | long | 200 | Success and Failure | Header indicates internal reason for request completion or termination. Application is advised to look at the value of this header and take corrective action. |

@@ -11,13 +11,13 @@ ms.custom: devx-track-csharp
 ---
 
 # Use Azure Cosmos DB resource tokens with the Gremlin SDK
-[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
-This article explains how to use [Azure Cosmos DB resource tokens](secure-access-to-data.md) to access the Graph database through the Gremlin SDK.
+This article explains how to use [Azure Cosmos DB resource tokens](../secure-access-to-data.md) to access the Graph database through the Gremlin SDK.
 
 ## Create a resource token
 
-The Apache TinkerPop Gremlin SDK doesn't have an API to use to create resource tokens. The term *resource token* is an Azure Cosmos DB concept. To create resource tokens, download the [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md). If your application needs to create resource tokens and use them to access the Graph database, it requires two separate SDKs.
+The Apache TinkerPop Gremlin SDK doesn't have an API to use to create resource tokens. The term *resource token* is an Azure Cosmos DB concept. To create resource tokens, download the [Azure Cosmos DB SDK](../sql-api-sdk-dotnet.md). If your application needs to create resource tokens and use them to access the Graph database, it requires two separate SDKs.
 
 The object model hierarchy above resource tokens is illustrated in the following outline:
 
@@ -99,5 +99,5 @@ With a single Gremlin account, you can issue an unlimited number of tokens. Howe
 A common error that applications encounter while they're using resource tokens is, "Insufficient permissions provided in the authorization header for the corresponding request. Please retry with another authorization header." This error is returned when a Gremlin traversal attempts to write an edge or a vertex but the resource token grants *Read* permissions only. Inspect your traversal to see whether it contains any of the following steps: *.addV()*, *.addE()*, *.drop()*, or *.property()*.
 
 ## Next steps
-* [Azure role-based access control (Azure RBAC)](role-based-access-control.md) in Azure Cosmos DB
-* [Learn how to secure access to data](secure-access-to-data.md) in Azure Cosmos DB
+* [Azure role-based access control (Azure RBAC)](../role-based-access-control.md) in Azure Cosmos DB
+* [Learn how to secure access to data](../secure-access-to-data.md) in Azure Cosmos DB

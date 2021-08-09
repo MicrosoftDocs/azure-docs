@@ -12,10 +12,10 @@ ms.custom: devx-track-dotnet
 
 ---
 # Quickstart: Build a .NET Framework or Core application using the Azure Cosmos DB Gremlin API account
-[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
-> * [Gremlin console](create-graph-gremlin-console.md)
+> * [Gremlin console](create-graph-console.md)
 > * [.NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
 > * [Node.js](create-graph-nodejs.md)
@@ -31,15 +31,15 @@ This quickstart demonstrates how to create an Azure Cosmos DB [Gremlin API](grap
 
 If you don't already have Visual Studio 2019 installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Create a database account
 
-[!INCLUDE [cosmos-db-create-dbaccount-graph](includes/cosmos-db-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](../includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## Add a graph
 
-[!INCLUDE [cosmos-db-create-graph](includes/cosmos-db-create-graph.md)]
+[!INCLUDE [cosmos-db-create-graph](../includes/cosmos-db-create-graph.md)]
 
 ## Clone the sample application
 
@@ -151,11 +151,11 @@ You can now go back to Data Explorer in the Azure portal and browse and query yo
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 

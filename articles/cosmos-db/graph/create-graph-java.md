@@ -12,10 +12,10 @@ ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-
 ---
 
 # Quickstart: Build a graph database with the Java SDK and the Azure Cosmos DB Gremlin API
-[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
-> * [Gremlin console](create-graph-gremlin-console.md)
+> * [Gremlin console](create-graph-console.md)
 > * [.NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
 > * [Node.js](create-graph-nodejs.md)
@@ -35,11 +35,11 @@ In this quickstart, you create and manage an Azure Cosmos DB Gremlin (graph) API
 
 Before you can create a graph database, you need to create a Gremlin (Graph) database account with Azure Cosmos DB.
 
-[!INCLUDE [cosmos-db-create-dbaccount-graph](includes/cosmos-db-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](../includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## Add a graph
 
-[!INCLUDE [cosmos-db-create-graph](includes/cosmos-db-create-graph.md)]
+[!INCLUDE [cosmos-db-create-graph](../includes/cosmos-db-create-graph.md)]
 
 ## Clone the sample application
 
@@ -224,11 +224,11 @@ That completes the resource creation part of this tutorial. You can continue to 
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 

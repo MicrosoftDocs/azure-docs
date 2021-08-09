@@ -2143,7 +2143,7 @@
   {
     "source_path_from_root": "/articles/cosmos-db/graph.md",
     "redirect_url": "/azure/cosmos-db/graph/graph-introduction",
-    "redirect_document_id": true
+    "redirect_document_id": false
   },
   {
     "source_path_from_root": "/articles/cosmos-db/how-to-access-system-properties-gremlin.md",

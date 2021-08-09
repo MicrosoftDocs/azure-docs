@@ -123,7 +123,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Manage your data using using Gremlin Console
-            url: create-graph-gremlin-console.md
+            url: create-graph-console.md
           - text: Manage your data using a .NET app
             url: create-graph-dotnet.md   
       - linkListType: concept

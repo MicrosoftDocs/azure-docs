@@ -11,9 +11,9 @@ ms.custom: devx-track-csharp
 ---
 
 # Using the graph bulk executor .NET library to perform bulk operations in Azure Cosmos DB Gremlin API
-[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
-This tutorial provides instructions about using Azure CosmosDB's bulk executor .NET library to import and update graph objects into an Azure Cosmos DB Gremlin API container. This process makes use of the Graph class in the [bulk executor library](./bulk-executor-overview.md) to create Vertex and Edge objects programmatically to then insert multiple of them per network request. This behavior is configurable through the bulk executor library to make optimal use of both database and local memory resources.
+This tutorial provides instructions about using Azure CosmosDB's bulk executor .NET library to import and update graph objects into an Azure Cosmos DB Gremlin API container. This process makes use of the Graph class in the [bulk executor library](../bulk-executor-overview.md) to create Vertex and Edge objects programmatically to then insert multiple of them per network request. This behavior is configurable through the bulk executor library to make optimal use of both database and local memory resources.
 
 As opposed to sending Gremlin queries to a database, where the command is evaluated and then executed one at a time, using the bulk executor library will instead require to create and validate the objects locally. After creating the objects, the library allows you to send graph objects to the database service sequentially. Using this method, data ingestion speeds can be increased up to 100x, which makes it an ideal method for initial data migrations or periodical data movement operations. Learn more by visiting the GitHub page of the [Azure Cosmos DB Graph bulk executor sample application](https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started).
 
@@ -69,7 +69,7 @@ catch (Exception e)
 }
 ```
 
-For more information on the parameters of the bulk executor library, refer to the [BulkImportData to Azure Cosmos DB topic](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account).
+For more information on the parameters of the bulk executor library, refer to the [BulkImportData to Azure Cosmos DB topic](../bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account).
 
 The payload needs to be instantiated into `GremlinVertex` and `GremlinEdge` objects. Here is how these objects can be created:
 
@@ -135,7 +135,7 @@ In the `App.config` file, the following are the configuration values that can be
 Setting|Description
 ---|---
 `EndPointUrl`|This is **your .NET SDK endpoint** found in the Overview blade of your Azure Cosmos DB Gremlin API database account. This has the format of `https://your-graph-database-account.documents.azure.com:443/`
-`AuthorizationKey`|This is the Primary or Secondary key listed under your Azure Cosmos DB account. Learn more about [Securing Access to Azure Cosmos DB data](./secure-access-to-data.md#primary-keys)
+`AuthorizationKey`|This is the Primary or Secondary key listed under your Azure Cosmos DB account. Learn more about [Securing Access to Azure Cosmos DB data](../secure-access-to-data.md#primary-keys)
 `DatabaseName`, `CollectionName`|These are the **target database and collection names**. When `ShouldCleanupOnStart` is set to `true` these values, along with `CollectionThroughput`, will be used to drop them and create a new database and collection. Similarly, if `ShouldCleanupOnFinish` is set to `true`, they will be used to delete the database as soon as the ingestion is over. Note that the target collection must be **an unlimited collection**.
 `CollectionThroughput`|This is used to create a new collection if the `ShouldCleanupOnStart` option is set to `true`.
 `ShouldCleanupOnStart`|This will drop the database account and collections before the program is run, and then create new ones with the `DatabaseName`, `CollectionName` and `CollectionThroughput` values.
@@ -152,6 +152,6 @@ Setting|Description
 
 ## Next steps
 
-* To learn about NuGet package details and release notes of bulk executor .NET library, see [bulk executor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 
-* Check out the [Performance Tips](./bulk-executor-dot-net.md#performance-tips) to further optimize the usage of bulk executor.
+* To learn about NuGet package details and release notes of bulk executor .NET library, see [bulk executor SDK details](../sql-api-sdk-bulk-executor-dot-net.md). 
+* Check out the [Performance Tips](../bulk-executor-dot-net.md#performance-tips) to further optimize the usage of bulk executor.
 * Review the [BulkExecutor.Graph Reference article](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph) for more details about the classes and methods defined in this namespace.

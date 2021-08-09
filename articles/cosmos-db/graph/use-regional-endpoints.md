@@ -11,9 +11,9 @@ ms.custom: devx-track-csharp
 ---
 
 # Regional endpoints for Azure Cosmos DB Graph account
-[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
-Azure Cosmos DB Graph database is [globally distributed](distribute-data-globally.md) so applications can use multiple read endpoints. Applications that need write access in multiple locations should enable [multi-region writes](how-to-multi-master.md) capability.
+Azure Cosmos DB Graph database is [globally distributed](../distribute-data-globally.md) so applications can use multiple read endpoints. Applications that need write access in multiple locations should enable [multi-region writes](../how-to-multi-master.md) capability.
 
 Reasons to choose more than one region:
 1. **Horizontal read scalability** - as application load increases it may be prudent to route read traffic to different Azure regions.
@@ -76,7 +76,7 @@ foreach (string gremlinAccountRegion in gremlinAccountRegions)
 
 ## SDK endpoint discovery
 
-Application can use [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) to discover read and write locations for Graph account. These locations can change at any time through manual reconfiguration on the server side or automatic failover.
+Application can use [Azure Cosmos DB SDK](../sql-api-sdk-dotnet.md) to discover read and write locations for Graph account. These locations can change at any time through manual reconfiguration on the server side or automatic failover.
 
 TinkerPop Gremlin SDK doesn't have an API to discover Cosmos DB Graph database account regions. Applications that need runtime endpoint discovery need to host 2 separate SDKs in the process space.
 
@@ -107,7 +107,7 @@ foreach (string location in readLocations)
 ```
 
 ## Next steps
-* [How to manage database accounts control](how-to-manage-database-account.md) in Azure Cosmos DB
-* [High availability](high-availability.md) in Azure Cosmos DB
-* [Global distribution with Azure Cosmos DB - under the hood](global-dist-under-the-hood.md)
+* [How to manage database accounts control](../how-to-manage-database-account.md) in Azure Cosmos DB
+* [High availability](../high-availability.md) in Azure Cosmos DB
+* [Global distribution with Azure Cosmos DB - under the hood](../global-dist-under-the-hood.md)
 * [Azure CLI Samples](cli-samples.md) for Azure Cosmos DB
