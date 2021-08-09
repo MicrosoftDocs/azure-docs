@@ -4,7 +4,7 @@ description: Describes Bicep code patterns you can use to build sophisticated de
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 07/11/2021
+ms.date: 08/08/2021
 ---
 # Patterns for Bicep code
 

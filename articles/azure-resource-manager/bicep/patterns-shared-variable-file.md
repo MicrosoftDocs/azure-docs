@@ -4,7 +4,7 @@ description: Describes the shared variable file pattern.
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 07/11/2021
+ms.date: 08/08/2021
 ---
 # Shared variable file pattern
 
