@@ -207,13 +207,13 @@ Follow these tasks to prepare PIM to manage Azure resource roles.
 
 Minimize Owner and User Access Administrator assignments attached to each subscription or resource and remove unnecessary assignments.
 
-As a Global Administrator you can [elevate access to manage all Azure subscriptions](/azure/role-based-access-control/elevate-access-global-admin). You can then find each subscription owner and work with them to remove unnecessary assignments within their subscriptions.
+As a Global Administrator you can [elevate access to manage all Azure subscriptions](../../role-based-access-control/elevate-access-global-admin.md). You can then find each subscription owner and work with them to remove unnecessary assignments within their subscriptions.
 
 Use [access reviews for Azure resources](pim-resource-roles-start-access-review.md) to audit and remove unnecessary role assignments. 
 
 ### Determine roles to be managed by PIM
 
-When deciding which role assignments should be managed using PIM for Azure resource, you must first identify the [management groups](/azure/governance/management-groups/overview), subscriptions, resource groups, and resources that are most vital for your organization. Consider using management groups to organize all their resources within their organization.
+When deciding which role assignments should be managed using PIM for Azure resource, you must first identify the [management groups](../../governance/management-groups/overview.md), subscriptions, resource groups, and resources that are most vital for your organization. Consider using management groups to organize all their resources within their organization.
 
 **We recommend** you manage all Subscription Owner and User Access Administrator roles using PIM. 
 
@@ -313,8 +313,6 @@ Configure privileged access group members and owners to require approval for act
 * If there is PIM-related issues, see [Troubleshooting a problem with PIM](pim-troubleshoot.md).
 
 * [Deploy other identity features](../fundamentals/active-directory-deployment-plans.md)
-
- 
 
  
 
