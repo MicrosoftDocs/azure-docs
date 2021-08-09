@@ -8,11 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-<<<<<<< HEAD
-ms.date: 07/30/2021
-=======
 ms.date: 08/10/2021
->>>>>>> 4324e0af3ae705e9d148a66e370fe02b18b3427f
 ---
 
 # View a knowledge store with Storage Explorer
