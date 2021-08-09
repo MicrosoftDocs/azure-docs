@@ -29,13 +29,13 @@ This quickstart provides you a basic idea of the Web PubSub service. In this qui
 Follow the quick starts listed below to start building your own application.
 
 > [!div class="nextstepaction"]
-> [Quick start: publish and subscribe messages in Azure Web PubSub](https://azure.github.io/azure-webpubsub/getting-started/publish-messages/js-publish-message)
+> [Quick start: Publish and subscribe messages in Azure Web PubSub](https://azure.github.io/azure-webpubsub/getting-started/publish-messages/js-publish-message)
 
 > [!div class="nextstepaction"]
 > [Quick start: Create a simple chatroom with Azure Web PubSub](https://azure.github.io/azure-webpubsub/getting-started/create-a-chat-app/js-handle-events)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create a serverless simple chat application with Azure Functions and Azure Web PubSub service](./quickstart-serverless.md)
+> [Quickstart: Build serverless chat with Azure Functions and Web PubSub](./quickstart-serverless.md)
 
 > [!div class="nextstepaction"]
-> [Explore more Azure Web PubSub samples](https://github.com/Azure/azure-webpubsub/tree/main/samples)
+> [Explore more Azure Web PubSub samples](https://aka.ms/awps/samples)

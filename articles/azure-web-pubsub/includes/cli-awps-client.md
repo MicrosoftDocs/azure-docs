@@ -30,7 +30,15 @@ You can see that the command established a WebSocket connection to the Web PubSu
 {"type":"system","event":"connected","userId":null,"connectionId":"<your_unique_connection_id>"}
 ```
 
-Play with it and try joining to groups using `joingroup <group-name>` and send messages to groups using `sendtogroup <group-name>`.
+Play with it and try joining to groups using `joingroup <group-name>` and send messages to groups using `sendtogroup <group-name>`:
+
+```azurecli
+joingroup group1
+```
+
+```azurecli
+sendtogroup group1 hello
+```
 
 ### Publish messages and manage the clients
 
@@ -42,7 +50,7 @@ Open another CLI command, and you can broadcast messages to the clients:
 - Resource group name: **myResourceGroup**.
 
 ```azurecli-interactive
-az webpubsub service broadcast --name "<your-unique-resource-name>" --resource-group "myResourceGroup" --hub-name --payload "Hello World"
+az webpubsub service broadcast --name "<your-unique-resource-name>" --resource-group "myResourceGroup" --hub-name myHub1 --payload "Hello World"
 ```
 
 Switch back to the previous CLI command and you can see that the client received message:

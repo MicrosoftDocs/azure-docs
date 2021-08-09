@@ -27,6 +27,6 @@ az webpubsub create --name "<your-unique-resource-name>" --resource-group "myRes
 The output of this command shows properties of the newly created resource. Take note of the two properties listed below:
 
 - **Resource Name**: The name you provided to the `--name` parameter above.
-- **hostName**: In the example, this is `&lt;your-unique-resource-name&gt;.webpubsub.azure.com/`.
+- **hostName**: In the example, this is `<your-unique-resource-name>.webpubsub.azure.com/`.
 
 At this point, your Azure account is the only one authorized to perform any operations on this new resource.

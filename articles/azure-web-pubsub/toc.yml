@@ -12,6 +12,7 @@
   expanded: true
   items:
   - name: Create instance
+    expanded: true
     items:
     - name: CLI
       href: quickstart-create-cli.md
@@ -21,9 +22,6 @@
     href: quickstart-live-demo.md
   - name: Build a serverless chat
     href: quickstart-serverless.md
-
-- name: Samples
-  href: https://aka.ms/awps/samples
 
 - name: How-to guides
   expanded: true
@@ -59,6 +57,9 @@
     href: https://azure.github.io/azure-webpubsub/concepts/service-internals
   - name: Billing model
     href: concept-billing-model.md
+
+- name: Samples
+  href: https://aka.ms/awps/samples
 
 - name: Reference 
   items:
