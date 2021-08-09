@@ -22,7 +22,7 @@ Each row represents a package used by a built-in policy definition.
   used to evaluate each setting in the configuration.
   
 To understand what settings are checked in Windows or Linux, and how, find
-the name of the policy definiition in the left column and navigate to the
+the name of the policy definition in the left column and navigate to the
 DSC Resource in the right column to review the PowerShell scripts.
 
 The table doesn't include details of packages used to evaluate baseline
