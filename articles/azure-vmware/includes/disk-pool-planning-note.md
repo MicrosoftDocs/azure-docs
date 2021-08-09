@@ -11,4 +11,4 @@ ms.date: 07/14/2021
 ---
 
 
-If you plan to scale your Azure VMware Solution hosts using [Azure disk pools](../../virtual-machines/disks-pools.md), it's crucial to deploy the vNet close to your hosts with an ExpressRoute virtual network gateway.  The closer the storage is to your hosts, the better the performance.
+If you plan to scale your Azure VMware Solution hosts using [Azure disk pools](../../virtual-machines/disks-pools.md), deploying the vNet close to your hosts with an ExpressRoute virtual network gateway is crucial. The closer the storage is to your hosts, the better the performance.

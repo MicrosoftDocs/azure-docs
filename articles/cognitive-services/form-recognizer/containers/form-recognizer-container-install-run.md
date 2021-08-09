@@ -289,7 +289,7 @@ version: "3.9"
 services:
   azure-cognitive-service-receipt:
     container_name: azure-cognitive-service-receipt
-    image: cognitiveservicespreview.azurecr.io/microsoft/cognitive-services-form-recognizer-receipt:2.1
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt
     environment:
       - EULA=accept
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
