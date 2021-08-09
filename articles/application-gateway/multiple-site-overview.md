@@ -56,7 +56,7 @@ In [Azure CLI](tutorial-multiple-sites-cli.md), you must use `--host-names` inst
 
 In Azure portal, under the multi-site listener, you must chose the Multiple/Wildcard Host type to mention up to 5 host names with allowed wildcard characters.
 
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-example" alt-text="Wildcard Listener UI":::
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-example.png" alt-text="Wildcard Listener UI":::
 
 ### Allowed characters in the host names field
 
