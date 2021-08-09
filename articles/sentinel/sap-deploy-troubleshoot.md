@@ -292,6 +292,20 @@ For example, use `javatz = GMT+12` or `abaptz = GMT-3**`.
 
 If you're not able to import the [required SAP log change requests](sap-solution-detailed-requirements.md#required-sap-log-change-requests) and are getting an error about an invalid component version, add `ignore invalid component version` when you import the change request.
 
+### Audit Log Data not ingested past initial load
+
+In case Audit Log data in SAP (visable in transaction RSAU_READ_LOAD or SM200 is not ingested into Sentinel past the initial load (New install or after the metadata.db delition), this can be caused be a miss configuration of the SAP system and the OS (Eg. in transaction STZAC the SAP TZ is CET and the SAP host OS is UTC), To check if the configuration is correct please run the following report RSDBTIME in transaction SE38, If there is a missmatch please do the following:
+1. Stop the container
+2. Delete the metadata.db
+3. Set both SAP and OS to the same TZ - see SAP wiki https://wiki.scn.sap.com/wiki/display/Basis/Time+zone+settings%2C+SAP+vs.+OS+level
+4. Start the container
+```bash
+docker stop sapcon-NPL
+rm ~/sapcon/NPL/metadata.db
+# Match OS and SAP timezone
+docker start sapcon-NPL
+```
+
 
 ## Next steps
 
