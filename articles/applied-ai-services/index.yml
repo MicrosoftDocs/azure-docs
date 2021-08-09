@@ -45,7 +45,7 @@ productDirectory:
       # imageSrc should be square in ratio with no whitespace
       imageSrc: ./media/form-recognizer.svg
       summary: Turn documents into usable data at a fraction of the time and cost
-      url: ../cognitive-services/form-recognizer/index.yml
+      url: ./form-recognizer/index.yml
     # Card
     - title: Azure Cognitive Search
       imageSrc: ./media/cognitive-search.svg
@@ -83,7 +83,7 @@ additionalContent:
         - title: Get coding with quickstarts
           links:
           - text: Azure Form Recognizer
-            url: ../cognitive-services/form-recognizer/quickstarts/get-started-with-form-recognizer.md
+            url: ./form-recognizer/quickstarts/get-started-with-form-recognizer.md
           - text: Azure Metrics Advisor
             url: ./metrics-advisor/quickstarts/web-portal.md
           - text: Azure Immersive Reader

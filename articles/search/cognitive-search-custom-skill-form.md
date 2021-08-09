@@ -22,7 +22,7 @@ In this Azure Cognitive Search skillset example, you'll learn how to create a Fo
 
 ## Create a Form Recognizer resource
 
-[!INCLUDE [create resource](../cognitive-services/form-recognizer/includes/create-resource.md)]
+[!INCLUDE [create resource](../applied-ai-services/form-recognizer/includes/create-resource.md)]
 
 ## Train your model
 

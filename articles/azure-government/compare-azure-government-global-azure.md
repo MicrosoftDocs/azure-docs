@@ -55,7 +55,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||    Custom Vision|See [Training](https://go.microsoft.com/fwlink/?linkid=865445) and [Prediction](https://go.microsoft.com/fwlink/?linkid=865446) API references|\*.cognitiveservices.azure.us </br>[Portal](https://www.customvision.azure.us/)||
 ||Content Moderator|See [Content Moderator docs](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)|\*.cognitiveservices.azure.us||
 ||Face|See [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)|\*.cognitiveservices.azure.us||
-||Form Recognizer|See [Form Recognizer docs](../cognitive-services/form-recognizer/quickstarts/client-library.md#prerequisites)|\*.cognitiveservices.azure.us||
+||Form Recognizer|See [Form Recognizer docs](../applied-ai-services/form-recognizer/quickstarts/client-library.md#prerequisites)|\*.cognitiveservices.azure.us||
 ||Language Understanding|See [LUIS REST API docs](../cognitive-services/luis/developer-reference-resource.md)|\*.cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)||
 ||Personalizer|See [Personalizer docs](../cognitive-services/personalizer/quickstart-personalizer-sdk.md#prerequisites)|\*.cognitiveservices.azure.us||
 ||QnA Maker|See [QnA Maker docs](../cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure.md)|\*.cognitiveservices.azure.us||

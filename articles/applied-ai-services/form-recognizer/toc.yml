@@ -105,7 +105,7 @@
     - name: Receipt processing workflow
       href: /ai-builder/flow-receipt-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json 
   - name: Use Azure Form Recognizer with Cognitive Search
-    href: ../../cognitive-services/search/cognitive-search-custom-skill-form.md
+    href: ../../search/cognitive-search-custom-skill-form.md
   - name: Use Azure Form Recognizer with Azure Functions
     href: tutorial-azure-function.md
 - name: Reference

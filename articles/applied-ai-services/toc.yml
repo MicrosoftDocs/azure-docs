@@ -12,7 +12,7 @@
 - name: Quickstarts
   items:
   - name: Azure Form Recognizer
-    href: ../cognitive-services/form-recognizer/quickstarts/get-started-with-form-recognizer.md
+    href: ./form-recognizer/quickstarts/get-started-with-form-recognizer.md
   - name: Azure Metrics Advisor
     href: ../cognitive-services/metrics-advisor/quickstarts/web-portal.md
   - name: Azure Immersive Reader
