@@ -89,22 +89,40 @@ For more information on supported browsers, see [Recommended browsers](../../azu
 
 Verify that your organizational security policy allows access to the following:
 
-| Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
-|--|--|--|--|--|--|--|--|
-| HTTPS | TCP | IN/OUT | 443 | Sensor and On-Premises Management Console Web Console | Access to Web console | Client | Sensor and on-premises management console |
-| SSH | TCP | IN/OUT | 22 | CLI | Access to the CLI | Client | Sensor and on-premises management console |
-| SSL | TCP | IN/OUT | 443 | Sensor and on-premises management console | Connection Between CyberX platform and the Central Management platform | sensor | On-premises management console |
-| NTP | UDP | IN | 123 | Time Sync | On-premises management console use as NTP to sensor | sensor | on-premises management console |
-| NTP | UDP | IN/OUT | 123 | Time Sync | Sensor connected to external NTP server, when there is no on-premises management console installed | sensor | NTP |
-| SMTP | TCP | OUT | 25 | Email | The connection between CyberX platform and the Management platform and the mail server | Sensor and On-premises management console | Email server |
-| Syslog | UDP | OUT | 514 | LEEF | Logs that send from the on-premises management console to Syslog server | On-premises management console and Sensor | Syslog server |
-| DNS |  | IN/OUT | 53 | DNS | DNS Server Port | On-premises management console and Sensor | DNS server |
-| LDAP | TCP | IN/OUT | 389 | Active Directory | The connection between CyberX platform and the Management platform to the Active Directory | On-premises management console and Sensor | LDAP server |
-| LDAPS | TCP | IN/OUT | 636 | Active Directory | The connection between CyberX platform and the Management platform to the Active Directory | On-premises management console and Sensor | LDAPS server |
-| SNMP | UDP | OUT | 161 | Monitoring | Remote SNMP collectors. | On-premises management console and Sensor | SNMP server |
-| WMI | UDP | OUT | 135 | monitoring | Windows Endpoint Monitoring | Sensor | Relevant network element |
-| Tunneling | TCP | IN | 9000 <br /><br />- on top of port 443 <br /><br />From end user to the on-premises management console. <br /><br />- Port 22 from sensor to the on-premises management console  | monitoring | Tunneling | Sensor | On-premises management console |
-| HTTP| TCP | OUT | 80 | Certificate validation  | Download CRL file | Sensor | CRL server |
+- User access to the sensor and management console:
+
+    | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
+    |--|--|--|--|--|--|--|--|
+    | HTTPS | TCP | IN/OUT | 443 | Sensor and On-Premises Management Console Web Console | Access to Web console | Client | Sensor and on-premises management console |
+    | SSH | TCP | IN/OUT | 22 | CLI | Access to the CLI | Client | Sensor and on-premises management console |
+
+- Sensor access to the Azure Portal (cloud connected sensors)
+
+    | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
+    |--|--|--|--|--|--|--|--|
+    | NTP | UDP | IN/OUT | 123 | Time Sync | Sensor connected to external NTP server, when there is no on-premises management console installed | sensor | NTP |
+    | HTTPS | TCP | IN/OUT | 443 | To connect to the Azure portal | Allows communication between the on-prem sensor and the Azure Defender for IoT instance. | sensor | "*.azure.com </br>*.azure.net </br>*.windows.net </br>*.azurecomcdn.net </br>*.azureedge.net </br>*.msecnd.net </br>login.microsoftonline.com </br>login.live.com" |
+
+- Sensor access to the on-premises management console:
+
+    | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
+    |--|--|--|--|--|--|--|--|
+    | SSL | TCP | IN/OUT | 443 | Sensor and on-premises management console | Connection between sensor and the Central Management | sensor | On-premises management console |
+    | NTP | UDP | IN | 123 | Time Sync | On-premises management console use as NTP to sensor | sensor | on-premises management console |
+    | Tunneling | TCP | IN | 9000 - on top of port 443 - From end user to the on-premises management console. - Port 22 from sensor to the on-premises management console | monitoring | Tunneling | Sensor | On-premises management console |
+
+- (Optional) Defender for IoT additional services:
+
+    Access additional capabilities by opening these additional ports.
+
+    | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
+    |--|--|--|--|--|--|--|--|
+    | Syslog | UDP | OUT | 514 | LEEF/CEF | Logs that send from the on-premises management console to Syslog server | On-premises management console and Sensor | Syslog server |
+    | DNS | UDP/TCP | IN/OUT | 53 | DNS | DNS Server Port | On-premises management console and Sensor | DNS server |
+    | LDAP | TCP | IN/OUT | 389 | Active Directory | Active Directory management of users that have access to login to the system. | On-premises management console and Sensor | LDAP server |
+    | LDAPS | TCP | IN/OUT | 636 | Active Directory | Active Directory management of users that have access to login to the system. | On-premises management console and Sensor | LDAPS server |
+    | SNMP | UDP | OUT | 161 | MIB | Sensor health monitoring | On-premises management console and Sensor | SNMP server |
+    | SMTP | TCP | OUT | 25 | Email | To open the to the customers mail server to send emails for alerts, and events. | Sensor and On-premises management console | Email server |
 
 ### Planning rack installation
 
@@ -115,10 +133,15 @@ To plan your rack installation:
 1. Allocate the rack space for the appliance.
 
 1. Have AC power available for the appliance.
+
 1. Prepare the LAN cable for connecting the management to the network switch.
-1. Prepare the LAN cables for connecting switch SPAN (mirror) ports and or network taps to the Defender for IoT appliance. 
+
+1. Prepare the LAN cables for connecting switch SPAN (mirror) ports and or network taps to the Defender for IoT appliance.
+
 1. Configure, connect, and validate SPAN ports in the mirrored switches as described in the architecture review session.
+
 1. Connect the configured SPAN port to a computer running Wireshark and verify that the port is configured correctly.
+
 1. Open all the relevant firewall ports.
 
 ## About passive network monitoring
