@@ -13,44 +13,7 @@ ms.date: 08/08/2021
 
 This how-to article walks you through a detailed setup of Azure Sentinel notebooks using the [MSTICPy library](hunting.md#mstic-jupyter-and-python-security-tools), using the **Configuring your Notebook Environment** Jupyter notebook.
 
-The steps in this article include:
-
-- Setting up and configuring the MSTICPy package
-- Configuring the **msticpyconfig.yaml** file
-- Optional steps for creating and managing a **config.json** file for extra configuration settings
-
-> [!NOTE]
-> To use MSTICPy notebooks outside of Azure Sentinel and Azure Machine Learning (ML), you'll also need to configure your Python environment. Installing Python 3.6 or later with the Anaconda distribution, which includes many of the required packages already installed.
->
-
-## Run the Configuring your Notebook Environment notebook
-
-Run the **Configuring your Notebook Environment** notebook in Azure Sentinel to configure your workspace to work with Jupyter notebooks.
-
-1. In Azure Sentinel, select **Notebooks**, and from the **Templates** tab, select **Configuring your Notebook Environment**.
-1. Select **Save notebook** to save the notebook to your Azure ML workspace.
-1. Select **Launch notebook** to run the notebook.
-
-## Configure the msticpyconfig.yaml file
-
-Configure MSTICPy settings using the **msticpyconfig.yaml** file, created when you launched your **Configuring your Notebook Environment** notebook.
-
-Many settings in the **msticconfig.yaml** file are optional, but incorrect configuration may cause loss of functionality. For example, using 
-
-Most of this notebook covers configuring MSTICPy by setting up the *msticpyconfig.yaml* file. Many of the settings are optional, but configuring them incorrectly causes some loss of functionality. For example, using Threat Intelligence (TI) providers usually requires an API key. You can enter the key every time you run the notebook, but to save time and avoid errors, you should put the key in the configuration file. Every IP address lookup should be in the configuration file.
-
-The configuration section takes you through creating settings for:
-
-- Azure Sentinel workspaces
-- TI providers
-- Geolocation IP (GeoIP) lookup providers
-- Other data providers such as Azure APIs
-- Azure Key Vault
-- Autoloading options
-
-You need the first three configurations to fully use most Azure Sentinel notebooks.
-
-MSTICPy is a Python package that most Azure Sentinel Jupyter notebooks use. MSTICPy provides threat hunting and investigation functionality, including:
+MSTICPy is a Python package used by many Azure Sentinel Jupyter notebooks to provide threat hunting and investigation functionality, such as:
 
 - Data querying against Azure Sentinel tables, Microsoft Defender for Endpoint, Splunk, and other data sources.
 - TI lookups with VirusTotal, AlienVault OTX, and other TI providers.
@@ -58,59 +21,67 @@ MSTICPy is a Python package that most Azure Sentinel Jupyter notebooks use. MSTI
 - Visualization using event timelines, process trees, and geo mapping.
 - Advanced analyses like time series decomposition, anomaly detection, and clustering.
 
-A *config.json* file provides basic MSTICPy configuration information, but the following features need more configuration in the *msticpyconfig.yaml* file:
+> [!NOTE]
+> To use MSTICPy notebooks outside of Azure Sentinel and Azure Machine Learning (ML), you'll also need to configure your Python environment. Installing Python 3.6 or later with the Anaconda distribution, which includes many of the required packages already installed.
+>
 
-- TI provider connection information
-- GeoIP connection information
-- Defender for Endpoint and Azure API connection information
-- Key Vault configuration for storing secrets
-- More than one Azure Sentinel workspace
+For more information, see [Use notebooks to power investigations](hunting.md#use-notebooks-to-power-investigations).
 
-Notebooks read the *msticpyconfig.yaml* file from the current directory, or you can set an **MSTICPYCONFIG** environment variable that points to its location.
+## Run the Configuring your Notebook Environment notebook
 
-The most widely used *msticpyconfig.yaml* sections are:
+Run the **Configuring your Notebook Environment** notebook in Azure Sentinel to configure your workspace to work with Jupyter notebooks and MSTICPy.
 
-- **TI Providers:** Primary providers run by default. Secondary providers don't run by default, but you can invoke them by using the `providers` parameter to `lookup_ioc()` or `lookup_iocs()`. Set the `Primary` config setting to `True` or `False` for each provider ID, according to how you want to use them. The `providers` parameter should be a list of strings that identify the providers to use.
-  
-  - The `provider ID` is in the `Provider:` setting for each of the TI providers. Don't alter this value.
-  - Delete or comment out the section for any TI Providers you don't want to use.
-  - For most providers, you need to supply an authorization API key, and in some cases a user ID for each provider.
-  - For the Azure Sentinel TI provider, you need the workspace ID and tenant ID, and need to authenticate to access the data. The connection reuses any existing authenticated connection with the same workspace or tenant.
+1. In Azure Sentinel, select **Notebooks**. From the **Templates** tab, select **Configuring your Notebook Environment**.
+1. Select **Save notebook** to save the notebook to your Azure ML workspace.
+1. Select **Launch notebook** to run the notebook.
 
-- **GeoIP Providers:** Like TI providers, GeoIP services usually need an API key for access.
+Running the **Configuring your Notebook Environment** notebook creates both a **config.json** file with basic MSTICpy configuration information, as well as the **msticpyconfig.yaml** file, which requires updates for your environment.
 
-- **BrowShot:** The functionality to screenshot a URL in `msticpy.sectools.domain_utils` relies on a service called [BrowShot](https://browshot.com/). You need an API key to use this service, and you need to define the service in the *msticpyconfig.yaml* file. You can configure BrowShot in the **Data Providers** section of the *msticpyconfig.yaml* settings editor.
+## Configure the msticpyconfig.yaml file
+
+Configure MSTICPy settings for Azure Sentinel using the **msticpyconfig.yaml** file, created when you launched your **Configuring your Notebook Environment** notebook.
+
+The **msticpyconfig.yaml** file includes configurations that are required for most Azure Sentinel notebooks, such as workspace, TI provider, and geolocation settings, as well as optional configurations such as data providers and APIs, Azure Key Vault settings, and auto-loading options. Take care when defining settings in the **msticpyconfig.yaml** file 
 
 ### Display your existing msticpyconfig.yaml file
 
-Displaying the configuration uses the MSTICPy configuration tools `MPConfigEdit` and `MPConfigFile`, so import these tools first:
+This procedure describes how to display your **msticpyconfig.yaml** file, and requires that you have the `MPConfigEdit` and `MPConfigFile` tools imported. <!--where? where to run this?>
 
-```python
-from msticpy.config import MpConfigFile, MpConfigEdit, MpConfigControls
-from msticpy.nbtools import nbwidgets
-from msticpy.common import utility as utils
-```
-Then run `MpConfigFile` to view your current settings.
+1. Run the following code to import the `MPConfigEdit` and `MPConfigFile` tools:
 
-```python
-mpconfig = MpConfigFile()
-mpconfig.load_default()
-mpconfig.view_settings()
+    ```python
+    from msticpy.config import MpConfigFile, MpConfigEdit, MpConfigControls
+    from msticpy.nbtools import nbwidgets
+    from msticpy.common import utility as utils
+    ```
 
-MpConfigFile
-```
-The settings editor should display. If you see nothing but a pair of curly braces in the output, that might mean you need to create an *msticpyconfig.yaml* file. If you know you already have a *msticpyconfig.yaml* file, you can search for the file using `MpConfigFile`, and then select **Load file**.
+1. To view the current settings saved in the **msticpyconfig.yaml** file, run:
+
+    ```python
+    mpconfig = MpConfigFile()
+    mpconfig.load_default()
+    mpconfig.view_settings()
+
+    MpConfigFile
+    ```
+
+The settings editor displays in Azure Sentinel.
+
+> [!NOTE]
+> If you don't see the settings editor, and only see a pair of curly brackets, you may need to create your **msticpyconfig.yaml** file.
+>
+> If you know that you have a **msticpyconfig.yaml** file, search for it by running the `MpConfigFile` command. When prompted, select **Load file** and then browse to and select your file.
+>
 
 ### Import config.json and create a msticpyconfig.yaml file
 
-To create a *msticpyconfig.yaml* file from the *config.json* file, follow these steps:
+This procedure describes how to create a **msticpyconfig.yaml** file from an imported **config.json** file, and is required only if you do not have a **msticpyconfig.file** available.
 
-1. Run `MpConfigFile` to locate your *config.json* file.
-1. Select **Load file**.
-   
-   Use the browse and search controls to find the file. When you find the file, select **Select File**.
-   
-1. Convert to msticpyconfig format. Save the *msticpyconfig.yaml* file by adding the path in the **Current file** text box, and selecting **Save file**.
+The **msticpyconfig.file** is created automatically when you [run the Configuring your Notebook Environment notebook](#run-the-configuring-your-notebook-environment-notebook).
+
+1. From <!--where?-->, run the `MpConfigFile` command.
+1. Select **Load file**, and then browse to and select your **config.json** file.
+1. Save a copy of the **config.json** file as **msticpyconfig.yaml**.
 1. Select **View Settings** to confirm that the settings look correct.
 
 You can set this file to always load by assigning the path to an environment variable.
@@ -254,6 +225,13 @@ You can also select **Validate Settings**. This validation should show that you 
 
 ## TI provider setup
 
+- **TI Providers:** Primary providers run by default. Secondary providers don't run by default, but you can invoke them by using the `providers` parameter to `lookup_ioc()` or `lookup_iocs()`. Set the `Primary` config setting to `True` or `False` for each provider ID, according to how you want to use them. The `providers` parameter should be a list of strings that identify the providers to use.
+  
+  - The `provider ID` is in the `Provider:` setting for each of the TI providers. Don't alter this value.
+  - Delete or comment out the section for any TI Providers you don't want to use.
+  - For most providers, you need to supply an authorization API key, and in some cases a user ID for each provider.
+  - For the Azure Sentinel TI provider, you need the workspace ID and tenant ID, and need to authenticate to access the data. The connection reuses any existing authenticated connection with the same workspace or tenant.
+
 If you want to look up IP addresses, URLs, and other items to check for TI reports, you need to add the providers that you want to use. Most TI providers require you to have an account with them and supply an API key or other authentication items when you connect. Most providers have a free-use tier, or in cases like AlienVault OTX, are entirely free. Free tiers for paid providers usually impose a maximum number of requests in a given time period.
 
 Each TI provider handles account creation slightly differently. Use the help links in the settings editor to find out how to set up accounts for each provider. Be sure to store any authentication keys in a safe place.
@@ -290,6 +268,8 @@ MSTICPy supports a range of other TI providers. For more information, see [Threa
 
 ## GeoIP provider setup
 
+- **GeoIP Providers:** Like TI providers, GeoIP services usually need an API key for access.
+
 MSTICPy supports two GeoIP providers, Maxmind GeoIPLite and IP Stack. The main difference between the two is that Maxmind downloads and uses a local database, while IPStack is a purely online solution. You need an API key to either download the free database from MaxMind or access the IPStack online lookup.
 
 To use GeoIPLite as an example:
@@ -310,6 +290,8 @@ To use GeoIPLite as an example:
 As with the TI providers, you can opt to store your key as an environment variable or keep it in Key Vault.
 
 ## Azure data and Azure Sentinel APIs
+
+- **BrowShot:** The functionality to screenshot a URL in `msticpy.sectools.domain_utils` relies on a service called [BrowShot](https://browshot.com/). You need an API key to use this service, and you need to define the service in the *msticpyconfig.yaml* file. You can configure BrowShot in the **Data Providers** section of the *msticpyconfig.yaml* settings editor.
 
 To access APIs for Azure Sentinel and Azure resources, you need to use Azure authentication. MSTICPy supports two authentication methods:
 
