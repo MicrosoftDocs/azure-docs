@@ -46,10 +46,10 @@ Use the flags below in the tenant URL of your application in order to change the
 :::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="SCIM flags to later behavior.":::
 
 Use the following URL to update PATCH behavior and ensure SCIM compliance. The flag will alter the following behaviors:                
-1. Requests made to disable users
-2. Requests to add a single-value string attribute
-3. Requests to replace multiple attributes
-4. Requests to remove a group member        
+- Requests made to disable users
+- Requests to add a single-value string attribute
+- Requests to replace multiple attributes
+- Requests to remove a group member        
                                                                                      
 This behavior is currently only available when using the flag, but will become the default behavior over the next few months. Note this preview flag currently does not work with on-demand provisioning. 
   * **URL (SCIM Compliant):** aadOptscim062020
