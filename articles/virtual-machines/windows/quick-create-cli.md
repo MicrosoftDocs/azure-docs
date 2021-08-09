@@ -47,7 +47,8 @@ az vm create \
     --admin-username azureuser 
 ```
 
-You will be prompted for an "Admin Password." It tehn takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
+You will be prompted for an "Admin Password." It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
+
 
 ```output
 {
