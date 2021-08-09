@@ -11,21 +11,22 @@ ms.date: 08/13/2021
 
 This sample application shows the integration of Video Analyzer's player widget with video playback, zone drawing and video clip generation features.
 
-<TODO: include for Python & C# for cloning respective repo>  
-Follow the instrcutions in the README in the src/video-player folder
+* Clone the [AVA C# sample repository](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp)
+* Follow the instrcutions in the README in the **src/video-player** folder
 
 ## Get Started
+After following the README instructions and the app is running on http://localhost:3000/
 1. Click 'Get Videos'
 2. Select a Video from the drop-down list of all of the Videos in your Video Analyzer account
 
 ## Video Player
-The Video Player page presents the typical player as seen in the Portal
+The Video Player page presents the typical player, as seen in the Portal
 <TODO: include screenshot>
 
 ## Zone Drawer
 The Zone Drawer allows you to create zones by drawing polygons and drawing lines on your video. You can also save these zones and lines to receive the coordinates of your respective zones and lines. Copying these coordinates can be done using the *Copy to clipboard* button
 (Example: {})
-Zones and lines can be renamed and deleted.copy zone/line coordinates to clipboard
+Zones and lines can be renamed and deleted.
 <TODO: include screenshot>
 
 ## Video Clips
