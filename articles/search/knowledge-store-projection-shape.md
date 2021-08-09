@@ -10,14 +10,11 @@ ms.topic: conceptual
 ms.date: 08/10/2021
 ---
 
-<!-- NEW FILE, COPIED FROM SKILLSET ARTICLE, HOTEL REVIEW REFERENCES, 
-FOLLOWED SKILLSET EXAMPLE (see new file for that content.  Should these be consolidated?) -->
-
 # Shaping data for projection into a knowledge store
 
-When enriching content in Azure Cognitive Search, before you can send output to a [knowledge store](knowledge-store-concept-intro.md), it must be formed into a shape that can be consumed by the projections. This article explains how to take nodes in an enrichment tree and formulate them into a data shape.
+Before you can send output to a [knowledge store](knowledge-store-concept-intro.md) in Azure Cognitive Search, it must be formed into a shape that can be consumed by the projections. This article explains how to take nodes from an enrichment tree and arranged them into a data shape.
 
-A data shape contains all the data intended to project, and you might want multiple of them depending on the quantity of tables, objects, and files you want in a knowledge store.
+It's a custom definition or view of your data, composed of nodes from an enrichment tree. Nodes are either fields that are passed through from the source (for example, metadata or content fields), or created content, such as translated strings, entities, or key phrases. Shapes are passed to projections in a knowledge store definition. You should create as many shapes as you need, depending on the quantity of tables, objects, and files you want in a knowledge store.
 
 ## Approaches for creating shapes
 
@@ -32,6 +29,8 @@ Using the Shaper skill externalizes the shape so that it can be used by multiple
 The approaches can be used together or separately. In this article, a skillset example shows both approaches, using a shaper skill for the table projections and inline shaping to project the key phrases table.
 
 ## Use a Shaper skill
+
+Shaper skills are usually placed at the end of a skillset, creating a view of the data that you want to pass to a projection. This example creates a shape called "tableprojection" containing the following nodes: "reviews_text", "reviews_title", "AzureSearch_DocumentKey", and sentiment scores and key phrases from paged reviews. 
 
 ```json
 {
@@ -141,7 +140,7 @@ With the `tableprojection` node defined in the `outputs` section above, you can 
 
 ## Inline shaping projections
 
-Inline shaping is the ability to form new shapes as inputs to a projection. Inline shaping has these characteristics:
+Inline shaping is the ability to form new shapes within the projection definition itself. Inline shaping has these characteristics:
 
 + The shape can be used only by the projection that contains it.
 + The shape can be identical to what a Shaper skill would produce.
@@ -213,7 +212,7 @@ To project the same data as the previous example, the inline projection option w
 ]
 ```
   
-One observation from both the approaches is how values of `"Keyphrases"` are projected using the `"sourceContext"`. The `"Keyphrases"` node, which contains a collection of strings, is itself a child of the page text. However, because projections require a JSON object and the page is a primitive (string), the `"sourceContext"` is used to wrap the key phrase into an object with a named property. This technique enables even primitives to be projected independently.
+One observation from both the approaches is how values of "Keyphrases" are projected using the "sourceContext". The "Keyphrases" node, which contains a collection of strings, is itself a child of the page text. However, because projections require a JSON object and the page is a primitive (string), the "sourceContext" is used to wrap the key phrase into an object with a named property. This technique enables even primitives to be projected independently.
 
 ## Next steps
 
