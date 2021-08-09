@@ -80,12 +80,11 @@ With the public key deployed on your Azure VM, and the private key on your local
 ssh -i ~/.ssh/id_rsa azureuser@10.111.12.123
 ```
 
-If you have never connected to this VM before you will be asked to verify the hosts fingerprint. It is tempting to simply accept the fingerprint presented, however, this exposes you to a possible person in the middle attack. You should always validate the hosts fingerprint. You only need to do this on the first time you connect from a client. To obtain the host fingerprint via the portal use the Run Command feature to execute the command `ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'`.
+If you're connecting to this VM for the first time, you'll be asked to verify the host's fingerprint. It's tempting to simply accept the fingerprint that's presented, but that approach exposes you to a possible person-in-the-middle attack. You should always validate the host's fingerprint. You need to do this only the first time you connect from a client. To obtain the host fingerprint via the portal, use the Run Command feature to execute the command `ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'`.
 
-![Screenshot 2021-08-05 110213](./media/ssh-from-windows/portal-run-rommand-to-obtain-host-fingerprint.png)
+:::image type="content" source="./media/ssh-from-windows/validate-host-fingerprint.png" alt-text="Screenshot that shows using the Run Command Script shell to get a host fingerprint key in the Azure portal.":::
 
-To run the command using CLI you can use the [`az vm run-command invoke` command](https://docs.microsoft.com/en-us/cli/azure/vm/run-command?view=azure-cli-latest).
-
+To run the command by using the Azure CLI, use the [az vm run-command invoke](/cli/azure/vm/run-command?view=azure-cli-latest) command.
 
 If you configured a passphrase when you created your key pair, enter the passphrase when prompted.
 
