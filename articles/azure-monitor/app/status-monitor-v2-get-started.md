@@ -50,7 +50,7 @@ Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
 > [!NOTE]
 > `AllowPrerelease` switch in `Install-Module` cmdlet allows installation of beta release. 
 >
-> For additional information, see [Install-Module](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-7.1#parameters).
+> For additional information, see [Install-Module](/powershell/module/powershellget/install-module?view=powershell-7.1#parameters).
 >
 
 ### Enable monitoring

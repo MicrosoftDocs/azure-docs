@@ -228,7 +228,7 @@ related resources to match.
   - Default is _ResourceGroup_.
 - **EvaluationDelay** (optional)
   - Specifies when the existence of the related resources should be evaluated. The delay is only used for evaluations that are a result of a create or update resource request.
-  - Allowed values are `AfterProvisioning`, `AfterProvisioningSuccess`, `AfterProvisioningFailure` or an ISO 8601 duration between 0 and 360 minutes.
+  - Allowed values are `AfterProvisioning`, `AfterProvisioningSuccess`, `AfterProvisioningFailure` or an ISO 8601 duration between 10 and 360 minutes.
   - The _AfterProvisioning_ values inspect the provisioning result of the resource that was evaluated in the policy rule's IF condition. `AfterProvisioning` runs after provisioning is complete, regardless of outcome. If provisioning takes longer than 6 hours it will be treated as a failure when determining _AfterProvisioning_ evaluation delays.
   - Default is `PT10M` (10 minutes).
   - Specifying a long evaluation delay may cause the recorded compliance state of the resource to not update until the next [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers).

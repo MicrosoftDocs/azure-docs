@@ -46,7 +46,9 @@ landingContent:
             url: concepts-compute-storage.md
           - text: MySQL versions
             url: ./../concepts-supported-versions.md
-          - text: Networking
+          - text: Restore a server
+            url: how-to-restore-server-portal.md
+          - text: Network and Connectivity
             url: concepts-networking.md
           - text: Monitor
             url: concepts-monitoring.md
@@ -62,6 +64,7 @@ landingContent:
             url: how-to-configure-slow-query-logs-portal.md
           - text: Schedule maintenance
             url: how-to-maintenance-portal.md
+
 # Card
   - title: Business continuity
     linkLists:
@@ -77,6 +80,24 @@ landingContent:
         links:
           - text: Restore a server
             url: how-to-restore-server-portal.md
+
+# Card
+  - title: Network and Connectivity
+    linkLists:
+      - linkListType: concept
+        links:
+        - text: Networking
+          url: concepts-networking.md
+        - text: Private Access
+          url: concepts-networking-vnet.md
+        - text: Public Access
+          url: concepts-networking-public.md
+      - linkListType: how-to-guide
+        links:
+        - text: Configure private access
+          url: how-to-manage-virtual-network-portal.md
+        - text: Configure public access
+          url: how-to-manage-firewall-portal.md
 
   # Card
   - title: Connect

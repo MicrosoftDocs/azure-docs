@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 08/05/2021
 ms.author: memildin
 
 ---
@@ -60,7 +60,7 @@ The following steps explain how to add a package to monitor your compliance with
     > [!TIP]
     > We recommend selecting the highest scope for which the standard is applicable so that compliance data is aggregated and tracked for all nested resources. 
 
-1. To add the standards relevant to your organization, click **Add more standards**. 
+1. To add the standards relevant to your organization, expand the **Industry & regulatory standards** section and select **Add more standards**.
 
 1. From the **Add regulatory compliance standards** page, you can search for any of the available standards, including:
 

@@ -131,6 +131,8 @@
     href: azure-netapp-files-configure-export-policy.md
   - name: Mount or unmount a volume
     href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
+  - name: Configure Unix permissions and change ownership mode
+    href: configure-unix-permissions-change-ownership-mode.md
   - name: Manage snapshots
     href: azure-netapp-files-manage-snapshots.md
   - name: Resize a capacity pool or a volume

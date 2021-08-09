@@ -28,7 +28,7 @@ You'll see alerts when there are suspicious database activities, potential vulne
 |Release state:|General Availability (GA)|
 |Pricing:|**Azure Defender for SQL servers on machines** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
 |Protected SQL versions:|Azure SQL Server (all versions covered by Microsoft support)|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: US Gov<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet|
 |||
 
 ## Set up Azure Defender for SQL servers on machines

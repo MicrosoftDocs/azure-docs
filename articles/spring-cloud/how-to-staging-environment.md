@@ -98,7 +98,7 @@ To build the application, follow these steps:
 8. Rebuild the .jar file:
 
    ```azurecli
-   mvn clean packge -DskipTests
+   mvn clean package -DskipTests
    ```
 9. Create the green deployment: 
 

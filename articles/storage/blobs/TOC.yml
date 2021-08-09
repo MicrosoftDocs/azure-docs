@@ -556,7 +556,7 @@ items:
         href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reference
     items:
-    - name: Azure Blob Storage reference
+    - name: Blob Storage API reference
       href: ../blobs/reference.md
     - name: AzCopy v10
       items:
