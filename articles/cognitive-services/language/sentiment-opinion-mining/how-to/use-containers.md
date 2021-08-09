@@ -14,15 +14,15 @@ ms.author: aahi
 keywords: on-premises, Docker, container, sentiment analysis, natural language processing
 ---
 
-# Install and run Text Analytics containers
+# Install and run Sentiment Analysis containers
 
-Containers enable you to run the Text Analytic APIs in your own environment and are great for your specific security and data governance requirements. The following Text Analytics containers are available:
+Containers enable you to run the Text Analytic APIs in your own environment and are great for your specific security and data governance requirements.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
-You must meet the following prerequisites before using Text Analytics containers. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
+You must meet the following prerequisites before using Sentiment Analysis containers. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 * [Docker](https://docs.docker.com/) installed on a host computer. Docker must be configured to allow the containers to connect with and send billing data to Azure. 
     * On Windows, Docker must also be configured to support Linux containers.
@@ -35,7 +35,7 @@ You must meet the following prerequisites before using Text Analytics containers
 
 [!INCLUDE [Host Computer requirements](../../../../../includes/cognitive-services-containers-host-computer.md)]
 
-The following table describes the minimum and recommended specifications for the available Text Analytics containers. Each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Second (TPS) are also listed.
+The following table describes the minimum and recommended specifications for the available Language Services container. Each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Second (TPS) are also listed.
 
 |  | Minimum host specs | Recommended host specs | Minimum TPS | Maximum TPS|
 |---|---------|-------------|--|--|
@@ -53,7 +53,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3
 
 To download the container for another language, replace `en` with one of the language codes below. 
 
-| Text Analytics Container | Language code |
+| Sentiment Analysis Container | Language code |
 |--|--|
 | Chinese-Simplified    |   `zh-hans`   |
 | Chinese-Traditional   |   `zh-hant`   |
@@ -71,7 +71,7 @@ To download the container for another language, replace `en` with one of the lan
 | Spanish               |     `es`      |
 | Turkish               |     `tr`      |
 
-[!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
+[!INCLUDE [Tip for using docker list](../../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
 ## Run the container with `docker run`
 
@@ -80,15 +80,13 @@ Once the container is on the host computer, use the [docker run](https://docs.do
 > [!IMPORTANT]
 > * The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
 > * The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
->   * If you're using the Text Analytics for health container, the [responsible AI](/legal/cognitive-services/text-analytics/transparency-note-health)  (RAI) acknowledgment must also be present with a value of `accept`.
-> * The sentiment analysis and language detection containers use v3 of the API, and are generally available. The key phrase extraction container uses v2 of the API, and is in preview.
 
-To run the *Sentiment Analysis v3* container, execute the following `docker run` command. Replace the placeholders below with your own values:
+To run the Sentiment Analysis container, execute the following `docker run` command. Replace the placeholders below with your own values:
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
-| **{API_KEY}** | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | The endpoint for accessing the Text Analytics API. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+| **{API_KEY}** | The key for your Language Services resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{ENDPOINT_URI}** | The endpoint for accessing the Language Services API. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 1 \
@@ -129,7 +127,7 @@ If you run the container with an output [mount](../../concepts/configure-contain
 
 ## Billing
 
-The Text Analytics containers send billing information to Azure, using a _Text Analytics_ resource on your Azure account. 
+The Sentiment Analysis containers send billing information to Azure, using a _Language Services_ resource on your Azure account. 
 
 [!INCLUDE [Container's Billing Settings](../../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -137,7 +135,7 @@ For more information about these options, see [Configure containers](../../../co
 
 ## Summary
 
-In this article, you learned concepts and workflow for downloading, installing, and running Text Analytics containers. In summary:
+In this article, you learned concepts and workflow for downloading, installing, and running Sentiment Analysis containers. In summary:
 
 * Sentiment Analysis provides Linux containers for Docker
 * Container images are downloaded from the Microsoft Container Registry (MCR).
