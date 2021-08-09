@@ -29,8 +29,8 @@ You can resize your virtual machines to the Av2-series using the [Azure portal](
 1. Type **virtual machines** in the search.
 1. Under **Services**, select **Virtual machines**.
 1. In the **Virtual machines** page, select the virtual machine you want to resize.
-1. In the left menu, select size.
-1. Pick a new Av2 size from the list of available sizes and select Resize.
+1. In the left menu, select **size**.
+1. Pick a new Av2 size from the list of available sizes and select **Resize**.
 
 ### Azure PowerShell
 1. Set the resource group and VM name variables. Replace the values with information of the VM you want to resize. 
