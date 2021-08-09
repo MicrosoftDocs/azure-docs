@@ -24,7 +24,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 This quickstart demonstrates how to create an Azure Cosmos DB [Gremlin API](graph-introduction.md) account, database, and graph (container) using the Azure portal and then use the [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) from  [Apache TinkerPop](https://tinkerpop.apache.org) to work with Gremlin API data. In this tutorial, you create and query vertices and edges, updating a vertex property, query vertices, traverse the graph, and drop a vertex.
 
-:::image type="content" source="./media/create-graph-gremlin-console/gremlin-console.png" alt-text="Azure Cosmos DB from the Apache Gremlin console":::
+:::image type="content" source="./media/create-graph-console/gremlin-console.png" alt-text="Azure Cosmos DB from the Apache Gremlin console":::
 
 The Gremlin console is Groovy/Java based and runs on Linux, Mac, and Windows. You can download it from the [Apache TinkerPop site](https://tinkerpop.apache.org/downloads.html).
 
@@ -60,11 +60,11 @@ You also need to install the [Gremlin Console](https://tinkerpop.apache.org/down
 
    For the hosts value, copy the **Gremlin URI** value from the **Overview** page:
 
-   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="View and copy the Gremlin URI value on the Overview page in the Azure portal":::
+   :::image type="content" source="./media/create-graph-console/gremlin-uri.png" alt-text="View and copy the Gremlin URI value on the Overview page in the Azure portal":::
 
    For the password value, copy the **Primary key** from the **Keys** page:
 
-   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="View and copy your primary key in the Azure portal, Keys page":::
+   :::image type="content" source="./media/create-graph-console/keys.png" alt-text="View and copy your primary key in the Azure portal, Keys page":::
 
    Your remote-secure.yaml file should look like this:
 
