@@ -66,11 +66,11 @@ Use the following steps for quickly replicating your appliances:
 
 3. From **Basics**, select the **Target region**.
 
-  All the available Azure regions across the globe are displayed under the drop-down menu. Choose the target region as per your preference.  
+   All the available Azure regions across the globe are displayed under the drop-down menu. Choose the target region as per your preference.  
 
-  ![Settings for global disaster recovery](./media/azure-to-azure-enable-global-disaster-recovery/enable-global-disaster-recovery.png)
+   ![Settings for global disaster recovery](./media/azure-to-azure-enable-global-disaster-recovery/enable-global-disaster-recovery.png)
 
-  You can make additional configuration changes as required by you.
+   You can make additional configuration changes as required by you.
 
 4. Click **Advanced Settings** for any additional settings such as  **Target Subscription**, **Target Virtual Network**, **Target Availability**, **Target Proximity Placement Group**.
 
