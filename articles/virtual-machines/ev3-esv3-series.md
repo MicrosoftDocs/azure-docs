@@ -27,7 +27,7 @@ Ev3-series VM’s feature Intel® Hyper-Threading Technology.
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<sup>1</sup> <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
 
@@ -41,10 +41,9 @@ Ev3-series VM’s feature Intel® Hyper-Threading Technology.
 | Standard_E32_v3 | 32 | 256 | 800  | 32 | 48000/750/375  | 8/16000 |
 | Standard_E48_v3 | 48 | 384 | 1200 | 32 | 96000/1000/500 | 8/24000 |
 | Standard_E64_v3 | 64 | 432 | 1600 | 32 | 96000/1000/500 | 8/30000 |
-| Standard_E64i_v3 <sup>2</sup> | 64 | 432 | 1600 | 32 | 96000/1000/500 | 8/30000 |
+| Standard_E64i_v3 <sup>1</sup> | 64 | 432 | 1600 | 32 | 96000/1000/500 | 8/30000 |
 
-<sup>1</sup> Virtual Machines with 2 vCPU can enable accelerated networking on only a single NIC. <br>
-<sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
+<sup>1</sup> Instance is isolated to hardware dedicated to a single customer.
 
 ## Esv3-series
 
@@ -58,7 +57,7 @@ Esv3-series VM’s feature Intel® Hyper-Threading Technology.
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<sup>4</sup> <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br>
 
@@ -77,7 +76,6 @@ Esv3-series VM’s feature Intel® Hyper-Threading Technology.
 <sup>1</sup> [Constrained core sizes available](./constrained-vcpu.md).<br>
 <sup>2</sup> Instance is isolated to hardware dedicated to a single customer.<br>
 <sup>3</sup> Esv3-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
-<sup>4</sup> Virtual Machines with 2 vCPU can enable accelerated networking on only a single NIC. <br>
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

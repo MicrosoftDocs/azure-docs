@@ -29,13 +29,13 @@ Dv3-series VMs feature Intel® Hyper-Threading Technology.
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<sup>1</sup> <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/Read MBps/Write MBps | Max NICs/Network bandwidth |
 |---|---|---|---|---|---|---|
-| Standard_D2_v3  | 2  | 8   | 50   | 4  | 3000/46/23     | 2/1000  |
+| Standard_D2_v3<sup>1</sup>  | 2  | 8   | 50   | 4  | 3000/46/23     | 2/1000  |
 | Standard_D4_v3  | 4  | 16  | 100  | 8  | 6000/93/46     | 2/2000  |
 | Standard_D8_v3  | 8  | 32  | 200  | 16 | 12000/187/93   | 4/4000  |
 | Standard_D16_v3 | 16 | 64  | 400  | 32 | 24000/375/187  | 8/8000  |
@@ -43,7 +43,7 @@ Dv3-series VMs feature Intel® Hyper-Threading Technology.
 | Standard_D48_v3 | 48 | 192 | 1200 | 32 | 96000/1000/500 | 8/24000 |
 | Standard_D64_v3 | 64 | 256 | 1600 | 32 | 96000/1000/500 | 8/30000 |
 
-<sup>1</sup> Virtual Machines with 2 vCPU can enable accelerated networking on only a single NIC. 
+<sup>1</sup> Accelerated networking can only be applied to a single NIC. 
 
 ## Dsv3-series
 
@@ -57,7 +57,7 @@ Dsv3-series VMs feature Intel® Hyper-Threading Technology.
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<sup>1</sup> <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br>
 
@@ -71,8 +71,7 @@ Dsv3-series VMs feature Intel® Hyper-Threading Technology.
 | Standard_D48s_v3 | 48 | 192 | 384 | 32 | 96000/768 (1200)   | 96000/2000  |76800/1152 | 80000/2000 | 8/24000 |
 | Standard_D64s_v3 | 64 | 256 | 512 | 32 | 128000/1024 (1600) | 128000/2000 |80000/1200 | 80000/2000 | 8/30000 |
 
-<sup>1</sup> Virtual Machines with 2 vCPU can enable accelerated networking on only a single NIC. <br>
-<sup>2</sup>  Dsv3-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+<sup>1</sup>  Dsv3-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
