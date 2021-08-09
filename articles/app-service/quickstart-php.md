@@ -48,7 +48,7 @@ To complete this quickstart:
     ```
     
     > [!TIP]
-    > The branch name change isn't required by App Service. However, since many repositories are changing their default branch to `main`, this quickstart also shows you how to deploy a repository whose default branch is `main`.
+    > The branch name change isn't required by App Service. However, since many repositories are changing their default branch to `main`, this quickstart also shows you how to deploy a repository from `main`.
     
 ## Run the app locally
 
@@ -125,31 +125,31 @@ To complete this quickstart:
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
-<pre>
-    Counting objects: 2, done.
-    Delta compression using up to 4 threads.
-    Compressing objects: 100% (2/2), done.
-    Writing objects: 100% (2/2), 352 bytes | 0 bytes/s, done.
-    Total 2 (delta 1), reused 0 (delta 0)
-    remote: Updating branch 'main'.
-    remote: Updating submodules.
-    remote: Preparing deployment for commit id '25f18051e9'.
-    remote: Generating deployment script.
-    remote: Running deployment command...
-    remote: Handling Basic Web Site deployment.
-    remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
-    remote: Copying file: '.gitignore'
-    remote: Copying file: 'LICENSE'
-    remote: Copying file: 'README.md'
-    remote: Copying file: 'index.php'
-    remote: Ignoring: .git
-    remote: Finished successfully.
-    remote: Running post deployment command(s)...
-    remote: Deployment successful.
-    To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
-       cc39b1e..25f1805  main -> main
-</pre>
-    
+  <pre>
+  Counting objects: 2, done.
+  Delta compression using up to 4 threads.
+  Compressing objects: 100% (2/2), done.
+  Writing objects: 100% (2/2), 352 bytes | 0 bytes/s, done.
+  Total 2 (delta 1), reused 0 (delta 0)
+  remote: Updating branch 'main'.
+  remote: Updating submodules.
+  remote: Preparing deployment for commit id '25f18051e9'.
+  remote: Generating deployment script.
+  remote: Running deployment command...
+  remote: Handling Basic Web Site deployment.
+  remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
+  remote: Copying file: '.gitignore'
+  remote: Copying file: 'LICENSE'
+  remote: Copying file: 'README.md'
+  remote: Copying file: 'index.php'
+  remote: Ignoring: .git
+  remote: Finished successfully.
+  remote: Running post deployment command(s)...
+  remote: Deployment successful.
+  To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
+      cc39b1e..25f1805  main -> main
+  </pre>
+
 ## Browse to the app
 
 Browse to the deployed application using your web browser.

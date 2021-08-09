@@ -93,7 +93,7 @@ cd ruby-docs-hello-world
     > The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Save this URL as you need it later.
     >
 
-1. Browse to the app to see your newly created web app with built-in image. Replace _&lt;app name>_ with your web app name.
+1. Browse to the app to see your newly created web app with built-in image. Replace _&lt;app-name>_ with your web app name.
 
     ```bash
     http://<app_name>.azurewebsites.net
@@ -111,36 +111,38 @@ cd ruby-docs-hello-world
     az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DEPLOYMENT_BRANCH='main'
     ```
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
+[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure-no-h.md)] 
 
-<pre>
-    remote: Using turbolinks 5.2.0
-    remote: Using uglifier 4.1.20
-    remote: Using web-console 3.7.0
-    remote: Bundle complete! 18 Gemfile dependencies, 78 gems now installed.
-    remote: Bundled gems are installed into `/tmp/bundle`
-    remote: Zipping up bundle contents
-    remote: .......
-    remote: ~/site/repository
-    remote: Finished successfully.
-    remote: Running post deployment command(s)...
-    remote: Deployment successful.
-    remote: App container will begin restart within 10 seconds.
-    To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
-       a6e73a2..ae34be9  main -> main
-</pre>
-    
-1. Once the deployment has completed, wait about 10 seconds for the web app to restart, and then navigate to the web app and verify the results.
+   <pre>
+   remote: Using turbolinks 5.2.0
+   remote: Using uglifier 4.1.20
+   remote: Using web-console 3.7.0
+   remote: Bundle complete! 18 Gemfile dependencies, 78 gems now installed.
+   remote: Bundled gems are installed into `/tmp/bundle`
+   remote: Zipping up bundle contents
+   remote: .......
+   remote: ~/site/repository
+   remote: Finished successfully.
+   remote: Running post deployment command(s)...
+   remote: Deployment successful.
+   remote: App container will begin restart within 10 seconds.
+   To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
+      a6e73a2..ae34be9  main -> main
+   </pre>
 
-    ```bash
-    http://<app-name>.azurewebsites.net
-    ```
-    
-    ![updated web app](./media/quickstart-ruby/hello-world-configured.png)
+## Browse to the app
 
-    > [!NOTE]
-    > While the app is restarting, you may observe the HTTP status code `Error 503 Server unavailable` in the browser, or the `Hey, Ruby developers!` default page. It may take a few minutes for the app to fully restart.
-    >
+Once the deployment has completed, wait about 10 seconds for the web app to restart, and then navigate to the web app and verify the results.
+
+```bash
+http://<app-name>.azurewebsites.net
+```
+
+![updated web app](./media/quickstart-ruby/hello-world-configured.png)
+
+> [!NOTE]
+> While the app is restarting, you may observe the HTTP status code `Error 503 Server unavailable` in the browser, or the `Hey, Ruby developers!` default page. It may take a few minutes for the app to fully restart.
+>
 
 [!INCLUDE [Clean-up section](../../includes/cli-script-clean-up.md)]
 
