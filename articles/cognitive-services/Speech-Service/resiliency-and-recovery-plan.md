@@ -43,7 +43,7 @@ For customers that use our default endpoints, we advise to configure their clien
 
 Please follow these instructions.
 
-1.  Use our [documentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text) to get the list of regionally available endpoints.
+1.  Use [our documentation](/azure/cognitive-services/speech-service/rest-speech-to-text) to get the list of regionally available endpoints.
 2.  Select a primary and one or more secondary/backup regions from the list.
 3.  From Azure portal, create Speech Service resources for each region selected
     -  If you have set a specific quota, you may also consider setting the same quota in the backup regions. See details in [Speech service Quotas and Limits](/azure/cognitive-services/speech-service/speech-services-quotas-and-limits).
@@ -72,7 +72,7 @@ Custom Speech Service is not supporting automatic failover. For those customers 
 
 1.  Create your custom model in one main region (Primary).
 2.  Run the [Model Copy API](https://eastus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) to replicate the custom model to all prepared regions (Secondary).
-3.  Go to Speech Studio to load the copied model and create a new endpoint in the secondary region. See details on how to deploy a new model in [Train and deploy a Custom Speech model](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-speech-train-model).
+3.  Go to Speech Studio to load the copied model and create a new endpoint in the secondary region. See how to deploy a new model in [Train and deploy a Custom Speech model](/azure/cognitive-services/speech-service/how-to-custom-speech-train-model).
     -  If you have set a specific quota, you may also consider setting the same quota in the backup regions. See details in [Speech service Quotas and Limits](/azure/cognitive-services/speech-service/speech-services-quotas-and-limits).
 4.  Configure your client to fail over on persistent errors as with the default endpoints usage.
 
