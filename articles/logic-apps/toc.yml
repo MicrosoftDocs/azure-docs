@@ -215,17 +215,11 @@
         href: logic-apps-enterprise-integration-edifact-decode.md
       - name: Handle EDIFACT files with UNH2.5 segment
         href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
-      - name: EDIFACT CONTRL message
+      - name: EDIFACT CONTRL acknowledgments and error codes
         href: logic-apps-enterprise-integration-edifact-contrl-acknowledgment.md
-      - name: EDIFACT CONTRL message error codes
-        href: logic-apps-enterprise-integration-edifact-contrl-acknowledgment-error-codes.md
-      - name: EDIFACT CONTRL message as a technical acknowledgement
-        href: logic-apps-enterprise-integration-edifact-contrl-message-as-technical-acknowledgment.md
-      - name: EDIFACT CONTRL message as a functional acknowledgement
-        href: logic-apps-enterprise-integration-edifact-contrl-message-as-functional-acknowledgment.md
     - name: RosettaNet messaging
-      items:
-      - name: Exchange RosettaNet messages
+      items: 	
+      - name: Exchange RosettaNet messages	
         href: logic-apps-enterprise-integration-rosettanet.md
     - name: X12 messaging
       items:
