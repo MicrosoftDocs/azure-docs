@@ -84,13 +84,13 @@ MMR uses remote apps and the session desktop for Microsoft Edge and Google Chrom
 
 To run the extension on Microsoft Edge manually, look for the yellow exclamation mark on the overflow menu. You should see a prompt to enable the Azure Virtual Desktop Multimedia Redirection extension. Select **Enable extension**.
 
-![](media/4216b8bafb4cfea75905368809f8a566.png)
-
 ### Google Chrome
 
-To run the extension on Google Chrome manually, look for the notification message that says the new extension was installed. Select the notification to allow your users to enable the extension. Users should also pin the extension so that they can see from the icon if MMR is connected.
+To run the extension on Google Chrome manually, look for the notification message that says the new extension was installed, as shown in the following screenshot. 
 
-![](media/e85a8361045bcad90f0898294b556748.png)
+![A screenshot of the Google Chrome taskbar. There's a notification tab that says "New Extension Added."](media/chrome-notification.png)
+
+Select the notification to allow your users to enable the extension. Users should also pin the extension so that they can see from the icon if MMR is connected.
 
 Once the extensions have been enabled head over to YouTube and enjoy some smooth video playback.
 
@@ -100,11 +100,9 @@ To quickly tell if MMR is active in your browser, we've added the following icon
 
 | Icon State  | Definition  |
 |-----------------|-----------------|
-| [./media/image3.png](./media/image3.png) | By default, this is the icon appearance when first loaded. |
-| [./media/image4.png](./media/image4.png) | If the Host VM fails to connect the client device there is an issue with the setup. We denote this state with a red X over the icon. |
-| [./media/image5.png](./media/image5.png) | If the host VM successfully connects to the client device MMR playback is enabled.    |
-
-![](media/76b945f80c70a70b5bd3eb6f141d8871.png)
+| [The default Azure Virtual Desktop program icon with no status applied.](/media/icon-default.png) | This is the default icon appearance with no status applied. |
+| [The Azure Virtual Desktop program icon with a red square with an x that indicates MMR isn't working.](/media/icon-disconnect.png) | The red square with an "X" inside of it means that the client wasn't able to connect to MMR. |
+| [The Azure Virtual Desktop program icon with a green square with a check mark inside of it, indicating that MMR is working.](/media/icon-connect.png) | The green square with a check mark inside of it means that the client successfully connected to MMR. |
 
 Selecting the icon will display a pop-up menu that has a checkbox you can select to enable or disable MMR on all websites. It also lists the version numbers for each component of the service.
 
@@ -118,46 +116,47 @@ To send us feedback:
 
 2. Select **Report a problem**.
 
-3. Use the same title on both issue reports, but specify where you're submitting the report from by puttinge either "Client" or "Host" at the beginning.
+3. Use the same title on both issue reports, but specify where you're submitting the report from by putting either "[Client]" or "[Host]" at the beginning.
 
-    ![Graphical user interface, text, application, email Description automatically generated](media/0027d0bd2f478fdfbeb5274b6921f9a5.png)
+    For example, if you're submitting an issue from the client, you'd format it like this:
 
-    ![Graphical user interface, text, application, email Description automatically generated](media/1611e80268d9502ced92104641346b47.png)
+    >[Client] Title of your report
+
+    If you're submitting an issue from the host, you'd format it like this:
+
+    >[Host] Title of your report
 
 4. In the **Explain in more detail** field, describe the issue you're experiencing. We recommend also including the URL of the video you were watching when the issue happened.
 
 5. Once you're done, select **Next**.
 
-6. Select **Problem**, then **Remote Desktop apps**.
+6. Select the **Problem** bubble, then select **Apps** and **Remote Desktop** from the two drop-down menus, as shown in the following screenshot.
 
-    ![Graphical user interface, text, application, email Description automatically generated](media/a40cee2235418bbf205bf45465115031.png)
+    ![A screenshot of the "2. Choose a category" window. The user has selected the Problem bubble, then has selected Apps and Remote Desktop in the drop-down menus below it.](media/problem-category.png)
 
-7. Select **Next**
+7. Select **Next**.
 
 8. Check to see if there's a similar issue in the list to the one you plan to submit.
    
+   - If a bubble appears that links to an active bug, make sure the bug's description matches the issue you're reporting. If it does, select the bubble, then select **Link to bug**, as shown in the following screenshot.
 
-   - If you see a similar issue below that looks like yours, select the item, then select **Link to bug**.
+    ![A screenshot of the "3. Find similar feedback" window. The user has selected the bubble for the option "Link to bug number 32350300 Active."](media/link-to-bug.png)
 
-    ![Graphical user interface, text, application, email Description automatically generated](media/894218127002fa7c4862a0241a9cd0c3.png)
+    - If you don't see a similar issue, select **Make new bug**.
 
-    - If you don't see a similar issue, select **New feedback** > **Make new bug**.
-
-    ![Graphical user interface, table Description automatically generated](media/1318537aef2bf2dcaf162b511b8145c2.png)
+    ![A screenshot of the "3. Find similar feedback window." This time, the "Link to bug" option is absent, and the user has instead selected "Make new bug."](media/make-new-bug.png)
 
 9. Select **Next**.
 
-10. In the **Add more details** window, make sure to answer all questions with as much detail as possible. Make sure to select **Include data about Remote Desktop (Default)**.
+10. In the **Add more details** window, select **Include data about Remote Desktop (Default)**, then answer all questions with as much detail as possible.
 
-    ![Graphical user interface Description automatically generated](media/48da9fd8bc5c188fc0a87c2edb0978f8.png)
-
-    If you'd like to add a video recording of the issue, select **Start recording** and do the process that led to the issue happening. When you're done, return to the browser, then test the video to make sure it recorded properly.
+    If you'd like to add a video recording of the issue, select **Include data about Remote Desktop (Default)**, then select the **Start recording** button. While recording, open Remote Desktop and do the process that led to the issue happening. When you're done, return to the browser, then test the video to make sure it recorded properly.
 
     Once you're done, agree to send the attached files and diagnostics to Microsoft, then select **Submit**.
 
-    ![Graphical user interface, text, application, email Description automatically generated](media/5bb373dc66fbe3cd9ad17b5a0d1c8193.png)
+### Known issues and limitations
 
-## Known issues and limitations
+The following issues are ones we're already aware of, so you won't need to report them:
 
 - MMR only works on the Windows Desktop client, not the web client.
 
@@ -173,3 +172,7 @@ To send us feedback:
 - Installing the MMR extensions on host machines with the MSI installer will either prompt users to accept the extension on first run or display a warning or error message. If users deny this prompt, it can cause the extensions not to load. To avoid this, install the extensions by [editing the group policy](#managing-group-policies-for-the-mmr-browser-extension).
 
 - When you resize the video window, the window's size will adjust faster than the video itself. You'll also see this issue when miniizing and maximizing the window. 
+
+## Next steps
+
+If you're interested in video streaming on other parts of Azure Virtual Desktop, check out [Teams for Azure Virtual Desktop](teams.md).

@@ -124,6 +124,8 @@
     href: configure-adfs-sso.md
   - name: Configure automatic updates
     href: configure-automatic-updates.md
+  - name: Set up multimedia redirection (preview)
+    href: multimedia-redirection.md
   - name: Install language packs
     href: language-packs.md
   - name: Use Azure Advisor
