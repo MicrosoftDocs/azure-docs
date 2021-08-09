@@ -29,7 +29,7 @@ Importantly, if the Azure Arc-enabled data services are directly connected to Az
 
 Additionally, Azure Active Directory and Azure Role-Based Access Control can be used in the directly connected mode only because there is a dependency on a continuous and direct connection to Azure to provide this functionality.
 
-Some Azure-attached services are only available when they can be directly reached such as the Azure Defender security services, Container Insights, and Azure Backup to blob storage.
+Some Azure-attached services are only available when they can be directly reached such as Container Insights, and Azure Backup to blob storage.
 
 ||**Indirectly connected**|**Directly connected**|**Never connected**|
 |---|---|---|---|
@@ -52,7 +52,6 @@ Some Azure-attached services are only available when they can be directly reache
 |**Monitoring**|Supported<br/>Local monitoring using Grafana and Kibana dashboards.|Supported<br/>In addition to local monitoring dashboards, you can _optionally_ send monitoring data and logs to Azure Monitor for at-scale monitoring of multiple sites in one place. **Pending availability of directly connected mode**|
 |**Authentication**|Use local username/password for data controller and dashboard authentication. Use SQL and Postgres logins or Active Directory (AD is not currently supported, will be in preview soon) for connectivity to database instances.  Use K8s authentication providers for authentication to the Kubernetes API.|In addition to or instead of the authentication methods for the indirectly connected mode, you can _optionally_ use Azure Active Directory. **Pending availability in directly connected mode**|
 |**Role-based access control (RBAC)**|Use Kubernetes RBAC on Kubernetes API. Use SQL and Postgres RBAC for database instances.|You can use Azure Active Directory and Azure RBAC.|
-|**Azure Defender**|Not supported|Planned for future|
 
 ## Connectivity requirements
 
@@ -70,7 +69,6 @@ Some Azure-attached services are only available when they can be directly reache
 |**Azure Active Directory (AAD) (Future)**|Customer environment -> Azure -> Customer environment|Optional|Maybe, but you may already be paying for Azure AD|Direct only|If you want to use Azure AD for authentication, then connectivity must be established with Azure at all times. If you don’t want to use Azure AD for authentication, you can us Active Directory Federation Services (ADFS) over Active Directory. **Pending availability in directly connected mode**|
 |**Backup and restore**|Customer environment -> Customer environment|Required|No|Direct or indirect|The backup and restore service can be configured to point to local storage classes. **Pending availability in directly connected mode**|
 |**Azure backup - long term retention (Future)**| Customer environment -> Azure | Optional| Yes for Azure storage | Direct only |You may want to send backups that are taken locally to Azure Backup for long-term, off-site retention of backups and bring them back to the local environment for restore. **Pending availability in directly connected mode**|
-|**Azure Defender security services (Future)**|Customer environment -> Azure -> Customer environment|Optional|Yes|Direct only|**Pending availability in directly connected mode**|
 |**Provisioning and configuration changes from Azure portal**|Customer environment -> Azure -> Customer environment|Optional|No|Direct only|Provisioning and configuration changes can be done locally using Azure Data Studio or the appropriate CLI.  In directly connected mode, you will also be able to provision and make configuration changes from the Azure portal.|
 
 
