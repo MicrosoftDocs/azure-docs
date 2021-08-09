@@ -97,7 +97,7 @@ To prevent creating roles that can't be assigned or deleted, clone the CloudAdmi
 ## NSX-T Manager access and identity
 
 >[!NOTE]
->NSX-T 3.1.2 is currently supported for all new private clouds.
+>NSX-T [!INCLUDE [nsxt-version](nsxt-version.md)] is currently supported for all new private clouds.
 
 Use the *admin* account to access NSX-T Manager. It has full privileges and lets you create and manage Tier-1 (T1) Gateways, segments (logical switches), and all services. In addition, the privileges give you access to the NSX-T Tier-0 (T0) Gateway. A change to the T0 Gateway could result in degraded network performance or no private cloud access. Open a support request in the Azure portal to request any changes to your NSX-T T0 Gateway.
 

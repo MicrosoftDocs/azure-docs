@@ -11,11 +11,11 @@ Azure VMware Solution will apply important updates starting in March 2021. You'l
 
 ## July 23, 2021
 
-All new Azure VMware Solution private clouds are now deployed with NSX-T version 3.1.2. NSX-T version in existing private clouds will be upgraded through September, 2021 to NSX-T 3.1.2 release.
+All new Azure VMware Solution private clouds are now deployed with NSX-T version [!INCLUDE [nsxt-version](nsxt-version.md)]. NSX-T version in existing private clouds will be upgraded through September, 2021 to NSX-T [!INCLUDE [nsxt-version](nsxt-version.md)] release.
  
 You'll receive an email with the planned maintenance date and time. You can reschedule an upgrade. The email also provides details on the upgraded component, its effect on workloads, private cloud access, and other Azure services. 
 
-For more information on this NSX-T  version, see [VMware NSX-T Data Center 3.1.2 Release Notes](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/rn/VMware-NSX-T-Data-Center-312-Release-Notes.html).
+For more information on this NSX-T  version, see [VMware NSX-T Data Center [!INCLUDE [nsxt-version](nsxt-version.md)] Release Notes](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/rn/VMware-NSX-T-Data-Center-312-Release-Notes.html).
 
 
 ## May 25, 2021
