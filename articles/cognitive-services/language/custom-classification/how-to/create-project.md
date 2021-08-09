@@ -34,7 +34,7 @@ Custom text classification supports two types of project
 
 Login through the [Language studio portal](https://language.azure.com/) and select **Custom text classification**.
 
-![language-studio](../media/ctc-language-studio.png)
+:::image type="content" source="../media/language-studio.png" alt-text="language-studio" lightbox="../media/language-studio.png":::
 
 ### Connect your storage account to your resource
 
@@ -45,7 +45,7 @@ Login through the [Language studio portal](https://language.azure.com/) and sele
 
 1. Select your storage account from the drop down. If you cannot find your storage account, see [required permissions](../../concepts/service-requirements.md#set-permissions).
 
-    ![connect-storage](../media/ctc-connect-storage.png)
+    :::image type="content" source="../media/connect-storage.png" alt-text="connect-storage" lightbox="../media/connect-storage.png":::
 
 2. Click **Next**
 
@@ -53,7 +53,7 @@ Login through the [Language studio portal](https://language.azure.com/) and sele
 
 1. Select project type, for this project we will create a multi label classification project. You can learn more about the different project types [here](../definitions.md#project).
 
-    ![connect-storage](../media/ctc-project-type.png)
+    :::image type="content" source="../media/project-type.png" alt-text="connect-storage" lightbox="../media/project-type.png":::
 
 2. Click **Next**
 
@@ -68,11 +68,11 @@ Login through the [Language studio portal](https://language.azure.com/) and sele
     > [!NOTE]
     > If your files will be in multiple languages select the **multiple languages** option in project creation and set the **language** option to the language of the majority of your files.
     
-    ![create-project-1](../media/ctc-create-project-2.png)
+    :::image type="content" source="../media/create-project-2.png" alt-text="create-project-1" lightbox="../media/create-project-2.png":::
 
 4. Choose storage container
 
-    ![create-project-3](../media/ctc-create-project-3.png)
+    :::image type="content" source="../media/create-project-3.png" alt-text="create-project-3" lightbox="../media/create-project-3.png":::
 
 5. Review the data you entered and select **Create Project**.
 
@@ -91,7 +91,7 @@ Before proceeding with the following steps make sure that:
 
 2. From the left side menu select **Keys and Endpoint**. Use endpoint for the API requests and you will need the key for `Ocp-Apim-Subscription-Key` header.
 
-    ![get-endpoint-azure](../../media/get-endpoint-azure.png)
+    :::image type="content" source="../../media/get-endpoint-azure.png" alt-text="get-endpoint-azure" lightbox="../../media/get-endpoint-azure.png":::
 
 ## Create project
 
@@ -154,7 +154,7 @@ This request will return an error if:
 
 * Select **Project settings** from the left side menu.
 
-![project-details](../media/ctc-project-details.png)
+:::image type="content" source="../media/project-details.png" alt-text="project-details" lightbox="../media/project-details.png":::
 
 # [Using the APIs](#tab/api)
 
@@ -210,7 +210,7 @@ After you create your project you can only change its description. You cannot re
 
 * Click on **Save**
 
-![update-project-description](../media/ctc-update-project-description.png)
+:::image type="content" source="../media/update-project-description.png" alt-text="update-project-description" lightbox="../media/update-project-description.png":::
 
 ## Update project description using APIs
 
@@ -244,7 +244,7 @@ You will receive a 204 response indicating success.
 
 * View your model training status in the **Status** column, and the F1 score for the model in the **F1 score** column.
 
-![model-details](../media/ctc-model-details-1.png)
+:::image type="content" source="../media/model-details-1.png" alt-text="model-details" lightbox="../media/model-details-1.png":::
 
 # [Using the APIs](#tab/api)
 

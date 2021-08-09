@@ -40,7 +40,7 @@ Ensure the below resource roles are set correctly on the storage account:
 
 To set proper roles on your resource, go to your storage account page in [Azure](https://ms.portal.azure.com/), click on **Access Control (IAM)** blade on the left-nav bar. Then click on **Add** to **Add Role Assignments**, and choose the **Owner** or **Contributor** role. Search on the user name in the **Select** field.
 
-![ct-assign-roles-azure](../media/assign-roles-azure.png)
+:::image type="content" source="../media/assign-roles-azure.png" alt-text="ct-assign-roles-azure" lightbox="../media/assign-roles-azure.png":::
 
 ## Connect storage account to your resource
 
@@ -55,11 +55,11 @@ You will need to do these steps as part of the project creation flow for the fir
 
 1. Select **Create new project** from the top menu in your projects page.
 
-![create-project-1](../media/create-project-1.png)
+:::image type="content" source="../media/create-project-1.png" alt-text="create-project-1" lightbox="../media/create-project-1.png":::
 
 1. Select your storage account from the drop down. If you cannot find your storage account, make sure you have satisfied [required permissions](#Set-permission-on-storage-account).
 
-    ![connect-storage](../media/connect-storage.png)
+    :::image type="content" source="../media/connect-storage.png" alt-text="connect-storage" lightbox="../media/connect-storage.png":::
 
 1. Click **Next**
 
@@ -108,4 +108,4 @@ You can create and upload training files from Azure directly or through using th
 
 ## Next steps
 
-* Get Started with Language Studio for [extraction](extraction/ct-quickstart-language-studio.md) or [classification](classification/ctc-quickstart-language-studio.md)
+* Get Started with Language Studio for [classification](../quickstart/using-language-studio.md)
