@@ -7,13 +7,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 07/22/2021
 ms.author: alkohli
 ---
 
 # Use self-managed shipping for Azure Data Box in the Azure portal
 
 This article describes self-managed shipping tasks to order, pick up, and drop-off of an Azure Data Box device. You can manage the Data Box device using the Azure portal.
+
+> [!NOTE]
+> To get answers to frequently asked questions about Data Box orders and shipments, see [Data Box FAQ](data-box-faq.yml).
 
 ## Prerequisites
 

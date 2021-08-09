@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include 
-ms.date: 04/14/2021
+ms.date: 08/02/2021
 ms.author: aahi
 ---
 
@@ -28,7 +28,7 @@ The following entity categories are returned when you're sending requests to the
 | [Address](#category-address) | Full mailing addresses.  |
 | [Email](#category-email) | Email addresses.   |
 | [URL](#category-url) | URLs to websites.  |
-| [IP](#category-ip) | Network IP addresses.  |
+| [IPAddress](#category-ipaddress) | Network IP addresses.  |
 | [DateTime](#category-datetime) | Dates and times of day. | 
 | [Quantity](#category-quantity) | Numbers and numeric quantities.  |
 | [Azure information](#azure-information) | Identifiable Azure information, such as authentication information.  |
@@ -308,7 +308,7 @@ This category contains the following entity:
 
 :::row-end:::
 
-### Category: IP
+### Category: IPAddress
 
 This category contains the following entity:
 
@@ -316,7 +316,7 @@ This category contains the following entity:
     :::column span="":::
         **Entity**
 
-        IP
+        IPAddress
 
     :::column-end:::
     :::column span="2":::
@@ -324,7 +324,7 @@ This category contains the following entity:
 
         Network IP addresses. Also returned with `domain=phi`.
 
-        To get this entity category, add `IP` to the `pii-categories` parameter. `IP` will be returned in the API response if detected.
+        To get this entity category, add `IPAddress` to the `pii-categories` parameter. `IPAddress` will be returned in the API response if detected.
       
     :::column-end:::
 

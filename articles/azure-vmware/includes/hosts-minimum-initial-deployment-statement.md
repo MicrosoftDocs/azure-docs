@@ -3,9 +3,12 @@ title: Minimum initial host deployment
 description: The minimum initial deployment is three hosts. 
 ms.topic: include
 ms.date: 04/28/2021
+author: shortpatti
+ms.author: v-patsho
+ms.service: azure-vmware
 ---
 
-<!-- Used in production-ready-deployment-steps.md and concepts-private-clouds-clusters.md -->
+<!-- Used in plan-private-cloud-deployment.md and concepts-private-clouds-clusters.md -->
 
 For each private cloud created, there's one vSAN cluster by default. You can add, delete, and scale clusters.  The minimum number of hosts per cluster and the initial deployment is three. 
 

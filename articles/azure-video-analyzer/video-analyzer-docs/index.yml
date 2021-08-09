@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: Juliako #Required; your GitHub user alias, with correct capitalization.
   ms.author:  juliako #Required; microsoft alias of author; optional team alias.
-  ms.date: 03/11/2021 #Required; mm/dd/yyyy format.
+  ms.date: 06/01/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -45,7 +45,7 @@ landingContent:
       links:            
         - text: Detect motion, record video on edge devices
           url: detect-motion-record-video-edge-devices.md
-        - text: Detect Motion, record video in the cloud
+        - text: Detect motion, record video in the cloud
           url: detect-motion-record-video-clips-cloud.md
     - linkListType: tutorial
       links:            
