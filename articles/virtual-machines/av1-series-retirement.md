@@ -24,7 +24,7 @@ You can resize your virtual machines to the Av2-series using the [Azure portal](
 > [!IMPORTANT]
 > Resizing the virtual machine will result in a restart. It is suggested to perform actions that will result in a restart during off-peak business hours. 
 
-### Azure Portal 
+### Azure portal 
 1. Open the [Azure portal](https://portal.azure.com).
 1. Type **virtual machines** in the search.
 1. Under **Services**, select **Virtual machines**.
