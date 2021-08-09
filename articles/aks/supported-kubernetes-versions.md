@@ -102,7 +102,7 @@ To install or update your version of `kubectl`, run `az aks install-cli`.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-To install or update your version of `kubectl`, run [Install-AzAksKubectl](install-azakskubectl).
+To install or update your version of `kubectl`, run [Install-AzAksKubectl][install-azakskubectl].
 
 ---
 
