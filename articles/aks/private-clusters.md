@@ -95,9 +95,9 @@ The Public DNS option can be leveraged to simplify routing options for your Priv
 
 ![Public DNS](https://user-images.githubusercontent.com/50749048/124776520-82629600-df0d-11eb-8f6b-71c473b6bd01.png)
 
-1. By specifying `--enable-public-fqdn` when you provision a private cluster, you create an additional A record for the new FQDN in the AKS public DNS zone. The agentnode still uses the A record in the private zone to resolve the IP address of the private endpoint for communication to the API server.
+1. By specifying `--enable-public-fqdn` when you provision a private AKS cluster, AKS creates an additional A record for its FQDN in Azure public DNS. The agent nodes still use the A record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server.
 
-2. If you use both `--enable-public-fqdn` and `--private-dns-zone none`, the cluster public FQDN and private FQDN have the same value. The value is in the AKS public DNS zone `hcp.{REGION}.azmk8s.io`. It's a breaking change for the private DNS zone mode cluster. 
+2. If you use both `--enable-public-fqdn` and `--private-dns-zone none`, the cluster will only have a public FQDN. When using this option, no Private DNS Zone is created or used for the name resolution of the FQDN of the API Server. The IP of the API is still private and not publicly routable.
 
 ### Register the `EnablePrivateClusterPublicFQDN` preview feature
 
