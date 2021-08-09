@@ -1,0 +1,163 @@
+---
+title: Create an access review of Azure resource and Azure AD roles in Privileged Identity Management - Azure AD | Microsoft Docs
+description: Learn how to create an access review of Azure resource and Azure AD roles in Azure AD Privileged Identity Management (PIM).
+services: active-directory
+documentationcenter: ''
+author: curtand
+manager: daveba
+editor: ''
+ms.service: active-directory
+ms.workload: identity
+ms.topic: how-to
+ms.workload: identity
+ms.subservice: pim
+ms.date: 8/9/2021
+ms.author: curtand
+ms.custom: pim
+ms.collection: M365-identity-device-management
+---
+
+# Create an access review of Azure resource and Azure AD roles in Privileged Identity Management
+
+The need for access to privileged Azure resource and Azure AD roles by employees changes over time. To reduce the risk associated with stale role assignments, you should regularly review access. You can use Azure Active Directory (Azure AD) Privileged Identity Management (PIM) to create access reviews for privileged access to Azure resource and Azure AD roles. You can also configure recurring access reviews that occur automatically. This article describes how to create one or more access reviews.
+
+## Prerequisites
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)] For more information about licenses for PIM, refer to [License requirements to use Privileged Identity Management](subscription-requirements.md).
+
+ To create access reviews for Azure resources, you must be assigned to the [Owner](../../role-based-access-control/built-in-roles.md#owner) or the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role for the Azure resources. To create access reviews for Azure AD roles, you must be assigned to the [Global Administrator](../roles/permissions-reference.md#global-administrator) role.
+
+> [!Note]
+> Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles (Preview) with an Azure Active Directory Premium P2 edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required.
+
+
+
+## Create access reviews
+
+1. Sign in to [Azure portal](https://portal.azure.com/) as a user that is assigned to one of the prerequisite role(s).
+
+2. Select **Identity Governance**.
+ 
+3. For **Azure AD roles**, select **Azure AD roles** under **Azure AD Privileged Identity Management**. For **Azure resources**, select **Azure resources** under **Azure AD Privileged Identity Management**.
+
+     <kbd>![Select Identity Governance in Azure Portal](./media/pim-create-azuread-roles-and-resource-roles-review/identity-governance.png)</kbd>
+ 
+4. For **Azure AD roles**, select **Azure AD roles** again under **Manage**. For **Azure resources**, select the resource you want to manage, such as a subscription.
+
+
+5. Under Manage, select **Access reviews**, and then select **New** to create a new access review.
+
+    <kbd> ![Azure AD roles - Access reviews list showing the status of all reviews](./media/pim-create-azuread-roles-and-resource-roles-review/access-reviews.png) </kbd>
+
+6. Name the access review. Optionally, give the review a description. The name and description are shown to the reviewers.
+
+    <kbd> ![Create an access review - Review name and description](./media/pim-create-azuread-roles-and-resource-roles-review/name-description.png) </kbd>
+
+7. Set the **Start date**. By default, an access review occurs once, starts the same time it's created, and it ends in one month. You can change the start and end dates to have an access review start in the future and last however many days you want.
+
+   <kbd> ![Start date, frequency, duration, end, number of times, and end date](./media/pim-create-azuread-roles-and-resource-roles-review/start-end-dates.png) </kbd> 
+
+8. To make the access review recurring, change the **Frequency** setting from **One time** to **Weekly**, **Monthly**, **Quarterly**, **Annually**, or **Semi-annually**. Use the **Duration** slider or text box to define how many days each review of the recurring series will be open for input from reviewers. For example, the maximum duration that you can set for a monthly review is 27 days, to avoid overlapping reviews.
+
+9. Use the **End** setting to specify how to end the recurring access review series. The series can end in three ways: it runs continuously to start reviews indefinitely, until a specific date, or after a defined number of occurrences has been completed. You, another User administrator, or another Global administrator can stop the series after creation by changing the date in **Settings**, so that it ends on that date.
+
+
+10. In the **Users Scope** section, select the scope of the review. To review users and groups with access to the Azure AD role, select **Users and Groups**, or select **(Preview) Service Principals** to review the machine accounts with access to the Azure resource or Azure AD role.
+
+
+    <kbd> ![Users scope to review role membership of](./media/pim-create-azuread-roles-and-resource-roles-review/users.png) </kbd>
+
+
+11. Under **Review role membership**, select the privileged Azure resource or Azure AD roles to review. 
+
+    > [!NOTE]
+    > Selecting more than one role will create multiple access reviews. For example, selecting five roles will create five separate access reviews.
+
+12. In **assignment type**, scope the review by how the principal was assigned to the role. Choose **(Preview) eligible assignments only** to review eligible assignments (regardless of activation status when the review is created) or **(Preview) active assignments only** to review active assignments. Choose **all active and eligible assignments** to review all assignments regardless of type.
+
+    <kbd> ![Reviewers list of assignment types](./media/pim-create-azuread-roles-and-resource-roles-review/assignment-type-select.png) </kbd>
+
+
+13. In the **Reviewers** section, select one or more people to review all the users. Or you can select to have the members review their own access.
+
+    ![Reviewers list of selected users or members (self)](./media/pim-create-azuread-roles-and-resource-roles-review/reviewers.png)
+
+    - **Selected users** - Use this option to designate a specific user to complete the review. This option is available regardless of the Scope of the review, and the selected reviewers can review users, groups and service principals. 
+    - **Members (self)** - Use this option to have the users review their own role assignments. Groups assigned to the role will not be a part of the review when this option is selected.This option is only available if the review is scoped to **Users and Groups**.
+    - **Manager** – Use this option to have the user’s manager review their role assignment. This option is only available if the review is scoped to **Users and Groups**. Upon selecting Manager, you will also have the option to specify a fallback reviewer. Fallback reviewers are asked to review a user when the user has no manager specified in the directory. Groups assigned to the role will be reviewed by the Fallback reviewer if one is selected. 
+
+### Upon completion settings
+
+1. To specify what happens after a review completes, expand the **Upon completion settings** section.
+
+    <kbd> ![Upon completion settings to auto apply and should review not respond](./media/pim-create-azuread-roles-and-resource-roles-review/upon-completion-settings.png) </kbd>
+
+2. If you want to automatically remove access for users that were denied, set **Auto apply results to resource** to **Enable**. If you want to manually apply the results when the review completes, set the switch to **Disable**.
+
+3. Use the **If reviewer don't respond** list to specify what happens for users that are not reviewed by the reviewer within the review period. This setting does not impact users who have been reviewed by the reviewers manually. If the final reviewer's decision is Deny, then the user's access will be removed.
+
+    - **No change** - Leave user's access unchanged
+    - **Remove access** - Remove user's access
+    - **Approve access** - Approve user's access
+    - **Take recommendations** - Take the system's recommendation on denying or approving the user's continued access
+    
+4. Use the **Action to apply on denied guest users** list to specify what happens for guest users that are denied:
+
+    <kbd> ![Upon completion settings - Action to apply on denied guest users](./media/pim-create-azuread-roles-and-resource-roles-review/action-to-apply-on-denied-guest-users.png) </kbd>
+
+
+5. You can send notifications to additional users or groups (Preview) to receive review completion updates. This feature allows for stakeholders other than the review creator to be updated on the progress of the review. To use this feature, select **Select User(s) or Group(s)** and add an additional user or group upon you want to receive the status of completion.
+
+    <kbd>  ![Upon completion settings - Add additional users to receive notifications](./media/pim-create-azuread-roles-and-resource-roles-review/upon-completion-settings-additional-receivers.png) </kbd>
+
+### Advanced settings
+
+1. To specify additional settings, expand the **Advanced settings** section.
+
+    <kbd> ![Advanced settings for show recommendations, require reason on approval, mail notifications, and reminders](./media/pim-create-azuread-roles-and-resource-roles-review/advanced-settings.png) </kbd>
+
+1. Set **Show recommendations** to **Enable** to show the reviewers the system recommendations based the user's access information.
+
+1. Set **Require reason on approval** to **Enable** to require the reviewer to supply a reason for approval.
+
+1. Set **Mail notifications** to **Enable** to have Azure AD send email notifications to reviewers when an access review starts, and to administrators when a review completes.
+
+1. Set **Reminders** to **Enable** to have Azure AD send reminders of access reviews in progress to reviewers who have not completed their review.
+1. The content of the email sent to reviewers is auto-generated based on the review details, such as review name, resource name, due date, etc. If you need a way to communicate additional information such as additional instructions or contact information, you can specify these details in the **Additional content for reviewer email** which will be included in the invitation and reminder emails sent to assigned reviewers. The highlighted section below is where this information will be displayed.
+
+    ![Content of the email sent to reviewers with highlights](./media/pim-create-azuread-roles-and-resource-roles-review/email-info.png) 
+
+## Manage the access review
+
+You can track the progress as the reviewers complete their reviews on the **Overview** page of the access review. No access rights are changed in the directory until the review is completed. Below are screenshots showing the respective overview pages for both **Azure resources** and **Azure AD roles** access reviews.
+
+![Access reviews overview page showing the details of the access review for Azure resources](./media/pim-resource-roles-start-access-review/access-review-overview.png)
+
+<kbd> ![Access reviews overview page showing the details of the access review for Azure AD roles](./media/pim-create-azuread-roles-and-resource-roles-review/access-review-overview.png) </kbd>
+
+If this is a one-time review, then after the access review period is over or the administrator stops the access review, follow the steps in [Complete an access review of Azure resource and Azure AD roles](pim-complete-azuread-roles-and-resource-roles-review.md) to see and apply the results.  
+
+To manage a series of access reviews, navigate to the access review, and you will find upcoming occurrences in Scheduled reviews, and edit the end date or add/remove reviewers accordingly.
+
+Based on your selections in **Upon completion settings**, auto-apply will be executed after the review's end date or when you manually stop the review. The status of the review will change from **Completed** through intermediate states such as **Applying** and finally to state **Applied**. You should expect to see denied users, if any, being removed from roles in a few minutes.
+
+> [!IMPORTANT]
+> If a group is assigned to **Azure resource roles**, the reviewer of the Azure resource role will see the expanded list of the users in a nested group. Should a reviewer deny a member of a nested group, that deny result will not be applied successfully because the user will not be removed from the nested group. For **Azure AD roles**, the concept of role-assignable groups applies, where a group can be assigned to the role. When this happens, the group will show up in the review instead of expanding the members of the group, and a reviewer will either approve or deny access to the entire group.
+
+## Update the access review
+
+After one or more access reviews have been started, you may want to modify or update the settings of your existing access reviews. Here are some common scenarios that you might want to consider:
+
+- **Adding and removing reviewers** - When updating access reviews, you may choose to add a fallback reviewer in addition to the primary reviewer. Primary reviewers may be removed when updating an access review. However, fallback reviewers are not removable by design.
+- **Reminding the reviewers** - When updating access reviews, you may choose to enable the reminder option under Advanced Settings. Once enabled, users will receive an email notification at the midpoint of the review period. 
+
+    <kbd> ![Screenshot of the reminder option under Access Reviews settings](./media/pim-create-azuread-roles-and-resource-roles-review/reminder-setting.png) </kbd>
+
+- **Updating the settings** - If an access review is recurring, there are separate settings under "Current" versus under "Series". Updating the settings under "Current" will only apply changes to the current access review while updating the settings under "Series" will apply changes to all the remaining series (The settings for "Current" will not be updated under "Series" and vice versa).
+
+    <kbd> ![Screenshot of the settings page under Access Reviews](./media/pim-create-azuread-roles-and-resource-roles-review/current-v-series-setting.png) </kbd>
+
+## Next steps
+
+- [Perform an access review of Azure resource and Azure AD roles in PIM](pim-perform-azuread-roles-and-resource-roles-review.md)
+- [Complete an access review of Azure resource and Azure AD roles in PIM](pim-complete-azuread-roles-and-resource-roles-review.md)
