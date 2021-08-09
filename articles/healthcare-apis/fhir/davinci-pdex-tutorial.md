@@ -1,35 +1,36 @@
 ---
-title: Tutorial - Da Vinci PDex - Azure API for FHIR
-description: This tutorial walks through setting up the Azure API for FHIR to pass tests for the Da Vinci Payer Data Exchange Implementation Guide.
+title: Tutorial - Da Vinci PDex - Azure Healthcare APIs (preview)
+description: This tutorial walks through setting up the FHIR service to pass tests for the Da Vinci Payer Data Exchange Implementation Guide.
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 06/07/2021
+ms.date: 08/03/2021
 ---
 
 # Da Vinci PDex
 
-In this tutorial, we'll walk through setting up the Azure API for FHIR to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [Da Vinci Payer Data Exchange Implementation Guide](http://hl7.org/fhir/us/davinci-pdex/toc.html) (PDex IG).
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+In this tutorial, we'll walk through setting up the FHIR service in the Azure Healthcare APIs (hear by called the FHIR service) to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [Da Vinci Payer Data Exchange Implementation Guide](http://hl7.org/fhir/us/davinci-pdex/toc.html) (PDex IG).
 
 > [!NOTE]
-> For all these tests, we'll run them against the JSON tests. The Azure API for FHIR supports both JSON and XML, but it doesn’t have separate endpoints to access JSON or XML. Because of this, all the XML tests will fail. If you want to view the capability statement in XML you simply pass the \_format parameter: \`GET
+> For all these tests, we'll run them against the JSON tests. The FHIR service supports both JSON and XML, but it doesn’t have separate endpoints to access JSON or XML. Because of this, all the XML tests will fail. If you want to view the capability statement in XML you simply pass the \_format parameter: \`GET
 {fhirurl}/metadata?\_format=xml\`
 
 ## Touchstone capability statement
 
-The first set of tests that we'll focus on is testing the Azure API for FHIR against the PDex IG capability statement. This includes three tests:
+The first set of tests that we'll focus on is testing the FHIR service against the PDex IG capability statement. This includes three tests:
 
 * The first test validates the basic capability statement against the IG requirements and will pass without any updates.
 
 * The second test validates all the profiles have been added for US Core. This test will pass without updates but will include a bunch of warnings. To have these warnings removed, you need to [load the US Core profiles](validation-against-profiles.md). We've created a [sample HTTP file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/USCore.http) that walks through creating all the profiles. You can also get the [profiles](http://hl7.org/fhir/us/core/STU3.1.1/profiles.html#profiles) from the HL7 site directly, which will have the most current versions.
 
-* The third test validates that the [$patient-everything operation](patient-everything.md) is supported. Right now, this test will fail. The operation will be available in mid-June 2021 in the Azure API for FHIR and is available now in the open-source FHIR server on Cosmos DB. However, it is missing from the capability statement, so this test will fail until we release a fix to bug [1989](https://github.com/microsoft/fhir-server/issues/1989). 
+* The third test validates that the [$patient-everything operation](patient-everything.md) is supported.
 
- 
 :::image type="content" source="media/cms-tutorials/davinci-pdex-test-script-failed.png" alt-text="Da Vinci PDex execution failed.":::
 
 ## Touchstone $member-match test
@@ -50,9 +51,11 @@ The next tests we'll review is the [patient by reference](https://touchstone.aeg
 
 The final test we'll walk through is testing patient-everything. For this test, you'll need to load a patient, and then you'll use that patient’s ID to test that you can use the $everything operation to pull all data related to the patient.
 
+:::image type="content" source="media/cms-tutorials/davinci-pdex-test-patient-everything.png" alt-text="touchstone patient/$everything test passed.":::
+
 ## Next steps
 
-In this tutorial, we walked through how to pass the Payer Exchange tests in Touchstone. Next, you can learn about all the Azure API for FHIR features.
+In this tutorial, we walked through how to pass the Payer Exchange tests in Touchstone. Next, you can learn how to test the Da Vinci PDEX Payer Network (Plan-Net) Implementation Guide.
 
 >[!div class="nextstepaction"]
->[Supported features](fhir-features-supported.md)  
+>[Da Vinci Plan Net](davinci-plan-net.md)  
