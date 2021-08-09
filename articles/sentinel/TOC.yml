@@ -343,12 +343,10 @@
       href: watchlists.md
   - name: Hunt for threats
     items:
-    - name: Hunt with notebooks
-      items:
-      - name: Overview
-        href: notebooks.md
-      - name: Get started with ML notebooks
-        href: notebook-get-started.md
+    - name: Hunt with Jupyter notebooks
+      href: notebooks.md
+    - name: Run the Getting Started ML notebook
+      href: notebook-get-started.md
       - name: Configure ML notebooks and MSTICPy
         href: notebook-configure.md
     - name: Hunt with bookmarks

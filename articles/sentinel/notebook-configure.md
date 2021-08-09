@@ -27,17 +27,7 @@ MSTICPy is a Python package used by many Azure Sentinel Jupyter notebooks to pro
 
 Jupyter notebooks are created, edited, and run in the Azure Sentinel **Notebooks** page, which provides access to your Azure Machine Learning (ML) workspace and terminal. For more information, see [Use notebooks to power investigations](hunting.md#use-notebooks-to-power-investigations).
 
-## About Jupyter notebooks
 
-[Jupyter](http://jupyter.org/) is an interactive development and data manipulation environment presented in a browser. A Jupyter notebook is a document made up of cells that contain interactive code, the code output, and other items such as text and images.
-
-The name Jupyter comes from the core programming languages that it supports, **Ju**lia, **Pyt**hon, and **R**. You can use any of these languages, and others such as PowerShell, in Jupyter notebooks. This notebook uses Python.
-
-Python is a well-established language with many materials and libraries to use for data analysis and security investigation. This capability makes it ideal for Azure Sentinel notebooks. Most notebooks in the [Azure Sentinel GitHub repo](https://github.com/Azure/Azure-Sentinel-Notebooks) use Python.
-
-- For more technical details about Jupyter, see [The Jupyter Project documentation](https://jupyter.org/documentation).
-- For more information about notebooks, see [The Infosec Jupyter Book](https://infosecjupyterbook.com).
-- For a comprehensive set of Python learnings and tutorials, see [Real Python](https://realpython.com).
 
 ## Run the Configuring your Notebook Environment notebook
 

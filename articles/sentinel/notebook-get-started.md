@@ -1,5 +1,5 @@
 --- 
-title: Tutorial - Get started with ML notebooks in Azure Sentinel | Microsoft Docs
+title: Run the Getting Started ML notebook in Azure Sentinel | Microsoft Docs
 description: Walk through the Azure Sentinel Getting Started Guide For Azure Sentinel ML Notebooks to learn the basics of Azure Sentinel notebooks and queries.
 services: sentinel
 author: batamig
@@ -9,15 +9,23 @@ ms.topic: how-to
 ms.date: 07/22/2021
 ---
 
-# Tutorial: Get started with ML notebooks in Azure Sentinel
+# Run the Getting Started ML notebook in Azure Sentinel
 
-This tutorial walks through the Azure Sentinel **Getting Started Guide For Azure Sentinel ML Notebooks** notebook, which focuses on setup and basic data queries.
+This article describes how to run the **Getting Started Guide For Azure Sentinel ML Notebooks** notebook, which focuses on setup activities and basic queries. 
 
-While this tutorial provides steps for running the notebook in your Azure ML workspace via Azure Sentinel, you can use similar steps to run notebooks in other environments, including local notebooks.
+The **Getting Started Guide for Azure Sentinel ML Notebooks** notebook also uses MSTICPy, a Python package that provides threat hunting and investigation functionality, including:
 
-> [!NOTE]
-> Jupyter notebooks are created, edited, and run in the Azure Sentinel **Notebooks** page, which provides access to your Azure Machine Learning (ML) workspace and terminal. For more information, see [Use notebooks to power investigations](hunting.md#use-notebooks-to-power-investigations).
->
+- Data querying against Azure Sentinel tables, Microsoft Defender for Endpoint, Splunk, and other data sources.
+- Threat intelligence lookups with TI providers, such as VirusTotal and AlienVault OTX.
+- Enrichment functions like GeoIP, IoC extraction, and WhoIs.
+- Visualization using event timelines, process trees, and geo mapping.
+- Advanced analyses like time series decomposition, anomaly detection, and clustering.
+
+The steps in this article describe how to run the notebook in your Azure ML workspace via Azure Sentinel, but you can use similar steps to run notebooks in other environments, including locally.
+
+To use MSTICPy notebooks outside of Azure Sentinel and Azure Machine Learning (ML), you'll also need to configure your Python environment. Install Python 3.6 or later with the Anaconda distribution, which includes many of the required packages.
+
+For more information, see [Use notebooks to power investigations](hunting.md#use-notebooks-to-power-investigations).
 
 ## Prerequisites
 

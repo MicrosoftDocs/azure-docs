@@ -113,9 +113,13 @@ Notebooks provide a kind of virtual sandbox, complete with it own kernel, where 
 
 Notebooks may be helpful when your hunting or investigation becomes too large to remember easily, view details, or when you need to save queries and results. To help you create and share notebooks, Azure Sentinel provides [Jupyter Notebooks][jupyter.org](https://jupyter.org), an open-source, interactive development and data manipulation environment, integrated directly in the Azure Sentinel **Notebooks** page.
 
-For more information, see [Use Jupyter Notebook to hunt for security threats](notebooks.md) and the [Jupyter introductory documentation](https://jupyter.readthedocs.io/en/latest/tryjupyter.html).
+For more information, see:
 
-The following sections describe value added by Jupyter Notebooks in Azure Sentinel.
+[Use Jupyter Notebook to hunt for security threats](notebooks.md)
+[The Jupyter Project documentation](https://jupyter.org/documentation)
+[Jupyter introductory documentation](https://jupyter.readthedocs.io/en/latest/tryjupyter.html).
+[The Infosec Jupyter Book](https://infosecjupyterbook.com)
+[Real Python tutorials](https://realpython.com)
 
 ### Data persistence, repeatability, and backtracking
 

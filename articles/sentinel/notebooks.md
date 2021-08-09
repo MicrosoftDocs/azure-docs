@@ -12,7 +12,7 @@ ms.custom: mvc
 ms.date: 06/24/2021
 ---
 
-# Use Jupyter Notebook to hunt for security threats
+# Use Jupyter notebooks to hunt for security threats
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
