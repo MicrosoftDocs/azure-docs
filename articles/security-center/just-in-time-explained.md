@@ -85,9 +85,7 @@ If you want to create custom roles that can work with JIT, you'll need the detai
 
 ## Next steps
 
-This page explained _why_ just-in-time (JIT) virtual machine (VM) access should be used. 
-
-Advance to the how-to article to learn about enabling JIT and requesting access to your JIT-enabled VMs:
+This page explained _why_ just-in-time (JIT) virtual machine (VM) access should be used. To learn about _how_ to enable JIT and request access to your JIT-enabled VMs, see the following:
 
 > [!div class="nextstepaction"]
 > [How to secure your management ports with JIT](security-center-just-in-time.md)

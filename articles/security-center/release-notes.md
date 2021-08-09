@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 08/04/2021
+ms.date: 08/09/2021
 ms.author: memildin
 
 ---
@@ -27,6 +27,8 @@ Updates in August include:
 
 - [Microsoft Defender for Endpoint for Linux now supported by Azure Defender for servers (in preview)](#microsoft-defender-for-endpoint-for-linux-now-supported-by-azure-defender-for-servers-in-preview)
 - [Two new recommendations for managing endpoint protection solutions (in preview)](#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview)
+- [Built-in troubleshooting and guidance for solving common issues](#built-in-troubleshooting-and-guidance-for-solving-common-issues)
+- [Regulatory compliance dashboard's Azure Audit reports released for General Availability (GA)](#regulatory-compliance-dashboards-azure-audit-reports-released-for-general-availability-ga)
 
 ### Microsoft Defender for Endpoint for Linux now supported by Azure Defender for servers (in preview)
 
@@ -37,7 +39,7 @@ When Defender for Endpoint detects a threat, it triggers an alert. The alert is 
 During the preview period, you'll deploy the [Defender for Endpoint for Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux) sensor to supported Linux machines in one of two ways depending on whether you've already deployed it to your Windows machines:
 
 - [Existing users of Azure Defender and Microsoft Defender for Endpoint for Windows](security-center-wdatp.md?tabs=linux#existing-users-of-azure-defender-and-microsoft-defender-for-endpoint-for-windows)
-- [New users who've never enabled the integration with Microsoft Defender for Endpoint for Windows](security-center-wdatp.md?tabs=linux#new-users-whove-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows)
+- [New users who have never enabled the integration with Microsoft Defender for Endpoint for Windows](security-center-wdatp.md?tabs=linux#new-users-whove-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows)
 
 Learn more in [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md).
 
@@ -52,10 +54,31 @@ We've added two **preview** recommendations to deploy and maintain the endpoint 
 |||
 
 > [!NOTE]
-> The recommendations show their freshness interval as 8 hours, but there are some scenarios in which this might take significantly longer. For example, when an on premises machine is deleted, it takes 24 hours for Security Center to identify the deletion. After that, the assessment will take up to 8 hours to return the information. In that specific situation therefore, it may take 32 hours for the machine to be removed from the list of afffected resources.
+> The recommendations show their freshness interval as 8 hours, but there are some scenarios in which this might take significantly longer. For example, when an on premises machine is deleted, it takes 24 hours for Security Center to identify the deletion. After that, the assessment will take up to 8 hours to return the information. In that specific situation therefore, it may take 32 hours for the machine to be removed from the list of affected resources.
 >
 > :::image type="content" source="media/release-notes/freshness-interval.png" alt-text="Freshness interval indicator for these two new Security Center recommendations":::
 - [Microsoft Defender for Endpoint for Linux now supported by Azure Defender for servers (in preview)](#microsoft-defender-for-endpoint-for-linux-now-supported-by-azure-defender-for-servers-in-preview)
+
+### Built-in troubleshooting and guidance for solving common issues
+
+A new, dedicated area of the Security Center pages in the Azure portal provides a collated, ever-growing set of self-help materials for solving common challenges with Security Center and Azure Defender.
+
+When you're facing an issue, or are seeking advice from our support team, **Diagnose and solve problems** is another tool to help you find the solution:
+
+:::image type="content" source="media/release-notes/solve-problems.png" alt-text="Security Center's 'Diagnose and solve problems' page":::
+ 
+
+### Regulatory compliance dashboard's Azure Audit reports released for General Availability (GA)
+
+The regulatory compliance dashboard's toolbar offers Azure and Dynamics certification reports for the standards applied to your subscriptions. 
+
+:::image type="content" source="media/release-notes/audit-reports-regulatory-compliance-dashboard.png" alt-text="Regulatory compliance dashboard's toolbar":::
+
+You can select the tab for the relevant reports types (PCI, SOC, ISO, and others) and use filters to find the specific reports you need.
+
+For more information, see [Generate compliance status reports and certificates](security-center-compliance-dashboard.md#generate-compliance-status-reports-and-certificates).
+
+:::image type="content" source="media/release-notes/audit-reports-list-regulatory-compliance-dashboard-ga.png" alt-text="Tabbed lists of available Azure Audit reports.":::
 
 
 ## July 2021
@@ -76,9 +99,9 @@ Security Center natively integrates with [Azure Sentinel](../sentinel/index.yml)
 
 Azure Sentinel includes built-in connectors for Azure Security Center at the subscription and tenant levels. Learn more in [Stream alerts to Azure Sentinel](export-to-siem.md#stream-alerts-to-azure-sentinel).
 
-When you connect Azure Defender to Azure Sentinel, the status of Azure Defender alerts that get ingested into Azure Sentinel is synchronized between the two services. So, for example, when an alert is closed in Azure Defender, that alert will display as closed in Azure Sentinel as well. Changing the status of an alert in Azure Defender will *not* affect the status of any Azure Sentinel **incidents** that contain the synchronized Azure Sentinel alert, only that of the synchronized alert itself.
+When you connect Azure Defender to Azure Sentinel, the status of Azure Defender alerts that get ingested into Azure Sentinel is synchronized between the two services. So, for example, when an alert is closed in Azure Defender, that alert will display as closed in Azure Sentinel as well. Changing the status of an alert in Azure Defender "won't"* affect the status of any Azure Sentinel **incidents** that contain the synchronized Azure Sentinel alert, only that of the synchronized alert itself.
 
-Enabling this preview feature, **bi-directional alert synchronization**, will automatically sync the status of the original Azure Defender alerts with Azure Sentinel incidents that contain the copies of those Azure Defender alerts. So, for example, when an Azure Sentinel incident containing an Azure Defender alert is closed, the corresponding original alert will be closed in Azure Defender automatically.
+Enabling this preview feature, **bi-directional alert synchronization**, will automatically sync the status of the original Azure Defender alerts with Azure Sentinel incidents that contain the copies of those Azure Defender alerts. So, for example, when an Azure Sentinel incident containing an Azure Defender alert is closed, Azure Defender will automatically close the corresponding original alert.
 
 Learn more in [Connect Azure Defender alerts from Azure Security Center](../sentinel/connect-azure-security-center.md).
 
@@ -310,7 +333,7 @@ Azure Defender for open-source relational databases constantly monitors your ser
 
 - **Granular detection of brute force attacks** -  Azure Defender for open-source relational databases provides detailed information on attempted and successful brute force attacks. This lets you investigate and respond with a more complete understanding of the nature and status of the attack on your environment.
 - **Behavioral alerts detection** - Azure Defender for open-source relational databases alerts you to suspicious and unexpected behaviors on your servers, such as changes in the access pattern to your database.
-- **Threat intelligence-based detection** - Azure Defender leverages Microsoft’s threat intelligence and vast knowledge base to surface threat alerts so you can act against them.
+- **Threat intelligence-based detection** - Azure Defender applies Microsoft’s threat intelligence and vast knowledge base to surface threat alerts so you can act against them.
 
 Learn more in [Introduction to Azure Defender for open-source relational databases](defender-for-databases-introduction.md).
 
@@ -427,7 +450,7 @@ Learn more about the [Assessments REST API](/rest/api/securitycenter/assessments
 
 ### Asset inventory gets a cloud environment filter
 
-Security Center's asset inventory page has offers a number of filters to quickly refine the list of resources displayed. Learn more in [Explore and manage your resources with asset inventory](asset-inventory.md).
+Security Center's asset inventory page offers many filters to quickly refine the list of resources displayed. Learn more in [Explore and manage your resources with asset inventory](asset-inventory.md).
 
 A new filter offers the option to refine the list according to the cloud accounts you've connected with Security Center's multi-cloud features:
 
@@ -559,7 +582,7 @@ We've added four new recommendations to Security Center to make the most of this
     - **Guest Configuration extension should be installed on your machines**
     - **Virtual machines' Guest Configuration extension should be deployed with system-assigned managed identity**
 
-- When the extension is installed and running, it'll begin auditing your machines and you'll be prompted to harden settings such as configuration of the operating system and environment settings. These two recommendations will prompt you to harden your Windows and Linux machines as described:
+- When the extension is installed and running, it will begin auditing your machines and you'll be prompted to harden settings such as configuration of the operating system and environment settings. These two recommendations will prompt you to harden your Windows and Linux machines as described:
     - **Windows Defender Exploit Guard should be enabled on your machines**
     - **Authentication to Linux machines should require SSH keys**
 
@@ -586,7 +609,7 @@ Learn which recommendations are in each security control in [Security controls a
 
 ### 11 Azure Defender alerts deprecated
 
-The eleven Azure Defender alerts listed below have been deprecated.
+The 11 Azure Defender alerts listed below have been deprecated.
 
 - New alerts will replace these two alerts and provide better coverage:
 
@@ -684,7 +707,7 @@ Learn more in [Disable specific findings](defender-for-sql-on-machines-vulnerabi
 
 As part of Ignite Spring 2021, we announced an integrated Azure Monitor Workbooks experience in Security Center.
 
-You can leverage the new integration to start using the out-of-the-box templates from Security Center’s gallery. By using workbook templates, you can access and build dynamic and visual reports to track your organization’s security posture. Additionally, you can create new workbooks based on Security Center data or any other supported data types and quickly deploy community workbooks from Security Center's GitHub community.
+You can use the new integration to start using the out-of-the-box templates from Security Center’s gallery. By using workbook templates, you can access and build dynamic and visual reports to track your organization’s security posture. Additionally, you can create new workbooks based on Security Center data or any other supported data types and quickly deploy community workbooks from Security Center's GitHub community.
 
 Three templates reports are provided:
 
@@ -699,7 +722,7 @@ Learn about using these reports or building your own in [Create rich, interactiv
 
 ### Regulatory compliance dashboard now includes Azure Audit reports (preview)
 
-From the regulatory compliance dashboard's toolbar you can now download Azure and Dynamics certification reports. 
+From the regulatory compliance dashboard's toolbar, you can now download Azure and Dynamics certification reports. 
 
 :::image type="content" source="media/release-notes/audit-reports-regulatory-compliance-dashboard.png" alt-text="Regulatory compliance dashboard's toolbar":::
 
@@ -747,7 +770,7 @@ Learn more about how to [Automate responses to Security Center triggers](workflo
 
 ### Two legacy recommendations no longer write data directly to Azure activity log 
 
-Security Center passes the data for almost all security recommendations to Azure Advisor which, in turn, writes it to [Azure activity log](../azure-monitor/essentials/activity-log.md).
+Security Center passes the data for almost all security recommendations to Azure Advisor, which in turn, writes it to [Azure activity log](../azure-monitor/essentials/activity-log.md).
 
 For two recommendations, the data is simultaneously written directly to Azure activity log. With this change, Security Center stops writing data for these legacy security recommendations directly to activity Log. Instead, we're exporting the data to Azure Advisor as we do for all the other recommendations.
 
