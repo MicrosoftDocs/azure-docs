@@ -114,20 +114,72 @@ Your organization likely uses the Authenticator app for scenarios like multifact
 
 Use the following parameters to configure the Microsoft Enterprise SSO plug-in for apps that don't use a Microsoft identity platform library.
 
-To provide a list of specific apps, use these parameters:
+#### To enable SSO on all managed apps, use these parameters:
+
+- **Key**: `Enable_SSO_On_All_ManagedApps`
+- **Type**: `Integer`
+- **Value**: 1 or 0 .
+
+When this flag is on, all MDM managed apps will participate in SSO. 
+
+#### To provide a list of specific apps, use these parameters:
 
 - **Key**: `AppAllowList`
 - **Type**: `String`
 - **Value**: Comma-delimited list of application bundle IDs for the applications that are allowed to participate in SSO.
 - **Example**: `com.contoso.workapp, com.contoso.travelapp`
 
-To provide a list of prefixes, use these parameters:
+>[!NOTE]
+> Safari and Safari View Service are allowed to participate in SSO by default. Can be configured to not to participate in SSO by adding the bundle IDs of Safari and Safari View Service in AppBlockList
+
+#### To provide a list of prefixes, use these parameters:
 - **Key**: `AppPrefixAllowList`
 - **Type**: `String`
 - **Value**: Comma-delimited list of application bundle ID prefixes for the applications that are allowed to participate in SSO. This parameter allows all apps that start with a particular prefix to participate in SSO.
 - **Example**: `com.contoso., com.fabrikam.`
 
+#### To provide a list of specific apps to be blocked from participating in  SSO, use these parameters:
+
+- **Key**: `AppBlockList`
+- **Type**: `String`
+- **Value**: Comma-delimited list of application bundle IDs for the applications that are allowed not to participate in SSO.
+- **Example**: `com.contoso.studyapp, com.contoso.travelapp`
+
 [Consented apps](./application-consent-experience.md) that the MDM admin allows to participate in SSO can silently get a token for the end user. So add only trusted applications to the allowlist. 
+
+#### Enable SSO through cookies for a specific application
+
+A few apps might be incompatible with the SSO extension. Specifically, apps that have advanced network settings might experience unexpected issues when they're enabled for SSO. For example, you might see an error indicating that network request was canceled or interrupted. 
+
+If you have problems signing in by using the method described in the [Applications that don't use MSAL](#applications-that-dont-use-msal) section, try an alternative configuration. Use these parameters to configure the plug-in:
+
+- **Key**: `AppCookieSSOAllowList`
+- **Type**: `String`
+- **Value**: Comma-delimited list of application bundle ID prefixes for the applications that are allowed to participate in the SSO. All apps that start with the listed prefixes will be allowed to participate in SSO.
+- **Example**: `com.contoso.myapp1, com.fabrikam.myapp2`
+
+Applications enabled for the SSO by using this setup need to be added to both `AppCookieSSOAllowList` and `AppPrefixAllowList`.
+
+Try this configuration only for applications that have unexpected sign-in failures. 
+
+#### Summarizing the flags and Usage:
+| Flag      | Comments |
+| ----------- | ----------- |
+| Enable_SSO_On_All_ManagedApps| Integer :  1-> if enabled for all managed apps, 0 ->if not enabled for all managed apps|
+| DefaultAppList| safari, mobilesafari, safariViewService|
+| AppAllowList| String: Comma-delimited list of application bundle IDs for the applications that are allowed to participate in SSO|
+| AppBlockList| String: Comma-delimited list of application bundle IDs for the applications that are not allowed to participate in SSO|
+|AppPrefixAllowList| String : Comma-delimited list of application bundle ID prefixes for the applications that are allowed to participate in SSO |
+|AppCookieSSOAllowList| String : Comma-delimited list of application bundle ID prefixes for the applications that are allowed to participate in the SSO. Used when SSO doesnt work due to special network settings for some apps. Applications enabled for the SSO by using this setup need to be added to both AppCookieSSOAllowList and AppPrefixAllowList|
+
+Usage:
+  - If MDM admin doesn’t want to enable SSO on all managed apps, but some :
+    - Set Enable_SSO_On_All_ManagedApps :1 and use BlockAppList to specify the apps that they want to block from getting SSO
+  - If MDM admin wants to disable default SSO on safari, but SSO on all managed apps:
+    - Add the safari bundle IDs in BlockAppList and set Enable_SSO_On_All_ManagedApps :
+  - If MDM admin wants to enable SSO on all managed apps and few non managed Apps and block few apps:
+    - Use Enable_SSO_On_All_ManagedApps : 1, add additional apps that needs sso but are not managed in AppAllowList and add the apps that needs to be blocked under AppBlockList.
+
 
 >[!NOTE]
 > You don't need to add applications that use MSAL or ASWebAuthenticationSession to the list of apps that can participate in SSO. Those applications are enabled by default. 
@@ -188,21 +240,6 @@ Enabling the `disable_explicit_app_prompt` flag restricts the ability of both na
 - **Value**: 1 or 0
 
 We recommend enabling this flag to get a consistent experience across all apps. It's disabled by default. 
-
-#### Enable SSO through cookies for a specific application
-
-A few apps might be incompatible with the SSO extension. Specifically, apps that have advanced network settings might experience unexpected issues when they're enabled for SSO. For example, you might see an error indicating that network request was canceled or interrupted. 
-
-If you have problems signing in by using the method described in the [Applications that don't use MSAL](#applications-that-dont-use-msal) section, try an alternative configuration. Use these parameters to configure the plug-in:
-
-- **Key**: `AppCookieSSOAllowList`
-- **Type**: `String`
-- **Value**: Comma-delimited list of application bundle ID prefixes for the applications that are allowed to participate in the SSO. All apps that start with the listed prefixes will be allowed to participate in SSO.
-- **Example**: `com.contoso.myapp1, com.fabrikam.myapp2`
-
-Applications enabled for the SSO by using this setup need to be added to both `AppCookieSSOAllowList` and `AppPrefixAllowList`.
-
-Try this configuration only for applications that have unexpected sign-in failures. 
 
 #### Use Intune for simplified configuration
 
