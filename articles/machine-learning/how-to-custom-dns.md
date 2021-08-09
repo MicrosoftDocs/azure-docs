@@ -170,16 +170,16 @@ To find the internal IP addresses for the FQDNs in the VNet, use one of the foll
     [
         {
             "FQDNs": [
-            "<guid>.workspace.southcentralus.api.azureml.ms",
-            "<guid>.workspace.southcentralus.cert.api.azureml.ms"
+            "fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms",
+            "fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.cert.api.azureml.ms"
             ],
-            "IPAddress": "10.3.0.6"
+            "IPAddress": "10.1.0.5"
         },
         {
             "FQDNs": [
-            "mywkspc--southcentralus-<guid>.notebooks.azure.net"
+            "ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net"
             ],
-            "IPAddress": "10.3.0.7"
+            "IPAddress": "10.1.0.6"
         }
     ]
     ```
