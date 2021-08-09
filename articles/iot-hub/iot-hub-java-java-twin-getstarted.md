@@ -405,4 +405,4 @@ Use the following resources to learn how to:
 
 * Send telemetry from devices with the [Get started with IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) tutorial.
 
-* Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](/azure/iot-hub/quickstart-control-device?pivots=programming-language-java) quickstart.
+* Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](./quickstart-control-device.md?pivots=programming-language-java) quickstart.

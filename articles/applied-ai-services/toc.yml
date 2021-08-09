@@ -14,7 +14,7 @@
   - name: Azure Form Recognizer
     href: ../cognitive-services/form-recognizer/quickstarts/get-started-with-form-recognizer.md
   - name: Azure Metrics Advisor
-    href: ../cognitive-services/metrics-advisor/quickstarts/web-portal.md
+    href: ./metrics-advisor/quickstarts/web-portal.md
   - name: Azure Immersive Reader
     href: ../cognitive-services/immersive-reader/quickstarts/client-libraries.md
   - name: Azure Cognitive Search
