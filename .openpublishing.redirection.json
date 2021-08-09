@@ -39725,6 +39725,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "/articles/virtual-machines/workloads/sap/azure-monitor-overview.md",
+      "redirect_url": "/azure/virtual-machines/workloads/sap/monitor-sap-on-azure",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/migrate/how-to-scale-assessment.md",
       "redirect_url": "scale-hyper-v-assessment",
       "redirect_document_id": false
@@ -55819,7 +55824,7 @@
       "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-vm-by-use-nested-virtualization",
       "redirect_document_id": false
     },
-        {
+    {
       "source_path": "articles/virtual-machines/windows/nested-virtualization.md",
       "redirect_url": "/virtualization/hyper-v-on-windows/user-guide/nested-virtualization",
       "redirect_document_id": false
