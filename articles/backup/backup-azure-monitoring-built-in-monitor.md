@@ -171,8 +171,8 @@ You can change the state of an alert to **Acknowledged** or **Closed** by clicki
 ![Screenshot for changing state of the alert](media/backup-azure-monitoring-laworkspace/backup-center-change-alert-state.png) 
 
 > [!NOTE]
-> 1. In Backup center, only alerts for Azure-based workloads are displayed currently. To view alerts for on-premises resources, navigate to the Recovery Services vault and click the **Alerts** menu item.
-> 2. Only Azure Monitor alerts are displayed in Backup center. Alerts raised by the older alerting solution (accessed via the [Backup Alerts](/azure/backup/backup-azure-monitoring-built-in-monitor#backup-alerts-in-recovery-services-vault) tab in Recovery Services vault) are not displayed in Backup center.
+> - In Backup center, only alerts for Azure-based workloads are displayed currently. To view alerts for on-premises resources, navigate to the Recovery Services vault and click the **Alerts** menu item.
+> - Only Azure Monitor alerts are displayed in Backup center. Alerts raised by the older alerting solution (accessed via the [Backup Alerts](/azure/backup/backup-azure-monitoring-built-in-monitor#backup-alerts-in-recovery-services-vault) tab in Recovery Services vault) are not displayed in Backup center.
 For more information about Azure Monitor alerts, see [Overview of alerts in Azure](../azure-monitor/alerts/alerts-overview.md).
 
 ### Configuring notifications for alerts
@@ -199,7 +199,7 @@ To configure notifications for Azure Monitor alerts, you must create an action r
 
     ![Screenshot for basic properties of action group](media/backup-azure-monitoring-laworkspace/azure-monitor-action-groups-basic.png) 
 
-6. On the **Notifications** tab, select **Email/SMS message/Push/Voice** and enter the recipient email id.
+6. On the **Notifications** tab, select **Email/SMS message/Push/Voice** and enter the recipient email ID.
 
     ![Screenshot for setting notification properties](media/backup-azure-monitoring-laworkspace/azure-monitor-email.png) 
 
