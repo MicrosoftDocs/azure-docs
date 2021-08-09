@@ -1,39 +1,38 @@
-﻿---
-title: Quickstart - Create a virtual machine scale set with Azure PowerShell | Microsoft Docs
-description: Learn how to quickly create a virtual machine scale with Azure PowerShell
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: zr-msft
-manager: jeconnoc
-editor: ''
-tags: ''
-
-ms.assetid: ''
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+---
+title: Quickstart - Create a virtual machine scale set with Azure PowerShell
+description: Get started with your deployments by learning how to quickly create a virtual machine scale with Azure PowerShell.
+author: ju-shim
+ms.author: jushiman
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 11/08/18
-ms.author: zarhoads
+ms.service: virtual-machine-scale-sets
+ms.date: 11/08/2018
+ms.reviewer: mimckitt
+ms.custom: mimckitt, devx-track-azurepowershell
+
 ---
 
 # Quickstart: Create a virtual machine scale set with Azure PowerShell
-A virtual machine scale set allows you to deploy and manage a set of identical, autoscaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the scale set. In this quickstart, you create a virtual machine scale set and deploy a sample application with Azure PowerShell.
+
+
+
+A virtual machine scale set allows you to deploy and manage a set of autoscaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the scale set. In this quickstart, you create a virtual machine scale set and deploy a sample application with Azure PowerShell.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
-
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 6.0.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you're running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## Create a scale set
-Create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). The following example creates a scale set named *myScaleSet* that uses the *Windows Server 2016 Datacenter* platform image. The Azure network resources for virtual network, public IP address, and load balancer are automatically created. When prompted, you can set your own administrative credentials for the VM instances in the scale set:
+Before you can create a scale set, create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurepowershell-interactive
-New-AzureRmVmss `
+New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
+```
+
+Now create a virtual machine scale set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). The following example creates a scale set named *myScaleSet* that uses the *Windows Server 2016 Datacenter* platform image. The Azure network resources for virtual network, public IP address, and load balancer are automatically created. When prompted, you can set your own administrative credentials for the VM instances in the scale set:
+
+```azurepowershell-interactive
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
   -VMScaleSetName "myScaleSet" `
@@ -48,7 +47,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 
 ## Deploy sample application
-To test your scale set, install a basic web application. The Azure Custom Script Extension is used to download and run a script that installs IIS on the VM instances. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. For more information, see the [Custom Script Extension overview](../virtual-machines/windows/extensions-customscript.md).
+To test your scale set, install a basic web application. The Azure Custom Script Extension is used to download and run a script that installs IIS on the VM instances. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. For more information, see the [Custom Script Extension overview](../virtual-machines/extensions/custom-script-windows.md).
 
 Use the Custom Script Extension to install a basic IIS web server. Apply the Custom Script Extension that installs IIS as follows:
 
@@ -60,12 +59,12 @@ $publicSettings = @{
 }
 
 # Get information about the scale set
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
             -ResourceGroupName "myResourceGroup" `
             -VMScaleSetName "myScaleSet"
 
 # Use Custom Script Extension to install IIS and configure basic website
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
     -Name "customScript" `
     -Publisher "Microsoft.Compute" `
     -Type "CustomScriptExtension" `
@@ -73,7 +72,7 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
     -Setting $publicSettings
 
 # Update the scale set and apply the Custom Script Extension to the VM instances
-Update-AzureRmVmss `
+Update-AzVmss `
     -ResourceGroupName "myResourceGroup" `
     -Name "myScaleSet" `
     -VirtualMachineScaleSet $vmss
@@ -81,16 +80,16 @@ Update-AzureRmVmss `
 
 ## Allow traffic to application
 
- To allow access to the basic web application, create a network security group with [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.compute/new-azurermnetworksecurityruleconfig) and [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.compute/new-azurermnetworksecuritygroup). For more information, see [Networking for Azure virtual machine scale sets](virtual-machine-scale-sets-networking.md).
+ To allow access to the basic web application, create a network security group with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) and [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup). For more information, see [Networking for Azure virtual machine scale sets](virtual-machine-scale-sets-networking.md).
 
  ```azurepowershell-interactive
  # Get information about the scale set
- $vmss = Get-AzureRmVmss `
+ $vmss = Get-AzVmss `
              -ResourceGroupName "myResourceGroup" `
              -VMScaleSetName "myScaleSet"
 
  #Create a rule to allow traffic over port 80
- $nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
+ $nsgFrontendRule = New-AzNetworkSecurityRuleConfig `
    -Name myFrontendNSGRule `
    -Protocol Tcp `
    -Direction Inbound `
@@ -102,38 +101,38 @@ Update-AzureRmVmss `
    -Access Allow
 
  #Create a network security group and associate it with the rule
- $nsgFrontend = New-AzureRmNetworkSecurityGroup `
+ $nsgFrontend = New-AzNetworkSecurityGroup `
    -ResourceGroupName  "myResourceGroup" `
    -Location EastUS `
    -Name myFrontendNSG `
    -SecurityRules $nsgFrontendRule
 
- $vnet = Get-AzureRmVirtualNetwork `
+ $vnet = Get-AzVirtualNetwork `
    -ResourceGroupName  "myResourceGroup" `
    -Name myVnet
 
  $frontendSubnet = $vnet.Subnets[0]
 
- $frontendSubnetConfig = Set-AzureRmVirtualNetworkSubnetConfig `
+ $frontendSubnetConfig = Set-AzVirtualNetworkSubnetConfig `
    -VirtualNetwork $vnet `
    -Name mySubnet `
    -AddressPrefix $frontendSubnet.AddressPrefix `
    -NetworkSecurityGroup $nsgFrontend
 
- Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+ Set-AzVirtualNetwork -VirtualNetwork $vnet
 
  # Update the scale set and apply the Custom Script Extension to the VM instances
- Update-AzureRmVmss `
+ Update-AzVmss `
      -ResourceGroupName "myResourceGroup" `
      -Name "myScaleSet" `
      -VirtualMachineScaleSet $vmss
  ```
 
 ## Test your scale set
-To see your scale set in action, access the sample web application in a web browser. Get the public IP address of your load balancer with [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example displays the IP address created in the *myResourceGroup* resource group:
+To see your scale set in action, access the sample web application in a web browser. Get the public IP address of your load balancer with [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress). The following example displays the IP address created in the *myResourceGroup* resource group:
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
+Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
 ```
 
 Enter the public IP address of the load balancer in to a web browser. The load balancer distributes traffic to one of your VM instances, as shown in the following example:
@@ -142,10 +141,10 @@ Enter the public IP address of the load balancer in to a web browser. The load b
 
 
 ## Clean up resources
-When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) to remove the resource group, scale set, and all related resources as follows. The `-Force` parameter confirms that you wish to delete the resources without an additional prompt to do so. The `-AsJob` parameter returns control to the prompt without waiting for the operation to complete.
+When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group, scale set, and all related resources as follows. The `-Force` parameter confirms that you wish to delete the resources without an additional prompt to do so. The `-AsJob` parameter returns control to the prompt without waiting for the operation to complete.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
+Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 

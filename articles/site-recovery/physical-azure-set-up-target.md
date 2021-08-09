@@ -1,12 +1,12 @@
 ---
-title: Set up the target environment for disaster recovery of on-premises physical servers to Azure | Microsoft Docs'
+title: Set up the target environment for physical servers in Azure Site Recovery
 description: This article describes how to set up the target Azure environment for disaster recovery of physical servers using Azure Site Recovery.
-author: bsiva
-manager: abhemraj
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
-ms.author: bsiva
+ms.date: 11/27/2018
+ms.author: ramamill
 ---
 
 # Prepare target (VMware to Azure)
@@ -16,7 +16,7 @@ This article describes how to prepare your Azure environment to start replicatin
 ## Prerequisites
 
 The article assumes:
-- You have created a Recovery Services Vault to protect your physical servers. You can create a Recovery Services Vault from the [Azure portal](http://portal.azure.com "Azure portal").
+- You have created a Recovery Services Vault to protect your physical servers. You can create a Recovery Services Vault from the [Azure portal](https://portal.azure.com "Azure portal").
 - You have [setup your on-premises environment](physical-azure-disaster-recovery.md) to replicate physical servers to Azure.
 
 ## Prepare target

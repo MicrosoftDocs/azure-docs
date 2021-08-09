@@ -2,13 +2,14 @@
 title: 'Azure AD Connect: ADSyncConfig PowerShell Reference | Microsoft Docs'
 description: This document provides reference information for the ADSyncConfig.psm1 PowerShell module.
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 10/19/2018
-ms.component: hybrid
+ms.date: 01/24/2019
+ms.subservice: hybrid
 ms.author: billmath
-
+ms.topic: reference
+ms.collection: M365-identity-device-management
 ---
 
 # Azure AD Connect:  ADSyncConfig PowerShell Reference
@@ -53,25 +54,24 @@ Searches in AD starting from the SearchBase parameter and returns all objects, f
 ### EXAMPLES
 
 #### EXAMPLE 1
-```
 Find objects with disabled inheritance in 'Contoso' domain (by default returns 'organizationalUnit' objects only)
 ```
-
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso'
+```
 
 #### EXAMPLE 2
-```
 Find 'user' objects with disabled inheritance in 'Contoso' domain
 ```
-
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso' -ObjectClass 'user'
+```
 
 #### EXAMPLE 3
-```
 Find all types of objects with disabled inheritance in a OU
 ```
-
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase OU=AzureAD,DC=Contoso,DC=com -ObjectClass '*'
+```
+
+
 
 ### PARAMETERS
 
@@ -108,7 +108,7 @@ Accept wildcard characters: False
 
 #### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+For more information, see about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## Set-ADSyncBasicReadPermissions
 
@@ -281,7 +281,7 @@ Accept wildcard characters: False
 
 #### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+For more information, see about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## Set-ADSyncExchangeHybridPermissions
 
@@ -449,7 +449,7 @@ Accept wildcard characters: False
 
 #### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+For more information, see about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## Set-ADSyncExchangeMailPublicFolderPermissions
 
@@ -611,7 +611,7 @@ Accept wildcard characters: False
 
 #### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+For more information, see about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## Set-ADSyncMsDsConsistencyGuidPermissions
 
@@ -772,7 +772,7 @@ Accept wildcard characters: False
 
 #### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+For more information, see about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## Set-ADSyncPasswordHashSyncPermissions
 
@@ -893,7 +893,7 @@ Accept wildcard characters: False
 
 #### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+For more information, see about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## Set-ADSyncPasswordWritebackPermissions
 
@@ -1058,7 +1058,7 @@ Accept wildcard characters: False
 
 #### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+For more information, see about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## Set-ADSyncRestrictedPermissions
 
@@ -1079,29 +1079,20 @@ Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <
 The Set-ADSyncRestrictedPermissions Function will tighten permissions oo the 
 account provided.
 Tightening permissions involves the following steps:
-1.
-Disable inheritance on the specified object
-2.
-Remove all ACEs on the specific object, except ACEs specific to SELF.
+1. Disable inheritance on the specified object
+2. Remove all ACEs on the specific object, except ACEs specific to SELF.
 We want to keep
    the default permissions intact when it comes to SELF.
-3.
-Assign these specific permissions:
+3. Assign these specific permissions:
 
-        Type	Name										Access				Applies To
-        =============================================================================================
-        Allow	SYSTEM										Full Control		This object
-        Allow	Enterprise Admins							Full Control		This object
-        Allow	Domain Admins								Full Control		This object
-        Allow	Administrators								Full Control		This object
-
-        Allow	Enterprise Domain Controllers				List Contents
-                                                            Read All Properties
-                                                            Read Permissions	This object
-
-        Allow	Authenticated Users							List Contents
-                                                            Read All Properties
-                                                            Read Permissions	This object
+   | Type | Name | Access | Applies To |
+   |------|------|--------|------------|
+   | Allow | SYSTEM | Full Control | This object |
+   | Allow | Enterprise Admins | Full Control | This object |
+   | Allow | Domain Admins | Full Control | This object | 
+   | Allow | Administrators | Full Control | This object |
+   | Allow | Enterprise Domain Controllers | List Contents <br> Read All Properties <br> Read Permissions | This object |
+   | Allow | Authenticated Users | List Contents <br> Read All Properties <br> Read Permissions | This object |
 
 ### EXAMPLES
 
@@ -1196,7 +1187,7 @@ Accept wildcard characters: False
 
 #### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+For more information, see about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## Set-ADSyncUnifiedGroupWritebackPermissions
 
@@ -1220,7 +1211,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
 ### DESCRIPTION
 The Set-ADSyncUnifiedGroupWritebackPermissions Function will give required permissions to the AD synchronization account, which include the following:
 1.
-Generic Read/Write, Delete, Delete Tree and Create\Delete Child for all Object types and SubObjects
+Generic Read/Write, Delete, Delete Tree and Create\Delete Child for all  group Object types and SubObjects
 
 These permissions are applied to all domains in the forest.
 Optionally you can provide a DistinguishedName in ADobjectDN parameter to set these permissions on that AD Object only (including inheritance to sub objects).
@@ -1358,7 +1349,7 @@ Accept wildcard characters: False
 
 #### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+For more information, see about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## Show-ADSyncADObjectPermissions
 
@@ -1372,7 +1363,7 @@ Show-ADSyncADObjectPermissions [-ADobjectDN] <String> [<CommonParameters>]
 ```
 
 ### DESCRIPTION
-This function retuns all the AD permissions currently set for a given AD object provided in the parameter -ADobjectDN.
+This function returns all the AD permissions currently set for a given AD object provided in the parameter -ADobjectDN.
 The ADobjectDN must be provided in a DistinguishedName format.
 
 ### EXAMPLES
@@ -1401,4 +1392,4 @@ Accept wildcard characters: False
 
 #### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+For more information, see about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).

@@ -2,19 +2,17 @@
 title: Integrate Azure Automation with Event Grid | Microsoft Docs
 description: Learn how to automatically add a tag when a new VM is created and send a notification to Microsoft Teams.
 keywords: automation, runbook, teams, event grid, virtual machine, VM
-services: automation
+services: automation,event-grid
 author: eamonoreilly
-manager: 
 
 ms.service: automation
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 08/14/2018
+ms.date: 07/07/2020
 ms.author: eamono
-
 ---
 
-# Integrate Azure Automation with Event Grid and Microsoft Teams
+# Tutorial: Integrate Azure Automation with Event Grid and Microsoft Teams
 
 In this tutorial, you learn how to:
 
@@ -29,7 +27,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-To complete this tutorial, an [Azure Automation account](../automation/automation-offering-get-started.md) is required to hold the runbook that is triggered from the Azure Event Grid subscription.
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+
+To complete this tutorial, an [Azure Automation account](../automation/index.yml) is required to hold the runbook that is triggered from the Azure Event Grid subscription.
 
 * The `AzureRM.Tags` module needs to be loaded in your Automation Account, see [How to import modules in Azure Automation](../automation/automation-update-azure-modules.md) to learn how to import modules into Azure Automation.
 
@@ -47,10 +47,13 @@ To complete this tutorial, an [Azure Automation account](../automation/automatio
 
 4. Select **Import** and name it **Watch-VMWrite**.
 
-5. After it has imported, select **Edit** to view the runbook source. Select the **Publish** button.
+5. After it has imported, select **Edit** to view the runbook source. 
+6. Update the line 74 in the script to use `Tag` instead of `Tags`.
 
-> [!NOTE]
-> Line 74 in the script needs to have the line changed to `Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose`. The `-Tags` parameter is now `-Tag`.
+    ```powershell
+    Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose
+    ```
+7. Select the **Publish** button.
 
 ## Create an optional Microsoft Teams webhook
 
@@ -62,7 +65,7 @@ To complete this tutorial, an [Azure Automation account](../automation/automatio
 
 3. Enter **AzureAutomationIntegration** for the name, and select **Create**.
 
-4. Copy the webhook to the clipboard, and save it. The webhook URL is used to send information to Microsoft Teams.
+4. Copy the webhook URL to the clipboard, and save it. The webhook URL is used to send information to Microsoft Teams.
 
 5. Select **Done** to save the webhook.
 
@@ -91,14 +94,16 @@ To complete this tutorial, an [Azure Automation account](../automation/automatio
 2. Click **+ Event Subscription**.
 
 3. Configure the subscription with the following information:
+    1. For **Topic Type**, select **Azure Subscriptions**.
+    2. Uncheck the **Subscribe to all event types** check box.
+    3. Enter **AzureAutomation** for the name.
+    4. In the **Defined Event Types** drop-down, uncheck all options except **Resource Write Success**.
 
-   * For **Topic Type**, select **Azure Subscriptions**.
-   * Uncheck the **Subscribe to all event types** check box.
-   * Enter **AzureAutomation** for the name.
-   * In the **Defined Event Types** drop-down, uncheck all options except **Resource Write Success**.
-   * For **Endpoint Type**, select **Webhook**.
-   * Click **Select an endpoint**. On the **Select Web Hook** page that opens up, paste the webhook url you created for the Watch-VMWrite runbook.
-   * Under **FILTERS**, enter the subscription and resource group where you want to look for the new VMs created. It should look like:
+        > [!NOTE] 
+        > Azure Resource Manager does not currently differentiate between Create and Update, so implementing this tutorial for all Microsoft.Resources.ResourceWriteSuccess events in your Azure Subscription could result in a high volume of calls.
+    1. For **Endpoint Type**, select **Webhook**.
+    2. Click **Select an endpoint**. On the **Select Web Hook** page that opens up, paste the webhook url you created for the Watch-VMWrite runbook.
+    3. Under **FILTERS**, enter the subscription and resource group where you want to look for the new VMs created. It should look like:
  `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
 
 4. Select **Create** to save the Event Grid subscription.

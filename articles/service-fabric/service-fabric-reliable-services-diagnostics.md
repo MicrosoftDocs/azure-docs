@@ -1,24 +1,11 @@
 ---
-title: Azure Service Fabric Stateful Reliable Services diagnostics | Microsoft Docs
+title: Azure Service Fabric Stateful Reliable Services diagnostics 
 description: Diagnostic functionality for Stateful Reliable Services in Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
-author: dkkapur
-manager: timlt
-editor: ''
-
-ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
-ms.service: Service-Fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/24/2018
-ms.author: dekapur
-
 ---
 # Diagnostic functionality for Stateful Reliable Services
-The Azure Service Fabric Stateful Reliable Services StatefulServiceBase class emits [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) events that can be used to debug the service, provide insights into how the runtime is operating, and help with troubleshooting.
+The Azure Service Fabric Stateful Reliable Services StatefulServiceBase class emits [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) events that can be used to debug the service, provide insights into how the runtime is operating, and help with troubleshooting.
 
 ## EventSource events
 The EventSource name for the Stateful Reliable Services StatefulServiceBase class is "Microsoft-ServiceFabric-Services." Events from this event source appear in the
@@ -26,7 +13,7 @@ The EventSource name for the Stateful Reliable Services StatefulServiceBase clas
 
 Examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](https://www.microsoft.com/download/details.aspx?id=28567),
 [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), and the
-[Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+[Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## Events
 | Event name | Event ID | Level | Event description |
@@ -55,11 +42,11 @@ The Reliable Services runtime defines the following performance counter categori
 | Service Fabric Transactional Replicator |Counters specific to the Azure Service Fabric Transactional Replicator |
 | Service Fabric TStore |Counters specific to the Azure Service Fabric TStore |
 
-The Service Fabric Transactional Replicator is used by the [Reliable State Manager](service-fabric-reliable-services-reliable-collections-internals.md) to replicate transactions within a given set of [replicas](service-fabric-concepts-replica-lifecycle.md).
+The Service Fabric Transactional Replicator is used by the [Reliable State Manager](./service-fabric-reliable-services-introduction.md) to replicate transactions within a given set of [replicas](service-fabric-concepts-replica-lifecycle.md).
 
-The Service Fabric TStore is a component used in [Reliable Collections](service-fabric-reliable-services-reliable-collections-internals.md) for storing and retrieving key-value pairs.
+The Service Fabric TStore is a component used in [Reliable Collections](./service-fabric-reliable-services-introduction.md) for storing and retrieving key-value pairs.
 
-The [Windows Performance Monitor](https://technet.microsoft.com/library/cc749249.aspx) application that is available by default in the Windows operating system can be used to collect and view performance counter data. [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) is another option for collecting performance counter data and uploading it to Azure tables.
+The [Windows Performance Monitor](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc749249(v=ws.11)) application that is available by default in the Windows operating system can be used to collect and view performance counter data. [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) is another option for collecting performance counter data and uploading it to Azure tables.
 
 ### Performance counter instance names
 A cluster that has a large number of reliable services or reliable service partitions will have a large number of transactional replicator performance counter instances. This is also the case for TStore performance counters, but is also multiplied by the number of Reliable Dictionaries and Reliable Queues used. The performance counter instance names can help in identifying the specific [partition](service-fabric-concepts-partitioning.md), service replica, and state provider in the case of TStore, that the performance counter instance is associated with.
@@ -69,9 +56,9 @@ For the category `Service Fabric Transactional Replicator`, the counter instance
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId`
 
-*ServiceFabricPartitionId* is the string representation of the Service Fabric partition ID that the performance counter instance is associated with. The partition ID is a GUID, and its string representation is generated through [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) with format specifier "D".
+*ServiceFabricPartitionId* is the string representation of the Service Fabric partition ID that the performance counter instance is associated with. The partition ID is a GUID, and its string representation is generated through [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) with format specifier "D".
 
-*ServiceFabricReplicaId* is the ID associated with a given replica of a reliable service. Replica ID is included in the performance counter instance name to ensure its uniqueness and avoid conflict with other performance counter instances generated by the same partition. Further details about replicas and their role in reliable services can be found [here](service-fabric-concepts-replica-lifecycle.md).
+*ServiceFabricReplicaId* is the ID associated with a given replica of a reliable service. The replica ID is included in the performance counter instance name to ensure its uniqueness and avoid conflict with other performance counter instances generated by the same partition. Further details about replicas and their role in reliable services can be found [here](service-fabric-concepts-replica-lifecycle.md).
 
 The following counter instance name is typical for a counter under the `Service Fabric Transactional Replicator` category:
 
@@ -82,21 +69,23 @@ In the preceding example, `00d0126d-3e36-4d68-98da-cc4f7195d85e` is the string r
 #### Service Fabric TStore category
 For the category `Service Fabric TStore`, the counter instance names are in the following format:
 
-`ServiceFabricPartitionId:ServiceFabricReplicaId:ServiceFabricStateProviderId_PerformanceCounterInstanceDifferentiator`
+`ServiceFabricPartitionId:ServiceFabricReplicaId:StateProviderId_PerformanceCounterInstanceDifferentiator_StateProviderName`
 
-*ServiceFabricPartitionId* is the string representation of the Service Fabric partition ID that the performance counter instance is associated with. The partition ID is a GUID, and its string representation is generated through [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) with format specifier "D".
+*ServiceFabricPartitionId* is the string representation of the Service Fabric partition ID that the performance counter instance is associated with. The partition ID is a GUID, and its string representation is generated through [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) with format specifier "D".
 
-*ServiceFabricReplicaId* is the ID associated with a given replica of a reliable service. Replica ID is included in the performance counter instance name to ensure its uniqueness and avoid conflict with other performance counter instances generated by the same partition. Further details about replicas and their role in reliable services can be found [here](service-fabric-concepts-replica-lifecycle.md).
+*ServiceFabricReplicaId* is the ID associated with a given replica of a reliable service. The replica ID is included in the performance counter instance name to ensure its uniqueness and avoid conflict with other performance counter instances generated by the same partition. Further details about replicas and their role in reliable services can be found [here](service-fabric-concepts-replica-lifecycle.md).
 
-*ServiceFabricStateProviderId* is the ID associated with a state provider within a reliable service. State Provider ID is included in the performance counter instance name to differentiate a TStore from another.
+*StateProviderId* is the ID associated with a state provider within a reliable service. The state provider ID is included in the performance counter instance name to differentiate a TStore from another.
 
 *PerformanceCounterInstanceDifferentiator* is a differentiating ID associated with a performance counter instance within a state provider. This differentiator is included in the performance counter instance name to ensure its uniqueness and avoid conflict with other performance counter instances generated by the same state provider.
 
+*StateProviderName* is the name associated with a state provider within a reliable service. The state provider name is included in the performance counter instance name for users to easily identify what state it provides.
+
 The following counter instance name is typical for a counter under the `Service Fabric TStore` category:
 
-`00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337`
+`00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337_urn:MyReliableDictionary/dataStore`
 
-In the preceding example, `00d0126d-3e36-4d68-98da-cc4f7195d85e` is the string representation of the Service Fabric partition ID, `131652217797162571` is the replica ID, `142652217797162571` is the state provider ID, and `1337` is the performance counter instance differentiator.
+In the preceding example, `00d0126d-3e36-4d68-98da-cc4f7195d85e` is the string representation of the Service Fabric partition ID, `131652217797162571` is the replica ID, `142652217797162571` is the state provider ID, and `1337` is the performance counter instance differentiator. `urn:MyReliableDictionary/dataStore` is the name of the state provider that stores data for the collection named `urn:MyReliableDictionary`.
 
 ### Transactional Replicator performance counters
 
@@ -106,7 +95,7 @@ The Reliable Services runtime emits the following events under the `Service Fabr
 | --- | --- |
 | Begin Txn Operations/sec | The number of new write transactions created per second.|
 | Txn Operations/sec | The number of add/update/delete operations performed on reliable collections per second.|
-| Avg. Flush Latency (ms) | The number of bytes being flushed to the disk by the Transactional Replicator per second |
+| Log Flush Bytes/sec | The number of bytes being flushed to the disk by the Transactional Replicator per second |
 | Throttled Operations/sec | The number of operations rejected every second by the Transactional Replicator due to throttling. |
 | Avg. Transaction ms/Commit | Average commit latency per transaction in milliseconds |
 | Avg. Flush Latency (ms) | Average duration of disk flush operations initiated by the Transactional Replicator in milliseconds |
@@ -123,4 +112,4 @@ The Reliable Services runtime emits the following events under the `Service Fabr
 | Copy Disk Transfer Bytes/sec | The number of disk bytes read (on the primary replica) or written (on a secondary replica) per second during a store copy.|
 
 ## Next steps
-[EventSource providers in PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
+[EventSource providers in PerfView](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource)

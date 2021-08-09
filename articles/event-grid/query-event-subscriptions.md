@@ -1,19 +1,16 @@
 ---
 title: Query Azure Event Grid subscriptions
-description: Describes how to list Azure Event Grid subscriptions.
-services: event-grid
-author: tfitzmac
-manager: timlt
-
-ms.service: event-grid
+description: This article describes how to list Event Grid subscriptions in your Azure subscription. You provide different parameters based on the type of subscription.
 ms.topic: conceptual
-ms.date: 04/04/2018
-ms.author: tomfitz
+ms.date: 07/07/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Query Event Grid subscriptions 
 
 This article describes how to list the Event Grid subscriptions in your Azure subscription. When querying your existing Event Grid subscriptions, it's important to understand the different types of subscriptions. You provide different parameters based on the type of subscription you want to get.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Resource groups and Azure subscriptions
 
@@ -31,8 +28,8 @@ az eventgrid event-subscription list
 For PowerShell, use:
 
 ```azurepowershell-interactive
-Set-AzureRmContext -Subscription "My Azure Subscription"
-Get-AzureRmEventGridSubscription
+Set-AzContext -Subscription "My Azure Subscription"
+Get-AzEventGridSubscription
 ```
 
 To get event grid subscriptions for an Azure subscription, provide the topic type of **Microsoft.Resources.Subscriptions**.
@@ -40,13 +37,13 @@ To get event grid subscriptions for an Azure subscription, provide the topic typ
 For Azure CLI, use:
 
 ```azurecli-interactive
-az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.Subscriptions"
+az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.Subscriptions" --location global
 ```
 
 For PowerShell, use:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.Resources.Subscriptions"
+Get-AzEventGridSubscription -TopicTypeName "Microsoft.Resources.Subscriptions"
 ```
 
 To get event grid subscriptions for all resource groups within an Azure subscription, provide the topic type of **Microsoft.Resources.ResourceGroups**.
@@ -54,13 +51,13 @@ To get event grid subscriptions for all resource groups within an Azure subscrip
 For Azure CLI, use:
 
 ```azurecli-interactive
-az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.ResourceGroups"
+az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.ResourceGroups" --location global
 ```
 
 For PowerShell, use:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.Resources.ResourceGroups"
+Get-AzEventGridSubscription -TopicTypeName "Microsoft.Resources.ResourceGroups"
 ```
 
 To get event grid subscriptions for a specified resource group, provide the name of the resource group as a parameter.
@@ -68,13 +65,13 @@ To get event grid subscriptions for a specified resource group, provide the name
 For Azure CLI, use:
 
 ```azurecli-interactive
-az eventgrid event-subscription list --resource-group myResourceGroup
+az eventgrid event-subscription list --resource-group myResourceGroup --location global
 ```
 
 For PowerShell, use:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -ResourceGroupName myResourceGroup
+Get-AzEventGridSubscription -ResourceGroupName myResourceGroup
 ```
 
 ## Custom topics and Azure resources
@@ -92,7 +89,7 @@ az eventgrid event-subscription list --location westus2
 For PowerShell, use:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -Location westus2
+Get-AzEventGridSubscription -Location westus2
 ```
 
 To get subscriptions to custom topics for a location, provide the location and the topic type of **Microsoft.EventGrid.Topics**.
@@ -106,7 +103,7 @@ az eventgrid event-subscription list --topic-type-name "Microsoft.EventGrid.Topi
 For PowerShell, use:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.EventGrid.Topics" -Location westus2
+Get-AzEventGridSubscription -TopicTypeName "Microsoft.EventGrid.Topics" -Location westus2
 ```
 
 To get subscriptions to storage accounts for a location, provide the location and the topic type of **Microsoft.Storage.StorageAccounts**.
@@ -120,7 +117,7 @@ az eventgrid event-subscription list --topic-type "Microsoft.Storage.StorageAcco
 For PowerShell, use:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.Storage.StorageAccounts" -Location westus2
+Get-AzEventGridSubscription -TopicTypeName "Microsoft.Storage.StorageAccounts" -Location westus2
 ```
 
 To get event grid subscriptions for a custom topic, provide the name of the custom topic and the name of its resource group.
@@ -134,7 +131,7 @@ az eventgrid event-subscription list --topic-name myCustomTopic --resource-group
 For PowerShell, use:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -TopicName myCustomTopic -ResourceGroupName myResourceGroup
+Get-AzEventGridSubscription -TopicName myCustomTopic -ResourceGroupName myResourceGroup
 ```
 
 To get event grid subscriptions for a particular resource, provide the resource ID.
@@ -149,8 +146,8 @@ az eventgrid event-subscription list --resource-id $resourceid
 For PowerShell, use:
 
 ```azurepowershell-interactive
-$resourceid = (Get-AzureRmResource -Name mystorage -ResourceGroupName myResourceGroup).ResourceId
-Get-AzureRmEventGridSubscription -ResourceId $resourceid
+$resourceid = (Get-AzResource -Name mystorage -ResourceGroupName myResourceGroup).ResourceId
+Get-AzEventGridSubscription -ResourceId $resourceid
 ```
 
 ## Next steps

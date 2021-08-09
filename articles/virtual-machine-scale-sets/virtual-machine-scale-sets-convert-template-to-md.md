@@ -1,22 +1,15 @@
 ---
-title: Convert an Azure Resource Manager scale set template to use managed disk | Microsoft Docs
-description: Convert a scale set template to a managed disk scale set template.
+title: Convert a scale set template to use managed disk
+description: Convert an Azure Resource Manager virtual machine scale set template to a managed disk scale set template.
 keywords: virtual machine scale sets
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: mayanknayar
-manager: jeconnoc
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: bc8c377a-8c3f-45b8-8b2d-acc2d6d0b1e8
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 5/18/2017
-ms.author: manayar
+ms.subservice: disks
+ms.date: 6/25/2020
+ms.reviewer: mimckitt
+ms.custom: mimckitt
 
 ---
 
@@ -124,7 +117,7 @@ There is no explicit property in the scale set configuration for whether to use 
 
 ## Data disks
 
-With the changes above, the scale set uses managed disks for the OS disk, but what about data disks? To add data disks, add the "dataDisks" property under "storageProfile" at the same level as "osDisk". The value of the property is a JSON list of objects, each of which has properties "lun" (which must be unique per data disk on a VM), "createOption" ("empty" is currently the only supported option), and "diskSizeGB" (the size of the disk in gigabytes; must be greater than 0 and less than 1024) as in the following example: 
+With the changes above, the scale set uses managed disks for the OS disk, but what about data disks? To add data disks, add the "dataDisks" property under "storageProfile" at the same level as "osDisk". The value of the property is a JSON list of objects, each of which has properties "lun" (which must be unique per data disk on a VM), "createOption" ("empty" is currently the only supported option), and "diskSizeGB" (the size of the disk in gigabytes; must be greater than 0 and less than 1024) as in the following example:
 
 ```
 "dataDisks": [
@@ -142,7 +135,7 @@ To learn more about using data disks with scale sets, see [this article](./virtu
 
 
 ## Next steps
-For example Resource Manager templates using scale sets, search for "vmss" in the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates).
+For example Resource Manager templates using scale sets, search for "vmss" in the [Azure Quickstart Templates GitHub repo](https://github.com/Azure/azure-quickstart-templates).
 
 For general information, check out the [main landing page for scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 

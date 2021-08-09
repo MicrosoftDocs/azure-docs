@@ -1,19 +1,14 @@
 ---
 title: Silent installation of Azure Backup Server V2
 description: Use a PowerShell script to silently install Azure Backup Server V2. This kind of installation is also called an unattended installation.
-services: backup
-author: markgalioto
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: markgal
 ---
 # Run an unattended installation of Azure Backup Server
 
 Learn how to run an unattended installation of Azure Backup Server.
 
-These steps do not apply if you are installing Azure Backup Server V1.
+These steps don't apply if you're installing Azure Backup Server V1.
 
 ## Install Backup Server
 
@@ -21,32 +16,32 @@ These steps do not apply if you are installing Azure Backup Server V1.
 
 2. Paste the following code in the MABSSetup.ini file. Replace the text inside the brackets (\< \>) with values from your environment. The following text is an example:
 
-  ```
-  [OPTIONS]
-  UserName=administrator
-  CompanyName=<Microsoft Corporation>
-  SQLMachineName=localhost
-  SQLInstanceName=<SQL instance name>
-  SQLMachineUserName=administrator
-  SQLMachinePassword=<admin password>
-  SQLMachineDomainName=<machine domain>
-  ReportingMachineName=localhost
-  ReportingInstanceName=<reporting instance name>
-  SqlAccountPassword=<admin password>
-  ReportingMachineUserName=<username>
-  ReportingMachinePassword=<reporting admin password>
-  ReportingMachineDomainName=<domain>
-  VaultCredentialFilePath=<vault credential full path and complete name>
-  SecurityPassphrase=<passphrase>
-  PassphraseSaveLocation=<passphrase save location>
-  UseExistingSQL=<1/0 use or do not use existing SQL>
-  ```
+   ```text
+   [OPTIONS]
+   UserName=administrator
+   CompanyName=<Microsoft Corporation>
+   SQLMachineName=localhost
+   SQLInstanceName=<SQL instance name>
+   SQLMachineUserName=administrator
+   SQLMachinePassword=<admin password>
+   SQLMachineDomainName=<machine domain>
+   ReportingMachineName=localhost
+   ReportingInstanceName=<reporting instance name>
+   SqlAccountPassword=<admin password>
+   ReportingMachineUserName=<username>
+   ReportingMachinePassword=<reporting admin password>
+   ReportingMachineDomainName=<domain>
+   VaultCredentialFilePath=<vault credential full path and complete name>
+   SecurityPassphrase=<passphrase>
+   PassphraseSaveLocation=<passphrase save location>
+   UseExistingSQL=<1/0 use or do not use existing SQL>
+   ```
 
 3. Save the file. Then, at an elevated command prompt on the installation server, enter this command:
 
-  ```
-  start /wait <cdlayout path>/Setup.exe /i  /f <.ini file path>/setup.ini /L <log path>/setup.log
-  ```
+   ```cmd
+   start /wait <cdlayout path>/Setup.exe /i  /f <.ini file path>/setup.ini /L <log path>/setup.log
+   ```
 
 You can use these flags for the installation:</br>
 **/f**: .ini file path</br>
@@ -55,6 +50,7 @@ You can use these flags for the installation:</br>
 **/x**: Uninstall path</br>
 
 ## Next steps
+
 After you install Backup Server, learn how to prepare your server, or begin protecting a workload.
 
 - [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md)

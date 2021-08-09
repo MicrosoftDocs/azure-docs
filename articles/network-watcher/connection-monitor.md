@@ -1,25 +1,30 @@
 ---
-title: Monitor network communication - tutorial - Azure portal | Microsoft Docs
-description: Learn how to monitor network communication between two virtual machines with Azure Network Watcher's connection monitor capability.
+title: Tutorial - Monitor network communication using the Azure portal
+description: In this tutorial, learn how to monitor network communication between two virtual machines with Azure Network Watcher's connection monitor capability.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: damendo
 editor: ''
 tags: azure-resource-manager
-Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem. 
+# Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem. 
 
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 10/25/2018
-ms.author: jdial
+ms.date: 01/04/2021
+ms.author: damendo
 ms.custom: mvc
 ---
 
 # Tutorial: Monitor network communication between two virtual machines using the Azure portal
+
+> [!NOTE]
+> This tutorial cover Connection Monitor (classic). Try the new and improved [Connection Monitor](connection-monitor-overview.md) to experience enhanced connectivity monitoring
+
+> [!IMPORTANT]
+> Starting 1 July 2021, you will not be able to add new connection monitors in Connection Monitor (classic) but you can continue to use existing connection monitors created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate from Connection Monitor (classic) to the new Connection Monitor](migrate-to-connection-monitor-from-connection-monitor-classic.md) in Azure Network Watcher before 29 February 2024.
 
 Successful communication between a virtual machine (VM) and an endpoint such as another VM, can be critical for your organization. Sometimes, configuration changes are introduced which can break communication. In this tutorial, you learn how to:
 
@@ -30,6 +35,8 @@ Successful communication between a virtual machine (VM) and an endpoint such as 
 > * Diagnose a communication problem between two VMs, and learn how you can resolve it
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+
 
 ## Sign in to Azure
 
@@ -49,7 +56,7 @@ Create two VMs.
     |---|---|
     |Name|myVm1|
     |User name| Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     |Subscription| Select your subscription.|
     |Resource group| Select **Create new** and enter **myResourceGroup**.|
     |Location| Select **East US**|
@@ -69,11 +76,11 @@ Complete the steps in [Create the first VM](#create-the-first-vm) again, with th
 
 |Step|Setting|Value|
 |---|---|---|
-| 1 | Select **Ubuntu Server 17.10 VM** |                                                                         |
-| 3 | Name                              | myVm2                                                                   |
-| 3 | Authentication type               | Paste your SSH public key or select **Password**, and enter a password. |
-| 3 | Resource group                    | Select **Use existing** and select **myResourceGroup**.                 |
-| 6 | Extensions                        | **Network Agent for Linux**                                             |
+| 1 | Select a version of **Ubuntu Server** |                                                                         |
+| 3 | Name                                  | myVm2                                                                   |
+| 3 | Authentication type                   | Paste your SSH public key or select **Password**, and enter a password. |
+| 3 | Resource group                        | Select **Use existing** and select **myResourceGroup**.                 |
+| 6 | Extensions                            | **Network Watcher Agent for Linux**                                             |
 
 The VM takes a few minutes to deploy. Wait for the VM to finish deploying before continuing with the remaining steps.
 
@@ -126,7 +133,7 @@ Alerts are created by alert rules in Azure Monitor and can automatically run sav
 2. Click **Select target**, and then select the resources that you want to target. Select the **Subscription**, and set **Resource type** to filter down to the Connection Monitor that you want to use.
 
     ![alert screen with target selected](./media/connection-monitor/set-alert-rule.png)
-1. Once you have selected a resource to target, select **Add criteria**.The Network Watcher has [metrics on which you can create alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported). Set **Available signals** to the metrics ProbesFailedPercent and AverageRoundtripMs:
+1. Once you have selected a resource to target, select **Add criteria**.The Network Watcher has [metrics on which you can create alerts](../azure-monitor/alerts/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Set **Available signals** to the metrics ProbesFailedPercent and AverageRoundtripMs:
 
     ![alert page with signals selected](./media/connection-monitor/set-alert-signals.png)
 1. Fill out the alert details like alert rule name, description and severity. You can also add an action group to the alert to automate and customize the alert response.

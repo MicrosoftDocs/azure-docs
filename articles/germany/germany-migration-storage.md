@@ -1,51 +1,54 @@
 ---
-title: Migration from Azure Germany storage resources to global Azure
-description: This article provides help for migrating storage resources from Azure Germany to global Azure
+title: Migrate Azure storage resource from Azure Germany to global Azure
+description: This article provides information about migrating your Azure storage resources from Azure Germany to global Azure.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 8/15/2018
-ms.topic: article
-ms.custom: bfmigrate
+ms.custom: bfmigrate, devx-track-azurepowershell
 ---
 
-# Migration from Azure Germany storage resources to global Azure
+# Migrate storage resources to global Azure
 
-This article will provide you some help for the migration of Azure Storage resources from Azure Germany to global Azure.
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
+This article has information that can help you migrate Azure storage resources from Azure Germany to global Azure.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Blobs
 
-AzCopy is a free tool to help you copy blobs, files, and tables. AzCopy works from Azure to Azure, from on-premise to Azure and from Azure to on-premise. Use AzCopy for your migration to copy blobs directly between Azure Germany to global Azure.
+AzCopy is a free tool you can use to copy blobs, files, and tables. AzCopy works for Azure-to-Azure, on-premises-to-Azure, and Azure-to-on-premises migrations. Use AzCopy for your migration to copy blobs directly from Azure Germany to global Azure.
 
-If you have non-managed disks for your source VM, use AzCopy to copy the `.vhd` files to the target environment. Otherwise, you need some steps in advance, see [recommendations for Managed Disks](#managed-disks) further down.
+If you don't use managed disks for your source VM, use AzCopy to copy the .vhd files to the target environment. Otherwise, you must complete some steps in advance. For more information, see [Recommendations for managed disks](#managed-disks).
 
-Here's a short example how AzCopy works, for a complete reference look at the [AzCopy documentation](../storage/common/storage-use-azcopy.md).
+The following example shows how AzCopy works. For a complete reference, see the [AzCopy documentation](../storage/common/storage-use-azcopy-v10.md).
 
-AzCopy uses the terms *Source* and *Dest*, expressed as URIs. URIs for Azure Germany always have this format:
+AzCopy uses the terms **Source** and **Dest**, expressed as URIs. URIs for Azure Germany always have this format:
 
 ```http
 https://<storageaccountname>.blob.core.cloudapi.de/<containername>/<blobname>
 ```
 
-and for global Azure:
+URIs for global Azure always have this format:
 
 ```http
 https://<storageaccountname>.blob.core.windows.net/<containername>/<blobname>
 ```
 
-You get the three parts (*storageaccountname*, *containername*, *blobname*) for the URI from the portal, with PowerShell, or with CLI. The name of the blob can be part of the URI or given as a pattern, like *vm121314.vhd*.
+You get the three parts of the URI (*storageaccountname*, *containername*, *blobname*) from the portal, by using PowerShell, or by using the Azure CLI. The name of the blob can be part of the URI or it can be given as a pattern, like *vm121314.vhd*.
 
-You also need the storage account keys to access the storage account. Get them from the portal, PowerShell, or CLI. For example:
+You also need the storage account keys to access the Azure Storage account. Get them from the portal, by using PowerShell, or by using the CLI. For example:
 
 ```powershell
-Get-AzureRmStorageAccountKey -Name <saname> -ResourceGroupName <rgname>
+Get-AzStorageAccountKey -Name <saname> -ResourceGroupName <rgname>
 ```
 
-As always, you need only one of the two keys available for each storage account.
+As always, you need only one of the two keys for each storage account.
 
 Example:
+
 URI part | example value
 -------- | --------------
 Source storageAccount | `migratetest`
@@ -54,66 +57,52 @@ Source blob | `vm-121314.vhd`
 Target storageAccount | `migratetarget`
 Target container | `targetcontainer`
 
-This command copies a virtual hard disk from Azure Germany to global Azure (keys are shortened for better readability):
+This command copies a virtual hard disk from Azure Germany to global Azure (keys are shortened to improve readability):
 
 ```cmd
 azcopy -v /source:https://migratetest.blob.core.cloudapi.de/vhds /sourcekey:"0LN...w==" /dest:https://migratetarget.blob.core.windows.net/targetcontainer /DestKey:"o//ucDi5TN...w==" /Pattern:vm-121314.vhd
 ```
 
-To get a consistent copy of the VHD, shutdown the VM before copying and plan some downtime. When copied, [follow these instructions](../backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks) to rebuild your VM in the target environment.
+To get a consistent copy of the VHD, shut down the VM before you copy the VHD. Plan some downtime for the copy activity. When the VHD is copied, [rebuild your VM in the target environment](../backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
-### Links
+For more information:
 
-- [AzCopy Documentation](../storage/common/storage-use-azcopy.md)
-- [Create VM from restored disks](../backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks)
+- Review the [AzCopy documentation](../storage/common/storage-use-azcopy-v10.md).
+- Learn how to [create a VM from restored disks](../backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
+## Managed Disks
 
+Azure Managed Disks simplifies disk management for Azure infrastructure as a service (IaaS) VMs by managing the storage accounts that are associated with the VM disk. 
 
+Because you don't have direct access to the .vhd file, you can't directly use tools like AzCopy to copy your files (see [Blobs](#blobs)). The workaround is to first export the managed disk by getting a temporary shared access signature URI, and then download it or copy it by using this information. The following sections show an example of how to get the shared access signature URI and what to do with it.
 
+### Step 1: Get the shared access signature URI
 
-
-
-
-
-
-
-
-
-
-
-## Disks
-
-Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the storage accounts associated with the VM disk. Since you don't have direct access to the `.vhd`, you can't directly use tools like AzCopy (see [Storage Migration](#blobs) to copy your files. The workaround is to first export the managed disk by getting a temporary SAS URI and to download or copy it with this information. Here's a short example how to get the SAS URI and what to do with it:
-
-### Step 1: Get SAS URI
-
-- Go to the portal, search for your managed disk (in the same resource group as your VM, the resource type is "Disk").
-- In the `Overview`, look for the `Export` button in the top ribbon, and click it (you have to shut down and deallocate your VM first, or unattach it).
-- Define a time when the URI expires (default is 3600 seconds)
-- Generate URL (should only take a few seconds)
-- Copy the URL (displayed only once)
+1. In the portal, search for your managed disk. (It's in the same resource group as your VM. The resource type is **Disk**.)
+1. On the **Overview** page, select the **Export** button in the top menu (you have to shut down and deallocate your VM first, or unattach the VM).
+1. Define a time for the URI to expire (the default is 3,600 seconds).
+1. Generate a URL (this step should take only a few seconds).
+1. Copy the URL (it appears only once).
 
 ### Step 2: AzCopy
 
-Examples on how to use AzCopy are provided further up this article at [Blob Migration](#blobs). Use it (or an other tool) to copy the disk directly from your source environment to the target environment. For AzCopy, you have to split the URI into the base URI and the SAS part starting with the character "?". If this is the SAS URI the portal provides:
+For examples of how to use AzCopy, see [Blobs](#blobs). Use AzCopy (or a similar tool) to copy the disk directly from your source environment to the target environment. In AzCopy, you have to split the URI into the base URI and the shared access signature part. The shared access signature part of the URI begins with the character "**?**". The portal provides this URI for the shared access signature URI:
 
 ```http
 https://md-kp4qvrzhj4j5.blob.core.cloudapi.de/r0pmw4z3vk1g/abcd?sv=2017-04-17&sr=b&si=22970153-4c56-47c0-8cbb-156a24b6e4b5&sig=5Hfu0qMw9rkZf6mCjuCE4VMV6W3IR8FXQSY1viji9bg%3D>
 ```
 
-The source parameters for AzCopy would be:
+The following commands show the source parameters for AzCopy:
 
 ```cmd
 /source:"https://md-kp4qvrzhj4j5.blob.core.cloudapi.de/r0pmw4z3vk1g/abcd"
 ```
 
-and
-
 ```cmd
 /sourceSAS:" ?sv=2017-04-17&sr=b&si=22970153-4c56-47c0-8cbb-156a24b6e4b5&sig=5Hfu0qMw9rkZf6mCjuCE4VMV6W3IR8FXQSY1viji9bg%3D"
 ```
 
-And the complete command line:
+Here's the complete command:
 
 ```cmd
 azcopy -v /source:"https://md-kp4qvrzhj4j5.blob.core.cloudapi.de/r0pmw4z3vk1g/abcd" /sourceSAS:"?sv=2017-04-17&sr=b&si=22970153-4c56-47c0-8cbb-156a24b6e4b5&sig=5Hfu0qMw9rkZf6mCjuCE4VMV6W3IR8FXQSY1viji9bg%3D" /dest:"https://migratetarget.blob.core.windows.net/targetcontainer/newdisk.vhd" /DestKey:"o//ucD... Kdpw=="
@@ -121,23 +110,103 @@ azcopy -v /source:"https://md-kp4qvrzhj4j5.blob.core.cloudapi.de/r0pmw4z3vk1g/ab
 
 ### Step 3: Create a new managed disk in the target environment
 
-There are several options to create a new managed disk, for example via portal:
+You have several options for creating a new managed disk. Here's how to do it in the Azure portal:
 
-- In the portal, select `New` > `Managed Disk` > `Create`.
-- Give the new disk a name
-- select a resource group as usual
-- Under `Source type`, select *Storage blob* and either copy the destination URI from the AzCopy command, or browse to select.
-- If you copied an OS disk, choose the OS type, otherwise click `Create`.
+1. In the portal, select **New** > **Managed Disk** > **Create**.
+1. Enter a name for the new disk.
+1. Select a resource group.
+1. Under **Source type**, select **Storage blob**. Then, either copy the destination URI from the AzCopy command or browse to select the destination URI.
+1. If you copied an OS disk, select the **OS** type. For other disk types, select **Create**.
 
-### Step 4: create the VM
+### Step 4: Create the VM
 
-Again, there are various ways to create a VM with this new managed disk.
+As noted earlier, there are multiple ways to create a VM by using this new managed disk. Here are two options:
 
-In the portal, select the disk and click `Create VM` at the top ribbon. Define the other parameters of your VM as usual.
+- In the portal, select the disk, and then select **Create VM**. Define the other parameters of your VM as usual.
+- For PowerShell, see [Create a VM from restored disks](../backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
-For PowerShell follow [this article](../backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks) to create a VM from a restored disk.
+For more information:
 
-### Links
+- Learn how to export to disk [via API](/rest/api/compute/disks/grantaccess) by getting a shared access signature URI. 
+- Learn how to create a managed disk [via API](/rest/api/compute/disks/createorupdate#create-a-managed-disk-by-importing-an-unmanaged-blob-from-a-different-subscription.) from an unmanaged blob.
 
-- Export to disk [via API](/rest/api/compute/disks/grantaccess.md) by getting a SAS URI 
-- Create a managed disk [via API](/rest/api/compute/disks/createorupdate.md#create_a_managed_disk_by_importing_an_unmanaged_blob_from_a_different_subscription) from an unmanaged blob
+## Tables
+
+You can migrate tables in Azure using Storage Explorer. Storage Explorer is a tool to manage your Azure cloud storage resources. Using Storage Explorer, you can connect to the source Germany storage account and copy tables to the target Azure global storage account.
+
+To begin, install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+
+### Connect to source
+
+You use Storage Explorer to copy tables from the source Azure Storage account. 
+
+Connect Storage Explorer to the your source table resources in Microsoft Azure Germany. You can [sign in to access resources in your subscription](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) or you can [attach to specific Storage resources](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource). 
+
+### Connect to target
+
+You use Storage Explorer to paste tables to the target Azure Storage account.
+
+Connect Storage Explorer to your target Microsoft Azure subscription or Azure Storage. You can [sign in to access resources in your subscription](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) or you can [attach to specific Storage resources](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource). 
+
+
+### Migrate tables
+
+Copy tables from Azure Germany to an Azure global using Storage Explorer. You can copy tables by right clicking the table you want to copy and choosing **Copy table** from the shortcut menu. The following example shows copying the *testmigrationtable* from an *Azure Germany subscription*.
+
+![Copy table menu selected from Azure Germany subscription](./media/germany-migration-storage/copy-table.png)
+
+Paste the table into the target Azure Storage account using Storage Explorer. You can past tables by right clicking the *Tables* node within the target Azure Storage account. The following example shows pasting the *testmigrationtable* to a connected Azure Storage account.
+ 
+![Paste table menu selected from target Azure Storage](./media/germany-migration-storage/paste-table.png)
+
+Repeat the copy and paste steps for each table you want to migrate.
+
+## File shares
+
+Use AzCopy for your migration to copy file shares directly from Azure Germany to global Azure. AzCopy is a free tool you can use to copy blobs, files, and tables.
+
+To begin, [download AzCopy](https://aka.ms/downloadazcopy) and install.
+
+AzCopy uses the terms **Source** and **Dest**, expressed as URIs. URIs for Azure Germany always have this format:
+
+```http
+https://<storageaccountname>.blob.core.cloudapi.de/<filesharename>
+```
+
+URIs for global Azure always have this format:
+
+```http
+https://<storageaccountname>.blob.core.windows.net/<filesharename>
+```
+You need a storage account SAS token to access the Azure Storage account. 
+
+The following example command copies all file shares, directories, and files from an Azure Germany storage account to a global Azure storage account. For a complete reference, see the [AzCopy documentation](../storage/common/storage-use-azcopy-v10.md).
+
+URI part | Example value
+-------- | --------------
+Source storageAccount | `migratetest`
+Source file share | `sourcefileshare`
+Target storageAccount | `migratetarget`
+Target fileshare | `targetfileshare`
+
+```cmd
+azcopy copy "https://migratetest.blob.core.cloudapi.de/sourcefileshare?<SAS-token>" "https://migratetarget.blob.core.windows.net/targetfileshare?<SAS-token>" --recursive=true
+```
+
+For more information about AzCopy, see the [AzCopy documentation](../storage/common/storage-use-azcopy-v10.md) and [Transfer data with AzCopy and file storage](../storage/common/storage-use-azcopy-files.md#copy-files-between-storage-accounts).
+
+## Next steps
+
+Learn about tools, techniques, and recommendations for migrating resources in the following service categories:
+
+- [Compute](./germany-migration-compute.md)
+- [Networking](./germany-migration-networking.md)
+- [Web](./germany-migration-web.md)
+- [Databases](./germany-migration-databases.md)
+- [Analytics](./germany-migration-analytics.md)
+- [IoT](./germany-migration-iot.md)
+- [Integration](./germany-migration-integration.md)
+- [Identity](./germany-migration-identity.md)
+- [Security](./germany-migration-security.md)
+- [Management tools](./germany-migration-management-tools.md)
+- [Media](./germany-migration-media.md)

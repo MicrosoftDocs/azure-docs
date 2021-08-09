@@ -1,21 +1,8 @@
 ---
-title: Azure Service Fabric Monitoring Partners | Microsoft Docs
-description: Learn how to monitor Azure Service Fabric with partner monitoring solutions
-services: service-fabric
-documentationcenter: .net
-author: srrengar
-manager: timlt
-editor: ''
-
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Azure Service Fabric Monitoring Partners 
+description: Learn how to monitor Azure Service Fabric applications, clusters, and infrastructure with partner monitoring solutions.
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/16/2018
-ms.author: srrengar
-
 ---
 
 # Azure Service Fabric Monitoring Partners
@@ -24,7 +11,7 @@ This article illustrates how one can monitor their Service Fabric applications, 
 
 ## Dynatrace
 
-Our integration with Dynatrace provides many out of the box features to monitor your Service Fabric clusters. Installing the Dynatrace OneAgent on your VMSS instances gives you performance counters and a topology of your Service Fabric deployment down to the App level. Dynatrace is also a great choice for on-premises monitoring. Check out more of the features listed in the [annoucement](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) and [instructions](https://www.dynatrace.com/support/help/cloud-platforms/azure/how-do-i-monitor-azure-service-fabric-applications/) to enable Dynatrace on your cluster. 
+Our integration with Dynatrace provides many out of the box features to monitor your Service Fabric clusters. Installing the Dynatrace OneAgent on your VMSS instances gives you performance counters and a topology of your Service Fabric deployment down to the App level. Dynatrace is also a great choice for on-premises monitoring. Check out more of the features listed in the [announcement](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) and [instructions](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) to enable Dynatrace on your cluster. 
 
 ## Datadog
 
@@ -40,8 +27,11 @@ New Relic is another Application Performance Management tool that integrates wel
 
 ## ELK 
 
-The ELK stack is a collection of open source technologies: Elasticsearch, Logstash, and Kibana. By using these in combination, you can collect, store, and analyze Service Fabric monitoring and diagnostics data. We have a tutorial for how to do this with Service Fabric native Java applications [here](service-fabric-tutorial-java-elk.md). 
+The ELK stack is a collection of open-source technologies: Elasticsearch, Logstash, and Kibana. By using these technologies in combination, you can collect, store, and analyze Service Fabric monitoring and diagnostics data. We have a tutorial for how to do this with Service Fabric native Java applications [here](service-fabric-tutorial-java-elk.md). 
 
+## Humio
+
+Humio is a log collection service that can gather logs from your applications and events from Service Fabric in the cloud or on-premises in real time. In addition to live observability, Humio offers state-of-the-art analysis and visualization capabilities for viewing and collecting information from your diagnostics. Humio has cost effective pricing plans and is built to scale while retaining it's lightening fast speed. It directly integrates with Service Fabric platform events and Application telemetry. You can read more about the Humio and Service Fabric integration [here](https://github.com/humio/service-fabric-humio).
 
 ## Next steps
 

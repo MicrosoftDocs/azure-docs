@@ -1,48 +1,79 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure AD identity governance documentation
-metadata:
-  document_id: 
-  title: Azure Active Directory identity governance documentation | Microsoft Docs
-  description: Learn about identity lifecycle governance, access lifecycle governance, and secure administration across employees and partners.
-  services: active-directory
-  author: rolyon
-  manager: mtillman
+### YamlMime:Landing
+
+title: Azure Active Directory Identity Governance documentation
+summary: Azure Active Directory (Azure AD) Identity Governance helps you to protect, monitor, and audit access to critical assets while ensuring employee productivity.
+
+metadata: 
+  author: ajburnle
+  description: "Learn how to protect, monitor, and audit access to critical assets while ensuring employee productivity."
+  manager: daveba
+  ms.author: ajburnle
+  ms.collection: na
+  ms.date: 09/14/2019
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: na
   ms.topic: landing-page
-  ms.date: 08/16/2018
-  ms.author: rolyon
-abstract:
-  description: Azure Active Directory (Azure AD) identity governance gives organizations the ability to govern the identity lifecycle, govern access lifecycle, and secure administration across employees and partners. 
-  aside:
-    image:
-      alt: 
-      height: 112
-      src: media/index/video-thumb-identity-governance.png
-      width: 200  
-    title: Govern access to your resources (1:17:24)
-    href: https://www.youtube.com/embed/aY7A0Br8u5M
-    width: 200
-sections:
-  - title: Identity governance
-    items:
-    - type: list
-      style: unordered
-      items:
-      - html: <a href="/azure/active-directory/governance/identity-governance-overview">What is identity governance?</a>
-  - title: Access reviews
-    items:
-    - type: list
-      style: unordered
-      items:
-      - html: <a href="/azure/active-directory/governance/access-reviews-overview">What is an access review?</a>
-      - html: <a href="/azure/active-directory/governance/manage-user-access-with-access-reviews">Manage user access with access reviews</a>
-      - html: <a href="/azure/active-directory/governance/manage-guest-access-with-access-reviews">Manage guest access with access reviews</a>
-  - title: Terms of use
-    items:
-    - type: list
-      style: unordered
-      items:
-      - html: <a href="/azure/active-directory/governance/active-directory-tou">What can I do with Terms of use?</a>
+  services: active-directory
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent: 
+  # Card
+  - title: About Identity Governance
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure AD Identity Governance?
+            url: identity-governance-overview.md
+      - linkListType: video
+        links:
+          - text: Govern access to your resources
+            url: https://www.youtube.com/watch?v=bFfowdpApu4&list=PLQXpv_NQsPIBg3op2xONM9KgwlayFDue6
+  
+  # Card
+  - title: Govern the lifecycle of access to groups, apps, and sites
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure AD entitlement management?
+            url: entitlement-management-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Manage access to resources - Azure portal
+            url: entitlement-management-access-package-first.md
+          - text: Manage access to resources - Microsoft Graph
+            url: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
+      - linkListType: concept
+        links:
+          - text: Delegation and roles
+            url: entitlement-management-delegate.md
+  
+  # Card
+  - title: Recertify access to groups, apps, and privileged roles
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are Azure AD access reviews?
+            url: access-reviews-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create an access review to ensure users do not retain excessive access
+            url: create-access-review.md
+          - text: Review access to group or apps
+            url: perform-access-review.md
+  
+  # Card
+  - title: Make users eligible for privileged roles
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure AD Privileged Identity Management?
+            url: ../privileged-identity-management/pim-configure.md
+  
+  # Card
+  - title: Ensure users see disclaimers
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Require users to agree to a terms of use when using an app
+            url: ../conditional-access/terms-of-use.md

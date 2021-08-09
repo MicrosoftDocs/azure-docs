@@ -1,27 +1,24 @@
 ---
-title: Communication for Roles in Cloud Services | Microsoft Docs
+title: Communication for Roles in Cloud Services (classic) | Microsoft Docs
 description: Role instances in Cloud Services can have endpoints (http, https, tcp, udp) defined for them that communicate with the outside or between other role instances.
-services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: 7008a083-acbe-4fb8-ae60-b837ef971ca1
-ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
-ms.author: jeconnoc
-
+ms.service: cloud-services
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Enable communication for role instances in azure
+
+# Enable communication for role instances in Azure Cloud Services (classic)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 Cloud service roles communicate through internal and external connections. External connections are called **input endpoints** while internal connections are called **internal endpoints**. This topic describes how to modify the [service definition](cloud-services-model-and-package.md#csdef) to create endpoints.
 
 ## Input endpoint
-The input endpoint is used when you want to expose a port to the outside. You specify the protocol type and the port of the endpoint which then applies for both the external and internal ports for the endpoint. If you want, you can specify a different internal port for the endpoint with the [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) attribute.
+The input endpoint is used when you want to expose a port to the outside. You specify the protocol type and the port of the endpoint which then applies for both the external and internal ports for the endpoint. If you want, you can specify a different internal port for the endpoint with the [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#inputendpoint) attribute.
 
 The input endpoint can use the following protocols: **http, https, tcp, udp**.
 
@@ -92,7 +89,7 @@ The Azure Managed Library provides methods for role instances to communicate at 
 > 
 > 
 
-You can use the [Instances](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) property to retrieve instances of a role. First use the [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) to return a reference to the current role instance, and then use the [Role](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) property to return a reference to the role itself.
+You can use the [Instances](/previous-versions/azure/reference/ee741904(v=azure.100)) property to retrieve instances of a role. First use the [CurrentRoleInstance](/previous-versions/azure/reference/ee741907(v=azure.100)) to return a reference to the current role instance, and then use the [Role](/previous-versions/azure/reference/ee741918(v=azure.100)) property to return a reference to the role itself.
 
 When you connect to a role instance programmatically through the .NET SDK, it's relatively easy to access the endpoint information. For example, after you've already connected to a specific role environment, you can get the port of a specific endpoint with this code:
 
@@ -107,7 +104,7 @@ The **Instances** property returns a collection of **RoleInstance** objects. Thi
 > 
 > 
 
-To determine the port number for an internal endpoint on a role instance, you can use the [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) property to return a Dictionary object that contains endpoint names and their corresponding IP addresses and ports. The [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) property returns the IP address and port for a specified endpoint. The **PublicIPEndpoint** property returns the port for a load balanced endpoint. The IP address portion of the **PublicIPEndpoint** property is not used.
+To determine the port number for an internal endpoint on a role instance, you can use the [`InstanceEndpoints`](/previous-versions/azure/reference/ee741917(v=azure.100)) property to return a Dictionary object that contains endpoint names and their corresponding IP addresses and ports. The [`IPEndpoint`](/previous-versions/azure/reference/ee741919(v=azure.100)) property returns the IP address and port for a specified endpoint. The `PublicIPEndpoint` property returns the port for a load balanced endpoint. The IP address portion of the `PublicIPEndpoint` property is not used.
 
 Here is an example that iterates role instances.
 
@@ -206,7 +203,7 @@ namespace WorkerRole1
       ServicePointManager.DefaultConnectionLimit = 12;
 
       // For information on handling configuration changes
-      // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
+      // see the MSDN topic at https://go.microsoft.com/fwlink/?LinkId=166357.
       return base.OnStart();
     }
   }
@@ -364,8 +361,11 @@ Only allows network traffic from **WebRole1** to **WorkerRole1**, **WebRole1** t
 </ServiceDefinition>
 ```
 
-An XML schema reference for the elements used above can be found [here](https://msdn.microsoft.com/library/azure/gg557551.aspx).
+An XML schema reference for the elements used above can be found [here](/previous-versions/azure/reference/gg557551(v=azure.100)).
 
 ## Next steps
 Read more about the Cloud Service [model](cloud-services-model-and-package.md).
+
+
+
 

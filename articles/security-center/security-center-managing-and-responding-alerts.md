@@ -3,93 +3,81 @@ title: Manage security alerts in Azure Security Center | Microsoft Docs
 description: This document helps you to use Azure Security Center capabilities to manage and respond to security alerts.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: mbaldwin
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/3/2018
-ms.author: rkarlin
+ms.date: 02/17/2021
+ms.author: memildin
 
 ---
-# Managing and responding to security alerts in Azure Security Center
-This document helps you use Azure Security Center to manage and respond to security alerts.
+# Manage and respond to security alerts in Azure Security Center
 
-> [!NOTE]
-> To enable advanced detections, upgrade to Azure Security Center Standard. A free 60-day trial is available. To upgrade, select Pricing Tier in the [Security Policy](security-center-policies.md). See [Azure Security Center pricing](security-center-pricing.md) to learn more.
->
->
+This topic shows you how to view and process Security Center's alerts and protect your resources.
+
+Advanced detections that trigger security alerts are only available with Azure Defender. A free trial is available. To upgrade, see [Enable Azure Defender](enable-azure-defender.md).
 
 ## What are security alerts?
-Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions, like firewall and endpoint protection solutions, to detect real threats and reduce false positives. A list of prioritized security alerts is shown in Security Center along with the information you need to quickly investigate the problem and recommendations for how to remediate an attack.
+Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions - like firewall and endpoint protection solutions - to detect real threats and reduce false positives. A list of prioritized security alerts is shown in Security Center along with the information you need to quickly investigate the problem and steps to take to remediate an attack.
+
+To learn about the different types of alerts, see [Security alerts - a reference guide](alerts-reference.md).
+
+For an overview of how Security Center generates alerts, see [how Azure Security Center detects and responds to threats](security-center-alerts-overview.md).
 
 
-> [!NOTE]
-> For more information about how Security Center detection capabilities work, read [Azure Security Center Detection Capabilities](security-center-detection-capabilities.md).
->
->
+## Manage your security alerts
 
-## Managing security alerts
-You can review your current alerts by looking at the **Security alerts** tile. Follow the steps below to see more details about each alert:
+1. From Security Center's overview page, select the **Security alerts** tile at the top of the page, or the link from the sidebar..
 
-1. On the Security Center dashboard, you see the **Security alerts** tile.
+    :::image type="content" source="media/security-center-managing-and-responding-alerts/overview-page-alerts-links.png" alt-text="Getting to the security alerts page from Azure Security Center's overview page":::
 
-    ![Security alerts tile in Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1-ga.png)
+    The security alerts page opens.
 
-2. Click the tile to open the **Security alerts** to see more details about the alerts.
+    :::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Azure Security Center's security alerts list":::
 
-   ![The Security alerts in Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
+1. To filter the alerts list, select any of the relevant filters. You can optionally add further filters with the **Add filter** option.
 
-In the bottom part of this page are the details for each alert. To sort, click the column that you want to sort by. The definition for each column is given below:
+    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-adding-filters-small.png" alt-text="Adding filters to the alerts view." lightbox="./media/security-center-managing-and-responding-alerts/alerts-adding-filters-large.png":::
 
-* **Description**: A brief explanation of the alert.
-* **Count**: A list of all alerts of this specific type that were detected on a specific day.
-* **Detected by**: The service that was responsible for triggering the alert.
-* **Date**: The date that the event occurred.
-* **State**: The current state for that alert. There are two types of states:
-  * **Active**: The security alert has been detected.
-  * **Dismissed**: The security alert has been dismissed by the user. This status is typically used for alerts that were investigated and either mitigated or found not to be an actual attack.
-* **Severity**: The severity level, which can be high, medium or low.
+    The list updates according to the filtering options you've selected. Filtering can be very helpful. For example, you might you want to address security alerts that occurred in the last 24 hours because you are investigating a potential breach in the system.
 
-> [!NOTE]
-> Security alerts generated by Security Center will also appear under Azure Activity Log. For more information about how to access Azure Activity Log, read [View activity logs to audit actions on resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
->
 
-### Filtering alerts
-You can filter alerts based on date, state, and severity. Filtering alerts can be useful for scenarios where you need to narrow the scope of security alerts show. For example, you might you want to address security alerts that occurred in the last 24 hours because you are investigating a potential breach in the system.
+## Respond to security alerts
 
-1. Click **Filter** on the **Security Alerts**. The **Filter** opens and you select the date, state, and severity values you wish to see.
+1. From the **Security alerts** list, select an alert. A side pane opens and shows a description of the alert and all the affected resources. 
 
-    ![Filtering alerts in Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-2017.png)
+    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-details-pane.png" alt-text="Mini details view of a security alert.":::
 
-### Respond to security alerts
-Select a security alert to learn more about the event(s) that triggered the alert and what, if any, steps you need to take to remediate an attack. Security alerts are grouped by type and date. Clicking a security alert opens a page containing a list of the grouped alerts.
+    > [!TIP]
+    > With this side pane open, you can quickly review the alerts list with the up and down arrows on your keyboard.
 
-![Respond to security alerts in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig5-ga.png)
+1. For further information, select **View full details**.
 
-In this case, the alerts that were triggered refer to suspicious Remote Desktop Protocol (RDP) activity. The first column shows which resources were attacked; the second shows how many times the resource was attacked; the third shows the time of the attack; the fourth shows state of the alert; and the fifth shows the severity of the attack. After reviewing this information, click the resource that was attacked.
+    The left pane of the security alert page shows high-level information regarding the security alert: title, severity, status, activity time, description of the suspicious activity, and the affected resource. Alongside the affected resource are the Azure tags relevant to the resource. Use these to infer the organizational context of the resource when investigating the alert.
 
-![Suggestions for what to do about security alerts in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6-ga.png)
+    The right pane includes the **Alert details** tab containing further details of the alert to help you investigate the issue: IP addresses, files, processes, and more.
+     
+    ![Suggestions for what to do about security alerts.](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
-In the **Description** field you find more details about this event. These additional details offer insight into what triggered the security alert, the target resource, when applicable the source IP address, and recommendations about how to remediate.  In some instances, the source IP address is empty (not available) because not all Windows security events logs include the IP address.
+    Also in the right pane is the **Take action** tab. Use this tab to take further actions regarding the security alert. Actions such as:
+    - *Mitigate the threat* - provides manual remediation steps for this security alert
+    - *Prevent future attacks* - provides security recommendations to help reduce the attack surface, increase security posture, and thus prevent future attacks
+    - *Trigger automated response* - provides the option to trigger a logic app as a response to this security alert
+    - *Suppress similar alerts* - provides the option to suppress future alerts with similar characteristics if the alert isn’t relevant for your organization
 
-The remediation suggested by Security Center vary according to the security alert. In some cases, you may have to use other Azure capabilities to implement the recommended remediation. For example, the remediation for this attack is to blacklist the IP address that is generating this attack by using a [network ACL](../virtual-network/virtual-networks-acl.md) or a [network security group](../virtual-network/security-overview.md#security-rules) rule. For more information on the different types of alerts, read [Security Alerts by Type in Azure Security Center](security-center-alerts-type.md).
+    ![Take action tab.](./media/security-center-managing-and-responding-alerts/alert-take-action.png)
 
-> [!NOTE]
-> Security Center has released to limited preview a new set of detections that leverage auditd records, a common auditing framework, to detect malicious behaviors on Linux machines. Please send an email 
-> with your subscription IDs to [us](mailto:ASC_linuxdetections@microsoft.com) to join the preview.
+
 
 
 ## See also
-In this document, you learned how to configure security policies in Security Center. To learn more about Security Center, see the following:
 
-* [Handling Security Incident in Azure Security Center](security-center-incident.md)
-* [Azure Security Center Detection Capabilities](security-center-detection-capabilities.md)
-* [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)
-* [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
-* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
+In this document, you learned how to view security alerts. See the following pages for related material:
+
+- [Configure alert suppression rules](alerts-suppression-rules.md)
+- [Automate responses to Security Center triggers](workflow-automation.md)
+- [Security alerts - a reference guide](alerts-reference.md)

@@ -3,7 +3,7 @@ title: 'Install Azure AD Connect using SQL delegated administrator permissions |
 description: This topic describes an update to Azure AD Connect that allows for installation using an account that only has SQL dbo permissions.
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.reviewer: jparsons
 ms.assetid:
@@ -11,10 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/07/2018
-ms.component: hybrid
+ms.topic: how-to
+ms.date: 02/26/2018
+ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Install Azure AD Connect using SQL delegated administrator permissions
@@ -38,21 +39,24 @@ To provision the database out of band and install Azure AD Connect with database
 >Although it is not required, it is **highly recommended** that the Latin1_General_CI_AS collation is selected when creating the database.
 
 
-1.	Have the SQL Administrator create the ADSync database with a case insensitive collation sequence **(Latin1_General_CI_AS)**.  The database must be named **ADSync**.  The recovery model, compatibility level, and containment type are updated to the correct values when Azure AD Connect is installed.  However the collation sequence must be set correctly by the SQL administrator otherwise Azure AD Connect will block the installation.  To recover the SA must delete and recreate the database.</br>
-![Collation](./media/how-to-connect-install-sql-delegation/sql4.png)
-2.	Grant the Azure AD Connect administrator and the domain service account the following permissions:
-    - SQL Login 
-    - **database owner(dbo)** rights.  </br>
-![Permissions](./media/how-to-connect-install-sql-delegation/sql3a.png)
-3.	Send an email to the Azure AD Connect administrator indicating the SQL server and instance name that should be used when installing Azure AD Connect.
+1. Have the SQL Administrator create the ADSync database with a case insensitive collation sequence **(Latin1_General_CI_AS)**.  The database must be named **ADSync**.  The recovery model, compatibility level, and containment type are updated to the correct values when Azure AD Connect is installed.  However the collation sequence must be set correctly by the SQL administrator otherwise Azure AD Connect will block the installation.  To recover the SA must delete and recreate the database.
+ 
+   ![Collation](./media/how-to-connect-install-sql-delegation/sql4.png)
+2. Grant the Azure AD Connect administrator and the domain service account the following permissions:
+   - SQL Login 
+   - **database owner(dbo)** rights.
+ 
+   ![Permissions](./media/how-to-connect-install-sql-delegation/sql3a.png)
+
+   >[!NOTE]
+   >Azure AD Connect does not support logins with a nested membership.  This means your Azure AD Connect administrator account and domain service account must be linked to a login that is granted dbo rights.  It cannot simply be the member of a group that is assigned to a login with dbo rights.
+
+3. Send an email to the Azure AD Connect administrator indicating the SQL server and instance name that should be used when installing Azure AD Connect.
 
 ## Additional information
-Once the database is provisioned, the Azure AD Connect administrator can install and configure on-premises synchronization at their convenience.  
+Once the database is provisioned, the Azure AD Connect administrator can install and configure on-premises synchronization at their convenience.
 
-The **/UseExistingDatabase** flag is required when using a pre-created database.  It is not only used in recovery situations.
-
-In addition to supporting new installations of Azure AD Connect, this feature also enables delegation for any scenario related to the **/UseExistingDatabase** flag.  For more information on installing Azure AD Connect with an existing database, see [Install Azure AD Connect using an existing ADSync database](how-to-connect-install-existing-database.md)
-
+In case the SQL Administrator has restored ADSync database from a previous Azure AD Connect backup, you will need to install the new Azure AD Connect server by using an existing database. For more information on installing Azure AD Connect with an existing database, see [Install Azure AD Connect using an existing ADSync database](how-to-connect-install-existing-database.md).
 
 ## Next steps
 - [Getting started with Azure AD Connect using express settings](how-to-connect-install-express.md)

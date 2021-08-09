@@ -1,27 +1,19 @@
 ---
-title: Quickstart - Create a Linux VM with Azure PowerShell | Microsoft Docs
+title: Quickstart - Create a Linux VM with Azure PowerShell 
 description: In this quickstart, you learn how to use Azure PowerShell to create a Linux virtual machine
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-ms.devlang: na
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/17/2018
+ms.date: 07/31/2020
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Quickstart: Create a Linux virtual machine in Azure with PowerShell
 
-The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart shows you how to use the Azure PowerShell module to deploy a Linux virtual machine (VM) in Azure. This quickstart uses the Ubuntu 16.04 LTS marketplace image from Canonical. To see your VM in action, you'll also SSH to the VM and install the NGINX web server.
+The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart shows you how to use the Azure PowerShell module to deploy a Linux virtual machine (VM) in Azure. This quickstart uses the Ubuntu 18.04 LTS marketplace image from Canonical. To see your VM in action, you'll also SSH to the VM and install the NGINX web server.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -31,28 +23,27 @@ The Azure Cloud Shell is a free interactive shell that you can use to run the st
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
 
-If you want to install and use the PowerShell locally, this quickstart requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
-
 ## Create SSH key pair
 
-You need an SSH key pair to complete this quickstart. If you already have an SSH key pair, you can skip this step.
+Use [ssh-keygen](https://www.ssh.com/ssh/keygen/) to create an SSH key pair. If you already have an SSH key pair, you can skip this step.
 
-Open a bash shell and use [ssh-keygen](https://www.ssh.com/ssh/keygen/) to create an SSH key pair. If you don't have a bash shell on your local computer, you can use the [Azure Cloud Shell](https://shell.azure.com/bash).  
 
 ```azurepowershell-interactive
-ssh-keygen -t rsa -b 2048
+ssh-keygen -t rsa -b 4096
 ```
 
-For more detailed information on how to create SSH key pairs, including the use of PuTTy, see [How to use SSH keys with Windows](ssh-from-windows.md).
+You will be prompted to provide a filename for the key pair or you can hit **Enter** to use the default location of `/home/<username>/.ssh/id_rsa`. You will also be able to create a password for the keys, if you like.
 
-If you create your SSH key pair using the Cloud Shell, it will be stored in a container image in a [storage account that is automatically created by Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage). Don't delete the storage account, or the files share within it, until after you have retrieved your keys or you will lose access to the VM. 
+For more detailed information on how to create SSH key pairs, see [How to use SSH keys with Windows](ssh-from-windows.md).
+
+If you create your SSH key pair using the Cloud Shell, it will be stored in a [storage account that is automatically created by Cloud Shell](../../cloud-shell/persisting-shell-storage.md). Don't delete the storage account, or the files share in it, until after you have retrieved your keys or you will lose access to the VM. 
 
 ## Create a resource group
 
-Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed:
+Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "EastUS"
+New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 ```
 
 ## Create virtual network resources
@@ -61,12 +52,12 @@ Create a virtual network, subnet, and a public IP address. These resources are u
 
 ```azurepowershell-interactive
 # Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+$subnetConfig = New-AzVirtualNetworkSubnetConfig `
   -Name "mySubnet" `
   -AddressPrefix 192.168.1.0/24
 
 # Create a virtual network
-$vnet = New-AzureRmVirtualNetwork `
+$vnet = New-AzVirtualNetwork `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
   -Name "myVNET" `
@@ -74,7 +65,7 @@ $vnet = New-AzureRmVirtualNetwork `
   -Subnet $subnetConfig
 
 # Create a public IP address and specify a DNS name
-$pip = New-AzureRmPublicIpAddress `
+$pip = New-AzPublicIpAddress `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
   -AllocationMethod Static `
@@ -86,7 +77,7 @@ Create an Azure Network Security Group and traffic rule. The Network Security Gr
 
 ```azurepowershell-interactive
 # Create an inbound network security group rule for port 22
-$nsgRuleSSH = New-AzureRmNetworkSecurityRuleConfig `
+$nsgRuleSSH = New-AzNetworkSecurityRuleConfig `
   -Name "myNetworkSecurityGroupRuleSSH"  `
   -Protocol "Tcp" `
   -Direction "Inbound" `
@@ -98,7 +89,7 @@ $nsgRuleSSH = New-AzureRmNetworkSecurityRuleConfig `
   -Access "Allow"
 
 # Create an inbound network security group rule for port 80
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
+$nsgRuleWeb = New-AzNetworkSecurityRuleConfig `
   -Name "myNetworkSecurityGroupRuleWWW"  `
   -Protocol "Tcp" `
   -Direction "Inbound" `
@@ -110,18 +101,18 @@ $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
   -Access "Allow"
 
 # Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup `
+$nsg = New-AzNetworkSecurityGroup `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
   -Name "myNetworkSecurityGroup" `
   -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
-Create a virtual network interface card (NIC) with [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). The virtual NIC connects the VM to a subnet, Network Security Group, and public IP address.
+Create a virtual network interface card (NIC) with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). The virtual NIC connects the VM to a subnet, Network Security Group, and public IP address.
 
 ```azurepowershell-interactive
 # Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface `
+$nic = New-AzNetworkInterface `
   -Name "myNic" `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
@@ -142,49 +133,51 @@ $securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
 
 # Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig `
+$vmConfig = New-AzVMConfig `
   -VMName "myVM" `
   -VMSize "Standard_D1" | `
-Set-AzureRmVMOperatingSystem `
+Set-AzVMOperatingSystem `
   -Linux `
   -ComputerName "myVM" `
   -Credential $cred `
   -DisablePasswordAuthentication | `
-Set-AzureRmVMSourceImage `
+Set-AzVMSourceImage `
   -PublisherName "Canonical" `
   -Offer "UbuntuServer" `
-  -Skus "16.04-LTS" `
+  -Skus "18.04-LTS" `
   -Version "latest" | `
-Add-AzureRmVMNetworkInterface `
+Add-AzVMNetworkInterface `
   -Id $nic.Id
 
 # Configure the SSH key
 $sshPublicKey = cat ~/.ssh/id_rsa.pub
-Add-AzureRmVMSshPublicKey `
+Add-AzVMSshPublicKey `
   -VM $vmconfig `
   -KeyData $sshPublicKey `
   -Path "/home/azureuser/.ssh/authorized_keys"
 ```
 
-Now, combine the previous configuration definitions to create with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
+Now, combine the previous configuration definitions to create with [New-AzVM](/powershell/module/az.compute/new-azvm):
 
 ```azurepowershell-interactive
-New-AzureRmVM `
+New-AzVM `
   -ResourceGroupName "myResourceGroup" `
   -Location eastus -VM $vmConfig
 ```
 
 It will take a few minutes for your VM to be deployed. When the deployment is finished, move on to the next section.
 
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+
 ## Connect to the VM
 
-Create an SSH connection with the VM using the public IP address. To see the public IP address of the VM, use the [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) cmdlet:
+Create an SSH connection with the VM using the public IP address. To see the public IP address of the VM, use the [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) cmdlet:
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
+Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
 ```
 
-Using the same bash shell you used to create your SSH key pair (like the [Azure Cloud Shell](https://shell.azure.com/bash) or your local bash shell) paste the SSH connection command into the shell to create an SSH session.
+Using the same shell you used to create your SSH key pair, paste the the following command into the shell to create an SSH session. Replace *10.111.12.123* with the IP address of your VM.
 
 ```bash
 ssh azureuser@10.111.12.123
@@ -209,14 +202,14 @@ When done, type `exit` to leave the SSH session.
 
 Use a web browser of your choice to view the default NGINX welcome page. Enter the public IP address of the VM as the web address. The public IP address can be found on the VM overview page or as part of the SSH connection string you used earlier.
 
-![NGINX default site](./media/quick-create-cli/nginx.png)
+![NGINX default Welcome page](./media/quick-create-cli/nginix-welcome-page.png)
 
 ## Clean up resources
 
-When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) cmdlet to remove the resource group, VM, and all related resources:
+When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to remove the resource group, VM, and all related resources:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name "myResourceGroup"
+Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
 ## Next steps

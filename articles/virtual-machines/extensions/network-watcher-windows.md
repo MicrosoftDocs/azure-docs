@@ -1,21 +1,14 @@
 ---
-title: Azure Network Watcher Agent virtual machine extension for Windows | Microsoft Docs
+title: Azure Network Watcher Agent virtual machine extension for Windows 
 description: Deploy the Network Watcher Agent on Windows virtual machine using a virtual machine extension.
-services: virtual-machines-windows
-documentationcenter: ''
-author: gurudennis
-manager: amku
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 27e46af7-2150-45e8-b084-ba33de8c5e3f
-ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
-ms.date: 02/14/2017
-ms.author: dennisg
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: windows
+ms.date: 02/14/2017 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Network Watcher Agent virtual machine extension for Windows
@@ -31,7 +24,7 @@ This document details the supported platforms and deployment options for the Net
 
 ### Operating system
 
-The Network Watcher Agent extension for Windows can be run against Windows Server 2008 R2, 2012, 2012 R2, and 2016 releases. Nano Server is not supported at this time.
+The Network Watcher Agent extension for Windows can be run against Windows Server 2008 R2, 2012, 2012 R2, 2016 and 2019 releases. Nano Server is not supported at this time.
 
 ### Internet connectivity
 
@@ -75,10 +68,10 @@ You can deploy Azure VM extensions with Azure Resource Manager templates. You ca
 
 ## PowerShell deployment
 
-Use the `Set-AzureRmVMExtension` command to deploy the Network Watcher Agent virtual machine extension to an existing virtual machine:
+Use the `Set-AzVMExtension` command to deploy the Network Watcher Agent virtual machine extension to an existing virtual machine:
 
 ```powershell
-Set-AzureRmVMExtension `
+Set-AzVMExtension `
   -ResourceGroupName "myResourceGroup1" `
   -Location "WestUS" `
   -VMName "myVM1" `
@@ -95,7 +88,7 @@ Set-AzureRmVMExtension `
 You can retrieve data about the state of extension deployments from the Azure portal and PowerShell. To see the deployment state of extensions for a given VM, run the following command using the Azure PowerShell module:
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent
+Get-AzVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent
 ```
 
 Extension execution output is logged to files found in the following directory:

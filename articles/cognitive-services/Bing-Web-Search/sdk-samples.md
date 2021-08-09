@@ -3,16 +3,21 @@ title: Bing Web Search SDK samples
 titleSuffix: Azure Cognitive Services
 description: Use the Bing Web Search SDK to add search capabilities to your Python, Node.js, C#, or Java application.
 services: cognitive-services
-author: mikedodaro
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: sample
-ms.date: 08/16/2018
-ms.author: erhopf
+ms.date: 05/15/2019
+ms.author: aahi
 ---
 
 # Bing Web Search SDK samples
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 The Bing Web Search SDK is available in Python, Node.js, C#, and Java. Code samples, prerequisites, and build instructions are provided on GitHub. The following scenarios are covered:
 
@@ -26,11 +31,11 @@ The Bing Web Search SDK is available in Python, Node.js, C#, and Java. Code samp
 Use these links to access the SDK for your preferred language.
 
 * Get started with [Python samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
-  * See also [Python libraries](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-websearch) for definitions and dependencies.
+  * See also [Python libraries](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-websearch) for definitions and dependencies.
 * Get started with [Node.js samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
   * See also [Node.js Web Search](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesWebSearch).
 * Get started with [.NET samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
   * [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0)
-  * See also [.NET libraries](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Search/BingWebSearch) for definitions and dependencies.
+  * See also [.NET libraries](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingWebSearch) for definitions and dependencies.
 * Get started with [Java samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
   * See also [Java libraries](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch) for definitions and dependencies.

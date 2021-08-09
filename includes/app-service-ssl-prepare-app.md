@@ -12,19 +12,23 @@ ms.custom: "include file"
 
 ## Prepare your web app
 
-To bind a custom SSL certificate (a third-party certificate or App Service certificate) to your web app, your [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be in the **Basic**, **Standard**, **Premium**, or **Isolated** tier. In this step, you make sure that your web app is in the supported pricing tier.
+To create custom TLS/SSL bindings or enable client certificates for your App Service app, your [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be in the **Basic**, **Standard**, **Premium**, or **Isolated** tier. In this step, you make sure that your web app is in the supported pricing tier.
 
-### Log in to Azure
+### Sign in to Azure
 
 Open the [Azure portal](https://portal.azure.com).
 
 ### Navigate to your web app
 
-From the left menu, click **App Services**, and then click the name of your web app.
+Search for and select **App Services**.
 
-![Select web app](./media/app-service-ssl-prepare-app/select-app.png)
+![Select App Services](./media/app-service-ssl-prepare-app/app-services.png)
 
-You have landed in the management page of your web app.  
+On the **App Services** page, select the name of your web app.
+
+![Screenshot of the App Services page in Azure portal showing a list of all running web apps, with the first app in the list highlighted.](./media/app-service-ssl-prepare-app/select-app.png)
+
+You have landed on the management page of your web app.  
 
 ### Check the pricing tier
 
@@ -36,7 +40,7 @@ Check to make sure that your web app is not in the **F1** or **D1** tier. Your w
 
 ![Check pricing tier](./media/app-service-ssl-prepare-app/check-pricing-tier.png)
 
-Custom SSL is not supported in the **F1** or **D1** tier. If you need to scale up, follow the steps in the next section. Otherwise, close the **Scale up** page and skip to [Upload and bind your SSL certificate](#upload).
+Custom SSL is not supported in the **F1** or **D1** tier. If you need to scale up, follow the steps in the next section. Otherwise, close the **Scale up** page and skip the [Scale up your App Service plan](#scale-up-your-app-service-plan) section.
 
 ### Scale up your App Service plan
 

@@ -1,14 +1,15 @@
 ---
-title: 'Create a zone-redundant virtual network gateway in Azure Availability Zones | Microsoft Docs'
-description: Deploy VPN Gateway and ExpressRoute gateways in Availability Zones
+title: 'Create a zone-redundant virtual network gateway in Azure Availability Zones'
+description: Learn how to deploy zone-redundant VPN Gateways and ExpressRoute gateways in Azure Availability Zones.
 services: vpn-gateway
+titleSuffix: Azure VPN Gateway
 author: cherylmc
-Customer intent: As someone with a basic network background, I want to understand how to create zone-redundant gateways.
 
 ms.service: vpn-gateway
-ms.topic: conceptual
-ms.date: 09/21/2018
-ms.author: cherylmc
+ms.topic: how-to
+ms.date: 09/03/2020
+ms.author: cherylmc 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Create a zone-redundant virtual network gateway in Azure Availability Zones
@@ -17,25 +18,11 @@ You can deploy VPN and ExpressRoute gateways in Azure Availability Zones. This b
 
 ## Before you begin
 
-You can use either PowerShell installed locally on your computer, or the Azure Cloud Shell. If you choose to install and use the PowerShell locally, this feature requires the latest version of the PowerShell module.
-
-[!INCLUDE [Cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
-
-### To use PowerShell locally
-
-If you are using PowerShell locally on your computer, rather than using Cloud Shell, you must install PowerShell module 6.1.1 or higher. To check the version of PowerShell that you have installed, use the following command:
-
-```azurepowershell
-Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
-```
-
-If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
-
-[!INCLUDE [PowerShell login](../../includes/vpn-gateway-ps-login-include.md)]
+[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ## <a name="variables"></a>1. Declare your variables
 
-The values used for the example steps are listed below. Additionally, some of the examples use declared variables within the steps. If you are using these steps in your own environment, be sure to replace these values with your own. When specifying location, verify that the region you specify is supported. For more information, see the [FAQ](#faq).
+Declare the variables that you want to use. Use the following sample, substituting the values for your own when necessary. If you close your PowerShell/Cloud Shell session at any point during the exercise, just copy and paste the values again to re-declare the variables. When specifying location, verify that the region you specify is supported. For more information, see the [FAQ](#faq).
 
 ```azurepowershell-interactive
 $RG1         = "TestRG1"
@@ -58,15 +45,15 @@ $GwIPConf1   = "gwipconf1"
 Create a resource group.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName $RG1 -Location $Location1
+New-AzResourceGroup -ResourceGroupName $RG1 -Location $Location1
 ```
 
 Create a virtual network.
 
 ```azurepowershell-interactive
-$fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubnet1 -AddressPrefix $FEPrefix1
-$besub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubnet1 -AddressPrefix $BEPrefix1
-$vnet = New-AzureRmVirtualNetwork -Name $VNet1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNet1Prefix -Subnet $fesub1,$besub1
+$fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubnet1 -AddressPrefix $FEPrefix1
+$besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubnet1 -AddressPrefix $BEPrefix1
+$vnet = New-AzVirtualNetwork -Name $VNet1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNet1Prefix -Subnet $fesub1,$besub1
 ```
 
 ## <a name="gwsub"></a>3. Add the gateway subnet
@@ -76,14 +63,14 @@ The gateway subnet contains the reserved IP addresses that the virtual network g
 Add the gateway subnet.
 
 ```azurepowershell-interactive
-$getvnet = Get-AzureRmVirtualNetwork -ResourceGroupName $RG1 -Name VNet1
-Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $getvnet
+$getvnet = Get-AzVirtualNetwork -ResourceGroupName $RG1 -Name VNet1
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $getvnet
 ```
 
 Set the gateway subnet configuration for the virtual network.
 
 ```azurepowershell-interactive
-$getvnet | Set-AzureRmVirtualNetwork
+$getvnet | Set-AzVirtualNetwork
 ```
 ## <a name="publicip"></a>4. Request a public IP address
  
@@ -94,7 +81,7 @@ In this step, choose the instructions that apply to the gateway that you want to
 Request a public IP address with a **Standard** PublicIpaddress SKU and do not specify any zone. In this case, the Standard public IP address created will be a zone-redundant public IP.   
 
 ```azurepowershell-interactive
-$pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard
+$pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard
 ```
 
 ### <a name="ipzonalgw"></a>For zonal gateways
@@ -102,7 +89,7 @@ $pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Nam
 Request a public IP address with a **Standard** PublicIpaddress SKU. Specify the zone (1, 2 or 3). All gateway instances will be deployed in this zone.
 
 ```azurepowershell-interactive
-$pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard -Zone 1
+$pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard -Zone 1
 ```
 
 ### <a name="ipregionalgw"></a>For regional gateways
@@ -110,14 +97,14 @@ $pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Nam
 Request a public IP address with a **Basic** PublicIpaddress SKU. In this case, the gateway is deployed as a regional gateway and does not have any zone-redundancy built into the gateway. The gateway instances are created in any zones, respectively.
 
 ```azurepowershell-interactive
-$pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Dynamic -Sku Basic
+$pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Dynamic -Sku Basic
 ```
 ## <a name="gwipconfig"></a>5. Create the IP configuration
 
 ```azurepowershell-interactive
-$getvnet = Get-AzureRmVirtualNetwork -ResourceGroupName $RG1 -Name $VNet1
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $GwSubnet1 -VirtualNetwork $getvnet
-$gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $subnet -PublicIpAddress $pip1
+$getvnet = Get-AzVirtualNetwork -ResourceGroupName $RG1 -Name $VNet1
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name $GwSubnet1 -VirtualNetwork $getvnet
+$gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $subnet -PublicIpAddress $pip1
 ```
 
 ## <a name="gwconfig"></a>6. Create the gateway
@@ -127,13 +114,13 @@ Create the virtual network gateway.
 ### For ExpressRoute
 
 ```azurepowershell-interactive
-New-AzureRmVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType ExpressRoute
+New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType ExpressRoute -GatewaySku ErGw1AZ
 ```
 
 ### For VPN Gateway
 
 ```azurepowershell-interactive
-New-AzureRmVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType Vpn -VpnType RouteBased
+New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1AZ
 ```
 
 ## <a name="faq"></a>FAQ
@@ -148,7 +135,7 @@ Yes, you can use the Azure portal to deploy the new SKUs. However, you will see 
 
 ### What regions are available for me to use the new SKUs?
 
-The new SKUs are available in Azure regions that have Azure Availability Zones - Central US, France Central, and West Europe regions. Going forward, we will make zone-redundant gateways available to you in other Azure Public Regions.
+See [Availability Zones](../availability-zones/az-region.md) for the latest list of available regions.
 
 ### Can I change/migrate/upgrade my existing virtual network gateways to zone-redundant or zonal gateways?
 

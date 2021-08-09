@@ -1,20 +1,20 @@
 ---
 title: Purge an Azure CDN endpoint | Microsoft Docs
-description: Learn how to purge all cached content from an Azure CDN endpoint.
+description: Learn how to purge all cached content from an Azure Content Delivery Network endpoint. Edge nodes cache assets until their time-to-live expires.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
-editor: ''
+editor: sohamnchatterjee
 
 ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/23/2017
-ms.author: magattus
+ms.topic: how-to
+ms.date: 06/30/2021
+ms.author: allensu
 
 ---
 # Purge an Azure CDN endpoint
@@ -53,23 +53,26 @@ This tutorial walks you through purging assets from all edge nodes of an endpoin
 	3. **Root domain purge**: Purge the root of the endpoint with "/" in the path.
    
    > [!TIP]
-   > Paths must be specified for purge and must be a relative URL that fit the following [regular expression](https://msdn.microsoft.com/library/az24scfc.aspx). **Purge all** and **Wildcard purge** not supported by **Azure CDN from Akamai** currently.
-   > > Single URL purge `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
-   > > Query string `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
-   > > Wildcard purge `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";`. 
+   > 1. Paths must be specified for purge and must be a relative URL that fit the following [regular expression](/dotnet/standard/base-types/regular-expression-language-quick-reference). **Purge all** and **Wildcard purge** are  not supported by **Azure CDN from Akamai** currently.
+   >
+   >    1. Single URL purge `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
+   >    1. Query string `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
+   >    1. Wildcard purge `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";`. 
    > 
-   > More **Path** textboxes will appear after you enter text to allow you to build a list of multiple assets.  You can delete assets from the list by clicking the ellipsis (...) button.
+   >    More **Path** textboxes will appear after you enter text to allow you to build a list of multiple assets.  You can delete assets from the list by clicking the ellipsis (...) button.
    > 
+   > 1. In Azure CDN from Microsoft, query strings in the purge URL path are not considered. If the path to purge is provided as `/TestCDN?myname=max`, only `/TestCDN` is considered. The query string `myname=max` is omitted. Both `TestCDN?myname=max` and `TestCDN?myname=clark` will be purged.
+
 5. Click the **Purge** button.
    
     ![Purge button](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Purge requests take approximately 2-3 minutes to process with **Azure CDN from Verizon** (standard and premium), and approximately 7 minutes with **Azure CDN from Akamai**.  Azure CDN has a limit of 50 concurrent purge requests at any given time at the profile level. 
+> Purge requests take approximately 10 minutes to process with **Azure CDN from Microsoft**, approximately 2 minutes with **Azure CDN from Verizon** (standard and premium), and approximately 10 seconds with **Azure CDN from Akamai**.  Azure CDN has a limit of 100 concurrent purge requests at any given time at the profile level. 
 > 
 > 
 
 ## See also
 * [Pre-load assets on an Azure CDN endpoint](cdn-preload-endpoint.md)
-* [Azure CDN REST API reference - Purge or Pre-Load an Endpoint](https://msdn.microsoft.com/library/mt634451.aspx)
+* [Azure CDN REST API reference - Purge or Pre-Load an Endpoint](/rest/api/cdn/cdn/endpoints)
 

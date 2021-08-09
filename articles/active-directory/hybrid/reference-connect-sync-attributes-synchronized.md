@@ -4,35 +4,36 @@ description: Lists the attributes that are synchronized to Azure Active Director
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/05/2018
-ms.component: hybrid
+ms.topic: reference
+ms.date: 04/15/2020
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Attributes synchronized to Azure Active Directory
 This topic lists the attributes that are synchronized by Azure AD Connect sync.  
 The attributes are grouped by the related Azure AD app.
 
 ## Attributes to synchronize
-A common question is *what is the list of minimum attributes to synchronize*. The default and recommended approach is to keep the default attributes so a full GAL (Global Address List) can be constructed in the cloud and to get all features in Office 365 workloads. In some cases, there are some attributes that your organization does not want synchronized to the cloud since these attributes contain sensitive or PII (Personally identifiable information) data, like in this example:  
+A common question is *what is the list of minimum attributes to synchronize*. The default and recommended approach is to keep the default attributes so a full GAL (Global Address List) can be constructed in the cloud and to get all features in Microsoft 365 workloads. In some cases, there are some attributes that your organization does not want synchronized to the cloud since these attributes contain sensitive personal data, like in this example:  
 ![bad attributes](./media/reference-connect-sync-attributes-synchronized/badextensionattribute.png)
 
-In this case, start with the list of attributes in this topic and identify those attributes that would contain sensitive or PII data and cannot be synchronized. Then deselect those attributes during installation using [Azure AD app and attribute filtering](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering).
+In this case, start with the list of attributes in this topic and identify those attributes that would contain personal data and cannot be synchronized. Then deselect those attributes during installation using [Azure AD app and attribute filtering](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering).
 
 > [!WARNING]
 > When deselecting attributes, you should be cautious and only deselect those attributes absolutely not possible to synchronize. Unselecting other attributes might have a negative impact on features.
 >
 >
 
-## Office 365 ProPlus
+## Microsoft 365 Apps for enterprise
 | Attribute Name | User | Comment |
 | --- |:---:| --- |
 | accountEnabled |X |Defines if an account is enabled. |
@@ -40,15 +41,15 @@ In this case, start with the list of attributes in this topic and identify those
 | displayName |X | |
 | objectSID |X |mechanical property. AD user identifier used to maintain sync between Azure AD and AD. |
 | pwdLastSet |X |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
+|samAccountName|X| |
 | sourceAnchor |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
-| usageLocation |X |mechanical property. The user’s country. Used for license assignment. |
+| usageLocation |X |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X |UPN is the login ID for the user. Most often the same as [mail] value. |
 
 ## Exchange Online
 | Attribute Name | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Defines if an account is enabled. |
-| assistant |X |X | | |
 | altRecipient |X | | |Requires Azure AD Connect build 1.1.552.0 or after. |
 | authOrig |X |X |X | |
 | c |X |X | | |
@@ -57,7 +58,7 @@ In this case, start with the list of attributes in this topic and identify those
 | company |X |X | | |
 | countryCode |X |X | | |
 | department |X |X | | |
-| description |X |X |X | |
+| description | | |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -151,7 +152,6 @@ In this case, start with the list of attributes in this topic and identify those
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password sync and federation. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
-| securityEnabled | | |X |Derived from groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
 | st |X |X | | |
@@ -159,10 +159,10 @@ In this case, start with the list of attributes in this topic and identify those
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | | |
+| thumbnailphoto |X |X | |synced only once from Azure AD to Exchange Online after which Exchange Online becomes source of authority for this attribute and any later changes can't be synced from on-premise. See ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) for more.|
 | title |X |X | | |
 | unauthOrig |X |X |X | |
-| usageLocation |X | | |mechanical property. The user’s country. Used for license assignment. |
+| usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userCertificate |X |X | | |
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
 | userSMIMECertificates |X |X | | |
@@ -234,7 +234,6 @@ In this case, start with the list of attributes in this topic and identify those
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
-| securityEnabled | | |X |Derived from groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
 | st |X |X | | |
@@ -242,15 +241,16 @@ In this case, start with the list of attributes in this topic and identify those
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | | |
+| thumbnailphoto |X |X | |synced only once from Azure AD to Exchange Online after which Exchange Online becomes source of authority for this attribute and any later changes can't be synced from on-premise. See ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) for more.|
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
-| usageLocation |X | | |mechanical property. The user’s country. Used for license assignment. |
+| usageLocation |X | | |mechanical property. The user’s country/region
+. Used for license assignment. |
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
 | wWWHomePage |X |X | | |
 
-## Lync Online (subsequently known as Skype for Business)
+## Teams and Skype for Business Online
 | Attribute Name | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Defines if an account is enabled. |
@@ -287,15 +287,14 @@ In this case, start with the list of attributes in this topic and identify those
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
-| securityEnabled | | |X |Derived from groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
 | st |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | | |
+| thumbnailphoto |X |X | |synced only once from Azure AD to Exchange Online after which Exchange Online becomes source of authority for this attribute and any later changes can't be synced from on-premise. See ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) for more.|
 | title |X |X | | |
-| usageLocation |X | | |mechanical property. The user’s country. Used for license assignment. |
+| usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
 | wWWHomePage |X |X | | |
 
@@ -310,9 +309,8 @@ In this case, start with the list of attributes in this topic and identify those
 | objectSID |X | |X |mechanical property. AD user identifier used to maintain sync between Azure AD and AD. |
 | proxyAddresses |X |X |X |mechanical property. Used by Azure AD. Contains all secondary email addresses for the user. |
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. |
-| securityEnabled | | |X |Derived from groupType. |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
-| usageLocation |X | | |mechanical property. The user’s country. Used for license assignment. |
+| usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X | | |This UPN is the login ID for the user. Most often the same as [mail] value. |
 
 ## Intune
@@ -329,9 +327,8 @@ In this case, start with the list of attributes in this topic and identify those
 | objectSID |X | |X |mechanical property. AD user identifier used to maintain sync between Azure AD and AD. |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
-| securityEnabled | | |X |Derived from groupType |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
-| usageLocation |X | | |mechanical property. The user’s country. Used for license assignment. |
+| usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
 
 ## Dynamics CRM
@@ -357,29 +354,29 @@ In this case, start with the list of attributes in this topic and identify those
 | postalCode |X |X | | |
 | preferredLanguage |X | | | |
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
-| securityEnabled | | |X |Derived from groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
 | st |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | title |X |X | | |
-| usageLocation |X | | |mechanical property. The user’s country. Used for license assignment. |
+| usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
 
 ## 3rd party applications
 This group is a set of attributes used as the minimal attributes needed for a generic workload or application. It can be used for a workload not listed in another section or for a non-Microsoft app. It is explicitly used for the following:
 
 * Yammer (only User is consumed)
-* [Hybrid Business-to-Business (B2B) cross-org collaboration scenarios offered by resources like SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
+* [Hybrid Business-to-Business (B2B) cross-org collaboration scenarios offered by resources like SharePoint](/sharepoint/create-b2b-extranet)
 
-This group is a set of attributes that can be used if the Azure AD directory is not used to support Office 365, Dynamics, or Intune. It has a small set of core attributes.
+This group is a set of attributes that can be used if the Azure AD directory is not used to support Microsoft 365, Dynamics, or Intune. It has a small set of core attributes. Note that single sign-on or provisioning to some third-party applications requires configuring synchronization of attributes in addition to the attributes described here. Application requirements are described in the [SaaS app tutorial](../saas-apps/tutorial-list.md) for each application.
 
 | Attribute Name | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Defines if an account is enabled. |
 | cn |X | |X | |
 | displayName |X |X |X | |
+| employeeID |X |  |  | |
 | givenName |X |X | | |
 | mail |X | |X | |
 | managedBy | | |X | |
@@ -390,11 +387,11 @@ This group is a set of attributes that can be used if the Azure AD directory is 
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
-| usageLocation |X | | |mechanical property. The user’s country. Used for license assignment. |
+| usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
 
 ## Windows 10
-A Windows 10 domain-joined computer(device) synchronizes some attributes to Azure AD. For more information on the scenarios, see [Connect domain-joined devices to Azure AD for Windows 10 experiences](../active-directory-azureadjoin-devices-group-policy.md). These attributes always synchronize and Windows 10 does not appear as an app you can unselect. A Windows 10 domain-joined computer is identified by having the attribute userCertificate populated.
+A Windows 10 domain-joined computer(device) synchronizes some attributes to Azure AD. For more information on the scenarios, see [Connect domain-joined devices to Azure AD for Windows 10 experiences](../devices/hybrid-azuread-join-plan.md). These attributes always synchronize and Windows 10 does not appear as an app you can unselect. A Windows 10 domain-joined computer is identified by having the attribute userCertificate populated.
 
 | Attribute Name | Device | Comment |
 | --- |:---:| --- |
@@ -419,7 +416,7 @@ These attributes for **user** are in addition to the other apps you have selecte
 ## Exchange hybrid writeback
 These attributes are written back from Azure AD to on-premises Active Directory when you select to enable **Exchange hybrid**. Depending on your Exchange version, fewer attributes might be synchronized.
 
-| Attribute Name (Connect UI) |Attribute Name (On-premises AD) | User | Contact | Group | Comment |
+| Attribute Name (On-premises AD) | Attribute Name (Connect UI) | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Derived from cloudAnchor in Azure AD. This attribute is new in Exchange 2016 and Windows Server 2016 AD. |
 | msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Online Archive: Enables customers to archive mail. |
@@ -427,7 +424,7 @@ These attributes are written back from Azure AD to on-premises Active Directory 
 | msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients. |
 | msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients. |
 | msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Enable Unified Messaging (UM) - Online voice mail: Used by Microsoft Lync Server integration to indicate to Lync Server on-premises that the user has voice mail in online services. |
-| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |Litigation Hold: Enables cloud services to determine which users are under Litigation Hold. |
+| msExchUserHoldPolicies| ms-Exch-UserHoldPolicies |X | | |Litigation Hold: Enables cloud services to determine which users are under Litigation Hold. |
 | proxyAddresses| proxyAddresses |X |X |X |Only the x500 address from Exchange Online is inserted. |
 | publicDelegates| ms-Exch-Public-Delegates  |X | | |Allows an Exchange Online mailbox to be granted SendOnBehalfTo rights to users with on-premises Exchange mailbox. Requires Azure AD Connect build 1.1.552.0 or after. |
 

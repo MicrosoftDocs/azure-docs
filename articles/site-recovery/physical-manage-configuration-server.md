@@ -1,21 +1,23 @@
-﻿---
-title: Manage the configuration server for disaster recovery of on-premises physical servers to Azure with Azure Site Recovery | Microsoft Docs'
+---
+title: Manage the configuration server for physical servers in Azure Site Recovery
 description: This article describes how to manage the Azure Site Recovery configuration server for physical server disaster recovery to Azure.
 services: site-recovery
-author: Rajeswari-Mamilla
+author: mayurigupta13
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
-ms.author: ramamill
+ms.date: 02/28/2019
+ms.author: mayg
 ---
 
 # Manage the configuration server for physical server disaster recovery
 
 You set up an on-premises configuration server when you use the [Azure Site Recovery](site-recovery-overview.md) service for disaster recovery of physical servers to Azure. The configuration server coordinates communications between on-premises machines and Azure, and manages data replication. This article summarizes common tasks for managing the configuration server after it's been deployed.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
-The table summarizes the prerequistes for deploying the on-premises configuration server machine.
+The table summarizes the prerequisites for deploying the on-premises configuration server machine.
 
 | **Component** | **Requirement** |
 | --- |---|
@@ -26,13 +28,13 @@ The table summarizes the prerequistes for deploying the on-premises configuratio
 | Disk free space (retention disk) | 600 GB|
 | Operating system  | Windows Server 2012 R2 <br> Windows Server 2016 |
 | Operating system locale | English (US)|
-| VMware vSphere PowerCLI version | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
+| VMware vSphere PowerCLI version | Not required|
 | Windows Server roles | Don't enable these roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
-| Group policies| Don't enable these group policies: <br> - Prevent access to the command prompt <br> - Prevent access to registry editing tools <br> - Trust logic for file attachments <br> - Turn on Script Execution <br> [Learn more](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-| IIS | - No pre-existing default website <br> - Enable  [Anonymous Authentication](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Enable [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) setting  <br> - No pre-existing website/application listening on port 443<br>|
+| Group policies| Don't enable these group policies: <br> - Prevent access to the command prompt <br> - Prevent access to registry editing tools <br> - Trust logic for file attachments <br> - Turn on Script Execution <br> [Learn more](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
+| IIS | - No pre-existing default website <br> - Enable  [Anonymous Authentication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> - Enable [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) setting  <br> - No pre-existing website/application listening on port 443<br>|
 | NIC type | VMXNET3 (when deployed as a VMware VM) |
 | IP address type | Static |
-| Internet access | The server needs access to these URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (not required for Scale-out Process Servers) <br> - time.nist.gov <br> - time.windows.com |
+| Internet access | The server needs access to these URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - `https://management.azure.com` <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (not required for Scale-out Process Servers) <br> - time.nist.gov <br> - time.windows.com |
 | Ports | 443 (Control channel orchestration)<br>9443 (Data transport)|
 
 ## Download the latest installation file
@@ -45,7 +47,7 @@ The latest version of the configuration server installation file is available in
 4. On the **Add Server** page, click the Download button to download the Registration key. You need this key during the Configuration Server installation to register it with Azure Site Recovery service.
 5. Click the **Download the Microsoft Azure Site Recovery Unified Setup** link to download the latest version of the Configuration Server.
 
-  ![Download Page](./media/physical-manage-configuration-server/downloadcs.png)
+   ![Download Page](./media/physical-manage-configuration-server/downloadcs.png)
 
 
 ## Install and register the server
@@ -53,7 +55,7 @@ The latest version of the configuration server installation file is available in
 1. Run the Unified Setup installation file.
 2. In **Before You Begin**, select **Install the configuration server and process server**.
 
-	![Before you start](./media/physical-manage-configuration-server/combined-wiz1.png)
+    ![Before you start](./media/physical-manage-configuration-server/combined-wiz1.png)
 
 3. In **Third Party Software License**, click **I Accept** to download and install MySQL.
 4. In **Internet Settings**, specify how the Provider running on the configuration server connects to Azure Site Recovery over the Internet. Make sure you've allowed the required URLs.
@@ -72,7 +74,7 @@ The latest version of the configuration server installation file is available in
 9. In **Install Location**, select where you want to install the binaries and store the cache. The drive you select must have at least 5 GB of disk space available, but we recommend a cache drive with at least 600 GB of free space.
 
     ![Install location](./media/physical-manage-configuration-server/combined-wiz8.png)
-10. In **Network Selection**, specify the listener (network adapter and SSL port) on which the configuration server sends and receives replication data. Port 9443 is the default port used for sending and receiving replication traffic, but you can modify this port number to suit your environment's requirements. In addition to the port 9443, we also open port 443, which is used by a web server to orchestrate replication operations. Do not use port 443 for sending or receiving replication traffic.
+10. In **Network Selection**, first select the NIC that the in-built process server uses for discovery and push installation of mobility service on source machines, and then select the NIC that Configuration Server uses for connectivity with Azure. Port 9443 is the default port used for sending and receiving replication traffic, but you can modify this port number to suit your environment's requirements. In addition to the port 9443, we also open port 443, which is used by a web server to orchestrate replication operations. Do not use port 443 for sending or receiving replication traffic.
 
     ![Network selection](./media/physical-manage-configuration-server/combined-wiz9.png)
 
@@ -107,7 +109,7 @@ Run the installation file as follows:
 |/InstallLocation|Required|The folder in which the components are installed| Any folder on the computer|
 |/MySQLCredsFilePath|Required|The file path in which the MySQL server credentials are stored|The file should be the format specified below|
 |/VaultCredsFilePath|Required|The path of the vault credentials file|Valid file path|
-|/EnvType|Required|Type of envrionment that you want to protect |VMware<br>NonVMware|
+|/EnvType|Required|Type of environment that you want to protect |VMware<br>NonVMware|
 |/PSIP|Required|IP address of the NIC to be used for replication data transfer| Any valid IP Address|
 |/CSIP|Required|The IP address of the NIC on which the configuration server is listening on| Any valid IP Address|
 |/PassphraseFilePath|Required|The full path to location of the passphrase file|Valid file path|
@@ -123,15 +125,15 @@ Run the installation file as follows:
 ### Create file input for MYSQLCredsFilePath
 
 The MySQLCredsFilePath parameter takes a file as input. Create the file using the following format and pass it as input MySQLCredsFilePath parameter.
-```
+```ini
 [MySQLCredentials]
-MySQLRootPassword = "Password>"
+MySQLRootPassword = "Password"
 MySQLUserPassword = "Password"
 ```
 ### Create file input for ProxySettingsFilePath
 ProxySettingsFilePath parameter takes a file as input. Create the file using the following format and pass it as input ProxySettingsFilePath parameter.
 
-```
+```ini
 [ProxySettings]
 ProxyAuthentication = "Yes/No"
 Proxy IP = "IP Address"
@@ -144,43 +146,44 @@ ProxyPassword="Password"
 You can modify proxy settings for the configuration server machine as follows:
 
 1. Log on to the configuration server.
-2. Launch the cspsconfigtool.exe using the shortcut on your.
+2. Launch the cspsconfigtool.exe using the shortcut on your desktop.
 3. Click the **Vault Registration** tab.
 4. Download a new vault registration file from the portal, and provide it as input to the tool.
 
-  ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+   ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Provide the new proxy details and click the **Register** button.
 6. Open an Admin PowerShell command window.
 7. Run the following command:
-  ```
-  $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
-  net stop obengine
-  net start obengine
-  ```
 
-  >[!WARNING]
-  If you have additional process servers attached to the configuration server, you need to [fix the proxy settings on all the scale-out process servers](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) in your deployment.
+   ```powershell
+   $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
+   net stop obengine
+   net start obengine
+   ```
+
+   > [!WARNING]
+   > If you have additional process servers attached to the configuration server, you need to [fix the proxy settings on all the scale-out process servers](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) in your deployment.
 
 ## Reregister a configuration server with the same vault
-  1. Log in to your Configuration Server.
-  2. Launch the cspsconfigtool.exe using the shortcut on your desktop.
-  3. Click the **Vault Registration** tab.
-  4. Download a new registration file from the portal and provide it as input to the tool.
-        ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
-  5. Provide the Proxy Server details and click the **Register** button.  
-  6. Open an Admin PowerShell command window.
-  7. Run the following command
+1. Log in to your Configuration Server.
+2. Launch the cspsconfigtool.exe using the shortcut on your desktop.
+3. Click the **Vault Registration** tab.
+4. Download a new registration file from the portal and provide it as input to the tool.
+      ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+5. Provide the Proxy Server details and click the **Register** button.  
+6. Open an Admin PowerShell command window.
+7. Run the following command
 
-      ```
-      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
-      net stop obengine
-      net start obengine
-      ```
+    ```powershell
+    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
+    net stop obengine
+    net start obengine
+    ```
 
-  >[!WARNING]
-  If you have multiple process server, you need to [reregister them](vmware-azure-manage-process-server.md#reregister-a-process-server).
+   > [!WARNING]
+   > If you have multiple process server, you need to [reregister them](vmware-azure-manage-process-server.md#reregister-a-process-server).
 
 ## Register a configuration server with a different vault
 
@@ -200,9 +203,9 @@ You can modify proxy settings for the configuration server machine as follows:
 6. Provide the Proxy Server details and click the **Register** button.  
 7. Open an Admin PowerShell command window.
 8. Run the following command
-    ```
+    ```powershell
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd
     net stop obengine
     net start obengine
     ```
@@ -240,50 +243,50 @@ Upgrade the server as follows:
 4. Click **Yes** to confirm the deletion of the server.
 
 ### Uninstall the configuration server and its dependencies
-  > [!TIP]
-  If you plan to reuse the Configuration Server with Azure Site Recovery again, then you can skip to step 4 directly
+> [!TIP]
+>   If you plan to reuse the Configuration Server with Azure Site Recovery again, then you can skip to step 4 directly
 
 1. Log on to the Configuration Server as an Administrator.
 2. Open up Control Panel > Program > Uninstall Programs
 3. Uninstall the programs in the following sequence:
-  * Microsoft Azure Recovery Services Agent
-  * Microsoft Azure Site Recovery Mobility Service/Master Target server
-  * Microsoft Azure Site Recovery Provider
-  * Microsoft Azure Site Recovery Configuration Server/Process Server
-  * Microsoft Azure Site Recovery Configuration Server Dependencies
-  * MySQL Server 5.5
+   * Microsoft Azure Recovery Services Agent
+   * Microsoft Azure Site Recovery Mobility Service/Master Target server
+   * Microsoft Azure Site Recovery Provider
+   * Microsoft Azure Site Recovery Configuration Server/Process Server
+   * Microsoft Azure Site Recovery Configuration Server Dependencies
+   * MySQL Server 5.5
 4. Run the following command from and admin command prompt.
-  ```
-  reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-  ```
+   ```
+   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+   ```
 
 ## Delete or unregister a configuration server (PowerShell)
 
-1. [Install](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell module
+1. [Install](/powershell/azure/install-Az-ps) Azure PowerShell module
 2. Login into to your Azure account using the command
     
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 3. Select the subscription under which the vault is present
 
-     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+     `Get-AzSubscription –SubscriptionName <your subscription name> | Select-AzSubscription`
 3.  Now set up your vault context
     
-    ```
-    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    ```powershell
+    $Vault = Get-AzRecoveryServicesVault -Name <name of your vault>
+    Set-AzSiteRecoveryVaultSettings -ARSVault $Vault
     ```
 4. Get select your configuration server
 
-    `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+    `$Fabric = Get-AzSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. Delete the Configuration Server
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
+    `Remove-AzSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
-> The **-Force** option in the Remove-AzureRmSiteRecoveryFabric can be used to force the removal/deletion of the Configuration server.
+> The **-Force** option in the Remove-AzSiteRecoveryFabric can be used to force the removal/deletion of the Configuration server.
 
-## Renew SSL certificates
-The configuration server has an inbuilt web server, which orchestrates activities of the Mobility service, process servers, and master target servers connected to it. The web server uses an SSL certificate to authenticate clients. The certificate expires after three years, and can be renewed at any time.
+## Renew TLS/SSL certificates
+The configuration server has an inbuilt web server, which orchestrates activities of the Mobility service, process servers, and master target servers connected to it. The web server uses a TLS/SSL certificate to authenticate clients. The certificate expires after three years, and can be renewed at any time.
 
 ### Check expiry
 
@@ -307,5 +310,4 @@ For configuration server deployments before May 2016, certificate expiry was set
 
 ## Next steps
 
-Review the tutorials for setting up disaster recovery of [physical servers](tutorial-physical-to-azure.md) to Azure.
-
+Review the tutorials for setting up disaster recovery of [physical servers](./physical-azure-disaster-recovery.md) to Azure.

@@ -1,0 +1,158 @@
+### YamlMime:Hub
+
+title: Azure Resource Manager documentation
+summary: Azure Resource Manager is the deployment and management service for Azure. Use infrastructure as code to reliably deploy and manage your Azure solutions.
+# brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-platform | sql | sql-server | vs | visual-studio | windows | xamarin
+brand: azure
+
+metadata:
+  title: Azure Resource Manager documentation
+  description: Azure Resource Manager is the deployment and management service for Azure.
+  ms.service: azure-resource-manager
+  ms.topic: hub-page # Required
+  ms.collection: collection
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 06/01/2021
+
+# highlightedContent section (optional)
+# Maximum of 8 items
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+  items:
+    # Card
+    - title: What is Resource Manager?
+      itemType: overview
+      url: management/overview.md
+    # Card
+    - title: What are ARM templates?
+      itemType: overview
+      url: templates/overview.md
+    # Card
+    - title: What is Bicep?
+      itemType: overview
+      url: bicep/overview.md
+
+# conceptualContent section (optional)
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+  items:
+    # Card
+    - title: Deploy ARM templates
+      links:
+        - url: templates/overview.md
+          itemType: overview
+          text: Overview
+        - url: templates/template-tutorial-create-first-template.md
+          itemType: tutorial
+          text: Beginner tutorial series
+        - url: ./templates/syntax.md
+          itemType: reference
+          text: Template syntax
+        - url: templates/template-functions.md
+          itemType: reference
+          text: Template functions
+        - url: /azure/templates/
+          itemType: reference
+          text: Template reference
+        - url: templates/deploy-powershell.md
+          itemType: how-to-guide
+          text: Deploy
+        - url: ./templates/best-practices.md
+          itemType: concept
+          text: Best practices
+      # footerLink (optional)
+      footerLink:
+        url: templates/index.yml
+        text: See more
+    # Card
+    - title: Deploy Bicep files
+      links:
+        - url: bicep/overview.md
+          itemType: overview
+          text: Overview
+        - url: /learn/modules/deploy-azure-resources-by-using-bicep-templates
+          itemType: learn
+          text: Deploy Azure resources
+        - url: bicep/file.md
+          itemType: reference
+          text: Bicep file structure
+        - url: bicep/data-types.md
+          itemType: reference
+          text: Bicep data types
+        - url: bicep/bicep-functions.md
+          itemType: reference
+          text: Bicep functions
+        - url: bicep/operators.md
+          itemType: reference
+          text: Bicep operators
+        - url: bicep/deploy-powershell.md
+          itemType: how-to-guide
+          text: Deploy
+      # footerLink (optional)
+      footerLink:
+        url: bicep/index.yml
+        text: See more
+    # Card
+    - title: Manage resources
+      links:
+        - url: management/overview.md
+          itemType: overview
+          text: Overview
+        - url: management/tag-resources.md
+          itemType: how-to-guide
+          text: Tag resources
+        - url: management/move-resource-group-and-subscription.md
+          itemType: concept
+          text: Move resources
+        - url: management/lock-resources.md
+          itemType: how-to-guide
+          text: Lock resources
+        - url: management/resource-providers-and-types.md
+          itemType: concept
+          text: Resource providers and types
+        - url: management/azure-subscription-service-limits.md
+          itemType: concept
+          text: Subscription and service limits
+      # footerLink (optional)
+      footerLink:
+        url: management/index.yml
+        text: See more
+    # Card
+    - title: Managed Applications
+      links:
+        - url: managed-applications/overview.md
+          itemType: overview
+          text: Overview
+        - url: managed-applications/publish-service-catalog-app.md
+          itemType: tutorial
+          text: Publish app to service catalog
+        - url: managed-applications/create-uidefinition-overview.md
+          itemType: how-to-guide
+          text: Define portal pane for creating app
+        - url: ../marketplace/azure-app-offer-setup.md
+          itemType: tutorial
+          text: Add app to Marketplace
+      # footerLink (optional)
+      footerLink:
+        url: managed-applications/index.yml
+        text: See more
+    # Card
+    - title: Azure Custom Providers
+      links:
+        - url: custom-providers/overview.md
+          itemType: overview
+          text: Overview
+        - url: custom-providers/create-custom-provider.md
+          itemType: quickstart
+          text: Create custom provider
+        - url: custom-providers/tutorial-get-started-with-custom-providers.md
+          itemType: tutorial
+          text: Create custom actions and resources
+        - url: custom-providers/custom-providers-action-endpoint-how-to.md
+          itemType: how-to-guide
+          text: Add custom actions to Azure REST API
+      # footerLink (optional)
+      footerLink:
+        url: custom-providers/index.yml
+        text: See more

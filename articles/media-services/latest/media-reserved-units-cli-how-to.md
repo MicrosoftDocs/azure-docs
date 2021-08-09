@@ -1,59 +1,47 @@
 ---
-title: Scaling Media Reserved Units - Azure | Microsoft Docs
-description: This topic is an overview of scaling Media Processing with Azure Media Services.
+title: Scale Media Reserved Units (MRUs) CLI
+description: This topic shows how to use CLI to scale media processing with Azure Media Services.
 services: media-services
-documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
-editor: ''
-
 ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/11/2018
-ms.author: juliako
-
+ms.topic: how-to
+ms.date: 03/22/2021
+ms.author: inhenkel
 ---
-# Scaling media processing
+# How to scale media reserved units
 
-Azure Media Services enables you to scale media processing in your account by managing Media Reserved Units (MRUs). For detailed overview, see [Scaling media processing](../previous/media-services-scale-media-processing-overview.md). This article shows how to use [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) to scale MRUs.
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-> [!IMPORTANT]
-> Review considerations described in [this section](#considerations).  
-> 
->
+This article shows you how to scale Media Reserved Units (MRSs) for faster encoding.
 
-## Prerequisites 
+> [!WARNING]
+> This command will no longer work for Media Services accounts that are created with the 2020-05-01 version of the API or later. For these accounts media reserved units are no longer needed as the system will automatically scale up and down based on load. If you don’t see the option to manage MRUs in the Azure portal, you’re using an account that was created with the 2020-05-01 API or later.
 
-- Install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+## Prerequisites
 
-    Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
+[Create a Media Services account](./account-create-how-to.md).
 
-- [Create a Media Services account](create-account-cli-how-to.md).
+Understand [Media Reserved Units](concept-media-reserved-units.md).
 
 ## Scale Media Reserved Units with CLI
 
-The following [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) command sets Media Reserved Units on the "amsaccount" account using the **count** and **type** parameters.
+Run the `mru` command.
+
+The following [az ams account mru](/cli/azure/ams/account/mru) command sets Media Reserved Units on the "amsaccount" account using the **count** and **type** parameters.
 
 ```azurecli
-az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
+az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
 ```
-
-## Considerations
-
-- For the Audio Analysis and Video Analysis Jobs that are triggered by Media Services v3 or Video Indexer, it is highly recommended to provision your account with 10 S3 MRUs.
-- If you need more than 10 S3 MRUs, open a support ticket using the [Azure portal](https://portal.azure.com/).
 
 ## Billing
 
-You are charged  based on the number, type, and amount of time that MRUs are provisioned in your account. Charges apply whether or not you run any jobs. For a detailed explanation, see the FAQ section of the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.   
+You are charged based on number of minutes the Media Reserved Units are provisioned in your account. This occurs independent of whether there are any Jobs running in your account. For a detailed explanation, see the FAQ section of the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.   
 
 ## Next step
 
-[Analyze videos](analyze-videos-tutorial-with-api.md) 
+[Analyze videos](analyze-videos-tutorial.md)
 
 ## See also
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [Quotas and limits](limits-quotas-constraints-reference.md)

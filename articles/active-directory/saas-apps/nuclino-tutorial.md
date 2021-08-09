@@ -1,285 +1,201 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Nuclino | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Nuclino | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Nuclino.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
-
-ms.assetid: 74bbab82-5581-4dcf-8806-78f77c746968
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/28/2018
+ms.topic: tutorial
+ms.date: 07/21/2021
 ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with Nuclino
 
-In this tutorial, you learn how to integrate Nuclino with Azure Active Directory (Azure AD).
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Nuclino
 
-Integrating Nuclino with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate Nuclino with Azure Active Directory (Azure AD). When you integrate Nuclino with Azure AD, you can:
 
-- You can control in Azure AD who has access to Nuclino.
-- You can enable your users to automatically get signed-on to Nuclino (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+* Control in Azure AD who has access to Nuclino.
+* Enable your users to be automatically signed-in to Nuclino with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
-To configure Azure AD integration with Nuclino, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A Nuclino single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Nuclino single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
+In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-1. Adding Nuclino from the gallery
-2. Configuring and testing Azure AD single sign-on
+* Nuclino supports **SP and IDP** initiated SSO.
+* Nuclino supports **Just In Time** user provisioning.
 
-## Adding Nuclino from the gallery
+## Add Nuclino from the gallery
 
 To configure the integration of Nuclino into Azure AD, you need to add Nuclino from the gallery to your list of managed SaaS apps.
 
-**To add Nuclino from the gallery, perform the following steps:**
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Nuclino** in the search box.
+1. Select **Nuclino** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Configure and test Azure AD SSO for Nuclino
 
-	![The Azure Active Directory button][1]
+Configure and test Azure AD SSO with Nuclino using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Nuclino.
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+To configure and test Azure AD SSO with Nuclino, perform the following steps:
 
-	![The Enterprise applications blade][2]
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Nuclino SSO](#configure-nuclino-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Nuclino test user](#create-nuclino-test-user)** - to have a counterpart of B.Simon in Nuclino that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-3. To add new application, click **New application** button on the top of dialog.
+## Configure Azure AD SSO
 
-	![The New application button][3]
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-4. In the search box, type **Nuclino**, select **Nuclino** from result panel then click **Add** button to add the application.
+1. In the Azure portal, on the **Nuclino** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-	![Nuclino in the results list](./media/nuclino-tutorial/tutorial_nuclino_addfromgallery.png)
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-## Configure and test Azure AD single sign-on
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-In this section, you configure and test Azure AD single sign-on with Nuclino based on a test user called "Britta Simon".
+    a. In the **Identifier** text box, type a URL using the following pattern:
+    `https://api.nuclino.com/api/sso/<UNIQUE-ID>/metadata`
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Nuclino is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Nuclino needs to be established.
-
-To configure and test Azure AD single sign-on with Nuclino, you need to complete the following building blocks:
-
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Nuclino test user](#create-a-nuclino-test-user)** - to have a counterpart of Britta Simon in Nuclino that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
-
-### Configure Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Nuclino application.
-
-**To configure Azure AD single sign-on with Nuclino, perform the following steps:**
-
-1. In the Azure portal, on the **Nuclino** application integration page, click **Single sign-on**.
-
-	![Configure single sign-on link][4]
-
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
-
-	![Single sign-on dialog box](./media/nuclino-tutorial/tutorial_nuclino_samlbase.png)
-
-3. On the **Nuclino Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
-
-	![Nuclino Domain and URLs single sign-on information](./media/nuclino-tutorial/tutorial_nuclino_url1.png)
-
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://api.nuclino.com/api/sso/<UNIQUE-ID>/metadata`
-
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://api.nuclino.com/api/sso/<UNIQUE-ID>/acs`
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://api.nuclino.com/api/sso/<UNIQUE-ID>/acs`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL from the **Authentication** section, which is explained later in this tutorial.
 
-4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![Nuclino Domain and URLs single sign-on information](./media/nuclino-tutorial/tutorial_nuclino_url2.png)
-
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://app.nuclino.com/<UNIQUE-ID>/login`
+    In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://app.nuclino.com/<UNIQUE-ID>/login`
 
 	> [!NOTE]
-	> This value is not real. Update this value with the actual Sign-On URL. Contact [Nuclino Client support team](mailto:contact@nuclino.com) to get this value.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Nuclino Client support team](mailto:contact@nuclino.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. Nuclino application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
+6. Nuclino application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![Configure Single Sign-On](./media/Nuclino-tutorial/tutorial_attribute.png)
+	![image](common/edit-attribute.png)
 
-6. Click **View and edit all other user attributes** checkbox in the **User Attributes** section to expand the attributes. Perform the following steps on each of the displayed attributes-
+7. In addition to above, Nuclino application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
-	| Attribute Name | Attribute Value |
-	| ---------------| --------------- |
+	| Name |  Source Attribute|
+	| ---------------| --------- |
 	| first_name | user.givenname |
 	| last_name | user.surname |
 
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![Configure Single Sign-On](./media/nuclino-tutorial/tutorial_attribute_04.png)
+	![The Certificate download link](common/certificatebase64.png)
 
-	![Configure Single Sign-On](./media/nuclino-tutorial/tutorial_attribute_05.png)
+1. On the **Set up Nuclino** section, copy the appropriate URL(s) based on your requirement.
 
-	b. In the **Name** textbox, type the **attribute name** shown for that row.
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	c. From the **Value** list, type the attribute value shown for that row.
+### Create an Azure AD test user
 
-	d. Click **Ok**.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-7. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
-	![The Certificate download link](./media/nuclino-tutorial/tutorial_nuclino_certificate.png)
+### Assign the Azure AD test user
 
-8. Click **Save** button.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Nuclino.
 
-	![Configure Single Sign-On Save button](./media/nuclino-tutorial/tutorial_general_400.png)
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Nuclino**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-9. On the **Nuclino Configuration** section, click **Configure Nuclino** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+## Configure Nuclino SSO
 
-	![Nuclino Configuration](./media/nuclino-tutorial/tutorial_nuclino_configure.png)
+1. To automate the configuration within Nuclino, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-10. In a different web browser window, sign in to your Nuclino company site as an administrator.
+	![My apps extension](common/install-myappssecure-extension.png)
 
-11. Click on the **ICON**.
+2. After adding extension to the browser, click on **Set up Nuclino** will direct you to the Nuclino application. From there, provide the admin credentials to sign into Nuclino. The browser extension will automatically configure the application for you and automate steps 3-7.
 
-	![Nuclino Configuration](./media/nuclino-tutorial/configure1.png)
+	![Setup configuration](common/setup-sso.png)
 
-12. Click on the **Azure AD SSO** and select **Team settings** from the dropdown.
+3. If you want to setup Nuclino manually, open a new web browser window and sign into your Nuclino company site as an administrator and perform the following steps:
 
-	![Nuclino Configuration](./media/nuclino-tutorial/configure2.png)
+4. Click on the **ICON**.
 
-13. Select **Authentication** from left navigation pane.
+	![Screenshot that shows the "Menu" icon selected next to "Azure A D S S O".](./media/nuclino-tutorial/menu.png)
 
-	![Nuclino Configuration](./media/nuclino-tutorial/configure3.png)
+5. Click on the **Azure AD SSO** and select **Team settings** from the dropdown.
 
-14. In the **Authentication** section, perform the following steps:
+	![Screenshot that shows the "Azure A D S S O" drop-down with "Team settings" selected.](./media/nuclino-tutorial/team-settings.png)
 
-	![Nuclino Configuration](./media/nuclino-tutorial/configure4.png)
+6. Select **Authentication** from left navigation pane.
+
+	![Screenshot that shows "Authentication" selected.](./media/nuclino-tutorial/authentication.png)
+
+7. In the **Authentication** section, perform the following steps:
+
+	![Nuclino Configuration](./media/nuclino-tutorial/configuration.png)
 
 	a. Select **SAML-based single sign-on (SSO)**.
 
-	b. Copy **ACS URL (You need to copy and paste this to your SSO provider)** value and paste it into the **Reply URL** textbox of the **Nuclino Domain and URLs** section in the Azure portal.
+	b. Copy **ACS URL (You need to copy and paste this to your SSO provider)** value and paste it into the **Reply URL** textbox of the **Basic SAML Configuration** section in the Azure portal.
 
-	c. Copy **Entity ID (You need to copy and paste this to your SSO provider)** value and paste it into the **Identifier** textbox of the **Nuclino Domain and URLs** section in the Azure portal.
+	c. Copy **Entity ID (You need to copy and paste this to your SSO provider)** value and paste it into the **Identifier** textbox of the **Basic SAML Configuration** section in the Azure portal.
 
-	d. In the **SSO URL** textbox, paste the **SAML Single Sign-On Service URL** value which you have copied from the Azure portal.
+	d. In the **SSO URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 
-	e. In the **Entity ID** textbox, paste the **SAML Entity ID** value which you have copied from the Azure portal.
+	e. In the **Entity ID** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
 
 	f. Open your downloaded **Certificate(Base64)** file in Notepad. Copy the content of it into your clipboard, and then paste it to the **Public certificate** text box.
 
 	g. Click **SAVE CHANGES**.
 
-### Create an Azure AD test user
+### Create Nuclino test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-   ![Create an Azure AD test user][100]
-
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
-
-    ![The Azure Active Directory button](./media/nuclino-tutorial/create_aaduser_01.png)
-
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
-
-    ![The "Users and groups" and "All users" links](./media/nuclino-tutorial/create_aaduser_02.png)
-
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
-
-    ![The Add button](./media/nuclino-tutorial/create_aaduser_03.png)
-
-4. In the **User** dialog box, perform the following steps:
-
-    ![The User dialog box](./media/nuclino-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
-
-    d. Click **Create**.
-
-### Create a Nuclino test user
-
-The objective of this section is to create a user called Britta Simon in Nuclino. Nuclino supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Nuclino if it doesn't exist yet.
+In this section, a user called B.Simon is created in Nuclino. Nuclino supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Nuclino, a new one is created after authentication.
 
 > [!Note]
-> If you need to create a user manually, contact [Nuclino support team](mailto:contact@nuclino.com).
+> If you need to create a user manually, contact [Nuclino support team](mailto:contact@nuclino.com).
 
-### Assign the Azure AD test user
+## Test SSO 
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Nuclino.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-![Assign the user role][200]
+#### SP initiated:
 
-**To assign Britta Simon to Nuclino, perform the following steps:**
+* Click on **Test this application** in Azure portal. This will redirect to Nuclino Sign on URL where you can initiate the login flow.  
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+* Go to Nuclino Sign-on URL directly and initiate the login flow from there.
 
-	![Assign User][201]
+#### IDP initiated:
 
-2. In the applications list, select **Nuclino**.
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Nuclino for which you set up the SSO. 
 
-	![The Nuclino link in the Applications list](./media/nuclino-tutorial/tutorial_nuclino_app.png)  
+You can also use Microsoft My Apps to test the application in any mode. When you click the Nuclino tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Nuclino for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-3. In the menu on the left, click **Users and groups**.
+## Next steps
 
-	![The "Users and groups" link][202]
-
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![The Add Assignment pane][203]
-
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-6. Click **Select** button on **Users and groups** dialog.
-
-7. Click **Assign** button on **Add Assignment** dialog.
-
-### Test single sign-on
-
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the Nuclino tile in the Access Panel, you should get automatically signed-on to your Nuclino application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-<!--Image references-->
-
-[1]: ./media/nuclino-tutorial/tutorial_general_01.png
-[2]: ./media/nuclino-tutorial/tutorial_general_02.png
-[3]: ./media/nuclino-tutorial/tutorial_general_03.png
-[4]: ./media/nuclino-tutorial/tutorial_general_04.png
-
-[100]: ./media/nuclino-tutorial/tutorial_general_100.png
-
-[200]: ./media/nuclino-tutorial/tutorial_general_200.png
-[201]: ./media/nuclino-tutorial/tutorial_general_201.png
-[202]: ./media/nuclino-tutorial/tutorial_general_202.png
-[203]: ./media/nuclino-tutorial/tutorial_general_203.png
+Once you configure Nuclino you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

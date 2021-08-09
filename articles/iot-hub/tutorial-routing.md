@@ -1,94 +1,60 @@
 ---
-title: Configure message routing with Azure IoT Hub (.NET) | Microsoft Docs
-description: Configure message routing with Azure IoT Hub 
+title: Tutorial - Configure message routing for Azure IoT Hub using Azure CLI
+description: Tutorial - Configure message routing for Azure IoT Hub using the Azure CLI and the Azure portal
 author: robinsh
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 09/11/2018
+ms.date: 04/04/2021
 ms.author: robinsh
-ms.custom: mvc
-#Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message.
+ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
+#Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. This step of the tutorial needs to show me how to set up my base resources using PowerShell.
 ---
 
-# Tutorial: Configure message routing with IoT Hub
+# Tutorial: Use the Azure CLI and Azure portal to configure IoT Hub message routing
 
-[Message routing](iot-hub-devguide-messages-d2c.md) enables sending telemetry data from your IoT devices to built-in Event Hub-compatible endpoints or custom endpoints such as blob storage, Service Bus Queue, Service Bus Topic, and Event Hubs. While configuring message routing, you can create [routing queries](iot-hub-devguide-routing-query-syntax.md) to customize the route that matches a certain condition. Once set up, the incoming data is automatically routed to the endpoints by the IoT Hub. 
+[!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
-In this tutorial, you learn how to set up and use routing queries with IoT Hub. You will route messages from an IoT device to one of multiple services, including blob storage and a Service Bus queue. Messages to the Service Bus queue will be picked up by a Logic App and sent via e-mail. Messages that do not have routing specifically set up are sent to the default endpoint, and viewed in a Power BI visualization.
+[!INCLUDE [iot-hub-include-routing-create-resources](../../includes/iot-hub-include-routing-create-resources.md)]
 
-In this tutorial, you perform the following tasks:
+## Use the Azure CLI to create the base resources
 
-> [!div class="checklist"]
-> * Using Azure CLI or PowerShell, set up the base resources -- an IoT hub, a storage account, a Service Bus queue, and a simulated device.
-> * Configure endpoints and routes in IoT hub for the storage account and Service Bus queue.
-> * Create a Logic App that is triggered and sends e-mail when a message is added to the Service Bus queue.
-> * Download and run an app that simulates an IoT Device sending messages to the hub for the different routing options.
-> * Create a Power BI visualization for data sent to the default endpoint.
-> * View the results ...
-> * ...in the Service Bus queue and e-mails.
-> * ...in the storage account.
-> * ...in the Power BI visualization.
+This tutorial uses the Azure CLI to create the base resources, then uses the [Azure portal](https://portal.azure.com) to show how to configure message routing and set up the virtual device for testing.
 
-## Prerequisites
+Copy and paste the script below into Cloud Shell and press Enter. It runs the script one line at a time. This will create the base resources for this tutorial, including the storage account, IoT Hub, Service Bus Namespace, and Service Bus queue.
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+There are several resource names that must be globally unique, such as the IoT Hub name and the storage account name. To make this easier, those resource names are appended with a random alphanumeric value called *randomValue*. The randomValue is generated once at the top of the script and appended to the resource names as needed throughout the script. If you don't want it to be random, you can set it to an empty string or to a specific value.
 
-- Install [Visual Studio](https://www.visualstudio.com/). 
-
-- A Power BI account to analyze the default endpoint's stream analytics. ([Try Power BI for free](https://app.powerbi.com/signupredirect?pbi_source=web).)
-
-- An Office 365 account to send notification e-mails. 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## Set up resources
-
-For this tutorial, you need an IoT hub, a storage account, and a Service Bus queue. These resources can be created using Azure CLI or Azure PowerShell. Use the same resource group and location for all of the resources. Then at the end, you can remove everything in one step by deleting the resource group.
-
-The following sections describe how to do these required steps. Follow the CLI *or* the PowerShell instructions.
-
-1. Create a [resource group](../azure-resource-manager/resource-group-overview.md). 
-
-2. Create an IoT hub in the S1 tier. Add a consumer group to your IoT hub. The consumer group is used by the Azure Stream Analytics when retrieving data.
-
-3. Create a standard V1 storage account with Standard_LRS replication.
-
-4. Create a Service Bus namespace and queue. 
-
-5. Create a device identity for the simulated device that sends messages to your hub. Save the key for the testing phase.
-
-### Set up your resources using Azure CLI
-
-Copy and paste this script into Cloud Shell. Assuming you are already logged in, it runs the script one line at a time. 
-
-The variables that must be globally unique have `$RANDOM` concatenated to them. When the script is run and the variables are set, a random numeric string is generated and concatenated to the end of the fixed string, making it unique.
+> [!TIP]
+> A tip about debugging: this script uses the continuation symbol (the backslash `\`) to make the script more readable. If you have a problem running the script, make sure your Cloud Shell session is running `bash` and that there are no spaces after any of the backslashes.
+>
 
 ```azurecli-interactive
+# This retrieves the subscription id of the account 
+#   in which you're logged in.
+# This field is used to set up the routing queries.
+subscriptionID=$(az account show --query id)
 
-# This is the IOT Extension for Azure CLI.
-# You only need to install this the first time.
-# You need it to create the device identity. 
-az extension add --name azure-cli-iot-ext
+# Concatenate this number onto the resources that have to be globally unique.
+# You can set this to "" or to a specific value if you don't want it to be random.
+# This retrieves a random value.
+randomValue=$RANDOM
 
-# Set the values for the resource names that don't have to be globally unique.
-# The resources that have to have unique names are named in the script below
-#   with a random number concatenated to the name so you can probably just
-#   run this script, and it will work with no conflicts.
+# Set the values for the resource names that 
+#   don't have to be globally unique.
 location=westus
 resourceGroup=ContosoResources
 iotHubConsumerGroup=ContosoConsumers
 containerName=contosoresults
-iotDeviceName=Contoso-Test-Device 
 
 # Create the resource group to be used
 #   for all the resources for this tutorial.
 az group create --name $resourceGroup \
     --location $location
 
-# The IoT hub name must be globally unique, so add a random number to the end.
-iotHubName=ContosoTestHub$RANDOM
+# The IoT hub name must be globally unique, 
+#   so add a random value to the end.
+iotHubName=ContosoTestHub$randomValue 
 echo "IoT hub name = " $iotHubName
 
 # Create the IoT hub.
@@ -96,18 +62,19 @@ az iot hub create --name $iotHubName \
     --resource-group $resourceGroup \
     --sku S1 --location $location
 
-# Add a consumer group to the IoT hub.
+# Add a consumer group to the IoT hub for the 'events' endpoint.
 az iot hub consumer-group create --hub-name $iotHubName \
     --name $iotHubConsumerGroup
 
-# The storage account name must be globally unique, so add a random number to the end.
-storageAccountName=contosostorage$RANDOM
+# The storage account name must be globally unique, 
+#   so add a random value to the end.
+storageAccountName=contosostorage$randomValue
 echo "Storage account name = " $storageAccountName
 
 # Create the storage account to be used as a routing destination.
 az storage account create --name $storageAccountName \
     --resource-group $resourceGroup \
-	--location $location \
+    --location $location \
     --sku Standard_LRS
 
 # Get the primary storage account key. 
@@ -118,225 +85,117 @@ storageAccountKey=$(az storage account keys list \
     --query "[0].value" | tr -d '"') 
 
 # See the value of the storage account key.
-echo "$storageAccountKey"
+echo "storage account key = " $storageAccountKey
 
 # Create the container in the storage account. 
 az storage container create --name $containerName \
     --account-name $storageAccountName \
     --account-key $storageAccountKey \
-    --public-access off 
+    --public-access off
 
-# The Service Bus namespace must be globally unique, so add a random number to the end.
-sbNameSpace=ContosoSBNamespace$RANDOM
-echo "Service Bus namespace = " $sbNameSpace
+# The Service Bus namespace must be globally unique, 
+#   so add a random value to the end.
+sbNamespace=ContosoSBNamespace$randomValue
+echo "Service Bus namespace = " $sbNamespace
 
 # Create the Service Bus namespace.
 az servicebus namespace create --resource-group $resourceGroup \
-    --name $sbNameSpace \
+    --name $sbNamespace \
     --location $location
-	
-# The Service Bus queue name must be globally unique, so add a random number to the end.
-sbQueueName=ContosoSBQueue$RANDOM
+
+# The Service Bus queue name must be globally unique, 
+#   so add a random value to the end.
+sbQueueName=ContosoSBQueue$randomValue
 echo "Service Bus queue name = " $sbQueueName
 
 # Create the Service Bus queue to be used as a routing destination.
 az servicebus queue create --name $sbQueueName \
-    --namespace-name $sbNameSpace \
-	--resource-group $resourceGroup
-
-# Create the IoT device identity to be used for testing.
-az iot hub device-identity create --device-id $iotDeviceName \
-    --hub-name $iotHubName
-
-# Retrieve the information about the device identity, then copy the primary key to
-#   Notepad. You need this to run the device simulation during the testing phase.
-az iot hub device-identity show --device-id $iotDeviceName \
-    --hub-name $iotHubName
+    --namespace-name $sbNamespace \
+    --resource-group $resourceGroup
 
 ```
 
-### Set up your resources using Azure PowerShell
-
-Copy and paste this script into Cloud Shell. Assuming you are already logged in, it runs the script one line at a time.
-
-The variables that must be globally unique have `$(Get-Random)` concatenated to them. When the script is run and the variables are set, a random numeric string is generated and concatenated to the end of the fixed string, making it unique.
-
-```azurepowershell-interactive
-# Log into Azure account.
-Login-AzureRMAccount
-
-# Set the values for the resource names that don't have to be globally unique.
-# The resources that have to have unique names are named in the script below
-#   with a random number concatenated to the name so you can probably just
-#   run this script, and it will work with no conflicts.
-$location = "West US"
-$resourceGroup = "ContosoResources"
-$iotHubConsumerGroup = "ContosoConsumers"
-$containerName = "contosoresults"
-$iotDeviceName = "Contoso-Test-Device"
-
-# Create the resource group to be used 
-#   for all resources for this tutorial.
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
-
-# The IoT hub name must be globally unique, so add a random number to the end.
-$iotHubName = "ContosoTestHub$(Get-Random)"
-Write-Host "IoT hub name is " $iotHubName
-
-# Create the IoT hub.
-New-AzureRmIotHub -ResourceGroupName $resourceGroup `
-    -Name $iotHubName `
-    -SkuName "S1" `
-    -Location $location `
-    -Units 1
-
-# Add a consumer group to the IoT hub for the 'events' endpoint.
-Add-AzureRmIotHubEventHubConsumerGroup -ResourceGroupName $resourceGroup `
-  -Name $iotHubName `
-  -EventHubConsumerGroupName $iotHubConsumerGroup `
-  -EventHubEndpointName "events"
-
-# The storage account name must be globally unique, so add a random number to the end.
-$storageAccountName = "contosostorage$(Get-Random)"
-Write-Host "storage account name is " $storageAccountName
-
-# Create the storage account to be used as a routing destination.
-# Save the context for the storage account 
-#   to be used when creating a container.
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
-    -Name $storageAccountName `
-    -Location $location `
-    -SkuName Standard_LRS `
-    -Kind Storage
-$storageContext = $storageAccount.Context 
-
-# Create the container in the storage account.
-New-AzureStorageContainer -Name $containerName `
-    -Context $storageContext
-
-# The Service Bus namespace must be globally unique,
-#   so add a random number to the end.
-$serviceBusNamespace = "ContosoSBNamespace$(Get-Random)"
-Write-Host "Service Bus namespace is " $serviceBusNamespace
-
-# Create the Service Bus namespace.
-New-AzureRmServiceBusNamespace -ResourceGroupName $resourceGroup `
-    -Location $location `
-    -Name $serviceBusNamespace 
-
-# The Service Bus queue name must be globally unique,
-#  so add a random number to the end.
-$serviceBusQueueName  = "ContosoSBQueue$(Get-Random)"
-Write-Host "Service Bus queue name is " $serviceBusQueueName 
-
-# Create the Service Bus queue to be used as a routing destination.
-New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
-    -Namespace $serviceBusNamespace `
-    -Name $serviceBusQueueName 
-
-```
-
-Next, create a device identity and save its key for later use. This device identity is used by the simulation application to send messages to the IoT hub. This capability is not available in PowerShell, but you can create the device in the [Azure portal](https://portal.azure.com).
-
-1. Open the [Azure portal](https://portal.azure.com) and log into your Azure account.
-
-2. Click on **Resource groups** and select your resource group. This tutorial uses **ContosoResources**.
-
-3. In the list of resources, click your IoT hub. This tutorial uses **ContosoTestHub**. Select **IoT Devices** from the Hub pane.
-
-4. Click **+ Add**. On the Add Device pane, fill in the device ID. This tutorial uses **Contoso-Test-Device**. Leave the keys empty, and check **Auto Generate Keys**. Make sure **Connect device to IoT hub** is enabled. Click **Save**.
-
-   ![Screenshot showing the add-device screen.](./media/tutorial-routing/add-device.png)
-
-5. Now that it's been created, click on the device to see the generated keys. Click the Copy icon on the Primary key and save it somewhere such as Notepad for the testing phase of this tutorial.
-
-   ![Screenshot showing the device details, including the keys.](./media/tutorial-routing/device-details.png)
+Now that the base resources are set up, you can configure the message routing in the [Azure portal](https://portal.azure.com).
 
 ## Set up message routing
 
-You are going to route messages to different resources based on properties attached to the message by the simulated device. Messages that are not custom routed are sent to the default endpoint (messages/events). 
+[!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-|value |Result|
-|------|------|
-|level="storage" |Write to Azure Storage.|
-|level="critical" |Write to a Service Bus queue. A Logic App retrieves the message from the queue and uses Office 365 to e-mail the message.|
-|default |Display this data using Power BI.|
+### Route to a storage account
 
-### Routing to a storage account 
+Now set up the routing for the storage account. You go to the Message Routing pane, then add a route. When adding the route, define a new endpoint for the route. After this routing is set up, messages where the **level** property is set to **storage** are written to a storage account automatically. 
 
-Now set up the routing for the storage account. You go to the Message Routing pane, then add a route. When adding the route, define a new endpoint for the route. After this is set up, messages where the **level** property is set to **storage** are written to a storage account automatically. 
+[!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
-The data is written to blob storage in the Avro format.
+1. In the [Azure portal](https://portal.azure.com), select **Resource Groups**, then select your resource group. This tutorial uses **ContosoResources**.
 
-1. In the [Azure portal](https://portal.azure.com), click **Resource Groups**, then select your resource group. This tutorial uses **ContosoResources**. 
+2. Select the IoT hub under the list of resources. This tutorial uses **ContosoTestHub**.
 
-2. Click the IoT hub under the list of resources. This tutorial uses **ContosoTestHub**. 
+3. Select **Message Routing**. In the **Message Routing** pane, select +**Add**. On the **Add a Route** pane, select +**Add endpoint** next to the Endpoint field to show the supported endpoints, as displayed in the following picture:
 
-3. Click **Message Routing**. In the **Message Routing** pane, click +**Add**. On the **Add a Route** pane, click +**Add** next to the Endpoint field, as displayed in the following picture:
+   ![Start adding an endpoint for a route](./media/tutorial-routing/message-routing-add-a-route-with-storage-endpoint-ver2.png)
 
-   ![Screenshot showing how to start adding an endpoint to a route.](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
+4. Select **Storage**. You see the **Add a storage endpoint** pane.
 
-4. Select **Blob storage**. You see the **Add Storage Endpoint** pane. 
+   ![Adding an endpoint](./media/tutorial-routing/message-routing-add-storage-endpoint-ver2.png)
 
-   ![Screenshot showing adding an endpoint.](./media/tutorial-routing/message-routing-add-storage-ep.png)
+5. Enter a name for the endpoint. This tutorial uses **ContosoStorageEndpoint**.
 
-5. Enter a name for the endpoint. This tutorial uses **StorageContainer**.
+6. Select **Pick a container**. This takes you to a list of your storage accounts. Select the one you set up in the preparation steps. This tutorial uses **contosostorage**. It shows a list of containers in that storage account. **Select** the container you set up in the preparation steps. This tutorial uses **contosoresults**. You return to the **Add a storage endpoint** pane and see the selections you made.
 
-6. Click **Pick a container**. This takes you to a list of your storage accounts. Select the one you set up in the preparation steps. This tutorial uses **contosostorage**. It shows a list of containers in that storage account. Select the container you set up in the preparation steps. This tutorial uses **contosoresults**. Click **Select**. You return to the **Add endpoint** pane. 
-
-7. For the purpose of this tutorial, use the defaults for the rest of the fields. 
+7. Set the encoding to AVRO or JSON. For the purpose of this tutorial, use the defaults for the rest of the fields. This field will be greyed out if the region selected does not support JSON encoding.
 
    > [!NOTE]
-   > You can set the format of the blob name using the **Blob file name format**. The default is `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`. The format must contain {iothub}, {partition}, {YYYY}, {MM}, {DD}, {HH}, and {mm} in any order. 
-   > 
+   > You can set the format of the blob name using the **Blob file name format**. The default is `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`. The format must contain {iothub}, {partition}, {YYYY}, {MM}, {DD}, {HH}, and {mm} in any order.
+   >
    > For example, using the default blob file name format, if the hub name is ContosoTestHub, and the date/time is October 30, 2018 at 10:56 a.m., the blob name will look like this: `ContosoTestHub/0/2018/10/30/10/56`.
    > 
-   > The blobs are written in the Avro format.
+   > The blobs are written in the AVRO format by default.
    >
 
-8. Click **Create** to create the storage endpoint and add it to the route. You return to the **Add a route** pane.
+8. Select **Create** to create the storage endpoint and add it to the route. You return to the **Add a route** pane.
 
-9. Now complete the rest of the routing query information. This query specifies the criteria for sending messages to the storage container you just added as an endpoint. Fill in the fields on the screen. 
+9. Now complete the rest of the routing query information. This query specifies the criteria for sending messages to the storage container you just added as an endpoint. Fill in the fields on the screen.
 
-   **Name**: Enter a name for your routing query. This tutorial uses **StorageRoute**.
+   **Name**: Enter a name for your routing query. This tutorial uses **ContosoStorageRoute**.
 
-   **Endpoint**: This shows the endpoint you just set up. 
-   
+   **Endpoint**: This shows the endpoint you just set up.
+
    **Data source**: Select **Device Telemetry Messages** from the dropdown list.
 
-   **Enable route**: Be sure this is enabled.
+   **Enable route**: Be sure this field is set to `enabled`.
    
-   **Routing query**: Enter `level="storage"` as the query string. 
+   **Routing query**: Enter `level="storage"` as the query string.
 
-   ![Screenshot showing creating a routing query for the storage account.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
-   
-   Click **Save**. When it finishes, it returns to the Message Routing pane, where you can see your new routing query for storage. Close the Routes pane, which returns you to the Resource group page.
+   ![Creating a routing query for the storage account](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
 
-### Routing to a Service Bus queue 
+   Select **Save**. When it finishes, it returns to the Message Routing pane, where you can see your new routing query for storage. Close the Routes pane, which returns you to the Resource group page.
 
-Now set up the routing for the Service Bus queue. You go to the Message Routing pane, then add a route. When adding the route, define a new endpoint for the route. After this is set up, message where the **level** property is set to **critical** are written to the Service Bus queue, which triggers a Logic App, which then sends an e-mail with the information. 
+### Route to a Service Bus queue
 
-1. On the Resource group page, click your IoT hub, then click **Message Routing**. 
+Now set up the routing for the Service Bus queue. You go to the Message Routing pane, then add a route. When adding the route, define a new endpoint for the route. After this route is set up, messages where the **level** property is set to **critical** are written to the Service Bus queue, which triggers a Logic App, which then sends an e-mail with the information.
 
-2. In the **Message Routing** pane, click +**Add**. 
+1. On the Resource group page, select your IoT hub, then select **Message Routing**.
 
-3. On the **Add a Route** pane, click +**Add** next to the Endpoint field. Select **Service Bus Queue**. You see the **Add Service Bus Endpoint** pane. 
+2. In the **Message Routing** pane, select +**Add**.
 
-   ![Screenshot adding a service bus endpoint](./media/tutorial-routing/message-routing-add-sbqueue-ep.png)
+3. On the **Add a Route** pane, Select +**Add** next to the Endpoint field. Select **Service Bus Queue**. You see the **Add Service Bus Endpoint** pane.
+
+   ![Adding a service bus endpoint](./media/tutorial-routing/message-routing-add-sbqueue-ep.png)
 
 4. Fill in the fields:
 
-   **Endpoint Name**: Enter a name for the endpoint. This tutorial uses **CriticalQueue**.
+   **Endpoint Name**: Enter a name for the endpoint. This tutorial uses **ContosoSBQueueEndpoint**.
    
-   **Service Bus Namespace**: Click on this field to reveal the dropdown list; select the service bus namespace you set up in the preparation steps. This tutorial uses **ContosoSBNamespace**.
+   **Service Bus Namespace**: Use the dropdown list to select the service bus namespace you set up in the preparation steps. This tutorial uses **ContosoSBNamespace**.
 
-   **Service Bus queue**: Click on this field to reveal the dropdown list; select the Service Bus queue from the dropdown list. This tutorial uses **contososbqueue**.
+   **Service Bus queue**: Use the dropdown list to select the Service Bus queue. This tutorial uses **contososbqueue**.
 
-5. Click **Create** to add the Service Bus queue endpoint. You return to the **Add a route** pane. 
+5. Select **Create** to add the Service Bus queue endpoint. You return to the **Add a route** pane.
 
-6.  Now you complete the rest of the routing query information. This query specifies the criteria for sending messages  to the Service Bus queue you just added as an endpoint. Fill in the fields on the screen. 
+6. Now you complete the rest of the routing query information. This query specifies the criteria for sending messages  to the Service Bus queue you just added as an endpoint. Fill in the fields on the screen. 
 
-   **Name**: Enter a name for your routing query. This tutorial uses **SBQueueRoute**. 
+   **Name**: Enter a name for your routing query. This tutorial uses **ContosoSBQueueRoute**. 
 
    **Endpoint**: This shows the endpoint you just set up.
 
@@ -344,281 +203,25 @@ Now set up the routing for the Service Bus queue. You go to the Message Routing 
 
    **Routing query**: Enter `level="critical"` as the query string. 
 
-   ![Screenshot showing creating a routing query for the Service Bus queue.](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
+   ![Create a routing query for the Service Bus queue](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
 
-7. Click **Save**. When it returns to the Routes pane, you see both of your new routes, as displayed here.
+7. Select **Save**. When it returns to the Routes pane, you see both of your new routes, as displayed here.
 
-   ![Screenshot showing the routes you just set up.](./media/tutorial-routing/message-routing-show-both-routes.png)
+   ![The routes you just set up](./media/tutorial-routing/message-routing-show-both-routes.png)
 
-8. You can see the custom endpoints you set up by clicking on the **Custom Endpoints** tab.
+8. You can see the custom endpoints you set up by selecting the **Custom Endpoints** tab.
 
-   ![Screenshot showing the custom endpoints you just set up.](./media/tutorial-routing/message-routing-show-custom-endpoints.png)
+   ![The custom endpoint you just set up](./media/tutorial-routing/message-routing-show-custom-endpoints.png)
 
 9. Close the Message Routing pane, which returns you to the Resource group pane.
 
-## Create a Logic App  
+## Create a simulated device
 
-The Service Bus queue is to be used for receiving messages designated as critical. Set up a Logic app to monitor the Service Bus queue, and send an e-mail when a message is added to the queue. 
-
-1. In the [Azure portal](https://portal.azure.com), click **+ Create a resource**. Put **logic app** in the search box and click Enter. From the search results displayed, select Logic App, then click **Create** to continue to the **Create logic app** pane. Fill in the fields. 
-
-   **Name**: This field is the name of the logic app. This tutorial uses **ContosoLogicApp**. 
-
-   **Subscription**: Select your Azure subscription.
-
-   **Resource group**: Click **Use existing** and select your resource group. This tutorial uses **ContosoResources**. 
-
-   **Location**: Use your location. This tutorial uses **West US**. 
-
-   **Log Analytics**: This toggle should be turned off. 
-
-   ![Screenshot showing the Create Logic App screen.](./media/tutorial-routing/create-logic-app.png)
-
-   Click **Create**.
-
-2. Now go to the Logic App. The easiest way to get to the Logic App is to click on **Resource groups**, select your resource group (this tutorial uses **ContosoResources**), then select the Logic App from the list of resources. The Logic Apps Designer page appears (you might have to scroll over to the right to see the full page). On the Logic Apps Designer page, scroll down until you see the tile that says **Blank Logic App +** and click it. 
-
-3. A list of connectors is displayed. Select **Service Bus**. 
-
-   ![Screenshot showing the list of connectors.](./media/tutorial-routing/logic-app-connectors.png)
-
-4. A list of triggers is displayed. Select **Service Bus - When a message is received in a queue (auto-complete)**. 
-
-   ![Screenshot showing the list of triggers for the Service Bus.](./media/tutorial-routing/logic-app-triggers.png)
-
-5. On the next screen, fill in the Connection Name. This tutorial uses **ContosoConnection**. 
-
-   ![Screenshot showing setting up the connection for the Service Bus queue.](./media/tutorial-routing/logic-app-define-connection.png)
-
-   Click the Service Bus namespace. This tutorial uses **ContosoSBNamespace**. When you select the namespace, the portal queries the Service Bus namespace to retrieve the keys. Select **RootManageSharedAccessKey** and click **Create**. 
-   
-   ![Screenshot showing finishing setting up the connection.](./media/tutorial-routing/logic-app-finish-connection.png)
-
-6. On the next screen, select the name of the queue (this tutorial uses **contososbqueue**) from the dropdown list. You can use the defaults for the rest of the fields. 
-
-   ![Screenshot showing the queue options.](./media/tutorial-routing/logic-app-queue-options.png)
-
-7. Now set up the action to send an e-mail when a message is received in the queue. In the Logic Apps Designer, click **+ New step** to add a step, then click **Add an action**. In the **Choose an action** pane, find and click **Office 365 Outlook**. On the triggers screen, select **Office 365 Outlook - Send an email**.  
-
-   ![Screenshot showing the Office365 options.](./media/tutorial-routing/logic-app-select-outlook.png)
-
-8. Next, log into your Office 365 account to set up the connection. Specify the e-mail addresses for the recipient(s) of the e-mails. Also specify the subject, and type what message you'd like the recipient to see in the body. For testing, fill in your own e-mail address as the recipient.
-
-   Click **Add dynamic content** to show the content from the message that you can include. Select **Content** -- it will include the message in the e-mail. 
-
-   ![Screenshot showing the e-mail options for the logic app.](./media/tutorial-routing/logic-app-send-email.png)
-
-9. Click **Save**. Then close the Logic App Designer.
-
-## Set up Azure Stream Analytics
-
-To see the data in a Power BI visualization, first set up a Stream Analytics job to retrieve the data. Remember that only the messages where the **level** is **normal** are sent to the default endpoint, and will be retrieved by the Stream Analytics job for the Power BI visualization.
-
-### Create the Stream Analytics job
-
-1. In the [Azure portal](https://portal.azure.com), click **Create a resource** > **Internet of Things** > **Stream Analytics job**.
-
-2. Enter the following information for the job.
-
-   **Job name**: The name of the job. The name must be globally unique. This tutorial uses **contosoJob**.
-
-   **Resource group**: Use the same resource group used by your IoT hub. This tutorial uses **ContosoResources**. 
-
-   **Location**: Use the same location used in the setup script. This tutorial uses **West US**. 
-
-   ![Screenshot showing how to create the stream analytics job.](./media/tutorial-routing/stream-analytics-create-job.png)
-
-3. Click **Create** to create the job. To get back to the job, click **Resource groups**. This tutorial uses **ContosoResources**. Select the resource group, then click the Stream Analytics job in the list of resources. 
-
-### Add an input to the Stream Analytics job
-
-4. Under **Job Topology**, click **Inputs**.
-
-5. In the **Inputs** pane, click **Add stream input** and select IoT Hub. On the screen that comes up, fill in the following fields:
-
-   **Input alias**: This tutorial uses **contosoinputs**.
-
-   **Subscription**: Select your subscription.
-
-   **IoT Hub**: Select the IoT Hub. This tutorial uses **ContosoTestHub**.
-
-   **Endpoint**: Select **Messaging**. (If you select Operations Monitoring, you get the telemetry data about the IoT hub rather than the data you're sending through.) 
-
-   **Shared access policy name**: Select **iothubowner**. The portal fills in the Shared Access Policy Key for you.
-
-   **Consumer group**: Select the consumer group you created earlier. This tutorial uses **contosoconsumers**.
-   
-   For the rest of the fields, accept the defaults. 
-
-   ![Screenshot showing how to set up the inputs for the stream analytics job.](./media/tutorial-routing/stream-analytics-job-inputs.png)
-
-6. Click **Save**.
-
-### Add an output to the Stream Analytics job
-
-1. Under **Job Topology**, click **Outputs**.
-
-2. In the **Outputs** pane, click **Add**, and then select **Power BI**. On the screen that comes up, fill in the following fields:
-
-   **Output alias**: The unique alias for the output. This tutorial uses **contosooutputs**. 
-
-   **Dataset name**: Name of the dataset to be used in Power BI. This tutorial uses **contosodataset**. 
-
-   **Table name**: Name of the table to be used in Power BI. This tutorial uses **contosotable**.
-
-   Accept the defaults for the rest of the fields.
-
-3. Click **Authorize**, and sign into your Power BI account.
-
-   ![Screenshot showing how to set up the outputs for the stream analytics job.](./media/tutorial-routing/stream-analytics-job-outputs.png)
-
-4. Click **Save**.
-
-### Configure the query of the Stream Analytics job
-
-1. Under **Job Topology**, click **Query**.
-
-2. Replace `[YourInputAlias]` with the input alias of the job. This tutorial uses **contosoinputs**.
-
-3. Replace `[YourOutputAlias]` with the output alias of the job. This tutorial uses **contosooutputs**.
-
-   ![Screenshot showing how to set up the query for the stream analytics job.](./media/tutorial-routing/stream-analytics-job-query.png)
-
-4. Click **Save**.
-
-5. Close the Query pane. This returns you to the view of the resources in the Resource Group. Click the Stream Analytics job. This tutorial calls it **contosoJob**.
-
-### Run the Stream Analytics job
-
-In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job successfully starts, the job status changes from **Stopped** to **Running**.
-
-To set up the Power BI report, you need data, so you'll set up Power BI after creating the device and running the device simulation application.
-
-## Run Simulated Device app
-
-Earlier in the script setup section, you set up a device to simulate using an IoT device. In this section, you download a .NET console app that simulates a device that sends device-to-cloud messages to an IoT hub. This application sends messages for each of the different routing methods. 
-
-Download the solution for the [IoT Device Simulation](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). This downloads a repo with several applications in it; the solution you are looking for is in iot-hub/Tutorials/Routing/SimulatedDevice/.
-
-Double-click on the solution file (SimulatedDevice.sln) to open the code in Visual Studio, then open Program.cs. Substitute `{iot hub hostname}` with the IoT hub host name. The format of the IoT hub host name is **{iot-hub-name}.azure-devices.net**. For this tutorial, the hub host name is **ContosoTestHub.azure-devices.net**. Next, substitute `{device key}` with the device key you saved earlier when setting up the simulated device. 
-
-   ```csharp
-        static string myDeviceId = "contoso-test-device";
-        static string iotHubUri = "ContosoTestHub.azure-devices.net";
-        // This is the primary key for the device. This is in the portal. 
-        // Find your IoT hub in the portal > IoT devices > select your device > copy the key. 
-        static string deviceKey = "{your device key here}";
-   ```
-
-## Run and test 
-
-Run the console application. Wait a few minutes. You can see the messages being sent on the console screen of the application.
-
-The app sends a new device-to-cloud message to the IoT hub every second. The message contains a JSON-serialized object with the device ID, temperature, humidity, and message level, which defaults to `normal`. It randomly assigns a level of `critical` or `storage`, causing the message to be routed to the storage account or to the Service Bus queue (which triggers your Logic App to send an e-mail). The default (`normal`) readings will be displayed in the BI report you set up next.
-
-If everything is set up correctly, at this point you should see the following results:
-
-1. You start getting e-mails about critical messages. 
-
-   ![Screenshot showing the resulting emails.](./media/tutorial-routing/results-in-email.png)
-
-   This means the following:
-
-   * The routing to the Service Bus queue is working correctly.
-   * The Logic App retrieving the message from the Service Bus queue is working correctly.
-   * The Logic App connector to Outlook is working correctly. 
-
-2. In the [Azure portal](https://portal.azure.com), click **Resource groups** and select your Resource Group. This tutorial uses **ContosoResources**. Select the storage account, click **Blobs**, then select the Container. This tutorial uses **contosoresults**. You should see a folder, and you can drill down through the directories until you see one or more files. Open one of those files; they contain the entries routed to the storage account. 
-
-   ![Screenshot showing the result files in storage.](./media/tutorial-routing/results-in-storage.png)
-
-This means the following:
-
-   * The routing to the storage account is working correctly.
-
-Now with the application still running, set up the Power BI visualization to see the messages coming through the default routing. 
-
-## Set up the Power BI Visualizations
-
-1. Sign in to your [Power BI](https://powerbi.microsoft.com/) account.
-
-2. Go to **Workspaces** and select the workspace that you set when you created the output for the Stream Analytics job. This tutorial uses **My Workspace**. 
-
-3. Click **Datasets**.
-
-   You should see the listed dataset that you specified when you created the output for the Stream Analytics job. This tutorial uses **contosodataset**. (It may take 5-10 minutes for the dataset to show up the first time.)
-
-4. Under **ACTIONS**, click the first icon to create a report.
-
-   ![Screenshot showing Power BI workspace with Actions and report icon highlighted.](./media/tutorial-routing/power-bi-actions.png)
-
-5. Create a line chart to show real-time temperature over time.
-
-   * On the report creation page, add a line chart by clicking the line chart icon.
-
-   ![Screenshot showing the visualizations and fields.](./media/tutorial-routing/power-bi-visualizations-and-fields.png)
-
-   * On the **Fields** pane, expand the table that you specified when you created the output for the Stream Analytics job. This tutorial uses **contosotable**.
-
-   * Drag **EventEnqueuedUtcTime** to **Axis** on the **Visualizations** pane.
-
-   * Drag **temperature** to **Values**.
-
-   A line chart is created. The x-axis displays date and time in the UTC time zone. The y-axis displays temperature from the sensor.
-
-6. Create another line chart to show real-time humidity over time. To set up the second chart, follow the same steps above and place **EventEnqueuedUtcTime** on the x-axis and **humidity** on the y-axis.
-
-   ![Screenshot showing the final Power BI report with the two charts.](./media/tutorial-routing/power-bi-report.png)
-
-7. Click **Save** to save the report.
-
-You should be able to see data on both charts. This means the following:
-
-   * The routing to the default endpoint is working correctly.
-   * The Azure Stream Analytics job is streaming correctly.
-   * The Power BI Visualization is set up correctly.
-
-You can refresh the charts to see the most recent data by clicking the Refresh button on the top of the Power BI window. 
-
-## Clean up resources 
-
-If you want to remove all of the resources you've created, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the Service Bus namespace and queue, the Logic App, the storage account, and the resource group itself. 
-
-### Clean up resources in the Power BI visualization
-
-Log into your [Power BI](https://powerbi.microsoft.com/) account. Go to your workspace. This tutorial uses **My Workspace**. To remove the Power BI visualization, go to DataSets and click the trash can icon to delete the dataset. This tutorial uses **contosodataset**. When you remove the dataset, the report is removed as well.
-
-### Clean up resources using Azure CLI
-
-To remove the resource group, use the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command.
-
-```azurecli-interactive
-az group delete --name $resourceGroup
-```
-### Clean up resources using PowerShell
-
-To remove the resource group, use the [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) command. $resourceGroup was set to **ContosoIoTRG1** back at the beginning of this tutorial.
-
-```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name $resourceGroup
-```
+[!INCLUDE [iot-hub-include-create-simulated-device-portal](../../includes/iot-hub-include-create-simulated-device-portal.md)]
 
 ## Next steps
 
-In this tutorial, you learned how to use message routing to route IoT Hub messages to different destinations by performing the following tasks.  
-
-> [!div class="checklist"]
-> * Using Azure CLI or PowerShell, set up the base resources -- an IoT hub, a storage account, a Service Bus queue, and a simulated device.
-> * Configure endpoints and routes in IoT hub for the storage account and Service Bus queue.
-> * Create a Logic App that is triggered and sends e-mail when a message is added to the Service Bus queue.
-> * Download and run an app that simulates an IoT Device sending messages to the hub for the different routing options.
-> * Create a Power BI visualization for data sent to the default endpoint.
-> * View the results ...
-> * ...in the Service Bus queue and e-mails.
-> * ...in the storage account.
-> * ...in the Power BI visualization.
-
-Advance to the next tutorial to learn how to manage the state of an IoT device. 
+Now that you have the resources set up and the message routes configured, advance to the next tutorial to learn how to send messages to the IoT hub and see them be routed to the different destinations. 
 
 > [!div class="nextstepaction"]
-[Configure your devices from a back-end service](tutorial-device-twins.md)
+> [Part 2 - View the message routing results](tutorial-routing-view-message-routing-results.md)

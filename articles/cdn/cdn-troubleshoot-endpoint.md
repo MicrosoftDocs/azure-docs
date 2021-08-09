@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Azure CDN endpoints that return a 404 status code | Microsoft Docs
-description: Troubleshoot 404 response codes with Azure CDN endpoints.
+title: Troubleshooting Azure CDN endpoints - 404 status code
+description: Learn how to troubleshoot issues with Azure Content Delivery Network endpoints that return 404 HTTP response status codes.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -8,11 +8,11 @@ manager: erikre
 editor: ''
 
 ms.assetid: b588a1eb-ab69-4fc7-ae4d-157c3e46f4a8
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
 
@@ -69,10 +69,10 @@ Verify that the values of the **Origin type** and **Origin hostname** are correc
 #### HTTP and HTTPS ports
 Check your **HTTP** and **HTTPS ports**. In most cases, 80 and 443 are correct, and you will require no changes.  However, if the origin server is listening on a different port, that will need to be represented here. If you're not sure, view the URL for your origin file. The HTTP and HTTPS specifications use ports 80 and 443 as the defaults. In the example URL, https:\//cdndocdemo.blob.core.windows.net/publicblob/lorem.txt, a port is not specified, so the default of 443 is assumed and the settings are correct.  
 
-However, suppose the URL for the origin file that you tested earlier is http:\//www.contoso.com:8080/file.txt. Note the *:8080* portion at the end of the hostname segment. That number instructs the browser to use port 8080 to connect to the web server at www.contoso.com, therefore you'll need to enter *8080* in the **HTTP port** field. It's important to note that these port settings affect only what port the endpoint uses to retrieve information from the origin.
+However, suppose the URL for the origin file that you tested earlier is http:\//www.contoso.com:8080/file.txt. Note the *:8080* portion at the end of the hostname segment. That number instructs the browser to use port 8080 to connect to the web server at www\.contoso.com, therefore you'll need to enter *8080* in the **HTTP port** field. It's important to note that these port settings affect only what port the endpoint uses to retrieve information from the origin.
 
 > [!NOTE]
-> **Azure CDN Standard from Akamai** endpoints do not allow the full TCP port range for origins.  For a list of origin ports that are not allowed, see [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx).  
+> **Azure CDN Standard from Akamai** endpoints do not allow the full TCP port range for origins.  For a list of origin ports that are not allowed, see [Azure CDN from Akamai Allowed Origin Ports](/previous-versions/azure/mt757337(v=azure.100)).  
 > 
 > 
 

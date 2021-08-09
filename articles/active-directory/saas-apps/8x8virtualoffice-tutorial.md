@@ -1,249 +1,222 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with 8x8 Virtual Office | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and 8x8 Virtual Office.
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with 8x8 | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and 8x8.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
-
-ms.assetid: b34a6edf-e745-4aec-b0b2-7337473d64c5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/30/2018
+ms.topic: tutorial
+ms.date: 10/28/2020
 ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with 8x8 Virtual Office
 
-In this tutorial, you learn how to integrate 8x8 Virtual Office with Azure Active Directory (Azure AD).
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with 8x8
 
-Integrating 8x8 Virtual Office with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate 8x8 with Azure Active Directory (Azure AD). When you integrate 8x8 with Azure AD, you can:
 
-- You can control in Azure AD who has access to 8x8 Virtual Office.
-- You can enable your users to automatically get signed-on to 8x8 Virtual Office (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+* Control in Azure AD who has access to 8x8.
+* Enable your users to be automatically signed-in to 8x8 with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
-To configure Azure AD integration with 8x8 Virtual Office, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A 8x8 Virtual Office single sign-on enabled subscription
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* An 8x8 subscription.
 
 > [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
+In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-1. Adding 8x8 Virtual Office from the gallery
-2. Configuring and testing Azure AD single sign-on
-
-## Adding 8x8 Virtual Office from the gallery
-
-To configure the integration of 8x8 Virtual Office into Azure AD, you need to add 8x8 Virtual Office from the gallery to your list of managed SaaS apps.
-
-**To add 8x8 Virtual Office from the gallery, perform the following steps:**
-
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
-
-	![The Azure Active Directory button][1]
-
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
-
-	![The Enterprise applications blade][2]
-	
-3. To add new application, click **New application** button on the top of dialog.
-
-	![The New application button][3]
-
-4. In the search box, type **8x8 Virtual Office**, select **8x8 Virtual Office** from result panel then click **Add** button to add the application.
-
-	![8x8 Virtual Office in the results list](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_addfromgallery.png)
-
-## Configure and test Azure AD single sign-on
-
-In this section, you configure and test Azure AD single sign-on with 8x8 Virtual Office based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in 8x8 Virtual Office is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in 8x8 Virtual Office needs to be established.
-
-To configure and test Azure AD single sign-on with 8x8 Virtual Office, you need to complete the following building blocks:
-
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a 8x8 Virtual Office test user](#creating-a-8x8-virtual-office-test-user)** - to have a counterpart of Britta Simon in 8x8 Virtual Office that is linked to the Azure AD representation of user.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing single sign-on](#testing-single-sign-on)** - to verify whether the configuration works.
-
-### Configuring Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your 8x8 Virtual Office application.
-
-**To configure Azure AD single sign-on with 8x8 Virtual Office, perform the following steps:**
-
-1. In the Azure portal, on the **8x8 Virtual Office** application integration page, click **Single sign-on**.
-
-	![Configure single sign-on link][4]
-
-2. On the **Select a Single sign-on method** dialog, Click **Select** for **SAML** mode to enable single sign-on.
-
-    ![Configure Single Sign-On](common/tutorial_general_301.png)
-
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
-
-	![Configure Single Sign-On](common/editconfigure.png)
-
-4. On the **Basic SAML Configuration** section, perform the following steps:
-
-	![8x8 Virtual Office Domain and URLs single sign-on information](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_url.png)
-
-    a. In the **Identifier** textbox, type a URL: `https://sso.8x8.com/saml2`
-
-	b. In the **Reply URL** textbox, type a URL: `https://sso.8x8.com/saml2`
-
-5. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click **Download** to download **Certificate (Raw)** and then save certificate file on your computer.
-
-	![The Certificate download link](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_certificate.png) 
-
-6. On the **Set up 8x8 Virtual Office** section, copy the appropriate URL as per your requirement.
-
-	a. Login URL
-
-	b. Azure AD Identifier
-
-	c. Logout URL
-
-	![8x8 Virtual Office Configuration](common/configuresection.png)
-
-7. Sign-on to your 8x8 Virtual Office tenant as an administrator.
-
-8. Select **Virtual Office Account Mgr** on Application Panel.
-
-    ![Configure On App Side](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
-
-9. Select **Business** account to manage and click **Sign In** button.
-
-    ![Configure On App Side](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
-
-10. Click **ACCOUNTS** tab in the menu list.
-
-    ![Configure On App Side](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
-
-11. Click **Single Sign On** in the list of Accounts.
-  
-    ![Configure On App Side](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
-
-12. Select **Single Sign On** under Authentication methods and click **SAML**.
-
-    ![Configure On App Side](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
-
-13. In the **SAML Single Sign on** section, perform the following steps:
-
-	![Configure On App Side](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
-
-	a. In the **Sign In URL** textbox, paste **Login URL** value which you have copied from the Azure portal.
-
-	b. In the **Sign Out URL** textbox, paste **Logout URL** value which you have copied from the Azure portal.
-
-	c. In the **Issuer URL** textbox, paste **Azure AD Identifier** value which you have copied from the Azure portal.
-
-	d. Click **Browse** button to upload the certificate which you downloaded from Azure portal.
-
-	e. Click the **Save** button.
-
-### Creating an Azure AD test user
-
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
-
-	![Create Azure AD User][100]
-
-2. Select **New user** at the top of the screen.
-
-	![Creating an Azure AD test user](common/create_aaduser_01.png) 
-
-3. In the User properties, perform the following steps.
-
-	![Creating an Azure AD test user](common/create_aaduser_02.png)
-
-    a. In the **Name** field, enter **BrittaSimon**.
-  
-    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
-
-    c. Select **Properties**, select the **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Select **Create**.
-  
-### Creating a 8x8 Virtual Office test user
-
-The objective of this section is to create a user called Britta Simon in 8x8 Virtual Office. 8x8 Virtual Office supports just-in-time provisioning, which is by default enabled.
-
-There is no action item for you in this section. A new user is created during an attempt to access 8x8 Virtual Office if it doesn't exist yet.
+* 8x8 supports **SP and IDP** initiated SSO
 
 > [!NOTE]
-> If you need to create a user manually, you need to contact the [8x8 Virtual Office support team](https://www.8x8.com/about-us/contact-us).
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-### Assigning the Azure AD test user
+## Adding 8x8 from the gallery
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to 8x8 Virtual Office.
+To configure the integration of 8x8 into Azure AD, you need to add 8x8 from the gallery to your list of managed SaaS apps.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **8x8** in the search box.
+1. Select **8x8** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-	![Assign User][201]
+## Configure and test Azure AD SSO for 8x8
 
-2. In the applications list, select **8x8 Virtual Office**.
+Configure and test Azure AD SSO with 8x8 using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in 8x8.
 
-	![Configure Single Sign-On](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_app.png) 
+To configure and test Azure AD SSO with 8x8, perform the following steps:
 
-3. In the menu on the left, click **Users and groups**.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure 8x8 SSO](#configure-8x8-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create 8x8 test user](#create-8x8-test-user)** - to have a counterpart of B.Simon in 8x8 that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	![Assign User][202]
+## Configure Azure AD SSO
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-	![Assign User][203]
+1. In the Azure portal, on the **8x8** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-6. In the **Add Assignment** dialog select the **Assign** button.
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-### Testing single sign-on
+    a. In the **Identifier** text box, type a URL: `https://sso.8x8.com/saml2`
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+    b. In the **Reply URL** text box, type a URL: `https://sso.8x8.com/saml2`
 
-When you click the 8x8 Virtual Office tile in the Access Panel, you should get automatically signed-on to your 8x8 Virtual Office application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer. You will use the certificate later in the tutorial in the **Configure 8x8 SSO** section.
 
-## Additional resources
+	![The Certificate download link](common/certificatebase64.png)
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+1. On the **Set up 8x8** section, copy the URL(s) and you will use these URL values later in the tutorial.
 
-<!--Image references-->
+	![Copy configuration URLs](./media/8x8virtualoffice-tutorial/copy-configuration-urls.png)
 
-[1]: common/tutorial_general_01.png
-[2]: common/tutorial_general_02.png
-[3]: common/tutorial_general_03.png
-[4]: common/tutorial_general_04.png
+### Create an Azure AD test user
 
-[100]: common/tutorial_general_100.png
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-[201]: common/tutorial_general_201.png
-[202]: common/tutorial_general_202.png
-[203]: common/tutorial_general_203.png
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
+
+### Assign the Azure AD test user
+
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to 8x8.
+
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **8x8**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+
+   ![The "Users and groups" link](common/users-groups-blade.png)
+
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+
+	![The Add User link](common/add-assign-user.png)
+
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
+
+## Configure 8x8 SSO
+
+The next part of the tutorial depends on what kind of subscription you have with 8x8.
+
+* For 8x8 Editions and X Series customers using Configuration Manager for administration, refer to [Configure 8x8 Admin Console](#configure-8x8-admin-console).
+* For Virtual Office customers using Account Manager for administration, refer to [Configure 8x8 Account Manager](#configure-8x8-account-manager).
+
+### Configure 8x8 Admin Console
+
+1. To automate the configuration within 8x8, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![My apps extension](common/install-myappssecure-extension.png)
+
+1. After adding extension to the browser, click on **Set up 8x8** will direct you to the 8x8 application. From there, provide the admin credentials to sign into 8x8. The browser extension will automatically configure the application for you and automate steps 3-6.
+
+	![Setup configuration](common/setup-sso.png)
+
+1. If you want to setup 8x8 manually, sign in to 8x8 [Admin Console](https://admin.8x8.com/) as an administrator.
+
+1. From the home page click **Identity Management**.
+
+    ![Screenshot that highlights the Identity Management tile.](./media/8x8virtualoffice-tutorial/configure1.png)
+
+1. Check **Single Sign On (SSO)** then select **Microsoft Azure AD**.
+
+    ![Screenshot that highlights the Single Sign on (SSO) and Microsoft Azure AD options.](./media/8x8virtualoffice-tutorial/configure2.png)
+
+1. Copy the three URLs and signing certificate from the **Set up Single Sign-On with SAML** page in Azure AD into the **Microsoft Azure AD SAML Settings** section in 8x8 Admin Console.
+
+    ![8x8 Admin Console](./media/8x8virtualoffice-tutorial/configure3.png)
+
+    a. Copy **Login URL** to **IDP Login URL**.
+
+    b. Copy **Azure AD Identifier** to **IDP Issuer URL/URN**.
+
+    c. Copy **Logout URL** to **IDP Logout URL**.
+
+    d. Download **Certificate (Base64)** and upload to **Certificate**.
+
+    e. Click **Save**.
+
+### Configure 8x8 Account Manager
+
+1. Sign-on to your 8x8 Virtual Office tenant as an administrator.
+
+1. Select **Virtual Office Account Mgr** on Application Panel.
+
+    ![Screenshot that highlights the Virtual Office Account Mgr tile.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
+
+1. Select **Business** account to manage and click **Sign In** button.
+
+    ![Screenshot that highlights the Business option and Sign In button.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
+
+1. Click **ACCOUNTS** tab in the menu list.
+
+    ![Screenshot that highlights the ACCOUNTS tab in the menu list.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
+
+1. Click **Single Sign On** in the list of Accounts.
+
+    ![Screenshot that highlights the Single Sign On option.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
+
+1. Select **Single Sign On** under Authentication methods and click **SAML**.
+
+    ![Screenshot that highlights the SAML under Single Sign On.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
+
+1. In the **SAML Single Sign on** section, perform the following steps:
+
+    ![Configure On App Side](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
+
+    a. In the **Sign In URL** textbox, paste **Login URL** value which you have copied from the Azure portal.
+
+    b. In the **Sign Out URL** textbox, paste **Logout URL** value which you have copied from the Azure portal.
+
+    c. In the **Issuer URL** textbox, paste **Azure AD Identifier** value which you have copied from the Azure portal.
+
+    d. Click **Browse** button to upload the certificate which you downloaded from Azure portal.
+
+    e. Click the **Save** button.
+
+### Create 8x8 test user
+
+In this section, you create a user called Britta Simon in 8x8. Work with [8x8 support team](https://www.8x8.com/about-us/contact-us) to add the users in the 8x8 platform. Users must be created and activated before you use single sign-on.
+
+## Test SSO
+
+In this section, you test your Azure AD single sign-on configuration with following options. 
+
+#### SP initiated:
+
+* Click on **Test this application** in Azure portal. This will redirect to 8x8 Sign on URL where you can initiate the login flow.  
+
+* Go to 8x8 Sign-on URL directly and initiate the login flow from there.
+
+#### IDP initiated:
+
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the 8x8 for which you set up the SSO 
+
+You can also use Microsoft Access Panel to test the application in any mode. When you click the 8x8 tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the 8x8 for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+
+
+## Next steps
+
+Once you configure 8x8 you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

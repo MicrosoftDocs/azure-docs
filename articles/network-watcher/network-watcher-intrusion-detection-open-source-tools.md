@@ -1,20 +1,18 @@
 ---
-title: Perform network intrusion detection with Azure Network Watcher and open source tools | Microsoft Docs
+title: Perform network intrusion detection with open source tools
+titleSuffix: Azure Network Watcher
 description: This article describes how to use Azure Network Watcher and open source tools to perform network intrusion detection
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor:
-
+author: damendo
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 02/22/2017
-ms.author: jdial
+ms.date: 01/07/2021
+ms.author: damendo
 ---
 
 # Perform network intrusion detection with Network Watcher and open source tools
@@ -35,7 +33,7 @@ Both open source tools can be set up on an Azure VM, allowing you to perform thi
 
 ### Install Suricata
 
-For all other methods of installation, visit http://suricata.readthedocs.io/en/latest/install.html
+For all other methods of installation, visit https://suricata.readthedocs.io/en/suricata-5.0.2/quickstart.html#installation
 
 1. In the command-line terminal of your VM run the following commands:
 
@@ -54,7 +52,7 @@ At this stage, we do not have any rules for Suricata to run. You can create your
 Download the rule set and copy them into the directory:
 
 ```
-wget http://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
+wget https://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
 tar zxf emerging.rules.tar.gz
 sudo cp -r rules /etc/suricata/
 ```
@@ -73,11 +71,11 @@ tail -f /var/log/suricata/fast.log
 
 ### Set up the Elastic Stack
 
-While the logs that Suricata produces contain valuable information about what’s happening on our network, these log files aren’t the easiest to read and understand. By connecting Suricata with the Elastic Stack, we can create a Kibana dashboard what allows us to search, graph, analyze, and derive insights from our logs.
+While the logs that Suricata produces contain valuable information about what's happening on our network, these log files aren't the easiest to read and understand. By connecting Suricata with the Elastic Stack, we can create a Kibana dashboard what allows us to search, graph, analyze, and derive insights from our logs.
 
 #### Install Elasticsearch
 
-1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you do not have java installed, refer to documentation on the [Azure-suppored JDKs](https://aka.ms/azure-jdks).
+1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you do not have java installed, refer to documentation on the [Azure-suppored JDKs](/azure/developer/java/fundamentals/java-support-on-azure).
 
 1. Download the correct binary package for your system:
 
@@ -243,7 +241,7 @@ For this article, we have provided a sample dashboard for you to view trends and
 
 1. Under the **Management** tab of Kibana, navigate to **Saved Objects** and import all three files. Then from the **Dashboard** tab you can open and load the sample dashboard.
 
-You can also create your own visualizations and dashboards tailored towards metrics of your own interest. Read more about creating Kibana visualizations from Kibana's [official documentation](https://www.elastic.co/guide/en/kibana/current/visualize.html).
+You can also create your own visualizations and dashboards tailored towards metrics of your own interest. Read more about creating Kibana visualizations from Kibana's [official documentation](https://www.tutorialspoint.com/kibana/kibana_create_visualization.htm).
 
 ![kibana dashboard][2]
 
@@ -251,7 +249,7 @@ You can also create your own visualizations and dashboards tailored towards metr
 
 The sample dashboard provides several visualizations of the Suricata alert logs:
 
-1. Alerts by GeoIP – a map showing the distribution of alerts by their country of origin based on geographic location (determined by IP)
+1. Alerts by GeoIP – a map showing the distribution of alerts by their country/region of origin based on geographic location (determined by IP)
 
     ![geo ip][3]
 
@@ -271,7 +269,7 @@ The sample dashboard provides several visualizations of the Suricata alert logs:
 
     ![image 7][7]
 
-For more documentation on creating custom visualizations and dashboards, see [Kibana’s official documentation](https://www.elastic.co/guide/en/kibana/current/introduction.html).
+For more documentation on creating custom visualizations and dashboards, see [Kibana's official documentation](https://www.elastic.co/guide/en/kibana/current/introduction.html).
 
 ## Conclusion
 

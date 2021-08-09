@@ -1,89 +1,184 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Text Analytics API Documentation
+### YamlMime:Landing
+
+title: Text Analytics API documentation
+summary: 'The Text Analytics API is a cloud-based service that provides advanced natural language processing over raw text, and includes four main functions: sentiment analysis, key phrase extraction, named entity recognition, and language detection.'
+
 metadata:
   title: Text Analytics API Documentation - Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
-  description:  Learn how to use Text Analytics API to perform advanced natural language processing on text. Tutorials show you how write code that makes use of the Text Analytics service.
+  titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: nitinme
-  manager: cgronlun
-  layout: LandingPage
+  description: 'The Text Analytics API is a cloud-based service that provides advanced natural language processing over raw text, and includes four main functions: sentiment analysis, key phrase extraction, named entity recognition, and language detection. Learn how to analyze content in different ways with our quickstarts, tutorials, and samples.'
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
-  ms.component: text-analytics
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: text-analytics
   ms.topic: landing-page
-  ms.date: 09/24/2018
-  ms.author: nitinme
-abstract:
-  description: 'The Text Analytics API is a cloud-based service that provides advanced natural language processing over raw text, and includes three main functions: sentiment analysis, key phrase extraction, and language detection. Learn how to analyze content in different ways with our quickstarts, tutorials, and samples.'
-sections:
-- items:
-    - type: list
-      style: cards
-      className: cardsM
-      columns: 3
-      items:
-        - href: /azure/cognitive-services/text-analytics/overview
-          html: <p>Learn about the Text Analytics API.</p>
-          image:
-            src: ../media/index/i_overview.svg
-          title: What is Text Analytics?
-        - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-signup
-          html: <p>Learn how to sign up for the Text Analytics API.</p>
-          image:
-            src: ../media/index/i_get-started.svg
-          title: Sign up for Text Analytics API
-        - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-access-key
-          html: <p>Learn how to get the access keys and endpoints for Text Analytics API.</p>
-          image:
-            src: ../media/index/i_tasks.svg
-          title: Access keys for Text Analytics API
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Get started with the Text Analytics API by detecting language, analyzing sentiment, and extracting key phrases:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: media/index/logo_csharp.svg
-      text: C&#35;
-      href: quickstarts/csharp
-    - image: 
-        src: media/index/logo_java.svg
-      text: Java
-      href: quickstarts/java
-    - image: 
-        src: media/index/logo_nodejs.svg
-      text: Node.js
-      href: quickstarts/nodejs
-    - image: 
-        src: media/index/logo_python.svg
-      text: Python
-      href: quickstarts/python
-    - image: 
-        src: media/index/logo_go.svg
-      text: Go
-      href: quickstarts/go
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: 'Learn how to develop applications using the Text Analytics API:'
-  - type: list
-    style: unordered
-    items: 
-    - html: <a href="tutorials/tutorial-power-bi-key-phrases.md">Text Analytics with Power BI</a>
-    - html: <a href="https://powerapps.microsoft.com/tutorials/cognitive-services-api/">Text Analytics in PowerApps</a>
+  ms.date: 02/09/2019
+  ms.author: aahi
+
+landingContent:
+- title: About the Text Analytics API
+  linkLists:
+    - linkListType: overview
+      links:
+        - text: What is the Text Analytics API?
+          url: overview.md
+        - text: Example user scenarios
+          url: text-analytics-user-scenarios.md
+    - linkListType: video
+      links:
+        - text: Understanding text using Cognitive Services
+          url: https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player
+    - linkListType: whats-new
+      links:
+        - text: What's new?
+          url: whats-new.md
+
+- title: Sentiment analysis   
+  linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Using C#
+        
+          url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-csharp#sentiment-analysis    
+        - text: Using Python   
+          url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-python#sentiment-analysis
+        - text: Using Node.js
+          url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-javascript#sentiment-analysis
+        - text: Using Go   
+          url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-go#sentiment-analysis    
+        - text: Using Ruby   
+          url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-ruby#sentiment-analysis  
+    - linkListType: tutorial
+      links:
+        - text: Integrate Power BI to analyze customer sentiment
+          url: tutorials/tutorial-power-bi-key-phrases.md
+        - text: Use Flask to translate text, analyze sentiment, and synthesize speech
+          url: ../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcognitive-services%2ftext-analytics%2ftoc.json
+    - linkListType: how-to-guide
+      links:
+        - text: Sentiment analysis
+          url: how-tos/text-analytics-how-to-sentiment-analysis.md
+    
+
+- title: Language detection 
+  linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Using C#  
+          url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-csharp#language-detection 
+        - text: Using Python   
+          url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-python#language-detection 
+        - text: Using Node.js
+          url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-javascript#language-detection 
+        - text: Using Go   
+          url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-go#language-detection 
+        - text: Using Ruby   
+          url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-ruby#language-detection 
+    - linkListType: how-to-guide
+      links:
+        - text: Language detection
+          url: how-tos/text-analytics-how-to-language-detection.md
+
+- title: Key phrase extraction   
+  linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Using C#   
+          url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-csharp#key-phrase-extraction
+        - text: Using Python   
+          url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-python#key-phrase-extraction
+        - text: Using Node.js
+          url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-javascript#key-phrase-extraction
+        - text: Using Go   
+          url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-go#key-phrase-extraction
+        - text: Using Ruby   
+          url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-ruby#key-phrase-extraction
+    - linkListType: how-to-guide
+      links:
+        - text: Keyword extraction
+          url: how-tos/text-analytics-how-to-keyword-extraction.md
+
+- title: Entity recognition
+  linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Using C#   
+          url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-csharp#named-entity-recognition-ner
+        - text: Using Python   
+          url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-python#named-entity-recognition-ner
+        - text: Using Node.js
+          url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-nodejs#named-entity-recognition-ner
+        - text: Using Go   
+          url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-go#named-entity-recognition-ner
+        - text: Using Ruby   
+          url: quickstarts/client-libraries-rest-api.md?pivots=programming-language-ruby#named-entity-recognition-ner
+    - linkListType: how-to-guide
+      links:
+        - text: Entity recognition
+          url: how-tos/text-analytics-how-to-entity-linking.md
+- title: Text Summarization
+  linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Text summarization
+          url: how-tos/extractive-summarization.md
+- title: Responsible use of AI
+  linkLists:
+    - linkListType: overview
+      links:
+        - text: Transparency note for Text Analytics
+          url: /legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context
+        - text: Transparency note for Health
+          url: /legal/cognitive-services/text-analytics/transparency-note-health?context=/azure/cognitive-services/text-analytics/context/context
+        - text: Transparency note for PII
+          url: /legal/cognitive-services/text-analytics/transparency-note-personally-identifiable-information?context=/azure/cognitive-services/text-analytics/context/context
+        - text: Transparency note for Sentiment Analysis
+          url: /legal/cognitive-services/text-analytics/transparency-note-sentiment-analysis?context=/azure/cognitive-services/text-analytics/context/context
+    - linkListType: concept
+      links:
+        - text: Integration and responsible use
+          url: /legal/cognitive-services/text-analytics/guidance-integration-responsible-use?context=/azure/cognitive-services/text-analytics/context/context
+
+- title: Use Docker containers
+  linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Install and run Text Analytics containers
+          url: how-tos/text-analytics-how-to-install-containers.md
+        - text: Configure Text Analytics containers
+          url: text-analytics-resource-container-config.md
+        - text: Use the Text Analytics for health container
+          url: How-tos/text-analytics-for-health.md
+        - text: Deploy a container instance to Azure
+          url: ../containers/azure-container-instance-recipe.md
+        - text: Deploy a container to Azure Kubernetes Service (AKS)
+          url: how-tos/text-analytics-how-to-use-kubernetes-service.md
+
 - title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: REST
-      html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7">API Reference</a></p>
-    - title: PowerShell 
-      html: <p><a href=https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI 
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>
+  linkLists:
+    - linkListType: reference
+      links:
+        - text: REST API (v3.1)
+          url: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1
+        - text: REST API (v3.0)
+          url: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0
+        - text: .NET client library
+          url: /dotnet/api/overview/azure/ai.textanalytics-readme
+        - text: Python client library
+          url: /python/api/overview/azure/ai-textanalytics-readme
+        - text: JavaScript client library
+          url: /javascript/api/overview/azure/ai-text-analytics-readme
+        - text: Java client library
+          url: /java/api/overview/azure/ai-textanalytics-readme
+        - text: Azure PowerShell 
+          url: /powershell/module/az.cognitiveservices
+        - text: Azure CLI 
+          url: /cli/azure/cognitiveservices
+
+- title: Help and feedback
+  linkLists:
+  - linkListType: reference
+    links:
+      - text: Support and help options
+        url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/text-analytics/context/context

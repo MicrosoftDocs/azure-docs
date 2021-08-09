@@ -1,23 +1,23 @@
 ---
-title: Restrict network access to PaaS resources - Azure CLI | Microsoft Docs
+title: Restrict network access to PaaS resources - Azure CLI
 description: In this article, you learn how to limit and restrict network access to Azure resources, such as Azure Storage and Azure SQL Database, with virtual network service endpoints using the Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
-Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
+# Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
-ms.author: jdial
-ms.custom: 
+ms.author: kumud
+ms.custom: devx-track-azurecli
 ---
 
 # Restrict network access to PaaS resources with virtual network service endpoints using the Azure CLI
@@ -31,15 +31,15 @@ Virtual network service endpoints enable you to limit network access to some Azu
 * Confirm access to a resource from a subnet
 * Confirm access is denied to a resource from a subnet and the internet
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
+- This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a virtual network
 
-Before creating a virtual network, you have to create a resource group for the virtual network, and all other resources created in this article. Create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+Before creating a virtual network, you have to create a resource group for the virtual network, and all other resources created in this article. Create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
 ```azurecli-interactive
 az group create \
@@ -47,7 +47,7 @@ az group create \
   --location eastus
 ```
 
-Create a virtual network with one subnet with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create).
+Create a virtual network with one subnet with [az network vnet create](/cli/azure/network/vnet).
 
 ```azurecli-interactive
 az network vnet create \
@@ -60,7 +60,7 @@ az network vnet create \
 
 ## Enable a service endpoint 
 
-You can enable service endpoints only for services that support service endpoints. View service endpoint-enabled services available in an Azure location with [az network vnet list-endpoint-services](/cli/azure/network/vnet#az_network_vnet_list_endpoint_services). The following example returns a list of service-endpoint-enabled services available in the *eastus* region. The list of services returned will grow over time, as more Azure services become service endpoint enabled.
+You can enable service endpoints only for services that support service endpoints. View service endpoint-enabled services available in an Azure location with [az network vnet list-endpoint-services](/cli/azure/network/vnet). The following example returns a list of service-endpoint-enabled services available in the *eastus* region. The list of services returned will grow over time, as more Azure services become service endpoint enabled.
 
 ```azurecli-interactive
 az network vnet list-endpoint-services \
@@ -68,7 +68,7 @@ az network vnet list-endpoint-services \
   --out table
 ``` 
 
-Create an additional subnet in the virtual network with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). In this example, a service endpoint for *Microsoft.Storage* is created for the subnet: 
+Create an additional subnet in the virtual network with [az network vnet subnet create](/cli/azure/network/vnet/subnet). In this example, a service endpoint for *Microsoft.Storage* is created for the subnet: 
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -81,7 +81,7 @@ az network vnet subnet create \
 
 ## Restrict network access for a subnet
 
-Create a network security group with [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). The following example creates a network security group named *myNsgPrivate*.
+Create a network security group with [az network nsg create](/cli/azure/network/nsg). The following example creates a network security group named *myNsgPrivate*.
 
 ```azurecli-interactive
 az network nsg create \
@@ -89,7 +89,7 @@ az network nsg create \
   --name myNsgPrivate
 ```
 
-Associate the network security group to the *Private* subnet with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update). The following example associates the *myNsgPrivate* network security group to the *Private* subnet:
+Associate the network security group to the *Private* subnet with [az network vnet subnet update](/cli/azure/network/vnet/subnet). The following example associates the *myNsgPrivate* network security group to the *Private* subnet:
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -99,7 +99,7 @@ az network vnet subnet update \
   --network-security-group myNsgPrivate
 ```
 
-Create security rules with [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). The rule that follows allows outbound access to the public IP addresses assigned to the Azure Storage service: 
+Create security rules with [az network nsg rule create](/cli/azure/network/nsg/rule). The rule that follows allows outbound access to the public IP addresses assigned to the Azure Storage service: 
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -114,9 +114,11 @@ az network nsg rule create \
   --source-port-range "*" \
   --destination-address-prefix "Storage" \
   --destination-port-range "*"
+```
 
-Each network security group contains several [default security rules](security-overview.md#default-security-rules). The rule that follows overrides a default security rule that allows outbound access to all public IP addresses. The `destination-address-prefix "Internet"` option denies outbound access to all public IP addresses. The previous rule overrides this rule, due to its higher priority, which allows access to the public IP addresses of Azure Storage.
+Each network security group contains several [default security rules](./network-security-groups-overview.md#default-security-rules). The rule that follows overrides a default security rule that allows outbound access to all public IP addresses. The `destination-address-prefix "Internet"` option denies outbound access to all public IP addresses. The previous rule overrides this rule, due to its higher priority, which allows access to the public IP addresses of Azure Storage.
 
+```azurecli-interactive
 az network nsg rule create \
   --resource-group myResourceGroup \
   --nsg-name myNsgPrivate \
@@ -129,9 +131,11 @@ az network nsg rule create \
   --source-port-range "*" \
   --destination-address-prefix "Internet" \
   --destination-port-range "*"
+```
 
 The following rule allows SSH traffic inbound to the subnet from anywhere. The rule overrides a default security rule that denies all inbound traffic from the internet. SSH is allowed to the subnet so that connectivity can be tested in a later step.
 
+```azurecli-interactive
 az network nsg rule create \
   --resource-group myResourceGroup \
   --nsg-name myNsgPrivate \
@@ -152,7 +156,7 @@ The steps necessary to restrict network access to resources created through Azur
 
 ### Create a storage account
 
-Create an Azure storage account with [az storage account create](/cli/azure/storage/account#az_storage_account_create). Replace `<replace-with-your-unique-storage-account-name>` with a name that is unique across all Azure locations, between 3-24 characters in length, using only numbers and lower-case letters.
+Create an Azure storage account with [az storage account create](/cli/azure/storage/account). Replace `<replace-with-your-unique-storage-account-name>` with a name that is unique across all Azure locations, between 3-24 characters in length, using only numbers and lower-case letters.
 
 ```azurecli-interactive
 storageAcctName="<replace-with-your-unique-storage-account-name>"
@@ -164,7 +168,7 @@ az storage account create \
   --kind StorageV2
 ```
 
-After the storage account is created, retrieve the connection string for the storage account into a variable with [az storage account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string). The connection string is used to create a file share in a later step.
+After the storage account is created, retrieve the connection string for the storage account into a variable with [az storage account show-connection-string](/cli/azure/storage/account). The connection string is used to create a file share in a later step.
 
 ```azurecli-interactive
 saConnectionString=$(az storage account show-connection-string \
@@ -182,7 +186,7 @@ echo $saConnectionString
 
 ### Create a file share in the storage account
 
-Create a file share in the storage account with [az storage share create](/cli/azure/storage/share#az_storage_share_create). In a later step, this file share is mounted to confirm network access to it.
+Create a file share in the storage account with [az storage share create](/cli/azure/storage/share). In a later step, this file share is mounted to confirm network access to it.
 
 ```azurecli-interactive
 az storage share create \
@@ -193,7 +197,7 @@ az storage share create \
 
 ### Deny all network access to a storage account
 
-By default, storage accounts accept network connections from clients in any network. To limit access to selected networks, change the default action to *Deny* with [az storage account update](/cli/azure/storage/account#az_storage_account_update). Once network access is denied, the storage account is not accessible from any network.
+By default, storage accounts accept network connections from clients in any network. To limit access to selected networks, change the default action to *Deny* with [az storage account update](/cli/azure/storage/account). Once network access is denied, the storage account is not accessible from any network.
 
 ```azurecli-interactive
 az storage account update \
@@ -204,7 +208,7 @@ az storage account update \
 
 ### Enable network access from a subnet
 
-Allow network access to the storage account from the *Private* subnet with [az storage account network-rule add](/cli/azure/storage/account/network-rule#az_storage_account_network_rule_add).
+Allow network access to the storage account from the *Private* subnet with [az storage account network-rule add](/cli/azure/storage/account/network-rule).
 
 ```azurecli-interactive
 az storage account network-rule add \
@@ -219,7 +223,7 @@ To test network access to a storage account, deploy a VM to each subnet.
 
 ### Create the first virtual machine
 
-Create a VM in the *Public* subnet with [az vm create](/cli/azure/vm#az_vm_create). If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option.
+Create a VM in the *Public* subnet with [az vm create](/cli/azure/vm). If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option.
 
 ```azurecli-interactive
 az vm create \
@@ -264,7 +268,7 @@ The VM takes a few minutes to create. After creation, take note of the **publicI
 
 ## Confirm access to storage account
 
-SSH into the *myVmPrivate* VM. Replace *<publicIpAddress>* with the public IP address of your *myVmPrivate* VM.
+SSH into the *myVmPrivate* VM. Replace *\<publicIpAddress>* with the public IP address of your *myVmPrivate* VM.
 
 ```bash 
 ssh <publicIpAddress>
@@ -318,7 +322,7 @@ Access is denied, and you receive a `mount error(13): Permission denied` error, 
 
 Exit the SSH session to the *myVmPublic* VM.
 
-From your computer, attempt to view the shares in your storage account with [az storage share list](/cli/azure/storage/share?view=azure-cli-latest#az_storage_share_list). Replace `<account-name>` and `<account-key>` with the storage account name and key from [Create a storage account](#create-a-storage-account):
+From your computer, attempt to view the shares in your storage account with [az storage share list](/cli/azure/storage/share). Replace `<account-name>` and `<account-key>` with the storage account name and key from [Create a storage account](#create-a-storage-account):
 
 ```azurecli-interactive
 az storage share list \
@@ -330,7 +334,7 @@ Access is denied and you receive a *This request is not authorized to perform th
 
 ## Clean up resources
 
-When no longer needed, use [az group delete](/cli/azure#az_group_delete) to remove the resource group and all of the resources it contains.
+When no longer needed, use [az group delete](/cli/azure) to remove the resource group and all of the resources it contains.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

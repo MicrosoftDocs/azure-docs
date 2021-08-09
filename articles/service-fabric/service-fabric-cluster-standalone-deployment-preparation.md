@@ -1,26 +1,12 @@
 ---
-title: Azure Service Fabric Standalone Cluster Deployment Preparation | Microsoft Docs
-description: Documentation related to preparing the environment and creating the cluster configuration, to be considered prior to deploying a cluster intended for handling a production workload. 
-services: service-fabric
-documentationcenter: .net
-author: dkkapur
-manager: timlt
-editor: ''
-
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Standalone Cluster Deployment Preparation 
+description: Documentation related to preparing the environment and creating the cluster configuration, to be considered prior to deploying a cluster intended for handling a production workload.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 9/11/2018
-ms.author: dekapur
-
 ---
-
-<a id="preparemachines"></a>
-
 # Plan and prepare your Service Fabric Standalone cluster deployment
-Perform the following steps before you create your cluster.
+
+<a id="preparemachines"></a>Perform the following steps before you create your cluster.
 
 ## Plan your cluster infrastructure
 You are about to create a Service Fabric cluster on machines you "own", so you can decide what kinds of failures you want the cluster to survive. For example, do you need separate power lines or Internet connections supplied to these machines? In addition, consider the physical security of these machines. Where are the machines located and who needs access to them? After you make these decisions, you can logically map the machines to various fault domains (see next step). The infrastructure planning for production clusters is more involved than for test clusters.
@@ -57,18 +43,21 @@ Test clusters running stateful workloads should have three nodes, whereas test c
 
 ## Prepare the machines that will serve as nodes
 
-Here are some recommended specs for each machine that you want to add to the cluster:
+Here are recommended specs for machines in a Service Fabric cluster:
 
 * A minimum of 16 GB of RAM
 * A minimum of 40 of GB available disk space
 * A 4 core or greater CPU
 * Connectivity to a secure network or networks for all machines
-* Windows Server OS installed (valid versions: 2012 R2, 2016, 1709, or 1803)
+* Windows Server OS installed (valid versions: 2012 R2, 2016, 1709, or 1803). Service Fabric version 6.4.654.9590 and later also supports Server 2019 and 1809.
 * [.NET Framework 4.5.1 or higher](https://www.microsoft.com/download/details.aspx?id=40773), full install
-* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
-* The [RemoteRegistry service](https://technet.microsoft.com/library/cc754820) should be running on all the machines
+* [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell)
+* The [RemoteRegistry service](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754820(v=ws.11)) should be running on all the machines
+* **Service Fabric installation drive must be NTFS File System**
+* **Windows services *Performance Logs & Alerts* and *Windows Event Log* must [be enabled](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))**.
 
-The cluster administrator deploying and configuring the cluster must have [administrator privileges](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) on each of the machines. You cannot install Service Fabric on a domain controller.
+> [!IMPORTANT]
+> The cluster administrator deploying and configuring the cluster must have [administrator privileges](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) on each of the machines. You cannot install Service Fabric on a domain controller.
 
 ## Download the Service Fabric standalone package for Windows Server
 [Download Link - Service Fabric Standalone Package - Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) and unzip the package, either to a deployment machine that is not part of the cluster, or to one of the machines that will be a part of your cluster.
@@ -80,6 +69,7 @@ To create a standalone cluster you have to create a standalone cluster configura
 For details on the sections in this file, see [Configuration settings for standalone Windows cluster](service-fabric-cluster-manifest.md).
 
 Open one of the ClusterConfig.json files from the package you downloaded and modify the following settings:
+
 | **Configuration Setting** | **Description** |
 | --- | --- |
 | **NodeTypes** |Node types allow you to separate your cluster nodes into various groups. A cluster must have at least one NodeType. All nodes in a group have the following common characteristics: <br> **Name** - This is the node type name. <br>**Endpoint Ports** - These are various named end points (ports) that are associated with this node type. You can use any port number that you wish, as long as they do not conflict with anything else in this manifest and are not already in use by any other application running on the machine/VM. <br> **Placement Properties** - These describe properties for this node type that you use as placement constraints for the system services or your services. These properties are user-defined key/value pairs that provide extra meta data for a given node. Examples of node properties would be whether the node has a hard drive or graphics card, the number of spindles in its hard drive, cores, and other physical properties. <br> **Capacities** - Node capacities define the name and amount of a particular resource that a particular node has available for consumption. For example, a node may define that it has capacity for a metric called “MemoryInMb” and that it has 2048 MB available by default. These capacities are used at runtime to ensure that services that require particular amounts of resources are placed on the nodes that have those resources available in the required amounts.<br>**IsPrimary** - If you have more than one NodeType defined ensure that only one is set to primary with the value *true*, which is where the system services run. All other node types should be set to the value *false* |
@@ -94,26 +84,26 @@ After the cluster configuration has had all settings configured to the environme
 When a cluster administrator configures a Service Fabric standalone cluster, the environment needs to be set up with the following criteria: <br>
 1. The user creating the cluster should have administrator-level security privileges to all machines that are listed as nodes in the cluster configuration file.
 2. Machine from which the cluster is created, as well as each cluster node machine must:
-* Have Service Fabric SDK uninstalled
-* Have Service Fabric runtime uninstalled 
-* Have the Windows Firewall service (mpssvc) enabled
-* Have the Remote Registry Service (remote registry) enabled
-* Have file sharing (SMB) enabled
-* Have necessary ports opened, based on cluster configuration ports
-* Have necessary ports opened for Windows SMB and Remote Registry service: 135, 137, 138, 139, and 445
-* Have network connectivity to one another
+   * Have Service Fabric SDK uninstalled
+   * Have Service Fabric runtime uninstalled
+   * Have the Windows Firewall service (mpssvc) enabled
+   * Have the Remote Registry Service (remote registry) enabled
+   * Have file sharing (SMB) enabled
+   * Have necessary ports opened, based on cluster configuration ports
+   * Have necessary ports opened for Windows SMB and Remote Registry service: 135, 137, 138, 139, and 445
+   * Have network connectivity to one another
 3. None of the cluster node machines should be a Domain Controller.
 4. If the cluster to be deployed is a secure cluster, validate the necessary security prerequisites are in place, and are configured correctly against the configuration.
 5. If the cluster machines are not internet-accessible, set the following in the cluster configuration:
-* Disable telemetry:
-    Under *properties* set
-    *"enableTelemetry": false*
-* Disable automatic Fabric version downloading & notifications that the current cluster version is nearing end of support:
-    Under *properties* set
-    *"fabricClusterAutoupgradeEnabled": false*
-* Alternatively, if network internet access is limited to white-listed domains, the domains below are required for automatic upgrade:
-    go.microsoft.com
-    download.microsoft.com
+   * Disable telemetry:
+     Under *properties* set
+     *"enableTelemetry": false*
+   * Disable automatic Fabric version downloading & notifications that the current cluster version is nearing end of support:
+     Under *properties* set
+     *"fabricClusterAutoupgradeEnabled": false*
+   * Alternatively, if network internet access is limited to allowlisted domains, the domains below are required for automatic upgrade:
+     go.microsoft.com
+     download.microsoft.com
 
 6. Set appropriate Service Fabric antivirus exclusions:
 
@@ -139,7 +129,7 @@ When a cluster administrator configures a Service Fabric standalone cluster, the
 | FileStoreService.exe |
 
 ## Validate environment using TestConfiguration script
-The TestConfiguration.ps1 script can be found in the standalone package. It is used as a Best Practices Analyzer to validate some of the criteria above and should be used as a sanity check to validate whether a cluster can be deployed on a given environment. If there is any failure, refer to the list under [Environment Setup](service-fabric-cluster-standalone-deployment-preparation.md) for troubleshooting. 
+The TestConfiguration.ps1 script can be found in the standalone package. It is used as a Best Practices Analyzer to validate some of the criteria above and should be used as a sanity check to validate whether a cluster can be deployed on a given environment. If there is any failure, refer to the list under [Environment Setup](service-fabric-cluster-standalone-deployment-preparation.md) for troubleshooting.
 
 This script can be run on any machine that has administrator access to all the machines that are listed as nodes in the cluster configuration file. The machine that this script is run on does not have to be part of the cluster.
 
@@ -162,12 +152,12 @@ FabricInstallable          : True
 Passed                     : True
 ```
 
-Currently this configuration testing module does not validate the security configuration so this has to be done independently.  
+Currently this configuration testing module does not validate the security configuration so this has to be done independently.
 
 > [!NOTE]
-> We are continually making improvements to make this module more robust, so if there is a faulty or missing case which you believe isn't currently caught by TestConfiguration, please let us know through our [support channels](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).   
-> 
-> 
+> We are continually making improvements to make this module more robust, so if there is a faulty or missing case which you believe isn't currently caught by TestConfiguration, please let us know through our [support channels](./service-fabric-support.md).
+>
+>
 
 ## Next steps
 * [Create a standalone cluster running on Windows Server](service-fabric-cluster-creation-for-windows-server.md)

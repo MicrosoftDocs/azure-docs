@@ -1,22 +1,10 @@
 ---
-title: Create container images on Service Fabric in Azure | Microsoft Docs
+title: Create container images on Service Fabric in Azure 
 description: In this tutorial, you learn how to create container images for a multi-container Service Fabric application.
-services: service-fabric
-documentationcenter: ''
-author: suhuruli
-manager: timlt
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, Containers, Microservices, Service Fabric, Azure
 
-ms.assetid: 
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/15/2017
-ms.author: suhuruli
-ms.custom: mvc
+ms.date: 07/22/2019
+ms.custom: mvc, devx-track-azurecli
 ---
 # Tutorial: Create container images on a Linux Service Fabric cluster
 
@@ -66,32 +54,23 @@ docker build -t azure-vote-front .
 > [!Note]
 > If you are getting permission denied then follow [this](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user) documentation on how to work with docker without sudo.
 
-This command can take some time since all the necessary dependencies need to be pulled from Docker Hub. When completed, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to see the created images.
+This command can take some time since all the necessary dependencies need to be pulled from Docker Hub. When completed, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to see the *azure-vote-front* image you just created.
 
 ```bash
 docker images
 ```
 
-Notice that two images have been downloaded or created. The *azure-vote-front* image contains the application. It was derived from a *python* image from Docker Hub.
-
-```bash
-REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
-
-```
-
 ## Deploy Azure Container Registry
 
-First run the **az login** command to log in to your Azure account.
+First run the **az login** command to sign in to your Azure account.
 
-```bash
+```azurecli
 az login
 ```
 
 Next, use the **az account** command to choose your subscription to create the Azure Container registry. You have to enter the subscription ID of your Azure subscription in place of <subscription_id>.
 
-```bash
+```azurecli
 az account set --subscription <subscription_id>
 ```
 
@@ -99,23 +78,23 @@ When deploying an Azure Container Registry, you first need a resource group. An 
 
 Create a resource group with the **az group create** command. In this example, a resource group named *myResourceGroup* is created in the *westus* region.
 
-```bash
+```azurecli
 az group create --name <myResourceGroup> --location westus
 ```
 
 Create an Azure Container registry with the **az acr create** command. Replace \<acrName> with the name of the container registry you want to create under your subscription. This name must be alphanumeric and unique.
 
-```bash
+```azurecli
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
 ```
 
 Throughout the rest of this tutorial, we use "acrName" as a placeholder for the container registry name that you chose. Please make note of this value.
 
-## Log in to your container registry
+## Sign in to your container registry
 
-Log in to your ACR instance before pushing images to it. Use the **az acr login** command to complete the operation. Provide the unique name given to the container registry when it was created.
+Sign in to your ACR instance before pushing images to it. Use the **az acr login** command to complete the operation. Provide the unique name given to the container registry when it was created.
 
-```bash
+```azurecli
 az acr login --name <acrName>
 ```
 
@@ -135,19 +114,18 @@ Output:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
+azure-vote-front             latest              052c549a75bf        About a minute ago   913MB
 ```
 
 To get the loginServer name, run the following command:
 
-```bash
+```azurecli
 az acr show --name <acrName> --query loginServer --output table
 ```
 
 This outputs a table with the following results. This result will be used to tag your **azure-vote-front** image before pushing it to the container registry in the next step.
 
-```bash
+```output
 Result
 ------------------
 <acrName>.azurecr.io
@@ -163,17 +141,16 @@ Once tagged, run 'docker images' to verify the operation.
 
 Output:
 
-```bash
+```output
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
-azure-vote-front                       latest              052c549a75bf        23 minutes ago      708MB
-<acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf       23 minutes ago      708MB
-tiangolo/uwsgi-nginx-flask             python3.6           590e17342131        5 days ago          707MB
+azure-vote-front                       latest              052c549a75bf        23 minutes ago      913MB
+<acrName>.azurecr.io/azure-vote-front  v1                  052c549a75bf        23 minutes ago      913MB
 
 ```
 
 ## Push images to registry
 
-Push the *azure-vote-front* image to the registry. 
+Push the *azure-vote-front* image to the registry.
 
 Using the following example, replace the ACR loginServer name with the loginServer from your environment.
 
@@ -185,15 +162,15 @@ The docker push commands take a couple of minutes to complete.
 
 ## List images in registry
 
-To return a list of images that have been pushed to your Azure Container registry, use the [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list) command. Update the command with the ACR instance name.
+To return a list of images that have been pushed to your Azure Container registry, use the [az acr repository list](/cli/azure/acr/repository) command. Update the command with the ACR instance name.
 
-```bash
+```azurecli
 az acr repository list --name <acrName> --output table
 ```
 
 Output:
 
-```bash
+```output
 Result
 ----------------
 azure-vote-front
@@ -203,7 +180,7 @@ At tutorial completion, the container image has been stored in a private Azure C
 
 ## Next steps
 
-In this tutorial, an application was pulled from Github and container images were created and pushed to a registry. The following steps were completed:
+In this tutorial, an application was pulled from GitHub and container images were created and pushed to a registry. The following steps were completed:
 
 > [!div class="checklist"]
 > * Clone application source from GitHub

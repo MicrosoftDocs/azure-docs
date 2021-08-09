@@ -1,166 +1,163 @@
 ---
-title: 'Tutorial: Configure Samanage for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Samanage.
+title: 'Tutorial: Configure SolarWinds Service Desk (previously Samanage) for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+description: Learn how to automatically provision and de-provision user accounts from Azure AD to SolarWinds Service Desk (previously Samanage).
 services: active-directory
-documentationcenter: ''
-author: zchia
-writer: zchia
-manager: beatrizd-msft
-
-ms.assetid: na
+author: twimmers
+writer: twimmers
+manager: CelesteDG
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/28/2018
-ms.author: v-wingf-msft
+ms.topic: tutorial
+ms.date: 01/13/2020
+ms.author: thwimmer
 ---
 
-# Tutorial: Configure Samanage for automatic user provisioning
+# Tutorial: Configure SolarWinds Service Desk (previously Samanage) for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in Samanage and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Samanage.
+This tutorial describes the steps you need to perform in both SolarWinds Service Desk (previously Samanage) and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [SolarWinds Service Desk](https://www.samanage.com/pricing/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
-> [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+## Migrate to the new SolarWinds Service Desk application
+
+If you have an existing integration with SolarWinds Service Desk, see the following section about upcoming changes. If you're setting up SolarWinds Service Desk for the first time, you can skip this section and move to **Capabilities supported**.
+
+#### What's changing?
+
+* Changes on the Azure AD side: The authorization method to provision users in Samange has historically been **Basic auth**. Soon you will see the authorization method changed to **Long lived secret token**.
+
+
+#### What do I need to do to migrate my existing custom integration to the new application?
+
+If you have an existing SolarWinds Service Desk integration with valid admin credentials, **no action is required**. We automatically migrate customers to the new application. This process is done completely behind the scenes. If the existing credentials expire, or if you need to authorize access to the application again, you need to generate a long-lived secret token. To generate a new token, refer to Step 2 of this article.
+
+
+#### How can I tell if my application has been migrated? 
+
+When your application is migrated, in the **Admin Credentials** section, the **Admin Username** and **Admin Password** fields will be replaced with a single **Secret Token** field.
+
+## Capabilities supported
+
+> [!div class="checklist"]
+> * Create users in SolarWinds Service Desk
+> * Remove users in SolarWinds Service Desk when they do not require access anymore
+> * Keep user attributes synchronized between Azure AD and SolarWinds Service Desk
+> * Provision groups and group memberships in SolarWinds Service Desk
+> * [Single sign-on](./samanage-tutorial.md) to SolarWinds Service Desk (recommended)
 
 ## Prerequisites
 
-The scenario outlined in this tutorial assumes that you already have the following:
+The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-*   An Azure AD tenant
-*   A [Samanage tenant](https://www.samanage.com/pricing/) with the Professional package
-*   A user account in Samanage with Admin permissions
+* [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A [SolarWinds Service Desk tenant](https://www.samanage.com/pricing/) with the Professional package.
+* A user account in SolarWinds Service Desk with admin permissions.
 
-> [!NOTE]
-> The Azure AD provisioning integration relies on the [Samanage Rest API](https://www.samanage.com/api/), which is available to Samanage developers for accounts with the Professional package.
+> [!Note]
+> Roles should not be manually edited in Azure Active Directory when doing role imports.
 
-## Adding Samanage from the gallery
-Before configuring Samanage for automatic user provisioning with Azure AD, you need to add Samanage from the Azure AD application gallery to your list of managed SaaS applications.
+## Step 1. Plan your provisioning deployment
+1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
+2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Determine what data to [map between Azure AD and SolarWinds Service Desk](../app-provisioning/customize-application-attributes.md). 
 
-**To add Samanage from the Azure AD application gallery, perform the following steps:**
+## Step 2. Configure SolarWinds Service Desk to support provisioning with Azure AD
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click on the **Azure Active Directory** icon.
+To generate a secret token for authentication, see [Tutorial tokens authentication for API integration](https://help.samanage.com/s/article/Tutorial-Tokens-Authentication-for-API-Integration-1536721557657).
 
-	![The Azure Active Directory button][1]
+## Step 3. Add SolarWinds Service Desk from the Azure AD application gallery
 
-2. Navigate to **Enterprise applications** > **All applications**.
+Add SolarWinds Service Desk from the Azure AD application gallery to start managing provisioning to SolarWinds Service Desk. If you previously set up SolarWinds Service Desk for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
-	![The Enterprise applications Section][2]
+## Step 4. Define who will be in scope for provisioning 
 
-3. To add Samanage, click the **New application** button on the top of the dialog.
+The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-	![The New application button][3]
+* When assigning users and groups to SolarWinds Service Desk, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add additional roles. 
 
-4. In the search box, type **Samanage**.
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-	![Samanage Provisioning](./media/samanage-provisioning-tutorial/AppSearch.png)
 
-5. In the results panel, select **Samanage**, and then click the **Add** button to add Samanage to your list of SaaS applications.
+## Step 5. Configure automatic user provisioning to SolarWinds Service Desk 
 
-	![Samanage Provisioning](./media/samanage-provisioning-tutorial/AppSearchResults.png)
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
 
-	![Samanage Provisioning](./media/samanage-provisioning-tutorial/AppCreation.png)
+### To configure automatic user provisioning for SolarWinds Service Desk in Azure AD:
 
-## Assigning users to Samanage
+1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
-Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been "assigned" to an application in Azure AD are synchronized.
+	![Enterprise applications blade](common/enterprise-applications.png)
 
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Samanage. Once decided, you can assign these users and/or groups to Samanage by following the instructions here:
-
-*   [Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
-
-### Important tips for assigning users to Samanage
-
-*	It is recommended that a single Azure AD user is assigned to Samanage to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
-
-*	When assigning a user to Samanage, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
-
-## Configuring automatic user provisioning to Samanage
-
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Samanage based on user and/or group assignments in Azure AD.
-
-> [!TIP]
-> You may also choose to enable SAML-based single sign-on for Samanage, following the instructions provided in the [Samanage single sign-on tutorial](samanage-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
-
-### To configure automatic user provisioning for Samanage in Azure AD:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory > Enterprise applications > All applications**.
-
-2. Select Samanage from your list of SaaS applications.
-
-	![Samanage Provisioning](./media/samanage-provisioning-tutorial/AppInstanceSearch.png)
+2. In the applications list, select **SolarWinds Service Desk**.
 
 3. Select the **Provisioning** tab.
 
-	![Samanage Provisioning](./media/samanage-provisioning-tutorial/ProvisioningTab.png)
+	![Screenshot that shows the Provisioning tab selected.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Samanage Provisioning](./media/samanage-provisioning-tutorial/ProvisioningCredentials.png)
+	![Screenshot that shows Provisioning Mode set to Automatic.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input the **Admin Username** and **Admin Password** of your Samanage account. Examples of these values are:
+5. Under the **Admin Credentials** section, input `https://api.samanage.com` in **Tenant URL**.  Input the secret token value retrieved earlier in **Secret Token**. Select **Test Connection** to ensure Azure AD can connect to SolarWinds Service Desk. If the connection fails, ensure your SolarWinds Service Desk account has Admin permissions and try again.
 
-	*   In the **Admin Username** field, populate the username of the admin account on your Samanage tenant. Example: admin@contoso.com.
+	![Screenshot that shows the Test Connection button selected.](./media/samanage-provisioning-tutorial/provisioning.png)
 
-	*   In the **Admin Password** field, populate the password of the admin account corresponding to the admin username.
+6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
-6. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Samanage. If the connection fails, ensure your Samanage account has Admin permissions and try again.
+	![Notification Email](common/provisioning-notification-email.png)
 
-	![Samanage Provisioning](./media/samanage-provisioning-tutorial/TestConnection.png)
+7. Select **Save**.
 
-7. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
+8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to SolarWinds Service Desk**.
 
-	![Samanage Provisioning](./media/samanage-provisioning-tutorial/EmailNotification.png)
+9. Review the user attributes that are synchronized from Azure AD to SolarWinds Service Desk in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in SolarWinds Service Desk for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the SolarWinds Service Desk API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-8. Click **Save**.
+      ![Samange User mappings](./media/samanage-provisioning-tutorial/user-attributes.png)
 
-9. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Samanage**.
+10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to SolarWinds Service Desk**.
 
-	![Samanage Provisioning](./media/samanage-provisioning-tutorial/UserMappings.png)
+11. Review the group attributes that are synchronized from Azure AD to SolarWinds Service Desk in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in SolarWinds Service Desk for update operations. Select the **Save** button to commit any changes.
 
-10. Review the user attributes that are synchronized from Azure AD to Samanage in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Samanage for update operations. Select the **Save** button to commit any changes.
+      ![Samange Group mappings](./media/samanage-provisioning-tutorial/group-attributes.png)
 
-	![Samanage Provisioning](./media/samanage-provisioning-tutorial/UserAttributeMapping.png)
+12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. To enable group mappings, under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Samanage**.
+13. To enable the Azure AD provisioning service for SolarWinds Service Desk, change the **Provisioning Status** to **On** in the **Settings** section.
 
-	![Samanage Provisioning](./media/samanage-provisioning-tutorial/GroupMappings.png)
+	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-12. Set **Enabled** to **Yes** to synchronize groups. Review the group attributes that are synchronized from Azure AD to Samanage in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Samanage for update operations. Select the **Save** button to commit any changes.
+14. Define the users and/or groups that you would like to provision to SolarWinds Service Desk by choosing the desired values in **Scope** in the **Settings** section.
 
-	![Samanage Provisioning](./media/samanage-provisioning-tutorial/GroupAttributeMapping.png)
+	![Provisioning Scope](common/provisioning-scope.png)
 
-13. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+15. When you are ready to provision, select **Save**.
 
-14. To enable the Azure AD provisioning service for Samanage, change the **Provisioning Status** to **On** in the **Settings** section.
+	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-	![Samanage Provisioning](./media/samanage-provisioning-tutorial/ProvisioningStatus.png)
+This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
-15. Define the users and/or groups that you would like to provision to Samanage by choosing the desired values in **Scope** in the **Settings** section.
+## Step 6. Monitor your deployment
+Once you've configured provisioning, use the following resources to monitor your deployment:
 
-	![Samanage Provisioning](./media/samanage-provisioning-tutorial/ScopeSync.png)
+1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
+2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
+3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
 
-16. When you are ready to provision, click **Save**.
+## Connector limitations
 
-	![Samanage Provisioning](./media/samanage-provisioning-tutorial/SaveProvisioning.png)
+If you select the **Sync all users and groups** option and configure a value for the SolarWinds Service Desk **roles** attribute, the value under the **Default value if null (is optional)** box must be expressed in the following format:
 
+- {"displayName":"role"}, where role is the default value you want.
 
-This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Samanage.
+## Change log
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+* 09/14/2020 - Changed the company name in two SaaS tutorials from Samanage to SolarWinds Service Desk (previously Samanage) per `https://github.com/ravitmorales`.
+* 04/22/2020 - Updated authorization method from basic auth to long lived secret token.
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
+* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
-
-<!--Image references-->
-[1]: ./media/samanage-provisioning-tutorial/tutorial_general_01.png
-[2]: ./media/samanage-provisioning-tutorial/tutorial_general_02.png
-[3]: ./media/samanage-provisioning-tutorial/tutorial_general_03.png
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)

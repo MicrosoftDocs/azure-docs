@@ -1,12 +1,10 @@
 ---
-title: Azure rendering - reference architectures 
+title: Azure rendering reference architectures
 description: Architectures for using Azure Batch and other Azure services to extend an on-premises render farm by bursting to the cloud 
-services: batch
-author: davefellows
-manager: jeconnoc
-ms.author: danlep
-ms.date: 08/13/2018
-ms.topic: conceptual
+ms.date: 02/07/2019
+ms.topic: how-to
+ms.custom: seodec18
+
 ---
 
 # Reference architectures for Azure rendering
@@ -21,9 +19,9 @@ The following diagram shows a hybrid scenario that includes the following Azure 
 
 * **Network** - On-premises: Azure ExpressRoute or VPN. Azure: Azure VNet.
 
-* **Storage** - Input and output files: NFS or CFS using Azure VMs, synchronized with on-premises storage via Azure File Sync or RSync.
+* **Storage** - Input and output files: NFS or CFS using Azure VMs, synchronized with on-premises storage via Azure File Sync or RSync. Alternatively: Avere vFXT to input or output files from on-premises NAS devices using NFS.
 
-  ![Cloud bursting - Hybrid with NFS or CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs.png)
+  ![Cloud bursting - Hybrid with NFS or CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
 
 ## Hybrid with Blobfuse
 
@@ -45,13 +43,11 @@ The following diagram shows a fully connected hybrid scenario for both compute a
 
 * **Network** - On-premises: Azure ExpressRoute or VPN. Azure: Azure VNet.
 
-* **Storage** - Cross-premises: Avere vFXT. Optional archiving of on-premises files via Azure Data Box to Blob storage.
+* **Storage** - Cross-premises: Avere vFXT. Optional archiving of on-premises files via Azure Data Box to Blob storage, or on-premises Avere FXT for NAS acceleration.
 
-  ![Cloud bursting - Hybrid compute and storage](./media/batch-rendering-architectures/hybrid-compute-storage.png)
-
+  ![Cloud bursting - Hybrid compute and storage](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 
 ## Next steps
 
-* Learn more about using [Render managers](batch-rendering-render-managers.md) with Azure Batch.
-
-* Learn more about options for [Rendering in Azure](batch-rendering-service.md).
+* Learn more about options for [rendering in Azure](batch-rendering-service.md).
+* Learn about [using rendering applications with Batch](batch-rendering-applications.md).

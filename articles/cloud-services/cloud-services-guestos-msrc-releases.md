@@ -1,23 +1,1614 @@
 ---
 title: List of updates applied to the Azure Guest OS | Microsoft Docs
-description: The list of updates applied to Guest OS releases
+description: This article lists the Microsoft Security Response Center updates applied to different Azure Guest OS. See if an update applies to the Guest OS you are using.
 services: cloud-services
+ms.subservice: auto-os-updates
 documentationcenter: na
-author: raiye
+author: gunnarcms
 editor: ''
-
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/12/2018
-ms.author: raiye
-
+ms.date: 7/15/2021
+ms.author: gunnarc
 ---
+
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## July 2021 Guest OS
+
+>[!NOTE] 
+
+>The July Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the July Guest OS. This list is subject to change. 
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 21-07 |  [5004244]  |  Latest Cumulative Update(LCU) | 6.33 | July 13 , 2021 |
+|  Rel 21-07 |  [5004233]  |  IE Cumulative Updates | 2.112, 3.99, 4.92 | July 13 , 2021 |
+|  Rel 21-07 |  [5004238]  |  Latest Cumulative Update(LCU) | 5.57 | July 13 , 2021 |
+|  Rel 21-07 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup  | 2.112 | Oct 13, 2020 |
+|  Rel 21-07 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup  | 2.112 | Oct 13, 2020 |
+|  Rel 21-07 |  [4578953]  |  .NET Framework 3.5 Security and Quality Rollup  | 4.92 | Oct 13, 2020 |
+|  Rel 21-07 |  [4578956]  |  .NET Framework 4.5.2 Security and Quality Rollup  | 4.92 | Oct 13, 2020 |
+|  Rel 21-07 |  [4578950]  |  .NET Framework 3.5 Security and Quality Rollup  | 3.99 | Oct 13, 2020 |
+|  Rel 21-07 |  [4578954]  |  . NET Framework 4.5.2 Security and Quality Rollup  | 3.99 | Oct 13, 2020 |
+|  Rel 21-07 |  [4601060]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update  | 6.33 | Feb 9, 2021 |
+|  Rel 21-07 |  [5004289]  |  Monthly Rollup  | 2.112 | July 13, 2021 |
+|  Rel 21-07 |  [5004294]  |  Monthly Rollup  | 3.99 | July 13, 2021 |
+|  Rel 21-07 |  [5004298]  |  Monthly Rollup  | 4.92 | July 13, 2021 |
+|  Rel 21-07 |  [5001401]  |  Servicing Stack update  | 3.99 | Apr 13, 2021 |
+|  Rel 21-07 |  [5001403]  |  Servicing Stack update  | 4.92 | Apr 13, 2021 |
+|  Rel 21-07 OOB |  [4578013]  |  Standalone Security Update  | 4.92 | Aug 19, 2020 |
+|  Rel 21-07 |  [5001402]  |  Servicing Stack update  | 5.57 | Apr 13, 2021 |
+|  Rel 21-07 |  [5004378]  |  Servicing Stack update  | 2.112 | July 13, 2021 |
+|  Rel 21-07 |  [5003711]  |  Servicing Stack update  | 6.33 | June 8, 2021 |
+|  Rel 21-07 |  [4494175]  |  Microcode  | 5.57 | Sep 1, 2020 |
+|  Rel 21-07 |  [4494174]  |  Microcode  | 6.33 | Sep 1, 2020 |
+
+[5004244]: https://support.microsoft.com/kb/5004244
+[5004233]: https://support.microsoft.com/kb/5004233
+[5004238]: https://support.microsoft.com/kb/5004238
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4601060]: https://support.microsoft.com/kb/4601060
+[5004289]: https://support.microsoft.com/kb/5004289
+[5004294]: https://support.microsoft.com/kb/5004294
+[5004298]: https://support.microsoft.com/kb/5004298
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5001402]: https://support.microsoft.com/kb/5001402
+[5004378]: https://support.microsoft.com/kb/5004378
+[5003711]: https://support.microsoft.com/kb/5003711
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
+## June 2021 Guest OS
+
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 21-06 |  [5003646]  |  Latest Cumulative Update(LCU) | [6.32] | June 8, 2021 |
+|  Rel 21-06 |  4580325  |  Flash update | [3.98], [4.91], [5.56], [6.32] | Oct 13, 2020 |
+|  Rel 21-06 |  [5003636]  |  IE Cumulative Updates | [2.111], [3.98], [4.91] | June 8, 2021 |
+|  Rel 21-06 |  [5003638]  |  Latest Cumulative Update(LCU) | [5.56] | June 8, 2021 |
+|  Rel 21-06 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup  | [2.111] | Oct 13, 2020 |
+|  Rel 21-06 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup  | [2.111] | Oct 13, 2020 |
+|  Rel 21-06 |  [4578953]  |  .NET Framework 3.5 Security and Quality Rollup  | [4.91] | Oct 13, 2020 |
+|  Rel 21-06 |  [4578956]  |  .NET Framework 4.5.2 Security and Quality Rollup  | [4.91] | Oct 13, 2020 |
+|  Rel 21-06 |  [4578950]  |  .NET Framework 3.5 Security and Quality Rollup  | [3.98] | Oct 13, 2020 |
+|  Rel 21-06 |  [4578954]  |  . NET Framework 4.5.2 Security and Quality Rollup  | [3.98] | Oct 13, 2020 |
+|  Rel 21-06 |  [4601060]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update  | [6.32] | Feb 9, 2021 |
+|  Rel 21-06 |  [5003667]  |  Monthly Rollup  | [2.111] | June 8, 2021 |
+|  Rel 21-06 |  [5003697]  |  Monthly Rollup  | [3.98] | June 8, 2021 |
+|  Rel 21-06 |  [5003671]  |  Monthly Rollup  | [4.91] | June 8, 2021 |
+|  Rel 21-06 |  [5001401]  |  Servicing Stack update  | [3.98] | Apr 13, 2021 |
+|  Rel 21-06 |  [5001403]  |  Servicing Stack update  | [4.91] | Apr 13, 2021 |
+|  Rel 21-06 OOB |  [4578013]  |  Standalone Security Update  | [4.91] | Aug 19, 2020 |
+|  Rel 21-06 |  [5001402]  |  Servicing Stack update  | [5.56] | Apr 13, 2021 |
+|  Rel 21-06 |  [4592510]  |  Servicing Stack update  | [2.111] | Dec 8, 2020 |
+|  Rel 21-06 |  [5003711]  |  Servicing Stack update  | [6.32] | June 8, 2021 |
+|  Rel 21-06 |  [4494175]  |  Microcode  | [5.56] | Sep 1, 2020 |
+|  Rel 21-06 |  [4494174]  |  Microcode  | [6.32] | Sep 1, 2020 |
+|  Rel 21-06 |  [4052623]  |  Update for Microsoft Defender antimalware platform | [6.32], [5.56] | May 13, 2021 |
+
+[5003646]: https://support.microsoft.com/kb/5003646
+
+[5003636]: https://support.microsoft.com/kb/5003636
+[5003638]: https://support.microsoft.com/kb/5003638
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4601060]: https://support.microsoft.com/kb/4601060
+[5003667]: https://support.microsoft.com/kb/5003667
+[5003697]: https://support.microsoft.com/kb/5003697
+[5003671]: https://support.microsoft.com/kb/5003671
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5001402]: https://support.microsoft.com/kb/5001402
+[4592510]: https://support.microsoft.com/kb/4592510
+[5003711]: https://support.microsoft.com/kb/5003711
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[4052623]: https://support.microsoft.com/kb/4052623
+[2.111]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.98]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.91]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.56]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.32]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
+## May 2021 Guest OS
+
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 21-05 |  [5003171]  |  Latest Cumulative Update(LCU) | [6.31] | May 11, 2021 |
+|  Rel 21-05 |  4580325  |  Flash update | [3.97], [4.90], [5.55], [6.31] | Oct 13, 2020 |
+|  Rel 21-05 |  [5003165]  |  IE Cumulative Updates | [2.110], [3.97], [4.90] | May 11, 2021 |
+|  Rel 21-05 |  [5003197]  |  Latest Cumulative Update(LCU) | [5.55] | May 11, 2021 |
+|  Rel 21-05 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup  | [2.110] | Oct 13, 2020 |
+|  Rel 21-05 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup  | [2.110] | Oct 13, 2020 |
+|  Rel 21-05 |  [4578953]  |  .NET Framework 3.5 Security and Quality Rollup  | [4.90] | Oct 13, 2020 |
+|  Rel 21-05 |  [4578956]  |  .NET Framework 4.5.2 Security and Quality Rollup  | [4.90] | Oct 13, 2020 |
+|  Rel 21-05 |  [4578950]  |  .NET Framework 3.5 Security and Quality Rollup  | [3.97] | Oct 13, 2020 |
+|  Rel 21-05 |  [4578954]  |  . NET Framework 4.5.2 Security and Quality Rollup  | [3.97] | Oct 13, 2020 |
+|  Rel 21-05 |  [4601060]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update  | [6.31] | Feb 9, 2021 |
+|  Rel 21-05 |  [5003233]  |  Monthly Rollup  | [2.110] | May 11, 2021 |
+|  Rel 21-05 |  [5003208]  |  Monthly Rollup  | [3.97] | May 11, 2021 |
+|  Rel 21-05 |  [5003209]  |  Monthly Rollup  | [4.90] | May 11, 2021 |
+|  Rel 21-05 |  [5001401]  |  Servicing Stack update  | [3.97] | Apr 13, 2021 |
+|  Rel 21-05 |  [5001403]  |  Servicing Stack update  | [4.90] | Apr 13, 2021 |
+|  Rel 21-05 OOB |  [4578013]  |  Standalone Security Update  | [4.90] | Aug 19, 2020 |
+|  Rel 21-05 |  [5001402]  |  Servicing Stack update  | [5.55] | Apr 13, 2021 |
+|  Rel 21-05 |  [4592510]  |  Servicing Stack update  | [2.110] | Dec 8, 2020 |
+|  Rel 21-05 |  [5003243]  |  Servicing Stack update  | [6.31] | May 11, 2021 |
+|  Rel 21-05 |  [4494175]  |  Microcode  | [5.55] | Sep 1, 2020 |
+|  Rel 21-05 |  [4494174]  |  Microcode  | [6.31] | Sep 1, 2020 |
+
+[5003171]: https://support.microsoft.com/kb/5003171
+
+[5003165]: https://support.microsoft.com/kb/5003165
+[5003197]: https://support.microsoft.com/kb/5003197
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4601060]: https://support.microsoft.com/kb/4601060
+[5003233]: https://support.microsoft.com/kb/5003233
+[5003208]: https://support.microsoft.com/kb/5003208
+[5003209]: https://support.microsoft.com/kb/5003209
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5001402]: https://support.microsoft.com/kb/5001402
+[4592510]: https://support.microsoft.com/kb/4592510
+[5003243]: https://support.microsoft.com/kb/5003243
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.110]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.97]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.90]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.55]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.31]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
+## April 2021 Guest OS
+
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 21-04 |  [5001342]  |  Latest Cumulative Update(LCU) | [6.30] | Apr 13, 2021 |
+|  Rel 21-04 |  4580325  |  Flash update | [3.96], [4.89], [5.54], [6.30] | Oct 13, 2020 |
+|  Rel 21-04 |  [5000800]  |  IE Cumulative Updates | [2.109], [3.96], [4.89] | Mar 9, 2021 |
+|  Rel 21-04 |  [5001347]  |  Latest Cumulative Update(LCU) | [5.54] | Apr 13, 2021 |
+|  Rel 21-04 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup  | [2.109] | Oct 13, 2020 |
+|  Rel 21-04 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup  | [2.109] | Oct 13, 2020 |
+|  Rel 21-04 |  [4578953]  |  .NET Framework 3.5 Security and Quality Rollup  | [4.89] | Oct 13, 2020 |
+|  Rel 21-04 |  [4578956]  |  .NET Framework 4.5.2 Security and Quality Rollup  | [4.89] | Oct 13, 2020 |
+|  Rel 21-04 |  [4578950]  |  .NET Framework 3.5 Security and Quality Rollup  | [3.96] | Oct 13, 2020 |
+|  Rel 21-04 |  [4578954]  |  . NET Framework 4.5.2 Security and Quality Rollup  | [3.96] | Oct 13, 2020 |
+|  Rel 21-04 |  [4601060]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update  | [6.30] | Feb 9, 2021 |
+|  Rel 21-04 |  [5001335]  |  Monthly Rollup  | [2.109] | Mar 9, 2021 |
+|  Rel 21-04 |  [5001387]  |  Monthly Rollup  | [3.96] | Apr 13, 2021 |
+|  Rel 21-04 |  [5001382]  |  Monthly Rollup  | [4.89] | Apr 13, 2021 |
+|  Rel 21-04 |  [5001401]  |  Servicing Stack update  | [3.96] | Apr 13, 2021 |
+|  Rel 21-04 |  [5001403]  |  Servicing Stack update  | [4.89] | Apr 13, 2021 |
+|  Rel 21-04 OOB |  [4578013]  |  Standalone Security Update  | [4.89] | Aug 19, 2020 |
+|  Rel 21-04 |  [5001402]  |  Servicing Stack update  | [5.54] | Apr 13, 2021 |
+|  Rel 21-04 |  [4592510]  |  Servicing Stack update  | [2.109] | Dec 8, 2020 |
+|  Rel 21-04 |  [5001404]  |  Servicing Stack update  | [6.30] | Apr 13, 2021 |
+|  Rel 21-04 |  [4494175]  |  Microcode  | [5.54] | Sep 1, 2020 |
+|  Rel 21-04 |  [4494174]  |  Microcode  | [6.30] | Sep 1, 2020 |
+
+[5001342]: https://support.microsoft.com/kb/5001342
+
+[5000800]: https://support.microsoft.com/kb/5000800
+[5001347]: https://support.microsoft.com/kb/5001347
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4601060]: https://support.microsoft.com/kb/4601060
+[5001335]: https://support.microsoft.com/kb/5001335
+[5001387]: https://support.microsoft.com/kb/5001387
+[5001382]: https://support.microsoft.com/kb/5001382
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5001402]: https://support.microsoft.com/kb/5001402
+[4592510]: https://support.microsoft.com/kb/4592510
+[5001404]: https://support.microsoft.com/kb/5001404
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.109]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.96]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.89]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.54]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.30]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
+## March 2021 Guest OS
+
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 21-03 |  [5000822]  |  Latest Cumulative Update(LCU) | [6.29] | Mar 9, 2021 |
+|  Rel 21-03 |  4580325  |  Flash update | [3.95], [4.88], [5.53], [6.29] | Oct 13, 2020 |
+|  Rel 21-03 |  [5000800]  |  IE Cumulative Updates | [2.108], [3.95], [4.88] | Mar 9, 2021 |
+|  Rel 21-03 |  [5000803]  |  Latest Cumulative Update(LCU) | [5.53] | Mar 9, 2021 |
+|  Rel 21-03 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup  | [2.108] | Oct 13, 2020 |
+|  Rel 21-03 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup  | [2.108] | Oct 13, 2020 |
+|  Rel 21-03 |  [4578953]  |  .NET Framework 3.5 Security and Quality Rollup  | [4.88] | Oct 13, 2020 |
+|  Rel 21-03 |  [4578956]  |  .NET Framework 4.5.2 Security and Quality Rollup  | [4.88] | Oct 13, 2020 |
+|  Rel 21-03 |  [4578950]  |  .NET Framework 3.5 Security and Quality Rollup  | [3.95] | Oct 13, 2020 |
+|  Rel 21-03 |  [4578954]  |  . NET Framework 4.5.2 Security and Quality Rollup  | [3.95] | Oct 13, 2020 |
+|  Rel 21-03 |  [4601060]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update  | [6.29] | Feb 9, 2021 |
+|  Rel 21-03 |  [5000841]  |  Monthly Rollup  | [2.108] | Mar 9, 2021 |
+|  Rel 21-03 |  [5000847]  |  Monthly Rollup  | [3.95] | Mar 9, 2021 |
+|  Rel 21-03 |  [5000848]  |  Monthly Rollup  | [4.88] | Mar 9, 2021 |
+|  Rel 21-03 |  [4566426]  |  Servicing Stack update  | [3.95] | July 14, 2020 |
+|  Rel 21-03 |  [4566425]  |  Servicing Stack update  | [4.88] | July 14, 2020 |
+|  Rel 21-03 OOB |  [4578013]  |  Standalone Security Update  | [4.88] | Aug 19, 2020 |
+|  Rel 21-03 |  [4592510]  |  Servicing Stack update  | [2.108] | Dec 8, 2020 |
+|  Rel 21-03 |  [5000859]  |  Servicing Stack update  | [6.29] | Mar 9, 2021 |
+|  Rel 21-03 |  [4494175]  |  Microcode  | [5.53] | Sep 1, 2020 |
+|  Rel 21-03 |  [4494174]  |  Microcode  | [6.29] | Sep 1, 2020 |
+
+[5000822]: https://support.microsoft.com/kb/5000822
+
+[5000800]: https://support.microsoft.com/kb/5000800
+[5000803]: https://support.microsoft.com/kb/5000803
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4601060]: https://support.microsoft.com/kb/4601060
+[5000841]: https://support.microsoft.com/kb/5000841
+[5000847]: https://support.microsoft.com/kb/5000847
+[5000848]: https://support.microsoft.com/kb/5000848
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4592510]: https://support.microsoft.com/kb/4592510
+[5000859]: https://support.microsoft.com/kb/5000859
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.108]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.95]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.88]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.53]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.29]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
+## February 2021 Guest OS
+
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 21-02 |  [4601345]  |  Latest Cumulative Update(LCU) | [6.28] | Feb 9, 2021 |
+|  Rel 21-02 |  4580325  |  Flash update | [3.94], [4.87], [5.52], [6.28] | Oct 13, 2020 |
+|  Rel 21-02 |  [4586768]  |  IE Cumulative Updates | [2.107], [3.94], [4.87] | Nov 10, 2020 |
+|  Rel 21-02 |  [4601318]  |  Latest Cumulative Update(LCU) | [5.52] | Feb 9, 2021 |
+|  Rel 21-02 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup | [2.107] | Jan 12, 2021 |
+|  Rel 21-02 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup | [2.107] | Jan 12, 2021 |
+|  Rel 21-02 |  [4578953]  |  .NET Framework 3.5 Security and Quality Rollup | [4.87] | Jan 12, 2021 |
+|  Rel 21-02 |  [4578956]  |  .NET Framework 4.5.2 Security and Quality Rollup | [4.87] | Jan 12, 2021 |
+|  Rel 21-02 |  [4578950]  |  .NET Framework 3.5 Security and Quality Rollup | [3.94] | Jan 12, 2021 |
+|  Rel 21-02 |  [4578954]  |  . NET Framework 4.5.2 Security and Quality Rollup | [3.94] | Jan 12, 2021 |
+|  Rel 21-02 |  [4578966]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update | [6.28] | Oct 13, 2020 |
+|  Rel 21-02 |  [4601347]  |  Monthly Rollup | [2.107] | Feb 9, 2021 |
+|  Rel 21-02 |  [4601348]  |  Monthly Rollup | [3.94] | Feb 9, 2021 |
+|  Rel 21-02 |  [4601384]  |  Monthly Rollup | [4.87] | Feb 9, 2021 |
+|  Rel 21-02 |  [4566426]  |  Servicing Stack update | [3.94] | July 14, 2020 |
+|  Rel 21-02 |  [4566425]  |  Servicing Stack update | [4.87] | July 14, 2020 |
+|  Rel 21-02 OOB |  [4578013]  |  Standalone Security Update | [4.87] | Aug 19, 2020 |
+|  Rel 21-02 |  [4601392]  |  Servicing Stack update | [5.52] | Feb 9, 2021 |
+|  Rel 21-02 |  [4592510]  |  Servicing Stack update | [2.107] | Dec 8, 2020 |
+|  Rel 21-02 |  [4601393]  |  Servicing Stack update | [6.28] | Feb 9, 2021 |
+|  Rel 21-02 |  [4494175]  |  Microcode | [5.52] | Sep 1, 2020 |
+|  Rel 21-02 |  [4494174]  |  Microcode | [6.28] | Sep 1, 2020 |
+
+[4601345]: https://support.microsoft.com/kb/4601345
+
+[4586768]: https://support.microsoft.com/kb/4586768
+[4601318]: https://support.microsoft.com/kb/4601318
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4578966]: https://support.microsoft.com/kb/4578966
+[4601347]: https://support.microsoft.com/kb/4601347
+[4601348]: https://support.microsoft.com/kb/4601348
+[4601384]: https://support.microsoft.com/kb/4601384
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4601392]: https://support.microsoft.com/en-us/topic/february-9-2021-kb4601318-os-build-14393-4225-c5e3de6c-e3e6-ffb5-6197-48b9ce16446e
+[4592510]: https://support.microsoft.com/kb/4592510
+[4601393]: https://support.microsoft.com/kb/4601393
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.107]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.94]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.87]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.52]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.28]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
+
+## January 2021 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 21-01 |  [4598230]  |  Latest Cumulative Update (LCU) | [6.27] | Jan 12, 2021 |
+|  Rel 21-01 |  4580325  |  Flash update | [3.93], [4.86], [5.51], [6.27] | Oct 13, 2020 |
+|  Rel 21-01 |  [4586768]  |  IE Cumulative Updates | [2.106], [3.93], [4.86] | Nov 10, 2020 |
+|  Rel 21-01 |  [4598243]  |  Latest Cumulative Update (LCU) | [5.51] | Jan 12, 2021 |
+|  Rel 21-01 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup | [2.106] | Jan 12, 2021 |
+|  Rel 21-01 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup | [2.106] | Jan 12, 2021 |
+|  Rel 21-01 |  [4578953]  |  .NET Framework 3.5 Security and Quality Rollup | [4.86] | Jan 12, 2021 |
+|  Rel 21-01 |  [4578956]  |  .NET Framework 4.5.2 Security and Quality Rollup | [4.86] | Jan 12, 2021 |
+|  Rel 21-01 |  [4578950]  |  .NET Framework 3.5 Security and Quality Rollup | [3.93] | Jan 12, 2021 |
+|  Rel 21-01 |  [4578954]  |  .NET Framework 4.5.2 Security and Quality Rollup | [3.93] | Jan 12, 2021 |
+|  Rel 21-01 |  [4578966]  |  .NET Framework 3.5 and 4.7.2 Cumulative Update | [6.27] | Oct 13, 2020 |
+|  Rel 21-01 |  [4598279]  |  Monthly Rollup | [2.106] | Jan 12, 2020 |
+|  Rel 21-01 |  [4598278]  |  Monthly Rollup | [3.93] | Jan 12, 2020 |
+|  Rel 21-01 |  [4598285]  |  Monthly Rollup | [4.86] | Jan 12, 2020 |
+|  Rel 21-01 |  [4566426]  |  Servicing Stack update | [3.93] | Jul 14, 2020 |
+|  Rel 21-01 |  [4566425]  |  Servicing Stack update | [4.86] | Jul 14, 2020 |
+|  Rel 21-01 OOB |  [4578013]  |  Standalone Security Update | [4.86] | Aug 19, 2020 |
+|  Rel 21-01 |  [4576750]  |  Servicing Stack update | [5.51] | Sep 8, 2020 |
+|  Rel 21-01 |  [4592510]  |  Servicing Stack update | [2.106] | Dec 8, 2020 |
+|  Rel 21-01 |  [4598480]  |  Servicing Stack update | [6.27] | Jan 12, 2021 |
+|  Rel 21-01 |  [4494175]  |  Microcode | [5.51] | Sep 1, 2020 |
+|  Rel 21-01 |  [4494174]  |  Microcode | [6.27] | Sep 3, 2020 |
+
+[4598230]: https://support.microsoft.com/kb/4598230
+
+[4586768]: https://support.microsoft.com/kb/4586768
+[4598243]: https://support.microsoft.com/kb/4598243
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4578966]: https://support.microsoft.com/kb/4578966
+[4598279]: https://support.microsoft.com/kb/4598279
+[4598278]: https://support.microsoft.com/kb/4598278
+[4598285]: https://support.microsoft.com/kb/4598285
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4592510]: https://support.microsoft.com/kb/4592510
+[4598480]: https://support.microsoft.com/kb/4598480
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.106]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.93]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.86]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.51]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.27]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
+## December 2020 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 20-12 |  [4592440]  |  Latest Cumulative Update | [6.26] | Dec 8, 2020 |
+|  Rel 20-12 |  4580325  |  Flash update | [3.92], [4.85], [5.50], [6.26] | Oct 13, 2020 |
+|  Rel 20-12 |  [4586768]  |  IE Cumulative Updates | [2.105], [3.92], [4.85] | Nov 10, 2020 |
+|  Rel 20-12 |  [4593226]  |  Latest Cumulative Update | [5.50] | Dec 8, 2020 |
+|  Rel 20-12 |  [4052623]  |  Defender | [5.50], [6.26] | Dec 13, 2020 |
+|  Rel 20-12 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup | [2.105] | Nov 10, 2020 |
+|  Rel 20-12 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup | [2.105] | Nov 10, 2020 |
+|  Rel 20-12 |  [4578953]  |  .NET Framework 3.5 Security and Quality Rollup | [4.85] | Nov 10, 2020 |
+|  Rel 20-12 |  [4578956]  |  .NET Framework 4.5.2 Security and Quality Rollup | [4.85] | Nov 10, 2020 |
+|  Rel 20-12 |  [4578950]  |  .NET Framework 3.5 Security and Quality Rollup | [3.92] | Nov 10, 2020 |
+|  Rel 20-12 |  [4578954]  |  .NET Framework 4.5.2 Security and Quality Rollup | [3.92] | Nov 10, 2020 |
+|  Rel 20-12 |  [4578966]  |  .NET Framework 3.5 and 4.7.2 Cumulative Update | [6.26] | Oct 13, 2020 |
+|  Rel 20-12 |  [4592471]  |  Monthly Rollup | [2.105] | Dec 8, 2020 |
+|  Rel 20-12 |  [4592468]  |  Monthly Rollup | [3.92] | Dec 8, 2020 |
+|  Rel 20-12 |  [4592484]  |  Monthly Rollup | [4.85] | Dec 8, 2020 |
+|  Rel 20-12 |  [4566426]  |  Servicing Stack update | [3.92] | Jul 14, 2020 |
+|  Rel 20-12 |  [4566425]  |  Servicing Stack update | [4.85] | Jul 14, 2020 |
+|  Rel 20-12 OOB |  [4578013]  |  Standalone Security Update | [4.85] | Aug 19, 2020 |
+|  Rel 20-12 |  [4576750]  |  Servicing Stack update | [5.50] | Sep 8, 2020 |
+|  Rel 20-12 |  [4592510]  |  Servicing Stack update | [2.105] | Dec 8, 2020 |
+|  Rel 20-12 |  [4587735]  |  Servicing Stack update | [6.26] | Nov 10, 2020 |
+|  Rel 20-12 |  [4494175]  |  Microcode | [5.50] | Sep 1, 2020 |
+|  Rel 20-12 |  [4494174]  |  Microcode | [6.26] | Sep 3, 2020 |
+
+[4592440]: https://support.microsoft.com/kb/4592440
+
+[4586768]: https://support.microsoft.com/kb/4586768
+[4593226]: https://support.microsoft.com/kb/4593226
+[4052623]: https://support.microsoft.com/kb/4052623
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4578966]: https://support.microsoft.com/kb/4578966
+[4592471]: https://support.microsoft.com/kb/4592471
+[4592468]: https://support.microsoft.com/kb/4592468
+[4592484]: https://support.microsoft.com/kb/4592484
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4592510]: https://support.microsoft.com/kb/4592510
+[4587735]: https://support.microsoft.com/kb/4587735
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.105]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.92]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.85]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.50]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.26]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
+## November 2020 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 20-11 OOB |  [4594442]  |  Latest Cumulative Update | [6.25] | Nov 17, 2020 |
+|  Rel 20-11 OOB |  [4594441]  |  Latest Cumulative Update | [5.49] | Nov 19, 2020 |
+|  Rel 20-11 |  4580325  |  Flash Update | [3.91], [4.84], [5.49], [6.25] | Oct 13, 2020 |
+|  Rel 20-11 |  [4586768]  |  IE Cumulative Update | [2.104], [3.91], [4.84] | Nov 10, 2020 |
+|  Rel 20-11 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup | [2.104] | Nov 10, 2020 |
+|  Rel 20-11 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup | [2.104] | Nov 10, 2020 |
+|  Rel 20-11 |  [4578953]  |  .NET Framework 3.5 Security and Quality Rollup | [4.84] | Nov 10, 2020 |
+|  Rel 20-11 |  [4578956]  |  .NET Framework 4.5.2 Security and Quality Rollup | [4.84] | Nov 10, 2020 |
+|  Rel 20-11 |  [4578950]  |  .NET Framework 3.5 Security and Quality Rollup | [3.91] | Nov 10, 2020 |
+|  Rel 20-11 |  [4578954]  |  .NET Framework 4.5.2 Security and Quality Rollup | [3.91] | Nov 10, 2020 |
+|  Rel 20-11 |  [4578966]  |  .NET Framework 3.5 and 4.7.2 Cumulative Update | [6.25] | Oct 13, 2020 |
+|  Rel 20-11 |  [4586827]  |  Monthly Rollup | [2.104] | Nov 10, 2020 |
+|  Rel 20-11 |  [4586834]  |  Monthly Rollup | [3.91] | Nov 10, 2020 |
+|  Rel 20-11 |  [4586845]  |  Monthly Rollup | [4.84] | Nov 10, 2020 |
+|  Rel 20-11 |  [4566426]  |  Servicing Stack update | [3.91] | Jul 14, 2020 |
+|  Rel 20-11 |  [4566425]  |  Servicing Stack update | [4.84] | Jul 14, 2020 |
+|  Rel 20-11 OOB |  [4578013]  |  Standalone Security Update | [4.84] | Aug 19, 2020 |
+|  Rel 20-11 |  [4576750]  |  Servicing Stack update | [5.49] | Sep 8, 2020 |
+|  Rel 20-11 |  [4580970]  |  Servicing Stack update | [2.104] | Oct 13, 2020 |
+|  Rel 20-11 |  [4587735]  |  Servicing Stack update | [6.25] | Nov 10, 2020 |
+|  Rel 20-11 |  [4494175]  |  Microcode | [5.49] | Sep 1, 2020 |
+|  Rel 20-11 |  [4494174]  |  Microcode | [6.25] | Sep 3, 2020 |
+
+[4594442]: https://support.microsoft.com/kb/4594442
+[4594441]: https://support.microsoft.com/kb/4594441
+
+[4586768]: https://support.microsoft.com/kb/4586768
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4578966]: https://support.microsoft.com/kb/4578966
+[4586827]: https://support.microsoft.com/kb/4586827
+[4586834]: https://support.microsoft.com/kb/4586834
+[4586845]: https://support.microsoft.com/kb/4586845
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4580970]: https://support.microsoft.com/kb/4580970
+[4587735]: https://support.microsoft.com/kb/4587735
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.104]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.91]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.84]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.49]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.25]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
+
+
+## October 2020 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 20-10 |  [4577010]  |  IE Cumulative Update | [2.103], [3.90], [4.83] | Sep 8, 2020 |
+|  Rel 20-10 |  4580325  |  Flash Update | [3.90], [4.83], [5.48], [6.24] | Oct 13, 2020 |
+|  Rel 20-10 |  [4577668]  |  Latest Cumulative Update | [6.24] | Oct 13, 2020 |
+|  Rel 20-10 |  [4580346]  |  Latest Cumulative Update | [5.48] | Oct 13, 2020 |
+|  Rel 20-10 |  [4580970]  |  Servicing Stack update | [2.103] | Oct 13, 2020 |
+|  Rel 20-10 |  [4580345]  |  Monthly Rollup | [2.103] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578952]  |  .NET Framework 3.5.1 Security and Quality Rollup | [2.103] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup | [2.103] | Oct 13, 2020 |
+|  Rel 20-10 |  [4566426]  |  Servicing Stack update | [3.90] | Jul 14, 2020 |
+|  Rel 20-10 |  [4580382]  |  Monthly Rollup | [3.90] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578950]  |  .NET Framework 3.5 Security and Quality Rollup | [3.90] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578954]  |  .NET Framework 4.5.2 Security and Quality Rollup | [3.90] | Oct 13, 2020 |
+|  Rel 20-10 |  [4566425]  |  Servicing Stack update | [4.83] | Jul 14, 2020 |
+|  Rel 20-10 |  [4580347]  |  Monthly Rollup | [4.83] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578953]  |  .NET Framework 3.5 Security and Quality Rollup | [4.83] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578956]  |  .NET Framework 4.5.2 Security and Quality Rollup | [4.83] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578013]  |  Standalone Security Update | [4.83] | Aug 19, 2020 |
+|  Rel 20-10 |  [4576750]  |  Servicing Stack update | [5.48] | Sep 8, 2020 |
+|  Rel 20-10 |  [4494175]  |  Microcode | [5.48] | Sep 1, 2020 |
+|  Rel 20-10 |  [4577667]  |  Servicing Stack Update | [6.24] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578966]  |  .NET Framework 3.5 and 4.7.2 Cumulative Update | [6.24] | Oct 13, 2020 |
+|  Rel 20-10 |  [4494174]  |  Microcode | [6.24] | Sep 3, 2020 |
+
+
+[4577010]: https://support.microsoft.com/kb/4577010
+
+[4577668]: https://support.microsoft.com/kb/4577668
+[4580346]: https://support.microsoft.com/kb/4580346
+[4580970]: https://support.microsoft.com/kb/4580970
+[4580345]: https://support.microsoft.com/kb/4580345
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4566426]: https://support.microsoft.com/kb/4566426
+[4580382]: https://support.microsoft.com/kb/4580382
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4566425]: https://support.microsoft.com/kb/4566425
+[4580347]: https://support.microsoft.com/kb/4580347
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4494175]: https://support.microsoft.com/kb/4494175
+[4577667]: https://support.microsoft.com/kb/4577667
+[4578966]: https://support.microsoft.com/kb/4578966
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.103]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.90]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.83]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.48]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.24]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
+
+## September 2020 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 20-09 |  [4577010]  |  Internet Explorer | [2.102], [3.89], [4.82] | Sep 8, 2020 |
+|  Rel 20-09 |  [4561600]  |  Flash update | [3.89], [4.82], [5.47], [6.23] | Sep 8, 2020 |
+|  Rel 20-09 |  [4577015]  |  Latest Cumulative Update(LCU) | [5.47] | Sep 8, 2020 |
+|  Rel 20-09 |  [4570333]  |  Latest Cumulative Update(LCU) | [6.23] | Sep 8, 2020 |
+|  Rel 20-09 |  [4570673]  |  Servicing Stack update | [2.102] | Sep 8, 2020 |
+|  Rel 20-09 |  [4577051]  |  Monthly Rollup | [2.102] | Sep 8, 2020 |
+|  Rel 20-09 |  [4569767]  |  .NET Framework 3.5 Security and Quality Rollup | [2.102] | Sep 8, 2020 |
+|  Rel 20-09 |  [4569780]  |  .NET Framework 4.5.2 Security and Quality Rollup | [2.102] | Sep 8, 2020 |
+|  Rel 20-09 |  [4566426]  |  Servicing Stack update | [3.89] | Sep 8, 2020 |
+|  Rel 20-09 |  [4577038]  |  Monthly Rollup | [3.89] | Sep 8, 2020 |
+|  Rel 20-09 |  [4569765]  |  .NET Framework 3.5 Security and Quality Rollup | [3.89] | Sep 8, 2020 |
+|  Rel 20-09 |  [4569779]  |  .NET Framework 4.5.2 Security and Quality Rollup | [3.89] | Sep 8, 2020 |
+|  Rel 20-09 |  [4566425]  |  Servicing Stack update | [2.102] | Sep 8, 2020 |
+|  Rel 20-09 |  [4577066]  |  Monthly Rollup | [2.102] | Sep 8, 2020 |
+|  Rel 20-09 |  [4569768]  |  .NET Framework 3.5 Security and Quality Rollup | [2.102] | Sep 8, 2020 |
+|  Rel 20-09 |  [4569778]  |  NET Framework 4.5.2 Security and Quality Rollup | [2.102] | Sep 8, 2020 |
+|  Rel 20-09 |  [4578013]  |  Security Update | [2.102] | Sep 8, 2020 |
+|  Rel 20-09 |  [4576750]  |  Servicing Stack update | [5.47] | Sep 8, 2020 |
+|  Rel 20-09 |  [4494175]  |  Microcode | [5.47] | Sep 8, 2020 |
+|  Rel 20-09 |  [4570332]  |  Servicing Stack update | [6.23] | Sep 8, 2020 |
+|  Rel 20-09 |  [4570720]  |  .NET Framework 3.5 and 4.7.2 Cumulative Update | [6.23] | Sep 8, 2020 |
+|  Rel 20-09 |  [4494174]  |  Microcode | [6.23] | Sep 8, 2020 |
+
+[4577010]: https://support.microsoft.com/kb/4577010
+[4561600]: https://support.microsoft.com/kb/4561600
+[4577015]: https://support.microsoft.com/kb/4577015
+[4570333]: https://support.microsoft.com/kb/4570333
+[4570673]: https://support.microsoft.com/kb/4570673
+[4577051]: https://support.microsoft.com/kb/4577051
+[4569767]: https://support.microsoft.com/kb/4569767
+[4569780]: https://support.microsoft.com/kb/4569780
+[4566426]: https://support.microsoft.com/kb/4566426
+[4577038]: https://support.microsoft.com/kb/4577038
+[4569765]: https://support.microsoft.com/kb/4569765
+[4569779]: https://support.microsoft.com/kb/4569779
+[4566425]: https://support.microsoft.com/kb/4566425
+[4577066]: https://support.microsoft.com/kb/4577066
+[4569768]: https://support.microsoft.com/kb/4569768
+[4569778]: https://support.microsoft.com/kb/4569778
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4494175]: https://support.microsoft.com/kb/4494175
+[4570332]: https://support.microsoft.com/kb/4570332
+[4570720]: https://support.microsoft.com/kb/4570720
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.102]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.89]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.82]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.47]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.23]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
+## August 2020 Guest OS
+
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 20-08 |  [4571687]  |  IE Cumulative Update | [2.101], [3.88], [4.81] | Aug 11, 2020 |
+|  Rel 20-08 |  [4561600]  |  Flash Update | [3.88], [4.81], [5.46], [6.22] | Jun 9, 2020 |
+|  Rel 20-08 |  [4571694]  |  Latest Cumulative Update | [6.22] | Aug 11, 2020 |
+|  Rel 20-08 |  [4565349]  |  Latest Cumulative Update | [5.46] | Aug 11, 2020 |
+|  Rel 20-08 |  [4570673]  |  Servicing Stack Update | [2.101] | Aug 11, 2020 |
+|  Rel 20-08 |  [4571729]  |  Monthly Rollup | [2.101] | Aug 11, 2020 |
+|  Rel 20-08 |  [4569767]  |  .NET Framework 3.5.1 Security and Quality Rollup | [2.101] | Aug 11, 2020 |
+|  Rel 20-08 |  [4569780]  |  .NET Framework 4.5.2 Security and Quality Rollup | [2.101] | Aug 11, 2020 |
+|  Rel 20-08 |  [4569765]  |  .NET Framework 3.5 Security and Quality Rollup | [3.88] | Aug 11, 2020 |
+|  Rel 20-08 |  [4569779]  |  .NET Framework 4.5.2 Security and Quality Rollup | [3.88] | Aug 11, 2020 |
+|  Rel 20-08 |  [4566426]  |  Servicing Stack Update | [3.88] | Jul 14, 2020 |
+|  Rel 20-08 |  [4571736]  |  Monthly Rollup | [3.88] | Aug 11, 2020 |
+|  Rel 20-08 |  [4566425]  |  Servicing Stack Update | [4.81] | Jul 14, 2020 |
+|  Rel 20-08 |  [4571703]  |  Monthly Rollup | [4.81] | Aug 11, 2020 |
+|  Rel 20-08 |  [4569768]  |  .NET Framework 3.5 Security and Quality Rollup | [4.81] | Aug 11, 2020 |
+|  Rel 20-08 |  [4569778]  |  .NET Framework 4.5.2 Security and Quality Rollup | [4.81] | Aug 11, 2020 |
+|  Rel 20-08 |  [4494175]  |  Microcode | [5.46] | Feb 25, 2020 |
+|  Rel 20-08 |  [4565912]  |  Servicing Stack Update | [5.46] | Jul 14, 2020 |
+|  Rel 20-08 |  [4569776]  |  .NET Framework 3.5 and 4.7.2 Cumulative Update | [6.22] | Aug 11, 2020 |
+|  Rel 20-08 |  [4566424]  |  Servicing Stack Update | [6.22] | Aug 11, 2020 |
+
+
+[4571687]: https://support.microsoft.com/kb/4571687
+[4561600]: https://support.microsoft.com/kb/4561600
+[4571694]: https://support.microsoft.com/kb/4571694
+[4565349]: https://support.microsoft.com/kb/4565349
+[4570673]: https://support.microsoft.com/kb/4570673
+[4571729]: https://support.microsoft.com/kb/4571729
+[4569767]: https://support.microsoft.com/kb/4569767
+[4569780]: https://support.microsoft.com/kb/4569780
+[4569765]: https://support.microsoft.com/kb/4569765
+[4569779]: https://support.microsoft.com/kb/4569779
+[4566426]: https://support.microsoft.com/kb/4566426
+[4571736]: https://support.microsoft.com/kb/4571736
+[4566425]: https://support.microsoft.com/kb/4566425
+[4571703]: https://support.microsoft.com/kb/4571703
+[4569768]: https://support.microsoft.com/kb/4569768
+[4569778]: https://support.microsoft.com/kb/4569778
+[4494175]: https://support.microsoft.com/kb/4494175
+[4565912]: https://support.microsoft.com/kb/4565912
+[4569776]: https://support.microsoft.com/kb/4569776
+[4566424]: https://support.microsoft.com/kb/4566424
+[2.101]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.88]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.81]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.46]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.22]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
+
+## July 2020 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 20-07 |  [4565479]  |  Internet Explorer | [2.100], [3.87], [4.80] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565511]  |  Latest Cumulative Update (LCU) | [5.45] | Jul 14, 2020 |
+|  Rel 20-07 |  [4558998]  |  Latest Cumulative Update (LCU) | [6.21] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565524]  |  Monthly Rollup | [2.100] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565616]  |  Monthly Rollup | [2.100] | Jul 16, 2020 |
+|  Rel 20-07 |  [4565354]  |  Servicing Stack update | [2.100] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565612]  |  Monthly Rollup | [2.100] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565615]  |  Monthly Rollup | [3.87] | Jul 14, 2020 |
+|  Rel 20-07 |  [4566426]  |  Servicing Stack update | [3.87] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565537]  |  Monthly Rollup | [3.87] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565610]  |  Monthly Rollup | [3.87] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565541]  |  Monthly Rollup | [4.80] | Jul 14, 2020 |
+|  Rel 20-07 |  [4566425]  |  Servicing Stack update | [4.80] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565614]  |  Monthly Rollup | [4.80] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565613]  |  Monthly Rollup | [4.80] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565912]  |  Servicing Stack update | [5.45] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565628]  |  Monthly Rollup | [5.45] | Jul 14, 2020 |
+|  Rel 20-07 |  [4494175]  |  Microcode | [5.45] | Feb 25, 2020 |
+|  Rel 20-07 |  [4565632]  |  Monthly Rollup | [6.21] | Jul 14, 2020 |
+|  Rel 20-07 |  [4558997]  |  Servicing Stack update | [6.21] | Jul 14, 2020 |
+|  Rel 20-07 |  [4494174]  |  Microcode | [6.21] | Feb 25, 2020 |
+
+
+[4565479]: https://support.microsoft.com/kb/4565479
+[4565511]: https://support.microsoft.com/kb/4565511
+[4558998]: https://support.microsoft.com/kb/4558998
+[4565524]: https://support.microsoft.com/kb/4565524
+[4565616]: https://support.microsoft.com/kb/4565616
+[4565354]: https://support.microsoft.com/kb/4565354
+[4565612]: https://support.microsoft.com/kb/4565612
+[4565615]: https://support.microsoft.com/kb/4565615
+[4566426]: https://support.microsoft.com/kb/4566426
+[4565537]: https://support.microsoft.com/kb/4565537
+[4565610]: https://support.microsoft.com/kb/4565610
+[4565541]: https://support.microsoft.com/kb/4565541
+[4566425]: https://support.microsoft.com/kb/4566425
+[4565614]: https://support.microsoft.com/kb/4565614
+[4565613]: https://support.microsoft.com/kb/4565613
+[4565912]: https://support.microsoft.com/kb/4565912
+[4565628]: https://support.microsoft.com/kb/4565628
+[4494175]: https://support.microsoft.com/kb/4494175
+[4565632]: https://support.microsoft.com/kb/4565632
+[4558997]: https://support.microsoft.com/kb/4558997
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.100]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.87]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.80]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.45]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.21]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
+
+## June 2020 Guest OS
+
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 20-06  |  [4561603]  |  Internet Explorer  |  [2.99], [3.86], [4.79]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561616]  |  Latest Cumulative Update(LCU)  |  [5.44]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561608]  |  Latest Cumulative Update(LCU)  |  [6.20]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562030]  |  Servicing Stack update  |  [2.99]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561643]  |  Monthly Rollup  |  [2.99]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562252]  |  Servicing Stack update  |  [3.86]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561612]  |  Monthly Rollup  |  [3.86]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561600]  |  Flash  |  [3.86], [4.79], [5.44], [6.20]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562253]  |  Servicing Stack update  |  [4.79]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561666]  |  Monthly Rollup  |  [4.79]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562561]  |  Servicing Stack update  |  [5.44]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562562]  |  Servicing Stack update  |  [6.20]  |  Jun 9, 2020  |
+
+
+
+[4561603]: https://support.microsoft.com/kb/4561603
+[4561616]: https://support.microsoft.com/kb/4561616
+[4561608]: https://support.microsoft.com/kb/4561608
+[4562030]: https://support.microsoft.com/kb/4562030
+[4561643]: https://support.microsoft.com/kb/4561643
+[4562252]: https://support.microsoft.com/kb/4562252
+[4561612]: https://support.microsoft.com/kb/4561612
+[4561600]: https://support.microsoft.com/kb/4561600
+[4562253]: https://support.microsoft.com/kb/4562253
+[4561666]: https://support.microsoft.com/kb/4561666
+[4562561]: https://support.microsoft.com/kb/4562561
+[4562562]: https://support.microsoft.com/kb/4562562
+[2.99]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.86]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.79]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.44]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.20]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
+
+## May 2020 Guest OS
+
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2.98],  [3.85], [4.78]  |  May 12, 2020  |
+|  Rel 20-05  |  [4556813]  |  Latest Cumulative Update(LCU)   |  [5.43]  |  May 12, 2020  |
+|  Rel 20-05  |  [4551853]  |  Latest Cumulative Update(LCU)   |  [6.19]  |  May 12, 2020  |
+|  Rel 20-05  |  [4552940]  |  Monthly Rollup   |  [2.98]  |  May 12, 2020  |
+|  Rel 20-05  |  [4556836]  |  Monthly Rollup   |  [2.98]  |  May 12, 2020  |
+|  Rel 20-05  |  [4555449]  |  Servicing Stack update   |  [2.98]  |  May 12, 2020  |
+|  Rel 20-05  |  [4552920]  |  Monthly Rollup   |  [2.98]  |  May 12, 2020  |
+|  Rel 20-05  |  [4552979]  |  Monthly Rollup   |  [3.85]  |  May 12, 2020  |
+|  Rel 20-05  |  [4556840]  |  Monthly Rollup   |  [3.85]  |  May 12, 2020  |
+|  Rel 20-05  |  [4552947]  |  Monthly Rollup   |  [3.85]  |  May 12, 2020  |
+|  Rel 20-05  |  [4552982]  |  Monthly Rollup   |  [3.85]  |  May 12, 2020  |
+|  Rel 20-05  |  [4552946]  |  Monthly Rollup   |  [4.78]  |  May 12, 2020  |
+|  Rel 20-05  |  [4556846]  |  Monthly Rollup   |  [4.78]  |  May 12, 2020  |
+|  Rel 20-05  |  [4550994]  |  Servicing Stack update   |  [5.43]  |  Apr 14, 2020  |
+|  Rel 20-05  |  [4552924]  |  Monthly Rollup   |  [6.19]  |  May 12, 2020  |
+|  Rel 20-05  |  [4549947]  |  Servicing Stack update   |  [6.19]  |  Apr 14, 2020  |
+
+
+[4556798]: https://support.microsoft.com/kb/4556798
+[4556813]: https://support.microsoft.com/kb/4556813
+[4551853]: https://support.microsoft.com/kb/4551853
+[4552940]: https://support.microsoft.com/kb/4552940
+[4556836]: https://support.microsoft.com/kb/4556836
+[4555449]: https://support.microsoft.com/kb/4555449
+[4552920]: https://support.microsoft.com/kb/4552920
+[4552979]: https://support.microsoft.com/kb/4552979
+[4556840]: https://support.microsoft.com/kb/4556840
+[4552947]: https://support.microsoft.com/kb/4552947
+[4552982]: https://support.microsoft.com/kb/4552982
+[4552946]: https://support.microsoft.com/kb/4552946
+[4556846]: https://support.microsoft.com/kb/4556846
+[4550994]: https://support.microsoft.com/kb/4550994
+[4552924]: https://support.microsoft.com/kb/4552924
+[4549947]: https://support.microsoft.com/kb/4549947
+[2.98]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.85]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.78]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.43]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.19]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
+
+## April 2020 Guest OS
+
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 20-04   |  [4550965]  |  Windows Security   |  [2.97]  |  Apr 14, 2020  |
+|  Rel 20-04   |  [4550905]  |  Internet Explorer   |  [2.97], [3.84], [4.77]  |  Apr 14, 2020  |
+|  Rel 20-04   |  [4550971]  |  Windows Security   |  [3.84]  |  Apr 14, 2020  |
+|  Rel 20-04   |  [4550970]  |  Windows Security   |  [4.77]  |  Apr 14, 2020  |
+|  Rel 20-04   |  [4550929]  |  Latest Cumulative Update(LCU)   |  [5.42]  |  Apr 14, 2020  |
+|  Rel 20-04   |  [4549949]  |  Latest Cumulative Update(LCU)   |  [6.18]  |  Apr 14, 2020  |
+|  Rel 20-04   |  [4540688]  |  Monthly Rollup   |  [2.97]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4550735]  |  Servicing Stack update   |  [2.97]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4540726]  |  Servicing Stack update   |  [3.84]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4541510]  |  Monthly Rollup   |  [3.84]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4541509]  |  Monthly Rollup   |  [4.77]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4540725]  |  Servicing Stack update   |  [4.77]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4540723]  |  Servicing Stack update   |  [5.42]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4539571]  |  Servicing Stack update   |  [6.18]  |  Mar 10, 2020  |
+
+
+[4550965]: https://support.microsoft.com/kb/4550965
+[4550905]: https://support.microsoft.com/kb/4550905
+[4550971]: https://support.microsoft.com/kb/4550971
+[4550970]: https://support.microsoft.com/kb/4550970
+[4550929]: https://support.microsoft.com/kb/4550929
+[4549949]: https://support.microsoft.com/kb/4549949
+[4540688]: https://support.microsoft.com/kb/4540688
+[4550735]: https://support.microsoft.com/kb/4550735
+[4540726]: https://support.microsoft.com/kb/4540726
+[4541510]: https://support.microsoft.com/kb/4541510
+[4541509]: https://support.microsoft.com/kb/4541509
+[4540725]: https://support.microsoft.com/kb/4540725
+[4540723]: https://support.microsoft.com/kb/4540723
+[4539571]: https://support.microsoft.com/kb/4539571
+[2.97]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.84]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.77]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.42]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.18]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
+
+## March 2020 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 20-03  |  [4541500]  |  Windows Security  | [2.96] | Mar 10, 2020 |
+|  Rel 20-03  |  [4540671]  |  Internet Explorer  | [2.96], [3.83], [4.76] | Mar 10, 2020 |
+|  Rel 20-03  |  [4540694]  |  Windows Security  | [3.83] | Mar 10, 2020 |
+|  Rel 20-03  |  [4541505]  |  Windows Security  | [4.76] | Mar 10, 2020 |
+|  Rel 20-03  |  [4540670]  |  Latest Cumulative Update(LCU)  | [5.41] | Mar 10, 2020 |
+|  Rel 20-03  |  [4538461]  |  Latest Cumulative Update(LCU)  | [6.17] | Mar 10, 2020 |
+|  Rel 20-03  |  [4537820]  |  Monthly Rollup  | [2.96] | Feb 11, 2020 |
+|  Rel 20-03  |  [4537814]  |  Monthly Rollup  | [3.83] | Feb 11, 2020 |
+|  Rel 20-03  |  [4537821]  |  Monthly Rollup  | [4.76] | Feb 11, 2020 |
+
+[4541500]: https://support.microsoft.com/kb/4541500 
+[4540671]: https://support.microsoft.com/kb/4540671 
+[4540694]: https://support.microsoft.com/kb/4540694 
+[4541505]: https://support.microsoft.com/kb/4541505 
+[4540670]: https://support.microsoft.com/kb/4540670 
+[4538461]: https://support.microsoft.com/kb/4538461 
+[4537820]: https://support.microsoft.com/kb/4537820  
+[4537814]: https://support.microsoft.com/kb/4537814 
+[4537821]: https://support.microsoft.com/kb/4537821 
+
+[6.17]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.41]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.76]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.83]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.96]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+
+
+## February 2020 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 20-02  |  [4537767]  |  Internet Explorer  |  [2.95], [3.82], [4.75]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4537813]  |  Windows Security  |  [2.95]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4537794]  |  Windows Security  |  [3.82]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4537803]  |  Windows Security  |  [4.75]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4537764]  |  Latest Cumulative Update(LCU)  |  [5.40]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4532691]  |  Latest Cumulative Update(LCU)  |  [6.16]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4534310]  |  Monthly Rollup  |  [2.95]  |  Jan 14, 2020  |
+|  Rel 20-02  |  [4536952]  |  Servicing Stack update(SSU)  |  [2.95]  |  Jan 14, 2020  |
+|  Rel 20-02  |  [4537829]  |  Servicing Stack update(SSU)  |  [2.95]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4538483]  |  Extended security updates(ESU)  |  [2.95]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4537820]  |  Monthly Rollup  |  [2.95]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4537759]  |  Security Update(Flash)  |  [3.82], [4.75]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4534283]  |  Monthly Rollup  |  [3.82]  |  Jan 14, 2020  |
+|  Rel 20-02  |  [4532920]  |  Servicing Stack update(SSU)  |  [3.82]  |  Dec 10, 2020  |
+|  Rel 20-02  |  [4534297]  |  Non-Security  |  [4.75]  |  Jan 14, 2020  |
+
+[4537767]: https://support.microsoft.com/kb/4537767
+[4537813]: https://support.microsoft.com/kb/4537813
+[4537794]: https://support.microsoft.com/kb/4537794
+[4537803]: https://support.microsoft.com/kb/4537803
+[4537764]: https://support.microsoft.com/kb/4537764
+[4532691]: https://support.microsoft.com/kb/4532691
+[4534310]: https://support.microsoft.com/kb/4534310
+[4536952]: https://support.microsoft.com/kb/4536952
+[4537829]: https://support.microsoft.com/kb/4537829
+[4538483]: https://support.microsoft.com/kb/4538483
+[4537820]: https://support.microsoft.com/kb/4537820
+[4537759]: https://support.microsoft.com/kb/4537759
+[4534283]: https://support.microsoft.com/kb/4534283
+[4532920]: https://support.microsoft.com/kb/4532920
+[4534297]: https://support.microsoft.com/kb/4534297
+
+[6.16]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.40]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.75]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.82]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.95]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+
+
+## January 2020 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 20-01  |  [4532960]  |  Windows Security  | [2.94] | Jan 14, 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [2.94] | Jan 14, 2020 |
+|  Rel 20-01  |  [4534314]  |  Windows Security  | [2.94] | Jan 14, 2020 |
+|  Rel 20-01  |  [4532958]  |  Windows Security  | [3.81] | Jan 14, 2020 |
+|  Rel 20-01  |  [4532963]  |  Windows Security  | [3.81] | Jan 14, 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [3.81] | Jan 14, 2020 |
+|  Rel 20-01  |  [4534288]  |  Windows Security  | [3.81] | Jan 14, 2020 |
+|  Rel 20-01  |  [4532961]  |  Windows Security  | [4.74] | Jan 14, 2020 |
+|  Rel 20-01  |  [4532962]  |  Windows Security  | [4.74] | Jan 14, 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [4.74] | Jan 14, 2020 |
+|  Rel 20-01  |  [4534309]  |  Windows Security  | [4.74] | Jan 14, 2020 |
+|  Rel 20-01  |  [4494175]  |  Microcode v3  | [5.39] | Aug 29, 2019 |
+|  Rel 20-01  |  [4534271]  |  LCU  | [5.39] | Jan 14, 2020 |
+|  Rel 20-01  |  [4494174]  |  Microcode v4  | [6.15] | Aug 29, 2019 |
+|  Rel 20-01  |  [4532947]  |  Windows Security  | [6.15] | Jan 14, 2020 |
+|  Rel 20-01  |  [4534273]  |  LCU  | [6.15] | Jan 14, 2020 |
+|  Rel 20-01  |  [4530734]  |  Monthly Rollup  | [2.94] | Dec 10, 2019 |
+|  Rel 20-01  |  [4530691]  |  Monthly Rollup   | [3.81] | Dec 10, 2019 |
+|  Rel 20-01  |  [4530702]  |  Monthly Rollup  | [4.74] | Dec 10, 2019 |
+
+[4532960]: https://support.microsoft.com/kb/4532960
+[4534251]: https://support.microsoft.com/kb/4534251
+[4534314]: https://support.microsoft.com/kb/4534314
+[4532958]: https://support.microsoft.com/kb/4532958
+[4532963]: https://support.microsoft.com/kb/4532963
+[4534251]: https://support.microsoft.com/kb/4534251
+[4534288]: https://support.microsoft.com/kb/4534288
+[4532961]: https://support.microsoft.com/kb/4532961
+[4532962]: https://support.microsoft.com/kb/4532962
+[4534251]: https://support.microsoft.com/kb/4534251
+[4534309]: https://support.microsoft.com/kb/4534309
+[4494175]: https://support.microsoft.com/kb/4494175
+[4534271]: https://support.microsoft.com/kb/4534271
+[4494174]: https://support.microsoft.com/kb/4494174
+[4532947]: https://support.microsoft.com/kb/4532947
+[4534273]: https://support.microsoft.com/kb/4534273
+[4530734]: https://support.microsoft.com/kb/4530734
+[4530691]: https://support.microsoft.com/kb/4530691
+[4530702]: https://support.microsoft.com/kb/4530702
+[6.15]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.39]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.74]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.81]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.94]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+
+
+## December 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 19-12  |  [4530692]  |  Windows Security  | [2.93] | Dec 10, 2019 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [2.93] | Dec 10, 2019 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [3.80] | Dec 10, 2019 |
+|  Rel 19-12  |  [4530698]  |  Windows Security  | [3.80] | Dec 10, 2019 |
+|  Rel 19-12  |  [4530730]  |  Windows Security  | [4.73] | Dec 10, 2019 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [4.73] | Dec 10, 2019 |
+|  Rel 19-12  |  [4530689]  |  Latest Cumulative update  | [5.38] | Dec 10, 2019 |
+|  Rel 19-12  |  [4530715]  |  Latest Cumulative update  | [6.14] | Dec 10, 2019 |
+|  Rel 19-12  |  [4525235]  |  Non-Security  | [2.93] | Nov 12, 2019 |
+|  Rel 19-12  |  [4531786]  |  Servicing Stack Update  | [2.93] | Dec 10, 2019 |
+|  Rel 19-12  |  [4525246]  |  Non-Security  | [3.80] | Nov 12, 2019 |
+|  Rel 19-12  |  [4523208]  |  Servicing Stack Update  | [3.80] | Nov 12, 2019 |
+|  Rel 19-12  |  [4525243]  |  Non-Security  | [4.73] | Nov 12, 2019 |
+|  Rel 19-12  |  [4524445]  |  Servicing Stack Update  | [4.73] | Nov 12, 2019 |
+|  Rel 19-12  |  [4520724]  |  Servicing Stack Update  | [5.38] | Nov 12, 2019 |
+|  Rel 19-12  |  [4523204]  |  ServicingStackUpdate  | [6.14] | Nov 12, 2019 |
+
+[4530692]: https://support.microsoft.com/kb/4530692
+[4530677]: https://support.microsoft.com/kb/4530677
+[4530677]: https://support.microsoft.com/kb/4530677
+[4530698]: https://support.microsoft.com/kb/4530698
+[4530730]: https://support.microsoft.com/kb/4530730
+[4530677]: https://support.microsoft.com/kb/4530677
+[4530689]: https://support.microsoft.com/kb/4530689
+[4530715]: https://support.microsoft.com/kb/4530715
+[4525235]: https://support.microsoft.com/kb/4525235
+[4531786]: https://support.microsoft.com/kb/4531786
+[4525246]: https://support.microsoft.com/kb/4525246
+[4523208]: https://support.microsoft.com/kb/4523208
+[4525243]: https://support.microsoft.com/kb/4525243
+[4524445]: https://support.microsoft.com/kb/4524445
+[4520724]: https://support.microsoft.com/kb/4520724
+[4523204]: https://support.microsoft.com/kb/4523204
+[6.14]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.38]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.73]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.80]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.93]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+
+
+
+## November 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [2.92]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4525233]  |  Windows Security   |  [2.92]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [3.79]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4525253]  |  Windows Security   |  [3.79]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [4.72]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4525250]  |  Windows Security   |  [4.72]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4525236]  |  Latest Cumulative update   |  [5.37]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4523205]  |  Latest Cumulative update   |  [6.13]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4519976]  |  Non-Security   |  [2.92]  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4520007]  |  Non-Security   |  [3.79]  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4521857]  |  ServicingStackUpdate   |  [3.79]  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4520005]  |  Non-Security   |  [4.72]  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4521864]  |  ServicingStackUpdate   |  [4.72]  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4521858]  |  ServicingStackUpdate   |  [5.37]  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4521862]  |  ServicingStackUpdate   |  [6.13]  |  Oct 8, 2019  |
+
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525233]: https://support.microsoft.com/kb/4525233
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525253]: https://support.microsoft.com/kb/4525253
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525250]: https://support.microsoft.com/kb/4525250
+[4525236]: https://support.microsoft.com/kb/4525236
+[4523205]: https://support.microsoft.com/kb/4523205
+[4519976]: https://support.microsoft.com/kb/4519976
+[4520007]: https://support.microsoft.com/kb/4520007
+[4521857]: https://support.microsoft.com/kb/4521857
+[4520005]: https://support.microsoft.com/kb/4520005
+[4521864]: https://support.microsoft.com/kb/4521864
+[4521858]: https://support.microsoft.com/kb/4521858
+[4521862]: https://support.microsoft.com/kb/4521862
+[6.13]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.37]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.72]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.79]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.92]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+
+
+## October 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 19-10   |  [4520003]  |  Windows Security   |  [2.91]  |  Oct 8, 2019  |
+|  Rel 19-10   |  [4519985]  |  Windows Security   |  [3.78]  |  Oct 8, 2019  |
+|  Rel 19-10   |  [4519990]  |  Windows Security   |  [4.71]  |  Oct 8, 2019  |
+|  Rel 19-10   |  [4519998]  |  Latest Cumulative update   |  [5.36]  |  Oct 8, 2019  |
+|  Rel 19-10   |  [4519338]  |  Latest Cumulative update   |  [6.12]  |  Oct 8, 2019  |
+|  Rel 19-10   |  [4519974]  |  Internet Explorer   |  [2.91], [3.78], [4.71]  |  Oct 8, 2019  |
+|  Rel 19-10   |  [4516065]  |  Non-Security   |  [2.91]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4516655]  |  SSU   |  [2.91]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4516055]  |  Non-Security   |  [3.78]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4512939]  |  SSU   |  [3.78]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4514370]  |  .NET Framework 3.5   |  [3.78]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4514368]  |  .NET Framework 4.5.2   |  [3.78]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4516067]  |  Non Security   |  [4.71]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4512938]  |  SSU   |  [4.71]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4514371]  |  .NET Framework 3.5   |  [4.71]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4514367]  |  .NET Framework 4.5.2   |  [4.71]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4512574]  |  SSU   |  [5.36]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4512577]  |  SSU   |  [6.12]  |  Sept 10, 2019  |
+
+[4520003]: https://support.microsoft.com/kb/4520003
+[4519985]: https://support.microsoft.com/kb/4519985
+[4519990]: https://support.microsoft.com/kb/4519990
+[4519998]: https://support.microsoft.com/kb/4519998
+[4519338]: https://support.microsoft.com/kb/4519338
+[4519974]: https://support.microsoft.com/kb/4519974
+[4516065]: https://support.microsoft.com/kb/4516065
+[4516655]: https://support.microsoft.com/kb/4516655
+[4516055]: https://support.microsoft.com/kb/4516055
+[4512939]: https://support.microsoft.com/kb/4512939
+[4514370]: https://support.microsoft.com/kb/4514370
+[4514368]: https://support.microsoft.com/kb/4514368
+[4516067]: https://support.microsoft.com/kb/4516067
+[4512938]: https://support.microsoft.com/kb/4512938
+[4514371]: https://support.microsoft.com/kb/4514371
+[4514367]: https://support.microsoft.com/kb/4514367
+[4512574]: https://support.microsoft.com/kb/4512574
+[4512577]: https://support.microsoft.com/kb/4512577
+
+[6.12]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.36]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.71]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.78]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.91]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+
+
+## September 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 19-09   |  [4516046]  |  Internet Explorer   |  [2.90], [3.77], [4.70]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4516115]  |  Flash   |  [2.90], [3.77], [4.70], [5.35], [6.11]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4512578]  |  Latest Cumulative update   |  [6.11]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4514366]  |  .NET Framework 3.5 and 4.7.2   |  [6.11]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4516044]  |  Latest Cumulative update   |  [5.35]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4516064]  |  Windows Security   |  [4.70]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4514350]  |  .NET Framework 3.5   |  [4.70]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4514341]  |  .NET Framework 4.5.2   |  [4.70]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4516062]  |  Windows Security   |  [3.77]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4514349]  |  .NET Framework 3.5   |  [3.77]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4514342]  |  .NET Framework 4.5.2   |  [3.77]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4516033]  |  Windows Security   |  [2.90]  |  Sept 12, 2019  |
+|  Rel 19-09   |  [4512488]  |  Non-Security   |  [4.70]  |  Aug 13, 2019  |
+|  Rel 19-09   |  [4512518]  |  Non-Security   |  [3.77]  |  Aug 13, 2019  |
+|  Rel 19-09   |  [4512506]  |  Non-Security   |  [2.90]  |  Aug 13, 2019  |
+
+[4516046]: https://support.microsoft.com/kb/4516046
+[4516115]: https://support.microsoft.com/kb/4516115
+[4512578]: https://support.microsoft.com/kb/4512578
+[4514366]: https://support.microsoft.com/kb/4514366
+[4516044]: https://support.microsoft.com/kb/4516044
+[4516064]: https://support.microsoft.com/kb/4516064
+[4514350]: https://support.microsoft.com/kb/4514350
+[4514341]: https://support.microsoft.com/kb/4514341
+[4516062]: https://support.microsoft.com/kb/4516062
+[4514349]: https://support.microsoft.com/kb/4514349
+[4514342]: https://support.microsoft.com/kb/4514342
+[4516033]: https://support.microsoft.com/kb/4516033
+[4512488]: https://support.microsoft.com/kb/4512488
+[4512518]: https://support.microsoft.com/kb/4512518
+[4512506]: https://support.microsoft.com/kb/4512506
+[6.11]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.35]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.70]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.77]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.90]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+
+
+## August 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 19-08   |  [4512482]  |  Windows Security   |  [3.76]  |  Aug 13, 2019  |
+|  Rel 19-08   |  [4494175]  |  Microcode Update   |  [5.34]  |  Jun 18, 2019  |
+|  Rel 19-08   |  [4512517]  |  Latest Cumulative update   |  [5.34]  |  Aug 13, 2019  |
+|  Rel 19-08   |  [4494174]  |  Microcode Update   |  [6.1]  |  Jun 18, 2019  |
+|  Rel 19-08   |  [4511553]  |  Latest Cumulative update   |  [6.1]  |  Aug 13, 2019  |
+|  Rel 19-08   |  [4512486]  |  Windows Security   |  [2.89]  |  Aug 13, 2019  |
+|  Rel 19-08   |  [4512489]  |  Windows Security   |  [4.69]  |  Aug 13, 2019  |
+|  Rel 19-08   |  [4511872]  |  Internet Explorer    |  [2.89], [3.76], [4.69]  |  Aug 15, 2019  |
+|  Rel 19-08   |  [4507449]  |  Non-Security   |  [2.89]  |  July 9, 2019  |
+|  Rel 19-08   |  [4507000]  |  .NET 4.5.2 Non-Security   |  [3.76]  |  Aug 12, 2019  |
+|  Rel 19-08   |  [4507002]  |  .NET 3.5 Non-Security   |  [3.76]  |  Aug 12, 2019  |
+|  Rel 19-08   |  [4507462]  |  Non-Security   |  [3.76]  |  July 9, 2019  |
+|  Rel 19-08   |  [4506999]  |  .NET 4.5.2 Non-Security    |  [4.69]  |  Aug 12, 2019  |
+|  Rel 19-08   |  [4507005]  |  .NET 3.5 Non-Security    |  [4.69]  |  Aug 12, 2019  |
+|  Rel 19-08   |  [4507448]  |  Non-Security   |  [4.69]  |  July 9, 2019  |
+|  Rel 19-08   |  [4509091]  |  Servicing Stack Update   |  [5.34]  |  July 9, 2019  |
+|  Rel 19-08   |  [4509095]  |  Servicing Stack Update   |  [6.1]  |  July 9, 2019  |
+|  Rel 19-08   |  [4512937]  |  Servicing Stack Update   |  [6.1]  |  July 29, 2019  |
+|  Rel 19-08   |  [4507004]  |  .NET 3.5.1 Non-Security    |  [2.89]  |  Aug 12, 2019  |
+|  Rel 19-08   |  [4504418]  |  Servicing Stack Update   |  [3.76], [4.69]  |  July 11, 2019  |
+|  Rel 19-08   |  [4507001]  |  .NET 4.5.2 Non-Security   |  [2.89]  |  Aug 12, 2019  |
+|  Rel 19-08   |  [4507704]  |  DST Setting in Windows for Brazil and Morocco   |  [2.89], [3.76], [4.69], [5.34]  |  Aug 13, 2019  |
+
+[4512482]: https://support.microsoft.com/kb/4512482
+[4494175]: https://support.microsoft.com/kb/4494175
+[4512517]: https://support.microsoft.com/kb/4512517
+[4494174]: https://support.microsoft.com/kb/4494174
+[4511553]: https://support.microsoft.com/kb/4511553
+[4512486]: https://support.microsoft.com/kb/4512486
+[4512489]: https://support.microsoft.com/kb/4512489
+[4511872]: https://support.microsoft.com/kb/4511872
+[4507449]: https://support.microsoft.com/kb/4507449
+[4507000]: https://support.microsoft.com/kb/4507000
+[4507002]: https://support.microsoft.com/kb/4507002
+[4507462]: https://support.microsoft.com/kb/4507462
+[4506999]: https://support.microsoft.com/kb/4506999
+[4507005]: https://support.microsoft.com/kb/4507005
+[4507448]: https://support.microsoft.com/kb/4507448
+[4509091]: https://support.microsoft.com/kb/4509091
+[4509095]: https://support.microsoft.com/kb/4509095
+[4512937]: https://support.microsoft.com/kb/4512937
+[4507004]: https://support.microsoft.com/kb/4507004
+[4504418]: https://support.microsoft.com/kb/4504418
+[4507001]: https://support.microsoft.com/kb/4507001
+[4507704]: https://support.microsoft.com/kb/4507704
+
+[6.1]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.34]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.69]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.76]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.89]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+
+
+## July 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 19-07   |  [4507434]  |  Internet Explorer   |  2.88, 3.75, 4.68  |  July 9, 2019  |
+|  Rel 19-07   |  [4506966]  |  .NET 4.5.2 Security   |  2.88  |  July 9, 2019  |
+|  Rel 19-07   |  [4506976]  |  .NET 3.5.1 Security   |  2.88  |  July 9, 2019  |
+|  Rel 19-07   |  [4507456]  |  Windows Security   |  2.88  |  July 9, 2019  |
+|  Rel 19-07   |  [4506965]  |  .NET 4.5.2 Security   |  3.75  |  July 9, 2019  |
+|  Rel 19-07   |  [4506974]  |  .NET 3.5 Security   |  3.75  |  July 9, 2019  |
+|  Rel 19-07   |  [4507464]  |  Windows Security   |  3.75  |  July 9, 2019  |
+|  Rel 19-07   |  [4506964]  |  .NET 4.5.2 Security   |  4.68  |  July 9, 2019  |
+|  Rel 19-07   |  [4506977]  |  .NET 3.5 Security   |  4.68  |  July 9, 2019  |
+|  Rel 19-07   |  [4507457]  |  Windows Security   |  4.68  |  July 9, 2019  |
+|  Rel 19-07   |  [4507460]  |  Windows Security   |  5.33  |  July 9, 2019  |
+|  Rel 19-07   |  [4506998]  |  .NET 3.5 & 4.7.2 Security   |  6.9  |  July 9, 2019  |
+|  Rel 19-07   |  [4507469]  |  Windows Security   |  6.9  |  July 9, 2019  |
+|  N/A  |  [4503537]  |  June '19 Servicing Stack Update for (Server 2016)   |  5.33  |  May 14, 2019  |
+|  N/A  |  [4504369]  |  June '19 Servicing Stack Update for (Server 2019)   |  6.9  |  May 14, 2019  |
+|  N/A  |  [4503292]  |  June '19 Non-Security (Server 2008 R2)   |  2.88  |  May 20, 2019  |
+|  N/A  |  [4503285]  |  June '19 Non-Security (Server 2012)   |  3.75  |  May 14, 2019  |
+|  N/A  |  [4503276]  |  June '19 Non-Security (Server 2012 R2)   |  4.68  |  May 14, 2019  |
+
+[4507434]: https://support.microsoft.com/kb/4507434
+[4506621]: https://support.microsoft.com/kb/4506621
+[4506966]: https://support.microsoft.com/kb/4506966
+[4506976]: https://support.microsoft.com/kb/4506976
+[4507456]: https://support.microsoft.com/kb/4507456
+[4506965]: https://support.microsoft.com/kb/4506965
+[4506974]: https://support.microsoft.com/kb/4506974
+[4507464]: https://support.microsoft.com/kb/4507464
+[4506964]: https://support.microsoft.com/kb/4506964
+[4506977]: https://support.microsoft.com/kb/4506977
+[4507457]: https://support.microsoft.com/kb/4507457
+[4507460]: https://support.microsoft.com/kb/4507460
+[4506998]: https://support.microsoft.com/kb/4506998
+[4507469]: https://support.microsoft.com/kb/4507469
+[4503537]: https://support.microsoft.com/kb/4503537
+[4504369]: https://support.microsoft.com/kb/4504369
+[4503292]: https://support.microsoft.com/kb/4503292
+[4503285]: https://support.microsoft.com/kb/4503285
+[4503276]: https://support.microsoft.com/kb/4503276
+
+
+## June 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 19-06   |  [4503327]  |  Windows 10 Security   |  6.8  |  June 11, 2019  |
+|  Rel 19-06   |  [4503267]  |  Windows 10 Security   |  5.32  |  June 11, 2019  |
+|  Rel 19-06   |  [4503290]  |  Windows Security   |  4.67  |  June 11, 2019  |
+|  Rel 19-06   |  [4503263]  |  Windows Security   |  3.74  |  June 11, 2019  |
+|  Rel 19-06   |  [4503269]  |  Windows Security   |  2.87  |  June 11, 2019  |
+|  Rel 19-06   |  [4494174]  |  Microcode Update   |  6.8  |  June 11, 2019  |
+|  Rel 19-06   |  [4494175]  |  Microcode Update   |  5.32  |  June 3, 2019  |
+|  Rel 19-06   |  [4503308]  |  Flash   |  3.74, 4.67, 5.32, 6.8  |  June 11, 2019  |
+|  Rel 19-06   |  [4503259]  |  Internet Explorer   |  2.87, 3.74, 4.67  |  June 13, 2019  |
+|  N/A  |  [4499164]  |  May ’19 Non-Security  |  2.87  |  May 14, 2019  |
+|  N/A  |  [4495606]  |  May ’19 .NET 3.5 Non-Security  |  2.87  |  May 14, 2019  |
+|  N/A  |  [4495596]  |  May ’19 .NET 4.5 Non-Security  |  2.87  |  May 20, 2019  |
+|  N/A  |  [4499171]  |  May ’19 Non-Security  |  3.74  |  May 14, 2019  |
+|  N/A  |  [4495602]  |  May ’19 .NET 3.5 Non-Security  |  3.74  |  May 14, 2019  |
+|  N/A  |  [4495594]  |  May ’19 .NET 4.x Non-Security  |  4.67  |  May 14, 2019  |
+|  N/A  |  [4499151]  |  May ’19 Non-Security  |  4.67  |  May 14, 2019  |
+|  N/A  |  [4495608]  |  May ’19 .NET 3.5 Non-Security  |  4.67  |  May 14, 2019  |
+|  N/A  |  [4495592]  |  May ’19 .NET 4.5.2 Non-Security  |  4.67  |  May 14, 2019  |
+|  N/A  |  [4501226]  |  DST Timezone updates for Morocco and the Palestinian Authority  |  2.87, 3.74, 4.67  |  May 23, 2019  |
+|  N/A  |  [4490128]  |  DST Timezone updates for São Tomé and Príncipe and Qyzylorda  |  2.87, 3.74, 4.67  |  April 17, 2019  |
+
+[4503327]: https://support.microsoft.com/kb/4503327
+[4503267]: https://support.microsoft.com/kb/4503267
+[4503290]: https://support.microsoft.com/kb/4503290
+[4503263]: https://support.microsoft.com/kb/4503263
+[4503269]: https://support.microsoft.com/kb/4503269
+[4494174]: https://support.microsoft.com/kb/4494174
+[4494175]: https://support.microsoft.com/kb/4494175
+[4503308]: https://support.microsoft.com/kb/4503308
+[4503259]: https://support.microsoft.com/kb/4503259
+[4499164]: https://support.microsoft.com/kb/KB4499164
+[4495606]: https://support.microsoft.com/kb/KB4495606
+[4495596]: https://support.microsoft.com/kb/KB4495596
+[4499171]: https://support.microsoft.com/kb/KB4499171
+[4495602]: https://support.microsoft.com/kb/KB4495602
+[4495594]: https://support.microsoft.com/kb/KB4495594
+[4499151]: https://support.microsoft.com/kb/KB4499151
+[4495608]: https://support.microsoft.com/kb/KB4495608
+[4495592]: https://support.microsoft.com/kb/KB4495592
+[4501226]: https://support.microsoft.com/kb/KB4501226
+[4490128]: https://support.microsoft.com/kb/KB4490128
+
+## May 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 19-05   |  [4498206]  |  May IE Rollup   |  2.86, 3.73, 4.66  |  May 14, 2019  |
+|  Rel 19-05   |  [4505050]  |  May IE Rollup   |  2.86, 3.73, 4.66  |  May 18, 2019  |
+|  Rel 19-05   |  [4497932]  |  May Flash Update   |  3.73, 4.66, 5.31  |  May 14, 2019  |
+|  Rel 19-05   |  [4499175]  |  May Security Rollup   |  2.86  |  May 14, 2019  |
+|  Rel 19-05   |  [4495612]  |  May Security Rollup .NET 3.5   |  2.86  |  May 14, 2019  |
+|  Rel 19-05   |  [4495593]  |  May Security Rollup .NET 4.5.2   |  2.86  |  May 14, 2019  |
+|  Rel 19-05   |  [4499158]  |  May Security Rollup   |  3.73  |  May 14, 2019  |
+|  Rel 19-05   |  [4495607]  |  May Security Rollup .NET 3.5   |  3.73  |  May 14, 2019  |
+|  Rel 19-05   |  [4495591]  |  May Security Rollup .NET 4.5.2   |  3.73  |  May 14, 2019  |
+|  Rel 19-05   |  [4492872]  |  IE Rollup   |  3.73  |  April 16, 2019  |
+|  Rel 19-05   |  [4499165]  |  March Security Rollup   |  4.66  |  May 14, 2019  |
+|  Rel 19-05   |  [4495615]  |  May Security Rollup .NET 3.5   |  4.66  |  May 14, 2019  |
+|  Rel 19-05   |  [4495589]  |  May Security Rollup .NET 4.5.2   |  4.66  |  May 14, 2019  |
+|  Rel 19-05   |  [4498947]  |  May SSU   |  5.31  |  May 14, 2019  |
+|  Rel 19-05   |  [4494175]  |  May Microcode Update   |  5.31  |  May 14, 2019  |
+|  Rel 19-05   |  [4505052]  |  May Security Rollup   |  5.31  |  May 19, 2019  |
+|  Rel 19-05   |  [4499728]  |  May SSU   |  6.7  |  May 19, 2019  |
+|  Rel 19-05   |  [4505056]  |  May Security Rollup   |  6.7  |  May 19, 2019  |
+|  Rel 19-05   |  [4494174]  |  May Microcode Update   |  6.7  |  May 14, 2019  |
+|  Rel 19-05   |  [4495590]  |  May Security Rollup .NET   |  6.7  |  May 14, 2019  |
+
+[4498206]: https://support.microsoft.com/kb/4498206
+[4505050]: https://support.microsoft.com/kb/4505050
+[4497932]: https://support.microsoft.com/kb/4497932
+[4499175]: https://support.microsoft.com/kb/4499175
+[4495612]: https://support.microsoft.com/kb/4495612
+[4495593]: https://support.microsoft.com/kb/4495593
+[4499158]: https://support.microsoft.com/kb/4499158
+[4495607]: https://support.microsoft.com/kb/4495607
+[4495591]: https://support.microsoft.com/kb/4495591
+[4492872]: https://support.microsoft.com/kb/4492872
+[4499165]: https://support.microsoft.com/kb/4499165
+[4495615]: https://support.microsoft.com/kb/4495615
+[4495589]: https://support.microsoft.com/kb/4495589
+[4498947]: https://support.microsoft.com/kb/4498947
+[4494175]: https://support.microsoft.com/kb/4494175
+[4505052]: https://support.microsoft.com/kb/4505052
+[4499728]: https://support.microsoft.com/kb/4499728
+[4505056]: https://support.microsoft.com/kb/4505056
+[4494174]: https://support.microsoft.com/kb/4494174
+[4495590]: https://support.microsoft.com/kb/4495590
+
+
+## April 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 19-04 | [4493509] | Windows 10 Security | 6.6 | April 9, 2019 |
+| Rel 19-04 | [4493470] | Windows 10 Security | 5.30 | April 9, 2019 |
+| Rel 19-04 | [4493467] | Windows Security | 4.65 | April 9, 2019 |
+| Rel 19-04 | [4493450] | Windows Security | 3.72 | April 9, 2019 |
+| Rel 19-04 | [4493448] | Windows Security | 2.85 | April 9, 2019 |
+| Rel 19-04 | [4493478] | Flash | 3.72, 4.65, 5.30, 6.6 | April 9, 2019 |
+| Rel 19-04 | [4493435] | Internet Explorer | 2.85, 3.72, 4.65 | April 9, 2019 |
+| Rel 19-04 | [4490628] | Servicing Stack Update | 2.85 | March 12, 2019 |
+| Rel 19-04 | [4474419] | SHA2 Support | 2.85 | March 12, 2019 |
+| Rel 19-04 | [4489878] | March Non-Security Rollup | 2.85 | March 12, 2019 |
+| Rel 19-04 | [4489891] | March Non-Security Rollup | 3.72 | March 12, 2019 |
+| Rel 19-04 | [4489881] | March Non-Security Rollup | 4.65 | March 12, 2019 |
+
+[4493509]: https://support.microsoft.com/kb/4493509
+[4493470]: https://support.microsoft.com/kb/4493470
+[4493467]: https://support.microsoft.com/kb/4493467
+[4493450]: https://support.microsoft.com/kb/4493450
+[4493448]: https://support.microsoft.com/kb/4493448
+[4493478]: https://support.microsoft.com/kb/4493478
+[4493435]: https://support.microsoft.com/kb/4493435
+[4490628]: https://support.microsoft.com/kb/KB4490628
+[4474419]: https://support.microsoft.com/kb/KB4474419
+[4489878]: https://support.microsoft.com/kb/KB4489878
+[4489891]: https://support.microsoft.com/kb/KB4489891
+[4489881]: https://support.microsoft.com/kb/KB4489881
+
+## March 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 19-03 | [4489873] | Internet Explorer | 2.84, 3.71, 4.64 | March 12, 2019 |
+| Rel 19-03 | [4489907] | Flash | 3.71, 4.64, 5.29, 6.5 | March 12, 2019 |
+| Rel 19-03 | [4489885] | Windows Security | 2.84 | March 12, 2019 |
+| Rel 19-03 | [4489884] | Windows Security | 3.71 | March 12, 2019 |
+| Rel 19-03 | [4489883] | Windows Security | 4.64 | March 12, 2019 |
+| Rel 19-03 | [4489882] | Windows 10 Security | 5.29 | March 12, 2019 |
+| Rel 19-03 | [4489899] | Windows 10 Security | 6.5 | March 12, 2019 |
+| Rel 19-03 | [4486563] | February Non-Security rollup | 2.84 | February 12, 2019 |
+| Rel 19-03 | [4483458] | February Non-Security rollup .NET 3.x | 2.84 | February 12, 2019 |
+| Rel 19-03 | [4483455] | February Non-Security rollup .NET 4.x | 2.84 | February 12, 2019 |
+| Rel 19-03 | [4487025] | February Non-Security rollup | 3.71 | February 12, 2019 |
+| Rel 19-03 | [4483456] | February Non-Security rollup .NET 3.x | 3.71 | February 12, 2019 |
+| Rel 19-03 | [4483454] | February Non-Security rollup .NET 4.x | 3.71 | February 12, 2019 |
+| Rel 19-03 | [4487000] | February Non-Security rollup | 4.64 | February 12, 2019 |
+| Rel 19-03 | [4483459] | February Non-Security rollup .NET 3.x | 4.64 | February 12, 2019 |
+| Rel 19-03 | [4483453] | February Non-Security rollup .NET 4.x | 4.64 | February 12, 2019 |
+| Rel 19-03 | [4485447] | February Servicing Stack Update | 5.29 | February 12, 2019 |
+| Rel 19-03 | [4486459] | Timezone update | 2.84, 3.71, 4.64 | February 12, 2019 |
+
+[4489873]: https://support.microsoft.com/kb/4489873
+[4489907]: https://support.microsoft.com/kb/4489907
+[4489885]: https://support.microsoft.com/kb/4489885
+[4489884]: https://support.microsoft.com/kb/4489884
+[4489883]: https://support.microsoft.com/kb/4489883
+[4489882]: https://support.microsoft.com/kb/4489882
+[4489899]: https://support.microsoft.com/kb/4489899
+[4486563]: https://support.microsoft.com/kb/4486563
+[4483458]: https://support.microsoft.com/kb/4483458
+[4483455]: https://support.microsoft.com/kb/4483455
+[4487025]: https://support.microsoft.com/kb/4487025
+[4483456]: https://support.microsoft.com/kb/4483456
+[4483454]: https://support.microsoft.com/kb/4483454
+[4487000]: https://support.microsoft.com/kb/4487000
+[4483459]: https://support.microsoft.com/kb/4483459
+[4483453]: https://support.microsoft.com/kb/4483453
+[4485447]: https://support.microsoft.com/kb/4485447
+[4486459]: https://support.microsoft.com/kb/4486459
+
+## February 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 19-02 | [4486474] | Internet Explorer | 2.83, 3.70, 4.63 | February 12, 2019 |
+| Rel 19-02 | [4487038] | Flash | 3.70, 4.63, 5.28, 6.4 | February 12, 2019 |
+| Rel 19-02 | [4486564] | Windows Security | 2.83 | February 12, 2019 |
+| Rel 19-02 | [4483483] | .NET 3.5.1 Security | 2.83 | February 12, 2019 |
+| Rel 19-02 | [4483474] | .NET 4.5.2 Security | 2.83 | February 12, 2019 |
+| Rel 19-02 | [4486993] | Windows Security | 3.70 | February 12, 2019 |
+| Rel 19-02 | [4483481] | .NET 3.5 Security | 3.70 | February 12, 2019 |
+| Rel 19-02 | [4483473] | .NET 4.5.2 Security | 3.70 | February 12, 2019 |
+| Rel 19-02 | [4487028] | Windows Security | 4.63 | February 12, 2019 |
+| Rel 19-02 | [4483484] | .NET 3.5 Security | 4.63 | February 12, 2019 |
+| Rel 19-02 | [4483472] | .NET 4.5.2 Security | 4.63 | February 12, 2019 |
+| Rel 19-02 | [4487026] | Windows Security | 5.28 | February 12, 2019 |
+| Rel 19-02 | [4487044] | Windows Security | 6.4 | February 12, 2019 |
+| Rel 19-02 | [4483452] | .NET 3.5, 4.7.2 Security | 6.4 | February 12, 2019 |
+| N/A | [4480970] | January Non-Security rollup | 2.83 | January 8, 2019 |
+| N/A | [4483483] | January Non-Security rollup .NET 3.5.1  | 2.83 | January 8, 2019 |
+| N/A | [4480059] | January Non-Security rollup .NET 4.5.2  | 2.83 | January 8, 2019 |
+| N/A | [4480975] | January Non-Security rollup | 3.70 | January 8, 2019 |
+| N/A | [4480061] | January Non-Security rollup .NET 3.5 | 3.70 | January 8, 2019 |
+| N/A | [4480058] | January Non-Security rollup .NET 4.5.2 | 3.70 | January 8, 2019 |
+| N/A | [4480963] | January Non-Security rollup | 4.63 | January 8, 2019 |
+| N/A | [4480064] | January Non-Security rollup .NET 3.5 | 4.63 | January 8, 2019 |
+| N/A | [4480057] | January Non-Security rollup .NET 4.5.2 | 4.63 | January 8, 2019 |
+
+[4486474]: https://support.microsoft.com/kb/4486474
+[4487038]: https://support.microsoft.com/kb/4487038
+[4486564]: https://support.microsoft.com/kb/4486564
+[4483483]: https://support.microsoft.com/kb/4483483
+[4483474]: https://support.microsoft.com/kb/4483474
+[4486993]: https://support.microsoft.com/kb/4486993
+[4483481]: https://support.microsoft.com/kb/4483481
+[4483473]: https://support.microsoft.com/kb/4483473
+[4487028]: https://support.microsoft.com/kb/4487028
+[4483484]: https://support.microsoft.com/kb/4483484
+[4483472]: https://support.microsoft.com/kb/4483472
+[4487026]: https://support.microsoft.com/kb/4487026
+[4487044]: https://support.microsoft.com/kb/4487044
+[4483452]: https://support.microsoft.com/kb/4483452
+[4480970]: https://support.microsoft.com/kb/4480970
+[4483483]: https://support.microsoft.com/kb/4483483
+[4480059]: https://support.microsoft.com/kb/4480059
+[4480975]: https://support.microsoft.com/kb/4480975
+[4480061]: https://support.microsoft.com/kb/4480061
+[4480058]: https://support.microsoft.com/kb/4480058
+[4480963]: https://support.microsoft.com/kb/4480963
+[4480064]: https://support.microsoft.com/kb/4480064
+[4480057]: https://support.microsoft.com/kb/4480057
+
+## January 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 19-01 | [4480116] | Windows 10 Security | 6.3 | January 8, 2019 |
+| Rel 19-01 | [4480961] | Windows 10 Security | 5.27 | January 8, 2019 |
+| Rel 19-01 | [4480964] | Windows Security | 4.62 | January 8, 2019 |
+| Rel 19-01 | [4480972] | Windows Security | 3.69 | January 8, 2019 |
+| Rel 19-01 | [4480960] | Windows Security | 2.82 | January 8, 2019 |
+| Rel 19-01 | [4480056] | .NET Security | 6.3 | January 8, 2019 |
+| Rel 19-01 | [4480074] | .NET 4.x Security | 4.62 | January 8, 2019 |
+| Rel 19-01 | [4480075] | .NET 4.x Security | 3.69 | January 8, 2019 |
+| Rel 19-01 | [4480076] | .NET 4.x Security | 2.82 | January 8, 2019 |
+| Rel 19-01 | [4480086] | .NET 3.x Security | 4.62 | January 8, 2019 |
+| Rel 19-01 | [4480083] | .NET 3.x Security | 3.69 | January 8, 2019 |
+| Rel 19-01 | [4480085] | .NET 3.x Security | 2.82 | January 8, 2019 |
+| Rel 19-01 | [4480979] | Flash | 3.69, 4.62, 5.27, 6.3 | January 8, 2019 |
+| Rel 19-01 | [4480965] | Internet Explorer | 2.82, 3.69, 4.62 | January 8, 2019 |
+| N/A | [4471318] | December Non-Security rollup | 2.82 | December 11, 2018 |
+| N/A | [4470641] | December Non-Security Rollup .NET 3.x | 2.82 | December 11, 2018 |
+| N/A | [4470637] | December Non-Security Rollup .NET 4.x | 2.82 | December 11, 2018 |
+| N/A | [4471330] | December Non-Security rollup | 3.69 | December 11, 2018 |
+| N/A | [4470629] | December Non-Security Rollup .NET 3.x | 3.69 | December 11, 2018 |
+| N/A | [4470623] | December Non-Security Rollup .NET 4.x | 3.69 | December 11, 2018 |
+| N/A | [4471320] | December Non-Security rollup | 4.62 | December 11, 2018 |
+| N/A | [4470630] | December Non-Security Rollup .NET 3.x | 4.62 | December 11, 2018 |
+| N/A | [4470622] | December Non-Security Rollup .NET 4.x | 4.62 | December 11, 2018 |
+
+[4480116]: https://support.microsoft.com/kb/4480116
+[4480961]: https://support.microsoft.com/kb/4480961
+[4480964]: https://support.microsoft.com/kb/4480964
+[4480972]: https://support.microsoft.com/kb/4480972
+[4480960]: https://support.microsoft.com/kb/4480960
+[4480056]: https://support.microsoft.com/kb/4480056
+[4480074]: https://support.microsoft.com/kb/4480074
+[4480075]: https://support.microsoft.com/kb/4480075
+[4480076]: https://support.microsoft.com/kb/4480076
+[4480086]: https://support.microsoft.com/kb/4480086
+[4480083]: https://support.microsoft.com/kb/4480083
+[4480085]: https://support.microsoft.com/kb/4480085
+[4480979]: https://support.microsoft.com/kb/4480979
+[4480965]: https://support.microsoft.com/kb/4480965
+[4471318]: https://support.microsoft.com/kb/4471318
+[4470641]: https://support.microsoft.com/kb/4470641
+[4470637]: https://support.microsoft.com/kb/4470637
+[4471330]: https://support.microsoft.com/kb/4471330
+[4470629]: https://support.microsoft.com/kb/4470629
+[4470623]: https://support.microsoft.com/kb/4470623
+[4471320]: https://support.microsoft.com/kb/4471320
+[4470630]: https://support.microsoft.com/kb/4470630
+[4470622]: https://support.microsoft.com/kb/4470622
+
+## December 2018 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-12 | [4471321] | Windows 10 Security | 5.26 | December 11, 2018 |
+| Rel 18-12 | [4471328] | Windows Security	 | 2.81 | December 11, 2018 |
+| Rel 18-12 | [4471326] | Windows Security	 | 3.68 | December 11, 2018 |
+| Rel 18-12 | [4471322] | Windows Security	 | 4.61 | December 11, 2018 |
+| Rel 18-12 | [4470600] | .NET 3.x Security	 | 2.81 | December 11, 2018 |
+| Rel 18-12 | [4470601] | .NET 3.x Security	 | 3.68 | December 11, 2018|
+| Rel 18-12 | [4470602] | .NET 3.x Security	 | 4.61 | December 11, 2018 |
+| Rel 18-12 | [4470493] | .NET 4.x Security	 | 2.81 | December 11, 2018 |
+| Rel 18-12 | [4470492] | .NET 4.x Security	 | 3.68 | December 11, 2018 |
+| Rel 18-12 | [4470491] | .NET 4.x Security	 | 4.61| December 11, 2018 |
+| Rel 18-12 | [4471331] | Flash	 | 3.68, 4.61, 5.26 | December 5, 2018  |
+| Rel 18-12 | [4470199] | Internet Explorer	 | 2.81, 3.68, 4.61 | December 11, 2018 |
+| N/A | [4468323] | Timezone update	   | 2.81, 3.68, 4.61 | December 13, 2018 |
+| N/A | [4467107] | November Non-Security rollup   | 2.81 | November 13, 2018 |
+| N/A | [4467701] | November Non-Security rollup | 3.68 | November 13, 2018 |
+| N/A | [4467697] | November Non-Security rollup | 4.61 | November 13, 2018 |
+
+[4471321]: https://support.microsoft.com/kb/4471321
+[4471328]: https://support.microsoft.com/kb/4471328
+[4471326]: https://support.microsoft.com/kb/4471326
+[4471322]: https://support.microsoft.com/kb/4471322
+[4470600]: https://support.microsoft.com/kb/4470600
+[4470601]: https://support.microsoft.com/kb/4470601
+[4470602]: https://support.microsoft.com/kb/4470602
+[4470493]: https://support.microsoft.com/kb/4470493
+[4470492]: https://support.microsoft.com/kb/4470492
+[4470491]: https://support.microsoft.com/kb/4470491
+[4471331]: https://support.microsoft.com/kb/4471331
+[4470199]: https://support.microsoft.com/kb/4470199
+[4468323]: https://support.microsoft.com/kb/4468323
+[4467107]: https://support.microsoft.com/kb/4467107
+[4467701]: https://support.microsoft.com/kb/4467701
+[4467697]: https://support.microsoft.com/kb/4467697
+
+## November 2018 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-11 | [4466536] | Internet Explorer | 2.80, 3.67, 4.60 | November 13, 2018 |
+| Rel 18-11 | [4467694] | Flash | 3.67, 4.60, 5.25 | November 13, 2018 |
+| Rel 18-11 | [4467106] | Windows Security | 2.80 | November 13, 2018 |
+| Rel 18-11 | [4467678] | Windows Security | 3.67 | November 13, 2018 |
+| Rel 18-11 | [4467703] | Windows Security | 4.60 | November 13, 2018 |
+| Rel 18-11 | [4467691] | Windows 10 Security | 5.25 | November 13, 2018 |
+| N/A | [3173426] | Servicing Stack Update | 3.67 | July 12, 2016 |
+| N/A | [4465659] | Servicing Stack Update | 5.25 | November 13, 2018 |
+| N/A | [4462923] | October Non-Security rollup | 2.80 | October 9, 2018 |
+| N/A | [4462929] | October Non-Security rollup | 3.67 | October 9, 2018 |
+| N/A | [4462926] | October Non-Security rollup | 4.60 | October 9, 2018 |
+| N/A | [3109976] | App compat shims | 4.60 | April 12, 2016 |
+| N/A | [4457037] | App compat shims | 4.60| June 12, 2018 |
+
+[4466536]: https://support.microsoft.com/kb/4466536
+[4467694]: https://support.microsoft.com/kb/4467694
+[4467106]: https://support.microsoft.com/kb/4467106
+[4467678]: https://support.microsoft.com/kb/4467678
+[4467703]: https://support.microsoft.com/kb/4467703
+[4467691]: https://support.microsoft.com/kb/4467691
+[3173426]: https://support.microsoft.com/kb/3173426
+[4465659]: https://support.microsoft.com/kb/4465659
+[4462923]: https://support.microsoft.com/kb/4462923
+[4462929]: https://support.microsoft.com/kb/4462929
+[4462926]: https://support.microsoft.com/kb/4462926
+[3109976]: https://support.microsoft.com/kb/3109976
+[4457037]: https://support.microsoft.com/kb/4457037
 
 ## October 2018 Guest OS
 
@@ -40,22 +1631,22 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4457045] | September Non-Security .NET 3.5 rollup | 4.59 | September 11, 2018 |
 | N/A | [4457036] | September Non-Security .NET 4.5.2 rollup | 4.59 | September 11, 2018 |
 
-[4462917]: http://support.microsoft.com/kb/4462917
-[4462915]: http://support.microsoft.com/kb/4462915
-[4462931]: http://support.microsoft.com/kb/4462931
-[4462941]: http://support.microsoft.com/kb/4462941
-[4462930]: http://support.microsoft.com/kb/4462930
-[4462949]: http://support.microsoft.com/kb/4462949
-[4339284]: http://support.microsoft.com/kb/4339284
-[4457144]: http://support.microsoft.com/kb/4457144
-[4457044]: http://support.microsoft.com/kb/4457044
-[4457038]: http://support.microsoft.com/kb/4457038
-[4457135]: http://support.microsoft.com/kb/4457135
-[4457042]: http://support.microsoft.com/kb/4457042
-[4457037]: http://support.microsoft.com/kb/4457037
-[4457129]: http://support.microsoft.com/kb/4457129
-[4457045]: http://support.microsoft.com/kb/4457045
-[4457036]: http://support.microsoft.com/kb/4457036
+[4462917]: https://support.microsoft.com/kb/4462917
+[4462915]: https://support.microsoft.com/kb/4462915
+[4462931]: https://support.microsoft.com/kb/4462931
+[4462941]: https://support.microsoft.com/kb/4462941
+[4462930]: https://support.microsoft.com/kb/4462930
+[4462949]: https://support.microsoft.com/kb/4462949
+[4339284]: https://support.microsoft.com/kb/4339284
+[4457144]: https://support.microsoft.com/kb/4457144
+[4457044]: https://support.microsoft.com/kb/4457044
+[4457038]: https://support.microsoft.com/kb/4457038
+[4457135]: https://support.microsoft.com/kb/4457135
+[4457042]: https://support.microsoft.com/kb/4457042
+[4457037]: https://support.microsoft.com/kb/4457037
+[4457129]: https://support.microsoft.com/kb/4457129
+[4457045]: https://support.microsoft.com/kb/4457045
+[4457036]: https://support.microsoft.com/kb/4457036
 
 ## September 2018 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -318,7 +1909,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4014511] |May .NET non-security rollup |2.63 |May 9, 2017 |
 | N/A | [4014514] |May .NET non-security rollup |2.63 |May 9, 2017 |
 | N/A | [4019216] |May non-security rollup |3.50 |May 9, 2017 |
-| N/A | [4014503] |May .NET non-security rollup |3.50 |May 9, 2017 |
+| N/A | 4014503 |May .NET non-security rollup |3.50 |May 9, 2017 |
 | N/A | [4014506] |May .NET non-security rollup |3.50 |May 9, 2017 |
 | N/A | [4014509] |May .NET non-security rollup |3.50 |May 9, 2017 |
 | N/A | [4014513] |May .NET non-security rollup |3.50 |May 9, 2017 |
@@ -339,7 +1930,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 17-05 | [4010323] |SHA1 Advisory |2.62, 4.42, 5.7 | May 9, 2017 |
 | Rel 17-05 | [4022344] |Microsoft Security Advisory |5.7 | May 9, 2017 |
 | Rel 17-05 | [4022345] |Microsoft Security Advisory |5.7 | May 9, 2017 |
-| Rel 17-05 | [4021279] |.Net /ASP.Net Core Advisory |2.62, 3.49, 4.42, 5.7 | May 9, 2017 |
+| Rel 17-05 | [4021279] |.NET /ASP.NET Core Advisory |2.62, 3.49, 4.42, 5.7 | May 9, 2017 |
 | N/A | [4012864] |Timezone Update |2.62, 3.49, 4.42 | May 9, 2017 |
 | N/A | [4014565] |April .NET non-security rollup |2.62 | April 11, 2017 |
 | N/A | [4014559] |April .NET non-security rollup |2.62 | April 11, 2017 |
@@ -536,7 +2127,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS16-060 |[3154846] |Security Update for Windows Kernel |4.32, 3.39, 2.51 |May 10, 2016 |
 | MS16-061 |[3155520] |Security Update to RPC |4.32, 3.39, 2.51 |May 10, 2016 |
 | MS16-062 |[3158222] |Security Update for Kernel Mode Drivers |4.32, 3.39, 2.51 |May 10, 2016 |
-| MS16-065 |[3156757] |Security Update for .Net Framework |4.32, 3.39, 2.51 |May 10, 2016 |
+| MS16-065 |[3156757] |Security Update for .NET Framework |4.32, 3.39, 2.51 |May 10, 2016 |
 | MS16-067 |[3155784] |Security Update for Volume Manager Driver |4.32, 3.39 |May 10, 2016 |
 | N/A |[3148851] |Time zone changes for Russia in Windows  |4.32, 3.39, 2.51 |May 10, 2016 |
 | N/A |[3133977] |BitLocker can't encrypt drives because of service crashes in svchost.exe process in Windows 7 or Windows Server 2008 R2  |2.51 |May 10, 2016 |
@@ -772,683 +2363,682 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[2999802] |Solid lines instead of dotted lines are printed in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2896881] |Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
-[4457131]: http://support.microsoft.com/kb/4457131
-[4457145]: http://support.microsoft.com/kb/4457145
-[4457140]: http://support.microsoft.com/kb/4457140
-[4457143]: http://support.microsoft.com/kb/4457143
-[4457055]: http://support.microsoft.com/kb/4457055
-[4457030]: http://support.microsoft.com/kb/4457030
-[4457053]: http://support.microsoft.com/kb/4457053
-[4457029]: http://support.microsoft.com/kb/4457029
-[4457056]: http://support.microsoft.com/kb/4457056
-[4457028]: http://support.microsoft.com/kb/4457028
-[4457146]: http://support.microsoft.com/kb/4457146
-[4457426]: http://support.microsoft.com/kb/4457426
-[4343900]: http://support.microsoft.com/kb/4343900
-[4344152]: http://support.microsoft.com/kb/4344152
-[4344149]: http://support.microsoft.com/kb/4344149
-[4343901]: http://support.microsoft.com/kb/4343901
-[4344150]: http://support.microsoft.com/kb/4344150
-[4344148]: http://support.microsoft.com/kb/4344148
-[4343898]: http://support.microsoft.com/kb/4343898
-[4344153]: http://support.microsoft.com/kb/4344153
-[4344147]: http://support.microsoft.com/kb/4344147
+[4457131]: https://support.microsoft.com/kb/4457131
+[4457145]: https://support.microsoft.com/kb/4457145
+[4457140]: https://support.microsoft.com/kb/4457140
+[4457143]: https://support.microsoft.com/kb/4457143
+[4457055]: https://support.microsoft.com/kb/4457055
+[4457030]: https://support.microsoft.com/kb/4457030
+[4457053]: https://support.microsoft.com/kb/4457053
+[4457029]: https://support.microsoft.com/kb/4457029
+[4457056]: https://support.microsoft.com/kb/4457056
+[4457028]: https://support.microsoft.com/kb/4457028
+[4457146]: https://support.microsoft.com/kb/4457146
+[4457426]: https://support.microsoft.com/kb/4457426
+[4343900]: https://support.microsoft.com/kb/4343900
+[4344152]: https://support.microsoft.com/kb/4344152
+[4344149]: https://support.microsoft.com/kb/4344149
+[4343901]: https://support.microsoft.com/kb/4343901
+[4344150]: https://support.microsoft.com/kb/4344150
+[4344148]: https://support.microsoft.com/kb/4344148
+[4343898]: https://support.microsoft.com/kb/4343898
+[4344153]: https://support.microsoft.com/kb/4344153
+[4344147]: https://support.microsoft.com/kb/4344147
 
-[4457131]: http://support.microsoft.com/kb/4457131
-[4457145]: http://support.microsoft.com/kb/4457145
-[4457140]: http://support.microsoft.com/kb/4457140
-[4457143]: http://support.microsoft.com/kb/4457143
-[4457055]: http://support.microsoft.com/kb/4457055
-[4457030]: http://support.microsoft.com/kb/4457030
-[4457053]: http://support.microsoft.com/kb/4457053
-[4457029]: http://support.microsoft.com/kb/4457029
-[4457056]: http://support.microsoft.com/kb/4457056
-[4457028]: http://support.microsoft.com/kb/4457028
-[4457146]: http://support.microsoft.com/kb/4457146
-[4457426]: http://support.microsoft.com/kb/4457426
-[4343900]: http://support.microsoft.com/kb/4343900
-[4344152]: http://support.microsoft.com/kb/4344152
-[4344149]: http://support.microsoft.com/kb/4344149
-[4343901]: http://support.microsoft.com/kb/4343901
-[4344150]: http://support.microsoft.com/kb/4344150
-[4344148]: http://support.microsoft.com/kb/4344148
-[4343898]: http://support.microsoft.com/kb/4343898
-[4344153]: http://support.microsoft.com/kb/4344153
-[4344147]: http://support.microsoft.com/kb/4344147
+[4457131]: https://support.microsoft.com/kb/4457131
+[4457145]: https://support.microsoft.com/kb/4457145
+[4457140]: https://support.microsoft.com/kb/4457140
+[4457143]: https://support.microsoft.com/kb/4457143
+[4457055]: https://support.microsoft.com/kb/4457055
+[4457030]: https://support.microsoft.com/kb/4457030
+[4457053]: https://support.microsoft.com/kb/4457053
+[4457029]: https://support.microsoft.com/kb/4457029
+[4457056]: https://support.microsoft.com/kb/4457056
+[4457028]: https://support.microsoft.com/kb/4457028
+[4457146]: https://support.microsoft.com/kb/4457146
+[4457426]: https://support.microsoft.com/kb/4457426
+[4343900]: https://support.microsoft.com/kb/4343900
+[4344152]: https://support.microsoft.com/kb/4344152
+[4344149]: https://support.microsoft.com/kb/4344149
+[4343901]: https://support.microsoft.com/kb/4343901
+[4344150]: https://support.microsoft.com/kb/4344150
+[4344148]: https://support.microsoft.com/kb/4344148
+[4343898]: https://support.microsoft.com/kb/4343898
+[4344153]: https://support.microsoft.com/kb/4344153
+[4344147]: https://support.microsoft.com/kb/4344147
 
-[4343887]: http://support.microsoft.com/kb/4343887
-[4343899]: http://support.microsoft.com/kb/4343899
-[4343896]: http://support.microsoft.com/kb/4343896
-[4343888]: http://support.microsoft.com/kb/4343888
-[4344177]: http://support.microsoft.com/kb/4344177
-[4344173]: http://support.microsoft.com/kb/4344173
-[4344175]: http://support.microsoft.com/kb/4344175
-[4344172]: http://support.microsoft.com/kb/4344172
-[4344178]: http://support.microsoft.com/kb/4344178
-[4344171]: http://support.microsoft.com/kb/4344171
-[4346742]: http://support.microsoft.com/kb/4346742
-[4346739]: http://support.microsoft.com/kb/4346739
-[4346745]: http://support.microsoft.com/kb/4346745
-[4346408]: http://support.microsoft.com/kb/4346408
-[4343902]: http://support.microsoft.com/kb/4343902
-[4343205]: http://support.microsoft.com/kb/4343205
-[4338818]: http://support.microsoft.com/kb/4338818
-[4019990]: http://support.microsoft.com/kb/4019990
-[4338830]: http://support.microsoft.com/kb/4338830
-[4338421]: http://support.microsoft.com/kb/4338421
-[4338416]: http://support.microsoft.com/kb/4338416
-[4338815]: http://support.microsoft.com/kb/4338815
-[4338424]: http://support.microsoft.com/kb/4338424
-[4338415]: http://support.microsoft.com/kb/4338415
-
-
-[4338814]: http://support.microsoft.com/kb/4338814
-[4338823]: http://support.microsoft.com/kb/4338823
-[4338820]: http://support.microsoft.com/kb/4338820
-[4338824]: http://support.microsoft.com/kb/4338824
-[4345459]: http://support.microsoft.com/kb/4345459
-[4345425]: http://support.microsoft.com/kb/4345425
-[4345424]: http://support.microsoft.com/kb/4345424
-[4345418]: http://support.microsoft.com/kb/4345418
-[4338612]: http://support.microsoft.com/kb/4338612
-[4338602]: http://support.microsoft.com/kb/4338602
-[4338601]: http://support.microsoft.com/kb/4338601
-[4338604]: http://support.microsoft.com/kb/4338604
-[4338613]: http://support.microsoft.com/kb/4338613
-[4338600]: http://support.microsoft.com/kb/4338600
-[4338605]: http://support.microsoft.com/kb/4338605
-[4338832]: http://support.microsoft.com/kb/4338832
-[4284826]: http://support.microsoft.com/kb/4284826
-[4284855]: http://support.microsoft.com/kb/4284855
-[4284815]: http://support.microsoft.com/kb/4284815
-[4339093]: http://support.microsoft.com/kb/4339093
-
-[4284880]: http://support.microsoft.com/kb/4284880
-[4284867]: http://support.microsoft.com/kb/4284867
-[4284846]: http://support.microsoft.com/kb/4284846
-[4284878]: http://support.microsoft.com/kb/4284878
-[4230450]: http://support.microsoft.com/kb/4230450
-[4287903]: http://support.microsoft.com/kb/4287903
-[4103718]: http://support.microsoft.com/kb/4103718
-[4103718]: http://support.microsoft.com/kb/4103718
-[4103730]: http://support.microsoft.com/kb/4103730
-[4103725]: http://support.microsoft.com/kb/4103725
-[4040980]: http://support.microsoft.com/kb/4040980
-[4040977]: http://support.microsoft.com/kb/4040977
-[4095874]: http://support.microsoft.com/kb/4095874
-[4096495]: http://support.microsoft.com/kb/4096495
-[4040975]: http://support.microsoft.com/kb/4040975
-[4095872]: http://support.microsoft.com/kb/4095872
-[4096494]: http://support.microsoft.com/kb/4096494
-[4096416]: http://support.microsoft.com/kb/4096416
-[4040974]: http://support.microsoft.com/kb/4040974
-[4040972]: http://support.microsoft.com/kb/4040972
-[4043763]: http://support.microsoft.com/kb/4043763
-[4095876]: http://support.microsoft.com/kb/4095876
-[4096417]: http://support.microsoft.com/kb/4096417
-[4132216]: http://support.microsoft.com/kb/4132216
-
-[4103721]: http://support.microsoft.com/kb/4103721
-[4103727]: http://support.microsoft.com/kb/4103727 
-[4103723]: http://support.microsoft.com/kb/4103723
-[4103712]: http://support.microsoft.com/kb/4103712
-[4103726]: http://support.microsoft.com/kb/4103726
-[4103715]: http://support.microsoft.com/kb/4103715
-[4095514]: http://support.microsoft.com/kb/4095514
-[4095519]: http://support.microsoft.com/kb/4095519
-[4095512]: http://support.microsoft.com/kb/4095512
-[4095518]: http://support.microsoft.com/kb/4095518
-[4096235]: http://support.microsoft.com/kb/4096235
-[4095515]: http://support.microsoft.com/kb/4095515
-[4095517]: http://support.microsoft.com/kb/4095517
-[4096236]: http://support.microsoft.com/kb/4096236
-[4054856]: http://support.microsoft.com/kb/4054856
-[4103768]: http://support.microsoft.com/kb/4103768
-[4103729]: http://support.microsoft.com/kb/4103729
-[4093118]: http://support.microsoft.com/kb/4093118
-[4093123]: http://support.microsoft.com/kb/4093123
-[4093114]: http://support.microsoft.com/kb/4093114
-[4093137]: http://support.microsoft.com/kb/4093137
-[4093753]: http://support.microsoft.com/kb/4093753
-
-[4093119]: http://support.microsoft.com/kb/4093119
-[4093108]: http://support.microsoft.com/kb/4093108 
-[4093122]: http://support.microsoft.com/kb/4093122
-[4093115]: http://support.microsoft.com/kb/4093115
-[4092946]: http://support.microsoft.com/kb/4092946
-[4093110]: http://support.microsoft.com/kb/4093110
-[4088875]: http://support.microsoft.com/kb/4088875
-[4099950]: http://support.microsoft.com/kb/4099950
-[4088877]: http://support.microsoft.com/kb/4088877
-[4088876]: http://support.microsoft.com/kb/4088876
-
-[4088787]: http://support.microsoft.com/kb/4088787
-[4088776]: http://support.microsoft.com/kb/4088776 
-[4088878]: http://support.microsoft.com/kb/4088878
-[4088880]: http://support.microsoft.com/kb/4088880
-[4088879]: http://support.microsoft.com/kb/4088879
-[4089187]: http://support.microsoft.com/kb/4089187
-[4088785]: http://support.microsoft.com/kb/4088785
-[4074598]: http://support.microsoft.com/kb/4074598
-[4074593]: http://support.microsoft.com/kb/4074593
-[4074594]: http://support.microsoft.com/kb/4074594
-[4074837]: http://support.microsoft.com/kb/4074837
-
-[4074590]: http://support.microsoft.com/kb/4074590
-[4074588]: http://support.microsoft.com/kb/4074588 
-[4074587]: http://support.microsoft.com/kb/4074587
-[4074589]: http://support.microsoft.com/kb/4074589
-[4074597]: http://support.microsoft.com/kb/4074597
-[4074736]: http://support.microsoft.com/kb/4074736
-[4074595]: http://support.microsoft.com/kb/4074595
-[4056894]: http://support.microsoft.com/kb/4056894
-[4056896]: http://support.microsoft.com/kb/4056896
-[4056895]: http://support.microsoft.com/kb/4048958
-[4054176]: http://support.microsoft.com/kb/4054176
-[4054172]: http://support.microsoft.com/kb/4054172
-[4054175]: http://support.microsoft.com/kb/4054175
-[4054171]: http://support.microsoft.com/kb/4054171
-[4054177]: http://support.microsoft.com/kb/4054177
-[4054170]: http://support.microsoft.com/kb/4054170
+[4343887]: https://support.microsoft.com/kb/4343887
+[4343899]: https://support.microsoft.com/kb/4343899
+[4343896]: https://support.microsoft.com/kb/4343896
+[4343888]: https://support.microsoft.com/kb/4343888
+[4344177]: https://support.microsoft.com/kb/4344177
+[4344173]: https://support.microsoft.com/kb/4344173
+[4344175]: https://support.microsoft.com/kb/4344175
+[4344172]: https://support.microsoft.com/kb/4344172
+[4344178]: https://support.microsoft.com/kb/4344178
+[4344171]: https://support.microsoft.com/kb/4344171
+[4346742]: https://support.microsoft.com/kb/4346742
+[4346739]: https://support.microsoft.com/kb/4346739
+[4346745]: https://support.microsoft.com/kb/4346745
+[4346408]: https://support.microsoft.com/kb/4346408
+[4343902]: https://support.microsoft.com/kb/4343902
+[4343205]: https://support.microsoft.com/kb/4343205
+[4338818]: https://support.microsoft.com/kb/4338818
+[4019990]: https://support.microsoft.com/kb/4019990
+[4338830]: https://support.microsoft.com/kb/4338830
+[4338421]: https://support.microsoft.com/kb/4338421
+[4338416]: https://support.microsoft.com/kb/4338416
+[4338815]: https://support.microsoft.com/kb/4338815
+[4338424]: https://support.microsoft.com/kb/4338424
+[4338415]: https://support.microsoft.com/kb/4338415
 
 
-[4056898]: http://support.microsoft.com/kb/4056898
-[4056897]: http://support.microsoft.com/kb/4056897
-[4056899]: http://support.microsoft.com/kb/4056899
-[4056890]: http://support.microsoft.com/kb/4056890 
-[4056892]: http://support.microsoft.com/kb/4056892
-[4054518]: http://support.microsoft.com/kb/4054518
-[4054520]: http://support.microsoft.com/kb/4054520
-[4054519]: http://support.microsoft.com/kb/4054519
-[4051956]: http://support.microsoft.com/kb/4051956
+[4338814]: https://support.microsoft.com/kb/4338814
+[4338823]: https://support.microsoft.com/kb/4338823
+[4338820]: https://support.microsoft.com/kb/4338820
+[4338824]: https://support.microsoft.com/kb/4338824
+[4345459]: https://support.microsoft.com/kb/4345459
+[4345425]: https://support.microsoft.com/kb/4345425
+[4345424]: https://support.microsoft.com/kb/4345424
+[4345418]: https://support.microsoft.com/kb/4345418
+[4338612]: https://support.microsoft.com/kb/4338612
+[4338602]: https://support.microsoft.com/kb/4338602
+[4338601]: https://support.microsoft.com/kb/4338601
+[4338604]: https://support.microsoft.com/kb/4338604
+[4338613]: https://support.microsoft.com/kb/4338613
+[4338600]: https://support.microsoft.com/kb/4338600
+[4338605]: https://support.microsoft.com/kb/4338605
+[4338832]: https://support.microsoft.com/kb/4338832
+[4284826]: https://support.microsoft.com/kb/4284826
+[4284855]: https://support.microsoft.com/kb/4284855
+[4284815]: https://support.microsoft.com/kb/4284815
+[4339093]: https://support.microsoft.com/kb/4339093
+
+[4284880]: https://support.microsoft.com/kb/4284880
+[4284867]: https://support.microsoft.com/kb/4284867
+[4284846]: https://support.microsoft.com/kb/4284846
+[4284878]: https://support.microsoft.com/kb/4284878
+[4230450]: https://support.microsoft.com/kb/4230450
+[4287903]: https://support.microsoft.com/kb/4287903
+[4103718]: https://support.microsoft.com/kb/4103718
+[4103718]: https://support.microsoft.com/kb/4103718
+[4103730]: https://support.microsoft.com/kb/4103730
+[4103725]: https://support.microsoft.com/kb/4103725
+[4040980]: https://support.microsoft.com/kb/4040980
+[4040977]: https://support.microsoft.com/kb/4040977
+[4095874]: https://support.microsoft.com/kb/4095874
+[4096495]: https://support.microsoft.com/kb/4096495
+[4040975]: https://support.microsoft.com/kb/4040975
+[4095872]: https://support.microsoft.com/kb/4095872
+[4096494]: https://support.microsoft.com/kb/4096494
+[4096416]: https://support.microsoft.com/kb/4096416
+[4040974]: https://support.microsoft.com/kb/4040974
+[4040972]: https://support.microsoft.com/kb/4040972
+[4043763]: https://support.microsoft.com/kb/4043763
+[4095876]: https://support.microsoft.com/kb/4095876
+[4096417]: https://support.microsoft.com/kb/4096417
+[4132216]: https://support.microsoft.com/kb/4132216
+
+[4103721]: https://support.microsoft.com/kb/4103721
+[4103727]: https://support.microsoft.com/kb/4103727
+[4103723]: https://support.microsoft.com/kb/4103723
+[4103712]: https://support.microsoft.com/kb/4103712
+[4103726]: https://support.microsoft.com/kb/4103726
+[4103715]: https://support.microsoft.com/kb/4103715
+[4095514]: https://support.microsoft.com/kb/4095514
+[4095519]: https://support.microsoft.com/kb/4095519
+[4095512]: https://support.microsoft.com/kb/4095512
+[4095518]: https://support.microsoft.com/kb/4095518
+[4096235]: https://support.microsoft.com/kb/4096235
+[4095515]: https://support.microsoft.com/kb/4095515
+[4095517]: https://support.microsoft.com/kb/4095517
+[4096236]: https://support.microsoft.com/kb/4096236
+[4054856]: https://support.microsoft.com/kb/4054856
+[4103768]: https://support.microsoft.com/kb/4103768
+[4103729]: https://support.microsoft.com/kb/4103729
+[4093118]: https://support.microsoft.com/kb/4093118
+[4093123]: https://support.microsoft.com/kb/4093123
+[4093114]: https://support.microsoft.com/kb/4093114
+[4093137]: https://support.microsoft.com/kb/4093137
+[4093753]: https://support.microsoft.com/kb/4093753
+
+[4093119]: https://support.microsoft.com/kb/4093119
+[4093108]: https://support.microsoft.com/kb/4093108
+[4093122]: https://support.microsoft.com/kb/4093122
+[4093115]: https://support.microsoft.com/kb/4093115
+[4092946]: https://support.microsoft.com/kb/4092946
+[4093110]: https://support.microsoft.com/kb/4093110
+[4088875]: https://support.microsoft.com/kb/4088875
+[4099950]: https://support.microsoft.com/kb/4099950
+[4088877]: https://support.microsoft.com/kb/4088877
+[4088876]: https://support.microsoft.com/kb/4088876
+
+[4088787]: https://support.microsoft.com/kb/4088787
+[4088776]: https://support.microsoft.com/kb/4088776
+[4088878]: https://support.microsoft.com/kb/4088878
+[4088880]: https://support.microsoft.com/kb/4088880
+[4088879]: https://support.microsoft.com/kb/4088879
+[4089187]: https://support.microsoft.com/kb/4089187
+[4088785]: https://support.microsoft.com/kb/4088785
+[4074598]: https://support.microsoft.com/kb/4074598
+[4074593]: https://support.microsoft.com/kb/4074593
+[4074594]: https://support.microsoft.com/kb/4074594
+[4074837]: https://support.microsoft.com/kb/4074837
+
+[4074590]: https://support.microsoft.com/kb/4074590
+[4074588]: https://support.microsoft.com/kb/4074588
+[4074587]: https://support.microsoft.com/kb/4074587
+[4074589]: https://support.microsoft.com/kb/4074589
+[4074597]: https://support.microsoft.com/kb/4074597
+[4074736]: https://support.microsoft.com/kb/4074736
+[4074595]: https://support.microsoft.com/kb/4074595
+[4056894]: https://support.microsoft.com/kb/4056894
+[4056896]: https://support.microsoft.com/kb/4056896
+[4056895]: https://support.microsoft.com/kb/4048958
+[4054176]: https://support.microsoft.com/kb/4054176
+[4054172]: https://support.microsoft.com/kb/4054172
+[4054175]: https://support.microsoft.com/kb/4054175
+[4054171]: https://support.microsoft.com/kb/4054171
+[4054177]: https://support.microsoft.com/kb/4054177
+[4054170]: https://support.microsoft.com/kb/4054170
 
 
-[4053579]: http://support.microsoft.com/kb/4053579
-[4054517]: http://support.microsoft.com/kb/4054517 
-[4054521]: http://support.microsoft.com/kb/4054521
-[4054522]: http://support.microsoft.com/kb/4054522
-[4054523]: http://support.microsoft.com/kb/4054523
-[4052978]: http://support.microsoft.com/kb/4052978
-[4048951]: http://support.microsoft.com/kb/4048951
-[4048957]: http://support.microsoft.com/kb/4048957
-[4048959]: http://support.microsoft.com/kb/4048959
-[4048958]: http://support.microsoft.com/kb/4048958
-[4049068]: http://support.microsoft.com/kb/4049068
+[4056898]: https://support.microsoft.com/kb/4056898
+[4056897]: https://support.microsoft.com/kb/4056897
+[4056899]: https://support.microsoft.com/kb/4056899
+[4056890]: https://support.microsoft.com/kb/4056890
+[4056892]: https://support.microsoft.com/kb/4056892
+[4054518]: https://support.microsoft.com/kb/4054518
+[4054520]: https://support.microsoft.com/kb/4054520
+[4054519]: https://support.microsoft.com/kb/4054519
+[4051956]: https://support.microsoft.com/kb/4051956
 
 
-[4048953]: http://support.microsoft.com/kb/4048953
-[4048960]: http://support.microsoft.com/kb/4048960 
-[4048962]: http://support.microsoft.com/kb/4048962
-[4048961]: http://support.microsoft.com/kb/4048961
-[4047206]: http://support.microsoft.com/kb/4047206
-[4048951]: http://support.microsoft.com/kb/4048951
-[4041681]: http://support.microsoft.com/kb/4041681
-[4041693]: http://support.microsoft.com/kb/4041693
-[4041690]: http://support.microsoft.com/kb/4041690
-[3191566]: http://support.microsoft.com/kb/3191566
-[3191565]: http://support.microsoft.com/kb/3191565
-[3191564]: http://support.microsoft.com/kb/3191564
+[4053579]: https://support.microsoft.com/kb/4053579
+[4054517]: https://support.microsoft.com/kb/4054517
+[4054521]: https://support.microsoft.com/kb/4054521
+[4054522]: https://support.microsoft.com/kb/4054522
+[4054523]: https://support.microsoft.com/kb/4054523
+[4052978]: https://support.microsoft.com/kb/4052978
+[4048951]: https://support.microsoft.com/kb/4048951
+[4048957]: https://support.microsoft.com/kb/4048957
+[4048959]: https://support.microsoft.com/kb/4048959
+[4048958]: https://support.microsoft.com/kb/4048958
+[4049068]: https://support.microsoft.com/kb/4049068
 
 
-[4041691]: http://support.microsoft.com/kb/4041691 
-[4041678]: http://support.microsoft.com/kb/4041678 
-[4041679]: http://support.microsoft.com/kb/4041679
-[4041687]: http://support.microsoft.com/kb/4041687
-[4040685]: http://support.microsoft.com/kb/4040685
-[4041681]: http://support.microsoft.com/kb/4041681
-[4041690]: http://support.microsoft.com/kb/4041690
-[4041693]: http://support.microsoft.com/kb/4041693
-[4038777]: http://support.microsoft.com/kb/4038777
-[4038799]: http://support.microsoft.com/kb/4038799
-[4038792]: http://support.microsoft.com/kb/4038792
-[4040980]: http://support.microsoft.com/kb/4040980
-[4040979]: http://support.microsoft.com/kb/4040979
-[4040981]: http://support.microsoft.com/kb/4040981
-
-[4038782]: http://support.microsoft.com/kb/4038782
-[4038779]: http://support.microsoft.com/kb/4038779
-[4038786]: http://support.microsoft.com/kb/4038786
-[4038793]: http://support.microsoft.com/kb/4038793
-[4040966]: http://support.microsoft.com/kb/4040966
-[4040960]: http://support.microsoft.com/kb/4040960
-[4040965]: http://support.microsoft.com/kb/4040965
-[4040959]: http://support.microsoft.com/kb/4040959
-[4033988]: http://support.microsoft.com/kb/4033988
-[4040955]: http://support.microsoft.com/kb/4040955
-[4040967]: http://support.microsoft.com/kb/4040967
-[4040958]: http://support.microsoft.com/kb/4040958
-[4036586]: http://support.microsoft.com/kb/4036586
-[4034664]: http://support.microsoft.com/kb/4034664
-[4034665]: http://support.microsoft.com/kb/4034665
-[4034681]: http://support.microsoft.com/kb/4034681
-
-[4034658]: http://support.microsoft.com/kb/4034658
-[4034679]: http://support.microsoft.com/kb/4034679
-[4034672]: http://support.microsoft.com/kb/4034672
-[4034666]: http://support.microsoft.com/kb/4034666
-[4034733]: http://support.microsoft.com/kb/4034733
-[4034664]: http://support.microsoft.com/kb/4034664
-[4034665]: http://support.microsoft.com/kb/4034665
-[4034681]: http://support.microsoft.com/kb/4034681
-[4034668]: http://support.microsoft.com/kb/4034668
-[4034660]: http://support.microsoft.com/kb/4034660
-[4034658]: http://support.microsoft.com/kb/4034658
-[4034674]: http://support.microsoft.com/kb/4034674
-[4025341]: http://support.microsoft.com/kb/4025341
-[4025331]: http://support.microsoft.com/kb/4025331
-[4025336]: http://support.microsoft.com/kb/4025336
-
-[4025339]: http://support.microsoft.com/kb/4025337
-[4025337]: http://support.microsoft.com/kb/4025333
-[4025333]: http://support.microsoft.com/kb/4025343
-[4025343]: http://support.microsoft.com/kb/4025376
-[4025252]: http://support.microsoft.com/kb/4025252
-[4025376]: http://support.microsoft.com/kb/4025376
-[4020322]: http://support.microsoft.com/kb/4020322
-[4022719]: http://support.microsoft.com/kb/4022719
-[4022724]: http://support.microsoft.com/kb/4022724
-[4022726]: http://support.microsoft.com/kb/4022726
-
-[4022722]: http://support.microsoft.com/kb/4022722
-[4022717]: http://support.microsoft.com/kb/4022717
-[4022718]: http://support.microsoft.com/kb/4022718
-[4021558]: http://support.microsoft.com/kb/4021558
-[4022719]: http://support.microsoft.com/kb/4022719
-[4022724]: http://support.microsoft.com/kb/4022724
-[4022726]: http://support.microsoft.com/kb/4022726
-[4022730]: http://support.microsoft.com/kb/4022730
-[4015221]: http://support.microsoft.com/kb/4015221
-[4015583]: http://support.microsoft.com/kb/4015583
-[4015219]: http://support.microsoft.com/kb/4015219
-[4023136]: http://support.microsoft.com/kb/4023136
-[4019264]: http://support.microsoft.com/kb/4019264
-[4014545]: http://support.microsoft.com/kb/4014545
-[4014508]: http://support.microsoft.com/kb/4014508
-[4014511]: http://support.microsoft.com/kb/4014511
-[4014514]: http://support.microsoft.com/kb/4014514
-[4019216]: http://support.microsoft.com/kb/4019216
-[4014503]: http://support.microsoft.com/kb/4014503
-[4014506]: http://support.microsoft.com/kb/4014506
-[4014509]: http://support.microsoft.com/kb/4014509
-[4014513]: http://support.microsoft.com/kb/4014513
-[4019215]: http://support.microsoft.com/kb/4019215
-[4014505]: http://support.microsoft.com/kb/4014505
-[4014507]: http://support.microsoft.com/kb/4014507
-[4014510]: http://support.microsoft.com/kb/4014510
-[4014512]: http://support.microsoft.com/kb/4014512
-
-[4019472]: http://support.microsoft.com/kb/4019472
-[4019263]: http://support.microsoft.com/kb/4019263
-[4019213]: http://support.microsoft.com/kb/4019213
-[4019214]: http://support.microsoft.com/kb/4019214
-[4018271]: http://support.microsoft.com/kb/4018271
-[4010323]: http://support.microsoft.com/kb/4010323
-[4012864]: http://support.microsoft.com/kb/4012864
-[4014565]: http://support.microsoft.com/kb/4014565
-[4014559]: http://support.microsoft.com/kb/4014559
-[4015549]: http://support.microsoft.com/kb/4015549
-[4019990]: http://support.microsoft.com/kb/4019990
-[4014563]: http://support.microsoft.com/kb/4014563
-[4014557]: http://support.microsoft.com/kb/4014557
-[4014545]: http://support.microsoft.com/kb/4014545
-[4014548]: http://support.microsoft.com/kb/4014548
-[4015551]: http://support.microsoft.com/kb/4015551
-[3173424]: http://support.microsoft.com/kb/3173424
-[4014555]: http://support.microsoft.com/kb/4014555
-[4014567]: http://support.microsoft.com/kb/4014567
-[4015550]: http://support.microsoft.com/kb/4015550
-[4013418]: http://support.microsoft.com/kb/4013418
-[4022345]: https://technet.microsoft.com/library/security/4022345.aspx
-[4022344]: https://technet.microsoft.com/library/security/4022344.aspx
-[4021279]: https://technet.microsoft.com/library/security/4021279.aspx
+[4048953]: https://support.microsoft.com/kb/4048953
+[4048960]: https://support.microsoft.com/kb/4048960
+[4048962]: https://support.microsoft.com/kb/4048962
+[4048961]: https://support.microsoft.com/kb/4048961
+[4047206]: https://support.microsoft.com/kb/4047206
+[4048951]: https://support.microsoft.com/kb/4048951
+[4041681]: https://support.microsoft.com/kb/4041681
+[4041693]: https://support.microsoft.com/kb/4041693
+[4041690]: https://support.microsoft.com/kb/4041690
+[3191566]: https://support.microsoft.com/kb/3191566
+[3191565]: https://support.microsoft.com/kb/3191565
+[3191564]: https://support.microsoft.com/kb/3191564
 
 
-[4015217]: http://support.microsoft.com/kb/4015217
-[4015546]: http://support.microsoft.com/kb/4015546
-[4015547]: http://support.microsoft.com/kb/4015547
-[4015548]: http://support.microsoft.com/kb/4015548
-[4014661]: http://support.microsoft.com/kb/4014661
-[4014550]: http://support.microsoft.com/kb/4014550
-[4014560]: http://support.microsoft.com/kb/4014560
-[4014562]: http://support.microsoft.com/kb/4014562
-[4014556]: http://support.microsoft.com/kb/4014556
-[4014574]: http://support.microsoft.com/kb/4014574
-[4014564]: http://support.microsoft.com/kb/4014564
-[4014572]: http://support.microsoft.com/kb/4014572
-[4014549]: http://support.microsoft.com/kb/4014549
-[4014566]: http://support.microsoft.com/kb/4014566
-[4014552]: http://support.microsoft.com/kb/4014552
-[4014573]: http://support.microsoft.com/kb/4014573
-[4014558]: http://support.microsoft.com/kb/4014558
-[4015217]: http://support.microsoft.com/kb/4015217
-[4015193]: http://support.microsoft.com/kb/4015193
-[4012215]: http://support.microsoft.com/kb/4012215
-[4012217]: http://support.microsoft.com/kb/4012217
-[4012216]: http://support.microsoft.com/kb/4012216
+[4041691]: https://support.microsoft.com/kb/4041691
+[4041678]: https://support.microsoft.com/kb/4041678
+[4041679]: https://support.microsoft.com/kb/4041679
+[4041687]: https://support.microsoft.com/kb/4041687
+[4040685]: https://support.microsoft.com/kb/4040685
+[4041681]: https://support.microsoft.com/kb/4041681
+[4041690]: https://support.microsoft.com/kb/4041690
+[4041693]: https://support.microsoft.com/kb/4041693
+[4038777]: https://support.microsoft.com/kb/4038777
+[4038799]: https://support.microsoft.com/kb/4038799
+[4038792]: https://support.microsoft.com/kb/4038792
+[4040980]: https://support.microsoft.com/kb/4040980
+[4040979]: https://support.microsoft.com/kb/4040979
+[4040981]: https://support.microsoft.com/kb/4040981
+
+[4038782]: https://support.microsoft.com/kb/4038782
+[4038779]: https://support.microsoft.com/kb/4038779
+[4038786]: https://support.microsoft.com/kb/4038786
+[4038793]: https://support.microsoft.com/kb/4038793
+[4040966]: https://support.microsoft.com/kb/4040966
+[4040960]: https://support.microsoft.com/kb/4040960
+[4040965]: https://support.microsoft.com/kb/4040965
+[4040959]: https://support.microsoft.com/kb/4040959
+[4033988]: https://support.microsoft.com/kb/4033988
+[4040955]: https://support.microsoft.com/kb/4040955
+[4040967]: https://support.microsoft.com/kb/4040967
+[4040958]: https://support.microsoft.com/kb/4040958
+[4036586]: https://support.microsoft.com/kb/4036586
+[4034664]: https://support.microsoft.com/kb/4034664
+[4034665]: https://support.microsoft.com/kb/4034665
+[4034681]: https://support.microsoft.com/kb/4034681
+
+[4034658]: https://support.microsoft.com/kb/4034658
+[4034679]: https://support.microsoft.com/kb/4034679
+[4034672]: https://support.microsoft.com/kb/4034672
+[4034666]: https://support.microsoft.com/kb/4034666
+[4034733]: https://support.microsoft.com/kb/4034733
+[4034664]: https://support.microsoft.com/kb/4034664
+[4034665]: https://support.microsoft.com/kb/4034665
+[4034681]: https://support.microsoft.com/kb/4034681
+[4034668]: https://support.microsoft.com/kb/4034668
+[4034660]: https://support.microsoft.com/kb/4034660
+[4034658]: https://support.microsoft.com/kb/4034658
+[4034674]: https://support.microsoft.com/kb/4034674
+[4025341]: https://support.microsoft.com/kb/4025341
+[4025331]: https://support.microsoft.com/kb/4025331
+[4025336]: https://support.microsoft.com/kb/4025336
+
+[4025339]: https://support.microsoft.com/kb/4025337
+[4025337]: https://support.microsoft.com/kb/4025333
+[4025333]: https://support.microsoft.com/kb/4025343
+[4025343]: https://support.microsoft.com/kb/4025376
+[4025252]: https://support.microsoft.com/kb/4025252
+[4025376]: https://support.microsoft.com/kb/4025376
+[4020322]: https://support.microsoft.com/kb/4020322
+[4022719]: https://support.microsoft.com/kb/4022719
+[4022724]: https://support.microsoft.com/kb/4022724
+[4022726]: https://support.microsoft.com/kb/4022726
+
+[4022722]: https://support.microsoft.com/kb/4022722
+[4022717]: https://support.microsoft.com/kb/4022717
+[4022718]: https://support.microsoft.com/kb/4022718
+[4021558]: https://support.microsoft.com/kb/4021558
+[4022719]: https://support.microsoft.com/kb/4022719
+[4022724]: https://support.microsoft.com/kb/4022724
+[4022726]: https://support.microsoft.com/kb/4022726
+[4022730]: https://support.microsoft.com/kb/4022730
+[4015221]: https://support.microsoft.com/kb/4015221
+[4015583]: https://support.microsoft.com/kb/4015583
+[4015219]: https://support.microsoft.com/kb/4015219
+[4023136]: https://support.microsoft.com/topic/how-to-configure-daylight-saving-time-for-microsoft-windows-operating-systems-83a0992c-bce3-336a-d64d-f7bdfdbcd7c8
+[4019264]: https://support.microsoft.com/kb/4019264
+[4014545]: https://support.microsoft.com/kb/4014545
+[4014508]: https://support.microsoft.com/kb/4014508
+[4014511]: https://support.microsoft.com/kb/4014511
+[4014514]: https://support.microsoft.com/kb/4014514
+[4019216]: https://support.microsoft.com/kb/4019216
+[4014506]: https://support.microsoft.com/kb/4014506
+[4014509]: https://support.microsoft.com/kb/4014509
+[4014513]: https://support.microsoft.com/kb/4014513
+[4019215]: https://support.microsoft.com/kb/4019215
+[4014505]: https://support.microsoft.com/kb/4014505
+[4014507]: https://support.microsoft.com/kb/4014507
+[4014510]: https://support.microsoft.com/kb/4014510
+[4014512]: https://support.microsoft.com/kb/4014512
+
+[4019472]: https://support.microsoft.com/kb/4019472
+[4019263]: https://support.microsoft.com/kb/4019263
+[4019213]: https://support.microsoft.com/kb/4019213
+[4019214]: https://support.microsoft.com/kb/4019214
+[4018271]: https://support.microsoft.com/kb/4018271
+[4010323]: https://support.microsoft.com/kb/4010323
+[4012864]: https://support.microsoft.com/kb/4012864
+[4014565]: https://support.microsoft.com/kb/4014565
+[4014559]: https://support.microsoft.com/kb/4014559
+[4015549]: https://support.microsoft.com/kb/4015549
+[4019990]: https://support.microsoft.com/kb/4019990
+[4014563]: https://support.microsoft.com/kb/4014563
+[4014557]: https://support.microsoft.com/kb/4014557
+[4014545]: https://support.microsoft.com/kb/4014545
+[4014548]: https://support.microsoft.com/kb/4014548
+[4015551]: https://support.microsoft.com/kb/4015551
+[3173424]: https://support.microsoft.com/kb/3173424
+[4014555]: https://support.microsoft.com/kb/4014555
+[4014567]: https://support.microsoft.com/kb/4014567
+[4015550]: https://support.microsoft.com/kb/4015550
+[4013418]: https://support.microsoft.com/kb/4013418
+[4022345]: /security-updates/SecurityAdvisories/2017/4022345
+[4022344]: /security-updates/SecurityAdvisories/2017/4022344
+[4021279]: /security-updates/SecurityAdvisories/2017/4021279
 
 
-[4013429]: http://support.microsoft.com/kb/4013429 
-[4012212]: http://support.microsoft.com/kb/4012212 
-[4012213]: http://support.microsoft.com/kb/4012213 
-[4012214]: http://support.microsoft.com/kb/4012214 
-[4012204]: http://support.microsoft.com/kb/4012204 
-[4012864]: http://support.microsoft.com/kb/4012864 
-[3212646]: http://support.microsoft.com/kb/3212646 
-[3205409]: http://support.microsoft.com/kb/3205409 
-[3205401]: http://support.microsoft.com/kb/3205401
-[3211320]: http://support.microsoft.com/kb/3211320
+[4015217]: https://support.microsoft.com/kb/4015217
+[4015546]: https://support.microsoft.com/kb/4015546
+[4015547]: https://support.microsoft.com/kb/4015547
+[4015548]: https://support.microsoft.com/kb/4015548
+[4014661]: https://support.microsoft.com/kb/4014661
+[4014550]: https://support.microsoft.com/kb/4014550
+[4014560]: https://support.microsoft.com/kb/4014560
+[4014562]: https://support.microsoft.com/kb/4014562
+[4014556]: https://support.microsoft.com/kb/4014556
+[4014574]: https://support.microsoft.com/kb/4014574
+[4014564]: https://support.microsoft.com/kb/4014564
+[4014572]: https://support.microsoft.com/kb/4014572
+[4014549]: https://support.microsoft.com/kb/4014549
+[4014566]: https://support.microsoft.com/kb/4014566
+[4014552]: https://support.microsoft.com/kb/4014552
+[4014573]: https://support.microsoft.com/kb/4014573
+[4014558]: https://support.microsoft.com/kb/4014558
+[4015217]: https://support.microsoft.com/kb/4015217
+[4015193]: https://support.microsoft.com/kb/4015193
+[4012215]: https://support.microsoft.com/kb/4012215
+[4012217]: https://support.microsoft.com/kb/4012217
+[4012216]: https://support.microsoft.com/kb/4012216
 
 
-[3216771]: https://technet.microsoft.com/library/security/MS17-004
-
-[3204059]: http://support.microsoft.com/kb/3204059 
-[3204062]: http://support.microsoft.com/kb/3204062 
-[3204066]: http://support.microsoft.com/kb/3204066 
-[3204063]: http://support.microsoft.com/kb/3204063 
-[3205655]: http://support.microsoft.com/kb/3205655 
-[3205642]: http://support.microsoft.com/kb/3205642 
-[3205651]: http://support.microsoft.com/kb/3205651 
-[3199709]: http://support.microsoft.com/kb/3199709 
-[3207328]: http://support.microsoft.com/kb/3207328 
-[3205640]: http://support.microsoft.com/kb/3205640 
-[3197868]: http://support.microsoft.com/kb/3197868 
-[3197877]: http://support.microsoft.com/kb/3197877 
-[3197874]: http://support.microsoft.com/kb/3197874 
-
-[3199057]: http://support.microsoft.com/kb/3199057 
-[3199172]: http://support.microsoft.com/kb/3199172 
-[3199151]: http://support.microsoft.com/kb/3199151 
-[3193706]: http://support.microsoft.com/kb/3193706 
-[3199120]: http://support.microsoft.com/kb/3199120 
-[3199135]: http://support.microsoft.com/kb/3199135 
-[3199173]: http://support.microsoft.com/kb/3199173 
-[3199647]: http://support.microsoft.com/kb/3199647 
-[3199720]: http://support.microsoft.com/kb/3199720 
-[3193479]: http://support.microsoft.com/kb/3193479 
-[3198467]: http://support.microsoft.com/kb/3198467 
-[3192321]: http://support.microsoft.com/kb/3192321 
-[3185330]: http://support.microsoft.com/kb/3185330 
-[3192403]: http://support.microsoft.com/kb/3192403 
-[3177467]: http://support.microsoft.com/kb/3177467 
-[3185332]: http://support.microsoft.com/kb/3185332 
-[3192406]: http://support.microsoft.com/kb/3192406 
-[3185331]: http://support.microsoft.com/kb/3185331 
-[3192404]: http://support.microsoft.com/kb/3192404 
-[3199986]: http://support.microsoft.com/kb/3199986 
-[3197954]: http://support.microsoft.com/kb/3197954  
-
-[3192887]: http://support.microsoft.com/kb/3192887
-[3192884]: http://support.microsoft.com/kb/3192884
-[3192892]: http://support.microsoft.com/kb/3192892
-[3193227]: http://support.microsoft.com/kb/3193227
-[3196067]: http://support.microsoft.com/kb/3196067
-[3178465]: http://support.microsoft.com/kb/3178465
-[3182203]: http://support.microsoft.com/kb/3182203
-[3185278]: http://support.microsoft.com/kb/3185278
-[3185280]: http://support.microsoft.com/kb/3185280
-[3185279]: http://support.microsoft.com/kb/3185279
-[3194798]: http://support.microsoft.com/kb/3194798
-
-[3183038]: http://support.microsoft.com/kb/3183038
-[3185848]: http://support.microsoft.com/kb/3185848
-[3178467]: http://support.microsoft.com/kb/3178467
-[3186973]: http://support.microsoft.com/kb/3186973
-[3178469]: http://support.microsoft.com/kb/3178469
-[3185879]: http://support.microsoft.com/kb/3185879
-[3188733]: http://support.microsoft.com/kb/3188733
-[3188724]: http://support.microsoft.com/kb/3188724
-[3174644]: http://support.microsoft.com/kb/3174644
-[3177723]: http://support.microsoft.com/kb/3177723
-[3179573]: http://support.microsoft.com/kb/3179573
-[3179575]: http://support.microsoft.com/kb/3179575
-[3179574]: http://support.microsoft.com/kb/3179574
-
-[3177356]: http://support.microsoft.com/kb/3177356
-[3177393]: http://support.microsoft.com/kb/3177393
-[3178466]: http://support.microsoft.com/kb/3178466
-[3179577]: http://support.microsoft.com/kb/3179577
-[3178465]: http://support.microsoft.com/kb/3178465
-[3182248]: http://support.microsoft.com/kb/3182248
-[3165191]: http://support.microsoft.com/kb/3165191
-[3172605]: http://support.microsoft.com/kb/3172605
-[3172614]: http://support.microsoft.com/kb/3172614
-[3172615]: http://support.microsoft.com/kb/3172615
-
-[3169991]: http://support.microsoft.com/kb/3169991
-[3170005]: http://support.microsoft.com/kb/3170005
-[3170050]: http://support.microsoft.com/kb/3170050
-[3171481]: http://support.microsoft.com/kb/3171481
-[3170048]: http://support.microsoft.com/kb/3170048
-[3171910]: http://support.microsoft.com/kb/3171910
-[3177404]: http://support.microsoft.com/kb/3177404
-[3162835]: http://support.microsoft.com/kb/3162835
-[3156417]: http://support.microsoft.com/kb/3156417
-[3161608]: http://support.microsoft.com/kb/3161608
-[3161609]: http://support.microsoft.com/kb/3161609
-[3161606]: http://support.microsoft.com/kb/3161606
-[3139923]: http://support.microsoft.com/kb/3139923
+[4013429]: https://support.microsoft.com/kb/4013429
+[4012212]: https://support.microsoft.com/kb/4012212
+[4012213]: https://support.microsoft.com/kb/4012213
+[4012214]: https://support.microsoft.com/kb/4012214
+[4012204]: https://support.microsoft.com/kb/4012204
+[4012864]: https://support.microsoft.com/kb/4012864
+[3212646]: https://support.microsoft.com/kb/3212646
+[3205409]: https://support.microsoft.com/kb/3205409
+[3205401]: https://support.microsoft.com/kb/3205401
+[3211320]: https://support.microsoft.com/kb/3211320
 
 
-[3141780]: http://support.microsoft.com/kb/3141780
-[3155527]: http://support.microsoft.com/kb/3155527
-[3163649]: http://support.microsoft.com/kb/3163649
-[3163640]: http://support.microsoft.com/kb/3163640
-[3164065]: http://support.microsoft.com/kb/3164065
-[3163622]: http://support.microsoft.com/kb/3163622
-[3164028]: http://support.microsoft.com/kb/3164028
-[3164036]: http://support.microsoft.com/kb/3164036
-[3164038]: http://support.microsoft.com/kb/3164038
-[3167691]: http://support.microsoft.com/kb/3167691
-[3165191]: http://support.microsoft.com/kb/3165191
-[3164302]: http://support.microsoft.com/kb/3164302
-[3160352]: http://support.microsoft.com/kb/3160352
-[2922223]: http://support.microsoft.com/kb/2922223
-[3121255]: http://support.microsoft.com/kb/3121255
-[3125424]: http://support.microsoft.com/kb/3125424
-[3125574]: http://support.microsoft.com/kb/3125574
-[3140245]: http://support.microsoft.com/kb/3140245
-[3146604]: http://support.microsoft.com/kb/3146604
-[3149157]: http://support.microsoft.com/kb/3149157
-[3156416]: http://support.microsoft.com/kb/3156416
-[3156418]: http://support.microsoft.com/kb/3156418
-[3153731]: http://support.microsoft.com/kb/3153731
+[3216771]: /security-updates/SecurityBulletins/2017/ms17-004
+
+[3204059]: https://support.microsoft.com/kb/3204059
+[3204062]: https://support.microsoft.com/kb/3204062
+[3204066]: https://support.microsoft.com/kb/3204066
+[3204063]: https://support.microsoft.com/kb/3204063
+[3205655]: https://support.microsoft.com/kb/3205655
+[3205642]: https://support.microsoft.com/kb/3205642
+[3205651]: https://support.microsoft.com/kb/3205651
+[3199709]: https://support.microsoft.com/kb/3199709
+[3207328]: https://support.microsoft.com/kb/3207328
+[3205640]: https://support.microsoft.com/kb/3205640
+[3197868]: https://support.microsoft.com/kb/3197868
+[3197877]: https://support.microsoft.com/kb/3197877
+[3197874]: https://support.microsoft.com/kb/3197874
+
+[3199057]: https://support.microsoft.com/kb/3199057
+[3199172]: https://support.microsoft.com/kb/3199172
+[3199151]: https://support.microsoft.com/kb/3199151
+[3193706]: https://support.microsoft.com/kb/3193706
+[3199120]: https://support.microsoft.com/kb/3199120
+[3199135]: https://support.microsoft.com/kb/3199135
+[3199173]: https://support.microsoft.com/kb/3199173
+[3199647]: https://support.microsoft.com/kb/3199647
+[3199720]: https://support.microsoft.com/kb/3199720
+[3193479]: https://support.microsoft.com/kb/3193479
+[3198467]: https://support.microsoft.com/kb/3198467
+[3192321]: https://support.microsoft.com/kb/3192321
+[3185330]: https://support.microsoft.com/kb/3185330
+[3192403]: https://support.microsoft.com/kb/3192403
+[3177467]: https://support.microsoft.com/kb/3177467
+[3185332]: https://support.microsoft.com/kb/3185332
+[3192406]: https://support.microsoft.com/kb/3192406
+[3185331]: https://support.microsoft.com/kb/3185331
+[3192404]: https://support.microsoft.com/kb/3192404
+[3199986]: https://support.microsoft.com/kb/3199986
+[3197954]: https://support.microsoft.com/kb/3197954
+
+[3192887]: https://support.microsoft.com/kb/3192887
+[3192884]: https://support.microsoft.com/kb/3192884
+[3192892]: https://support.microsoft.com/kb/3192892
+[3193227]: https://support.microsoft.com/kb/3193227
+[3196067]: https://support.microsoft.com/kb/3196067
+[3178465]: https://support.microsoft.com/kb/3178465
+[3182203]: https://support.microsoft.com/kb/3182203
+[3185278]: https://support.microsoft.com/kb/3185278
+[3185280]: https://support.microsoft.com/kb/3185280
+[3185279]: https://support.microsoft.com/kb/3185279
+[3194798]: https://support.microsoft.com/kb/3194798
+
+[3183038]: https://support.microsoft.com/kb/3183038
+[3185848]: https://support.microsoft.com/kb/3185848
+[3178467]: https://support.microsoft.com/kb/3178467
+[3186973]: https://support.microsoft.com/kb/3186973
+[3178469]: https://support.microsoft.com/kb/3178469
+[3185879]: https://support.microsoft.com/kb/3185879
+[3188733]: https://support.microsoft.com/kb/3188733
+[3188724]: https://support.microsoft.com/kb/3188724
+[3174644]: https://support.microsoft.com/kb/3174644
+[3177723]: https://support.microsoft.com/kb/3177723
+[3179573]: https://support.microsoft.com/kb/3179573
+[3179575]: https://support.microsoft.com/kb/3179575
+[3179574]: https://support.microsoft.com/kb/3179574
+
+[3177356]: https://support.microsoft.com/kb/3177356
+[3177393]: https://support.microsoft.com/kb/3177393
+[3178466]: https://support.microsoft.com/kb/3178466
+[3179577]: https://support.microsoft.com/kb/3179577
+[3178465]: https://support.microsoft.com/kb/3178465
+[3182248]: https://support.microsoft.com/kb/3182248
+[3165191]: https://support.microsoft.com/kb/3165191
+[3172605]: https://support.microsoft.com/kb/3172605
+[3172614]: https://support.microsoft.com/kb/3172614
+[3172615]: https://support.microsoft.com/kb/3172615
+
+[3169991]: https://support.microsoft.com/kb/3169991
+[3170005]: https://support.microsoft.com/kb/3170005
+[3170050]: https://support.microsoft.com/kb/3170050
+[3171481]: https://support.microsoft.com/kb/3171481
+[3170048]: https://support.microsoft.com/kb/3170048
+[3171910]: https://support.microsoft.com/kb/3171910
+[3177404]: https://support.microsoft.com/kb/3177404
+[3162835]: https://support.microsoft.com/kb/3162835
+[3156417]: https://support.microsoft.com/kb/3156417
+[3161608]: https://support.microsoft.com/kb/3161608
+[3161609]: https://support.microsoft.com/kb/3161609
+[3161606]: https://support.microsoft.com/kb/3161606
+[3139923]: https://support.microsoft.com/kb/3139923
 
 
-[3155533]: http://support.microsoft.com/kb/3155533
-[3156764]: http://support.microsoft.com/kb/3156764
-[3156754]: http://support.microsoft.com/kb/3156754
-[3156987]: http://support.microsoft.com/kb/3156987
-[3141083]: http://support.microsoft.com/kb/3141083
-[3154846]: http://support.microsoft.com/kb/3154846
-[3155520]: http://support.microsoft.com/kb/3155520
-[3158222]: http://support.microsoft.com/kb/3158222
-[3156757]: http://support.microsoft.com/kb/3156757
-[3155784]: http://support.microsoft.com/kb/3155784
-[3148851]: http://support.microsoft.com/kb/3148851
-[3133977]: http://support.microsoft.com/kb/3133977
-[3133681]: http://support.microsoft.com/kb/3133681
-[3123245]: http://support.microsoft.com/kb/3123245
-[Disable RC4]: https://blogs.msdn.microsoft.com/azuresecurity/2016/04/12/azure-cipher-suite-change-removes-rc4-support/
+[3141780]: https://support.microsoft.com/kb/3141780
+[3155527]: https://support.microsoft.com/kb/3155527
+[3163649]: https://support.microsoft.com/kb/3163649
+[3163640]: https://support.microsoft.com/kb/3163640
+[3164065]: https://support.microsoft.com/kb/3164065
+[3163622]: https://support.microsoft.com/kb/3163622
+[3164028]: https://support.microsoft.com/kb/3164028
+[3164036]: https://support.microsoft.com/kb/3164036
+[3164038]: https://support.microsoft.com/kb/3164038
+[3167691]: https://support.microsoft.com/kb/3167691
+[3165191]: https://support.microsoft.com/kb/3165191
+[3164302]: https://support.microsoft.com/kb/3164302
+[3160352]: https://support.microsoft.com/kb/3160352
+[2922223]: https://support.microsoft.com/kb/2922223
+[3121255]: https://support.microsoft.com/kb/3121255
+[3125424]: https://support.microsoft.com/kb/3125424
+[3125574]: https://support.microsoft.com/kb/3125574
+[3140245]: https://support.microsoft.com/kb/3140245
+[3146604]: https://support.microsoft.com/kb/3146604
+[3149157]: https://support.microsoft.com/kb/3149157
+[3156416]: https://support.microsoft.com/kb/3156416
+[3156418]: https://support.microsoft.com/kb/3156418
+[3153731]: https://support.microsoft.com/kb/3153731
 
 
-[3148531]: http://support.microsoft.com/kb/3148531
-[3148522]: http://support.microsoft.com/kb/3148522
-[3148541]: http://support.microsoft.com/kb/3148541
-[3146706]: http://support.microsoft.com/kb/3146706
-[3143118]: http://support.microsoft.com/kb/3143118
-[3148527]: http://support.microsoft.com/kb/3148527
-[3148528]: http://support.microsoft.com/kb/3148528
+[3155533]: https://support.microsoft.com/kb/3155533
+[3156764]: https://support.microsoft.com/kb/3156764
+[3156754]: https://support.microsoft.com/kb/3156754
+[3156987]: https://support.microsoft.com/kb/3156987
+[3141083]: https://support.microsoft.com/kb/3141083
+[3154846]: https://support.microsoft.com/kb/3154846
+[3155520]: https://support.microsoft.com/kb/3155520
+[3158222]: https://support.microsoft.com/kb/3158222
+[3156757]: https://support.microsoft.com/kb/3156757
+[3155784]: https://support.microsoft.com/kb/3155784
+[3148851]: https://support.microsoft.com/kb/3148851
+[3133977]: https://support.microsoft.com/kb/3133977
+[3133681]: https://support.microsoft.com/kb/3133681
+[3123245]: https://support.microsoft.com/kb/3123245
+[Disable RC4]: /archive/blogs/azuresecurity/azure-cipher-suite-change-removes-rc4-support
 
 
-[3142015]: http://support.microsoft.com/kb/3142015  
-[3143148]: http://support.microsoft.com/kb/3143148  
-[3143146]: http://support.microsoft.com/kb/3143146  
-[3143081]: http://support.microsoft.com/kb/3143081  
-[3143136]: http://support.microsoft.com/kb/3143136  
-[3140410]: http://support.microsoft.com/kb/3140410  
-[3143141]: http://support.microsoft.com/kb/3143141  
-[3143142]: http://support.microsoft.com/kb/3143142  
-[3143145]: http://support.microsoft.com/kb/3143145  
-[3141780]: http://support.microsoft.com/kb/3141780
-
-[3134220]: http://support.microsoft.com/kb/3134220
-[3134811]: http://support.microsoft.com/kb/3134811
-[3134228]: http://support.microsoft.com/kb/3134228
-[3136041]: http://support.microsoft.com/kb/3136041
-[3136082]: http://support.microsoft.com/kb/3136082
-[3137893]: http://support.microsoft.com/kb/3137893
-[3133043]: http://support.microsoft.com/kb/3133043
-[3109853]: http://support.microsoft.com/kb/3109853
-[3089662]: http://support.microsoft.com/kb/3089662
-[3104507]: http://support.microsoft.com/kb/3104507
-[3104503]: http://support.microsoft.com/kb/3104503
-
-[3124903]: http://support.microsoft.com/kb/3124903
-[3125540]: http://support.microsoft.com/kb/3125540
-[3124584]: http://support.microsoft.com/kb/3124584
-[3124901]: http://support.microsoft.com/kb/3124901
-[3124605]: http://support.microsoft.com/kb/3124605
-[2755801]: http://support.microsoft.com/kb/2755399
-[3109853]: http://support.microsoft.com/kb/3109853
-[3123479]: http://support.microsoft.com/kb/3123479
-[2736233]: http://support.microsoft.com/kb/2736233
-
-[3116180]: http://support.microsoft.com/kb/3116180
-[3116178]: http://support.microsoft.com/kb/3116178
-[3100465]: http://support.microsoft.com/kb/3100465
-[3104503]: http://support.microsoft.com/kb/3104503
-[3116162]: http://support.microsoft.com/kb/3116162
-[3116130]: http://support.microsoft.com/kb/3116130
-[3108669]: http://support.microsoft.com/kb/3108669
-[3119075]: http://support.microsoft.com/kb/3119075
-
-[3104517]: http://support.microsoft.com/kb/3104517
-[3100213]: http://support.microsoft.com/kb/3100213
-[3105864]: http://support.microsoft.com/kb/3105864
-[3101722]: http://support.microsoft.com/kb/3101722
-[3104507]: http://support.microsoft.com/kb/3104507
-[3104521]: http://support.microsoft.com/kb/3104521
-[3102939]: http://support.microsoft.com/kb/3102939
-[3081320]: http://support.microsoft.com/kb/3081320
-[3105256]: http://support.microsoft.com/kb/3105256
-[3097966]: http://support.microsoft.com/kb/3097966
-
-[3096441]: http://support.microsoft.com/kb/3096441
-[3089659]: http://support.microsoft.com/kb/3089659
-[3096443]: http://support.microsoft.com/kb/3096443
-[3096447]: http://support.microsoft.com/kb/3096447
-[3092627]: http://support.microsoft.com/kb/3092627
-
-[3088903]: http://support.microsoft.com/kb/3088903
-[3089548]: http://support.microsoft.com/kb/3089548
-[3072595]: http://support.microsoft.com/kb/3072595
-[3089656]: http://support.microsoft.com/kb/3089656
-[3089669]: http://support.microsoft.com/kb/3089669
-[3089657]: http://support.microsoft.com/kb/3089657
-[3091287]: http://support.microsoft.com/kb/3091287
-[3089662]: http://support.microsoft.com/kb/3089662
-
-[3082442]: http://support.microsoft.com/kb/3082442
-[3078662]: http://support.microsoft.com/kb/3078662
-[3080348]: http://support.microsoft.com/kb/3080348
-[3080129]: http://support.microsoft.com/kb/3080129
-[3082487]: http://support.microsoft.com/kb/3082487
-[3082458]: http://support.microsoft.com/kb/3082458
-[3060716]: http://support.microsoft.com/kb/3060716
-[3076949]: http://support.microsoft.com/kb/3076949
-[3086251]: http://support.microsoft.com/kb/3086251
+[3148531]: https://support.microsoft.com/kb/3148531
+[3148522]: https://support.microsoft.com/kb/3148522
+[3148541]: https://support.microsoft.com/kb/3148541
+[3146706]: https://support.microsoft.com/kb/3146706
+[3143118]: https://support.microsoft.com/kb/3143118
+[3148527]: https://support.microsoft.com/kb/3148527
+[3148528]: https://support.microsoft.com/kb/3148528
 
 
-[3076321]: http://support.microsoft.com/kb/3076321
-[3072604]: http://support.microsoft.com/kb/3072604
-[3073094]: http://support.microsoft.com/kb/3073094
-[3072000]: http://support.microsoft.com/kb/3072000
-[3072631]: http://support.microsoft.com/kb/3072631
-[3068457]: http://support.microsoft.com/kb/3068457
-[3069392]: http://support.microsoft.com/kb/3069392
-[3070102]: http://support.microsoft.com/kb/3070102
-[3072630]: http://support.microsoft.com/kb/3072630
-[3072633]: http://support.microsoft.com/kb/3072633
-[3067505]: http://support.microsoft.com/kb/3067505
-[3077657]: http://support.microsoft.com/kb/3077657
-[3057154]: http://support.microsoft.com/kb/3057154
+[3142015]: https://support.microsoft.com/kb/3142015
+[3143148]: https://support.microsoft.com/kb/3143148
+[3143146]: https://support.microsoft.com/kb/3143146
+[3143081]: https://support.microsoft.com/kb/3143081
+[3143136]: https://support.microsoft.com/kb/3143136
+[3140410]: https://support.microsoft.com/kb/3140410
+[3143141]: https://support.microsoft.com/kb/3143141
+[3143142]: https://support.microsoft.com/kb/3143142
+[3143145]: https://support.microsoft.com/kb/3143145
+[3141780]: https://support.microsoft.com/kb/3141780
 
-[MS15-034]: https://technet.microsoft.com/library/security/MS15-034
+[3134220]: https://support.microsoft.com/kb/3134220
+[3134811]: https://support.microsoft.com/kb/3134811
+[3134228]: https://support.microsoft.com/kb/3134228
+[3136041]: https://support.microsoft.com/kb/3136041
+[3136082]: https://support.microsoft.com/kb/3136082
+[3137893]: https://support.microsoft.com/kb/3137893
+[3133043]: https://support.microsoft.com/kb/3133043
+[3109853]: https://support.microsoft.com/kb/3109853
+[3089662]: https://support.microsoft.com/kb/3089662
+[3104507]: https://support.microsoft.com/kb/3104507
+[3104503]: https://support.microsoft.com/kb/3104503
+
+[3124903]: https://support.microsoft.com/kb/3124903
+[3125540]: https://support.microsoft.com/kb/3125540
+[3124584]: https://support.microsoft.com/kb/3124584
+[3124901]: https://support.microsoft.com/kb/3124901
+[3124605]: https://support.microsoft.com/kb/3124605
+[2755801]: https://support.microsoft.com/kb/2755399
+[3109853]: https://support.microsoft.com/kb/3109853
+[3123479]: https://support.microsoft.com/kb/3123479
+[2736233]: https://support.microsoft.com/kb/2736233
+
+[3116180]: https://support.microsoft.com/kb/3116180
+[3116178]: https://support.microsoft.com/kb/3116178
+[3100465]: https://support.microsoft.com/kb/3100465
+[3104503]: https://support.microsoft.com/kb/3104503
+[3116162]: https://support.microsoft.com/kb/3116162
+[3116130]: https://support.microsoft.com/kb/3116130
+[3108669]: https://support.microsoft.com/kb/3108669
+[3119075]: https://support.microsoft.com/kb/3119075
+
+[3104517]: https://support.microsoft.com/kb/3104517
+[3100213]: https://support.microsoft.com/kb/3100213
+[3105864]: https://support.microsoft.com/kb/3105864
+[3101722]: https://support.microsoft.com/kb/3101722
+[3104507]: https://support.microsoft.com/kb/3104507
+[3104521]: https://support.microsoft.com/kb/3104521
+[3102939]: https://support.microsoft.com/kb/3102939
+[3081320]: https://support.microsoft.com/kb/3081320
+[3105256]: https://support.microsoft.com/kb/3105256
+[3097966]: https://support.microsoft.com/kb/3097966
+
+[3096441]: https://support.microsoft.com/kb/3096441
+[3089659]: https://support.microsoft.com/kb/3089659
+[3096443]: https://support.microsoft.com/kb/3096443
+[3096447]: https://support.microsoft.com/kb/3096447
+[3092627]: https://support.microsoft.com/kb/3092627
+
+[3088903]: https://support.microsoft.com/kb/3088903
+[3089548]: https://support.microsoft.com/kb/3089548
+[3072595]: https://support.microsoft.com/kb/3072595
+[3089656]: https://support.microsoft.com/kb/3089656
+[3089669]: https://support.microsoft.com/kb/3089669
+[3089657]: https://support.microsoft.com/kb/3089657
+[3091287]: https://support.microsoft.com/kb/3091287
+[3089662]: https://support.microsoft.com/kb/3089662
+
+[3082442]: https://support.microsoft.com/kb/3082442
+[3078662]: https://support.microsoft.com/kb/3078662
+[3080348]: https://support.microsoft.com/kb/3080348
+[3080129]: https://support.microsoft.com/kb/3080129
+[3082487]: https://support.microsoft.com/kb/3082487
+[3082458]: https://support.microsoft.com/kb/3082458
+[3060716]: https://support.microsoft.com/kb/3060716
+[3076949]: https://support.microsoft.com/kb/3076949
+[3086251]: https://support.microsoft.com/kb/3086251
+
+
+[3076321]: https://support.microsoft.com/kb/3076321
+[3072604]: https://support.microsoft.com/kb/3072604
+[3073094]: https://support.microsoft.com/kb/3073094
+[3072000]: https://support.microsoft.com/kb/3072000
+[3072631]: https://support.microsoft.com/kb/3072631
+[3068457]: https://support.microsoft.com/kb/3068457
+[3069392]: https://support.microsoft.com/kb/3069392
+[3070102]: https://support.microsoft.com/kb/3070102
+[3072630]: https://support.microsoft.com/kb/3072630
+[3072633]: https://support.microsoft.com/kb/3072633
+[3067505]: https://support.microsoft.com/kb/3067505
+[3077657]: https://support.microsoft.com/kb/3077657
+[3057154]: https://support.microsoft.com/kb/3057154
+
+[MS15-034]: /security-updates/SecurityBulletins/2015/ms15-034
 
 [3042553]: https://support.microsoft.com/en-us/kb/3042553/
 
-[3034682]: http://support.microsoft.com/kb/3034682
-[3036220]: http://support.microsoft.com/kb/3036220
-[3000483]: http://support.microsoft.com/kb/3000483
-[3004361]: http://support.microsoft.com/kb/3004361
-[3031432]: http://support.microsoft.com/kb/3031432
-[3029944]: http://support.microsoft.com/kb/3029944
-[3004375]: http://support.microsoft.com/kb/3004375
+[3034682]: https://support.microsoft.com/kb/3034682
+[3036220]: https://support.microsoft.com/kb/3036220
+[3000483]: https://support.microsoft.com/kb/3000483
+[3004361]: https://support.microsoft.com/kb/3004361
+[3031432]: https://support.microsoft.com/kb/3031432
+[3029944]: https://support.microsoft.com/kb/3029944
+[3004375]: https://support.microsoft.com/kb/3004375
 
-[3023266]: http://support.microsoft.com/kb/3023266
-[3020393]: http://support.microsoft.com/kb/3020393
-[3021674]: http://support.microsoft.com/kb/3021674
-[3019978]: http://support.microsoft.com/kb/3019978
-[3022777]: http://support.microsoft.com/kb/3022777
-[3004365]: http://support.microsoft.com/kb/3004365
-[3014029]: http://support.microsoft.com/kb/3014029
-[3019215]: http://support.microsoft.com/kb/3019215
-[3008923]: http://support.microsoft.com/kb/3008923
-[3020393]: http://support.microsoft.com/kb/3020393
+[3023266]: https://support.microsoft.com/kb/3023266
+[3020393]: https://support.microsoft.com/kb/3020393
+[3021674]: https://support.microsoft.com/kb/3021674
+[3019978]: https://support.microsoft.com/kb/3019978
+[3022777]: https://support.microsoft.com/kb/3022777
+[3004365]: https://support.microsoft.com/kb/3004365
+[3014029]: https://support.microsoft.com/kb/3014029
+[3019215]: https://support.microsoft.com/kb/3019215
+[3008923]: https://support.microsoft.com/kb/3008923
+[3020393]: https://support.microsoft.com/kb/3020393
 
-[3013776]: http://support.microsoft.com/kb/3013776
-[3013043]: http://support.microsoft.com/kb/3013043
-[3012712]: http://support.microsoft.com/kb/3012712
-[3004905]: http://support.microsoft.com/kb/3004905
-[3004394]: http://support.microsoft.com/kb/3004394
-[2999323]: http://support.microsoft.com/kb/2999323
-[3013488]: http://support.microsoft.com/kb/3013488
-[3012325]: http://support.microsoft.com/kb/3012325
-[3007054]: http://support.microsoft.com/kb/3007054
-[2999802]: http://support.microsoft.com/kb/2999802
-[2896881]: http://support.microsoft.com/kb/2896881
+[3013776]: https://support.microsoft.com/kb/3013776
+[3013043]: https://support.microsoft.com/kb/3013043
+[3012712]: https://support.microsoft.com/kb/3012712
+[3004905]: https://support.microsoft.com/kb/3004905
+[3004394]: https://support.microsoft.com/kb/3004394
+[2999323]: https://support.microsoft.com/kb/2999323
+[3013488]: https://support.microsoft.com/kb/3013488
+[3012325]: https://support.microsoft.com/kb/3012325
+[3007054]: https://support.microsoft.com/kb/3007054
+[2999802]: https://support.microsoft.com/kb/2999802
+[2896881]: https://support.microsoft.com/kb/2896881
 
-[3032359]: http://support.microsoft.com/kb/3032359
-[3040297]: http://support.microsoft.com/kb/3040297
-[3041836]: http://support.microsoft.com/kb/3041836
-[3032323]: http://support.microsoft.com/kb/3032323
-[3034344]: http://support.microsoft.com/kb/3034344
-[3035132]: http://support.microsoft.com/kb/3035132
-[3038680]: http://support.microsoft.com/kb/3038680
-[3002657]: http://support.microsoft.com/kb/3002657
-[3035126]: http://support.microsoft.com/kb/3035126
+[3032359]: https://support.microsoft.com/kb/3032359
+[3040297]: https://support.microsoft.com/kb/3040297
+[3041836]: https://support.microsoft.com/kb/3041836
+[3032323]: https://support.microsoft.com/kb/3032323
+[3034344]: https://support.microsoft.com/kb/3034344
+[3035132]: https://support.microsoft.com/kb/3035132
+[3038680]: https://support.microsoft.com/kb/3038680
+[3002657]: https://support.microsoft.com/kb/3002657
+[3035126]: https://support.microsoft.com/kb/3035126
 
-[3049563]:http://support.microsoft.com/kb/3049563
-[3057110]:http://support.microsoft.com/kb/3057110
-[3046002]:http://support.microsoft.com/kb/3046002
-[3057134]:http://support.microsoft.com/kb/3057134
-[3055642]:http://support.microsoft.com/kb/3055642
-[3057191]:http://support.microsoft.com/kb/3057191
-[3050514]:http://support.microsoft.com/kb/3050514
-[3057263]:http://support.microsoft.com/kb/3057263
-[3051768]:http://support.microsoft.com/kb/3051768
-[3061518]:http://support.microsoft.com/kb/3061518
+[3049563]:https://support.microsoft.com/kb/3049563
+[3057110]:https://mskb.pkisolutions.com/kb/3057110
+[3046002]:https://support.microsoft.com/kb/3046002
+[3057134]:https://support.microsoft.com/kb/3057134
+[3055642]:https://support.microsoft.com/kb/3055642
+[3057191]:https://support.microsoft.com/kb/3057191
+[3050514]:https://support.microsoft.com/kb/3050514
+[3057263]:https://support.microsoft.com/kb/3057263
+[3051768]:https://support.microsoft.com/kb/3051768
+[3061518]:https://support.microsoft.com/kb/3061518
 
-[3038314]:http://support.microsoft.com/kb/3038314
-[3042553]:http://support.microsoft.com/kb/3042553
-[3046306]:http://support.microsoft.com/kb/3046306
-[3046269]:http://support.microsoft.com/kb/3046269
-[3049576]:http://support.microsoft.com/kb/3049576
-[3046482]:http://support.microsoft.com/kb/3046482
-[3045711]:http://support.microsoft.com/kb/3045711
-[3048010]:http://support.microsoft.com/kb/3048010
-[3047234]:http://support.microsoft.com/kb/3047234
-[3045755]:http://support.microsoft.com/kb/3045755
-[3030377]:http://support.microsoft.com/kb/3030377
-[3039976]:http://support.microsoft.com/kb/3039976
+[3038314]:https://support.microsoft.com/en-us/topic/ms15-018-cumulative-security-update-for-internet-explorer-march-10-2015-ebbad1d0-8db0-4639-a143-10213c78afb5
+[3042553]:https://support.microsoft.com/kb/3042553
+[3046306]:https://support.microsoft.com/kb/3046306
+[3046269]:https://support.microsoft.com/kb/3046269
+[3049576]:https://support.microsoft.com/kb/3049576
+[3046482]:https://support.microsoft.com/kb/3046482
+[3045711]:https://support.microsoft.com/kb/3045711
+[3048010]:https://support.microsoft.com/kb/3048010
+[3047234]:https://support.microsoft.com/kb/3047234
+[3045755]:https://support.microsoft.com/kb/3045755
+[3030377]:https://support.microsoft.com/kb/3030377
+[3039976]:https://support.microsoft.com/kb/3039976
 
-[3058515]:http://support.microsoft.com/kb/3058515
-[3033890]:http://support.microsoft.com/kb/3033890
-[3059317]:http://support.microsoft.com/kb/3059317
-[3057839]:http://support.microsoft.com/kb/3057839
-[3062577]:http://support.microsoft.com/kb/3062577
-[3063858]:http://support.microsoft.com/kb/3063858
+[3058515]:https://support.microsoft.com/kb/3058515
+[3033890]:https://support.microsoft.com/kb/3033890
+[3059317]:https://support.microsoft.com/kb/3059317
+[3057839]:https://support.microsoft.com/kb/3057839
+[3062577]:https://support.microsoft.com/kb/3062577
+[3063858]:https://support.microsoft.com/kb/3063858
 
 
-[archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx
+[archive]: /previous-versions/azure/
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-explanation

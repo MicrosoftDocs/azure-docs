@@ -1,32 +1,35 @@
 ---
-title: Optimize bulk inserts in Azure Database for PostgreSQL server
-description: This article describes how you can optimize bulk insert operations on Azure Database for PostgreSQL server.
+title: Optimize bulk inserts - Azure Database for PostgreSQL - Single Server
+description: This article describes how you can optimize bulk insert operations on an Azure Database for PostgreSQL - Single Server.
 author: dianaputnam
 ms.author: dianas
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: conceptual
-ms.date: 10/22/2018
+ms.topic: how-to
+ms.date: 5/6/2019
 ---
 
-# Optimizing bulk inserts and use of transient data on Azure Database for PostgreSQL server 
-This article describes how you can optimize bulk insert operations and the use of transient data on an Azure Database for PostgreSQL server.
+# Optimize bulk inserts and use transient data on an Azure Database for PostgreSQL - Single Server 
+This article describes how you can optimize bulk insert operations and use transient data on an Azure Database for PostgreSQL server.
 
-## Using unlogged tables
-For customers that have workload operations that involve transient data or that insert large datasets in bulk, consider using unlogged tables.
+## Use unlogged tables
+If you have workload operations that involve transient data or that insert large datasets in bulk, consider using unlogged tables.
 
-Unlogged tables is a PostgreSQL feature that can be used effectively to optimize bulk inserts. PostgreSQL uses Write-Ahead Logging (WAL), which provides atomicity and durability two of the ACID properties by default. Inserting into an unlogged table would mean PostgreSQL would do inserts without writing into the transaction log, which itself is an I/O operation, making these tables considerably faster than ordinary tables.
+Unlogged tables is a PostgreSQL feature that can be used effectively to optimize bulk inserts. PostgreSQL uses Write-Ahead Logging (WAL). It provides atomicity and durability, by default. Atomicity, consistency, isolation, and durability make up the ACID properties. 
 
-Below are the options for creating an unlogged table:
-- Create a new unlogged table using the syntax: `CREATE UNLOGGED TABLE <tableName>`
-- Convert an existing logged table to an unlogged table using the syntax: `ALTER <tableName> SET UNLOGGED`.  This can be reversed by using the syntax: `ALTER <tableName> SET LOGGED`
+Inserting into an unlogged table means that PostgreSQL does inserts without writing into the transaction log, which itself is an I/O operation. As a result, these tables are considerably faster than ordinary tables.
+
+Use the following options to create an unlogged table:
+- Create a new unlogged table by using the syntax `CREATE UNLOGGED TABLE <tableName>`.
+- Convert an existing logged table to an unlogged table by using the syntax `ALTER TABLE <tableName> SET UNLOGGED`.  
+
+To reverse the process, use the syntax `ALTER TABLE <tableName> SET LOGGED`.
 
 ## Unlogged table tradeoff
-Unlogged tables are not crash-safe. An unlogged table is automatically truncated after a crash or subject to an unclean shutdown. The contents of an unlogged table are also not replicated to standby servers. Any indexes created on an unlogged table are automatically unlogged as well.  After the insert operation completes, you may convert the table to logged so the insert is durable.
+Unlogged tables aren't crash-safe. An unlogged table is automatically truncated after a crash or subject to an unclean shutdown. The contents of an unlogged table also aren't replicated to standby servers. Any indexes created on an unlogged table are automatically unlogged as well. After the insert operation completes, convert the table to logged so that the insert is durable.
 
-However, on some customer workloads, we have experienced approximately a 15-20 percent performance improvement when using unlogged tables.
+Some customer workloads have experienced approximately a 15 percent to 20 percent performance improvement when unlogged tables were used.
 
 ## Next steps
-Review your workload for uses of transient data and large bulk inserts.  
-
-Review the following PostgreSQL documentation - [Create Table SQL Commands](https://www.postgresql.org/docs/current/static/sql-createtable.html)
+Review your workload for uses of transient data and large bulk inserts. See the following PostgreSQL documentation:
+ 
+- [Create Table SQL commands](https://www.postgresql.org/docs/current/static/sql-createtable.html)

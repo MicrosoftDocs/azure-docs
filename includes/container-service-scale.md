@@ -5,7 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
 ---
-After [deploying an Azure Container Service cluster](../articles/container-service/dcos-swarm/container-service-deployment.md), you might need to change the number of agent nodes. For example, you might need more agents so you can run more container applications or instances. 
+
+[!INCLUDE [ACS deprecation](container-service-deprecation.md)]
+
+After [deploying an Azure Container Service cluster](/previous-versions/azure/container-service/dcos-swarm/container-service-intro), you might need to change the number of agent nodes. For example, you might need more agents so you can run more container applications or instances. 
 
 You can change the number of agent nodes in a DC/OS, Docker Swarm, or Kubernetes cluster by using the Azure portal or the Azure CLI. 
 
@@ -21,7 +24,7 @@ You can change the number of agent nodes in a DC/OS, Docker Swarm, or Kubernetes
 
 ## Scale with the Azure CLI
 
-Make sure that you [installed](/cli/azure/install-az-cli2) the latest Azure CLI and signed in to an Azure account (`az login`).
+[Install the Azure CLI](/cli/azure/install-azure-cli) and sign in to an Azure account with `az login`.
 
 ### See the current agent count
 To see the number of agents currently in the cluster, run the `az acs show` command. This shows the cluster configuration. For example, the following command shows the configuration of the container service named `containerservice-myACSName` in the resource group `myResourceGroup`:
@@ -53,10 +56,9 @@ For more command options, run `az acs scale --help`.
 
 * Agent node scaling operations are applied to an Azure virtual machine scale set that contains the agent pool. In a DC/OS cluster, only agent nodes in the private pool are scaled by the operations shown in this article.
 
-* Depending on the orchestrator you deploy in your cluster, you can separately scale the number of instances of a container running on the cluster. For example, in a DC/OS cluster, use the [Marathon UI](../articles/container-service/dcos-swarm/container-service-mesos-marathon-ui.md) to change the number of instances of a container application.
+* Depending on the orchestrator you deploy in your cluster, you can separately scale the number of instances of a container running on the cluster. For example, in a DC/OS cluster, use the [Marathon UI](/previous-versions/azure/container-service/dcos-swarm/container-service-mesos-marathon-ui) to change the number of instances of a container application.
 
 
 ## Next steps
-* See [more examples](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) of using Azure CLI commands with Azure Container Service.
-* Learn more about [DC/OS agent pools](../articles/container-service/dcos-swarm/container-service-dcos-agents.md) in Azure Container Service.
-
+* See [more examples](/previous-versions/azure/container-service/dcos-swarm/container-service-intro) of using Azure CLI commands with Azure Container Service.
+* Learn more about [DC/OS agent pools](/previous-versions/azure/container-service/dcos-swarm/container-service-dcos-agents) in Azure Container Service.

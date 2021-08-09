@@ -1,24 +1,25 @@
 ---
 title: H264 Multiple Bitrate 4K Media Encoder Standard preset - Azure | Microsoft Docs
-description: The topic gives an overview of the **H264 Multiple Bitrate 4K** task preset.
-author: Juliako
+description: The article gives an overview of the Media Encoder Standard **H264 Multiple Bitrate 4K** task preset.
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.assetid: aba8e29e-d145-4f7b-814f-405f9c2a183b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 
 # H264 Multiple Bitrate 4K
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 `Media Encoder Standard` defines a set of encoding presets you can use when creating encoding jobs. You can either use a `preset name` to specify into which format you would like to encode your media file. Or, you can create your own JSON or XML-based presets (using UTF-8 or UTF-16 encoding. You would then pass the custom preset to the encoder. For the list of all the preset names supported by this `Media Encoder Standard` encoder, see [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).  
   
  This topic shows the `H264 Multiple Bitrate 4K` preset in XML and JSON format.  
@@ -26,7 +27,7 @@ ms.author: juliako
  This preset produces a set of 12 GOP-aligned MP4 files, ranging from 20000 kbps to 1000 kbps, and stereo AAC audio. For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine the XML or JSON defined below. For explanations of what each element in these presets means, and the valid values for each element, see the [Media Encoder Standard schema](media-services-mes-schema.md) topic.  
   
 > [!NOTE]
->  You should get the Premium reserved unit type with 4K encodes. For more information, see [How to Scale Encoding](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  You should get the Premium reserved unit type with 4K encodes. For more information, see [How to Scale Encoding](./media-services-scale-media-processing-overview.md).  
   
 > [!NOTE]
 >  When modifying the `Width` and `Height` values across layers, make sure that the aspect ratio remains consistent. For example: 1920x1080, 1280x720, 1080x576, 640x360. You should not use a mixture of aspect ratios, such as: 1280x720, 720x480, 640x360.  
@@ -35,7 +36,7 @@ ms.author: juliako
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
-<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">  
+<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">  
   <Encoding>  
     <H264Video>  
       <KeyFrameInterval>00:00:02</KeyFrameInterval>  

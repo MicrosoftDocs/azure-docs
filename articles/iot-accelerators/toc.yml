@@ -1,227 +1,77 @@
-- name: Azure IoT Fundamentals
-  href: ../iot-fundamentals/index.yml
 - name: IoT solution accelerators documentation
   href: index.yml
-
 - name: Overview
   items:
   - name: What are IoT solution accelerators
     href: about-iot-accelerators.md
-
+  - name: AzureIoTSolutions.com
+    href: iot-accelerators-permissions.md
+  - name: Industrial IoT
+    href: overview-iot-industrial.md
+    items:
+    - name: What is Connected Factory
+      href: iot-accelerators-connected-factory-features.md
 - name: Quickstarts
   items:
-  - name: Try a remote monitoring solution
-    href: quickstart-remote-monitoring-deploy.md
   - name: Try a connected factory solution
     href: quickstart-connected-factory-deploy.md
-  - name: Try a predictive maintenance solution
-    href: quickstart-predictive-maintenance-deploy.md
-  - name: Try a device simulation solution
-    href: quickstart-device-simulation-deploy.md
-
-- name: Tutorials
-  items:
-  - name: Remote Monitoring
-    items:
-    - name: Monitor IoT devices
-      href: iot-accelerators-remote-monitoring-monitor.md
-    - name: Detect device issues
-      href: iot-accelerators-remote-monitoring-automate.md
-    - name: Configure and manage devices
-      href: iot-accelerators-remote-monitoring-manage.md
-    - name: Conduct a root cause analysis on an alert
-      href: iot-accelerators-remote-monitoring-root-cause-analysis.md
-    - name: Use alerts and fix device issues
-      href: iot-accelerators-remote-monitoring-maintain.md
-  - name: Device Simulation
-    items:
-    - name: Create and run a simulation
-      href: iot-accelerators-device-simulation-create-simulation.md
-    - name: Create a custom simulated device
-      href: iot-accelerators-device-simulation-create-custom-device.md
-
-- name: Concepts
-  items:
-  - name: Remote Monitoring
-    href: iot-accelerators-remote-monitoring-sample-walkthrough.md
-    items:
-    - name: Architectural choices
-      href: iot-accelerators-remote-monitoring-architectural-choices.md
-    - name: Device model schema
-      href: iot-accelerators-remote-monitoring-device-schema.md
-    - name: Device model behavior
-      href: iot-accelerators-remote-monitoring-device-behavior.md
-  - name: Predictive Maintenance
-    href: iot-accelerators-predictive-walkthrough.md
-  - name: Connected Factory
-    href: iot-accelerators-connected-factory-features.md
-    items:
-    - name: Architecture
-      href: iot-accelerators-connected-factory-sample-walkthrough.md
-  - name: Permissions on azureiotsolutions.com
-    href: iot-accelerators-permissions.md
-
+  expanded: true
 - name: How-to guides
   items:
-  - name: Remote Monitoring
+  - name: Industrial IoT
     items:
-    - name: Connect a physical device
+    - name: Connected Factory
       items:
-      - name: C on Windows
-        href: iot-accelerators-connecting-devices.md
-      - name: C on Linux
-        href: iot-accelerators-connecting-devices-linux.md
-      - name: C on Raspberry Pi
-        href: iot-accelerators-connecting-pi-c.md
-      - name: Node.js (generic)
-        href: iot-accelerators-connecting-devices-node.md
-      - name: Node.js on Raspberry Pi
-        href: iot-accelerators-connecting-pi-node.md
-      - name: MXChip IoT DevKit
-        href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md
-    - name: Integrate SIM data
-      href: iot-accelerators-remote-monitoring-telefonica-sim.md
-    - name: Create a simulated device
-      href: iot-accelerators-remote-monitoring-create-simulated-device.md
-    - name: Deploy a simulated device
-      href: iot-accelerators-remote-monitoring-deploy-simulated-device.md
-    - name: Customize the UI
-      href: iot-accelerators-remote-monitoring-customize.md
-      items:
-      - name: Add a page
-        href: iot-accelerators-remote-monitoring-customize-page.md
-      - name: Add a service
-        href: iot-accelerators-remote-monitoring-customize-service.md
-      - name: Add a grid
-        href: iot-accelerators-remote-monitoring-customize-grid.md
-      - name: Add a flyout
-        href: iot-accelerators-remote-monitoring-customize-flyout.md
-      - name: Add a panel
-        href: iot-accelerators-remote-monitoring-customize-panel.md
-    - name: Customize and redeploy a microservice
-      href: iot-accelerators-microservices-example.md
-    - name: Deploy using the CLI
-      href: iot-accelerators-remote-monitoring-deploy-cli.md
-    - name: Deploy locally
-      items:
-      - name: Visual Studio
-        href: iot-accelerators-remote-monitoring-deploy-local.md
-      - name: Docker
-        href: iot-accelerators-remote-monitoring-deploy-local-docker.md
-    - name: Visualize telemetry with PowerBI
-      href: iot-accelerators-integrate-data-powerbi.md
-    - name: Integrate Azure Time Series Insights with Remote Monitoring
-      href: iot-accelerators-remote-monitoring-integrate-time-series-insights.md
-    - name: Analyze telemetry with Data Lake
-      href: iot-accelerators-integrate-data-lake.md
-    - name: Configure role-based access controls
-      href: iot-accelerators-remote-monitoring-rbac.md
-    - name: Grant access to telemetry explorer
-      href: iot-accelerators-remote-monitoring-rbac-tsi.md
-
-  - name: Connected Factory
-    items:
-    - name: Use the dashboard
-      href: iot-accelerators-connected-factory-dashboard.md
-    - name: Deploy a gateway
-      href: iot-accelerators-connected-factory-gateway-deployment.md
-    - name: Use the OPC publisher
-      href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
-    - name: Configure the solution accelerator
-      href: iot-accelerators-connected-factory-configure.md
-    - name: Customize the solution accelerator
-      href: iot-accelerators-connected-factory-customize.md
-
-  - name: Device Simulation
-    items:
-    - name: Use an existing IoT Hub
-      href: iot-accelerators-device-simulation-choose-hub.md
-    - name: Create an advanced simulated device
-      href: iot-accelerators-device-simulation-advanced-device.md
-    - name: Visualize telemetry with Time Series Insights
-      href: iot-accelerators-device-simulation-time-series-insights.md
-    - name: Serialize telemetry using Protbuf
-      href: iot-accelerators-device-simulation-protobuf.md
-    - name: Deploy a custom docker image
-      href: iot-accelerators-device-simulation-deploy-image.md
-
-- name: Reference
-  items:
-  - name: Remote Monitoring
-    items:
-    - name: Developer Reference Guide
-      href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide
-    - name: Developer Troubleshooting Guide
-      href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide
-  - name: Device Simulation
-    items:
-    - name: Developer Reference Guide
-      href: https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide
-  - name: Security
-    items:
-    - name: Security architecture
-      href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-accelerators/rc/rc
-    - name: Security best practices
-      href: /azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-accelerators/rc/rc
-    - name: Secure your IoT deployment
-      href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-accelerators/rc/rc
-    - name: Security from the ground up
-      href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-accelerators/rc/rc
-- name: Related
-  items:
-  - name: Solutions
-    items:
-    - name: IoT solution accelerators
-      href: /azure/iot-accelerators 
-    - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/ 
-  - name: Platform Services 
-    items:
-    - name: IoT Hub
-      href: /azure/iot-hub 
-    - name: IoT Hub Device Provisioning Service
-      href: /azure/iot-dps
-    - name: IoT Service SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks  azure-iot-service-sdks
-    - name: Maps
-      href: /azure/azure-maps 
-    - name: Time Series Insights
-      href: /azure/time-series-insights 
-  - name: Edge
-    items:
-    - name: IoT Edge
-      href: /azure/iot-edge 
-    - name: IoT Device SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks 
-  - name: Stream Analytics
-    href: /azure/stream-analytics/
-  - name: Event Hubs
-    href: /azure/event-hubs/
-  - name: Machine Learning
-    href: /azure/machine-learning/
-
+      - name: Use the dashboard
+        href: iot-accelerators-connected-factory-dashboard.md
+      - name: Configure the solution accelerator
+        href: iot-accelerators-connected-factory-configure.md
+      - name: Customize the solution accelerator
+        href: iot-accelerators-connected-factory-customize.md
 - name: Resources
   items:
-  - name: GitHub repositories
+  - name: Support and help options
+    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-accelerators/toc.json&bc=/azure/iot-accelerators/breadcrumb/toc.json
+  - name: IoT Glossary
+    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-accelerators/toc.json&bc=/azure/iot-accelerators/breadcrumb/toc.json
+  - name: Azure IoT services
     items:
-    - name: Remote Monitoring (.NET)
-      href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet
-    - name: Remote Monitoring (Java)
-      href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-java
-    - name: Connected Factory
+    - name: IoT Hub
+      href: ../iot-hub/index.yml
+    - name: IoT Hub Device Provisioning Service
+      href: ../iot-dps/index.yml
+    - name: IoT Central
+      href: /microsoft-iot-central/
+    - name: IoT Edge
+      href: ../iot-edge/index.yml
+    - name: IoT solution accelerators
+      href: ./index.yml
+    - name: IoT Plug and Play
+      href: ../iot-develop/index.yml
+    - name: Azure Maps
+      href: ../azure-maps/index.yml
+    - name: Time Series Insights
+      href: ../time-series-insights/index.yml
+  - name: Azure IoT SDKs
+    items:
+    - name: IoT Service SDKs
+      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
+    - name: IoT Device SDKs
+      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
+  - name: Industrial IoT
+    items:
+    - name: GitHub repository
       href: https://github.com/Azure/azure-iot-connected-factory
-    - name: Predictive Maintenance
-      href: https://github.com/Azure/azure-iot-predictive-maintenance
-    - name: Device Simulation
-      href: https://github.com/Azure/device-simulation-dotnet
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Reference Architecture
+    href: /azure/architecture/reference-architectures/iot
+    items:
+    - name: Download
+      href: /azure/architecture/reference-architectures/iot
   - name: FAQ
-    href: iot-accelerators-faq.md
-  - name: Remote Monitoring FAQ
-    href: iot-accelerators-faq-rm-v2.md
-  - name: Connected Factory FAQ
-    href: iot-accelerators-faq-cf.md
+    items:
+    - name: Solution Accelerators FAQ
+      href: iot-accelerators-faq.yml
+    - name: Connected Factory FAQ
+      href: iot-accelerators-faq-cf.yml
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
-

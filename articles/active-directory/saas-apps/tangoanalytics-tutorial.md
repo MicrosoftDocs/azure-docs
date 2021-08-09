@@ -1,223 +1,131 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Tango Analytics | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Tango Analytics.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: 2f7555d3-e9ba-40b2-9b3a-2f0ab38a4c08
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/22/2017
+ms.topic: tutorial
+ms.date: 06/07/2021
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Tango Analytics
 
-In this tutorial, you learn how to integrate Tango Analytics with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate Tango Analytics with Azure Active Directory (Azure AD). When you integrate Tango Analytics with Azure AD, you can:
 
-Integrating Tango Analytics with Azure AD provides you with the following benefits:
-
-- You can control in Azure AD who has access to Tango Analytics
-- You can enable your users to automatically get signed-on to Tango Analytics (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Azure AD who has access to Tango Analytics.
+* Enable your users to be automatically signed-in to Tango Analytics with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
-To configure Azure AD integration with Tango Analytics, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A Tango Analytics single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Tango Analytics single sign-on (SSO) enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Tango Analytics from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-## Adding Tango Analytics from the gallery
+* Tango Analytics supports **IDP** initiated SSO.
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
+## Add Tango Analytics from the gallery
+
 To configure the integration of Tango Analytics into Azure AD, you need to add Tango Analytics from the gallery to your list of managed SaaS apps.
 
-**To add Tango Analytics from the gallery, perform the following steps:**
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Tango Analytics** in the search box.
+1. Select **Tango Analytics** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Configure and test Azure AD SSO for Tango Analytics
 
-	![Active Directory][1]
+Configure and test Azure AD SSO with Tango Analytics using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Tango Analytics.
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+To configure and test Azure AD SSO with Tango Analytics, perform the following steps:
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Tango Analytics SSO](#configure-tango-analytics-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Tango Analytics test user](#create-tango-analytics-test-user)** - to have a counterpart of B.Simon in Tango Analytics that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	![Applications][3]
+## Configure Azure AD SSO
 
-1. In the search box, type **Tango Analytics**.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-	![Creating an Azure AD test user](./media/tangoanalytics-tutorial/tutorial_tangoanalytics_search.png)
+1. In the Azure portal, on the **Tango Analytics** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-1. In the results panel, select **Tango Analytics**, and then click **Add** button to add the application.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	![Creating an Azure AD test user](./media/tangoanalytics-tutorial/tutorial_tangoanalytics_addfromgallery.png)
+4. On the **Set up Single Sign-On with SAML** page, perform the following steps:
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Tango Analytics based on a test user called "Britta Simon".
+    a. In the **Identifier** text box, type the value:
+    `TACORE_SSO`
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Tango Analytics is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Tango Analytics needs to be established.
+    b. In the **Reply URL** text box, type the URL:
+    `https://mts.tangoanalytics.com/saml2/sp/acs/post`
 
-In Tango Analytics, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-To configure and test Azure AD single sign-on with Tango Analytics, you need to complete the following building blocks:
+	![The Certificate download link](common/metadataxml.png)
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a Tango Analytics test user](#creating-a-tango-analytics-test-user)** - to have a counterpart of Britta Simon in Tango Analytics that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+6. On the **Set up Tango Analytics** section, copy the appropriate URL(s) as per your requirement.
 
-### Configuring Azure AD single sign-on
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Tango Analytics application.
+### Create an Azure AD test user
 
-**To configure Azure AD single sign-on with Tango Analytics, perform the following steps:**
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-1. In the Azure portal, on the **Tango Analytics** application integration page, click **Single sign-on**.
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
-	![Configure Single Sign-On][4]
+### Assign the Azure AD test user
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/tangoanalytics-tutorial/tutorial_tangoanalytics_samlbase.png)
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Tango Analytics.
 
-1. On the **Tango Analytics Domain and URLs** section, perform the following steps:
-
-	![Configure Single Sign-On](./media/tangoanalytics-tutorial/tutorial_tangoanalytics_url.png)
-
-    a. In the **Identifier** textbox, type the value `TACORE_SSO`
-
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://mts.tangoanalytics.com/saml2/sp/acs/post`
-
-	> [!NOTE] 
-	> The Reply URL value is not real. Update this with the actual Reply URL. Contact [Tango Analytics support team](mailto:support@tangoanalytics.com) to get this value.
-
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
-
-	![Configure Single Sign-On](./media/tangoanalytics-tutorial/tutorial_tangoanalytics_certificate.png) 
-
-1. Click **Save** button.
-
-	![Configure Single Sign-On](./media/tangoanalytics-tutorial/tutorial_general_400.png)
-
-1. To configure single sign-on on **Tango Analytics** side, you need to send the downloaded **Metadata XML** to [Tango Analytics support team](mailto:support@tangoanalytics.com). They set this setting to have the SAML SSO connection set properly on both sides.
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-![Create Azure AD User][100]
-
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
-
-	![Creating an Azure AD test user](./media/tangoanalytics-tutorial/create_aaduser_01.png) 
-
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/tangoanalytics-tutorial/create_aaduser_02.png) 
-
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/tangoanalytics-tutorial/create_aaduser_03.png) 
-
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/tangoanalytics-tutorial/create_aaduser_04.png) 
-
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**.
- 
-### Creating a Tango Analytics test user
-
-In this section, you create a user called Britta Simon in Tango Analytics. Work with [Tango Analytics support team](mailto:support@tangoanalytics.com) to add the users in the Tango Analytics platform. Users must be created and activated before you use single sign-on.
-
-### Assigning the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Tango Analytics.
-
-![Assign User][200] 
-
-**To assign Britta Simon to Tango Analytics, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Tango Analytics**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	![Configure Single Sign-On](./media/tangoanalytics-tutorial/tutorial_tangoanalytics_app.png) 
+## Configure Tango Analytics SSO
 
-1. In the menu on the left, click **Users and groups**.
+To configure single sign-on on **Tango Analytics** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Tango Analytics support team](mailto:support@tangoanalytics.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-	![Assign User][202] 
+### Create Tango Analytics test user
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+In this section, you create a user called Britta Simon in Tango Analytics. Work with [Tango Analytics support team](mailto:support@tangoanalytics.com) to add the users in the Tango Analytics platform. Users must be created and activated before you use single sign-on.
 
-	![Assign User][203]
+## Test SSO
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-1. Click **Select** button on **Users and groups** dialog.
+* Click on Test this application in Azure portal and you should be automatically signed in to the Tango Analytics for which you set up the SSO.
 
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
+* You can use Microsoft My Apps. When you click the Tango Analytics tile in the My Apps, you should be automatically signed in to the Tango Analytics for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+## Next steps
 
-When you click the Tango Analytics tile in the Access Panel, you should get automatically signed-on to your Tango Analytics application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-<!--Image references-->
-
-[1]: ./media/tangoanalytics-tutorial/tutorial_general_01.png
-[2]: ./media/tangoanalytics-tutorial/tutorial_general_02.png
-[3]: ./media/tangoanalytics-tutorial/tutorial_general_03.png
-[4]: ./media/tangoanalytics-tutorial/tutorial_general_04.png
-
-[100]: ./media/tangoanalytics-tutorial/tutorial_general_100.png
-
-[200]: ./media/tangoanalytics-tutorial/tutorial_general_200.png
-[201]: ./media/tangoanalytics-tutorial/tutorial_general_201.png
-[202]: ./media/tangoanalytics-tutorial/tutorial_general_202.png
-[203]: ./media/tangoanalytics-tutorial/tutorial_general_203.png
-
+Once you configure Tango Analytics you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

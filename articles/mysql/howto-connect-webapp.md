@@ -1,21 +1,20 @@
 ---
-title: Connect existing Azure App Service to Azure Database for MySQL
+title: Connect to Azure App Service - Azure Database for MySQL
 description: Instructions for how to properly connect an existing Azure App Service to Azure Database for MySQL
-services: mysql
-author: ajlam
-ms.author: andrela
-editor: jasonwhowell
-manager: kfile
+author: savjani
+ms.author: pariks
 ms.service: mysql
-ms.topic: article
-ms.date: 09/26/2018
+ms.topic: how-to
+ms.date: 3/18/2020
 ---
 
 # Connect an existing Azure App Service to Azure Database for MySQL server
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 This topic explains how to connect an existing Azure App Service to your Azure Database for MySQL server.
 
 ## Before you begin
-Log in to the [Azure portal](https://portal.azure.com). Create an Azure Database for MySQL server. For details, refer to [How to create Azure Database for MySQL server from Portal](quickstart-create-mysql-server-database-using-azure-portal.md) or [How to create Azure Database for MySQL server using CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
+Sign in to the [Azure portal](https://portal.azure.com). Create an Azure Database for MySQL server. For details, refer to [How to create Azure Database for MySQL server from Portal](quickstart-create-mysql-server-database-using-azure-portal.md) or [How to create Azure Database for MySQL server using CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 Currently there are two solutions to enable access from an Azure App Service to an Azure Database for MySQL. Both solutions involve setting up server-level firewall rules.
 
@@ -24,21 +23,21 @@ Azure Database for MySQL provides access security using a firewall to protect yo
 
 1. On the MySQL server blade, under the Settings heading, click **Connection Security** to open the Connection Security blade for Azure Database for MySQL.
 
-   ![Azure portal - click Connection Security](./media/howto-connect-webapp/1-connection-security.png)
+   :::image type="content" source="./media/howto-connect-webapp/1-connection-security.png" alt-text="Azure portal - click Connection Security":::
 
 2. Select **ON** in **Allow access to Azure services**, then **Save**.
-   ![Azure portal - Allow Azure access](./media/howto-connect-webapp/allow-azure.png)
+   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Azure portal - Allow Azure access":::
 
 ## Solution 2 - Create a firewall rule to explicitly allow outbound IPs
 You can explicitly add all the outbound IPs of your Azure App Service.
 
 1. On the App Service Properties blade, view your **OUTBOUND IP ADDRESS**.
 
-   ![Azure portal - View outbound IPs](./media/howto-connect-webapp/2_1-outbound-ip-address.png)
+   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Azure portal - View outbound IPs":::
 
 2. On the MySQL Connection security blade, add outbound IPs one by one.
 
-   ![Azure portal - Add explicit IPs](./media/howto-connect-webapp/2_2-add-explicit-ips.png)
+   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Azure portal - Add explicit IPs":::
 
 3. Remember to **Save** your firewall rules.
 
@@ -46,6 +45,23 @@ Though the Azure App service attempts to keep IP addresses constant over time, t
 
 ## SSL configuration
 Azure Database for MySQL has SSL enabled by default. If your application is not using SSL to connect to the database, then you need to disable SSL on the MySQL server. For details on how to configure SSL, see [Using SSL with Azure Database for MySQL](howto-configure-ssl.md).
+
+### Django (PyMySQL)
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'quickstartdb',
+        'USER': 'myadmin@mydemoserver',
+        'PASSWORD': 'yourpassword',
+        'HOST': 'mydemoserver.mysql.database.azure.com',
+        'PORT': '3306',
+        'OPTIONS': {
+            'ssl': {'ssl-ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}
+        }
+    }
+}
+```
 
 ## Next steps
 For more information about connection strings, refer to [Connection Strings](howto-connection-string.md).

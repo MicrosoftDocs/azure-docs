@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 9997a97b-9382-43ed-b56e-61369335c987
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
@@ -44,7 +44,7 @@ Perform the following steps to download the software update from the Microsoft U
 
 #### To download the update or the hotfix
 
-1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
+1. Start Internet Explorer and navigate to [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
 
 2. If this is your first time using the Microsoft Update Catalog on this computer, click **Install** when prompted to install the Microsoft Update Catalog add-on.
 
@@ -72,26 +72,26 @@ Use this method to install updates on a device running GA or Update 0.1 software
 
 1. In the local web UI, go to **Maintenance** > **Software Update**.
    
-    ![update device](./media/storsimple-virtual-array-install-update/update1m.png)
+    ![Screenshot shows Software update selected from the Maintenance menu.](./media/storsimple-virtual-array-install-update/update1m.png)
 
 2. In **Update file path**, enter the file name for the update or the hotfix. You can also browse to the update or hotfix installation file if placed on a network share. Click **Apply**.
    
-    ![update device](./media/storsimple-virtual-array-install-update/update2m.png)
+    ![Screenshot shows the Update file path text box in the Software update page.](./media/storsimple-virtual-array-install-update/update2m.png)
 
 3. A warning is displayed. Given this is a single node device, after the update is applied, the device restarts and there is downtime. Click the check icon.
    
-   ![update device](./media/storsimple-virtual-array-install-update/update3m.png)
+   ![Screenshot shows a dialog box warning of downtime.](./media/storsimple-virtual-array-install-update/update3m.png)
 
 4. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.
    
-    ![update device](./media/storsimple-virtual-array-install-update/update5m.png)
+    ![Screenshot shows a success message for the update.](./media/storsimple-virtual-array-install-update/update5m.png)
 
 5. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has updated, in the local web UI, go to **Maintenance** > **Software Update**. The displayed software version should be **10.0.0.0.0.10288.0** for Update 0.3.
    
    > [!NOTE]
    > We report the software versions in a slightly different way in the local web UI and the Azure portal. For example, the local web UI reports **10.0.0.0.0.10288** and the Azure portal reports **10.0.10288.0** for the same version.
    
-    ![update device](./media/storsimple-virtual-array-install-update/update6m.png)
+    ![Screenshot shows the Software update page with the current software version.](./media/storsimple-virtual-array-install-update/update6m.png)
 
 ## Use the Azure portal
 

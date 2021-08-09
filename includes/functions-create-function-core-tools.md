@@ -1,9 +1,7 @@
 ---
 title: include file
 description: include file
-services: functions
 author: ggailey777
-manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
 ms.date: 10/20/2018
@@ -13,9 +11,9 @@ ms.custom: include file
 
 ## Create a function
 
-The following command creates an HTTP-triggered function named `MyHtpTrigger`.
+The following command creates an HTTP-triggered function named `MyHttpTrigger`.
 
-```bash
+```command
 func new --name MyHttpTrigger --template "HttpTrigger"
 ```
 

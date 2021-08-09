@@ -1,20 +1,18 @@
 ---
-title: 'Quickstart: Gremlin API with Python - Azure Cosmos DB | Microsoft Docs'
+title: 'Quickstart: Gremlin API with Python - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB Gremlin API to create a console application with the Azure portal and Python
-services: cosmos-db
-author: luisbosquez
-manager: kfile
-
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-graph
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/22/2018
-ms.author: lbosq
+ms.date: 03/29/2021
+author: manishmsfte
+ms.author: mansha
+ms.custom: devx-track-python
 
 ---
-# Azure Cosmos DB: Create a graph database using Python and the Azure portal
+# Quickstart: Create a graph database in Azure Cosmos DB using Python and the Azure portal
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin console](create-graph-gremlin-console.md)
@@ -25,32 +23,26 @@ ms.author: lbosq
 > * [PHP](create-graph-php.md)
 >  
 
-This quickstart shows how to use Python and the Azure Cosmos DB [Gremlin API](graph-introduction.md) to build a console app by cloning an example from GitHub. This quickstart also walks you through the creation of an Azure Cosmos DB account by using the web-based Azure portal.   
+In this quickstart, you create and manage an Azure Cosmos DB Gremlin (graph) API account from the Azure portal, and add data by using a Python app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key-value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.  
+## Prerequisites
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
+- [Python 3.6+](https://www.python.org/downloads/) including [pip](https://pip.pypa.io/en/stable/installing/) package installer.
+- [Python Driver for Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python).
+- [Git](https://git-scm.com/downloads).
 
 > [!NOTE]
 > This quickstart requires a graph database account created after December 20th, 2017. Existing accounts will support Python once they’re migrated to general availability.
-
-## Prerequisites
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
-
-In addition:
-* [Python](https://www.python.org/downloads/) version v3.5 or newer
-* [pip package manager](https://pip.pypa.io/en/stable/installing/)
-* [Git](http://git-scm.com/)
-* [Python Driver for Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python)
 
 ## Create a database account
 
 Before you can create a graph database, you need to create a Gremlin (Graph) database account with Azure Cosmos DB.
 
-[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## Add a graph
 
-[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
+[!INCLUDE [cosmos-db-create-graph](includes/cosmos-db-create-graph.md)]
 
 ## Clone the sample application
 
@@ -59,16 +51,16 @@ Now let's switch to working with code. Let's clone a Gremlin API app from GitHub
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
     ```bash
-    md "C:\git-samples"
+    mkdir "./git-samples"
     ```
 
 2. Open a git terminal window, such as git bash, and use the `cd` command to change to a folder to install the sample app.  
 
     ```bash
-    cd "C:\git-samples"
+    cd "./git-samples"
     ```
 
-3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer. 
+3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-python-getting-started.git
@@ -76,19 +68,19 @@ Now let's switch to working with code. Let's clone a Gremlin API app from GitHub
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the connect.py file in the C:\git-samples\azure-cosmos-db-graph-python-getting-started\ folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-information). 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the *connect.py* file in the *C:\git-samples\azure-cosmos-db-graph-python-getting-started\\* folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-information).
 
-* The Gremlin `client` is initialized in line 104 in `connect.py`:
+* The Gremlin `client` is initialized in line 155 in *connect.py*. Make sure to replace `<YOUR_DATABASE>` and `<YOUR_CONTAINER_OR_GRAPH>` with the values of your account's database name and graph name:
 
     ```python
     ...
     client = client.Client('wss://<YOUR_ENDPOINT>.gremlin.cosmosdb.azure.com:443/','g', 
-        username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
+        username="/dbs/<YOUR_DATABASE>/colls/<YOUR_CONTAINER_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ...
     ```
 
-* A series of Gremlin steps are declared at the beginning of the `connect.py` file. They are then executed using the `client.submitAsync()` method:
+* A series of Gremlin steps are declared at the beginning of the *connect.py* file. They are then executed using the `client.submitAsync()` method:
 
     ```python
     client.submitAsync(_gremlin_cleanup_graph)
@@ -98,13 +90,13 @@ This step is optional. If you're interested in learning how the database resourc
 
 Now go back to the Azure portal to get your connection information and copy it into the app. These settings enable your app to communicate with your hosted database.
 
-1. In the [Azure portal](http://portal.azure.com/), click **Keys**. 
+1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Keys**. 
 
     Copy the first portion of the URI value.
 
-    ![View and copy an access key in the Azure portal, Keys page](./media/create-graph-python/keys.png)
+    :::image type="content" source="./media/create-graph-python/keys.png" alt-text="View and copy an access key in the Azure portal, Keys page":::
 
-2. Open the connect.py file and in line 104 paste the URI value over `<YOUR_ENDPOINT>` in here:
+2. Open the *connect.py* file and in line 155 paste the URI value over `<YOUR_ENDPOINT>` in here:
 
     ```python
     client = client.Client('wss://<YOUR_ENDPOINT>.gremlin.cosmosdb.azure.com:443/','g', 
@@ -132,7 +124,7 @@ Now go back to the Azure portal to get your connection information and copy it i
         password="<YOUR_PASSWORD>")
     ```
 
-4. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `<YOUR_PASSWORD>` in the `password=<YOUR_PASSWORD>` parameter.
+4. On the **Keys** page, use the copy button to copy the PRIMARY KEY and paste it over `<YOUR_PASSWORD>` in the `password=<YOUR_PASSWORD>` parameter.
 
     The entire `client` object definition should now look like this code:
     ```python
@@ -141,14 +133,14 @@ Now go back to the Azure portal to get your connection information and copy it i
         password="asdb13Fadsf14FASc22Ggkr662ifxz2Mg==")
     ```
 
-6. Save the `connect.py` file.
+6. Save the *connect.py* file.
 
 ## Run the console app
 
 1. In the git terminal window, `cd` to the azure-cosmos-db-graph-python-getting-started folder.
 
     ```git
-    cd "C:\git-samples\azure-cosmos-db-graph-python-getting-started"
+    cd "./git-samples\azure-cosmos-db-graph-python-getting-started"
     ```
 
 2. In the git terminal window, use the following command to install the required Python packages.
@@ -172,26 +164,27 @@ Now go back to the Azure portal to get your connection information and copy it i
 <a id="add-sample-data"></a>
 ## Review and add sample data
 
-You can now go back to Data Explorer and see the vertices added to the graph, and add additional data points.
+After the vertices and edges are inserted, you can now go back to Data Explorer and see the vertices added to the graph, and add additional data points.
 
-1. Click **Data Explorer**, expand **sample-graph**, click **Graph**, and then click **Apply Filter**. 
+1. In your Azure Cosmos DB account in the Azure portal, select **Data Explorer**, expand **sample-graph**, select **Graph**, and then select **Apply Filter**. 
 
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png)
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="Screenshot shows Graph selected from the A P I with the option to Apply Filter.":::
 
-2. In the **Results** list, notice the new users added to the graph. Select **ben** and notice that he's connected to robin. You can move the vertices around by dragging and dropping, zoom in and out by scrolling the wheel of your mouse, and expand the size of the graph with the double-arrow. 
+2. In the **Results** list, notice three new users are added to the graph. You can move the vertices around by dragging and dropping, zoom in and out by scrolling the wheel of your mouse, and expand the size of the graph with the double-arrow. 
 
-   ![New vertices in the graph in Data Explorer in the Azure portal](./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png)
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png" alt-text="New vertices in the graph in Data Explorer in the Azure portal":::
 
-3. Let's add a few new users. Click the **New Vertex** button to add data to your graph.
+3. Let's add a few new users. Select the **New Vertex** button to add data to your graph.
 
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-python/azure-cosmosdb-data-explorer-new-vertex.png)
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Screenshot shows the New Vertex pane where you can enter values.":::
 
 4. Enter a label of *person*.
 
-5. Click **Add property** to add each of the following properties. Notice that you can create unique properties for each person in your graph. Only the id key is required.
+5. Select **Add property** to add each of the following properties. Notice that you can create unique properties for each person in your graph. Only the id key is required.
 
     key|value|Notes
     ----|----|----
+    pk|/pk| 
     id|ashley|The unique identifier for the vertex. If you don't specify an id, one is generated for you.
     gender|female| 
     tech | java | 
@@ -199,51 +192,52 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
     > [!NOTE]
     > In this quickstart create a non-partitioned collection. However, if you create a partitioned collection by specifying a partition key during the collection creation, then you need to include the partition key as a key in each new vertex. 
 
-6. Click **OK**. You may need to expand your screen to see **OK** on the bottom of the screen.
+6. Select **OK**. You may need to expand your screen to see **OK** on the bottom of the screen.
 
-7. Click **New Vertex** again and add an additional new user. 
+7. Select **New Vertex** again and add an additional new user. 
 
 8. Enter a label of *person*.
 
-9. Click **Add property** to add each of the following properties:
+9. Select **Add property** to add each of the following properties:
 
     key|value|Notes
     ----|----|----
+    pk|/pk| 
     id|rakesh|The unique identifier for the vertex. If you don't specify an id, one is generated for you.
     gender|male| 
     school|MIT| 
 
-10. Click **OK**. 
+10. Select **OK**. 
 
-11. Click the **Apply Filter** button with the default `g.V()` filter to display all the values in the graph. All of the users now show in the **Results** list. 
+11. Select the **Apply Filter** button with the default `g.V()` filter to display all the values in the graph. All of the users now show in the **Results** list. 
 
-    As you add more data, you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph. You can change it to a different [graph query](tutorial-query-graph.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format. If you changed the filter, change the filter back to `g.V()` and click **Apply Filter** to display all the results again.
+    As you add more data, you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph. You can change it to a different [graph query](tutorial-query-graph.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format. If you changed the filter, change the filter back to `g.V()` and select **Apply Filter** to display all the results again.
 
-12. Now we can connect rakesh and ashley. Ensure **ashley** is selected in the **Results** list, then click the edit button next to **Targets** on lower right side. You may need to widen your window to see the **Properties** area.
+12. Now we can connect rakesh and ashley. Ensure **ashley** is selected in the **Results** list, then select the edit button next to **Targets** on lower right side. You may need to widen your window to see the **Properties** area.
 
-   ![Change the target of a vertex in a graph](./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png)
+    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Change the target of a vertex in a graph":::
 
-13. In the **Target** box type *rakesh*, and in the **Edge label** box type *knows*, and then click the check.
+13. In the **Target** box type *rakesh*, and in the **Edge label** box type *knows*, and then select the check.
 
-   ![Add a connection between ashley and rakesh in Data Explorer](./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png)
+    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png" alt-text="Add a connection between ashley and rakesh in Data Explorer":::
 
 14. Now select **rakesh** from the results list and see that ashley and rakesh are connected. 
 
-   ![Two vertices connected in Data Explorer](./media/create-graph-python/azure-cosmosdb-graph-explorer.png)
+    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer.png" alt-text="Two vertices connected in Data Explorer":::
 
-   That completes the resource creation part of this tutorial. You can continue to add vertexes to your graph, modify the existing vertexes, or change the queries. Now let's review the metrics Azure Cosmos DB provides, and then clean up the resources. 
+That completes the resource creation part of this tutorial. You can continue to add vertexes to your graph, modify the existing vertexes, or change the queries. Now let's review the metrics Azure Cosmos DB provides, and then clean up the resources. 
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a graph using the Data Explorer, and run an app. You can now build more complex queries and implement powerful graph traversal logic using Gremlin. 
+In this quickstart, you learned how to create an Azure Cosmos DB account, create a graph using the Data Explorer, and run a Python app to add data to the graph. You can now build more complex queries and implement powerful graph traversal logic using Gremlin. 
 
 > [!div class="nextstepaction"]
 > [Query using Gremlin](tutorial-query-graph.md)

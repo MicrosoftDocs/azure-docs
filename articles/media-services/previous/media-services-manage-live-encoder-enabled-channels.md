@@ -1,24 +1,25 @@
 ---
 title: Live streaming using Azure Media Services to create multi-bitrate streams | Microsoft Docs
-description: 'This topic describes how to set up a Channel that receives a single bitrate live stream from an on-premises encoder and then performs live encoding to adaptive bitrate stream with Media Services. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH.'
+description: This topic describes how to set up a Channel that receives a single bitrate live stream from an on-premises encoder and then performs live encoding to adaptive bitrate stream with Media Services.
 services: media-services
 documentationcenter: ''
-author: anilmur
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
-ms.author: juliako;anilmur
-
+ms.date: 03/10/2021
+ms.author: anilmur
+ms.reviewer: juliako
 ---
 
 # Live streaming using Azure Media Services to create multi-bitrate streams
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Starting May 12, 2018, live channels will no longer support the RTP/MPEG-2 transport stream ingest protocol. Please migrate from RTP/MPEG-2 to RTMP or fragmented MP4 (Smooth Streaming) ingest protocols.
@@ -27,8 +28,8 @@ ms.author: juliako;anilmur
 In Azure Media Services (AMS), a **Channel** represents a pipeline for processing live streaming content. A **Channel** receives live input streams in one of two ways:
 
 * An on-premises live encoder sends a single-bitrate stream to the Channel that is enabled to perform live encoding with Media Services in one of the following formats: RTMP or Smooth Streaming (Fragmented MP4). The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
-* An on-premises live encoder sends a multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel that is not enabled to perform live encoding with AMS. The ingested streams pass through **Channel**s without any further processing. This method is called **pass-through**. You can use the following live encoders that output multi-bitrate Smooth Streaming: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco and Elemental. The following live encoders output RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek and Tricaster encoders.  A live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
-  
+* An on-premises live encoder sends a multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel that is not enabled to perform live encoding with AMS. The ingested streams pass through **Channel**s without any further processing. This method is called **pass-through**. You can use the following live encoders that output multi-bitrate Smooth Streaming: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco and Elemental. The following live encoders output RTMP: [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Haivision, Teradek encoders.  A live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
+
   > [!NOTE]
   > Using a pass-through method is the most economical way to do live streaming.
   > 
@@ -47,7 +48,7 @@ Starting with the Media Services 2.10 release, when you create a Channel, you ca
 > 
 
 ## Billing Implications
-A live encoding channel begins billing as soon as it's state transitions to "Running" via the API.   You can also view the state in the Azure portal, or in the Azure Media Services Explorer tool (http://aka.ms/amse).
+A live encoding channel begins billing as soon as it's state transitions to "Running" via the API.   You can also view the state in the Azure portal, or in the Azure Media Services Explorer tool (https://aka.ms/amse).
 
 The following table shows how Channel states map to billing states in the API and Azure portal. The states are slightly different between the API and Portal UX. As soon as a channel is in the "Running" state via the API, or in the "Ready" or "Streaming" state in the Azure portal, billing will be active.
 To stop the Channel from billing you further, you have to Stop the Channel via the API or in the Azure portal.
@@ -85,30 +86,30 @@ The following diagram represents a live streaming workflow where a channel recei
 The following are general steps involved in creating common live streaming applications.
 
 > [!NOTE]
-> Currently, the max recommended duration of a live event is 8 hours. Please contact  amslived@microsoft.com if you need to run a Channel for longer periods of time. There is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur hourly billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges. 
-> 
-> 
+> Currently, the max recommended duration of a live event is 8 hours.
+>
+> There is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur hourly billing charges. It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges. 
 
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a **single** bitrate stream in one of the following protocols: RTMP or Smooth Streaming. 
-   
+
     This step could also be performed after you create your Channel.
 2. Create and start a Channel. 
 3. Retrieve the Channel ingest URL. 
-   
+
     The ingest URL is used by the live encoder to send the stream to the Channel.
 4. Retrieve the Channel preview URL. 
-   
+
     Use this URL to verify that your channel is properly receiving the live stream.
 5. Create a program. 
-   
+
     When using the Azure portal, creating a program also creates an asset. 
-   
+
     When using .NET SDK or REST you need to create an asset and specify to use this asset when creating a Program. 
 6. Publish the asset associated with the program.   
-   
+
     >[!NOTE]
-	>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. The streaming endpoint from which you want to stream content has to be in the **Running** state. 
-	
+    >When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. The streaming endpoint from which you want to stream content has to be in the **Running** state. 
+
 7. Start the program when you are ready to start streaming and archiving.
 8. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
 9. Stop the program whenever you want to stop streaming and archiving the event.
@@ -142,7 +143,7 @@ Considerations:
 * 44.1 kHz sampling rate
 * MPEG-2 style ADTS packaging
 * Recommended encoders include:
-* Telestream Wirecast
+* [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md)
 * Flash Media Live Encoder
 
 #### Single bitrate Fragmented MP4 (Smooth Streaming)
@@ -163,7 +164,7 @@ A Channel provides an input endpoint (ingest URL) that you specify in the live e
 
 You can get the ingest URLs once you create a Channel. To get these URLs, the Channel does not have to be in the **Running** state. When you are ready to start pushing data into the Channel, it must be in the **Running** state. Once the Channel starts ingesting data, you can preview your stream through the preview URL.
 
-You have an option of ingesting Fragmented MP4 (Smooth Streaming) live stream over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS. Currently, AMS doesn’t support SSL with custom domains.  
+You have an option of ingesting Fragmented MP4 (Smooth Streaming) live stream over an TLS connection. To ingest over TLS, make sure to update the ingest URL to HTTPS. Currently, AMS doesn’t support TLS with custom domains.  
 
 ### Allowed IP addresses
 You can define the IP addresses that are allowed to publish video to this channel. Allowed IP addresses can be specified as either a single IP address (for example, '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, ‘10.0.0.1/22’), or an IP range using an IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.252.0)').
@@ -209,20 +210,18 @@ The language identifier of the audio stream, conforming to ISO 639-2, such as EN
 ### <a id="preset"></a>System Preset
 Specifies the preset to be used by the live encoder within this Channel. Currently, the only allowed value is **Default720p** (default).
 
-Note that if you need custom presets, you should contact  amslived@microsoft.com.
-
-**Default720p** will encode the video into the following 7 layers.
+**Default720p** will encode the video into the following 6 layers.
 
 #### Output Video Stream
+
 | BitRate | Width | Height | MaxFPS | Profile | Output Stream Name |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |High |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Main |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Main |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Main |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Main |Video_384x216_550kbps |
-| 350 |340 |192 |30 |Baseline |Video_340x192_350kbps |
-| 200 |340 |192 |30 |Baseline |Video_340x192_200kbps |
+| 2200 |960 |540 |30 |High |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |High |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |High |Video_512x288_850kbps |
+| 550 |384 |216 |30 |High |Video_384x216_550kbps |
+| 200 |340 |192 |30 |High |Video_340x192_200kbps |
 
 #### Output Audio Stream
 
@@ -266,9 +265,9 @@ When set to true, this setting configures the live encoder to insert a slate ima
 Optional. Specifies the Asset Id of the Media Services Asset which contains the slate image. Default is null. 
 
 
->[!NOTE] 
->Before creating the Channel, the slate image with the following constraints should be uploaded as a dedicated asset (no other files should be in this asset). This image is used only when the live encoder is inserting a slate due to an ad break, or has been explicitly signaled to insert a slate. The live encoder can also go into a slate mode during certain error conditions – for example if the input signal is lost. There is currently no option to use a custom image when the live encoder enters such an 'input signal lost' state. You can vote for this feature [here](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
-
+> [!NOTE] 
+> Before creating the Channel, the slate image with the following constraints should be uploaded as a dedicated asset (no other files should be in this asset). This image is used only when the live encoder is inserting a slate due to an ad break, or has been explicitly signaled to insert a slate. 
+> There is currently no option to use a custom image when the live encoder enters such an 'input signal lost' state. You can vote for this feature [here](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
 
 * At most 1920x1080 in resolution.
 * At most 3 Mbytes in size.
@@ -330,7 +329,7 @@ The following table shows how Channel states map to the billing mode.
 * By default you can only add 5 channels to your Media Services account. This is a soft quota on all new accounts. For more information, see [Quotas and Limitations](media-services-quotas-and-limitations.md).
 * You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
 * You are only billed when your Channel is in the **Running** state. For more information, refer to [this](media-services-manage-live-encoder-enabled-channels.md#states) section.
-* Currently, the max recommended duration of a live event is 8 hours. Please contact  amslived@microsoft.com if you need to run a Channel for longer periods of time.
+* Currently, the max recommended duration of a live event is 8 hours. 
 * Make sure to have the streaming endpoint from which you want to stream content in the **Running** state.
 * The encoding preset uses the notion of "max frame rate" of 30 fps. So if the input is 60fps/59.94i, the input frames are dropped/de-interlaced to 30/29.97 fps. If the input is 50fps/50i, the input frames are dropped/de-interlaced to 25 fps. If the input is 25 fps, output remains at 25 fps.
 * Don't forget to STOP YOUR CHANNELS when done. If you don't, billing will continue.
@@ -340,7 +339,12 @@ The following table shows how Channel states map to the billing mode.
 * Slate images should conform to restrictions described [here](media-services-manage-live-encoder-enabled-channels.md#default_slate). If you attempt to create a Channel with a default slate that is larger than 1920x1080, the request will eventually error out.
 * Once again....don't forget to STOP YOUR CHANNELS when you are done streaming. If you don't, billing will continue.
 
+## Need help?
+
+You can open a support ticket by navigating to [New support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+
 ## Next step
+
 Review Media Services learning paths.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -355,11 +359,10 @@ Review Media Services learning paths.
 
 [Create channels that perform live encoding from a singe bitrate to adaptive bitrate stream with .NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
-[Manage channels with REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
- 
+[Manage channels with REST API](/rest/api/media/operations/channel)
+
 [Media Services Concepts](media-services-concepts.md)
 
-[Azure Media Services Fragmented MP4 Live Ingest Specification](media-services-fmp4-live-ingest-overview.md)
+[Azure Media Services Fragmented MP4 Live Ingest Specification](../media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
-

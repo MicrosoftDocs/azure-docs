@@ -1,18 +1,23 @@
 ---
 title: View kubelet logs in Azure Kubernetes Service (AKS)
-description: How to view troubleshooting information in the kubelet logs from Azure Kubernetes Service (AKS) nodes
+description: Learn how to view troubleshooting information in the kubelet logs from Azure Kubernetes Service (AKS) nodes
 services: container-service
-author: iainfoulds
-
-ms.service: container-service
 ms.topic: article
-ms.date: 08/21/2018
-ms.author: iainfou
+ms.date: 03/05/2019
+
+
+#Customer intent: As a cluster operator, I want to view the logs for the kubelet that runs on each node in an AKS cluster to troubleshoot problems.
 ---
 
 # Get kubelet logs from Azure Kubernetes Service (AKS) cluster nodes
 
-Occasionally, you may need to get *kubelet* logs from an Azure Kubernetes Service (AKS) node for troubleshooting purposes. This article shows you how you can use `journalctl` to view the *kubelet* logs.
+As part of operating an AKS cluster, you may need to review logs to troubleshoot a problem. Built-in to the Azure portal is the ability to view logs for the [AKS master components][aks-master-logs] or [containers in an AKS cluster][azure-container-logs]. Occasionally, you may need to get *kubelet* logs from an AKS node for troubleshooting purposes.
+
+This article shows you how you can use `journalctl` to view the *kubelet* logs on an AKS node.
+
+## Before you begin
+
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
 ## Create an SSH connection
 
@@ -20,11 +25,20 @@ First, create an SSH connection with the node on which you need to view *kubelet
 
 ## Get kubelet logs
 
-Once you have connected to the node, run the following command to pull the *kubelet* logs:
+Once you have connected to the node via `kubectl debug`, run the following command to pull the *kubelet* logs:
 
 ```console
-sudo journalctl -u kubelet -o cat
+chroot /host
+journalctl -u kubelet -o cat
 ```
+> [!NOTE]
+> You don't need to use `sudo journalctl` since you are already `root` on the node.
+
+> [!NOTE]
+> For Windows nodes, the log data is in `C:\k` and can be viewed using the *more* command:
+> ```
+> more C:\k\kubelet.log
+> ```
 
 The following sample output shows the *kubelet* log data:
 
@@ -58,4 +72,8 @@ If you need additional troubleshooting information from the Kubernetes master, s
 
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md
-[aks-master-logs]: view-master-logs.md
+[aks-master-logs]: monitor-aks-reference.md#resource-logs
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-master-logs]: monitor-aks-reference.md#resource-logs
+[azure-container-logs]: ../azure-monitor/containers/container-insights-overview.md

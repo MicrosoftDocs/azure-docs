@@ -1,65 +1,57 @@
 ---
 title: What is Bing Autosuggest?
-titlesuffix: Azure Cognitive Services
-description: Learn how to use the Bing Autosuggest API.
+titleSuffix: Azure Cognitive Services
+description: The Bing Autosuggest API returns a list of suggested queries based on the partial query string in the search box.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: overview
-ms.date: 09/12/2017
+ms.date: 12/18/2019
 ms.author: scottwhi
 ---
 # What is Bing Autosuggest?
 
-If you send queries to any of the Bing Search APIs, you can use the Bing Autosuggest API to improve your search box experience. The Bing Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Display the suggestions in the search box's drop-down list. The suggested terms are based on suggested queries that other users have searched on and user intent.
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-Typically, you'd call this API each time the user types a new character in the search box. The completeness of the query string impacts the relevance of the suggested query terms that the API returns. The more complete the query string, the more relevant the list of suggested query terms are. For example, the suggestions that the API may return for *s* are likely to be less relevant than the queries it returns for *sailing dinghies*.
+If your application sends queries to any of the Bing Search APIs, you can use the Bing Autosuggest API to improve your users' search experience. The Bing Autosuggest API returns a list of suggested queries based on the partial query string in the search box. As characters are entered into the search box, you can display suggestions in a drop-down list.
 
-## Getting suggested search terms
+## Bing Autosuggest API features
 
-The following example shows a request that returns the suggested query strings for *sail*. Remember to URL encode the user's partial query term when you set the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#query) query parameter. For example, if the user entered *sailing les*, set `q` to `sailing+les` or `sailing%20les`.
+| Feature                                                                                                                                                                                 | Description                                                                                                                                                            |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Suggest search terms in real-time](concepts/get-suggestions.md) | Improve your app experience by using the Autosuggest API to display suggested search terms as they're typed. |
 
-```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1
-Ocp-Apim-Subscription-Key: 123456789ABCDE
-X-MSEdge-ClientIP: 999.999.999.999
-X-Search-Location: lat:47.60357;long:-122.3295;re:100
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
-Host: api.cognitive.microsoft.com
-```
+## Workflow
 
-The following response contains a list of [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#searchaction) objects that contain the suggested query terms.
+The Bing Autosuggest API is a RESTful web service, easy to call from any programming language that can make HTTP requests and parse JSON.
 
-```json
-{
-    "url" : "https:\/\/www.bing.com\/search?q=sailing+lessons+seattle&FORM=USBAPI",
-    "displayText" : "sailing lessons seattle",
-    "query" : "sailing lessons seattle",
-    "searchKind" : "WebSearch"
-}, ...
-```
+1. Create a [Cognitive Services API account](../cognitive-services-apis-create-account.md) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/free/cognitive-services/) for free.
+2. Send a request to this API each time a user types a new character in your application's search box.
+3. Process the API response by parsing the returned JSON message.
 
-Each suggestion includes a `displayText`, `query` and, `url` field. The `displayText` field contains the suggested query that you use to populate your search box's drop-down list. You must display all suggestions that the response includes, and in the given order.
+Typically, you'd call this API each time the user types a new character in your application's search box. As more characters are entered, the API will return more relevant suggested search queries. For example, the suggestions the API might return for a single `s` are likely to be less relevant than ones for `sail`.
 
-The following shows an example of drop-down search box with suggested query terms.
+The following example shows a drop-down search box with suggested query terms from the Bing Autosuggest API.
 
 ![Autosuggest drop-down search box list](./media/cognitive-services-bing-autosuggest-api/bing-autosuggest-drop-down-list.PNG)
 
-If the user selects a suggested query from the drop-down list, you'd use the query term in the `query` field to call the [Bing Web Search API](../bing-web-search/search-the-web.md) and display the results yourself. Or, you could use the URL in the `url` field to send the user to the Bing search results page instead.
-
-## Throttling requests
-
-[!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
+When a user selects a suggestion from the drop-down list, you can use it to begin searching with one of the Bing Search APIs, or directly go to the Bing search results page.
 
 ## Next steps
 
 To get started quickly with your first request, see [Making Your First Query](quickstarts/csharp.md).
 
-Familiarize yourself with the [Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference) reference. The reference contains the list of endpoints, headers, and query parameters that you'd use to request suggested query terms, and the definitions of the response objects.
+Familiarize yourself with the [Bing Autosuggest API v7](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) reference. The reference contains the list of endpoints, headers, and query parameters that you'd use to request suggested query terms, and the definitions of the response objects.
 
-Learn how to search the web by using the [Bing Web Search API](../bing-web-search/search-the-web.md).
+Visit the [Bing Search API hub page](../bing-web-search/overview.md) to explore the other available APIs.
 
-Be sure to read [Bing Use and Display Requirements](./useanddisplayrequirements.md) so you don't break any of the rules about using the search results.
+
+Learn how to search the web by using the [Bing Web Search API](../bing-web-search/overview.md), and explore the other[Bing Search APIs](../bing-web-search/index.yml).
+
+Be sure to read [Bing Use and Display Requirements](../bing-web-search/use-display-requirements.md) so you don't break any of the rules about using the search results.

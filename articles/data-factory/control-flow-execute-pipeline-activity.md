@@ -1,23 +1,24 @@
 ---
-title: Execute Pipeline Activity in Azure Data Factory | Microsoft Docs
+title: Execute Pipeline Activity in Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how you can use the Execute Pipeline Activity to invoke one Data Factory pipeline from another Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: 
-
+author: chez-charlie
+ms.author: chez
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
 ---
+
 # Execute Pipeline activity in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 The Execute Pipeline activity allows a Data Factory pipeline to invoke another pipeline.
+
+
 
 ## Syntax
 
@@ -56,13 +57,14 @@ The Execute Pipeline activity allows a Data Factory pipeline to invoke another p
 ```
 
 ## Type properties
+
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
 name | Name of the execute pipeline activity. | String | Yes
 type | Must be set to: **ExecutePipeline**. | String | Yes
 pipeline | Pipeline reference to the dependent pipeline that this pipeline invokes. A pipeline reference object has two properties: **referenceName** and **type**. The referenceName property specifies the name of the reference pipeline. The type property must be set to PipelineReference. | PipelineReference | Yes
 parameters | Parameters to be passed to the invoked pipeline | A JSON object that maps parameter names to argument values | No
-waitOnCompletion | Defines whether activity execution waits for the dependent pipeline execution to finish. | Default is false. | Boolean | No
+waitOnCompletion | Defines whether activity execution waits for the dependent pipeline execution to finish. Default is false. | Boolean | No
 
 ## Sample
 This scenario has two pipelines:
@@ -89,7 +91,7 @@ This scenario has two pipelines:
               "value": "@pipeline().parameters.masterSourceBlobContainer",
               "type": "Expression"
             },
-            "sinkBlobCountainer": {
+            "sinkBlobContainer": {
               "value": "@pipeline().parameters.masterSinkBlobContainer",
               "type": "Expression"
             }
@@ -165,10 +167,7 @@ This scenario has two pipelines:
     "properties": {
     "type": "AzureStorage",
     "typeProperties": {
-      "connectionString": {
-        "value": "DefaultEndpointsProtocol=https;AccountName=*****",
-        "type": "SecureString"
-      }
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=*****;AccountKey=*****"
     }
   }
 }
@@ -241,7 +240,7 @@ The master pipeline forwards these values to the invoked pipeline as shown in th
           "value": "@pipeline().parameters.masterSourceBlobContainer",
           "type": "Expression"
         },
-        "sinkBlobCountainer": {
+        "sinkBlobContainer": {
           "value": "@pipeline().parameters.masterSinkBlobContainer",
           "type": "Expression"
         }

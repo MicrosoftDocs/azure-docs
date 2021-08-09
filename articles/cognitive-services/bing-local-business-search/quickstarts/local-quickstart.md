@@ -1,35 +1,41 @@
 ---
-title: Quickstart - Send a query to the Bing Local Business Search API in C# | Microsoft Docs
+title: Quickstart - Send a query to the API in C# using Bing Local Business Search
 titleSuffix: Azure Cognitive Services
-description: Use this article to start using the Bing Local Business Search API in C#.
+description: Use this quickstart to begin sending requests in C# to the Bing Local Business Search API, which is an Azure Cognitive Service.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-local-business
-ms.topic: article
-ms.date: 11/01/2018
-ms.author: rosh, v-gedod
+ms.subservice: bing-local-business
+ms.topic: quickstart
+ms.date: 10/22/2020
+ms.author: aahi
+ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Send a query to the Bing Local Business Search API in C#
 
-Use this quickstart to begin sending requests to the Bing Local Business Search API, which is an Azure Cognitive Service. While this simple application is written in C#, the API is a RESTful Web service compatible with any programming language capable of making HTTP requests and parsing JSON.
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-This example application gets local response data from the API for the search query `hotel in Bellevue`.
+Use this quickstart to learn how to send requests to the Bing Local Business Search API, which is an Azure Cognitive Service. Although this simple application is written in C#, the API is a RESTful Web service compatible with any programming language capable of making HTTP requests and parsing JSON.
+
+This example application gets local response data from the API for a search query.
 
 ## Prerequisites
 
-* Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
-
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You will need the access key provided when you activate your free trial.
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Any edition of [Visual Studio 2019](https://www.visualstudio.com/downloads/).
+* If you're using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
 
 ## Create the request 
 
-The following code creates a `WebRequest`, sets the access key header, and adds a query string for "restaurant in Bellevue".  It then sends the request and assigns the response to a string to contain the JSON text.
+The following code creates a `WebRequest`, sets the access key header, and adds a query string for *restaurant in Bellevue*.  It then sends the request and assigns the response to a string to contain the JSON text.
 
-````
+```csharp
     // Replace the accessKey string value with your valid access key.
     const string accessKey = "enter key here";
 
@@ -37,25 +43,25 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
 
     const string searchTerm = "restaurant in Bellevue";
     // Construct the URI of the search request
-    var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery) + "appid=" + accessKey;
+    var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery) + mkt=en-us;
 
     // Run the Web request and get response.
     WebRequest request = HttpWebRequest.Create(uriQuery);
-    //request.Headers["Ocp-Apim-Subscription-Key"] = accessKey; 
+    request.Headers["Ocp-Apim-Subscription-Key"] = accessKey; 
 
     HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
     string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
-````
+```
 
 ## Run the complete application
 
-The Bing Local Business Search API returns localized search results from the Bing search engine.
-1. Create a new Console solution in Visual Studio (the Community Edition is fine).
+The following code uses the Bing Local Business Search API to return localized search results from the Bing search engine. You can use this code by following these steps:
+1. Create a new console solution in Visual Studio (the Community Edition is sufficient).
 2. Replace Program.cs with the code provided below.
-3. Replace the accessKey value with an access key valid for your subscription.
+3. Replace the `accessKey` value with an access key valid for your subscription.
 4. Run the program.
 
-````
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -89,7 +95,7 @@ namespace localSearch
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.WriteLine("Searching locally for: " + searchTerm);
 
-            SearchResult result = BingLocalSearch(searchTerm);
+            SearchResult result = BingLocalSearch(searchTerm, accessKey);
 
             Console.WriteLine("\nRelevant HTTP Headers:\n");
             foreach (var header in result.relevantHeaders)
@@ -105,15 +111,14 @@ namespace localSearch
         /// <summary>
         /// Performs a Bing Local business search and return the results as a SearchResult.
         /// </summary>
-        static SearchResult BingLocalSearch(string searchQuery)
+        static SearchResult BingLocalSearch(string searchQuery, string key)
         {
             // Construct the URI of the search request
-            var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery) + 
-                                "&appid=" + accessKey + "&traffictype=Internal_monitor&market=en-us";
+            var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery) + "&mkt=en-us";
 
             // Perform the Web request and get the response
             WebRequest request = HttpWebRequest.Create(uriQuery);
-            //request.Headers["Ocp-Apim-Subscription-Key"] = accessKey; 
+            request.Headers["Ocp-Apim-Subscription-Key"] = key; 
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
             string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
@@ -202,9 +207,9 @@ namespace localSearch
     }
 }
 
-````
+```
 
 ## Next steps
 - [Local Business Search Java quickstart](local-search-java-quickstart.md)
-- [Local Business Search Node quickstart](local-search-node-quickstart.md)
+- [Local Business Search Node.js quickstart](local-search-node-quickstart.md)
 - [Local Business Search Python quickstart](local-search-python-quickstart.md)

@@ -1,12 +1,12 @@
 ---
-title: 'Interoperability in Azure back-end connectivity features: Test setup | Microsoft Docs'
+title: 'Interoperability in Azure : Test setup | Microsoft Docs'
 description: This article describes a test setup you can use to analyze interoperability between ExpressRoute, a site-to-site VPN, and virtual network peering in Azure.
 documentationcenter: na
 services: networking
 author: rambk
 manager: tracsman
 
-ms.service: expressroute,vpn-gateway,virtual-network
+ms.service: virtual-network
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
@@ -14,7 +14,7 @@ ms.author: rambala
 
 ---
 
-# Interoperability in Azure back-end connectivity features: Test setup
+# Interoperability in Azure : Test setup
 
 This article describes a test setup you can use to analyze how Azure networking services interoperate at the control plane level and data plane level. Let's look briefly at the Azure networking components:
 
@@ -26,7 +26,7 @@ This article describes a test setup you can use to analyze how Azure networking 
 
 The following figure illustrates the test setup:
 
-[![1]][1]
+![1][1]
 
 The centerpiece of the test setup is the hub VNet in Azure Region 1. The hub VNet is connected to different networks in the following ways:
 
@@ -60,7 +60,7 @@ In VNet peering within a region, spoke VNets can use hub VNet gateways (both VPN
 
 ### Branch VNet connectivity by using site-to-site VPN
 
-You might want branch VNets, which are in different regions, and on-premises networks to communicate with each other via a hub VNet. The native Azure solution for this cofiguration is site-to-site VPN connectivity by using a VPN. An alternative is to use a network virtual appliance (NVA) for routing in the hub.
+You might want branch VNets, which are in different regions, and on-premises networks to communicate with each other via a hub VNet. The native Azure solution for this configuration is site-to-site VPN connectivity by using a VPN. An alternative is to use a network virtual appliance (NVA) for routing in the hub.
 
 For more information, see [What is VPN Gateway?][VPN] and [Deploy a highly available NVA][Deploy-NVA].
 
@@ -82,16 +82,14 @@ See the [ExpressRoute FAQ][ExR-FAQ] to:
 [1]: ./media/backend-interoperability/TestSetup.png "Diagram of the test topology"
 
 <!--Link References-->
-[ExpressRoute]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
-[VPN]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
-[VNet]: https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal
-[Configuration]: https://docs.microsoft.com/azure/connectivty-interoperability-configuration
-[Control-Analysis]:https://docs.microsoft.com/azure/connectivty-interoperability-control-plane
-[Data-Analysis]: https://docs.microsoft.com/azure/connectivty-interoperability-data-plane
-[ExR-FAQ]: https://docs.microsoft.com/azure/expressroute/expressroute-faqs
-[S2S-Over-ExR]: https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
-[ExR-S2S-CoEx]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager
-[Hub-n-Spoke]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-[Deploy-NVA]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha
-
-
+[ExpressRoute]: ../expressroute/expressroute-introduction.md
+[VPN]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
+[VNet]: ../virtual-network/tutorial-connect-virtual-networks-portal.md
+[Configuration]: connectivty-interoperability-configuration.md
+[Control-Analysis]: connectivty-interoperability-control-plane.md
+[Data-Analysis]: connectivty-interoperability-data-plane.md
+[ExR-FAQ]: ../expressroute/expressroute-faqs.md
+[S2S-Over-ExR]: ../expressroute/site-to-site-vpn-over-microsoft-peering.md
+[ExR-S2S-CoEx]: ../expressroute/expressroute-howto-coexist-resource-manager.md
+[Hub-n-Spoke]: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+[Deploy-NVA]: /azure/architecture/reference-architectures/dmz/nva-ha

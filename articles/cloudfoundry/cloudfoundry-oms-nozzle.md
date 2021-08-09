@@ -1,17 +1,12 @@
 ---
-title: Deploy Azure Log Analytics Nozzle for Cloud Foundry monitoring | Microsoft Docs
+title: Deploy Azure Log Analytics Nozzle for Cloud Foundry monitoring
 description: Step-by-step guidance on deploying the Cloud Foundry loggregator Nozzle for Azure Log Analytics. Use the Nozzle to monitor the Cloud Foundry system health and performance metrics.
-services: virtual-machines-linux
-documentationcenter: ''
+services: virtual-machines
 author: ningk
-manager: jeconnoc
-editor: ''
 tags: Cloud-Foundry
-
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
-ms.service: virtual-machines-linux
-ms.devlang: NA
-ms.topic: article
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
@@ -20,11 +15,13 @@ ms.author: ningk
 
 # Deploy Azure Log Analytics Nozzle for Cloud Foundry system monitoring
 
-[Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) is a service in Azure. It helps you collect and analyze data that is generated from your cloud and on-premises environments.
+[Azure Monitor](https://azure.microsoft.com/services/log-analytics/) is a service in Azure. It helps you collect and analyze data that is generated from your cloud and on-premises environments.
 
-The Log Analytics Nozzle (the Nozzle) is a Cloud Foundry (CF) component, which forwards metrics from the [Cloud Foundry loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) firehose to Log Analytics. With the Nozzle, you can collect, view, and analyze your CF system health and performance metrics, across multiple deployments.
+The Log Analytics Nozzle (the Nozzle) is a Cloud Foundry (CF) component, which forwards metrics from the [Cloud Foundry loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) firehose to Azure Monitor logs. With the Nozzle, you can collect, view, and analyze your CF system health and performance metrics, across multiple deployments.
 
-In this document, you learn how to deploy the Nozzle to your CF environment, and then access the data from the Log Analytics console.
+In this document, you learn how to deploy the Nozzle to your CF environment, and then access the data from the Azure Monitor logs console.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Prerequisites
 
@@ -48,15 +45,15 @@ The Nozzle also needs access permission to the loggregator firehose and the Clou
 
 * [Install Cloud Foundry UAA command-line client](https://github.com/cloudfoundry/cf-uaac/blob/master/README.md)
 
-Before setting up the UAA command-Line client, ensure that Rubygems is installed.
+Before setting up the UAA command-Line client, ensure that RubyGems is installed.
 
 ### 3. Create a Log Analytics workspace in Azure
 
-You can create the Log Analytics workspace manually or by using a template. The template will deploy a setup of pre-configured KPI views and alerts for the Log Analytics console. 
+You can create the Log Analytics workspace manually or by using a template. The template will deploy a setup of pre-configured KPI views and alerts for the Azure Monitor logs console. 
 
 #### To create the workspace manually:
 
-1. In the Azure portal, search the list of services in the Azure Marketplace, and then select Log Analytics.
+1. In the Azure portal, search the list of services in the Azure Marketplace, and then select Log Analytics workspaces.
 2. Select **Create**, and then select choices for the following items:
 
    * **Log Analytics workspace**: Type a name for your workspace.
@@ -65,15 +62,15 @@ You can create the Log Analytics workspace manually or by using a template. The 
    * **Location**: Enter the location.
    * **Pricing tier**: Select **OK** to complete.
 
-For more information, see [Get started with Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
+For more information, see [Get started with Azure Monitor logs](../azure-monitor/overview.md).
 
 #### To create the Log Analytics workspace through the monitoring template from Azure market place:
 
 1. Open Azure portal.
-2. Click the "+" sign, or "Create a resource" on the top left corner.
-3. Type "Cloud Foundry" in the search window, select "Cloud Foundry Monitoring Solution".
-4. The Cloud Foundry monitoring solution template front page is loaded, click "Create" to launch the template blade.
-5. Enter the required parameters:
+1. Click the "+" sign, or "Create a resource" on the top left corner.
+1. Type "Cloud Foundry" in the search window, select "Cloud Foundry Monitoring Solution".
+1. The Cloud Foundry monitoring solution template front page is loaded, click "Create" to launch the template blade.
+1. Enter the required parameters:
     * **Subscription**: Select an Azure subscription for the Log Analytics workspace, usually the same with Cloud Foundry deployment.
     * **Resource group**: Select an existing resource group or create a new one for the Log Analytics workspace.
     * **Resource Group Location**: Select the location of the resource group.
@@ -81,7 +78,7 @@ For more information, see [Get started with Log Analytics](https://docs.microsof
     * **OMS_Workspace_Region**: Select the location for the workspace.
     * **OMS_Workspace_Pricing_Tier**: Select the Log Analytics workspace SKU. See the [pricing guidance](https://azure.microsoft.com/pricing/details/log-analytics/) for reference.
     * **Legal terms**: Click Legal terms, then click “Create” to accept the legal term.
-- After all parameters are specified, click “Create” to deploy the template. When the deployment is completed, the status will show up at the notification tab.
+1. After all parameters are specified, click “Create” to deploy the template. When the deployment is completed, the status will show up at the notification tab.
 
 
 ## Deploy the Nozzle
@@ -90,7 +87,7 @@ There are a couple of different ways to deploy the Nozzle: as a PCF tile or as a
 
 ### Deploy the Nozzle as a PCF Ops Manager tile
 
-Follow the steps to [install and configure the Azure Log Analytics Nozzle for PCF](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html).This is the simplified approach, the PCF Ops manager tile will automatically configure and push the nozzle. 
+Follow the steps to [install and configure the Azure Log Analytics Nozzle for PCF](https://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html).This is the simplified approach, the PCF Ops manager tile will automatically configure and push the nozzle. 
 
 ### Deploy the Nozzle manually as a CF application
 
@@ -135,9 +132,9 @@ Now you can set environment variables in the manifest.yml file in your current d
 ```
 OMS_WORKSPACE             : Log Analytics workspace ID: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
 OMS_KEY                   : OMS key: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
-OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Log Analytics. The default is 10 seconds.
-OMS_BATCH_TIME            : Interval for posting a batch to Log Analytics. The default is 10 seconds.
-OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Log Analytics. The default is 1000.
+OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Azure Monitor logs. The default is 10 seconds.
+OMS_BATCH_TIME            : Interval for posting a batch to Azure Monitor logs. The default is 10 seconds.
+OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Azure Monitor logs. The default is 1000.
 API_ADDR                  : The API URL of the CF environment. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 DOPPLER_ADDR              : Loggregator's traffic controller URL. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 FIREHOSE_USER             : CF user you created in the preceding section, "Create a CF user and grant required privileges." This user has firehose and Cloud Controller admin access.
@@ -147,8 +144,8 @@ SKIP_SSL_VALIDATION       : If true, allows insecure connections to the UAA and 
 CF_ENVIRONMENT            : Enter any string value for identifying logs and metrics from different CF environments.
 IDLE_TIMEOUT              : The Keep Alive duration for the firehose consumer. The default is 60 seconds.
 LOG_LEVEL                 : The logging level of the Nozzle. Valid levels are DEBUG, INFO, and ERROR.
-LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to Log Analytics as CounterEvents.
-LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Log Analytics. The default is 60 seconds.
+LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to Azure Monitor logs as CounterEvents.
+LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Azure Monitor logs. The default is 60 seconds.
 ```
 
 ### Push the application from your development computer
@@ -175,7 +172,7 @@ Make sure the OMS Nozzle application is running.
 
 ## View the data in the Azure portal
 
-If you have deployed the monitoring solution through the market place template, go to Azure portal and locate the solution. You can find the solution in the resource group you specified in the template. Click the solution, browse to the "Log Analytics Console", the pre-configured views are listed, with top Cloud Foundry system KPIs, application data, alerts and VM health metrics. 
+If you have deployed the monitoring solution through the market place template, go to Azure portal and locate the solution. You can find the solution in the resource group you specified in the template. Click the solution, browse to the "log analytics console", the pre-configured views are listed, with top Cloud Foundry system KPIs, application data, alerts and VM health metrics. 
 
 If you have created the Log Analytics workspace manually, follow steps below to create the views and alerts:
 
@@ -189,7 +186,7 @@ The *"Cloud Foundry.omsview"* is a preview version of the Cloud Foundry OMS view
 
 ### 2. Create alert rules
 
-You can [create the alerts](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts), and customize the queries and threshold values as needed. The following are recommended alerts:
+You can [create the alerts](../azure-monitor/alerts/alerts-overview.md), and customize the queries and threshold values as needed. The following are recommended alerts:
 
 | Search query                                                                  | Generate alert based on | Description                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
@@ -199,7 +196,7 @@ You can [create the alerts](https://docs.microsoft.com/azure/log-analytics/log-a
 | Type=CF_ValueMetric_CL Origin_s=route_emitter Name_s=ConsulDownMode Value_d>0 | Number of results > 0   | Consul emits its health status periodically. 0 means the system is healthy, and 1 means that the route emitter detects that Consul is down. |
 | Type=CF_CounterEvent_CL Origin_s=DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" or Name_s="doppler.shedEnvelopes") Delta_d>0 | Number of results > 0 | The delta number of messages intentionally dropped by Doppler due to back pressure. |
 | Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | Number of results > 0   | Loggregator emits **LGR** to indicate problems with the logging process. An example of such a problem is when the log message output is too high. |
-| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Number of results > 0   | When the Nozzle receives a slow consumer alert from loggregator, it sends the **slowConsumerAlert** ValueMetric to Log Analytics. |
+| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Number of results > 0   | When the Nozzle receives a slow consumer alert from loggregator, it sends the **slowConsumerAlert** ValueMetric to Azure Monitor logs. |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Number of results > 0   | If the delta number of lost events reaches a threshold, it means the Nozzle might have a problem running. |
 
 ## Scale
@@ -234,7 +231,7 @@ In your CF CLI window, type:
 cf delete <App Name> -r
 ```
 
-If you remove the Nozzle, the data in OMS portal is not automatically removed. It expires based on your Log Analytics retention setting.
+If you remove the Nozzle, the data in OMS portal is not automatically removed. It expires based on your Azure Monitor logs retention setting.
 
 ## Support and feedback
 
@@ -243,7 +240,7 @@ To open an Azure support request, choose "Virtual Machine running Cloud Foundry"
 
 ## Next step
 
-From PCF2.0, VM performance metrics are transferred to Azure log analytics nozzle by System Metrics Forwarder, and integrated into the Log Analytics workspace. You no longer need the Log Analytics agent for the VM performance metrics. 
+From PCF2.0, VM performance metrics are transferred to Azure Log Analytics nozzle by System Metrics Forwarder, and integrated into the Log Analytics workspace. You no longer need the Log Analytics agent for the VM performance metrics. 
 However you can still use the Log Analytics agent to collect Syslog information. The Log Analytics agent is installed as a Bosh add-on to your CF VMs. 
 
 For details, see [Deploy Log Analytics agent to your Cloud Foundry deployment](https://github.com/Azure/oms-agent-for-linux-boshrelease).

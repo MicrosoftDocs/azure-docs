@@ -1,51 +1,198 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Database for MySQL Documentation
+### YamlMime:Landing
+title:  Azure Database for MySQL documentation
+summary: "Azure Database for MySQL is a relational database service powered by the MySQL community edition.You can use either Single Server or Flexible Server (Preview) to host a MySQL database in Azure. It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability."
 metadata:
-  document_id: 8d915ae6-9101-ad37-0736-3eaa59c2dd34
-  title: Azure MySQL Documentation - Tutorials, API Reference | Microsoft Docs
-  description: Azure Database for MySQL is a relational database service in the Microsoft cloud built for developers based on the open source MySQL database engine.
-  services: mysql
-  author: czeumault
-  manager: carolz
+  description: "Azure Database for MySQL are a relational database service in the Microsoft cloud that is built for developers and powered by the MySQL community edition. You can choose either Single server or Flexible Server (Preview) to deploy your MySQL database in Azure."
+  author: savjani
+  ms.author: pariks
+  ms.date: 09/03/2019
   ms.service: mysql
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/13/2017
-  ms.author: carolz
-abstract:
-  description: Azure Database for MySQL is a relational database service based on the open source MySQL Server engine.  It is a fully managed database as a service offering capable of handling mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for MySQL leveraging the open source tools and platform of your choice. Learn how to use Azure Database for MySQL with our quickstarts, tutorials, and samples.
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to create a MySQL database on Azure using:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: /azure/virtual-machines/linux/media/index/portal.svg
-      text: Azure Portal
-      href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-portal
-    - image: 
-        src: /azure/virtual-machines/linux/media/index/cli.svg
-      text: Azure CLI
-      href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-cli
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: 'Learn how to design your database and develop apps:'
-  - type: list
-    style: ordered
-    items:
-    - html: Design a Database&#58; <a href="/azure/mysql/tutorial-design-database-using-portal">Azure portal</a> | <a href="/azure/mysql/tutorial-design-database-using-cli">Azure CLI</a>
-    - html: Create a Web App&#58; <a href="https://portal.azure.com/#create/hub">Wordpress - Portal</a> | <a href="../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json">PHP - Azure CLI</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="/cli/azure/mysql">Azure CLI</a></p>
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+  # Card 1
+  - title: About Azure Database for MySQL
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Database for MySQL?
+            url: overview.md
+          - text: Choose the right MySQL option
+            url: select-right-deployment-type.md
+          - text: Understand supported MySQL versions
+            url: concepts-supported-versions.md
+      - linkListType: whats-new
+        links:
+          - text: Check out our blog
+            url: https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/bg-p/ADforMySQL
+ # Card 2
+  - title: Single Server
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Single Server?
+            url: single-server-overview.md  
+          - text: View all Single server documentation
+            url: single-server/index.yml
+      - linkListType: whats-new
+        links:
+          - text: What's new in Single Server?
+            url: single-server-whats-new.md
+      - linkListType: concept
+        links:
+          - text: Server concepts
+            url: concepts-servers.md
+          - text: Understand pricing tiers
+            url: concepts-pricing-tiers.md
+          - text: Limitations
+            url: flexible-server/concepts-limitations.md
+      - linkListType: quickstart
+        links:
+          - text: Create a server using the Azure Portal
+            url: quickstart-create-mysql-server-database-using-azure-portal.md
+          - text: Create a server using Azure CLI
+            url: quickstart-create-mysql-server-database-using-azure-cli.md
+
+
+ # Card 3
+  - title: Flexible Server (Preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Flexible Server?
+            url: flexible-server/overview.md
+          - text: View all Flexible server documentation
+            url: flexible-server/index.yml
+      - linkListType: whats-new
+        links:
+          - text: What's new in Flexible Server?
+            url: flexible-server/whats-new.md
+      - linkListType: concept
+        links:
+          - text: Server concepts
+            url: flexible-server/concept-servers.md
+          - text: Understand compute and storage
+            url: flexible-server/concepts-compute-storage.md
+          - text: Limitations
+            url: flexible-server/concepts-limitations.md
+      - linkListType: quickstart
+        links:
+          - text: Create a server using Portal
+            url: flexible-server/quickstart-create-server-portal.md
+          - text: Create a server using CLI
+            url: flexible-server/quickstart-create-server-cli.md
+
+# Card 4
+  - title: Connect and query
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Connect and query reference guide
+          url:  how-to-connect-overview-single-server.md
+      - linkListType: quickstart
+        links:
+          - text: Connect to Single server using MySQL Workbench
+            url: connect-workbench.md
+          - text: Connect to Single server using Java
+            url: connect-java.md
+          - text: Connect to Single server using PHP
+            url: connect-php.md
+          - text: Connect to Flexible server using MySQL Workbench
+            url: connect-workbench.md
+          - text: Connect to Flexible server using PHP
+            url: flexible-server/connect-php.md
+          - text: Connect to Flexible server using Python
+            url: flexible-server/connect-python.md
+
+# Card 5
+  - title: Migrations
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Azure Database for MySQL migration guide
+          url: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
+        - text: dbForge Studio for MySQL
+          url: concepts-migrate-dbforge-studio-for-mysql.md
+        - text: Dump and restore
+          url: concepts-migrate-dump-restore.md
+        - text: Import and export
+          url: concepts-migrate-import-export.md
+        - text: Migrate Amazon RDS for MySQL with MySQL Workbench
+          url: how-to-migrate-rds-mysql-workbench.md
+        - text: Minimal-downtime migration
+          url: howto-migrate-online.md
+        - text: Common errors during or post migration
+          url: howto-troubleshoot-common-errors.md
+
+# Card 5
+  - title: Manage and migrate data
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Manage Single Server using Azure portal
+            url: howto-create-manage-server-portal.md
+          - text: Manage Flexible Server (Preview) using Azure portal
+            url: flexible-server/how-to-manage-server-portal.md
+          - text: Migrate using dump and restore
+            url: concepts-migrate-dump-restore.md
+          - text: Migrate using import and export
+            url: concepts-migrate-import-export.md
+      - linkListType: how-to-guide
+        links:
+          - text: Migrate RDS MySQL using MySQL Workbench
+            url: how-to-migrate-rds-mysql-workbench.md
+          - text: Migrate using Data Migration Service
+            url: howto-migrate-online.md
+          - text: Azure Data migration guide
+            url: https://datamigration.microsoft.com/scenario/mysql-to-azuremysql?step=1
+          - text: Troubleshoot common errors
+            url: howto-troubleshoot-common-errors.md
+
+# Card 6
+  - title: Application Development
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Connection resiliency
+            url: concepts-connectivity.md
+          - text: Best practices
+            url: app-development-best-practices.md
+          - text: Compatible drivers and tools
+            url: concepts-compatibility.md
+      - linkListType: tutorial
+        links:
+          - text: Design a Database on Single Server
+            url: tutorial-design-database-using-portal.md
+          - text: Create a Web Ap with Flexible server in VNET
+            url: flexible-server/tutorial-webapp-server-vnet.md
+          - text: Build a PHP (Laravel) web app with Flexible server
+            url: flexible-server/tutorial-php-database-app.md
+          - text: Build a PHP (Laravel) web app with Single Server
+            url: ../app-service/tutorial-php-mysql-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
+
+
+# Card 7
+  - title: Reference
+    linkLists:
+      - linkListType: download
+        links:
+          - text: MySQL workbench
+            url: https://www.mysql.com/products/workbench
+          - text: MySQL .NET Connector
+            url: https://dev.mysql.com/doc/connector-net/en/
+      - linkListType: deploy
+        links:
+          - text: Azure CLI scripts for common tasks
+            url: ./sample-scripts-azure-cli.md
+          - text: Azure Resource Manager templates
+            url: /azure/templates/microsoft.dbformysql/allversions
+      - linkListType: reference
+        links:
+          - text: Azure CLI developer reference
+            url: /cli/azure/mysql
+          - text: REST API developer reference
+            url: /rest/api/mysql/
+          - text: PowerShell
+            url: /powershell/module/az.mysql

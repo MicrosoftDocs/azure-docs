@@ -1,18 +1,14 @@
 ---
-title: Add scopes that run actions based on group status - Azure Logic Apps | Microsoft Docs
-description: How to create scopes that run workflow actions based on group action status in Azure Logic Apps
+title: Group and run actions by scope
+description: Create scoped actions that run based on group status in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: jeconnoc
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
 ---
 
-# Run actions based on group status with scopes in Azure Logic Apps
+# Run actions based on group status by using scopes in Azure Logic Apps
 
 To run actions only after another group of actions succeed or fail, 
 group those actions inside a *scope*. This structure is useful when 
@@ -26,22 +22,22 @@ you can use scopes when you want to implement
 
 To check a scope's status, you can use the same criteria 
 that you use to determine a logic apps' run status, 
-such as "Succeeded", "Failed", "Cancelled", and so on. 
+such as **Succeeded**, **Failed**, **Cancelled**, and so on. 
 By default, when all the scope's actions succeed, 
-the scope's status is marked "Succeeded." 
+the scope's status is marked as **Succeeded**. 
 But when any action in the scope fails or is canceled, 
-the scope's status is marked "Failed." 
+the scope's status is marked **Failed**. 
 For limits on scopes, see 
 [Limits and config](../logic-apps/logic-apps-limits-and-config.md). 
 
 For example, here is a high-level logic app that uses a scope to 
 run specific actions and a condition to check the scope's status. 
 If any actions in the scope fail or end unexpectedly, 
-the scope is marked "Failed" or "Aborted" respectively, 
+the scope is marked **Failed** or **Aborted** respectively, 
 and the logic app sends a "Scope failed" message. 
 If all the scoped actions succeed, the logic app sends a "Scope succeeded" message.
 
-![Set up "Schedule - Recurrence" trigger](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
+![Diagram shows the logic app scope flow with examples of "Scope failed" and "Scope succeeded".](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
 ## Prerequisites
 
@@ -55,7 +51,7 @@ This example uses Outlook.com. If you use a different provider,
 the general flow stays the same, but your UI appears different.
 
 * A Bing Maps key. To get this key, see 
-<a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">Get a Bing Maps key</a>.
+<a href="/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key" target="_blank">Get a Bing Maps key</a>.
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -78,10 +74,10 @@ You can save your logic app at any time,
 so save your work often.
 
 1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
-if you haven't already. Create a blank logic app.
+   if you haven't already. Create a blank logic app.
 
 1. Add the **Schedule - Recurrence** trigger with these settings: 
-**Interval** = "1" and **Frequency** = "Minute"
+   **Interval** = "1" and **Frequency** = "Minute"
 
    ![Set up "Schedule - Recurrence" trigger](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
 
@@ -104,13 +100,13 @@ if you haven't already. Create a blank logic app.
 
       ![Set up "Bing Maps - Get route" action](./media/logic-apps-control-flow-run-steps-group-scopes/get-route.png) 
 
-      For more information about these parameters, see [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx).
+      For more information about these parameters, see [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route).
 
       | Setting | Value | Description |
       | ------- | ----- | ----------- |
       | **Waypoint 1** | <*start*> | Enter your route's origin. | 
       | **Waypoint 2** | <*end*> | Enter your route's destination. | 
-      | **Avoid** | None | Enter items to avoid on your route, such as highways, tolls, and so on. For possible values, see [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx). | 
+      | **Avoid** | None | Enter items to avoid on your route, such as highways, tolls, and so on. For possible values, see [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route). | 
       | **Optimize** | timeWithTraffic | Select a parameter to optimize your route, such as distance, time with current traffic information, and so on. This example uses this value: "timeWithTraffic" | 
       | **Distance unit** | <*your-preference*> | Enter the unit of distance to calculate your route. This example uses this value: "Mile" | 
       | **Travel mode** | Driving | Enter the mode of travel for your route. This example uses this value "Driving" | 
@@ -119,8 +115,8 @@ if you haven't already. Create a blank logic app.
       ||||  
 
 1. [Add a condition](../logic-apps/logic-apps-control-flow-conditional-statement.md) 
-that checks whether the current travel time with traffic exceeds a specified time. 
-For this example, follow these steps:
+   that checks whether the current travel time with traffic exceeds a specified time. 
+   For this example, follow these steps:
 
    1. Rename the condition with this description: 
    **If traffic time is more than specified time**
@@ -134,14 +130,14 @@ For this example, follow these steps:
    1. In the middle box, select this operator: **is greater than**
 
    1. In the rightmost column, enter this comparison value, 
-   which is in seconds and equivlent to 10 minutes: **600**
+   which is in seconds and equivalent to 10 minutes: **600**
 
       When you're done, your condition looks like this example:
 
       ![Finished condition](./media/logic-apps-control-flow-run-steps-group-scopes/finished-condition.png)
 
 1. In the **If true** branch, add a "send email" action for your email provider. 
-Set up this action by following the steps under this image:
+   Set up this action by following the steps under this image:
 
    ![Add "Send an email" action to "If true" branch](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
 
@@ -153,7 +149,7 @@ Set up this action by following the steps under this image:
 
    1. In the **Body** field, enter this text with a trailing space: 
 
-      ```Travel time: ```
+      ```Travel time:```
 
       While your cursor appears in the **Body** field, 
       the dynamic content list stays open so that you can 
@@ -162,20 +158,20 @@ Set up this action by following the steps under this image:
    1. In the dynamic content list, choose **Expression**.
 
    1. Find and select the **div()** function. 
-   Put your cursor in inside the function's parentheses.
+      Put your cursor in inside the function's parentheses.
 
    1. While your cursor is inside the function's parentheses, 
-   choose **Dynamic content** so that the dynamic content list appears. 
+      choose **Dynamic content** so that the dynamic content list appears. 
    
    1. From the **Get route** section, 
-   select the **Traffic Duration Traffic** field.
+      select the **Traffic Duration Traffic** field.
 
       ![Select "Traffic Duration Traffic"](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-2.png)
 
    1. After the field resolves to JSON format, 
-   add a **comma** (```,```) followed by the number ```60``` 
-   so that you convert the value in **Traffic Duration Traffic** 
-   from seconds to minutes. 
+      add a **comma** (```,```) followed by the number ```60``` 
+      so that you convert the value in **Traffic Duration Traffic** 
+      from seconds to minutes. 
    
       ```
       div(body('Get_route')?['travelDurationTraffic'],60)
@@ -187,12 +183,14 @@ Set up this action by following the steps under this image:
 
    1. When you're done, choose **OK**.
 
-  1. After the expression resolves, 
-  add this text with a leading space: ``` minutes```
+   <!-- markdownlint-disable MD038 -->
+   1. After the expression resolves, 
+       add this text with a leading space: ``` minutes```
   
-     Your **Body** field now looks like this example:
+       Your **Body** field now looks like this example:
 
-     ![Finished "Body" field](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+       ![Finished "Body" field](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+   <!-- markdownlint-enable MD038 -->
 
 1. Save your logic app.
 
@@ -245,7 +243,7 @@ the scope's status is equal to "Failed" or "Aborted".
    
       `result('Scope')[0]['status']`
 
-      ![Add expression that checks the scope's status](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
+      ![Screenshot that shows the "Expression" box with the result expression highlighted.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
    1. For both rows, select **is equal to** as the operator. 
    
@@ -451,7 +449,7 @@ here is the JSON definition for trigger and actions in the previous logic app:
 ## Get support
 
 * For questions, visit the 
-[Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+[Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * To submit or vote on features and suggestions, 
 visit the [Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 

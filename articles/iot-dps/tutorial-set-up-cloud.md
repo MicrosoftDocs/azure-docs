@@ -1,17 +1,16 @@
 ---
-title: Set up cloud for Azure IoT Hub Device Provisioning Service in portal | Microsoft Docs
-description: IoT Hub automatic device provisioning in Azure Portal
-author: sethmanheim
-ms.author: sethm
-ms.date: 09/05/2017
+title: Tutorial - Set up cloud for Azure IoT Hub Device Provisioning Service in portal
+description: This tutorial shows how you can set up the cloud resources for device provisioning in the [Azure portal](https://portal.azure.com) using the IoT Hub Device Provisioning Service (DPS)
+author: wesmc7777
+ms.author: wesmc
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.custom: mvc
 ---
 
-# Configure cloud resources for device provisioning with the IoT Hub Device Provisioning Service
+# Tutorial: Configure cloud resources for device provisioning with the IoT Hub Device Provisioning Service
 
 This tutorial shows how to set up the cloud for automatic device provisioning using the IoT Hub Device Provisioning Service. In this tutorial, you learn how to:
 
@@ -23,7 +22,7 @@ This tutorial shows how to set up the cloud for automatic device provisioning us
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-## Sign in to the Azure portal
+## Prerequisites
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -43,7 +42,7 @@ Follow these steps to create a new Device Provisioning Service instance.
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Name** | Any unique name | -- | 
    | **Subscription** | Your subscription  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-   | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
    | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |   
 
    ![Enter basic information about your Device Provisioning service in the portal](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
@@ -86,7 +85,7 @@ The next step is to link the Device Provisioning Service and IoT hub so that the
 
 ## Set the allocation policy on the Device Provisioning Service
 
-The allocation policy is a IoT Hub Device Provisioning Service setting that determines how devices are assigned to an IoT hub. There are three supported allocation policies: 
+The allocation policy is an IoT Hub Device Provisioning Service setting that determines how devices are assigned to an IoT hub. There are three supported allocation policies: 
 
 1. **Lowest latency**: Devices are provisioned to an IoT hub based on the hub with the lowest latency to the device.
 
@@ -116,7 +115,7 @@ In this tutorial, you learned how to:
 > * Link the IoT hub to the Device Provisioning Service
 > * Set the allocation policy on the Device Provisioning Service
 
-Advance to the next tutorial to learn how to set up your device for provisioning.
+Advance to the next tutorial to learn how to set up your device for provisioning
 
 > [!div class="nextstepaction"]
 > [Set up device for provisioning](tutorial-set-up-device.md)

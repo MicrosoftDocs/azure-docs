@@ -1,17 +1,20 @@
 ---
-title: Review the cost estimation report in the Azure Site Recovery Deployment Planner | Microsoft Docs
-description: This articles describes how to review the cost estimation report in the Azure Site Recovery Deployment Planner for VMware to Azure disaster recovery.
-author: nsoneji
-manager: garavd
+title: Review cost estimations in the Azure Site Recovery Deployment Planner
+description: This articles describes how to review the cost estimations in the Azure Site Recovery Deployment Planner for VMware disaster recovery.
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.author: nisoneji
+ms.author: sharrai
+ms.date: 05/27/2021
 
 ---
-# Review the cost estimation report in the Site Recovery Deployment Planner for VMware disaster recovery to Azure
+# Review cost estimations in the VMware Deployment Planner 
 
 The deployment planner report provides the cost estimation summary in [Recommendations](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) sheets and detailed cost analysis in Cost Estimation sheet. It has the detailed cost analysis per VM. 
+
+>[!Note]
+>The current version of Deployment planner tool v2.5 provides cost estimation for VMs replicating to Managed Disks.
 
 ### Cost estimation summary 
 The graph shows the summary view of the estimated total disaster recovery (DR) cost to Azure of your chosen target region and the currency that you have specified for report generation.
@@ -85,7 +88,6 @@ If you are an Azure partner or a customer and are entitled to any discount on ov
 This table shows the number of Windows and non-Windows VMs and DR drill compute cost for them.
 
 ### Settings 
-**Using managed disk**: It specifies whether managed disk is being used  at the time of DR drills. The default is yes. If you have set -UseManagedDisks to No, it uses the unmanaged disk price for cost calculation.
 
 **Currency**: The currency in which the report is generated. 
 Cost duration:  You can view all costs either for the month or for the whole year. 
@@ -101,16 +103,16 @@ To manually add VMs:
 
 * Number of VMs, IaaS size (Your selection)
 * Storage Type (Standard/Premium)
-* VM total storage size (GB)
+* VM total storage size (GB) of the source machine
 * Number of DR drills in a year 
 * Each DR drill duration (Days) 
 * OS Type
 * Data redundancy 
 * Azure Hybrid Benefit
 
-3.	You can apply the same value to all VMs in the table by clicking the 'Apply to all' button for Number of DR-Drills in a year, Each DR-Drill duration (Days), Data redundancy, and Azure Hybrid Use Benefit.
+1. You can apply the same value to all VMs in the table by clicking the 'Apply to all' button for Number of DR-Drills in a year, Each DR-Drill duration (Days), Data redundancy, and Azure Hybrid Use Benefit.
 
-4.	Click 'Re-calculate cost' to update cost.
+1. Click 'Re-calculate cost' to update cost.
 
 **VM Name**: The name of the VM.
 
@@ -122,7 +124,7 @@ To manually add VMs:
 
 **Storage type**: The type of the storage that is used by the VM. It is either standard or premium storage.
 
-**VM total storage size (GB)**: The total storage of the VM.
+**VM total storage size (GB)**: The total storage of the source VM.
 
 **Number of DR-Drills in a year**: The number of times you perform DR-Drills in a year. By default, it is 4 times in a year. You can modify the period for specific VMs or apply the new value to all VMs by entering the new value on the top row and clicking the ‘Apply to all’ button. Based on number of DR-Drills in a year and each DR-Drill duration period, the total DR-Drill cost is calculated.  
 
@@ -150,16 +152,16 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## Supported currencies
 The Azure Site Recovery Deployment Planner can generate the cost report with any of the following currencies.
 
-|Currency|Name||Currency|Name||Currency|Name|
+|Currency|Name|Currency|Name|Currency|Name|
 |---|---|---|---|---|---|---|---|
-|ARS|Argentine Peso ($)||AUD|Australian Dollar ($)||BRL|Brazilian Real (R$)|
-|CAD|Canadian Dollar ($)||CHF|Swiss Franc. (chf)||DKK|Danish Krone (kr)|
-|EUR|Euro (€)||GBP|British Pound (£)||HKD|Hong Kong Dollar (HK$)|
-|IDR|Indonesia rupiah (Rp)||INR|Indian Rupee (₹)||JPY|Japanese Yen (¥)|
-|KRW|Korean Won (₩)||MXN|Mexican Peso (MX$)||MYR|Malaysian Ringgit (RM$)|
-|NOK|Norwegian Krone (kr)||NZD|New Zealand Dollar ($)||RUB|Russian Ruble (руб)|
-|SAR|Saudi Riyal (SR)||SEK|Swedish Krona (kr)||TWD|Taiwanese Dollar (NT$)|
-|TRY|Turkish Lira (TL)||USD| US Dollar ($)||ZAR|South African Rand (R)|
+|ARS|Argentine Peso ($)|AUD|Australian Dollar ($)|BRL|Brazilian Real (R$)|
+|CAD|Canadian Dollar ($)|CHF|Swiss Franc. (chf)|DKK|Danish Krone (kr)|
+|EUR|Euro (€)|GBP|British Pound (£)|HKD|Hong Kong Dollar (HK$)|
+|IDR|Indonesia rupiah (Rp)|INR|Indian Rupee (₹)|JPY|Japanese Yen (¥)|
+|KRW|Korean Won (₩)|MXN|Mexican Peso (MX$)|MYR|Malaysian Ringgit (RM$)|
+|NOK|Norwegian Krone (kr)|NZD|New Zealand Dollar ($)|RUB|Russian Ruble (руб)|
+|SAR|Saudi Riyal (SR)|SEK|Swedish Krona (kr)|TWD|Taiwanese Dollar (NT$)|
+|TRY|Turkish Lira (TL)|USD| US Dollar ($)|ZAR|South African Rand (R)|
 
 ## Next steps
-Learn more about protecting [VMware VMs to Azure using Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-vmware-to-azure).
+Learn more about protecting [VMware VMs to Azure using Azure Site Recovery](./vmware-azure-tutorial.md).

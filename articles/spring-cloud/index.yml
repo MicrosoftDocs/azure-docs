@@ -1,0 +1,94 @@
+### YamlMime:Landing
+
+title: Azure Spring Cloud documentation # < 60 chars
+summary: Azure Spring Cloud provides a managed service that lets you run microservices on Azure using Spring-boot or Steeltoe (preview) with no code changes. # < 160 chars
+
+metadata:
+  title: Azure Spring Cloud # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Azure Spring Cloud provides a managed service that lets you run microservices on Azure using Spring-boot or Steeltoe (preview) with no code changes.  # Required; article description that is displayed in search results. < 160 chars.
+  services: spring-cloud
+  ms.service: spring-cloud #Required; service per approved list. service slug assigned to your service.
+  ms.topic: landing-page # Required
+  ms.collection: collection
+  author: karlerickson #Required; your GitHub user alias, with correct capitalization.
+  ms.author: karler  #Required; microsoft alias of author; optional team alias.
+  ms.date: 09/26/2019 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure Spring Cloud
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Spring Cloud?
+            url: overview.md
+          - text: Understanding Azure Spring Cloud quotas and limits
+            url: quotas.md
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Quickstart - Deploy your first Azure Spring Cloud application
+            url: quickstart.md 
+          - text: Introduction to PiggyMetrics sample app
+            url: quickstart-sample-app-introduction.md
+      - linkListType: tutorial
+        links:
+          - text: Prepare a Spring or Steeltoe app for deployment
+            url: how-to-prepare-app-deployment.md
+
+  - title: Configure your service
+    linkLists: 
+      - linkListType: tutorial
+        links:
+          - text: Use Config Server to maintain application configuration
+            url: how-to-config-server.md
+          - text: Manually scale your application
+            url: how-to-scale-manual.md
+      - linkListType: how-to-guide
+        links:
+          - text: Automate your CI/CD pipeline in Azure Spring Cloud
+            url: how-to-cicd.md
+          - text: Enable Blue-Green deployments using Azure Spring Cloud
+            url: how-to-staging-environment.md           
+          - text: Use persistent storage in Azure Spring Cloud
+            url: how-to-persistent-storage.md
+
+  # Card
+  - title: Monitor your application
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Monitor your application by using distributed tracing and App Insights
+            url: how-to-distributed-tracing.md
+          - text: Enable Diagnostic Services on your Java Spring application
+            url: diagnostic-services.md
+      - linkListType: concept
+        links:
+          - text: Understanding Azure Monitor Metrics for Spring Cloud
+            url: concept-metrics.md
+
+  # Card
+  - title: Bind with other services
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Bind your application with Azure Cache for Redis
+            url: how-to-bind-redis.md
+          - text: Bind your application to an Azure MySQL DB
+            url: how-to-bind-mysql.md 
+          - text: Bind your application to Azure CosmosDB
+            url: how-to-bind-cosmos.md
+   # Card
+  - title: API reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: REST API reference
+            url: https://docs.microsoft.com/rest/api/azurespringcloud/

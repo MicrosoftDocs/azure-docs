@@ -1,108 +1,146 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Computer Vision API Documentation 
-metadata:
-  title: Computer Vision API Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
-  description: Learn how to use Computer Vision to process images and return information. Tutorials show you how to build apps that use the API.
-  services: cognitive-services
-  author: nitinme
-  manager: cgronlun
+### YamlMime:Hub
 
-  ms.service: cognitive-services
-  ms.component: computer-vision
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 09/24/2018
-  ms.author: nitinme
-abstract:
-  description: The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples.
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: ../media/index/computer-vision-landing-page-video.png
-      width: 250  
-    title: Infuse intelligence in your apps with Vision APIs (05:41)
-    href: https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-put-intelligence-into-your-business-apps/
-    width: 250
-sections:
-- items:
-    - type: list
-      style: cards
-      className: cardsM
-      columns: 3
-      items:
-        - href: /azure/cognitive-services/computer-vision/home
-          html: <p>Learn about the Computer Vision API.</p>
-          image:
-            src: ../media/index/i_overview.svg
-          title: What is Computer Vision?
-        - href: /azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe
-          html: <p>Learn how to get subscription keys for Computer Vision API.</p>
-          image:
-            src: ../media/index/i_tasks.svg
-          title: Subscription keys for Computer Vision API
-        - href: /azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi
-          html: <p>Learn the basics of calling a Computer Vision API.</p>
-          image:
-            src: ../media/index/i_tasks.svg
-          title: Call the Computer Vision API
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Analyze images, generate thumbnails, and extract text from an image using:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: media/index/logo_Csharp.svg
-      text: C&#35;
-      href: quickstarts-sdk/csharp-analyze-sdk
-    - image: 
-        src: media/index/logo_java.svg
-      text: Java
-      href: QuickStarts/java-analyze
-    - image:
-        src: media/index/logo_nodejs.svg
-      text: Node.js
-      href: QuickStarts/node-analyze
-    - image: 
-        src: media/index/logo_python.svg
-      text: Python
-      href: QuickStarts/python-analyze
-    - image:
-        src: media/index/logo_go.svg
-      text: Go
-      href: QuickStarts/go-analyze
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: 'Learn how to develop applications using Computer Vision:'
-  - type: list
-    style: unordered
-    items: 
-    - html: <a href="Tutorials/CSharpTutorial.md">Create a Computer Vision app using C#</a>
-#    - html: <a href="Tutorials/java-tutorial.md">Java Tutorial</a>
-#    - html: <a href="Tutorials/javascript-tutorial.md">JavaScript Tutorial</a>
-#    - html: <a href="Tutorials/PythonTutorial-source.md">Python Tutorial</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+title: Computer Vision documentation # < 60 chars
+summary: The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples. # < 160 chars
+
+metadata:
+  title: Computer Vision documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples. # Required; article description that is displayed in search results. < 160 chars.
+  services: cognitive-services
+  ms.service: cognitive-services #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.subservice: computer-vision
+  ms.topic: hub-page # Required
+  author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
+  ms.author: pafarley #Required; microsoft alias of author; optional team alias.
+  ms.date: 03/31/2021 #Required; mm/dd/yyyy format.
+
+highlightedContent:
+  # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
     items:
-    - title: APIs
-      html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44">Computer Vision API v2.0</a></p>
-            <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739">Computer Vision API v1.0</a></p>
-    - title: SDKs
-      html: <p><a href="https://github.com/Microsoft/Cognitive-vision-windows">Windows</a></p>
-            <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules">Node.js</a></p>
-            <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules">Python</a></p>
-            <p><a href="https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/computervision">Go</a></p>
-            <p><a href="https://github.com/Microsoft/Cognitive-vision-android">Android</a></p>
-            <p><a href="https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK">Swift</a></p>
-    - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>
+      - title: About Computer Vision
+        itemType: overview
+        url: overview.md
+      - title: What's new in Computer Vision?
+        itemType: whats-new
+        url: whats-new.md
+      - title: Language support
+        itemType: reference
+        url: language-support.md
+
+conceptualContent:
+  items:
+    - title: Optical character recognition
+      links:
+        - itemType: overview
+          text: About OCR
+          url: overview-ocr.md
+        - itemType: quickstart
+          text: Get started with OCR
+          url: quickstarts-sdk/client-library.md
+        - itemType: how-to-guide
+          text: Call the Read API
+          url: Vision-API-How-to-Topics/call-read-api.md
+        - itemType: deploy
+          text: Use the Read OCR container
+          url: computer-vision-how-to-install-containers.md
+        - itemType: reference
+          text: OCR API reference
+          url: https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
+      footerLink:
+        text: More
+        url: index-ocr.yml
+    - title: Image Analysis
+      links:
+        - itemType: overview
+          text: About Image Analysis
+          url: overview-image-analysis.md
+        - itemType: quickstart
+          text: Get started with Image Analysis
+          url: quickstarts-sdk/image-analysis-client-library.md
+        - itemType: concept
+          text: Content tags
+          url: concept-tagging-images.md
+        - itemType: concept
+          text: Image descriptions
+          url: concept-describing-images.md
+        - itemType: concept
+          text: Face detection
+          url: concept-detecting-faces.md
+        - itemType: tutorial
+          text: Generate metadata for images
+          url: Tutorials/storage-lab-tutorial.md
+        - itemType: reference
+          text: Image Analysis API reference
+          url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b
+      footerLink:
+        text: More
+        url: index-image-analysis.yml
+    - title: Spatial Analysis
+      links:
+        - itemType: overview
+          text: About Spatial Analysis
+          url: intro-to-spatial-analysis-public-preview.md
+        - itemType: quickstart
+          text: Get started with Spatial Analysis
+          url: spatial-analysis-container.md
+        - itemType: how-to-guide
+          text: Configure Spatial Analysis operations
+          url: spatial-analysis-operations.md
+        - itemType: concept
+          text: Zone and line placement
+          url: spatial-analysis-zone-line-placement.md
+        - itemType: concept
+          text: Camera placement
+          url: spatial-analysis-camera-placement.md
+        - itemType: concept
+          text: Logging and troubleshooting
+          url: spatial-analysis-logging.md
+      footerLink:
+        text: More
+        url: index-spatial-analysis.yml
+
+tools:
+  title: Software development kits (SDKs)
+  summary: Get started with the Computer Vision SDK in your favorite programming language.
+  items:
+  - title: C#
+    imageSrc: media/index/logo_Csharp.svg
+    url: /dotnet/api/overview/azure/cognitiveservices/client/computervision
+  - title: Node.js
+    imageSrc: media/index/logo_nodejs.svg
+    url: /javascript/api/@azure/cognitiveservices-computervision/
+  - title: Python
+    imageSrc: media/index/logo_python.svg
+    url: /python/api/overview/azure/cognitiveservices/computervision
+  - title: Go
+    imageSrc: media/index/logo_go.svg
+    url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
+  - title: Java
+    imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
+    url: /java/api/com.microsoft.cognitiveservices.speech
+
+
+additionalContent:
+  sections:
+    - items:
+      - title: REST APIs
+        links:
+        - text: Optical character recognition (OCR)
+          url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
+        - text: Image Analysis
+          url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b
+      - title: Resources
+        links:
+        - text: Pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision
+        - text: Regions
+          url: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+        - text: Learn
+          url: /learn/paths/explore-computer-vision-microsoft-azure/
+      - title: Support
+        links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
+
+
+     

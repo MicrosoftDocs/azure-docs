@@ -1,0 +1,91 @@
+# Testing the new code owners feature in GitHub. Please contact Cory Fowler if you have questions.
+
+# Horizontals
+
+## Azure Policy: Samples and Compliance Controls
+articles/**/policy-reference.md @DCtheGeek
+articles/**/security-controls-policy.md @DCtheGeek
+includes/policy/ @DCtheGeek
+
+# Azure Monitor
+
+articles/azure-monitor/* @bwren
+articles/azure-monitor/agents @bwren
+articles/azure-monitor/alerts @rboucher
+articles/azure-monitor/app @bwren @lgayhardt
+articles/azure-monitor/autoscale @rboucher
+articles/azure-monitor/containers @bwren
+articles/azure-monitor/essentials @bwren @rboucher
+articles/azure-monitor/insights @bwren @rboucher @lgayhardt
+articles/azure-monitor/logs @bwren
+articles/azure-monitor/visualize @bwren @lgayhardt
+articles/azure-monitor/vm @bwren
+articles/advisor @rboucher
+articles/service-health @rboucher
+
+# Azure Active Directory
+
+articles/active-directory-b2c/ @msmimart @yoelhor
+articles/active-directory/app-provisioning/ @CelesteDG
+articles/active-directory/develop/ @mmacy
+articles/active-directory/manage-apps/ @CelesteDG
+
+# Azure Synapse Analytics
+articles/synapse-analytics/ @julieMSFT synapsecontent@microsoft.com @ryanmajidi @saveenr 
+articles/synapse-analytics/backuprestore/ @joannapea @julieMSFT
+articles/synapse-analytics/catalog-governance/@djpmsft @chanuengg 
+articles/synapse-analytics/ccid/ @liudan66 @julieMSFT
+articles/synapse-analytics/data-integration/ @kromerm @jonburchel 
+articles/synapse-analytics/machine-learning/ @garyericson @NelGson @midesa 
+articles/synapse-analytics/metadata/@MikeRys @julieMSFT @jocaplan
+articles/synapse-analytics/security/ @RonyMSFT  @nanditavalsan @meenalsri @julieMSFT
+articles/synapse-analytics/spark/ @euangms @mlee3gsd @midesa 
+articles/synapse-analytics/sql/ @filippopovic @azaricstefan @anumjs @WilliamDAssafMSFT @jovanpop-msft
+articles/synapse-analytics/sql-data-warehouse/ @anumjs @ronortloff @julieMSFT
+articles/synapse-analytics/synapse-link/ @Rodrigossz @SnehaGunda @jovanpop-msft
+
+# Cognitive Services
+articles/cognitive-services/ @aahill @patrickfarley @nitinme @mrbullwinkle @laujan
+
+# DevOps
+articles/ansible/ @TomArcherMsft
+articles/chef/ @TomArcherMsft
+articles/jenkins/ @TomArcherMsft
+articles/terraform/ @TomArcherMsft
+
+# compute
+articles/virtual-machines/ @cynthn @mimckitt
+articles/virtual-machine-scale-sets/ @ju-shim @mimckitt
+articles/cloud-services/ @mimckitt
+articles/cloud-services-extended-support/ @mimckitt
+articles/service-fabric/ @sukanyamsft @mimckitt
+articles/container-instances/ @macolso @mimckitt
+articles/container-registry/ @dlepow @mimckitt
+
+# Requires Internal Review
+articles/best-practices-availability-paired-regions.md @martinekuan @syntaxc4 @snoviking
+
+# Governance
+articles/governance/ @DCtheGeek
+
+# Security
+articles/security/fundamentals/feature-availability.md @msmbaldwin @terrylanfear
+
+# Azure Security Center
+articles/security-center/ @memildin
+includes/*security-controls*.md @memildin
+
+# DDOS Protection
+
+articles/ddos-protection @aletheatoh @anupamvi
+
+# Lighthouse
+articles/lighthouse/ @JnHs
+
+# Healthcare APIs
+articles/healthcare-apis/ @ginalee-dotcom
+
+# Configuration
+*.json @SyntaxC4 @snoviking @martinekuan
+.acrolinx-config.edn @MonicaRush @martinekuan
+articles/zone-pivot-groups.yml @SyntaxC4 @snoviking @martinekuan

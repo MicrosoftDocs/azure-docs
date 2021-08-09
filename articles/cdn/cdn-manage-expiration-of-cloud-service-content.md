@@ -3,18 +3,19 @@ title: Manage expiration of web content in Azure CDN | Microsoft Docs
 description: Learn how to manage expiration of Azure Web Apps/Cloud Services, ASP.NET, or IIS content in Azure CDN.
 services: cdn
 documentationcenter: .NET
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.custom: devx-track-csharp
+ms.topic: how-to
 ms.date: 02/15/2018
-ms.author: magattus
+ms.author: allensu
 
 ---
 # Manage expiration of web content in Azure CDN
@@ -37,7 +38,7 @@ You can also control cache settings from the Azure portal by setting [CDN cachin
 The preferred method for setting a web server's `Cache-Control` header is to use caching rules in the Azure portal. For more information about CDN caching rules, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
 
 > [!NOTE] 
-> Caching rules are available only for **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles. For **Azure CDN Premium from Verizon** profiles, you must use the [Azure CDN rules engine](cdn-rules-engine.md) in the **Manage** portal for similar functionality.
+> Caching rules are available only for **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles. For **Azure CDN Premium from Verizon** profiles, you must use the [Azure CDN rules engine](./cdn-verizon-premium-rules-engine.md) in the **Manage** portal for similar functionality.
 
 **To navigate to the CDN caching rules page**:
 
@@ -68,9 +69,9 @@ The preferred method for setting a web server's `Cache-Control` header is to use
 
 1. Under **Custom caching rules**, create two match conditions:
 
-     a. For the first match condition, set **Match condition** to **Path** and enter `/webfolder1/*` for **Match value**. Set **Caching behavior** to **Override** and enter 4 in the **Hours** box.
+     a. For the first match condition, set **Match condition** to **Path** and enter `/webfolder1/*` for **Match value**. Set **Caching behavior** to **Override** and enter 4 in the **Days** box.
 
-     b. For the second match condition, set **Match condition** to **Path** and enter `/webfolder1/file1.txt` for **Match value**. Set **Caching behavior** to **Override** and enter 2 in the **Hours** box.
+     b. For the second match condition, set **Match condition** to **Path** and enter `/webfolder1/file1.txt` for **Match value**. Set **Caching behavior** to **Override** and enter 2 in the **Days** box.
 
     ![CDN custom caching rules example](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 
@@ -102,10 +103,10 @@ The following XML configuration file example shows how to set the `<clientCache>
 </configuration>
 ```
 
-To use the **cacheControlMaxAge** attribute, you must set the value of the **cacheControlMode** attribute to `UseMaxAge`. This setting caused the HTTP header and directive, `Cache-Control: max-age=<nnn>`, to be added to the response. The format of the timespan value for the **cacheControlMaxAge** attribute is `<days>.<hours>:<min>:<sec>`. Its value is converted to seconds and is used as the value of the `Cache-Control` `max-age` directive. For more information about the `<clientCache>` element, see [Client Cache <clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+To use the **cacheControlMaxAge** attribute, you must set the value of the **cacheControlMode** attribute to `UseMaxAge`. This setting caused the HTTP header and directive, `Cache-Control: max-age=<nnn>`, to be added to the response. The format of the timespan value for the **cacheControlMaxAge** attribute is `<days>.<hours>:<min>:<sec>`. Its value is converted to seconds and is used as the value of the `Cache-Control` `max-age` directive. For more information about the `<clientCache>` element, see [Client Cache \<clientCache>](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## Setting Cache-Control headers programmatically
-For ASP.NET applications, you control the CDN caching behavior programmatically by setting the **HttpResponse.Cache** property of the .NET API. For information about the **HttpResponse.Cache** property, see [HttpResponse.Cache Property](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) and [HttpCachePolicy Class](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
+For ASP.NET applications, you control the CDN caching behavior programmatically by setting the **HttpResponse.Cache** property of the .NET API. For information about the **HttpResponse.Cache** property, see [HttpResponse.Cache Property](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) and [HttpCachePolicy Class](/dotnet/api/system.web.httpcachepolicy).  
 
 To programmatically cache application content in ASP.NET, follow these steps:
    1. Verify that the content is marked as cacheable by setting `HttpCacheability` to `Public`. 
@@ -124,10 +125,10 @@ Response.Cache.SetLastModified(DateTime.Now);
 ```
 
 ## Testing the Cache-Control header
-You can easily verify the TTL settings of your web content. With your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test that your web content includes the `Cache-Control` response header. You can also use a tool such as **wget**, [Postman](https://www.getpostman.com/), or [Fiddler](http://www.telerik.com/fiddler) to examine the response headers.
+You can easily verify the TTL settings of your web content. With your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test that your web content includes the `Cache-Control` response header. You can also use a tool such as **wget**, [Postman](https://www.getpostman.com/), or [Fiddler](https://www.telerik.com/fiddler) to examine the response headers.
 
 ## Next Steps
-* [Read details about the **clientCache** element](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
-* [Read the documentation for the **HttpResponse.Cache** Property](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [Read the documentation for the **HttpCachePolicy Class**](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
+* [Read details about the **clientCache** element](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
+* [Read the documentation for the **HttpResponse.Cache** Property](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) 
+* [Read the documentation for the **HttpCachePolicy Class**](/dotnet/api/system.web.httpcachepolicy)  
 * [Learn about caching concepts](cdn-how-caching-works.md)

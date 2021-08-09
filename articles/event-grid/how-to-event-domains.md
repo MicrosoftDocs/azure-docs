@@ -1,13 +1,9 @@
 ---
-title: Manage large sets of topics in Azure Event Grid with event domains
+title: Publish events with event domains with Azure Event Grid
 description: Shows how to manage large sets of topics in Azure Event Grid and publish events to them using event domains.
-services: event-grid
-author: banisadr
-
-ms.service: event-grid
-ms.author: babanisa
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 07/07/2020 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Manage topics and publish events using event domains
@@ -21,39 +17,27 @@ This article shows how to:
 
 To learn about event domains, see [Understand event domains for managing Event Grid topics](event-domains.md).
 
-## Install preview feature
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
-
 ## Create an Event Domain
 
 To manage large sets of topics, create an event domain.
 
-For Azure CLI, use:
+# [Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
-# If you haven't already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid domain create \
   -g <my-resource-group> \
   --name <my-domain-name> \
   -l <location>
 ```
 
-For PowerShell, use:
-
+# [PowerShell](#tab/powershell)
 ```azurepowershell-interactive
-# If you have not already installed the module, do it now.
-# This module is required for preview features.
-Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
-
-New-AzureRmEventGridDomain `
+New-AzEventGridDomain `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain-name> `
   -Location <location>
 ```
+---
 
 Successful creation returns the following values:
 
@@ -76,10 +60,11 @@ Note the `endpoint` and `id` as they're required to manage the domain and publis
 
 ## Manage access to topics
 
-Managing access to topics is done via [role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli). Role assignment uses role-based access control to limit operations on Azure resources to authorized users at a certain scope.
+Managing access to topics is done via [role assignment](../role-based-access-control/role-assignments-cli.md). Role assignment uses Azure role-based access control to limit operations on Azure resources to authorized users at a certain scope.
 
 Event Grid has two built-in roles, which you can use to assign particular users access on various topics within a domain. These roles are `EventGrid EventSubscription Contributor (Preview)`, which allows for creation and deletion of subscriptions, and `EventGrid EventSubscription Reader (Preview)`, which only allows for listing of event subscriptions.
 
+# [Azure CLI](#tab/azurecli)
 The following Azure CLI command limits `alice@contoso.com` to creating and deleting event subscriptions only on topic `demotopic1`:
 
 ```azurecli-interactive
@@ -89,14 +74,16 @@ az role assignment create \
   --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
 ```
 
+# [PowerShell](#tab/powershell)
 The following PowerShell command limits `alice@contoso.com` to creating and deleting event subscriptions only on topic `demotopic1`:
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment `
+New-AzRoleAssignment `
   -SignInName alice@contoso.com `
   -RoleDefinitionName "EventGrid EventSubscription Contributor (Preview)" `
   -Scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
 ```
+---
 
 For more information about managing access for Event Grid operations, see [Event Grid security and authentication](./security-authentication.md).
 
@@ -108,7 +95,7 @@ Subscribing to a topic in a domain is the same as subscribing to any other Azure
 
 Typically, the user you granted access to in the preceding section would create the subscription. To simplify this article, you create the subscription. 
 
-For Azure CLI, use:
+# [Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -117,25 +104,27 @@ az eventgrid event-subscription create \
   --endpoint https://contoso.azurewebsites.net/api/updates
 ```
 
-For PowerShell, use:
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1" `
   -EventSubscriptionName <event-subscription> `
   -Endpoint https://contoso.azurewebsites.net/api/updates
 ```
 
+---
+
 If you need a test endpoint to subscribe your events to, you can always deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the incoming events. You can send your events to your test website at `https://<your-site-name>.azurewebsites.net/api/updates`.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
 
-Permissions that are set for a topic are stored in Azure Active Directory and must be deleted explicitly. Deleting an event subscription won't revoke a users access to create event subscriptions if they have write access on a topic.
+Permissions that are set for a topic are stored in Azure Active Directory and must be deleted explicitly. Deleting an event subscription won't revoke a users access to create event subscriptions if they've write access on a topic.
 
 
 ## Publish events to an Event Grid Domain
 
-Publishing events to a domain is the same as [publishing to a custom topic](./post-to-custom-topic.md). The only difference is that you need to specify the topic you wish each event to go to. The following array of events would result in event with `"id": "1111"` to topic `foo` while event with `"id": "2222"` would be sent to topic `bar`:
+Publishing events to a domain is the same as [publishing to a custom topic](./post-to-custom-topic.md). However, instead of publishing to the custom topic, you publish all events to the domain endpoint. In the JSON event data, you specify the topic you wish the events to go to. The following array of events would result in event with `"id": "1111"` to topic `demotopic1` while event with `"id": "2222"` would be sent to topic `demotopic2`:
 
 ```json
 [{
@@ -164,7 +153,16 @@ Publishing events to a domain is the same as [publishing to a custom topic](./po
 }]
 ```
 
-To get the keys for a domain with Azure CLI, use:
+# [Azure CLI](#tab/azurecli)
+To get the domain endpoint with Azure CLI, use
+
+```azurecli-interactive
+az eventgrid domain show \
+  -g <my-resource-group> \
+  -n <my-domain>
+```
+
+To get the keys for a domain, use:
 
 ```azurecli-interactive
 az eventgrid domain key list \
@@ -172,15 +170,39 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
-For PowerShell, use:
+# [PowerShell](#tab/powershell)
+To get the domain endpoint with PowerShell, use
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridDomainKey `
+Get-AzEventGridDomain `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain>
 ```
 
+To get the keys for a domain, use:
+
+```azurepowershell-interactive
+Get-AzEventGridDomainKey `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain>
+```
+---
+
 And then use your favorite method of making an HTTP POST to publish your events to your Event Grid domain.
+
+## Search lists of topics or subscriptions
+
+To search and manage large number of topics or subscriptions, Event Grid's APIs support listing and pagination.
+
+### Using CLI
+For example, the following command lists all the topics with name containing `mytopic`. 
+
+```azurecli-interactive
+az eventgrid topic list --odata-query "contains(name, 'mytopic')"
+```
+
+For more information about this command, see [`az eventgrid topic list`](/cli/azure/eventgrid/topic?#az_eventgrid_topic_list). 
+
 
 ## Next steps
 

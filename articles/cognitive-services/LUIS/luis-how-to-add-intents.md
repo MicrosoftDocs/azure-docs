@@ -1,114 +1,81 @@
 ---
-title: Add intents in LUIS applications
+title: Add intents - LUIS
 titleSuffix: Azure Cognitive Services
-description: Add intents to your LUIS app to identify groups of questions or commands that have the same intentions. 
+description: Add intents to your LUIS app to identify groups of questions or commands that have the same intentions.
 services: cognitive-services
-author: diberry
-manager: cgronlun
-ms.component: language-understanding
-ms.topic: article
-ms.date: 10/24/2018
-ms.author: diberry
+
+manager: nitinme
+ms.custom: seodec18
+ms.subservice: language-understanding
+ms.topic: how-to
+ms.date: 05/17/2020
+
 ms.service: cognitive-services
 ---
 
-# Add intents 
+# Add intents to determine user intention of utterances
 
-Add [intents](luis-concept-intent.md) to your LUIS app to identify groups of questions or commands that have the same intention. 
+Add [intents](luis-concept-intent.md) to your LUIS app to identify groups of questions or commands that have the same intention.
 
-Intents are managed from top navigation bar's **Build** section, then from the left panel's **Intents**. 
+In the LUIS portal, Intents are managed from top navigation bar's **Build** section, then from the left panel's **Intents**.
 
-## Create an app
+## Add an intent to your app
 
-1. Sign in to the [LUIS](https://www.luis.ai) portal.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
+1. On the **Intents** page, select **+ Create**.
+1. In the **Create new intent** dialog box, enter the intent name, for example `ModifyOrder`, and select **Done**.
 
-1. Select **Create new app**. 
+    > [!div class="mx-imgBorder"]
+    > ![Add Intent](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
-1. Name the new app `MyHumanResourcesApp`. Select the **English** culture. The description is optional. 
-
-1. Select **Done**. 
-
-## Add intent
-
-1. The app opens to the **Intents** list.
-
-1. On the **Intents** page, select **Create new intent**.
-
-1. In the **Create new intent** dialog box, enter the intent name, `GetEmployeeInformation`, and click **Done**.
-
-    ![Add Intent](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
+    The intent needs [example utterances](luis-concept-utterance.md) in order to predict utterances at the published prediction endpoint.
 
 ## Add an example utterance
 
-Example utterances are text examples of user questions or commands. To teach Language Understanding (LUIS), you need to add example utterances to an intent.
+Example utterances are text examples of user questions or commands. To teach Language Understanding (LUIS) when to predict this intent, you need to add example utterances to an intent. LUIS needs in the range of 15 to 30 example utterances to begin understanding the intent. Do not add example utterances in bulk. Each utterance should be carefully chosen for how it is different than examples already in the intent.
 
-1. On the **GetEmployeeInformation** intent details page, enter a relevant utterance you expect from your users, such as `Does John Smith work in Seattle?` in the text box below the intent name, and then press Enter.
- 
-    ![Screenshot of Intents details page, with utterance highlighted](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
+1. On the intent details page, enter a relevant utterance you expect from your users, such as `Deliver a large cheese pizza` in the text box below the intent name, and then press Enter.
 
-    LUIS converts all utterances to lowercase and adds spaces around tokens such as hyphens.
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of Intents details page, with utterance highlighted](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png)
 
-## Intent prediction discrepancy errors 
+    LUIS converts all utterances to lowercase and adds spaces around [tokens](luis-language-support.md#tokenization) such as hyphens.
 
-An utterance in an intent might have an intent prediction discrepancy between the selected intent and the prediction score. LUIS indicates this discrepancy with a red box around the **Labeled intent** on the row of the example utterance. 
+<a name="#intent-prediction-discrepancy-errors"></a>
 
-![Screenshot of Intents details page, with utterance highlighted](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+## Intent prediction errors
 
-In the top navigation, select **Train**. The prediction discrepancy is now gone.
+An intent prediction error is determined when the utterance is not predicted with the trained app for the intent.
 
-## Add a custom entity
+1. To find utterance prediction errors and fix them, use the **Filter** options of Incorrect and Unclear.
 
-Once an utterance is added to an intent, you can select text from within the utterance to create a custom entity. A custom entity is a way to tag text for extraction, along with the correct intent. 
+    > [!div class="mx-imgBorder"]
+    > ![To find utterance prediction errors and fix them, use the Filter option.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
 
-1. Select the word, `Seattle`, in the utterance. Square brackets are drawn around the text and a drop-down menu appears. 
+1. To display the score value on the Intent details page, select **Show details intent scores** from the **View** options menu.
 
-    ![Screenshot of Intents details page, creating custom entity](./media/luis-how-to-add-intents/create-custom-entity.png) 
+    When the filters and view are applied, and there are example utterances with errors, the example utterance list shows the utterances and the issues.
 
-    This example selects a single word to mark as an entity. You can mark single works and phrases as entities.
+Each row shows the current training's prediction score for the example utterance, the nearest rival's score, which is the difference in these two scores.
 
-1. In the top text-box of the menu, enter `Location`, then select **Create new entity**. 
+### Fixing intents
 
-    ![Screenshot of Intents details page, creating custom entity name](./media/luis-how-to-add-intents/create-custom-entity-name.png) 
-
-1. In the **What type of entity do you want to create?** pop-up window for entity creation, validate that the **entity name** is _Location_, and the **entity type** is _Simple_. Select **Done**.
-
-## Entity prediction discrepancy errors 
-
-The entity is underlined in red to indicate an [entity prediction discrepancy](luis-how-to-add-example-utterances.md#entity-status-predictions). Because this is the first occurrence of an entity, there are not enough examples for LUIS to have a high-confidence that this text is tagged with the correct entity. This discrepancy is removed when the app is trained. 
-
-![Screenshot of Intents details page, custom entity name highlighted in blue](./media/luis-how-to-add-intents/create-custom-entity-name-blue-highlight.png) 
-
-The text is highlighted in blue, indicating an entity.  
-
-## Add a prebuilt entity
-
-For information, see [Prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity).
+To learn how to fix intent prediction errors, use the [Summary Dashboard](luis-how-to-use-dashboard.md). The summary dashboard provides analysis for the active version's last training and offers the top suggestions to fix your model.
 
 ## Using the contextual toolbar
 
-When one or more example utterances is selected in the list, by checking the box to the left of an utterance, the toolbar above the utterance list allows you to perform the following actions:
+The context toolbar provides other actions:
 
-* Reassign intent: move utterance(s) to different intent
-* Delete utterance(s)
-* Entity filters: only show utterances containing filtered entities
-* Show all/Errors only: show utterances with prediction errors or show all utterances
-* Entities/Tokens view: show entities view with entity names or show raw text of utterance
-* Magnifying glass: search for utterances containing specific text
-
-## Working with an individual utterance
-
-The following actions can be performed on an individual utterance from the ellipsis menu to the right of the utterance:
-
-* Edit: change the text of the utterance
-* Delete: remove the utterance from the intent. If you still want the utterance, a better method is to move it to the **None** intent. 
-* Add a pattern: A pattern allows you to take a common utterance and mark replaceable text and ignorable text, thereby reducing the need for more utterances in the intent. 
-
-The **Labeled intent** column allows you to change the intent of the utterance.
+* Edit or delete example utterance
+* Reassign example utterance to a different intent
+* Filters and views: only show utterances containing filtered entities or view optional details
+* Search through example utterances
 
 ## Train your app after changing model with intents
 
-After you add, edit, or remove intents, [train](luis-how-to-train.md) and [publish](luis-how-to-publish-app.md) your app so that your changes are applied to endpoint queries. 
+After you add, edit, or remove intents, [train](luis-how-to-train.md) and [publish](luis-how-to-publish-app.md) your app so that your changes are applied to endpoint queries. Do not train after every single change. Train after a group of changes.
 
 ## Next steps
 
-Learn more about adding [example utterances](luis-how-to-add-example-utterances.md) with entities. 
+Learn more about adding [example utterances](./luis-how-to-add-entities.md) with entities.

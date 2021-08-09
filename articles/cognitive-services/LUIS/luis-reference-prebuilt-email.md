@@ -1,47 +1,85 @@
 ---
-title: LUIS Prebuilt entities email reference - Azure| Microsoft Docs
-titleSuffix: Azure
+title: LUIS Prebuilt entities email reference
+titleSuffix: Azure Cognitive Services
 description: This article contains email prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
-manager: cgronlun
+
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
-ms.topic: article
-ms.date: 06/20/2018
-ms.author: diberry
+ms.subservice: language-understanding
+ms.topic: reference
+ms.date: 09/27/2019
+
 ---
 
-# Email entity
-Email extraction includes the entire email address from an utterance. Because this entity is already trained, you do not need to add example utterances containing email to the application intents. Email entity is supported in `en-us` culture only. 
+# Email prebuilt entity for a LUIS app
+Email extraction includes the entire email address from an utterance. Because this entity is already trained, you do not need to add example utterances containing email to the application intents. Email entity is supported in `en-us` culture only.
 
 ## Resolution for prebuilt email
-The following example shows the resolution of the **builtin.email** entity.
 
-```JSON
-{
-  "query": "please send the information to patti.owens@microsoft.com",
-  "topScoringIntent": {
-    "intent": "None",
-    "score": 0.811592042
-  },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.811592042
-    }
-  ],
-  "entities": [
-    {
-      "entity": "patti.owens@microsoft.com",
-      "type": "builtin.email",
-      "startIndex": 31,
-      "endIndex": 55
-    }
-  ]
+The following entity objects are returned for the query:
+
+`please send the information to patti@contoso.com`
+
+#### [V3 response](#tab/V3)
+
+The following JSON is with the `verbose` parameter set to `false`:
+
+```json
+"entities": {
+    "email": [
+        "patti@contoso.com"
+    ]
 }
 ```
+#### [V3 verbose response](#tab/V3-verbose)
+
+The following JSON is with the `verbose` parameter set to `true`:
+
+```json
+"entities": {
+    "email": [
+        "patti@contoso.com"
+    ],
+    "$instance": {
+        "email": [
+            {
+                "type": "builtin.email",
+                "text": "patti@contoso.com",
+                "startIndex": 31,
+                "length": 17,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+#### [V2 response](#tab/V2)
+
+The following example shows the resolution of the **builtin.email** entity.
+
+```json
+"entities": [
+    {
+        "entity": "patti@contoso.com",
+        "type": "builtin.email",
+        "startIndex": 31,
+        "endIndex": 55,
+        "resolution": {
+        "value": "patti@contoso.com"
+        }
+    }
+]
+```
+* * *
 
 ## Next steps
 
-Learn about the [number](luis-reference-prebuilt-number.md), [ordinal](luis-reference-prebuilt-ordinal.md), and [percentage](luis-reference-prebuilt-percentage.md). 
+Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
+
+Learn about the [number](luis-reference-prebuilt-number.md), [ordinal](luis-reference-prebuilt-ordinal.md), and [percentage](luis-reference-prebuilt-percentage.md).

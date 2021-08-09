@@ -1,29 +1,33 @@
 ---
-title: Copy data from SAP BW using Azure Data Factory | Microsoft Docs
+title: Copy data from SAP BW
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from SAP Business Warehouse to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
-ms.reviewer: douglasl
-
-ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 08/07/2018
 ms.author: jingwang
-
+ms.service: data-factory
+ms.subservice: data-movement
+ms.topic: conceptual
+ms.custom: synapse
+ms.date: 09/04/2019
 ---
+
 # Copy data from SAP Business Warehouse using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-sap-business-warehouse-connector.md)
 > * [Current version](connector-sap-business-warehouse.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an SAP Business Warehouse (BW). It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
+>[!TIP]
+>To learn ADF's overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparsion and guidance.
+
 ## Supported capabilities
+
+This SAP Business Warehouse connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from SAP Business Warehouse to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -47,7 +51,7 @@ To use this SAP Business Warehouse connector, you need to:
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to SAP Business Warehouse connector.
 
@@ -92,9 +96,9 @@ The following properties are supported for SAP Business Warehouse (BW) linked se
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by SAP BW dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by SAP BW dataset.
 
-To copy data from SAP BW, set the type property of the dataset to **RelationalTable**. While there are no type-specific properties supported for the SAP BW dataset of type RelationalTable.
+To copy data from SAP BW, set the type property of the dataset to **SapBwCube**. While there are no type-specific properties supported for the SAP BW dataset of type RelationalTable.
 
 **Example:**
 
@@ -102,15 +106,18 @@ To copy data from SAP BW, set the type property of the dataset to **RelationalTa
 {
     "name": "SAPBWDataset",
     "properties": {
-        "type": "RelationalTable",
+        "type": "SapBwCube",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP BW linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+If you were using `RelationalTable` typed dataset, it is still supported as-is, while you are suggested to use the new one going forward.
 
 ## Copy activity properties
 
@@ -118,11 +125,11 @@ For a full list of sections and properties available for defining activities, se
 
 ### SAP BW as source
 
-To copy data from SAP BW, set the source type in the copy activity to **RelationalSource**. The following properties are supported in the copy activity **source** section:
+To copy data from SAP BW, the following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **RelationalSource** | Yes |
+| type | The type property of the copy activity source must be set to: **SapBwSource** | Yes |
 | query | Specifies the MDX query to read data from the SAP BW instance. | Yes |
 
 **Example:**
@@ -146,7 +153,7 @@ To copy data from SAP BW, set the source type in the copy activity to **Relation
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "SapBwSource",
                 "query": "<MDX query for SAP BW>"
             },
             "sink": {
@@ -156,6 +163,8 @@ To copy data from SAP BW, set the source type in the copy activity to **Relation
     }
 ]
 ```
+
+If you were using `RelationalSource` typed source, it is still supported as-is, while you are suggested to use the new one going forward.
 
 ## Data type mapping for SAP BW
 
@@ -185,6 +194,11 @@ When copying data from SAP BW, the following mappings are used from SAP BW data 
 | DATS | String |
 | NUMC | String |
 | TIMS | String |
+
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 
 ## Next steps

@@ -1,21 +1,14 @@
 ---
-title: Synchronize device state from Azure IoT Hub | Microsoft Docs
-description: Use device twins to synchronize state between your devices and your IoT hub
+title: Tutorial - Synchronize device state from Azure IoT Hub | Microsoft Docs
+description: Tutorial - Learn how to use device twins to configure your devices from the cloud, and receive status and compliance data from your devices.
 services: iot-hub
-documentationcenter: 
-author: dominicbetts
-manager: timlt
-
-
-ms.assetid: 
+author: wesmc7777
+ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/14/2018
-ms.author: dobett
-ms.custom: mvc
+ms.date: 06/21/2019
+ms.custom: [mvc, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-js, devx-track-azurecli]
 #Customer intent: As a developer, I want to be able to configure my devices from the cloud and receive status and compliance data from my devices.
 ---
 
@@ -36,13 +29,11 @@ In this tutorial, you perform the following tasks:
 > * Use desired properties to send state information to your simulated device.
 > * Use reported properties to receive state information from your simulated device.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## Prerequisites
-
-The two sample applications you run in this quickstart are written using Node.js. You need Node.js v4.x.x or later on your development machine.
+The two sample applications you run in this quickstart are written using Node.js. You need Node.js v10.x.x or later on your development machine.
 
 You can download Node.js for multiple platforms from [nodejs.org](https://nodejs.org).
 
@@ -54,27 +45,29 @@ node --version
 
 Download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip and extract the ZIP archive.
 
+Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
 ## Set up Azure resources
 
 To complete this tutorial, your Azure subscription must contain an IoT hub with a device added to the device identity registry. The entry in the device identity registry enables the simulated device you run in this tutorial to connect to your hub.
 
-If you don't already have an IoT hub set up in your subscription, you can set one up with following CLI script. This script uses the name **tutorial-iot-hub** for the IoT hub, you should replace this name with your own unique name when you run it. The script creates the resource group and hub in the **Central US** region, which you can change to a region closer to you. The script retrieves your IoT hub service connection string, which you use in the back-end sample to connect to your IoT hub:
+If you don't already have an IoT hub set up in your subscription, you can set one up with the following CLI script. This script uses the name **tutorial-iot-hub** for the IoT hub, you should replace this name with your own unique name when you run it. The script creates the resource group and hub in the **Central US** region, which you can change to a region closer to you. The script retrieves your IoT hub service connection string, which you use in the back-end sample to connect to your IoT hub:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
 location=centralus
 
 # Install the IoT extension if it's not already installed:
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Create a resource group:
 az group create --name tutorial-iot-hub-rg --location $location
 
-# Create your free-tier IoT Hub. You can only have one free IoT Hub per subscription:
-az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
+# Create your free-tier IoT Hub. You can only have one free IoT Hub per subscription.
+az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --partition-count 2 --sku F1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --hub-name $hubname -o table
+az iot hub connection-string show --name $hubname --policy-name service -o table
 
 ```
 
@@ -88,7 +81,7 @@ hubname=tutorial-iot-hub
 az iot hub device-identity create --device-id MyTwinDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg
 
 # Retrieve the device connection string, you need this later:
-az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg -o table
+az iot hub device-identity connection-string show --device-id MyTwinDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg -o table
 
 ```
 
@@ -115,7 +108,7 @@ The following code gets a twin from the client object:
 
 ### Sample desired properties
 
-You can structure your desired properties in any way that's convenient to your application. This example uses one top-level property called **fanOn** and groups the remaining properties into separate **components**. The following JSON snippet shows the structure of the desired properties this tutorial uses:
+You can structure your desired properties in any way that's convenient to your application. This example uses one top-level property called **fanOn** and groups the remaining properties into separate **components**. The following JSON snippet shows the structure of the desired properties this tutorial uses. The JSON is in the desired.json file.
 
 [!code[Sample desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/desired.json "Sample desired properties")]
 
@@ -187,11 +180,11 @@ node ServiceClient.js "{your service connection string}"
 
 The following screenshot shows the output from the simulated device application and highlights how it handles an update to the **maxTemperature** desired property. You can see how both the top-level handler and the climate component handlers run:
 
-![Simulated device](./media/tutorial-device-twins/SimulatedDevice1.png)
+![Screenshot that shows how both the top-level handler and the climate component handlers run.](./media/tutorial-device-twins/SimulatedDevice1.png)
 
 The following screenshot shows the output from the back-end application and highlights how it sends an update to the **maxTemperature** desired property:
 
-![Back-end application](./media/tutorial-device-twins/BackEnd1.png)
+![Screenshot that shows the output from the back-end application and highlights how it sends an update.](./media/tutorial-device-twins/BackEnd1.png)
 
 ## Receive state information
 
@@ -239,7 +232,7 @@ The following screenshot shows the output from the simulated device application 
 
 ![Simulated device](./media/tutorial-device-twins/SimulatedDevice2.png)
 
-The following screenshot shows the output from the back-end application and highlights how it receieves and processes a reported property update from a device:
+The following screenshot shows the output from the back-end application and highlights how it receives and processes a reported property update from a device:
 
 ![Back-end application](./media/tutorial-device-twins/BackEnd2.png)
 
@@ -261,4 +254,4 @@ az group delete --name tutorial-iot-hub-rg
 In this tutorial, you learned how to synchronize state information between your devices and your IoT hub. Advance to the next tutorial to learn how to use device twins to implement a firmware update process.
 
 > [!div class="nextstepaction"]
-[Implement a device firmware update process](tutorial-firmware-update.md)
+> [Implement a device firmware update process](tutorial-firmware-update.md)

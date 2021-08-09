@@ -1,27 +1,28 @@
 ---
-title: Describing images - Computer Vision
+title: Image descriptions - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepts related to describing images using the Computer Vision API.
+description: Concepts related to the image description feature of the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
+ms.custom: seodec18
 ---
 
-# Describing images
+# Describe images with human-readable language
 
-Computer Vision's algorithms analyze the content in an image. This analysis forms the foundation for a 'description' displayed as human-readable language in complete sentences. The description summarizes what is found in the image. Computer Vision's algorithms generate various descriptions based on the visual features identified in the image. Each description is evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest.
+Computer Vision can analyze an image and generate a human-readable sentence that describes its contents. The algorithm actually returns several descriptions based on different visual features, and each description is given a confidence score. The final output is a list of descriptions ordered from highest to lowest confidence.
 
 ## Image description example
 
 The following JSON response illustrates what Computer Vision returns when describing the example image based on its visual features.
 
-![B&W Buildings](./Images/bw_buildings.png)
+![A black and white picture of buildings in Manhattan](./Images/bw_buildings.png)
 
 ```json
 {
@@ -51,6 +52,12 @@ The following JSON response illustrates what Computer Vision returns when descri
 }
 ```
 
+## Use the API
+
+The image description feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. You can call this API through a native SDK or through REST calls. Include `Description` in the **visualFeatures** query parameter. Then, when you get the full JSON response, simply parse the string for the contents of the `"description"` section.
+
+* [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)
+
 ## Next steps
 
-Learn concepts about [tagging images](concept-tagging-images.md) and [categorizing images](concept-categorizing-images.md).
+Learn the related concepts of [tagging images](concept-tagging-images.md) and [categorizing images](concept-categorizing-images.md).

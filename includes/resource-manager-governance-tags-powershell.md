@@ -7,41 +7,41 @@
  ms.topic: include
  ms.date: 05/21/2018
  ms.author: tomfitz
- ms.custom: include file
+ ms.custom: include file, devx-track-azurepowershell
 ---
 
-To add two tags to a resource group, use the [Set-AzureRmResourceGroup](/powershell/module/azurerm.resources/set-azurermresourcegroup) command:
+To add two tags to a resource group, use the [Set-AzResourceGroup](/powershell/module/az.resources/set-azresourcegroup) command:
 
 ```azurepowershell-interactive
-Set-AzureRmResourceGroup -Name myResourceGroup -Tag @{ Dept="IT"; Environment="Test" }
+Set-AzResourceGroup -Name myResourceGroup -Tag @{ Dept="IT"; Environment="Test" }
 ```
 
 Let's suppose you want to add a third tag. Every time you apply tags to a resource or a resource group, you overwrite the existing tags on that resource or resource group. To add a new tag without losing the existing tags, you must retrieve the existing tags, add a new tag, and reapply the collection of tags:
 
 ```azurepowershell-interactive
 # Get existing tags and add a new tag
-$tags = (Get-AzureRmResourceGroup -Name myResourceGroup).Tags
+$tags = (Get-AzResourceGroup -Name myResourceGroup).Tags
 $tags.Add("Project", "Documentation")
 
 # Reapply the updated set of tags 
-Set-AzureRmResourceGroup -Tag $tags -Name myResourceGroup
+Set-AzResourceGroup -Tag $tags -Name myResourceGroup
 ```
 
 Resources don't inherit tags from the resource group. Currently, your resource group has three tags but the resources do not have any tags. To apply all tags from a resource group to its resources, and retain existing tags on resources that are not duplicates, use the following script:
 
 ```azurepowershell-interactive
 # Get the resource group
-$group = Get-AzureRmResourceGroup myResourceGroup
+$group = Get-AzResourceGroup myResourceGroup
 
 if ($group.Tags -ne $null) {
     # Get the resources in the resource group
-    $resources = Get-AzureRmResource -ResourceGroupName $group.ResourceGroupName
+    $resources = Get-AzResource -ResourceGroupName $group.ResourceGroupName
 
     # Loop through each resource
     foreach ($r in $resources)
     {
         # Get the tags for this resource
-        $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
+        $resourcetags = (Get-AzResource -ResourceId $r.ResourceId).Tags
         
         # If the resource has existing tags, add new ones
         if ($resourcetags)
@@ -55,11 +55,11 @@ if ($group.Tags -ne $null) {
             }
 
             # Reapply the updated tags to the resource 
-            Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
+            Set-AzResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
         }
         else
         {
-            Set-AzureRmResource -Tag $group.Tags -ResourceId $r.ResourceId -Force
+            Set-AzResource -Tag $group.Tags -ResourceId $r.ResourceId -Force
         }
     }
 }
@@ -69,32 +69,32 @@ Alternatively, you can apply tags from the resource group to the resources witho
 
 ```azurepowershell-interactive
 # Get the resource group
-$g = Get-AzureRmResourceGroup -Name myResourceGroup
+$g = Get-AzResourceGroup -Name myResourceGroup
 
 # Find all the resources in the resource group, and for each resource apply the tags from the resource group
-Get-AzureRmResource -ResourceGroupName $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
+Get-AzResource -ResourceGroupName $g.ResourceGroupName | ForEach-Object {Set-AzResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
 ```
 
 To combine several values in a single tag, use a JSON string.
 
 ```azurepowershell-interactive
-Set-AzureRmResourceGroup -Name myResourceGroup -Tag @{ CostCenter="{`"Dept`":`"IT`",`"Environment`":`"Test`"}" }
+Set-AzResourceGroup -Name myResourceGroup -Tag @{ CostCenter="{`"Dept`":`"IT`",`"Environment`":`"Test`"}" }
 ```
 
 To add a new tag with several values without losing the existing tags, you must retrieve the existing tags, use a JSON string for the new tag, and reapply the collection of tags:
 
 ```azurepowershell-interactive
 # Get existing tags and add a new tag
-$ResourceGroup = Get-AzureRmResourceGroup -Name myResourceGroup
+$ResourceGroup = Get-AzResourceGroup -Name myResourceGroup
 $Tags = $ResourceGroup.Tags
 $Tags.Add("CostCenter", "{`"Dept`":`"IT`",`"Environment`":`"Test`"}")
 
 # Reapply the updated set of tags
-$ResourceGroup | Set-AzureRmResourceGroup -Tag $Tags
+$ResourceGroup | Set-AzResourceGroup -Tag $Tags
 ```
 
 To remove all tags, you pass an empty hash table.
 
 ```azurepowershell-interactive
-Set-AzureRmResourceGroup -Name myResourceGroup -Tag @{ }
+Set-AzResourceGroup -Name myResourceGroup -Tag @{ }
 ```

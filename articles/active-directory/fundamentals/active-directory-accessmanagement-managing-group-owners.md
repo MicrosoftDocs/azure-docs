@@ -1,26 +1,27 @@
 ---
-title: How to add or remove Azure Active Directory group owners | Microsoft Docs
-description: Learn how to add or remove group owners using Azure Active Directory. 
+title: Add or remove group owners - Azure Active Directory | Microsoft Docs
+description: Instructions about how to add or remove group owners using Azure Active Directory. 
 services: active-directory
-author: eross-msft
-manager: mtillman
+author: ajburnle
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
-ms.topic: conceptual
+ms.subservice: fundamentals
+ms.topic: how-to
 ms.date: 09/11/2018
-ms.author: lizross
-ms.custom: it-pro
+ms.author: ajburnle
+ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
-# How to: Add or remove group owners in Azure Active Directory
-Azure Active Directory (Azure AD) groups are owned and managed by group owners. Group owners are assigned to manage a group and its members by a resource owner (administrator). Group owners aren't required to be members of the group. After a group owner has been assigned, only a resource owner can add or remove owners.
+# Add or remove group owners in Azure Active Directory
+Azure Active Directory (Azure AD) groups are owned and managed by group owners. Group owners can be users or service principals, and are able to manage the group including membership. Only existing group owners or group-managing administrators can assign group owners. Group owners aren't required to be members of the group.
 
-In some cases, you as the administrator might decide not to assign a group owner. In this case, you become the group owner. Additionally, owners can assign other owners to their group, unless you've restricted this in the group settings.
+When a group has no owner, group-managing administrators are still able to manage the group. It is recommended for every group to have at least one owner. Once owners are assigned to a group, the last owner of the group cannot be removed. Please make sure to select another owner before removing the last owner from the group.
 
 ## Add an owner to a group
-Add additional group owners to a group using Azure AD.
+Below are instructions for adding a user as an owner to a group using the Azure AD portal. To add a service principal as an owner of a group, follow the instructions to do so using [PowerShell](/powershell/module/Azuread/Add-AzureADGroupOwner).
 
 ### To add a group owner
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the directory.
@@ -47,7 +48,7 @@ Remove an owner from a group using Azure AD.
 
 3. On the **MDM policy - West Overview** page, select **Owners**.
 
-    ![MDM policy - West Overview page with Owners option highlighted](media/active-directory-accessmanagement-managing-group-owners/remove-owners-option-overview-blade.png)
+    ![MDM policy - West Overview page with Remove Owners option highlighted](media/active-directory-accessmanagement-managing-group-owners/remove-owners-option-overview-blade.png)
 
 4. On the **MDM policy - West - Owners** page, select the user you want to remove as a group owner, choose **Remove** from the user's information page, and select **Yes** to confirm your decision.
 
@@ -58,10 +59,10 @@ Remove an owner from a group using Azure AD.
 ## Next steps
 - [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 
-- [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md)
+- [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md)
 
-- [Use groups to assign access to an integrated SaaS app](../users-groups-roles/groups-saasapps.md)
+- [Use groups to assign access to an integrated SaaS app](../enterprise-users/groups-saasapps.md)
 
 - [Integrating your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
 
-- [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-v2-cmdlets.md)
+- [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-v2-cmdlets.md)

@@ -5,21 +5,25 @@ keywords: The Azure AD Connect installation wizard lets you configure maintenanc
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/13/2017
-ms.component: hybrid
+ms.topic: how-to
+ms.date: 07/17/2019
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Running the installation wizard a second time
 The first time you run the Azure AD Connect installation wizard, it walks you through how to configure your installation. If you run the installation wizard again, it offers options for maintenance.
+
+>[!IMPORTANT]
+>Be aware that you cannot run the installation wizard while a synchronization is in progress.  Please verify that a synchronization is not running before  launching the wizard.
 
 You can find the installation wizard in the start menu named **Azure AD Connect**.
 
@@ -67,10 +71,10 @@ When you select this option, all the directories in your configuration are liste
 ![Page with a list of all directories in the environment](./media/how-to-connect-installation-wizard/refreshschema.png)
 
 ## Configure staging mode
-This option allows you to enable and disable staging mode on the server. More information about staging mode and how it is used can be found in [Operations](how-to-connect-sync-operations.md#staging-mode).
+This option allows you to enable and disable staging mode on the server. More information about staging mode and how it is used can be found in [Operations](how-to-connect-sync-staging-server.md).
 
 The option shows if staging is currently enabled or disabled:  
-![Option that is also showing the current state of staging mode](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
+![Screenshot that shows staging mode disabled.](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
 
 To change the state, select this option and select or unselect the checkbox.  
 ![Option that is also showing the current state of staging mode](./media/how-to-connect-installation-wizard/stagingmodeenable.png)

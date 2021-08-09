@@ -1,169 +1,275 @@
 ---
 title: Run Apache Sqoop jobs by using PowerShell and Azure HDInsight 
-description: Learn how to use Azure PowerShell from a workstation to run Apache Sqoop import and export between an Apache Hadoop cluster and an Azure SQL database.
-ms.reviewer: jasonh
-services: hdinsight
-author: hrasheed-msft
+description: Learn how to use Azure PowerShell from a workstation to run Apache Sqoop import and export between an Apache Hadoop cluster and Azure SQL Database.
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/16/2018
-ms.author: hrasheed
-
+ms.topic: how-to
+ms.custom: hdinsightactive,seoapr2020, devx-track-azurepowershell
+ms.date: 05/14/2020
 ---
-# Run Apache Sqoop jobs by using Azure PowerShell for Apache Hadoop in HDInsight
-[!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Learn how to use Azure PowerShell to run Apache Sqoop jobs in Azure HDInsight to import and export between an HDInsight cluster and an Azure SQL database or SQL Server database.
+# Run Apache Sqoop jobs with Azure PowerShell in HDInsight
 
-> [!NOTE]
-> Although you can use the procedures in this article with either a Windows-based or Linux-based HDInsight cluster, they work only from a Windows client. To choose other methods, use the tab selector at the top of this article. 
-> 
-> 
+[!INCLUDE [sqoop-selector](../includes/hdinsight-selector-use-sqoop.md)]
 
-### Prerequisites
-Before you begin this tutorial, you must have the following items:
+Learn how to use Azure PowerShell to run Apache Sqoop jobs in Azure HDInsight to import and export data between an HDInsight cluster and Azure SQL Database or SQL Server.  This article is a continuation of [Use Apache Sqoop with Hadoop in HDInsight](./hdinsight-use-sqoop.md).
 
-* A workstation with Azure PowerShell.
-* A Hadoop cluster in HDInsight. For more information, see [Create cluster and SQL database](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+## Prerequisites
 
-## Run Sqoop by using PowerShell
-The following PowerShell script pre-processes the source file and then exports it to an Azure SQL database:
+* A workstation with Azure PowerShell [AZ Module](/powershell/azure/) installed.
 
-    $resourceGroupName = "<AzureResourceGroupName>"
-    $hdinsightClusterName = "<HDInsightClusterName>"
+* Completion of [Set up test environment](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) from [Use Apache Sqoop with Hadoop in HDInsight](./hdinsight-use-sqoop.md).
 
-    $httpUserName = "admin"
-    $httpPassword = "<Password>"
+* Familiarity with Sqoop. For more information, see [Sqoop User Guide](https://sqoop.apache.org/docs/1.4.7/SqoopUserGuide.html).
 
-    $defaultStorageAccountName = $hdinsightClusterName + "store"
-    $defaultBlobContainerName = $hdinsightClusterName
+## Sqoop export
 
+From Hive to SQL.
 
-    $sqlDatabaseServerName = $hdinsightClusterName + "dbserver"
-    $sqlDatabaseName = $hdinsightClusterName + "db"
-    $sqlDatabaseLogin = "sqluser"
-    $sqlDatabasePassword = "<Password>"
+This example exports data from the Hive `hivesampletable` table to the `mobiledata` table in SQL. Set the values for the variables below and then execute the command.
 
-    #region - Connect to Azure subscription
-    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-    try{Get-AzureRmContext}
-    catch{Connect-AzureRmAccount}
-    #endregion
+```powershell
+$hdinsightClusterName = ""
+$httpPassword = ''
+$sqlDatabasePassword = ''
 
-    #region - pre-process the source file
+# These values only need to be changed if the template was not followed.
+$httpUserName = "admin"
+$sqlServerLogin = "sqluser"
+$sqlServerName = $hdinsightClusterName + "dbserver"
+$sqlDatabaseName = $hdinsightClusterName + "db"
 
-    Write-Host "`nPreprocessing the source file ..." -ForegroundColor Green
+$pw = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
+$httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
 
-    # This procedure creates a new file with $destBlobName
-    $sourceBlobName = "example/data/sample.log"
-    $destBlobName = "tutorials/usesqoop/data/sample.log"
+# Connection string
+$connectionString = "jdbc:sqlserver://$sqlServerName.database.windows.net;user=$sqlServerLogin@$sqlServerName;password=$sqlDatabasePassword;database=$sqlDatabaseName"
 
-    # Define the connection string
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
-                                    -ResourceGroupName $resourceGroupName `
-                                    -Name $defaultStorageAccountName)[0].Value
-    $storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$defaultStorageAccountName;AccountKey=$defaultStorageAccountKey"
+# start export
+New-AzHDInsightSqoopJobDefinition `
+    -Command "export --connect $connectionString --table mobiledata --hcatalog-table hivesampletable" `
+    | Start-AzHDInsightJob `
+        -ClusterName $hdinsightClusterName `
+        -HttpCredential $httpCredential
+```
 
-    # Create block blob objects referencing the source and destination blob.
-    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $defaultStorageAccountName
-    $storageContainer = ($storageAccount |Get-AzureStorageContainer -Name $defaultBlobContainerName).CloudBlobContainer
-    $sourceBlob = $storageContainer.GetBlockBlobReference($sourceBlobName)
-    $destBlob = $storageContainer.GetBlockBlobReference($destBlobName)
+### Alternative execution
 
-    # Define a MemoryStream and a StreamReader for reading from the source file
-    $stream = New-Object System.IO.MemoryStream
-    $stream = $sourceBlob.OpenRead()
-    $sReader = New-Object System.IO.StreamReader($stream)
+1. The code below performs the same export; however, it provides a way to read the output logs. Execute the code to begin the export.
 
-    # Define a MemoryStream and a StreamWriter for writing into the destination file
-    $memStream = New-Object System.IO.MemoryStream
-    $writeStream = New-Object System.IO.StreamWriter $memStream
-
-    # Pre-process the source blob
-    $exString = "java.lang.Exception:"
-    while(-Not $sReader.EndOfStream){
-        $line = $sReader.ReadLine()
-        $split = $line.Split(" ")
-
-        # remove the "java.lang.Exception" from the first element of the array
-        # for example: java.lang.Exception: 2012-02-03 19:11:02 SampleClass8 [WARN] problem finding id 153454612
-        if ($split[0] -eq $exString){
-            #create a new ArrayList to remove $split[0]
-            $newArray = [System.Collections.ArrayList] $split
-            $newArray.Remove($exString)
-
-            # update $split and $line
-            $split = $newArray
-            $line = $newArray -join(" ")
-        }
-
-        # remove the lines that has less than 7 elements
-        if ($split.count -ge 7){
-            write-host $line
-            $writeStream.WriteLine($line)
-        }
-    }
-
-    # Write to the destination blob
-    $writeStream.Flush()
-    $memStream.Seek(0, "Begin")
-    $destBlob.UploadFromStream($memStream)
-
-    #endregion
-
-    #region - export the log file from the cluster to the SQL database
-
-    Write-Host "Exporting the log file ..." -ForegroundColor Green
-
-    $pw = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
-    $httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
-
-    # Connection string for Azure SQL Database.
-    # Comment if using SQL Server
-    $connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$sqlDatabaseName"
-    # Connection string for SQL Server.
-    # Uncomment if using SQL Server.
-    #$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName;user=$sqlDatabaseLogin;password=$sqlDatabasePassword;database=$sqlDatabaseName"
-
-    $tableName_log4j = "log4jlogs"
-    $exportDir_log4j = "/tutorials/usesqoop/data"
-    $sqljdbcdriver = "/user/oozie/share/lib/sqoop/sqljdbc41.jar"
-
-    # Submit a Sqoop job
-    $sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
-        -Command "export --connect $connectionString --table $tableName_log4j --export-dir $exportDir_log4j --input-fields-terminated-by \0x20 -m 1" `
-        -Files $sqljdbcdriver
-
-    $sqoopJob = Start-AzureRmHDInsightJob `
+    ```powershell
+    $sqoopCommand = "export --connect $connectionString --table mobiledata --hcatalog-table hivesampletable"
+    
+    $sqoopDef = New-AzHDInsightSqoopJobDefinition `
+        -Command $sqoopCommand
+    
+    $sqoopJob = Start-AzHDInsightJob `
                     -ClusterName $hdinsightClusterName `
                     -HttpCredential $httpCredential `
-                    -JobDefinition $sqoopDef #-Debug -Verbose
+                    -JobDefinition $sqoopDef
+    ```
 
-    Wait-AzureRmHDInsightJob `
-        -ResourceGroupName $resourceGroupName `
+1. The code below displays the output logs. Execute the code below:
+
+    ```powershell
+    Get-AzHDInsightJobOutput `
         -ClusterName $hdinsightClusterName `
         -HttpCredential $httpCredential `
-        -JobId $sqoopJob.JobId
+        -JobId $sqoopJob.JobId `
+        -DisplayOutputType StandardError
+    
+    Get-AzHDInsightJobOutput `
+        -ClusterName $hdinsightClusterName `
+        -HttpCredential $httpCredential `
+        -JobId $sqoopJob.JobId `
+        -DisplayOutputType StandardOutput
+    ```
 
-    Write-Host "Standard Error" -BackgroundColor Green
-    Get-AzureRmHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardError
-    Write-Host "Standard Output" -BackgroundColor Green
-    Get-AzureRmHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardOutput
-    #endregion
+If you receive the error message, `The specified blob does not exist.`, try again after a few minutes.
+
+## Sqoop import
+
+From SQL to Azure Storage. This example imports data from the `mobiledata` table in SQL, to the `wasb:///tutorials/usesqoop/importeddata` directory on HDInsight. The fields in the data are separated by a tab character, and the lines are terminated by a new-line character. This example assumes you've completed the prior example.
+
+```powershell
+$sqoopCommand = "import --connect $connectionString --table mobiledata --target-dir wasb:///tutorials/usesqoop/importeddata --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1"
+
+
+$sqoopDef = New-AzHDInsightSqoopJobDefinition `
+    -Command $sqoopCommand
+
+$sqoopJob = Start-AzHDInsightJob `
+                -ClusterName $hdinsightClusterName `
+                -HttpCredential $httpCredential `
+                -JobDefinition $sqoopDef
+
+Get-AzHDInsightJobOutput `
+    -ClusterName $hdinsightClusterName `
+    -HttpCredential $httpCredential `
+    -JobId $sqoopJob.JobId `
+    -DisplayOutputType StandardError
+
+Get-AzHDInsightJobOutput `
+    -ClusterName $hdinsightClusterName `
+    -HttpCredential $httpCredential `
+    -JobId $sqoopJob.JobId `
+    -DisplayOutputType StandardOutput
+
+```
+
+## Additional Sqoop export example
+
+This is a robust example that exports data from `/tutorials/usesqoop/data/sample.log` from the default storage account, and then imports it to a table called `log4jlogs` in a SQL Server database. This example isn't dependent on the prior examples.
+
+The following PowerShell script pre-processes the source file and then exports it to table `log4jlogs`. Replace `CLUSTERNAME`, `CLUSTERPASSWORD`, and `SQLPASSWORD` with the values you used from the prerequisite.
+
+```powershell
+<#------ BEGIN USER INPUT ------#>
+$hdinsightClusterName = "CLUSTERNAME"
+$httpUserName = "admin"  #default is admin, update as needed
+$httpPassword = 'CLUSTERPASSWORD'
+$sqlDatabasePassword = 'SQLPASSWORD'
+<#------- END USER INPUT -------#>
+
+# Other fixed variable that should be used as is
+$sqlServerName = $hdinsightClusterName + "dbserver"
+$sqlDatabaseName = $hdinsightClusterName + "db"
+$tableName_log4j = "log4jlogs"
+$exportDir_log4j = "/tutorials/usesqoop/data"
+$sourceBlobName = "example/data/sample.log"
+$destBlobName = "tutorials/usesqoop/data/sample.log"
+$sqljdbcdriver = "/user/oozie/share/lib/sqoop/mssql-jdbc-7.0.0.jre8.jar"
+
+$cluster = Get-AzHDInsightCluster -ClusterName $hdinsightClusterName
+$defaultStorageAccountName = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
+$defaultStorageContainer = $cluster.DefaultStorageContainer
+$resourceGroup = $cluster.ResourceGroup
+
+$sqlServer = Get-AzSqlServer -ResourceGroupName $resourceGroup -ServerName $sqlServerName
+$sqlServerLogin = $sqlServer.SqlAdministratorLogin
+$sqlServerFQDN = $sqlServer.FullyQualifiedDomainName
+
+#Connect to Azure subscription
+Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+try{Get-AzContext}
+catch{Connect-AzAccount}
+
+#pre-process the source file
+Write-Host "`nPreprocessing the source file ..." -ForegroundColor Green
+
+# This procedure creates a new file with $destBlobName
+# Define the connection string
+$defaultStorageAccountKey = (Get-AzStorageAccountKey `
+                                -ResourceGroupName $resourceGroup `
+                                -Name $defaultStorageAccountName)[0].Value
+
+# Create block blob objects referencing the source and destination blob.
+$storageAccount = Get-AzStorageAccount `
+    -ResourceGroupName $resourceGroup `
+    -Name $defaultStorageAccountName
+
+$storageContainer = ($storageAccount |Get-AzStorageContainer -Name $defaultStorageContainer).CloudBlobContainer
+
+$sourceBlob = $storageContainer.GetBlockBlobReference($sourceBlobName)
+$destBlob = $storageContainer.GetBlockBlobReference($destBlobName)
+
+# Define a MemoryStream and a StreamReader for reading from the source file
+$stream = New-Object System.IO.MemoryStream
+$stream = $sourceBlob.OpenRead()
+$sReader = New-Object System.IO.StreamReader($stream)
+
+# Define a MemoryStream and a StreamWriter for writing into the destination file
+$memStream = New-Object System.IO.MemoryStream
+$writeStream = New-Object System.IO.StreamWriter $memStream
+
+# Pre-process the source blob
+$exString = "java.lang.Exception:"
+while(-Not $sReader.EndOfStream){
+    $line = $sReader.ReadLine()
+    $split = $line.Split(" ")
+
+    # remove the "java.lang.Exception" from the first element of the array
+    # for example: java.lang.Exception: 2012-02-03 19:11:02 SampleClass8 [WARN] problem finding id 153454612
+    if ($split[0] -eq $exString){
+        #create a new ArrayList to remove $split[0]
+        $newArray = [System.Collections.ArrayList] $split
+        $newArray.Remove($exString)
+
+        # update $split and $line
+        $split = $newArray
+        $line = $newArray -join(" ")
+    }
+
+    # remove the lines that has less than 7 elements
+    if ($split.count -ge 7){
+        write-host $line
+        $writeStream.WriteLine($line)
+    }
+}
+
+# Write to the destination blob
+$writeStream.Flush()
+$memStream.Seek(0, "Begin")
+$destBlob.UploadFromStream($memStream)
+
+#export the log file from the cluster to SQL
+Write-Host "Exporting the log file ..." -ForegroundColor Green
+
+$pw = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
+$httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
+
+# Connection string
+$connectionString = "jdbc:sqlserver://$sqlServerFQDN;user=$sqlServerLogin@$sqlServerName;password=$sqlDatabasePassword;database=$sqlDatabaseName"
+
+# Submit a Sqoop job
+$sqoopDef = New-AzHDInsightSqoopJobDefinition `
+    -Command "export --connect $connectionString --table $tableName_log4j --export-dir $exportDir_log4j --input-fields-terminated-by \0x20 -m 1" `
+    -Files $sqljdbcdriver
+
+$sqoopJob = Start-AzHDInsightJob `
+                -ClusterName $hdinsightClusterName `
+                -HttpCredential $httpCredential `
+                -JobDefinition $sqoopDef
+
+Wait-AzHDInsightJob `
+    -ResourceGroupName $resourceGroup `
+    -ClusterName $hdinsightClusterName `
+    -HttpCredential $httpCredential `
+    -JobId $sqoopJob.JobId
+
+Write-Host "Standard Error" -BackgroundColor Green
+Get-AzHDInsightJobOutput `
+    -ResourceGroupName $resourceGroup `
+    -ClusterName $hdinsightClusterName `
+    -DefaultStorageAccountName $defaultStorageAccountName `
+    -DefaultStorageAccountKey $defaultStorageAccountKey `
+    -DefaultContainer $defaultStorageContainer `
+    -HttpCredential $httpCredential `
+    -JobId $sqoopJob.JobId `
+    -DisplayOutputType StandardError
+
+Write-Host "Standard Output" -BackgroundColor Green
+Get-AzHDInsightJobOutput `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $hdinsightClusterName `
+    -DefaultStorageAccountName $defaultStorageAccountName `
+    -DefaultStorageAccountKey $defaultStorageAccountKey `
+    -DefaultContainer $defaultStorageContainer `
+    -HttpCredential $httpCredential `
+    -JobId $sqoopJob.JobId `
+    -DisplayOutputType StandardOutput
+```
 
 ## Limitations
+
 Linux-based HDInsight presents the following limitations:
 
-* Bulk export: The Sqoop connector that's used to export data to Microsoft SQL Server or Azure SQL Database does not currently support bulk inserts.
+* Bulk export: The Sqoop connector that's used to export data to SQL doesn't currently support bulk inserts.
 
-* Batching: By using the `-batch` switch when it performs inserts, Sqoop performs multiple inserts instead of batching the insert operations. 
+* Batching: By using the `-batch` switch when it performs inserts, Sqoop performs multiple inserts instead of batching the insert operations.
 
 ## Next steps
-Now you have learned how to use Sqoop. To learn more, see:
 
-* [Use Oozie with HDInsight](../hdinsight-use-oozie.md): Use Sqoop action in an Oozie workflow.
-* [Analyze flight delay data by using HDInsight](../hdinsight-analyze-flight-delay-data.md): Use Hive to analyze flight delay data, and then use Sqoop to export data to an Azure SQL database.
+Now you've learned how to use Sqoop. To learn more, see:
+
+* [Use Apache Oozie with HDInsight](../hdinsight-use-oozie-linux-mac.md): Use Sqoop action in an Oozie workflow.
 * [Upload data to HDInsight](../hdinsight-upload-data.md): Find other methods for uploading data to HDInsight or Azure Blob storage.
-
-[sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

@@ -2,13 +2,14 @@
 title: Azure AD UserPrincipalName population
 description: The following document describes how the UserPrincipalName attribute is populated.  
 author: billmath
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.date: 06/26/2018
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
-ms.service: active-Directory
-manager: mtillman
+ms.service: active-directory
+manager: daveba
+ms.collection: M365-identity-device-management
 ---
 
 # Azure AD UserPrincipalName population
@@ -29,7 +30,7 @@ The following terminology is used in this article:
 |Alternate login ID|An on-premises attribute other than UserPrincipalName, such as mail attribute, used for sign-in.|
 
 ## What is UserPrincipalName?
-UserPrincipalName is an attribute that is an Internet-style login name for a user based on the Internet standard [RFC 822](http://www.ietf.org/rfc/rfc0822.txt). 
+UserPrincipalName is an attribute that is an Internet-style login name for a user based on the Internet standard [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). 
 
 ### UPN format
 A UPN consists of a UPN prefix (the user account name) and a UPN suffix (a DNS domain name). The prefix is joined with the suffix using the "\@" symbol. For example, "someone\@example.com". A UPN must be unique among all security principal objects within a directory forest. 
@@ -48,9 +49,9 @@ Alternate login ID allows you to configure a sign-in experience where users can 
 
 To enable Alternate login ID with Azure AD, no additional configurations steps are needed when using Azure AD Connect. Alternate ID can be configured directly from the wizard. See Azure AD sign-in configuration for your users under the section Sync. Under the **User Principal Name** drop-down, select the attribute for Alternate login ID.
 
-![Unverified domains](./media/plan-connect-userprincipalname/altloginid.png)  
+![Screenshot that highlights User Principal Name list where you select the Alternate login ID attribute.](./media/plan-connect-userprincipalname/altloginid.png)  
 
-For more information, see [Configure Alternate login ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) and [Azure AD sign-in configuration](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
+For more information, see [Configure Alternate login ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) and [Azure AD sign-in configuration](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
 
 ## Non-verified UPN Suffix
 If the on-premises UserPrincipalName attribute/Alternate login ID suffix is not verified with Azure AD Tenant, then the Azure AD UserPrincipalName attribute value is set to MOERA. Azure AD calculates the MOERA from the Azure AD MailNickName attribute and Azure AD initial domain as &lt;MailNickName&gt;&#64;&lt;initial domain&gt;.
@@ -87,7 +88,7 @@ On-Premises user object:
 - mailNickName		: &lt;not set&gt;
 - proxyAddresses		: {SMTP:us1@contoso.com}
 - mail			: us2@contoso.com
-- userPrincipalName	: us3@contoso.com`
+- userPrincipalName	: us3@contoso.com
 
 Synchronized the user object to Azure AD Tenant for the first time
 - Set Azure AD MailNickName attribute to primary SMTP address prefix.

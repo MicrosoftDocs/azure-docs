@@ -1,34 +1,38 @@
 ---
-title: Copy data from HBase using Azure Data Factory | Microsoft Docs
+title: Copy data from HBase using Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from HBase to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: craigg
-ms.reviewer: douglasl
-
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/19/2018
-ms.author: jingwang
-
+ms.date: 08/12/2019
+ms.author: jianleishen
 ---
 # Copy data from HBase using Azure Data Factory 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from HBase. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
+This HBase connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+
 You can copy data from HBase to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Azure Data Factory provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
+## Prerequisites
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
+
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to HBase connector.
 
@@ -39,17 +43,17 @@ The following properties are supported for HBase linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **HBase** | Yes |
-| host | The IP address or host name of the HBase server. (i.e.  `[clustername].azurehdinsight.net`， `192.168.222.160·)  | Yes |
+| host | The IP address or host name of the HBase server. (i.e.  `[clustername].azurehdinsight.net`， `192.168.222.160`)  | Yes |
 | port | The TCP port that the HBase instance uses to listen for client connections. The default value is 9090. If you connect to Azure HDInsights, specify port as 443. | No |
 | httpPath | The partial URL corresponding to the HBase server, e.g. `/hbaserest0` when using HDInsights cluster. | No |
 | authenticationType | The authentication mechanism to use to connect to the HBase server. <br/>Allowed values are: **Anonymous**, **Basic** | Yes |
 | username | The user name used to connect to the HBase instance.  | No |
 | password | The password corresponding to the user name. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
-| enableSsl | Specifies whether the connections to the server are encrypted using SSL. The default value is false.  | No |
-| trustedCertPath | The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.  | No |
-| allowHostNameCNMismatch | Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.  | No |
+| enableSsl | Specifies whether the connections to the server are encrypted using TLS. The default value is false.  | No |
+| trustedCertPath | The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over TLS. This property can only be set when using TLS on self-hosted IR. The default value is the cacerts.pem file installed with the IR.  | No |
+| allowHostNameCNMismatch | Specifies whether to require a CA-issued TLS/SSL certificate name to match the host name of the server when connecting over TLS. The default value is false.  | No |
 | allowSelfSignedServerCert | Specifies whether to allow self-signed certificates from the server. The default value is false.  | No |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
 >[!NOTE]
 >If your cluster doesn't support sticky session e.g. HDInsight, explicitly add node index at the end of the http path setting, e.g. specify `/hbaserest0` instead of `/hbaserest`.
@@ -68,8 +72,8 @@ The following properties are supported for HBase linked service:
             "authenticationType" : "Basic",
             "username" : "<username>",
             "password": {
-                 "type": "SecureString",
-                 "value": "<password>"
+                "type": "SecureString",
+                "value": "<password>"
             },
             "enableSsl" : true
         },
@@ -95,8 +99,8 @@ The following properties are supported for HBase linked service:
             "authenticationType" : "Basic",
             "username" : "<username>",
             "password": {
-                 "type": "SecureString",
-                 "value": "<password>"
+                "type": "SecureString",
+                "value": "<password>"
             },
             "enableSsl" : true,
             "trustedCertPath" : "<trustedCertPath>",
@@ -115,7 +119,12 @@ The following properties are supported for HBase linked service:
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by HBase dataset.
 
-To copy data from HBase, set the type property of the dataset to **HBaseObject**. There is no additional type-specific property in this type of dataset.
+To copy data from HBase, set the type property of the dataset to **HBaseObject**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the dataset must be set to: **HBaseObject** | Yes |
+| tableName | Name of the table. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -124,6 +133,8 @@ To copy data from HBase, set the type property of the dataset to **HBaseObject**
     "name": "HBaseDataset",
     "properties": {
         "type": "HBaseObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<HBase linked service name>",
             "type": "LinkedServiceReference"
@@ -143,7 +154,7 @@ To copy data from HBase, set the source type in the copy activity to **HBaseSour
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **HBaseSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | Yes |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
@@ -176,6 +187,11 @@ To copy data from HBase, set the source type in the copy activity to **HBaseSour
     }
 ]
 ```
+
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

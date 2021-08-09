@@ -1,36 +1,30 @@
 ---
-title: Create an Azure Service Fabric container application | Microsoft Docs
-description: Create your first Windows container application on Azure Service Fabric. Build a Docker image with a Python application, push the image to a container registry, build and deploy a Service Fabric container application.
-services: service-fabric
-documentationcenter: .net
-author: TylerMSFT
-manager: timlt
-editor: 'vturecek'
+title: Create an Azure Service Fabric container application 
+description: Create your first Windows container application on Azure Service Fabric. Build a Docker image with a Python application, push the image to a container registry, then build and deploy the container to Azure Service Fabric.
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 05/18/2018
-ms.author: twhitney
-
+ms.date: 01/25/2019
+ms.custom: devx-track-python
 ---
 
 # Create your first Service Fabric container application on Windows
+
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your application. This article walks you through creating a Docker image containing a Python [Flask](http://flask.pocoo.org/) web application and deploying it to a Service Fabric cluster. You will also share your containerized application through [Azure Container Registry](/azure/container-registry/). This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
+Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your application. This article walks you through creating a Docker image containing a Python [Flask](http://flask.pocoo.org/) web application and deploying it to an Azure Service Fabric cluster. You will also share your containerized application through [Azure Container Registry](../container-registry/index.yml). This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
 
 > [!NOTE]
 > This article applies to a Windows development environment.  The Service Fabric cluster runtime and the Docker runtime must be running on the same OS.  You cannot run Windows containers on a Linux cluster.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Prerequisites
+
 * A development computer running:
-  * Visual Studio 2015 or Visual Studio 2017.
+  * Visual Studio 2015 or Visual Studio 2019.
   * [Service Fabric SDK and tools](service-fabric-get-started.md).
   *  Docker for Windows. [Get Docker CE for Windows (stable)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). After installing and starting Docker, right-click on the tray icon and select **Switch to Windows containers**. This step is required to run Docker images based on Windows.
 
@@ -38,22 +32,18 @@ Running an existing application in a Windows container on a Service Fabric clust
 
   For this article, the version (build) of Windows Server with Containers running on your cluster nodes must match that on your development machine. This is because you build the docker image on your development machine and there are compatibility constraints between versions of the container OS and the host OS on which it is deployed. For more information, see [Windows Server container OS and host OS compatibility](#windows-server-container-os-and-host-os-compatibility). 
   
-  To determine the version of Windows Server with Containers you need for your cluster, run the `ver` command from a Windows command prompt on your development machine:
-
-  * If the version contains *x.x.14323.x*, then select *WindowsServer 2016-Datacenter-with-Containers* for the operating system when [creating a cluster](service-fabric-cluster-creation-via-portal.md). You can also [try Service Fabric for free](https://aka.ms/tryservicefabric) with a party cluster.
-  * If the version contains *x.x.16299.x*, then select *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* for the operating system when [creating a cluster](service-fabric-cluster-creation-via-portal.md). You cannot use a party cluster, however.
+    To determine the version of Windows Server with Containers you need for your cluster, run the `ver` command from a Windows command prompt on your development machine. Refer to [Windows Server container OS and host OS compatibility](#windows-server-container-os-and-host-os-compatibility) before you [creating a cluster](service-fabric-cluster-creation-via-portal.md).
 
 * A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription.
 
 > [!NOTE]
 > Deploying containers to a Service Fabric cluster running on Windows 10 is supported.  See [this article](service-fabric-how-to-debug-windows-containers.md) for information on how to configure Windows 10 to run Windows containers.
->   
 
 > [!NOTE]
-> Service Fabric versions 6.2 and later support deploying containers to clusters running on Windows Server version 1709.  
-> 
+> Service Fabric versions 6.2 and later support deploying containers to clusters running on Windows Server version 1709.
 
 ## Define the Docker container
+
 Build an image based on the [Python image](https://hub.docker.com/_/python/) located on Docker Hub.
 
 Specify your Docker container in a Dockerfile. The Dockerfile consists of instructions for setting up the environment inside your container, loading the application you want to run, and mapping ports. The Dockerfile is the input to the `docker build` command, which creates the image.
@@ -98,20 +88,30 @@ from flask import Flask
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def hello():
 
     return 'Hello World!'
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
 ```
 
 <a id="Build-Containers"></a>
-## Build the image
-Run the `docker build` command to create the image that runs your web application. Open a PowerShell window and navigate to the directory containing the Dockerfile. Run the following command:
+
+## Login to Docker and build the image
+
+Next we'll create the image that runs your web application. When pulling public images from Docker (like `python:2.7-windowsservercore` in our Dockerfile), it's a best practice to authenticate with your Docker Hub account instead of making an anonymous pull request.
+
+> [!NOTE]
+> When making frequent anonymous pull requests you might see Docker errors similar to `ERROR: toomanyrequests: Too Many Requests.` or `You have reached your pull rate limit.` Authenticate to Docker Hub to prevent these errors. See [Manage public content with Azure Container Registry](../container-registry/buffer-gate-public-content.md) for more info.
+
+Open a PowerShell window and navigate to the directory containing the Dockerfile. Then run the following commands:
 
 ```
+docker login
 docker build -t helloworldapp .
 ```
 
@@ -147,7 +147,7 @@ If that command does not return anything, run the following command and inspect 
 docker inspect my-web-site
 ```
 
-Connect to the running container. Open a web browser pointing to the IP address returned, for example "http://172.31.194.61". You should see the heading "Hello World!" display in the browser.
+Connect to the running container. Open a web browser pointing to the IP address returned, for example "http:\//172.31.194.61". You should see the heading "Hello World!" display in the browser.
 
 To stop your container, run:
 
@@ -163,11 +163,12 @@ docker rm my-web-site
 
 <a id="Push-Containers"></a>
 ## Push the image to the container registry
+
 After you verify that the container runs on your development machine, push the image to your registry in Azure Container Registry.
 
-Run ``docker login`` to log in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
+Run ``docker login`` to sign in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
 
-The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md). For example, you might have assigned a service principal to your registry for an automation scenario. Or, you could log in using your registry username and password.
+The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md). For example, you might have assigned a service principal to your registry for an automation scenario. Or, you could sign in using your registry username and password.
 
 ```
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -253,79 +254,9 @@ Configure a host port used to communicate  with the container. The port binding 
 > [!NOTE]
 > Additional PortBindings for a service can be added by declaring additional PortBinding elements with applicable property values.
 
-## Configure container registry authentication
-Configure container registry authentication by adding `RepositoryCredentials` to `ContainerHostPolicies` of the ApplicationManifest.xml file. Add the account and password for the myregistry.azurecr.io container registry, which allows the service to download the container image from the repository.
+## Configure container repository authentication
 
-```xml
-<ServiceManifestImport>
-    ...
-    <Policies>
-        <ContainerHostPolicies CodePackageRef="Code">
-            <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
-        </ContainerHostPolicies>
-    </Policies>
-    ...
-</ServiceManifestImport>
-```
-
-We recommend that you encrypt the repository password by using an encipherment certificate that's deployed to all nodes of the cluster. When Service Fabric deploys the service package to the cluster, the encipherment certificate is used to decrypt the cipher text. The Invoke-ServiceFabricEncryptText cmdlet is used to create the cipher text for the password, which is added to the ApplicationManifest.xml file.
-
-The following script creates a new self-signed certificate and exports it to a PFX file. The certificate is imported into an existing key vault and then deployed to the Service Fabric cluster.
-
-```powershell
-# Variables.
-$certpwd = ConvertTo-SecureString -String "Pa$$word321!" -Force -AsPlainText
-$filepath = "C:\MyCertificates\dataenciphermentcert.pfx"
-$subjectname = "dataencipherment"
-$vaultname = "mykeyvault"
-$certificateName = "dataenciphermentcert"
-$groupname="myclustergroup"
-$clustername = "mycluster"
-
-$subscriptionId = "subscription ID"
-
-Login-AzureRmAccount
-
-Select-AzureRmSubscription -SubscriptionId $subscriptionId
-
-# Create a self signed cert, export to PFX file.
-New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject $subjectname -Provider 'Microsoft Enhanced Cryptographic Provider v1.0' `
-| Export-PfxCertificate -FilePath $filepath -Password $certpwd
-
-# Import the certificate to an existing key vault. The key vault must be enabled for deployment.
-$cer = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certificateName -FilePath $filepath -Password $certpwd
-
-Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
-
-# Add the certificate to all the VMs in the cluster.
-Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $cer.SecretId
-```
-Encrypt the password using the [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps) cmdlet.
-
-```powershell
-$text = "=P==/==/=8=/=+u4lyOB=+=nWzEeRfF="
-Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint $cer.Thumbprint -Text $text -StoreLocation Local -StoreName My
-```
-
-Replace the password with the cipher text returned by the [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps) cmdlet and set `PasswordEncrypted` to "true".
-
-```xml
-<ServiceManifestImport>
-    ...
-    <Policies>
-        <ContainerHostPolicies CodePackageRef="Code">
-            <RepositoryCredentials AccountName="myregistry" Password="MIIB6QYJKoZIhvcNAQcDoIIB2jCCAdYCAQAxggFRMIIBTQIBADA1MCExHzAdBgNVBAMMFnJ5YW53aWRhdGFlbmNpcGhlcm1lbnQCEFfyjOX/17S6RIoSjA6UZ1QwDQYJKoZIhvcNAQEHMAAEg
-gEAS7oqxvoz8i6+8zULhDzFpBpOTLU+c2mhBdqXpkLwVfcmWUNA82rEWG57Vl1jZXe7J9BkW9ly4xhU8BbARkZHLEuKqg0saTrTHsMBQ6KMQDotSdU8m8Y2BR5Y100wRjvVx3y5+iNYuy/JmM
-gSrNyyMQ/45HfMuVb5B4rwnuP8PAkXNT9VLbPeqAfxsMkYg+vGCDEtd8m+bX/7Xgp/kfwxymOuUCrq/YmSwe9QTG3pBri7Hq1K3zEpX4FH/7W2Zb4o3fBAQ+FuxH4nFjFNoYG29inL0bKEcTX
-yNZNKrvhdM3n1Uk/8W2Hr62FQ33HgeFR1yxQjLsUu800PrYcR5tLfyTB8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBBybgM5NUV8BeetUbMR8mJhgFBrVSUsnp9B8RyebmtgU36dZiSObDsI
-NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==" PasswordEncrypted="true"/>
-            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
-        </ContainerHostPolicies>
-    </Policies>
-    ...
-</ServiceManifestImport>
-```
+See [Container Repository Authentication](configure-container-repository-credentials.md)to learn how to configure different types of authentication for container image downloading.
 
 ## Configure isolation mode
 Windows supports two isolation modes for containers: process and Hyper-V. With the process isolation mode, all the containers running on the same host machine share the kernel with the host. With the Hyper-V isolation mode, the kernels are isolated between each Hyper-V container and the container host. The isolation mode is specified in the `ContainerHostPolicies` element in the application manifest file. The isolation modes that can be specified are `process`, `hyperv`, and `default`. The default  is process isolation mode on Windows Server hosts. On Windows 10 hosts, only Hyper-V isolation mode is supported, so the container runs in Hyper-V isolation mode regardless of its isolation mode setting. The following snippet shows how the isolation mode is specified in the application manifest file.
@@ -352,11 +283,15 @@ Windows supports two isolation modes for containers: process and Hyper-V. With t
 ```
 ## Configure docker HEALTHCHECK 
 
-Starting v6.1, Service Fabric automatically integrates [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) events to its system health report. This means that if your container has **HEALTHCHECK** enabled, Service Fabric will report health whenever the health status of the container changes as reported by Docker. An **OK** health report will appear in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) when the *health_status* is *healthy* and **WARNING** will appear when *health_status* is *unhealthy*. The **HEALTHCHECK** instruction pointing to the actual check that is performed for monitoring container health must be present in the Dockerfile used while generating the container image. 
+Starting v6.1, Service Fabric automatically integrates [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) events to its system health report. This means that if your container has **HEALTHCHECK** enabled, Service Fabric will report health whenever the health status of the container changes as reported by Docker. An **OK** health report will appear in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) when the *health_status* is *healthy* and **WARNING** will appear when *health_status* is *unhealthy*. 
 
-![HealthCheckHealthy][3]
+Starting with the latest refresh release of v6.4, you have the option to specify that docker HEALTHCHECK evaluations should be reported as an error. If this option is enabled, an **OK** health report will appear when *health_status* is *healthy* and **ERROR** will appear when *health_status* is *unhealthy*.
 
-![HealthCheckUnealthyApp][4]
+The **HEALTHCHECK** instruction pointing to the actual check that is performed for monitoring container health must be present in the Dockerfile used while generating the container image.
+
+![Screenshot shows details of the Deployed Service Package NodeServicePackage.][3]
+
+![HealthCheckUnhealthyApp][4]
 
 ![HealthCheckUnhealthyDsp][5]
 
@@ -367,32 +302,39 @@ You can configure **HEALTHCHECK**  behavior for each container by specifying **H
     <ServiceManifestRef ServiceManifestName="ContainerServicePkg" ServiceManifestVersion="2.0.0" />
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
-        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
+        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true"
+		      RestartContainerOnUnhealthyDockerHealthStatus="false" 
+		      TreatContainerUnhealthyStatusAsError="false" />
       </ContainerHostPolicies>
     </Policies>
 </ServiceManifestImport>
 ```
-By default *IncludeDockerHealthStatusInSystemHealthReport* is set to **true** and *RestartContainerOnUnhealthyDockerHealthStatus* is set to **false**. If *RestartContainerOnUnhealthyDockerHealthStatus* is set to **true**, a container repeatedly reporting unhealthy is restarted (possibly on other nodes).
+By default *IncludeDockerHealthStatusInSystemHealthReport* is set to **true**, *RestartContainerOnUnhealthyDockerHealthStatus* is set to **false**, and *TreatContainerUnhealthyStatusAsError* is set to **false**. 
+
+If *RestartContainerOnUnhealthyDockerHealthStatus* is set to **true**, a container repeatedly reporting unhealthy is restarted (possibly on other nodes).
+
+If *TreatContainerUnhealthyStatusAsError* is set to **true**, **ERROR** health reports will appear when the container's *health_status* is *unhealthy*.
 
 If you want to the disable the **HEALTHCHECK** integration for the entire Service Fabric cluster, you will need to set [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) to **false**.
 
 ## Deploy the container application
 Save all your changes and build the application. To publish your application, right-click on **MyFirstContainer** in Solution Explorer and select **Publish**.
 
-In **Connection Endpoint**, enter the management endpoint for the cluster. For example, "containercluster.westus2.cloudapp.azure.com:19000". You can find the client connection endpoint in the Overview tab for your cluster in the [Azure portal](https://portal.azure.com).
+In **Connection Endpoint**, enter the management endpoint for the cluster. For example, `containercluster.westus2.cloudapp.azure.com:19000`. You can find the client connection endpoint in the Overview tab for your cluster in the [Azure portal](https://portal.azure.com).
 
 Click **Publish**.
 
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is a web-based tool for inspecting and managing applications and nodes in a Service Fabric cluster. Open a browser and navigate to http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ and follow the application deployment. The application deploys but is in an error state until the image is downloaded on the cluster nodes (which can take some time, depending on the image size):
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is a web-based tool for inspecting and managing applications and nodes in a Service Fabric cluster. Open a browser and navigate to `http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/` and follow the application deployment. The application deploys but is in an error state until the image is downloaded on the cluster nodes (which can take some time, depending on the image size):
 ![Error][1]
 
 The application is ready when it's in ```Ready``` state:
 ![Ready][2]
 
-Open a browser and navigate to http://containercluster.westus2.cloudapp.azure.com:8081. You should see the heading "Hello World!" display in the browser.
+Open a browser and navigate to `http://containercluster.westus2.cloudapp.azure.com:8081`. You should see the heading "Hello World!" display in the browser.
 
 ## Clean up
-You continue to incur charges while the cluster is running, consider [deleting your cluster](service-fabric-cluster-delete.md). [Party clusters](https://try.servicefabric.azure.com/) are automatically deleted after a few hours.
+
+You continue to incur charges while the cluster is running, consider [deleting your cluster](./service-fabric-tutorial-delete-cluster.md).
 
 After you push the image to the container registry, you can delete the local image from your development computer:
 
@@ -406,10 +348,10 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 Windows Server containers are not compatible across all versions of a host OS. For example:
  
 - Windows Server containers built using Windows Server version 1709 do not work on a host running Windows Server version 2016. 
-- Windows Server containers built using Windows Server 2016 work in hyperv isolation mode only on a host running Windows Server version 1709. 
+- Windows Server containers built using Windows Server 2016 work in Hyper-V isolation mode only on a host running Windows Server version 1709. 
 - With Windows Server containers built using Windows Server 2016, it might be necessary to ensure that the revision of the container OS and host OS are the same when running in process isolation mode on a host running Windows Server 2016.
  
-To learn more, see [Windows Container Version Compatibility](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+To learn more, see [Windows Container Version Compatibility](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
 Consider the compatibility of the host OS and your container OS when building and deploying containers to your Service Fabric cluster. For example:
 
@@ -465,8 +407,8 @@ Here are the complete service and application manifests used in this article.
 <ServiceManifest Name="Guest1Pkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->
@@ -492,7 +434,7 @@ Here are the complete service and application manifests used in this article.
 
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -512,8 +454,8 @@ Here are the complete service and application manifests used in this article.
 <ApplicationManifest ApplicationTypeName="MyFirstContainerType"
                      ApplicationTypeVersion="1.0.0"
                      xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                     xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <Parameters>
     <Parameter Name="Guest1_InstanceCount" DefaultValue="-1" />
   </Parameters>
@@ -556,10 +498,12 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## Configure time interval before container is force terminated
 
-You can configure a time interval for the runtime to wait before the container is removed after the service deletion (or a move to another node) has started. Configuring the time interval sends the `docker stop <time in seconds>` command to the container.  For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). The time interval to wait is specified under the `Hosting` section. The following cluster manifest snippet shows how to set the wait interval:
+You can configure a time interval for the runtime to wait before the container is removed after the service deletion (or a move to another node) has started. Configuring the time interval sends the `docker stop <time in seconds>` command to the container.  For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). The time interval to wait is specified under the `Hosting` section. The `Hosting` section can be added at cluster creation or later in a configuration upgrade. The following cluster manifest snippet shows how to set the wait interval:
 
 ```json
-{
+"fabricSettings": [
+	...,
+	{
         "name": "Hosting",
         "parameters": [
           {
@@ -568,7 +512,8 @@ You can configure a time interval for the runtime to wait before the container i
           },
 	      ...
         ]
-}
+	}
+]
 ```
 The default time interval is set to 10 seconds. Since this configuration is dynamic, a config only upgrade on the cluster updates the timeout. 
 
@@ -579,7 +524,9 @@ You can configure the Service Fabric cluster to remove unused container images f
 
 
 ```json
-{
+"fabricSettings": [
+	...,
+	{
         "name": "Hosting",
         "parameters": [
           {
@@ -588,12 +535,13 @@ You can configure the Service Fabric cluster to remove unused container images f
           },
           {
                 "name": "ContainerImagesToSkip",
-                "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+                "value": "mcr.microsoft.com/windows/servercore|mcr.microsoft.com/windows/nanoserver|mcr.microsoft.com/dotnet/framework/aspnet|..."
           }
           ...
           }
         ]
-} 
+	} 
+]
 ```
 
 For images that shouldn't be deleted, you can specify them under the `ContainerImagesToSkip` parameter.  
@@ -604,7 +552,9 @@ For images that shouldn't be deleted, you can specify them under the `ContainerI
 The Service Fabric runtime allocates 20 minutes to download and extract container images, which work for the majority of container images. For large images, or when the network connection is slow, it might be necessary to increase the time to wait before aborting the image download and extraction. This time out is set using the **ContainerImageDownloadTimeout** attribute in the **Hosting** section of the cluster manifest as shown in the following snippet:
 
 ```json
-{
+"fabricSettings": [
+	...,
+	{
         "name": "Hosting",
         "parameters": [
           {
@@ -612,7 +562,8 @@ The Service Fabric runtime allocates 20 minutes to download and extract containe
               "value": "1200"
           }
         ]
-}
+	}
+]
 ```
 
 
@@ -633,7 +584,9 @@ With the 6.2 version of the Service Fabric runtime and greater, you can start th
  
 
 ```json
-{ 
+"fabricSettings": [
+	...,
+	{ 
         "name": "Hosting", 
         "parameters": [ 
           { 
@@ -641,8 +594,8 @@ With the 6.2 version of the Service Fabric runtime and greater, you can start th
             "value": "-H localhost:1234 -H unix:///var/run/docker.sock" 
           } 
         ] 
-} 
-
+	} 
+]
 ```
 
 ## Next steps

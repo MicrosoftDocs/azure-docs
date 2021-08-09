@@ -1,37 +1,86 @@
 ---
-title: Manage a process server for disaster recovery of VMware VMs and physical servers to Azure using Azure Site Recovery | Microsoft Docs
-description: This article describes manage a process server set up for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
-author: Rajeswari-Mamilla
+title: Manage a process server for VMware VMs/physical server disaster recovery in Azure Site Recovery
+description: This article describes manage a process server for disaster recovery of VMware VMs/physical servers using Azure Site Recovery.
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
-ms.author: ramamill
+ms.author: sharrai
+ms.date: 05/27/2021
 
 ---
 
 # Manage process servers
 
-By default the process server used when you're replicating VMware VMs or physical servers to Azure is installed on the on-premises configuration server machine. There are a couple of instances in which you need to set up a separate process server:
+This article describes common tasks for managing the Site Recovery process server.
+
+The process server is used to receive, optimize, and send replication data to Azure. It also performs a push installation of the Mobility service on VMware VMs and physical servers you want to replicate, and performs automatic discovery of on-premises machines. For replicating on-premises VMware VMs or physical servers to Azure, the process server is installed by default on the configuration server machine. 
 
 - For large deployments, you might need additional on-premises process servers to scale capacity.
-- For failback, you need a temporary process server set up in Azure. You can delete this VM when failback is done. 
+- For failback from Azure to on-premises, you must set up a temporary process server in Azure. You can delete this VM when failback is done. 
 
-This article summarizes typical management tasks for these additional process servers.
+Learn more about the process server.
+
 
 ## Upgrade a process server
 
-Upgrade an process server running on premises, or in Azure (for failback purposes), as follows:
+When you deploy a process server on-premises, or as an Azure VM for failback, the latest version of the process server is installed. The Site Recovery teams release fixes and enhancements on a regular basis, and we recommend you keep process servers up-to-date. You can upgrade a process server as follows:
 
 [!INCLUDE [site-recovery-vmware-upgrade -process-server](../../includes/site-recovery-vmware-upgrade-process-server-internal.md)]
 
-> [!NOTE]
-  Typically, when you use the Azure Gallery Image to create a process server in Azure for the purposes of failback, it's running the latest version available. The Site Recovery teams release fixes and enhancements on a regular basis, and we recommend you keep process servers up-to-date.
 
+## Move VMs to balance the process server load
 
+Balance the load by moving VMs between two process servers, as follows:
+
+1. In the vault, under **Manage** click **Site Recovery Infrastructure**. Under **For VMware & Physical machines**, click **Configuration Servers**.
+2. Click on the configuration server with which the process servers are registered.
+3. Click on the process server for which you want to load balance traffic.
+
+    ![Screenshot shows a Process Server for which you can load balance traffic.](media/vmware-azure-manage-process-server/LoadBalance.png)
+
+4. Click **Load balance**, select the target process server to which you want to move machines. Then click **OK**
+
+    ![Screenshot shows the Load balance pane with Select target process server selected.](media/vmware-azure-manage-process-server/LoadPS.PNG)
+
+2. Click **Select machines**, and choose the machines you want to move from the current to the target process server. Details of average data change are displayed against each virtual machine. Then click **OK**. 
+3. In the vault, monitor the progress of the job under  **Monitoring** > **Site Recovery jobs**.
+
+It will take around 15 minutes for changes to be reflected in the portal. For a quicker effect, [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
+
+## Switch an entire workload to another process server
+
+Move the entire workload handled by a process server to a different process server, as follows:
+
+1. In the vault, under **Manage** click **Site Recovery Infrastructure**. Under **For VMware & Physical machines**, click **Configuration Servers**.
+2. Click on the configuration server with which the process servers are registered.
+3. Click on the process server from which you want to switch the workload.
+4. Click on **Switch**, select the target process server to which you want to move the workload. Then click **OK**
+
+    ![Screenshot shows the Select target process server pane.](media/vmware-azure-manage-process-server/Switch.PNG)
+
+5. In the vault, monitor the progress of the job under  **Monitoring** > **Site Recovery jobs**.
+
+It will take around 15 minutes for changes to be reflected in the portal. For a quicker effect, [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
+
+## Register a master target server
+
+Master target server resides on configuration server and scale-out process servers. It must be registered with configuration server. In case there is a failure in this registration, it can impact the health of protected items. To register master target server with configuration server, login to the specific configuration server/scale-out process server on which the registration is required. Navigate to folder **%PROGRAMDATA%\ASR\Agent**, and run the following on administrator command prompt.
+
+   ```
+   cmd
+   cdpcli.exe --registermt
+
+   net stop obengine
+
+   net start obengine
+
+   exit
+   ```
 
 ## Reregister a process server
 
-If you need to reregister a process server running on-premises, or in Azure, with the configuration server, do the following:
+Reregister a process server running on-premises or on an Azure VM with the configuration server as follows:
 
 [!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
 
@@ -48,36 +97,35 @@ After you've saved the settings, do the following:
 
 ## Modify proxy settings for an on-premises process server
 
-If the process server uses a proxy to connect to Site Recovery in Azure, use this procedure if you need to modify existing proxy settings.
+If an on-premises process server uses a proxy to connect to Azure, you can modify the proxy settings as follows:
 
-1. Log onto the process server machine. 
+1. Sign into the process server machine. 
 2. Open an Admin PowerShell command window, and run the following command:
-  ```powershell
-  $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd
-  net stop obengine
-  net start obengine
-  ```
-2. Browse to folder **%PROGRAMDATA%\ASR\Agent**, and run the following command:
-  ```
-  cmd
-  cdpcli.exe --registermt
+   ```powershell
+   $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd
+   net stop obengine
+   net start obengine
+   ```
+2. Browse to folder **%PROGRAMDATA%\ASR\Agent**, and run this command:
+   ```
+   cmd
+   cdpcli.exe --registermt
 
-  net stop obengine
+   net stop obengine
 
-  net start obengine
+   net start obengine
 
-  exit
-  ```
-
+   exit
+   ```
 
 ## Remove a process server
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
 
-## Manage anti-virus software on process servers
+## Exclude folders from anti-virus software
 
-If anti-virus software is active on a standalone process server or master target server, exclude the following folders from anti-virus operations:
+If anti-virus software is running on a scale-out process server (or master target server), exclude the following folders from anti-virus operations:
 
 
 - C:\Program Files\Microsoft Azure Recovery Services Agent
@@ -86,5 +134,4 @@ If anti-virus software is active on a standalone process server or master target
 - C:\ProgramData\ASRSetupLogs
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site Recovery
-- Process server installation directory, Example: C:\Program Files (x86)\Microsoft Azure Site Recovery
-
+- Process server installation directory. For example: C:\Program Files (x86)\Microsoft Azure Site Recovery

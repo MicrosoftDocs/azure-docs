@@ -1,8 +1,8 @@
 ---
-title: Retain IP addresses during Azure VM failover with Azure Site Recovery | Microsoft Docs
+title: Keep IP addresses after Azure VM failover with Azure Site Recovery
 description: Describes how to retain IP addresses when failing over Azure VMs for disaster recovery to a secondary region with Azure Site Recovery
 ms.service: site-recovery
-ms.date: 10/16/2018
+ms.date: 07/25/2021
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
@@ -29,6 +29,9 @@ Company A has all its apps running in Azure.
 
 ### Before failover
 
+>[!NOTE
+> Replication can now be done between any two Azure regions around the world. Customers are no longer limited to enabling replication within their continent.
+
 Here's the architecture before failover.
 
 - Company A has identical networks and subnets in source and target Azure regions.
@@ -38,13 +41,13 @@ Here's the architecture before failover.
         - East Asia has a VNet (**Source VNet**) with address space 10.1.0.0/16.
         - East Asia has workloads split across three subnets in the VNet:
             - **Subnet 1**: 10.1.1.0/24
-            - **Subnet 2**: 10.1.2.0/24,
+            - **Subnet 2**: 10.1.2.0/24
             - **Subnet 3**: 10.1.3.0/24
     - Secondary (target) region is Azure Southeast Asia
         - Southeast Asia has a recovery VNet (**Recovery VNet**) identical to **Source VNet**.
         - Southeast Asia has an additional VNet (**Azure VNet**) with address space 10.2.0.0/16.
         - **Azure VNet** contains a subnet (**Subnet 4**) with address space 10.2.4.0/24.
-        - Replica nodes for SQL Server Always On, domain controller etc are located in **Subnet 4**.
+        - Replica nodes for SQL Server Always On, domain controller etc. are located in **Subnet 4**.
     - **Source VNet** and **Azure VNet** are connected with a VPN site-to-site connection.
     - **Recovery VNet** is not connected with any other virtual network.
     - **Company A** assigns/verifies target IP addresses for replicated items. The target IP is the same as source IP for each VM.
@@ -57,10 +60,10 @@ If a source regional outage occurs, Company A can fail over all its resources to
 
 - With target IP addresses already in place before the failover, Company A can orchestrate failover and automatically establish connections after failover between **Recovery VNet** and **Azure VNet**. This is illustrated in the following diagram..
 - Depending on app requirements, connections between the two VNets (**Recovery VNet** and **Azure VNet**) in the target region can be established before, during (as an intermediate step) or after the failover.
-    - The company can use [recovery plans](site-recovery-create-recovery-plans.md) to specify when connections will be established.
-    - They can connect between the VNets using VNet peering or site-to-site VPN.
-        - VNet peering doesn't use a VPN gateway and has different constraints.
-        - VNet peering [pricing](https://azure.microsoft.com/pricing/details/virtual-network) is calculated differently than VNet-to-VNet VPN Gateway [pricing](https://azure.microsoft.com/pricing/details/vpn-gateway). For failovers, we generally advise to use the same connectivity method as source networks, including the connection type, to minimize unpredictable network incidents.
+  - The company can use [recovery plans](site-recovery-create-recovery-plans.md) to specify when connections will be established.
+  - They can connect between the VNets using VNet peering or site-to-site VPN.
+      - VNet peering doesn't use a VPN gateway and has different constraints.
+      - VNet peering [pricing](https://azure.microsoft.com/pricing/details/virtual-network) is calculated differently than VNet-to-VNet VPN Gateway [pricing](https://azure.microsoft.com/pricing/details/vpn-gateway). For failovers, we generally advise to use the same connectivity method as source networks, including the connection type, to minimize unpredictable network incidents.
 
     ![Resources in Azure full failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
 
@@ -89,8 +92,8 @@ Before failover, the architecture is as follows:
         - **Recovery VNet 1** and **Recovery VNet 2** each have two subnets that match the subnets in **Source VNet 1** and **Source VNet 2**
         - Southeast Asia has an additional VNet (**Azure VNet**) with address space 10.3.0.0/16.
         - **Azure VNet** contains a subnet (**Subnet 4**) with address space 10.3.4.0/24.
-        - Replica nodes for SQL Server Always On, domain controller etc are located in **Subnet 4**.
-- There are a number of site-to-site VPN connections: 
+        - Replica nodes for SQL Server Always On, domain controller etc. are located in **Subnet 4**.
+- There are a number of site-to-site VPN connections:
     - **Source VNet 1** and **Azure VNet**
     - **Source VNet 2** and **Azure VNet**
     - **Source VNet 1** and **Source VNet 2** are connected with VPN site-to-site
@@ -118,21 +121,21 @@ In the event of an outage or issue that affects a single app (in **Source VNet 2
 
 ## Hybrid resources: full failover
 
-In this scenario, **Company B** runs a hybrid business, with part of the application infrastructure running on Azure, and the remainder running on-premises. 
+In this scenario, **Company B** runs a hybrid business, with part of the application infrastructure running on Azure, and the remainder running on-premises.
 
 ### Before failover
 
 Here’s what the network architecture looks like before failover.
 
 - Application VMs are hosted in Azure East Asia.
--  East Asia has a VNet (**Source VNet**) with address space 10.1.0.0/16.
-    - East Asia has workloads split across three subnets in **Source VNet**:
-        - **Subnet 1**: 10.1.1.0/24
-        - **Subnet 2**: 10.1.2.0/24,
-        - **Subnet 3**: 10.1.3.0/24utilizing an Azure virtual network with address space 10.1.0.0/16. This virtual network is named **Source VNet**
- - The secondary (target) region is Azure Southeast Asia:
-    - Southeast Asia has a recovery VNet (**Recovery VNet**) identical to **Source VNet**.
-- VMs in East Asia are connected to an on-premises datacenter with Azure ExpressRoute or site-to-site-VPN.
+- East Asia has a VNet (**Source VNet**) with address space 10.1.0.0/16.
+  - East Asia has workloads split across three subnets in **Source VNet**:
+    - **Subnet 1**: 10.1.1.0/24
+    - **Subnet 2**: 10.1.2.0/24
+    - **Subnet 3**: 10.1.3.0/24, utilizing an Azure virtual network with address space 10.1.0.0/16. This virtual network is named **Source VNet**
+      - The secondary (target) region is Azure Southeast Asia:
+  - Southeast Asia has a recovery VNet (**Recovery VNet**) identical to **Source VNet**.
+- VMs in East Asia are connected to an on-premises datacenter with Azure ExpressRoute or site-to-site VPN.
 - To reduce RTO, Company B provisions gateways on Recovery VNet in Azure Southeast Asia prior to failover.
 - Company B assigns/verifies target IP addresses for replicated VMs. The target IP address is the same as source IP address for each VM.
 

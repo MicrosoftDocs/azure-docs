@@ -1,90 +1,131 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Media Services v3 Documentation 
+### YamlMime:Landing
+ 
+title: Azure Media Services v3 cloud-based platform documentation
+summary: Learn how to encode and package content, stream videos on-demand, broadcast live, analyze your videos with Media Services v3. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users. 
+ 
 metadata:
-  document_id: 
-  title: Azure Media Services v3 Documentation - Tutorials, API Reference | Microsoft Docs
-  meta.description: Learn how to stream on-demand, broadcast live, and analyze your videos with Media Services. Tutorials, API references, and more.
+  title: Azure Media Services v3 cloud-based platform documentation
+  description: Learn how to encode and package content, stream videos on-demand, broadcast live, analyze your videos with Media Services v3.
   services: media-services
-  author: Juliako
-  manager: femila
   ms.service: media-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 10-15-2018
-  ms.author: juliako
-abstract:
-  description: Learn how to stream videos on-demand, broadcast live, and analyze your videos with Media Services v3. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users. <br/> The SDKs are based on <a href="https://aka.ms/ams-v3-rest-sdk">Media Services v3 OpenAPI Specification (Swagger)</a>.
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to create a Media Services account, start encoding your videos, and use Azure Media Player to play them back:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: media/index/AMSIcons-encoding.svg
-      text: Stream video files
-      href: /azure/media-services/latest/stream-files-dotnet-quickstart
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: 'Learn how to stream files on demand, broadcast live, and analyze your videos with Media Services v3:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: media/index/AMSIcons-encoding.svg
-      text: Upload, encode, and stream videos
-      href: /azure/media-services/latest/stream-files-tutorial-with-api
-    - image: 
-        src: media/index/AMSIcons-live.svg
-      text: Broadcast live
-      href: /azure/media-services/latest/stream-live-tutorial-with-api
-    - image: 
-        src: media/index/AMSIcons-media_analytics.svg
-      text: Analyze your videos
-      href: /azure/media-services/latest/analyze-videos-tutorial-with-api
-- title: Samples
-  items:
-  - type: paragraph
-    text: 'Samples that show how to use APIs to stream videos, broadcast live, and analyze your videos with Media Services v3:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: media/index/cli.svg
-      text: Azure CLI
-      href: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services
-    - image: 
-        src: media/index/rest.svg
-      text: REST with Postman
-      href: https://github.com/Azure-Samples/media-services-v3-rest-postman
-    - image: 
-        src: media/index/logo_dotnet_core.svg
-      text: .NET Core with Visual Studio Code
-      href: https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials
-    - image: 
-        src: media/index/dotnet.svg
-      text: .NET with Visual Studio 
-      href: https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials
-    - image: 
-        src: media/index/logo_nodejs.svg
-      text: Node .js
-      href: https://github.com/Azure-Samples/media-services-v3-node-tutorials 
-- title: Reference
-  items:
-  - type: paragraph
-    text: ''
-  - type: list
-    style: unordered
-    className: spaced noBullet    
-    items:
-    - html: <a href="https://aka.ms/ams-v3-cli-ref">Azure CLI</a>
-    - html: <a href="https://aka.ms/ams-v3-rest-ref">REST</a>
-    - html: <a href="https://aka.ms/ams-v3-dotnet-ref">.NET</a>
-    - html: <a href="https://aka.ms/ams-v3-java-ref">Java</a>
-    - html: <a href="https://aka.ms/ams-v3-python-ref">Python</a>
-    - html: <a href="https://aka.ms/ams-v3-nodejs-ref">Node.js</a>
+  ms.subservice:
+  ms.topic: landing-page # Required
+  ms.collection: collection
+  author: IngridAtMicrosoft
+  ms.author: inhenkel
+  ms.date: 03/25/2021 #Required; mm/dd/yyyy format.
+ 
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+ 
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Media Services
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: "What is Media Services v3?"
+            url: media-services-overview.md
+          - text: "What's new in Media Services?"
+            url: release-notes.md
+      - linkListType: concept
+        links:
+          - text: Media Services accounts
+            url: account-move-account-how-to.md
+          - text: Storage accounts
+            url: storage-account-concept.md
+          - text: Packaging
+            url: encode-dynamic-packaging-concept.md   
+          - text: Monitoring
+            url: monitoring/reacting-to-media-services-events.md
+          - text: Player clients
+            url: player-use-azure-media-player-how-to.md  
+          - text: Developing with v3 API guidance
+            url: media-services-apis-overview.md            
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create an account
+            url: ./account-create-how-to.md
+          - text: Access API
+            url: ./access-api-howto.md
+      - linkListType: download
+        links:
+          - text: .NET SDK samples
+            url: https://github.com/Azure-Samples/media-services-v3-dotnet
+          - text: Java SDK samples
+            url: https://github.com/Azure-Samples/media-services-v3-java
+          - text: REST Postman collection samples
+            url: https://github.com/Azure-Samples/media-services-v3-rest-postman            
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/ams
+          - text: REST
+            url: /rest/api/media/
+          - text: .NET
+            url: /dotnet/api/overview/azure/mediaservices/management
+          - text: Java
+            url: /java/api/overview/azure/mediaservices/management
+
+# Card
+  - title: Stream live
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Live streaming
+            url: stream-live-streaming-concept.md           
+      - linkListType: tutorial
+        links:
+          - text: Stream live
+            url: stream-live-tutorial-with-api.md
+
+# Card
+  - title: Stream on demand
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Uploading
+            url: assets-concept.md
+          - text: Encoding
+            url: encode-concept.md
+      - linkListType: tutorial
+        links:
+          - text: Encode remote file and stream
+            url: stream-files-tutorial-with-rest.md
+          - text: Encode uploaded file and stream
+            url: stream-files-tutorial-with-api.md
+  
+# Card
+  - title: Encrypt content
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Protection
+            url: drm-content-protection-concept.md           
+      - linkListType: tutorial
+        links:
+          - text: Encrypt dynamically with AES-128
+            url: drm-playready-license-template-concept.md
+          - text: Encrypt dynamically with DRM
+            url: drm-protect-with-drm-tutorial.md
+
+# Card
+  - title: Analyze content
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Media analytics
+            url: analyze-video-audio-files-concept.md
+          - text: Compliance, Privacy and Security
+            url: analyze-video-audio-files-concept.md#compliance-privacy-and-security
+      - linkListType: tutorial
+        links:
+          - text: Analyze videos
+            url: analyze-videos-tutorial.md
+          - text: Redact faces in videos
+            url: analyze-face-redaction-concept.md

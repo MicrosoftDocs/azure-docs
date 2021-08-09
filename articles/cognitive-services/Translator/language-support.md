@@ -1,256 +1,177 @@
 ---
-title: Language support - Translator Text API
+title: Language support - Translator
 titleSuffix: Azure Cognitive Services
-description: A list of natural languages supported by the Translator Text API.
+description: Cognitive Services Translator supports the following languages for text to text translation using Neural Machine Translation (NMT).
 services: cognitive-services
-author: Jann-Skotdal
-manager: cgronlun
+author: laujan
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
-ms.topic: article
-ms.date: 09/25/2018
-ms.author: v-jansko
+ms.subservice: translator-text
+ms.topic: reference
+ms.date: 06/10/2020
+ms.author: lajanuar
 ---
-# Language and region support for the Translator Text API
+# Translator language support
 
-The Translator Text API supports the following languages for text to text translation. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of the Translator Text API when a neural system is available. Neural machine translation is available in V2 by using the "generalnn" category.
+**Translation - Cloud:** Cloud translation is available in all languages for the Translate operation of Text Translation and for Document Translation. 
 
-[Learn more about how machine translation works](https://www.microsoft.com/translator/mt.aspx)
+**Translation – Containers:** Language support for Containers.
 
-| Language    | Translation Type |Language code |
-|:----------- |:-------:|:-------------:|
-| Afrikaans      | Statistical |`af`          |
-| Arabic      | Neural | `ar`          |
-| Arabic, Levantine    | Neural | `apc`
-| Bangla      | Neural |`bn`          |
-| Bosnian (Latin)      | Statistical |`bs`          |
-| Bulgarian     |  Neural |`bg`          |
-| Cantonese (Traditional)      | Statistical |`yue`          |
-| Catalan      | Statistical |`ca`          |
-| Chinese Simplified        |  Neural |`zh-Hans`          |
-| Chinese Traditional        |  Neural |`zh-Hant`          |
-| Croatian      | Neural |`hr`          |
-| Czech        |  Neural |`cs`          |
-| Danish        |  Neural |`da`          |
-| Dutch        |  Neural |`nl`          |
-| English       |  Neural |`en`          |
-| Estonian      | Neural |`et`          |
-| Fijian      | Statistical |`fj`          |
-| Filipino      | Statistical |`fil`          |
-| Finnish      | Neural |`fi`          |
-| French        |  Neural |`fr`          |
-| German       |  Neural |`de`          |
-| Greek      | Neural |`el`          |
-| Haitian Creole      | Statistical |`ht`          |
-| Hebrew      | Neural |`he`          |
-| Hindi        |  Neural |`hi`          |
-| Hmong Daw      | Statistical |`mww`          |
-| Hungarian      | Neural |`hu`          |
-| Icelandic      |  Neural |`is`           |
-| Indonesian      | Statistical |`id`          |
-| Italian        |  Neural |`it`          |
-| Japanese        |  Neural |`ja`          |
-| Kiswahili      | Statistical |`sw`          |
-| Klingon      | Statistical |`tlh`          |
-| Klingon (plqaD)      | Statistical |`tlh-Qaak`          |
-| Korean        |  Neural |`ko`          |
-| Latvian      | Neural |`lv`          |
-| Lithuanian      | Neural |`lt`          |
-| Malagasy      | Statistical |`mg`          |
-| Malay      | Statistical |`ms`          |
-| Maltese      | Statistical |`mt`          |
-| Norwegian        |  Neural |`nb`          |
-| Persian      | Statistical |`fa`          |
-| Polish        |  Neural |`pl`          |
-| Portuguese        |  Neural |`pt`          |
-| Queretaro Otomi      | Statistical |`otq`          |
-| Romanian        |  Neural |`ro`          |
-| Russian        |  Neural |`ru`          |
-| Samoan      | Statistical |`sm`          |
-| Serbian (Cyrillic)      | Statistical |`sr-Cyrl`          |
-| Serbian (Latin)      | Statistical |`sr-Latn`          |
-| Slovak     | Neural |`sk`          |
-| Slovenian      | Neural |`sl`          |
-| Spanish        |  Neural |`es`          |
-| Swedish        |  Neural |`sv`          |
-| Tahitian      | Statistical |`ty`          |
-| Tamil      | Statistical |`ta`          |
-| Telugu   | Neural   | `te` |
-| Thai      | Neural |`th`          |
-| Tongan      | Statistical |`to`          |
-| Turkish       |  Neural |`tr`          |
-| Ukrainian      | Neural |`uk`          |
-| Urdu      | Statistical |`ur`          |
-| Vietnamese      | Neural |`vi`          |
-| Welsh      | Neural |`cy`          |
-| Yucatec Maya      | Statistical |`yua`          |
+**Custom Translator:** Custom Translator can be used to create customized translation models which you can then use to customize your translated output while using the Text Translation or Document Translation features.
+
+**Auto Language Detection:** Automatically detect the language of the source text while using Text Translation or Document Translation.
+
+**Dictionary:** Use the [Dictionary Lookup](reference/v3-0-dictionary-lookup.md) or [Dictionary Examples](reference/v3-0-dictionary-examples.md) operations from the Text Translation feature to display alternative translations from or to English and examples of words in context.
+
+| Language | Language code | Cloud – Text Translation and Document Translation| Containers – Text Translation|Custom Translator|Auto Language Detection|Dictionary
+|:-|:-:|:-:|:-:|:-:|:-:|:-:|
+| Afrikaans | `af` |✔|✔|✔|✔|✔|
+| Albanian | `sq` |✔|✔||✔||
+| Amharic | `am` |✔|✔||||
+| Arabic | `ar` |✔|✔|✔|✔|✔|
+| Armenian | `hy` |✔|✔||✔||
+| Assamese | `as` |✔|✔||||
+| Azerbaijani | `az` |✔|✔||||
+| Bangla | `bn` |✔|✔|✔||✔|
+| Bosnian (Latin) | `bs` |✔|✔|✔||✔|
+| Bulgarian | `bg` |✔|✔|✔|✔|✔|
+| Cantonese (Traditional) | `yue` |✔|✔||||
+| Catalan | `ca` |✔|✔|✔|✔|✔|
+| Chinese Simplified | `zh-Hans` |✔|✔|✔|✔|✔|
+| Chinese Traditional | `zh-Hant` |✔|✔|✔|✔||
+| Croatian | `hr` |✔|✔|✔|✔|✔|
+| Czech | `cs` |✔|✔|✔|✔|✔|
+| Danish | `da` |✔|✔|✔|✔|✔|
+| Dari | `prs` |✔|✔||||
+| Dutch | `nl` |✔|✔|✔|✔|✔|
+| English | `en` |✔|✔|✔|✔|✔|
+| Estonian | `et` |✔|✔|✔|✔||
+| Fijian | `fj` |✔|✔|✔|||
+| Filipino | `fil` |✔|✔|✔|||
+| Finnish | `fi` |✔|✔|✔|✔|✔|
+| French | `fr` |✔|✔|✔|✔|✔|
+| French (Canada) | `fr-ca` |✔|✔||||
+| German | `de` |✔|✔|✔|✔|✔|
+| Greek | `el` |✔|✔|✔|✔|✔|
+| Gujarati | `gu` |✔|✔|✔|✔||
+| Haitian Creole | `ht` |✔|✔||✔|✔|
+| Hebrew | `he` |✔|✔|✔|✔|✔|
+| Hindi | `hi` |✔|✔|✔|✔|✔|
+| Hmong Daw | `mww` |✔|✔|||✔|
+| Hungarian | `hu` |✔|✔|✔|✔|✔|
+| Icelandic | `is` |✔|✔|✔|✔|✔|
+| Indonesian | `id` |✔|✔|✔|✔|✔|
+| Inuktitut | `iu` |✔|✔|✔|✔||
+| Irish | `ga` |✔|✔|✔|✔||
+| Italian | `it` |✔|✔|✔|✔|✔|
+| Japanese | `ja` |✔|✔|✔|✔|✔|
+| Kannada | `kn` |✔|✔|✔|||
+| Kazakh | `kk` |✔|✔||||
+| Khmer | `km` |✔|✔||✔||
+| Klingon | `tlh-Latn` |✔| ||✔|✔|
+| Klingon (plqaD) | `tlh-Piqd` |✔| ||✔||
+| Korean | `ko` |✔|✔|✔|✔|✔|
+| Kurdish (Central) | `ku` |✔|✔||✔||
+| Kurdish (Northern) | `kmr` |✔|✔||||
+| Lao | `lo` |✔|✔||✔||
+| Latvian | `lv` |✔|✔|✔|✔|✔|
+| Lithuanian | `lt` |✔|✔|✔|✔|✔|
+| Malagasy | `mg` |✔|✔|✔|||
+| Malay | `ms` |✔|✔|✔|✔|✔|
+| Malayalam | `ml` |✔|✔||||
+| Maltese | `mt` |✔|✔|✔|✔|✔|
+| Maori | `mi` |✔|✔|✔|||
+| Marathi | `mr` |✔|✔|✔|||
+| Myanmar | `my` |✔|✔||✔||
+| Nepali | `ne` |✔|✔||||
+| Norwegian | `nb` |✔|✔|✔|✔|✔|
+| Odia | `or` |✔|✔||||
+| Pashto | `ps` |✔|✔||✔||
+| Persian | `fa` |✔|✔|✔|✔|✔|
+| Polish | `pl` |✔|✔|✔|✔|✔|
+| Portuguese (Brazil) | `pt` |✔|✔|✔|✔|✔|
+| Portuguese (Portugal) | `pt-pt` |✔|✔||||
+| Punjabi | `pa` |✔|✔|✔|||
+| Queretaro Otomi | `otq` |✔|✔||||
+| Romanian | `ro` |✔|✔|✔|✔|✔|
+| Russian | `ru` |✔|✔|✔|✔|✔|
+| Samoan | `sm` |✔| |✔|||
+| Serbian (Cyrillic) | `sr-Cyrl` |✔|✔||✔||
+| Serbian (Latin) | `sr-Latn` |✔|✔|✔|✔|✔|
+| Slovak | `sk` |✔|✔|✔|✔|✔|
+| Slovenian | `sl` |✔|✔|✔|✔|✔|
+| Spanish | `es` |✔|✔|✔|✔|✔|
+| Swahili | `sw` |✔|✔|✔|✔|✔|
+| Swedish | `sv` |✔|✔|✔|✔|✔|
+| Tahitian | `ty` |✔| |✔|✔||
+| Tamil | `ta` |✔|✔|||✔|
+| Telugu | `te` |✔|✔||||
+| Thai | `th` |✔| |✔|✔|✔|
+| Tigrinya | `ti` |✔|✔||||
+| Tongan | `to` |✔|✔|✔|||
+| Turkish | `tr` |✔|✔|✔|✔|✔|
+| Ukrainian | `uk` |✔|✔|✔|✔|✔|
+| Urdu | `ur` |✔|✔|✔|✔|✔|
+| Vietnamese | `vi` |✔|✔|✔|✔|✔|
+| Welsh | `cy` |✔|✔|✔|✔|✔|
+| Yucatec Maya | `yua` |✔|✔||✔||
+
+> [!NOTE]
+> Language code `pt` will default to `pt-br`, Portuguese (Brazil).
 
 ## Transliteration
-
-The Transliterate method supports the following languages. In the "To/From", "<-->" indicates that the language can be transliterated from or to either of the scripts listed. The "-->" indicates that the language can only be transliterated from one script to the other.
+The [Transliterate operation](reference/v3-0-transliterate.md) in the Text Translation feature supports the following languages. In the "To/From", "<-->" indicates that the language can be transliterated from or to either of the scripts listed. The "-->" indicates that the language can only be transliterated from one script to the other.
 
 | Language    | Language code | Script | To/From | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
-| Arabic | ar | Arabic | <--> | Latin |
-|Bangla  | bn | Bengali | <--> | Latin |
-| Chinese (Simplified) | zh-Hans | Chinese Simplified | <--> | Latin |
-| Chinese (Simplified) | zh-Hans | Chinese Simplified | <--> | Chinese Traditional |
-| Chinese (Traditional) | zh-Hant | Chinese Traditional | <--> | Latin |
-| Chinese (Traditional) | zh-Hant | Chinese Traditional | <--> | Chinese Simplified |
-| Gujarati | gu  | Gujarati | --> | Latin |
-| Hebrew | he | Hebrew | <--> | Latin |
-| Hindi | hi | Devanagari | <--> | Latin |
-| Japanese | ja | Japanese | <--> | Latin |
-| Kannada | kn | Kannada | --> | Latin |
-| Malayalam | ml | Malayalam | --> | Latin |
-| Marathi | mr | Devanagari | --> | Latin |
-| Oriya | or | Oriya | <--> | Latin |
-| Punjabi | pa | Gurmukhi | <--> | Latin  |
-| Serbian (Cyrillic) | sr-Cyrl | Cyrillic  | --> | Latin |
-| Serbian (Latin) | sr-Latn | Latin | --> | Cyrillic |
-| Tamil | ta | Tamil | --> | Latin |
-| Telugu | te | Telugu | --> | Latin |
-| Thai | th | Thai | <--> | Latin |
+| Arabic | `ar` | Arabic `Arab` | <--> | Latin `Latn` |
+| Assamese | `as` | Bengali `Beng` | <--> | Latin `Latn` |
+| Bangla  | `bn` | Bengali `Beng` | <--> | Latin `Latn` |
+|Belarusian| `be` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
+|Bulgarian| `bg` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
+| Chinese (Simplified) | `zh-Hans` | Chinese Simplified `Hans`| <--> | Latin `Latn` |
+| Chinese (Simplified) | `zh-Hans` | Chinese Simplified `Hans`| <--> | Chinese Traditional `Hant`|
+| Chinese (Traditional) | `zh-Hant` | Chinese Traditional `Hant`| <--> | Latin `Latn` |
+| Chinese (Traditional) | `zh-Hant` | Chinese Traditional `Hant`| <--> | Chinese Simplified `Hans` |
+|Greek| `el` | Greek `Grek`  | <--> | Latin `Latn` |
+| Gujarati | `gu`  | Gujarati `Gujr` | <--> | Latin `Latn` |
+| Hebrew | `he` | Hebrew `Hebr` | <--> | Latin `Latn` |
+| Hindi | `hi` | Devanagari `Deva` | <--> | Latin `Latn` |
+| Japanese | `ja` | Japanese `Jpan` | <--> | Latin `Latn` |
+| Kannada | `kn` | Kannada `Knda` | <--> | Latin `Latn` |
+|Kazakh| `kk` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
+|Korean| `ko` | Korean `Kore`  | <--> | Latin `Latn` |
+|Kyrgyz| `ky` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
+|Macedonian| `mk` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
+| Malayalam | `ml` | Malayalam `Mlym` | <--> | Latin `Latn` |
+| Marathi | `mr` | Devanagari `Deva` | <--> | Latin `Latn` |
+|Mongolian| `mn` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
+| Odia | `or` | Oriya `Orya` | <--> | Latin `Latn` |
+|Persian| `fa` | Arabic `Arab`  | <--> | Latin `Latn` |
+| Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latin `Latn`  |
+|Russian| `ru` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
+| Serbian (Cyrillic) | `sr-Cyrl` | Cyrillic `Cyrl`  | --> | Latin `Latn` |
+| Serbian (Latin) | `sr-Latn` | Latin `Latn` | --> | Cyrillic `Cyrl`|
+|Sindhi| `sd` | Arabic `Arab`  | <--> | Latin `Latn` |
+|Sinhala| `si` | Sinhala `Sinh`  | <--> | Latin `Latn` |
+|Tajik| `tg` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
+| Tamil | `ta` | Tamil `Taml` | <--> | Latin `Latn` |
+|Tatar| `tt` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
+| Telugu | `te` | Telugu `Telu` | <--> | Latin `Latn` |
+| Thai | `th` | Thai `Thai` | --> | Latin `Latn` |
+|Ukrainian| `uk` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
+|Urdu| `ur` | Arabic `Arab`  | <--> | Latin `Latn` |
 
-## Dictionary
+## Other Cognitive Services
+Add additional capabilities to your apps and workflows by utilizing other Cognitive Services with Translator. Language lists for additional services are below.
+* [Computer Vision](../computer-vision/language-support.md) 
+* [Speech](../speech-service/language-support.md) 
+* [Text Analytics ](../text-analytics/language-support.md) 
 
-The dictionary supports the following languages to or from English using the Lookup and Examples methods.
+View all [Cognitive Services](../index.yml). 
 
-| Language    | Language code |
-|:----------- |:-------------:|
-| Afrikaans      | `af`          |
-| Arabic       | `ar`          |
-| Bangla      | `bn`          |
-| Bosnian (Latin)      | `bs`          |
-| Bulgarian      | `bg`          |
-| Catalan      | `ca`          |
-| Chinese Simplified      | `zh-Hans`          |
-| Croatian      | `hr`          |
-| Czech      | `cs`          |
-| Danish      | `da`          |
-| Dutch      | `nl`          |
-| Estonian      | `et`          |
-| Finnish      | `fi`          |
-| French      | `fr`          |
-| German      | `de`          |
-| Greek      | `el`          |
-| Haitian Creole      | `ht`          |
-| Hebrew      | `he`          |
-| Hindi      | `hi`          |
-| Hmong Daw      | `mww`          |
-| Hungarian      | `hu`          |
-| Icelandic    | `is`  |
-| Indonesian      | `id`          |
-| Italian      | `it`          |
-| Japanese      | `ja`          |
-| Kiswahili      | `sw`          |
-| Klingon      | `tlh`          |
-| Korean      | `ko`          |
-| Latvian      | `lv`          |
-| Lithuanian      | `lt`          |
-| Malay      | `ms`          |
-| Maltese      | `mt`          |
-| Norwegian      | `nb`          |
-| Persian      | `fa`          |
-| Polish      | `pl`          |
-| Portuguese      | `pt`          |
-| Romanian      | `ro`          |
-| Russian      | `ru`          |
-| Serbian (Latin)      | `sr-Latn`          |
-| Slovak     | `sk`          |
-| Slovenian      | `sl`          |
-| Spanish      | `es`          |
-| Swedish      | `sv`          |
-| Tamil      | `ta`          |
-| Thai      | `th`          |
-| Turkish      | `tr`          |
-| Ukrainian      | `uk`          |
-| Urdu      | `ur`          |
-| Vietnamese      | `vi`          |
-| Welsh      | `cy`          |
+## Next steps
+* [Text Translation reference](reference/v3-0-reference.md)
+* [Document Translation reference](document-translation/reference/rest-api-guide.md)
+* [Custom Translator overview](custom-translator/overview.md)
 
-## Languages detected by the Detect method
-
-The following languages can be detected by the Detect method. Detect may detect languages that Microsoft Translator can't translate.
-
-| Language    |
-|:----------- |
-| Afrikaans |
-| Albanian |
-| Arabic |
-| Basque |
-| Belarusian |
-| Bulgarian |
-| Catalan |
-| Chinese |
-| Chinese (Simplified) |
-| Chinese (Traditional) |
-| Croatian |
-| Czech |
-| Danish |
-| Dutch |
-| English |
-| Esperanto |
-| Estonian |
-| Finnish |
-| French |
-| Galician |
-| German |
-| Greek |
-| Haitian Creole |
-| Hebrew |
-| Hindi |
-| Hungarian |
-| Icelandic |
-| Indonesian |
-| Irish |
-| Italian |
-| Japanese |
-| Korean |
-| Kurdish (Arabic) |
-| Kurdish (Latin) |
-| Latin |
-| Latvian |
-| Lithuanian |
-| Macedonian |
-| Malay |
-| Maltese |
-| Norwegian |
-| Norwegian (Nynorsk) |
-| Pashto |
-| Persian |
-| Polish |
-| Portuguese |
-| Romanian |
-| Russian |
-| Serbian (Cyrillic) |
-| Serbian (Latin) |
-| Slovak |
-| Slovenian |
-| Somali |
-| Spanish |
-| Swahili |
-| Swedish |
-| Tagalog |
-| Telugu |
-| Thai |
-| Turkish |
-| Ukrainian |
-| Urdu |
-| Uzbek (Cyrillic) |
-| Uzbek (Latin) |
-| Vietnamese |
-| Welsh |
-| Yiddish |
-
-## Access the list programmatically
-
-You can access the list of supported languages programmatically using the Languages operation of the V3.0 Text API. You can view the list by feature, language code, as well as the language name in English or any other supported language. This list is automatically updated by the Microsoft Translator service as new languages become available.
-
-[View Languages operation reference documentation](reference/v3-0-languages.md)
-
-## Access the list on the Microsoft Translator website
-
-For a quick look at the languages, the Microsoft Translator website shows all the languages supported by the Translator Text and Speech APIs. This list doesn't include developer-specific information such as language codes.
-
-[See the list of languages](https://www.microsoft.com/translator/languages.aspx)

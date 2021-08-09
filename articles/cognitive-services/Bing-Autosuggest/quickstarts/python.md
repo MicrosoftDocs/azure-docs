@@ -1,68 +1,82 @@
 ---
-title: "Quickstart: Bing Autosuggest API, Python"
-titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing Autosuggest API.
+title: "Quickstart: Suggest search queries with the Bing Autosuggest REST API and Python"
+titleSuffix: Azure Cognitive Services
+description: Learn how to quickly start suggesting search terms in real time with the Bing Autosuggest API and Python.
 services: cognitive-services
-author: v-jaswel
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 09/14/2017
-ms.author: v-jaswel
+ms.date: 05/06/2020
+ms.author: aahi
+ms.custom: devx-track-python
 ---
-# Quickstart for Bing Autosuggest API with Python
+# Quickstart: Suggest search queries with the Bing Autosuggest REST API and Python
 
-This article shows you how to use the [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) with Python. The Bing Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Typically, you would call this API each time the user types a new character in the search box, and then display the suggestions in the search box's drop down list. This article shows how to send a request that returns the suggested query strings for *sail*.
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
+Follow this quickstart to learn how to make calls to the Bing Autosuggest API and read the JSON response. This simple Python application sends a partial search query to the API, and returns suggestions for searches. While this application is written in Python, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingAutosuggestv7.py)
 
 ## Prerequisites
 
-You will need [Python 3.x](https://www.python.org/downloads/) to run this code.
+* [Python 3.x](https://www.python.org/downloads/) 
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Autosuggest API v7**. The [free trial](https://azure.microsoft.com/try/cognitive-services/#search) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
-## Get Autosuggest results
+## Create a new application
 
-1. Create a new Python project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
-4. Run the program.
+1. Create a new Python file in your favorite IDE or editor. Add the following imports:
 
-```python
-# -*- coding: utf-8 -*-
+    ```python
+    import http.client, urllib.parse, json
+    ```
 
-import http.client, urllib.parse, json
+2. Create variables for your API host and path, [market code](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and partial search query. Use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+    ```python
+    subscriptionKey = 'enter key here'
+    host = 'api.cognitive.microsoft.com'
+    path = '/bing/v7.0/Suggestions'
+    mkt = 'en-US'
+    query = 'sail'
+    ```
 
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = 'enter key here'
+3. Create a parameters string by appending your market code to the `mkt=` parameter, and appending your query to the `q=` parameter.
 
-host = 'api.cognitive.microsoft.com'
-path = '/bing/v7.0/Suggestions'
+    ```python
+    params = '?mkt=' + mkt + '&q=' + query
+    ```
 
-mkt = 'en-US'
-query = 'sail'
+## Create and send an API request
 
-params = '?mkt=' + mkt + '&q=' + query
+1. Add your subscription key to a `Ocp-Apim-Subscription-Key` header.
+    
+    ```python
+    headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
+    ```
 
-def get_suggestions ():
-  "Gets Autosuggest results for a query and returns the information."
+2. Connect to the API using `HTTPSConnection()`, and send the `GET` request containing your request parameters.
+    
+    ```python
+    conn = http.client.HTTPSConnection(host)
+    conn.request ("GET", path + params, None, headers)
+    response = conn.getresponse ()
+    return response.read ()
+    ```
 
-  headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-  conn = http.client.HTTPSConnection(host)
-  conn.request ("GET", path + params, None, headers)
-  response = conn.getresponse ()
-  return response.read ()
+3. Get and print the JSON response.
 
-result = get_suggestions ()
-print (json.dumps(json.loads(result), indent=4))
-```
+    ```python
+    result = get_suggestions ()
+    print (json.dumps(json.loads(result), indent=4))
+    ```
 
-### Response
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -133,9 +147,9 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Autosuggest tutorial](../tutorials/autosuggest.md)
+> [Create a single-page web app](../tutorials/autosuggest.md)
 
 ## See also
 
 - [What is Bing Autosuggest?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

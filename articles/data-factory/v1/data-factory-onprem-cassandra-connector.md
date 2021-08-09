@@ -1,21 +1,11 @@
 ---
-title: Move data from Cassandra using Data Factory | Microsoft Docs
+title: Move data from Cassandra using Data Factory 
 description: Learn about how to move data from an on-premises Cassandra database using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
-
-
-ms.assetid: 085cc312-42ca-4f43-aa35-535b35a102d5
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Move data from an on-premises Cassandra database using Azure Data Factory
@@ -28,7 +18,7 @@ robots: noindex
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises Cassandra database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
-You can copy data from an on-premises Cassandra data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from a Cassandra data store to other data stores, but not for moving data from other data stores to a Cassandra data store. 
+You can copy data from an on-premises Cassandra data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from a Cassandra data store to other data stores, but not for moving data from other data stores to a Cassandra data store.
 
 ## Supported versions
 The Cassandra connector supports the following versions of Cassandra: 2.x and 3.x. For activity running on Self-hosted Integration Runtime, Cassandra 3.x is supported since IR version 3.7 and above.
@@ -36,26 +26,26 @@ The Cassandra connector supports the following versions of Cassandra: 2.x and 3.
 ## Prerequisites
 For the Azure Data Factory service to be able to connect to your on-premises Cassandra database, you must install a Data Management Gateway on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a component that connects on-premises data sources to cloud services in a secure and managed way. See [Data Management Gateway](data-factory-data-management-gateway.md) article for details about Data Management Gateway. See [Move data from on-premises to cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on setting up the gateway a data pipeline to move data.
 
-You must use the gateway to connect to a Cassandra database even if the database is hosted in the cloud, for example, on an Azure IaaS VM. Y You can have the gateway on the same VM that hosts the database or on a separate VM as long as the gateway can connect to the database.  
+You must use the gateway to connect to a Cassandra database even if the database is hosted in the cloud, for example, on an Azure IaaS VM. Y You can have the gateway on the same VM that hosts the database or on a separate VM as long as the gateway can connect to the database.
 
-When you install the gateway, it automatically installs a Microsoft Cassandra ODBC driver used to connect to Cassandra database. Therefore, you don't need to manually install any driver on the gateway machine when copying data from the Cassandra database. 
+When you install the gateway, it automatically installs a Microsoft Cassandra ODBC driver used to connect to Cassandra database. Therefore, you don't need to manually install any driver on the gateway machine when copying data from the Cassandra database.
 
 > [!NOTE]
 > See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
 
 ## Getting started
-You can create a pipeline with a copy activity that moves data from an on-premises Cassandra data store by using different tools/APIs. 
+You can create a pipeline with a copy activity that moves data from an on-premises Cassandra data store by using different tools/APIs.
 
-- The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
-- You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
+- The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
+- You can also use the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
 1. Create **linked services** to link input and output data stores to your data factory.
-2. Create **datasets** to represent input and output data for the copy operation. 
-3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output. 
+2. Create **datasets** to represent input and output data for the copy operation.
+3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output.
 
-When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data from an on-premises Cassandra data store, see [JSON example: Copy data from Cassandra to Azure Blob](#json-example-copy-data-from-cassandra-to-azure-blob) section of this article. 
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format. For a sample with JSON definitions for Data Factory entities that are used to copy data from an on-premises Cassandra data store, see [JSON example: Copy data from Cassandra to Azure Blob](#json-example-copy-data-from-cassandra-to-azure-blob) section of this article.
 
 The following sections provide details about JSON properties that are used to define Data Factory entities specific to a Cassandra data store:
 
@@ -74,7 +64,7 @@ The following table provides description for JSON elements specific to Cassandra
 | encryptedCredential |Credential encrypted by the gateway. |No |
 
 >[!NOTE]
->Currently connection to Cassandra using SSL is not supported.
+>Currently connection to Cassandra using TLS is not supported.
 
 ## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
@@ -99,7 +89,7 @@ When source is of type **CassandraSource**, the following properties are availab
 | consistencyLevel |The consistency level specifies how many replicas must respond to a read request before returning data to the client application. Cassandra checks the specified number of replicas for data to satisfy the read request. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. See [Configuring data consistency](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) for details. |No. Default value is ONE. |
 
 ## JSON example: Copy data from Cassandra to Azure Blob
-This example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). It shows how to copy data from an on-premises Cassandra database to an Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
+This example provides sample JSON definitions that you can use to create a pipeline by using [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). It shows how to copy data from an on-premises Cassandra database to an Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
 > [!IMPORTANT]
 > This sample provides JSON snippets. It does not include step-by-step instructions for creating the data factory. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions.
@@ -114,7 +104,7 @@ The sample has the following data factory entities:
 
 **Cassandra linked service:**
 
-This example uses the **Cassandra** linked service. See [Cassandra linked service](#linked-service-properties) section for the properties supported by this linked service.  
+This example uses the **Cassandra** linked service. See [Cassandra linked service](#linked-service-properties) section for the properties supported by this linked service.
 
 ```json
 {
@@ -141,7 +131,7 @@ This example uses the **Cassandra** linked service. See [Cassandra linked servic
 {
     "name": "AzureStorageLinkedService",
     "properties": {
-    "type": "AzureStorage",
+        "type": "AzureStorage",
         "typeProperties": {
             "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         }
@@ -210,13 +200,13 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 See [RelationalSource type properties](#copy-activity-properties) for the list of properties supported by the RelationalSource.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2016-06-01T18:00:00",
         "end":"2016-06-01T19:00:00",
         "description":"pipeline with copy activity",
-        "activities":[  
+        "activities":[
         {
             "name": "CassandraToAzureBlob",
             "description": "Copy from Cassandra to an Azure blob",
@@ -252,13 +242,13 @@ See [RelationalSource type properties](#copy-activity-properties) for the list o
                 "timeout": "01:00:00"
             }
         }
-        ]    
+        ]
     }
 }
 ```
 
 ### Type mapping for Cassandra
-| Cassandra Type | .Net Based Type |
+| Cassandra Type | .NET Based Type |
 | --- | --- |
 | ASCII |String |
 | BIGINT |Int64 |
@@ -289,14 +279,14 @@ See [RelationalSource type properties](#copy-activity-properties) for the list o
 Azure Data Factory uses a built-in ODBC driver to connect to and copy data from your Cassandra database. For collection types including map, set and list, the driver renormalizes the data into corresponding virtual tables. Specifically, if a table contains any collection columns, the driver generates the following virtual tables:
 
 * A **base table**, which contains the same data as the real table except for the collection columns. The base table uses the same name as the real table that it represents.
-* A **virtual table** for each collection column, which expands the nested data. The virtual tables that represent collections are named using the name of the real table, a separator “*vt*” and the name of the column.
+* A **virtual table** for each collection column, which expands the nested data. The virtual tables that represent collections are named using the name of the real table, a separator "*vt*" and the name of the column.
 
 Virtual tables refer to the data in the real table, enabling the driver to access the denormalized data. See Example section for details. You can access the content of Cassandra collections by querying and joining the virtual tables.
 
 You can use the [Copy Wizard](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity) to intuitively view the list of tables in Cassandra database including the virtual tables, and preview the data inside. You can also construct a query in the Copy Wizard and validate to see the result.
 
 ### Example
-For example, the following “ExampleTable” is a Cassandra database table that contains an integer primary key column named “pk_int”, a text column named value, a list column, a map column, and a set column (named “StringSet”).
+For example, the following "ExampleTable" is a Cassandra database table that contains an integer primary key column named "pk_int", a text column named value, a list column, a map column, and a set column (named "StringSet").
 
 | pk_int | Value | List | Map | StringSet |
 | --- | --- | --- | --- | --- |
@@ -305,16 +295,16 @@ For example, the following “ExampleTable” is a Cassandra database table that
 
 The driver would generate multiple virtual tables to represent this single table. The foreign key columns in the virtual tables reference the primary key columns in the real table, and indicate which real table row the virtual table row corresponds to.
 
-The first virtual table is the base table named “ExampleTable” is shown in the following table. The base table contains the same data as the original database table except for the collections, which are omitted from this table and expanded in other virtual tables.
+The first virtual table is the base table named "ExampleTable" is shown in the following table. The base table contains the same data as the original database table except for the collections, which are omitted from this table and expanded in other virtual tables.
 
 | pk_int | Value |
 | --- | --- |
 | 1 |"sample value 1" |
 | 3 |"sample value 3" |
 
-The following tables show the virtual tables that renormalize the data from the List, Map, and StringSet columns. The columns with names that end with “_index” or “_key” indicate the position of the data within the original list or map. The columns with names that end with “_value” contain the expanded data from the collection.
+The following tables show the virtual tables that renormalize the data from the List, Map, and StringSet columns. The columns with names that end with "_index" or "_key" indicate the position of the data within the original list or map. The columns with names that end with "_value" contain the expanded data from the collection.
 
-#### Table “ExampleTable_vt_List”:
+#### Table "ExampleTable_vt_List":
 | pk_int | List_index | List_value |
 | --- | --- | --- |
 | 1 |0 |1 |
@@ -325,14 +315,14 @@ The following tables show the virtual tables that renormalize the data from the 
 | 3 |2 |102 |
 | 3 |3 |103 |
 
-#### Table “ExampleTable_vt_Map”:
+#### Table "ExampleTable_vt_Map":
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
 | 1 |S1 |A |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
-#### Table “ExampleTable_vt_StringSet”:
+#### Table "ExampleTable_vt_StringSet":
 | pk_int | StringSet_value |
 | --- | --- |
 | 1 |A |

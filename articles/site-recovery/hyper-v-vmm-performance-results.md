@@ -1,12 +1,12 @@
 ---
-title: Test results for replication of Hyper-V VMs in VMM clouds to a secondary site with Azure Site Recovery | Microsoft Docs
+title: Test Hyper-V VM replication to a secondary site with VMM using Azure Site Recovery 
 description: This article provides information about performance testing for replication of Hyper-V VMs in VMM clouds to a secondary site using Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
-ms.author: raynew
+ms.date: 12/27/2018
+ms.author: sutalasi
 
 ---
 # Test results for Hyper-V replication to a secondary site
@@ -42,7 +42,7 @@ Here's what we did in the test pass:
 * Hyper-V Replica utilizes self-maintained memory cache to minimize IOPS overhead for tracking. It stores writes to the VHDX in memory, and flushes them into the log file before the time that the log is sent to the recovery site. A disk flush also happens if the writes hit a predetermined limit.
 * The graph below shows the steady state IOPS overhead for replication. We can see that the IOPS overhead due to replication is around 5%, which is quite low.
 
-  ![Primary results](./media/hyper-v-vmm-performance-results/IC744913.png)
+  ![Graph that shows the steady state IOPS overhead for replication.](./media/hyper-v-vmm-performance-results/IC744913.png)
 
 Hyper-V Replica uses memory on the primary server, to optimize disk performance. As shown in the following graph, memory overhead on all servers in the primary cluster is marginal. The memory overhead shown is the percentage of memory used by replication, compared to the total installed memory on the Hyper-V server.
 
@@ -50,20 +50,20 @@ Hyper-V Replica uses memory on the primary server, to optimize disk performance.
 
 Hyper-V Replica has minimum CPU overhead. As shown in the graph, replication overhead is in the range of 2-3%.
 
-![Primary results](./media/hyper-v-vmm-performance-results/IC744915.png)
+![Graph that shows replication overhead is in the range of 2-3%.](./media/hyper-v-vmm-performance-results/IC744915.png)
 
 ## Secondary server performance
 
 Hyper-V Replica uses a small amount of memory on the recovery server, to optimize the number of storage operations. The graph summarizes the memory usage on the recovery server. The memory overhead shown is the percentage of memory used by replication, compared to the total installed memory on the Hyper-V server.
 
-![Secondary results](./media/hyper-v-vmm-performance-results/IC744916.png)
+![Graph that summarizes the memory usage on the recovery server.](./media/hyper-v-vmm-performance-results/IC744916.png)
 
 The amount of I/O operations on the recovery site is a function of the number of write operations on the primary site. Let’s look at the total I/O operations on the recovery site in comparison with the total I/O operations and write operations on the primary site. The graphs show that the total IOPS on the recovery site is
 
 * Around 1.5 times the write IOPS on the primary.
 * Around 37% of the total IOPS on the primary site.
 
-![Secondary results](./media/hyper-v-vmm-performance-results/IC744917.png)
+![Graph that shows a comparison of IOPS on primary and secondary sites.](./media/hyper-v-vmm-performance-results/IC744917.png)
 
 ![Secondary results](./media/hyper-v-vmm-performance-results/IC744918.png)
 
@@ -103,7 +103,7 @@ The results clearly show that Site Recovery, coupled with Hyper-V Replica, scale
 
 | Server | RAM | Model | Processor | Number of processors | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Hyper-V servers in cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB-HOST25 has 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
+| Hyper-V servers in cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128<br />ESTLAB-HOST25 has 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
 | VMM Server |2 | | |2 |1 Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
 
 ### Secondary site
@@ -128,11 +128,11 @@ The results clearly show that Site Recovery, coupled with Hyper-V Replica, scale
 
 | Workload | I/O size (KB) | % Access | %Read | Outstanding I/Os | I/O pattern |
 | --- | --- | --- | --- | --- | --- |
-| File Server |48163264 |60%20%5%5%10% |80%80%80%80%80% |88888 |All 100% random |
-| SQL Server (volume 1)SQL Server (volume 2) |864 |100%100% |70%0% |88 |100% random100% sequential |
+| File Server |4<br />8<br />16<br />32<br />64 |60%<br />20%<br />5%<br />5%<br />10% |80%<br />80%<br />80%<br />80%<br />80% |8<br />8<br />8<br />8<br />8 |All 100% random |
+| SQL Server (volume 1)<br />SQL Server (volume 2) |8<br />64 |100%<br />100% |70%<br />0% |8<br />8 |100% random<br />100% sequential |
 | Exchange |32 |100% |67% |8 |100% random |
-| Workstation/VDI |464 |66%34% |70%95% |11 |Both 100% random |
-| Web File Server |4864 |33%34%33% |95%95%95% |888 |All 75% random |
+| Workstation/VDI |4<br />64 |66%<br />34% |70%<br />95% |1<br />1 |Both 100% random |
+| Web File Server |4<br />8<br />64 |33%<br />34%<br />33% |95%<br />95%<br />95% |8<br />8<br />8 |All 75% random |
 
 ### VM configuration
 
@@ -170,10 +170,10 @@ The table summarizes the performance metrics and counters that were measured in 
 | CPU |\Processor(_Total)\% Processor Time |
 | Available memory |\Memory\Available MBytes |
 | IOPS |\PhysicalDisk(_Total)\Disk Transfers/sec |
-| VM read (IOPS) operations/sec |\Hyper-V Virtual Storage Device(<VHD>)\Read Operations/Sec |
-| VM write (IOPS) operations/sec |\Hyper-V Virtual Storage Device(<VHD>)\Write Operations/S |
-| VM read throughput |\Hyper-V Virtual Storage Device(<VHD>)\Read Bytes/sec |
-| VM write throughput |\Hyper-V Virtual Storage Device(<VHD>)\Write Bytes/sec |
+| VM read (IOPS) operations/sec |\Hyper-V Virtual Storage Device(\<VHD>)\Read Operations/Sec |
+| VM write (IOPS) operations/sec |\Hyper-V Virtual Storage Device(\<VHD>)\Write Operations/S |
+| VM read throughput |\Hyper-V Virtual Storage Device(\<VHD>)\Read Bytes/sec |
+| VM write throughput |\Hyper-V Virtual Storage Device(\<VHD>)\Write Bytes/sec |
 
 ## Next steps
 

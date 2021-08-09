@@ -1,25 +1,23 @@
 ---
-title: Change a VMs availability set | Microsoft Docs
-description: Learn how to change the availability set for your virtual machines using Azure PowerShell and the Resource Manager deployment model.
-keywords: ''
-services: virtual-machines-windows
-documentationcenter: ''
-author: zr-msft
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
-ms.date: 05/30/2018
-ms.author: zarhoads
-
+title: Change a VMs availability set using Azure PowerShell
+description: Learn how to change the availability set for your virtual machine using Azure PowerShell.
+ms.service: virtual-machines
+author: cynthn
+ms.topic: how-to
+ms.date: 3/8/2021
+ms.author: cynthn
+ms.reviewer: mimckitt 
+ms.custom: devx-track-azurepowershell
 ---
-# Change the availability set for a Windows VM
+# Change the availability set for a VM using Azure PowerShell    
 The following steps describe how to change the availability set of a VM using Azure PowerShell. A VM can only be added to an availability set when it is created. To change the availability set, you need to delete and then recreate the virtual machine. 
+
+This article applies to both Linux and Windows VMs.
+
+This article was last tested on 2/12/2019 using the [Azure Cloud Shell](https://shell.azure.com/powershell) and the [Az PowerShell module](/powershell/azure/install-az-ps) version 1.2.0.
+
+This example does not check to see if the VM is attached to a load balancer. If your VM is attached to a load balancer, you will need to update the script to handle that case. Some extensions may also need to be reinstalled after you finish this process.
+
 
 ## Change the availability set 
 
@@ -31,68 +29,77 @@ The following script provides an example of gathering the required information, 
     $vmName = "myVM"
     $newAvailSetName = "myAvailabilitySet"
 
-# Get the details of the VM to be moved to the Availablity Set
-    $originalVM = Get-AzureRmVM `
-	   -ResourceGroupName $resourceGroup `
-	   -Name $vmName
+# Get the details of the VM to be moved to the Availability Set
+    $originalVM = Get-AzVM `
+       -ResourceGroupName $resourceGroup `
+       -Name $vmName
 
 # Create new availability set if it does not exist
-    $availSet = Get-AzureRmAvailabilitySet `
-	   -ResourceGroupName $resourceGroup `
-	   -Name $newAvailSetName `
-	   -ErrorAction Ignore
+    $availSet = Get-AzAvailabilitySet `
+       -ResourceGroupName $resourceGroup `
+       -Name $newAvailSetName `
+       -ErrorAction Ignore
     if (-Not $availSet) {
-    $availSet = New-AzureRmAvailabilitySet `
-	   -Location $originalVM.Location `
-	   -Name $newAvailSetName `
-	   -ResourceGroupName $resourceGroup `
-	   -PlatformFaultDomainCount 2 `
-	   -PlatformUpdateDomainCount 2 `
-	   -Sku Aligned
+    $availSet = New-AzAvailabilitySet `
+       -Location $originalVM.Location `
+       -Name $newAvailSetName `
+       -ResourceGroupName $resourceGroup `
+       -PlatformFaultDomainCount 2 `
+       -PlatformUpdateDomainCount 2 `
+       -Sku Aligned
     }
     
 # Remove the original VM
-    Remove-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName    
+    Remove-AzVM -ResourceGroupName $resourceGroup -Name $vmName    
 
-# Create the basic configuration for the replacement VM
-    $newVM = New-AzureRmVMConfig `
-	   -VMName $originalVM.Name `
-	   -VMSize $originalVM.HardwareProfile.VmSize `
-	   -AvailabilitySetId $availSet.Id
-  
-    Set-AzureRmVMOSDisk `
-	   -VM $newVM -CreateOption Attach `
-	   -ManagedDiskId $originalVM.StorageProfile.OsDisk.ManagedDisk.Id `
-	   -Name $originalVM.StorageProfile.OsDisk.Name `
-	   -Windows
+# Create the basic configuration for the replacement VM. 
+    $newVM = New-AzVMConfig `
+       -VMName $originalVM.Name `
+       -VMSize $originalVM.HardwareProfile.VmSize `
+       -AvailabilitySetId $availSet.Id
+ 
+# For a Linux VM, change the last parameter from -Windows to -Linux 
+    Set-AzVMOSDisk `
+       -VM $newVM -CreateOption Attach `
+       -ManagedDiskId $originalVM.StorageProfile.OsDisk.ManagedDisk.Id `
+       -Name $originalVM.StorageProfile.OsDisk.Name `
+       -Windows
 
 # Add Data Disks
     foreach ($disk in $originalVM.StorageProfile.DataDisks) { 
-    Add-AzureRmVMDataDisk -VM $newVM `
-	   -Name $disk.Name `
-	   -ManagedDiskId $disk.ManagedDisk.Id `
-	   -Caching $disk.Caching `
-	   -Lun $disk.Lun `
-	   -DiskSizeInGB $disk.DiskSizeGB `
-	   -CreateOption Attach
+    Add-AzVMDataDisk -VM $newVM `
+       -Name $disk.Name `
+       -ManagedDiskId $disk.ManagedDisk.Id `
+       -Caching $disk.Caching `
+       -Lun $disk.Lun `
+       -DiskSizeInGB $disk.DiskSizeGB `
+       -CreateOption Attach
     }
     
-# Add NIC(s)
-    foreach ($nic in $originalVM.NetworkProfile.NetworkInterfaces) {
-        Add-AzureRmVMNetworkInterface `
-		   -VM $newVM `
-		   -Id $nic.Id
-    }
+# Add NIC(s) and keep the same NIC as primary; keep the Private IP too, if it exists. 
+    foreach ($nic in $originalVM.NetworkProfile.NetworkInterfaces) {	
+    if ($nic.Primary -eq "True")
+    {
+            Add-AzVMNetworkInterface `
+               -VM $newVM `
+               -Id $nic.Id -Primary
+               }
+           else
+               {
+                 Add-AzVMNetworkInterface `
+                -VM $newVM `
+                 -Id $nic.Id 
+                }
+      }
 
 # Recreate the VM
-    New-AzureRmVM `
-	   -ResourceGroupName $resourceGroup `
-	   -Location $originalVM.Location `
-	   -VM $newVM `
-	   -DisableBginfoExtension
+    New-AzVM `
+       -ResourceGroupName $resourceGroup `
+       -Location $originalVM.Location `
+       -VM $newVM `
+       -DisableBginfoExtension
 ```
 
 ## Next steps
 
-Add additional storage to your VM by adding an additional [data disk](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
+Add additional storage to your VM by adding an additional [data disk](attach-managed-disk-portal.md).

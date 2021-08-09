@@ -1,23 +1,14 @@
 ---
-title: Use .NET SDK for Microsoft Azure StorSimple Data Manager jobs | Microsoft Docs
-description: Learn how to use .NET SDK to launch StorSimple Data Manager jobs
-services: storsimple
-documentationcenter: NA
+title: Use .NET SDK for Microsoft Azure StorSimple Data Manager jobs
+description: Learn how to use the .NET SDK within the StorSimple Data Manager service to transform StorSimple device data.
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
 ---
 
-# Use the .Net SDK to initiate data transformation
+# Use the .NET SDK to initiate data transformation
 
 ## Overview
 
@@ -25,10 +16,10 @@ This article explains how you can use the data transformation feature within the
 
 You can launch a data transformation job in two ways:
 
- - Use the .NET SDK
- - Use Azure Automation runbook
+- Use the .NET SDK
+- Use Azure Automation runbook
  
- This article details how to create a sample .NET console application to initiate a data transformation job and then track it for completion. To learn more about how to initiate data transformation via Automation, go to [Use Azure Automation runbook to trigger data transformation jobs](storsimple-data-manager-job-using-automation.md).
+  This article details how to create a sample .NET console application to initiate a data transformation job and then track it for completion. To learn more about how to initiate data transformation via Automation, go to [Use Azure Automation runbook to trigger data transformation jobs](storsimple-data-manager-job-using-automation.md).
 
 ## Prerequisites
 
@@ -37,7 +28,7 @@ Before you begin, ensure that you have:
 
     - Visual Studio 2012, 2013, 2015, or 2017.
 
-    - Azure Powershell. [Download Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+    - Azure Powershell. [Download Azure Powershell](/powershell/azure/).
 *	A correctly configured job definition in StorSimple Data Manager within a resource group.
 *	All the required dlls. Download these dlls from the [GitHub repository](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
 *	[`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) script from the GitHub repository.
@@ -76,16 +67,16 @@ Perform the following steps to use .NET to launch a data transformation job.
 
         ![Create a project 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-1.png)
 
-4.	Now, add all dlls present in the [dlls folder](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) as **References** in the project that you created. To add the dll files, perform the following:
+4. Now, add all dlls present in the [dlls folder](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) as **References** in the project that you created. To add the dll files, perform the following:
 
-    1. In Visual Studio, go to **View > Solution Explorer**.
-    2. Click the arrow to the left of Data Transformation App project. Click **References** and then right-click to **Add Reference**.
+   1. In Visual Studio, go to **View > Solution Explorer**.
+   2. Click the arrow to the left of Data Transformation App project. Click **References** and then right-click to **Add Reference**.
     
-        ![Add dlls 1](media/storsimple-data-manager-dotnet-jobs/create-new-project-4.png)
+       ![Add dlls 1](media/storsimple-data-manager-dotnet-jobs/create-new-project-4.png)
 
-    3. Browse to the location of the packages folder, select all the dlls and click **Add**, and then click **OK**.
+   3. Browse to the location of the packages folder, select all the dlls and click **Add**, and then click **OK**.
 
-        ![Add dlls 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
+       ![Add dlls 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
 
 5. Add the following **using** statements to the source file (Program.cs) in the project.
 
@@ -192,9 +183,9 @@ Perform the following steps to use .NET to launch a data transformation job.
     Console.Read();
 
     ```
- Here is a screenshot of the entire code sample used to trigger the job using .NET.
+    Here is a screenshot of the entire code sample used to trigger the job using .NET.
 
- ![Full snippet of code to trigger a .NET job](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
+    ![Full snippet of code to trigger a .NET job](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
 
 ## Next steps
 

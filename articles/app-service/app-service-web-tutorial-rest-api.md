@@ -1,26 +1,16 @@
 ---
-title: RESTful API with CORS in Azure App Service | Microsoft Docs
-description: Learn how Azure App Service helps you host your RESTful APIs with CORS support.
-services: app-service\api
-documentationcenter: dotnet
-author: cephalin
-manager: cfowler
-editor: ''
-
+title: 'Tutorial: Host RESTful API with CORS'
+description: Learn how Azure App Service helps you host your RESTful APIs with CORS support. App Service can host both front-end web apps and back end APIs.
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 02/28/2018
-ms.author: cephalin
-ms.custom: mvc, devcenter
-
+ms.date: 04/28/2020
+ms.custom: "devx-track-csharp, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seodec18, devx-track-azurecli"
 ---
+
 # Tutorial: Host a RESTful API with CORS in Azure App Service
 
-[Azure App Service](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. In addition, App Service has built-in support for [Cross-Origin Resource Sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) for RESTful APIs. This tutorial shows how to deploy an ASP.NET Core API app to App Service with CORS support. You configure the app using command-line tools and deploy the app using Git. 
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. In addition, App Service has built-in support for [Cross-Origin Resource Sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) for RESTful APIs. This tutorial shows how to deploy an ASP.NET Core API app to App Service with CORS support. You configure the app using command-line tools and deploy the app using Git. 
 
 In this tutorial, you learn how to:
 
@@ -37,8 +27,8 @@ You can follow the steps in this tutorial on macOS, Linux, Windows.
 
 To complete this tutorial:
 
-* [Install Git](https://git-scm.com/).
-* [Install .NET Core](https://www.microsoft.com/net/core/).
+* <a href="https://git-scm.com/" target="_blank">Install Git</a>
+ * <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Install the latest .NET Core 3.1 SDK</a>
 
 ## Create local ASP.NET Core app
 
@@ -68,7 +58,7 @@ dotnet run
 
 Navigate to `http://localhost:5000/swagger` in a browser to play with the Swagger UI.
 
-![ASP.NET Core API running locally](./media/app-service-web-tutorial-rest-api/local-run.png)
+![ASP.NET Core API running locally](./media/app-service-web-tutorial-rest-api/azure-app-service-local-swagger-ui.png)
 
 Navigate to `http://localhost:5000/api/todo` and see a list of ToDo JSON items.
 
@@ -102,37 +92,38 @@ In this step, you deploy your SQL Database-connected .NET Core application to Ap
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-```bash
-Counting objects: 98, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (92/92), done.
-Writing objects: 100% (98/98), 524.98 KiB | 5.58 MiB/s, done.
-Total 98 (delta 8), reused 0 (delta 0)
+<pre>
+Enumerating objects: 83, done.
+Counting objects: 100% (83/83), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (78/78), done.
+Writing objects: 100% (83/83), 22.15 KiB | 3.69 MiB/s, done.
+Total 83 (delta 26), reused 0 (delta 0)
 remote: Updating branch 'master'.
-remote: .
 remote: Updating submodules.
-remote: Preparing deployment for commit id '0c497633b8'.
+remote: Preparing deployment for commit id '509236e13d'.
 remote: Generating deployment script.
-remote: Project file path: ./DotNetCoreSqlDb.csproj
+remote: Project file path: .\TodoApi.csproj
+remote: Generating deployment script for ASP.NET MSBuild16 App
 remote: Generated deployment script files
 remote: Running deployment command...
-remote: Handling ASP.NET Core Web Application deployment.
+remote: Handling ASP.NET Core Web Application deployment with MSBuild16.
 remote: .
 remote: .
 remote: .
 remote: Finished successfully.
 remote: Running post deployment command(s)...
+remote: Triggering recycle (preview mode disabled).
 remote: Deployment successful.
-remote: App container will begin restart within 10 seconds.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+To https://&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git
  * [new branch]      master -> master
-```
+</pre>
 
-### Browse to the Azure web app
+### Browse to the Azure app
 
 Navigate to `http://<app_name>.azurewebsites.net/swagger` in a browser and play with the Swagger UI.
 
-![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-rest-api/azure-run.png)
+![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-rest-api/azure-app-service-browse-app.png)
 
 Navigate to `http://<app_name>.azurewebsites.net/swagger/v1/swagger.json` to see the _swagger.json_ for your deployed API.
 
@@ -156,7 +147,7 @@ dotnet run
 
 Navigate to the browser app at `http://localhost:5000`. Open the developer tools window in your browser (`Ctrl`+`Shift`+`i` in Chrome for Windows) and inspect the **Console** tab. You should now see the error message, `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
 
-![CORS error in browser client](./media/app-service-web-tutorial-rest-api/cors-error.png)
+![CORS error in browser client](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
 
 Because of the domain mismatch between the browser app (`http://localhost:5000`) and remote resource (`http://<app_name>.azurewebsites.net`), and the fact that your API in App Service is not sending the `Access-Control-Allow-Origin` header, your browser has prevented cross-domain content from loading in your browser app.
 
@@ -164,19 +155,25 @@ In production, your browser app would have a public URL instead of the localhost
 
 ### Enable CORS 
 
-In the Cloud Shell, enable CORS to your client's URL by using the [`az resource update`](/cli/azure/resource#az-resource-update) command. Replace the _&lt;appname>_ placeholder.
+In the Cloud Shell, enable CORS to your client's URL by using the [`az webapp cors add`](/cli/azure/webapp/cors#az_webapp_cors_add) command. Replace the _&lt;app-name>_ placeholder.
 
 ```azurecli-interactive
-az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.cors.allowedOrigins="['http://localhost:5000']" --api-version 2015-06-01
+az webapp cors add --resource-group myResourceGroup --name <app-name> --allowed-origins 'http://localhost:5000'
 ```
 
 You can set more than one client URL in `properties.cors.allowedOrigins` (`"['URL1','URL2',...]"`). You can also enable all client URLs with `"['*']"`.
+
+> [!NOTE]
+> If your app requires credentials such as cookies or authentication tokens to be sent, the browser may require the `ACCESS-CONTROL-ALLOW-CREDENTIALS` header on the response. To enable this in App Service, set `properties.cors.supportCredentials` to `true` in your CORS config. This cannot be enabled when `allowedOrigins` includes `'*'`.
+
+> [!NOTE]
+> Specifying `AllowAnyOrigin` and `AllowCredentials` is an insecure configuration and can result in cross-site request forgery. The CORS service returns an invalid CORS response when an app is configured with both methods.
 
 ### Test CORS again
 
 Refresh the browser app at `http://localhost:5000`. The error message in the **Console** window is now gone, and you can see the data from the deployed API and interact with it. Your remote API now supports CORS to your browser app running locally. 
 
-![CORS success in browser client](./media/app-service-web-tutorial-rest-api/cors-success.png)
+![CORS success in browser client](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-success.png)
 
 Congratulations, you're running an API in Azure App Service with CORS support.
 
@@ -204,4 +201,4 @@ What you learned:
 Advance to the next tutorial to learn how to authenticate and authorize users.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Authenticate and authorize users end-to-end](app-service-web-tutorial-auth-aad.md)
+> [Tutorial: Authenticate and authorize users end-to-end](tutorial-auth-aad.md)

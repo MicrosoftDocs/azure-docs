@@ -1,42 +1,26 @@
 ---
  title: include file
  description: include file
- services: billing
- author: rothja
- ms.service: billing
+ services: azure-resource-manager
+ author: tfitzmac
+ ms.service: cost-management-billing
  ms.topic: include
- ms.date: 10/19/2018
- ms.author: jroth
+ ms.date: 06/04/2021
+ ms.author: tomfitz
  ms.custom: include file
 ---
 
-| Resource | Default Limit | Maximum Limit |
-| --- | --- | --- |
-| VMs per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |10,000 <sup>1</sup> per Region |10,000 per Region |
-| VM total cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region | Contact support |
-| VM per series (Dv2, F, etc.) cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region | Contact support |
-| [Co-administrators](../articles/billing-add-change-azure-subscription-administrator.md) per subscription |Unlimited |Unlimited |
-| [Storage accounts](../articles/storage/common/storage-quickstart-create-account.md) per region per subscription |200 |200<sup>2</sup> |
-| [Resource Groups](../articles/azure-resource-manager/resource-group-overview.md) per subscription |980 |980 |
-| [Availability Sets](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per subscription |2,000 per Region |2,000 per Region |
-| Resource Manager API request size |4,194,304 bytes |4,194,304 bytes |
-| Tags per subscription<sup>3</sup> |unlimited |unlimited |
-| Unique tag calculations per subscription<sup>3</sup> | 10,000 | 10,000 |
-| [Cloud services](../articles/cloud-services/cloud-services-choose-me.md) per subscription |Not Applicable<sup>4</sup> |Not Applicable<sup>4</sup> |
-| [Affinity groups](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per subscription |Not Applicable<sup>4</sup> |Not Applicable<sup>4</sup> |
-| [Subscription level deployments](../articles/azure-resource-manager/deploy-to-subscription.md) per location | 800 | 800 |
+| Resource | Limit |
+| --- | --- |
+| Subscriptions [associated with an Azure Active Directory tenant](../articles/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) | Unlimited |
+| [Coadministrators](../articles/cost-management-billing/manage/add-change-subscription-administrator.md) per subscription |Unlimited |
+| [Resource groups](../articles/azure-resource-manager/management/overview.md) per subscription |980 |
+| Azure Resource Manager API request size |4,194,304 bytes |
+| Tags per subscription<sup>1</sup> |50 |
+| Unique tag calculations per subscription<sup>1</sup> | 80,000 |
+| [Subscription-level deployments](../articles/azure-resource-manager/templates/deploy-to-subscription.md) per location | 800<sup>2</sup> |
+| Locations of [Subscription-level deployments](../articles/azure-resource-manager/templates/deploy-to-subscription.md) | 10 |
 
-<sup>1</sup>Default limits vary by offer Category Type, such as Free Trial, Pay-As-You-Go, and series, such as Dv2, F, G, etc.
+<sup>1</sup>You can apply up to 50 tags directly to a subscription. However, the subscription can contain an unlimited number of tags that are applied to resource groups and resources within the subscription. The number of tags per resource or resource group is limited to 50. Resource Manager returns a [list of unique tag name and values](/rest/api/resources/tags) in the subscription only when the number of tags is 80,000 or less. You still can find a resource by tag when the number exceeds 80,000.
 
-<sup>2</sup>This includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts.
-
-<sup>3</sup>You can apply an unlimited number of tags per subscription. The number of tags per resource or resource group is limited to 15. Resource Manager only returns a [list of unique tag name and values](/rest/api/resources/tags#Tags_List) in the subscription when the number of tags is 10,000 or less. However, you can still find a resource by tag when the number exceeds 10,000.  
-
-<sup>4</sup>These features are no longer required with Azure Resource Groups and the Azure Resource Manager.
-
-> [!NOTE]
-> It is important to emphasize that virtual machine cores have a regional total limit as well as a regional per size series (Dv2, F, etc.) limit that are separately enforced.  For example, consider a subscription with a US East total VM core limit of 30, an A series core limit of 30, and a D series core limit of 30.  This subscription would be allowed to deploy 30 A1 VMs, or 30 D1 VMs, or a combination of the two not to exceed a total of 30 cores (for example, 10 A1 VMs and 20 D1 VMs).  
-> <!-- -->
-> 
-> 
-
+<sup>2</sup>Deployments are automatically deleted from the history as you near the limit. For more information, see [Automatic deletions from deployment history](../articles/azure-resource-manager/templates/deployment-history-deletions.md).

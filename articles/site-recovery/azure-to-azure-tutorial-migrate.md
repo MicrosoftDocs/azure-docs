@@ -1,140 +1,156 @@
 ---
-title: Migrate Azure IaaS VMs to another Azure region using the Azure Site Recovery service | Microsoft Docs
-description: Use Azure Site Recovery to migrate Azure IaaS VMs from one Azure region to another.
+title: Move Azure VMs to a different Azure region with Azure Site Recovery 
+description: Use Azure Site Recovery to move Azure VMs from one Azure region to another.
 services: site-recovery
-author: rayne-wiselman
+author: Sharmistha-Rai
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/28/2018
-ms.author: raynew
-ms.custom: MVC
+ms.date: 01/28/2019
+ms.author: sharrai
+ms.custom: MVC 
 ---
 
-# Migrate Azure VMs to another region
+# Move VMs to another Azure region
 
-In addition to using the [Azure Site Recovery](site-recovery-overview.md) service to manage and orchestrate disaster recovery of on-premises machines and Azure VMs for the purposes of business continuity and disaster recovery (BCDR), you can also use Site Recovery to manage migration of Azure VMs to a secondary region. To migrate Azure VMs, you enable replication for them, and fail them over from the primary region to the secondary region of your choice.
+There are scenarios in which you'd want to move your existing Azure IaaS virtual machines (VMs) from one region to another. For example, you want to improve reliability and availability of your existing VMs, to improve manageability, or to move for governance reasons. For more information, see the [Azure VM move overview](azure-to-azure-move-overview.md). 
 
-This tutorial shows you how to migrate Azure VMs to another region. In this tutorial, you learn how to:
+You can use [Azure Site Recovery](site-recovery-overview.md) service to move Azure VMs to a secondary region.
+
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a Recovery services vault
-> * Enable replication for a VM
-> * Run a failover to migrate the VM
+> 
+> * Verify prerequisites for the move
+> * Prepare the source VMs and the target region
+> * Copy the data and enable replication
+> * Test the configuration and perform the move
+> * Delete the resources in the source region
 
-This tutorial presumes you already have an Azure subscription. If you don't, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
+
+> [!IMPORTANT]
+> To move Azure VMs to another region, we now recommend using [Azure Resource Mover](../resource-mover/tutorial-move-region-virtual-machines.md). Resource Mover is in public preview and provides:
+> - A single hub for moving resources across regions.
+> - Reduced move time and complexity. Everything you need is in a single location.
+> - A simple and consistent experience for moving different types of Azure resources.
+> - An easy way to identify dependencies across resources you want to move. This helps you to move related resources together, so that everything works as expected in the target region, after the move.
+> - Automatic cleanup of resources in the source region, if you want to delete them after the move.
+> - Testing. You can try out a move, and then discard it if you don't want to do a full move.
 
 
 
-
+> [!NOTE]
+> This tutorial shows you how to move Azure VMs from one region to another as is. If you need to improve availability by moving VMs in an availability set to zone pinned VMs in a different region, see the [Move Azure VMs into Availability Zones tutorial](move-azure-vms-avset-azone.md).
 
 ## Prerequisites
 
-- Make sure you have Azure VMs in the Azure region from which you want to migrate.
+- Make sure that the Azure VMs are in the Azure region from which you want to move.
+- Verify that your choice of [source region - target region combination is supported](./azure-to-azure-support-matrix.md#region-support), and make an informed decision about the target region.
 - Make sure that you understand the [scenario architecture and components](azure-to-azure-architecture.md).
 - Review the [support limitations and requirements](azure-to-azure-support-matrix.md).
+- Verify account permissions. If you created your free Azure account, you're the administrator of your subscription. If you're not the subscription administrator, work with the administrator to assign the permissions that you need. To enable replication for a VM and essentially copy data by using Azure Site Recovery, you must have:
 
-
-
-## Before you start
-
-Before you set up replication, complete these steps.
-
-
-### Verify target resources
-
-1. Verify that your Azure subscription allows you to create VMs in the target region used for disaster recovery. Contact support to enable the required quota.
-
-2. Make sure your subscription has enough resources to support VMs with sizes that match your source VMs. Site Recovery picks the same size or the closest possible size for the target VM.
-
-
-### Verify account permissions
-
-If you have just created your free Azure account then you are the administrator of your subscription. If you are not the subscription administrator, work with the administrator to assign the permissions you need. To enable replication for a new VM, you must have:
-
-1. Permissions to create a VM in Azure resources. The 'Virtual Machine Contributor' built-in role has these permissions, which include:
+    - Permissions to create a VM in Azure resources. The Virtual Machine Contributor built-in role has these permissions, which include:
     - Permission to create a VM in the selected resource group
     - Permission to create a VM in the selected virtual network
     - Permission to write to the selected storage account
+    
+    - Permissions to manage Azure Site Recovery operations. The Site Recovery Contributor role has all the permissions that are required to manage Site Recovery operations in a Recovery Services vault.
 
-2. You also need permission to manage Azure Site Recovery operations. The 'Site Recovery Contributor' role has all permissions required to manage Site Recovery operations in a Recovery Services vault.
-
-
-### Verify VM outbound access
-
-1. Make sure you're not using an authentication proxy to control network connectivity for VMs you want to migrate. 
-2. For the purposes of this tutorial we assume that the VMs you want to migrate can access the internet, and are not using a firewall proxy to control outbound access. If you are, check the requirements [here](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
-
-### Verify VM certificates
-
-Check that all the latest root certificates are present on the Azure VMs you want to migrate. If the latest root certificates aren't, the VM can't be registered to Site
-Recovery, due to security constraints.
+- Make sure that all the latest root certificates are on the Azure VMs that you want to move. If the latest root certificates aren't on the VM, security constraints will prevent the data copy to the target region.
 
 - For Windows VMs, install all the latest Windows updates on the VM, so that all the trusted root certificates are on the machine. In a disconnected environment, follow the standard Windows Update and certificate update processes for your organization.
-- For Linux VMs, follow the guidance provided by your Linux distributor, to get the latest trusted root certificates and certificate revocation list on the VM.
+    
+- For Linux VMs, follow the guidance provided by your Linux distributor to get the latest trusted root certificates and certificate revocation list on the VM.
+- Make sure that you're not using an authentication proxy to control network connectivity for VMs that you want to move.
+
+- If the VM that you're trying to move doesn't have access to the internet, or it's using a firewall proxy to control outbound access, [check the requirements](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity).
+
+- Identify the source networking layout and all the resources that you're currently using. This includes but isn't limited to load balancers, network security groups (NSGs), and public IPs.
+
+- Verify that your Azure subscription allows you to create VMs in the target region that's used for disaster recovery. Contact support to enable the required quota.
+
+- Make sure that your subscription has enough resources to support VMs with sizes that match your source VMs. If you're using Site Recovery to copy data to the target, Site Recovery chooses the same size or the closest possible size for the target VM.
+
+- Make sure that you create a target resource for every component that's identified in the source networking layout. This step is important to ensure that your VMs have all the functionality and features in the target region that you had in the source region.
+
+     > [!NOTE] 
+     > Azure Site Recovery automatically discovers and creates a virtual network when you enable replication for the source VM. You can also pre-create a network and assign it to the VM in the user flow for enable replication. As mentioned later, you need to manually create any other resources in the target region.
+
+    To create the most commonly used network resources that are relevant for you based on the source VM configuration, see the following documentation:
+    - [Network security groups](../virtual-network/manage-network-security-group.md)
+    - [Load balancers](../load-balancer/index.yml)
+    -  [Public IP](../virtual-network/virtual-network-public-ip-address.md)
+    - For any other networking components, see the [networking documentation](../index.yml?pivot=products&panel=network).
 
 
 
-## Create a vault
+## Prepare
+The following steps shows how to prepare the virtual machine for the move using Azure Site Recovery as a solution. 
 
-Create the vault in any region, except the source region.
+### Create the vault in any region, except the source region
 
-1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
-2. Click **Create a resource** > **Monitoring & Management** > **Backup and Site Recovery**.
-3. In **Name**, specify the friendly name **ContosoVMVault**. If you have more than one
-   subscription, select the appropriate one.
-4. Create a resource group **ContosoRG**.
-5. Specify an Azure region. To check supported regions, see geographic availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).
-6. To quickly access the vault from the dashboard, click **Pin to dashboard** and then click **Create**.
+1. Sign in to the [Azure portal](https://portal.azure.com)
+1. In search, type Recovery Services > click Recovery Services vaults
+1. In Recovery Services vaults menu, click +Add.
+1. In **Name**, specify the friendly name **ContosoVMVault**. If you have more than one subscription, select the appropriate one.
+1. Create the resource group **ContosoRG**.
+1. Specify an Azure region. To check supported regions, see geographic availability in [Azure Site Recovery pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).
+1. In **Recovery Services vaults**, select **ContosoVMVault** > **Replicated items** > **+Replicate**.
+1. In the dropdown, select **Azure Virtual Machines**.
+1. In **Source location**, select the source Azure region where your VMs are currently running.
+1. Select the Resource Manager deployment model. Then select the **Source subscription** and **Source resource group**.
+1. Select **OK** to save the settings.
 
-   ![New vault](./media/tutorial-migrate-azure-to-azure/azure-to-azure-vault.png)
+### Enable replication for Azure VMs and start copying the data
 
-The new vault is added to the **Dashboard** under **All resources**, and on the main **Recovery Services vaults** page.
+Site Recovery retrieves a list of the VMs that are associated with the subscription and resource group.
 
-
-
-
-
-
-## Select the source
-
-1. In Recovery Services vaults, click **ConsotoVMVault** > **+Replicate**.
-2. In **Source**, select **Azure**.
-3. In **Source location**, select the source Azure region where your VMs are currently running.
-4. Select the Resource Manager deployment model. Then select the **Source resource group**.
-5. Click **OK** to save the settings.
+1. In the next step, select the VM that you want to move, then select **OK**.
+1. In **Settings**, select **Disaster recovery**.
+1. In **Configure disaster recovery** > **Target region**, select the target region to which you'll replicate.
+1. For this tutorial, accept the other default settings.
+1. Select **Enable replication**. This step starts a job to enable replication for the VM.
 
 
-## Enable replication for Azure VMs
 
-Site Recovery retrieves a list of the VMs associated with the subscription and resource group.
+## Move
 
+The following steps shows how to perform the move to the target region.
 
-1. In the Azure portal, click **Virtual machines**.
-2. Select the VM you want to migrate. Then click **OK**.
-3. In **Settings**, click **Disaster recovery**.
-4. In **Configure disaster recovery** > **Target region** select the target region to which you'll replicate.
-5. For this tutorial, accept the other default settings.
-6. Click **Enable replication**. This starts a job to enable replication for the VM.
-
-    ![enable replication](media/tutorial-migrate-azure-to-azure/settings.png)
-
- 
-
-## Run a failover
-
-1. In **Settings** > **Replicated items**, click the machine, and then click **Failover**.
-2. In **Failover**, select **Latest**. The encryption key setting isn't relevant for this scenario.
+1. Go to the vault. In **Settings** > **Replicated items**, select the VM, and then select **Failover**.
+2. In **Failover**, select **Latest**.
 3. Select **Shut down machine before beginning failover**. Site Recovery attempts to shut down the source VM before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
-4. Check that the Azure VM appears in Azure as expected.
-5. In **Replicated items**, right-click the VM > **Commit**. This finishes the migration process,
-6. After the commit finishes, click **Disable Replication**.  This stops replication for the VM.
+4. After the job is finished, check that the VM appears in the target Azure region as expected.
 
 
+## Discard 
+
+In case you checked the moved VM and need to make changed to point of failover or want to go back to a previous point, in the **Replicated items**, right-select the VM > **Change recovery point**. This step provides you the option to specify a different recovery point and failover to that one. 
+
+
+## Commit 
+
+Once you have checked the moved VM and are ready to commit the change, in the **Replicated items**, right-select the VM > **Commit**. This step finishes the move process to the target region. Wait until the commit job finishes.
+
+## Clean up
+
+The following steps will guide you through how to clean up the source region as well as related resources that were used for the move.
+
+For all resources that were used for the move:
+
+- Go to the VM. Select **Disable Replication**. This step stops the process from copying the data for the VM.
+
+   > [!IMPORTANT]
+   > It's important to perform this step to avoid being charged for Azure Site Recovery replication.
+
+If you have no plans to reuse any of the source resources, complete these additional steps:
+
+1. Delete all the relevant network resources in the source region that you identified in [prerequisites](#prerequisites).
+1. Delete the corresponding storage account in the source region.
 
 ## Next steps
 
-In this tutorial you migrated an Azure VM to a different Azure region. Now you can configure disaster recovery for the migrated VM.
+In this tutorial, you moved an Azure VM to a different Azure region. Now you can configure disaster recovery for the VM that you moved.
 
 > [!div class="nextstepaction"]
 > [Set up disaster recovery after migration](azure-to-azure-quickstart.md)
-

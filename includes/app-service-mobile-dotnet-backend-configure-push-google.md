@@ -63,7 +63,7 @@ Use the procedure that matches your back-end project type&mdash;either [.NET bac
 
 ### <a name="nodejs"></a>Node.js back-end project
 
-1. If you haven't already done so, [download the quickstart project](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart), or else use the [online editor in the Azure portal](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+1. Set up your backend project.
 2. Replace the existing code in the todoitem.js file with the following:
 
     ```javascript
@@ -75,7 +75,7 @@ Use the procedure that matches your back-end project type&mdash;either [.NET bac
 
     table.insert(function (context) {
     // For more information about the Notification Hubs JavaScript SDK,
-    // see http://aka.ms/nodejshubs
+    // see https://aka.ms/nodejshubs
     logger.info('Running TodoItem.insert');
 
     // Define the GCM payload.

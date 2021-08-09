@@ -1,21 +1,16 @@
 ---
-title: Query Store best practices in Azure Database for PostgreSQL
-description: This article describes best practices for the Query Store in Azure Database for PostgreSQL.
-services: postgresql
-author: rachel-msft
-ms.author: raagyema
+title: Query Store best practices in Azure Database for PostgreSQL - Single Server
+description: This article describes best practices for the Query Store in Azure Database for PostgreSQL - Single Server.
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 5/6/2019
 ---
 
 # Best practices for Query Store
 
-**Applies to:** Azure Database for PostgreSQL 9.6 and 10
-
-> [!IMPORTANT]
-> The Query Store feature is in Public Preview.
-
+**Applies to:** Azure Database for PostgreSQL - Single Server versions 9.6, 10, 11
 
 This article outlines best practices for using Query Store in Azure Database for PostgreSQL.
 
@@ -24,7 +19,7 @@ Let Query Store capture the data that matters to you.
 
 |**pg_qs.query_capture_mode** |	**Scenario**|
 |---|---|
-|_All_	|Analyze your workload thoroughly in terms of all queries and their execution frequencies and other statistics. Identify new queries in your workload. Detect if ad-hoc queries are used to identify opportunities for user or auto parameterization. _All_ comes with an increased resource consumption cost. |
+|_All_	|Analyze your workload thoroughly in terms of all queries and their execution frequencies and other statistics. Identify new queries in your workload. Detect if ad hoc queries are used to identify opportunities for user or auto parameterization. _All_ comes with an increased resource consumption cost. |
 |_Top_	|Focus your attention on top queries - those issued by clients.
 |_None_	|You've already captured a query set and time window that you want to investigate and you want to eliminate the distractions that other queries may introduce. _None_ is suitable for testing and bench-marking environments. _None_ should be used with caution as you might miss the opportunity to track and optimize important new queries. You can't recover data on those past time windows. |
 

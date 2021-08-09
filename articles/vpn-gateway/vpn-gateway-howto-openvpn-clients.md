@@ -1,131 +1,34 @@
 ---
-title: 'How to configure OpenVPN Clients for Azure VPN Gateway| Microsoft Docs'
-description: Steps to configure OpenVPN Clients for Azure VPN Gateway
+title: 'How to configure OpenVPN clients for P2S VPN gateways'
+titleSuffix: Azure VPN Gateway
+description: Learn how to configure OpenVPN clients for Azure VPN Gateway. This article helps you configure Windows, Linux, iOS, and Mac clients.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: conceptual
-ms.date: 11/12/2018
+ms.topic: how-to
+ms.date: 07/27/2021
 ms.author: cherylmc
 
 ---
-# Configure OpenVPN clients for Azure VPN Gateway (Preview)
+# Configure OpenVPN clients for Azure VPN Gateway
 
-This article helps you configure OpenVPN clients.
-
-> [!IMPORTANT]
-> This Public Preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
->
+This article helps you configure **OpenVPN &reg; Protocol** clients.
 
 ## Before you begin
 
 Verify that you have completed the steps to configure OpenVPN for your VPN gateway. For details, see [Configure OpenVPN for Azure VPN Gateway](vpn-gateway-howto-openvpn.md).
 
-## <a name="windows"></a>Windows clients
+## VPN client configuration files
 
-1. Download and install the OpenVPN client from the official [OpenVPN website](https://openvpn.net/index.php/open-source/downloads.html).
-2. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in the Azure portal, or 'New-AzureRmVpnClientConfiguration' in PowerShell.
-3. Unzip the profile. Next, open the *vpnconfig.ovpn* configuration file from the OpenVPN folder using Notepad.
-4. [Export](vpn-gateway-certificates-point-to-site.md#clientexport) the P2S client certificate you created and uploaded to your P2S configuration on the gateway.
-5. Extract the private key and the base64 thumbprint from the *.pfx*. There are multiple ways to do this. Using OpenSSL on your machine is one way. The *profileinfo.txt* file contains the private key and the thumbprint for the CA and the Client certificate. Be sure to use the thumbprint of the client certificate.
+You can generate and download the VPN client configuration files from the portal, or by using PowerShell. Either method returns the same zip file. Unzip the file to view the OpenVPN folder.
 
-  ```
-  openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
-  ```
-6. Open *profileinfo.txt* in Notepad. To get the thumbprint of the client (child) certificate, select the text (including and between)"-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----" for the child certificate and copy it. You can identify the child certificate by looking at the subject=/ line.
-7. Switch to the *vpnconfig.ovpn* file you opened in Notepad from step 3. Find the section shown below and replace everything between "cert" and "/cert".
+:::image type="content" source="./media/howto-openvpn-clients/download.png" alt-text="Screenshot of Download VPN client highlighted." :::
 
-  ```
-  # P2S client certificate
-  # please fill this field with a PEM formatted cert
-  <cert>
-  $CLIENTCERTIFICATE
-  </cert>
-  ```
-8.	Open the *profileinfo.txt* in Notepad. To get the private key, select the text (including and between) "-----BEGIN PRIVATE KEY-----" and "-----BEGIN PRIVATE KEY-----" and copy it.
-9.	Go back to the vpnconfig.ovpn file in Notepad and find this section. Paste the private key replacing everything between and "key" and "/key".
-
-  ```
-  # P2S client root certificate private key
-  # please fill this field with a PEM formatted key
-  <key>
-  $PRIVATEKEY
-  </key>
-  ```
-10. Do not change any other fields. Use the filled in configuration in client input to connect to the VPN.
-11. Copy the vpnconfig.ovpn file to C:\Program Files\OpenVPN\config folder.
-12. Right-click the OpenVPN icon in the system tray and click connect.
-
-## <a name="mac"></a>Mac clients
-
-1. Download and install an OpenVPN client, such as [TunnelBlik](https://tunnelblick.net/downloads.html). 
-2. Download the VPN profile for the gateway. This can be done from the point-to-site configuration tab in the Azure portal, or by using 'New-AzureRmVpnClientConfiguration' in PowerShell.
-3. Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in Notepad.
-4. Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See [Export the public key](vpn-gateway-certificates-point-to-site.md#cer) for information about how to export a certificate to get the encoded public key.
-5. Fill in the private key section with the P2S client certificate private key in base64. See [Export your private key](https://www.geotrust.eu/en/support/manuals/microsoft/all+windows+servers/export+private+key+or+certificate/) for information about how to extract private key.
-6. Do not change any other fields. Use the filled in configuration in client input to connect to the VPN.
-7. Double-click the profile file to create the profile in tunnelblik.
-8. Launch Tunnelblik from the applications folder.
-9. Click on the Tunneblik icon in the system tray and pick connect.
-
-## <a name="linux"></a>Linux clients
-
-1. Open a new Terminal session. You can open a new session by pressing 'Ctrl + Alt + t' at the same time.
-2. Enter the following command to install needed components:
-
-  ```
-  sudo apt-get install openvpn
-  sudo apt-get -y install network-manager-openvpn
-  sudo service network-manager restart
-  ```
-3. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in the Azure portal.
-4.	[Export](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site#clientexport) the P2S client certificate you created and uploaded to your P2S configuration on the gateway. 
-5. Extract the private key and the base64 thumbprint from the .pfx. There are multiple ways to do this. Using OpenSSL on your computer is one way.
-
-	```
-	openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
-	```
-  The *profileinfo.txt* file will contain the private key and the thumbprint for the CA, and the Client certificate. Be sure to use the thumbprint of the client certificate.
-
-6. Open *profileinfo.txt* in a text editor. To get the thumbprint of the client (child) certificate, select the text including and between "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----" for the child certificate and copy it. You can identify the child certificate by looking at the subject=/ line.
-
-7.	Open the *vpnconfig.ovpn* file and find the section shown below. Replace everything between the and "cert" and "/cert".
-
-	```
-	# P2S client certificate
-	# please fill this field with a PEM formatted cert
-	<cert>
-	$CLIENTCERTIFICATE
-	</cert>
-	```
-8.	Open the profileinfo.txt in a text editor. To get the private key, select the text including and between "-----BEGIN PRIVATE KEY-----" and "-----BEGIN PRIVATE KEY-----" and copy it.
-
-9.	Open the vpnconfig.ovpn file in a text editor and find this section. Paste the private key replacing everything between and "key" and "/key".
-
-	```
-	# P2S client root certificate private key
-	# please fill this field with a PEM formatted key
-	<key>
-	$PRIVATEKEY
-	</key>
-	```
-
-10. Do not change any other fields. Use the filled in configuration in client input to connect to the VPN.
-11. To connect using the command line, type the following command:
-  
-  ```
-  sudo openvpn –-config <name and path of your VPN profile file>
-  ```
-12. To connect using the GUI, go to system settings.
-13. Click **+** to add a new VPN connection.
-14. Under **Add VPN**, pick **Import from file…**
-15. Browse to the profile file and double-click or pick **Open**.
-16. Click **Add** on the **Add VPN** window.
-  
-  ![Import from file](./media/vpn-gateway-howto-openvpn-clients/importfromfile.png)
-17. You can connect by turning the VPN **ON** on the **Network Settings** page, or under the network icon in the system tray.
+[!INCLUDE [configuration steps](../../includes/vpn-gateway-vwan-config-openvpn-clients.md)]
 
 ## Next steps
 
-If you want the VPN clients to be able to access resources in another vnet (production), then follow the instructions on the [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article to set up a vnet-to-vnet connection. Be sure to enable BGP on the gateways and the connections, otherwise traffic will not flow.
+If you want the VPN clients to be able to access resources in another VNet, then follow the instructions on the [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article to set up a vnet-to-vnet connection. Be sure to enable BGP on the gateways and the connections, otherwise traffic will not flow.
+
+**"OpenVPN" is a trademark of OpenVPN Inc.**

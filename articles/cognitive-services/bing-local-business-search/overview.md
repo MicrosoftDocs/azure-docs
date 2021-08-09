@@ -1,18 +1,23 @@
 ---
-title: What is the Bing Local Business Search API? | Microsoft Docs
+title: What is the Bing Local Business Search API?
 titleSuffix: Azure Cognitive Services
 description: The Bing Local Business Search API is a RESTful service that enables your applications to find information about local places and businesses based on search queries.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-local-business
-ms.topic: article
-ms.date: 11/01/2018
-ms.author: rosh
+ms.subservice: bing-local-business
+ms.topic: overview
+ms.date: 03/24/2020
+ms.author: aahi
 ---
 
 # What is Bing Local Business Search?
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 The Bing Local Business Search API is a RESTful service that enables your applications to find information about local businesses based on search queries. For example, `q=<business-name> in Redmond, Washington`, or `q=Italian restaurants near me`. 
 
 ## Features
@@ -25,18 +30,18 @@ The Bing Local Business Search API is a RESTful service that enables your applic
 ## Workflow
 Call the Bing Local Business Search API from any programming language that can make HTTP requests and parse JSON responses. This service is accessible using the REST API.
  
-1. Create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)  with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).   
+1. Create a [Cognitive Services API account](../cognitive-services-apis-create-account.md)  with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/cognitive-services/).   
 2. URL encode your search terms for the `q=""` query parameter. For example, `q=nearby+restaurant` or `q=nearby%20restaurant`. Set pagination as well, if needed. 
 3. Send a [request to the Bing Local Business Search API](quickstarts/local-quickstart.md) 
 4. Parse the JSON response 
 
 > [!NOTE]
-> Currently, Local Business Search supports only the `en-US` market. 
-> [!NOTE]
-> Currently, Local Business Search does not support Autosuggest. 
+> Currently, Local Business Search: 
+> * Only supports only the `en-US` market. 
+> * Does not support Bing Autosuggest. 
 
 ## Next steps
 - [Query and response](local-search-query-response.md)
 - [Local Business Search quickstart](quickstarts/local-quickstart.md)
 - [Local Business Search API reference](local-search-reference.md)
-- [Use and display requirements](use-display-requirements.md)
+- [Use and display requirements](../bing-web-search/use-display-requirements.md)

@@ -1,15 +1,15 @@
 ---
-title: Overview of multi-tenant support for VMware VM disaster recovery to Azure (CSP) using Azure Site Recovery | Microsoft Docs
+title: VMware VM multi-tenant disaster recovery with Azure Site Recovery 
 description: Provides an overview of Azure Site Recovery support for VMWare disaster recovery to Azure in a multi-tenant environment (CSP) program.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
 
 ---
-# Overview of multi-tenant support for VMware fisaster recovery to Azure with CSP
+# Overview of multi-tenant support for VMware disaster recovery to Azure with CSP
 
 [Azure Site Recovery](site-recovery-overview.md) supports multi-tenant environments for tenant subscriptions. It also supports multi-tenancy for tenant subscriptions that are created and managed through the Microsoft Cloud Solution Provider (CSP) program.
 
@@ -70,17 +70,17 @@ Configure the configuration server with an account that has a special role assig
 1. Create a new role by cloning the predefined *Read-only* role, and then give it a convenient name (such as Azure_Site_Recovery, as shown in this example).
 2. Assign the following permissions to this role:
 
-    * **Datastore**: Allocate space, Browse datastore, Low-level file operations, Remove file, Update virtual machine files
-    * **Network**: Network assign
-    * **Resource**: Assign VM to resource pool, Migrate powered off VM, Migrate powered on VM
-    * **Tasks**: Create task, Update task
-    * **VM - Configuration**: All
-    - **VM - Interaction** > Answer question, Device connection, Configure CD media, Configure floppy media, Power off, Power on, VMware tools install
-    - **VM - Inventory** > Create from existing, Create new, Register, Unregister
-    - **VM - Provisioning** > Allow virtual machine download, Allow virtual machine files upload
-    - **VM - Snapshot management** > Remove snapshots
+   * **Datastore**: Allocate space, Browse datastore, Low-level file operations, Remove file, Update virtual machine files
+   * **Network**: Network assign
+   * **Resource**: Assign VM to resource pool, Migrate powered off VM, Migrate powered on VM
+   * **Tasks**: Create task, Update task
+   * **VM - Configuration**: All
+   * **VM - Interaction** > Answer question, Device connection, Configure CD media, Configure floppy media, Power off, Power on, VMware tools install
+   * **VM - Inventory** > Create from existing, Create new, Register, Unregister
+   * **VM - Provisioning** > Allow virtual machine download, Allow virtual machine files upload
+   * **VM - Snapshot management** > Remove snapshots
 
-	    ![The Edit Role dialog box](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
+       ![The Edit Role dialog box](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
 
 3. Assign access levels to the vCenter account (used in the tenant configuration server) for various objects, as follows:
 
@@ -121,7 +121,7 @@ To restrict disaster recovery operations up until failover only (that is, withou
 
 As shown in the following diagram, the architectural difference in a dedicated hosting solution is that each tenant’s infrastructure is set up for that tenant only.
 
-![architecture-shared-hsp](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
+![Diagram that shows the architectural difference in a dedicated hosting solution is that each tenant’s infrastructure is set up for that tenant only.](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
 **Dedicated hosting scenario with multiple vCenters**
 
 ## Managed service solution

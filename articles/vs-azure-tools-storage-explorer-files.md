@@ -1,5 +1,5 @@
-﻿---
-title: Using Storage Explorer with Azure File storage | Microsoft Docs
+---
+title: Using Storage Explorer with Azure Files | Microsoft Docs
 description: Learn how learn how to use Storage Explorer to work with file shares and files.
 services: storage
 documentationcenter: na
@@ -12,24 +12,24 @@ ms.service: storage
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
 ---
 
-# Using Storage Explorer with Azure File storage
+# Using Storage Explorer with Azure Files
 
-Azure File storage is a service that offers file shares in the cloud using the standard Server Message Block (SMB) Protocol. Both SMB 2.1 and SMB 3.0 are supported. With Azure File storage, you can migrate legacy applications that rely on file shares to Azure quickly and without costly rewrites. You can use File storage to expose data publicly to the world, or to store application data privately. In this article, you'll learn how to use Storage Explorer to work with file shares and files.
+Azure Files is a service that offers file shares in the cloud using the standard Server Message Block (SMB) Protocol. Both SMB 2.1 and SMB 3.0 are supported. With Azure Files, you can migrate legacy applications that rely on file shares to Azure quickly and without costly rewrites. You can use File storage to expose data publicly to the world, or to store application data privately. In this article, you'll learn how to use Storage Explorer to work with file shares and files.
 
 ## Prerequisites
 
 To complete the steps in this article, you'll need the following:
 
-- [Download and install Storage Explorer](http://www.storageexplorer.com/)
+- [Download and install Storage Explorer](https://www.storageexplorer.com/)
 
-- [Connect to a Azure storage account or service](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
+- [Connect to an Azure storage account or service](./vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
-## Create a File Share
+## Create a file share
 
 All files must reside in a file share, which is simply a logical grouping of files. An account can contain an unlimited number of file shares, and each share can store an unlimited number of files.
 
@@ -37,13 +37,13 @@ The following steps illustrate how to create a file share within Storage Explore
 
 1. Open Storage Explorer.
 
-1. In the left pane, expand the storage account within which you wish to create the File Share
+1. In the left pane, expand the storage account within which you wish to create the file share
 
 1. Right-click **File Shares**, and - from the context menu - select **Create File Share**.
 
-    ![Create File Share](media/vs-azure-tools-storage-explorer-files/image1.png)
+    ![Create file share](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-1. A text box will appear below the **File Shares** folder. Enter the name for your file share. See the [Share naming rules](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container) section for a list of rules and restrictions on naming file shares.
+1. A text box will appear below the **File Shares** folder. Enter the name for your file share. See the [Share naming rules](./storage/blobs/storage-quickstart-blobs-dotnet.md) section for a list of rules and restrictions on naming file shares.
 
     ![Naming the share](media/vs-azure-tools-storage-explorer-files/image2.png)
 
@@ -69,11 +69,11 @@ The following steps illustrate how to view the contents of a file share within S
 
 1. The main pane will display the file share's contents.
     
-    ![The share's contents](media/vs-azure-tools-storage-explorer-files/image5.png)
+    ![Screenshot of the main pane for a file share in Storage Explorer showing the contents of the share.](media/vs-azure-tools-storage-explorer-files/image5.png)
 
 ## Delete a file share
 
-File shares can be easily created and deleted as needed. (To see how to delete individual files, refer to the section, [Managing files in a file share](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
+File shares can be easily created and deleted as needed. (To see how to delete individual files, refer to the section, [Managing files in a file share](./vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container).)
 
 The following steps illustrate how to delete a file share within Storage Explorer:
 
@@ -93,7 +93,7 @@ The following steps illustrate how to delete a file share within Storage Explore
 
 ## Copy a file share
 
-Storage Explorer enables you to copy a file share to the clipboard, and then paste that file share into another storage account. (To see how to copy individual files, refer to the section, [Managing files in a file share](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
+Storage Explorer enables you to copy a file share to the clipboard, and then paste that file share into another storage account. (To see how to copy individual files, refer to the section, [Managing files in a file share](./vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container).)
 
 The following steps illustrate how to copy a file share from one storage account to another.
 
@@ -113,7 +113,7 @@ The following steps illustrate how to copy a file share from one storage account
 
 ## Get the SAS for a file share
 
-A [shared access signature (SAS)](https://docs.microsoft.com//azure/storage/storage-dotnet-shared-access-signature-part-1) provides delegated access to resources in your storage account. This means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to share your account access keys.
+A [shared access signature (SAS)](./storage/common/storage-sas-overview.md) provides delegated access to resources in your storage account. This means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to share your account access keys.
 
 The following steps illustrate how to create a SAS for a file share:+
 
@@ -141,7 +141,7 @@ The following steps illustrate how to create a SAS for a file share:+
 
 ## Manage Access Policies for a file share
 
-The following steps illustrate how to manage (add and remove) access policies for a file share:+ . The Access Policies is used for creating SAS URLs through which people can use to access the Storage File resource during a defined period of time.
+The following steps illustrate how to manage (add and remove) access policies for a file share:+ . The Access Policies is used for creating SAS URLs through which people can use to access the Azure Files resource during a defined period of time.
 
 1. Open Storage Explorer.
 
@@ -187,7 +187,7 @@ The following steps illustrate how to manage the files (and folders) within a fi
 
 1.  The main pane will display the file share's contents.
 
-    ![The share's contents](media/vs-azure-tools-storage-explorer-files/image17.png)
+    ![Screenshot of the main pane for the file share myazurefileshare in Storage Explorer, showing the contents of the share with the first folder selected.](media/vs-azure-tools-storage-explorer-files/image17.png)
 
 1.  The main pane will display the file share's contents.
 
@@ -255,6 +255,6 @@ The following steps illustrate how to manage the files (and folders) within a fi
 
 ## Next steps
 
-- View the [latest Storage Explorer release notes and videos](http://www.storageexplorer.com/).
+- View the [latest Storage Explorer release notes and videos](https://www.storageexplorer.com/).
 
 - Learn how to [create applications using Azure blobs, tables, queues, and files](https://azure.microsoft.com/documentation/services/storage/).

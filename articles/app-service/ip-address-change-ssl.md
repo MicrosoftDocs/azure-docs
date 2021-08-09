@@ -1,23 +1,17 @@
 ---
-title: How to prepare for an SSL IP address change - Azure
-description: If your SSL IP address is going to be changed, learn what to do so that your app continues to work after the change.
-services: app-service\web
-author: cephalin
-manager: cfowler
-editor: 
+title: Prepare for TLS/SSL IP address change
+description: If your TLS/SSL IP address is going to be changed, learn what to do so that your app continues to work after the change.
 
-ms.service: app-service-web
-ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
-ms.author: cephalin
+ms.custom: seodec18
 ---
 
-# How to prepare for an SSL IP address change
+# How to prepare for a TLS/SSL IP address change
 
-If you received a notification that the SSL IP address of your Azure App Service app is changing, follow the instructions in this article to release existing SSL IP address and assign a new one.
+If you received a notification that the TLS/SSL IP address of your Azure App Service app is changing, follow the instructions in this article to release existing TLS/SSL IP address and assign a new one.
 
-## Release SSL IP addresses and assign new ones
+## Release TLS/SSL IP addresses and assign new ones
 
 1.	Open the [Azure portal](https://portal.azure.com).
 
@@ -27,7 +21,7 @@ If you received a notification that the SSL IP address of your Azure App Service
 
 4.	Under the **Settings** header, click **SSL settings** in the left navigation.
 
-5. In the SSL bindings section, select the host name record. In the editor that opens, choose **SNI SSL** on the **SSL Type** drop-down menu and click **Add Binding**. When you see the operation success message, the existing IP address has been released.
+1. In the TLS/SSL bindings section, select the host name record. In the editor that opens, choose **SNI SSL** on the **SSL Type** drop-down menu and click **Add Binding**. When you see the operation success message, the existing IP address has been released.
 
 6.	In the **SSL bindings** section, again select the same host name record with the certificate. In the editor that opens, this time choose **IP Based SSL** on the **SSL Type** drop-down menu and click **Add Binding**. When you see the operation success message, you’ve acquired a new IP address.
 
@@ -47,4 +41,4 @@ If you received a notification that the SSL IP address of your Azure App Service
 
 ## Next steps
 
-This article explained how to prepare for an IP address change that was initiated by Azure. For more information about IP addresses in Azure App Service, see [SSL and SSL IP addresses in Azure App Service](app-service-ip-addresses.md).
+This article explained how to prepare for an IP address change that was initiated by Azure. For more information about IP addresses in Azure App Service, see [Inbound and outbound IP addresses in Azure App Service](overview-inbound-outbound-ips.md).

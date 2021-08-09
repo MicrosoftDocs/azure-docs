@@ -1,116 +1,140 @@
 ---
-title: "Quickstart: Bing Autosuggest API, Java"
-titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing Autosuggest API.
+title: "Quickstart: Suggest search queries with the Bing Autosuggest REST API and Java"
+titleSuffix: Azure Cognitive Services
+description: Learn how to quickly start suggesting search terms in real time with the Bing Autosuggest API and Java.
 services: cognitive-services
-author: v-jaswel
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 09/14/2017
-ms.author: v-jaswel
+ms.date: 05/06/2020
+ms.custom: devx-track-java
+ms.author: aahi
 ---
-# Quickstart for Bing Autosuggest API with Java
 
-This article shows you how to use the [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) with Java. The Bing Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Typically, you would call this API each time the user types a new character in the search box, and then display the suggestions in the search box's drop down list. This article shows how to send a request that returns the suggested query strings for *sail*.
+# Quickstart: Suggest search queries with the Bing Autosuggest REST API and Java
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
+Follow this quickstart to learn how to make calls to the Bing Autosuggest API and read the JSON response. This simple Java application sends a partial search query to the API, and returns suggestions for searches. While this application is written in Java, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)
 
 ## Prerequisites
 
-You will need [JDK 7 or 8](https://aka.ms/azure-jdks) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice.
+* The [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
+* The [Gson library](https://github.com/google/gson)
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Autosuggest API v7**. The [free trial](https://azure.microsoft.com/try/cognitive-services/#search) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
-## Get Autosuggest results
+## Create and initialize a project
 
-1. Create a new Java project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
-4. Run the program.
+1. Create a new Java project in your favorite IDE or editor, and import the following libraries.
+
+    ```java
+    import java.io.*;
+    import java.net.*;
+    import java.util.*;
+    import javax.net.ssl.HttpsURLConnection;
+    import com.google.gson.Gson;
+    import com.google.gson.GsonBuilder;
+    import com.google.gson.JsonObject;
+    import com.google.gson.JsonParser;
+    ```
+
+2. Create variables for your subscription key, the API host and path, your [market code](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and a search query. Use the global endpoint below, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+    
+    ```java
+    static String subscriptionKey = "enter key here";
+    static String host = "https://api.cognitive.microsoft.com";
+    static String path = "/bing/v7.0/Suggestions";
+    static String mkt = "en-US";
+    static String query = "sail";
+    ```
+
+
+## Format the response
+
+Create a method named `prettify()` to format the response returned from the Bing Video API. Use the Gson library's `JsonParser` to take in a JSON string and convert it into an object. Then, use `GsonBuilder()` and `toJson()` to create the formatted string.
 
 ```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import javax.net.ssl.HttpsURLConnection;
-
-/*
- * Gson: https://github.com/google/gson
- * Maven info:
- *     groupId: com.google.code.gson
- *     artifactId: gson
- *     version: 2.8.1
- *
- * Once you have compiled or downloaded gson-2.8.1.jar, assuming you have placed it in the
- * same folder as this file (Autosuggest.java), you can compile and run this program at
- * the command line as follows.
- *
- * javac Autosuggest.java -classpath .;gson-2.8.1.jar -encoding UTF-8
- * java -cp .;gson-2.8.1.jar Autosuggest
- */
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
-public class Autosuggest {
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the subscriptionKey string value with your valid subscription key.
-  static String subscriptionKey = "enter key here";
-
-  static String host = "https://api.cognitive.microsoft.com";
-  static String path = "/bing/v7.0/Suggestions";
-
-  static String mkt = "en-US";
-  static String query = "sail";
-
-  public static String get_suggestions () throws Exception {
-        String encoded_query = URLEncoder.encode (query, "UTF-8");
-        String params = "?mkt=" + mkt + "&q=" + encoded_query;
-    URL url = new URL (host + path + params);
-
-    HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-    connection.setRequestMethod("GET");
-    connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-    connection.setDoOutput(true);
-
-    StringBuilder response = new StringBuilder ();
-    BufferedReader in = new BufferedReader(
-    new InputStreamReader(connection.getInputStream()));
-    String line;
-    while ((line = in.readLine()) != null) {
-      response.append(line);
-    }
-    in.close();
-
-    return response.toString();
-    }
-
-  public static String prettify (String json_text) {
+// pretty-printer for JSON; uses GSON parser to parse and re-serialize
+public static String prettify(String json_text) {
     JsonParser parser = new JsonParser();
     JsonObject json = parser.parse(json_text).getAsJsonObject();
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     return gson.toJson(json);
-  }
-
-  public static void main(String[] args) {
-    try {
-      String response = get_suggestions ();
-      System.out.println (prettify (response));
-    }
-    catch (Exception e) {
-      System.out.println (e);
-    }
-  }
 }
 ```
 
-### Response
+## Construct and send the search request
+
+1. Create a new method named  `get_suggestions()` and perform the following steps:
+
+   1. Construct the URL for your request by combining your API host, path, and encoding your search query. Be sure to url-encode the query before appending it. Create a parameters string for your query by appending the market code to the `mkt=` parameter, and your query to the `q=` parameter.
+    
+      ```java
+  
+      public static String get_suggestions () throws Exception {
+         String encoded_query = URLEncoder.encode (query, "UTF-8");
+         String params = "?mkt=" + mkt + "&q=" + encoded_query;
+         //...
+      }
+      ```
+    
+   2. Create a new URL for the request with the API host, path, and parameters that you created in the previous step. 
+    
+       ```java
+       //...
+       URL url = new URL (host + path + params);
+       //...
+       ```
+    
+   3. Create a `HttpsURLConnection` object, and use  `openConnection()` to create a connection. Set the request method to `GET`, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
+
+      ```java
+       //...
+       HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+       connection.setRequestMethod("GET");
+       connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+       connection.setDoOutput(true);
+       //...
+      ```
+
+   4. Store the API response in `StringBuilder`. After the response has been captured, close the `InputStreamReader` stream, and return the response.
+
+       ```java
+       //...
+       StringBuilder response = new StringBuilder ();
+       BufferedReader in = new BufferedReader(
+       new InputStreamReader(connection.getInputStream()));
+       String line;
+       while ((line = in.readLine()) != null) {
+         response.append(line);
+       }
+       in.close();
+    
+       return response.toString();
+       ```
+
+2. In the main function of your application, call `get_suggestions()`, and print the response by using `prettify()`.
+    
+    ```java
+    public static void main(String[] args) {
+      try {
+        String response = get_suggestions ();
+        System.out.println (prettify (response));
+      }
+      catch (Exception e) {
+        System.out.println (e);
+      }
+    }
+    ```
+
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -181,9 +205,7 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Autosuggest tutorial](../tutorials/autosuggest.md)
-
-## See also
+> [Create a single-page web app](../tutorials/autosuggest.md)
 
 - [What is Bing Autosuggest?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

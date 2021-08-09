@@ -2,277 +2,183 @@
 title: 'Tutorial: Azure Active Directory integration with LockPath Keylight | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and LockPath Keylight.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: 234a32f1-9f56-4650-9e31-7b38ad734b1a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/05/2017
+ms.topic: tutorial
+ms.date: 06/11/2021
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with LockPath Keylight
 
-In this tutorial, you learn how to integrate LockPath Keylight with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate LockPath Keylight with Azure Active Directory (Azure AD). When you integrate LockPath Keylight with Azure AD, you can:
 
-Integrating LockPath Keylight with Azure AD provides you with the following benefits:
-
-- You can control in Azure AD who has access to LockPath Keylight
-- You can enable your users to automatically get signed-on to LockPath Keylight (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Azure AD who has access to LockPath Keylight.
+* Enable your users to be automatically signed-in to LockPath Keylight with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
 To configure Azure AD integration with LockPath Keylight, you need the following items:
 
-- An Azure AD subscription
-- A LockPath Keylight single-sign on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
+* LockPath Keylight single sign-on enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding LockPath Keylight from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-## Adding LockPath Keylight from the gallery
+* LockPath Keylight supports **SP** initiated SSO.
+* LockPath Keylight supports **Just In Time** user provisioning.
+
+## Add LockPath Keylight from the gallery
+
 To configure the integration of LockPath Keylight into Azure AD, you need to add LockPath Keylight from the gallery to your list of managed SaaS apps.
 
-**To add LockPath Keylight from the gallery, perform the following steps:**
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **LockPath Keylight** in the search box.
+1. Select **LockPath Keylight** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Configure and test Azure AD SSO for LockPath Keylight
 
-	![Active Directory][1]
+Configure and test Azure AD SSO with LockPath Keylight using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in LockPath Keylight.
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+To configure and test Azure AD SSO with LockPath Keylight, perform the following steps:
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure LockPath Keylight SSO](#configure-lockpath-keylight-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create LockPath Keylight test user](#create-lockpath-keylight-test-user)** - to have a counterpart of B.Simon in LockPath Keylight that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	![Applications][3]
+## Configure Azure AD SSO
 
-1. In the search box, type **LockPath Keylight**.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-	![Creating an Azure AD test user](./media/keylight-tutorial/tutorial_keylight_search.png)
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the results panel, select **LockPath Keylight**, and then click **Add** button to add the application.
+1. In the Azure portal, on the **LockPath Keylight** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-	![Creating an Azure AD test user](./media/keylight-tutorial/tutorial_keylight_addfromgallery.png)
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with LockPath Keylight based on a test user called "Britta Simon."
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in LockPath Keylight is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in LockPath Keylight needs to be established.
+    a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    `https://<COMPANY_NAME>.keylightgrc.com`
 
-In LockPath Keylight, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<COMPANY_NAME>.keylightgrc.com/Login.aspx`
 
-To configure and test Azure AD single sign-on with LockPath Keylight, you need to complete the following building blocks:
+    c. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<COMPANY_NAME>.keylightgrc.com/`
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a LockPath Keylight test user](#creating-a-lockpath-keylight-test-user)** - to have a counterpart of Britta Simon in LockPath Keylight that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [LockPath Keylight Client support team](https://www.lockpath.com/contact/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-### Configuring Azure AD single sign-on
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Raw)** from the given options as per your requirement and save it on your computer.
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your LockPath Keylight application.
+	![The Certificate download link](common/certificateraw.png)
 
-**To configure Azure AD single sign-on with LockPath Keylight, perform the following steps:**
+6. On the **Set up LockPath Keylight** section, copy the appropriate URL(s) as per your requirement.
 
-1. In the Azure portal, on the **LockPath Keylight** application integration page, click **Single sign-on**.
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	![Configure Single Sign-On][4]
+### Create an Azure AD test user
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/keylight-tutorial/tutorial_keylight_samlbase.png)
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-1. On the **LockPath Keylight Domain and URLs** section, perform the following steps::
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
-	![Configure Single Sign-On](./media/keylight-tutorial/tutorial_keylight_url.png)
+### Assign the Azure AD test user
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<company name>.keylightgrc.com/`
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to LockPath Keylight.
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<company name>.keylightgrc.com`
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **LockPath Keylight**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.keylightgrc.com/Login.aspx`
-    
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [LockPath Keylight Client support team](https://www.lockpath.com/contact/) to get these values. 
-
-1. On the **SAML Signing Certificate** section, click **Certificate(Raw)** and then save the certificate file on your computer.
-
-	![Configure Single Sign-On](./media/keylight-tutorial/tutorial_keylight_certificate.png) 
-
-1. Click **Save** button.
-
-	![Configure Single Sign-On](./media/keylight-tutorial/tutorial_general_400.png)
-	
-1. On the **LockPath Keylight Configuration** section, click **Configure LockPath Keylight** to open **Configure sign-on** window. Copy the **Sign-Out URL and SAML Single Sign-On Service URL** from the **Quick Reference section.**
-
-	![Configure Single Sign-On](./media/keylight-tutorial/tutorial_keylight_configure.png) 
+## Configure LockPath Keylight SSO
 
 1. To enable SSO in LockPath Keylight, perform the following steps:
-   
+
     a. Sign-on to your LockPath Keylight account as administrator.
-    
+
     b. In the menu on the top, click **Person**, and select **Keylight Setup**.
-   
-    ![Configure Single Sign-On](./media/keylight-tutorial/401.png) 
+
+    ![Screenshot that shows the "Person" icon selected, and "Keylight Setup" selected from the drop-down.](./media/keylight-tutorial/setup-icon.png)
 
     c. In the treeview on the left, click **SAML**.
-   
-    ![Configure Single Sign-On](./media/keylight-tutorial/402.png) 
+
+    ![Screenshot that shows "S A M L" selected in the tree view.](./media/keylight-tutorial/treeview.png)
 
     d. On the **SAML Settings** dialog, click **Edit**.
-   
-    ![Configure Single Sign-On](./media/keylight-tutorial/404.png) 
+
+    ![Screenshot that shows the "S A M L Settings" window with the "Edit" button selected.](./media/keylight-tutorial/edit-icon.png)
 
 1. On the **Edit SAML Settings** dialog page, perform the following steps:
-   
-    ![Configure Single Sign-On](./media/keylight-tutorial/405.png) 
-   
+
+    ![Configure Single Sign-On](./media/keylight-tutorial/settings.png)
+
     a. Set **SAML authentication** to **Active**.
 
-    b. Paste the **SAML Single Sign-On Service URL** value which you have copied from the Azure portal into the **Identity Provider Login URL** textbox.
+    b. In the **Identity Provider Login URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 
-    c. Paste the **Single Sign-Out Service URL** value which you have copied from the Azure portal into the **Identity Provider Logout URL** textbox.
+    c. In the **Identity Provider Logout URL** textbox, paste the **Logout URL** value which you have copied from the Azure portal.
 
     d. Click **Choose File** to select your downloaded LockPath Keylight certificate, and then click **Open** to upload the certificate.
 
     e. Set **SAML User Id location** to **NameIdentifier element of the subject statement**.
-    
-    f. Provide the **Keylight Service Provider** using the following pattern: **https://&lt;CompanyName&gt;.keylightgrc.com**.
-    
+
+    f. Provide the **Keylight Service Provider** using the following pattern: `https://<CompanyName>.keylightgrc.com`.
+
     g. Set **Auto-provision users** to **Active**.
 
     h. Set **Auto-provision account type** to **Full User**.
 
     i. Set **Auto-provision security role**, select **Standard User with SAML**.
-    
+
     j. Set **Auto-provision security config**, select **Standard User Configuration**.
-     
+
     k. In the **Email attribute** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
-    
+
     l. In the **First name attribute** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
-    
+
     m. In the **Last name attribute** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
-    
+
     n. Click **Save**.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+### Create LockPath Keylight test user
 
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+In this section, a user called Britta Simon is created in LockPath Keylight. LockPath Keylight supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in LockPath Keylight, a new one is created after authentication. If you need to create a user manually, you need to contact the [LockPath Keylight Client support team](https://www.lockpath.com/contact/).
 
-![Create Azure AD User][100]
+## Test SSO
 
-**To create a test user in Azure AD, perform the following steps:**
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+* Click on **Test this application** in Azure portal. This will redirect to LockPath Keylight Sign-on URL where you can initiate the login flow. 
 
-	![Creating an Azure AD test user](./media/keylight-tutorial/create_aaduser_01.png) 
+* Go to LockPath Keylight Sign-on URL directly and initiate the login flow from there.
 
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/keylight-tutorial/create_aaduser_02.png) 
+* You can use Microsoft My Apps. When you click the LockPath Keylight tile in the My Apps, this will redirect to LockPath Keylight Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/keylight-tutorial/create_aaduser_03.png) 
+## Next steps
 
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/keylight-tutorial/create_aaduser_04.png) 
-
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**.
- 
-### Creating a LockPath Keylight test user
-
-In this section, you create a user called Britta Simon in LockPath Keylight. LockPath Keylight supports just-in-time provisioning, which is enabled by default.
-
-There is no action item for you in this section. A new user is created when accessing LockPath Keylight if the user doesn't exist yet. 
-
->[!NOTE]
->If you need to create a user manually, you need to contact the [LockPath Keylight Client support team](https://www.lockpath.com/contact/). 
-
-### Assigning the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to LockPath Keylight.
-
-![Assign User][200] 
-
-**To assign Britta Simon to LockPath Keylight, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
-1. In the applications list, select **LockPath Keylight**.
-
-	![Configure Single Sign-On](./media/keylight-tutorial/tutorial_keylight_app.png) 
-
-1. In the menu on the left, click **Users and groups**.
-
-	![Assign User][202] 
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![Assign User][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
-
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the LockPath Keylight tile in the Access Panel, you should get automatically signed-on to your LockPath Keylight application. 
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-<!--Image references-->
-
-[1]: ./media/keylight-tutorial/tutorial_general_01.png
-[2]: ./media/keylight-tutorial/tutorial_general_02.png
-[3]: ./media/keylight-tutorial/tutorial_general_03.png
-[4]: ./media/keylight-tutorial/tutorial_general_04.png
-
-[100]: ./media/keylight-tutorial/tutorial_general_100.png
-
-[200]: ./media/keylight-tutorial/tutorial_general_200.png
-[201]: ./media/keylight-tutorial/tutorial_general_201.png
-[202]: ./media/keylight-tutorial/tutorial_general_202.png
-[203]: ./media/keylight-tutorial/tutorial_general_203.png
-
+Once you configure LockPath Keylight you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

@@ -1,131 +1,449 @@
 ---
-title: Manage Azure Search with Powershell scripts | Microsoft Docs
-description: Manage your Azure Search service with PowerShell scripts. Create or update an Azure Search service and manage Azure Search admin keys
+title: PowerShell scripts using Az.Search module
+titleSuffix: Azure Cognitive Search
+description: Create and configure an Azure Cognitive Search service with PowerShell. You can scale a service up or down, manage admin and query api-keys, and query for system information.
+
+manager: nitinme
 author: HeidiSteen
-manager: cgronlun
-tags: azure-resource-manager
-services: search
-ms.service: search
+ms.author: heidist
+ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 08/15/2016
-ms.author: heidist
-
+ms.date: 08/03/2021 
+ms.custom: devx-track-azurepowershell
 ---
-# Manage your Azure Search service with PowerShell
+
+# Manage your Azure Cognitive Search service with PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> 
-> 
+> * [Azure CLI](search-manage-azure-cli.md)
+> * [REST API](/rest/api/searchmanagement/)
+> * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
+> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)
 
-This topic describes the PowerShell commands to perform many of the management tasks for Azure Search services. We will walk through creating a search service, scaling it, and managing its API keys.
-These commands parallel the management options available in the [Azure Search Management REST API](https://docs.microsoft.com/rest/api/searchmanagement).
+You can run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud Shell](../cloud-shell/overview.md) to create and configure Azure Cognitive Search. The **Az.Search** module extends [Azure PowerShell](/powershell/) with full parity to the [Search Management REST APIs](/rest/api/searchmanagement) and the ability to perform the following tasks:
 
-## Prerequisites
-* You must have Azure PowerShell 1.0 or greater. For instructions, see [Install and configure Azure PowerShell](/powershell/azure/overview).
-* You must be logged in to your Azure subscription in PowerShell as described below.
+> [!div class="checklist"]
+> * [List search services in a subscription](#list-search-services)
+> * [Return service information](#get-search-service-information)
+> * [Create or delete a service](#create-or-delete-a-service)
+> * [Create a service with a private endpoint](#create-a-service-with-a-private-endpoint)
+> * [Regenerate admin API-keys](#regenerate-admin-keys)
+> * [Create or delete query api-keys](#create-or-delete-query-keys)
+> * [Scale up or down with replicas and partitions](#scale-replicas-and-partitions)
+> * [Create a shared private link resource](#create-a-shared-private-link-resource)
 
-First, you must login to Azure with this command:
+Occasionally, questions are asked about tasks *not* on the above list. Currently, you cannot use either the **Az.Search** module or the management REST API to change a server name, region, or tier. Dedicated resources are allocated when a service is created. As such, changing the underlying hardware (location or node type) requires a new service. Similarly, there are no tools or APIs for transferring content, such as an index, from one service to another.
 
-    Connect-AzureRmAccount
+Within a service, content creation and management is through [Search Service REST API](/rest/api/searchservice/) or [.NET SDK](/dotnet/api/overview/azure/search.documents-readme). While there are no dedicated PowerShell commands for content, you can write PowerShell script that calls REST or .NET APIs to create and load indexes.
 
-Specify the email address of your Azure account and its password in the Microsoft Azure login dialog.
+<a name="check-versions-and-load"></a>
 
-Alternatively you can [login non-interactively with a service principal](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+## Check versions and load modules
 
-If you have multiple Azure subscriptions, you need to set your Azure subscription. To see a list of your current subscriptions, run this command.
+The examples in this article are interactive and require elevated permissions. Azure PowerShell (the **Az** module) must be installed. For more information, see [Install Azure PowerShell](/powershell/azure/).
 
-    Get-AzureRmSubscription | sort SubscriptionName | Select SubscriptionName
+### PowerShell version check (5.1 or later)
+
+Local PowerShell must be 5.1 or later, on any supported operating system.
+
+```azurepowershell-interactive
+$PSVersionTable.PSVersion
+```
+
+### Load Azure PowerShell
+
+If you aren't sure whether **Az** is installed, run the following command as a verification step. 
+
+```azurepowershell-interactive
+Get-InstalledModule -Name Az
+```
+
+Some systems do not auto-load modules. If you get an error on the previous command, try loading the module, and if that fails, go back to the installation instructions to see if you missed a step.
+
+```azurepowershell-interactive
+Import-Module -Name Az
+```
+
+### Connect to Azure with a browser sign-in token
+
+You can use your portal sign-in credentials to connect to a subscription in PowerShell. Alternatively you can [authenticate non-interactively with a service principal](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+
+```azurepowershell-interactive
+Connect-AzAccount
+```
+
+If you hold multiple Azure subscriptions, set your Azure subscription. To see a list of your current subscriptions, run this command.
+
+```azurepowershell-interactive
+Get-AzSubscription | sort SubscriptionName | Select SubscriptionName
+```
 
 To specify the subscription, run the following command. In the following example, the subscription name is `ContosoSubscription`.
 
-    Select-AzureRmSubscription -SubscriptionName ContosoSubscription
+```azurepowershell-interactive
+Select-AzSubscription -SubscriptionName ContosoSubscription
+```
 
-## Commands to help you get started
-    $serviceName = "your-service-name-lowercase-with-dashes"
-    $sku = "free" # or "basic" or "standard" for paid services
-    $location = "West US"
-    # You can get a list of potential locations with
-    # (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Search'}).Locations
-    $resourceGroupName = "YourResourceGroup" 
-    # If you don't already have this resource group, you can create it with 
-    # New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+<a name="list-search-services"></a>
 
-    # Register the ARM provider idempotently. This must be done once per subscription
-    Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Search"
+## List services in a subscription
 
-    # Create a new search service
-    # This command will return once the service is fully created
-    New-AzureRmResourceGroupDeployment `
-        -ResourceGroupName $resourceGroupName `
-        -TemplateUri "https://gallery.azure.com/artifact/20151001/Microsoft.Search.1.0.9/DeploymentTemplates/searchServiceDefaultTemplate.json" `
-        -NameFromTemplate $serviceName `
-        -Sku $sku `
-        -Location $location `
-        -PartitionCount 1 `
-        -ReplicaCount 1
+The following commands are from [**Az.Resources**](/powershell/module/az.resources), returning information about existing resources and services already provisioned in your subscription. If you don't know how many search services are already created, these commands return that information, saving you a trip to the portal.
 
-    # Get information about your new service and store it in $resource
-    $resource = Get-AzureRmResource `
-        -ResourceType "Microsoft.Search/searchServices" `
-        -ResourceGroupName $resourceGroupName `
-        -ResourceName $serviceName `
-        -ApiVersion 2015-08-19
+The first command returns all search services.
 
-    # View your resource
-    $resource
+```azurepowershell-interactive
+Get-AzResource -ResourceType Microsoft.Search/searchServices | ft
+```
 
-    # Get the primary admin API key
-    $primaryKey = (Invoke-AzureRmResourceAction `
-        -Action listAdminKeys `
-        -ResourceId $resource.ResourceId `
-        -ApiVersion 2015-08-19).PrimaryKey
+From the list of services, return information about a specific resource.
 
-    # Regenerate the secondary admin API Key
-    $secondaryKey = (Invoke-AzureRmResourceAction `
-        -ResourceType "Microsoft.Search/searchServices/regenerateAdminKey" `
-        -ResourceGroupName $resourceGroupName `
-        -ResourceName $serviceName `
-        -ApiVersion 2015-08-19 `
-        -Action secondary).SecondaryKey
+```azurepowershell-interactive
+Get-AzResource -ResourceName <service-name>
+```
 
-    # Create a query key for read only access to your indexes
-    $queryKeyDescription = "query-key-created-from-powershell"
-    $queryKey = (Invoke-AzureRmResourceAction `
-        -ResourceType "Microsoft.Search/searchServices/createQueryKey" `
-        -ResourceGroupName $resourceGroupName `
-        -ResourceName $serviceName `
-        -ApiVersion 2015-08-19 `
-        -Action $queryKeyDescription).Key
+Results should look similar to the following output.
 
-    # View your query key
-    $queryKey
+```
+Name              : my-demo-searchapp
+ResourceGroupName : demo-westus
+ResourceType      : Microsoft.Search/searchServices
+Location          : westus
+ResourceId        : /subscriptions/<alphanumeric-subscription-ID>/resourceGroups/demo-westus/providers/Microsoft.Search/searchServices/my-demo-searchapp
+```
 
-    # Delete query key
-    Remove-AzureRmResource `
-        -ResourceType "Microsoft.Search/searchServices/deleteQueryKey/$($queryKey)" `
-        -ResourceGroupName $resourceGroupName `
-        -ResourceName $serviceName `
-        -ApiVersion 2015-08-19
+## Import Az.Search
 
-    # Scale your service up
-    # Note that this will only work if you made a non "free" service
-    # This command will not return until the operation is finished
-    # It can take 15 minutes or more to provision the additional resources
-    $resource.Properties.ReplicaCount = 2
-    $resource | Set-AzureRmResource
+Commands from [**Az.Search**](/powershell/module/az.search) are not available until you load the module.
 
-    # Delete your service
-    # Deleting your service will delete all indexes and data in the service
-    $resource | Remove-AzureRmResource
+```azurepowershell-interactive
+Install-Module -Name Az.Search
+```
 
-## Next Steps
-Now that your service is created, you can take the next steps: build an [index](search-what-is-an-index.md), [query an index](search-query-overview.md), and finally create and manage your own search application that uses Azure Search.
+### List all Az.Search commands
 
-* [Create an Azure Search index in the Azure portal](search-create-index-portal.md)
-* [Query an Azure Search index using Search explorer in the Azure portal](search-explorer.md)
-* [Setup an indexer to load data from other services](search-indexer-overview.md)
-* [How to use Azure Search in .NET](search-howto-dotnet-sdk.md)
-* [Analyze your Azure Search traffic](search-traffic-analytics.md)
+As a verification step, return a list of commands provided in the module.
 
+```azurepowershell-interactive
+Get-Command -Module Az.Search
+```
+
+Results should look similar to the following output.
+
+```
+CommandType     Name                                               Version    Source                                                                
+-----------     ----                                               -------    ------                                                                
+Cmdlet          Get-AzSearchAdminKeyPair                           0.8.0      Az.Search                                                             
+Cmdlet          Get-AzSearchPrivateEndpointConnection              0.8.0      Az.Search                                                             
+Cmdlet          Get-AzSearchPrivateLinkResource                    0.8.0      Az.Search                                                             
+Cmdlet          Get-AzSearchQueryKey                               0.8.0      Az.Search                                                             
+Cmdlet          Get-AzSearchService                                0.8.0      Az.Search                                                             
+Cmdlet          Get-AzSearchSharedPrivateLinkResource              0.8.0      Az.Search                                                             
+Cmdlet          New-AzSearchAdminKey                               0.8.0      Az.Search                                                             
+Cmdlet          New-AzSearchQueryKey                               0.8.0      Az.Search                                                             
+Cmdlet          New-AzSearchService                                0.8.0      Az.Search                                                             
+Cmdlet          New-AzSearchSharedPrivateLinkResource              0.8.0      Az.Search                                                             
+Cmdlet          Remove-AzSearchPrivateEndpointConnection           0.8.0      Az.Search                                                             
+Cmdlet          Remove-AzSearchQueryKey                            0.8.0      Az.Search                                                             
+Cmdlet          Remove-AzSearchService                             0.8.0      Az.Search                                                             
+Cmdlet          Remove-AzSearchSharedPrivateLinkResource           0.8.0      Az.Search                                                             
+Cmdlet          Set-AzSearchPrivateEndpointConnection              0.8.0      Az.Search                                                             
+Cmdlet          Set-AzSearchService                                0.8.0      Az.Search                                                             
+Cmdlet          Set-AzSearchSharedPrivateLinkResource              0.8.0      Az.Search   
+```
+
+If you have an older version of the package, update the module to get the latest functionality.
+
+```azurepowershell-interactive
+Update-Module -Name Az.Search
+```
+
+## Get search service information
+
+After **Az.Search** is imported and you know the resource group containing your search service, run [Get-AzSearchService](/powershell/module/az.search/get-azsearchservice) to return the service definition, including name, region, tier, and replica and partition counts. For this command, provide the resource group that contains the search service.
+
+```azurepowershell-interactive
+Get-AzSearchService -ResourceGroupName <resource-group-name>
+```
+
+Results should look similar to the following output.
+
+```
+Name              : my-demo-searchapp
+ResourceGroupName : demo-westus
+ResourceType      : Microsoft.Search/searchServices
+Location          : West US
+Sku               : Standard
+ReplicaCount      : 1
+PartitionCount    : 1
+HostingMode       : Default
+ResourceId        : /subscriptions/<alphanumeric-subscription-ID>/resourceGroups/demo-westus/providers/Microsoft.Search/searchServices/my-demo-searchapp
+```
+
+## Create or delete a service
+
+[**New-AzSearchService**](/powershell/module/az.search/new-azsearchservice) is used to [create a new search service](search-create-service-portal.md).
+
+```azurepowershell-interactive
+New-AzSearchService -ResourceGroupName <resource-group-name> -Name <search-service-name> -Sku "Standard" -Location "West US" -PartitionCount 3 -ReplicaCount 3 -HostingMode Default
+``` 
+Results should look similar to the following output.
+
+```
+ResourceGroupName : demo-westus
+Name              : my-demo-searchapp
+Id                : /subscriptions/<alphanumeric-subscription-ID>/demo-westus/providers/Microsoft.Search/searchServices/my-demo-searchapp
+Location          : West US
+Sku               : Standard
+ReplicaCount      : 3
+PartitionCount    : 3
+HostingMode       : Default
+Tags
+```     
+
+### Create a service with IP rules
+
+Depending on your security requirements, you may want to create a search service with an [IP firewall configured](service-configure-firewall.md). To do so, first define the IP Rules and then pass them to the `IPRuleList` parameter as shown below.
+
+```azurepowershell-interactive
+$ipRules = @([pscustomobject]@{Value="55.5.63.73"},
+		[pscustomobject]@{Value="52.228.215.197"},
+		[pscustomobject]@{Value="101.37.221.205"})
+
+ New-AzSearchService -ResourceGroupName <resource-group-name> `
+                      -Name <search-service-name> `
+                      -Sku Standard `
+                      -Location "West US" `
+                      -PartitionCount 3 -ReplicaCount 3 `
+                      -HostingMode Default `
+                      -IPRuleList $ipRules
+```
+
+### Create a service with a system assigned managed identity
+
+In some cases, such as when [using managed identity to connect to a data source](search-howto-managed-identities-storage.md), you will need to turn on [system assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md). This is done by adding `-IdentityType SystemAssigned` to the command.
+
+```azurepowershell-interactive
+New-AzSearchService -ResourceGroupName <resource-group-name> `
+                      -Name <search-service-name> `
+                      -Sku Standard `
+                      -Location "West US" `
+                      -PartitionCount 3 -ReplicaCount 3 `
+                      -HostingMode Default `
+                      -IdentityType SystemAssigned
+```
+
+## Create a service with a private endpoint
+
+[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/private-ip-addresses.md) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For more details, see 
+[Creating a private endpoint for Azure Cognitive Search](service-create-private-endpoint.md)
+
+The following example shows how to create a search service with a private endpoint. 
+
+First, deploy a search service with `PublicNetworkAccess` set to `Disabled`.
+
+```azurepowershell-interactive
+$searchService = New-AzSearchService `
+    -ResourceGroupName <search-service-resource-group-name> `
+    -Name <search-service-name> `
+    -Sku Standard `
+    -Location "West US" `
+    -PartitionCount 1 -ReplicaCount 1 `
+    -HostingMode Default `
+    -PublicNetworkAccess Disabled
+```
+
+Next, create a virtual network, private network connection, and the private endpoint.
+
+```azurepowershell-interactive
+# Create the subnet
+$subnetConfig = New-AzVirtualNetworkSubnetConfig `
+    -Name <subnet-name> `
+    -AddressPrefix 10.1.0.0/24 `
+    -PrivateEndpointNetworkPolicies Disabled 
+
+# Create the virtual network
+$virtualNetwork = New-AzVirtualNetwork `
+    -ResourceGroupName <vm-resource-group-name> `
+    -Location "West US" `
+    -Name <virtual-network-name> `
+    -AddressPrefix 10.1.0.0/16 `
+    -Subnet $subnetConfig
+
+# Create the private network connection
+$privateLinkConnection = New-AzPrivateLinkServiceConnection `
+    -Name <private-link-name> `
+    -PrivateLinkServiceId $searchService.Id `
+    -GroupId searchService
+
+# Create the private endpoint
+$privateEndpoint = New-AzPrivateEndpoint `
+    -Name <private-endpoint-name> `
+    -ResourceGroupName <private-endpoint-resource-group-name> `
+    -Location "West US" `
+    -Subnet $virtualNetwork.subnets[0] `
+    -PrivateLinkServiceConnection $privateLinkConnection
+```
+
+Finally, create a private DNS Zone. 
+
+```azurepowershell-interactive
+## Create private dns zone
+$zone = New-AzPrivateDnsZone `
+    -ResourceGroupName <private-dns-resource-group-name> `
+    -Name "privatelink.search.windows.net"
+
+## Create dns network link
+$link = New-AzPrivateDnsVirtualNetworkLink `
+    -ResourceGroupName <private-dns-link-resource-group-name> `
+    -ZoneName "privatelink.search.windows.net" `
+    -Name "myLink" `
+    -VirtualNetworkId $virtualNetwork.Id
+
+## Create DNS configuration 
+$config = New-AzPrivateDnsZoneConfig `
+    -Name "privatelink.search.windows.net" `
+    -PrivateDnsZoneId $zone.ResourceId
+
+## Create DNS zone group
+New-AzPrivateDnsZoneGroup `
+    -ResourceGroupName <private-dns-zone-resource-group-name> `
+    -PrivateEndpointName <private-endpoint-name> `
+    -Name 'myZoneGroup' `
+    -PrivateDnsZoneConfig $config
+```
+
+For more details on creating private endpoints in PowerShell, see this [Private Link Quickstart](../private-link/create-private-endpoint-powershell.md)
+
+### Manage private endpoint connections
+
+In addition to creating a private endpoint connection, you can also `Get`, `Set`, and `Remove` the connection.
+
+[Get-AzSearchPrivateEndpointConnection](/powershell/module/az.search/Get-AzSearchPrivateEndpointConnection) is used to retrieve a private endpoint connection and to see its status.
+
+```azurepowershell-interactive
+Get-AzSearchPrivateEndpointConnection -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name>
+```
+
+[Set-AzSearchPrivateEndpointConnection](/powershell/module/az.search/Set-AzSearchPrivateEndpointConnection) is used to update the connection. The following example sets a private endpoint connection to rejected:
+
+```azurepowershell-interactive
+Set-AzSearchPrivateEndpointConnection -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -Name <pe-connection-name> -Status Rejected  -Description "Rejected"
+```
+
+[Remove-AzSearchPrivateEndpointConnection](/powershell/module/az.search/Remove-AzSearchPrivateEndpointConnection) is used to delete the private endpoint connection.
+
+```azurepowershell-interactive
+ Remove-AzSearchPrivateEndpointConnection -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -Name <pe-connection-name>
+```
+
+## Regenerate admin keys
+
+[**New-AzSearchAdminKey**](/powershell/module/az.search/new-azsearchadminkey) is used to roll over admin [API keys](search-security-api-keys.md). Two admin keys are created with each service for authenticated access. Keys are required on every request. Both admin keys are functionally equivalent, granting full write access to a search service with the ability to retrieve any information, or create and delete any object. Two keys exist so that you can use one while replacing the other. 
+
+You can only regenerate one at a time, specified as either the `primary` or `secondary` key. For uninterrupted service, remember to update all client code to use a secondary key while rolling over the primary key. Avoid changing the keys while operations are in flight.
+
+As you might expect, if you regenerate keys without updating client code, requests using the old key will fail. Regenerating all new keys does not permanently lock you out of your service, and you can still access the service through the portal. After you regenerate primary and secondary keys, you can update client code to use the new keys and operations will resume accordingly.
+
+Values for the API keys are generated by the service. You cannot provide a custom key for Azure Cognitive Search to use. Similarly, there is no user-defined name for admin API-keys. References to the key are fixed strings, either `primary` or `secondary`. 
+
+```azurepowershell-interactive
+New-AzSearchAdminKey -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -KeyKind Primary
+```
+
+Results should look similar to the following output. Both keys are returned even though you only change one at a time.
+
+```
+Primary                    Secondary
+-------                    ---------
+<alphanumeric-guid>        <alphanumeric-guid>  
+```
+
+## Create or delete query keys
+
+[**New-AzSearchQueryKey**](/powershell/module/az.search/new-azsearchquerykey) is used to create query [API keys](search-security-api-keys.md) for read-only access from client apps to an Azure Cognitive Search index. Query keys are used to authenticate to a specific index for the purpose of retrieving search results. Query keys do not grant read-only access to other items on the service, such as an index, data source, or indexer.
+
+You cannot provide a key for Azure Cognitive Search to use. API keys are generated by the service.
+
+```azurepowershell-interactive
+New-AzSearchQueryKey -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -Name <query-key-name> 
+```
+
+## Scale replicas and partitions
+
+[**Set-AzSearchService**](/powershell/module/az.search/set-azsearchservice) is used to [increase or decrease replicas and partitions](search-capacity-planning.md) to readjust billable resources within your service. Increasing replicas or partitions adds to your bill, which has both fixed and variable charges. If you have a temporary need for additional processing power, you can increase replicas and partitions to handle the workload. The monitoring area in the Overview portal page has tiles on query latency, queries per second, and throttling, indicating whether current capacity is adequate.
+
+It can take a while to add or remove resourcing. Adjustments to capacity occur in the background, allowing existing workloads to continue. Additional capacity is used for incoming requests as soon as it's ready, with no additional configuration required. 
+
+Removing capacity can be disruptive. Stopping all indexing and indexer jobs prior to reducing capacity is recommended to avoid dropped requests. If that isn't feasible, you might consider reducing capacity incrementally, one replica and partition at a time, until your new target levels are reached.
+
+Once you submit the command, there is no way to terminate it midway through. You will have to wait until the command is finished before revising the counts.
+
+```azurepowershell-interactive
+Set-AzSearchService -ResourceGroupName <search-service-resource-group-name> -Name <search-service-name> -PartitionCount 6 -ReplicaCount 6
+```
+
+Results should look similar to the following output.
+
+```
+ResourceGroupName : demo-westus
+Name              : my-demo-searchapp
+Location          : West US
+Sku               : Standard
+ReplicaCount      : 6
+PartitionCount    : 6
+HostingMode       : Default
+Id                : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/demo-westus/providers/Microsoft.Search/searchServices/my-demo-searchapp
+```
+
+## Create a shared private link resource
+
+Private endpoints of secured resources that are created through Azure Cognitive Search APIs are referred to as *shared private link resources*. This is because you're "sharing" access to a resource, such as a storage account, that has been integrated with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/).
+
+If you're using an indexer to index data in Azure Cognitive Search, and your data source is on a private network, you can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) to reach the data.
+
+A full list of the Azure Resources for which you can create outbound private endpoints from Azure Cognitive Search can be found [here](search-indexer-howto-access-private.md#shared-private-link-resources-management-apis) along with the related **Group ID** values.
+
+[New-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/New-AzSearchSharedPrivateLinkResource) is used to create the shared private link resource. Keep in mind that some configuration may be required for the data source before running this command.
+
+```azurepowershell-interactive
+New-AzSearchSharedPrivateLinkResource -ResourceGroupName <search-serviceresource-group-name> -ServiceName <search-service-name> -Name <spl-name> -PrivateLinkResourceId /subscriptions/<alphanumeric-subscription-ID>/resourceGroups/<storage-resource-group-name>/providers/Microsoft.Storage/storageAccounts/myBlobStorage -GroupId <group-id> -RequestMessage "Please approve" 
+```
+
+[Get-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/Get-AzSearchSharedPrivateLinkResource)
+allows you to retrieve the shared private link resources and view their status.
+
+```azurepowershell-interactive
+Get-AzSearchSharedPrivateLinkResource -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -Name <spl-name>
+```
+
+You'll need to approve the connection with the following command before it can be used.
+
+```azurepowershell-interactive
+Approve-AzPrivateEndpointConnection `
+    -Name <spl-name> `
+    -ServiceName <search-service-name> `
+    -ResourceGroupName <search-service-resource-group-name> `
+    -Description = "Approved"
+```
+
+[Remove-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/Remove-AzSearchSharedPrivateLinkResource) is used to delete the shared private link resource.
+
+```azurepowershell-interactive
+$job = Remove-AzSearchSharedPrivateLinkResource -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -Name <spl-name> -Force -AsJob
+
+$job | Get-Job
+```
+
+For full details on setting up shared private link resources, see the documentation on [making indexer connections through a private endpoint](search-indexer-howto-access-private.md).
+
+## Next steps
+
+Build an [index](search-what-is-an-index.md), [query an index](search-query-overview.md) using the portal, REST APIs, or the .NET SDK.
+
+* [Create an Azure Cognitive Search index in the Azure portal](search-get-started-portal.md)
+* [Set up an indexer to load data from other services](search-indexer-overview.md)
+* [Query an Azure Cognitive Search index using Search explorer in the Azure portal](search-explorer.md)
+* [How to use Azure Cognitive Search in .NET](search-howto-dotnet-sdk.md)

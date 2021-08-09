@@ -1,71 +1,89 @@
 ---
-title: Connect to Azure Database for MySQL from PHP
+title: 'Quickstart: Connect using PHP - Azure Database for MySQL'
 description: This quickstart provides several PHP code samples you can use to connect and query data from Azure Database for MySQL.
-services: mysql
-author: ajlam
-ms.author: andrela
-manager: kfile
-editor: jasonwhowell
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 02/28/2018
+ms.date: 10/28/2020
 ---
 
-# Azure Database for MySQL: Use PHP to connect and query data
-This quickstart demonstrates how to connect to an Azure Database for MySQL using a [PHP](https://secure.php.net/manual/intro-whatis.php) application. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes that you are familiar with development using PHP and that you are new to working with Azure Database for MySQL.
+# Quickstart: Use PHP to connect and query data in Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+This quickstart demonstrates how to connect to an Azure Database for MySQL using a [PHP](https://secure.php.net/manual/intro-whatis.php) application. It shows how to use SQL statements to query, insert, update, and delete data in the database.
 
 ## Prerequisites
-This quickstart uses the resources created in either of these guides as a starting point:
-- [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
-- [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
+For this quickstart you need:
 
-## Install PHP
-Install PHP on your own server, or create an Azure [web app](../app-service/app-service-web-overview.md) that includes PHP.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- Create an Azure Database for MySQL single server using [Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md) <br/> or [Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) if you do not have one.
+- Based on whether you are using public or private access, complete **ONE** of the actions below to enable connectivity.
 
-### MacOS
-- Download [PHP 7.1.4 version](https://secure.php.net/downloads.php).
-- Install PHP and refer to the [PHP manual](https://secure.php.net/manual/install.macosx.php) for further configuration.
+    |Action| Connectivity method|How-to guide|
+    |:--------- |:--------- |:--------- |
+    | **Configure firewall rules** | Public | [Portal](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|
+    | **Configure Service Endpoint** | Public | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
+    | **Configure private link** | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
 
-### Linux (Ubuntu)
-- Download [PHP 7.1.4 non-thread safe (x64) version](https://secure.php.net/downloads.php).
-- Install PHP and refer to the [PHP manual](https://secure.php.net/manual/install.unix.php) for further configuration.
+- [Create a database and non-admin user](./howto-create-users.md?tabs=single-server)
+- Install latest PHP version  for your operating system
+    - [PHP on macOS](https://secure.php.net/manual/install.macosx.php)
+    - [PHP on Linux](https://secure.php.net/manual/install.unix.php)
+    - [PHP on Windows](https://secure.php.net/manual/install.windows.php)
 
-### Windows
-- Download [PHP 7.1.4 non-thread safe (x64) version](https://windows.php.net/download#php-7.1).
-- Install PHP and refer to the [PHP manual](https://secure.php.net/manual/install.windows.php) for further configuration.
+> [!NOTE]
+> We are using [MySQLi](https://www.php.net/manual/en/book.mysqli.php) library to manage connect and query the server in this quickstart.
 
 ## Get connection information
-Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
+You can get the database server connection information from the Azure portal by following these steps:
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
-3. Click the server name.
-4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
- ![Azure Database for MySQL server name](./media/connect-php/1_server-overview-name-login.png)
+2. Navigate to the Azure Databases for MySQL page. You can search for and select **Azure Database for MySQL**.
+:::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/find-azure-mysql-in-portal.png" alt-text="Find Azure Database for MySQL":::
 
-## Connect and create a table
-Use the following code to connect and create a table by using **CREATE TABLE** SQL statement. 
+2. Select your  MySQL server (such as **mydemoserver**).
+3. In the **Overview** page, copy the fully qualified server name next to **Server name** and the admin user name next to **Server admin login name**. To copy the server name or host name, hover over it and select the **Copy** icon.
 
-The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code calls methods [mysqli_init](https://secure.php.net/manual/mysqli.init.php) and [mysqli_real_connect](https://secure.php.net/manual/mysqli.real-connect.php) to connect to MySQL. Then it calls method 
-[mysqli_query](https://secure.php.net/manual/mysqli.query.php) to run the query. Then it calls method [mysqli_close](https://secure.php.net/manual/mysqli.close.php) to close the connection.
+> [!IMPORTANT]
+> - If you forgot your password, you can [reset the password](./howto-create-manage-server-portal.md#update-admin-password).
+> - Replace the **host, username, password,** and **db_name** parameters with your own values**
 
-Replace the host, username, password, and db_name parameters with your own values. 
+## Step 1: Connect to the server
+SSL is enabled by default. You may need to download the [DigiCertGlobalRootG2 SSL certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) to connect from your local environment. This code calls:
+- [mysqli_init](https://secure.php.net/manual/mysqli.init.php) to initialize MySQLi.
+- [mysqli_ssl_set](https://www.php.net/manual/en/mysqli.ssl-set.php) to point to the SSL certificate path. This is required for your local environment but not required for App Service Web App or Azure Virtual machines.
+- [mysqli_real_connect](https://secure.php.net/manual/mysqli.real-connect.php) to connect to MySQL.
+- [mysqli_close](https://secure.php.net/manual/mysqli.close.php) to close the connection.
+
 
 ```php
-<?php
 $host = 'mydemoserver.mysql.database.azure.com';
 $username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
 
-//Establishes the connection
+//Initializes MySQLi
 $conn = mysqli_init();
-mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
-if (mysqli_connect_errno($conn)) {
-die('Failed to connect to MySQL: '.mysqli_connect_error());
-}
 
+mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/DigiCertGlobalRootG2.crt.pem", NULL, NULL);
+
+// Establish the connection
+mysqli_real_connect($conn, 'mydemoserver.mysql.database.azure.com', 'myadmin@mydemoserver', 'yourpassword', 'quickstartdb', 3306, NULL, MYSQLI_CLIENT_SSL);
+
+//If connection failed, show the error
+if (mysqli_connect_errno())
+{
+    die('Failed to connect to MySQL: '.mysqli_connect_error());
+}
+```
+[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
+
+## Step 2: Create a Table
+Use the following code to connect. This code calls:
+- [mysqli_query](https://secure.php.net/manual/mysqli.query.php) to run the query.
+```php
 // Run the create table query
 if (mysqli_query($conn, '
 CREATE TABLE Products (
@@ -78,139 +96,56 @@ PRIMARY KEY (`Id`)
 ')) {
 printf("Table created\n");
 }
-
-//Close the connection
-mysqli_close($conn);
-?>
 ```
 
-## Insert data
-Use the following code to connect and insert data by using an **INSERT** SQL statement.
+## Step 3: Insert data
+Use the following code to insert data by using an **INSERT** SQL statement. This code uses the methods:
+- [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) to create a prepared insert statement
+- [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php) to bind the parameters for each inserted column value.
+- [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php)
+- [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php) to close the statement by using method
 
-The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code uses method [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) to create a prepared insert statement, then binds the parameters for each inserted column value using method [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php). The code runs the statement by using method [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) and afterwards closes the statement by using method [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).
-
-Replace the host, username, password, and db_name parameters with your own values. 
 
 ```php
-<?php
-$host = 'mydemoserver.mysql.database.azure.com';
-$username = 'myadmin@mydemoserver';
-$password = 'your_password';
-$db_name = 'your_database';
-
-//Establishes the connection
-$conn = mysqli_init();
-mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
-if (mysqli_connect_errno($conn)) {
-die('Failed to connect to MySQL: '.mysqli_connect_error());
-}
-
 //Create an Insert prepared statement and run it
 $product_name = 'BrandNewProduct';
 $product_color = 'Blue';
 $product_price = 15.5;
-if ($stmt = mysqli_prepare($conn, "INSERT INTO Products (ProductName, Color, Price) VALUES (?, ?, ?)")) {
-mysqli_stmt_bind_param($stmt, 'ssd', $product_name, $product_color, $product_price);
-mysqli_stmt_execute($stmt);
-printf("Insert: Affected %d rows\n", mysqli_stmt_affected_rows($stmt));
-mysqli_stmt_close($stmt);
+if ($stmt = mysqli_prepare($conn, "INSERT INTO Products (ProductName, Color, Price) VALUES (?, ?, ?)"))
+{
+    mysqli_stmt_bind_param($stmt, 'ssd', $product_name, $product_color, $product_price);
+    mysqli_stmt_execute($stmt);
+    printf("Insert: Affected %d rows\n", mysqli_stmt_affected_rows($stmt));
+    mysqli_stmt_close($stmt);
 }
 
-// Close the connection
-mysqli_close($conn);
-?>
 ```
 
-## Read data
-Use the following code to connect and read the data by using a **SELECT** SQL statement.  The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code uses method [mysqli_query](https://secure.php.net/manual/mysqli.query.php) perform the sql query and method [mysqli_fetch_assoc](https://secure.php.net/manual/mysqli-result.fetch-assoc.php) to fetch the resulting rows.
-
-Replace the host, username, password, and db_name parameters with your own values. 
+## Step 4: Read data
+Use the following code to read the data by using a **SELECT** SQL statement.  The code uses the method:
+- [mysqli_query](https://secure.php.net/manual/mysqli.query.php) execute the **SELECT** query
+- [mysqli_fetch_assoc](https://secure.php.net/manual/mysqli-result.fetch-assoc.php) to fetch the resulting rows.
 
 ```php
-<?php
-$host = 'mydemoserver.mysql.database.azure.com';
-$username = 'myadmin@mydemoserver';
-$password = 'your_password';
-$db_name = 'your_database';
-
-//Establishes the connection
-$conn = mysqli_init();
-mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
-if (mysqli_connect_errno($conn)) {
-die('Failed to connect to MySQL: '.mysqli_connect_error());
-}
-
 //Run the Select query
 printf("Reading data from table: \n");
 $res = mysqli_query($conn, 'SELECT * FROM Products');
-while ($row = mysqli_fetch_assoc($res)) {
-var_dump($row);
-}
+while ($row = mysqli_fetch_assoc($res))
+ {
+    var_dump($row);
+ }
 
-//Close the connection
-mysqli_close($conn);
-?>
-```
-
-## Update data
-Use the following code to connect and update the data by using an **UPDATE** SQL statement.
-
-The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code uses method [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) to create a prepared update statement, then binds the parameters for each updated column value using method [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php). The code runs the statement by using method [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) and afterwards closes the statement by using method [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).
-
-Replace the host, username, password, and db_name parameters with your own values. 
-
-```php
-<?php
-$host = 'mydemoserver.mysql.database.azure.com';
-$username = 'myadmin@mydemoserver';
-$password = 'your_password';
-$db_name = 'your_database';
-
-//Establishes the connection
-$conn = mysqli_init();
-mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
-if (mysqli_connect_errno($conn)) {
-die('Failed to connect to MySQL: '.mysqli_connect_error());
-}
-
-//Run the Update statement
-$product_name = 'BrandNewProduct';
-$new_product_price = 15.1;
-if ($stmt = mysqli_prepare($conn, "UPDATE Products SET Price = ? WHERE ProductName = ?")) {
-mysqli_stmt_bind_param($stmt, 'ds', $new_product_price, $product_name);
-mysqli_stmt_execute($stmt);
-printf("Update: Affected %d rows\n", mysqli_stmt_affected_rows($stmt));
-
-//Close the connection
-mysqli_stmt_close($stmt);
-}
-
-mysqli_close($conn);
-?>
 ```
 
 
-## Delete data
-Use the following code to connect and read the data by using a **DELETE** SQL statement. 
-
-The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code uses method [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) to create a prepared delete statement, then binds the parameters for the where clause in the statement using method [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php). The code runs the statement by using method [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) and afterwards closes the statement by using method [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).
-
-Replace the host, username, password, and db_name parameters with your own values. 
+## Step 5: Delete data
+Use the following code delete rows by using a **DELETE** SQL statement. The code uses the methods:
+- [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) to create a prepared delete statement
+- [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php) binds the parameters
+- [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) executes the prepared delete statement
+- [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php) closes the statement
 
 ```php
-<?php
-$host = 'mydemoserver.mysql.database.azure.com';
-$username = 'myadmin@mydemoserver';
-$password = 'your_password';
-$db_name = 'your_database';
-
-//Establishes the connection
-$conn = mysqli_init();
-mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
-if (mysqli_connect_errno($conn)) {
-die('Failed to connect to MySQL: '.mysqli_connect_error());
-}
-
 //Run the Delete statement
 $product_name = 'BrandNewProduct';
 if ($stmt = mysqli_prepare($conn, "DELETE FROM Products WHERE ProductName = ?")) {
@@ -219,12 +154,23 @@ mysqli_stmt_execute($stmt);
 printf("Delete: Affected %d rows\n", mysqli_stmt_affected_rows($stmt));
 mysqli_stmt_close($stmt);
 }
+```
 
-//Close the connection
-mysqli_close($conn);
-?>
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Connect to Azure Database for MySQL via SSL](howto-configure-ssl.md)
+> [Manage Azure Database for MySQL server using Portal](./howto-create-manage-server-portal.md)<br/>
+
+> [!div class="nextstepaction"]
+> [Manage Azure Database for MySQL server using CLI](./how-to-manage-single-server-cli.md)
+
+[Cannot find what you are looking for? Let us know.](https://aka.ms/mysql-doc-feedback)

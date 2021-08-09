@@ -1,147 +1,302 @@
 ---
-title: How-to sentiment analysis in Text Analytics REST API (Microsoft Cognitive Services on Azure) | Microsoft Docs
-description: How to detect sentiment  using the Text Analytics REST API in Microsoft Cognitive Services on Azure in this walkthrough tutorial.
+title: Perform sentiment analysis and opinion mining with Text Analytics REST API
+titleSuffix: Azure Cognitive Services
+description: This article will show you how to detect sentiment, and mine for opinions in text with the Azure Cognitive Services Text Analytics API.
 services: cognitive-services
-author: HeidiSteen
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
+ms.date: 07/07/2021
+ms.author: aahi
 ---
 
-# Example: How to detect sentiment in Text Analytics
+# How to: Sentiment analysis and Opinion Mining
 
-The [Sentiment Analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) evaluates text input and returns a sentiment score for each document, ranging from 0 (negative) to 1 (positive).
+The Text Analytics API's Sentiment Analysis feature provides two ways for detecting positive and negative sentiment. If you send a Sentiment Analysis request, the API will return sentiment labels (such as "negative", "neutral" and "positive") and confidence scores at the sentence and document-level. You can also send Opinion Mining requests using the Sentiment Analysis endpoint, which provides granular information about the opinions related to words (such as the attributes of products or services) in the text.
 
-This capability is useful for detecting positive and negative sentiment in social media, customer reviews, and discussion forums. Content is provided by you; models and training data are provided by the service.
+The AI models used by the API are provided by the service, you just have to send content for analysis.
 
-Currently, Sentiment Analysis supports English, German, Spanish, and French. Other languages are in preview. For more information, see [Supported languages](../text-analytics-supported-languages.md).
+## Sentiment Analysis versions and features
 
-> [!TIP]
-> Text Analytics also provides a Linux-based Docker container image for sentiment analysis, so you can [install and run the Text Analytics container](text-analytics-how-to-install-containers.md) close to your data.
+| Feature                                   | Sentiment Analysis v3.0 | Sentiment Analysis v3.1 |
+|-------------------------------------------|-----------------------|-----------------------------------|
+| Methods for single, and batch requests    | X                     | X                                 |
+| Sentiment Analysis scores and labeling             | X                     | X                                 |
+| Linux-based [Docker container](text-analytics-how-to-install-containers.md) | X  |  |
+| Opinion Mining                            |                       | X                                 |
 
-## Concepts
+## Sentiment Analysis
 
-Text Analytics uses a machine learning classification algorithm to generate a sentiment score between 0 and 1. Scores closer to 1 indicate positive sentiment, while scores closer to 0 indicate negative sentiment. The model is pretrained with an extensive body of text with sentiment associations. Currently, it is not possible to provide your own training data. The model uses a combination of techniques during text analysis, including text processing, part-of-speech analysis, word placement, and word associations. For more information about the algorithm, see [Introducing Text Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/).
+Sentiment Analysis in version 3.x applies sentiment labels to text, which are returned at a sentence and document level, with a confidence score for each. 
 
-Sentiment analysis is performed on the entire document, as opposed to extracting sentiment for a particular entity in the text. In practice, there is a tendency for scoring accuracy to improve when documents contain one or two sentences rather than a large block of text. During an objectivity assessment phase, the model determines whether a document as a whole is objective or contains sentiment. A document that is mostly objective does not progress to the sentiment detection phrase, resulting in a .50 score, with no further processing. For documents continuing in the pipeline, the next phase generates a score above or below .50, depending on the degree of sentiment detected in the document.
+The labels are *positive*, *negative*, and *neutral*. At the document level, the *mixed* sentiment label also can be returned. The sentiment of the document is determined below:
 
-## Preparation
+| Sentence sentiment                                                                            | Returned document label |
+|-----------------------------------------------------------------------------------------------|-------------------------|
+| At least one `positive` sentence is in the document. The rest of the sentences are `neutral`. | `positive`              |
+| At least one `negative` sentence is in the document. The rest of the sentences are `neutral`. | `negative`              |
+| At least one `negative` sentence and at least one `positive` sentence are in the document.    | `mixed`                 |
+| All sentences in the document are `neutral`.                                                  | `neutral`               |
 
-Sentiment analysis produces a higher quality result when you give it smaller chunks of text to work on. This is opposite from key phrase extraction, which performs better on larger blocks of text. To get the best results from both operations, consider restructuring the inputs accordingly.
+Confidence scores range from 1 to 0. Scores closer to 1 indicate a higher confidence in the label's classification, while lower scores indicate lower confidence. For each document or each sentence, the predicted scores associated with the labels (positive, negative and neutral) add up to 1. For more information, see the [Text Analytics transparency note](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context). 
 
-You must have JSON documents in this format: id, text, language
+## Opinion Mining
 
-Document size must be under 5,000 characters per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following is an example of content you might submit for sentiment analysis.
+Opinion Mining is a feature of Sentiment Analysis, starting in version 3.1. Also known as Aspect-based Sentiment Analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to attributes of products or services in text. The API surfaces opinions as a target (noun or verb) and an assessment (adjective).
 
-```
-    {
-        "documents": [
-            {
-                "language": "en",
-                "id": "1",
-                "text": "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!"
-            },
-            {
-                "language": "en",
-                "id": "2",
-                "text": "Poorly marked trails! I thought we were goners. Worst hike ever."
-            },
-            {
-                "language": "en",
-                "id": "3",
-                "text": "Everyone in my family liked the trail but thought it was too challenging for the less athletic among us. Not necessarily recommended for small children."
-            },
-            {
-                "language": "en",
-                "id": "4",
-                "text": "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area."
-            },                
-            {
-                "language": "en",
-                "id": "5",
-                "text": "This is my favorite trail. It has beautiful views and many places to stop and rest"
-            }
-        ]
-    }
-```
+For example, if a customer leaves feedback about a hotel such as "The room was great, but the staff was unfriendly.", Opinion Mining will locate targets (aspects) in the text, and their associated assessments (opinions) and sentiments. Sentiment Analysis might only report a negative sentiment.
 
-## Step 1: Structure the request
+:::image type="content" source="../media/how-tos/opinion-mining.png" alt-text="A diagram of the Opinion Mining example" lightbox="../media/how-tos/opinion-mining.png":::
 
-Details on request definition can be found in [How to call the Text Analytics API](text-analytics-how-to-call-api.md). The following points are restated for convenience:
-
-+ Create a **POST** request. Review the API documentation for this request: [Sentiment Analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
-
-+ Set the HTTP endpoint for sentiment analysis, using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). It must include the `/sentiment` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
-
-+ Set a request header to include the access key for Text Analytics operations. For more information, see [How to find endpoints and access keys](text-analytics-how-to-access-key.md).
-
-+ In the request body, provide the JSON documents collection you prepared for this analysis.
-
-> [!Tip]
-> Use [Postman](text-analytics-how-to-call-api.md) or open the **API testing console** in the [documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) to structure the request and POST it to the service.
-
-## Step 2: Post the request
-
-Analysis is performed upon receipt of the request. The service accepts up to 100 requests per minute. Each request can be a maximum of 1 MB.
-
-Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
+To get Opinion Mining in your results, you must include the `opinionMining=true` flag in a request for sentiment analysis. The Opinion Mining results will be included in the sentiment analysis response. Opinion mining is an extension of Sentiment Analysis and is included in your current [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
 
-## Step 3: View results
+## Sending a REST API request 
 
-The sentiment analyzer classifies text as predominantly positive or negative, assigning a score in the range of 0 to 1. Values close to 0.5 are neutral or indeterminate. A score of 0.5 indicates neutrality. When a string cannot be analyzed for sentiment or has no sentiment, the score is always 0.5 exactly. For example, if you pass in a Spanish string with an English language code, the score is 0.5.
+### Preparation
 
-Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data.
+Sentiment analysis produces a higher-quality result when you give it smaller amounts of text to work on. This is opposite from key phrase extraction, which performs better on larger blocks of text. To get the best results from both operations, consider restructuring the inputs accordingly.
 
-The following example shows the response for the document collection in this article.
+You must have JSON documents in this format: ID, text, and language. Sentiment Analysis supports a wide range of languages. For more information, see [Supported languages](../language-support.md).
 
-```
+Document size must be under 5,120 characters per document. For the maximum number of documents permitted in a collection, see the [data limits](../concepts/data-limits.md?tabs=version-3) article under Concepts. The collection is submitted in the body of the request.
+
+## Structure the request
+
+Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) or the **API testing console** in the following reference links to quickly structure and send one. 
+
+#### [Version 3.1](#tab/version-3-1)
+
+[Sentiment Analysis v3.1 reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment)
+
+#### [Version 3.0](#tab/version-3)
+
+[Sentiment Analysis v3 reference](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment)
+
+---
+
+### Request endpoints
+
+Set the HTTPS endpoint for sentiment analysis by using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). You must include the correct URL for the version you want to use. For example:
+
+> [!NOTE]
+> You can find your key and endpoint for your Text Analytics resource on the Azure portal. They will be located on the resource's **Quick start** page, under **resource management**. 
+
+#### [Version 3.1](#tab/version-3-1)
+
+**Sentiment Analysis**
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/sentiment`
+
+**Opinion Mining**
+
+To get Opinion Mining results, you must include the `opinionMining=true` parameter. For example:
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/sentiment?opinionMining=true`
+
+This parameter is set to `false` by default. 
+
+#### [Version 3.0](#tab/version-3)
+
+**Sentiment Analysis**
+
+In v3.0, the only available endpoint is for Sentiment Analysis.
+ 
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`
+
+---
+
+Set a request header to include your Text Analytics API key. In the request body, provide the JSON documents collection you prepared for this analysis.
+
+### Example request for Sentiment Analysis and Opinion Mining  
+
+The following is an example of content you might submit for sentiment analysis. The request format is the same for both `v3.0` and `v3.1`.
+    
+```json
 {
-    "documents": [
-        {
-            "score": 0.9999237060546875,
-            "id": "1"
-        },
-        {
-            "score": 0.0000540316104888916,
-            "id": "2"
-        },
-        {
-            "score": 0.99990355968475342,
-            "id": "3"
-        },
-        {
-            "score": 0.980544924736023,
-            "id": "4"
-        },
-        {
-            "score": 0.99996328353881836,
-            "id": "5"
-        }
-    ],
-    "errors": []
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "The restaurant had great food and our waiter was friendly."
+    }
+  ]
 }
 ```
 
+### Post the request
+
+Analysis is performed upon receipt of the request. For information on the size and number of requests you can send per minute and second, see the [data limits](../overview.md#data-limits) section in the overview.
+
+The Text Analytics API is stateless. No data is stored in your account, and results are returned immediately in the response.
+
+
+### View the results
+
+Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system. Then, import the output into an application that you can use to sort, search, and manipulate the data. Due to multilingual and emoji support, the response may contain text offsets. See [how to process offsets](../concepts/text-offsets.md) for more information.
+
+#### [Version 3.1](#tab/version-3-1)
+
+### Sentiment Analysis and Opinion Mining example response
+
+> [!IMPORTANT]
+> The following is a JSON example for using Opinion Mining with Sentiment Analysis, offered in v3.1 of the API. If you don't request Opinion mining, the API response will be the same as the **Version 3.0** tab.  
+
+Sentiment Analysis v3.1 can return response objects for both Sentiment Analysis and Opinion Mining.
+  
+Sentiment analysis returns a sentiment label and confidence score for the entire document, and each sentence within it. Scores closer to 1 indicate a higher confidence in the label's classification, while lower scores indicate lower confidence. A document can have multiple sentences, and the confidence scores within each document or sentence add up to 1.
+
+Opinion Mining will locate targets (nouns or verbs) in the text, and their associated assessment (adjective). In the below response, the sentence *The restaurant had great food and our waiter was friendly* has two targets: *food* and *waiter*. Each target's `relations` property contains a `ref` value with the URI-reference to the associated `documents`, `sentences`, and `assessments` objects.
+
+The API returns opinions as a target (noun or verb) and an assessment (adjective).
+
+```json
+{
+  "documents": [
+    {
+      "id": "1",
+      "sentiment": "positive",
+      "confidenceScores": {
+        "positive": 1,
+        "neutral": 0,
+        "negative": 0
+      },
+      "sentences": [
+        {
+          "sentiment": "positive",
+          "confidenceScores": {
+            "positive": 1,
+            "neutral": 0,
+            "negative": 0
+          },
+          "offset": 0,
+          "length": 58,
+          "text": "The restaurant had great food and our waiter was friendly.",
+          "targets": [
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 25,
+              "length": 4,
+              "text": "food",
+              "relations": [
+                {
+                  "relationType": "assessment",
+                  "ref": "#/documents/0/sentences/0/assessments/0"
+                }
+              ]
+            },
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 38,
+              "length": 6,
+              "text": "waiter",
+              "relations": [
+                {
+                  "relationType": "assessment",
+                  "ref": "#/documents/0/sentences/0/assessments/1"
+                }
+              ]
+            }
+          ],
+          "assessments": [
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 19,
+              "length": 5,
+              "text": "great",
+              "isNegated": false
+            },
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 49,
+              "length": 8,
+              "text": "friendly",
+              "isNegated": false
+            }
+          ]
+        }
+      ],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-04-01"
+}
+```
+
+#### [Version 3.0](#tab/version-3)
+
+### Sentiment Analysis example response
+
+Sentiment analysis returns a sentiment label and confidence score for the entire document, and each sentence within it. Scores closer to 1 indicate a higher confidence in the label's classification, while lower scores indicate lower confidence. A document can have multiple sentences, and the confidence scores within each document or sentence add up to 1.
+
+Responses from Sentiment Analysis v3 contain sentiment labels and scores for each analyzed sentence and document.
+
+```json
+{
+    "documents": [
+        {
+            "id": "1",
+            "sentiment": "positive",
+            "confidenceScores": {
+                "positive": 1.0,
+                "neutral": 0.0,
+                "negative": 0.0
+            },
+            "sentences": [
+                {
+                    "sentiment": "positive",
+                    "confidenceScores": {
+                        "positive": 1.0,
+                        "neutral": 0.0,
+                        "negative": 0.0
+                    },
+                    "offset": 0,
+                    "length": 58,
+                    "text": "The restaurant had great food and our waiter was friendly."
+                }
+            ],
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2020-04-01"
+}
+```
+
+---
+
 ## Summary
 
-In this article, you learned concepts and workflow for sentiment analysis using Text Analytics in Cognitive Services. In summary:
+In this article, you learned concepts and workflow for sentiment analysis using the Text Analytics API. In summary:
 
-+ [Sentiment analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) is available for selected languages.
-+ JSON documents in the request body include an id, text, and language code.
-+ POST request is to a `/sentiment` endpoint, using a personalized [access key and an endpoint](text-analytics-how-to-access-key.md) that is valid for your subscription.
-+ Response output, which consists of a sentiment score for each document ID, can be streamed to any app that accepts JSON, including Excel and Power BI, to name a few.
++ Sentiment Analysis and Opinion Mining is available for select languages.
++ JSON documents in the request body include an ID, text, and language code.
++ The POST request is to a `/sentiment` endpoint by using a personalized [access key and an endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that's valid for your subscription.
++ Use `opinionMining=true` in Sentiment Analysis requests to get Opinion Mining results.
++ Response output, which consists of a sentiment score for each document ID, can be streamed to any app that accepts JSON. For example, Excel and Power BI.
 
-## See also 
+## See also
 
- [Text Analytics overview](../overview.md)  
- [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)</br>
- [Text Analytics product page](//go.microsoft.com/fwlink/?LinkID=759712) 
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Extract key phrases](text-analytics-how-to-keyword-extraction.md)
+* [Text Analytics overview](../overview.md)
+* [Using the Text Analytics client library](../quickstarts/client-libraries-rest-api.md)
+* [What's new](../whats-new.md)
+* [Model versions](../concepts/model-versioning.md)

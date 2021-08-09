@@ -2,163 +2,145 @@
 title: 'Tutorial: Azure Active Directory integration with Image Relay | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Image Relay.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: 65bb5990-07ef-4244-9f41-cd28fc2cb5a2
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/22/2017
+ms.topic: tutorial
+ms.date: 07/21/2021
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Image Relay
 
-In this tutorial, you learn how to integrate Image Relay with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate Image Relay with Azure Active Directory (Azure AD). When you integrate Image Relay with Azure AD, you can:
 
-Integrating Image Relay with Azure AD provides you with the following benefits:
-
-- You can control in Azure AD who has access to Image Relay
-- You can enable your users to automatically get signed-on to Image Relay (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Azure AD who has access to Image Relay.
+* Enable your users to be automatically signed-in to Image Relay with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
-To configure Azure AD integration with Image Relay, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- An Image Relay single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Image Relay single sign-on (SSO) enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Image Relay from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-## Adding Image Relay from the gallery
+* Image Relay supports **SP** initiated SSO.
+
+## Add Image Relay from the gallery
+
 To configure the integration of Image Relay into Azure AD, you need to add Image Relay from the gallery to your list of managed SaaS apps.
 
-**To add Image Relay from the gallery, perform the following steps:**
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Image Relay** in the search box.
+1. Select **Image Relay** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Configure and test Azure AD SSO for Image Relay
 
-	![Active Directory][1]
+Configure and test Azure AD SSO with Image Relay using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Image Relay.
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+To configure and test Azure AD SSO with Image Relay, perform the following steps:
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Image Relay SSO](#configure-image-relay-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Image Relay test user](#create-image-relay-test-user)** - to have a counterpart of B.Simon in Image Relay that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	![Applications][3]
+## Configure Azure AD SSO
 
-1. In the search box, type **Image Relay**.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-	![Creating an Azure AD test user](./media/imagerelay-tutorial/tutorial_imagerelay_search.png)
+1. In the Azure portal, on the **Image Relay** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-1. In the results panel, select **Image Relay**, and then click **Add** button to add the application.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	![Creating an Azure AD test user](./media/imagerelay-tutorial/tutorial_imagerelay_addfromgallery.png)
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Image Relay based on a test user called "Britta Simon".
+    a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    `https://<COMPANYNAME>.imagerelay.com/sso/metadata`
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Image Relay is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Image Relay needs to be established.
+	b. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<COMPANYNAME>.imagerelay.com/`
 
-In Image Relay, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [Image Relay Client support team](http://support.imagerelay.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-To configure and test Azure AD single sign-on with Image Relay, you need to complete the following building blocks:
+4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating an Image Relay test user](#creating-an-image-relay-test-user)** - to have a counterpart of Britta Simon in Image Relay that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+	![The Certificate download link](common/certificatebase64.png)
 
-### Configuring Azure AD single sign-on
+6. On the **Set up Image Relay** section, copy the appropriate URL(s) as per your requirement.
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Image Relay application.
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-**To configure Azure AD single sign-on with Image Relay, perform the following steps:**
+### Create an Azure AD test user
 
-1. In the Azure portal, on the **Image Relay** application integration page, click **Single sign-on**.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-	![Configure Single Sign-On][4]
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_samlbase.png)
+### Assign the Azure AD test user
 
-1. On the **Image Relay Domain and URLs** section, perform the following steps:
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Image Relay.
 
-	![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_url.png)
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Image Relay**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.imagerelay.com/`
-
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.imagerelay.com/sso/metadata`
-
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Image Relay Client support team](http://support.imagerelay.com/) to get these values. 
- 
-
-
-1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
-
-	![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_certificate.png) 
-
-1. Click **Save** button.
-
-	![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_general_400.png)
-
-1. On the **Image Relay Configuration** section, click **Configure Image Relay** to open **Configure sign-on** window. Copy the **Sign-Out Service URL and SAML Single Sign-On Service URL** from the **Quick Reference section.**
-
-	![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_configure.png) 
+## Configure Image Relay SSO
 
 1. In another browser window, sign in to your Image Relay company site as an administrator.
 
-1. In the toolbar on the top, click the **Users & Permissions** workload.
-   
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
+2. In the toolbar on the top, click the **Users & Permissions** workload.
 
-1. Click **Create New Permission**.
-   
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
+    ![Screenshot shows Users & Permissions selected from the toolbar.](./media/imagerelay-tutorial/users.png) 
 
-1. In the **Single Sign On Settings** workload, select the **This Group can only sign-in via Single Sign On** check box, and then click **Save**.
-   
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
+3. Click **Create New Permission**.
 
-1. Go to **Account Settings**.
-   
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
+    ![Screenshot shows a text box to enter Permission title and an option to choose Permission Type.](./media/imagerelay-tutorial/create-permission.png)
 
-1. Go to the **Single Sign On Settings** workload.
-    
-     ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
+4. In the **Single Sign On Settings** workload, select the **This Group can only sign-in via Single Sign On** check box, and then click **Save**.
 
-1. On the **SAML Settings** dialog, perform the following steps:
-    
-	![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
-    
-    a. In **Login URL** textbox, paste the value of **Single Sign-On Service URL** which you have copied from Azure portal.
+    ![Screenshot shows the Single Sign On Settings where you can select the option.](./media/imagerelay-tutorial/save-settings.png) 
 
-    b. In **Logout URL**  textbox, paste the value of **Single Sign-Out Service URL** which you have copied from Azure portal.
+5. Go to **Account Settings**.
+
+    ![Screenshot shows the Account Settings toolbar option.](./media/imagerelay-tutorial/account.png) 
+
+6. Go to the **Single Sign On Settings** workload.
+
+    ![Screenshot shows the Single Sign On Settings menu option.](./media/imagerelay-tutorial/settings.png)
+
+7. On the **SAML Settings** dialog, perform the following steps:
+
+	![Screenshot shows the SAML Settings dialog box where you can enter the information.](./media/imagerelay-tutorial/information.png)
+
+    a. In **Login URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
+
+    b. In **Logout URL**  textbox, paste the value of **Logout URL** which you have copied from Azure portal.
 
     c. As **Name Id Format**, select **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
 
@@ -166,58 +148,23 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     e. Under **x.509 Certificate**, click **Update Certificate**.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
+    ![Screenshot shows the option to Update Certificate.](./media/imagerelay-tutorial/certificate.png)
 
-    f. Open the downloaded certificate in notepad, copy the content, and then paste it into the x.509 Certificate textbox.
+    f. Open the downloaded certificate in notepad, copy the content, and then paste it into the **x.509 Certificate** textbox.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
+    ![Screenshot shows the x dot 509 Certificate.](./media/imagerelay-tutorial/update-certificate.png)
 
     g. In **Just-In-Time User Provisioning** section, select the **Enable Just-In-Time User Provisioning**.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
+    ![Screenshot shows the Just-In-Time User Provisioning section with the enable control selected.](./media/imagerelay-tutorial/provisioning.png)
 
     h. Select the permission group (for example, **SSO Basic**) which is allowed to sign in only through single sign-on.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
+    ![Screenshot shows the Just-In-Time User Provisioning section with S S O Basic selected.](./media/imagerelay-tutorial/user-provisioning.png)
 
     i. Click **Save**.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-
-
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-![Create Azure AD User][100]
-
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
-
-	![Creating an Azure AD test user](./media/imagerelay-tutorial/create_aaduser_01.png) 
-
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/imagerelay-tutorial/create_aaduser_02.png) 
-
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/imagerelay-tutorial/create_aaduser_03.png) 
-
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/imagerelay-tutorial/create_aaduser_04.png) 
-
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**.
- 
-### Creating an Image Relay test user
+### Create Image Relay test user
 
 The objective of this section is to create a user called Britta Simon in Image Relay.
 
@@ -225,72 +172,26 @@ The objective of this section is to create a user called Britta Simon in Image R
 
 1. Sign-on to your Image Relay company site as an administrator.
 
-1. Go to **Users & Permissions**     and select **Create SSO User**.
-   
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
+2. Go to **Users & Permissions** and select **Create SSO User**.
 
-1. Enter the **Email**, **First Name**, **Last Name**, and **Company** of the user you want to provision and select the permission group (for example, SSO Basic) which is the group that can sign in only through single sign-on.
-   
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_22.png) 
+    ![Screenshot shows Create S S O User selected from the menu.](./media/imagerelay-tutorial/create-user.png) 
 
-1. Click **Create**.
+3. Enter the **Email**, **First Name**, **Last Name**, and **Company** of the user you want to provision and select the permission group (for example, SSO Basic) which is the group that can sign in only through single sign-on.
 
-### Assigning the Azure AD test user
+    ![Screenshot shows Create a S S O User page where you can enter the required information.](./media/imagerelay-tutorial/user-details.png)
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Image Relay.
+4. Click **Create**.
 
-![Assign User][200] 
+## Test SSO
 
-**To assign Britta Simon to Image Relay, perform the following steps:**
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+* Click on **Test this application** in Azure portal. This will redirect to Image Relay Sign-on URL where you can initiate the login flow. 
 
-	![Assign User][201] 
+* Go to Image Relay Sign-on URL directly and initiate the login flow from there.
 
-1. In the applications list, select **Image Relay**.
+* You can use Microsoft My Apps. When you click the Image Relay tile in the My Apps, this will redirect to Image Relay Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-	![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_app.png) 
+## Next steps
 
-1. In the menu on the left, click **Users and groups**.
-
-	![Assign User][202] 
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![Assign User][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
-
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.    
-
-When you click the Image Relay tile in the Access Panel, you should get automatically signed-on to your Image Relay application.
-
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
-
-<!--Image references-->
-
-[1]: ./media/imagerelay-tutorial/tutorial_general_01.png
-[2]: ./media/imagerelay-tutorial/tutorial_general_02.png
-[3]: ./media/imagerelay-tutorial/tutorial_general_03.png
-[4]: ./media/imagerelay-tutorial/tutorial_general_04.png
-
-
-[100]: ./media/imagerelay-tutorial/tutorial_general_100.png
-
-[200]: ./media/imagerelay-tutorial/tutorial_general_200.png
-[201]: ./media/imagerelay-tutorial/tutorial_general_201.png
-[202]: ./media/imagerelay-tutorial/tutorial_general_202.png
-[203]: ./media/imagerelay-tutorial/tutorial_general_203.png
-
+Once you configure Image Relay you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

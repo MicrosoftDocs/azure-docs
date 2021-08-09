@@ -1,21 +1,8 @@
 ---
-title: AMQP 1.0 in Azure Service Bus request-response-based operations | Microsoft Docs
-description: List of Microsoft Azure Service Bus request/response-based operations.
-services: service-bus-messaging
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-
-ms.assetid: 
-ms.service: service-bus-messaging
-ms.devlang: na
+title: AMQP 1.0 request/response operations in Azure Service Bus
+description: This article defines the list of AMQP request/response-based operations in Microsoft Azure Service Bus.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/22/2018
-ms.author: spelluru
-
+ms.date: 04/26/2020
 ---
 
 # AMQP 1.0 in Microsoft Azure Service Bus: request-response-based operations
@@ -25,11 +12,7 @@ This article defines the list of Microsoft Azure Service Bus request/response-ba
 For a detailed wire-level AMQP 1.0 protocol guide, which explains how Service Bus implements and builds on the OASIS AMQP technical specification, see the [AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide][AMQP 1.0 protocol guide].  
   
 ## Concepts  
-  
-### Entity description  
-
-An entity description refers to either a Service Bus [QueueDescription class](/dotnet/api/microsoft.servicebus.messaging.queuedescription), [TopicDescription class](/dotnet/api/microsoft.servicebus.messaging.topicdescription), or [SubscriptionDescription class](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) object.  
-  
+    
 ### Brokered message  
 
 Represents a message in Service Bus, which is mapped to an AMQP message. The mapping is defined in the [Service Bus AMQP protocol guide](service-bus-amqp-protocol-guide.md).  
@@ -42,72 +25,72 @@ All the operations described in this document follow a request/response pattern,
 
 Creates a link to the management node for sending requests.  
   
-```  
-requestLink = session.attach( 	  
-role: SENDER,   
-   	target: { address: "<entity address>/$management" },   
-   	source: { address: ""<my request link unique address>" }   
-)  
-  
-```  
+```
+requestLink = session.attach(
+role: SENDER,
+   	target: { address: "<entity address>/$management" },
+   	source: { address: ""<my request link unique address>" }
+)
+
+```
   
 ### Create link for receiving responses  
 
 Creates a link for receiving responses from the management node.  
   
-```  
-responseLink = session.attach(	  
-role: RECEIVER,   
-	source: { address: "<entity address>/$management" }   
-   	target: { address: "<my response link unique address>" }   
-)  
-  
-```  
+```
+responseLink = session.attach(
+role: RECEIVER,
+	source: { address: "<entity address>/$management" }
+   	target: { address: "<my response link unique address>" }
+)
+
+```
   
 ### Transfer a request message  
 
 Transfers a request message.  
 A transaction-state can be added optionally for operations which supports transaction.
 
-```  
-requestLink.sendTransfer(  
-        Message(  
-                properties: {  
-                        message-id: <request id>,  
-                        reply-to: "<my response link unique address>"  
-                },  
-                application-properties: {  
-                        "operation" -> "<operation>",  
+```
+requestLink.sendTransfer(
+        Message(
+                properties: {
+                        message-id: <request id>,
+                        reply-to: "<my response link unique address>"
+                },
+                application-properties: {
+                        "operation" -> "<operation>",
                 }
         ),
         [Optional] State = transactional-state: {
                 txn-id: <txn-id>
         }
 )
-```  
+```
   
 ### Receive a response message  
 
 Receives the response message from the response link.  
   
-```  
-responseMessage = responseLink.receiveTransfer()  
-```  
+```
+responseMessage = responseLink.receiveTransfer()
+```
   
 The response message is in the following form:
   
-```  
-Message(  
-properties: {	  
-		correlation-id: <request id>  
-	},  
-	application-properties: {  
-			"statusCode" -> <status code>,  
-			"statusDescription" -> <status description>,  
-           },		  
-)  
-  
-```  
+```
+Message(
+properties: {
+		correlation-id: <request id>
+	},
+	application-properties: {
+			"statusCode" -> <status code>,
+			"statusDescription" -> <status description>,
+           },
+)
+
+```
   
 ### Service Bus entity address  
 
@@ -123,7 +106,7 @@ Service Bus entities must be addressed as follows:
   
 ### Message Renew Lock  
 
-Extends the lock of a message by the time specified in the entity description.  
+Extends the lock of a message by the lock duration set on the queue or subscription.  
   
 #### Request  
 
@@ -141,7 +124,7 @@ The request message must include the following application properties:
 |`lock-tokens`|array of uuid|Yes|Message lock tokens to renew.|  
 
 > [!NOTE]
-> Lock tokens are the `DeliveryTag` property on received messages. See the following example in the [.NET SDK](https://github.com/Azure/azure-service-bus-dotnet/blob/6f144e91310dcc7bd37aba4e8aebd535d13fa31a/src/Microsoft.Azure.ServiceBus/Amqp/AmqpMessageConverter.cs#L336) which retrieves these. The token may also appear in the 'DeliveryAnnotations' as 'x-opt-lock-token' however, this is not guaranteed and the `DeliveryTag` should be preferred. 
+> Lock token here refers to the `delivery-tag` property on the received AMQP message. If you received a deferred message and want to renew its lock, then use the property `lock-token` on the message instead of the `delivery-tag`. 
 > 
   
 #### Response  
@@ -270,19 +253,13 @@ The response message must include the following application properties:
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – success, otherwise failed.|  
-|statusDescription|string|No|Description of the status.|  
-  
-The response message body must consist of an **amqp-value** section containing a map with the following entries:  
-  
-|Key|Value Type|Required|Value Contents|  
-|---------|----------------|--------------|--------------------|  
-|sequence-numbers|array of long|Yes|Sequence number of scheduled messages. Sequence number is used to cancel.|  
+|statusDescription|string|No|Description of the status.|   
   
 ## Session Operations  
   
 ### Session Renew Lock  
 
-Extends the lock of a message by the time specified in the entity description.  
+Extends the lock of a message by the lock duration set on the queue or subscription.  
   
 #### Request  
 
@@ -502,7 +479,7 @@ The **correlation-filter** map must include at least one of the following entrie
 |session-id|string|No||  
 |reply-to-session-id|string|No||  
 |content-type|string|No||  
-|properties|map|No|Maps to Service Bus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties).|  
+|properties|map|No|Maps to Service Bus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).|  
   
 The **sql-rule-action** map must include the following entries:  
   
@@ -604,7 +581,7 @@ Each map entry in the array includes the following properties:
 `com.microsoft:correlation-filter:list` is a described array which includes:
 
 |Index (if exists)|Value Type|Value Contents|  
-|---------|----------------|--------------|--------------------|  
+|---------|----------------|--------------|
 | 0 | string | Correlation ID |
 | 1 | string | Message ID |
 | 2 | string | To |
@@ -710,4 +687,4 @@ To learn more about AMQP and Service Bus, visit the following links:
 
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
 [AMQP 1.0 protocol guide]: service-bus-amqp-protocol-guide.md
-[AMQP in Service Bus for Windows Server]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)
+[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn282144(v=azure.100)

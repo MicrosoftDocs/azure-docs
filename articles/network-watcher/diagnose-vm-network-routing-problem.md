@@ -1,13 +1,13 @@
 ---
-title: Diagnose a virtual machine network routing problem - tutorial - Azure portal | Microsoft Docs
+title: 'Tutorial: Diagnose a VM network routing problem - Azure portal'
+titleSuffix: Azure Network Watcher
 description: In this tutorial, you learn how to diagnose a virtual machine network routing problem using the next hop capability of Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: jimdial
-manager: jeconnoc
+author: damendo
 editor: ''
 tags: azure-resource-manager
-Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
+# Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
 
 ms.assetid: 
 ms.service: network-watcher
@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
-ms.date: 04/20/2018
-ms.author: jdial
+ms.date: 01/07/2021
+ms.author: damendo
 ms.custom: mvc
 
 ---
@@ -49,7 +49,7 @@ Log in to the Azure portal at https://portal.azure.com.
     |---|---|
     |Name|myVm|
     |User name| Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     |Subscription| Select your subscription.|
     |Resource group| Select **Create new** and enter **myResourceGroup**.|
     |Location| Select **East US**|
@@ -86,7 +86,7 @@ Azure automatically creates routes to default destinations. You may create custo
     | Virtual machine         | Select myVm                                            |
     | Network interface       | myvm - Your network interface name may be different.   |
     | Source IP address       | 10.0.0.4                                               |
-    | Destination IP address  | 13.107.21.200 - One of the addresses for www.bing.com. |
+    | Destination IP address  | 13.107.21.200 - One of the addresses for <www.bing.com>. |
 
     ![Next hop](./media/diagnose-vm-network-routing-problem/next-hop.png)
 

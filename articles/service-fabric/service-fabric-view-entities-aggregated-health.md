@@ -1,21 +1,9 @@
-﻿---
-title: How to view Azure Service Fabric entities' aggregated health | Microsoft Docs
+---
+title: How to view Azure Service Fabric entities' aggregated health 
 description: Describes how to query, view, and evaluate Azure Service Fabric entities' aggregated health, through health queries and general queries.
-services: service-fabric
-documentationcenter: .net
-author: oanapl
-manager: timlt
-editor: ''
-
-ms.assetid: fa34c52d-3a74-4b90-b045-ad67afa43fe5
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/28/2018
-ms.author: oanapl
-
+ms.custom: devx-track-csharp
 ---
 # View Service Fabric health reports
 Azure Service Fabric introduces a [health model](service-fabric-health-introduction.md) with health entities on which system components and watchdogs can report local conditions that they are monitoring. The [health store](service-fabric-health-introduction.md#health-store) aggregates all health data to determine whether entities are healthy.
@@ -28,7 +16,7 @@ Service Fabric provides multiple ways to get the aggregated health of the entiti
 * Health queries (through PowerShell, API, or REST)
 * General queries that return a list of entities that have health as one of the properties (through PowerShell, API, or REST)
 
-To demonstrate these options, let's use a local cluster with five nodes and the [fabric:/WordCount application](https://aka.ms/servicefabric-wordcountapp). The **fabric:/WordCount** application contains two default services, a stateful service of type `WordCountServiceType`, and a stateless service of type `WordCountWebServiceType`. I changed the `ApplicationManifest.xml` to require seven target replicas for the stateful service and one partition. Because there are only five nodes in the cluster, the system components report a warning on the service partition because it is below the target count.
+To demonstrate these options, let's use a local cluster with five nodes and the [fabric:/WordCount application](https://github.com/Azure-Samples/service-fabric-wordcount/raw/master/WordCountV1.sfpkg). The **fabric:/WordCount** application contains two default services, a stateful service of type `WordCountServiceType`, and a stateless service of type `WordCountWebServiceType`. I changed the `ApplicationManifest.xml` to require seven target replicas for the stateful service and one partition. Because there are only five nodes in the cluster, the system components report a warning on the service partition because it is below the target count.
 
 ```xml
 <Service Name="WordCountService">
@@ -42,7 +30,7 @@ To demonstrate these options, let's use a local cluster with five nodes and the 
 Service Fabric Explorer provides a visual view of the cluster. In the image below, you can see that:
 
 * The application **fabric:/WordCount** is red (in error) because it has an error event reported by **MyWatchdog** for the property **Availability**.
-* One of its services, **fabric:/WordCount/WordCountService** is yellow (in warning). The service is configured with seven replicas and the cluster has five nodes, so two repicas can't be placed. Although it's not shown here, the service partition is yellow because of a system report from `System.FM` saying that `Partition is below target replica or instance count`. The yellow partition triggers the yellow service.
+* One of its services, **fabric:/WordCount/WordCountService** is yellow (in warning). The service is configured with seven replicas and the cluster has five nodes, so two replicas can't be placed. Although it's not shown here, the service partition is yellow because of a system report from `System.FM` saying that `Partition is below target replica or instance count`. The yellow partition triggers the yellow service.
 * The cluster is red because of the red application.
 
 The evaluation uses default policies from the cluster manifest and application manifest. They are strict policies and do not tolerate any failure.
@@ -60,10 +48,10 @@ View of the cluster with Service Fabric Explorer:
 >
 
 ## Health queries
-Service Fabric exposes health queries for each of the supported [entity types](service-fabric-health-introduction.md#health-entities-and-hierarchy). They can be accessed through the API, using methods on [FabricClient.HealthManager](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), PowerShell cmdlets, and REST. These queries return complete health information about the entity: the aggregated health state, entity health events, child health states (when applicable), unhealthy evaluations (when the entity is not healthy), and children health statistics (when applicable).
+Service Fabric exposes health queries for each of the supported [entity types](service-fabric-health-introduction.md#health-entities-and-hierarchy). They can be accessed through the API, using methods on [FabricClient.HealthManager](/dotnet/api/system.fabric.fabricclient.healthmanager), PowerShell cmdlets, and REST. These queries return complete health information about the entity: the aggregated health state, entity health events, child health states (when applicable), unhealthy evaluations (when the entity is not healthy), and children health statistics (when applicable).
 
 > [!NOTE]
-> A health entity is returned when it is fully populated in the health store. The entity must be active (not deleted) and have a system report. Its parent entities on the hierarchy chain must also have system reports. If any of these conditions are not satisfied, the health queries return a [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) with [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` that shows why the entity is not returned.
+> A health entity is returned when it is fully populated in the health store. The entity must be active (not deleted) and have a system report. Its parent entities on the hierarchy chain must also have system reports. If any of these conditions are not satisfied, the health queries return a [FabricException](/dotnet/api/system.fabric.fabricexception) with [FabricErrorCode](/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` that shows why the entity is not returned.
 >
 >
 
@@ -92,7 +80,7 @@ Returns the health of the cluster entity and contains the health states of appli
 * [Optional] Filter to include fabric:/System health statistics in the health statistics. Only applicable when the health statistics are not excluded. By default, the health statistics include only statistics for user applications and not the System application.
 
 ### API
-To get cluster health, create a `FabricClient` and call the [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) method on its **HealthManager**.
+To get cluster health, create a `FabricClient` and call the [GetClusterHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) method on its **HealthManager**.
 
 The following call gets the cluster health:
 
@@ -100,7 +88,7 @@ The following call gets the cluster health:
 ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthAsync();
 ```
 
-The following code gets the cluster health by using a custom cluster health policy and filters for nodes and applications. It specifies that the health statistics include the fabric:/System statistics. It creates [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription), which contains the input information.
+The following code gets the cluster health by using a custom cluster health policy and filters for nodes and applications. It specifies that the health statistics include the fabric:/System statistics. It creates [ClusterHealthQueryDescription](/dotnet/api/system.fabric.description.clusterhealthquerydescription), which contains the input information.
 
 ```csharp
 var policy = new ClusterHealthPolicy()
@@ -132,7 +120,7 @@ ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthA
 ```
 
 ### PowerShell
-The cmdlet to get the cluster health is [Get-ServiceFabricClusterHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealth). First, connect to the cluster by using the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+The cmdlet to get the cluster health is [Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth). First, connect to the cluster by using the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet.
 
 The state of the cluster is five nodes, the system application, and fabric:/WordCount configured as described.
 
@@ -145,43 +133,43 @@ PS D:\ServiceFabric> Get-ServiceFabricClusterHealth
 AggregatedHealthState   : Warning
 UnhealthyEvaluations    : 
                           Unhealthy applications: 100% (1/1), MaxPercentUnhealthyApplications=0%.
-                          
+
                           Unhealthy application: ApplicationName='fabric:/WordCount', AggregatedHealthState='Warning'.
-                          
-                          	Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
-                          
-                          	Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Warning'.
-                          
-                          		Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
-                          
-                          		Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Warning'.
-                          
-                          			Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
-                          
-                          
+
+                            Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
+
+                            Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Warning'.
+
+                                Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
+
+                                Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Warning'.
+
+                                    Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
+
+
 NodeHealthStates        : 
                           NodeName              : _Node_4
                           AggregatedHealthState : Ok
-                          
+
                           NodeName              : _Node_3
                           AggregatedHealthState : Ok
-                          
+
                           NodeName              : _Node_2
                           AggregatedHealthState : Ok
-                          
+
                           NodeName              : _Node_1
                           AggregatedHealthState : Ok
-                          
+
                           NodeName              : _Node_0
                           AggregatedHealthState : Ok
-                          
+
 ApplicationHealthStates : 
                           ApplicationName       : fabric:/System
                           AggregatedHealthState : Ok
-                          
+
                           ApplicationName       : fabric:/WordCount
                           AggregatedHealthState : Warning
-                          
+
 HealthEvents            : None
 HealthStatistics        : 
                           Node                  : 5 Ok, 0 Warning, 0 Error
@@ -207,30 +195,30 @@ Get-ServiceFabricClusterHealth -ApplicationHealthPolicyMap $appHealthPolicyMap -
 AggregatedHealthState   : Error
 UnhealthyEvaluations    : 
                           Unhealthy applications: 100% (1/1), MaxPercentUnhealthyApplications=0%.
-                          
+
                           Unhealthy application: ApplicationName='fabric:/WordCount', AggregatedHealthState='Error'.
-                          
-                          	Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
-                          
-                          	Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Error'.
-                          
-                          		Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
-                          
-                          		Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Error'.
-                          
-                          			Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=true.
-                          
-                          
+
+                            Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
+
+                            Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Error'.
+
+                                Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
+
+                                Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Error'.
+
+                                    Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=true.
+
+
 NodeHealthStates        : None
 ApplicationHealthStates : 
                           ApplicationName       : fabric:/WordCount
                           AggregatedHealthState : Error
-                          
+
 HealthEvents            : None
 ```
 
 ### REST
-You can get cluster health with a [GET request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster) or a [POST request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy) that includes health policies described in the body.
+You can get cluster health with a [GET request](/rest/api/servicefabric/get-the-health-of-a-cluster) or a [POST request](/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy) that includes health policies described in the body.
 
 ## Get node health
 Returns the health of a node entity and contains the health events reported on the node. Input:
@@ -240,7 +228,7 @@ Returns the health of a node entity and contains the health events reported on t
 * [Optional] Filters for events that specify which entries are of interest and should be returned in the result (for example, errors only, or both warnings and errors). All events are used to evaluate the entity aggregated health, regardless of the filter.
 
 ### API
-To get node health through the API, create a `FabricClient` and call the [GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) method on its HealthManager.
+To get node health through the API, create a `FabricClient` and call the [GetNodeHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) method on its HealthManager.
 
 The following code gets the node health for the specified node name:
 
@@ -248,7 +236,7 @@ The following code gets the node health for the specified node name:
 NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(nodeName);
 ```
 
-The following code gets the node health for the specified node name and passes in events filter and custom policy through [NodeHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.nodehealthquerydescription):
+The following code gets the node health for the specified node name and passes in events filter and custom policy through [NodeHealthQueryDescription](/dotnet/api/system.fabric.description.nodehealthquerydescription):
 
 ```csharp
 var queryDescription = new NodeHealthQueryDescription(nodeName)
@@ -261,7 +249,7 @@ NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(quer
 ```
 
 ### PowerShell
-The cmdlet to get the node health is [Get-ServiceFabricNodeHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnodehealth). First, connect to the cluster by using the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+The cmdlet to get the node health is [Get-ServiceFabricNodeHealth](/powershell/module/servicefabric/get-servicefabricnodehealth). First, connect to the cluster by using the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet.
 The following cmdlet gets the node health by using default health policies:
 
 ```powershell
@@ -299,7 +287,7 @@ _Node_0                     Ok
 ```
 
 ### REST
-You can get node health with a [GET request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node) or a [POST request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy) that includes health policies described in the body.
+You can get node health with a [GET request](/rest/api/servicefabric/get-the-health-of-a-node) or a [POST request](/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy) that includes health policies described in the body.
 
 ## Get application health
 Returns the health of an application entity. It contains the health states of the deployed application and service children. Input:
@@ -310,7 +298,7 @@ Returns the health of an application entity. It contains the health states of th
 * [Optional] Filter to exclude the health statistics. If not specified, the health statistics include the ok, warning, and error count for all application children: services, partitions, replicas, deployed applications, and deployed service packages.
 
 ### API
-To get application health, create a `FabricClient` and call the [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) method on its HealthManager.
+To get application health, create a `FabricClient` and call the [GetApplicationHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) method on its HealthManager.
 
 The following code gets the application health for the specified application name (URI):
 
@@ -318,7 +306,7 @@ The following code gets the application health for the specified application nam
 ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplicationHealthAsync(applicationName);
 ```
 
-The following code gets the application health for the specified application name (URI), with filters and custom policies specified via [ApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationhealthquerydescription).
+The following code gets the application health for the specified application name (URI), with filters and custom policies specified via [ApplicationHealthQueryDescription](/dotnet/api/system.fabric.description.applicationhealthquerydescription).
 
 ```csharp
 HealthStateFilter warningAndErrors = HealthStateFilter.Error | HealthStateFilter.Warning;
@@ -347,7 +335,7 @@ ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplic
 ```
 
 ### PowerShell
-The cmdlet to get the application health is [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps). First, connect to the cluster by using the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+The cmdlet to get the application health is [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth). First, connect to the cluster by using the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet.
 
 The following cmdlet returns the health of the **fabric:/WordCount** application:
 
@@ -359,43 +347,43 @@ ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Warning
 UnhealthyEvaluations            : 
                                   Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
-                                  
+
                                   Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Warning'.
-                                  
-                                  	Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
-                                  
-                                  	Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Warning'.
-                                  
-                                  		Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
-                                  
+
+                                    Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
+
+                                    Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Warning'.
+
+                                        Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
+
 ServiceHealthStates             : 
                                   ServiceName           : fabric:/WordCount/WordCountWebService
                                   AggregatedHealthState : Ok
-                                  
+
                                   ServiceName           : fabric:/WordCount/WordCountService
                                   AggregatedHealthState : Warning
-                                  
+
 DeployedApplicationHealthStates : 
                                   ApplicationName       : fabric:/WordCount
                                   NodeName              : _Node_4
                                   AggregatedHealthState : Ok
-                                  
+
                                   ApplicationName       : fabric:/WordCount
                                   NodeName              : _Node_3
                                   AggregatedHealthState : Ok
-                                  
+
                                   ApplicationName       : fabric:/WordCount
                                   NodeName              : _Node_0
                                   AggregatedHealthState : Ok
-                                  
+
                                   ApplicationName       : fabric:/WordCount
                                   NodeName              : _Node_2
                                   AggregatedHealthState : Ok
-                                  
+
                                   ApplicationName       : fabric:/WordCount
                                   NodeName              : _Node_1
                                   AggregatedHealthState : Ok
-                                  
+
 HealthEvents                    : 
                                   SourceId              : System.CM
                                   Property              : State
@@ -408,7 +396,7 @@ HealthEvents                    :
                                   RemoveWhenExpired     : False
                                   IsExpired             : False
                                   Transitions           : Error->Ok = 7/13/2017 5:57:05 PM, LastWarning = 1/1/0001 12:00:00 AM
-                                  
+
 HealthStatistics                : 
                                   Replica               : 6 Ok, 0 Warning, 0 Error
                                   Partition             : 1 Ok, 1 Warning, 0 Error
@@ -427,25 +415,25 @@ ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Error
 UnhealthyEvaluations            : 
                                   Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
-                                  
+
                                   Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Error'.
-                                  
-                                  	Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
-                                  
-                                  	Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Error'.
-                                  
-                                  		Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=true.
-                                  
+
+                                    Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
+
+                                    Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Error'.
+
+                                        Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=true.
+
 ServiceHealthStates             : 
                                   ServiceName           : fabric:/WordCount/WordCountService
                                   AggregatedHealthState : Error
-                                  
+
 DeployedApplicationHealthStates : None
 HealthEvents                    : None
 ```
 
 ### REST
-You can get application health with a [GET request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application) or a [POST request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application-by-using-an-application-health-policy) that includes health policies described in the body.
+You can get application health with a [GET request](/rest/api/servicefabric/get-the-health-of-an-application) or a [POST request](/rest/api/servicefabric/get-the-health-of-an-application-by-using-an-application-health-policy) that includes health policies described in the body.
 
 ## Get service health
 Returns the health of a service entity. It contains the partition health states. Input:
@@ -456,15 +444,15 @@ Returns the health of a service entity. It contains the partition health states.
 * [Optional] Filter to exclude health statistics. If not specified, the health statistics show the ok, warning, and error count for all partitions and replicas of the service.
 
 ### API
-To get service health through the API, create a `FabricClient` and call the [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) method on its HealthManager.
+To get service health through the API, create a `FabricClient` and call the [GetServiceHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) method on its HealthManager.
 
 The following example gets the health of a service with specified service name (URI):
 
-```charp
+```csharp
 ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
 ```
 
-The following code gets the service health for the specified service name (URI), specifying filters and custom policy via [ServiceHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicehealthquerydescription):
+The following code gets the service health for the specified service name (URI), specifying filters and custom policy via [ServiceHealthQueryDescription](/dotnet/api/system.fabric.description.servicehealthquerydescription):
 
 ```csharp
 var queryDescription = new ServiceHealthQueryDescription(serviceName)
@@ -477,7 +465,7 @@ ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthA
 ```
 
 ### PowerShell
-The cmdlet to get the service health is [Get-ServiceFabricServiceHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicehealth). First, connect to the cluster by using the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+The cmdlet to get the service health is [Get-ServiceFabricServiceHealth](/powershell/module/servicefabric/get-servicefabricservicehealth). First, connect to the cluster by using the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet.
 
 The following cmdlet gets the service health by using default health policies:
 
@@ -489,15 +477,15 @@ ServiceName           : fabric:/WordCount/WordCountService
 AggregatedHealthState : Warning
 UnhealthyEvaluations  : 
                         Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
-                        
+
                         Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Warning'.
-                        
-                        	Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
-                        
+
+                            Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
+
 PartitionHealthStates : 
                         PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
                         AggregatedHealthState : Warning
-                        
+
 HealthEvents          : 
                         SourceId              : System.FM
                         Property              : State
@@ -510,14 +498,14 @@ HealthEvents          :
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
-                        
+
 HealthStatistics      : 
                         Replica               : 5 Ok, 0 Warning, 0 Error
                         Partition             : 0 Ok, 1 Warning, 0 Error
 ```
 
 ### REST
-You can get service health with a [GET request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service) or a [POST request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-by-using-a-health-policy) that includes health policies described in the body.
+You can get service health with a [GET request](/rest/api/servicefabric/get-the-health-of-a-service) or a [POST request](/rest/api/servicefabric/get-the-health-of-a-service-by-using-a-health-policy) that includes health policies described in the body.
 
 ## Get partition health
 Returns the health of a partition entity. It contains the replica health states. Input:
@@ -528,14 +516,14 @@ Returns the health of a partition entity. It contains the replica health states.
 * [Optional] Filter to exclude health statistics. If not specified, the health statistics show how many replicas are in ok, warning, and error states.
 
 ### API
-To get partition health through the API, create a `FabricClient` and call the [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) method on its HealthManager. To specify optional parameters, create [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription).
+To get partition health through the API, create a `FabricClient` and call the [GetPartitionHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) method on its HealthManager. To specify optional parameters, create [PartitionHealthQueryDescription](/dotnet/api/system.fabric.description.partitionhealthquerydescription).
 
 ```csharp
 PartitionHealth partitionHealth = await fabricClient.HealthManager.GetPartitionHealthAsync(partitionId);
 ```
 
 ### PowerShell
-The cmdlet to get the partition health is [Get-ServiceFabricPartitionHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricpartitionhealth). First, connect to the cluster by using the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+The cmdlet to get the partition health is [Get-ServiceFabricPartitionHealth](/powershell/module/servicefabric/get-servicefabricpartitionhealth). First, connect to the cluster by using the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet.
 
 The following cmdlet gets the health for all partitions of the **fabric:/WordCount/WordCountService** service and filters out replica health states:
 
@@ -546,7 +534,7 @@ PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
 AggregatedHealthState : Warning
 UnhealthyEvaluations  : 
                         Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
-                        
+
 ReplicaHealthStates   : None
 HealthEvents          : 
                         SourceId              : System.FM
@@ -564,11 +552,11 @@ HealthEvents          :
                           N/S RD _Node_1 Up 131444422293118720
                           N/S RD _Node_0 Up 131444422293118721
                           (Showing 5 out of 5 replicas. Total available replicas: 5.)
-                        
+
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Ok->Warning = 7/13/2017 5:57:48 PM, LastError = 1/1/0001 12:00:00 AM
-                        
+
                         SourceId              : System.PLB
                         Property              : ServiceReplicaUnplacedHealth_Secondary_af2e3e44-a8f8-45ac-9f31-4093eb897600
                         HealthState           : Warning
@@ -581,35 +569,35 @@ HealthEvents          :
                         TargetReplicaSetSize: 7
                         Placement Constraint: N/A
                         Parent Service: N/A
-                        
+
                         Constraint Elimination Sequence:
                         Existing Secondary Replicas eliminated 4 possible node(s) for placement -- 1/5 node(s) remain.
                         Existing Primary Replica eliminated 1 possible node(s) for placement -- 0/5 node(s) remain.
-                        
+
                         Nodes Eliminated By Constraints:
-                        
+
                         Existing Secondary Replicas -- Nodes with Partition's Existing Secondary Replicas/Instances:
                         --
                         FaultDomain:fd:/4 NodeName:_Node_4 NodeType:NodeType4 UpgradeDomain:4 UpgradeDomain: ud:/4 Deactivation Intent/Status: None/None
                         FaultDomain:fd:/3 NodeName:_Node_3 NodeType:NodeType3 UpgradeDomain:3 UpgradeDomain: ud:/3 Deactivation Intent/Status: None/None
                         FaultDomain:fd:/1 NodeName:_Node_1 NodeType:NodeType1 UpgradeDomain:1 UpgradeDomain: ud:/1 Deactivation Intent/Status: None/None
                         FaultDomain:fd:/0 NodeName:_Node_0 NodeType:NodeType0 UpgradeDomain:0 UpgradeDomain: ud:/0 Deactivation Intent/Status: None/None
-                        
+
                         Existing Primary Replica -- Nodes with Partition's Existing Primary Replica or Secondary Replicas:
                         --
                         FaultDomain:fd:/2 NodeName:_Node_2 NodeType:NodeType2 UpgradeDomain:2 UpgradeDomain: ud:/2 Deactivation Intent/Status: None/None
-                        
-                        
+
+
                         RemoveWhenExpired     : True
                         IsExpired             : False
                         Transitions           : Error->Warning = 7/13/2017 5:57:48 PM, LastOk = 1/1/0001 12:00:00 AM
-                        
+
 HealthStatistics      : 
                         Replica               : 5 Ok, 0 Warning, 0 Error
 ```
 
 ### REST
-You can get partition health with a [GET request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition) or a [POST request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) that includes health policies described in the body.
+You can get partition health with a [GET request](/rest/api/servicefabric/sfclient-api-getpartitionhealth) or a [POST request](/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) that includes health policies described in the body.
 
 ## Get replica health
 Returns the health of a stateful service replica or a stateless service instance. Input:
@@ -619,14 +607,14 @@ Returns the health of a stateful service replica or a stateless service instance
 * [Optional] Filters for events that specify which entries are of interest and should be returned in the result (for example, errors only, or both warnings and errors). All events are used to evaluate the entity aggregated health, regardless of the filter.
 
 ### API
-To get the replica health through the API, create a `FabricClient` and call the [GetReplicaHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) method on its HealthManager. To specify advanced parameters, use [ReplicaHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.replicahealthquerydescription).
+To get the replica health through the API, create a `FabricClient` and call the [GetReplicaHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) method on its HealthManager. To specify advanced parameters, use [ReplicaHealthQueryDescription](/dotnet/api/system.fabric.description.replicahealthquerydescription).
 
 ```csharp
 ReplicaHealth replicaHealth = await fabricClient.HealthManager.GetReplicaHealthAsync(partitionId, replicaId);
 ```
 
 ### PowerShell
-The cmdlet to get the replica health is [Get-ServiceFabricReplicaHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricreplicahealth). First, connect to the cluster by using the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+The cmdlet to get the replica health is [Get-ServiceFabricReplicaHealth](/powershell/module/servicefabric/get-servicefabricreplicahealth). First, connect to the cluster by using the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet.
 
 The following cmdlet gets the health of the primary replica for all partitions of the service:
 
@@ -652,7 +640,7 @@ HealthEvents          :
 ```
 
 ### REST
-You can get replica health with a [GET request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica) or a [POST request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy) that includes health policies described in the body.
+You can get replica health with a [GET request](/rest/api/servicefabric/get-the-health-of-a-replica) or a [POST request](/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy) that includes health policies described in the body.
 
 ## Get deployed application health
 Returns the health of an application deployed on a node entity. It contains the deployed service package health states. Input:
@@ -663,7 +651,7 @@ Returns the health of an application deployed on a node entity. It contains the 
 * [Optional] Filter to exclude health statistics. If not specified, the health statistics show the number of deployed service packages in ok, warning, and error health states.
 
 ### API
-To get the health of an application deployed on a node through the API, create a `FabricClient` and call the [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) method on its HealthManager. To specify optional parameters, use [DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription).
+To get the health of an application deployed on a node through the API, create a `FabricClient` and call the [GetDeployedApplicationHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) method on its HealthManager. To specify optional parameters, use [DeployedApplicationHealthQueryDescription](/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription).
 
 ```csharp
 DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedApplicationHealthAsync(
@@ -671,7 +659,7 @@ DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedA
 ```
 
 ### PowerShell
-The cmdlet to get the deployed application health is [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps). First, connect to the cluster by using the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet. To find out where an application is deployed, run [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) and look at the deployed application children.
+The cmdlet to get the deployed application health is [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth). First, connect to the cluster by using the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet. To find out where an application is deployed, run [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth) and look at the deployed application children.
 
 The following cmdlet gets the health of the **fabric:/WordCount** application deployed on **_Node_2**.
 
@@ -687,12 +675,12 @@ DeployedServicePackageHealthStates :
                                      ServicePackageActivationId : 
                                      NodeName              : _Node_0
                                      AggregatedHealthState : Ok
-                                     
+
                                      ServiceManifestName   : WordCountWebServicePkg
                                      ServicePackageActivationId : 
                                      NodeName              : _Node_0
                                      AggregatedHealthState : Ok
-                                     
+
 HealthEvents                       : 
                                      SourceId              : System.Hosting
                                      Property              : Activation
@@ -705,13 +693,13 @@ HealthEvents                       :
                                      RemoveWhenExpired     : False
                                      IsExpired             : False
                                      Transitions           : Error->Ok = 7/13/2017 5:57:17 PM, LastWarning = 1/1/0001 12:00:00 AM
-                                     
+
 HealthStatistics                   : 
                                      DeployedServicePackage : 2 Ok, 0 Warning, 0 Error
 ```
 
 ### REST
-You can get deployed application health with a [GET request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application) or a [POST request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy) that includes health policies described in the body.
+You can get deployed application health with a [GET request](/rest/api/servicefabric/get-the-health-of-a-deployed-application) or a [POST request](/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy) that includes health policies described in the body.
 
 ## Get deployed service package health
 Returns the health of a deployed service package entity. Input:
@@ -721,7 +709,7 @@ Returns the health of a deployed service package entity. Input:
 * [Optional] Filters for events that specify which entries are of interest and should be returned in the result (for example, errors only, or both warnings and errors). All events are used to evaluate the entity aggregated health, regardless of the filter.
 
 ### API
-To get the health of a deployed service package through the API, create a `FabricClient` and call the [GetDeployedServicePackageHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) method on its HealthManager. To specify optional parameters, use [DeployedServicePackageHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription).
+To get the health of a deployed service package through the API, create a `FabricClient` and call the [GetDeployedServicePackageHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) method on its HealthManager. To specify optional parameters, use [DeployedServicePackageHealthQueryDescription](/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription).
 
 ```csharp
 DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeployedServicePackageHealthAsync(
@@ -729,7 +717,7 @@ DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeploy
 ```
 
 ### PowerShell
-The cmdlet to get the deployed service package health is [Get-ServiceFabricDeployedServicePackageHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). First, connect to the cluster by using the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet. To see where an application is deployed, run [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) and look at the deployed applications. To see which service packages are in an application, look at the deployed service package children in the [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps) output.
+The cmdlet to get the deployed service package health is [Get-ServiceFabricDeployedServicePackageHealth](/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). First, connect to the cluster by using the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet. To see where an application is deployed, run [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth) and look at the deployed applications. To see which service packages are in an application, look at the deployed service package children in the [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth) output.
 
 The following cmdlet gets the health of the **WordCountServicePkg** service package of the **fabric:/WordCount** application deployed on **_Node_2**. The entity has **System.Hosting** reports for successful service-package and entry-point activation, and successful service-type registration.
 
@@ -754,7 +742,7 @@ HealthEvents               :
                              RemoveWhenExpired     : False
                              IsExpired             : False
                              Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
-                             
+
                              SourceId              : System.Hosting
                              Property              : CodePackageActivation:Code:EntryPoint
                              HealthState           : Ok
@@ -766,7 +754,7 @@ HealthEvents               :
                              RemoveWhenExpired     : False
                              IsExpired             : False
                              Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
-                             
+
                              SourceId              : System.Hosting
                              Property              : ServiceTypeRegistration:WordCountServiceType
                              HealthState           : Ok
@@ -781,7 +769,7 @@ HealthEvents               :
 ```
 
 ### REST
-You can get deployed service package health with a [GET request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package) or a [POST request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy) that includes health policies described in the body.
+You can get deployed service package health with a [GET request](/rest/api/servicefabric/get-the-health-of-a-service-package) or a [POST request](/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy) that includes health policies described in the body.
 
 ## Health chunk queries
 The health chunk queries can return multi-level cluster children (recursively), per input filters. It supports advanced filters that allow a lot of flexibility in choosing the children to be returned. The filters can specify children by the unique identifier or by other group identifiers and/or health states. By default, no children are included, as opposed to health commands that always include first-level children.
@@ -809,14 +797,14 @@ Returns the health of the cluster entity and contains the hierarchical health st
 * [Optional] The cluster health policy used to evaluate the nodes and the cluster events.
 * [Optional] The application health policy map, with the health policies used to override the application manifest policies.
 * [Optional] Filters for nodes and applications that specify which entries are of interest and should be returned in the result. The filters are specific to an entity/group of entities or are applicable to all entities at that level. The list of filters can contain one general filter and/or filters for specific identifiers to fine-grain entities returned by the query. If empty, the children are not returned by default.
-  Read more about the filters at [NodeHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.nodehealthstatefilter) and [ApplicationHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthstatefilter). The application filters can recursively specify advanced filters for children.
+  Read more about the filters at [NodeHealthStateFilter](/dotnet/api/system.fabric.health.nodehealthstatefilter) and [ApplicationHealthStateFilter](/dotnet/api/system.fabric.health.applicationhealthstatefilter). The application filters can recursively specify advanced filters for children.
 
 The chunk result includes the children that respect the filters.
 
 Currently, the chunk query does not return unhealthy evaluations or entity events. That extra information can be obtained using the existing cluster health query.
 
 ### API
-To get cluster health chunk, create a `FabricClient` and call the [GetClusterHealthChunkAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) method on its **HealthManager**. You can pass in [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) to describe health policies and advanced filters.
+To get cluster health chunk, create a `FabricClient` and call the [GetClusterHealthChunkAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) method on its **HealthManager**. You can pass in [ClusterHealthQueryDescription](/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) to describe health policies and advanced filters.
 
 The following code gets cluster health chunk with advanced filters.
 
@@ -862,7 +850,7 @@ var result = await fabricClient.HealthManager.GetClusterHealthChunkAsync(queryDe
 ```
 
 ### PowerShell
-The cmdlet to get the cluster health is [Get-ServiceFabricClusterChunkHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealthchunk). First, connect to the cluster by using the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+The cmdlet to get the cluster health is [Get-ServiceFabricClusterChunkHealth](/powershell/module/servicefabric/get-servicefabricclusterhealthchunk). First, connect to the cluster by using the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet.
 
 The following code gets nodes only if they are in Error except for a specific node, which should always be returned.
 
@@ -883,10 +871,10 @@ Get-ServiceFabricClusterHealthChunk -NodeFilters $nodeFilters
 HealthState                  : Warning
 NodeHealthStateChunks        : 
                                TotalCount            : 1
-                               
+
                                NodeName              : _Node_1
                                HealthState           : Ok
-                               
+
 ApplicationHealthStateChunks : None
 ```
 
@@ -923,37 +911,37 @@ HealthState                  : Error
 NodeHealthStateChunks        : None
 ApplicationHealthStateChunks : 
                                TotalCount            : 1
-                               
+
                                ApplicationName       : fabric:/WordCount
                                ApplicationTypeName   : WordCount
                                HealthState           : Error
                                ServiceHealthStateChunks : 
-                               	TotalCount            : 1
-                               
-                               	ServiceName           : fabric:/WordCount/WordCountService
-                               	HealthState           : Error
-                               	PartitionHealthStateChunks : 
-                               		TotalCount            : 1
-                               
-                               		PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
-                               		HealthState           : Error
-                               		ReplicaHealthStateChunks : 
-                               			TotalCount            : 5
-                               
-                               			ReplicaOrInstanceId   : 131444422293118720
-                               			HealthState           : Ok
-                               
-                               			ReplicaOrInstanceId   : 131444422293118721
-                               			HealthState           : Ok
-                               
-                               			ReplicaOrInstanceId   : 131444422293113678
-                               			HealthState           : Ok
-                               
-                               			ReplicaOrInstanceId   : 131444422293113679
-                               			HealthState           : Ok
-                               
-                               			ReplicaOrInstanceId   : 131444422260002646
-                               			HealthState           : Error
+                                TotalCount            : 1
+
+                                ServiceName           : fabric:/WordCount/WordCountService
+                                HealthState           : Error
+                                PartitionHealthStateChunks : 
+                                    TotalCount            : 1
+
+                                    PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
+                                    HealthState           : Error
+                                    ReplicaHealthStateChunks : 
+                                        TotalCount            : 5
+
+                                        ReplicaOrInstanceId   : 131444422293118720
+                                        HealthState           : Ok
+
+                                        ReplicaOrInstanceId   : 131444422293118721
+                                        HealthState           : Ok
+
+                                        ReplicaOrInstanceId   : 131444422293113678
+                                        HealthState           : Ok
+
+                                        ReplicaOrInstanceId   : 131444422293113679
+                                        HealthState           : Ok
+
+                                        ReplicaOrInstanceId   : 131444422260002646
+                                        HealthState           : Error
 ```
 
 The following cmdlet returns all deployed entities on a node.
@@ -978,41 +966,41 @@ HealthState                  : Error
 NodeHealthStateChunks        : None
 ApplicationHealthStateChunks : 
                                TotalCount            : 2
-                               
+
                                ApplicationName       : fabric:/System
                                HealthState           : Ok
                                DeployedApplicationHealthStateChunks : 
-                               	TotalCount            : 1
-                               
-                               	NodeName              : _Node_2
-                               	HealthState           : Ok
-                               	DeployedServicePackageHealthStateChunks :
-                               		TotalCount            : 1
-                               
-                               		ServiceManifestName   : FAS
-                               		ServicePackageActivationId : 
-                               		HealthState           : Ok
-                               
-                               
-                               
+                                TotalCount            : 1
+
+                                NodeName              : _Node_2
+                                HealthState           : Ok
+                                DeployedServicePackageHealthStateChunks :
+                                    TotalCount            : 1
+
+                                    ServiceManifestName   : FAS
+                                    ServicePackageActivationId : 
+                                    HealthState           : Ok
+
+
+
                                ApplicationName       : fabric:/WordCount
                                ApplicationTypeName   : WordCount
                                HealthState           : Error
                                DeployedApplicationHealthStateChunks : 
-                               	TotalCount            : 1
-                               
-                               	NodeName              : _Node_2
-                               	HealthState           : Ok
-                               	DeployedServicePackageHealthStateChunks :
-                               		TotalCount            : 1
-                               
-                               		ServiceManifestName   : WordCountServicePkg
-                               		ServicePackageActivationId : 
-                               		HealthState           : Ok
+                                TotalCount            : 1
+
+                                NodeName              : _Node_2
+                                HealthState           : Ok
+                                DeployedServicePackageHealthStateChunks :
+                                    TotalCount            : 1
+
+                                    ServiceManifestName   : WordCountServicePkg
+                                    ServicePackageActivationId : 
+                                    HealthState           : Ok
 ```
 
 ### REST
-You can get cluster health chunk with a [GET request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-using-health-chunks) or a [POST request](https://docs.microsoft.com/rest/api/servicefabric/health-of-cluster) that includes health policies and advanced filters described in the body.
+You can get cluster health chunk with a [GET request](/rest/api/servicefabric/get-the-health-of-a-cluster-using-health-chunks) or a [POST request](/rest/api/servicefabric/health-of-cluster) that includes health policies and advanced filters described in the body.
 
 ## General queries
 General queries return a list of Service Fabric entities of a specified type. They are exposed through the API (via the methods on **FabricClient.QueryManager**), PowerShell cmdlets, and REST. These queries aggregate subqueries from multiple components. One of them is the [health store](service-fabric-health-introduction.md#health-store), which populates the aggregated health state for each query result.  
@@ -1027,31 +1015,29 @@ If general queries return an unknown health state for an entity, it's possible t
 The queries that contain **HealthState** for entities are:
 
 * Node list: Returns the list nodes in the cluster (paged).
-  * API: [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
+  * API: [FabricClient.QueryClient.GetNodeListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
   * PowerShell: Get-ServiceFabricNode
 * Application list: Returns the list of applications in the cluster (paged).
-  * API: [FabricClient.QueryClient.GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
+  * API: [FabricClient.QueryClient.GetApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
   * PowerShell: Get-ServiceFabricApplication
 * Service list: Returns the list of services in an application (paged).
-  * API: [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
+  * API: [FabricClient.QueryClient.GetServiceListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
   * PowerShell: Get-ServiceFabricService
 * Partition list: Returns the list of partitions in a service (paged).
-  * API: [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
+  * API: [FabricClient.QueryClient.GetPartitionListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
   * PowerShell: Get-ServiceFabricPartition
 * Replica list: Returns the list of replicas in a partition (paged).
-  * API: [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
+  * API: [FabricClient.QueryClient.GetReplicaListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
   * PowerShell: Get-ServiceFabricReplica
 * Deployed application list: Returns the list of deployed applications on a node.
-  * API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
+  * API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
 * Deployed service package list: Returns the list of service packages in a deployed application.
-  * API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
+  * API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> Some of the queries return paged results. The return of these queries is a list derived from [PagedList<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). If the results do not fit a message, only a page is returned and a ContinuationToken that tracks where enumeration stopped. Continue to call the same query and pass in the continuation token from the previous query to get next results.
->
->
+> Some of the queries return paged results. The return of these queries is a list derived from [PagedList\<T>](/dotnet/api/system.fabric.query.pagedlist-1). If the results do not fit a message, only a page is returned and a ContinuationToken that tracks where enumeration stopped. Continue to call the same query and pass in the continuation token from the previous query to get next results.
 
 ### Examples
 The following code gets the unhealthy applications in the cluster:
@@ -1173,19 +1159,19 @@ ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Error
 UnhealthyEvaluations            : 
                                   Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
-                                  
+
                                   Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Error'.
-                                  
-                                  	Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
-                                  
-                                  	Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Error'.
-                                  
-                                  		Unhealthy replicas: 20% (1/5), MaxPercentUnhealthyReplicasPerPartition=0%.
-                                  
-                                  		Unhealthy replica: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', ReplicaOrInstanceId='131444422260002646', AggregatedHealthState='Error'.
-                                  
-                                  			Error event: SourceId='MyWatchdog', Property='Memory'.
-                                  
+
+                                    Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
+
+                                    Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Error'.
+
+                                        Unhealthy replicas: 20% (1/5), MaxPercentUnhealthyReplicasPerPartition=0%.
+
+                                        Unhealthy replica: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', ReplicaOrInstanceId='131444422260002646', AggregatedHealthState='Error'.
+
+                                            Error event: SourceId='MyWatchdog', Property='Memory'.
+
 ServiceHealthStates             : None
 DeployedApplicationHealthStates : None
 HealthEvents                    : None
@@ -1202,7 +1188,7 @@ ReplicaId             : 131444422260002646
 AggregatedHealthState : Error
 UnhealthyEvaluations  : 
                         Error event: SourceId='MyWatchdog', Property='Memory'.
-                        
+
 HealthEvents          : 
                         SourceId              : System.RA
                         Property              : State
@@ -1215,7 +1201,7 @@ HealthEvents          :
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
-                        
+
                         SourceId              : MyWatchdog
                         Property              : Memory
                         HealthState           : Error

@@ -1,32 +1,24 @@
 ---
-title: Create an Azure Service Fabric cluster using certificate common name | Microsoft Docs
+title: Create a cluster using certificate common name 
 description: Learn how to create a Service Fabric cluster using certificate common name from a template.
-services: service-fabric
-documentationcenter: .net
-author: rwike77
-manager: timlt
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 04/24/2018
-ms.author: ryanwi
-
+ms.date: 09/06/2019 
+ms.custom: devx-track-azurepowershell
 ---
 # Deploy a Service Fabric cluster that uses certificate common name instead of thumbprint
 No two certificates can have the same thumbprint, which makes cluster certificate rollover or management difficult. Multiple certificates, however, can have the same common name or subject.  A cluster using certificate common names makes certificate management much simpler. This article describes how to deploy a Service Fabric cluster to use the certificate common name instead of the certificate thumbprint.
  
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Get a certificate
-First, get a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority).  The common name of the certificate should be the host name of the cluster.  For example, "myclustername.southcentralus.cloudapp.azure.com".  
+First, get a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority).  The common name of the certificate should be for the custom domain you own, and bought from a domain registrar. For example, "azureservicefabricbestpractices.com"; those whom are not Microsoft employees can not provision certs for MS domains, so you can not use the DNS names of your LB or Traffic Manager as common names for your certificate, and you will need to provision a [Azure DNS Zone](../dns/dns-delegate-domain-azure-dns.md) if your custom domain to be resolvable in Azure. You will also want to declare your custom domain you own as your cluster's "managementEndpoint" if you want portal to reflect the custom domain alias for your cluster.
 
 For testing purposes, you could get a CA signed certificate from a free or open certificate authority.
 
 > [!NOTE]
-> Self-signed certificates, including those generated when deploying a Service Fabric cluster in the Azure portal, are not supported.
+> Self-signed certificates, including those generated when deploying a Service Fabric cluster in the Azure portal, are not supported. 
 
 ## Upload the certificate to a key vault
 In Azure, a Service Fabric cluster is deployed on a virtual machine scale set.  Upload the certificate to a key vault.  When the cluster deploys, the certificate installs on the virtual machine scale set that the cluster is running on.
@@ -37,7 +29,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 $SubscriptionId  =  "<subscription ID>"
 
 # Sign in to your Azure account and select your subscription
-Login-AzureRmAccount -SubscriptionId $SubscriptionId
+Login-AzAccount -SubscriptionId $SubscriptionId
 
 $region = "southcentralus"
 $KeyVaultResourceGroupName  = "mykeyvaultgroup"
@@ -47,15 +39,15 @@ $certname = "myclustercert"
 $Password  = "P@ssw0rd!123"
 
 # Create new Resource Group 
-New-AzureRmResourceGroup -Name $KeyVaultResourceGroupName -Location $region
+New-AzResourceGroup -Name $KeyVaultResourceGroupName -Location $region
 
 # Create the new key vault
-$newKeyVault = New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName -Location $region -EnabledForDeployment 
+$newKeyVault = New-AzKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName -Location $region -EnabledForDeployment 
 $resourceId = $newKeyVault.ResourceId 
 
 # Add the certificate to the key vault.
 $PasswordSec = ConvertTo-SecureString -String $Password -AsPlainText -Force
-$KVSecret = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certName  -FilePath $certFilename -Password $PasswordSec
+$KVSecret = Import-AzKeyVaultCertificate -VaultName $vaultName -Name $certName  -FilePath $certFilename -Password $PasswordSec
 
 $CertificateThumbprint = $KVSecret.Thumbprint
 $CertificateURL = $KVSecret.SecretId
@@ -77,12 +69,18 @@ First, open the *azuredeploy.parameters.json* file in a text editor and add the 
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
 },
+"certificateIssuerThumbprint": {
+    "value": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+},
 ```
 
 Next, set the *certificateCommonName*, *sourceVaultValue*, and *certificateUrlValue* parameter values to those returned by the preceding script:
 ```json
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
+},
+"certificateIssuerThumbprint": {
+    "value": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 },
 "sourceVaultValue": {
   "value": "/subscriptions/<subscription>/resourceGroups/testvaultgroup/providers/Microsoft.KeyVault/vaults/testvault"
@@ -101,6 +99,12 @@ Next, open the *azuredeploy.json* file in a text editor and make three updates t
       "type": "string",
       "metadata": {
         "description": "Certificate Commonname"
+      }
+    },
+    "certificateIssuerThumbprint": {
+      "type": "string",
+      "metadata": {
+        "description": "Certificate Authority Issuer Thumpbrint for Commonname cert"
       }
     },
     ```
@@ -154,32 +158,36 @@ Next, open the *azuredeploy.json* file in a text editor and make three updates t
           },
     ```
 
-4.  In the **Microsoft.ServiceFabric/clusters** resource, update the API version to "2018-02-01".  Also add a **certificateCommonNames** setting with a **commonNames** property and remove the **certificate** setting (with the thumbprint property) as in the following example:
-    ```json
-    {
-        "apiVersion": "2018-02-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
-        ],
-        "properties": {
-        "addonFeatures": [
-            "DnsService",
-            "RepairManager"
-        ],        
-        "certificateCommonNames": {
-            "commonNames": [
-            {
-                "certificateCommonName": "[parameters('certificateCommonName')]",
-                "certificateIssuerThumbprint": ""
-            }
-            ],
-            "x509StoreName": "[parameters('certificateStoreValue')]"
-        },
-        ...
-    ```
+4. In the **Microsoft.ServiceFabric/clusters** resource, update the API version to "2018-02-01".  Also add a **certificateCommonNames** setting with a **commonNames** property and remove the **certificate** setting (with the thumbprint property) as in the following example:
+   ```json
+   {
+       "apiVersion": "2018-02-01",
+       "type": "Microsoft.ServiceFabric/clusters",
+       "name": "[parameters('clusterName')]",
+       "location": "[parameters('clusterLocation')]",
+       "dependsOn": [
+       "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
+       ],
+       "properties": {
+       "addonFeatures": [
+           "DnsService",
+           "RepairManager"
+       ],        
+       "certificateCommonNames": {
+           "commonNames": [
+           {
+               "certificateCommonName": "[parameters('certificateCommonName')]",
+               "certificateIssuerThumbprint": "[parameters('certificateIssuerThumbprint')]"
+           }
+           ],
+           "x509StoreName": "[parameters('certificateStoreValue')]"
+       },
+       ...
+   ```
+   > [!NOTE]
+   > The 'certificateIssuerThumbprint' field allows specifying the expected issuers of certificates with a given subject common name. This field accepts a comma-separated enumeration of SHA1 thumbprints. Note this is a strengthening of the certificate validation - in the case when the issuer is not specified or empty, the certificate will be accepted for authentication if its chain can be built, and ends up in a root trusted by the validator. If the issuer is specified, the certificate will be accepted if the thumbprint of its direct issuer matches any of the values specified in this field - irrespective of whether the root is trusted or not. Please note that a PKI may use different certification authorities to issue certificates for the same subject, and so it is important to specify all expected issuer thumbprints for a given subject.
+   >
+   > Specifying the issuer is considered a best practice; while omitting it will continue to work - for certificates chaining up to a trusted root - this behavior has limitations and may be phased out in the near future. Also note that clusters deployed in Azure, and secured with X509 certificates issued by a private PKI and declared by subject may not be able to be validated by the Azure Service Fabric service (for cluster-to-service communication), if the PKI's Certificate Policy is not discoverable, available and accessible. 
 
 ## Deploy the updated template
 Redeploy the updated template after making the changes.
@@ -191,12 +199,12 @@ $clusterloc="southcentralus"
 $id="<subscription ID"
 
 # Sign in to your Azure account and select your subscription
-Login-AzureRmAccount -SubscriptionId $id 
+Login-AzAccount -SubscriptionId $id 
 
 # Create a new resource group and deploy the cluster.
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+New-AzResourceGroup -Name $groupname -Location $clusterloc
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\AzureDeploy.Parameters.json" -TemplateFile "C:\temp\cluster\AzureDeploy.json" -Verbose
+New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\AzureDeploy.Parameters.json" -TemplateFile "C:\temp\cluster\AzureDeploy.json" -Verbose
 ```
 
 ## Next steps

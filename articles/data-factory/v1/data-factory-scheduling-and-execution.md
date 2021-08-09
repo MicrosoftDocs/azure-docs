@@ -1,23 +1,14 @@
 ---
-title: Scheduling and Execution with Data Factory | Microsoft Docs
+title: Scheduling and Execution with Data Factory 
 description: Learn scheduling and execution aspects of Azure Data Factory application model.
-services: data-factory
-documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
-ms.assetid: 088a83df-4d1b-4ac1-afb3-0787a9bd1ca5
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Data Factory scheduling and execution
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [pipeline execution and triggers](../concepts-pipeline-execution-triggers.md) article.
@@ -233,7 +224,7 @@ The **policy** section in dataset definition defines the criteria or the conditi
 | Policy Name | Description | Applied To | Required | Default |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB | Validates that the data in an **Azure blob** meets the minimum size requirements (in megabytes). |Azure Blob |No |NA |
-| minimumRows | Validates that the data in an **Azure SQL database** or an **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL Database</li><li>Azure Table</li></ul> |No |NA |
+| minimumRows | Validates that the data in **Azure SQL Database** or **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL Database</li><li>Azure Table</li></ul> |No |NA |
 
 #### Examples
 **minimumSizeMB:**
@@ -318,7 +309,7 @@ As mentioned earlier, the activities could be in different pipelines. In such a 
 
 ![Chaining activities in two pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
 
-See the [copy sequentially](#copy-sequentially) section in the appendix for an example.
+See the copy sequentially section in the appendix for an example.
 
 ## Model datasets with different frequencies
 In the samples, the frequencies for input and output datasets and the activity schedule window were the same. Some scenarios require the ability to produce output at a frequency different than the frequencies of one or more inputs. Data Factory supports modeling these scenarios.

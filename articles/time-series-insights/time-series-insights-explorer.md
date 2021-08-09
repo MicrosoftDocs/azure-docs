@@ -1,117 +1,128 @@
 ---
-title: Explore data using the Azure Time Series Insights explorer | Microsoft Docs
-description: This article describes how to use the Azure Time Series Insights explorer in your web browser to quickly see a global view of your big data and validate your IoT environment.
+title: 'Explore data using the Explorer - Azure Time Series Insights | Microsoft Docs'
+description: Learn how to use the Azure Time Series Insights Explorer to view your IoT data.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
-ms.author: anshan
-manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+author: narmeens
+ms.author: narsam
+manager: cnovak
+ms.reviewer: orspodek
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/30/2017
+ms.date: 09/29/2020
+ms.custom: seodec18
 ---
 
-# Azure Time Series Insights explorer
-This article explores the various features and options available within the Time Series Insights explorer web app. 
-You use Time Series Insights explorer in your web browser to create visualizations of your data.
- 
-Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, which lets you quickly validate your IoT solution and avoid costly downtime to mission-critical devices. You can discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time. The Time Series Insights explorer is currently in public preview.
+# Azure Time Series Insights Gen1 Explorer
 
-## Video:
+> [!CAUTION]
+> This is a Gen1 article.
 
-In this video, we cover querying data using the Time Series Insights explorer. 
+This article describes the features and options for the Azure Time Series Insights Gen1 [Explorer web app](https://insights.timeseries.azure.com/). The Azure Time Series Insights Explorer demonstrates the powerful data visualization capabilities provided by the service and can be accessed within your own environment.
 
-This video builds on Video Time Series Insights:  
-<span style="color:blue">Getting starts with Time Series Insights using an Azure IoT Solution Accelerator.</span>
-</br>
+Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, which lets you quickly validate your IoT solution and avoid costly downtime to mission-critical devices. You can discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time.
+
+> [!TIP]
+> For a guided tour through the demonstration environment, read the [Azure Time Series Insights quickstart](time-series-quickstart.md).
+
+## Video
+
+### Learn about querying data by using the Azure Time Series Insights Explorer. </br>
 
 > [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
+>[!NOTE]
+>Play the preceding video <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"Getting started with Azure Time Series Insights by using an Azure IoT Solution Accelerator."</a>
+
 ## Prerequisites
 
-Before you can use Time Series Insights explorer, you must:
-- Create a Time Series Insights environment
-- Provide access to your account in the environment
-- Add an event source to ingest data and store it
+Before you can use Azure Time Series Insights Explorer, you must:
+
+- Create an Azure Time Series Insights environment. For more information, read [How to get started with Azure Time Series Insights](./time-series-insights-get-started.md).
+- [Provide access](./concepts-access-policies.md) to your account in the environment.
+- Add an [IoT hub](./how-to-ingest-data-iot-hub.md) or [event hub](./how-to-ingest-data-event-hub.md) event source to it.
 
 ## Explore and query data
-Within minutes of connecting your event source to your Time Series Insights environment, you can explore and query your time series data.
 
-1. To start, open the [Time Series Insights explorer](https://insights.timeseries.azure.com/) in your web browser, and select an environment on the left side of the window. All environments that you have access to are listed in alphabetical order.
+Within minutes of connecting your event source to your Azure Time Series Insights environment, you can explore and query your time series data.
 
-2. Once you select an environment, either use the **FROM** and **TO** configurations at the top, or click and drag over your desired time span.  Click the magnifying glass at the top right, or right-click over the selected timespan and select **Search**.  
+1. To start, open the [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com/) in your web browser. On the left side of the window, select an environment. All environments that you have access to are listed in alphabetical order.
 
-3. You can also refresh availability automatically every minute, by selecting the **Auto On** button.  Note, the 'Auto-On' button only applies to the availability chart, not the content of the main visualization.
+1. After you select an environment, either use the **From** and **To** configurations at the top, or select and drag over the timespan you want. Select the magnifying glass in the upper-right corner, or right-click on the selected timespan and select **Search**.
 
-4. Notice, the Azure cloud icon takes you to your environment in the Azure portal.
+1. You also can refresh availability automatically every minute by selecting the **Auto On** button. The **Auto On** button only applies to the availability chart, not the content of the main visualization.
 
-   ![Time Series Insights environment](media/time-series-insights-explorer/explorer1.png)
+1. The Azure cloud icon takes you to your environment in the Azure portal.
 
-5. Next, you see a chart that shows a count of all events during the selected timespan.  Here you have a number of controls:
+   [![Azure Time Series Insights environment selection](media/time-series-insights-explorer/tsi-ga-explorer-environments.png)](media/time-series-insights-explorer/tsi-ga-explorer-environments.png#lightbox)
 
-    **Terms Editor Panel**:  The term space is where you query your environment.  It’s found on the left-hand side of the screen, enables 
-      - **Measure**:  This drop down shows all numeric columns (Doubles)
-      - **Split By**: This drop down shows categorical columns (Strings)
-      - You can enable step interpolation, show minimum and maximum, and adjust the Y-axis from the control panel next to measure.  Additionally, you can adjust whether data shown is a count, average, or sum of the data.
-      - You can add up to five terms to view on the same X-axis.  Use the **copy-down** button to add an additional term or click the **Add** button to add a fresh term.
-     
-        ![Terms Editor panel](media/time-series-insights-explorer/explorer2.png)
+1. Next, a chart that shows a count of all events during the selected timespan is displayed. Here you have a number of controls:
 
-      - **Predicate**:  The predicate enables you to quickly filter your events using the set of operands listed below. If you conduct a search by selecting/clicking, the predicate will automatically update based on that search.      Supported operand types include:
+    - **Terms Editor panel**: The term space is where you query your environment. It's found on the left side of the screen:
+      - **MEASURE**: This drop-down list shows all numeric columns (**Doubles**).
+      - **SPLIT BY**: This drop-down list shows categorical columns (**Strings**).
+      - You can enable step interpolation, show minimum and maximum, and adjust the y-axis from the control panel next to **MEASURE**. You also can adjust whether data shown is a count, average, or sum of the data.
+      - You can add up to five terms to view on the same x-axis. Select **Add** to add a fresh term or use the **Clone this term** button to add a copy of an existing term.
+
+        [![Terms selection, filtering, and query panel](media/time-series-insights-explorer/tsi-ga-explorer-add-or-clone.png)](media/time-series-insights-explorer/tsi-ga-explorer-add-or-clone.png#lightbox)
+
+      - **Predicate**: Use the predicate to quickly filter your events by using the set of operands listed in the following table. If you conduct a search by selecting or clicking, the predicate automatically updates based on that search. Supported operand types include:
 
          |Operation  |Supported types  |Notes  |
          |---------|---------|---------|
-         |<, >, <=, >=     |  Double, DateTime, TimeSpan       |         |
-         |=, !=, <>     | String, Bool, Double, DateTime, TimeSpan, NULL        |         |
-         |IN     | String, Bool, Double, DateTime, TimeSpan, NULL        |  All operands should be of the same type or be NULL constant.        |
-         |HAS     | String        |  Only constant string literals are allowed at right-hand side. Empty string and NULL are not allowed.       |
+         |**<**, **>**, **<=**, **>=**    |  **Double**, **DateTime**, **TimeSpan**       |         |
+         |**=**, **!=**, **<>**     | **String**, **Bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |         |
+         |**IN**     | **String**, **Bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |  All operands should be of the same type or be **NULL** constant.        |
+         |**HAS**     | **String**        |  Only constant string literals are allowed at the right side. Empty string and **NULL** aren't allowed.       |
 
-      - **Examples of queries**
-      
-         ![Example queries](media/time-series-insights-explorer/explorer9.png)
+      - **Example queries**
 
-6. The **Interval Size** slider tool enables you to zoom in and out of intervals over the same timespan.  This provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, allowing you to see granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection; balancing resolution, query speed, and granularity.
+         [![Example Gen1 queries](media/time-series-insights-explorer/tsi-ga-example-queries.png)](media/time-series-insights-explorer/tsi-ga-example-queries.png#lightbox)
 
-7. The **Time brush** tool makes it easy to navigate from one time span to another, putting intuitive UX front and center for seamless movement between time ranges.
+1. You can use the **Interval Size** slider tool to zoom in and out of intervals over the same timespan. The slider provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, which allow you to display and analyze granular, high-resolution cuts of your data. The slider's default starting point is set as the most optimal view of the data from your selection to balance resolution, query speed, and granularity.
 
-8. The **Save** command lets you save your current query and enable it for sharing with other users of the environment. Using **Open**, you can see all of your saved queries and any shared queries of other users in environments you have access to. 
+1. The **Time brush** tool makes it easy to navigate from one timespan to another.
 
-   ![Queries](media/time-series-insights-explorer/explorer3.png)
+1. Select the **Save** icon to save your current query and share it with other users of the environment. When you select the **Open** icon, you can review all of your saved queries and any shared queries of other users in environments you have access to.
 
-9. The **Perspective View** tool provides a simultaneous view of up to four unique queries. You can find the perspective view button in the upper right corner of the chart.  
+   [![Queries](media/time-series-insights-explorer/tsi-ga-explorer-saved-queries.png)](media/time-series-insights-explorer/tsi-ga-explorer-saved-queries.png#lightbox)
 
-   ![Perspective view](media/time-series-insights-explorer/explorer4.png)
+## Visualize data
 
-10. The **Chart** lets you visually explore your data. Chart tools include:
+1. Use the **Perspective View** tool for a simultaneous view of up to four unique queries. The **Perspective View** button is in the upper-right corner of the chart.
 
-   - Select/click, which enables a selection of a specific timespan or of a single data series.  
-   - Within a time span selection, you can zoom or explore events.  
-   - Within a data series, you can split the series by another column, add the series as a new term, show only the selected series, exclude the selected series, ping that series, or explore events from the selected series.
-   - In the filter area to the left of the chart, you can see all displayed data series and reorder by value or name, view all data series or specifically pinned or unpinned series.  You can also select a single data series and split the series by another column, add the series as a new term, show only the selected series, exclude the selected series, pin that series, or explore events from the selected series.
-   - When viewing multiple terms simultaneously, you can stack, unstack, see additional data about a data series, and use the same Y-axis across all terms with the buttons in the top right-hand corner of the chart.
- 
-   ![Chart tool](media/time-series-insights-explorer/explorer5.png) 
+   [![Select queries to add to the perspective pane](media/time-series-insights-explorer/tsi-ga-explorer-perspective-panes.png)](media/time-series-insights-explorer/tsi-ga-explorer-perspective-panes.png#lightbox)
 
-11. The **heatmap** can be used to quickly spot unique or anomalous data series in a given query. Only one search term can be visualized as a heatmap.    
+1. View a chart to visually explore your data, and use the **Chart** tools:
 
-   ![Heatmap](media/time-series-insights-explorer/explorer6.png)
+    - **Select** or **click** a specific timespan or a single data series.
+    - Within a timespan selection, you can zoom or explore events.
+    - Within a data series, you can split the series by another column, add the series as a new term, show only the selected series, exclude the selected series, ping that series, or explore events from the selected series.
+    - In the filter area to the left of the chart, you can review all displayed data series and reorder by value or name. You also can view all data series or any pinned or unpinned series. You can select a single data series and split the series by another column, add the series as a new term, show only the selected series, exclude the selected series, pin that series, or explore events from the selected series.
+    - When you view multiple terms simultaneously, you can stack, unstack, review additional data about a data series, and use the same y-axis across all terms. Use the buttons in the upper-right corner of the chart.
 
-12. **Events**:  When you choose explore events when selecting or right-clicking above, the events panel is made available.  Here, you can see all of your raw events and export your events as JSON or CSV files. Note that Time Series Insights stores all raw data.
+    [![Chart tool upper right corner option settings](media/time-series-insights-explorer/tsi-ga-example-chart-options.png)](media/time-series-insights-explorer/tsi-ga-example-chart-options.png#lightbox)
 
-   ![Events](media/time-series-insights-explorer/explorer7.png)
+1. Use the **heatmap** to quickly spot unique or anomalous data series in a given query. Only one search term can be visualized as a heatmap.
 
-13. Click the **STATS** tab after exploring events to expose patterns and column stats.  
+    [Time Series Insights explorer heatmap charting](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
-   - **Patterns**: this feature proactively surfaces the most statistically significant patterns in a selected data region. This relieves you from having to look at thousands of events to understand what patterns most warrant time and energy. Further, Time Series Insights enables you to jump directly into these statistically significant patterns to continue conducting an analysis. This feature is also helpful for post-mortem investigations into historical data. 
+1. When you explore events by selecting or right-clicking, the **EVENTS** panel is made available. Here, you can review all of your raw events and export your events as JSON or CSV files. Azure Time Series Insights stores all raw data.
 
-   - **Column Stats**:  Column stats provide charting and tables that break down data from each column of the selected data series over the selected time span.  
- 
-      ![STATS](media/time-series-insights-explorer/explorer8.png) 
+    [![Events](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png)](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png#lightbox)
 
-Now you have seen the various features and options available within the Time Series Insights explorer web app. 
+1. Select the **STATS** tab after you explore events to expose patterns and column stats.
+
+    - **Patterns**: This feature proactively surfaces the most statistically significant patterns in a selected data region. You don't have to look at thousands of events to understand what patterns require the most time and energy. With Azure Time Series Insights, you can jump directly into these statistically significant patterns to continue conducting an analysis. This feature is also helpful for post-mortem investigations into historical data.
+    - **Column Stats**: Column stats provide charts and tables that break down data from each column of the selected data series over the selected timespan.
+
+      [![STATS column charting and options](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png)](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png#lightbox)
+
+Now you've learned about the key features, configuration settings, and display options that are available in the Azure Time Series Insights explorer web app.
 
 ## Next steps
-> [!div class="nextstepaction"]
->[Diagnose and solve problems in your Time Series Insights environment](time-series-insights-diagnose-and-solve-problems.md)
+
+- Learn how to [diagnose and solve problems](time-series-insights-diagnose-and-solve-problems.md) in your Azure Time Series Insights environment.
+
+- Take the guided [Azure Time Series Insights quickstart](time-series-quickstart.md) tour.

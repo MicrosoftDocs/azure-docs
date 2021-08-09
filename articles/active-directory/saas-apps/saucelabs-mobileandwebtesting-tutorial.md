@@ -2,230 +2,147 @@
 title: 'Tutorial: Azure Active Directory integration with Sauce Labs - Mobile and Web Testing | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Sauce Labs - Mobile and Web Testing.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
-
-ms.assetid: 3142d947-70e5-4345-8a30-b92d8715fac9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/23/2018
+ms.topic: tutorial
+ms.date: 05/20/2021
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Sauce Labs - Mobile and Web Testing
 
-In this tutorial, you learn how to integrate Sauce Labs - Mobile and Web Testing with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate Sauce Labs - Mobile and Web Testing with Azure Active Directory (Azure AD). When you integrate Sauce Labs - Mobile and Web Testing with Azure AD, you can:
 
-Integrating Sauce Labs - Mobile and Web Testing with Azure AD provides you with the following benefits:
-
-- You can control in Azure AD who has access to Sauce Labs - Mobile and Web Testing.
-- You can enable your users to automatically get signed-on to Sauce Labs - Mobile and Web Testing (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Azure AD who has access to Sauce Labs - Mobile and Web Testing.
+* Enable your users to be automatically signed-in to Sauce Labs - Mobile and Web Testing with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
 To configure Azure AD integration with Sauce Labs - Mobile and Web Testing, you need the following items:
 
-- An Azure AD subscription
-- A Sauce Labs - Mobile and Web Testing single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
+* Sauce Labs - Mobile and Web Testing single sign-on enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Sauce Labs - Mobile and Web Testing from the gallery
-2. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-## Adding Sauce Labs - Mobile and Web Testing from the gallery
+* Sauce Labs - Mobile and Web Testing supports **IDP** initiated SSO.
+* Sauce Labs - Mobile and Web Testing supports **Just In Time** user provisioning.
+
+## Add Sauce Labs - Mobile and Web Testing from the gallery
+
 To configure the integration of Sauce Labs - Mobile and Web Testing into Azure AD, you need to add Sauce Labs - Mobile and Web Testing from the gallery to your list of managed SaaS apps.
 
-**To add Sauce Labs - Mobile and Web Testing from the gallery, perform the following steps:**
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Sauce Labs - Mobile and Web Testing** in the search box.
+1. Select **Sauce Labs - Mobile and Web Testing** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Configure and test Azure AD SSO for Sauce Labs - Mobile and Web Testing
 
-	![The Azure Active Directory button][1]
+Configure and test Azure AD SSO with Sauce Labs - Mobile and Web Testing using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Sauce Labs - Mobile and Web Testing.
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+To configure and test Azure AD SSO with Sauce Labs - Mobile and Web Testing, perform the following steps:
 
-	![The Enterprise applications blade][2]
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Sauce Labs - Mobile and Web Testing SSO](#configure-sauce-labs---mobile-and-web-testing-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Sauce Labs - Mobile and Web Testing test user](#create-sauce-labs---mobile-and-web-testing-test-user)** - to have a counterpart of B.Simon in Sauce Labs - Mobile and Web Testing that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-3. To add new application, click **New application** button on the top of dialog.
+## Configure Azure AD SSO
 
-	![The New application button][3]
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-4. In the search box, type **Sauce Labs - Mobile and Web Testing**, select **Sauce Labs - Mobile and Web Testing** from result panel then click **Add** button to add the application.
+1. In the Azure portal, on the **Sauce Labs - Mobile and Web Testing** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-	![Sauce Labs - Mobile and Web Testing in the results list](./media/saucelabs-mobileandwebtesting-tutorial/tutorial_saucelabs_addfromgallery.png)
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-## Configure and test Azure AD single sign-on
+4. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
-In this section, you configure and test Azure AD single sign-on with Sauce Labs - Mobile and Web Testing based on a test user called "Britta Simon".
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Sauce Labs - Mobile and Web Testing is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Sauce Labs - Mobile and Web Testing needs to be established.
+	![The Certificate download link](common/metadataxml.png)
 
-To configure and test Azure AD single sign-on with Sauce Labs - Mobile and Web Testing, you need to complete the following building blocks:
+6. On the **Set up Sauce Labs - Mobile and Web Testing** section, copy the appropriate URL(s) as per your requirement.
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Sauce Labs - Mobile and Web Testing test user](#create-a-sauce-labs---mobile-and-web-testing-test-user)** - to have a counterpart of Britta Simon in Sauce Labs - Mobile and Web Testing that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Configure Azure AD single sign-on
+### Create an Azure AD test user 
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Sauce Labs - Mobile and Web Testing application.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-**To configure Azure AD single sign-on with Sauce Labs - Mobile and Web Testing, perform the following steps:**
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
-1. In the Azure portal, on the **Sauce Labs - Mobile and Web Testing** application integration page, click **Single sign-on**.
+### Assign the Azure AD test user
 
-	![Configure single sign-on link][4]
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Sauce Labs - Mobile and Web Testing.
 
-2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Sauce Labs - Mobile and Web Testing**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	![Single sign-on dialog box](./media/saucelabs-mobileandwebtesting-tutorial/tutorial_saucelabs_samlbase.png)
+## Configure Sauce Labs - Mobile and Web Testing SSO
 
-3. On the **Sauce Labs - Mobile and Web Testing Domain and URLs** section, the user does not have to perform any steps as the app is already pre-integrated with Azure.
+1. In a different web browser window, sign in to your Sauce Labs - Mobile and Web Testing company site as an administrator.
 
-	![Sauce Labs - Mobile and Web Testing Domain and URLs single sign-on information](./media/saucelabs-mobileandwebtesting-tutorial/tutorial_saucelabs_url.png)
+2. Click on the **User icon** and select **Team Management** tab.
 
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+	![Screenshot that shows the "User" icon and "Team Management" drop-down selected.](./media/saucelabs-mobileandwebtesting-tutorial/user.png)
 
-	![The Certificate download link](./media/saucelabs-mobileandwebtesting-tutorial/tutorial_saucelabs_certificate.png)
+3. Enter your **Domain name** in the textbox.
 
-5. Click **Save** button.
+	![Screenshot that shows an example domain name in the textbox.](./media/saucelabs-mobileandwebtesting-tutorial/domain.png)
 
-	![Configure Single Sign-On Save button](./media/saucelabs-mobileandwebtesting-tutorial/tutorial_general_400.png)
+4. Click **Configure** tab.
 
-6. In a different web browser window, sign in to your Sauce Labs - Mobile and Web Testing company site as an administrator.
+	![Screenshot that shows the "Configure" tab selected under "Single Sign On is Enabled".](./media/saucelabs-mobileandwebtesting-tutorial/configure.png)
 
-7. Click on the **User icon** and select **Team Management** tab.
+5. In the **Configure Single Sign On** section, perform the following steps.
 
-	![Configure Single Sign-On](./media/saucelabs-mobileandwebtesting-tutorial/configure1.png)
-
-8. Enter your **Domain name** in the textbox.
-
-	![Configure Single Sign-On](./media/saucelabs-mobileandwebtesting-tutorial/configure2.png)
-
-9. Click **Configure** tab.
-
-	![Configure Single Sign-On](./media/saucelabs-mobileandwebtesting-tutorial/configure3.png)
-
-10. In the **Configure Single Sign On** section, perform the following steps.
-
-	![Configure Single Sign-On](./media/saucelabs-mobileandwebtesting-tutorial/configure4.png)
+	![Configure Single Sign-On](./media/saucelabs-mobileandwebtesting-tutorial/browse.png)
 
 	a. Click **Browse** and upload the downloaded metadata file from the Azure AD.
 
 	b. Select the **ALLOW JUST-IN-TIME PROVISIONING** checkbox.
 
-	c. Clcik **Save**.
+	c. Click **Save**.
 
-### Create an Azure AD test user
+### Create Sauce Labs - Mobile and Web Testing test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+In this section, a user called Britta Simon is created in Sauce Labs - Mobile and Web Testing. Sauce Labs - Mobile and Web Testing supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Sauce Labs - Mobile and Web Testing, a new one is created after authentication.
 
-   ![Create an Azure AD test user][100]
+> [!Note]
+> If you need to create a user manually, contact [Sauce Labs - Mobile and Web Testing support team](mailto:support@saucelabs.com).
 
-**To create a test user in Azure AD, perform the following steps:**
+## Test SSO
 
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-    ![The Azure Active Directory button](./media/saucelabs-mobileandwebtesting-tutorial/create_aaduser_01.png)
+* Click on Test this application in Azure portal and you should be automatically signed in to the Sauce Labs - Mobile and Web Testing for which you set up the SSO.
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+* You can use Microsoft My Apps. When you click the Sauce Labs - Mobile and Web Testing tile in the My Apps, you should be automatically signed in to the Sauce Labs - Mobile and Web Testing for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-    ![The "Users and groups" and "All users" links](./media/saucelabs-mobileandwebtesting-tutorial/create_aaduser_02.png)
+## Next steps
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
-
-    ![The Add button](./media/saucelabs-mobileandwebtesting-tutorial/create_aaduser_03.png)
-
-4. In the **User** dialog box, perform the following steps:
-
-    ![The User dialog box](./media/saucelabs-mobileandwebtesting-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
-
-    d. Click **Create**.
-  
-### Create a Sauce Labs - Mobile and Web Testing test user
-
-The objective of this section is to create a user called Britta Simon in Sauce Labs - Mobile and Web Testing. Sauce Labs - Mobile and Web Testing supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Sauce Labs - Mobile and Web Testing if it doesn't exist yet.
->[!Note]
->If you need to create a user manually, contact [Sauce Labs - Mobile and Web Testing support team](mailto:support@saucelabs.com).
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Sauce Labs - Mobile and Web Testing.
-
-![Assign the user role][200]
-
-**To assign Britta Simon to Sauce Labs - Mobile and Web Testing, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201]
-
-2. In the applications list, select **Sauce Labs - Mobile and Web Testing**.
-
-	![The Sauce Labs - Mobile and Web Testing link in the Applications list](./media/saucelabs-mobileandwebtesting-tutorial/tutorial_saucelabs_app.png)  
-
-3. In the menu on the left, click **Users and groups**.
-
-	![The "Users and groups" link][202]
-
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![The Add Assignment pane][203]
-
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-6. Click **Select** button on **Users and groups** dialog.
-
-7. Click **Assign** button on **Add Assignment** dialog.
-
-### Test single sign-on
-
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the Sauce Labs - Mobile and Web Testing tile in the Access Panel, you should get automatically signed-on to your Sauce Labs - Mobile and Web Testing application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-<!--Image references-->
-
-[1]: ./media/saucelabs-mobileandwebtesting-tutorial/tutorial_general_01.png
-[2]: ./media/saucelabs-mobileandwebtesting-tutorial/tutorial_general_02.png
-[3]: ./media/saucelabs-mobileandwebtesting-tutorial/tutorial_general_03.png
-[4]: ./media/saucelabs-mobileandwebtesting-tutorial/tutorial_general_04.png
-
-[100]: ./media/saucelabs-mobileandwebtesting-tutorial/tutorial_general_100.png
-
-[200]: ./media/saucelabs-mobileandwebtesting-tutorial/tutorial_general_200.png
-[201]: ./media/saucelabs-mobileandwebtesting-tutorial/tutorial_general_201.png
-[202]: ./media/saucelabs-mobileandwebtesting-tutorial/tutorial_general_202.png
-[203]: ./media/saucelabs-mobileandwebtesting-tutorial/tutorial_general_203.png
+Once you configure Sauce Labs - Mobile and Web Testing you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

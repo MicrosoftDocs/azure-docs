@@ -1,26 +1,24 @@
 ---
-title: Cloud Services Role config XPath cheat sheet | Microsoft Docs
+title: Cloud Services (classic) Role config XPath cheat sheet | Microsoft Docs
 description: The various XPath settings you can use in the cloud service role config to expose settings as an environment variable.
-services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: c51e4493-0643-4d05-bc44-06c76bcbf7d1
-ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/19/2017
-ms.author: jeconnoc
-
+ms.service: cloud-services
+ms.subservice: deployment-files
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
+
 # Expose role configuration settings as an environment variable with XPath
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 In the cloud service worker or web role service definition file, you can expose runtime configuration values as environment variables. The following XPath values are supported (which correspond to API values).
 
-These XPath values are also available through the [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) library. 
+These XPath values are also available through the [Microsoft.WindowsAzure.ServiceRuntime](/previous-versions/azure/reference/ee773173(v=azure.100)) library. 
 
 ## App running in emulator
 Indicates that the app is running in the emulator.
@@ -164,4 +162,7 @@ Learn more about the [ServiceConfiguration.cscfg](cloud-services-model-and-packa
 Create a [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg) package.
 
 Enable [remote desktop](cloud-services-role-enable-remote-desktop-new-portal.md) for a role.
+
+
+
 

@@ -1,132 +1,138 @@
 ---
-title: Copy data to  your Microsoft Azure Data Box| Microsoft Docs
-description: Learn how to copy data to your Azure Data Box
+title: Tutorial to copy data via SMB on Azure Data Box | Microsoft Docs
+description: In this tutorial, learn how to connect to and copy data from your host computer to Azure Data Box by using SMB with the local web UI.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 07/16/2021
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
----
-# Tutorial: Copy data to Azure Data Box 
+ms.localizationpriority: high
 
-This tutorial describes how to connect to and copy data from your host computer using the local web UI, and then prepare to ship Data Box.
+# Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
+---
+
+::: zone target="docs"
+
+# Tutorial: Copy data to Azure Data Box via SMB
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## Copy data to Azure Data Box
+
+::: zone-end
+
+::: zone target="docs"
+
+This tutorial describes how to connect to and copy data from your host computer using the local web UI.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
+> * Prerequisites
 > * Connect to Data Box
 > * Copy data to Data Box
-> * Prepare to ship Data Box.
 
 ## Prerequisites
 
 Before you begin, make sure that:
 
-1. You have completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
-2. You have received your Data Box and the order status in the portal is **Delivered**.
+1. You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
+2. You've received your Data Box and the order status in the portal is **Delivered**.
 3. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
-    - Run a [Supported operating system](data-box-system-requirements.md).
-    - Be connected to a high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection isn't available, a 1 GbE data link can be used but the copy speeds will be impacted. 
+   * Run a [Supported operating system](data-box-system-requirements.md).
+   * Be connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds will be impacted.
 
 ## Connect to Data Box
 
-Based on the storage account selected, Data Box creates upto:
-- Three shares for each associated storage account for GPv1 and GPv2.
-- One share for premium or blob storage account. 
+Based on the storage account selected, Data Box creates up to:
+
+* Three shares for each associated storage account for GPv1 and GPv2.
+* One share for premium storage.
+* One share for blob storage account.
 
 Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
 
-Consider the following example. 
+The following table shows the UNC path to the shares on your Data Box and Azure Storage path URL where the data is uploaded. The final Azure Storage path URL can be derived from the UNC share path.
+ 
+|Azure Storage types  | Data Box shares            |
+|-------------------|--------------------------------------------------------------------------------|
+| Azure Block blobs | <li>UNC path to shares: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
+| Azure Page blobs  | <li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
+| Azure Files       |<li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |      
 
-- Storage account: *Mystoracct*
-- Share for block blob: *Mystoracct_BlockBlob/my-container/blob*
-- Share for page blob: *Mystoracct_PageBlob/my-container/blob*
-- Share for file: *Mystoracct_AzFile/my-share*
+If using a Windows Server host computer, follow these steps to connect to the Data Box.
 
-Depending on whether your Data Box is connected to a Windows Server host computer or to a Linux host, the steps to connect and copy can be different.
+1. The first step is to authenticate and start a session. Go to **Connect and copy**. Select **SMB** to get the access credentials for the shares associated with your storage account. 
 
-### Connect via SMB 
+    ![Get share credentials for SMB shares](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-If you are using a Windows Server host computer, perform the following steps to connect to the Data Box.
-
-1. The first step is to authenticate and start a session. Go to **Connect and copy**. Click **Get credentials** to get the access credentials for the shares associated with your storage account. 
-
-    ![Get share credentials 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
-
-2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Click **OK**.
+2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Then select **OK**.
     
-    ![Get share credentials 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
+    ![Get user name and password for a share](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. Access the shares associated with your storage account (Mystoracct in the following example). Use the `\\<IP of the device>\ShareName` path to access the shares. Depending upon your data format, connect to the shares (use the share name) at the following address: 
-    - *\\<IP address of the device>\Mystoracct_Blob*
-    - *\\<IP address of the device>\Mystoracct_Page*
-    - *\\<IP address of the device>\Mystoracct_AzFile*
-    
-    To connect to the shares from your host computer, open a command window. At the command prompt, type:
+3. To access the shares associated with your storage account (*utsac1* in the following example) from your host computer, open a command window. At the command prompt, type:
 
-    `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
+    `net use \\<IP address of the device>\<share name>  /u:<IP address of the device>\<user name for the share>`
 
-    Enter the password for the share when prompted. The following sample shows connecting to a share via the preceding command.
+    Depending upon your data format, the share paths are as follows:
+    - Azure Block blob - `\\10.126.76.138\utSAC1_202006051000_BlockBlob`
+    - Azure Page blob - `\\10.126.76.138\utSAC1_202006051000_PageBlob`
+    - Azure Files - `\\10.126.76.138\utSAC1_202006051000_AzFile`
+
+4. Enter the password for the share when prompted. If the password has special characters, add double quotation marks before and after it. The following sample shows connecting to a share via the preceding command.
 
     ```
-    C:\Users\Databoxuser>net use \\10.126.76.172\devicemanagertest1_BlockBlob /u:devicemanagertest1
-    Enter the password for 'devicemanagertest1' to connect to '10.126.76.172':
+    C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:10.126.76.138\testuser1
+    Enter the password for 'testuser1' to connect to '10.126.76.138': "ab1c2def$3g45%6h7i&j8kl9012345"
     The command completed successfully.
     ```
 
-4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Click **OK**. This opens File Explorer. You should now be able to see the shares as folders.
+4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Select **OK** to open File Explorer.
     
-    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
+    ![Connect to share via File Explorer](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
-5.  **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. Occassionally, the folders may show a gray cross. The cross does not denote an error condition. The folders are flagged by the application to track the status.
+    You should now see the shares as folders.
     
-    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
+    ![Shares shown in File Explorer](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
 
-### Connect via NFS 
+    **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
+    
+If using a Linux client, use the following command to mount the SMB share. The "vers" parameter below is the version of SMB that your Linux host supports. Plug in the appropriate version in the command below. For versions of SMB that the Data Box supports see [Supported file systems for Linux clients](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 
 
-If you are using a Linux host computer, perform the following steps to configure Data Box to allow access to NFS clients.
-
-1. Supply the IP addresses of the allowed clients that can access the share. In the local web UI, go to **Connect and copy** page. Under **NFS settings**, click **NFS client access**. 
-
-    ![Configure NFS client access 1](media/data-box-deploy-copy-data/nfs-client-access.png)
-
-2. Supply the IP address of the NFS client and click **Add**. You can configure access for multiple NFS clients by repeating this step. Click **OK**.
-
-    ![Configure NFS client access 2](media/data-box-deploy-copy-data/nfs-client-access2.png)
-
-2. Ensure that the Linux host computer has a [supported version](data-box-system-requirements.md) of NFS client installed. Use the specific version for your Linux distribution. 
-
-3. Once the NFS client is installed, use the following command to mount the NFS share on your Data Box device:
-
-    `sudo mount <Data Box device IP>:/<NFS share on Data Box device> <Path to the folder on local Linux computer>`
-
-    The following example shows how to connect via NFS to a Data Box share. The Data Box device IP is `10.161.23.130`, the share `Mystoracct_Blob` is mounted on the ubuntuVM, mount point being `/home/databoxubuntuhost/databox`.
-
-    `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
-
+```console
+sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home/databoxubuntuhost/databox
+```
 
 ## Copy data to Data Box
 
-Once you are connected to the Data Box shares, the next step is to copy data. Prior to data copy, ensure that you review the following considerations:
+Once you're connected to the Data Box shares, the next step is to copy data. Before you begin the data copy, review the following considerations:
 
-- Ensure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. If the data format does not match the appropriate share type, then at a later step, the data upload to Azure will fail.
--  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md). 
-- If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
-- We recommend that you do not use both SMB and NFS concurrently or copy same data to same end destination on Azure. In such cases, the final outcome cannot be determined.
+* Make sure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. Copy the VHDs to page blob. If the data format doesn't match the appropriate share type, then at a later step, the data upload to Azure will fail.
+* Always create a folder under the share for the files that you intend to copy and then copy the files to that folder. The folder created under block blob and page blob shares represents a container to which the data is uploaded as blobs. You cannot copy files directly to the *root* folder in the storage account.
+* While copying data, make sure that the data size conforms to the size limits described in the [Azure storage account size limits](data-box-limits.md#azure-storage-account-size-limits).
+* If you want to preserve metadata (ACLs, timestamps, and file attributes) when transferring data to Azure Files, follow the guidance in [Preserving file ACLs, attributes, and timestamps with Azure Data Box](data-box-file-acls-preservation.md)  
+* If data that is being uploaded by Data Box is also being uploaded by another application, outside Data Box, at the same time, this could result in upload job failures and data corruption.
+* We recommend that:
+  * You don't use both SMB and NFS at the same time.
+  * Copy the same data to same end destination on Azure.
+  In these cases, the final outcome can't be determined.
 
-### Copy data via SMB
+> [!IMPORTANT]
+> Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
 
-After you have connected to the SMB share, initiate a data copy. 
+After you connect to the SMB share, begin the data copy. You can use any SMB-compatible file copy tool, such as Robocopy, to copy your data. Multiple copy jobs can be initiated using Robocopy. Use the following command:
 
-You can use any SMB compatible file copy tool such as Robocopy to copy your data. Multiple copy jobs can be initiated using Robocopy. Use the following command:
-    
-    robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile> 
-  
- The attributes are described in the following table.
+```console
+robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile>
+```
+
+The attributes are described in the following table.
     
 |Attribute  |Description  |
 |---------|---------|
@@ -134,8 +140,8 @@ You can use any SMB compatible file copy tool such as Robocopy to copy your data
 |/r:     |Specifies the number of retries on failed copies.         |
 |/w:     |Specifies the wait time between retries, in seconds.         |
 |/is     |Includes the same files.         |
-|/nfl     |Specifies that file names are not to be logged.         |
-|/ndl    |Specifies that directory names are not to be logged.        |
+|/nfl     |Specifies that file names aren't logged.         |
+|/ndl    |Specifies that directory names aren't logged.        |
 |/np     |Specifies that the progress of the copying operation (the number of files or directories copied so far) will not be displayed. Displaying the progress significantly lowers the performance.         |
 |/MT     | Use multithreading, recommended 32 or 64 threads. This option not used with encrypted files. You may need to separate encrypted and unencrypted files. However, single threaded copy significantly lowers the performance.           |
 |/fft     | Use to reduce the time stamp granularity for any file system.        |
@@ -143,41 +149,44 @@ You can use any SMB compatible file copy tool such as Robocopy to copy your data
 |/z    | Copies files in Restart mode, use this if the environment is unstable. This option reduces throughput due to additional logging.      |
 | /zb     | Uses Restart mode. If access is denied, this option uses Backup mode. This option reduces throughput due to checkpointing.         |
 |/efsraw     | Copies all encrypted files in EFS raw mode. Use only with encrypted files.         |
-|log+:<LogFile>| Appends the output to the existing log file.|    
+|log+:\<LogFile>| Appends the output to the existing log file.|    
  
 The following sample shows the output of the robocopy command to copy files to the Data Box.
-    
-    C:\Users>robocopy
-        -------------------------------------------------------------------------------
-        ROBOCOPY     ::     Robust File Copy for Windows
+
+```output
+C:\Users>robocopy
+
     -------------------------------------------------------------------------------
-    
+    ROBOCOPY     ::     Robust File Copy for Windows
+    -------------------------------------------------------------------------------
+
         Started : Thursday, March 8, 2018 2:34:53 PM
-            Simple Usage :: ROBOCOPY source destination /MIR
-    
-                    source :: Source Directory (drive:\path or \\server\share\path).
-            destination :: Destination Dir  (drive:\path or \\server\share\path).
-                    /MIR :: Mirror a complete directory tree.
-    
-        For more usage information run ROBOCOPY /?    
-    
+        Simple Usage :: ROBOCOPY source destination /MIR
+
+        source :: Source Directory (drive:\path or \\server\share\path).
+        destination :: Destination Dir  (drive:\path or \\server\share\path).
+                /MIR :: Mirror a complete directory tree.
+
+    For more usage information run ROBOCOPY /?
+
     ****  /MIR can DELETE files as well as copy them !
-    
-    C:\Users>Robocopy C:\Git\azure-docs-pr\contributor-guide \\10.126.76.172\devicemanagertest1_AzFile\templates /MT:32
+
+C:\Users>Robocopy C:\Git\azure-docs-pr\contributor-guide \\10.126.76.172\devicemanagertest1_AzFile\templates /MT:32
+
     -------------------------------------------------------------------------------
-        ROBOCOPY     ::     Robust File Copy for Windows
+    ROBOCOPY     ::     Robust File Copy for Windows
     -------------------------------------------------------------------------------
-    
+
         Started : Thursday, March 8, 2018 2:34:58 PM
         Source : C:\Git\azure-docs-pr\contributor-guide\
             Dest : \\10.126.76.172\devicemanagertest1_AzFile\templates\
-    
+
         Files : *.*
-    
+
         Options : *.* /DCOPY:DA /COPY:DAT /MT:32 /R:5 /W:60
-    
+
     ------------------------------------------------------------------------------
-    
+
     100%        New File                 206        C:\Git\azure-docs-pr\contributor-guide\article-metadata.md
     100%        New File                 209        C:\Git\azure-docs-pr\contributor-guide\content-channel-guidance.md
     100%        New File                 732        C:\Git\azure-docs-pr\contributor-guide\contributor-guide-index.md
@@ -196,115 +205,121 @@ The following sample shows the output of the robocopy command to copy files to t
     100%        New File                 212        C:\Git\azure-docs-pr\contributor-guide\syntax-highlighting-markdown.md
     100%        New File                 207        C:\Git\azure-docs-pr\contributor-guide\tools-and-setup.md
     ------------------------------------------------------------------------------
-    
-                    Total    Copied   Skipped  Mismatch    FAILED    Extras
-        Dirs :         1         1         1         0         0         0
-        Files :        17        17         0         0         0         0
-        Bytes :     3.9 k     3.9 k         0         0         0         0          
-    C:\Users>
-       
+
+                Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         1         1         1         0         0         0
+    Files :        17        17         0         0         0         0
+    Bytes :     3.9 k     3.9 k         0         0         0         0
+C:\Users>
+```
+
+For more specific scenarios such as using `robocopy` to list, copy, or delete files on Data Box, see [Use robocopy to list, copy, modify files on Data Box](data-box-file-acls-preservation.md#use-robocopy-to-list-copy-modify-files-on-data-box).
 
 To optimize the performance, use the following robocopy parameters when copying the data.
 
 |    Platform    |    Mostly small files < 512 KB                           |    Mostly medium  files 512 KB-1 MB                      |    Mostly large files > 1 MB                             |   
-|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-|    Data Box         |    2 Robocopy sessions <br> 16 threads per sessions    |    3 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 24 threads per sessions    |  |
-
+|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
+|    Data Box         |    2 Robocopy sessions <br> 16 threads per sessions    |    3 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 24 threads per sessions    |
 
 For more information on Robocopy command, go to [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
 
-Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the error files for troubleshooting.
+During the copy process, if there are any errors, you will see a notification.
+
+![A copy error notification in Connect and copy](media/data-box-deploy-copy-data/view-errors-1.png)
+
+Select **Download issue list**.
+
+![Connect and copy, Download issue list](media/data-box-deploy-copy-data/view-errors-2.png)
+
+Open the list to view the details of the error and select the resolution URL to view the recommended resolution.
+
+![Connect and copy, download and view errors](media/data-box-deploy-copy-data/view-errors-3.png)
+
+For more information, see [View error logs during data copy to Data Box](data-box-logs.md#view-error-log-during-data-copy). For a detailed list of errors during data copy, see [Troubleshoot Data Box issues](data-box-troubleshoot.md).
 
 To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device.
-    
-   ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
-### Copy data via NFS
+![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
-If you're using a Linux host computer, use a copy utility similar to Robocopy. Some of the alternatives available in Linux are [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/).  
+::: zone-end
 
-The `cp` command is one of best options to copy a directory. For more information on the usage, go to [cp man pages](http://man7.org/linux/man-pages/man1/cp.1.html).
+::: zone target="chromeless"
 
-If using rsync option for a multi-threaded copy, follow these guidelines:
+You can copy data from your source server to your Data Box via SMB, NFS, REST, data copy service or to managed disks.
 
- - Install the **CIFS Utils** or **NFS Utils** package depending on the filesystem your Linux client is using.
+In each case, make sure that the share and folder names, and the data size follow guidelines described in the [Azure Storage and Data Box service limits](data-box-limits.md).
 
-    `sudo apt-get install cifs-utils`
+## Copy data via SMB
 
-    `sudo apt-get install nfs-utils`
+To copy data via SMB:
 
- -  Install **Rsync**, and **Parallel** (varies depending on the Linux distributed version).
+1. If using a Windows host, use the following command to connect to the SMB shares:
 
-    `sudo apt-get install rsync`
-   
-    `sudo apt-get install parallel` 
+    `\\<IP address of your device>\ShareName`
 
- - Create a mount point.
+2. To get the share access credentials, go to the **Connect & copy** page in the local web UI of the Data Box.
+3. Use an SMB compatible file copy tool such as Robocopy to copy data to shares. 
 
-    `sudo mkdir /mnt/databox`
+For step-by-step instructions, go to [Tutorial: Copy data to Azure Data Box via SMB](data-box-deploy-copy-data.md).
 
- - Mount the volume.
+## Copy data via NFS
 
-    `sudo mount -t NFS4  //Databox IP Address/share_name /mnt/databox` 
+To copy data via NFS:
 
- - Mirror folder directory structure.  
+1. If using an NFS host, use the following command to mount the NFS shares on your Data Box:
 
-    `rsync -za --include='*/' --exclude='*' /local_path/ /mnt/databox`
+    `sudo mount <Data Box device IP>:/<NFS share on Data Box device> <Path to the folder on local Linux computer>`
 
- - Copy files. 
+2. To get the share access credentials, go to the **Connect & copy** page in the local web UI of the Data Box.
+3. Use `cp` or `rsync` command to copy your data.
 
-    `cd /local_path/; find -L . -type f | parallel -j X rsync -za {} /mnt/databox/{}`
+For step-by-step instructions, go to [Tutorial: Copy data to Azure Data Box via NFS](data-box-deploy-copy-data-via-nfs.md).
 
-     where j specifies the number of parallelization,  X = number of parallel copies
+## Copy data via REST
 
-     We recommend that you start with 16 parallel copies and increase the number of threads depending on the resources available.
+To copy data via REST:
 
-## Prepare to ship
+1. To copy data using Data Box Blob storage via REST APIs, you can connect over *http* or *https*.
+2. To copy data to Data Box Blob storage, you can use AzCopy.
 
-Final step is to prepare the device to ship. In this step, all the device shares are taken offline. The shares cannot be accessed once you start preparing the device to ship.
-1. Go to **Prepare to ship** and click **Start preparation**. 
-   
-    ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship1.png)
+For step-by-step instructions, go to [Tutorial: Copy data to Azure Data Box Blob storage via REST APIs](data-box-deploy-copy-data-via-nfs.md).
 
-2. By default, checksums are computed inline during the prepare to ship. The checksum computation may take some time depending upon the size of your data. Click **Start preparation**.
-    1. The device shares go offline and the device is locked when we prepare to ship.
-        
-        ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship2.png) 
-   
-    2. The device status updates to *Ready to ship* once the device preparation is complete. 
-        
-        ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship3.png)
+## Copy data via data copy service
 
-    3. Download the list of files (manifest) that were copied in this process. You can later use this list to verify the files uploaded to Azure.
-        
-        ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship4.png)
+To copy data via data copy service:
 
-3. Shut down the device. Go to **Shut down or restart** page and click **Shut down**. When prompted for confirmation, click **OK** to continue.
-4. Remove the cables. The next step is to ship the device to Microsoft.
+1. To copy data by using the data copy service, you need to create a job. In the local web UI of your Data Box, go to **Manage > Copy data > Create**.
+2. Fill out the parameters and create a job.
 
- 
-<!--## Appendix - robocopy parameters
+For step-by-step instructions, go to [Tutorial: Use the data copy service to copy data into Azure Data Box](data-box-deploy-copy-data-via-copy-service.md).
 
-This section describes the robocopy parameters used when copying the data to optimize the performance.
+## Copy data to managed disks
 
-|    Platform    |    Mostly small files < 512 KB                           |    Mostly medium  files 512 KB-1 MB                      |    Mostly large files > 1 MB                             |   
-|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-|    Data Box         |    2 Robocopy sessions <br> 16 threads per sessions    |    3 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 24 threads per sessions    |  |
-|    Data Box Heavy     |    6 Robocopy sessions <br> 24 threads per sessions    |    6 Robocopy sessions <br> 16 threads per sessions    |    6 Robocopy sessions <br> 16 threads per sessions    |   
-|    Data Box Disk         |    4 Robocopy sessions <br> 16 threads per sessions             |    2 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 16 threads per sessions    |   
--->
+To copy data managed disks:
+
+1. When ordering the Data Box device, you should have selected managed disks as your storage destination.
+2. You can connect to Data Box via SMB or NFS shares.
+3. You can then copy data via SMB or NFS tools.
+
+For step-by-step instructions, go to [Tutorial: Use Data Box to import data as managed disks in Azure](data-box-deploy-copy-data-from-vhds.md).
+
+::: zone-end
+
+::: zone target="docs"
 
 ## Next steps
 
 In this tutorial, you learned about Azure Data Box topics such as:
 
 > [!div class="checklist"]
+>
+> * Prerequisites
 > * Connect to Data Box
 > * Copy data to Data Box
-> * Prepare to ship Data Box
 
-Advance to the next tutorial to learn how to set up and copy data on your Data Box.
+Advance to the next tutorial to learn how to ship your Data Box back to Microsoft.
 
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box to Microsoft](./data-box-deploy-picked-up.md)
 
+::: zone-end

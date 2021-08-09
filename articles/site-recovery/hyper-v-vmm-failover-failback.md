@@ -1,13 +1,10 @@
 ---
-title: Fail over and fail back Hyper-V VMs replicated to a secondary data center during disaster recovery with Azure Site Recovery | Microsoft Docs
+title: Set up failover/failback to a secondary Hyper-V site with Azure Site Recovery 
 description: Learn how to fail over Hyper-V VMs to your secondary on-premises site and fail back to primary site, during disaster recovery with Azure Site Recovery.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
-ms.author: raynew
+ms.date: 11/14/2019
 
 ---
 
@@ -45,7 +42,7 @@ You can run a regular or planned failover for Hyper-V VMs.
 - Use a regular failover for unexpected outages. When you run this failover, Site Recovery creates a VM in the secondary site, and powers it up. Data loss can occur depending on pending data that hasn't been synchronized.
 - A planned failover can be used for maintenance, or during expected outage. This option provides zero data loss. When a planned failover is triggered, the source VMs are shut down. Unsynchronized data is synchronized, and the failover is triggered. 
 - 
-This procedure describes how to run a regular failover.
+  This procedure describes how to run a regular failover.
 
 
 1. In **Settings** > **Replicated items** click the VM > **Failover**.

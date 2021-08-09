@@ -1,21 +1,19 @@
 ---
-title: GlusterFS on Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver | Microsoft Docs
+title: GlusterFS on Azure VMs on RHEL for SAP NetWeaver | Microsoft Docs
 description: GlusterFS on Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: timlt
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
-ms.service: virtual-machines-windows
-ms.devlang: NA
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
-ms.author: sedusch
+ms.author: radeltch
 
 ---
 
@@ -36,7 +34,7 @@ ms.author: sedusch
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
-[template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-file-server-md%2Fazuredeploy.json
+[template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-file-server-md%2Fazuredeploy.json
 
 [sap-hana-ha]:sap-hana-high-availability-rhel.md
 
@@ -102,7 +100,7 @@ Follow these steps to deploy the template:
 
 ### Deploy Linux manually via Azure portal
 
-You first need to create the virtual machines for this cluster. Afterwards, you create a load balancer and use the virtual machines in the backend pools.
+You first need to create the virtual machines for this cluster. Afterwards, you create a load balancer and use the virtual machines in the backend pools. We recommend [standard load balancer](../../../load-balancer/load-balancer-overview.md).  
 
 1. Create a Resource Group
 1. Create a Virtual Network
@@ -110,11 +108,11 @@ You first need to create the virtual machines for this cluster. Afterwards, you 
    Set max update domain
 1. Create Virtual Machine 1  
    Use at least RHEL 7, in this example the Red Hat Enterprise Linux 7.4 image
-   <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Select Availability Set created earlier  
 1. Create Virtual Machine 2  
    Use at least RHEL 7, in this example the Red Hat Enterprise Linux 7.4 image
-   <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Select Availability Set created earlier  
 1. Add one data disk for each SAP system to both virtual machines.
 

@@ -1,25 +1,18 @@
 ---
-title: Import certificates into a container running on Azure Service Fabric| Microsoft Docs
+title: Import certificates into a container
 description: Learn now to import certificate files into a Service Fabric container service.
-services: service-fabric
-documentationcenter: .net
-author: TylerMSFT
-manager: timlt
-editor: ''
 
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: twhitney, subramar
+ms.custom: devx-track-csharp
 ---
 
 # Import a certificate file into a container running on Service Fabric
 
-You can secure your container services by specifying a certificate. Service Fabric provides a mechanism for services inside a container to access a certificate that is installed on the nodes in a Windows or Linux cluster (version 5.7 or higher). The certificate must be installed in LocalMachine on all nodes of the cluster. The certificate information is provided in the application manifest under the `ContainerHostPolicies` tag as the following snippet shows:
+> [!NOTE]
+> For Service Fabric clusters running on Azure, it is recommended to use [Service Fabric Application Managed Identity](./concepts-managed-identity.md) to provision application certificates from within a container. Managed Identity gives isolation of secrets and certificates at the service level, and allows application certificate provisioning to be part of the application's workflow, rather than the infrastructure's workflow. The CertificateRef mechanism will be deprecated in a future release.
+
+You can secure your container services by specifying a certificate. Service Fabric provides a mechanism for services inside a container to access a certificate that is installed on the nodes in a Windows or Linux cluster (version 5.7 or higher). The certificate must be installed in a certificate store under LocalMachine on all nodes of the cluster. The private key corresponding to the certificate must be available, accessible and - on Windows - exportable. The certificate information is provided in the application manifest under the `ContainerHostPolicies` tag as the following snippet shows:
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
@@ -27,7 +20,7 @@ You can secure your container services by specifying a certificate. Service Fabr
     <CertificateRef Name="MyCert2" X509FindValue="[Thumbprint2]"/>
  ```
 
-For Windows clusters, when starting the application, the runtime reads the certificates and generates a PFX file and password for each certificate. This PFX file and password are accessible inside the container using the following environment variables: 
+For Windows clusters, when starting the application, the runtime exports each referenced certificate and its corresponding private key into a PFX file, secured with a randomly-generated password. The PFX and password files, respectively, are accessible inside the container using the following environment variables: 
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PFX
 * Certificates_ServicePackageName_CodePackageName_CertName_Password
@@ -36,6 +29,8 @@ For Linux clusters, the certificates (PEM) are copied over from the store specif
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PEM
 * Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey
+
+Please note that both the `PEM` and `PrivateKey` file contain the certificate and the unencrypted private key.
 
 Alternatively, if you already have the certificates in the required form and want to access it inside the container, you can create a data package inside your app package and specify the following inside your application manifest:
 

@@ -1,20 +1,18 @@
 ---
-title: "Install licensed components for the Azure-SSIS integration runtime | Microsoft Docs"
+title: Install licensed components for Azure-SSIS integration runtime
 description: Learn how an ISV can develop and install paid or licensed custom components for the Azure-SSIS integration runtime
-services: data-factory
-documentationcenter: ""
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 04/13/2018
+ms.subservice: integration-services
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
-manager: craigg
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 07/09/2020
 ---
+
 # Install paid or licensed custom components for the Azure-SSIS integration runtime
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This article describes how an ISV can develop and install paid or licensed custom components for SQL Server Integration Services (SSIS) packages that run in Azure in the Azure-SSIS integration runtime.
 
@@ -71,7 +69,7 @@ The following diagram shows the typical installation, activation and license bin
 
 ## ISV partners
 
-You can find a list of ISV partners who have adapted their components and extensions for the Azure-SSIS IR at the end of this blog post - [Enterprise Edition, Custom Setup, and 3rd Party Extensibility for SSIS in ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/).
+You can find a list of ISV partners who have adapted their components and extensions for the Azure-SSIS IR at the end of this blog post - [Enterprise Edition, Custom Setup, and 3rd Party Extensibility for SSIS in ADF](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Enterprise-Edition-Custom-Setup-and-3rd-Party-Extensibility-for/ba-p/388360).
 
 ## Next steps
 

@@ -1,203 +1,162 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Recognize | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Recognize.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: cfad939e-c8f4-45a0-bd25-c4eb9701acaa
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/10/2017
+ms.topic: tutorial
+ms.date: 06/15/2021
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Recognize
 
-In this tutorial, you learn how to integrate Recognize with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate Recognize with Azure Active Directory (Azure AD). When you integrate Recognize with Azure AD, you can:
 
-Integrating Recognize with Azure AD provides you with the following benefits:
-
-- You can control in Azure AD who has access to Recognize
-- You can enable your users to automatically get signed-on to Recognize (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Azure AD who has access to Recognize.
+* Enable your users to be automatically signed-in to Recognize with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
-To configure Azure AD integration with Recognize, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A Recognize single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial here: [Trial offer](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Recognize single sign-on (SSO) enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Recognize from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-## Adding Recognize from the gallery
+* Recognize supports **SP** initiated SSO.
+
+## Add Recognize from the gallery
+
 To configure the integration of Recognize into Azure AD, you need to add Recognize from the gallery to your list of managed SaaS apps.
 
-**To add Recognize from the gallery, perform the following steps:**
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Recognize** in the search box.
+1. Select **Recognize** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Configure and test Azure AD SSO for Recognize
 
-	![Active Directory][1]
+Configure and test Azure AD SSO with Recognize using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Recognize.
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+To configure and test Azure AD SSO with Recognize, perform the following steps:
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Recognize SSO](#configure-recognize-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Recognize test user](#create-recognize-test-user)** - to have a counterpart of B.Simon in Recognize that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	![Applications][3]
+## Configure Azure AD SSO
 
-1. In the search box, type **Recognize**.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-	![Creating an Azure AD test user](./media/recognize-tutorial/tutorial_recognize_search.png)
+1. In the Azure portal, on the **Recognize** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-1. In the results panel, select **Recognize**, and then click **Add** button to add the application.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	![Creating an Azure AD test user](./media/recognize-tutorial/tutorial_recognize_addfromgallery.png)
+4. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Recognize based on a test user called "Britta Simon".
+	>[!NOTE]
+	>You will get the **Service Provider metadata file** from the **Configure Recognize Single Sign-On** section of the tutorial.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Recognize is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Recognize needs to be established.
+	a. Click **Upload metadata file**.
 
-In Recognize, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+	![Upload metadata file](common/upload-metadata.png)
 
-To configure and test Azure AD single sign-on with Recognize, you need to complete the following building blocks:
+	b. Click on **folder logo** to select the metadata file and click **Upload**.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a Recognize test user](#creating-a-recognize-test-user)** - to have a counterpart of Britta Simon in Recognize that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+	![choose metadata file](common/browse-upload-metadata.png)
 
-### Configuring Azure AD single sign-on
+	c. After the metadata file is successfully uploaded, the **Identifier** value get auto populated in Basic SAML Configuration section.
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Recognize application.
+	 In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://recognizeapp.com/<YOUR_DOMAIN>/saml/sso`
 
-**To configure Azure AD single sign-on with Recognize, perform the following steps:**
+    > [!Note]
+	> If the **Identifier** value do not get auto populated, you will get the Identifier value by opening the Service Provider Metadata URL from the SSO Settings section that is explained later in the **Configure Recognize Single Sign-On** section of the tutorial. The Sign-on URL value is not real. Update the value with the actual Sign-on URL. Contact [Recognize Client support team](mailto:support@recognizeapp.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. In the Azure portal, on the **Recognize** application integration page, click **Single sign-on**.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-	![Configure Single Sign-On][4]
+	![The Certificate download link](common/certificatebase64.png)
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/recognize-tutorial/tutorial_recognize_samlbase.png)
+6. On the **Set up Recognize** section, copy the appropriate URL(s) as per your requirement.
 
-1. On the **Recognize Domain and URLs** section, perform the following steps:
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	![Configure Single Sign-On](./media/recognize-tutorial/tutorial_recognize_url.png)
+### Create an Azure AD test user 
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://recognizeapp.com/<your-domain>/saml/sso`
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://recognizeapp.com/<your-domain>`
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Recognize Client support team](mailto:support@recognizeapp.com) to get Sign-On URL and you can get Identifier value by opening the Service Provider Metadata URL from the SSO Settings section that is explained later in the tutorial. . 
- 
-1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+### Assign the Azure AD test user
 
-	![Configure Single Sign-On](./media/recognize-tutorial/tutorial_recognize_certificate.png) 
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Recognize.
 
-1. Click **Save** button.
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Recognize**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	![Configure Single Sign-On](./media/recognize-tutorial/tutorial_general_400.png)
+## Configure Recognize SSO
 
-1. On the **Recognize Configuration** section, click **Configure Recognize** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+1. In a different web browser window, sign in to your Recognize tenant as an administrator.
 
-	![Configure Single Sign-On](./media/recognize-tutorial/tutorial_recognize_configure.png) 
-
-1. In a different web browser window, sign-on to your Recognize tenant as an administrator.
-
-1. On the upper right corner, click **Menu**. Go to **Company Admin**.
+2. On the upper right corner, click **Menu**. Go to **Company Admin**.
    
-    ![Configure Single Sign-On On App side](./media/recognize-tutorial/tutorial_recognize_000.png)
+    ![Screenshot shows Company Admin selected from the Settings menu.](./media/recognize-tutorial/menu.png)
 
-1. On the left navigation pane, click **Settings**.
+3. On the left navigation pane, click **Settings**.
    
-    ![Configure Single Sign-On On App side](./media/recognize-tutorial/tutorial_recognize_001.png)
+    ![Screenshot shows Settings selected from the navigation page.](./media/recognize-tutorial/settings.png)
 
-1. Perform the following steps on **SSO Settings** section.
+4. Perform the following steps on **SSO Settings** section.
    
-    ![Configure Single Sign-On On App side](./media/recognize-tutorial/tutorial_recognize_002.png)
+    ![Screenshot shows S S O Settings where you can enter the values described.](./media/recognize-tutorial/values.png)
 	
 	a. As **Enable SSO**, select **ON**.
 
-	b. In the **IDP Entity ID** textbox, paste the value of **SAML Entity ID** which you have copied from Azure portal.
+	b. In the **IDP Entity ID** textbox, paste the value of **Azure AD Identifier** which you have copied from Azure portal.
 	
-	c. In the **Sso target url** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
+	c. In the **Sso target url** textbox, paste the value of **Login URL** which you have copied from Azure portal.
 	
-	d. In the **Slo target url** textbox, paste the value of **Sign-Out URL** which you have copied from Azure portal. 
+	d. In the **Slo target url** textbox, paste the value of **Logout URL** which you have copied from Azure portal. 
 	
 	e. Open your downloaded **Certificate (Base64)** file in notepad, copy the content of it into your clipboard, and then paste it to the **Certificate** textbox.
 	
 	f. Click the **Save settings** button. 
 
-1. Beside the **SSO Settings** section, copy the URL under **Service Provider Metadata url**.
+5. Beside the **SSO Settings** section, copy the URL under **Service Provider Metadata url**.
    
-    ![Configure Single Sign-On On App side](./media/recognize-tutorial/tutorial_recognize_003.png)
+    ![Screenshot shows Notes, where you can copy the Service Provider Metadata.](./media/recognize-tutorial/metadata.png)
 
-1. Open the **Metadata URL link** under a blank browser to download the metadata document. Then copy the EntityDescriptor value(entityID) from the file and paste it in **Identifier** textbox in **Recognize Domain and URLs section** on Azure portal.
+6. Open the **Metadata URL link** under a blank browser to download the metadata document. Then copy the EntityDescriptor value(entityID) from the file and paste it in **Identifier** textbox in **Basic SAML Configuration** on Azure portal.
     
-    ![Configure Single Sign-On On App side](./media/recognize-tutorial/tutorial_recognize_004.png)
+    ![Screenshot shows a text box with plain text X M L where you can get the entity I D.](./media/recognize-tutorial/descriptor.png)
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-![Create Azure AD User][100]
-
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
-
-	![Creating an Azure AD test user](./media/recognize-tutorial/create_aaduser_01.png) 
-
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/recognize-tutorial/create_aaduser_02.png) 
-
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/recognize-tutorial/create_aaduser_03.png) 
-
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/recognize-tutorial/create_aaduser_04.png) 
-
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**.
- 
-### Creating a Recognize test user
+### Create Recognize test user
 
 In order to enable Azure AD users to log into Recognize, they must be provisioned into Recognize. In the case of Recognize, provisioning is a manual task.
 
@@ -205,76 +164,32 @@ This app doesn't support SCIM provisioning but has an alternate user sync that p
 
 **To provision a user account, perform the following steps:**
 
-1. Log into your Recognize company site as an administrator.
+1. Sign into your Recognize company site as an administrator.
 
-1. On the upper right corner, click **Menu**. Go to **Company Admin**.
+2. On the upper right corner, click **Menu**. Go to **Company Admin**.
 
-1. On the left navigation pane, click **Settings**.
+3. On the left navigation pane, click **Settings**.
 
-1. Perform the following steps on **User Sync** section.
+4. Perform the following steps on **User Sync** section.
    
-   ![New User](./media/recognize-tutorial/tutorial_recognize_005.png "New User")
+	![New User](./media/recognize-tutorial/user.png "New User")
    
-   a. As **Sync Enabled**, select **ON**.
+	a. As **Sync Enabled**, select **ON**.
    
-   b. As **Choose sync provider**, select **Microsoft / Office 365**.
+	b. As **Choose sync provider**, select **Microsoft / Office 365**.
    
-   c. Click **Run User Sync**.
+	c. Click **Run User Sync**.
 
-### Assigning the Azure AD test user
+## Test SSO 
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Recognize.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-![Assign User][200] 
+* Click on **Test this application** in Azure portal. This will redirect to Recognize Sign-on URL where you can initiate the login flow. 
 
-**To assign Britta Simon to Recognize, perform the following steps:**
+* Go to Recognize Sign-on URL directly and initiate the login flow from there.
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+* You can use Microsoft My Apps. When you click the Recognize tile in the My Apps, this will redirect to Recognize Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-	![Assign User][201] 
+## Next steps
 
-1. In the applications list, select **Recognize**.
-
-	![Configure Single Sign-On](./media/recognize-tutorial/tutorial_recognize_app.png) 
-
-1. In the menu on the left, click **Users and groups**.
-
-	![Assign User][202] 
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![Assign User][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
-
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the Recognize tile in the Access Panel, you should get automatically signed-on to your Recognize application. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
-
-<!--Image references-->
-
-[1]: ./media/recognize-tutorial/tutorial_general_01.png
-[2]: ./media/recognize-tutorial/tutorial_general_02.png
-[3]: ./media/recognize-tutorial/tutorial_general_03.png
-[4]: ./media/recognize-tutorial/tutorial_general_04.png
-
-[100]: ./media/recognize-tutorial/tutorial_general_100.png
-
-[200]: ./media/recognize-tutorial/tutorial_general_200.png
-[201]: ./media/recognize-tutorial/tutorial_general_201.png
-[202]: ./media/recognize-tutorial/tutorial_general_202.png
-[203]: ./media/recognize-tutorial/tutorial_general_203.png
-
+Once you configure Recognize you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

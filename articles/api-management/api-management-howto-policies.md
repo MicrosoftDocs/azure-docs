@@ -1,6 +1,6 @@
 ---
 title: Policies in Azure API Management | Microsoft Docs
-description: Learn how to create, edit, and configure policies in API Management.
+description: Learn how to create, edit, and configure policies in API Management. See code examples and view additional available resources.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -10,7 +10,6 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
@@ -35,7 +34,7 @@ Clicking an enabled statement will add the appropriate XML at the location of th
 > 
 > 
 
-The configuration is divided into `inbound`, `backend`, `outbound`, and `on-error`. The series of specified policy statements is executes in order for a request and a response.
+The configuration is divided into `inbound`, `backend`, `outbound`, and `on-error`. The series of specified policy statements is executed in order for a request and a response.
 
 ```xml
 <policies>
@@ -55,7 +54,7 @@ The configuration is divided into `inbound`, `backend`, `outbound`, and `on-erro
 </policies> 
 ```
 
-If there is an error during the processing of a request, any remaining steps in the `inbound`, `backend`, or `outbound` sections are skipped and execution jumps to the statements in the `on-error` section. By placing policy statements in the `on-error` section you can review the error by using the `context.LastError` property, inspect and customize the error response using the `set-body` policy, and configure what happens if an error occurs. There are error codes for built-in steps and for errors that may occur during the processing of policy statements. For more information, see [Error handling in API Management policies](https://msdn.microsoft.com/library/azure/mt629506.aspx).
+If there is an error during the processing of a request, any remaining steps in the `inbound`, `backend`, or `outbound` sections are skipped and execution jumps to the statements in the `on-error` section. By placing policy statements in the `on-error` section you can review the error by using the `context.LastError` property, inspect and customize the error response using the `set-body` policy, and configure what happens if an error occurs. There are error codes for built-in steps and for errors that may occur during the processing of policy statements. For more information, see [Error handling in API Management policies](./api-management-error-handling-policies.md).
 
 ## <a name="scopes"> </a>How to configure policies
 
@@ -63,17 +62,17 @@ For information on how to configure policies, see [Set or edit policies](set-edi
 
 ## Policy Reference
 
-See the [Policy reference](api-management-policy-reference.md) for a full list of policy statements and their settings.
+See the [Policy reference](./api-management-policies.md) for a full list of policy statements and their settings.
 
 ## Policy samples
 
-See [Policy samples](policy-samples.md) for more code examples.
+See [Policy samples](./policy-reference.md) for more code examples.
 
 ## Examples
 
 ### Apply policies specified at different scopes
 
-If you have a policy at the global level and a policy configured for an API, then whenever that particular API is used both policies will be applied. API Management allows for deterministic ordering of combined policy statements via the base element. 
+If you have a policy at the global level and a policy configured for an API, then whenever that particular API is used both policies will be applied. API Management allows for deterministic ordering of combined policy statements via the `base` element. 
 
 ```xml
 <policies>
@@ -115,17 +114,17 @@ To limit inbound requests and accept only those from an IP address of 1.2.3.4 mo
 For more information working with policies, see:
 
 + [Transform APIs](transform-api.md)
-+ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
-+ [Policy samples](policy-samples.md)	
++ [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
++ [Policy samples](./policy-reference.md)	
 
-[Policy Reference]: api-management-policy-reference.md
+[Policy Reference]: ./api-management-policies.md
 [Product]: api-management-howto-add-products.md
 [API]: api-management-howto-add-products.md
-[Operation]: api-management-howto-add-operations.md
+[Operation]: ./mock-api-responses.md
 
-[Advanced policies]: https://msdn.microsoft.com/library/azure/dn894085.aspx
-[Control flow]: https://msdn.microsoft.com/library/azure/dn894085.aspx#choose
-[Set variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
-[Policy expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
+[Advanced policies]: ./api-management-advanced-policies.md
+[Control flow]: ./api-management-advanced-policies.md#choose
+[Set variable]: ./api-management-advanced-policies.md#set-variable
+[Policy expressions]: ./api-management-policy-expressions.md
 
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png

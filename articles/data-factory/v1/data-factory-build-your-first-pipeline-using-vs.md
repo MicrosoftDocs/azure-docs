@@ -1,28 +1,18 @@
 ---
-title: Build your first data factory (Visual Studio) | Microsoft Docs
+title: Build your first data factory (Visual Studio) 
 description: In this tutorial, you create a sample Azure Data Factory pipeline using Visual Studio.
-services: data-factory
-documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
-ms.assetid: 7398c0c9-7a03-4628-94b3-f2aaef4a72c5
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
-ms.custom: vs-azure
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
+ms.custom: vs-azure, devx-track-azurepowershell
 ms.date: 01/22/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Tutorial: Create a data factory by using Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Overview and prerequisites](data-factory-build-your-first-pipeline.md)
-> * [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
@@ -32,7 +22,7 @@ robots: noindex
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Quickstart: Create a data factory using Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
-This tutorial shows you how to create an Azure data factory by using Visual Studio. You create a Visual Studio project using the Data Factory project template, define Data Factory entities (linked services, datasets, and pipeline) in JSON format, and then publish/deploy these entities to the cloud. 
+This tutorial shows you how to create an Azure Data Factory by using Visual Studio. You create a Visual Studio project using the Data Factory project template, define Data Factory entities (linked services, datasets, and pipeline) in JSON format, and then publish/deploy these entities to the cloud. 
 
 The pipeline in this tutorial has one activity: **HDInsight Hive activity**. This activity runs a hive script on an Azure HDInsight cluster that transforms input data to produce output data. The pipeline is scheduled to run once a month between the specified start and end times. 
 
@@ -58,6 +48,9 @@ Here are the steps you perform as part of this walkthrough:
 5. After you publish, you use Azure portal blades and Monitoring & Management App to monitor the pipeline. 
   
 ### Prerequisites
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 1. Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps. You can also select the **Overview and prerequisites** option in the drop-down list at the top to switch to the article. After you complete the prerequisites, switch back to this article by selecting **Visual Studio** option in the drop-down list.
 2. To create Data Factory instances, you must be a member of the [Data Factory Contributor](../../role-based-access-control/built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.  
 3. You must have the following installed on your computer:
@@ -65,7 +58,7 @@ Here are the steps you perform as part of this walkthrough:
    * Download Azure SDK for Visual Studio 2013 or Visual Studio 2015. Navigate to [Azure Download Page](https://azure.microsoft.com/downloads/) and click **VS 2013** or **VS 2015** in the **.NET** section.
    * Download the latest Azure Data Factory plugin for Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) or [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). You can also update the plugin by doing the following steps: On the menu, click **Tools** -> **Extensions and Updates** -> **Online** -> **Visual Studio Gallery** -> **Microsoft Azure Data Factory Tools for Visual Studio** -> **Update**.
 
-Now, let's use Visual Studio to create an Azure data factory.
+Now, let's use Visual Studio to create an Azure Data Factory.
 
 ### Create Visual Studio project
 1. Launch **Visual Studio 2013** or **Visual Studio 2015**. Click **File**, point to **New**, and click **Project**. You should see the **New Project** dialog box.  
@@ -89,8 +82,8 @@ With on-demand HDInsight linked service, The HDInsight cluster is automatically 
 #### Create Azure Storage linked service
 1. Right-click **Linked Services** in the solution explorer, point to **Add**, and click **New Item**.      
 2. In the **Add New Item** dialog box, select **Azure Storage Linked Service** from the list, and click **Add**.
-    ![Azure Storage Linked Service](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
-3. Replace `<accountname>` and `<accountkey>` with the name of your Azure storage account and its key. To learn how to get your storage access key, see the information about how to view, copy, and regenerate storage access keys in [Manage your storage account](../../storage/common/storage-account-manage.md#access-keys).
+    ![Screenshot that highlights Azure Storage Linked Service in the list.](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
+3. Replace `<accountname>` and `<accountkey>` with the name of your Azure storage account and its key. To learn how to get your storage access key, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
     ![Azure Storage Linked Service](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 4. Save the **AzureStorageLinkedService1.json** file.
 
@@ -113,7 +106,7 @@ With on-demand HDInsight linked service, The HDInsight cluster is automatically 
             }
         }
 	}
-	```
+    ```
 
     The following table provides descriptions for the JSON properties used in the snippet:
 
@@ -126,7 +119,7 @@ With on-demand HDInsight linked service, The HDInsight cluster is automatically 
 	> [!IMPORTANT]
 	> The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (linkedServiceName). HDInsight does not delete this container when the cluster is deleted. This behavior is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice is processed unless there is an existing live cluster (timeToLive). The cluster is automatically deleted when the processing is done.
 	> 
-	> As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: `adf<yourdatafactoryname>-<linkedservicename>-datetimestamp`. Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage.
+	> As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: `adf<yourdatafactoryname>-<linkedservicename>-datetimestamp`. Use tools such as [Microsoft Azure Storage Explorer](https://storageexplorer.com/) to delete containers in your Azure blob storage.
 
     For more information about JSON properties, see [Compute linked services](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) article. 
 4. Save the **HDInsightOnDemandLinkedService1.json** file.
@@ -203,7 +196,7 @@ Now, you create the output dataset to represent output data stored in the Azure 
             }
         }
     }
-	```
+    ```
     The JSON snippet defines a dataset called **AzureBlobOutput** that represents output data produced by the hive activity in the pipeline. You specify that the output data is produced by the hive activity is placed in the blob container called `adfgetstarted` and the folder called `partitioneddata`. 
  	
 	The **availability** section specifies that the output dataset is produced on a monthly basis. The output dataset drives the schedule of the pipeline. The pipeline runs monthly between its start and end times. 
@@ -264,7 +257,7 @@ You have created the Azure Storage linked service, and input and output datasets
             "isPaused": false
         }
     }
-	```
+    ```
 
 	> [!IMPORTANT]
 	> Replace `<storageaccountname>` with the name of your storage account.
@@ -309,8 +302,8 @@ In this step, you publish the Data Factory entities (linked services, datasets, 
    5. Select the **region** for the data factory.
    6. Click **Next** to switch to the **Publish Items** page. (Press **TAB** to move out of the Name field to if the **Next** button is disabled.)
 
-	> [!IMPORTANT]
-	> If you receive the error **Data factory name “DataFactoryUsingVS” is not available** when publishing, change the name (for example, yournameDataFactoryUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.   
+      > [!IMPORTANT]
+      > If you receive the error **Data factory name “DataFactoryUsingVS” is not available** when publishing, change the name (for example, yournameDataFactoryUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.   
 1. In the **Publish Items** page, ensure that all the Data Factories entities are selected, and click **Next** to switch to the **Summary** page.
 
 	![Publish items page](media/data-factory-build-your-first-pipeline-using-vs/publish-items-page.png)     
@@ -323,14 +316,14 @@ Important points to note:
 
 - If you receive the error: **This subscription is not registered to use namespace Microsoft.DataFactory**, do one of the following and try publishing again:
 	- In Azure PowerShell, run the following command to register the Data Factory provider.
-		```PowerShell	
-		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
-		```
+		```powershell	
+		Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
+        ```
 		You can run the following command to confirm that the Data Factory provider is registered.
 
-		```PowerShell
-		Get-AzureRmResourceProvider
-		```
+		```powershell
+		Get-AzResourceProvider
+        ```
 	- Login using the Azure subscription in to the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
 - The name of the data factory may be registered as a DNS name in the future and hence become publicly visible.
 - To create Data Factory instances, you need to be an admin or co-admin of the Azure subscription
@@ -366,7 +359,7 @@ In this step, you monitor the pipeline using Diagram View of the data factory.
 7. Click **X** to close **AzureBlobInput** blade.
 8. In the **Diagram View**, double-click the dataset **AzureBlobOutput**. You see that the slice that is currently being processed.
 
-   ![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
+   ![Screenshot that highlights the AzureBlobOutput dataset.](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. When processing is done, you see the slice in **Ready** state.
 
    > [!IMPORTANT]
@@ -404,13 +397,13 @@ You can also use Monitor & Manage application to monitor your pipelines. For det
 
 ### Additional notes
 - A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run a Hive script to transform input data. See [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) for all the sources and sinks supported by the Copy Activity. See [compute linked services](data-factory-compute-linked-services.md) for the list of compute services supported by Data Factory.
-- Linked services link data stores or compute services to an Azure data factory. See [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) for all the sources and sinks supported by the Copy Activity. See [compute linked services](data-factory-compute-linked-services.md) for the list of compute services supported by Data Factory and [transformation activities](data-factory-data-transformation-activities.md) that can run on them.
+- Linked services link data stores or compute services to an Azure Data Factory. See [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) for all the sources and sinks supported by the Copy Activity. See [compute linked services](data-factory-compute-linked-services.md) for the list of compute services supported by Data Factory and [transformation activities](data-factory-data-transformation-activities.md) that can run on them.
 - See [Move data from/to Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service) for details about JSON properties used in the Azure Storage linked service definition.
 - You could use your own HDInsight cluster instead of using an on-demand HDInsight cluster. See [Compute Linked Services](data-factory-compute-linked-services.md) for details.
 -  The Data Factory creates a **Linux-based** HDInsight cluster for you with the preceding JSON. See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details.
 - The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (linkedServiceName). HDInsight does not delete this container when the cluster is deleted. This behavior is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice is processed unless there is an existing live cluster (timeToLive). The cluster is automatically deleted when the processing is done.
     
-	As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage.
+	As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Use tools such as [Microsoft Azure Storage Explorer](https://storageexplorer.com/) to delete containers in your Azure blob storage.
 - Currently, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset. 
 - This tutorial does not show how copy data by using Azure Data Factory. For a tutorial on how to copy data using Azure Data Factory, see [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
@@ -470,13 +463,13 @@ Add a configuration file for each environment by performing the following steps:
 	    "AzureSqlLinkedService1": [
 	        {
 	            "name": "$.properties.typeProperties.connectionString",
-	            "value":  "Server=tcp:<Azure sql server name>.database.windows.net,1433;Database=<Azure Sql database>;User ID=<user name>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+	            "value":  "Server=tcp:<logical SQL server name>.database.windows.net,1433;Database=<Azure Sql database>;User ID=<user name>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
 	        }
 	    ]
 	}
-	```
+    ```
 
-    This example configures connectionString property of an Azure Storage linked service and an Azure SQL linked service. Notice that the syntax for specifying name is [JsonPath](http://goessner.net/articles/JsonPath/).   
+    This example configures connectionString property of an Azure Storage linked service and an Azure SQL linked service. Notice that the syntax for specifying name is [JsonPath](https://goessner.net/articles/JsonPath/).   
 
     If JSON has a property that has an array of values as shown in the following code:  
 
@@ -491,7 +484,7 @@ Add a configuration file for each environment by performing the following steps:
             "type": "String"
         }
     ],
-	```
+    ```
 
     Configure properties as shown in the following configuration file (use zero-based indexing):
 
@@ -512,7 +505,7 @@ Add a configuration file for each environment by performing the following steps:
         "name": "$.properties.structure[1].type",
         "value": "String"
     }
-	```
+    ```
 
 ### Property names with spaces
 If a property name has spaces in it, use square brackets as shown in the following example (Database server name):
@@ -541,10 +534,10 @@ To publish entities in an Azure Data Factory project using configuration file:
 When you deploy, the values from the configuration file are used to set values for properties in the JSON files before the entities are deployed to Azure Data Factory service.   
 
 ## Use Azure Key Vault
-It is not advisable and often against security policy to commit sensitive data such as connection strings to the code repository. See [ADF Secure Publish](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFSecurePublish) sample on GitHub to learn about storing sensitive information in Azure Key Vault and using it while publishing Data Factory entities. The Secure Publish extension for Visual Studio allows the secrets to be stored in Key Vault and only references to them are specified in linked services/ deployment configurations. These references are resolved when you publish Data Factory entities to Azure. These files can then be committed to source repository without exposing any secrets.
+It is not advisable and often against security policy to commit sensitive data such as connection strings to the code repository. See [ADF Secure Publish](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFSecurePublish) sample on GitHub to learn about storing sensitive information in Azure Key Vault and using it while publishing Data Factory entities. The Secure Publish extension for Visual Studio allows the secrets to be stored in Key Vault and only references to them are specified in linked services/ deployment configurations. These references are resolved when you publish Data Factory entities to Azure. These files can then be committed to source repository without exposing any secrets.
 
 ## Summary
-In this tutorial, you created an Azure data factory to process data by running Hive script on a HDInsight hadoop cluster. You used the Data Factory Editor in the Azure portal to do the following steps:  
+In this tutorial, you created an Azure Data Factory to process data by running Hive script on a HDInsight hadoop cluster. You used the Data Factory Editor in the Azure portal to do the following steps:  
 
 1. Created an Azure **data factory**.
 2. Created two **linked services**:
@@ -560,6 +553,7 @@ You can chain two activities (run one activity after another) by setting the out
 
 
 ## See Also
+
 | Topic | Description |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |This article helps you understand pipelines and activities in Azure Data Factory and how to use them to construct data-driven workflows for your scenario or business. |

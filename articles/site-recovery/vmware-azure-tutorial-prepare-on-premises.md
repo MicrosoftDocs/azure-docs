@@ -1,35 +1,33 @@
 ---
-title: Prepare on-premises VMware servers for disaster recovery of VMware VMs to Azure| Microsoft Docs
+title: Prepare for VMware VM disaster recovery with Azure Site Recovery
 description: Learn how to prepare on-premises VMware servers for disaster recovery to Azure using the Azure Site Recovery service.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/29/2018
-ms.author: raynew
+ms.date: 11/12/2019
 ms.custom: MVC
 
 ---
 # Prepare on-premises VMware servers for disaster recovery to Azure
 
-[Azure Site Recovery](site-recovery-overview.md) contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover, and recovery.
+This article describes how to prepare on-premises VMware servers for disaster recovery to Azure using the [Azure Site Recovery](site-recovery-overview.md) services. 
 
-- This is the second tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs. In the first tutorial, we [set up the Azure components](tutorial-prepare-azure.md) needed for VMware disaster recovery.
+This is the second tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs. In the first tutorial, we [set up the Azure components](tutorial-prepare-azure.md) needed for VMware disaster recovery.
 
 
-> [!NOTE]
-> Tutorials are designed to show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions , refer to **How To's** section for the corresponding scenario.
-
-In this article, we show you how to prepare your on-premises VMware environment when you want to replicate VMware VMs to Azure using Azure Site Recovery. You learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Prepare an account on the vCenter server or vSphere ESXi host, to automate VM discovery
-> * Prepare an account for automatic installation of the Mobility service on VMware VMs
-> * Review VMware server and VM requirements
-> * Prepare to connect to Azure VMs after failover
+> * Prepare an account on the vCenter server or vSphere ESXi host, to automate VM discovery.
+> * Prepare an account for automatic installation of the Mobility service on VMware VMs.
+> * Review VMware server and VM requirements and support.
+> * Prepare to connect to Azure VMs after failover.
 
+> [!NOTE]
+> Tutorials show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the article in the How To section of the Site Recovery Table of Contents.
 
+## Before you start
+
+Make sure you've prepared Azure as described in the [first tutorial in this series](tutorial-prepare-azure.md).
 
 ## Prepare an account for automatic discovery
 
@@ -80,6 +78,7 @@ Make sure VMware servers and VMs comply with requirements.
 3. Check on-premises [network](vmware-physical-azure-support-matrix.md#network) and [storage](vmware-physical-azure-support-matrix.md#storage) support. 
 4. Check what's supported for [Azure networking](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](vmware-physical-azure-support-matrix.md#azure-storage), and [compute](vmware-physical-azure-support-matrix.md#azure-compute), after failover.
 5. Your on-premises VMs you replicate to Azure must comply with [Azure VM requirements](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
+6. In Linux virtual machines, device name or mount point name should be unique. Ensure that no two devices/mount points have the same names. Note that name aren't case-sensitive. For example, naming two devices for the same VM as _device1_ and _Device1_ isn't allowed.
 
 
 ## Prepare to connect to Azure VMs after failover
@@ -94,7 +93,7 @@ To connect to Windows VMs using RDP after failover, do the following:
     - RDP should be allowed in the **Windows Firewall** -> **Allowed apps and features** for **Domain and Private** networks.
     - Check that the operating system's SAN policy is set to **OnlineAll**. [Learn
    more](https://support.microsoft.com/kb/3031135).
-- There should be no Windows updates pending on the VM when you trigger a failover. If there are, you won't be able to log in to the virtual
+- There should be no Windows updates pending on the VM when you trigger a failover. If there are, you won't be able to sign in to the virtual
    machine until the update completes.
 - On the Windows Azure VM after failover, check **Boot diagnostics** to view a screenshot of the VM. If you can't connect, check that the VM is running and review these
    [troubleshooting tips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
@@ -105,18 +104,18 @@ To connect to Linux VMs using SSH after failover, do the following:
    automatically on system boot.
 - Check that firewall rules allow an SSH connection.
 - On the Azure VM after failover, allow incoming connections to the SSH port for the network security group rules on the failed over VM, and for the Azure subnet to which it's connected.
-- [Add a public IP address](site-recovery-monitoring-and-troubleshooting.md) for the VM.
+- [Add a public IP address](./site-recovery-monitor-and-troubleshoot.md) for the VM.
 - You can check **Boot diagnostics** to view a screenshot of the VM.
 
 
 ## Failback requirements
-If you plan to fail back to you onr-premises, you also need to ensure that certain [prerequisites are met](vmware-azure-reprotect.md##before-you-begin). These are however **not required to get started with enabling disaster recovery** for your VMs, and can be done after failover to Azure as well.
+If you plan to fail back to your on-premises site, there are a number of [prerequisites for failback](vmware-azure-reprotect.md#before-you-begin). You can prepare these now, but you don't need to. You can prepare after you fail over to Azure.
 
-## Useful links
 
-If you're  replicating multiple VMs, you should plan capacity and deployment before you start. [Learn more](site-recovery-deployment-planner.md).
 
 ## Next steps
 
+Set up disaster recovery. If you're replicating multiple VMs, plan capacity.
 > [!div class="nextstepaction"]
 > [Set up disaster recovery to Azure for VMware VMs](vmware-azure-tutorial.md)
+> [Perform capacity planning](site-recovery-deployment-planner.md).

@@ -1,6 +1,6 @@
 ---
-title: Configure the Connected Factory topology | Microsoft Docs
-description: How to configure the topology of a Connected Factory solution accelerator.
+title: Configure the Connected Factory topology - Azure | Microsoft Docs
+description: This article describes how to configure the Connected Factory solution accelerator including its topology. 
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -11,6 +11,9 @@ ms.author: dobett
 ---
 
 # Configure the Connected Factory solution accelerator
+
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
 
 The Connected Factory solution accelerator shows a simulated dashboard for a fictional company Contoso. This company has factories in numerous global locations globally.
 
@@ -24,7 +27,7 @@ Each Contoso factory has production lines that consist of three stations each. E
 * Test station
 * Packaging station
 
-These OPC UA servers have OPC UA nodes and [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) sends the values of these nodes to Connected Factory. This includes:
+These OPC UA servers have OPC UA nodes and [OPC Publisher](/previous-versions/azure/iot-accelerators/overview-opc-publisher) sends the values of these nodes to Connected Factory. This includes:
 
 * Current operational status such as current power consumption.
 * Production information such as the number of products produced.
@@ -277,7 +280,7 @@ The OEE/KPI figures for the Connected Factory simulation are parameterized by:
 * The OPC UA node values to be included in the calculation.
 * How the figure is computed from the telemetry values.
 
-Connected Factory uses the OEE formulas as published by the http://www.oeefoundation.org.
+Connected Factory uses the OEE formulas as published by the [http://www.oeefoundation.org](http://www.oeefoundation.org).
 
 OPC UA node objects in stations enable tagging for usage in OEE/KPI calculation. The **Relevance** property indicates for which OEE/KPI figure the OPC UA node value should be used. The **OpCode** property defines how the value is included in the computation.
 
@@ -302,7 +305,7 @@ For certain operations, such as visualizing the last value or creating Time Seri
 
   Identifies the node value in the OPC UA server. The format of the property must be as specified in the OPC UA specification. In the ingested messages, this property is sent as **NodeId**.
 
-Check [this](https://github.com/Azure/iot-edge-opc-publisher) GitHub page for more information on how the telemetry data is ingested to Connected Factory using the OPC Publisher.
+See [What is OPC Publisher](/previous-versions/azure/iot-accelerators/overview-opc-publisher) for more information on how the telemetry data is ingested to Connected Factory.
 
 ## Example: How KPI1 is calculated
 
@@ -335,4 +338,4 @@ The **OpCode** in the configuration configures the computation logic to calculat
 
 ## Next steps
 
-A suggested next step is to learn how to [Deploy a gateway on Windows or Linux for the Connected Factory solution accelerator](iot-accelerators-connected-factory-gateway-deployment.md).
+A suggested next step is to learn how to [Customize the Connected Factory solution](iot-accelerators-connected-factory-customize.md).

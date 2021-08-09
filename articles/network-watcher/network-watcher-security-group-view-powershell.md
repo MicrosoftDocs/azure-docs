@@ -1,20 +1,18 @@
 ---
-title: Analyze network security with Azure Network Watcher Security Group View - PowerShell | Microsoft Docs
+title: Analyze network security - Security Group View - Azure PowerShell
+titleSuffix: Azure Network Watcher
 description: This article will describe how to use PowerShell to analyze a virtual machines security with Security Group View.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: 
-
-ms.assetid: 04e76b49-6a1b-4d0f-9a9b-51cf2f4df5a2
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
+ms.author: damendo 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Analyze your Virtual Machine security with Security Group View using PowerShell
@@ -24,11 +22,17 @@ ms.author: jdial
 > - [Azure CLI](network-watcher-security-group-view-cli.md)
 > - [REST API](network-watcher-security-group-view-rest.md)
 
+> [!NOTE]
+> The Security Group View API is no longer being maintained and will be deprecated soon. Please use the [Effective Security Rules feature](./network-watcher-security-group-view-overview.md) which provides the same functionality. 
+
 Security group view returns configured and effective network security rules that are applied to a virtual machine. This capability is useful to audit and diagnose Network Security Groups and rules that are configured on a VM to ensure traffic is being correctly allowed or denied. In this article, we show you how to retrieve the configured and effective security rules to a virtual machine using PowerShell
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Before you begin
 
-In this scenario, you run the `Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet to retrieve the security rule information.
+In this scenario, you run the `Get-AzNetworkWatcherSecurityGroupView` cmdlet to retrieve the security rule information.
 
 This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher.
 
@@ -38,19 +42,18 @@ The scenario covered in this article retrieves the configured and effective secu
 
 ## Retrieve Network Watcher
 
-The first step is to retrieve the Network Watcher instance. This variable is passed to the `Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet.
+The first step is to retrieve the Network Watcher instance. This variable is passed to the `Get-AzNetworkWatcherSecurityGroupView` cmdlet.
 
 ```powershell
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
 ```
 
 ## Get a VM
 
-A virtual machine is required to run the `Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet against. The following example gets a VM object.
+A virtual machine is required to run the `Get-AzNetworkWatcherSecurityGroupView` cmdlet against. The following example gets a VM object.
 
 ```powershell
-$VM = Get-AzurermVM -ResourceGroupName testrg -Name testvm1
+$VM = Get-AzVM -ResourceGroupName testrg -Name testvm1
 ```
 
 ## Retrieve security group view
@@ -58,7 +61,7 @@ $VM = Get-AzurermVM -ResourceGroupName testrg -Name testvm1
 The next step is to retrieve the security group view result.
 
 ```powershell
-$secgroup = Get-AzureRmNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
+$secgroup = Get-AzNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
 ```
 
 ## Viewing the results
@@ -125,5 +128,3 @@ NetworkInterfaces : [
 ## Next steps
 
 Visit [Auditing Network Security Groups (NSG) with Network Watcher](network-watcher-nsg-auditing-powershell.md) to learn how to automate validation of Network Security Groups.
-
-

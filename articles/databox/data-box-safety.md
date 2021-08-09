@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 08/13/2019
 ms.author: alkohli
 
 ---
@@ -36,8 +36,8 @@ Here are the icons that you will find when you review the safety precautions to 
 
 ![Warning Icon](./media/data-box-safety/warning_icon.png) ![Electrical Shock Icon](./media/data-box-safety/electrical_shock_hazard_icon.png)![No User Serviceable Parts Icon](./media/data-box-safety/no_user_serviceable_parts_icon.png) **CAUTION** 
 
-* Inspect the *as-received* device for damages. If the device enclosure is damaged, contact Microsoft Support to obtain a replacement. Do not attempt to operate the device. 
-* The device is equipped with tamper-proof screws. If you suspect the device is malfunctioning, contact Microsoft Support  to obtain a replacement. Do not attempt to service the device. 
+* Inspect the *as-received* device for damages. If the device enclosure is damaged, [contact Microsoft Support](data-box-disk-contact-microsoft-support.md) to obtain a replacement. Do not attempt to operate the device. 
+* The device is equipped with tamper-proof screws. If you suspect the device is malfunctioning, [contact Microsoft Support](data-box-disk-contact-microsoft-support.md) to obtain a replacement. Do not attempt to service the device. 
 * The device contains no user-serviceable parts. Hazardous voltage, current, and energy levels are present inside. Do not open. Return the device to Microsoft for servicing.
 
 ![Warning Icon](./media/data-box-safety/warning_icon.png) ![Heavy Weight Icon](./media/data-box-safety/heavy_weight_hazard_icon.png) **WARNING!** 
@@ -112,11 +112,11 @@ Changes or modifications made to the device not expressly approved by Microsoft 
 
 ![Notice Icon](./media/data-box-safety/notice_icon.png) **NOTICE:** 
 
-This equipment has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instruction manual, may cause harmful interference to radio communications. Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to correct the interference at his own expense.
+This equipment has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instruction manual, may cause harmful interference to radio communications. Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to correct the interference at their own expense.
 
 This device complies with part 15 of the FCC Rules and Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions: (1) this device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation of the device.
 
-![Canada](./media/data-box-safety/canada.png)
+![Screenshot shows a notification required for Canada.](./media/data-box-safety/canada.png)
 
 CAN ICES-3(A)/NMB-3(A)
 
@@ -128,7 +128,7 @@ Canada: (800) 933-4750
 
 **EUROPEAN UNION:**
 
-A copy of the EU Declaration of Conformity is available here.
+[Request a copy of the EU Declaration of Conformity](mailto:CSI_Compliance@microsoft.com).
 
 ![Warning Icon](./media/data-box-safety/warning_icon.png) **WARNING:** 
 
@@ -138,7 +138,7 @@ This is a class A product. In a domestic environment, this product may cause rad
 
 ![Battery disposal icon](./media/data-box-safety/battery_disposal_icon.png)
 
-This symbol on the product or its batteries or its packaging means that this product and any batteries it contains must not be disposed of with your household waste. Instead, it is your responsibility to hand this over to an applicable collection point for the recycling of batteries and electrical and electronic equipment. This separate collection and recycling will help to conserve natural resources and prevent potential negative consequences for human health and the environment due to the possible presence of hazardous substances in batteries and electrical and electronic equipment, which could be caused by inappropriate disposal. For more information about where to drop off your batteries and electrical and electronic waste, please contact your local city/municipality office, your household waste disposal service, or the shop where you purchased this product. Contact *erecycle@microsoft.com* for additional information on WEEE.
+This symbol on the product or its batteries or its packaging means that this product and any batteries it contains must not be disposed of with your household waste. Instead, it is your responsibility to hand this over to an applicable collection point for the recycling of batteries and electrical and electronic equipment. This separate collection and recycling will help to conserve natural resources and prevent potential negative consequences for human health and the environment due to the possible presence of hazardous substances in batteries and electrical and electronic equipment, which could be caused by inappropriate disposal. For more information about where to drop off your batteries and electrical and electronic waste, please contact your local city/municipality office, your household waste disposal service, or the shop where you purchased this product. Contact *erecycle\@microsoft.com* for additional information on WEEE.
 
 This product contains coin cell battery(ies).
 
@@ -150,7 +150,7 @@ Fax number: +353 1 706 4110
 
 **Japan**
 
-![Japan](./media/data-box-safety/japan.png)
+![Screenshot shows a notification required for Japan.](./media/data-box-safety/japan.png)
 
 <!--**South Korea**
 

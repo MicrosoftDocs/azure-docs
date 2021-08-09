@@ -1,20 +1,25 @@
 ---
 title: Connected Factory solution features - Azure | Microsoft Docs
-description: An overview of the features of the Connected Factory preconfigured solution.
+description: This article describes an overview of the features of the Connected Factory preconfigured solution, such as cloud dashboard, rules, and alerts.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 06/10/2019
 ms.author: dobett
 ---
 
 # What is Connected Factory IoT solution accelerator?
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 Connected Factory is an implementation of Microsoft's Azure Industrial IoT reference architecture, packaged as on open-source solution. You can use it as a starting point for a commercial product. You can deploy a pre-built version of the Connected Factory solution into your Azure subscription from [Azure IoT solution accelerators](https://www.azureiotsolutions.com/#solutions/types/CF).
 
 ![Connected Factory solution dashboard](./media/iot-accelerators-connected-factory-features/dashboard.png)
+
+The Connected Factory solution accelerator [code is available on GitHub](https://github.com/Azure/azure-iot-connected-factory).
 
 Connected Factory includes the following features:
 
@@ -48,7 +53,7 @@ Connected Factory includes the following features:
 
 ## End-to-end security
 
-- Configure security permissions for users using Role-Based Access Control (RBAC).
+- Configure security permissions for users using role-based access control (RBAC).
 - End-to-end encryption is implemented using OPC UA authentication (using X.509 certificates) as well as security tokens.
 
 ## Customizability
@@ -58,7 +63,4 @@ Connected Factory includes the following features:
 
 ## Next steps
 
-Learn more about the Connected Factory preconfigured solution by reading the following articles:
-
-* [Connected Factory preconfigured solution walkthrough](iot-accelerators-connected-factory-sample-walkthrough.md)
-* [Deploy a gateway for Connected Factory]( iot-accelerators-connected-factory-gateway-deployment.md)
+To learn more about the Connected Factory solution accelerator, see the Quickstart [Try a cloud-based solution to manage my industrial IoT devices](quickstart-connected-factory-deploy.md).

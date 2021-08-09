@@ -1,28 +1,30 @@
 ---
 title: Understand the Azure IoT Hub built-in endpoint | Microsoft Docs
 description: Developer guide - describes how to use the built-in, Event Hub-compatible endpoint to read device-to-cloud messages.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.author: dobett
+ms.date: 07/16/2021
+ms.custom: [amqp, 'Role: Cloud Development']
 ---
 
 # Read device-to-cloud messages from the built-in endpoint
 
-By default, messages are routed to the built-in service-facing endpoint (**messages/events**) that is compatible with [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/
-). This endpoint is currently only exposed using the [AMQP](https://www.amqp.org/) protocol on port 5671. An IoT hub exposes the following properties to enable you to control the built-in Event Hub-compatible messaging endpoint **messages/events**.
+By default, messages are routed to the built-in service-facing endpoint (**messages/events**) that is compatible with [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). This endpoint is currently only exposed using the [AMQP](https://www.amqp.org/) protocol on port 5671 and [AMQP over WebSockets](http://docs.oasis-open.org/amqp-bindmap/amqp-wsb/v1.0/cs01/amqp-wsb-v1.0-cs01.html) on port 443. An IoT hub exposes the following properties to enable you to control the built-in Event Hub-compatible messaging endpoint **messages/events**.
 
 | Property            | Description |
 | ------------------- | ----------- |
 | **Partition count** | Set this property at creation to define the number of [partitions](../event-hubs/event-hubs-features.md#partitions) for device-to-cloud event ingestion. |
 | **Retention time**  | This property specifies how long in days messages are retained by IoT Hub. The default is one day, but it can be increased to seven days. |
 
-IoT Hub also enables you to manage consumer groups on the built-in device-to-cloud receive endpoint.
+IoT Hub allows data retention in the built-in Event Hubs for a maximum of 7 days. You can set the retention time during creation of your IoT Hub. Data retention time in IoT Hub depends on your IoT hub tier and unit type. In terms of size, the built-in Event Hubs can retain messages of the maximum message size up to at least 24 hours of quota. For example, for 1 S1 unit IoT Hub provides enough storage to retain at least 400K messages of 4k size each. If your devices are sending smaller messages, they may be retained for longer (up to 7 days) depending on how much storage is consumed. We guarantee retaining the data for the specified retention time as a minimum. Messages will expire and will not be accessible after the retention time has passed. 
 
-If you are using [message routing](iot-hub-devguide-messages-d2c.md) and the [fallback route](iot-hub-devguide-messages-d2c.md#fallback-route) is enabled, all messages that do not match a query on any route are written to the built-in endpoint. If you disable this fallback route, messages that do not match any query are dropped.
+IoT Hub also enables you to manage consumer groups on the built-in device-to-cloud receive endpoint. You can have up to 20 consumer groups for each IoT Hub.
+
+If you're using [message routing](iot-hub-devguide-messages-d2c.md) and the [fallback route](iot-hub-devguide-messages-d2c.md#fallback-route) is enabled, all messages that don't match a query on any route go to the built-in endpoint. If you disable this fallback route, messages that don't match any query are dropped.
 
 You can modify the retention time, either programmatically using the [IoT Hub resource provider REST APIs](/rest/api/iothub/iothubresource), or with the [Azure portal](https://portal.azure.com).
 
@@ -30,39 +32,62 @@ IoT Hub exposes the **messages/events** built-in endpoint for your back-end serv
 
 ## Read from the built-in endpoint
 
-When you use the [Azure Service Bus SDK for .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) or the [Event Hubs - Event Processor Host](..//event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md), you can use any IoT Hub connection strings with the correct permissions. Then use **messages/events** as the Event Hub name.
+Some product integrations and Event Hubs SDKs are aware of IoT Hub and let you use your IoT hub service connection string to connect to the built-in endpoint.
 
-When you use SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hub-compatible endpoint and Event Hub-compatible name:
+When you use Event Hubs SDKs or product integrations that are unaware of IoT Hub, you need an Event Hub-compatible endpoint and Event Hub-compatible name. You can retrieve these values from the portal as follows:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
 
 2. Click **Built-in endpoints**.
 
-3. The **Events** section contains the following values: **Event Hub-compatible endpoint**, **Event Hub-compatible name**, **Partitions**, **Retention time**, and **Consumer groups**.
+3. The **Events** section contains the following values: **Partitions**, **Event Hub-compatible name**, **Event Hub-compatible endpoint**, **Retention time**, and **Consumer groups**.
 
     ![Device-to-cloud settings](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 
-The IoT Hub SDK requires the IoT Hub endpoint name, which is **messages/events** as shown under **Endpoints**.
+In the portal, the Event Hub-compatible endpoint field contains a complete Event Hubs connection string that looks like: **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**. If the SDK you're using requires other values, then they would be:
 
-If the SDK you are using requires a **Hostname** or **Namespace** value, remove the scheme from the **Event Hub-compatible endpoint**. For example, if your Event Hub-compatible endpoint is **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, the **Hostname** would be **iothub-ns-myiothub-1234.servicebus.windows.net**. The **Namespace** would be **iothub-ns-myiothub-1234**.
+| Name | Value |
+| ---- | ----- |
+| Endpoint | sb://abcd1234namespace.servicebus.windows.net/ |
+| Hostname | abcd1234namespace.servicebus.windows.net |
+| Namespace | abcd1234namespace |
 
-You can then use any shared access policy that has the **ServiceConnect** permissions to connect to the specified Event Hub.
+You can then choose any shared access policy from the drop-down as shown in the screenshot above. It only shows policies that have the **ServiceConnect** permissions to connect to the specified Event Hub.
 
-If you need to build an Event Hub connection string by using the previous information, use the following pattern:
+The SDKs you can use to connect to the built-in Event Hub-compatible endpoint that IoT Hub exposes include:
 
-`Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy name};SharedAccessKey={iot hub policy key}`
+| Language | SDK | Example |
+| -------- | --- | ------ |
+| .NET | https://www.nuget.org/packages/Azure.Messaging.EventHubs | [Quickstart](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) |
+| Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [Quickstart](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) |
+| Node.js | https://www.npmjs.com/package/@azure/event-hubs | [Quickstart](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) |
+| Python | https://pypi.org/project/azure-eventhub/ | [Quickstart](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) |
 
-The SDKs and integrations that you can use with Event Hub-compatible endpoints that IoT Hub exposes includes the items in the following list:
+The product integrations you can use with the built-in Event Hub-compatible endpoint that IoT Hub exposes include:
 
-* [Java Event Hubs client](https://github.com/Azure/azure-event-hubs-java).
+* [Azure Functions](../azure-functions/index.yml). See [Azure IoT Hub bindings for Azure Functions](../azure-functions/functions-bindings-event-iot.md).
+* [Azure Stream Analytics](../stream-analytics/index.yml). See [Stream data as input into Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
+* [Time Series Insights](../time-series-insights/index.yml). See [Add an IoT hub event source to your Time Series Insights environment](../time-series-insights/how-to-ingest-data-iot-hub.md).
 * [Apache Storm spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). You can view the [spout source](https://github.com/apache/storm/tree/master/external/storm-eventhubs) on GitHub.
-* [Apache Spark integration](../hdinsight/spark/apache-spark-eventhub-streaming.md).
+* [Apache Spark integration](../hdinsight/spark/apache-spark-ipython-notebook-machine-learning.md).
+* [Azure Databricks](/azure/azure-databricks/).
+
+## Use AMQP-WS or a proxy with Event Hubs SDKs
+
+You can use the Event Hubs SDKs to read from the built-in endpoint in environments where AMQP over WebSockets or reading through a proxy is required. For more information, see the following samples.
+
+| Language | Sample |
+| -------- | ------ |
+| .NET | [ReadD2cMessages .NET](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Quickstarts/ReadD2cMessages) |
+| Java | [read-d2c-messages Java](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Quickstarts/read-d2c-messages) |
+| Node.js | [read-d2c-messages Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/tree/master/iot-hub/Quickstarts/read-d2c-messages) |
+| Python | [read-dec-messages Python](https://github.com/Azure-Samples/azure-iot-samples-python/tree/master/iot-hub/Quickstarts/read-d2c-messages) |
 
 ## Next steps
 
 * For more information about IoT Hub endpoints, see [IoT Hub endpoints](iot-hub-devguide-endpoints.md).
 
-* The [Quickstarts](quickstart-send-telemetry-node.md) show you how to send device-to-cloud messages from simulated devices and read the messages from the built-in endpoint. 
+* The [Quickstarts](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) show you how to send device-to-cloud messages from simulated devices and read the messages from the built-in endpoint. 
 
 For more detail, see the [Process IoT Hub device-to-cloud messages using routes](tutorial-routing.md) tutorial.
 

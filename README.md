@@ -1,16 +1,17 @@
+
 # Microsoft Azure Documentation
 
-Welcome to the open source [documentation](https://docs.microsoft.com/azure) of [Microsoft Azure](https://azure.microsoft.com). Please review this README file to understand how you can assist in contributing to the Microsoft Azure documentation.
+Welcome to the open-source [documentation](https://docs.microsoft.com/azure) of [Microsoft Azure](https://azure.microsoft.com). Please review this README file to understand how you can assist in contributing to the Microsoft Azure documentation.
 
 ## Getting Started
 
-Contributing to open source is more than just providing updates, it's also letting us know when there is an issue. Read our [Contributing guidance](.github/CONTRIBUTING.md) to find out more.
+Contributing to open source is more than just providing updates, it's also about letting us know when there is an issue. Read our [Contributing guidance](CONTRIBUTING.md) to find out more.
 
 ### Prerequisites
 
 You've decided to contribute, that's great! To contribute to the documentation, you need a few tools.
 
-Contributing to the documentation requires a GitHub account. If you don't have an account, follow the instructions for [GitHub account setup](https://docs.microsoft.com/contribute/get-started-setup-github) from our contributor guide.
+Contributing to the documentation requires a GitHub account. If you don't have an account, follow the instructions for the [GitHub account setup](https://docs.microsoft.com/contribute/get-started-setup-github) from our contributor guide.
 
 #### Download
 
@@ -26,7 +27,7 @@ Follow the instructions provided in the [Install content authoring tools](https:
 
 ## License
 
-Please refer to [LICENSE](.github/LICENSE), [LICENSE-CODE](.github/LICENSE-CODE) and [ThirdPartyNotices](.github/ThirdPartyNotices.md) for all Licensing information.
+Please refer to [LICENSE](LICENSE), [LICENSE-CODE](LICENSE-CODE) and [ThirdPartyNotices](ThirdPartyNotices.md) for all Licensing information.
 
 ## Code of Conduct
 

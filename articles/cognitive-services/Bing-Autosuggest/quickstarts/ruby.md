@@ -1,66 +1,85 @@
 ---
-title: "Quickstart: Bing Autosuggest API, Ruby"
-titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing Autosuggest API.
+title: "Quickstart: Suggest search queries with the Bing Autosuggest REST API and Ruby"
+titleSuffix: Azure Cognitive Services
+description: Learn how to quickly start suggesting search terms in real time with the Bing Autosuggest API and Ruby.
 services: cognitive-services
-author: v-jaswel
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 09/14/2017
-ms.author: v-jaswel
+ms.date: 05/06/2020
+ms.author: aahi
 ---
-# Quickstart for Bing Autosuggest API with Ruby 
 
-This article shows you how to use the [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) with Ruby. The Bing Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Typically, you would call this API each time the user types a new character in the search box, and then display the suggestions in the search box's drop down list. This article shows how to send a request that returns the suggested query strings for *sail*.
+# Quickstart: Suggest search queries with the Bing Autosuggest REST API and Ruby
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
+Follow this quickstart to learn how to make calls to the Bing Autosuggest API and read the JSON response. This simple Ruby application sends a partial search query to the API, and returns suggestions for searches. While this application is written in Ruby, the API is a RESTful Web service compatible with most programming languages.
+
 
 ## Prerequisites
 
-You will need [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) or later to run this code.
+* [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) or later.
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Autosuggest API v7**. The [free trial](https://azure.microsoft.com/try/cognitive-services/#search) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
-## Get Autosuggest results
+## Create a new application
 
-1. Create a new Ruby project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
-4. Run the program.
+1. Create a new Ruby file in your favorite IDE or editor. Add the following requirements:
 
-```ruby
-require 'net/https'
-require 'uri'
-require 'json'
+    ```ruby
+    require 'net/https'
+    require 'uri'
+    require 'json'
+    ```
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+2. Create variables for your API host and path, [market code](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and partial search query. Use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = 'enter key here'
+    ```ruby
+    subscriptionKey = 'enter your key here'
+    host = 'https://api.cognitive.microsoft.com'
+    path = '/bing/v7.0/Suggestions'
+    mkt = 'en-US'
+    query = 'sail'
+    ```
 
-host = 'https://api.cognitive.microsoft.com'
-path = '/bing/v7.0/Suggestions'
+3. Create a parameters string by appending your market code to the `mkt=` parameter, and appending your query to the `q=` parameter. Then, construct your request URI by combining the API host, path, and the parameters string.
 
-mkt = 'en-US'
-query = 'sail'
+    ```ruby
+    params = '?mkt=' + mkt + '&q=' + query
+    uri = URI (host + path + params)
+    ```
 
-params = '?mkt=' + mkt + '&q=' + query
-uri = URI (host + path + params)
+## Create and send an API request
 
-request = Net::HTTP::Get.new(uri)
-request['Ocp-Apim-Subscription-Key'] = subscriptionKey
+1. Create a request with your URI, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
+    
+    ```ruby
+    request = Net::HTTP::Get.new(uri)
+    request['Ocp-Apim-Subscription-Key'] = subscriptionKey
+    ```
 
-response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-    http.request (request)
-end
+2. Send the request, and store the response.
+    
+    ```ruby
+    response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+        http.request (request)
+    end
+    ```
 
-puts JSON::pretty_generate (JSON (response.body))
-```
+3. Print the JSON response.
+    
+    ```ruby
+    puts JSON::pretty_generate (JSON (response.body))
+    ```
 
-### Response
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example:
 
@@ -131,9 +150,9 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Autosuggest tutorial](../tutorials/autosuggest.md)
+> [Create a single-page web app](../tutorials/autosuggest.md)
 
 ## See also
 
 - [What is Bing Autosuggest?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

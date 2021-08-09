@@ -1,106 +1,129 @@
 ---
-title: Azure Security Center Tutorial - Define and assess security policies | Microsoft Docs
-description: Azure Security Center Tutorial - Define and assess security policies
-services: security-center
-documentationcenter: na
-author: rkarlin
-manager: mbaldwin
-editor: ''
-
-ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
+title: Working with security policies | Microsoft Docs
+description: This article describes how to work with security policies in Azure Security Center.
+author: memildin
+manager: rkarlin
 ms.service: security-center
-ms.devlang: na
-ms.topic: tutorial
-ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/30/2018
-ms.author: rkarlin
+ms.topic: conceptual
+ms.date: 05/25/2021
+ms.author: memildin
 ---
 
-# Tutorial: Define and assess security policies
-Security Center helps ensure compliance with company or regulatory security requirements by using security policies to define the desired configuration of your workloads. Once you define policies for your Azure subscriptions, and adapt them to the type of workload or the sensitivity of your data, Security Center can provide security recommendations for your compute, application, networking, data & storage, and identity & access resources. In this tutorial, you will learn how to:
+# Manage security policies
 
-> [!div class="checklist"]
-> * Configure security policy
-> * Assess the security of your resources
+This article explains how security policies are configured, and how to view them in Security Center. 
 
-If you don’t have an Azure subscription, create a  [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
+To understand the relationships between initiatives, policies, and recommendations, see [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
 
-## Prerequisites
-To step through the features covered in this tutorial, you must be on Security Center’s Standard pricing tier. You can try Security Center Standard at no cost for the first 60 days. The quickstart [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) walks you through how to upgrade to Standard.
+## Who can edit security policies?
 
-## Configure security policy
-Security Center automatically creates a default security policy for each of your Azure subscriptions. Security policies are comprised of recommendations that you can turn on or turn off according to the security requirements of that subscription. To make changes to the default security policy, you need to be an owner, contributor, or security administrator of the subscription.
+Security Center uses Azure role-based access control (Azure RBAC), which provides built-in roles you can assign to Azure users, groups, and services. When users open Security Center, they see only information related to the resources they can access. Which means users are assigned the role of *owner*, *contributor*, or *reader* to the resource's subscription. There are also two specific Security Center roles:
 
-1. At the Security Center main menu, select **Security policy**.
-2. Select the subscription that you want to use.
+- **Security reader**: Has rights to view Security Center items such as recommendations, alerts, policy, and health. Can't make changes.
+- **Security admin**: Has the same view rights as *security reader*. Can also update the security policy and dismiss alerts.
 
-  ![Security Policy](./media/tutorial-security-policy/tutorial-security-policy-fig1.png)  
+You can edit security policies through the Azure Policy portal, via REST API or using Windows PowerShell.
 
-3. Under **Compute and apps**, **Network**, and **Data**, set each security configuration you want to monitor to **On**. Security Center will continuously assess the configuration of your environment and when vulnerability exists, Security Center will generate a security recommendation. Select **Off** if the security configuration is not recommended or not relevant. For example, in a dev/test environment you might not require the same level of security as a production environment. After selecting the policies that are applicable to your environment, click **Save**.
+## Manage your security policies
 
-  ![Security configuration](./media/tutorial-security-policy/tutorial-security-policy-fig6.png)  
+To view your security policies in Security Center:
 
-Wait until Security Center processes these policies and generates recommendations. Some configurations, such as system updates and OS configurations can take up to 12 hours, while network security groups and encryption configurations can be assessed almost instantly. Once you see recommendations in the Security Center dashboard, you can proceed to the next step.
+1. In the **Security Center** dashboard, select **Security policy**.
 
-## Assess security of resources
-1. According to the security policies that were enabled, Security Center will provide a set of security recommendations as needed. You should start by reviewing the virtual machine and computers recommendations. On the Security Center dashboard, select **Overview**, and select **Compute & apps**.
+    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="The policy management page.":::
 
-  ![Compute](./media/tutorial-security-policy/tutorial-security-policy-fig2.png)
+   In the **Policy management** screen, you can see the number of management groups, subscriptions, and workspaces as well as your management group structure.
 
-  Review each recommendation by prioritizing recommendations in red (high priority). Some of these recommendations have remediation that can be implemented directly from Security Center, such as the [endpoint protection issues](https://docs.microsoft.com/azure/security-center/security-center-install-endpoint-protection). Other recommendations have only guidelines to apply the remediation, such as the missing disk encryption recommendation.
+1. Select the subscription or management group whose policies you want to view.
 
-2. Once you address all relevant compute recommendations, you should move on to the next workload: networking. On the Security Center dashboard, click **Overview**, and click **Networking**.
+1. The security policy page for that subscription or management group appears. It shows the available and assigned policies.
 
-  ![Networking](./media/tutorial-security-policy/tutorial-security-policy-fig3.png)
+    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Security Center's security policy page" lightbox="./media/tutorial-security-policy/security-policy-page.png":::
 
-  The networking recommendations page has a list of security issues for network configuration, internet facing endpoints, and network topology. Just like **Compute & apps**, some networking recommendations will provide integrated remediation, and some others will not.
+    > [!NOTE]
+    > If there is a label "MG Inherited" alongside your default policy, it means that the policy has been assigned to a management group and inherited by the subscription you're viewing.
 
-3. Once you address all relevant networking recommendations, you should move on to the next workload: storage & data. On the Security Center dashboard, click **Overview**, and click **Data & storage**.
+1. Choose from the available options on this page:
 
-  ![Data resources](./media/tutorial-security-policy/tutorial-security-policy-fig4.png)
+    1. To work with industry standards, select **Add more standards**. For more information, see [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
-  The **Data Resources** page contains recommendations around enabling auditing for Azure SQL servers and databases, enabling encryption for SQL databases, and enabling encryption of your Azure storage account. If you don’t have these workloads, you will not see any recommendation. Just like **Compute & apps**, some data & storage recommendations will provide integrated remediation, and some others will not.
+    1. To assign and manage custom initiatives, select **Add custom initiatives**. For more information, see [Using custom security initiatives and policies](custom-security-policies.md).
 
-4. Once you address all relevant data & storage recommendations, you should move on to the next workload: Identity & access. On the Security Center dashboard, click **Overview**, and click **Identity & access**.
+    1. To view and edit the default initiative, select **View effective policy** and proceed as described below. 
 
-  ![Identity & access](./media/tutorial-security-policy/tutorial-security-policy-fig5.png)
+        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Effective policy screen.":::
 
-  The **Identity & Access** page contains recommendations such as:
+       This **Security policy** screen reflects the action taken by the policies assigned on the subscription or management group you selected.
+       
+       * Use the links at the top to open a policy **assignment** that applies on the subscription or management group. These links let you access the assignment and edit or disable the policy. For example, if you see that a particular policy assignment is effectively denying endpoint protection, use the link to edit or disable the policy.
+       
+       * In the list of policies, you can see the effective application of the policy on your subscription or management group. The settings of each policy that apply to the scope are taken into consideration and the cumulative outcome of actions taken by the policy is shown. For example, if in one assignment of the policy is disabled, but in another it's set to AuditIfNotExist, then the cumulative effect applies AuditIfNotExist. The more active effect always takes precedence.
+       
+       * The policies' effect can be: Append, Audit, AuditIfNotExists, Deny, DeployIfNotExists, Disabled. For more information on how effects are applied, see [Understand Policy effects](../governance/policy/concepts/effects.md).
 
-   - Enable MFA for privileged accounts on your subscription
-   - Remove external accounts with write permissions from your subscription
-   - Remove privileged external accounts from your subscription
+       > [!NOTE]
+       > When you view assigned policies, you can see multiple assignments and you can see how each assignment is configured on its own.
 
-## Clean up resources
-Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, continue running the Standard tier and keep automatic provisioning enabled. If you do not plan to continue or wish to return to the Free tier:
 
-1. Return to the Security Center main menu and select **Security Policy**.
-2. Select the subscription or policy that you want to return to Free. **Security policy** opens.
-3. Under **POLICY COMPONENTS**, select **Pricing tier**.
-4. Select **Free** to change subscription from Standard tier to Free tier.
-5. Select **Save**.
+## Disable security policies and disable recommendations
 
-If you wish to disable automatic provisioning:
+When your security initiative triggers a recommendation that's irrelevant for your environment, you can prevent that recommendation from appearing again. To disable a recommendation, disable the specific policy that generates the recommendation.
 
-1. Return to the Security Center main menu and select **Security policy**.
-2. Select the subscription that you wish to disable automatic provisioning.
-3. Under **Security policy – Data Collection**, select **Off** under **Onboarding** to disable automatic provisioning.
-4. Select **Save**.
+The recommendation you want to disable will still appear if it's required for a regulatory standard you've applied with Security Center's regulatory compliance tools. Even if you've disabled a policy in the built-in initiative, a policy in the regulatory standard's initiative will still trigger the recommendation if it's necessary for compliance. You can't disable policies from regulatory standard initiatives.
 
->[!NOTE]
-> Disabling automatic provisioning does not remove the Microsoft Monitoring Agent from Azure VMs where the agent has been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
->
+For more information about recommendations, see [Managing security recommendations](security-center-recommendations.md).
+
+1. In Security Center, from the **Policy & Compliance** section, select **Security policy**.
+
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Starting the policy management process in Azure Security Center.":::
+
+1. Select the subscription or management group for which you want to disable the recommendation (and policy).
+
+   > [!NOTE]
+   > Remember that a management group applies its policies to its subscriptions. Therefore, if you disable a subscription's policy, and the subscription belongs to a management group that still uses the same policy, then you will continue to receive the policy recommendations. The policy will still be applied from the management level and the recommendations will still be generated.
+
+1. From the **Security Center default policy**, **Industry & regulatory standards**, or **Your custom initiatives** sections, select the relevant initiative containing the policy you want to disable.
+
+1. Open the **Parameters** section and search for the policy that invokes the recommendation that you want to disable.
+
+1. From the dropdown list, change the value for the corresponding policy to **Disabled**.
+
+   ![disable policy.](./media/tutorial-security-policy/disable-policy.png)
+
+1. Select **Save**.
+
+   > [!NOTE]
+   > The change might take up to 12 hours to take effect.
+
+
+## Enable a security policy
+
+Some policies in your initiatives might be disabled by default. For example, in the Azure Security Benchmark initiative, some policies are provided for you to enable only if they meet a specific regulatory or compliance requirement for your organization. Such policies include recommendations to encrypt data at rest with customer-managed keys, such as "Container registries should be encrypted with a customer-managed key (CMK)".
+
+To enable a disabled policy and ensure it's assessed for your resources:
+
+1. In Security Center, from the **Policy & Compliance** section, select **Security policy**.
+
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Starting the policy management process in Azure Security Center.":::
+
+1. Select the subscription or management group for which you want to enable the recommendation (and policy).
+
+1. From the **Security Center default policy**, **Industry & regulatory standards**, or **Your custom initiatives** sections, select the relevant initiative with the policy you want to enable.
+
+1. Open the **Parameters** section and search for the policy that invokes the recommendation that you want to disable.
+
+1. From the dropdown list, change the value for the corresponding policy to **AuditIfNotExists** or **Enforce**.
+
+1. Select **Save**.
+
+   > [!NOTE]
+   > The change might take up to 12 hours to take effect.
+
 
 ## Next steps
-In this tutorial, you learned about basic policy definition and security assessment of your workload with Security Center, such as:
+This page explained security policies. For related information, see the following pages:
 
-> [!div class="checklist"]
-> * Security policy configuration to ensure compliance with your company or regulatory security requirements
-> * Security assessment for your compute, networking, SQL & storage, and application resources
-
-Advance to the next tutorial to learn how to use Security Center to protect your resources.
-
-> [!div class="nextstepaction"]
-> [Protect your resources](tutorial-protect-resources.md)
+- [Learn how to set policies using PowerShell](../governance/policy/assign-policy-powershell.md)
+- [Learn how to edit a security policy in Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Learn how to set a policy across subscriptions or on Management groups using Azure Policy](../governance/policy/overview.md)
+- [Learn how to enable Security Center on all subscriptions in a management group](onboard-management-group.md)

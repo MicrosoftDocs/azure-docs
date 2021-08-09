@@ -1,14 +1,14 @@
 ---
-title: Accelerated Networking with Azure virtual machine disaster recovery | Microsoft Docs
+title: Enable accelerated networking for Azure VM disaster recovery with Azure Site Recovery
 description: Describes how to enable Accelerated Networking with Azure Site Recovery for Azure virtual machine disaster recovery
 services: site-recovery
 documentationcenter: ''
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
-ms.author: mayg
+ms.date: 04/08/2019
+ms.author: harshacs
 
 ---
 # Accelerated Networking with Azure virtual machine disaster recovery
@@ -40,7 +40,7 @@ Accelerated Networking is supported on most general purpose and compute-optimize
 
 On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. Supported series are: D/DSv3, E/ESv3, Fsv2, and Ms/Mms
 
-For more information on VM instances, see [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+For more information on VM instances, see [Windows VM sizes](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## Accelerated Networking with Linux VMs
 
@@ -61,7 +61,7 @@ Accelerated Networking is supported on most general purpose and compute-optimize
 
 On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. Supported series are: D/DSv3, E/ESv3, Fsv2, and Ms/Mms.
 
-For more information on VM instances, see [Linux VM sizes](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+For more information on VM instances, see [Linux VM sizes](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## Enabling Accelerated Networking for replicated VMs
 

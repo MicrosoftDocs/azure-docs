@@ -1,21 +1,18 @@
 ---
-title: Transform data with Databricks Notebook - Azure | Microsoft Docs
-description: Learn how to process or transform data by running a Databricks notebook.
-services: data-factory
-documentationcenter: ''
-author: douglaslMS
-manager: craigg
-
-ms.assetid: 
+title: Transform data with Databricks Notebook 
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to process or transform data by running a Databricks notebook in Azure Data Factory.
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: tutorials
+ms.custom: synapse
+author: nabhishek
+ms.author: abnarain
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.author: douglasl
 ---
+
 # Transform data by running a Databricks notebook
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 The Azure Databricks Notebook Activity in a [Data Factory pipeline](concepts-pipelines-activities.md) runs a Databricks notebook in your Azure Databricks workspace. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. Azure Databricks is a managed platform for running Apache Spark.
 
@@ -25,27 +22,27 @@ Here is the sample JSON definition of a Databricks Notebook Activity:
 
 ```json
 {
-	"activity": {
-		"name": "MyActivity",
-		"description": "MyActivity description",
-		"type": "DatabricksNotebook",
-		"linkedServiceName": {
-			"referenceName": "MyDatabricksLinkedservice",
-			"type": "LinkedServiceReference"
-		},
-		"typeProperties": {
-			"notebookPath": "/Users/user@example.com/ScalaExampleNotebook",
-			"baseParameters": {
-				"inputpath": "input/folder1/",
-				"outputpath": "output/"
-			},
-			"libraries": [
-			    {
-				"jar": "dbfs:/docs/library.jar"
-			    }
-			]
-		}
-	}
+    "activity": {
+        "name": "MyActivity",
+        "description": "MyActivity description",
+        "type": "DatabricksNotebook",
+        "linkedServiceName": {
+            "referenceName": "MyDatabricksLinkedservice",
+            "type": "LinkedServiceReference"
+        },
+        "typeProperties": {
+            "notebookPath": "/Users/user@example.com/ScalaExampleNotebook",
+            "baseParameters": {
+                "inputpath": "input/folder1/",
+                "outputpath": "output/"
+            },
+            "libraries": [
+                {
+                "jar": "dbfs:/docs/library.jar"
+                }
+            ]
+        }
+    }
 }
 ```
 
@@ -64,10 +61,9 @@ definition:
 |baseParameters|An array of Key-Value pairs. Base parameters can be used for each activity run. If the notebook takes a parameter that is not specified, the default value from the notebook will be used. Find more on parameters in [Databricks Notebooks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|No|
 |libraries|A list of libraries to be installed on the cluster that will execute the job. It can be an array of \<string, object>.|No|
 
-
 ## Supported libraries for Databricks activities
 
-In the above Databricks activity definition, you specify these library types: *jar*, *egg*, *maven*, *pypi*, *cran*.
+In the above Databricks activity definition, you specify these library types: *jar*, *egg*, *whl*, *maven*, *pypi*, *cran*.
 
 ```json
 {
@@ -77,6 +73,12 @@ In the above Databricks activity definition, you specify these library types: *j
         },
         {
             "egg": "dbfs:/mnt/libraries/library.egg"
+        },
+        {
+            "whl": "dbfs:/mnt/libraries/mlflow-0.0.1.dev0-py2-none-any.whl"
+        },
+        {
+            "whl": "dbfs:/mnt/libraries/wheel-libraries.wheelhouse.zip"
         },
         {
             "maven": {
@@ -93,7 +95,7 @@ In the above Databricks activity definition, you specify these library types: *j
         {
             "cran": {
                 "package": "ada",
-                "repo": "http://cran.us.r-project.org"
+                "repo": "https://cran.us.r-project.org"
             }
         }
     ]
@@ -101,18 +103,36 @@ In the above Databricks activity definition, you specify these library types: *j
 
 ```
 
-For more details, see the [Databricks documentation](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) for library types.
+For more details, see the [Databricks documentation](/azure/databricks/dev-tools/api/latest/libraries#managedlibrarieslibrary) for library types.
+
+## Passing parameters between notebooks and Data Factory
+
+You can pass data factory parameters to notebooks using *baseParameters* property in databricks activity.
+
+In certain cases you might require to pass back certain values from notebook back to data factory, which can be used for control flow (conditional checks) in data factory or be consumed by downstream activities (size limit is 2MB).
+
+1. In your notebook, you may call [dbutils.notebook.exit("returnValue")](/azure/databricks/notebooks/notebook-workflows#notebook-workflows-exit) and corresponding "returnValue" will be returned to data factory.
+
+2. You can consume the output in data factory by using expression such as `@{activity('databricks notebook activity name').output.runOutput}`. 
+
+   > [!IMPORTANT]
+   > If you are passing JSON object you can retrieve values by appending property names. Example: `@{activity('databricks notebook activity name').output.runOutput.PropertyName}`
 
 ## How to upload a library in Databricks
 
-#### [Using Databricks workspace UI](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
+### You can use the Workspace UI:
 
-To obtain the dbfs path of the library added using UI, you can use the [Databricks CLI (installation)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
+1. [Use the Databricks workspace UI](/azure/databricks/libraries/#create-a-library)
 
-Typically, the Jar libraries are stored under dbfs:/FileStore/jars while using the UI. You can list all through the CLI: *databricks fs ls dbfs:/FileStore/jars*.
+2. To obtain the dbfs path of the library added using UI, you can use [Databricks CLI](/azure/databricks/dev-tools/cli/#install-the-cli).
 
+   Typically the Jar libraries are stored under dbfs:/FileStore/jars while using the UI. You can list all through the CLI: *databricks fs ls dbfs:/FileStore/job-jars*
 
+### Or you can use the Databricks CLI:
 
-#### [Copy library using Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
+1. Follow [Copy the library using Databricks CLI](/azure/databricks/dev-tools/cli/#copy-a-file-to-dbfs)
 
-Example: *databricks fs cp SparkPi-assembly-0.1.jar dbfs:/FileStore/jars*
+2. Use Databricks CLI [(installation steps)](/azure/databricks/dev-tools/cli/#install-the-cli)
+
+   As an example, to copy a JAR to dbfs:
+   `dbfs cp SparkPi-assembly-0.1.jar dbfs:/docs/sparkpi.jar`

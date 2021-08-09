@@ -1,15 +1,12 @@
 ---
-title: Send custom events for Azure Event Grid to Event Hubs | Microsoft Docs
-description: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. An event hub is used for the endpoint. 
-services: event-grid 
-keywords: 
-author: tfitzmac
-ms.author: tomfitz
-ms.date: 10/09/2018
-ms.topic: quickstart
-ms.service: event-grid
+title: 'Quickstart: Send custom events to Event Hubs - Event Grid, Azure CLI'
+description: 'Quickstart: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. An event hub is used for the endpoint.' 
+ms.date: 07/07/2020
+ms.topic: quickstart 
+ms.custom: devx-track-azurecli
 ---
-# Route custom events to Azure Event Hubs with Azure CLI and Event Grid
+
+# Quickstart: Route custom events to Azure Event Hubs with Azure CLI and Event Grid
 
 Azure Event Grid is an eventing service for the cloud. Azure Event Hubs is one of the supported event handlers. In this article, you use the Azure CLI to create a custom topic, subscribe to the custom topic, and trigger the event to view the result. You send the events to an event hub.
 
@@ -19,7 +16,7 @@ Azure Event Grid is an eventing service for the cloud. Azure Event Hubs is one o
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. 
+Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. 
 
 The following example creates a resource group named *gridResourceGroup* in the *westus2* location.
 
@@ -60,10 +57,10 @@ The following script gets the resource ID for the event hub, and subscribes to a
 
 ```azurecli-interactive
 hubid=$(az eventhubs eventhub show --name $hubname --namespace-name $namespace --resource-group gridResourceGroup --query id --output tsv)
+topicid=$(az eventgrid topic show --name $topicname -g gridResourceGroup --query id --output tsv)
 
 az eventgrid event-subscription create \
-  --topic-name $topicname \
-  -g gridResourceGroup \
+  --source-resource-id $topicid \
   --name subtoeventhub \
   --endpoint-type eventhub \
   --endpoint $hubid
@@ -96,8 +93,8 @@ Navigate to the event hub in the portal, and notice that Event Grid sent those t
 
 Typically, you create an application that retrieves the events from the event hub. To create an application that gets messages from an event hub, see:
 
-* [Get started receiving messages with the Event Processor Host in .NET Standard](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
-* [Receive events from Azure Event Hubs using Java](../event-hubs/event-hubs-java-get-started-receive-eph.md)
+* [Get started receiving messages with the Event Processor Host in .NET Standard](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+* [Receive events from Azure Event Hubs using Java](../event-hubs/event-hubs-java-get-started-send.md)
 * [Receive events from Event Hubs using Apache Storm](../event-hubs/event-hubs-storm-getstarted-receive.md)
 
 ## Clean up resources
@@ -115,3 +112,11 @@ Now that you know how to create topics and event subscriptions, learn more about
 - [Route Blob storage events to a custom web endpoint](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 - [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
 - [Stream big data into a data warehouse](event-grid-event-hubs-integration.md)
+
+See the following samples to learn about publishing events to and consuming events from Event Grid using different programming languages. 
+
+- [Azure Event Grid samples for .NET](/samples/azure/azure-sdk-for-net/azure-event-grid-sdk-samples/)
+- [Azure Event Grid samples for Java](/samples/azure/azure-sdk-for-java/eventgrid-samples/)
+- [Azure Event Grid samples for Python](/samples/azure/azure-sdk-for-python/eventgrid-samples/)
+- [Azure Event Grid samples for JavaScript](/samples/azure/azure-sdk-for-js/eventgrid-javascript/)
+- [Azure Event Grid samples for TypeScript](/samples/azure/azure-sdk-for-js/eventgrid-typescript/)

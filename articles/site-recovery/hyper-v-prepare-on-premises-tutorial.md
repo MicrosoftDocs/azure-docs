@@ -1,30 +1,34 @@
 ---
-title: Prepare on-premises Hyper-V servers for disaster recovery of Hyper-V VMs to Azure| Microsoft Docs
-description: Learn how to prepare on-premises Hyper-V VMs for disaster recovery to Azure with the Azure Site Recovery service.
-services: site-recovery
-author: rayne-wiselman
+title: Prepare for disaster recovery of Hyper-V VMs to Azure with Azure Site Recovery
+description: Learn how to prepare on-premises Hyper-V VMs for disaster recovery to Azure with Azure Site Recovery.
 ms.service: site-recovery
-ms.topic: article
-ms.date: 10/28/2018
-ms.author: raynew
+ms.topic: tutorial
+ms.date: 11/12/2019
 ms.custom: MVC
 ---
 
 
 # Prepare on-premises Hyper-V servers for disaster recovery to Azure
 
-This tutorial shows you how to prepare your on-premises Hyper-V infrastructure when you want to replicate Hyper-V VMs to Azure, for the purposes of disaster recovery. Hyper-V hosts can be managed by System Center Virtual Machine Manager (VMM), but it's not required.  In this tutorial you learn how to:
+This article describes how to prepare your on-premises Hyper-V infrastructure when you want to set up disaster recovery of Hyper-VMs to Azure, using [Azure Site Recovery](site-recovery-overview.md).
+
+
+This is the second tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises Hyper-V VMs. In the first tutorial, we [set up the Azure components](tutorial-prepare-azure.md) needed for Hyper-V disaster recovery.
+
+In this tutorial you learn how to:
 
 > [!div class="checklist"]
-> * Review Hyper-V requirements, and VMM requirements if applicable.
-> * Prepare VMM if applicable
-> * Verify internet access to Azure locations
-> * Prepare VMs so that you can access them after failover to Azure
+> * Review Hyper-V requirements, and VMM requirements if your Hyper-V hosts are managed by System Center VMM.
+> * Prepare VMM if applicable.
+> * Verify internet access to Azure locations.
+> * Prepare VMs so that you can access them after failover to Azure.
 
-This is the second tutorial in the series. Make sure that you have
-[set up the Azure components](tutorial-prepare-azure.md) as described in the previous tutorial.
+> [!NOTE]
+> Tutorials show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the article in the How To section of the Site Recovery Table of Contents.
 
+## Before you start
 
+Make sure you've prepared Azure as described in the [first tutorial in this series](tutorial-prepare-azure.md).
 
 ## Review requirements and prerequisites
 
@@ -46,12 +50,12 @@ If Hyper-V hosts are managed by VMM, you need to prepare the on-premises VMM ser
 
 ### Prepare VMM for network mapping
 
-If you're using VMM, [network mapping](site-recovery-network-mapping.md) maps between on-premises VMM VM networks, and Azure virtual networks. Mapping ensures that Azure VMs are connected to the right network when they're created after failover.
+If you're using VMM, [network mapping](./hyper-v-vmm-network-mapping.md) maps between on-premises VMM VM networks, and Azure virtual networks. Mapping ensures that Azure VMs are connected to the right network when they're created after failover.
 
 Prepare VMM for network mapping as follows:
 
-1. Make sure you have a [VMM logical network](https://docs.microsoft.com/system-center/vmm/network-logical) that's associated with the cloud in which the Hyper-V hosts are located.
-2. Ensure you have a [VM network](https://docs.microsoft.com/system-center/vmm/network-virtual) linked to the logical network.
+1. Make sure you have a [VMM logical network](/system-center/vmm/network-logical) that's associated with the cloud in which the Hyper-V hosts are located.
+2. Ensure you have a [VM network](/system-center/vmm/network-virtual) linked to the logical network.
 3. In VMM, connect the VMs to the VM network.
 
 ## Verify internet access
@@ -81,7 +85,7 @@ To connect to Windows VMs using RDP after failover, allow access as follows:
    the **Windows Firewall** -> **Allowed apps and features** for **Domain and Private** networks.
    Check that the operating system's SAN policy is set to **OnlineAll**. [Learn
    more](https://support.microsoft.com/kb/3031135). There should be no Windows updates pending on
-   the VM when you trigger a failover. If there are, you won't be able to log in to the virtual
+   the VM when you trigger a failover. If there are, you won't be able to sign in to the virtual
    machine until the update completes.
 3. On the Windows Azure VM after failover, check **Boot diagnostics** to view a screenshot of the
    VM. If you can't connect, check that the VM is running and review these
@@ -92,5 +96,5 @@ After failover, you can access Azure VMs using the same IP address as the replic
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Set up disaster recovery to Azure for Hyper-V VMs](tutorial-hyper-v-to-azure.md)
-> [Set up disaster recovery to Azure for Hyper-V VMs in VMM clouds](tutorial-hyper-v-vmm-to-azure.md)
+> [Set up disaster recovery to Azure for Hyper-V VMs](./hyper-v-azure-tutorial.md)
+> [Set up disaster recovery to Azure for Hyper-V VMs in VMM clouds](./hyper-v-vmm-azure-tutorial.md)

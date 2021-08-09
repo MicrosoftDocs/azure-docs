@@ -1,23 +1,24 @@
 ---
-title: 'Quickstart: Submit a workflow using multiple inputs - Microsoft Genomics'
-titleSuffix: Azure
-description: The quickstart assumes you have the msgen client installed and have successfully run the sample data through the service.  
+title: Submit a workflow using multiple inputs
+titleSuffix: Microsoft Genomics
+description: This article demonstrates how to submit a workflow to the Microsoft Genomics service if your input file is multiple FASTQ or BAM files from the same sample.
 services: genomics
+ms.service: genomics
 author: grhuynh
 manager: cgronlund
 ms.author: grhuynh
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 02/05/2018
 
 ---
 
 # Submit a workflow using multiple inputs from the same sample
 
-This quickstart demonstrates how to submit a workflow to the Microsoft Genomics service if your input file is multiple FASTQ or BAM files **coming from the same sample**. For example, if you ran the **same sample** in multiple lanes on the sequencer, the sequencer could output a pair of FASTQ files for each lane. Rather than concatenating these FASTQ files prior to alignment and variant calling, you can directly submit all of these inputs to the `msgen` client. The output from the `msgen` client would be a **single set** of files, including a .bam, .bai, .vcf file. 
+This article demonstrates how to submit a workflow to the Microsoft Genomics service if your input file is multiple FASTQ or BAM files **coming from the same sample**. For example, if you ran the **same sample** in multiple lanes on the sequencer, the sequencer could output a pair of FASTQ files for each lane. Rather than concatenating these FASTQ files prior to alignment and variant calling, you can directly submit all of these inputs to the `msgen` client. The output from the `msgen` client would be a **single set** of files, including a .bam, .bai, .vcf file. 
 
 Keep in mind, however, that you **cannot** mix FASTQ and BAM files in the same submission. Further, you **cannot** submit multiple FASTQ or BAM files from multiple individuals. 
 
-This article assumes you have already installed and run the `msgen` client, and are familiar with how to use Azure Storage. If you have successfully submitted a workflow using the provided sample data, you are ready to proceed with this quickstart. 
+This article assumes you have already installed and run the `msgen` client, and are familiar with how to use Azure Storage. If you have successfully submitted a workflow using the provided sample data, you are ready to proceed with this article. 
 
 
 ## Multiple BAM files
@@ -151,4 +152,4 @@ output_storage_account_container: outputs
 Submit the `config.txt` file with this invocation: `msgen submit -f config.txt`
 
 ## Next steps
-In this article, you uploaded multiple BAM files or paired FASTQ files into Azure Storage and submitted a workflow to the Microsoft Genomics service through the `msgen` python client. For more information regarding workflow submission and other commands you can use with the Microsoft Genomics service, see the [FAQ](frequently-asked-questions-genomics.md). 
+In this article, you uploaded multiple BAM files or paired FASTQ files into Azure Storage and submitted a workflow to the Microsoft Genomics service through the `msgen` python client. For more information regarding workflow submission and other commands you can use with the Microsoft Genomics service, see the [FAQ](frequently-asked-questions-genomics.yml). 

@@ -1,41 +1,66 @@
 ---
-title: Security wizard in PIM - Azure | Microsoft Docs
-description: Describes the security wizard that appears the first time you use Azure AD Privileged Identity Management (PIM).
+title: Azure AD roles Discovery and insights (preview) in Privileged Identity Management former Security Wizard - Azure Active Directory
+description: Discovery and insights (formerly Security Wizard) help you convert permanent Azure AD role assignments to just-in-time assignments with Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: curtand
+manager: daveba
 editor: ''
 
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
-ms.component: pim
-ms.date: 02/27/2017
-ms.author: rolyon
+ms.subservice: pim
+ms.date: 06/03/2021
+ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
+ms.collection: M365-identity-device-management
 ---
-# Security wizard in PIM
-If you're the first person to run Azure Privileged Identity Management (PIM) for your organization, you will be presented with a wizard. The wizard helps you understand the security risks of privileged identities and how to use PIM to reduce those risks. You don't need to make any changes to existing role assignments in the wizard, if you prefer to do it later.
 
-## What to expect
-Before your organization starts using PIM, all role assignments are permanent: the users are always in these roles even if they do not presently need their privileges.  The first step of the wizard shows you a list of high-privileged roles and how many users are currently in those roles. You can drill in to a particular role to learn more about users if one or more of them are unfamiliar.
+# Discovery and Insights (preview) for Azure AD roles (formerly Security Wizard)
 
-The second step of the wizard gives you an opportunity to change administrator's role assignments.  
+If you're starting out with Privileged Identity Management (PIM) in your Azure Active Directory (Azure AD) organization, you can use the **Discovery and insights (preview)** page to get started. This feature shows you who is assigned to privileged roles in your organization and how to use PIM to quickly change permanent role assignments into just-in-time assignments. You can view or make changes to your permanent privileged role assignments in **Discovery and Insights (preview)**. It's an analysis tool and an action tool.
 
-> [!WARNING]
-> It is important that you have at least one global administrator, and more than one privileged role administrator with an organizational account (not a Microsoft account). If there is only one privileged role administrator, the organization will not be able to manage PIM if that account is deleted.
-> Also, keep role assignments permanent if a user has a Microsoft account (An account they use to sign in to Microsoft services like Skype and Outlook.com). If you plan to require MFA for activation for that role, that user will be locked out.
-> 
-> 
+## Discovery and insights (preview)
 
-After you have made changes, the wizard will no longer show up. The next time you or another privileged role administrator use PIM, you will see the PIM dashboard.  
+Before your organization starts using Privileged Identity Management, all role assignments are permanent. Users are always in their assigned roles even when they don't need their privileges. Discovery and insights (preview), which replaces the former Security Wizard, shows you a list of privileged roles and how many users are currently in those roles. You can list out assignments for a role to learn more about the assigned users if one or more of them are unfamiliar.
 
-* If you would like to add or remove users from roles or change assignments from permanent to eligible, read more at [how to add or remove a user's role](pim-how-to-add-role-to-user.md).
-* If you would like to give more users access to manage PIM, read more at [how to give access to manage in PIM](pim-how-to-give-access-to-pim.md).
+:heavy_check_mark: **Microsoft recommends** that you keep two break glass accounts that are permanently assigned to the global administrator role. Make sure that these accounts don't require the same multi-factor authentication mechanism as your normal administrative accounts to sign in, as described in [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
+
+Also, keep role assignments permanent if a user has a Microsoft account (in other words, an account they use to sign in to Microsoft services like Skype, or Outlook.com). If you require multi-factor authentication for a user with a Microsoft account to activate a role assignment, the user will be locked out.
+
+## Open Discovery and insights (preview)
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. Open **Azure AD Privileged Identity Management**.
+
+1. Select **Azure AD roles** and then select **Discovery and insights (Preview)**. Opening the page begins the discovery process to find relevant role assignments.
+
+    ![Azure AD roles - Discovery and insights page showing the 3 options](./media/pim-security-wizard/new-preview-link.png)
+
+1. Select **Reduce global administrators**.
+
+    ![Screenshot that shows the "Discovery and insights (Preview)" with the "Reduce global administrators" action selected.](./media/pim-security-wizard/new-preview-page.png)
+
+1. Review the list of Global Administrator role assignments.
+
+    ![Reduce global administrators - Roles pane showing all Global Administrators](./media/pim-security-wizard/new-global-administrator-list.png)
+
+1. Select **Next** to select the users or groups you want to make eligible, and then select **Make eligible** or **Remove assignment**.
+
+    ![Convert members to eligible page with options to select members you want to make eligible for roles](./media/pim-security-wizard/new-global-administrator-buttons.png)
+
+1. You can also require all global administrators to review their own access.
+
+    ![Global administrators page showing access reviews section](./media/pim-security-wizard/new-global-administrator-access-review.png)
+
+1. After you select any of these changes, you'll see an Azure notification.
+
+1. You can then select **Eliminate standing access** or **Review service principals** to repeat the above steps on other privileged roles and on service principal role assignments. For service principal role assignments, you can only remove role assignments.
+
+    ![Additional Insights options to eliminate standing access and review service principals ](./media/pim-security-wizard/new-preview-page-service-principals.png)
 
 ## Next steps
 
-- [Start using PIM](pim-getting-started.md)
-- [Assign Azure AD directory roles in PIM](pim-how-to-add-role-to-user.md)
-- [Grant access to other administrators to manage PIM](pim-how-to-give-access-to-pim.md)
+- [Assign Azure AD roles in Privileged Identity Management](pim-how-to-add-role-to-user.md)

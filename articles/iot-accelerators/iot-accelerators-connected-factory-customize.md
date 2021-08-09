@@ -13,7 +13,10 @@ ms.author: dobett
 
 # Customize how the Connected Factory solution displays data from your OPC UA servers
 
-The Connected Factory solution aggregates and displays data from the OPC UA servers connected to the solution. You can browse and send commands to the OPC UA servers in your solution. For more information about OPC UA, see the [Connected Factory FAQ](iot-accelerators-faq-cf.md).
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
+The Connected Factory solution aggregates and displays data from the OPC UA servers connected to the solution. You can browse and send commands to the OPC UA servers in your solution. For more information about OPC UA, see the [Connected Factory FAQ](iot-accelerators-faq-cf.yml).
 
 Examples of aggregated data in the solution include the Overall Equipment Efficiency (OEE) and Key Performance Indicators (KPIs) that you can view in the dashboard at the factory, line, and station levels. The following screenshot shows the OEE and KPI values for the **Assembly** station, on **Production line 1**, in the **Munich** factory:
 
@@ -75,10 +78,8 @@ The **azure-iot-connected-factory** repository includes a **build.ps1** PowerShe
 
 Learn more about the Connected Factory solution accelerator by reading the following articles:
 
-* [Connected Factory solution accelerator walkthrough][lnk-rm-walkthrough]
-* [Deploy a gateway for Connected Factory][lnk-connect-cf]
-* [Permissions on the azureiotsuite.com site][lnk-permissions]
-* [Connected Factory FAQ](iot-accelerators-faq-cf.md)
+* [Permissions on the azureiotsolutions.com site][lnk-permissions]
+* [Connected Factory FAQ](iot-accelerators-faq-cf.yml)
 * [FAQ][lnk-faq]
 
 
@@ -89,7 +90,5 @@ Learn more about the Connected Factory solution accelerator by reading the follo
 [img-published]: ./media/iot-accelerators-connected-factory-customize/published.png
 
 
-[lnk-rm-walkthrough]:iot-accelerators-connected-factory-sample-walkthrough.md
-[lnk-connect-cf]:iot-accelerators-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-accelerators-permissions.md
-[lnk-faq]: iot-accelerators-faq.md
+[lnk-faq]: iot-accelerators-faq.yml

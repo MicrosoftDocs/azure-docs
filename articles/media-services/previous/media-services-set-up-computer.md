@@ -1,23 +1,25 @@
 ---
 title: Set up your Azure Media Services development environment | Microsoft Docs
-description: Set up your environment for developing with Azure Media Services.
+description: This article describes how to set up your environment for developing with Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 0258a633-8b42-4853-acc7-3b5162d1d8cd
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/29/2018
-ms.author: juliako
-
+ms.topic: conceptual
+ms.date: 3/10/2021
+ms.author: inhenkel
 ---
-# Set up your Media Services development environment
+# Set up your Media Services development environment 
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 The following steps describe prerequisites required for developing with Azure Media Services.
 
@@ -46,4 +48,3 @@ Find multiple code samples in the **Azure Code Samples** gallery: [Azure Media S
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

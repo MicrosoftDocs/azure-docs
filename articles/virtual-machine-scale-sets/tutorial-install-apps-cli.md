@@ -1,22 +1,14 @@
 ---
-title: Tutorial - Install applications in a scale set with Azure CLI | Microsoft Docs
+title: Tutorial - Install applications in a scale set with Azure CLI
 description: Learn how to use the Azure CLI to install applications into virtual machine scale sets with the Custom Script Extension
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: zr-msft
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ju-shim
+ms.author: jushiman
 ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: extensions
 ms.date: 03/27/2018
-ms.author: zarhoads
-ms.custom: mvc
+ms.reviewer: mimckitt
+ms.custom: mimckitt, devx-track-azurecli
 
 ---
 # Tutorial: Install applications in virtual machine scale sets with the Azure CLI
@@ -27,17 +19,17 @@ To run applications on virtual machine (VM) instances in a scale set, you first 
 > * Use the Azure Custom Script Extension
 > * Update a running application on a scale set
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
+- This article requires version 2.0.29 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
 
 ## What is the Azure Custom Script Extension?
 The Custom Script Extension downloads and executes scripts on Azure VMs. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run-time.
 
-The Custom Script extension integrates with Azure Resource Manager templates, and can also be used with the Azure CLI, Azure PowerShell, Azure portal, or the REST API. For more information, see the [Custom Script Extension overview](../virtual-machines/linux/extensions-customscript.md).
+The Custom Script extension integrates with Azure Resource Manager templates, and can also be used with the Azure CLI, Azure PowerShell, Azure portal, or the REST API. For more information, see the [Custom Script Extension overview](../virtual-machines/extensions/custom-script-linux.md).
 
 To use the Custom Script Extension with the Azure CLI, you create a JSON file that defines what files to obtain and commands to execute. These JSON definitions can be reused across scale set deployments to apply consistent application installs.
 
@@ -54,15 +46,18 @@ In your current shell, create a file named *customConfig.json* and paste the fol
 }
 ```
 
+> [!CAUTION]
+> You may need to invert the use of the single (') and double quotes (") within the JSON block if you decide to reference the JSON directly (instead of referencing the *customConfig.json* file) in the *--settings* parameter below. 
+
 
 ## Create a scale set
-Create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Now create a virtual machine scale set with [az vmss create](/cli/azure/vmss#create). The following example creates a scale set named *myScaleSet*, and generates SSH keys if they do not exist:
+Now create a virtual machine scale set with [az vmss create](/cli/azure/vmss). The following example creates a scale set named *myScaleSet*, and generates SSH keys if they do not exist:
 
 ```azurecli-interactive
 az vmss create \
@@ -78,7 +73,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 
 ## Apply the Custom Script Extension
-Apply the Custom Script Extension configuration to the VM instances in your scale set with [az vmss extension set](/cli/azure/vmss/extension#set). The following example applies the *customConfig.json* configuration to the *myScaleSet* VM instances in the resource group named *myResourceGroup*:
+Apply the Custom Script Extension configuration to the VM instances in your scale set with [az vmss extension set](/cli/azure/vmss/extension). The following example applies the *customConfig.json* configuration to the *myScaleSet* VM instances in the resource group named *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -94,7 +89,7 @@ Each VM instance in the scale set downloads and runs the script from GitHub. In 
 
 
 ## Test your scale set
-To allow traffic to reach the web server, create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#create). The following example creates a rule named *myLoadBalancerRuleWeb*:
+To allow traffic to reach the web server, create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule). The following example creates a rule named *myLoadBalancerRuleWeb*:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -108,7 +103,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-To see your web server in action, obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip#show). The following example obtains the IP address for *myScaleSetLBPublicIP* created as part of the scale set:
+To see your web server in action, obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip). The following example obtains the IP address for *myScaleSetLBPublicIP* created as part of the scale set:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -137,7 +132,7 @@ In your current shell, create a file named *customConfigv2.json* and paste the f
 }
 ```
 
-Apply the Custom Script Extension configuration to the VM instances in your scale set again with [az vmss extension set](/cli/azure/vmss/extension#set). The *customConfigv2.json* is used to apply the updated version of the application:
+Apply the Custom Script Extension configuration to the VM instances in your scale set again with [az vmss extension set](/cli/azure/vmss/extension). The *customConfigv2.json* is used to apply the updated version of the application:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -155,7 +150,7 @@ All VM instances in the scale set are automatically updated with the latest vers
 
 
 ## Clean up resources
-To remove your scale set and additional resources, delete the resource group and all its resources with [az group delete](/cli/azure/group#az_group_delete). The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
+To remove your scale set and additional resources, delete the resource group and all its resources with [az group delete](/cli/azure/group). The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

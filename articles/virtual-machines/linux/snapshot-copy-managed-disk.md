@@ -1,21 +1,17 @@
 ---
-title: Create a snapshot of a VHD in Azure | Microsoft Docs
+title: Create a snapshot of a VHD using the Azure CLI 
 description: Learn how to create a copy of a VHD in Azure as a back up or for troubleshooting issues.
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.service: virtual-machines-linux
+author: roygara
+ms.author: rogarana
+manager: twooley
+ms.service: storage
+ms.subservice: disks
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/11/2018
-ms.author: cynthn
 ---
 
-# Create a snapshot 
+# Create a snapshot using the portal or Azure CLI
 
 Take a snapshot of an OS or data disk for backup or to troubleshoot VM issues. A snapshot is a full, read-only copy of a VHD. 
 
@@ -25,7 +21,7 @@ The following example requires that you use [Cloud Shell](https://shell.azure.co
 
 The following steps show how to take a snapshot using the **az snapshot create** command with the **--source-disk** parameter. The following example assumes that there is a VM called *myVM* in the *myResourceGroup* resource group.
 
-Get the disk ID using [az vm show](/cli/azure/vm#az-vm-show).
+Get the disk ID using [az vm show](/cli/azure/vm#az_vm_show).
 
 ```azurecli-interactive
 osDiskId=$(az vm show \
@@ -35,7 +31,7 @@ osDiskId=$(az vm show \
    -o tsv)
 ```
 
-Take a snapshot named *osDisk-backup* using [az snapshot create](/cli/azure/snapshot#az-snapshot-create).
+Take a snapshot named *osDisk-backup* using [az snapshot create](/cli/azure/snapshot#az_snapshot_create).
 
 ```azurecli-interactive
 az snapshot create \
@@ -47,7 +43,7 @@ az snapshot create \
 > [!NOTE]
 > If you would like to store your snapshot in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the **--sku Standard_ZRS** parameter.
 
-You can see a list of the snapshots using [az snapshot list](/cli/azure/snapshot#az-snapshot-list).
+You can see a list of the snapshots using [az snapshot list](/cli/azure/snapshot#az_snapshot_list).
 
 ```azurecli-interactive
 az snapshot list \
@@ -69,5 +65,4 @@ az snapshot list \
 
 ## Next steps
 
- Create a virtual machine from a snapshot by creating a managed disk from the snapshot and then attaching the new managed disk as the OS disk. For more information, see the [Create a VM from a snapshot](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) script.
-
+ Create a virtual machine from a snapshot by creating a managed disk from the snapshot and then attaching the new managed disk as the OS disk. For more information, see the [Create a VM from a snapshot](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot?toc=%2fcli%2fmodule%2ftoc.json) script.

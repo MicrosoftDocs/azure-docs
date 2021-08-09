@@ -13,13 +13,17 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
+ms.custom: fasttrack-edit
 ---
 
 # Capacity of an Azure API Management instance
 
-**Capacity** is the single, most important [Azure Monitor metric](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) for making informed decisions whether to scale an API Management instance to accommodate more load. Its construction is complex and imposes certain behavior.
+**Capacity** is the most important [Azure Monitor metric](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) for making informed decisions whether to scale an API Management instance to accommodate more load. Its construction is complex and imposes certain behavior.
 
 This article explains what the **capacity** is and how it behaves. It shows how to access **capacity** metrics in the Azure portal and suggests when to consider scaling or upgrading your API Management instance.
+
+> [!IMPORTANT]
+> This article discusses how you can monitor and scale your Azure API Management instance based upon its capacity metric. However, it is equally important to understand what happens when an individual API Management instance has actually *reached* its capacity. Azure API Management will not apply any service-level throttling to prevent a physical overload of the instances. When an instance reaches its physical capacity, it will behave similar to any overloaded web server that is unable to process incoming requests: latency will increase, connections will get dropped, timeout errors will occur, etc. This means that API clients should be prepared to deal with this possibility similar as with any other external service (e.g. by applying retry policies).
 
 ## Prerequisites
 
@@ -31,16 +35,21 @@ To follow the steps from this article, you must have:
 
 + An APIM instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## What is capacity
 
-![Capacity metric](./media/api-management-capacity/capacity-ingredients.png)
+![Diagram that explains the Capacity metric.](./media/api-management-capacity/capacity-ingredients.png)
 
-**Capacity** is an indicator of load on an APIM instance. It reflects resources usage (CPU, memory) and network queue lengths. CPU and memory usage reveals resources consumption by:
+**Capacity** is an indicator of load on an API Management instance. It reflects resources usage (CPU, memory) and network queue lengths. CPU and memory usage reveals resources consumption by:
 
-+ APIM services, such as management actions or request processing, which can include forwarding requests or running a policy
-+ selected operating system processes, including processes that involve cost of SSL handshakes on new connections.
++ API Management data plane services, such as request processing, which can include forwarding requests or running a policy.
++ API Management management plane services, such as management actions applied via the Azure Portal or ARM, or load coming from the [developer portal](api-management-howto-developer-portal.md).
++ Selected operating system processes, including processes that involve cost of TLS handshakes on new connections.
 
 Total **capacity** is an average of its own values from every unit of an API Management instance.
+
+Although the **capacity metric** is designed to surface problems with your API Management instance, there are cases when problems won't be reflected in changes in the **capacity metric**.
 
 ## Capacity metric behavior
 
@@ -58,13 +67,15 @@ The more complex operations on the requests are, the higher the **capacity** con
 ![Capacity metric spikes](./media/api-management-capacity/capacity-spikes.png)
 
 **Capacity** can also spike intermittently or be greater than zero even if there are no requests being processed. It happens because of system- or platform-specific actions and should not be taken into consideration when deciding whether to scale an instance.
+
+Low **capacity metric** doesn't necessarily mean that your API Management instance isn't experiencing any problems.
   
 ## Use the Azure Portal to examine capacity
   
 ![Capacity metric](./media/api-management-capacity/capacity-metric.png)  
 
 1. Navigate to your APIM instance in the [Azure portal](https://portal.azure.com/).
-2. Select **Metrics (preview)**.
+2. Select **Metrics**.
 3. From the purple section, select **Capacity** metric from available metrics and leave the default **Avg** aggregation.
 
     > [!TIP]
@@ -73,7 +84,7 @@ The more complex operations on the requests are, the higher the **capacity** con
 4. From the green section, select **Location** for splitting the metric by dimension.
 5. Pick a desired timeframe from the top bar of the section.
 
-    You can set a metric alert to let you know when something unexpected is happening. For example, get notifications when your APIM instance has been exceededing its expected peak capacity for over 20 minutes.
+    You can set a metric alert to let you know when something unexpected is happening. For example, get notifications when your APIM instance has been exceeding its expected peak capacity for over 20 minutes.
 
     >[!TIP]
     > You can configure alerts to let you know when your service is running low on capacity or use Azure Monitor autoscaling functionality to automatically add an Azure API Management unit. Scaling operation can take around 30 minutes, so you should plan your rules accordingly.  
@@ -92,4 +103,5 @@ The more complex operations on the requests are, the higher the **capacity** con
 
 ## Next steps
 
-[How to scale or upgrade an Azure API Management service instance](upgrade-and-scale.md)
+- [How to scale or upgrade an Azure API Management service instance](upgrade-and-scale.md)
+- [Optimize and save on your cloud spending](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

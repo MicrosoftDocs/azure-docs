@@ -1,30 +1,36 @@
 ---
-title: Describing adult and racy content - Computer Vision
+title: Adult, racy, gory content - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepts related to detecting adult and racy content in images using the Computer Vision APi.
+description: Concepts related to detecting adult content in images using the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 10/01/2019
 ms.author: pafarley
+ms.custom: seodec18
 ---
 
-# Detecting adult and racy content
+# Detect adult content
 
-Among the various visual categories is the adult and racy group, which enables detection of adult materials and restricts the display of images containing sexual content. The filter for adult and racy content detection can be set on a sliding scale to accommodate the user's preference.
+Computer Vision can detect adult material in images so that developers can restrict the display of these images in their software. Content flags are applied with a score between zero and one so developers can interpret the results according to their own preferences.
 
-## Defining adult and racy content
+> [!NOTE]
+> Much of this functionality is offered by the [Azure Content Moderator](../content-moderator/overview.md) service. See this alternative for solutions to more rigorous content moderation scenarios, such as text moderation and human review workflows.
 
-Among the various visual features covered by the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), the Adult visual feature enables detection of adult and racy images. "Adult" images are defined as those that are pornographic in nature and often depict nudity and sexual acts. "Racy" images are defined as images that are sexually suggestive in nature and often contain less sexually explicit content than images tagged as "Adult." The Adult visual feature type is commonly used to restrict the display of images containing sexually suggestive and explicitly sexual content.
+## Content flag definitions
 
-## Identifying adult and racy content
+The "adult" classification contains several different categories:
 
-The Analyze Image method returns two properties, `isAdultContent` and `isRacyContent`, in the JSON response of the method to indicate, respectively, adult and racy content. Both properties return a boolean value, either true or false. The method also returns two properties, `adultScore` and `racyScore`, which represent, respectively, the confidence scores for identifying adult and racy content. A confidence filter for adult and racy content detection can be set on a sliding scale to accommodate your preference based on your specific scenario.
+- **Adult** images are explicitly sexual in nature and often show nudity and sexual acts.
+- **Racy** images are sexually suggestive in nature and often contain less sexually explicit content than images tagged as **Adult**.
+- **Gory** images show blood/gore.
 
-## Next steps
+## Use the API
 
-Learn concepts about [detecting domain-specific content](concept-detecting-domain-content.md) and [detecting faces](concept-detecting-faces.md).
+You can detect adult content with the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. When you add the value of `Adult` to the **visualFeatures** query parameter, the API returns three boolean properties&mdash;`isAdultContent`, `isRacyContent`, and `isGoryContent`&mdash;in its JSON response. The method also returns corresponding properties&mdash;`adultScore`, `racyScore`, and `goreScore`&mdash;which represent confidence scores between zero and one for each respective category.
+
+- [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)

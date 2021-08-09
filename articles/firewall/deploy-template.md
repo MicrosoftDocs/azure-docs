@@ -1,44 +1,91 @@
 ---
-title: Deploy Azure Firewall using a template
-description: Deploy Azure Firewall using a template
+title: 'Quickstart: Create an Azure Firewall with Availability Zones - Resource Manager template'
+description: In this quickstart, you deploy Azure Firewall using a template. The virtual network has one VNet with three subnets. Two Windows Server virtual machines are deployed; a jump box and a server.
 services: firewall
 author: vhorne
-manager: jpconnock
-
 ms.service: firewall
-ms.topic: article
-ms.date: 7/11/2018
+ms.topic: quickstart
+ms.custom: subject-armqs, devx-track-azurepowershell
+ms.date: 05/10/2021
 ms.author: victorh
 ---
 
-# Deploy Azure Firewall using a template
+# Quickstart: Deploy Azure Firewall with Availability Zones - ARM template
 
-This template creates a firewall and a test network environment. The network has one VNet, with three subnets: *AzureFirewallSubnet*, *ServersSubnet*, and a *JumpboxSubnet*. The ServersSubnet and JumpboxSubnet each have one 2-core Windows Server in them.
+In this quickstart, you use an Azure Resource Manager template (ARM template) to deploy an Azure Firewall in three Availability Zones.
 
-The firewall is in the AzureFirewallSubnet and is configured with an Application Rule Collection with a single rule that allows access to www.microsoft.com.
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-A user defined route is created that points the network traffic from the ServersSubnet through the firewall, where the firewall rules are applied.
+The template creates a test network environment with a firewall. The network has one virtual network (VNet) with three subnets: *AzureFirewallSubnet*, *ServersSubnet*, and *JumpboxSubnet*. The *ServersSubnet* and *JumpboxSubnet* subnet each have a single, two-core Windows Server virtual machine.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+The firewall is in the *AzureFirewallSubnet* subnet, and has an application rule collection with a single rule that allows access to `www.microsoft.com`.
 
-## Template location
+A user-defined route points network traffic from the *ServersSubnet* subnet through the firewall, where the firewall rules are applied.
 
-The template is located at:
+For more information about Azure Firewall, see [Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md).
 
-[https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox)
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-Read the introduction, and when ready to deploy, click **Deploy to Azure**.
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-with-zones-sandbox%2Fazuredeploy.json)
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+## Review the template
+
+This template creates an Azure Firewall with Availability Zones, along with the necessary resources to support the Azure Firewall.
+
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azurefirewall-with-zones-sandbox).
+
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/azurefirewall-with-zones-sandbox/azuredeploy.json":::
+
+Multiple Azure resources are defined in the template:
+
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
+- [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
+
+## Deploy the template
+
+Deploy the ARM template to Azure:
+
+1. Select **Deploy to Azure** to sign in to Azure and open the template. The template creates an Azure Firewall, the network infrastructure, and two virtual machines.
+
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-with-zones-sandbox%2Fazuredeploy.json)
+
+2. In the portal, on the **Create a sandbox setup of Azure Firewall with Zones** page, type or select the following values:
+   - **Resource group**: Select **Create new**, type a name for the resource group, and select **OK**.
+   - **Virtual Network Name**: Type a name for the new VNet.
+   - **Admin Username**: Type a username for the administrator user account.
+   - **Admin Password**: Type an administrator password.
+
+3. Read the terms and conditions, and then select **I agree to the terms and conditions stated above** and then select **Purchase**. The deployment can take 10 minutes or longer to complete.
+
+## Review deployed resources
+
+Explore the resources that were created with the firewall.
+
+To learn about the JSON syntax and properties for a firewall in a template, see [Microsoft.Network/azureFirewalls](/azure/templates/microsoft.network/azurefirewalls).
 
 ## Clean up resources
 
-First explore the resources that were created with the firewall, and then when no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group, firewall, and all related resources.
+When you no longer need them, you can remove the resource group, firewall, and all related resources by running the `Remove-AzResourceGroup` PowerShell command. To remove a resource group named *MyResourceGroup*, run:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name MyResourceGroup
 ```
+
+Don't remove the resource group and firewall if you plan to continue on to the firewall monitoring tutorial.
+
 ## Next steps
 
-Next, you can monitor the Azure Firewall logs:
+Next, you can monitor the Azure Firewall logs.
 
-- [Tutorial: Monitor Azure Firewall logs](./tutorial-diagnostics.md)
-
+> [!div class="nextstepaction"]
+> [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)

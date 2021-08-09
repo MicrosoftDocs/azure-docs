@@ -1,14 +1,14 @@
 ---
 title: What is a workspace and project? - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: A workspace is a work area for composing and building your custom translation system. A workspace can contain multiple projects, models, and documents. A project is a wrapper for a model, documents, and tests. Each project automatically includes all documents that are uploaded into that workspace that have the correct language pair.
+description: This article will explain the differences between a workspace and a project as well as project categories and labels for the Custom Translator service.
 services: cognitive-services
-author: rajdeep-in
-manager: christw
+author: laujan
+manager: nitinme
 ms.service: cognitive-services
-ms.component: custom-translator
-ms.date: 11/13/2018
-ms.author: v-rada
+ms.subservice: translator-text
+ms.date: 08/17/2020
+ms.author: lajanuar
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to concept of a project, so that I can use it efficiently.
 ---
@@ -25,16 +25,13 @@ automatically includes all documents that are uploaded into that workspace that
 have the correct language pair. For example, if you have both an English to
 Spanish project and a Spanish to English project, the same documents will be
 included in both projects. Each project has a CategoryID associated with it
-that is used when querying the [V3 API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) for translations. CategoryID is parameter used to get translations from a customized system built with Custom Translator.
+that is used when querying the [V3 API](../reference/v3-0-translate.md?tabs=curl) for translations. CategoryID is parameter used to get translations from a customized system built with Custom Translator.
 
 ## Project categories
 
 The category identifies the domain – the area of terminology and style you want to use – for your project. Choose the category most relevant to your documents. In some cases, your choice of the category directly influences the behavior of the Custom Translator.
 
-We don't have custom models for categories yet except a general
-baseline system. But we still recommend users to select the category most
-applicable to their domain so that it can be used as an identifier in the
-CategoryID. For projects in the technology domain, selecting "Technology" ensures that when a baseline model is available, that your project will be able to use it.
+We have two sets of baseline models. They are General and Technology. If the category **Technology** is selected, the Technology baseline models will be used. For any other category selection, the General baseline models are used. The Technology baseline model does well in technology domain, but it shows lower quality, if the sentences used for translation don't fall within the technology domain. We suggest customers to select category Technology only if sentences fall strictly within the technology domain.
 
 In the same workspace, you may create projects for the same language pair in
 different categories. Custom Translator prevents creation of a duplicate project

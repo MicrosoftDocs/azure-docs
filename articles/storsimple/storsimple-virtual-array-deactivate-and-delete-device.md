@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: a929f5bc-03e2-4b01-b925-973db236f19f
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 04/27/2021
 ms.author: alkohli
 ---
 # Deactivate and delete a StorSimple Virtual Array
@@ -22,10 +22,10 @@ ms.author: alkohli
 
 When you deactivate a StorSimple Virtual Array, you break the connection between the device and the corresponding StorSimple Device Manager service. This tutorial explains how to:
 
-* Deactivate a device 
+* Deactivate a device
 * Delete a deactivated device
 
-The information in this article applies to StorSimple Virtual Arrays only. For information on 8000 series, go to how to [deactivate or delete a device](storsimple-deactivate-and-delete-device.md).
+The information in this article applies to StorSimple Virtual Arrays only. For information on 8000 series, go to how to [deactivate or delete a device](./storsimple-8000-deactivate-and-delete-device.md).
 
 ## When to deactivate?
 
@@ -37,11 +37,11 @@ Deactivation is a PERMANENT operation and cannot be undone. You cannot register 
 
 ## Deactivate a device
 
-To deactivate your device, perform the following steps.
+To deactivate your device, perform the following steps. A device must be online to be deactivated.
 
 #### To deactivate the device
 
-1. In your service, go to **Management > Devices**. In the **Devices** blade, click and select the device that you wish to deactivate.
+1. In your service, go to **Management > Devices**. In the **Devices** blade, click and select the device that you wish to deactivate. The device status must be **Online**.
    
     ![Select device to deactivate](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete7.png)
 2. In your **Device dashboard** blade, click **… More** and from the list, select **Deactivate**.
@@ -54,6 +54,7 @@ To deactivate your device, perform the following steps.
     The deactivate process starts and takes a few minutes to complete.
    
     ![Deactivate in progress](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete2.png)
+
 4. After deactivation, the list of devices refreshes.
    
     ![Deactivate complete](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete3.png)
@@ -62,7 +63,7 @@ To deactivate your device, perform the following steps.
 
 ## Delete the device
 
-A device has to be first deactivated to delete it. Deleting a device removes it from the list of devices connected to the service. The service can then no longer manage the deleted device. The data associated with the device however remains in the cloud. This data then accrues charges.
+A device has to be first deactivated to delete it. Deleting a device removes it from the list of devices connected to the service. The service can then no longer manage the deleted device. The data associated with the device, however, remains in the cloud. This data then accrues charges.
 
 To delete the device, perform the following steps.
 
@@ -85,5 +86,4 @@ To delete the device, perform the following steps.
 
 * For information on how to fail over, go to [Failover and disaster recovery of your StorSimple Virtual Array](storsimple-virtual-array-failover-dr.md).
 
-* To learn more about how to use the StorSimple Device Manager service, go to [Use the StorSimple Device Manager service to administer your StorSimple Virtual Array](storsimple-virtual-array-manager-service-administration.md). 
-
+* To learn more about how to use the StorSimple Device Manager service, go to [Use the StorSimple Device Manager service to administer your StorSimple Virtual Array](storsimple-virtual-array-manager-service-administration.md).

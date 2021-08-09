@@ -3,22 +3,25 @@ title: Get started using the Java SDK for Azure Media Services | Microsoft Docs
 description: This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery service with Azure Media Services (AMS) application using Java.
 services: media-services
 documentationcenter: java
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: johndeu
-
 ms.assetid: b884bd61-dbdb-42ea-b170-8fb02e7fded7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: get-started-article
-ms.date: 09/18/2018
-ms.author: juliako
-
+ms.topic: conceptual
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.custom: devx-track-java
 ---
+
 # Get started with the Java client SDK for Azure Media Services
-[!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 This tutorial walks you through the steps of implementing a basic video content delivery service with Azure Media Services using the Java client SDK.
 
@@ -36,13 +39,13 @@ To start using the Media Services SDK for Java, add a reference to the current v
 
 For example, if your build tool is `gradle`, add the following dependency to your `build.gradle` file:
 
-    compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'
+`compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'`
 
 >[!IMPORTANT]
 >Starting with `azure-media` package version `0.9.8`, the SDK added support for Azure Active Directory (AAD) authentication and removed support for  Azure Access Control Service (ACS) authentication. We recommend that you migrate to the Azure AD authentication model as soon as possible. For details on migration,  read the article [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
 
 >[!NOTE]
->You can find the source code of the Azure Media Services Java SDK in our [GitHub repository](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media). Make sure to switch to the 0.9 branch, and not the master branch. 
+>You can find the source code of the Azure Media Services Java SDK in our [GitHub repository](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media). Make sure to switch to the 0.9 branch, and not the main branch. 
 
 ## How to: Use Azure Media Services with Java
 
@@ -59,7 +62,7 @@ The code connects to the Azure Media Services API using Azure AD service princip
 * `clientKey`: The client key of the Azure AD application
 * `restApiEndpoint`: The REST API endpoint of the Azure Media Services account
 
-You can create an Azure AD application and obtain the preceding configuration values from the Azure portal. For more information, see the **Service principal authentication** section of [Getting started with Azure AD authentication using the Azure portal](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
+You can create an Azure AD application and obtain the preceding configuration values from the Azure portal. For more information, see the **Service principal authentication** section of [Getting started with Azure AD authentication using the Azure portal](./media-services-portal-get-started-with-aad.md).
 
 The code also relies on a locally stored video file. You must edit the code to provide your own local file to upload.
 
@@ -313,7 +316,6 @@ For Media Services Javadoc documentation, see [Azure Libraries for Java document
 <!-- URLs. -->
 
 [Azure Media Services SDK Maven Package]: https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest
-[Azure Java Developer Center]: http://azure.microsoft.com/develop/java/
-[Azure for Java developers]: https://docs.microsoft.com/java/azure/
-[Media Services Client Development]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
-
+[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
+[Azure for Java developers]: /java/azure/
+[Media Services Client Development]: /previous-versions/azure/dn223283(v=azure.100)

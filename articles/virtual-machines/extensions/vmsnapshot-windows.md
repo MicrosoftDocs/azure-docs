@@ -1,36 +1,28 @@
 ---
-title: VM Snapshot Windows extension for Azure Backup | Microsoft Docs
+title: VM Snapshot Windows extension for Azure Backup 
 description: Take application consistent backup of the virtual machine from Azure Backup using VM snapshot extension
-services: backup, virtual-machines-windows
+services: backup, virtual-machines
 documentationcenter: ''
-author: trinadhk
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 57759670-0baa-44db-ae14-8cdc00d3a906
-ms.service: backup, virtual-machines-windows
-ms.devlang: na
+author: trinadhkotturu
+manager: gwallace
+ms.service: virtual-machines
+ms.subservice: extensions
+ms.collection: windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
-ms.date: 3/26/2018
+ms.date: 10/15/2020
 ms.author: trinadhk
 
 ---
 # VM Snapshot Windows extension for Azure Backup
 
-## Overview
-
 Azure Backup provides support for backing up workloads from on-premises to cloud and backing up cloud resources to Recovery Services vault. Azure Backup uses VM snapshot extension to take an application consistent backup of the Azure virtual machine without the need to shutdown the VM. VM Snapshot extension is published and supported by Microsoft as part of Azure Backup service. Azure Backup will install the extension as part of first scheduled backup triggered post enabling backup. This document details the supported platforms, configurations, and deployment options for the VM Snapshot extension.
+
+The VMSnapshot extension appears in the Azure portal only for non-managed VMs.
 
 ## Prerequisites
 
 ### Operating system
-For a list of supported operating systems, refer to [Operating Systems supported by Azure Backup](../../backup/backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup)
-
-### Internet connectivity
-
-VM Snapshot extension requires that the target virtual machine is connected to the internet when we take a backup of virtual machine.
+For a list of supported operating systems, refer to [Operating Systems supported by Azure Backup](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
 
 ## Extension schema
 
@@ -42,7 +34,7 @@ The following JSON shows the schema for the VM snapshot extension. The extension
   "name": "VMSnapshot",
   "location":"<myLocation>",
   "properties": {
-    "publisher": "Microsoft.RecoveryServices",
+    "publisher": "Microsoft.Azure.RecoveryServices",
     "type": "VMSnapshot",
     "typeHandlerVersion": "1.9",
     "autoUpgradeMinorVersion": true,
@@ -54,7 +46,7 @@ The following JSON shows the schema for the VM snapshot extension. The extension
       "vmType": "microsoft.compute/virtualmachines"
     },
     "protectedSettings": {
-      "objectStr": "<blob SAS uri represenattion of VM sent by Azure Backup service to extension>",
+      "objectStr": "<blob SAS uri representation of VM sent by Azure Backup service to extension>",
       "logsBlobUri": "<blob uri where logs of command execution by extension are written to>",
       "statusBlobUri": "<blob uri where status of the command executed by extension is written>"
     }
@@ -78,7 +70,7 @@ The following JSON shows the schema for the VM snapshot extension. The extension
 
 ## Template deployment
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. However, the recommended way of adding a VM snapshot extension to a virtual machine is by enabling backup on the virtual machine. This can be achieved through a Resource Manager template.  A sample Resource Manager template that enables backup on a virtual machine can be found on the [Azure Quick Start Gallery](https://azure.microsoft.com/resources/templates/101-recovery-services-backup-vms/).
+Azure VM extensions can be deployed with Azure Resource Manager templates. However, the recommended way of adding a VM snapshot extension to a virtual machine is by enabling backup on the virtual machine. This can be achieved through a Resource Manager template.  A sample Resource Manager template that enables backup on a virtual machine can be found on the [Azure Quick Start Gallery](https://azure.microsoft.com/resources/templates/recovery-services-backup-vms/).
 
 
 ## Azure CLI deployment
@@ -91,6 +83,16 @@ az backup protection enable-for-vm \
     --vault-name myRecoveryServicesVault \
     --vm myVM \
     --policy-name DefaultPolicy
+```
+
+## Azure Powershell deployment
+
+Azure Powershell can be used to enable backup on a virtual machine. Once the backup is configured, first scheduled backup job will install the Vm snapshot extension on the VM.
+
+```azurepowershell
+$targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "myResourceGroup" -Name "myRecoveryServicesVault"
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy Name DefaultPolicy -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "myVM" -ResourceGroupName "myVMResourceGroup" -VaultId $targetVault.ID
 ```
 
 ## Troubleshoot and support

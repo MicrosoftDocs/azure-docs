@@ -1,35 +1,44 @@
 ---
-title: "Quickstart: Bing Entity Search API, PHP"
-titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing Entity Search API.
+title: "Quickstart: Send a search request to the REST API using PHP - Bing Entity Search"
+titleSuffix: Azure Cognitive Services
+description: Use this quickstart to send a request to the Bing Entity Search REST API using PHP, and receive a JSON response.
 services: cognitive-services
-author: v-jaswel
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
-ms.author: v-jaswel
+ms.date: 05/08/2020
+ms.author: aahi
 ---
-# Quickstart for Bing Entity Search API with PHP
 
-This article shows you how to use the [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API with PHP.
+# Quickstart: Send a search request to the Bing Entity Search REST API using PHP
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
+Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple PHP application sends a news search query to the API, and displays the response. 
+
+Although this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
-You will need [PHP 5.6.x](http://php.net/downloads.php) to run this code.
+* [PHP 5.6.x](https://php.net/downloads.php) or later
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Entity Search API**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## Search entities
 
-To run this application, follow these steps.
+To run this application, follow these steps:
 
 1. Create a new PHP project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `key` value with an access key valid for your subscription.
-4. Run the program.
+4. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+5. Run the program.
 
 ```php
 <?php
@@ -44,8 +53,8 @@ To run this application, follow these steps.
 // Replace the subscriptionKey string value with your valid subscription key.
 $subscriptionKey = 'ENTER KEY HERE';
 
-$host = "https://api.cognitive.microsoft.com";
-$path = "/bing/v7.0/entities";
+$host = "https://api.bing.microsoft.com";
+$path = "/v7.0/search";
 
 $mkt = "en-US";
 $query = "italian restaurants near me";
@@ -57,7 +66,7 @@ function search ($host, $path, $key, $mkt, $query) {
 	$headers = "Ocp-Apim-Subscription-Key: $key\r\n";
 
 	// NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-	// http://php.net/manual/en/function.stream-context-create.php
+	// https://php.net/manual/en/function.stream-context-create.php
 	$options = array (
 		'http' => array (
 			'header' => $headers,
@@ -75,7 +84,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
 ```
 
-**Response**
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -115,7 +124,7 @@ A successful response is returned in JSON, as shown in the following example:
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [
@@ -140,11 +149,10 @@ A successful response is returned in JSON, as shown in the following example:
 }
 ```
 
-[Back to top](#HOLTop)
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Entity Search tutorial](../tutorial-bing-entities-search-single-page-app.md)
-> [Bing Entity Search overview](../search-the-web.md )
-> [API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
+
+* [What is the Bing Entity Search API?](../overview.md )
+* [Bing Entity Search API reference](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

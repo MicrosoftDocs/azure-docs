@@ -1,18 +1,19 @@
-﻿---
-title: "Tutorial: Build an image processing app - C#"
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Explore a basic Windows app that uses the Computer Vision API in Microsoft Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
+---
+title: "Sample: Explore an image processing app in C#"
+titleSuffix: Azure Cognitive Services
+description: Explore a basic Windows app that uses the Computer Vision API in Azure Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
 services: cognitive-services
 author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
-ms.component: computer-vision
-ms.topic: article
-ms.date: 08/28/2018
+ms.subservice: computer-vision
+ms.topic: sample
+ms.date: 04/17/2019
 ms.author: pafarley
+ms.custom: "seodec18, devx-track-csharp"
 ---
 
-# Tutorial: Build an image processing app - C&#35;
+# Sample: Explore an image processing app with C#
 
 Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR), create smart-cropped thumbnails, plus detect, categorize, tag and describe visual features, including faces, in an image. The below example lets you submit an image URL or a locally stored file. You can use this open source example as a template for building your own app for Windows using the Computer Vision API and Windows Presentation Foundation (WPF), a part of .NET Framework.
 
@@ -27,11 +28,14 @@ Explore a basic Windows application that uses Computer Vision to perform optical
 Before exploring the sample app, ensure that you've met the following prerequisites:
 
 * You must have [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) or later.
-* You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Get the sample app
 
-The Computer Vision sample app is available on GitHub from the `Microsoft/Cognitive-Vision-Windows` repository. This repository also includes the `Microsoft/Cognitive-Common-Windows` repository as a Git submodule. You can recursively clone this repository, including the submodule, either by using the `git clone --recurse-submodules` command from the command line, or by using GitHub Desktop.
+The Computer Vision sample app is available on GitHub from the [Microsoft/Cognitive-Vision-Windows repository](https://github.com/microsoft/Cognitive-Vision-Windows). This repository also includes the `Microsoft/Cognitive-Common-Windows` repository as a Git submodule. You can recursively clone this repository, including the submodule, either by using the `git clone --recurse-submodules` command from the command line, or by using GitHub Desktop.
 
 For example, to recursively clone the repository for the Computer Vision sample app from a command prompt, run the following command:
 
@@ -73,9 +77,8 @@ You can run the sample app, to see how it interacts with you and with the Comput
 1. When the sample app is displayed, choose **Subscription Key Management** from the navigation pane to display the Subscription Key Management page.
    ![Subscription Key Management page](../Images/Vision_UI_Subscription.PNG)  
 1. Enter your subscription key in **Subscription Key**.
-1. Enter the endpoint URL, omitting the `/vision/v1.0`, of the Computer Vision resource for your subscription key in **Endpoint**.  
-   For example, if you're using the subscription key from the Computer Vision free trial, enter the following endpoint URL for the West Central US Azure region:
-   `https://westcentralus.api.cognitive.microsoft.com`
+1. Enter the endpoint URL in **Endpoint**.  
+   [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. If you don't want to enter your subscription key and endpoint URL the next time you run the sample app, choose **Save Setting** to save the subscription key and endpoint URL to your computer. If you want to delete your previously-saved subscription key and endpoint URL, choose **Delete Setting**.
 
    > [!NOTE]
@@ -93,11 +96,8 @@ You can run the sample app, to see how it interacts with you and with the Comput
    |Recognize Text V2 (English) | Uses the [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) and [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) operations to asynchronously recognize and extract printed or handwritten text from an image. |
    |Get Thumbnail | Uses the [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) operation to generate a thumbnail for a local or remote image. |
 
-   > [!IMPORTANT]
-   > Microsoft receives the images you upload and may use them to improve Computer Vision API and related services. By submitting an image, you confirm that you have followed our [Developer Code of Conduct](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
-
    The following screenshot illustrates the page provided for the Analyze Image scenario, after analyzing a sample image.
-   ![Analyze Image scenario page](../Images/Analyze_Image_Example.PNG)
+   ![Screenshot of the Analyze image page](../Images/Analyze_Image_Example.PNG)
 
 ## Explore the sample app
 
@@ -309,4 +309,4 @@ When no longer needed, delete the folder into which you cloned the `Microsoft/Co
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with Face API](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)
+> [Get started with Face service](../../face/quickstarts/client-libraries.md?pivots=programming-language-csharp)

@@ -1,21 +1,13 @@
 ---
 title: Troubleshoot Azure Data Factory issues
 description: Learn how to troubleshoot issues with using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
-author: douglaslMS
-manager: craigg
-
-
-ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: douglasl
-
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel 
+ms.custom: devx-track-azurepowershell
 robots: noindex
 ---
 # Troubleshoot Data Factory issues
@@ -24,6 +16,8 @@ robots: noindex
 
 This article provides troubleshooting tips for issues when using Azure Data Factory. This article does not list all the possible issues when using the service, but it covers some issues and general troubleshooting tips.   
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Troubleshooting tips
 ### Error: The subscription is not registered to use namespace 'Microsoft.DataFactory'
 If you receive this error, the Azure Data Factory resource provider has not been registered on your machine. Do the following:
@@ -31,21 +25,22 @@ If you receive this error, the Azure Data Factory resource provider has not been
 1. Launch Azure PowerShell.
 2. Log in to your Azure account using the following command.
 
-	```powershell
-	Connect-AzureRmAccount
-	```
+   ```powershell
+   Connect-AzAccount
+   ```
+
 3. Run the following command to register the Azure Data Factory provider.
 
-	```powershell        
-	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
-	```
+   ```powershell
+   Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
+   ```
 
 ### Problem: Unauthorized error when running a Data Factory cmdlet
 You are probably not using the right Azure account or subscription with the Azure PowerShell. Use the following cmdlets to select the right Azure account and subscription to use with the Azure PowerShell.
 
-1. Connect-AzureRmAccount - Use the right user ID and password
-2. Get-AzureRmSubscription - View all the subscriptions for the account.
-3. Select-AzureRmSubscription &lt;subscription name&gt; - Select the right subscription. Use the same one you use to create a data factory on the Azure portal.
+1. Connect-AzAccount - Use the right user ID and password
+2. Get-AzSubscription - View all the subscriptions for the account.
+3. Select-AzSubscription &lt;subscription name&gt; - Select the right subscription. Use the same one you use to create a data factory on the Azure portal.
 
 ### Problem: Fail to launch Data Management Gateway Express Setup from Azure portal
 The Express setup for the Data Management Gateway requires Internet Explorer or a Microsoft ClickOnce compatible web browser. If the Express Setup fails to start, do one of the following:
@@ -57,10 +52,10 @@ The Express setup for the Data Management Gateway requires Internet Explorer or 
     Do the same for Firefox (install add-in). Click Open Menu button on the toolbar (three horizontal lines in the top-right corner), click Add-ons, search with "ClickOnce" keyword, choose one of the ClickOnce extensions, and install it.
 * Use the **Manual Setup** link shown on the same blade in the portal. You use this approach to download installation file and run it manually. After the installation is successful, you see the Data Management Gateway Configuration dialog box. Copy the **key** from the portal screen and use it in the configuration manager to manually register the gateway with the service.  
 
-### Problem: Fail to connect to on-premises SQL Server
+### Problem: Fail to connect to SQL Server
 Launch **Data Management Gateway Configuration Manager** on the gateway machine and use the **Troubleshooting** tab to test the connection to SQL Server from the gateway machine. See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.   
 
-### Problem: Input slices are in Waiting state for ever
+### Problem: Input slices are in Waiting state forever
 The slices could be in **Waiting** state due to various reasons. One of the common reasons is that the **external** property is not set to **true**. Any dataset that is produced outside the scope of Azure Data Factory should be marked with **external** property. This property indicates that the data is external and not backed by any pipelines within the data factory. The data slices are marked as **Ready** once the data is available in the respective store.
 
 See the following example for the usage of the **external** property. You can optionally specify **externalData*** when you set external to true.
@@ -114,21 +109,21 @@ See [Debug a pipeline with custom activity](data-factory-use-custom-activities.m
 
 ## Use Azure portal to troubleshoot
 ### Using portal blades
-See [Monitor pipeline](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) for steps.
+See [Monitor pipeline](data-factory-monitor-manage-pipelines.md) for steps.
 
 ### Using Monitor and Manage App
 See [Monitor and manage data factory pipelines using Monitor and Manage App](data-factory-monitor-manage-app.md) for details.
 
 ## Use Azure PowerShell to troubleshoot
 ### Use Azure PowerShell to troubleshoot an error
-See [Monitor Data Factory pipelines using Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline) for details.
+See [Monitor Data Factory pipelines using Azure PowerShell](data-factory-monitor-manage-pipelines.md) for details.
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[json-scripting-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
+[developer-reference]: /previous-versions/azure/dn834987(v=azure.100)
+[cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
+[json-scripting-reference]: /previous-versions/azure/dn835050(v=azure.100)
 
 [azure-portal]: https://portal.azure.com/
 

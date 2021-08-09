@@ -1,31 +1,26 @@
 ---
-title: Azure Data Factory - JSON Scripting Reference | Microsoft Docs
-description: Provides JSON schemas for Data Factory entities. 
-services: data-factory
-documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: 
-
+title: Azure Data Factory - JSON Scripting Reference 
+description: Provides JSON schemas for Data Factory entities.
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
+ms.date: 01/10/2018 
+ms.custom: devx-track-azurepowershell
 ---
+
 # Azure Data Factory - JSON Scripting Reference
 > [!NOTE]
 > This article applies to version 1 of Data Factory.
 
 
-This article provides JSON schemas and examples for defining Azure Data Factory entities (pipeline, activity, dataset, and linked service).  
+This article provides JSON schemas and examples for defining Azure Data Factory entities (pipeline, activity, dataset, and linked service).
 
-## Pipeline 
-The high-level structure for a pipeline definition is as follows: 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+## Pipeline
+The high-level structure for a pipeline definition is as follows:
 
 ```json
 {
@@ -37,30 +32,30 @@ The high-level structure for a pipeline definition is as follows:
     "start": "2016-07-12T00:00:00",
     "end": "2016-07-13T00:00:00"
   }
-} 
+}
 ```
 
 Following table describes the properties within the pipeline JSON definition:
 
 | Property | Description | Required
 -------- | ----------- | --------
-| name | Name of the pipeline. Specify a name that represents the action that the activity or pipeline is configured to do<br/><ul><li>Maximum number of characters: 260</li><li>Must start with a letter number, or an underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Yes |
+| name | Name of the pipeline. Specify a name that represents the action that the activity or pipeline is configured to do<br/><ul><li>Maximum number of characters: 260</li><li>Must start with a letter number, or an underscore (\_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Yes |
 | description |Text describing what the activity or pipeline is used for | No |
 | activities | Contains a list of activities. | Yes |
-| start |Start date-time for the pipeline. Must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41. <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: `2016-02-27T06:00:00**-05:00`, which is 6 AM EST.<br/><br/>The start and end properties together specify active period for the pipeline. Output slices are only produced with in this active period. |No<br/><br/>If you specify a value for the end property, you must specify value for the start property.<br/><br/>The start and end times can both be empty to create a pipeline. You must specify both values to set an active period for the pipeline to run. If you do not specify start and end times when creating a pipeline, you can set them using the Set-AzureRmDataFactoryPipelineActivePeriod cmdlet later. |
+| start |Start date-time for the pipeline. Must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41. <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: `2016-02-27T06:00:00**-05:00`, which is 6 AM EST.<br/><br/>The start and end properties together specify active period for the pipeline. Output slices are only produced with in this active period. |No<br/><br/>If you specify a value for the end property, you must specify value for the start property.<br/><br/>The start and end times can both be empty to create a pipeline. You must specify both values to set an active period for the pipeline to run. If you do not specify start and end times when creating a pipeline, you can set them using the Set-AzDataFactoryPipelineActivePeriod cmdlet later. |
 | end |End date-time for the pipeline. If specified must be in ISO format. For example: 2014-10-14T17:32:41 <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: `2016-02-27T06:00:00**-05:00`, which is 6 AM EST.<br/><br/>To run the pipeline indefinitely, specify 9999-09-09 as the value for the end property. |No <br/><br/>If you specify a value for the start property, you must specify value for the end property.<br/><br/>See notes for the **start** property. |
 | isPaused |If set to true the pipeline does not run. Default value = false. You can use this property to enable or disable. |No |
 | pipelineMode |The method for scheduling runs for the pipeline. Allowed values are: scheduled (default), onetime.<br/><br/>‘Scheduled’ indicates that the pipeline runs at a specified time interval according to its active period (start and end time). ‘Onetime’ indicates that the pipeline runs only once. Onetime pipelines once created cannot be modified/updated currently. See [Onetime pipeline](data-factory-create-pipelines.md#onetime-pipeline) for details about onetime setting. |No |
 | expirationTime |Duration of time after creation for which the pipeline is valid and should remain provisioned. If it does not have any active, failed, or pending runs, the pipeline is deleted automatically once it reaches the expiration time. |No |
 
 
-## Activity 
+## Activity
 The high-level structure for an activity within a pipeline definition (activities element) is as follows:
 
 ```json
 {
     "name": "ActivityName",
-    "description": "description", 
+    "description": "description",
     "type": "<ActivityType>",
     "inputs":  "[]",
     "outputs":  "[]",
@@ -71,7 +66,7 @@ The high-level structure for an activity within a pipeline definition (activitie
     },
     "policy":
     {
-    }
+    },
     "scheduler":
     {
     }
@@ -82,12 +77,12 @@ Following table describe the properties within the activity JSON definition:
 
 | Tag | Description | Required |
 | --- | --- | --- |
-| name |Name of the activity. Specify a name that represents the action that the activity is configured to do<br/><ul><li>Maximum number of characters: 260</li><li>Must start with a letter number, or an underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Yes |
+| name |Name of the activity. Specify a name that represents the action that the activity is configured to do<br/><ul><li>Maximum number of characters: 260</li><li>Must start with a letter number, or an underscore (\_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Yes |
 | description |Text describing what the activity is used for. |No |
 | type |Specifies the type of the activity. See the [DATA STORES](#data-stores) and [DATA TRANSFORMATION ACTIVITIES](#data-transformation-activities) sections for different types of activities. |Yes |
 | inputs |Input tables used by the activity<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |No for HDInsightStreaming and SqlServerStoredProcedure activities <br/> <br/> Yes for all others |
 | outputs |Output tables used by the activity.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Yes |
-| linkedServiceName |Name of the linked service used by the activity. <br/><br/>An activity may require that you specify the linked service that links to the required compute environment. |Yes for HDInsight activities, Azure Machine Learning activities, and Stored Procedure Activity. <br/><br/>No for all others |
+| linkedServiceName |Name of the linked service used by the activity. <br/><br/>An activity may require that you specify the linked service that links to the required compute environment. |Yes for HDInsight activities, Azure Machine Learning Studio (classic) activities, and Stored Procedure Activity. <br/><br/>No for all others |
 | typeProperties |Properties in the typeProperties section depend on type of the activity. |No |
 | policy |Policies that affect the run-time behavior of the activity. If it is not specified, default policies are used. |No |
 | scheduler |“scheduler” property is used to define desired scheduling for the activity. Its subproperties are the same as the ones in the [availability property in a dataset](data-factory-create-datasets.md#dataset-availability). |No |
@@ -106,12 +101,12 @@ Policies affect the run-time behavior of an activity, specifically when the slic
 | longRetryInterval |TimeSpan |00:00:00 |The delay between long retry attempts |
 
 ### typeProperties section
-The typeProperties section is different for each activity. Transformation activities have just the type properties. See [DATA TRANSFORMATION ACTIVITIES](#data-transformation-activities) section in this article for JSON samples that define transformation activities in a pipeline. 
+The typeProperties section is different for each activity. Transformation activities have just the type properties. See [DATA TRANSFORMATION ACTIVITIES](#data-transformation-activities) section in this article for JSON samples that define transformation activities in a pipeline.
 
-**Copy activity** has two subsections in the typeProperties section: **source** and **sink**. See [DATA STORES](#data-stores) section in this article for JSON samples that show how to use a data store as a source and/or sink. 
+**Copy activity** has two subsections in the typeProperties section: **source** and **sink**. See [DATA STORES](#data-stores) section in this article for JSON samples that show how to use a data store as a source and/or sink.
 
 ### Sample copy pipeline
-In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [Copy activity](data-factory-data-movement-activities.md) copies data from an Azure Blob storage to an Azure SQL database. 
+In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [Copy activity](data-factory-data-movement-activities.md) copies data from an Azure Blob storage to Azure SQL Database.
 
 ```json
 {
@@ -153,7 +148,7 @@ In the following sample pipeline, there is one activity of type **Copy** in the 
     "start": "2016-07-12T00:00:00",
     "end": "2016-07-13T00:00:00"
   }
-} 
+}
 ```
 
 Note the following points:
@@ -162,12 +157,12 @@ Note the following points:
 * Input for the activity is set to **InputDataset** and output for the activity is set to **OutputDataset**.
 * In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type.
 
-See [DATA STORES](#data-stores) section in this article for JSON samples that show how to use a data store as a source and/or sink.    
+See [DATA STORES](#data-stores) section in this article for JSON samples that show how to use a data store as a source and/or sink.
 
-For a complete walkthrough of creating this pipeline, see [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+For a complete walkthrough of creating this pipeline, see [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ### Sample transformation pipeline
-In the following sample pipeline, there is one activity of type **HDInsightHive** in the **activities** section. In this sample, the [HDInsight Hive activity](data-factory-hive-activity.md) transforms data from an Azure Blob storage by running a Hive script file on an Azure HDInsight Hadoop cluster. 
+In the following sample pipeline, there is one activity of type **HDInsightHive** in the **activities** section. In this sample, the [HDInsight Hive activity](data-factory-hive-activity.md) transforms data from an Azure Blob storage by running a Hive script file on an Azure HDInsight Hadoop cluster.
 
 ```json
 {
@@ -214,7 +209,7 @@ In the following sample pipeline, there is one activity of type **HDInsightHive*
 }
 ```
 
-Note the following points: 
+Note the following points:
 
 * In the activities section, there is only one activity whose **type** is set to **HDInsightHive**.
 * The Hive script file, **partitionweblogs.hql**, is stored in the Azure storage account (specified by the scriptLinkedService, called **AzureStorageLinkedService**), and in **script** folder in the container **adfgetstarted**.
@@ -222,7 +217,7 @@ Note the following points:
 
 See [DATA TRANSFORMATION ACTIVITIES](#data-transformation-activities) section in this article for JSON samples that define transformation activities in a pipeline.
 
-For a complete walkthrough of creating this pipeline, see [Tutorial: Build your first pipeline to process data using Hadoop cluster](data-factory-build-your-first-pipeline.md). 
+For a complete walkthrough of creating this pipeline, see [Tutorial: Build your first pipeline to process data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
 
 ## Linked service
 The high-level structure for a linked service definition is as follows:
@@ -241,12 +236,12 @@ The high-level structure for a linked service definition is as follows:
 Following table describe the properties within the activity JSON definition:
 
 | Property | Description | Required |
-| -------- | ----------- | -------- | 
-| name | Name of the linked service. | Yes | 
+| -------- | ----------- | -------- |
+| name | Name of the linked service. | Yes |
 | properties - type | Type of the linked service. For example: Azure Storage, Azure SQL Database. |
-| typeProperties | The typeProperties section has elements that are different for each data store or compute environment. See [data stores](#datastores) section for all the data store linked services and [compute environments](#compute-environments) for all the compute linked services |   
+| typeProperties | The typeProperties section has elements that are different for each data store or compute environment. See data stores section for all the data store linked services and [compute environments](#compute-environments) for all the compute linked services |
 
-## Dataset 
+## Dataset
 A dataset in Azure Data Factory is defined as follows:
 
 ```json
@@ -270,24 +265,24 @@ A dataset in Azure Data Factory is defined as follows:
             "frequency": "<Specifies the time unit for data slice production. Supported frequency: Minute, Hour, Day, Week, Month>",
             "interval": "<Specifies the interval within the defined frequency. For example, frequency set to 'Hour' and interval set to 1 indicates that new data slices should be produced hourly>"
         },
-       "policy":
-        {      
+        "policy":
+        {
         }
     }
 }
 ```
 
-The following table describes properties in the above JSON:   
+The following table describes properties in the above JSON:
 
 | Property | Description | Required | Default |
 | --- | --- | --- | --- |
 | name | Name of the dataset. See [Azure Data Factory - Naming rules](data-factory-naming-rules.md) for naming rules. |Yes |NA |
-| type | Type of the dataset. Specify one of the types supported by Azure Data Factory (for example: AzureBlob, AzureSqlTable). See [DATA STORES](#data-stores) section for all the data stores and dataset types supported by Data Factory. | 
+| type | Type of the dataset. Specify one of the types supported by Azure Data Factory (for example: AzureBlob, AzureSqlTable). See [DATA STORES](#data-stores) section for all the data stores and dataset types supported by Data Factory. |
 | structure | Schema of the dataset. It contains columns, their types, etc. | No |NA |
 | typeProperties | Properties corresponding to the selected type. See [DATA STORES](#data-stores) section for supported types and their properties. |Yes |NA |
 | external | Boolean flag to specify whether a dataset is explicitly produced by a data factory pipeline or not. |No |false |
 | availability | Defines the processing window or the slicing model for the dataset production. For details on the dataset slicing model, see [Scheduling and Execution](data-factory-scheduling-and-execution.md) article. |Yes |NA |
-| policy |Defines the criteria or the condition that the dataset slices must fulfill. <br/><br/>For details, see [Dataset Policy](#Policy) section. |No |NA |
+| policy |Defines the criteria or the condition that the dataset slices must fulfill. <br/><br/>For details, see Dataset Policy section. |No |NA |
 
 Each column in the **structure** section contains the following properties:
 
@@ -301,7 +296,7 @@ Each column in the **structure** section contains the following properties:
 In the following example, the dataset has three columns `slicetimestamp`, `projectname`, and `pageviews` and they are of type: String, String, and Decimal respectively.
 
 ```json
-structure:  
+structure:
 [
     { "name": "slicetimestamp", "type": "String"},
     { "name": "projectname", "type": "String"},
@@ -322,10 +317,10 @@ The following table describes properties you can use in the **availability** sec
 The following availability section specifies that the output dataset is either produced hourly (or) input dataset is available hourly:
 
 ```json
-"availability":    
-{    
-    "frequency": "Hour",        
-    "interval": 1    
+"availability":
+{
+    "frequency": "Hour",
+    "interval": 1
 }
 ```
 
@@ -334,7 +329,7 @@ The **policy** section in dataset definition defines the criteria or the conditi
 | Policy Name | Description | Applied To | Required | Default |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Validates that the data in an **Azure blob** meets the minimum size requirements (in megabytes). |Azure Blob |No |NA |
-| minimumRows |Validates that the data in an **Azure SQL database** or an **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL Database</li><li>Azure Table</li></ul> |No |NA |
+| minimumRows |Validates that the data in **Azure SQL Database** or an **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL Database</li><li>Azure Table</li></ul> |No |NA |
 
 **Example:**
 
@@ -364,18 +359,18 @@ The [Linked service](#linked-service) section provided descriptions for JSON ele
 
 The [Dataset](#dataset) section provided descriptions for JSON elements that are common to all types of datasets. This section provides details about JSON elements that are specific to each data store.
 
-The [Activity](#activity) section provided descriptions for JSON elements that are common to all types of activities. This section provides details about JSON elements that are specific to each data store when it is used as a source/sink in a copy activity.  
+The [Activity](#activity) section provided descriptions for JSON elements that are common to all types of activities. This section provides details about JSON elements that are specific to each data store when it is used as a source/sink in a copy activity.
 
 Click the link for the store you are interested in to see the JSON schemas for linked service, dataset, and the source/sink for the copy activity.
 
-| Category | Data store 
+| Category | Data store
 |:--- |:--- |
 | **Azure** |[Azure Blob storage](#azure-blob-storage) |
-| &nbsp; |[Azure Data Lake Store](#azure-datalake-store) |
+| &nbsp; |Azure Data Lake Store |
 | &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Azure SQL Database](#azure-sql-database) |
-| &nbsp; |[Azure SQL Data Warehouse](#azure-sql-data-warehouse) |
-| &nbsp; |[Azure Search](#azure-search) |
+| &nbsp; |[Azure Synapse Analytics](#azure-synapse-analytics) |
+| &nbsp; |[Azure Cognitive Search](#azure-cognitive-search) |
 | &nbsp; |[Azure Table storage](#azure-table-storage) |
 | **Databases** |[Amazon Redshift](#amazon-redshift) |
 | &nbsp; |[IBM DB2](#ibm-db2) |
@@ -398,7 +393,7 @@ Click the link for the store you are interested in to see the JSON schemas for l
 | &nbsp; |[OData](#odata) |
 | &nbsp; |[ODBC](#odbc) |
 | &nbsp; |[Salesforce](#salesforce) |
-| &nbsp; |[Web Table](#web-table) |
+| &nbsp; |Web Table |
 
 ## Azure Blob Storage
 
@@ -406,13 +401,13 @@ Click the link for the store you are interested in to see the JSON schemas for l
 There are two types of linked services: Azure Storage linked service and Azure Storage SAS linked service.
 
 #### Azure Storage Linked Service
-To link your Azure storage account to a data factory by using the **account key**, create an Azure Storage linked service. To define an Azure Storage linked service, set the **type** of the linked service to **AzureStorage**. Then, you can specify following properties in the **typeProperties** section:  
+To link your Azure storage account to a data factory by using the **account key**, create an Azure Storage linked service. To define an Azure Storage linked service, set the **type** of the linked service to **AzureStorage**. Then, you can specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | connectionString |Specify information needed to connect to Azure storage for the connectionString property. |Yes |
 
-##### Example  
+##### Example
 
 ```json
 {
@@ -427,7 +422,7 @@ To link your Azure storage account to a data factory by using the **account key*
 ```
 
 #### Azure Storage SAS Linked Service
-The Azure Storage SAS linked service allows you to link an Azure Storage Account to an Azure data factory by using a Shared Access Signature (SAS). It provides the data factory with restricted/time-bound access to all/specific resources (blob/container) in the storage. To link your Azure storage account to a data factory by using Shared Access Signature, create an Azure Storage SAS linked service. To define an Azure Storage SAS linked service, set the **type** of the linked service to **AzureStorageSas**. Then, you can specify following properties in the **typeProperties** section:   
+The Azure Storage SAS linked service allows you to link an Azure Storage Account to an Azure data factory by using a Shared Access Signature (SAS). It provides the data factory with restricted/time-bound access to all/specific resources (blob/container) in the storage. To link your Azure storage account to a data factory by using Shared Access Signature, create an Azure Storage SAS linked service. To define an Azure Storage SAS linked service, set the **type** of the linked service to **AzureStorageSas**. Then, you can specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -436,26 +431,26 @@ The Azure Storage SAS linked service allows you to link an Azure Storage Account
 ##### Example
 
 ```json
-{  
-    "name": "StorageSasLinkedService",  
-    "properties": {  
-        "type": "AzureStorageSas",  
-        "typeProperties": {  
-            "sasUri": "<storageUri>?<sasToken>"   
-        }  
-    }  
-}  
+{
+    "name": "StorageSasLinkedService",
+    "properties": {
+        "type": "AzureStorageSas",
+        "typeProperties": {
+            "sasUri": "<storageUri>?<sasToken>"
+        }
+    }
+}
 ```
 
-For more information about these linked services, see [Azure Blob Storage connector](data-factory-azure-blob-connector.md#linked-service-properties) article. 
+For more information about these linked services, see [Azure Blob Storage connector](data-factory-azure-blob-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define an Azure Blob dataset, set the **type** of the dataset to **AzureBlob**. Then, specify the following Azure Blob specific properties in the **typeProperties** section: 
+To define an Azure Blob dataset, set the **type** of the dataset to **AzureBlob**. Then, specify the following Azure Blob specific properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
 | folderPath |Path to the container and folder in the blob storage. Example: myblobcontainer\myblobfolder\ |Yes |
-| fileName |Name of the blob. fileName is optional and case-sensitive.<br/><br/>If you specify a filename, the activity (including Copy) works on the specific Blob.<br/><br/>When fileName is not specified, Copy includes all Blobs in the folderPath for input dataset.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
+| fileName |Name of the blob. fileName is optional and case-sensitive.<br/><br/>If you specify a filename, the activity (including Copy) works on the specific Blob.<br/><br/>When fileName is not specified, Copy includes all Blobs in the folderPath for input dataset.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: `Data.<Guid>.txt` (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | partitionedBy |partitionedBy is an optional property. You can use it to specify a dynamic folderPath and filename for time series data. For example, folderPath can be parameterized for every hour of data. |No |
 | format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No |
 | compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. Supported levels are: **Optimal** and **Fastest**. For more information, see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
@@ -578,24 +573,24 @@ If you are copying data to an Azure Blob Storage, set the **sink type** of the c
 }
 ```
 
-For more information, see [Azure Blob connector](data-factory-azure-blob-connector.md#copy-activity-properties) article. 
+For more information, see [Azure Blob connector](data-factory-azure-blob-connector.md#copy-activity-properties) article.
 
 ## Azure Data Lake Store
 
 ### Linked service
-To define an Azure Data Lake Store linked service, set the type of the linked service to **AzureDataLakeStore**, and specify following properties in the **typeProperties** section:  
+To define an Azure Data Lake Store linked service, set the type of the linked service to **AzureDataLakeStore**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzureDataLakeStore** | Yes |
 | dataLakeStoreUri | Specify information about the Azure Data Lake Store account. It is in the following format: `https://[accountname].azuredatalakestore.net/webhdfs/v1` or `adl://[accountname].azuredatalakestore.net/`. | Yes |
-| subscriptionId | Azure subscription Id to which Data Lake Store belongs. | Required for sink |
+| subscriptionId | Azure subscription ID to which Data Lake Store belongs. | Required for sink |
 | resourceGroupName | Azure resource group name to which Data Lake Store belongs. | Required for sink |
 | servicePrincipalId | Specify the application's client ID. | Yes (for service principal authentication) |
 | servicePrincipalKey | Specify the application's key. | Yes (for service principal authentication) |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes (for service principal authentication) |
 | authorization | Click **Authorize** button in the **Data Factory Editor** and enter your credential that assigns the auto-generated authorization URL to this property. | Yes (for user credential authentication)|
-| sessionId | OAuth session id from the OAuth authorization session. Each session id is unique and may only be used once. This setting is automatically generated when you use Data Factory Editor. | Yes (for user credential authentication) |
+| sessionId | OAuth session ID from the OAuth authorization session. Each session ID is unique and may only be used once. This setting is automatically generated when you use Data Factory Editor. | Yes (for user credential authentication) |
 
 #### Example: using service principal authentication
 ```json
@@ -630,15 +625,15 @@ To define an Azure Data Lake Store linked service, set the type of the linked se
 }
 ```
 
-For more information, see [Azure Data Lake Store connector](data-factory-azure-datalake-connector.md#linked-service-properties) article. 
+For more information, see [Azure Data Lake Store connector](data-factory-azure-datalake-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define an Azure Data Lake Store dataset, set the **type** of the dataset to **AzureDataLakeStore**, and specify the following properties in the **typeProperties** section: 
+To define an Azure Data Lake Store dataset, set the **type** of the dataset to **AzureDataLakeStore**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | folderPath |Path to the container and folder in the Azure Data Lake store. |Yes |
-| fileName |Name of the file in the Azure Data Lake store. fileName is optional and case-sensitive. <br/><br/>If you specify a filename, the activity (including Copy) works on the specific file.<br/><br/>When fileName is not specified, Copy includes all files in the folderPath for input dataset.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
+| fileName |Name of the file in the Azure Data Lake store. fileName is optional and case-sensitive. <br/><br/>If you specify a filename, the activity (including Copy) works on the specific file.<br/><br/>When fileName is not specified, Copy includes all files in the folderPath for input dataset.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: `Data.<Guid>.txt` (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | partitionedBy |partitionedBy is an optional property. You can use it to specify a dynamic folderPath and filename for time series data. For example, folderPath can be parameterized for every hour of data. |No |
 | format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No |
 | compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. Supported levels are: **Optimal** and **Fastest**. For more information, see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
@@ -675,7 +670,7 @@ To define an Azure Data Lake Store dataset, set the **type** of the dataset to *
 }
 ```
 
-For more information, see [Azure Data Lake Store connector](data-factory-azure-datalake-connector.md#dataset-properties) article. 
+For more information, see [Azure Data Lake Store connector](data-factory-azure-datalake-connector.md#dataset-properties) article.
 
 ### Azure Data Lake Store Source in Copy Activity
 If you are copying data from an Azure Data Lake Store, set the **source type** of the copy activity to **AzureDataLakeStoreSource**, and specify following properties in the **source** section:
@@ -774,12 +769,12 @@ If you are copying data to an Azure Data Lake Store, set the **sink type** of th
 }
 ```
 
-For more information, see [Azure Data Lake Store connector](data-factory-azure-datalake-connector.md#copy-activity-properties) article. 
+For more information, see [Azure Data Lake Store connector](data-factory-azure-datalake-connector.md#copy-activity-properties) article.
 
-## Azure Cosmos DB  
+## Azure Cosmos DB
 
 ### Linked service
-To define an Azure Cosmos DB linked service, set the **type** of the linked service to **DocumentDb**, and specify following properties in the **typeProperties** section:  
+To define an Azure Cosmos DB linked service, set the **type** of the linked service to **DocumentDb**, and specify following properties in the **typeProperties** section:
 
 | **Property** | **Description** | **Required** |
 | --- | --- | --- |
@@ -801,7 +796,7 @@ To define an Azure Cosmos DB linked service, set the **type** of the linked serv
 For more information, see [Azure Cosmos DB connector](data-factory-azure-documentdb-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define an Azure Cosmos DB dataset, set the **type** of the dataset to **DocumentDbCollection**, and specify the following properties in the **typeProperties** section: 
+To define an Azure Cosmos DB dataset, set the **type** of the dataset to **DocumentDbCollection**, and specify the following properties in the **typeProperties** section:
 
 | **Property** | **Description** | **Required** |
 | --- | --- | --- |
@@ -929,7 +924,7 @@ For more information, see [Azure Cosmos DB connector](data-factory-azure-documen
 ## Azure SQL Database
 
 ### Linked service
-To define an Azure SQL Database linked service, set the **type** of the linked service to **AzureSqlDatabase**, and specify following properties in the **typeProperties** section:  
+To define an Azure SQL Database linked service, set the **type** of the linked service to **AzureSqlDatabase**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -948,10 +943,10 @@ To define an Azure SQL Database linked service, set the **type** of the linked s
 }
 ```
 
-For more information, see [Azure SQL connector](data-factory-azure-sql-connector.md#linked-service-properties) article. 
+For more information, see [Azure SQL connector](data-factory-azure-sql-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define an Azure SQL Database dataset, set the **type** of the dataset to **AzureSqlTable**, and specify the following properties in the **typeProperties** section: 
+To define an Azure SQL Database dataset, set the **type** of the dataset to **AzureSqlTable**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -983,7 +978,7 @@ To define an Azure SQL Database dataset, set the **type** of the dataset to **Az
     }
 }
 ```
-For more information, see [Azure SQL connector](data-factory-azure-sql-connector.md#dataset-properties) article. 
+For more information, see [Azure SQL connector](data-factory-azure-sql-connector.md#dataset-properties) article.
 
 ### SQL Source in Copy Activity
 If you are copying data from an Azure SQL Database, set the **source type** of the copy activity to **SqlSource**, and specify following properties in the **source** section:
@@ -1037,7 +1032,7 @@ If you are copying data from an Azure SQL Database, set the **source type** of t
     }
 }
 ```
-For more information, see [Azure SQL connector](data-factory-azure-sql-connector.md#copy-activity-properties) article. 
+For more information, see [Azure SQL connector](data-factory-azure-sql-connector.md#copy-activity-properties) article.
 
 ### SQL Sink in Copy Activity
 If you are copying data to Azure SQL Database, set the **sink type** of the copy activity to **SqlSink**, and specify following properties in the **sink** section:
@@ -1095,16 +1090,16 @@ If you are copying data to Azure SQL Database, set the **sink type** of the copy
 }
 ```
 
-For more information, see [Azure SQL connector](data-factory-azure-sql-connector.md#copy-activity-properties) article. 
+For more information, see [Azure SQL connector](data-factory-azure-sql-connector.md#copy-activity-properties) article.
 
-## Azure SQL Data Warehouse
+## Azure Synapse Analytics
 
 ### Linked service
-To define an Azure SQL Data Warehouse linked service, set the **type** of the linked service to **AzureSqlDW**, and specify following properties in the **typeProperties** section:  
+To define an Azure Synapse Analytics linked service, set the **type** of the linked service to **AzureSqlDW**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
-| connectionString |Specify information needed to connect to the Azure SQL Data Warehouse instance for the connectionString property. |Yes |
+| connectionString |Specify information needed to connect to the Azure Synapse Analytics instance for the connectionString property. |Yes |
 
 
 
@@ -1122,14 +1117,14 @@ To define an Azure SQL Data Warehouse linked service, set the **type** of the li
 }
 ```
 
-For more information, see [Azure SQL Data Warehouse connector](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) article. 
+For more information, see [Azure Synapse Analytics connector](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define an Azure SQL Data Warehouse dataset, set the **type** of the dataset to **AzureSqlDWTable**, and specify the following properties in the **typeProperties** section: 
+To define an Azure Synapse Analytics dataset, set the **type** of the dataset to **AzureSqlDWTable**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
-| tableName |Name of the table or view in the Azure SQL Data Warehouse database that the linked service refers to. |Yes |
+| tableName |Name of the table or view in the Azure Synapse Analytics database that the linked service refers to. |Yes |
 
 #### Example
 
@@ -1158,10 +1153,10 @@ To define an Azure SQL Data Warehouse dataset, set the **type** of the dataset t
 }
 ```
 
-For more information, see [Azure SQL Data Warehouse connector](data-factory-azure-sql-data-warehouse-connector.md#dataset-properties) article. 
+For more information, see [Azure Synapse Analytics connector](data-factory-azure-sql-data-warehouse-connector.md#dataset-properties) article.
 
-### SQL DW Source in Copy Activity
-If you are copying data from Azure SQL Data Warehouse, set the **source type** of the copy activity to **SqlDWSource**, and specify following properties in the **source** section:
+### Azure Synapse Analytics Source in Copy Activity
+If you are copying data from Azure Synapse Analytics, set the **source type** of the copy activity to **SqlDWSource**, and specify following properties in the **source** section:
 
 
 | Property | Description | Allowed values | Required |
@@ -1213,20 +1208,20 @@ If you are copying data from Azure SQL Data Warehouse, set the **source type** o
 }
 ```
 
-For more information, see [Azure SQL Data Warehouse connector](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) article. 
+For more information, see [Azure Synapse Analytics connector](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) article.
 
-### SQL DW Sink in Copy Activity
-If you are copying data to Azure SQL Data Warehouse, set the **sink type** of the copy activity to **SqlDWSink**, and specify following properties in the **sink** section:
+### Azure Synapse Analytics Sink in Copy Activity
+If you are copying data to Azure Synapse Analytics, set the **sink type** of the copy activity to **SqlDWSink**, and specify following properties in the **sink** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Specify a query for Copy Activity to execute such that data of a specific slice is cleaned up. |A query statement. |No |
-| allowPolyBase |Indicates whether to use PolyBase (when applicable) instead of BULKINSERT mechanism. <br/><br/> **Using PolyBase is the recommended way to load data into SQL Data Warehouse.** |True <br/>False (default) |No |
+| allowPolyBase |Indicates whether to use PolyBase (when applicable) instead of BULKINSERT mechanism. <br/><br/> **Using PolyBase is the recommended way to load data into Azure Synapse Analytics.** |True <br/>False (default) |No |
 | polyBaseSettings |A group of properties that can be specified when the **allowPolybase** property is set to **true**. |&nbsp; |No |
-| rejectValue |Specifies the number or percentage of rows that can be rejected before the query fails. <br/><br/>Learn more about the PolyBase’s reject options in the **Arguments** section of [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) topic. |0 (default), 1, 2, … |No |
+| rejectValue |Specifies the number or percentage of rows that can be rejected before the query fails. <br/><br/>Learn more about the PolyBase’s reject options in the **Arguments** section of [CREATE EXTERNAL TABLE (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql) topic. |0 (default), 1, 2, … |No |
 | rejectType |Specifies whether the rejectValue option is specified as a literal value or a percentage. |Value (default), Percentage |No |
 | rejectSampleValue |Determines the number of rows to retrieve before the PolyBase recalculates the percentage of rejected rows. |1, 2, … |Yes, if **rejectType** is **percentage** |
-| useTypeDefault |Specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file.<br/><br/>Learn more about this property from the Arguments section in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |True, False (default) |No |
+| useTypeDefault |Specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file.<br/><br/>Learn more about this property from the Arguments section in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](/sql/t-sql/statements/create-external-file-format-transact-sql). |True, False (default) |No |
 | writeBatchSize |Inserts data into the SQL table when the buffer size reaches writeBatchSize |Integer (number of rows) |No (default: 10000) |
 | writeBatchTimeout |Wait time for the batch insert operation to complete before it times out. |timespan<br/><br/> Example: “00:30:00” (30 minutes). |No |
 
@@ -1274,17 +1269,17 @@ If you are copying data to Azure SQL Data Warehouse, set the **sink type** of th
 }
 ```
 
-For more information, see [Azure SQL Data Warehouse connector](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) article. 
+For more information, see [Azure Synapse Analytics connector](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) article.
 
-## Azure Search
+## Azure Cognitive Search
 
 ### Linked service
-To define an Azure Search linked service, set the **type** of the linked service to **AzureSearch**, and specify following properties in the **typeProperties** section:  
+To define an Azure Cognitive Search linked service, set the **type** of the linked service to **AzureSearch**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
-| url | URL for the Azure Search service. | Yes |
-| key | Admin key for the Azure Search service. | Yes |
+| url | URL for the search service. | Yes |
+| key | Admin key for the search service. | Yes |
 
 #### Example
 
@@ -1301,15 +1296,15 @@ To define an Azure Search linked service, set the **type** of the linked service
 }
 ```
 
-For more information, see [Azure Search connector](data-factory-azure-search-connector.md#linked-service-properties) article.
+For more information, see [Azure Cognitive Search connector](data-factory-azure-search-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define an Azure Search dataset, set the **type** of the dataset to **AzureSearchIndex**, and specify the following properties in the **typeProperties** section: 
+To define an Azure Cognitive Search dataset, set the **type** of the dataset to **AzureSearchIndex**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
 | type | The type property must be set to **AzureSearchIndex**.| Yes |
-| indexName | Name of the Azure Search index. Data Factory does not create the index. The index must exist in Azure Search. | Yes |
+| indexName | Name of the search index. Data Factory does not create the index. The index must exist in Azure Cognitive Search. | Yes |
 
 #### Example
 
@@ -1330,15 +1325,15 @@ To define an Azure Search dataset, set the **type** of the dataset to **AzureSea
 }
 ```
 
-For more information, see [Azure Search connector](data-factory-azure-search-connector.md#dataset-properties) article.
+For more information, see [Azure Cognitive Search connector](data-factory-azure-search-connector.md#dataset-properties) article.
 
-### Azure Search Index Sink in Copy Activity
-If you are copying data to an Azure Search index, set the **sink type** of the copy activity to **AzureSearchIndexSink**, and specify following properties in the **sink** section:
+### Azure Cognitive Search Index Sink in Copy Activity
+If you are copying data to a search index, set the **sink type** of the copy activity to **AzureSearchIndexSink**, and specify following properties in the **sink** section:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Specifies whether to merge or replace when a document already exists in the index. | Merge (default)<br/>Upload| No |
-| WriteBatchSize | Uploads data into the Azure Search index when the buffer size reaches writeBatchSize. | 1 to 1,000. Default value is 1000. | No |
+| WriteBatchSize | Uploads data into the search index when the buffer size reaches writeBatchSize. | 1 to 1,000. Default value is 1000. | No |
 
 #### Example
 
@@ -1383,7 +1378,7 @@ If you are copying data to an Azure Search index, set the **sink type** of the c
 }
 ```
 
-For more information, see [Azure Search connector](data-factory-azure-search-connector.md#copy-activity-properties) article.
+For more information, see [Azure Cognitive Search connector](data-factory-azure-search-connector.md#copy-activity-properties) article.
 
 ## Azure Table Storage
 
@@ -1391,29 +1386,29 @@ For more information, see [Azure Search connector](data-factory-azure-search-con
 There are two types of linked services: Azure Storage linked service and Azure Storage SAS linked service.
 
 #### Azure Storage Linked Service
-To link your Azure storage account to a data factory by using the **account key**, create an Azure Storage linked service. To define an Azure Storage linked service, set the **type** of the linked service to **AzureStorage**. Then, you can specify following properties in the **typeProperties** section:  
+To link your Azure storage account to a data factory by using the **account key**, create an Azure Storage linked service. To define an Azure Storage linked service, set the **type** of the linked service to **AzureStorage**. Then, you can specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type |The type property must be set to: **AzureStorage** |Yes |
 | connectionString |Specify information needed to connect to Azure storage for the connectionString property. |Yes |
 
-**Example:**  
+**Example:**
 
 ```json
-{  
-    "name": "StorageLinkedService",  
-    "properties": {  
-        "type": "AzureStorage",  
-        "typeProperties": {  
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"  
-        }  
-    }  
-}  
+{
+    "name": "StorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+        }
+    }
+}
 ```
 
 #### Azure Storage SAS Linked Service
-The Azure Storage SAS linked service allows you to link an Azure Storage Account to an Azure data factory by using a Shared Access Signature (SAS). It provides the data factory with restricted/time-bound access to all/specific resources (blob/container) in the storage. To link your Azure storage account to a data factory by using Shared Access Signature, create an Azure Storage SAS linked service. To define an Azure Storage SAS linked service, set the **type** of the linked service to **AzureStorageSas**. Then, you can specify following properties in the **typeProperties** section:   
+The Azure Storage SAS linked service allows you to link an Azure Storage Account to an Azure data factory by using a Shared Access Signature (SAS). It provides the data factory with restricted/time-bound access to all/specific resources (blob/container) in the storage. To link your Azure storage account to a data factory by using Shared Access Signature, create an Azure Storage SAS linked service. To define an Azure Storage SAS linked service, set the **type** of the linked service to **AzureStorageSas**. Then, you can specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -1423,21 +1418,21 @@ The Azure Storage SAS linked service allows you to link an Azure Storage Account
 **Example:**
 
 ```json
-{  
-    "name": "StorageSasLinkedService",  
-    "properties": {  
-        "type": "AzureStorageSas",  
-        "typeProperties": {  
-            "sasUri": "<storageUri>?<sasToken>"   
-        }  
-    }  
-}  
+{
+    "name": "StorageSasLinkedService",
+    "properties": {
+        "type": "AzureStorageSas",
+        "typeProperties": {
+            "sasUri": "<storageUri>?<sasToken>"
+        }
+    }
+}
 ```
 
-For more information about these linked services, see [Azure Table Storage connector](data-factory-azure-table-connector.md#linked-service-properties) article. 
+For more information about these linked services, see [Azure Table Storage connector](data-factory-azure-table-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define an Azure Table dataset, set the **type** of the dataset to **AzureTable**, and specify the following properties in the **typeProperties** section: 
+To define an Azure Table dataset, set the **type** of the dataset to **AzureTable**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -1470,7 +1465,7 @@ To define an Azure Table dataset, set the **type** of the dataset to **AzureTabl
 }
 ```
 
-For more information about these linked services, see [Azure Table Storage connector](data-factory-azure-table-connector.md#dataset-properties) article. 
+For more information about these linked services, see [Azure Table Storage connector](data-factory-azure-table-connector.md#dataset-properties) article.
 
 ### Azure Table Source in Copy Activity
 If you are copying data from Azure Table Storage, set the **source type** of the copy activity to **AzureTableSource**, and specify following properties in the **source** section:
@@ -1523,7 +1518,7 @@ If you are copying data from Azure Table Storage, set the **source type** of the
 }
 ```
 
-For more information about these linked services, see [Azure Table Storage connector](data-factory-azure-table-connector.md#copy-activity-properties) article. 
+For more information about these linked services, see [Azure Table Storage connector](data-factory-azure-table-connector.md#copy-activity-properties) article.
 
 ### Azure Table Sink in Copy Activity
 If you are copying data to Azure Table Storage, set the **sink type** of the copy activity to **AzureTableSink**, and specify following properties in the **sink** section:
@@ -1533,7 +1528,7 @@ If you are copying data to Azure Table Storage, set the **sink type** of the cop
 | azureTableDefaultPartitionKeyValue |Default partition key value that can be used by the sink. |A string value. |No |
 | azureTablePartitionKeyName |Specify name of the column whose values are used as partition keys. If not specified, AzureTableDefaultPartitionKeyValue is used as the partition key. |A column name. |No |
 | azureTableRowKeyName |Specify name of the column whose column values are used as row key. If not specified, use a GUID for each row. |A column name. |No |
-| azureTableInsertType |The mode to insert data into Azure table.<br/><br/>This property controls whether existing rows in the output table with matching partition and row keys have their values replaced or merged. <br/><br/>To learn about how these settings (merge and replace) work, see [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) and [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) topics. <br/><br> This setting applies at the row level, not the table level, and neither option deletes rows in the output table that do not exist in the input. |merge (default)<br/>replace |No |
+| azureTableInsertType |The mode to insert data into Azure table.<br/><br/>This property controls whether existing rows in the output table with matching partition and row keys have their values replaced or merged. <br/><br/>To learn about how these settings (merge and replace) work, see [Insert or Merge Entity](/rest/api/storageservices/Insert-Or-Merge-Entity) and [Insert or Replace Entity](/rest/api/storageservices/Insert-Or-Replace-Entity) topics. <br/><br> This setting applies at the row level, not the table level, and neither option deletes rows in the output table that do not exist in the input. |merge (default)<br/>replace |No |
 | writeBatchSize |Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit. |Integer (number of rows) |No (default: 10000) |
 | writeBatchTimeout |Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit |timespan<br/><br/>Example: “00:20:00” (20 minutes) |No (Default to storage client default timeout value 90 sec) |
 
@@ -1580,12 +1575,12 @@ If you are copying data to Azure Table Storage, set the **sink type** of the cop
     }
 }
 ```
-For more information about these linked services, see [Azure Table Storage connector](data-factory-azure-table-connector.md#copy-activity-properties) article. 
+For more information about these linked services, see [Azure Table Storage connector](data-factory-azure-table-connector.md#copy-activity-properties) article.
 
 ## Amazon RedShift
 
 ### Linked service
-To define an Amazon Redshift linked service, set the **type** of the linked service to **AmazonRedshift**, and specify following properties in the **typeProperties** section:  
+To define an Amazon Redshift linked service, set the **type** of the linked service to **AmazonRedshift**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -1613,10 +1608,10 @@ To define an Amazon Redshift linked service, set the **type** of the linked serv
 }
 ```
 
-For more information, see [Amazon Redshift connector](#data-factory-amazon-redshift-connector.md#linked-service-properties) article. 
+For more information, see Amazon Redshift connector article.
 
 ### Dataset
-To define an Amazon Redshift dataset, set the **type** of the dataset to **RelationalTable**, and specify the following properties in the **typeProperties** section: 
+To define an Amazon Redshift dataset, set the **type** of the dataset to **RelationalTable**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -1642,9 +1637,9 @@ To define an Amazon Redshift dataset, set the **type** of the dataset to **Relat
     }
 }
 ```
-For more information, see [Amazon Redshift connector](#data-factory-amazon-redshift-connector.md#dataset-properties) article.
+For more information, see Amazon Redshift connector article.
 
-### Relational Source in Copy Activity 
+### Relational Source in Copy Activity
 If you are copying data from Amazon Redshift, set the **source type** of the copy activity to **RelationalSource**, and specify following properties in the **source** section:
 
 | Property | Description | Allowed values | Required |
@@ -1692,12 +1687,12 @@ If you are copying data from Amazon Redshift, set the **source type** of the cop
     }
 }
 ```
-For more information, see [Amazon Redshift connector](#data-factory-amazon-redshift-connector.md#copy-activity-properties) article.
+For more information, see Amazon Redshift connector article.
 
 ## IBM DB2
 
 ### Linked service
-To define an IBM DB2 linked service, set the **type** of the linked service to **OnPremisesDB2**, and specify following properties in the **typeProperties** section:  
+To define an IBM DB2 linked service, set the **type** of the linked service to **OnPremisesDB2**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -1727,14 +1722,14 @@ To define an IBM DB2 linked service, set the **type** of the linked service to *
     }
 }
 ```
-For more information, see [IBM DB2 connector](#data-factory-onprem-db2-connector.md#linked-service-properties) article.
+For more information, see IBM DB2 connector article.
 
 ### Dataset
 To define a DB2 dataset, set the **type** of the dataset to **RelationalTable**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
-| tableName |Name of the table in the DB2 Database instance that linked service refers to. The tableName is case-sensitive. |No (if **query** of **RelationalSource** is specified) 
+| tableName |Name of the table in the DB2 Database instance that linked service refers to. The tableName is case-sensitive. |No (if **query** of **RelationalSource** is specified)
 
 #### Example
 ```json
@@ -1760,7 +1755,7 @@ To define a DB2 dataset, set the **type** of the dataset to **RelationalTable**,
 }
 ```
 
-For more information, see [IBM DB2 connector](#data-factory-onprem-db2-connector.md#dataset-properties) article.
+For more information, see IBM DB2 connector article.
 
 ### Relational Source in Copy Activity
 If you are copying data from IBM DB2, set the **source type** of the copy activity to **RelationalSource**, and specify following properties in the **source** section:
@@ -1808,12 +1803,12 @@ If you are copying data from IBM DB2, set the **source type** of the copy activi
     }
 }
 ```
-For more information, see [IBM DB2 connector](#data-factory-onprem-db2-connector.md#copy-activity-properties) article.
+For more information, see IBM DB2 connector article.
 
 ## MySQL
 
 ### Linked service
-To define a MySQL linked service, set the **type** of the linked service to **OnPremisesMySql**, and specify following properties in the **typeProperties** section:  
+To define a MySQL linked service, set the **type** of the linked service to **OnPremisesMySql**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -1821,7 +1816,7 @@ To define a MySQL linked service, set the **type** of the linked service to **On
 | database |Name of the MySQL database. |Yes |
 | schema |Name of the schema in the database. |No |
 | authenticationType |Type of authentication used to connect to the MySQL database. Possible values are: `Basic`. |Yes |
-| username |Specify user name to connect to the MySQL database. |Yes |
+| userName |Specify user name to connect to the MySQL database. |Yes |
 | password |Specify password for the user account you specified. |Yes |
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises MySQL database. |Yes |
 
@@ -1845,10 +1840,10 @@ To define a MySQL linked service, set the **type** of the linked service to **On
 }
 ```
 
-For more information, see [MySQL connector](data-factory-onprem-mysql-connector.md#linked-service-properties) article. 
+For more information, see [MySQL connector](data-factory-onprem-mysql-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define a MySQL dataset, set the **type** of the dataset to **RelationalTable**, and specify the following properties in the **typeProperties** section: 
+To define a MySQL dataset, set the **type** of the dataset to **RelationalTable**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -1878,7 +1873,7 @@ To define a MySQL dataset, set the **type** of the dataset to **RelationalTable*
     }
 }
 ```
-For more information, see [MySQL connector](data-factory-onprem-mysql-connector.md#dataset-properties) article. 
+For more information, see [MySQL connector](data-factory-onprem-mysql-connector.md#dataset-properties) article.
 
 ### Relational Source in Copy Activity
 If you are copying data from a MySQL database, set the **source type** of the copy activity to **RelationalSource**, and specify following properties in the **source** section:
@@ -1930,16 +1925,16 @@ If you are copying data from a MySQL database, set the **source type** of the co
 }
 ```
 
-For more information, see [MySQL connector](data-factory-onprem-mysql-connector.md#copy-activity-properties) article. 
+For more information, see [MySQL connector](data-factory-onprem-mysql-connector.md#copy-activity-properties) article.
 
-## Oracle 
+## Oracle
 
 ### Linked service
-To define an Oracle linked service, set the **type** of the linked service to **OnPremisesOracle**, and specify following properties in the **typeProperties** section:  
+To define an Oracle linked service, set the **type** of the linked service to **OnPremisesOracle**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
-| driverType | Specify which driver to use to copy data from/to Oracle Database. Allowed values are **Microsoft** or **ODP** (default). See [Supported version and installation](#supported-versions-and-installation) section on driver details. | No |
+| driverType | Specify which driver to use to copy data from/to Oracle Database. Allowed values are **Microsoft** or **ODP** (default). See Supported version and installation section on driver details. | No |
 | connectionString | Specify information needed to connect to the Oracle Database instance for the connectionString property. | Yes |
 | gatewayName | Name of the gateway that is used to connect to the on-premises Oracle server |Yes |
 
@@ -1961,7 +1956,7 @@ To define an Oracle linked service, set the **type** of the linked service to **
 For more information, see [Oracle connector](data-factory-onprem-oracle-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define an Oracle dataset, set the **type** of the dataset to **OracleTable**, and specify the following properties in the **typeProperties** section: 
+To define an Oracle dataset, set the **type** of the dataset to **OracleTable**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -2104,7 +2099,7 @@ For more information, see [Oracle connector](data-factory-onprem-oracle-connecto
 ## PostgreSQL
 
 ### Linked service
-To define a PostgreSQL linked service, set the **type** of the linked service to **OnPremisesPostgreSql**, and specify following properties in the **typeProperties** section:  
+To define a PostgreSQL linked service, set the **type** of the linked service to **OnPremisesPostgreSql**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -2138,7 +2133,7 @@ To define a PostgreSQL linked service, set the **type** of the linked service to
 For more information, see [PostgreSQL connector](data-factory-onprem-postgresql-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define a PostgreSQL dataset, set the **type** of the dataset to **RelationalTable**, and specify the following properties in the **typeProperties** section: 
+To define a PostgreSQL dataset, set the **type** of the dataset to **RelationalTable**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -2223,7 +2218,7 @@ For more information, see [PostgreSQL connector](data-factory-onprem-postgresql-
 
 
 ### Linked service
-To define a SAP Business Warehouse (BW) linked service, set the **type** of the linked service to **SapBw**, and specify following properties in the **typeProperties** section:  
+To define a SAP Business Warehouse (BW) linked service, set the **type** of the linked service to **SapBw**, and specify following properties in the **typeProperties** section:
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
@@ -2254,10 +2249,10 @@ encryptedCredential | The encrypted credential string. | string | No
 }
 ```
 
-For more information, see [SAP Business Warehouse connector](data-factory-sap-business-warehouse-connector.md#linked-service-properties) article. 
+For more information, see [SAP Business Warehouse connector](data-factory-sap-business-warehouse-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define a SAP BW dataset, set the **type** of the dataset to **RelationalTable**. There are no type-specific properties supported for the SAP BW dataset of type **RelationalTable**.  
+To define a SAP BW dataset, set the **type** of the dataset to **RelationalTable**. There are no type-specific properties supported for the SAP BW dataset of type **RelationalTable**.
 
 #### Example
 
@@ -2276,7 +2271,7 @@ To define a SAP BW dataset, set the **type** of the dataset to **RelationalTable
     }
 }
 ```
-For more information, see [SAP Business Warehouse connector](data-factory-sap-business-warehouse-connector.md#dataset-properties) article. 
+For more information, see [SAP Business Warehouse connector](data-factory-sap-business-warehouse-connector.md#dataset-properties) article.
 
 ### Relational Source in Copy Activity
 If you are copying data from SAP Business Warehouse, set the **source type** of the copy activity to **RelationalSource**, and specify following properties in the **source** section:
@@ -2328,17 +2323,17 @@ If you are copying data from SAP Business Warehouse, set the **source type** of 
 }
 ```
 
-For more information, see [SAP Business Warehouse connector](data-factory-sap-business-warehouse-connector.md#copy-activity-properties) article. 
+For more information, see [SAP Business Warehouse connector](data-factory-sap-business-warehouse-connector.md#copy-activity-properties) article.
 
 ## SAP HANA
 
 ### Linked service
-To define a SAP HANA linked service, set the **type** of the linked service to **SapHana**, and specify following properties in the **typeProperties** section:  
+To define a SAP HANA linked service, set the **type** of the linked service to **SapHana**, and specify following properties in the **typeProperties** section:
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
 server | Name of the server on which the SAP HANA instance resides. If your server is using a customized port, specify `server:port`. | string | Yes
-authenticationType | Type of authentication. | string. "Basic" or "Windows" | Yes 
+authenticationType | Type of authentication. | string. "Basic" or "Windows" | Yes
 username | Name of the user who has access to the SAP server | string | Yes
 password | Password for the user. | string | Yes
 gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises SAP HANA instance. | string | Yes
@@ -2363,9 +2358,9 @@ encryptedCredential | The encrypted credential string. | string | No
 
 ```
 For more information, see [SAP HANA connector](data-factory-sap-hana-connector.md#linked-service-properties) article.
- 
+
 ### Dataset
-To define a SAP HANA dataset, set the **type** of the dataset to **RelationalTable**. There are no type-specific properties supported for the SAP HANA dataset of type **RelationalTable**. 
+To define a SAP HANA dataset, set the **type** of the dataset to **RelationalTable**. There are no type-specific properties supported for the SAP HANA dataset of type **RelationalTable**.
 
 #### Example
 
@@ -2384,7 +2379,7 @@ To define a SAP HANA dataset, set the **type** of the dataset to **RelationalTab
     }
 }
 ```
-For more information, see [SAP HANA connector](data-factory-sap-hana-connector.md#dataset-properties) article. 
+For more information, see [SAP HANA connector](data-factory-sap-hana-connector.md#dataset-properties) article.
 
 ### Relational Source in Copy Activity
 If you are copying data from a SAP HANA data store, set the **source type** of the copy activity to **RelationalSource**, and specify following properties in the **source** section:
@@ -2443,19 +2438,19 @@ For more information, see [SAP HANA connector](data-factory-sap-hana-connector.m
 ## SQL Server
 
 ### Linked service
-You create a linked service of type **OnPremisesSqlServer** to link an on-premises SQL Server database to a data factory. The following table provides description for JSON elements specific to on-premises SQL Server linked service.
+You create a linked service of type **OnPremisesSqlServer** to link a SQL Server database to a data factory. The following table provides description for JSON elements specific to SQL Server linked service.
 
 The following table provides description for JSON elements specific to SQL Server linked service.
 
 | Property | Description | Required |
 | --- | --- | --- |
 | type |The type property should be set to: **OnPremisesSqlServer**. |Yes |
-| connectionString |Specify connectionString information needed to connect to the on-premises SQL Server database using either SQL authentication or Windows authentication. |Yes |
-| gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises SQL Server database. |Yes |
+| connectionString |Specify connectionString information needed to connect to the SQL Server database using either SQL authentication or Windows authentication. |Yes |
+| gatewayName |Name of the gateway that the Data Factory service should use to connect to the SQL Server database. |Yes |
 | username |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
 | password |Specify password for the user account you specified for the username. |No |
 
-You can encrypt credentials using the **New-AzureRmDataFactoryEncryptValue** cmdlet and use them in the connection string as shown in the following example (**EncryptedCredential** property):  
+You can encrypt credentials using the **New-AzDataFactoryEncryptValue** cmdlet and use them in the connection string as shown in the following example (**EncryptedCredential** property):
 
 ```json
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -2478,7 +2473,7 @@ You can encrypt credentials using the **New-AzureRmDataFactoryEncryptValue** cmd
 ```
 #### Example: JSON for using Windows Authentication
 
-If username and password are specified, gateway uses them to impersonate the specified user account to connect to the on-premises SQL Server database. Otherwise, gateway connects to the SQL Server directly with the security context of Gateway (its startup account).
+If username and password are specified, gateway uses them to impersonate the specified user account to connect to the SQL Server database. Otherwise, gateway connects to the SQL Server directly with the security context of Gateway (its startup account).
 
 ```json
 {
@@ -2495,10 +2490,10 @@ If username and password are specified, gateway uses them to impersonate the spe
 }
 ```
 
-For more information, see [SQL Server connector](data-factory-sqlserver-connector.md#linked-service-properties) article. 
+For more information, see [SQL Server connector](data-factory-sqlserver-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define a SQL Server dataset, set the **type** of the dataset to **SqlServerTable**, and specify the following properties in the **typeProperties** section: 
+To define a SQL Server dataset, set the **type** of the dataset to **SqlServerTable**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -2530,7 +2525,7 @@ To define a SQL Server dataset, set the **type** of the dataset to **SqlServerTa
 }
 ```
 
-For more information, see [SQL Server connector](data-factory-sqlserver-connector.md#dataset-properties) article. 
+For more information, see [SQL Server connector](data-factory-sqlserver-connector.md#dataset-properties) article.
 
 ### Sql Source in Copy Activity
 If you are copying data from a SQL Server database, set the **source type** of the copy activity to **SqlSource**, and specify following properties in the **source** section:
@@ -2598,7 +2593,7 @@ In this example, **sqlReaderQuery** is specified for the SqlSource. The Copy Act
 
 If you do not specify sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section are used to build a select query to run against the SQL Server Database. If the dataset definition does not have the structure, all columns are selected from the table.
 
-For more information, see [SQL Server connector](data-factory-sqlserver-connector.md#copy-activity-properties) article. 
+For more information, see [SQL Server connector](data-factory-sqlserver-connector.md#copy-activity-properties) article.
 
 ### Sql Sink in Copy Activity
 If you are copying data to a SQL Server database, set the **sink type** of the copy activity to **SqlSink**, and specify following properties in the **sink** section:
@@ -2607,8 +2602,8 @@ If you are copying data to a SQL Server database, set the **sink type** of the c
 | --- | --- | --- | --- |
 | writeBatchTimeout |Wait time for the batch insert operation to complete before it times out. |timespan<br/><br/> Example: “00:30:00” (30 minutes). |No |
 | writeBatchSize |Inserts data into the SQL table when the buffer size reaches writeBatchSize. |Integer (number of rows) |No (default: 10000) |
-| sqlWriterCleanupScript |Specify query for Copy Activity to execute such that data of a specific slice is cleaned up. For more information, see [repeatability](#repeatability-during-copy) section. |A query statement. |No |
-| sliceIdentifierColumnName |Specify column name for Copy Activity to fill with auto generated slice identifier, which is used to clean up data of a specific slice when rerun. For more information, see [repeatability](#repeatability-during-copy) section. |Column name of a column with data type of binary(32). |No |
+| sqlWriterCleanupScript |Specify query for Copy Activity to execute such that data of a specific slice is cleaned up. For more information, see repeatability section. |A query statement. |No |
+| sliceIdentifierColumnName |Specify column name for Copy Activity to fill with auto generated slice identifier, which is used to clean up data of a specific slice when rerun. For more information, see repeatability section. |Column name of a column with data type of binary(32). |No |
 | sqlWriterStoredProcedureName |Name of the stored procedure that upserts (updates/inserts) data into the target table. |Name of the stored procedure. |No |
 | storedProcedureParameters |Parameters for the stored procedure. |Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. |No |
 | sqlWriterTableType |Specify table type name to be used in the stored procedure. Copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data being copied with existing data. |A table type name. |No |
@@ -2657,12 +2652,12 @@ The pipeline contains a Copy Activity that is configured to use these input and 
 }
 ```
 
-For more information, see [SQL Server connector](data-factory-sqlserver-connector.md#copy-activity-properties) article. 
+For more information, see [SQL Server connector](data-factory-sqlserver-connector.md#copy-activity-properties) article.
 
 ## Sybase
 
 ### Linked service
-To define a Sybase linked service, set the **type** of the linked service to **OnPremisesSybase**, and specify following properties in the **typeProperties** section:  
+To define a Sybase linked service, set the **type** of the linked service to **OnPremisesSybase**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -2693,10 +2688,10 @@ To define a Sybase linked service, set the **type** of the linked service to **O
 }
 ```
 
-For more information, see [Sybase connector](data-factory-onprem-sybase-connector.md#linked-service-properties) article. 
+For more information, see [Sybase connector](data-factory-onprem-sybase-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define a Sybase dataset, set the **type** of the dataset to **RelationalTable**, and specify the following properties in the **typeProperties** section: 
+To define a Sybase dataset, set the **type** of the dataset to **RelationalTable**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -2727,7 +2722,7 @@ To define a Sybase dataset, set the **type** of the dataset to **RelationalTable
 }
 ```
 
-For more information, see [Sybase connector](data-factory-onprem-sybase-connector.md#dataset-properties) article. 
+For more information, see [Sybase connector](data-factory-onprem-sybase-connector.md#dataset-properties) article.
 
 ### Relational Source in Copy Activity
 If you are copying data from a Sybase database, set the **source type** of the copy activity to **RelationalSource**, and specify following properties in the **source** section:
@@ -2782,7 +2777,7 @@ For more information, see [Sybase connector](data-factory-onprem-sybase-connecto
 ## Teradata
 
 ### Linked service
-To define a Teradata linked service, set the **type** of the linked service to **OnPremisesTeradata**, and specify following properties in the **typeProperties** section:  
+To define a Teradata linked service, set the **type** of the linked service to **OnPremisesTeradata**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -2812,7 +2807,7 @@ To define a Teradata linked service, set the **type** of the linked service to *
 For more information, see [Teradata connector](data-factory-onprem-teradata-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define a Teradata Blob dataset, set the **type** of the dataset to **RelationalTable**. Currently, there are no type properties supported for the Teradata dataset. 
+To define a Teradata Blob dataset, set the **type** of the dataset to **RelationalTable**. Currently, there are no type properties supported for the Teradata dataset.
 
 #### Example
 ```json
@@ -2896,7 +2891,7 @@ For more information, see [Teradata connector](data-factory-onprem-teradata-conn
 
 
 ### Linked service
-To define a Cassandra linked service, set the **type** of the linked service to **OnPremisesCassandra**, and specify following properties in the **typeProperties** section:  
+To define a Cassandra linked service, set the **type** of the linked service to **OnPremisesCassandra**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -2927,10 +2922,10 @@ To define a Cassandra linked service, set the **type** of the linked service to 
 }
 ```
 
-For more information, see [Cassandra connector](data-factory-onprem-cassandra-connector.md#linked-service-properties) article. 
+For more information, see [Cassandra connector](data-factory-onprem-cassandra-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define a Cassandra dataset, set the **type** of the dataset to **CassandraTable**, and specify the following properties in the **typeProperties** section: 
+To define a Cassandra dataset, set the **type** of the dataset to **CassandraTable**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -2965,7 +2960,7 @@ To define a Cassandra dataset, set the **type** of the dataset to **CassandraTab
 }
 ```
 
-For more information, see [Cassandra connector](data-factory-onprem-cassandra-connector.md#dataset-properties) article. 
+For more information, see [Cassandra connector](data-factory-onprem-cassandra-connector.md#dataset-properties) article.
 
 ### Cassandra Source in Copy Activity
 If you are copying data from Cassandra, set the **source type** of the copy activity to **CassandraSource**, and specify following properties in the **source** section:
@@ -2976,7 +2971,7 @@ If you are copying data from Cassandra, set the **source type** of the copy acti
 | consistencyLevel |The consistency level specifies how many replicas must respond to a read request before returning data to the client application. Cassandra checks the specified number of replicas for data to satisfy the read request. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. See [Configuring data consistency](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) for details. |No. Default value is ONE. |
 
 #### Example
-  
+
 ```json
 {
     "name": "SamplePipeline",
@@ -3023,7 +3018,7 @@ For more information, see [Cassandra connector](data-factory-onprem-cassandra-co
 ## MongoDB
 
 ### Linked service
-To define a MongoDB linked service, set the **type** of the linked service to **OnPremisesMongoDB**, and specify following properties in the **typeProperties** section:  
+To define a MongoDB linked service, set the **type** of the linked service to **OnPremisesMongoDB**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -3061,7 +3056,7 @@ To define a MongoDB linked service, set the **type** of the linked service to **
 For more information, see [MongoDB connector article](data-factory-on-premises-mongodb-connector.md#linked-service-properties)
 
 ### Dataset
-To define a MongoDB dataset, set the **type** of the dataset to **MongoDbCollection**, and specify the following properties in the **typeProperties** section: 
+To define a MongoDB dataset, set the **type** of the dataset to **MongoDbCollection**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -3144,7 +3139,7 @@ For more information, see [MongoDB connector article](data-factory-on-premises-m
 
 
 ### Linked service
-To define an Amazon S3 linked service, set the **type** of the linked service to **AwsAccessKey**, and specify following properties in the **typeProperties** section:  
+To define an Amazon S3 linked service, set the **type** of the linked service to **AwsAccessKey**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -3168,7 +3163,7 @@ To define an Amazon S3 linked service, set the **type** of the linked service to
 For more information, see [Amazon S3 connector article](data-factory-amazon-simple-storage-service-connector.md#linked-service-properties).
 
 ### Dataset
-To define an Amazon S3 dataset, set the **type** of the dataset to **AmazonS3**, and specify the following properties in the **typeProperties** section: 
+To define an Amazon S3 dataset, set the **type** of the dataset to **AmazonS3**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -3308,18 +3303,19 @@ For more information, see [Amazon S3 connector article](data-factory-amazon-simp
 
 
 ### Linked service
-You can link an on-premises file system to an Azure data factory with the **On-Premises File Server** linked service. The following table provides descriptions for JSON elements that are specific to the On-Premises File Server linked service.
+You can link an on-premises file system to an Azure data factory with the **On-premises File Server** linked service. The following table provides descriptions for JSON elements that are specific to the On-premises File Server linked service.
 
 | Property | Description | Required |
 | --- | --- | --- |
 | type |Ensure that the type property is set to **OnPremisesFileServer**. |Yes |
-| host |Specifies the root path of the folder that you want to copy. Use the escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples. |Yes |
+| host |Specifies the root path of the folder that you want to copy. Use the escape character ‘ \ ’ for special characters in the string. See Sample linked service and dataset definitions for examples. |Yes |
 | userid |Specify the ID of the user who has access to the server. |No (if you choose encryptedCredential) |
 | password |Specify the password for the user (userid). |No (if you choose encryptedCredential |
-| encryptedCredential |Specify the encrypted credentials that you can get by running the New-AzureRmDataFactoryEncryptValue cmdlet. |No (if you choose to specify userid and password in plain text) |
+| encryptedCredential |Specify the encrypted credentials that you can get by running the New-AzDataFactoryEncryptValue cmdlet. |No (if you choose to specify userid and password in plain text) |
 | gatewayName |Specifies the name of the gateway that Data Factory should use to connect to the on-premises file server. |Yes |
 
-#### Sample folder path definitions 
+#### Sample folder path definitions
+
 | Scenario | Host in linked service definition | folderPath in dataset definition |
 | --- | --- | --- |
 | Local folder on Data Management Gateway machine: <br/><br/>Examples: D:\\\* or D:\folder\subfolder\\* |D:\\\\ (for Data Management Gateway 2.0 and later versions) <br/><br/> localhost (for earlier versions than Data Management Gateway 2.0) |.\\\\ or folder\\\\subfolder (for Data Management Gateway 2.0 and later versions) <br/><br/>D:\\\\ or D:\\\\folder\\\\subfolder (for gateway version below 2.0) |
@@ -3362,11 +3358,11 @@ You can link an on-premises file system to an Azure data factory with the **On-P
 For more information, see [File System connector article](data-factory-onprem-file-system-connector.md#linked-service-properties).
 
 ### Dataset
-To define a File System dataset, set the **type** of the dataset to **FileShare**, and specify the following properties in the **typeProperties** section: 
+To define a File System dataset, set the **type** of the dataset to **FileShare**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
-| folderPath |Specifies the subpath to the folder. Use the escape character ‘\’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. |Yes |
+| folderPath |Specifies the subpath to the folder. Use the escape character ‘\’ for special characters in the string. See Sample linked service and dataset definitions for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. |Yes |
 | fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file is in the following format: <br/><br/>`Data.<Guid>.txt` (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |No |
 | fileFilter |Specify a filter to be used to select a subset of files in the folderPath rather than all files. <br/><br/>Allowed values are: `*` (multiple characters) and `?` (single character).<br/><br/>Example 1: "fileFilter": "*.log"<br/>Example 2: "fileFilter": 2016-1-?.txt"<br/><br/>Note that fileFilter is applicable for an input FileShare dataset. |No |
 | partitionedBy |You can use partitionedBy to specify a dynamic folderPath/fileName for time-series data. An example is folderPath parameterized for every hour of data. |No |
@@ -3491,6 +3487,7 @@ If you are copying data to File System, set the **sink type** of the copy activi
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
 | copyBehavior |Defines the copy behavior when the source is BlobSource or FileSystem. |**PreserveHierarchy:** Preserves the file hierarchy in the target folder. That is, the relative path of the source file to the source folder is the same as the relative path of the target file to the target folder.<br/><br/>**FlattenHierarchy:** All files from the source folder are created in the first level of target folder. The target files are created with an autogenerated name.<br/><br/>**MergeFiles:** Merges all files from the source folder to one file. If the file name/blob name is specified, the merged file name is the specified name. Otherwise, it is an auto-generated file name. |No |
+
 auto-
 
 #### Example
@@ -3541,7 +3538,7 @@ For more information, see [File System connector article](data-factory-onprem-fi
 ## FTP
 
 ### Linked service
-To define an FTP linked service, set the **type** of the linked service to **FtpServer**, and specify following properties in the **typeProperties** section:  
+To define an FTP linked service, set the **type** of the linked service to **FtpServer**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required | Default |
 | --- | --- | --- | --- |
@@ -3553,7 +3550,7 @@ To define an FTP linked service, set the **type** of the linked service to **Ftp
 | gatewayName |Name of the Data Management Gateway to connect to an on-premises FTP server |No |&nbsp; |
 | port |Port on which the FTP server is listening |No |21 |
 | enableSsl |Specify whether to use FTP over SSL/TLS channel |No |true |
-| enableServerCertificateValidation |Specify whether to enable server SSL certificate validation when using FTP over SSL/TLS channel |No |true |
+| enableServerCertificateValidation |Specify whether to enable server TLS/SSL certificate validation when using FTP over SSL/TLS channel |No |true |
 
 #### Example: Using Anonymous authentication
 
@@ -3596,7 +3593,7 @@ To define an FTP linked service, set the **type** of the linked service to **Ftp
         "type": "FtpServer",
         "typeProperties": {
             "host": "myftpserver.com",
-            "authenticationType": "Basic",    
+            "authenticationType": "Basic",
             "username": "Admin",
             "password": "123456",
             "port": "21",
@@ -3627,12 +3624,12 @@ To define an FTP linked service, set the **type** of the linked service to **Ftp
 For more information, see [FTP connector](data-factory-ftp-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define an FTP dataset, set the **type** of the dataset to **FileShare**, and specify the following properties in the **typeProperties** section: 
+To define an FTP dataset, set the **type** of the dataset to **FileShare**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
-| folderPath |Sub path to the folder. Use escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. |Yes 
-| fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: <br/><br/>Data.<Guid>.txt (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
+| folderPath |Sub path to the folder. Use escape character ‘ \ ’ for special characters in the string. See Sample linked service and dataset definitions for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. |Yes
+| fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: <br/><br/>`Data.<Guid>.txt` (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |No |
 | fileFilter |Specify a filter to be used to select a subset of files in the folderPath rather than all files.<br/><br/>Allowed values are: `*` (multiple characters) and `?` (single character).<br/><br/>Examples 1: `"fileFilter": "*.log"`<br/>Example 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter is applicable for an input FileShare dataset. This property is not supported with HDFS. |No |
 | partitionedBy |partitionedBy can be used to specify a dynamic folderPath, filename for time series data. For example, folderPath parameterized for every hour of data. |No |
 | format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No |
@@ -3719,17 +3716,17 @@ For more information, see [FTP connector](data-factory-ftp-connector.md#copy-act
 ## HDFS
 
 ### Linked service
-To define a HDFS linked service, set the **type** of the linked service to **Hdfs**, and specify following properties in the **typeProperties** section:  
+To define a HDFS linked service, set the **type** of the linked service to **Hdfs**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
 | type |The type property must be set to: **Hdfs** |Yes |
 | Url |URL to the HDFS |Yes |
-| authenticationType |Anonymous, or Windows. <br><br> To use **Kerberos authentication** for HDFS connector, refer to [this section](#use-kerberos-authentication-for-hdfs-connector) to set up your on-premises environment accordingly. |Yes |
+| authenticationType |Anonymous, or Windows. <br><br> To use **Kerberos authentication** for HDFS connector, refer to this section to set up your on-premises environment accordingly. |Yes |
 | userName |Username for Windows authentication. |Yes (for Windows Authentication) |
 | password |Password for Windows authentication. |Yes (for Windows Authentication) |
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the HDFS. |Yes |
-| encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) output of the access credential. |No |
+| encryptedCredential |[New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) output of the access credential. |No |
 
 #### Example: Using Anonymous authentication
 
@@ -3766,15 +3763,15 @@ To define a HDFS linked service, set the **type** of the linked service to **Hdf
 }
 ```
 
-For more information, see [HDFS connector](#data-factory-hdfs-connector.md#linked-service-properties) article. 
+For more information, see HDFS connector article.
 
 ### Dataset
-To define a HDFS dataset, set the **type** of the dataset to **FileShare**, and specify the following properties in the **typeProperties** section: 
+To define a HDFS dataset, set the **type** of the dataset to **FileShare**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
 | folderPath |Path to the folder. Example: `myfolder`<br/><br/>Use escape character ‘ \ ’ for special characters in the string. For example: for folder\subfolder, specify folder\\\\subfolder and for d:\samplefolder, specify d:\\\\samplefolder.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. |Yes |
-| fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: <br/><br/>Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
+| fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: <br/><br/>`Data.<Guid>.txt` (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | partitionedBy |partitionedBy can be used to specify a dynamic folderPath, filename for time series data. Example: folderPath parameterized for every hour of data. |No |
 | format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No |
 | compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. Supported levels are: **Optimal** and **Fastest**. For more information, see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
@@ -3802,7 +3799,7 @@ To define a HDFS dataset, set the **type** of the dataset to **FileShare**, and 
 }
 ```
 
-For more information, see [HDFS connector](#data-factory-hdfs-connector.md#dataset-properties) article. 
+For more information, see HDFS connector article.
 
 ### File System Source in Copy Activity
 If you are copying data from HDFS, set the **source type** of the copy activity to **FileSystemSource**, and specify following properties in the **source** section:
@@ -3849,19 +3846,19 @@ If you are copying data from HDFS, set the **source type** of the copy activity 
 }
 ```
 
-For more information, see [HDFS connector](#data-factory-hdfs-connector.md#copy-activity-properties) article.
+For more information, see HDFS connector article.
 
 ## SFTP
 
 
 ### Linked service
-To define an SFTP linked service, set the **type** of the linked service to **Sftp**, and specify following properties in the **typeProperties** section:  
+To define an SFTP linked service, set the **type** of the linked service to **Sftp**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | host | Name or IP address of the SFTP server. |Yes |
 | port |Port on which the SFTP server is listening. The default value is: 21 |No |
-| authenticationType |Specify authentication type. Allowed values: **Basic**, **SshPublicKey**. <br><br> Refer to [Using basic authentication](#using-basic-authentication) and [Using SSH public key authentication](#using-ssh-public-key-authentication) sections on more properties and JSON samples respectively. |Yes |
+| authenticationType |Specify authentication type. Allowed values: **Basic**, **SshPublicKey**. <br><br> Refer to Using basic authentication and [Using SSH public key authentication](#using-ssh-public-key-authentication) sections on more properties and JSON samples respectively. |Yes |
 | skipHostKeyValidation | Specify whether to skip host key validation. | No. The default value: false |
 | hostKeyFingerprint | Specify the finger print of the host key. | Yes if the `skipHostKeyValidation` is set to false.  |
 | gatewayName |Name of the Data Management Gateway to connect to an on-premises SFTP server. | Yes if copying data from an on-premises SFTP server. |
@@ -3872,7 +3869,7 @@ To define an SFTP linked service, set the **type** of the linked service to **Sf
 To use basic authentication, set `authenticationType` as `Basic`, and specify the following properties besides the SFTP connector generic ones introduced in the last section:
 
 | Property | Description | Required |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | username | User who has access to the SFTP server. |Yes |
 | password | Password for the user (username). | Yes |
 
@@ -3921,7 +3918,7 @@ To use basic authentication, set `authenticationType` as `Basic`, and specify th
 To use basic authentication, set `authenticationType` as `SshPublicKey`, and specify the following properties besides the SFTP connector generic ones introduced in the last section:
 
 | Property | Description | Required |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | username |User who has access to the SFTP server |Yes |
 | privateKeyPath | Specify absolute path to the private key file that gateway can access. | Specify either the `privateKeyPath` or `privateKeyContent`. <br><br> Apply only when copying data from an on-premises SFTP server. |
 | privateKeyContent | A serialized string of the private key content. The Copy Wizard can read the private key file and extract the private key content automatically. If you are using any other tool/SDK, use the privateKeyPath property instead. | Specify either the `privateKeyPath` or `privateKeyContent`. |
@@ -3966,15 +3963,15 @@ To use basic authentication, set `authenticationType` as `SshPublicKey`, and spe
 }
 ```
 
-For more information, see [SFTP connector](data-factory-sftp-connector.md#linked-service-properties) article. 
+For more information, see [SFTP connector](data-factory-sftp-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define an SFTP dataset, set the **type** of the dataset to **FileShare**, and specify the following properties in the **typeProperties** section: 
+To define an SFTP dataset, set the **type** of the dataset to **FileShare**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
-| folderPath |Sub path to the folder. Use escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. |Yes |
-| fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: <br/><br/>Data.<Guid>.txt (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
+| folderPath |Sub path to the folder. Use escape character ‘ \ ’ for special characters in the string. See Sample linked service and dataset definitions for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. |Yes |
+| fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: <br/><br/>`Data.<Guid>.txt` (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |No |
 | fileFilter |Specify a filter to be used to select a subset of files in the folderPath rather than all files.<br/><br/>Allowed values are: `*` (multiple characters) and `?` (single character).<br/><br/>Examples 1: `"fileFilter": "*.log"`<br/>Example 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter is applicable for an input FileShare dataset. This property is not supported with HDFS. |No |
 | partitionedBy |partitionedBy can be used to specify a dynamic folderPath, filename for time series data. For example, folderPath parameterized for every hour of data. |No |
 | format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No |
@@ -4005,7 +4002,7 @@ To define an SFTP dataset, set the **type** of the dataset to **FileShare**, and
 }
 ```
 
-For more information, see [SFTP connector](data-factory-sftp-connector.md#dataset-properties) article. 
+For more information, see [SFTP connector](data-factory-sftp-connector.md#dataset-properties) article.
 
 ### File System Source in Copy Activity
 If you are copying data from an SFTP source, set the **source type** of the copy activity to **FileSystemSource**, and specify following properties in the **source** section:
@@ -4062,13 +4059,13 @@ For more information, see [SFTP connector](data-factory-sftp-connector.md#copy-a
 ## HTTP
 
 ### Linked service
-To define a HTTP linked service, set the **type** of the linked service to **Http**, and specify following properties in the **typeProperties** section:  
+To define a HTTP linked service, set the **type** of the linked service to **Http**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
 | url | Base URL to the Web Server | Yes |
 | authenticationType | Specifies the authentication type. Allowed values are: **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Refer to sections below this table on more properties and JSON samples for those authentication types respectively. | Yes |
-| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation if source is HTTPS Web Server | No, default is true |
+| enableServerCertificateValidation | Specify whether to enable server TLS/SSL certificate validation if source is HTTPS Web Server | No, default is true |
 | gatewayName | Name of the Data Management Gateway to connect to an on-premises HTTP source. | Yes if copying data from an on-premises HTTP source. |
 | encryptedCredential | Encrypted credential to access the HTTP endpoint. Auto-generated when you configure the authentication information in copy wizard or the ClickOnce popup dialog. | No. Apply only when copying data from an on-premises HTTP server. |
 
@@ -4110,7 +4107,7 @@ If you use `certThumbprint` for authentication and the certificate is installed 
 1. Launch Microsoft Management Console (MMC). Add the **Certificates** snap-in that targets the **Local Computer**.
 2. Expand **Certificates**, **Personal**, and click **Certificates**.
 3. Right-click the certificate from the personal store, and select **All Tasks**->**Manage Private Keys...**
-3. On the **Security** tab, add the user account under which Data Management Gateway Host Service is running with the read access to the certificate.  
+3. On the **Security** tab, add the user account under which Data Management Gateway Host Service is running with the read access to the certificate.
 
 **Example: using client certificate:**
 This linked service links your data factory to an on-premises HTTP web server. It uses a client certificate that is installed on the machine with Data Management Gateway installed.
@@ -4151,7 +4148,7 @@ This linked service links your data factory to an on-premises HTTP web server. I
 For more information, see [HTTP connector](data-factory-http-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define a HTTP dataset, set the **type** of the dataset to **Http**, and specify the following properties in the **typeProperties** section: 
+To define a HTTP dataset, set the **type** of the dataset to **Http**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -4261,7 +4258,7 @@ For more information, see [HTTP connector](data-factory-http-connector.md#copy-a
 ## OData
 
 ### Linked service
-To define an OData linked service, set the **type** of the linked service to **OData**, and specify following properties in the **typeProperties** section:  
+To define an OData linked service, set the **type** of the linked service to **OData**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -4270,7 +4267,7 @@ To define an OData linked service, set the **type** of the linked service to **O
 | username |Specify user name if you are using Basic authentication. |Yes (only if you are using Basic authentication) |
 | password |Specify password for the user account you specified for the username. |Yes (only if you are using Basic authentication) |
 | authorizedCredential |If you are using OAuth, click **Authorize** button in the Data Factory Copy Wizard or Editor and enter your credential, then the value of this property will be auto-generated. |Yes (only if you are using OAuth authentication) |
-| gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises OData service. Specify only if you are copying data from on-prem OData source. |No |
+| gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises OData service. Specify only if you are copying data from on premises OData source. |No |
 
 #### Example - Using Basic authentication
 ```json
@@ -4279,7 +4276,7 @@ To define an OData linked service, set the **type** of the linked service to **O
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "http://services.odata.org/OData/OData.svc",
+            "url": "https://services.odata.org/OData/OData.svc",
             "authenticationType": "Basic",
             "username": "username",
             "password": "password"
@@ -4296,7 +4293,7 @@ To define an OData linked service, set the **type** of the linked service to **O
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "http://services.odata.org/OData/OData.svc",
+            "url": "https://services.odata.org/OData/OData.svc",
             "authenticationType": "Anonymous"
         }
     }
@@ -4341,7 +4338,7 @@ To define an OData linked service, set the **type** of the linked service to **O
 For more information, see [OData connector](data-factory-odata-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define an OData dataset, set the **type** of the dataset to **ODataResource**, and specify the following properties in the **typeProperties** section: 
+To define an OData dataset, set the **type** of the dataset to **ODataResource**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -4431,12 +4428,12 @@ For more information, see [OData connector](data-factory-odata-connector.md#copy
 
 
 ### Linked service
-To define an ODBC linked service, set the **type** of the linked service to **OnPremisesOdbc**, and specify following properties in the **typeProperties** section:  
+To define an ODBC linked service, set the **type** of the linked service to **OnPremisesOdbc**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
 | connectionString |The non-access credential portion of the connection string and an optional encrypted credential. See examples in the following sections. |Yes |
-| credential |The access credential portion of the connection string specified in driver-specific property-value format. Example: “Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”. |No |
+| credential |The access credential portion of the connection string specified in driver-specific property-value format. Example: `“Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”.` |No |
 | authenticationType |Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. |Yes |
 | username |Specify user name if you are using Basic authentication. |No |
 | password |Specify password for the user account you specified for the username. |No |
@@ -4460,7 +4457,7 @@ To define an ODBC linked service, set the **type** of the linked service to **On
 }
 ```
 #### Example - Using Basic authentication with encrypted credentials
-You can encrypt the credentials using the [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) (1.0 version of Azure PowerShell) cmdlet or [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0.9 or earlier version of the Azure PowerShell).  
+You can encrypt the credentials using the [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) cmdlet.
 
 ```json
 {
@@ -4493,10 +4490,10 @@ You can encrypt the credentials using the [New-AzureRMDataFactoryEncryptValue](h
 }
 ```
 
-For more information, see [ODBC connector](data-factory-odbc-connector.md#linked-service-properties) article. 
+For more information, see [ODBC connector](data-factory-odbc-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define an ODBC dataset, set the **type** of the dataset to **RelationalTable**, and specify the following properties in the **typeProperties** section: 
+To define an ODBC dataset, set the **type** of the dataset to **RelationalTable**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -4528,7 +4525,7 @@ To define an ODBC dataset, set the **type** of the dataset to **RelationalTable*
 }
 ```
 
-For more information, see [ODBC connector](data-factory-odbc-connector.md#dataset-properties) article. 
+For more information, see [ODBC connector](data-factory-odbc-connector.md#dataset-properties) article.
 
 ### Relational Source in Copy Activity
 If you are copying data from an ODBC data store, set the **source type** of the copy activity to **RelationalSource**, and specify following properties in the **source** section:
@@ -4577,7 +4574,7 @@ If you are copying data from an ODBC data store, set the **source type** of the 
         "end": "2016-06-01T19:00:00"
     }
 }
-``` 
+```
 
 For more information, see [ODBC connector](data-factory-odbc-connector.md#copy-activity-properties) article.
 
@@ -4585,11 +4582,11 @@ For more information, see [ODBC connector](data-factory-odbc-connector.md#copy-a
 
 
 ### Linked service
-To define a Salesforce linked service, set the **type** of the linked service to **Salesforce**, and specify following properties in the **typeProperties** section:  
+To define a Salesforce linked service, set the **type** of the linked service to **Salesforce**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
-| environmentUrl | Specify the URL of Salesforce instance. <br><br> - Default is "https://login.salesforce.com". <br> - To copy data from sandbox, specify "https://test.salesforce.com". <br> - To copy data from custom domain, specify, for example, "https://[domain].my.salesforce.com". |No |
+| environmentUrl | Specify the URL of Salesforce instance. <br><br> - Default is "https:\//login.salesforce.com". <br> - To copy data from sandbox, specify "https://test.salesforce.com". <br> - To copy data from custom domain, specify, for example, "https://[domain].my.salesforce.com". |No |
 | username |Specify a user name for the user account. |Yes |
 | password |Specify a password for the user account. |Yes |
 | securityToken |Specify a security token for the user account. See [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) for instructions on how to reset/get a security token. To learn about security tokens in general, see [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Yes |
@@ -4610,10 +4607,10 @@ To define a Salesforce linked service, set the **type** of the linked service to
 }
 ```
 
-For more information, see [Salesforce connector](data-factory-salesforce-connector.md#linked-service-properties) article. 
+For more information, see [Salesforce connector](data-factory-salesforce-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define a Salesforce dataset, set the **type** of the dataset to **RelationalTable**, and specify the following properties in the **typeProperties** section: 
+To define a Salesforce dataset, set the **type** of the dataset to **RelationalTable**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -4646,7 +4643,7 @@ To define a Salesforce dataset, set the **type** of the dataset to **RelationalT
 }
 ```
 
-For more information, see [Salesforce connector](data-factory-salesforce-connector.md#dataset-properties) article. 
+For more information, see [Salesforce connector](data-factory-salesforce-connector.md#dataset-properties) article.
 
 ### Relational Source in Copy Activity
 If you are copying data from Salesforce, set the **source type** of the copy activity to **RelationalSource**, and specify following properties in the **source** section:
@@ -4655,7 +4652,7 @@ If you are copying data from Salesforce, set the **source type** of the copy act
 | --- | --- | --- | --- |
 | query |Use the custom query to read data. |A SQL-92 query or [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. For example:  `select * from MyTable__c`. |No (if the **tableName** of the **dataset** is specified) |
 
-#### Example  
+#### Example
 
 
 
@@ -4703,18 +4700,18 @@ If you are copying data from Salesforce, set the **source type** of the copy act
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-For more information, see [Salesforce connector](data-factory-salesforce-connector.md#copy-activity-properties) article. 
+For more information, see [Salesforce connector](data-factory-salesforce-connector.md#copy-activity-properties) article.
 
-## Web Data 
+## Web Data
 
 ### Linked service
-To define a Web linked service, set the **type** of the linked service to **Web**, and specify following properties in the **typeProperties** section:  
+To define a Web linked service, set the **type** of the linked service to **Web**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
 | Url |URL to the Web source |Yes |
 | authenticationType |Anonymous. |Yes |
- 
+
 
 #### Example
 
@@ -4732,16 +4729,16 @@ To define a Web linked service, set the **type** of the linked service to **Web*
 }
 ```
 
-For more information, see [Web Table connector](data-factory-web-table-connector.md#linked-service-properties) article. 
+For more information, see [Web Table connector](data-factory-web-table-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define a Web dataset, set the **type** of the dataset to **WebTable**, and specify the following properties in the **typeProperties** section: 
+To define a Web dataset, set the **type** of the dataset to **WebTable**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type |type of the dataset. must be set to **WebTable** |Yes |
 | path |A relative URL to the resource that contains the table. |No. When path is not specified, only the URL specified in the linked service definition is used. |
-| index |The index of the table in the resource. See [Get index of a table in an HTML page](#get-index-of-a-table-in-an-html-page) section for steps to getting index of a table in an HTML page. |Yes |
+| index |The index of the table in the resource. See Get index of a table in an HTML page section for steps to getting index of a table in an HTML page. |Yes |
 
 #### Example
 
@@ -4764,7 +4761,7 @@ To define a Web dataset, set the **type** of the dataset to **WebTable**, and sp
 }
 ```
 
-For more information, see [Web Table connector](data-factory-web-table-connector.md#dataset-properties) article. 
+For more information, see [Web Table connector](data-factory-web-table-connector.md#dataset-properties) article.
 
 ### Web Source in Copy Activity
 If you are copying data from a web table, set the **source type** of the copy activity to **WebSource**. Currently, when the source in copy activity is of type **WebSource**, no additional properties are supported.
@@ -4811,23 +4808,23 @@ If you are copying data from a web table, set the **source type** of the copy ac
 }
 ```
 
-For more information, see [Web Table connector](data-factory-web-table-connector.md#copy-activity-properties) article. 
+For more information, see [Web Table connector](data-factory-web-table-connector.md#copy-activity-properties) article.
 
 ## COMPUTE ENVIRONMENTS
-The following table lists the compute environments supported by Data Factory and the transformation activities that can run on them. Click the link for the compute you are interested in to see the JSON schemas for linked service to link it to a data factory. 
+The following table lists the compute environments supported by Data Factory and the transformation activities that can run on them. Click the link for the compute you are interested in to see the JSON schemas for linked service to link it to a data factory.
 
 | Compute environment | Activities |
 | --- | --- |
-| [On-demand HDInsight cluster](#on-demand-azure-hdinsight-cluster) or [your own HDInsight cluster](#existing-azure-hdinsight-cluster) |[.NET custom activity](#net-custom-activity), [Hive activity](#hdinsight-hive-activity), [Pig activity](#hdinsight-pig-activity), [MapReduce activity](#hdinsight-mapreduce-activity), [Hadoop streaming activity](#hdinsight-streaming-activityd), [Spark activity](#hdinsight-spark-activity) |
+| [On-demand HDInsight cluster](#on-demand-azure-hdinsight-cluster) or [your own HDInsight cluster](#existing-azure-hdinsight-cluster) |[.NET custom activity](#net-custom-activity), [Hive activity](#hdinsight-hive-activity), [Pig activity](#hdinsight-pig-activity), [MapReduce activity](#hdinsight-mapreduce-activity), Hadoop streaming activity, [Spark activity](#hdinsight-spark-activity) |
 | [Azure Batch](#azure-batch) |[.NET custom activity](#net-custom-activity) |
-| [Azure Machine Learning](#azure-machine-learning) | [Machine Learning Batch Execution Activity](#machine-learning-batch-execution-activity), [Machine Learning Update Resource Activity](#machine-learning-update-resource-activity) |
+| [Azure Machine Learning Studio (classic)](#azure-machine-learning-studio-classic) | [Azure Machine Learning Studio (classic) Batch Execution Activity](#azure-machine-learning-studio-classic-batch-execution-activity), [Azure Machine Learning Studio (classic) Update Resource Activity](#azure-machine-learning-studio-classic-update-resource-activity) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics) |[Data Lake Analytics U-SQL](#data-lake-analytics-u-sql-activity) |
-| [Azure SQL Database](#azure-sql-database-1), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-1), [SQL Server](#sql-server-1) |[Stored Procedure](#stored-procedure-activity) |
+| [Azure SQL Database](#azure-sql-database), [Azure Synapse Analytics](#azure-synapse-analytics), [SQL Server](#sql-server-stored-procedure) |[Stored Procedure](#stored-procedure-activity) |
 
 ## On-demand Azure HDInsight cluster
-The Azure Data Factory service can automatically create a Windows/Linux-based on-demand HDInsight cluster to process data. The cluster is created in the same region as the storage account (linkedServiceName property in the JSON) associated with the cluster. You can run the following transformation activities on this linked service: [.NET custom activity](#net-custom-activity), [Hive activity](#hdinsight-hive-activity), [Pig activity](#hdinsight-pig-activity), [MapReduce activity](#hdinsight-mapreduce-activity), [Hadoop streaming activity](#hdinsight-streaming-activityd), [Spark activity](#hdinsight-spark-activity). 
+The Azure Data Factory service can automatically create a Windows/Linux-based on-demand HDInsight cluster to process data. The cluster is created in the same region as the storage account (linkedServiceName property in the JSON) associated with the cluster. You can run the following transformation activities on this linked service: [.NET custom activity](#net-custom-activity), [Hive activity](#hdinsight-hive-activity), [Pig activity](#hdinsight-pig-activity), [MapReduce activity](#hdinsight-mapreduce-activity), Hadoop streaming activity, [Spark activity](#hdinsight-spark-activity).
 
-### Linked service 
+### Linked service
 The following table provides descriptions for the properties used in the Azure JSON definition of an on-demand HDInsight linked service.
 
 | Property | Description | Required |
@@ -4839,10 +4836,10 @@ The following table provides descriptions for the properties used in the Azure J
 | linkedServiceName |Azure Storage linked service to be used by the on-demand cluster for storing and processing data. <p>Currently, you cannot create an on-demand HDInsight cluster that uses an Azure Data Lake Store as the storage. If you want to store the result data from HDInsight processing in an Azure Data Lake Store, use a Copy Activity to copy the data from the Azure Blob Storage to the Azure Data Lake Store.</p>  | Yes |
 | additionalLinkedServiceNames |Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. |No |
 | osType |Type of operating system. Allowed values are: Windows (default) and Linux |No |
-| hcatalogLinkedServiceName |The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using the Azure SQL database as the metastore. |No |
+| hcatalogLinkedServiceName |The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using Azure SQL Database as the metastore. |No |
 
 ### JSON example
-The following JSON defines a Linux-based on-demand HDInsight linked service. The Data Factory service automatically creates a **Linux-based** HDInsight cluster when processing a data slice. 
+The following JSON defines a Linux-based on-demand HDInsight linked service. The Data Factory service automatically creates a **Linux-based** HDInsight cluster when processing a data slice.
 
 ```json
 {
@@ -4860,10 +4857,10 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 }
 ```
 
-For more information, see [Compute linked services](data-factory-compute-linked-services.md) article. 
+For more information, see [Compute linked services](data-factory-compute-linked-services.md) article.
 
 ## Existing Azure HDInsight cluster
-You can create an Azure HDInsight linked service to register your own HDInsight cluster with Data Factory. You can run the following data transformation activities on this linked service: [.NET custom activity](#net-custom-activity), [Hive activity](#hdinsight-hive-activity), [Pig activity](#hdinsight-pig-activity), [MapReduce activity](#hdinsight-mapreduce-activity), [Hadoop streaming activity](#hdinsight-streaming-activityd), [Spark activity](#hdinsight-spark-activity). 
+You can create an Azure HDInsight linked service to register your own HDInsight cluster with Data Factory. You can run the following data transformation activities on this linked service: [.NET custom activity](#net-custom-activity), [Hive activity](#hdinsight-hive-activity), [Pig activity](#hdinsight-pig-activity), [MapReduce activity](#hdinsight-mapreduce-activity), Hadoop streaming activity, [Spark activity](#hdinsight-spark-activity).
 
 ### Linked service
 The following table provides descriptions for the properties used in the Azure JSON definition of an Azure HDInsight linked service.
@@ -4876,7 +4873,7 @@ The following table provides descriptions for the properties used in the Azure J
 | password |Specify password for the user account. |Yes |
 | linkedServiceName | Name of the Azure Storage linked service that refers to the Azure blob storage used by the HDInsight cluster. <p>Currently, you cannot specify an Azure Data Lake Store linked service for this property. You may access data in the Azure Data Lake Store from Hive/Pig scripts if the HDInsight cluster has access to the Data Lake Store. </p>  |Yes |
 
-For versions of HDInsight clusters supported, see [supported HDInsight versions](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). 
+For versions of HDInsight clusters supported, see [supported HDInsight versions](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory).
 
 #### JSON example
 
@@ -4896,7 +4893,7 @@ For versions of HDInsight clusters supported, see [supported HDInsight versions]
 ```
 
 ## Azure Batch
-You can create an Azure Batch linked service to register a Batch pool of virtual machines (VMs) with a data factory. You can run .NET custom activities using either Azure Batch or Azure HDInsight. You can run a [.NET custom activity](#net-custom-activity) on this linked service. 
+You can create an Azure Batch linked service to register a Batch pool of virtual machines (VMs) with a data factory. You can run .NET custom activities using either Azure Batch or Azure HDInsight. You can run a [.NET custom activity](#net-custom-activity) on this linked service.
 
 ### Linked service
 The following table provides descriptions for the properties used in the Azure JSON definition of an Azure Batch linked service.
@@ -4927,11 +4924,11 @@ The following table provides descriptions for the properties used in the Azure J
 }
 ```
 
-## Azure Machine Learning
-You create an Azure Machine Learning linked service to register a Machine Learning batch scoring endpoint with a data factory. Two data transformation activities that can run on this linked service: [Machine Learning Batch Execution Activity](#machine-learning-batch-execution-activity), [Machine Learning Update Resource Activity](#machine-learning-update-resource-activity). 
+## Azure Machine Learning Studio (classic)
+You create an Azure Machine Learning Studio (classic) linked service to register a Studio (classic) batch scoring endpoint with a data factory. Two data transformation activities that can run on this linked service: [Azure Machine Learning Studio (classic) Batch Execution Activity](#azure-machine-learning-studio-classic-batch-execution-activity), [Azure Machine Learning Studio (classic) Update Resource Activity](#azure-machine-learning-studio-classic-update-resource-activity).
 
 ### Linked service
-The following table provides descriptions for the properties used in the Azure JSON definition of an Azure Machine Learning linked service.
+The following table provides descriptions for the properties used in the Azure JSON definition of a Studio (classic) linked service.
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -4959,7 +4956,7 @@ You create an **Azure Data Lake Analytics** linked service to link an Azure Data
 
 ### Linked service
 
-The following table provides descriptions for the properties used in the JSON definition of an Azure Data Lake Analytics linked service. 
+The following table provides descriptions for the properties used in the JSON definition of an Azure Data Lake Analytics linked service.
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -4967,9 +4964,9 @@ The following table provides descriptions for the properties used in the JSON de
 | accountName |Azure Data Lake Analytics Account Name. |Yes |
 | dataLakeAnalyticsUri |Azure Data Lake Analytics URI. |No |
 | authorization |Authorization code is automatically retrieved after clicking **Authorize** button in the Data Factory Editor and completing the OAuth login. |Yes |
-| subscriptionId |Azure subscription id |No (If not specified, subscription of the data factory is used). |
+| subscriptionId |Azure subscription ID |No (If not specified, subscription of the data factory is used). |
 | resourceGroupName |Azure resource group name |No (If not specified, resource group of the data factory is used). |
-| sessionId |session id from the OAuth authorization session. Each session id is unique and may only be used once. When you use the Data Factory Editor, this ID is auto-generated. |Yes |
+| sessionId |session ID from the OAuth authorization session. Each session ID is unique and may only be used once. When you use the Data Factory Editor, this ID is auto-generated. |Yes |
 
 
 #### JSON example
@@ -4992,75 +4989,24 @@ The following example provides JSON definition for an Azure Data Lake Analytics 
 }
 ```
 
-## Azure SQL Database
-You create an Azure SQL linked service and use it with the [Stored Procedure Activity](#stored-procedure-activity) to invoke a stored procedure from a Data Factory pipeline. 
+## SQL Server Stored Procedure
+
+You create a SQL Server linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline.
 
 ### Linked service
-To define an Azure SQL Database linked service, set the **type** of the linked service to **AzureSqlDatabase**, and specify following properties in the **typeProperties** section:  
-
-| Property | Description | Required |
-| --- | --- | --- |
-| connectionString |Specify information needed to connect to the Azure SQL Database instance for the connectionString property. |Yes |
-
-#### JSON example
-
-```json
-{
-    "name": "AzureSqlLinkedService",
-    "properties": {
-        "type": "AzureSqlDatabase",
-        "typeProperties": {
-            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-        }
-    }
-}
-```
-
-See [Azure SQL Connector](data-factory-azure-sql-connector.md#linked-service-properties) article for details about this linked service.
-
-## Azure SQL Data Warehouse
-You create an Azure SQL Data Warehouse linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline. 
-
-### Linked service
-To define an Azure SQL Data Warehouse linked service, set the **type** of the linked service to **AzureSqlDW**, and specify following properties in the **typeProperties** section:  
-
-| Property | Description | Required |
-| --- | --- | --- |
-| connectionString |Specify information needed to connect to the Azure SQL Data Warehouse instance for the connectionString property. |Yes |
-
-#### JSON example
-
-```json
-{
-    "name": "AzureSqlDWLinkedService",
-    "properties": {
-        "type": "AzureSqlDW",
-        "typeProperties": {
-            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-        }
-    }
-}
-```
-
-For more information, see [Azure SQL Data Warehouse connector](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) article. 
-
-## SQL Server 
-You create a SQL Server linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline. 
-
-### Linked service
-You create a linked service of type **OnPremisesSqlServer** to link an on-premises SQL Server database to a data factory. The following table provides description for JSON elements specific to on-premises SQL Server linked service.
+You create a linked service of type **OnPremisesSqlServer** to link a SQL Server database to a data factory. The following table provides description for JSON elements specific to SQL Server linked service.
 
 The following table provides description for JSON elements specific to SQL Server linked service.
 
 | Property | Description | Required |
 | --- | --- | --- |
 | type |The type property should be set to: **OnPremisesSqlServer**. |Yes |
-| connectionString |Specify connectionString information needed to connect to the on-premises SQL Server database using either SQL authentication or Windows authentication. |Yes |
-| gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises SQL Server database. |Yes |
+| connectionString |Specify connectionString information needed to connect to the SQL Server database using either SQL authentication or Windows authentication. |Yes |
+| gatewayName |Name of the gateway that the Data Factory service should use to connect to the SQL Server database. |Yes |
 | username |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
 | password |Specify password for the user account you specified for the username. |No |
 
-You can encrypt credentials using the **New-AzureRmDataFactoryEncryptValue** cmdlet and use them in the connection string as shown in the following example (**EncryptedCredential** property):  
+You can encrypt credentials using the **New-AzDataFactoryEncryptValue** cmdlet and use them in the connection string as shown in the following example (**EncryptedCredential** property):
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -5083,7 +5029,7 @@ You can encrypt credentials using the **New-AzureRmDataFactoryEncryptValue** cmd
 ```
 #### Example: JSON for using Windows Authentication
 
-If username and password are specified, gateway uses them to impersonate the specified user account to connect to the on-premises SQL Server database. Otherwise, gateway connects to the SQL Server directly with the security context of Gateway (its startup account).
+If username and password are specified, gateway uses them to impersonate the specified user account to connect to the SQL Server database. Otherwise, gateway connects to the SQL Server directly with the security context of Gateway (its startup account).
 
 ```json
 {
@@ -5106,18 +5052,18 @@ For more information, see [SQL Server connector](data-factory-sqlserver-connecto
 
 Activity | Description
 -------- | -----------
-[HDInsight Hive activity](#hdinsight-hive-activity) | The HDInsight Hive activity in a Data Factory pipeline executes Hive queries on your own or on-demand Windows/Linux-based HDInsight cluster. 
+[HDInsight Hive activity](#hdinsight-hive-activity) | The HDInsight Hive activity in a Data Factory pipeline executes Hive queries on your own or on-demand Windows/Linux-based HDInsight cluster.
 [HDInsight Pig activity](#hdinsight-pig-activity) | The HDInsight Pig activity in a Data Factory pipeline executes Pig queries on your own or on-demand Windows/Linux-based HDInsight cluster.
 [HDInsight MapReduce Activity](#hdinsight-mapreduce-activity) | The HDInsight MapReduce activity in a Data Factory pipeline executes MapReduce programs on your own or on-demand Windows/Linux-based HDInsight cluster.
 [HDInsight Streaming Activity](#hdinsight-streaming-activity) | The HDInsight Streaming Activity in a Data Factory pipeline executes Hadoop Streaming programs on your own or on-demand Windows/Linux-based HDInsight cluster.
-[HDInsight Spark Activity](#hdinsight-spark-activity) | The HDInsight Spark activity in a Data Factory pipeline executes Spark programs on your own HDInsight cluster. 
-[Machine Learning Batch Execution Activity](#machine-learning-batch-execution-activity) | Azure Data Factory enables you to easily create pipelines that use a published Azure Machine Learning web service for predictive analytics. Using the Batch Execution Activity in an Azure Data Factory pipeline, you can invoke a Machine Learning web service to make predictions on the data in batch. 
-[Machine Learning Update Resource Activity](#machine-learning-update-resource-activity) | Over time, the predictive models in the Machine Learning scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained Machine Learning model. You can use the Update Resource Activity to update the web service with the newly trained model.
-[Stored Procedure Activity](#stored-procedure-activity) | You can use the Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure SQL Data Warehouse, SQL Server Database in your enterprise or an Azure VM. 
-[Data Lake Analytics U-SQL activity](#data-lake-analytics-u-sql-activity) | Data Lake Analytics U-SQL Activity runs a U-SQL script on an Azure Data Lake Analytics cluster.  
-[.NET custom activity](#net-custom-activity) | If you need to transform data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline. You can configure the custom .NET activity to run using either an Azure Batch service or an Azure HDInsight cluster. 
+[HDInsight Spark Activity](#hdinsight-spark-activity) | The HDInsight Spark activity in a Data Factory pipeline executes Spark programs on your own HDInsight cluster.
+[Azure Machine Learning Studio (classic) Batch Execution Activity](#azure-machine-learning-studio-classic-batch-execution-activity) | Azure Data Factory enables you to easily create pipelines that use a published Studio (classic) web service for predictive analytics. Using the Batch Execution Activity in an Azure Data Factory pipeline, you can invoke a Studio (classic) web service to make predictions on the data in batch.
+[Azure Machine Learning Studio (classic) Update Resource Activity](#azure-machine-learning-studio-classic-update-resource-activity) | Over time, the predictive models in the Azure Machine Learning Studio (classic) scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained machine learning model. You can use the Update Resource Activity to update the web service with the newly trained model.
+[Stored Procedure Activity](#stored-procedure-activity) | You can use the Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure Synapse Analytics, SQL Server Database in your enterprise or an Azure VM.
+[Data Lake Analytics U-SQL activity](#data-lake-analytics-u-sql-activity) | Data Lake Analytics U-SQL Activity runs a U-SQL script on an Azure Data Lake Analytics cluster.
+[.NET custom activity](#net-custom-activity) | If you need to transform data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline. You can configure the custom .NET activity to run using either an Azure Batch service or an Azure HDInsight cluster.
 
-     
+
 ## HDInsight Hive Activity
 You can specify the following properties in a Hive Activity JSON definition. The type property for the activity must be: **HDInsightHive**. You must create a HDInsight linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to HDInsightHive:
 
@@ -5127,10 +5073,10 @@ You can specify the following properties in a Hive Activity JSON definition. The
 | script path |Store the Hive script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together. The file name is case-sensitive. |No |
 | defines |Specify parameters as key/value pairs for referencing within the Hive script using 'hiveconf' |No |
 
-These type properties are specific to the Hive Activity. Other properties (outside the typeProperties section) are supported for all activities.   
+These type properties are specific to the Hive Activity. Other properties (outside the typeProperties section) are supported for all activities.
 
 ### JSON example
-The following JSON defines a HDInsight Hive activity in a pipeline.  
+The following JSON defines a HDInsight Hive activity in a pipeline.
 
 ```json
 {
@@ -5162,10 +5108,10 @@ The following JSON defines a HDInsight Hive activity in a pipeline.
 }
 ```
 
-For more information, see [Hive Activity](data-factory-hive-activity.md) article. 
+For more information, see [Hive Activity](data-factory-hive-activity.md) article.
 
 ## HDInsight Pig Activity
-You can specify the following properties in a Pig Activity JSON definition. The type property for the activity must be: **HDInsightPig**. You must create a HDInsight linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to HDInsightPig: 
+You can specify the following properties in a Pig Activity JSON definition. The type property for the activity must be: **HDInsightPig**. You must create a HDInsight linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to HDInsightPig:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -5173,7 +5119,7 @@ You can specify the following properties in a Pig Activity JSON definition. The 
 | script path |Store the Pig script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together. The file name is case-sensitive. |No |
 | defines |Specify parameters as key/value pairs for referencing within the Pig script |No |
 
-These type properties are specific to the Pig Activity. Other properties (outside the typeProperties section) are supported for all activities.   
+These type properties are specific to the Pig Activity. Other properties (outside the typeProperties section) are supported for all activities.
 
 ### JSON example
 
@@ -5214,17 +5160,17 @@ These type properties are specific to the Pig Activity. Other properties (outsid
 }
 ```
 
-For more information, see [Pig Activity](#data-factory-pig-activity.md) article. 
+For more information, see Pig Activity article.
 
 ## HDInsight MapReduce Activity
-You can specify the following properties in a MapReduce Activity JSON definition. The type property for the activity must be: **HDInsightMapReduce**. You must create a HDInsight linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to HDInsightMapReduce: 
+You can specify the following properties in a MapReduce Activity JSON definition. The type property for the activity must be: **HDInsightMapReduce**. You must create a HDInsight linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to HDInsightMapReduce:
 
 | Property | Description | Required |
 | --- | --- | --- |
 | jarLinkedService | Name of the linked service for the Azure Storage that contains the JAR file. | Yes |
-| jarFilePath | Path to the JAR file in the Azure Storage. | Yes | 
-| className | Name of the main class in the JAR file. | Yes | 
-| arguments | A list of comma-separated arguments for the MapReduce program. At runtime, you see a few extra arguments (for example: mapreduce.job.tags) from the MapReduce framework. To differentiate your arguments with the MapReduce arguments, consider using both option and value as arguments as shown in the following example (-s, --input, --output etc., are options immediately followed by their values) | No | 
+| jarFilePath | Path to the JAR file in the Azure Storage. | Yes |
+| className | Name of the main class in the JAR file. | Yes |
+| arguments | A list of comma-separated arguments for the MapReduce program. At runtime, you see a few extra arguments (for example: mapreduce.job.tags) from the MapReduce framework. To differentiate your arguments with the MapReduce arguments, consider using both option and value as arguments as shown in the following example (-s, --input, --output etc., are options immediately followed by their values) | No |
 
 ### JSON example
 
@@ -5272,24 +5218,24 @@ You can specify the following properties in a MapReduce Activity JSON definition
 }
 ```
 
-For more information, see [MapReduce Activity](data-factory-map-reduce.md) article. 
+For more information, see [MapReduce Activity](data-factory-map-reduce.md) article.
 
 ## HDInsight Streaming Activity
-You can specify the following properties in a Hadoop Streaming Activity JSON definition. The type property for the activity must be: **HDInsightStreaming**. You must create a HDInsight linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to HDInsightStreaming: 
+You can specify the following properties in a Hadoop Streaming Activity JSON definition. The type property for the activity must be: **HDInsightStreaming**. You must create a HDInsight linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to HDInsightStreaming:
 
-| Property | Description | 
+| Property | Description |
 | --- | --- |
-| mapper | Name of the mapper executable. In the example, cat.exe is the mapper executable.| 
-| reducer | Name of the reducer executable. In the example, wc.exe is the reducer executable. | 
-| input | Input file (including location) for the mapper. In the example: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample is the blob container, example/data/Gutenberg is the folder, and davinci.txt is the blob. |
+| mapper | Name of the mapper executable. In the example, cat.exe is the mapper executable.|
+| reducer | Name of the reducer executable. In the example, wc.exe is the reducer executable. |
+| input | Input file (including location) for the mapper. In the example: `"wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt"`: adfsample is the blob container, example/data/Gutenberg is the folder, and davinci.txt is the blob. |
 | output | Output file (including location) for the reducer. The output of the Hadoop Streaming job is written to the location specified for this property. |
-| filePaths | Paths for the mapper and reducer executables. In the example: "adfsample/example/apps/wc.exe", adfsample is the blob container, example/apps is the folder, and wc.exe is the executable. | 
-| fileLinkedService | Azure Storage linked service that represents the Azure storage that contains the files specified in the filePaths section. | 
-| arguments | A list of comma-separated arguments for the MapReduce program. At runtime, you see a few extra arguments (for example: mapreduce.job.tags) from the MapReduce framework. To differentiate your arguments with the MapReduce arguments, consider using both option and value as arguments as shown in the following example (-s, --input, --output etc., are options immediately followed by their values) | 
-| getDebugInfo | An optional element. When it is set to Failure, the logs are downloaded only on failure. When it is set to All, logs are always downloaded irrespective of the execution status. | 
+| filePaths | Paths for the mapper and reducer executables. In the example: "adfsample/example/apps/wc.exe", adfsample is the blob container, example/apps is the folder, and wc.exe is the executable. |
+| fileLinkedService | Azure Storage linked service that represents the Azure storage that contains the files specified in the filePaths section. |
+| arguments | A list of comma-separated arguments for the MapReduce program. At runtime, you see a few extra arguments (for example: mapreduce.job.tags) from the MapReduce framework. To differentiate your arguments with the MapReduce arguments, consider using both option and value as arguments as shown in the following example (-s, --input, --output etc., are options immediately followed by their values) |
+| getDebugInfo | An optional element. When it is set to Failure, the logs are downloaded only on failure. When it is set to All, logs are always downloaded irrespective of the execution status. |
 
 > [!NOTE]
-> You must specify an output dataset for the Hadoop Streaming Activity for the **outputs** property. This dataset can be just a dummy dataset that is required to drive the pipeline schedule (hourly, daily, etc.). If the activity doesn't take an input, you can skip specifying an input dataset for the activity for the **inputs** property.  
+> You must specify an output dataset for the Hadoop Streaming Activity for the **outputs** property. This dataset can be just a dummy dataset that is required to drive the pipeline schedule (hourly, daily, etc.). If the activity doesn't take an input, you can skip specifying an input dataset for the activity for the **inputs** property.
 
 ## JSON example
 
@@ -5336,20 +5282,20 @@ You can specify the following properties in a Hadoop Streaming Activity JSON def
 }
 ```
 
-For more information, see [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md) article. 
+For more information, see [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md) article.
 
 ## HDInsight Spark Activity
-You can specify the following properties in a Spark Activity JSON definition. The type property for the activity must be: **HDInsightSpark**. You must create a HDInsight linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to HDInsightSpark: 
+You can specify the following properties in a Spark Activity JSON definition. The type property for the activity must be: **HDInsightSpark**. You must create a HDInsight linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to HDInsightSpark:
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
 | rootPath | The Azure Blob container and folder that contains the Spark file. The file name is case-sensitive. | Yes |
 | entryFilePath | Relative path to the root folder of the Spark code/package. | Yes |
-| className | Application's Java/Spark main class | No | 
-| arguments | A list of command-line arguments to the Spark program. | No | 
-| proxyUser | The user account to impersonate to execute the Spark program | No | 
-| sparkConfig | Spark configuration properties. | No | 
-| getDebugInfo | Specifies when the Spark log files are copied to the Azure storage used by HDInsight cluster (or) specified by sparkJobLinkedService. Allowed values: None, Always, or Failure. Default value: None. | No | 
+| className | Application's Java/Spark main class | No |
+| arguments | A list of command-line arguments to the Spark program. | No |
+| proxyUser | The user account to impersonate to execute the Spark program | No |
+| sparkConfig | Spark configuration properties. | No |
+| getDebugInfo | Specifies when the Spark log files are copied to the Azure storage used by HDInsight cluster (or) specified by sparkJobLinkedService. Allowed values: None, Always, or Failure. Default value: None. | No |
 | sparkJobLinkedService | The Azure Storage linked service that holds the Spark job file, dependencies, and logs.  If you do not specify a value for this property, the storage associated with HDInsight cluster is used. | No |
 
 ### JSON example
@@ -5364,7 +5310,7 @@ You can specify the following properties in a Spark Activity JSON definition. Th
                 "typeProperties": {
                     "rootPath": "adfspark\\pyFiles",
                     "entryFilePath": "test.py",
-                	"getDebugInfo": "Always"
+                    "getDebugInfo": "Always"
                 },
                 "outputs": [
                     {
@@ -5380,31 +5326,31 @@ You can specify the following properties in a Spark Activity JSON definition. Th
     }
 }
 ```
-Note the following points: 
+Note the following points:
 
 - The **type** property is set to **HDInsightSpark**.
-- The **rootPath** is set to **adfspark\\pyFiles** where adfspark is the Azure Blob container and pyFiles is fine folder in that container. In this example, the Azure Blob Storage is the one that is associated with the Spark cluster. You can upload the file to a different Azure Storage. If you do so, create an Azure Storage linked service to link that storage account to the data factory. Then, specify the name of the linked service as a value for the **sparkJobLinkedService** property. See [Spark Activity properties](#spark-activity-properties) for details about this property and other properties supported by the Spark Activity.
-- The **entryFilePath** is set to the **test.py**, which is the python file. 
-- The **getDebugInfo** property is set to **Always**, which means the log files are always generated (success or failure).	
+- The **rootPath** is set to **adfspark\\pyFiles** where adfspark is the Azure Blob container and pyFiles is fine folder in that container. In this example, the Azure Blob Storage is the one that is associated with the Spark cluster. You can upload the file to a different Azure Storage. If you do so, create an Azure Storage linked service to link that storage account to the data factory. Then, specify the name of the linked service as a value for the **sparkJobLinkedService** property. See Spark Activity properties for details about this property and other properties supported by the Spark Activity.
+- The **entryFilePath** is set to the **test.py**, which is the python file.
+- The **getDebugInfo** property is set to **Always**, which means the log files are always generated (success or failure).
 
 	> [!IMPORTANT]
-	> We recommend that you do not set this property to Always in a production environment unless you are troubleshooting an issue. 
+	> We recommend that you do not set this property to Always in a production environment unless you are troubleshooting an issue.
 - The **outputs** section has one output dataset. You must specify an output dataset even if the spark program does not produce any output. The output dataset drives the schedule for the pipeline (hourly, daily, etc.).
 
-For more information about the activity, see [Spark Activity](data-factory-spark.md) article.  
+For more information about the activity, see [Spark Activity](data-factory-spark.md) article.
 
-## Machine Learning Batch Execution Activity
-You can specify the following properties in a Azure ML Batch Execution Activity JSON definition. The type property for the activity must be: **AzureMLBatchExecution**. You must create a Azure Machine Learning linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLBatchExecution:
+## Azure Machine Learning Studio (classic) Batch Execution Activity
+You can specify the following properties in an Azure Machine Learning Studio (classic) Batch Execution Activity JSON definition. The type property for the activity must be: **AzureMLBatchExecution**. You must create a Studio (classic) linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLBatchExecution:
 
-Property | Description | Required 
+Property | Description | Required
 -------- | ----------- | --------
-webServiceInput | The dataset to be passed as an input for the Azure ML web service. This dataset must also be included in the inputs for the activity. |Use either webServiceInput or webServiceInputs. | 
-webServiceInputs | Specify datasets to be passed as inputs for the Azure ML web service. If the web service takes multiple inputs, use the webServiceInputs property instead of using the webServiceInput property. Datasets that are referenced by the **webServiceInputs** must also be included in the Activity **inputs**. | Use either webServiceInput or webServiceInputs. | 
-webServiceOutputs | The datasets that are assigned as outputs for the Azure ML web service. The web service returns output data in this dataset. | Yes | 
-globalParameters | Specify values for the web service parameters in this section. | No | 
+webServiceInput | The dataset to be passed as an input for the Studio (classic) web service. This dataset must also be included in the inputs for the activity. |Use either webServiceInput or webServiceInputs. |
+webServiceInputs | Specify datasets to be passed as inputs for the Studio (classic) web service. If the web service takes multiple inputs, use the webServiceInputs property instead of using the webServiceInput property. Datasets that are referenced by the **webServiceInputs** must also be included in the Activity **inputs**. | Use either webServiceInput or webServiceInputs. |
+webServiceOutputs | The datasets that are assigned as outputs for the Studio (classic) web service. The web service returns output data in this dataset. | Yes |
+globalParameters | Specify values for the web service parameters in this section. | No |
 
 ### JSON example
-In this example, the activity has the dataset **MLSqlInput** as input and **MLSqlOutput** as the output. The **MLSqlInput** is passed as an input to the web service by using the **webServiceInput** JSON property. The **MLSqlOutput** is passed as an output to the Web service by using the **webServiceOutputs** JSON property. 
+In this example, the activity has the dataset **MLSqlInput** as input and **MLSqlOutput** as the output. The **MLSqlInput** is passed as an input to the web service by using the **webServiceInput** JSON property. The **MLSqlOutput** is passed as an output to the Web service by using the **webServiceOutputs** JSON property.
 
 ```json
 {
@@ -5429,7 +5375,7 @@ In this example, the activity has the dataset **MLSqlInput** as input and **MLSq
                "Database name": "<database>",
                "Server user account name": "<user name>",
                "Server user account password": "<password>"
-            }              
+            }
          },
          "policy": {
             "concurrency": 1,
@@ -5444,21 +5390,21 @@ In this example, the activity has the dataset **MLSqlInput** as input and **MLSq
 }
 ```
 
-In the JSON example, the deployed Azure Machine Learning Web service uses a reader and a writer module to read/write data from/to an Azure SQL Database. This Web service exposes the following four parameters:  Database server name, Database name, Server user account name, and Server user account password.
+In the JSON example, the deployed Studio (classic) Web service uses a reader and a writer module to read/write data from/to an Azure SQL Database. This Web service exposes the following four parameters:  Database server name, Database name, Server user account name, and Server user account password.
 
 > [!NOTE]
 > Only inputs and outputs of the AzureMLBatchExecution activity can be passed as parameters to the Web service. For example, in the above JSON snippet, MLSqlInput is an input to the AzureMLBatchExecution activity, which is passed as an input to the Web service via webServiceInput parameter.
 
-## Machine Learning Update Resource Activity
-You can specify the following properties in a Azure ML Update Resource Activity JSON definition. The type property for the activity must be: **AzureMLUpdateResource**. You must create a Azure Machine Learning linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLUpdateResource:
+## Azure Machine Learning Studio (classic) Update Resource Activity
+You can specify the following properties in an Azure Machine Learning Studio (classic) Update Resource Activity JSON definition. The type property for the activity must be: **AzureMLUpdateResource**. You must create a Studio (classic) linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLUpdateResource:
 
-Property | Description | Required 
+Property | Description | Required
 -------- | ----------- | --------
-trainedModelName | Name of the retrained model. | Yes |  
-trainedModelDatasetName | Dataset pointing to the iLearner file returned by the retraining operation. | Yes | 
+trainedModelName | Name of the retrained model. | Yes |
+trainedModelDatasetName | Dataset pointing to the iLearner file returned by the retraining operation. | Yes |
 
 ### JSON example
-The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateResource**. The Azure ML Batch Execution activity takes the training data as input and produces an iLearner file as an output. The activity invokes the training web service (training experiment exposed as a web service) with the input training data and receives the ilearner file from the webservice. The placeholderBlob is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline.
+The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateResource**. The Studio (classic) Batch Execution activity takes the training data as input and produces an iLearner file as an output. The activity invokes the training web service (training experiment exposed as a web service) with the input training data and receives the ilearner file from the webservice. The placeholderBlob is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline.
 
 
 ```json
@@ -5483,7 +5429,7 @@ The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateRe
                     "webServiceInput": "trainingData",
                     "webServiceOutputs": {
                         "output1": "trainedModelBlob"
-                    }              
+                    }
                  },
                 "linkedServiceName": "trainingEndpoint",
                 "policy": {
@@ -5517,7 +5463,7 @@ The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateRe
 ```
 
 ## Data Lake Analytics U-SQL Activity
-You can specify the following properties in a U-SQL Activity JSON definition. The type property for the activity must be: **DataLakeAnalyticsU-SQL**. You must create an Azure Data Lake Analytics linked service and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to DataLakeAnalyticsU-SQL: 
+You can specify the following properties in a U-SQL Activity JSON definition. The type property for the activity must be: **DataLakeAnalyticsU-SQL**. You must create an Azure Data Lake Analytics linked service and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to DataLakeAnalyticsU-SQL:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -5535,7 +5481,7 @@ You can specify the following properties in a U-SQL Activity JSON definition. Th
     "name": "ComputeEventsByRegionPipeline",
     "properties": {
         "description": "This pipeline computes events for en-gb locale and date less than Feb 19, 2012.",
-        "activities": 
+        "activities":
         [
             {
                 "type": "DataLakeAnalyticsU-SQL",
@@ -5554,7 +5500,7 @@ You can specify the following properties in a U-SQL Activity JSON definition. Th
                         "name": "DataLakeTable"
                     }
                 ],
-                "outputs": 
+                "outputs":
                 [
                     {
                         "name": "EventsByRegionTable"
@@ -5581,25 +5527,25 @@ You can specify the following properties in a U-SQL Activity JSON definition. Th
 }
 ```
 
-For more information, see [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md). 
+For more information, see [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md).
 
 ## Stored Procedure Activity
 You can specify the following properties in a Stored Procedure Activity JSON definition. The type property for the activity must be: **SqlServerStoredProcedure**. You must create an one of the following linked services and specify the name of the linked service as a value for the **linkedServiceName** property:
 
-- SQL Server 
+- SQL Server
 - Azure SQL Database
-- Azure SQL Data Warehouse
+- Azure Synapse Analytics
 
 The following properties are supported in the **typeProperties** section when you set the type of activity to SqlServerStoredProcedure:
 
 | Property | Description | Required |
 | --- | --- | --- |
-| storedProcedureName |Specify the name of the stored procedure in the Azure SQL database or Azure SQL Data Warehouse that is represented by the linked service that the output table uses. |Yes |
+| storedProcedureName |Specify the name of the stored procedure in Azure SQL Database or Azure Synapse Analytics that is represented by the linked service that the output table uses. |Yes |
 | storedProcedureParameters |Specify values for stored procedure parameters. If you need to pass null for a parameter, use the syntax: "param1": null (all lower case). See the following sample to learn about using this property. |No |
 
-If you do specify an input dataset, it must be available (in ‘Ready’ status) for the stored procedure activity to run. The input dataset cannot be consumed in the stored procedure as a parameter. It is only used to check the dependency before starting the stored procedure activity. You must specify an output dataset for a stored procedure activity. 
+If you do specify an input dataset, it must be available (in ‘Ready’ status) for the stored procedure activity to run. The input dataset cannot be consumed in the stored procedure as a parameter. It is only used to check the dependency before starting the stored procedure activity. You must specify an output dataset for a stored procedure activity.
 
-Output dataset specifies the **schedule** for the stored procedure activity (hourly, weekly, monthly, etc.). The output dataset must use a **linked service** that refers to an Azure SQL Database or an Azure SQL Data Warehouse or a SQL Server Database in which you want the stored procedure to run. The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md##multiple-activities-in-a-pipeline)) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. In some cases, the output dataset can be a **dummy dataset**, which is used only to specify the schedule for running the stored procedure activity.  
+Output dataset specifies the **schedule** for the stored procedure activity (hourly, weekly, monthly, etc.). The output dataset must use a **linked service** that refers to an Azure SQL Database or an Azure Synapse Analytics or a SQL Server Database in which you want the stored procedure to run. The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. In some cases, the output dataset can be a **dummy dataset**, which is used only to specify the schedule for running the stored procedure activity.
 
 ### JSON example
 
@@ -5611,7 +5557,7 @@ Output dataset specifies the **schedule** for the stored procedure activity (hou
             {
                 "type": "SqlServerStoredProcedure",
                 "typeProperties": {
-                    "storedProcedureName": "sp_sample",
+                    "storedProcedureName": "usp_sample",
                     "storedProcedureParameters": {
                         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
                     }
@@ -5627,18 +5573,18 @@ Output dataset specifies the **schedule** for the stored procedure activity (hou
 }
 ```
 
-For more information, see [Stored Procedure Activity](data-factory-stored-proc-activity.md) article. 
+For more information, see [Stored Procedure Activity](data-factory-stored-proc-activity.md) article.
 
 ## .NET custom activity
 You can specify the following properties in a .NET custom activity JSON definition. The type property for the activity must be: **DotNetActivity**. You must create an Azure HDInsight linked service or an Azure Batch linked service, and specify the name of the linked service as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to DotNetActivity:
- 
+
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | AssemblyName | Name of the assembly. In the example, it is: **MyDotnetActivity.dll**. | Yes |
-| EntryPoint |Name of the class that implements the IDotNetActivity interface. In the example, it is: **MyDotNetActivityNS.MyDotNetActivity** where MyDotNetActivityNS is the namespace and MyDotNetActivity is the class.  | Yes | 
+| EntryPoint |Name of the class that implements the IDotNetActivity interface. In the example, it is: **MyDotNetActivityNS.MyDotNetActivity** where MyDotNetActivityNS is the namespace and MyDotNetActivity is the class.  | Yes |
 | PackageLinkedService | Name of the Azure Storage linked service that points to the blob storage that contains the custom activity zip file. In the example, it is: **AzureStorageLinkedService**.| Yes |
 | PackageFile | Name of the zip file. In the example, it is: **customactivitycontainer/MyDotNetActivity.zip**. | Yes |
-| extendedProperties | Extended properties that you can define and pass on to the .NET code. In this example, the **SliceStart** variable is set to a value based on the SliceStart system variable. | No | 
+| extendedProperties | Extended properties that you can define and pass on to the .NET code. In this example, the **SliceStart** variable is set to a value based on the SliceStart system variable. | No |
 
 ### JSON example
 
@@ -5687,10 +5633,10 @@ You can specify the following properties in a .NET custom activity JSON definiti
 }
 ```
 
-For detailed information, see [Use custom activities in Data Factory](data-factory-use-custom-activities.md) article. 
+For detailed information, see [Use custom activities in Data Factory](data-factory-use-custom-activities.md) article.
 
 ## Next Steps
-See the following tutorials: 
+See the following tutorials:
 
-- [Tutorial: create a pipeline with a copy activity](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Tutorial: create a pipeline with a hive activity](data-factory-build-your-first-pipeline-using-editor.md)
+- [Tutorial: create a pipeline with a copy activity](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Tutorial: create a pipeline with a hive activity](data-factory-build-your-first-pipeline.md)

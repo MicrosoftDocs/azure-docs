@@ -1,283 +1,227 @@
 ---
-title: Migration of compute resources from Azure Germany to global Azure
-description: Provides help for migrating compute resources
+title: Migrate Azure compute resource from Azure Germany to global Azure
+description: This article provides information about migrating your Azure compute resources from Azure Germany to global Azure.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 8/15/2018
-ms.topic: article
 ms.custom: bfmigrate
 ---
 
-# Migration of compute resources from Azure Germany to global Azure
+# Migrate compute resources to global Azure
 
-This article will provide you some help for the migration of Azure Compute resources from Azure Germany to global Azure.
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
+This article has information that can help you migrate Azure compute resources from Azure Germany to global Azure.
 
 ## Compute IaaS
 
-Unfortunately, no direct migration from Azure Germany to global Azure is possible. But there's more than one way to "duplicate" your VMs.
+You can't directly migrate Azure compute infrastructure as a service (IaaS) resources from Azure Germany to global Azure. But, there are multiple ways you can "duplicate" your VMs.
 
-### Duplicate with Azure Site Recovery
+### Duplicate by using Site Recovery
 
-Azure Site Recovery can help you migrate your VMs from Azure Germany to global Azure. Since source and target are in different tenants, you can't use the normal Azure Disaster Recovery option available for VMs. The trick here is to set up a Site Recovery vault in the target environment (global Azure), and to proceed like moving a physical server into Azure. Choose a replication path from *not virtualized* to Azure global and - after the replication finished - do a failover.
+Azure Site Recovery can help you migrate your VMs from Azure Germany to global Azure. Because the source and target are in different tenants in a migration from Azure Germany to global Azure, you can't use the normal Azure Disaster Recovery option that's available for VMs. The trick is to set up a Site Recovery vault in the target environment (global Azure) and to proceed like you're moving a physical server to Azure. In the Azure portal, select a replication path labeled **Not virtualized**. When the replication is finished, do a failover.
 
 > [!NOTE]
-> These steps are the same that you would take to migrate a physical server running on-premise to Azure.
+> The following steps are the same steps you would take to migrate a physical server that's running on-premises to Azure.
 
-There's a [good tutorial for Site Recovery](../site-recovery/physical-azure-disaster-recovery.md) available. For a quick overview, here's a shorter and slightly adopted version:
+To learn more, review this [helpful Site Recovery tutorial](../site-recovery/physical-azure-disaster-recovery.md). For a quick overview, here's a shorter and slightly adapted version of the process:
 
-Install a Configuration/Process Server in your source environment to build the images of the servers. Then replicate the images to the Recovery Service Vault in your target environment. This is all done by the Configuration Server, and there's no need to touch the single servers.
+Install a configuration/process server in your source environment to build the server images. Then, replicate the images to the Azure Recovery Services vault in your target environment. The work is all done by the configuration server. You don't need to touch the individual servers.
 
-- Sign in to the Azure Germany Portal
-- Compare the OS version of the VMs you want to migrate against the [support matrix](../site-recovery/vmware-physical-secondary-support-matrix.md)
-- Set up a new VM in your source VNet acting as the configuration server:
-  - Choose DS4v3 or higher (4-8 cores, 16 GB Memory)
-  - Attach an additional disk with at least 1 TB available space (for the VM images)
-  - Use Windows Server 2012R2 or higher
-- Make sure ports 443 and 9443 are open for the subnet in both directions
-- Sign in to this new VM (ConfigurationServer)
-- From within your remote desktop session, sign in to the global Azure portal with your global Azure credentials
-- Set up a VNet where the replicated VMs will run
-- Create a storage account
-- Set up the Recovery Service Vault
-- Define Protection goal (**To Azure** -- **Not virtualized/other**)
-- Download Recovery Unified Setup installation file (**Prepare Infrastructure** > **Source**). When you opened the portal URL from within the ConfigurationServer, the file will be downloaded to the correct server. If not, upload the install file to the ConfigurationServer.
-- Download the vault registration key (and upload to ConfigurationServer like above if necessary)
-- Run the Recovery Unified Setup installation on the ConfigurationServer
-- Set up the target environment (you should still be signed in to the target portal)
-- Define replication policy
-- Start replication
+1. Sign in to the Azure Germany portal.
+1. Compare the OS versions of the VMs you want to migrate against the [support matrix](../site-recovery/vmware-physical-secondary-support-matrix.md).
+1. Set up a new VM in your source Azure Virtual Network instance to act as the configuration server:
+   1. Select **DS4v3** or higher (4 to 8 cores, 16-GB memory).
+   1. Attach an additional disk that has at least 1 TB of available space (for the VM images).
+   1. Use Windows Server 2012 R2 or later.
+1. Make sure that ports 443 and 9443 are open for the subnet in both directions.
+1. Sign in to the new VM (ConfigurationServer).
+1. In your remote desktop session, sign in to the global Azure portal by using your global Azure credentials.
+1. Set up a virtual network in which the replicated VMs will run.
+1. Create an Azure Storage account.
+1. Set up the Recovery Services vault.
+1. Define **Protection goal** (**To Azure** > **Not virtualized/other**).
+1. Download the Recovery Unified Setup installation file (**Prepare Infrastructure** > **Source**). When you open the portal URL from within ConfigurationServer, the file is downloaded to the correct server. From outside ConfigurationServer, upload the installation file to ConfigurationServer.
+1. Download the vault registration key (upload it to ConfigurationServer like in the preceding step, if necessary).
+1. Run the Recovery Unified Setup installation on ConfigurationServer.
+1. Set up the target environment (check that you're still signed in to the target portal).
+1. Define the replication policy.
+1. Start replication.
 
-When replication has succeeded the first time, you should test the scenario by doing a test failover, verifying and deleting the test. Your final step is to do the real failover.
+After replication initially succeeds, test the scenario by doing a test failover. Verify and delete the test. Your final step is to do the real failover.
 
 > [!CAUTION]
-> There is no synchronization back to the source VM. If you want to re-migrate, you must clean up everything and start again at the beginning!
+> Syncing back to the source VM doesn't occur. If you want to migrate again, clean up everything and start again at the beginning!
 
-### Duplicate with Resource Manager template export/import
+### Duplicate by using Resource Manager template export/import
 
-You can export the Resource Manager template used for the deployment to your local machine. Edit the template to change location and other parameters or variables, and then redeploy in Azure global. 
+You can export the Azure Resource Manager template that you use to deploy to your local machine. Edit the template to change the location and other parameters or variables. Then, redeploy in global Azure. 
 
 > [!IMPORTANT]
-> Change Location, Key Vault secrets, certs, and other GUIDs to be consistent with the new region.
+> Change location, Azure Key Vault secrets, certificates, and other GUIDs to be consistent with the new region.
 
-Export the Resource Manager template in the portal by selecting the resource group. Click *deployments* and select the most recent deployment. Click *Template* in the left menu and download it.
+Export the Resource Manager template in the portal by selecting the resource group. Select **deployments**, and then select the most recent deployment. Select **Template** in the left menu and download the template.
 
-You get a zip file with several files in it. The PowerShell, CLI, Ruby, or .NET scripts help you to deploy your template. The file *parameters.json* has all the input from the last deployment, most likely you have to change some settings here. Edit the *template.json* file if you only want to redeploy a subset of the resources.
+A .zip file that has several files in it downloads. The PowerShell, Azure CLI, Ruby, or .NET scripts help you deploy your template. The file *parameters.json* has all the input from the last deployment. It's likely that you will need to change some settings in this file. Edit the *template.json* file if you want to redeploy only a subset of the resources.
 
+For more information:
 
-### Next steps
-
-- Refresh your knowledge about Azure Site Recovery by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/site-recovery/#step-by-step-tutorials).
-- Make yourself familiar how to [export an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-
-### Reference
-
-- [Physical to Azure using Site Recovery](../site-recovery/physical-azure-disaster-recovery.md)
-- [Export a Resource Manager template using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template)
-- [Overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/)
-- [Redeploy a template](../azure-resource-manager/resource-group-template-deploy.md)
-
-
-
-
-
-
+- Refresh your knowledge by completing the [Site Recovery tutorials](../site-recovery/index.yml).
+- Get information about how to [export Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md) or read an overview of [Azure Resource Manager](../azure-resource-manager/management/overview.md).
+- Learn more about [physical-to-Azure disaster recovery by using Site Recovery](../site-recovery/physical-azure-disaster-recovery.md).
+- Read the [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
+- Learn more about how to [redeploy a template](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Cloud Services
 
-Cloud Services can be redeployed by providing the `.cspkg` and `.cscfg` definitions again.
+You can redeploy Azure Cloud Services resources by providing the `.cspkg` and `.cscfg` definitions again.
 
-### By portal
+### Azure portal
 
-- [Create a new Cloud Service](../cloud-services/cloud-services-how-to-create-deploy-portal.md) with your `.cspkg` and `.cscfg`.
-- Update the [CNAME or A record](../cloud-services/cloud-services-custom-domain-name-portal.md) to point traffic to the new cloud service.
-- Delete your old cloud service in Azure Germany after your traffic is pointing to the new Cloud Service.
+To redeploy cloud services in the Azure portal:
 
-### By PowerShell
+1. [Create a new cloud service](../cloud-services/cloud-services-how-to-create-deploy-portal.md) by using your `.cspkg` and `.cscfg` definitions.
+1. Update the [CNAME or A record](../cloud-services/cloud-services-custom-domain-name-portal.md) to point traffic to the new cloud service.
+1. When traffic points to the new cloud service, delete the old cloud service in Azure Germany.
 
-- [Create a new Cloud Service](/powershell/module/azure/new-azureservice?view=azuresmps-4.0.0) with your `.cspkg` and `.cscfg`.
+### PowerShell
 
-```powershell
-New-AzureService -ServiceName <yourServiceName> -Label <MyTestService> -Location <westeurope>
-```
+To redeploy cloud services by using PowerShell:
 
-- [Create a new deployment](/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0) with your `.cspkg` and `.cscfg`. See details [here].
+1. [Create a new cloud service](/powershell/module/servicemanagement/azure.service/new-azureservice) by using your `.cspkg` and `.cscfg` definitions.
 
-```powershell
-New-AzureDeployment -ServiceName <yourServiceName> -Slot <Production> -Package <YourCspkgFile.cspkg> -Configuration <YourConfigFile.cscfg>
-```
+    ```powershell
+    New-AzureService -ServiceName <yourServiceName> -Label <MyTestService> -Location <westeurope>
+    ```
 
-- Update the [CNAME or A record](../cloud-services/cloud-services-custom-domain-name-portal.md) to point traffic to the new Cloud Service.
-- [Delete your old Cloud Service](/powershell/module/azure/remove-azureservice?view=azuresmps-4.0.0) in Azure Germany after your traffic is pointing to the new Cloud Service.
+1. [Create a new deployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment) by using your `.cspkg` and `.cscfg` definitions.
 
-```powershell
-Remove-AzureService -ServiceName <yourOldServiceName>
-```
+    ```powershell
+    New-AzureDeployment -ServiceName <yourServiceName> -Slot <Production> -Package <YourCspkgFile.cspkg> -Configuration <YourConfigFile.cscfg>
+    ```
 
-### By REST API
+1. Update the [CNAME or A record](../cloud-services/cloud-services-custom-domain-name-portal.md) to point traffic to the new cloud service.
+1. When traffic points to the new cloud service, [delete the old cloud service](/powershell/module/servicemanagement/azure.service/remove-azureservice) in Azure Germany.
 
-- [Create a new cloud service](/rest/api/compute/cloudservices/rest-create-cloud-service) in the target environment.
+    ```powershell
+    Remove-AzureService -ServiceName <yourOldServiceName>
+    ```
 
-```http
-https://management.core.windows.net/<subscription-id>/services/hostedservices
-```
+### REST API
 
-- Create a new deployment by using the [create deployment API](https://msdn.microsoft.com/library/azure/ee460813.aspx). If you need to find your `.cspkg` and `.cscfg`, you can call the [Get-Package API](https://msdn.microsoft.com/library/azure/jj154121.aspx).
+To redeploy cloud services by using the REST API:
 
-```http
-https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deploymentslots/production
-```
+1. [Create a new cloud service](/rest/api/compute/cloudservices/rest-create-cloud-service) in the target environment.
 
-- [Delete your old Cloud Service](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-delete-cloud-service) in Azure Germany after your traffic is pointing to the new Cloud Service.
+    ```http
+    https://management.core.windows.net/<subscription-id>/services/hostedservices
+    ```
 
-```http
-https://management.core.cloudapi.de/<subscription-id>/services/hostedservices/<old-cloudservice-name>
-```
+1. Create a new deployment by using the [Create Deployment API](/previous-versions/azure/reference/ee460813(v=azure.100)). To find your `.cspkg` and `.cscfg` definitions, you can call the [Get Package API](/previous-versions/azure/reference/jj154121(v=azure.100)).
 
-### References
-- [Cloud Services Overview](../cloud-services/cloud-services-choose-me.md)
+    ```http
+    https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deploymentslots/production
+    ```
 
+1. When traffic points to the new cloud service, [delete the old cloud service](/rest/api/compute/cloudservices/rest-delete-cloud-service) in Azure Germany.
 
+    ```http
+    https://management.core.cloudapi.de/<subscription-id>/services/hostedservices/<old-cloudservice-name>
+    ```
 
+For more information:
 
-
-
-
-
-
-
+- Review the [Cloud Services overview](../cloud-services/cloud-services-choose-me.md).
 
 ## Service Fabric
 
-It's not possible to migrate Service Fabric resources from Azure Germany to global Azure. You must re-deploy in the new environment.
+You can't migrate Azure Service Fabric resources from Azure Germany to global Azure. You must redeploy Service Fabric resources in the new environment.
 
-You can gather some information about your current service fabric environment by using PowerShell cmdlets. You find all cmdlets related to service fabric by entering `Get-Help *ServiceFabric*` in PowerShell.
+You can get information about your current Service Fabric environment by using PowerShell cmdlets. Access all cmdlets that are related to Service Fabric by entering `Get-Help *ServiceFabric*` in PowerShell.
 
- 
-### Next steps
+For more information:
 
-- Refresh your knowledge about Service Fabric by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/service-fabric/#step-by-step-tutorials).
-- [Create a new cluster](../service-fabric/service-fabric-cluster-creation-via-portal.md)
-
-### References
-
-- [Service Fabric Overview](../service-fabric/service-fabric-overview.md)
-
-
-
-
-
-
-
-
-
-
-
+- Refresh your knowledge by completing the [Service Fabric tutorials](../service-fabric/service-fabric-tutorial-create-dotnet-app.md).
+- Learn how to [create a new cluster](../service-fabric/service-fabric-cluster-creation-via-portal.md).
+- Review the [Service Fabric overview](../service-fabric/service-fabric-overview.md).
 
 ## Batch
 
-It's not possible to migrate Batch account data from one region to another. The account may have running VMs associated with it, interacting with data in storage accounts, databases, or other storage systems.
+You can't migrate Azure Batch account data from one region to another. The account might have running VMs associated with it and be actively interacting with data in storage accounts, databases, or other storage systems.
 
-Redeploy your deployment scripts, templates, or code in the new region, including:
+Redeploy your deployment scripts, templates, or code in the new region. Redeployment includes the following tasks:
 
-- [Create a Batch account](../batch/batch-account-create-portal.md)
-- [Get Batch account quota increased](../batch/batch-quota-limit.md)
-- Create Batch pools
-- Create new storage accounts, databases, or whatever services used to persist input and output data.
-- Update configuration and code to point to new Batch account and use new credentials.
+1. [Create a Batch account](../batch/batch-account-create-portal.md).
+1. [Increase your Batch account quota](../batch/batch-quota-limit.md).
+1. Create Batch pools.
+1. Create new storage accounts, databases, and other services that are used to persist input and output data.
+1. Update your configuration and code to point to the new Batch account and use new credentials.
 
-### Next steps
+For more information:
 
-- Refresh your knowledge about Azure Batch by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/batch/#step-by-step-tutorials).
-
-### References
-
-- [Azure Batch Overview](../batch/batch-technical-overview.md)
-
-
-
-
-
-
-
-
-
+- Refresh your knowledge by completing the [Batch tutorials](../batch/tutorial-parallel-dotnet.md).
+- Review the [Azure Batch overview](../batch/batch-technical-overview.md).
 
 ## Functions
 
-Migration of Functions between Azure Germany and global Azure isn't supported at this time. The recommended approach is to export Resource Manager template, change the location, and redeploy to target region.
+Migrating Azure Functions resources from Azure Germany to global Azure isn't supported at this time. We recommend that you export the Resource Manager template, change the location, and then redeploy to the target region.
 
 > [!IMPORTANT]
-> Change location, Key Vault secrets, certs, and other GUIDs to be consistent with the new region.
+> Change location, Key Vault secrets, certificates, App Settings, and other GUIDs to be consistent with the new region.
 
-### Next steps
+For more information:
 
-- Refresh your knowledge about Functions by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/azure-functions/#step-by-step-tutorials).
-- Make yourself familiar how to [export an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Refresh your knowledge by completing the [Functions tutorials](../azure-functions/index.yml).
+- Learn how to [export Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md) or read an overview of [Azure Resource Manager](../azure-resource-manager/management/overview.md).
+- Review the [Azure Functions overview](../azure-functions/functions-overview.md).
+- Get an [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
+- Learn how to [redeploy a template](../azure-resource-manager/templates/deploy-powershell.md).
 
-### References
+## Virtual machine scale sets
 
-- [Azure Functions Overview](../azure-functions/functions-overview.md)
-- [Export a Resource Manager template using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template)
-- [Overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/)
-- [Redeploy a template](../azure-resource-manager/resource-group-template-deploy.md)
-
-
-
-
-
-
-
-
-
-
-
-## Virtual Machines Scale Set
-
-The recommended approach is to export the Resource Manager template, adopt it to the new environment, and redeploy it to target region. You should just export the base template and redeploy it in the new environment, as individual VMSS instances should all be the same.
+To migrate virtual machine scale sets to global Azure, export the Resource Manager template, adapt it to the new environment, and then redeploy to the target region. Export only the base template and redeploy the template in the new environment. Individual virtual machine scale set instances should all be the same.
 
 > [!IMPORTANT]
-> Change location, Key Vault secrets, certs, and other GUIDs to be consistent with the new region.
+> Change location, Key Vault secrets, certificates, and other GUIDs to be consistent with the new region.
 
-### Next steps
+For more information:
 
-- Refresh your knowledge about Virtual Machine Scale Sets following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/virtual-machine-scale-sets/#step-by-step-tutorials).
-- Make yourself familiar how to [export an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template.md)
-- Read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Refresh your knowledge by completing the [virtual machine scale set tutorials](../virtual-machine-scale-sets/tutorial-create-and-manage-cli.md).
+- Learn how to [export Azure Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md).
+- Review the [Azure Resource Manager overview](../azure-resource-manager/management/overview.md).
+- Get an overview of [virtual machine scale sets](../virtual-machine-scale-sets/overview.md).
+- Read an [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
+- Learn how to [redeploy a template](../azure-resource-manager/templates/deploy-powershell.md).
 
-### References
+## Web Apps
 
-- [Azure Virtual Machine Scale Set Overview](../virtual-machine-scale-sets/overview.md)
-- [Export a Resource Manager template using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template)
-- [Overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/)
-- [Redeploy a template](../azure-resource-manager/resource-group-template-deploy.md)
-
-
-
-
-
-
-
-
-
-
-## App Service - Web Apps
-
-The migration of App Services from Azure Germany to global Azure isn't supported at this time. The recommended approach is to export as Resource Manager template and redeploy after changing the location property to the new destination region.
+Currently, apps that you created by using the Web Apps feature of Azure App Service can't be migrated from Azure Germany to global Azure. We recommend that you export a web app as a Resource Manager template, and then redeploy after you change the location property to the new region.
 
 > [!IMPORTANT]
-> Change location, Key Vault secrets, certs, and other GUIDs to be consistent with the new region.
+> Change location, Key Vault secrets, certificates, and other GUIDs to be consistent with the new region.
 
-### Next steps
+For more information:
 
-- Refresh your knowledge about App Services by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/app-service/#step-by-step-tutorials).
-- Make yourself familiar how to [export an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Refresh your knowledge by completing the [App Service tutorials](../app-service/tutorial-dotnetcore-sqldb-app.md).
+- Learn how to [export Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md) or read an overview of [Azure Resource Manager](../azure-resource-manager/management/overview.md).
+- Review the [App Service overview](../app-service/overview.md).
+- Read the [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
+- Learn how to [redeploy a template](../azure-resource-manager/templates/deploy-powershell.md).
 
-### References
+## Next steps
 
-- [App Service Overview](../app-service/app-service-web-overview.md)
-- [Export a Resource Manager template using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template)
-- [Overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/)
-- [Redeploy a template](../azure-resource-manager/resource-group-template-deploy.md)
+Learn about tools, techniques, and recommendations for migrating resources in the following service categories:
+
+- [Networking](./germany-migration-networking.md)
+- [Storage](./germany-migration-storage.md)
+- [Web](./germany-migration-web.md)
+- [Databases](./germany-migration-databases.md)
+- [Analytics](./germany-migration-analytics.md)
+- [IoT](./germany-migration-iot.md)
+- [Integration](./germany-migration-integration.md)
+- [Identity](./germany-migration-identity.md)
+- [Security](./germany-migration-security.md)
+- [Management tools](./germany-migration-management-tools.md)
+- [Media](./germany-migration-media.md)

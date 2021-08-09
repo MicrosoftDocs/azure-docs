@@ -1,21 +1,13 @@
 ---
-title: Use cloud-init to add a user to a Linux VM on Azure | Microsoft Docs
+title: Use cloud-init to add a user to a Linux VM on Azure 
 description: How to use cloud-init to add a user to a Linux VM during creation with the Azure CLI
-services: virtual-machines-linux
-documentationcenter: ''
-author: rickstercdn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
-ms.topic: article
-ms.date: 11/29/2017
-ms.author: rclaus
-
+author: mimckitt
+ms.service: virtual-machines
+ms.collection: linux
+ms.topic: how-to
+ms.date: 05/11/2021
+ms.author: mimckitt
+ms.subservice: cloud-init
 ---
 # Use cloud-init to add a user to a Linux VM in Azure
 This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io) to add a user on a virtual machine (VM) or virtual machine scale sets (VMSS) at provisioning time in Azure. This cloud-init script runs on first boot once the resources have been provisioned by Azure. For more information about how cloud-init works natively in Azure and the supported Linux distros, see [cloud-init overview](using-cloud-init.md).
@@ -39,13 +31,13 @@ users:
 > [!NOTE] 
 > The #cloud-config file includes the `- default` parameter included. This will append the user, to the existing admin user created during provisioning. If you create a user without the `- default` parameter - the auto generated admin user created by the Azure platform would be overwritten. 
 
-Before deploying this image, you need to create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+Before deploying this image, you need to create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Now, create a VM with [az vm create](/cli/azure/vm#az_vm_create) and specify the cloud-init file with `--custom-data cloud_init_add_user.txt` as follows:
+Now, create a VM with [az vm create](/cli/azure/vm) and specify the cloud-init file with `--custom-data cloud_init_add_user.txt` as follows:
 
 ```azurecli-interactive 
 az vm create \

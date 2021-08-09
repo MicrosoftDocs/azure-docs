@@ -3,27 +3,32 @@ title: Customizing Media Encoder Standard presets | Microsoft Docs
 description: This topic shows how to perform advanced encoding by customizing Media Encoder Standard task presets. The topic shows how to use Media Services .NET SDK to create an encoding task and job. It also shows how to supply custom presets to the encoding job.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: ec95392f-d34a-4c22-a6df-5274eaac445b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.custom: devx-track-csharp
 ---
+
 # Customizing Media Encoder Standard presets
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 ## Overview
 
 This article shows how to perform advanced encoding with Media Encoder Standard (MES) using a custom preset. The article uses .NET to create an encoding task and a job that executes this task.  
 
 This article shows you how to customize a preset by taking the [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) preset and reducing the number of layers. The [Customizing Media Encoder Standard presets](media-services-advanced-encoding-with-mes.md) article demonstrates custom presets that can be used to perform advanced encoding tasks.
+
+> [!NOTE]
+> The custom presets described in this article cannot be used in [Media Services V3](../latest/index.yml) transforms or the CLI commands. See the [migration guidance from v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md) for more details.
 
 ## <a id="customizing_presets"></a> Customizing a MES preset
 
@@ -36,74 +41,74 @@ Save the JSON defined in the [H264 Multiple Bitrate 720p](media-services-mes-pre
 Open the **CustomPreset_JSON.json** file and remove first three layers from **H264Layers** so your file looks like this.
 
 ```json	
-	{  
-	  "Version": 1.0,  
-	  "Codecs": [  
-	    {  
-	      "KeyFrameInterval": "00:00:02",  
-	      "H264Layers": [  
-	        {  
-	          "Profile": "Auto",  
-	          "Level": "auto",  
-	          "Bitrate": 1000,  
-	          "MaxBitrate": 1000,  
-	          "BufferWindow": "00:00:05",  
-	          "Width": 640,  
-	          "Height": 360,  
-	          "BFrames": 3,  
-	          "ReferenceFrames": 3,  
-	          "AdaptiveBFrame": true,  
-	          "Type": "H264Layer",  
-	          "FrameRate": "0/1"  
-	        },  
-	        {  
-	          "Profile": "Auto",  
-	          "Level": "auto",  
-	          "Bitrate": 650,  
-	          "MaxBitrate": 650,  
-	          "BufferWindow": "00:00:05",  
-	          "Width": 640,  
-	          "Height": 360,  
-	          "BFrames": 3,  
-	          "ReferenceFrames": 3,  
-	          "AdaptiveBFrame": true,  
-	          "Type": "H264Layer",  
-	          "FrameRate": "0/1"  
-	        },  
-	        {  
-	          "Profile": "Auto",  
-	          "Level": "auto",  
-	          "Bitrate": 400,  
-	          "MaxBitrate": 400,  
-	          "BufferWindow": "00:00:05",  
-	          "Width": 320,  
-	          "Height": 180,  
-	          "BFrames": 3,  
-	          "ReferenceFrames": 3,  
-	          "AdaptiveBFrame": true,  
-	          "Type": "H264Layer",  
-	          "FrameRate": "0/1"  
-	        }  
-	      ],  
-	      "Type": "H264Video"  
-	    },  
-	    {  
-	      "Profile": "AACLC",  
-	      "Channels": 2,  
-	      "SamplingRate": 48000,  
-	      "Bitrate": 128,  
-	      "Type": "AACAudio"  
-	    }  
-	  ],  
-	  "Outputs": [  
-	    {  
-	      "FileName": "{Basename}_{Width}x{Height}_{VideoBitrate}.mp4",  
-	      "Format": {  
-	        "Type": "MP4Format"  
-	      }  
-	    }  
-	  ]  
-	}  
+  {  
+    "Version": 1.0,  
+    "Codecs": [  
+      {  
+        "KeyFrameInterval": "00:00:02",  
+        "H264Layers": [  
+          {  
+            "Profile": "Auto",  
+            "Level": "auto",  
+            "Bitrate": 1000,  
+            "MaxBitrate": 1000,  
+            "BufferWindow": "00:00:05",  
+            "Width": 640,  
+            "Height": 360,  
+            "BFrames": 3,  
+            "ReferenceFrames": 3,  
+            "AdaptiveBFrame": true,  
+            "Type": "H264Layer",  
+            "FrameRate": "0/1"  
+          },  
+          {  
+            "Profile": "Auto",  
+            "Level": "auto",  
+            "Bitrate": 650,  
+            "MaxBitrate": 650,  
+            "BufferWindow": "00:00:05",  
+            "Width": 640,  
+            "Height": 360,  
+            "BFrames": 3,  
+            "ReferenceFrames": 3,  
+            "AdaptiveBFrame": true,  
+            "Type": "H264Layer",  
+            "FrameRate": "0/1"  
+          },  
+          {  
+            "Profile": "Auto",  
+            "Level": "auto",  
+            "Bitrate": 400,  
+            "MaxBitrate": 400,  
+            "BufferWindow": "00:00:05",  
+            "Width": 320,  
+            "Height": 180,  
+            "BFrames": 3,  
+            "ReferenceFrames": 3,  
+            "AdaptiveBFrame": true,  
+            "Type": "H264Layer",  
+            "FrameRate": "0/1"  
+          }  
+        ],  
+        "Type": "H264Video"  
+      },  
+      {  
+        "Profile": "AACLC",  
+        "Channels": 2,  
+        "SamplingRate": 48000,  
+        "Bitrate": 128,  
+        "Type": "AACAudio"  
+      }  
+    ],  
+    "Outputs": [  
+      {  
+        "FileName": "{Basename}_{Width}x{Height}_{VideoBitrate}.mp4",  
+        "Format": {  
+          "Type": "MP4Format"  
+        }  
+      }  
+    ]  
+  }  
 ```
 
 ## <a id="encoding_with_dotnet"></a>Encoding with Media Services .NET SDK
@@ -113,9 +118,11 @@ The following code example uses Media Services .NET SDK to perform the following
 - Create an encoding job.
 - Get a reference to the Media Encoder Standard encoder.
 - Load the custom JSON preset that you created in the previous section. 
-  
-		// Load the JSON from the local file.
-		string configuration = File.ReadAllText(fileName);  
+
+    ```csharp
+    // Load the JSON from the local file.
+    string configuration = File.ReadAllText(fileName);  
+    ```
 
 - Add an encoding task to the job. 
 - Specify the input asset to be encoded.
@@ -257,12 +264,13 @@ namespace CustomizeMESPresests
 }
 ```
 
+## See also
+
+- [How to encode with a custom transform by using CLI](../latest/transform-custom-preset-cli-how-to.md)
+- [Encoding with Media Services v3](../latest/encode-concept.md)
+
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-
-## See Also
-[Media Services Encoding Overview](media-services-encode-asset.md)
-

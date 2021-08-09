@@ -3,17 +3,14 @@ title: Introduction to Azure Network Watcher Connection Troubleshoot | Microsoft
 description: This page provides an overview of the Network Watcher connection troubleshooting capability
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
-editor: 
-
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 07/11/2017
-ms.author: jdial
+ms.author: damendo
 ---
 
 # Introduction to connection troubleshoot in Azure Network Watcher
@@ -21,7 +18,7 @@ ms.author: jdial
 The connection troubleshoot feature of Network Watcher provides the capability to check a direct TCP connection from a virtual machine to a virtual machine (VM), fully qualified domain name (FQDN), URI, or IPv4 address. Network scenarios are complex, they are implemented using network security groups, firewalls, user-defined routes, and resources provided by Azure. Complex configurations make troubleshooting connectivity issues challenging. Network Watcher helps reduce the amount of time to find and detect connectivity issues. The results returned can provide insights into whether a connectivity issue is due to a platform or a user configuration issue. Connectivity can be checked with [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md), and [REST API](network-watcher-connectivity-rest.md).
 
 > [!IMPORTANT]
-> Connection troubleshoot requires that the VM you troubleshoot from has the `AzureNetworkWatcherExtension` VM extension installed. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). The extension is not required on the destination endpoint.
+> Connection troubleshoot requires that the VM you troubleshoot from has the `AzureNetworkWatcherExtension` VM extension installed. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). The extension is not required on the destination endpoint.
 
 ## Response
 
@@ -54,14 +51,14 @@ The following is an example of an issue found on a hop.
 ```json
 "Issues": [
     {
-    	"Origin": "Outbound",
-    	"Severity": "Error",
-    	"Type": "NetworkSecurityRule",
-    	"Context": [
+        "Origin": "Outbound",
+        "Severity": "Error",
+        "Type": "NetworkSecurityRule",
+        "Context": [
             {
-        		"key": "RuleName",
-        		"value": "UserRule_Port80"
-    	    }
+                "key": "RuleName",
+                "value": "UserRule_Port80"
+            }
         ]
     }
 ]

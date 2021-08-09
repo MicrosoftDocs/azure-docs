@@ -1,24 +1,17 @@
-﻿---
-title: Modify an Azure virtual machine scale set| Microsoft Docs
+---
+title: Modify an Azure virtual machine scale set
 description: Learn how to modify and update an Azure virtual machine scale set with the REST APIs, Azure PowerShell, and Azure CLI
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: mayanknayar
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/14/2018
-ms.author: manayar
+ms.date: 03/10/2020
+ms.reviewer: mimckitt
+ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 # Modify a virtual machine scale set
+
 Throughout the lifecycle of your applications, you may need to modify or update your virtual machine scale set. These updates may include how to update the configuration of the scale set, or change the application configuration. This article describes how to modify an existing scale set with the REST APIs, Azure PowerShell, or Azure CLI.
 
 ## Fundamental concepts
@@ -32,13 +25,13 @@ A scale set has a "scale set model" that captures the *desired* state of the sca
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version={apiVersion}
     ```
 
-- Azure PowerShell with [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss):
+- Azure PowerShell with [Get-AzVmss](/powershell/module/az.compute/get-azvmss):
 
     ```powershell
-    Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+    Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
     ```
 
-- Azure CLI with [az vmss show](/cli/azure/vmss#az_vmss_show):
+- Azure CLI with [az vmss show](/cli/azure/vmss):
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -76,13 +69,13 @@ A scale set also has a "scale set instance view" that captures the current *runt
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/instanceView?api-version={apiVersion}
     ```
 
-- Azure PowerShell with [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss):
+- Azure PowerShell with [Get-AzVmss](/powershell/module/az.compute/get-azvmss):
 
     ```powershell
-    Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
+    Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
     ```
 
-- Azure CLI with [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view):
+- Azure CLI with [az vmss get-instance-view](/cli/azure/vmss):
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -130,13 +123,13 @@ Similar to how a scale set has a model view, each VM instance in the scale set h
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId?api-version={apiVersion}
     ```
 
-- Azure PowerShell with [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm):
+- Azure PowerShell with [Get-AzVmssVm](/powershell/module/az.compute/get-azvmssvm):
 
     ```powershell
-    Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
+    Get-AzVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- Azure CLI with [az vmss show](/cli/azure/vmss#az_vmss_show):
+- Azure CLI with [az vmss show](/cli/azure/vmss):
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -170,13 +163,13 @@ Similar to how a scale set has an instance view, each VM instance in the scale s
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId/instanceView?api-version={apiVersion}
     ```
 
-- Azure PowerShell with [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm):
+- Azure PowerShell with [Get-AzVmssVm](/powershell/module/az.compute/get-azvmssvm):
 
     ```powershell
-    Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
+    Get-AzVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
     ```
 
-- Azure CLI with [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view)
+- Azure CLI with [az vmss get-instance-view](/cli/azure/vmss)
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -249,13 +242,13 @@ To update a global scale set property, you must update the property in the scale
 
 - You can deploy a Resource Manager template with the properties from the REST API to update global scale set properties.
 
-- Azure PowerShell with [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss):
+- Azure PowerShell with [Update-AzVmss](/powershell/module/az.compute/update-azvmss):
 
     ```powershell
-    Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
+    Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
     ```
 
-- Azure CLI with [az vmss update](/cli/azure/vmss#az_vmss_update):
+- Azure CLI with [az vmss update](/cli/azure/vmss):
     - To modify a property:
 
         ```azurecli
@@ -296,13 +289,13 @@ To update existing VMs, you must do a "manual upgrade" of each existing VM. You 
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
     ```
 
-- Azure PowerShell with [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance):
+- Azure PowerShell with [Update-AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance):
     
     ```powershell
-    Update-AzureRmVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
+    Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- Azure CLI with [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances)
+- Azure CLI with [az vmss update-instances](/cli/azure/vmss)
 
     ```azurecli
     az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
@@ -311,9 +304,9 @@ To update existing VMs, you must do a "manual upgrade" of each existing VM. You 
 - You can also use the language-specific [Azure SDKs](https://azure.microsoft.com/downloads/).
 
 >[!NOTE]
-> Service Fabric clusters can only use *Automatic* mode, but the update is handled differently. For more information, see [ Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
+> Service Fabric clusters can only use *Automatic* mode, but the update is handled differently. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
 
-There is one type of modification to global scale set properties that does not follow the upgrade policy. Changes to the scale set OS Profile (such as admin username and password) can only be changed in API version *2017-12-01* or later. These changes only apply to VMs created after the change in the scale set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. You can do this reimage via:
+There is one type of modification to global scale set properties that does not follow the upgrade policy. Changes to the scale set OS and Data disk Profile (such as admin username and password) can only be changed in API version *2017-12-01* or later. These changes only apply to VMs created after the change in the scale set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. You can do this reimage via:
 
 - REST API with [compute/virtualmachinescalesets/reimage](/rest/api/compute/virtualmachinescalesets/reimage) as follows:
 
@@ -321,13 +314,13 @@ There is one type of modification to global scale set properties that does not f
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
     ```
 
-- Azure PowerShell with [Set-AzureRmVmssVm](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm):
+- Azure PowerShell with [Set-AzVmssVm](/powershell/module/az.compute/set-azvmssvm):
 
     ```powershell
-    Set-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
+    Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
-- Azure CLI with [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss#az_vmss_reimage):
+- Azure CLI with [az vmss reimage](/cli/azure/vmss):
 
     ```azurecli
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -351,12 +344,12 @@ Some properties may be changed, with exceptions depending on the current value. 
 
 - **singlePlacementGroup** - If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it **may not** be modified to true.
 - **subnet** - The subnet of a scale set may be modified as long as the original subnet and the new subnet are in the same virtual network.
+- **imageReferenceSku** - Image reference SKU can be updated for endorsed [Linux distros](../virtual-machines/linux/endorsed-distros.md), Windows server/client images, and images without [plan information](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information). 
 
 ### Properties that require deallocation to change
 Some properties may only be changed to certain values if the VMs in the scale set are deallocated. These properties include:
 
-- **SKU name**- If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name. For more information, see [how to resize an Azure VM](../virtual-machines/windows/resize-vm.md).
-
+- **SKU Name**- If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name. For more information, see [how to resize an Azure VM](../virtual-machines/windows/resize-vm.md). 
 
 ## VM-specific updates
 Certain modifications may be applied to specific VMs instead of the global scale set properties. Currently, the only VM-specific update that is supported is to attach/detach data disks to/from VMs in the scale set. This feature is in preview. For more information, see the [preview documentation](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
@@ -370,25 +363,25 @@ If an application is deployed to a scale set through extensions, an update to th
 It's also common for applications to be deployed through a custom image. This scenario is covered in the following section.
 
 ### OS Updates
-If you use Azure platform images, you can update the image by modifying the *imageReference* (more information, see the [REST API documentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
+If you use Azure platform images, you can update the image by modifying the *imageReference* (more information, see the [REST API documentation](/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 >[!NOTE]
 > With platform images, it is common to specify "latest" for the image reference version. When you create, scale out, and reimage, VMs are created with the latest available version. However, it **does not** mean that the OS image is automatically updated over time as new image versions are released. A separate feature is currently in preview that provides automatic OS upgrades. For more information, see the [Automatic OS Upgrades documentation](virtual-machine-scale-sets-automatic-upgrade.md).
 
-If you use custom images, you can update the image by updating the *imageReference* ID (more information, see the [REST API documentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
+If you use custom images, you can update the image by updating the *imageReference* ID (more information, see the [REST API documentation](/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 ## Examples
 
 ### Update the OS image for your scale set
 You may have a scale set that runs an old version of Ubuntu LTS 16.04. You want to update to a newer version of Ubuntu LTS 16.04, such as version *16.04.201801090*. The image reference version property is not part of a list, so you can directly modify these properties with one of the following commands:
 
-- Azure PowerShell with [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) as follows:
+- Azure PowerShell with [Update-AzVmss](/powershell/module/az.compute/update-azvmss) as follows:
 
     ```powershell
-    Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
+    Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
     ```
 
-- Azure CLI with [az vmss update](/cli/azure/vmss#az_vmss_update_instances):
+- Azure CLI with [az vmss update](/cli/azure/vmss):
 
     ```azurecli
     az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
@@ -396,16 +389,16 @@ You may have a scale set that runs an old version of Ubuntu LTS 16.04. You want 
 
 Alternatively, you may want to change the image your scale set uses. For example, you may want to update or change a custom image used by your scale set. You can change the image your scale set uses by updating the image reference ID property. The image reference ID property is not part of a list, so you can directly modify this property with one of the following commands:
 
-- Azure PowerShell with [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) as follows:
+- Azure PowerShell with [Update-AzVmss](/powershell/module/az.compute/update-azvmss) as follows:
 
     ```powershell
-    Update-AzureRmVmss `
+    Update-AzVmss `
         -ResourceGroupName "myResourceGroup" `
         -VMScaleSetName "myScaleSet" `
         -ImageReferenceId /subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
     ```
 
-- Azure CLI with [az vmss update](/cli/azure/vmss#az_vmss_update_instances):
+- Azure CLI with [az vmss update](/cli/azure/vmss):
 
     ```azurecli
     az vmss update \
@@ -418,20 +411,20 @@ Alternatively, you may want to change the image your scale set uses. For example
 ### Update the load balancer for your scale set
 Let's say you have a scale set with an Azure Load Balancer, and you want to replace the Azure Load Balancer with an Azure Application Gateway. The load balancer and Application Gateway properties for a scale set are part of a list, so you can use the commands to remove or add list elements instead of modifying the properties directly:
 
-- Azure Powershell:
+- Azure PowerShell:
 
     ```powershell
     # Get the current model of the scale set and store it in a local PowerShell object named $vmss
-    $vmss=Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
+    $vmss=Get-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
     
-    # Create a local PowerShell object for the new desired IP configuration, which includes the referencerence to the application gateway
-    $ipconf = New-AzureRmVmssIPConfig "myNic" -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id –Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
+    # Create a local PowerShell object for the new desired IP configuration, which includes the reference to the application gateway
+    $ipconf = New-AzVmssIPConfig "myNic" -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id –Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
     
     # Replace the existing IP configuration in the local PowerShell object (which contains the references to the current Azure Load Balancer) with the new IP configuration
     $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0] = $ipconf
     
     # Update the model of the scale set with the new configuration in the local PowerShell object
-    Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
+    Update-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
     ```
 
 - Azure CLI:

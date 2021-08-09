@@ -1,225 +1,191 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Trakopolis | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Trakopolis.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: 73d67c3e-4b4b-4d3b-aa58-6699ea1ccea3
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/10/2017
+ms.topic: tutorial
+ms.date: 03/28/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Trakopolis
 
 In this tutorial, you learn how to integrate Trakopolis with Azure Active Directory (Azure AD).
-
 Integrating Trakopolis with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Trakopolis
-- You can enable your users to automatically get signed-on to Trakopolis (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
+* You can control in Azure AD who has access to Trakopolis.
+* You can enable your users to be automatically signed-in to Trakopolis (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To configure Azure AD integration with Trakopolis, you need the following items:
 
-- An Azure AD subscription
-- A Trakopolis single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* Trakopolis single sign-on enabled subscription
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Trakopolis from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+
+* Trakopolis supports **SP** initiated SSO
 
 ## Adding Trakopolis from the gallery
+
 To configure the integration of Trakopolis into Azure AD, you need to add Trakopolis from the gallery to your list of managed SaaS apps.
 
 **To add Trakopolis from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![Active Directory][1]
+	![The Azure Active Directory button](common/select-azuread.png)
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
-	![Applications][3]
+3. To add new application, click **New application** button on the top of dialog.
 
-1. In the search box, type **Trakopolis**.
+	![The New application button](common/add-new-app.png)
 
-	![Creating an Azure AD test user](./media/trakopolis-tutorial/tutorial_trakopolis_search.png)
+4. In the search box, type **Trakopolis**, select **Trakopolis** from result panel then click **Add** button to add the application.
 
-1. In the results panel, select **Trakopolis**, and then click **Add** button to add the application.
+	 ![Trakopolis in the results list](common/search-new-app.png)
 
-	![Creating an Azure AD test user](./media/trakopolis-tutorial/tutorial_trakopolis_addfromgallery.png)
+## Configure and test Azure AD single sign-on
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Trakopolis based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in Trakopolis is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Trakopolis needs to be established.
-
-In Trakopolis, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+In this section, you configure and test Azure AD single sign-on with Trakopolis based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Trakopolis needs to be established.
 
 To configure and test Azure AD single sign-on with Trakopolis, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a Trakopolis test user](#creating-a-trakopolis-test-user)** - to have a counterpart of Britta Simon in Trakopolis that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure Trakopolis Single Sign-On](#configure-trakopolis-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create Trakopolis test user](#create-trakopolis-test-user)** - to have a counterpart of Britta Simon in Trakopolis that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD single sign-on
+### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Trakopolis application.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with Trakopolis, perform the following steps:**
+To configure Azure AD single sign-on with Trakopolis, perform the following steps:
 
-1. In the Azure portal, on the **Trakopolis** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Trakopolis** application integration page, select **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure single sign-on link](common/select-sso.png)
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/trakopolis-tutorial/tutorial_trakopolis_samlbase.png)
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-1. On the **Trakopolis Domain and URLs** section, perform the following steps:
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-	![Configure Single Sign-On](./media/trakopolis-tutorial/tutorial_trakopolis_url.png)
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<company name>.trakopolis.com/`
+	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<company name>.trakopolis.com`
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Trakopolis Client support team](mailto:support@cantelematics.com) to get these values. 
+    ![Trakopolis Domain and URLs single sign-on information](common/sp-identifier.png)
 
-1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<company name>.trakopolis.com/`
 
-	![Configure Single Sign-On](./media/trakopolis-tutorial/tutorial_trakopolis_certificate.png) 
+    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    `https://<company name>.trakopolis.com`
 
-1. Click **Save** button.
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Trakopolis Client support team](mailto:support@cantelematics.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-	![Configure Single Sign-On](./media/trakopolis-tutorial/tutorial_general_400.png)
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-1. On the **Trakopolis Configuration** section, click **Configure Trakopolis** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+	![The Certificate download link](common/certificatebase64.png)
 
-	![Configure Single Sign-On](./media/trakopolis-tutorial/tutorial_trakopolis_configure.png) 
+6. On the **Set up Trakopolis** section, copy the appropriate URL(s) as per your requirement.
 
-1. To configure single sign-on on **Trakopolis** side, you need to send the downloaded **Metadata XML, Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Trakopolis support team](mailto:support@cantelematics.com). They set this setting to have the SAML SSO connection set properly on both sides.
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+	a. Login URL
 
-### Creating an Azure AD test user
+	b. Azure AD Identifier
+
+	c. Logout URL
+
+### Configure Trakopolis Single Sign-On
+
+To configure single sign-on on **Trakopolis** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Trakopolis support team](mailto:support@cantelematics.com). They set this setting to have the SAML SSO connection set properly on both sides.
+
+### Create an Azure AD test user 
+
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-![Create Azure AD User][100]
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-**To create a test user in Azure AD, perform the following steps:**
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+2. Select **New user** at the top of the screen.
 
-	![Creating an Azure AD test user](./media/trakopolis-tutorial/create_aaduser_01.png) 
+    ![New user Button](common/new-user.png)
 
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/trakopolis-tutorial/create_aaduser_02.png) 
+3. In the User properties, perform the following steps.
 
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/trakopolis-tutorial/create_aaduser_03.png) 
+    ![The User dialog box](common/user-properties.png)
 
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/trakopolis-tutorial/create_aaduser_04.png) 
+    a. In the **Name** field enter **BrittaSimon**.
+  
+    b. In the **User name** field type brittasimon@yourcompanydomain.extension. For example, BrittaSimon@contoso.com
 
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Click **Create**.
- 
-### Creating a Trakopolis test user
 
-In this section, you create a user called Britta Simon in Trakopolis. Work with [Trakopolis support team](mailto:support@cantelematics.com) to add the users in the Trakopolis platform. Users must be created and activated before you use single sign-on.
-
-### Assigning the Azure AD test user
+### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Trakopolis.
 
-![Assign User][200] 
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Trakopolis**.
 
-**To assign Britta Simon to Trakopolis, perform the following steps:**
+	![Enterprise applications blade](common/enterprise-applications.png)
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+2. In the applications list, select **Trakopolis**.
 
-	![Assign User][201] 
+	![The Trakopolis link in the Applications list](common/all-applications.png)
 
-1. In the applications list, select **Trakopolis**.
+3. In the menu on the left, select **Users and groups**.
 
-	![Configure Single Sign-On](./media/trakopolis-tutorial/tutorial_trakopolis_app.png) 
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
-1. In the menu on the left, click **Users and groups**.
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![Assign User][202] 
+    ![The Add Assignment pane](common/add-assign-user.png)
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-	![Assign User][203]
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+7. In the **Add Assignment** dialog click the **Assign** button.
 
-1. Click **Select** button on **Users and groups** dialog.
+### Create Trakopolis test user
 
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
+In this section, you create a user called Britta Simon in Trakopolis. Work with [Trakopolis support team](mailto:support@cantelematics.com) to add the users in the Trakopolis platform. Users must be created and activated before you use single sign-on.
 
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
-When you click the Trakopolis tile in the Access Panel, you should get automatically signed-on to your Trakopolis application.
+### Test single sign-on 
 
-## Additional resources
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+When you click the Trakopolis tile in the Access Panel, you should be automatically signed in to the Trakopolis for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
+## Additional Resources
 
-<!--Image references-->
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-[1]: ./media/trakopolis-tutorial/tutorial_general_01.png
-[2]: ./media/trakopolis-tutorial/tutorial_general_02.png
-[3]: ./media/trakopolis-tutorial/tutorial_general_03.png
-[4]: ./media/trakopolis-tutorial/tutorial_general_04.png
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-[100]: ./media/trakopolis-tutorial/tutorial_general_100.png
-
-[200]: ./media/trakopolis-tutorial/tutorial_general_200.png
-[201]: ./media/trakopolis-tutorial/tutorial_general_201.png
-[202]: ./media/trakopolis-tutorial/tutorial_general_202.png
-[203]: ./media/trakopolis-tutorial/tutorial_general_203.png
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

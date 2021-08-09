@@ -1,64 +1,84 @@
 ---
-title: About v2.0 | Azure
-description: Learn about the v2.0 endpoint and platform.
+title: Microsoft identity platform overview - Azure
+titleSuffix: Microsoft identity platform
+description: Learn about the components of the Microsoft identity platform and how they can help you build identity and access management (IAM) support into your applications.
 services: active-directory
-documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 
 ms.service: active-directory
-ms.component: develop
-ms.devlang: na
+ms.subservice: develop
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
-ms.author: celested
-ms.reviewer: saeeda
-ms.custom: aaddev
-#Customer intent: As an application developer, I want to understand about the v2.0 endpoint and platform so I can decide if this platform meets my application development needs and requirements.
+ms.date: 07/09/2020
+ms.author: ryanwi
+ms.reviewer: agirling, saeeda, benv
+ms.custom: identityplatformtop40, contperf-fy21q2
+# Customer intent: As an application developer, I want a quick introduction to the Microsoft identity platform so I can decide if this platform meets my application development requirements.
 ---
 
-# About v2.0
+# What is the Microsoft identity platform?
 
-The v2.0 endpoint and platform has been in preview and continually enhanced. Today, the JavaScript single-page application (SPA) scenarios are feature complete and we invite you to use MSAL.js to build browser-based applications and give us feedback so we can update the status from preview to general availability (GA).
+The Microsoft identity platform helps you build applications your users and customers can sign in to using their Microsoft identities or social accounts, and provide authorized access to your own APIs or Microsoft APIs like Microsoft Graph.
 
-> [!NOTE]
-> MSAL Android, iOS, and .NET still have features under development. You can use them to build applications and send us feedback.
+There are several components that make up the Microsoft identity platform:
 
-The Azure portal developer experience has been significantly updated to now include all your applications built with ADAL or MSAL, and to improve usability.
+- **OAuth 2.0 and OpenID Connect standard-compliant authentication service** enabling developers to authenticate several identity types, including:
+  - Work or school accounts, provisioned through Azure AD
+  - Personal Microsoft account, like Skype, Xbox, and Outlook.com
+  - Social or local accounts, by using Azure AD B2C
+- **Open-source libraries**: Microsoft Authentication Libraries (MSAL) and support for other standards-compliant libraries
+- **Application management portal**: A registration and configuration experience in the Azure portal, along with the other Azure management capabilities.
+- **Application configuration API and PowerShell**: Programmatic configuration of your applications through the Microsoft Graph API and PowerShell so you can automate your DevOps tasks.
+- **Developer content**: Technical documentation including quickstarts, tutorials, how-to guides, and code samples.
 
-In the past, application developers who wanted to support both personal Microsoft accounts and work accounts from Azure Active Directory (Azure AD) had to integrate with two separate systems. The v2.0 endpoint and platform provides an authentication API version that simplifies this process. It enables sign-in from both types of accounts by using a single integration. Applications that use the v2.0 endpoint can also consume the REST APIs from the [Microsoft Graph API](https://developer.microsoft.com/graph) by using either type of account.
+For developers, the Microsoft identity platform offers integration of modern innovations in the identity and security space like passwordless authentication, step-up authentication, and Conditional Access. You don’t need to implement such functionality yourself: applications integrated with the Microsoft identity platform natively take advantage of such innovations.
+
+With the Microsoft identity platform, you can write code once and reach any user. You can build an app once and have it work across many platforms, or build an app that functions as a client as well as a resource application (API).
+
+For a video overview of the platform and a demo of the authentication experience, see [What is the Microsoft identity platform for developers?](https://youtu.be/uDU1QTSw7Ps).
 
 ## Getting started
 
-Choose your favorite platform from the following list to build an application by using the Microsoft open source libraries and frameworks. You can also use the OAuth 2.0 and OpenID Connect protocols to send and receive protocol messages directly without using an authentication library.
+Choose the [application scenario](authentication-flows-app-scenarios.md) you'd like to build. Each of these scenario paths starts with an overview and links to a quickstart to help you get up and running:
 
-[!INCLUDE [v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
+- [Single-page app (SPA)](scenario-spa-overview.md)
+- [Web app that signs in users](scenario-web-app-sign-user-overview.md)
+- [Web app that calls web APIs](scenario-web-app-call-api-overview.md)
+- [Protected web API](scenario-protected-web-api-overview.md)
+- [Web API that calls web APIs](scenario-web-api-call-api-overview.md)
+- [Desktop app](scenario-desktop-overview.md)
+- [Daemon app](scenario-daemon-overview.md)
+- [Mobile app](scenario-mobile-overview.md)
 
-## Learn more about the v2.0 endpoint and platform
+As you work with the Microsoft identity platform to integrate authentication and authorization in your apps, you can refer to this image that outlines the most common app scenarios and their identity components. Select the image to view it full-size.
 
-Learn about what you can do with the Azure AD v2.0 endpoint:
+[![Metro map showing several application scenarios in Microsoft identity platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
-* Discover the [types of applications that you can build with the Azure AD v2.0 endpoint](v2-app-types.md).
-* Understand the [limitations, restrictions, and constraints](active-directory-v2-limitations.md) with the Azure AD v2.0 endpoint.
-* Watch this video for an overview of the Azure AD v2.0 endpoint:
+## Learn authentication concepts
 
->[!VIDEO https://channel9.msdn.com/Events/Build/2017/P4031/player]
+Learn how core authentication and Azure AD concepts apply to the Microsoft identity platform in this recommended set of articles:
 
-## Additional resources
+- [Authentication basics](./authentication-vs-authorization.md)
+- [Application and service principals](app-objects-and-service-principals.md)
+- [Audiences](v2-supported-account-types.md)
+- [Permissions and consent](v2-permissions-and-consent.md)
+- [ID tokens](id-tokens.md)
+- [Access tokens](access-tokens.md)
+- [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
 
-Explore in-depth information about v2.0:
+## More identity and access management options
 
-* [v2.0 protocols reference](active-directory-v2-protocols.md)
-* [Access tokens reference](access-tokens.md)
-* [ID tokens reference](id-tokens.md)
-* [v2.0 authentication libraries reference](reference-v2-libraries.md)
-* [Permissions and consent in v2.0](v2-permissions-and-consent.md)
-* [Microsoft Graph API](https://developer.microsoft.com/graph)
+[Azure AD B2C](../../active-directory-b2c/overview.md) - Build customer-facing applications your users can sign in to using their social accounts like Facebook or Google, or by using an email address and password.
 
-> [!NOTE]
-> If you only need to sign in work and school accounts from Azure Active Directory, start with the [Azure AD developer's guide](v1-overview.md). The v2.0 endpoint is intended for use by developers who explicitly need to sign in Microsoft personal accounts.
+[Azure AD B2B](../external-identities/what-is-b2b.md) - Invite external users into your Azure AD tenant as "guest" users, and assign permissions for authorization while they use their existing credentials for authentication.
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[Azure Active Directory for developers (v1.0)](../azuread-dev/v1-overview.md) - Shown here for developers with existing apps that use the older v1.0 endpoint. **Do not** use v1.0 for new projects.
+
+## Next steps
+
+If you have an Azure account you already have access to an Azure Active Directory tenant, but most Microsoft identity platform developers need their own Azure AD tenant for use while developing applications, a "dev tenant."
+
+Learn how to create your own tenant for use while building your applications:
+
+[Quickstart: Set up an Azure AD tenant](quickstart-create-new-tenant.md)

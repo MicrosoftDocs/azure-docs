@@ -1,28 +1,21 @@
 ---
-title: 'About Azure Point-to-Site routing | Microsoft Docs'
-description: This article helps you understand how Point-to-Site VPN routing behaves.
+title: 'Azure VPN Gateway: About P2S routing'
+titleSuffix: Azure VPN Gateway
+description: Learn about Azure Point-to-Site VPN routing for different operating systems, remote access protocols, and virtual network configurations.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: ''
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/16/2018
-ms.author: anzaman
+ms.date: 10/07/2020
+ms.author: cherylmc
 
 ---
 # About Point-to-Site VPN routing
 
 This article helps you understand how Azure Point-to-Site VPN routing behaves. P2S VPN routing behavior is dependent on the client OS, the protocol used for the VPN connection, and how the virtual networks (VNets) are connected to each other.
 
-Azure currently supports two protocols for remote access, IKEv2 and SSTP. IKEv2 is supported on many client operating systems including Windows, Linux, MacOS, Android, and iOS. SSTP is only supported on Windows. If you make a change to the topology of your network and have Windows VPN clients, the VPN client package for Windows clients must be downloaded and installed again in order for the changes to be applied to the client.
+Azure currently supports two protocols for remote access, IKEv2 and SSTP. IKEv2 is supported on many client operating systems including Windows, Linux, macOS, Android, and iOS. SSTP is only supported on Windows. If you make a change to the topology of your network and have Windows VPN clients, the VPN client package for Windows clients must be downloaded and installed again in order for the changes to be applied to the client.
 
 > [!NOTE]
 > This article applies to IKEv2 only.
@@ -34,9 +27,9 @@ There are a number of different diagrams in this article. Each section shows a d
 
 ## <a name="isolatedvnet"></a>One isolated VNet
 
-The Point-to-Site VPN gateway connection in this example is for a VNet that is not connected or peered with any other virtual network (VNet1). In this example, clients using SSTP or IKEv2 can access VNet1.
+The Point-to-Site VPN gateway connection in this example is for a VNet that is not connected or peered with any other virtual network (VNet1). In this example, clients can access VNet1.
 
-![isolated VNet routing](./media/vpn-gateway-about-point-to-site-routing/1.jpg "isolated VNet routing")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/isolated.jpg" alt-text="Isolated VNet routing" lightbox="./media/vpn-gateway-about-point-to-site-routing/isolated.jpg":::
 
 ### Address space
 
@@ -56,11 +49,11 @@ The Point-to-Site VPN gateway connection in this example is for a VNet that is n
 
 ## <a name="multipeered"></a>Multiple peered VNets
 
-In this example, the Point-to-Site VPN gateway connection is for VNet1. VNet1 is peered with VNet2. VNet 2 is peered with VNet3. VNet1 is peered with VNet4. There is no direct peering between VNet1 and VNet3. VNet1 has “Allow gateway transit” and VNet2 has “Use remote gateways” enabled.
+In this example, the Point-to-Site VPN gateway connection is for VNet1. VNet1 is peered with VNet2. VNet 2 is peered with VNet3. VNet1 is peered with VNet4. There is no direct peering between VNet1 and VNet3. VNet1 has “Allow gateway transit” and VNet2 and VNet4 have “Use remote gateways” enabled.
 
 Clients using Windows can access directly peered VNets, but the VPN client must be downloaded again if any changes are made to VNet peering or the network topology. Non-Windows clients can access directly peered VNets. Access is not transitive and is limited to only directly peered VNets.
 
-![multiple peered VNets](./media/vpn-gateway-about-point-to-site-routing/2.jpg "multiple peered VNets")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg" alt-text="Multiple peered VNets" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg":::
 
 ### Address space:
 
@@ -90,7 +83,7 @@ In this example, the Point-to-Site VPN gateway connection is for VNet1. VNet1 is
 
 Clients using Windows, or another supported OS, can only access VNet1. To access additional VNets, BGP must be used.
 
-![multiple VNets and S2S](./media/vpn-gateway-about-point-to-site-routing/3.jpg "multiple VNets and S2S")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple-s2s.jpg" alt-text="Multiple VNets and S2S" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple-s2s.jpg":::
 
 ### Address space
 
@@ -118,7 +111,7 @@ In this example, the Point-to-Site VPN gateway connection is for VNet1. VNet1 is
 
 Clients using Windows, or another supported OS, can access all VNets that are connected using a Site-to-Site VPN connection, but routes to connected VNets have to be manually added to the Windows clients.
 
-![multiple VNets and S2S (BGP)](./media/vpn-gateway-about-point-to-site-routing/4.jpg "multiple VNets and S2S BGP")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple-bgp.jpg" alt-text="Multiple VNets and S2S (BGP)" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple-bgp.jpg":::
 
 ### Address space
 
@@ -146,7 +139,7 @@ In this example, the Point-to-Site VPN gateway connection is for VNet1. VNet1 is
 
 Windows and non-Windows clients can only access VNet1.
 
-![routing with a VNet and a branch office](./media/vpn-gateway-about-point-to-site-routing/5.jpg "routing with a VNet and a branch office")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-office.jpg" alt-text="Routing with a VNet and a branch office" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-office.jpg":::
 
 ### Address space
 
@@ -172,7 +165,7 @@ In this example, the Point-to-Site VPN gateway connection is for VNet1. VNet1 is
 
 Windows clients can access the VNet and the branch office (Site1), but the routes to Site1 must be manually added to the client. Non-Windows clients can access the VNet as well as the on-premises branch office.
 
-![one VNet and a branch office (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "one VNet and a branch office")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg" alt-text="Routing with a VNet and a branch office - BGP" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg":::
 
 ### Address space
 
@@ -199,7 +192,7 @@ In this example, the Point-to-Site VPN gateway connection is for VNet1. VNet1 is
 
 All clients can access VNet1 only.
 
-![multi-VNet S2S and branch office](./media/vpn-gateway-about-point-to-site-routing/7.jpg "multi-VNet S2S and branch office")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multi-branch.jpg" alt-text="Diagram that shows a multi-VNet S2S and a branch office" lightbox="./media/vpn-gateway-about-point-to-site-routing/multi-branch.jpg":::
 
 ### Address space
 
@@ -213,7 +206,7 @@ All clients can access VNet1 only.
 
 ### Routes added
 
-* Routes added clients: 10.1.0.0/16, 192.168.0.0/24
+* Routes added to Windows clients: 10.1.0.0/16, 192.168.0.0/24
 
 * Routes added to Non-Windows clients: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
@@ -229,7 +222,7 @@ In this example, the Point-to-Site VPN gateway connection is for VNet1. VNet1 is
 
 Clients using Windows can access VNets and sites that are connected using a Site-to-Site VPN connection, but the routes to VNet2, VNet3 and Site1 must be manually added to the client. Non-Windows clients can access VNets and sites that are connected using a Site-to-Site VPN connection without any manual intervention. The access is transitive, and clients can access resources in all connected VNets and sites (on-premises).
 
-![multi-VNet S2S and branch office](./media/vpn-gateway-about-point-to-site-routing/8.jpg "multi-VNet S2S and branch office")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multi-branch-bgp.jpg" alt-text="multi-VNet S2S and branch office" lightbox="./media/vpn-gateway-about-point-to-site-routing/multi-branch-bgp.jpg":::
 
 ### Address space
 
@@ -243,7 +236,7 @@ Clients using Windows can access VNets and sites that are connected using a Site
 
 ### Routes added
 
-* Routes added clients: 10.1.0.0/16, 192.168.0.0/24
+* Routes added to Windows clients: 10.1.0.0/16, 192.168.0.0/24
 
 * Routes added to Non-Windows clients: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 

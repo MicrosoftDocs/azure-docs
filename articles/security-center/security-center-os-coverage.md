@@ -1,115 +1,54 @@
 ---
-title: Features and platforms supported by Azure Security Center | Microsoft Docs
-description: This document provides a list of features and platforms supported by Azure Security Center.
-services: security-center
-documentationcenter: na
-author: rkarlin
-manager: MBaldwin
-editor: ''
-
-ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
+title: Platforms supported by Azure Security Center | Microsoft Docs
+description: This document provides a list of platforms supported by Azure Security Center.
+author: memildin
+manager: rkarlin
 ms.service: security-center
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/28/2018
-ms.author: rkarlin
-
+ms.topic: overview
+ms.date: 03/31/2020
+ms.author: memildin
 ---
-# Platforms and features supported by Azure Security Center
+# Supported platforms 
 
-Security state monitoring and recommendations are available for virtual machines (VMs), created using both the classic and Resource Manager deployment models, and computers.
+This page shows the platforms and environments supported by Azure Security Center.
 
-> [!NOTE]
-> Learn more about the [classic and Resource Manager deployment models](../azure-classic-rm.md) for Azure resources.
->
->
+## Combinations of environments <a name="vm-server"></a>
 
-## Supported platforms 
+Azure Security Center supports virtual machines and servers on different types of hybrid environments:
 
-This section lists the platforms on which the Azure Security Center agent can run and from which it can gather data.
+* Only Azure
+* Azure and on-premises
+* Azure and other clouds
+* Azure, other clouds, and on-premises
 
-### Supported platforms for Windows computers and VMs
-Supported Windows operating systems:
+For an Azure environment activated on an Azure subscription, Azure Security Center will automatically discover IaaS resources that are deployed within the subscription.
 
-* Windows Server 2008
-* Windows Server 2008 R2
-* Windows Server 2012
-* Windows Server 2012 R2
-* Windows Server 2016
+## Supported operating systems
 
+Security Center depends on the [Log Analytics agent](../azure-monitor/agents/agents-overview.md#log-analytics-agent). Ensure your machines are running one of the supported operating systems for this agent as described on the following pages:
 
-### Supported platforms for Linux computers and VMs
-Supported Linux operating systems:
+* [Log Analytics agent for Windows supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
+* [Log Analytics agent for Linux supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 
-* Ubuntu versions 12.04 LTS, 14.04 LTS, 16.04 LTS
-* Debian versions 6, 7, 8, 9
-* CentOS versions 5, 6, 7
-* Red Hat Enterprise Linux (RHEL) versions 5, 6, 7
-* SUSE Linux Enterprise Server (SLES) versions 11, 12
-* Oracle Linux versions 5, 6, 7
-* Amazon Linux 2012.09 through 2017
-* Openssl 1.1.0 is only supported on x86_64 platforms (64-bit)
+Also ensure your Log Analytics agent is [properly configured to send data to Security Center](security-center-enable-data-collection.md#manual-agent)
+
+To learn more about the specific Security Center features available on Windows and Linux, see [Feature coverage for machines](security-center-services.md).
 
 > [!NOTE]
-> Virtual machine behavioral analytics are not yet available for Linux operating systems.
->
->
+> Even though Azure Defender is designed to protect servers, most of the capabilities of **Azure Defender for servers** are supported for Windows 10 machines. One feature that isn't currently supported is [Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md).
 
-## VMs and Cloud Services
-VMs running in a cloud service are also supported. Only cloud services web and worker roles running in production slots are monitored. To learn more about cloud service, see [Cloud Services overview](../cloud-services/cloud-services-choose-me.md).
+## Managed virtual machine services <a name="virtual-machine"></a>
 
+Virtual machines are also created in a customer subscription as part of some Azure-managed services as well, such as Azure Kubernetes (AKS), Azure Databricks, and more. Security Center discovers these virtual machines too, and the Log Analytics agent can be installed and configured if a supported OS is available.
 
-## Supported IaaS features
+## Cloud Services <a name="cloud-services"></a>
 
-> [!div class="mx-tableFixed"]
-> 
+Virtual machines that run in a cloud service are also supported. Only cloud services web and worker roles that run in production slots are monitored. To learn more about cloud services, see [Overview of Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
-|Server|Windows||Linux||
-|----|----|----|----|----|
-|Environment|Azure|Non-Azure|Azure|Non-Azure|
-|VMBA threat detection alerts|✔|✔|✔ (on supported versions)|✔|
-|Network based threat detection alerts|✔|X|✔|X|
-|Windows Defender ATP integration*|✔ (on supported versions)|✔|X|X|
-|Missing patches|✔|✔|✔|✔|
-|Security configurations|✔|✔|✔|✔|
-|Anti-malware|✔|✔|X|X|
-|JIT VM access|✔|X|✔|X|
-|Adaptive application controls|✔|X|X|X|
-|FIM|✔|✔|✔|✔|
-|Disk encryption|✔|X|✔|X|
-|Third party deployment|✔|X|✔|X|
-|NSGs|✔|X|✔|X|
-|Filess threat detection|✔|✔|X|X|
-|Network map|✔|X|✔|X|
-|Adaptive network controls|✔|X|✔|X|
-
-\* These features are currently supported in public preview.
-
-
-## Supported PaaS features
-
-
-|Service|Recommendations|Threat detection|
-|----|----|----|
-|SQL|✔| ✔|
-|PostGreSQL*|✔| ✔|
-|MySQL*|✔| ✔|
-|Blob storage accounts*|✔| ✔|
-|App services|✔| ✔|
-|Cloud services|✔| X|
-|Vnets|✔| NA|
-|Subnets|✔| NA|
-|NICs|✔| ✔|
-|NSGs|✔| NA|
-|Subscription|✔| ✔|
-
-\* These features are currently supported in public preview.
+Protection for VMs residing in Azure Stack Hub is also supported. For more information about Security Center's integration with Azure Stack Hub, see [Onboard your Azure Stack Hub virtual machines to Security Center](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms). 
 
 ## Next steps
 
-- [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) — Learn how to plan and understand the design considerations to adopt Azure Security Center
-- [Security alerts by type in Azure Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis) - Learn more about virtual machine behavioral analysis and crash dump memory analysis in Security Center
-- [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service
-- [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance
+- Learn how [Security Center collects data using the Log Analytics Agent](security-center-enable-data-collection.md).
+- Learn how [Security Center manages and safeguards data](security-center-data-security.md).
+- Learn how to [plan and understand the design considerations to adopt Azure Security Center](security-center-planning-and-operations-guide.md).

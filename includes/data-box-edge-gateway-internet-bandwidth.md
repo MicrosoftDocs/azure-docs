@@ -2,11 +2,12 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 11/08/2018
+ms.date: 02/14/2019
 ms.author: alkohli
 ---
 
-The following requirements apply to minimum internet bandwidth required for your devices.
+The devices are designed to continue to operate when your internet connection is slow or gets interrupted. In normal operating conditions, we recommend that you use: 
 
-- Your device has a dedicated 20-Mbps internet bandwidth (or more) available at all times. This bandwidth shouldn't be shared with any other applications.
-- Your device has a dedicated 64-Mbps internet bandwidth (or more) when using network throttling.
+- A minimum of 10-Mbps download bandwidth to ensure the device stays updated.
+- A minimum of 20-Mbps dedicated upload and download bandwidth to transfer files.
+

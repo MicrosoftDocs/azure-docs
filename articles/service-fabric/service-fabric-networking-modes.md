@@ -1,21 +1,11 @@
 ---
-title: Configure networking modes for Azure Service Fabric container services | Microsoft Docs
+title: Configure networking modes for container services 
 description: Learn how to set up the different networking modes that are supported by Azure Service Fabric. 
-services: service-fabric
-documentationcenter: .net
-author: TylerMSFT
-manager: timlt
-editor: ''
+author: athinanthny
 
-ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: twhitney, subramar
-
+ms.author: atsenthi
 ---
 # Service Fabric container networking modes
 
@@ -26,12 +16,12 @@ If you have one container service with a static endpoint in your service manifes
 When a container service restarts or moves to another node in the cluster, the IP address changes. For this reason, we don't recommend using the dynamically assigned IP address to discover container services. Only the Service Fabric Naming Service or the DNS Service should be used for service discovery. 
 
 >[!WARNING]
->Azure allows a total of 4,096 IPs per virtual network. The sum of the number of nodes and the number of container service instances (that are using Open mode) can't exceed 4,096 IPs within a virtual network. For high-density scenarios, we recommend nat networking mode.
+>Azure allows a total of 65,356 IPs per virtual network. The sum of the number of nodes and the number of container service instances (that are using Open mode) can't exceed 65,356 IPs within a virtual network. For high-density scenarios, we recommend nat networking mode. In addition, other dependencies such as the load balancer will have other [limitations](../azure-resource-manager/management/azure-subscription-service-limits.md) to consider. Currently up to 50 IPs per node have been tested and proven stable. 
 >
 
 ## Set up Open networking mode
 
-1. Set up the Azure Resource Manager template. In the **fabricSettings** section, enable the DNS Service and the IP Provider: 
+1. Set up the Azure Resource Manager template. In the **fabricSettings** section of the Cluster resource, enable the DNS Service and the IP Provider: 
 
     ```json
     "fabricSettings": [
@@ -54,15 +44,6 @@ When a container service restarts or moves to another node in the cluster, the I
                     ]
                 },
                 {
-                    "name":  "Trace/Etw", 
-                    "parameters": [
-                    {
-                            "name": "Level",
-                            "value": "5"
-                    }
-                    ]
-                },
-                {
                     "name": "Setup",
                     "parameters": [
                     {
@@ -73,8 +54,10 @@ When a container service restarts or moves to another node in the cluster, the I
                 }
             ],
     ```
+    
+2. Set up the network profile section of the Virtual Machine Scale Set resource. This allows multiple IP addresses to be configured on each node of the cluster. The following example sets up five IP addresses per node for a Windows/Linux Service Fabric cluster. You can have five service instances listening on the port on each node. To have the five IPs be accessible from the Azure Load Balancer, enroll the five IPs in the Azure Load Balancer Backend Address Pool as shown below.  You will also need to add the variables to the top of your template in the variables section.
 
-2. Set up the network profile section to allow multiple IP addresses to be configured on each node of the cluster. The following example sets up five IP addresses per node for a Windows/Linux Service Fabric cluster. You can have five service instances listening on the port on each node.
+    Add this section to Variables:
 
     ```json
     "variables": {
@@ -93,6 +76,11 @@ When a container service restarts or moves to another node in the cluster, the I
         "lbHttpProbeID0": "[concat(variables('lbID0'),'/probes/FabricHttpGatewayProbe')]",
         "lbNatPoolID0": "[concat(variables('lbID0'),'/inboundNatPools/LoadBalancerBEAddressNatPool')]"
     }
+    ```
+    
+    Add this section to the Virtual Machine Scale Set resource:
+
+    ```json   
     "networkProfile": {
                 "networkInterfaceConfigurations": [
                   {
@@ -122,6 +110,11 @@ When a container service restarts or moves to another node in the cluster, the I
                           "name": "[concat(parameters('nicName'),'-', 1)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -131,6 +124,11 @@ When a container service restarts or moves to another node in the cluster, the I
                           "name": "[concat(parameters('nicName'),'-', 2)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -140,6 +138,11 @@ When a container service restarts or moves to another node in the cluster, the I
                           "name": "[concat(parameters('nicName'),'-', 3)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -149,6 +152,11 @@ When a container service restarts or moves to another node in the cluster, the I
                           "name": "[concat(parameters('nicName'),'-', 4)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -158,6 +166,11 @@ When a container service restarts or moves to another node in the cluster, the I
                           "name": "[concat(parameters('nicName'),'-', 5)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -173,21 +186,20 @@ When a container service restarts or moves to another node in the cluster, the I
  
 3. For Windows clusters only, set up an Azure Network Security Group (NSG) rule that opens up port UDP/53 for the virtual network with the following values:
 
-   |Setting |Value | |
-   | --- | --- | --- |
-   |Priority |2000 | |
-   |Name |Custom_Dns  | |
-   |Source |VirtualNetwork | |
-   |Destination | VirtualNetwork | |
-   |Service | DNS (UDP/53) | |
-   |Action | Allow  | |
-   | | |
+   |Setting |Value |
+   | --- | --- |
+   |Priority |2000 |
+   |Name |Custom_Dns  |
+   |Source |VirtualNetwork |
+   |Destination | VirtualNetwork |
+   |Service | DNS (UDP/53) |
+   |Action | Allow  |
 
 4. Specify the networking mode in the application manifest for each service: `<NetworkConfig NetworkType="Open">`. **Open** networking mode results in the service getting a dedicated IP address. If a mode isn't specified, the service defaults to **nat** mode. In the following manifest example, the `NodeContainerServicePackage1` and `NodeContainerServicePackage2` services can each listen on the same port (both services are listening on `Endpoint1`). When Open networking mode is specified, `PortBinding` configurations cannot be specified.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <ApplicationManifest ApplicationTypeName="NodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ApplicationManifest ApplicationTypeName="NodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
       <Description>Calculator Application</Description>
       <Parameters>
         <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
@@ -228,7 +240,7 @@ When a container service restarts or moves to another node in the cluster, the I
    </Resources>
    ```
    
-6. For Windows, a VM reboot will cause the open network to be recreated. This is to mitigate an underlying issue in the networking stack. The default behaviour is to recreate the network. If this behaviour needs to be turned off, the following configuration can be used followed by a config upgrade.
+6. For Windows, a VM reboot will cause the open network to be recreated. This is to mitigate an underlying issue in the networking stack. The default behavior is to recreate the network. If this behavior needs to be turned off, the following configuration can be used followed by a config upgrade.
 
 ```json
 "fabricSettings": [
@@ -246,6 +258,6 @@ When a container service restarts or moves to another node in the cluster, the I
  
 ## Next steps
 * [Understand the Service Fabric application model](service-fabric-application-model.md)
-* [Learn more about the Service Fabric service manifest resources](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
+* [Learn more about the Service Fabric service manifest resources](./service-fabric-service-manifest-resources.md)
 * [Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-get-started-containers.md)
 * [Deploy a Docker container to Service Fabric on Linux](service-fabric-get-started-containers-linux.md)

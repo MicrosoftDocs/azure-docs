@@ -1,23 +1,18 @@
 ---
-title: Backup and restore Azure Service Fabric actors | Microsoft Docs
+title: Backup and restore Azure Service Fabric actors 
 description: Learn how to implement backup and restore in your Azure Service Fabric actors.
-services: service-fabric
-documentationcenter: .net
-author: vturecek
-manager: timlt
-editor: amanbha
-
-ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 03/19/2018
-ms.author: vturecek
-
+ms.date: 10/29/2018
+ms.custom: devx-track-csharp
 ---
+
+
 # Implement Reliable Actors backup and restore
+
+> [!NOTE]
+> Microsoft recommends to use [Periodic backup and restore](service-fabric-backuprestoreservice-quickstart-azurecluster.md) for configuring data backup of Reliable Stateful services and Reliable Actors. 
+> 
+
 In the following example, a custom actor service exposes a method to back up actor data by taking advantage of the remoting listener already present in `ActorService`:
 
 ```csharp
@@ -109,12 +104,12 @@ MyActorService myActorServiceProxy = ActorServiceProxy.create(MyActorService.cla
 myActorServiceProxy.backupActorsAsync();
 ```
 
-For more information on Reliable Actors, read the following:
+For more information on Reliable Actors, read the following articles:
 * [Actor state management](service-fabric-reliable-actors-state-management.md)
 * [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
-* [Actors API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Actors API reference documentation](/previous-versions/azure/dn971626(v=azure.100))
 * [.NET sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java sample code](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java sample code](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

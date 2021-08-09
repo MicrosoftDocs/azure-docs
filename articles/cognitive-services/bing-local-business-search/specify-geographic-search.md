@@ -1,18 +1,23 @@
 ---
-title: Use geographic boundaries to filter results from the Bing Local Business Search API | Microsoft Docs
+title: Use geographic boundaries to filter results from the Bing Local Business Search API
 titleSuffix: Azure Cognitive Services
 description: Use this article to learn how to filter search results from the Bing Local Business Search API.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-local-business
-ms.topic: article
+ms.subservice: bing-local-business
+ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
 ---
 
 # Use geographic boundaries to filter results from the Bing Local Business Search API
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 The Bing Local Business Search API enables you to set boundaries on the specific geographic area you'd like to search by using the `localCircularView` or `localMapView` query parameters. Be sure to use only one parameter in your queries. 
 
@@ -28,9 +33,9 @@ To specify a circular geographic search area, pick a latitude and longitude to s
 
 Complete query:
 
-````
+```
 https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search?q=restaurant&localCircularView=47.6421,-122.13715,5000&appid=0123456789ABCDEF&mkt=en-us&form=monitr
-````
+```
 
 ## localMapView
 
@@ -40,9 +45,9 @@ To specify a rectangular search area, pick two sets of latitude/longitude coordi
 
 Complete query:
 
-````
+```
 https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search?q=restaurant&localMapView=47.619987,-122.181671,47.6421,-122.13715&appid=0123456789ABCDEF&mkt=en-us&form=monitr
-````
+```
 
 ## Next steps
 - [Local Business Search Java Quickstart](quickstarts/local-search-java-quickstart.md)

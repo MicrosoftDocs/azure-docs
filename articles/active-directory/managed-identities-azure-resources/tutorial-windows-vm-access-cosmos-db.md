@@ -1,19 +1,21 @@
-﻿---
-title: Use a Windows VM system-assigned managed identity to access Azure Cosmos DB
+---
+title: 'Tutorial: Use a managed identity to access Azure Cosmos DB - Windows - Azure AD'
 description: A tutorial that walks you through the process of using a system-assigned managed identity on a Windows VM, to access Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
-author: daveba
-manager: mtillman
-editor: daveba
+author: barclayn
+manager: daveba
+editor: 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2018
-ms.author: daveba
+ms.date: 12/10/2020
+ms.author: barclayn
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure Cosmos DB
@@ -30,20 +32,25 @@ This tutorial shows you how to use a system-assigned managed identity for a Wind
 
 ## Prerequisites
 
-[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+- If you're not familiar with the managed identities for Azure resources feature, see this [overview](overview.md). 
+- If you don't have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
+- To perform the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
+- Install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps)
+- You also need a Windows Virtual machine that has system assigned managed identities enabled.
+  - If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a virtual machine with system-assigned identity enabled](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)
 
 ## Create a Cosmos DB account 
 
 If you don't already have one, create a Cosmos DB account. You can skip this step and use an existing Cosmos DB account. 
 
-1. Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
+1. Click the **+ Create a resource** button found on the upper left-hand corner of the Azure portal.
 2. Click **Databases**, then **Azure Cosmos DB**, and a new "New account" panel  displays.
 3. Enter an **ID** for the Cosmos DB account, which you use later.  
 4. **API** should be set to "SQL." The approach described in this tutorial can be used with the other available API types, but the steps in this tutorial are for the SQL API.
 5. Ensure the **Subscription** and **Resource Group** match the ones you specified when you created your VM in the previous step.  Select a **Location** where Cosmos DB is available.
 6. Click **Create**.
 
-## Create a collection in the Cosmos DB account
+### Create a collection 
 
 Next, add a data collection in the Cosmos DB account that you can query in later steps.
 
@@ -51,23 +58,34 @@ Next, add a data collection in the Cosmos DB account that you can query in later
 2. On the **Overview** tab click the **+/Add Collection** button, and an "Add Collection" panel slides out.
 3. Give the collection a database ID, collection ID, select a storage capacity, enter a partition key, enter a throughput value, then click **OK**.  For this tutorial, it is sufficient to use "Test" as the database ID and collection ID, select a fixed storage capacity and lowest throughput (400 RU/s).  
 
-## Grant Windows VM system-assigned managed identity access to the Cosmos DB account access keys
 
-Cosmos DB does not natively support Azure AD authentication. However, you can use a system-assigned managed identity to retrieve a Cosmos DB access key from the Resource Manager, and use the key to access Cosmos DB. In this step, you grant your Windows VM system-assigned managed identity access to the keys to the Cosmos DB account.
+## Grant access
 
-To grant the Windows VM system-assigned managed identity access to the Cosmos DB account in Azure Resource Manager using PowerShell, update the values for `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<COSMOS DB ACCOUNT NAME>` for your environment. Cosmos DB supports two levels of granularity when using access keys:  read/write access to the account, and read-only access to the account.  Assign the `DocumentDB Account Contributor` role if you want to get read/write keys for the account, or assign the `Cosmos DB Account Reader Role` role if you want to get read-only keys for the account.  For this tutorial, assign the `Cosmos DB Account Reader Role`:
+This section shows how to grant Windows VM system-assigned managed identity access to the Cosmos DB account access keys. Cosmos DB does not natively support Azure AD authentication. However, you can use a system-assigned managed identity to retrieve a Cosmos DB access key from Resource Manager, and use the key to access Cosmos DB. In this step, you grant your Windows VM system-assigned managed identity access to the keys to the Cosmos DB account.
+
+To grant the Windows VM system-assigned managed identity access to the Cosmos DB account in Azure Resource Manager using PowerShell, update the following values:
+
+- `<SUBSCRIPTION ID>`
+- `<RESOURCE GROUP>`
+- `<COSMOS DB ACCOUNT NAME>`
+
+Cosmos DB supports two levels of granularity when using access keys:  read/write access to the account, and read-only access to the account.  Assign the `DocumentDB Account Contributor` role if you want to get read/write keys for the account, or assign the `Cosmos DB Account Reader Role` role if you want to get read-only keys for the account.  For this tutorial, assign the `Cosmos DB Account Reader Role`:
 
 ```azurepowershell
-$spID = (Get-AzureRMVM -ResourceGroupName myRG -Name myVM).identity.principalid
-New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Reader Role" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>"
+$spID = (Get-AzVM -ResourceGroupName myRG -Name myVM).identity.principalid
+New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Reader Role" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>"
 ```
-## Get an access token using the Windows VM system-assigned managed identity to call Azure Resource Manager
 
-For the remainder of the tutorial, we will work from the VM we created earlier. 
+>[!NOTE]
+> Keep in mind that if you are unable to perform an operation you may not have the right permissions. If you want write access to keys you need to use an Azure role such as DocumentDB Account Contributor or create a custom role. For more information review [Azure role-based access control in Azure Cosmos DB](../../cosmos-db/role-based-access-control.md)
 
-You will need to use the Azure Resource Manager PowerShell cmdlets in this portion.  If you don’t have it installed, [download the latest version](https://docs.microsoft.com/powershell/azure/overview) before continuing.
+## Access data
 
-You will also need to install the latest version of [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) on your Windows VM.
+This section shows how to call Azure Resource Manager using an access token for the Windows VM system-assigned managed identity. For the remainder of the tutorial, we will work from the VM we created earlier. 
+
+You need to install the latest version of [Azure CLI](/cli/azure/install-azure-cli) on your Windows VM.
+
+### Get an access token
 
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Windows virtual machine, then from the **Overview** page click **Connect** at the top. 
 2. Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
@@ -92,28 +110,36 @@ You will also need to install the latest version of [Azure CLI](https://docs.mic
    $ArmToken = $content.access_token
    ```
 
-## Get access keys from Azure Resource Manager to make Cosmos DB calls
+### Get access keys 
 
-Now use PowerShell to call Resource Manager using the access token retrieved in the previous section to retrieve the Cosmos DB account access key. Once we have the access key, we can query Cosmos DB. Be sure to replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<COSMOS DB ACCOUNT NAME>` parameter values with your own values. Replace the `<ACCESS TOKEN>` value with the access token you retrieved earlier.  If you want to retrieve read/write keys, use key operation type `listKeys`.  If you want to retrieve read-only keys, use the key operation type `readonlykeys`:
+This section shows how to get access keys from Azure Resource Manager to make Cosmos DB calls. We are using PowerShell to call Resource Manager using the access token we got earlier to retrieve the Cosmos DB account access key. Once we have the access key, we can query Cosmos DB. Use your own values to replace the entries below:
+
+- `<SUBSCRIPTION ID>`
+- `<RESOURCE GROUP>`
+- `<COSMOS DB ACCOUNT NAME>` 
+- Replace the `<ACCESS TOKEN>` value with the access token you retrieved earlier. 
+
+>[!NOTE]
+>If you want to retrieve read/write keys, use key operation type `listKeys`.  If you want to retrieve read-only keys, use the key operation type `readonlykeys`. If you are unable to use 'listkeys' verify that you assigned the [appropriate role](../../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role) to the managed identity.
 
 ```powershell
-Invoke-WebRequest -Uri 'https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>/listKeys/?api-version=2016-03-31' -Method POST -Headers @{Authorization="Bearer $ARMToken"}
+Invoke-WebRequest -Uri 'https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>/readonlykeys/?api-version=2016-03-31' -Method POST -Headers @{Authorization="Bearer $ARMToken"}
 ```
-The response give you the list of Keys.  For example, if you get read-only keys:
+The response gives you the list of Keys.  For example, if you get read-only keys:
 
 ```powershell
 {"primaryReadonlyMasterKey":"bWpDxS...dzQ==",
 "secondaryReadonlyMasterKey":"38v5ns...7bA=="}
 ```
-Now that you have the access key for the Cosmos DB account you can pass it to a Cosmos DB SDK and make calls to access the account.  For a quick example, you can pass the access key to the Azure CLI.  You can get the <COSMOS DB CONNECTION URL> from the **Overview** tab on the Cosmos DB account blade in the Azure portal.  Replace the <ACCESS KEY> with the value you obtained above:
+Now that you have the access key for the Cosmos DB account you can pass it to a Cosmos DB SDK and make calls to access the account.  For a quick example, you can pass the access key to the Azure CLI.  You can get the `<COSMOS DB CONNECTION URL>` from the **Overview** tab on the Cosmos DB account blade in the Azure portal.  Replace the `<ACCESS KEY>` with the value you obtained above:
 
-```bash
+```azurecli
 az cosmosdb collection show -c <COLLECTION ID> -d <DATABASE ID> --url-connection "<COSMOS DB CONNECTION URL>" --key <ACCESS KEY>
 ```
 
 This CLI command returns details about the collection:
 
-```bash
+```output
 {
   "collection": {
     "_conflicts": "conflicts/",
@@ -171,11 +197,16 @@ This CLI command returns details about the collection:
 }
 ```
 
+
+## Disable
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
+
+
 ## Next steps
 
 In this tutorial, you learned how to use a Windows VM system-assigned identity to access Cosmos DB.  To learn more about Cosmos DB see:
 
 > [!div class="nextstepaction"]
->[Azure Cosmos DB overview](/azure/cosmos-db/introduction)
-
-
+>[Azure Cosmos DB overview](../../cosmos-db/introduction.md)

@@ -1,15 +1,14 @@
 ---
-title: 'Microsoft Genomics:Troubleshooting Guide | Microsoft Docs'
-titleSuffix: Azure
-description: Learn more about troubleshooting strategies
+title: Troubleshooting Guide
+titleSuffix: Microsoft Genomics
+description: Learn about troubleshooting strategies for using Microsoft Genomics, including error messages and how to resolve them.
 keywords: troubleshooting, error, debugging
-services: microsoft-genomics
+services: genomics
 author: ruchir
-editor: jasonwhowell
 ms.author: ruchir
-ms.service: microsoft-genomics
+ms.service: genomics
 ms.workload: genomics
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/29/2018
 
 ---
@@ -17,7 +16,7 @@ ms.date: 10/29/2018
 
 Here are a few troubleshooting tips for some of the common issues that you might face when using the Microsoft Genomics service, MSGEN.
 
- For FAQ, not related to troubleshooting, see [Common questions](frequently-asked-questions-genomics.md).
+ For FAQ, not related to troubleshooting, see [Common questions](frequently-asked-questions-genomics.yml).
 ## Step 1: Locate error codes associated with the workflow
 
 You can locate the error messages associated with the workflow by:
@@ -68,9 +67,9 @@ There are three required arguments:
                 Bases Processed : 1,348,613,600 (1 GBase)
         ```
 
- > [!NOTE]
- >  Alternatively you can include the path to the config file instead of directly entering the URL and KEY. 
-If you include these arguments in the command line as well as the config file, the command-line arguments will take precedence.  
+  > [!NOTE]
+  >  Alternatively you can include the path to the config file instead of directly entering the URL and KEY. 
+  If you include these arguments in the command line as well as the config file, the command-line arguments will take precedence.  
 
 For workflow ID 1001, and config.txt file placed in the same path as the msgen executable, the command will look like this:
 
@@ -112,7 +111,7 @@ These errors are user actionable. Based on the type of file, and error code, Mic
 
 | Type of file | Error code | Error message                                                                           | Recommended troubleshooting steps                                                                                         |
 |--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Any          | 701        | Read [readId] has [numberOfBases] bases, but the limit is [maxReadLength]           | The most common reason for this error is file corruption leading to concatenation of two reads. Check your input files. |                                |
+| Any          | 701        | Read [readId] has [numberOfBases] bases, but the limit is [maxReadLength]           | The most common reason for this error is file corruption leading to concatenation of two reads. Check your input files. |
 | BAM          | 200        |   Unable to read file '[yourFileName]'.                                                                                       | Check the format of the BAM file. Submit the workflow again with a properly formatted file.                                                                           |
 | BAM          | 201        |  Unable to read BAM file [File_name].                                                                                      |Check the format of the BAM file.  Submit the workflow with a correctly formatted file.                                                                            |
 | BAM          | 202        | Unable to read BAM file [File_name]. File too small and missing header.                                                                                        | Check the format of the BAM file.  Submit the workflow with a correctly formatted file.                                                                            |
@@ -139,4 +138,4 @@ If you continue to have job failures, or if you have any other questions, contac
 
 ## Next steps
 
-In this article, you learned how to troubleshoot and resolve common issues with the Microsoft Genomics service. For more information and more general FAQ, see [Common questions](frequently-asked-questions-genomics.md). 
+In this article, you learned how to troubleshoot and resolve common issues with the Microsoft Genomics service. For more information and more general FAQ, see [Common questions](frequently-asked-questions-genomics.yml). 

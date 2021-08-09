@@ -1,39 +1,32 @@
-﻿---
-title: Tutorial - Install applications on a Windows VM in Azure | Microsoft Docs
+---
+title: Tutorial - Install applications on a Windows VM in Azure 
 description: In this tutorial, you learn how to use the Custom Script Extension to run scripts and deploy applications to Windows virtual machines in Azure  
-services: virtual-machines-windows
-documentationcenter: virtual-machines
-author: zr-msft
-manager: jeconnoc
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-windows
-ms.devlang: na
+author: cynthn
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/09/2018
-ms.author: zarhoads
-ms.custom: mvc
+ms.date: 11/29/2018
+ms.author: cynthn
+ms.custom: mvc, devx-track-azurepowershell
 
 #Customer intent: As an IT administrator or developer, I want learn about how to install applications on Windows VMs so that I can automate the process and reduce the risk of human error of manual configuration tasks.
 ---
 
 # Tutorial - Deploy applications to a Windows virtual machine in Azure with the Custom Script Extension
 
-To configure virtual machines (VMs) in a quick and consistent manner, some form of automation is typically desired. A common approach to customize a Windows VM is to use [Custom Script Extension for Windows](extensions-customscript.md). In this tutorial you learn how to:
+To configure virtual machines (VMs) in a quick and consistent manner, you can use the [Custom Script Extension for Windows](../extensions/custom-script-windows.md). In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Use the Custom Script Extension to install IIS
 > * Create a VM that uses the Custom Script Extension
 > * View a running IIS site after the extension is applied
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+## Launch Azure Cloud Shell
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
+The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
 
+To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
 
 ## Custom script extension overview
 The Custom Script Extension downloads and executes scripts on Azure VMs. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run time.
@@ -44,16 +37,16 @@ You can use the Custom Script Extension with both Windows and Linux VMs.
 
 
 ## Create virtual machine
-First, set an administrator username and password for the VM with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Set the administrator username and password for the VM with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Now you can create the VM with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a VM named *myVM* in the *EastUS* location. If they do not already exist, the resource group *myResourceGroupAutomate* and supporting network resources are created. To allow web traffic, the cmdlet also opens port *80*.
+Now you can create the VM with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named *myVM* in the *EastUS* location. If they do not already exist, the resource group *myResourceGroupAutomate* and supporting network resources are created. To allow web traffic, the cmdlet also opens port *80*.
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroupAutomate" `
     -Name "myVM" `
     -Location "East US" `
@@ -69,10 +62,10 @@ It takes a few minutes for the resources and VM to be created.
 
 
 ## Automate IIS install
-Use [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) to install the Custom Script Extension. The extension runs `powershell Add-WindowsFeature Web-Server` to install the IIS webserver and then updates the *Default.htm* page to show the hostname of the VM:
+Use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) to install the Custom Script Extension. The extension runs `powershell Add-WindowsFeature Web-Server` to install the IIS webserver and then updates the *Default.htm* page to show the hostname of the VM:
 
 ```azurepowershell-interactive
-Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupAutomate" `
+Set-AzVMExtension -ResourceGroupName "myResourceGroupAutomate" `
     -ExtensionName "IIS" `
     -VMName "myVM" `
     -Location "EastUS" `
@@ -84,10 +77,10 @@ Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupAutomate" `
 
 
 ## Test web site
-Obtain the public IP address of your load balancer with [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address for *myPublicIPAddress* created earlier:
+Obtain the public IP address of your load balancer with [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress). The following example obtains the IP address for *myPublicIPAddress* created earlier:
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIPAddress `
+Get-AzPublicIPAddress `
     -ResourceGroupName "myResourceGroupAutomate" `
     -Name "myPublicIPAddress" | select IpAddress
 ```

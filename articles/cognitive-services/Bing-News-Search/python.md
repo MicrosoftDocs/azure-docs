@@ -1,88 +1,87 @@
 ---
-title: "Quickstart: Bing News Search API, Python"
-titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing News Search API.
+title: "Quickstart: Perform a news search with Python and the Bing News Search REST API"
+titleSuffix: Azure Cognitive Services
+description:  Use this quickstart to send a request to the Bing News Search REST API using Python, and receive a JSON response.
 services: cognitive-services
-author: v-jerkin
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-news-search
+ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 9/21/2017
-ms.author: v-jerkin
+ms.date: 06/16/2020
+ms.author: aahi
+ms.custom: seodec2018, devx-track-python
 ---
 
-# Quickstart for Bing News Search API with Python
-This walkthrough demonstrates a simple example of calling into the Bing News Search API and post-processing the resulting JSON object. For more information, see [Bing New Search documentation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference).  
+# Quickstart: Perform a news search using Python and the Bing News Search REST API
 
-You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge: 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingNewsSearchAPI.ipynb)
+Use this quickstart to make your first call to the Bing News Search API. This simple Python application sends a search query to the API and processes the JSON result. 
 
-## Prerequisites
+Although this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+To run this code sample as a Jupyter notebook on [MyBinder](https://mybinder.org), select the **launch binder** badge: 
 
-## Running the walkthrough
-First, set `subscription_key` to your API key for the Bing API service.
+[![launch binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingNewsSearchAPI.ipynb)
 
+The source code for this sample is also available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingNewsSearchv7.py).
 
-```python
-subscription_key = None
-assert subscription_key
-```
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-Next, verify that the `search_url` endpoint is correct. At this writing, only one endpoint is used for Bing search APIs. If you encounter authorization errors, double-check this value against the Bing search endpoint in your Azure dashboard.
+## Create and initialize the application
 
-
-```python
-search_url = "https://api.cognitive.microsoft.com/bing/v7.0/news/search"
-```
-
-Set `search_term` to look for news articles about Microsoft.
-
-
-```python
-search_term = "Microsoft"
-```
-
-The following block uses the `requests` library in Python to call out to the Bing search APIs and return the results as a JSON object. Observe that we pass in the API key via the `headers` dictionary and the search term via the `params` dictionary. To see the full list of options that can be used to filter search results, refer to the [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) documentation.
-
+Create a new Python file in your favorite IDE or editor, and import the request module. Create variables for your subscription key, endpoint, and search term. You can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
 ```python
 import requests
 
-headers = {"Ocp-Apim-Subscription-Key" : subscription_key}
-params  = {"q": search_term, "textDecorations": True, "textFormat": "HTML"}
-response = requests.get(search_url, headers=headers, params=params)
-response.raise_for_status()
-search_results = response.json()
+subscription_key = "your subscription key"
+search_term = "Microsoft"
+search_url = "https://api.cognitive.microsoft.com/bing/v7.0/news/search"
 ```
 
-The `search_results` object contains the relevant new articles along with rich metadata. For example, the following line of code extracts the descriptions of the articles.
+## Create parameters for the request
 
+Add your subscription key to a new dictionary, using `Ocp-Apim-Subscription-Key` as the key. Do the same for your search parameters.
 
 ```python
-descriptions = [article["description"] for article in search_results["value"]]
+headers = {"Ocp-Apim-Subscription-Key" : subscription_key}
+params  = {"q": search_term, "textDecorations": True, "textFormat": "HTML"}
 ```
 
-These descriptions can then be rendered as a table with the search keyword highlighted in **bold**.
+## Send a request and get a response
 
+1. Use the requests library to call the Bing Visual Search API with your subscription key, and the dictionary objects you created in the previous step.
+
+    ```python
+    response = requests.get(search_url, headers=headers, params=params)
+    response.raise_for_status()
+    search_results = json.dumps(response.json())
+    ```
+
+2. Access the descriptions of the articles contained in the response from the API, which is stored in `search_results` as a JSON object. 
+    
+    ```python
+    descriptions = [article["description"] for article in search_results["value"]]
+    ```
+
+## Display the results
+
+These descriptions can then be rendered as a table with the search keyword highlighted in bold.
 
 ```python
 from IPython.display import HTML
-rows = "\n".join(["<tr><td>{0}</td></tr>".format(desc) for desc in descriptions])
+rows = "\n".join(["<tr><td>{0}</td></tr>".format(desc)
+                  for desc in descriptions])
 HTML("<table>"+rows+"</table>")
 ```
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Paging news](paging-news.md)
-> [Using decoration markers to highlight text](hit-highlighting.md)
-
-## See also 
-
- [Searching the web for news](search-the-web.md)  
- [Try it](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
+> [Create a single-page web app](tutorial-bing-news-search-single-page-app.md)

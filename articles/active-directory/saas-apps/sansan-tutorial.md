@@ -2,293 +2,149 @@
 title: 'Tutorial: Azure Active Directory integration with Sansan | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Sansan.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: f653a0f2-c44a-4670-b936-68c136b578ea
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/16/2018
+ms.topic: tutorial
+ms.date: 06/25/2021
 ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with Sansan
 
-In this tutorial, you learn how to integrate Sansan with Azure Active Directory (Azure AD).
+# Tutorial: Integrate Sansan with Azure Active Directory
 
-Integrating Sansan with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate Sansan with Azure Active Directory (Azure AD). When you integrate Sansan with Azure AD, you can:
 
-- You can control in Azure AD who has access to Sansan
-- You can enable your users to automatically get signed-on to Sansan (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Azure AD who has access to Sansan.
+* Enable your users to be automatically signed-in to Sansan with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
-To configure Azure AD integration with Sansan, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A Sansan single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Sansan single sign-on (SSO) enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Sansan from the gallery
-2. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD SSO in a test environment.
+* Sansan supports **SP** initiated SSO.
 
-## Adding Sansan from the gallery
+## Add Sansan from the gallery
+
 To configure the integration of Sansan into Azure AD, you need to add Sansan from the gallery to your list of managed SaaS apps.
 
-**To add Sansan from the gallery, perform the following steps:**
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Sansan** in the search box.
+1. Select **Sansan** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Configure and test Azure AD SSO for Sansan
 
-	![Active Directory][1]
+Configure and test Azure AD SSO with Sansan using a test user called **Britta Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Sansan.
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+To configure and test Azure AD SSO with Sansan, perform the following steps:
 
-	![Applications][2]
-	
-3. To add new application, click **New application** button on the top of dialog.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
+   1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
+   1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
+1. **[Configure Sansan SSO](#configure-sansan-sso)** to configure the SSO settings on application side.
+   1. **[Create Sansan test user](#create-sansan-test-user)** to have a counterpart of Britta Simon in Sansan that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
-	![Applications][3]
+## Configure Azure AD SSO
 
-4. In the search box, type **Sansan**.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-	![Creating an Azure AD test user](./media/sansan-tutorial/tutorial_sansan_search.png)
+1. In the Azure portal, on the **Sansan** application integration page, find the **Manage** section and select **Single sign-on**.
+1. On the **Select a Single sign-on method** page, select **SAML**.
+1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-5. In the results panel, select **Sansan**, and then click **Add** button to add the application.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	![Creating an Azure AD test user](./media/sansan-tutorial/tutorial_sansan_addfromgallery.png)
+1. On the **Basic SAML Configuration** page, perform the following steps:
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Sansan based on a test user called "Britta Simon".
+   1. In the **Identifier (Entity ID)** text box, type a URL using the following pattern: 
+   `https://ap.sansan.com/saml2/<COMPANY_NAME>`
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Sansan is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Sansan needs to be established.
+   1. In the **Reply URL** text box, type a URL using one of the following patterns:
+    
+	   | Environment | URL |
+      |:--- |:--- |
+      | PC |`https://ap.sansan.com/v/saml2/<COMPANY_NAME>/acs` |
+      | Smartphone App |`https://internal.api.sansan.com/<COMPANY_NAME>/acs` |
+      | Smartphone Web |`https://ap.sansan.com/s/saml2/<COMPANY_NAME>/acs` |
 
-In Sansan, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+   1. In the **Sign-on URL** text box, type the URL: 
+   `https://ap.sansan.com/`
 
-To configure and test Azure AD single sign-on with Sansan, you need to complete the following building blocks:
+	> [!NOTE]
+	> These values are not real. Check the actual Identifier and Reply URL values on the **Sansan admin settings**.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Sansan test user](#creating-a-sansan-test-user)** - to have a counterpart of Britta Simon in Sansan that is linked to the Azure AD representation of user.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-### Configuring Azure AD single sign-on
+   ![The Certificate download link](common/certificatebase64.png)
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Sansan application.
+1. On the **Set up Sansan** section, copy the appropriate URL(s) based on your requirement.
 
-**To configure Azure AD single sign-on with Sansan, perform the following steps:**
+   ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-1. In the Azure portal, on the **Sansan** application integration page, click **Single sign-on**.
+   ```Logout URL
+    https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0
+    ```
 
-	![Configure Single Sign-On][4]
+### Create an Azure AD test user
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/sansan-tutorial/tutorial_sansan_samlbase.png)
+In this section, you'll create a test user in the Azure portal called Britta Simon.
 
-3. On the **Sansan Domain and URLs** section, perform the following steps:
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `Britta Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `BrittaSimon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
-	![Configure Single Sign-On](./media/sansan-tutorial/tutorial_sansan_url.png)
+### Assign the Azure AD test user
 
-    In the **Sign-on URL** textbox, type a URL using the following patterns: 
-	
-	| Environment | URL |
-    |:--- |:--- |
-    | PC web |`https://ap.sansan.com/v/saml2/<company name>/acs` |
-    | Native Mobile app |`https://internal.api.sansan.com/saml2/<company name>/acs` |
-    | Mobile browser settings |`https://ap.sansan.com/s/saml2/<company name>/acs` |  
+In this section, you'll enable Britta Simon to use Azure single sign-on by granting access to Sansan.
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL. Contact [Sansan Client support team](https://www.sansan.com/form/contact) to get these values. 
-	 
-4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Sansan**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **Britta Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-    ![Configure Single Sign-On](./media/sansan-tutorial/tutorial_sansan_certificate.png) 
+## Configure Sansan SSO
 
-5. Click **Save** button.
+To perform the **Single Sign-On settings** on the **Sansan** side, please follow the below steps according to your requirement.
 
-	![Configure Single Sign-On](./media/sansan-tutorial/tutorial_general_400.png)
+   * [Japanese](https://jp-help.sansan.com/hc/ja/articles/900001551383 ) version.
 
-6. Sansan application expects multiple **Identifiers** and **Reply URLs** to support multiple environments (PC web, Native Mobile app, Mobile browser settings), which can be configured using PowerShell script. The detailed steps are explained below.
+   * [English](https://jp-help.sansan.com/hc/en-us/articles/900001551383 ) version.
 
-7. To configure multiple **Identifiers** and **Reply URLs** for Sansan application using PowerShell script, perform following steps:
 
-	![Configure Single Sign-On obj](./media/sansan-tutorial/tutorial_sansan_objid.png)	
+### Create Sansan test user
 
-	a. Go to the **Properties** page of **Sansan** application and copy the **Object ID** using **Copy** button and paste it into Notepad.
+In this section, you create a user called Britta Simon in Sansan. For more information on how to create a user, please refer [these](https://jp-help.sansan.com/hc/articles/206508997-Adding-users) steps.
 
-	b. The **Object ID**, which you have copied from Azure portal will be used as **ServicePrincipalObjectId** in PowerShell script used later in the tutorial. 
+## Test SSO
 
-	c. Now open an elevated Windows PowerShell command prompt.
-	
-	>[!NOTE] 
-	> You need to install the AzureAD module (use the command `Install-Module -Name AzureAD`). If prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-	d. Run `Connect-AzureAD` and sign in with a Global Admin user account.
+* Click on **Test this application** in Azure portal. This will redirect to Sansan Sign-on URL where you can initiate the login flow. 
 
-	e. Use the following script to update multiple URLs to an application:
+* Go to Sansan Sign-on URL directly and initiate the login flow from there.
 
-	```poweshell
-	 Param(
-	[Parameter(Mandatory=$true)][guid]$ServicePrincipalObjectId,
-	[Parameter(Mandatory=$false)][string[]]$ReplyUrls,
-	[Parameter(Mandatory=$false)][string[]]$IdentifierUrls
-	)
+* You can use Microsoft My Apps. When you click the Sansan tile in the My Apps, this will redirect to Sansan Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-	$servicePrincipal = Get-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId
+## Next steps
 
-	if($ReplyUrls.Length)
-	{
-	echo "Updating Reply urls"
-	Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls $ReplyUrls
-	echo "updated"
-	}
-	if($IdentifierUrls.Length)
-	{
-	echo "Updating Identifier urls"
-	$applications = Get-AzureADApplication -SearchString $servicePrincipal.AppDisplayName 
-	echo "Found Applications =" $applications.Length
-	$i = 0;
-	do
-	{  
-	$application = $applications[$i];
-	if($application.AppId -eq $servicePrincipal.AppId){
-	Set-AzureADApplication -ObjectId $application.ObjectId -IdentifierUris $IdentifierUrls
-	$servicePrincipal = Get-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId
-	echo "Updated"
-	return;
-	}
-	$i++;
-	}while($i -lt $applications.Length);
-	echo "Not able to find the matched application with this service principal"
-	}
-	```
-
-8. After successfull completion of PowerShell script, the result of the script will be like this as shown below and the URL values get updated but they won't get reflected in Azure portal. 
-
-	![Configure Single Sign-On script](./media/sansan-tutorial/tutorial_sansan_powershell.png)
-
-
-9. On the **Sansan Configuration** section, click **Configure Sansan** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
-
-	![Configure Single Sign-On](./media/sansan-tutorial/tutorial_sansan_configure.png) 
-
-10. To configure single sign-on on **Sansan** side, you need to send the downloaded **Certificate**, **Sign-Out URL**, **SAML Entity ID**, and **SAML Single Sign-On Service URL** to [Sansan support team](https://www.sansan.com/form/contact). They set this setting to have the SAML SSO connection set properly on both sides.
-
->[!NOTE]
->PC browser setting also work for Mobile app and Mobile browser along with PC web. 
-
-### Creating an Azure AD test user
-
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-![Create Azure AD User][100]
-
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
-
-	![Creating an Azure AD test user](./media/sansan-tutorial/create_aaduser_01.png) 
-
-2. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/sansan-tutorial/create_aaduser_02.png) 
-
-3. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/sansan-tutorial/create_aaduser_03.png) 
-
-4. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/sansan-tutorial/create_aaduser_04.png) 
-
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**.
- 
-### Creating a Sansan test user
-
-In this section, you create a user called Britta Simon in Sansan. Sansan application needs the user to be provisioned in the application before doing SSO. 
-
->[!NOTE]
->If you need to create a user manually or batch of users, you need to contact the [Sansan support team](https://www.sansan.com/form/contact). 
-
-### Assigning the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Sansan.
-
-![Assign User][200] 
-
-**To assign Britta Simon to Sansan, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
-2. In the applications list, select **Sansan**.
-
-	![Configure Single Sign-On](./media/sansan-tutorial/tutorial_sansan_app.png) 
-
-3. In the menu on the left, click **Users and groups**.
-
-	![Assign User][202] 
-
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![Assign User][203]
-
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-6. Click **Select** button on **Users and groups** dialog.
-
-7. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
-
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the Sansan tile in the Access Panel, you should get automatically signed-on to your Sansan application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-<!--Image references-->
-
-[1]: ./media/sansan-tutorial/tutorial_general_01.png
-[2]: ./media/sansan-tutorial/tutorial_general_02.png
-[3]: ./media/sansan-tutorial/tutorial_general_03.png
-[4]: ./media/sansan-tutorial/tutorial_general_04.png
-
-[100]: ./media/sansan-tutorial/tutorial_general_100.png
-
-[200]: ./media/sansan-tutorial/tutorial_general_200.png
-[201]: ./media/sansan-tutorial/tutorial_general_201.png
-[202]: ./media/sansan-tutorial/tutorial_general_202.png
-[203]: ./media/sansan-tutorial/tutorial_general_203.png
-
+Once you configure Sansan you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

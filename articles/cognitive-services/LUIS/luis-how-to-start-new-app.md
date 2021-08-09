@@ -1,100 +1,73 @@
 ---
-title: Create a new app with Language Understanding
+title: Create a new app - LUIS
 titleSuffix: Azure Cognitive Services
 description: Create and manage your applications on the Language Understanding (LUIS) webpage.
 services: cognitive-services
-author: diberry
-manager: cgronlun
+
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
-ms.topic: article
-ms.date: 09/10/2018
-ms.author: diberry
+ms.subservice: language-understanding
+ms.topic: how-to
+ms.date: 05/13/2021
+
 ---
 
-# Create an app
-There are a couple of ways to create a LUIS app. You can create a LUIS app in the [LUIS](https://www.luis.ai) portal, or through the LUIS authoring [APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
+# Create a new LUIS app in the LUIS portal
+There are a couple of ways to create a LUIS app. You can create a LUIS app in the LUIS portal, or through the LUIS authoring [APIs](developer-reference-resource.md).
 
 ## Using the LUIS portal
-You can create a new app in the LUIS portal in several ways:
+
+You can create a new app in the portal in several ways:
 
 * Start with an empty app and create intents, utterances, and entities.
-* Start with an empty app and add a [prebuilt domain](luis-how-to-use-prebuilt-domains.md).
-* Import a LUIS app from a JSON file that already contains intents, utterances, and entities.
+* Start with an empty app and add a [prebuilt domain](./howto-add-prebuilt-models.md).
+* Import a LUIS app from a `.lu` or `.json` file that already contains intents, utterances, and entities.
 
 ## Using the authoring APIs
 You can create a new app with the authoring APIs in a couple of ways:
 
-* [Start](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) with an empty app and create intents, utterances, and entities.
-* [Start](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/59104e515aca2f0b48c76be5) with a prebuilt domain.  
+* [Add application](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f) - start with an empty app and create intents, utterances, and entities.
+* [Add prebuilt application](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/59104e515aca2f0b48c76be5) - start with a prebuilt domain, including intents, utterances, and entities.
 
 
 <a name="export-app"></a>
 <a name="import-new-app"></a>
 <a name="delete-app"></a>
- 
+
+
+[!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
 ## Create new app in LUIS
 
-1. On **My Apps** page, select **Create new app**.
+1. On **My Apps** page, select your **Subscription**, and  **Authoring resource** then **+ Create**. 
+    
+    :::image type="content" source="media/create-app-in-portal.png" alt-text="LUIS apps list" lightbox="media/create-app-in-portal.png":::
 
-    ![LUIS apps list](./media/luis-create-new-app/apps-list.png)
+1. In the dialog box, enter the name of your application, such as `Pizza Tutorial`.
 
+    :::image type="content" source="media/create-pizza-tutorial-app-in-portal.png" alt-text="Create new app dialog" lightbox="media/create-pizza-tutorial-app-in-portal.png":::
 
-2. In the dialog box, name your application "TravelAgent".
-
-    ![Create new app dialog](./media/luis-create-new-app/create-app.png)
-
-3. Choose your application culture (for TravelAgent app, choose English), and then select **Done**. 
+1. Choose your application culture, and then select **Done**. The description and prediction resource are optional at this point. You can set then at any time in the **Manage** section of the portal.
 
     > [!NOTE]
-    > The culture cannot be changed once the application is created. 
+    > The culture cannot be changed once the application is created.
 
-    
+    After the app is created, the LUIS portal shows the **Intents** list with the `None` intent already created for you. You now have an empty app.
 
-<!--
+    :::image type="content" source="media/pizza-tutorial-new-app-empty-intent-list.png" alt-text="Intents list with a None intent and no example utterances" lightbox="media/pizza-tutorial-new-app-empty-intent-list.png":::
 
-## Import new app
-You can set the name (50 char max), version (10 char max), and description of an app in the JSON file. Examples of application JSON files are available at [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/Examples-BookFlight).
+## Other actions available on My Apps page
 
-1. On **My Apps** page, select **Import new app**.
-2. In the **Import new app** dialog, select the JSON file defining the LUIS app.
+The context toolbar provides other actions:
 
-    ![Import a new app dialog](./media/luis-create-new-app/import-app.png)
+* Rename app
+* Import from file using `.lu` or `.json`
+* Export app as `.lu` (for [LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)), `.json`, or `.zip` (for [LUIS container](luis-container-howto.md))
+* Import container endpoint logs, to review endpoint utterances
+* Export endpoint logs, as a `.csv`, for offline analysis
+* Delete app
 
-## Export app
-1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row.
-
-    [![](media/luis-create-new-app/apps-list.png "Screenshot of pop-up dialog of per-app actions")](media/luis-create-new-app/three-dots.png#lightbox)
-
-2. Select **Export app** from the menu. 
-
-## Rename app
-
-1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row. 
-2. Select **Rename** from the menu.
-3. Enter the new name of the app and select **Done**.
-
-## Delete app
-
-> [!CAUTION]
-> You are deleting the app for all collaborators and the owner. [Export](#export-app) the app before deleting it. 
-
-1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row. 
-2. Select **Delete** from the menu.
-3. Select **Ok** in the confirmation window.
-
-## Export endpoint logs
-The logs contain the Query, UTC time, and LUIS JSON response.
-
-1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row. 
-2. Select **Export endpoint logs** from the menu.
-
-```
-Query,UTC DateTime,Response
-text i'm driving and will be 30 minutes late to the meeting,02/13/2018 15:18:43,"{""query"":""text I'm driving and will be 30 minutes late to the meeting"",""intents"":[{""intent"":""None"",""score"":0.111048922},{""intent"":""SendMessage"",""score"":0.987501}],""entities"":[{""entity"":""i ' m driving and will be 30 minutes late to the meeting"",""type"":""Message"",""startIndex"":5,""endIndex"":58,""score"":0.162995353}]}"
-```
--->
 ## Next steps
 
-Your first task in the app is to [add intents](luis-how-to-add-intents.md).
+If your app design includes intent detection, [create new intents](luis-how-to-add-intents.md), and add example utterances. If your app design is only data extraction, add example utterances to the None intent, then [create entities](./luis-how-to-add-entities.md), and label the example utterances with those entities.

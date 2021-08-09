@@ -1,84 +1,88 @@
 ---
-title: 'Partitioning in Azure Cosmos DB Gremlin API | Microsoft Docs'
-description: Learn how you can use a partitioned Graph in Azure Cosmos DB.
-services: cosmos-db
-author: luisbosquez
-manager: kfile
-
+title: Data partitioning in Azure Cosmos DB Gremlin API
+description: Learn how you can use a partitioned graph in Azure Cosmos DB. This article also describes the requirements and best practices for a partitioned graph.
+author: manishmsfte
+ms.author: mansha
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 02/28/2018
-ms.author: lbosq
-
+ms.subservice: cosmosdb-graph
+ms.topic: how-to
+ms.date: 06/24/2019
+ms.custom: seodec18
 ---
 # Using a partitioned graph in Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
-One of the key features of the Gremlin API in Azure Cosmos DB is the ability to handle large-scale graphs through horizontal scalability. This process is achieved through the [partitioning capabilities in Azure Cosmos DB](partition-data.md), which make use of containers, that can scale independently in terms of storage and throughput. Azure Cosmos DB supports the following types of containers across all APIs:
+One of the key features of the Gremlin API in Azure Cosmos DB is the ability to handle large-scale graphs through horizontal scaling. The containers can scale independently in terms of storage and throughput. You can create containers in Azure Cosmos DB that can be automatically scaled to store a graph data. The data is automatically balanced based on the specified **partition key**.
 
-- **Fixed container**: These containers can store a graph database up to 10 GB in size with a maximum of 10,000 request units per second allocated to it. To create a fixed container it isn't necessary to specify a partition key property in the data.
+Partitioning is done internally if the container is expected to store more than 20 GB in size or if you want to allocate more than 10,000 request units per second (RUs). Data is automatically partitioned based on the partition key you specify. Partition key is required if you create graph containers from the Azure portal or the 3.x or higher versions of Gremlin drivers. Partition key is not required if you use 2.x or lower versions of Gremlin drivers.
 
-- **Unlimited container**: These containers can automatically scale to store a graph beyond the 10-GB limit through horizontal partitioning. Each partition will store 10 GB and the data will be automatically balanced based on the **specified partition key**, which will be a required parameter when using an unlimited container. This type of container can store a virtually unlimited data size and can allow up to 100,000 request units per second, or more [by contacting support](https://aka.ms/cosmosdbfeedback?subject=Cosmos%20DB%20More%20Throughput%20Request).
+The same general principles from the [Azure Cosmos DB partitioning mechanism](partitioning-overview.md) apply with a few graph-specific optimizations described below.
 
-In this document, the specifics on how graph databases are partitioned will be described along with its implications for both vertices (or nodes) and edges.
+:::image type="content" source="./media/graph-partitioning/graph-partitioning.png" alt-text="Graph partitioning." border="false":::
 
-## Requirements for partitioned graph
+## Graph partitioning mechanism
 
-The following are details that need to be understood when creating a partitioned graph container:
+The following guidelines describe how the partitioning strategy in Azure Cosmos DB operates:
 
-- **Setting up partitioning will be necessary** if the container is expected to be more than 10 GB in size and/or if allocating more than 10,000 request units per second (RU/s) will be required.
+- **Both vertices and edges are stored as JSON documents**.
 
-- **Both vertices and edges are stored as JSON documents** in the back-end of an Azure Cosmos DB Gremlin API container.
+- **Vertices require a partition key**. This key will determine in which partition the vertex will be stored through a hashing algorithm. The partition key property name is defined when creating a new container and it has a format: `/partitioning-key-name`.
 
-- **Vertices require a partition key**. This key will determine in which partition the vertex will be stored through a hashing algorithm. The name of this partition key is a single-word string without spaces or special characters, and it is defined when creating a new container using the format `/partitioning-key-name` on the portal.
+- **Edges will be stored with their source vertex**. In other words, for each vertex its partition key defines where they are stored along with its outgoing edges. This optimization is done to avoid cross-partition queries when using the `out()` cardinality in graph queries.
 
-- **Edges will be stored with their source vertex**. In other words, for each vertex its partition key will define where they will be stored along with its outgoing edges. This is done to avoid cross-partition queries when using the `out()` cardinality in graph queries.
+- **Edges contain references to the vertices they point to**. All edges are stored with the partition keys and IDs of the vertices that they are pointing to. This computation makes all `out()` direction queries always be a scoped partitioned query, and not a blind cross-partition query.
 
 - **Graph queries need to specify a partition key**. To take full advantage of the horizontal partitioning in Azure Cosmos DB, the partition key should be specified when a single vertex is selected, whenever it's possible. The following are queries for selecting one or multiple vertices in a partitioned graph:
 
-    - `/id` and `/label` are not supported as partition keys for a container in Gremlin API..
+    - `/id` and `/label` are not supported as partition keys for a container in Gremlin API.
 
 
-    - Selecting a vertex by ID, then **using the `.has()` step to specify the partition key property**: 
-    
-        ```
+    - Selecting a vertex by ID, then **using the `.has()` step to specify the partition key property**:
+
+        ```java
         g.V('vertex_id').has('partitionKey', 'partitionKey_value')
         ```
-    
-    - Selecting a vertex by **specifying a tuple including partition key value and ID**: 
-    
-        ```
+
+    - Selecting a vertex by **specifying a tuple including partition key value and ID**:
+
+        ```java
         g.V(['partitionKey_value', 'vertex_id'])
         ```
-        
+
     - Specifying an **array of tuples of partition key values and IDs**:
-    
-        ```
+
+        ```java
         g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
         ```
-        
-    - Selecting a set of vertices and **specifying a list of partition key values**: 
-    
-        ```
+
+    - Selecting a set of vertices with their IDs and **specifying a list of partition key values**:
+
+        ```java
         g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
+        ```
+
+    - Using the **Partition strategy** at the beginning of a query and specifying a partition for the scope of the rest of the Gremlin query:
+
+        ```java
+        g.withStrategies(PartitionStrategy.build().partitionKey('partitionKey').readPartitions('partitionKey_value').create()).V()
         ```
 
 ## Best practices when using a partitioned graph
 
-The following are guidelines that should be followed to ensure the most efficient performance and scalability when using partitioned graphs in unlimited containers:
+Use the following guidelines to ensure performance and scalability when using partitioned graphs with unlimited containers:
 
-- **Always specify the partition key value when querying a vertex**. Obtaining a vertex from a known partition is the most efficient way in terms of performance.
+- **Always specify the partition key value when querying a vertex**. Getting vertex from a known partition is a way to achieve performance. All subsequent adjacency operations will always be scoped to a partition since Edges contain reference ID and partition key to their target vertices.
 
-- **Use the outgoing direction when querying edges whenever it's possible**. As mentioned above, edges are stored with their source vertices in the outgoing direction. This means that the chances of resorting to cross-partition queries are minimized when the data and queries are designed with this pattern in mind.
+- **Use the outgoing direction when querying edges whenever it's possible**. As mentioned above, edges are stored with their source vertices in the outgoing direction. So the chances of resorting to cross-partition queries are minimized when the data and queries are designed with this pattern in mind. On the contrary, the `in()` query will always be an expensive fan-out query.
 
-- **Choose a partition key that will evenly distribute data across partitions**. This decision heavily depends on the data model of the solution. Read more about creating an appropriate partition key in [Partitioning and scale in Azure Cosmos DB](partition-data.md).
+- **Choose a partition key that will evenly distribute data across partitions**. This decision heavily depends on the data model of the solution. Read more about creating an appropriate partition key in [Partitioning and scale in Azure Cosmos DB](partitioning-overview.md).
 
-- **Optimize queries to obtain data within the boundaries of a partition when possible**. An optimal partitioning strategy would be aligned to the querying patterns. Queries that obtain data from a single partition provide the best possible performance.
+- **Optimize queries to obtain data within the boundaries of a partition**. An optimal partitioning strategy would be aligned to the querying patterns. Queries that obtain data from a single partition provide the best possible performance.
 
 ## Next steps
-In this article, an overview of concepts and best practices for partitioning with an Azure Cosmos DB Gremlin API was provided. 
 
-* Learn about [Partition and scale in Azure Cosmos DB](partition-data.md).
+Next you can proceed to read the following articles:
+
+* Learn about [Partition and scale in Azure Cosmos DB](partitioning-overview.md).
 * Learn about the [Gremlin support in Gremlin API](gremlin-support.md).
 * Learn about [Introduction to Gremlin API](graph-introduction.md).

@@ -1,20 +1,15 @@
 ---
-title: PowerShell in Azure Cloud Shell Quickstart | Microsoft Docs
-description: Quickstart for PowerShell in Cloud Shell
-services: Azure
-documentationcenter: ''
+title: Azure Cloud Shell Quickstart - PowerShell
+description: Learn how to use the PowerShell in your browser with Azure Cloud Shell.
 author: maertendmsft
-manager: timlt
+ms.author: damaerte
 tags: azure-resource-manager
- 
-ms.assetid: 
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2018
-ms.author: damaerte
+ms.date: 10/18/2018 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart for PowerShell in Azure Cloud Shell
@@ -28,11 +23,11 @@ This document details how to use the PowerShell in Cloud Shell in the [Azure por
 
 1. Click on **Cloud Shell** button from the top navigation bar of the Azure portal
 
-  ![](media/quickstart-powershell/shell-icon.png)
+   ![Screenshot showing how to start Azure Cloud Shell from the Azure portal.](media/quickstart-powershell/shell-icon.png)
 
 2. Select the PowerShell environment from the drop-down and you will be in Azure drive `(Azure:)`
 
-  ![](media/quickstart-powershell/environment-ps.png)
+   ![Screenshot showing how to select the PowerShell environment for the Azure Cloud Shell.](media/quickstart-powershell/environment-ps.png)
 
 ## Run PowerShell commands
 
@@ -44,7 +39,7 @@ PS Azure:\> Get-Date
 # Expected Output
 Friday, July 27, 2018 7:08:48 AM
 
-PS Azure:\> Get-AzureRmVM -Status
+PS Azure:\> Get-AzVM -Status
 
 # Expected Output
 ResourceGroupName       Name       Location                VmSize   OsType     ProvisioningState  PowerState
@@ -52,107 +47,6 @@ ResourceGroupName       Name       Location                VmSize   OsType     P
 MyResourceGroup2        Demo        westus         Standard_DS1_v2  Windows    Succeeded           running
 MyResourceGroup         MyVM1       eastus            Standard_DS1  Windows    Succeeded           running
 MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    Succeeded           deallocated
-```
-
-## Navigate Azure resources
-
- 1. List all your subscriptions from `Azure` drive
-
-    ```azurepowershell-interactive
-    PS Azure:\> dir
-    ```
-
- 2. `cd` to your preferred subscription
-
-    ```azurepowershell-interactive
-    PS Azure:\> cd MySubscriptionName
-    PS Azure:\MySubscriptionName>
-    ```
-
- 3. View all your Azure resources under the current subscription
-
-    Type `dir` to list multiple views of your Azure resources.
-
-    ```azurepowershell-interactive
-    PS Azure:\MySubscriptionName> dir
-
-        Directory: azure:\MySubscriptionName
-
-    Mode Name
-    ---- ----
-    +    AllResources
-    +    ResourceGroups
-    +    StorageAccounts
-    +    VirtualMachines
-    +    WebApps
-    ```
-
-### AllResources view
-
-Type `dir` under `AllResources` directory to view your Azure resources.
-
-```azurepowershell-interactive
-PS Azure:\MySubscriptionName> dir AllResources
-```
-
-### Explore resource groups
-
- You can go to the `ResourceGroups` directory and inside a specific resource group you can find virtual machines.
-
-```azureowershell-interactive
-PS Azure:\MySubscriptionName> cd ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines
-
-PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines> dir
-
-
-    Directory: Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines
-
-
-VMName    Location   ProvisioningState VMSize          OS            SKU             OSVersion AdminUserName  NetworkInterfaceName
-------    --------   ----------------- ------          --            ---             --------- -------------  --------------------
-TestVm1   westus     Succeeded         Standard_DS2_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo371
-TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo271
-```
-
-> [!NOTE]
-> You may notice that the second time when you type `dir`, the Cloud Shell is able to display the items much faster.
-> This is because the child items are cached in memory for a better user experience.
-However, you can always use `dir -Force` to get fresh data.
-
-### Navigate storage resources
-
-By entering into the `StorageAccounts` directory, you can easily navigate all your storage resources
-
-```azureowershell-interactive
-PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
-
-    Directory: Azure:\MySubscriptionNameStorageAccounts\MyStorageAccountName\Files
-
-Name          ConnectionString
-----          ----------------
-MyFileShare1  \\MyStorageAccountName.file.core.windows.net\MyFileShare1;AccountName=MyStorageAccountName AccountKey=<key>
-MyFileShare2  \\MyStorageAccountName.file.core.windows.net\MyFileShare2;AccountName=MyStorageAccountName AccountKey=<key>
-MyFileShare3  \\MyStorageAccountName.file.core.windows.net\MyFileShare3;AccountName=MyStorageAccountName AccountKey=<key>
-```
-
-With the connection string, you can use the following command to mount the Azure Files share.
-
-```azurepowershell-interactive
-net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
-```
-
-For details, see [Mount an Azure Files share and access the share in Windows][azmount].
-
-You can also navigate the directories under the Azure Files share as follows:
-
-```azurepowershell-interactive
-PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> cd .\MyFileShare1\
-PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files\MyFileShare1> dir
-
-Mode  Name
-----  ----
-+     TestFolder
-.     hello.ps1
 ```
 
 ### Interact with virtual machines
@@ -180,14 +74,15 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
   Assuming you have a VM, MyVM1, let's use `Invoke-AzVMCommand` to invoke a PowerShell script block on the remote machine.
 
   ```azurepowershell-interactive
-  Invoke-AzVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
+  Enable-AzVMPSRemoting -Name MyVM1 -ResourceGroupname MyResourceGroup
+  Invoke-AzVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -Credential (Get-Credential)
   ```
 
   You can also navigate to the VirtualMachines directory first and run `Invoke-AzVMCommand` as follows.
 
   ```azurepowershell-interactive
-  PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
-  PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzVMCommand -Scriptblock {Get-ComputerInfo}
+  PS Azure:\> cd MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines
+  PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzVMCommand -Scriptblock {Get-ComputerInfo} -Credential (Get-Credential)
 
   # You will see output similar to the following:
 
@@ -209,13 +104,13 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 You can use `Enter-AzVM` to interactively log into a VM running in Azure.
 
   ```azurepowershell-interactive
-  PS Azure:\> Enter-AzVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
+  PS Azure:\> Enter-AzVM -Name MyVM1 -ResourceGroupName MyResourceGroup -Credential (Get-Credential)
   ```
 
 You can also navigate to the `VirtualMachines` directory first and run `Enter-AzVM` as follows
 
   ```azurepowershell-interactive
- PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM
+ PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM -Credential (Get-Credential)
  ```
 
 ### Discover WebApps
@@ -234,7 +129,7 @@ mywebapp2       Running  MyResourceGroup2   {mywebapp2.azurewebsites.net...   We
 mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   South Central US
 
 # You can use Azure cmdlets to Start/Stop your web apps
-PS Azure:\MySubscriptionName\WebApps> Start-AzureRmWebApp -Name mywebapp1 -ResourceGroupName MyResourceGroup1
+PS Azure:\MySubscriptionName\WebApps> Start-AzWebApp -Name mywebapp1 -ResourceGroupName MyResourceGroup1
 
 Name           State    ResourceGroup        EnabledHostNames                   Location
 ----           -----    -------------        ----------------                   --------
@@ -262,8 +157,8 @@ publish the public key to `authorized_keys` on the remote machine, such as `/hom
 
 ### Using SSH
 
-Follow instructions [here](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) to create a new VM configuration using AzureRM cmdlets.
-Before calling into `New-AzureRmVM` to kick off the deployment, add SSH public key to the VM configuration.
+Follow instructions [here](../virtual-machines/linux/quick-create-powershell.md) to create a new VM configuration using Azure PowerShell cmdlets.
+Before calling into `New-AzVM` to kick off the deployment, add SSH public key to the VM configuration.
 The newly created VM will contain the public key in the `~\.ssh\authorized_keys` location, thereby enabling credential-free SSH session to the VM.
 
 ```azurepowershell-interactive
@@ -274,10 +169,10 @@ ssh-keygen -t rsa -b 2048 -f $HOME\.ssh\id_rsa
 
 # Ensure VM config is updated with SSH keys
 $sshPublicKey = Get-Content "$HOME\.ssh\id_rsa.pub"
-Add-AzureRmVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
+Add-AzVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 # Create a virtual machine
-New-AzureRmVM -ResourceGroupName <yourResourceGroup> -Location <vmLocation> -VM $vmConfig
+New-AzVM -ResourceGroupName <yourResourceGroup> -Location <vmLocation> -VM $vmConfig
 
 # SSH to the VM
 ssh azureuser@MyVM.Domain.Com
@@ -285,9 +180,9 @@ ssh azureuser@MyVM.Domain.Com
 
 ## List available commands
 
-Under `Azure` drive, type `Get-AzureRmCommand` to get context-specific Azure commands.
+Under `Azure` drive, type `Get-AzCommand` to get context-specific Azure commands.
 
-Alternatively, you can always use `Get-Command *azurerm* -Module AzureRM.*` to find out the available Azure commands.
+Alternatively, you can always use `Get-Command *az* -Module Az.*` to find out the available Azure commands.
 
 ## Install custom modules
 
@@ -304,7 +199,7 @@ Get-Help
 For a specific command, you can still do `Get-Help` followed by a cmdlet.
 
 ```azurepowershell-interactive
-Get-Help Get-AzureRmVM
+Get-Help Get-AzVM
 ```
 
 ## Use Azure Files to store your data
@@ -346,6 +241,6 @@ Type `exit` to terminate the session.
 [bashqs]:quickstart.md
 [gallery]:https://www.powershellgallery.com/
 [customex]:https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript
-[profile]: https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/about/about_profiles
-[azmount]: https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows
+[profile]: /powershell/module/microsoft.powershell.core/about/about_profiles
+[azmount]: ../storage/files/storage-how-to-use-files-windows.md
 [githubtoken]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
