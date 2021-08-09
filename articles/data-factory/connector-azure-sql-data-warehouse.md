@@ -603,9 +603,8 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
             },
             "sink": {
                 "type": "SqlDWSink",
-                "allowPolyBase": true
+                "allowCopyCommand": true
             },
-            "allowCopyCommand": true,
             "stagingSettings": {
                 "linkedServiceName": {
                     "referenceName": "MyStagingStorage",
