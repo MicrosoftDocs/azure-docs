@@ -123,15 +123,9 @@ To complete this quickstart:
 
     ![Empty web app page](media/quickstart-php/app-service-web-service-created.png)
 
-1. Since your Git repository is in `main` branch, you need to set the default deployment branch for your App Service app to `main`. In the Cloud Shell, set the `DEPLOYMENT_BRANCH` app setting with the [`az webapp config appsettings set`](/cli/azure/webapp/appsettings#az_webapp_config_appsettings_set) command. 
-
-    ```azurecli-interactive
-    az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DEPLOYMENT_BRANCH='main'
-    ```
-
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
-    <pre>
+<pre>
     Counting objects: 2, done.
     Delta compression using up to 4 threads.
     Compressing objects: 100% (2/2), done.
@@ -154,7 +148,7 @@ To complete this quickstart:
     remote: Deployment successful.
     To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
        cc39b1e..25f1805  main -> main
-    </pre>
+</pre>
     
 ## Browse to the app
 

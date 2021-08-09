@@ -61,7 +61,7 @@ cd ruby-docs-hello-world
 
 ## Create a web app
 
-1. Create a [web app](../articles/app-service/overview.md#app-service-on-linux) in the `myAppServicePlan` App Service plan. 
+1. Create a [web app](overview.md#app-service-on-linux) in the `myAppServicePlan` App Service plan. 
 
     In the Cloud Shell, you can use the [`az webapp create`](/cli/azure/webapp) command. In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `RUBY|2.6.2`. To see all supported runtimes, run [`az webapp list-runtimes --linux`](/cli/azure/webapp). 
 
@@ -113,7 +113,7 @@ cd ruby-docs-hello-world
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
-    <pre>
+<pre>
     remote: Using turbolinks 5.2.0
     remote: Using uglifier 4.1.20
     remote: Using web-console 3.7.0
@@ -128,7 +128,7 @@ cd ruby-docs-hello-world
     remote: App container will begin restart within 10 seconds.
     To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
        a6e73a2..ae34be9  main -> main
-    </pre>
+</pre>
     
 1. Once the deployment has completed, wait about 10 seconds for the web app to restart, and then navigate to the web app and verify the results.
 
