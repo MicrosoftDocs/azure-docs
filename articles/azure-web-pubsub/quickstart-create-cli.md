@@ -10,16 +10,13 @@ ms.date: 08/06/2021
 
 # Quickstart: Create a Web PubSub instance with the Azure CLI
 
-The [Azure command-line interface (Azure CLI)](/cli/azure) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. This how-to guide shows you the options to create Azure Web PubSub instance with the Azure CLI.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+The [Azure command-line interface (Azure CLI)](/cli/azure) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. This quickstart shows you the options to create Azure Web PubSub instance with the Azure CLI.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - This quickstart requires version 2.22.0 or higher of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-
+- This quickstart requires version 2.22.0 or higher of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -29,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [Create a Web PubSub instance](includes/cli-awps-creation.md)]
 
-## Try the instance
+## Try the newly created instance
 
 [!INCLUDE [Try the Web PubSub instance](includes/cli-awps-client.md)]
 

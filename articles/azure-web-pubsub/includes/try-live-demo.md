@@ -25,7 +25,7 @@ With this live demo, you could join or leave a group and send messages to the gr
 
 - Open [chatroom live demo](https://azure.github.io/azure-webpubsub/demos/clientpubsub.html), paste the `Client Access URL` and Connect. 
 
-:::image type="content" source="media/quickstart-live-demo/paste-client-access-url.png" alt-text="Screenshot of pasting client URL with live demo.":::
+:::image type="content" source="../media/quickstart-live-demo/paste-client-access-url.png" alt-text="Screenshot of pasting client URL with live demo.":::
 
 > [!NOTE]
 >  **Client Access URL** is a convenience tool provided in the portal to simplify your getting-started experience, you can also use this Client Access URL to do some quick connect test. To write your own application, we provide SDKs in 4 languages to help you generate the URL. 

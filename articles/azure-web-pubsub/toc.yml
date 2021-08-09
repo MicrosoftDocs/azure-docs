@@ -6,7 +6,7 @@
   items:
   - name: About Azure Web PubSub service
     href: overview.md
-  - name: Terms
+  - name: About Hubs, groups and connections
     href: key-concepts.md
 - name: Quickstarts
   expanded: true

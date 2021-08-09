@@ -1,5 +1,5 @@
 ---
-title: Azure Web PubSub basic concepts
+title: About Hubs, groups and connections
 description: Better understand the terms used in Azure Web PubSub.
 author: lianwei
 ms.author: lianwei

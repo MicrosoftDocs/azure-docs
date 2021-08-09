@@ -8,10 +8,10 @@ ms.author: lianwei
 
 Use the Azure CLI [az webpubsub create](/cli/azure/webpubsub#az_webpubsub_create) command to create a Web PubSub in the resource group from the previous step. You will need to provide some information:
 
-- Web PubSub name: A string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-)
+- Resource name: A string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-)
 
   > [!Important]
-  > Each Web PubSub resource must have a unique name. Replace <your-unique-resource-name> with the name of your Web PubSub in the following examples.
+  > Each Web PubSub resource must have a unique name. Replace &lt;your-unique-resource-name&gt; with the name of your Web PubSub in the following examples.
 
 - Resource group name: **myResourceGroup**.
 - The location: **EastUS**.
@@ -26,7 +26,7 @@ az webpubsub create --name "<your-unique-resource-name>" --resource-group "myRes
 
 The output of this command shows properties of the newly created resource. Take note of the two properties listed below:
 
-- **Resource Name**: The name you provided to the --name parameter above.
-- **hostName**: In the example, this is &lt;your-unique-resource-name&gt;.webpubsub.azure.com/.
+- **Resource Name**: The name you provided to the `--name` parameter above.
+- **hostName**: In the example, this is `&lt;your-unique-resource-name&gt;.webpubsub.azure.com/`.
 
 At this point, your Azure account is the only one authorized to perform any operations on this new resource.
