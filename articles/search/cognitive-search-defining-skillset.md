@@ -26,11 +26,11 @@ Some rules for creating a skillset include:
 + A skillset must contain at least one skill.
 + Within a skillset, you can repeat skills for the same type (for example, variants of an image analysis skill).
 
-## Begin with the end in mind
+## Planning and design
 
-A recommended initial step is deciding which data to extract from your raw data and how you want to use that data in a search solution. Creating an illustration of the entire enrichment pipeline can help you identify the necessary steps.
+An initial step is to decide which data to extract from your raw data and how you want to use that data in a search solution.
 
-Suppose you are interested in processing a set of financial analyst comments. For each file, you want to extract company names and the general sentiment of the comments. You might also want to write a custom enricher that uses the Bing Entity Search service to find additional information about the company, such as what kind of business the company is engaged in. Essentially, you want to extract information like the following, indexed for each document:
+Suppose you are interested in processing a set of stock analyst comments. From each file, you want to extract company names and the general sentiment of the comments. You might also want to write a custom enricher that uses the Bing Entity Search service to find additional information about the company, such as what kind of business the company is engaged in. Essentially, you want to extract information like the following, indexed for each document:
 
 | record-text | companies | sentiment | company descriptions |
 |--------|-----|-----|-----|
@@ -40,9 +40,9 @@ The following diagram illustrates a hypothetical enrichment pipeline:
 
 ![A hypothetical enrichment pipeline](media/cognitive-search-defining-skillset/sample-skillset.png "A hypothetical enrichment pipeline")
 
-Once you have fair idea of what you want in the pipeline, you can express the skillset that provides these steps. Functionally, the skillset is expressed when you upload your indexer definition to Azure Cognitive Search. To learn more about how to upload your indexer, see the [indexer-documentation](/rest/api/searchservice/create-indexer).
+Once you have fair idea of what you want in the pipeline, you can express the skillset, and then attach it to an [indexer](/rest/api/searchservice/create-indexer) that you create or run.
 
-In the diagram, the *document cracking* step happens automatically. Essentially, Azure Cognitive Search knows how to open well-known files and creates a *content* field containing the text extracted from each document. The white boxes are built-in enrichers, and the dotted "Bing Entity Search" box represents a custom enricher that you are creating. As illustrated, the skillset contains three skills.
+In the diagram, the *document cracking* step happens automatically. The indexer opens well-known files and creates a *content* field containing the text extracted from each document. In the above diagram, the white boxes are built-in enrichers, and the dotted "Bing Entity Search" box represents a custom enricher that you are creating. As illustrated, the skillset contains three skills.
 
 ## Skillset definition
 
