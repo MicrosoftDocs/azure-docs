@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: "Frequently asked questions about transitioning from the Cloud Partner Portal to Partner Center - Microsoft commercial marketplace"
+  title: Cloud Partner Portal migration FAQ - Microsoft commercial marketplace - Azure"
   description: Answers to commonly asked questions about transitioning offers from Cloud Partner Portal to Partner Center.
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
@@ -9,9 +9,9 @@ metadata:
   ms.author: keferna
   ms.date: 07/14/2020
     
-title: Frequently asked questions about transitioning from the Cloud Partner Portal to Partner Center
+title: Cloud Partner Portal migration FAQ
 summary: |
-  The Cloud Partner Portal has transitioned to Partner Center. Partner Center offers a streamlined, integrated experience for publishing new offers on [Microsoft AppSource](https://appsource.microsoft.com/) or [Azure Marketplace](https://azuremarketplace.microsoft.com/) and for managing existing offers that were migrated from the Cloud Partner Portal. All the functions of the Cloud Partner Portal are available in Partner Center. This article addresses commonly asked questions about this.
+  The Cloud Partner Portal has transitioned to Partner Center. Partner Center offers a streamlined, integrated experience for publishing new offers to [Microsoft AppSource](https://appsource.microsoft.com/) or [Azure Marketplace](https://azuremarketplace.microsoft.com/) and for managing existing offers that were migrated from the Cloud Partner Portal. All the functions of the Cloud Partner Portal are available in Partner Center. This article addresses commonly asked questions about transitioning from the Cloud Partner Portal to Partner Center.
   
 
 sections:
@@ -24,8 +24,8 @@ sections:
           
           | Area | Changes |
           | --- | --- |
-          | Account | No need to create a new Partner Center account; you can use your existing Cloud Partner Portal credentials to log into Partner Center where you will now manage your account, users, permissions, and billing. The publishing agreement and company profile information are migrated to your new Partner Center account, along with any payout profile information, user accounts and permissions, and active offers. Learn more at [Manage your commercial marketplace account in Partner Center](manage-account.md). |
-          | Offer publishing and offer management experience | We've moved your offer data from the Cloud Partner Portal to Partner Center. You will now access your offers in Partner Center, which offers an improved user experience and intuitive interface. Learn how to [Update an existing offer in the commercial marketplace](update-existing-offer.md). |
+          | Account | No need to create a new Partner Center account; you can use your existing Cloud Partner Portal credentials to sign in to Partner Center where you will now manage your account, users, permissions, and billing. The publishing agreement and company profile information are migrated to your new Partner Center account, along with any payout profile information, user accounts and permissions, and active offers. Learn more at [Manage your commercial marketplace account in Partner Center](manage-account.md). |
+          | Offer publishing and offer management experience | We've moved your offer data from the Cloud Partner Portal to Partner Center. You will now access your offers in Partner Center, which offers an improved user experience and intuitive interface. Learn how to [Update existing offers in the commercial marketplace](update-existing-offer.md). |
           | Availability of your offers in the commercial marketplace | No changes. If your offer is live in the commercial marketplace, it will continue to be live. |
           | New purchases and deployments | No changes. Your customers can continue purchasing and deploying your offers with no interruptions. |
           | Payouts | Any purchases and deployments will continue to be paid out to you as normal. Learn more about [Getting paid in Partner Center](/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context). |
@@ -43,6 +43,8 @@ sections:
         answer: |
           Following are Partner Center links for pages commonly used in the Cloud Partner Portal. If you saved the Cloud Partner Portal links as bookmarks, you'll want to update them.
           
+#### [Workspaces view](#tab/Workspaces-view)
+
           | Cloud Partner Portal page | Cloud Partner Portal page link | Partner Center page link |
           | --- | --- | --- |
           | All offers page | [https://cloudpartner.azure.com/#alloffers](https://cloudpartner.azure.com/#alloffers) | [https://partner.microsoft.com/dashboard/commercial-marketplace/overview](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) |
@@ -53,7 +55,22 @@ sections:
           | Insights dashboard | [https://cloudpartner.azure.com/#insights](https://cloudpartner.azure.com/#insights) | [https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary) |
           | Payout report | [https://cloudpartner.azure.com/#insights/payout](https://cloudpartner.azure.com/#insights/payout) | [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
           |||
-          
+
+#### [Classic view](#tab/classic-view)
+
+          | Cloud Partner Portal page | Cloud Partner Portal page link | Partner Center page link |
+          | --- | --- | --- |
+          | All offers page | [https://cloudpartner.azure.com/#alloffers](https://cloudpartner.azure.com/#alloffers) | [https://partner.microsoft.com/dashboard/commercial-marketplace/overview](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) |
+          | All publishers page | [https://cloudpartner.azure.com/#publishers](https://cloudpartner.azure.com/#publishers) | [https://partner.microsoft.com/dashboard/account/v3/publishers/list](https://partner.microsoft.com/dashboard/account/v3/publishers/list) |
+          | Publisher profile | [https://cloudpartner.azure.com/#profile](https://cloudpartner.azure.com/#profile) | [https://partner.microsoft.com/dashboard/account/management](https://partner.microsoft.com/dashboard/account/management) |
+          | Users page | [https://cloudpartner.azure.com/#users](https://cloudpartner.azure.com/#users) | [https://partner.microsoft.com/dashboard/account/usermanagement](https://partner.microsoft.com/dashboard/account/usermanagement) |
+          | History page | [https://cloudpartner.azure.com/#history](https://cloudpartner.azure.com/#history) | The History feature is not yet supported in Partner Center. |
+          | Insights dashboard | [https://cloudpartner.azure.com/#insights](https://cloudpartner.azure.com/#insights) | [https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary) |
+          | Payout report | [https://cloudpartner.azure.com/#insights/payout](https://cloudpartner.azure.com/#insights/payout) | [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
+          |||
+
+---
+
       - question: |
           Payout report differences
         answer: |
