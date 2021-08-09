@@ -16,7 +16,7 @@ keywords: translator, text translation, machine translation, translation service
 
 # What is Text Translation?
 
- Text translation is a cloud-based REST API feature of the Translator service hat uses neural machine translation technology to enable quick and accurate source-to-target text translation in real time across all [supported languages](language-support.md). In this overview, you'll learn how the Text translation REST APIs can enable you to build intelligent solutions for your applications and workflows.
+ Text translation is a cloud-based REST API feature of the Translator service that uses neural machine translation technology to enable quick and accurate source-to-target text translation in real time across all [supported languages](language-support.md). In this overview, you'll learn how the Text Translation REST APIs enable you to build intelligent solutions for your applications and workflows.
 
 Text translation documentation contains the following article types:
 
@@ -27,15 +27,15 @@ Text translation documentation contains the following article types:
 
 ## Text translation features
 
- The following methods are supported by the text translation feature:
+ The following methods are supported by the Text Translation feature:
 
-* [**Languages**](reference/v3-0-languages.md). Returns a list of languages supported by **Translate**, **Transliterate** and **Dictionary Lookup** operations. This request does not require authentication; just copy and paste the following GET request into Postman, Fiddler, or your favorite API tool:
+* [**Languages**](reference/v3-0-languages.md). Returns a list of languages supported by **Translate**, **Transliterate, and **Dictionary Lookup** operations. This request does not require authentication; just copy and paste the following GET request into Postman or your favorite API tool:
 
     ```http
     https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
     ```
 
-* [**Translate**](reference/v3-0-translate.md#translate-to-multiple-languages). Renders source-language text to multiple target languages text with a single request.
+* [**Translate**](reference/v3-0-translate.md#translate-to-multiple-languages). Renders source-language to multiple target-language texts with a single request.
 
 * [**Transliterate**](reference/v3-0-transliterate.md). Converts characters or letters of a source language to the corresponding characters or letters of a target language.
 
@@ -52,7 +52,7 @@ Text translation documentation contains the following article types:
 Add Text Translation to your projects and applications using the following resources:
 
 * Access the cloud-based Translator service via the [**REST API***](reference/rest-api-guide.md), available in Azure.
-* Use the REST API [translate request](containers/translator-container-supported-parameters.md), available in Azure, on-premises using the [**Text translation Docker container**](containers/translator-how-to-install-container.md).
+* Use the REST API [translate request](containers/translator-container-supported-parameters.md) on-premises using the [**Text translation Docker container**](containers/translator-how-to-install-container.md).
 
     > [!IMPORTANT]
     >
@@ -61,7 +61,7 @@ Add Text Translation to your projects and applications using the following resou
     > * The Translator container supports limited features compared to the cloud offerings.
     >
 
-## Get started with text translation
+## Get started with Text Translation
 
 Ready to begin?
 
@@ -78,7 +78,7 @@ Ready to begin?
 
 ## Next Steps
 
-Dive deeper into the text translation REST API:
+Dive deeper into the Text Translation REST API:
 
 > [!div class="nextstepaction"]
 > [See the REST API reference](./reference/v3-0-reference.md)

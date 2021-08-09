@@ -9,12 +9,12 @@ ms.date: 08/05/2021
 ---
 # What is Document Translation?
 
-Document Translation is a cloud-based feature of the [Azure Translator](../translator-overview.md) service and is part of the Azure Cognitive Service family of REST APIs. The Document Translation API can be used to translate multiple and complex documents across all [supported languages and dialects](../../language-support.md) while preserving original document structure and data format. 
+Document Translation is a cloud-based feature of the [Azure Translator](../translator-overview.md) service and is part of the Azure Cognitive Service family of REST APIs. In this overview, you'll learn how the Document Translation API can be used to translate multiple and complex documents across all [supported languages and dialects](../../language-support.md) while preserving original document structure and data format.
 
-This documentation contains the following article types:  
+This documentation contains the following article types:
 
 * [**Quickstarts**](get-started-with-document-translation.md) are getting-started instructions to guide you through making requests to the service.
-* [**How-to guides**](create-sas-tokens.md) contain instructions for using the feature in more specific or customized ways. 
+* [**How-to guides**](create-sas-tokens.md) contain instructions for using the feature in more specific or customized ways.
 * [**Reference**](reference/rest-api-guide.md) provide REST API settings, values, keywords, and configuration.
 
 ## Document Translation key features
@@ -35,7 +35,7 @@ This documentation contains the following article types:
 
 ## Document Translation development options
 
-You can add Document Translation to your applications using the REST API, a client-library SDK, or on-premise Docker containers:
+You can add Document Translation to your applications using the REST API or a client-library SDK:
 
 * The [**REST API***](reference/rest-api-guide.md). is a language agnostic interface that enables you to create HTTP requests and authorization headers to translate documents.
 
@@ -46,7 +46,7 @@ You can add Document Translation to your applications using the REST API, a clie
 In our how-to guide, you'll learn how to quickly get started using Document Translator. To begin, you'll need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
 
 > [!div class="nextstepaction"]
-> [Started here](get-started-with-document-translation.md "Learn how to use Document Translation with HTTP REST )
+> [Start here](get-started-with-document-translation.md "Learn how to use Document Translation with HTTP REST")
 
 ## Supported document formats
 
@@ -54,22 +54,22 @@ The following document file types are supported by Document Translation:
 
 | File type| File extension|Description|
 |---|---|--|
-|Adobe PDF|.pdf|Adobe Acrobat portable document format|
-|Comma-Separated Values |.csv| A comma-delimited raw-data file used by spreadsheet programs.|
-|HTML|.html, .htm|Hyper Text Markup Language.|
-|Localization Interchange File Format|.xlf. , xliff| A parallel document format, export of Translation Memory systems. The languages used are defined inside the file.|
-|Markdown| .markdown, .mdown, .mkdn, .md, .mkd, .mdwn, .mdtxt, .mdtext, .rmd| A lightweight markup language for creating formatted text.|
-|MHTML|.mthml, .mht| A web page archive format used to combine HTML code and its companion resources.|
-|Microsoft Excel|.xls, .xlsx|A spreadsheet file for data analysis and documentation.|
-|Microsoft Outlook|.msg|An email message created or saved within Microsoft Outlook.|
-|Microsoft PowerPoint|.ppt, .pptx| A presentation file used to display content in a slideshow format.|
-|Microsoft Word|.doc, .docx| A text document file.|
-|OpenDocument Text|.odt|An open-source text document file.|
-|OpenDocument Presentation|.odp|An open-source presentation file.|
-|OpenDocument Spreadsheet|.ods|An open-source spreadsheet file.|
-|Rich Text Format|.rtf|A text document containing formatting.|
-|Tab Separated Values/TAB|.tsv/.tab| A tab-delimited raw-data file used by spreadsheet programs.|
-|Text|.txt| An unformatted text document.|
+|Adobe PDF|pdf|Adobe Acrobat portable document format|
+|Comma-Separated Values |csv| A comma-delimited raw-data file used by spreadsheet programs.|
+|HTML|html, htm|Hyper Text Markup Language.|
+|Localization Interchange File Format|xlf. , xliff| A parallel document format, export of Translation Memory systems. The languages used are defined inside the file.|
+|Markdown| markdown, mdown, mkdn, md, mkd, mdwn, mdtxt, mdtext, rmd| A lightweight markup language for creating formatted text.|
+|MHTML|mthml, mht| A web page archive format used to combine HTML code and its companion resources.|
+|Microsoft Excel|xls, xlsx|A spreadsheet file for data analysis and documentation.|
+|Microsoft Outlook|msg|An email message created or saved within Microsoft Outlook.|
+|Microsoft PowerPoint|ppt, pptx| A presentation file used to display content in a slideshow format.|
+|Microsoft Word|doc, docx| A text document file.|
+|OpenDocument Text|odt|An open-source text document file.|
+|OpenDocument Presentation|odp|An open-source presentation file.|
+|OpenDocument Spreadsheet|ods|An open-source spreadsheet file.|
+|Rich Text Format|rtf|A text document containing formatting.|
+|Tab Separated Values/TAB|tsv/tab| A tab-delimited raw-data file used by spreadsheet programs.|
+|Text|txt| An unformatted text document.|
 
 ## Supported glossary formats
 
@@ -77,9 +77,9 @@ The following glossary file types are supported by Document Translation:
 
 | File type| File extension|Description|
 |---|---|--|
-|Comma-Separated Values| .csv |A comma-delimited raw-data file used by spreadsheet programs.|
-|Localization Interchange File Format|.xlf. , xliff| A parallel document format, export of Translation Memory systems. The languages used are defined inside the file.|
-|Tab-Separated Values/TAB|.tsv, .tab| A tab-delimited raw-data file used by spreadsheet programs.|
+|Comma-Separated Values| csv |A comma-delimited raw-data file used by spreadsheet programs.|
+|Localization Interchange File Format| xlf , xliff| A parallel document format, export of Translation Memory systems The languages used are defined inside the file.|
+|Tab-Separated Values/TAB|tsv, tab| A tab-delimited raw-data file used by spreadsheet programs.|
 
 ## Next steps
 

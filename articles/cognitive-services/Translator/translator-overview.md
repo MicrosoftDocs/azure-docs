@@ -32,7 +32,7 @@ The following features are supported by the Translator service. Use the links in
 |----------|-------------|--------------------------|
 | [**Text Translation**](text-translation-overview.md) | Execute real-time and/or asynchronous translation of text between supported source and target languages. | <ul><li>[**REST API**](reference/rest-api-guide.md) </li><li>[Text translation Docker container](/containers/translator-how-to-install-container)—currently in gated preview.</li></ul> |
 | [**Document Translation**](document-translation/overview.md) | Translate batch and complex files while preserving the structure and format of the original documents. | <ul><li>[**REST API**](document-translation/reference/rest-api-guide.md)</li><li>[**Client-library SDK**](document-translation/client-sdks.md)</li></ul> |
-| [**Custom Translator**](custom-translator/overview.md) | Build customized models to translate domain- and industry-specific language, terminology and style. | <ul><li>[**Custom Translator portal**](https://portal.customtranslator.azure.ai/)</li></ul> |
+| [**Custom Translator**](custom-translator/overview.md) | Build customized models to translate domain- and industry-specific language, terminology, and style. | <ul><li>[**Custom Translator portal**](https://portal.customtranslator.azure.ai/)</li></ul> |
 
 ## Try the Translator service for free
 
@@ -44,5 +44,8 @@ Now, you're ready to get started! [**Create a Translator service**](translator-h
 
 ## Next steps
 
-* Explore the [REST API reference](./reference/v3-0-reference.md).
-* Learn more about [Translator pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).
+* Learn more about the following features:
+  * [**Text Translation**](text-translation-overview.md)
+  * [**Document Translation**](document-translation/overview.md)
+  * [**Custom Translator**](custom-translator/overview.md)
+* Review [**Translator pricing**](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).
