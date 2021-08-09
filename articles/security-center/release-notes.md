@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 08/08/2021
+ms.date: 08/09/2021
 ms.author: memildin
 
 ---
@@ -78,7 +78,7 @@ You can select the tab for the relevant reports types (PCI, SOC, ISO, and others
 
 Learn more about [Managing the standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
-:::image type="content" source="media/release-notes/audit-reports-list-regulatory-compliance-dashboard-ga.png" alt-text="Filtering the list of available Azure Audit reports.":::
+:::image type="content" source="media/release-notes/audit-reports-list-regulatory-compliance-dashboard-ga.png" alt-text="Tabbed lists of available Azure Audit reports.":::
 
 
 ## July 2021
