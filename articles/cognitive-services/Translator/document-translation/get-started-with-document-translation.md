@@ -5,7 +5,7 @@ ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 07/06/2021
+ms.date: 08/09/2021
 ---
 
 # Get started with Document Translation

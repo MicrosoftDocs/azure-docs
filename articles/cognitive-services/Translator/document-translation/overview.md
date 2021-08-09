@@ -5,7 +5,7 @@ ms.topic: overview
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 08/05/2021
+ms.date: 08/09/2021
 ---
 # What is Document Translation?
 

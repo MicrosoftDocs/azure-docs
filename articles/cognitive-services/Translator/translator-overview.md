@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: overview
 ms.subservice: translator-text
-ms.date: 08/05/2021
+ms.date: 08/09/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, text translation, machine translation, translation service, custom translator
