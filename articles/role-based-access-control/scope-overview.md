@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/08/2020
+ms.date: 08/09/2021
 ms.author: rolyon
 ---
 
@@ -114,6 +114,12 @@ It's fairly simple to determine the scope for a management group, subscription, 
         "type": "Microsoft.Authorization/roleAssignments"
       }
     ```
+
+## Scope and ARM templates
+
+A role assignment is a special type in Azure Resource Manager called an *extension resource*. An extension resource is a resource that adds to another resource's capabilities. They always exist as an extension (like a child) of another resource. For example, a role assignment at subscription scope is an extension resource of the subscription. The name of a role assignment is always the name of the resource you are extending plus `/Microsoft.Authorization/roleAssignments/{roleAssignmentId}`. When assigning roles using Azure Resource Manager template (ARM template), you typically don't need to provide the scope. The reason why is that the scope field ends up always being the ID of the resource you are extending. The scope can be determined from the ID of the role assignment itself.
+
+For more information about scope and ARM templates, see [Assign Azure roles using Azure Resource Manager templates](role-assignments-template.md). For a full list of extension resource types, see [Resource types that extend capabilities of other resources](../azure-resource-manager/management/extension-resource-types.md).
 
 ## Next steps
 
