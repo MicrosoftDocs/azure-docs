@@ -37,14 +37,14 @@ After you complete these steps, you'll have a production-ready environment for c
 
 ## Add a site pairing
 
-You can connect or pair the VMware HCX Cloud Manager in Azure VMware Solution with the VMware HCX Connector in your datacenter.
+In your data center, you can connect or pair the VMware HCX Cloud Manager in Azure VMware Solution with the VMware HCX Connector.
 
 > [!IMPORTANT]
 > Although the VMware Configuration Maximum tool describes site pairs maximum to be 25 between the on-premises HCX Connector and HCX Cloud Manager, licensing limits this to three for HCX Advanced and 10 for HCX Enterprise Edition.
 
 1. Sign in to your on-premises vCenter, and under **Home**, select **HCX**.
 
-1. Under **Infrastructure**, select **Site Pairing**, and then select the **Connect To Remote Site** option (in the middle of the screen).
+1. Under **Infrastructure**, select **Site Pairing** and select the **Connect To Remote Site** option (in the middle of the screen).
 
 1. Enter the Azure VMware Solution HCX Cloud Manager URL or IP address that you noted earlier `https://x.x.x.9`, the Azure VMware Solution cloudadmin\@vsphere.local username, and the password. Then select **Connect**.
 
@@ -114,15 +114,15 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: H
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-uplink-network-profile.png" alt-text="Screenshot that shows the selection of an uplink network profile and the Continue button." lightbox="media/tutorial-vmware-hcx/select-uplink-network-profile.png":::
 
-1. From **Select vMotion Network Profile**, select the vMotion network profile that you created in prior steps. Then select **Continue**.
+1. From **Select vMotion Network Profile**, select the vMotion network profile that you created in previous steps. Then select **Continue**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-vmotion-network-profile.png" alt-text="Screenshot that shows the selection of a vMotion network profile and the Continue button." lightbox="media/tutorial-vmware-hcx/select-vmotion-network-profile.png":::
 
-1. From **Select vSphere Replication Network Profile**, select the replication network profile that you created in prior steps. Then select **Continue**.
+1. From **Select vSphere Replication Network Profile**, select the replication network profile that you created in previous steps. Then select **Continue**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-replication-network-profile.png" alt-text="Screenshot that shows the selection of a replication network profile and the Continue button." lightbox="media/tutorial-vmware-hcx/select-replication-network-profile.png":::
 
-1. From **Select Distributed Switches for Network Extensions**, select the switches that contain the virtual machines to be migrated to Azure VMware Solution on a layer-2 extended network. Then select **Continue**.
+1. From **Select Distributed Switches for Network Extensions**, select the switches containing the virtual machines to be migrated to Azure VMware Solution on a layer-2 extended network. Then select **Continue**.
 
    > [!NOTE]
    > If you are not migrating virtual machines on layer-2 (L2) extended networks, you can skip this step.
@@ -149,7 +149,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
 
    :::image type="content" source="media/tutorial-vmware-hcx/create-service-mesh.png" alt-text="Screenshot of selections to start creating a service mesh." lightbox="media/tutorial-vmware-hcx/create-service-mesh.png":::
 
-1. Review the sites that are pre-populated, and then select **Continue**.
+1. Review the pre-populated sites, and then select **Continue**.
 
    > [!NOTE]
    > If this is your first service mesh configuration, you won't need to modify this screen.
@@ -194,6 +194,11 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
 
    :::image type="content" source="media/tutorial-vmware-hcx/interconnect-appliance-state.png" alt-text="Screenshot that shows selections for checking the status of the appliance." lightbox="media/tutorial-vmware-hcx/interconnect-appliance-state.png":::
 
+   >[!NOTE]
+   >After establishing the service mesh, you may notice a new datastore and a new host in your private cloud. This is perfectly normal behavior after establishing a service mesh.
+   >
+   >:::image type="content" source="media/tutorial-vmware-hcx/hcx-service-mesh-datastore-host.png" alt-text="Screenshot showing the HCX service mesh datastore and host." lightbox="media/tutorial-vmware-hcx/hcx-service-mesh-datastore-host.png":::
+
 For an end-to-end overview of this procedure, view the [Azure VMware Solution: Service Mesh](https://www.youtube.com/embed/COY3oIws108) video.
 
 ## Create a network extension
@@ -221,5 +226,4 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: N
 ## Next steps
 
 If the HCX interconnect tunnel status is **UP** and green, you're ready to migrate and protect Azure VMware Solution VMs using VMware HCX. Azure VMware Solution supports workload migrations (with or without a network extension). You can still migrate workloads in your vSphere environment, along with on-premises creation of networks and deployment of VMs onto those networks. For more information, see the [VMware HCX Documentation](https://docs.vmware.com/en/VMware-HCX/index.html).
-
 

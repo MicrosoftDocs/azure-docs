@@ -71,6 +71,7 @@ See the table below to see which features can be used asynchronously. Note that 
 | Entity linking | ✔ | ✔* |
 | Text Analytics for health (container) | ✔ |  |
 | Text Analytics for health (API) |  | ✔  |
+| Text summarization |  | ✔  |
 
 `*` - Called asynchronously through the `/analyze` endpoint.
 
@@ -126,6 +127,7 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
 * Entity Linking
 * Sentiment Analysis
 * Opinion Mining
+* Text summarization
 
 | Element | Valid values | Required? | Usage |
 |---------|--------------|-----------|-------|
@@ -134,7 +136,7 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
 |`documents` | Includes the `id` and `text` fields below | Required | Contains information for each document being sent, and the raw text of the document. |
 |`id` | String | Required | The IDs you provide are used to structure the output. |
 |`text` | Unstructured raw text, up to 125,000 characters. | Required | Must be in the English language, which is the only language currently supported. |
-|`tasks` | Includes the following Text Analytics features: `entityRecognitionTasks`,`entityLinkingTasks`,`keyPhraseExtractionTasks`,`entityRecognitionPiiTasks` or `sentimentAnalysisTasks`. | Required | One or more of the Text Analytics features you want to use. Note that `entityRecognitionPiiTasks` has an optional `domain` parameter that can be set to `pii` or `phi` and the `pii-categories` for detection of selected entity types. If the `domain` parameter is unspecified, the system defaults to `pii`. Similarly  `sentimentAnalysisTasks` has the `opinionMining` boolean parameter to include Opinion Mining results in the output for Sentiment Analysis. |
+|`tasks` | Includes the following Text Analytics features: `entityRecognitionTasks`,`entityLinkingTasks`,`keyPhraseExtractionTasks`,`entityRecognitionPiiTasks`, `extractiveSummarizationTasks` or `sentimentAnalysisTasks`. | Required | One or more of the Text Analytics features you want to use. Note that `entityRecognitionPiiTasks` has an optional `domain` parameter that can be set to `pii` or `phi` and the `pii-categories` for detection of selected entity types. If the `domain` parameter is unspecified, the system defaults to `pii`. Similarly  `sentimentAnalysisTasks` has the `opinionMining` boolean parameter to include Opinion Mining results in the output for Sentiment Analysis. |
 |`parameters` | Includes the `model-version` and `stringIndexType` fields below | Required | This field is included within the above feature tasks that you choose. They contain information about the model version that you want to use and the index type. |
 |`model-version` | String | Required | Specify which version of the model being called that you want to use.  |
 |`stringIndexType` | String | Required | Specify the text decoder that matches your programming environment.  Types supported are `textElement_v8` (default), `unicodeCodePoint`, `utf16CodeUnit`. Please see the [Text offsets article](../concepts/text-offsets.md#offsets-in-api-version-31) for more information.  |
@@ -160,7 +162,7 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "loggingOptOut": "false"
+                    "loggingOptOut": false
                 }
             }
         ],
@@ -168,7 +170,7 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "loggingOptOut": "true",
+                    "loggingOptOut": true,
                     "domain": "phi",
                     "piiCategories":["default"]
                 }
@@ -178,7 +180,7 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "loggingOptOut": "false"
+                    "loggingOptOut": false
                 }
             }
         ],
@@ -186,7 +188,7 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "loggingOptOut": "false"
+                    "loggingOptOut": false
                 }
             }
         ],
@@ -194,8 +196,8 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "loggingOptOut": "false",
-                    "opinionMining": "true"
+                    "loggingOptOut": false,
+                    "opinionMining": true
                 }
             }
         ]
