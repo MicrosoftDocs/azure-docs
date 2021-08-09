@@ -1,7 +1,7 @@
 ---
 title: VM extension management with Azure Arc-enabled servers
 description: Azure Arc-enabled servers can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 08/05/2021
+ms.date: 08/09/2021
 ms.topic: conceptual
 ---
 
@@ -43,6 +43,8 @@ To learn about the Azure Connected Machine agent package and details about the E
 
 > [!NOTE]
 > Recently support for the DSC VM extension was removed for Arc-enabled servers. Alternatively, we recommend using the Custom Script Extension to manage the post-deployment configuration of your server or machine.
+
+Arc-enabled servers supports moving machines with one or more VM extensions installed between resource groups or subscriptions without experiencing any impact to their configuration. 
 
 ### Windows extensions
 
