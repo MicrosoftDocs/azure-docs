@@ -27,7 +27,7 @@ You are entirely responsible for all layers of security for your on-premises IT 
 
 * For more information on securing access for privileged users, visit [Securing Privileged access for hybrid and cloud deployments in Azure AD](../roles/security-planning.md).
 
-* For a wide range of videos, how-to guides, and content of key concepts for privileged identity, visit [Privileged Identity Management documentation](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/).
+* For a wide range of videos, how-to guides, and content of key concepts for privileged identity, visit [Privileged Identity Management documentation](../privileged-identity-management/index.yml).
 
 ## Where to look
 
