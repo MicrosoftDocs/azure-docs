@@ -52,32 +52,41 @@ In this step, you set up the local .NET Core project.
 
 ### Clone the sample application
 
-In the terminal window, `cd` to a working directory.
+1. In the terminal window, `cd` to a working directory.
 
-Run the following commands to clone the sample repository and change to its root.
+1. Run the following commands to clone the sample repository and change to its root.
 
-```bash
-git clone https://github.com/azure-samples/dotnetcore-sqldb-tutorial
-cd dotnetcore-sqldb-tutorial
-```
+    ```bash
+    git clone https://github.com/azure-samples/dotnetcore-sqldb-tutorial
+    cd dotnetcore-sqldb-tutorial
+    ```
 
-The sample project contains a basic CRUD (create-read-update-delete) app using [Entity Framework Core](/ef/core/).
+    The sample project contains a basic CRUD (create-read-update-delete) app using [Entity Framework Core](/ef/core/).
+
+1. Make sure the default branch is `main`.
+
+    ```bash
+    git branch -m main
+    ```
+    
+    > [!TIP]
+    > The branch name change isn't required by App Service. However, since many repositories are changing their default branch to `main`, this tutorial also shows you how to deploy a repository from `main`.
 
 ### Run the application
 
-Run the following commands to install the required packages, run database migrations, and start the application.
+1. Run the following commands to install the required packages, run database migrations, and start the application.
 
-```bash
-dotnet tool install -g dotnet-ef
-dotnet ef database update
-dotnet run
-```
+    ```bash
+    dotnet tool install -g dotnet-ef
+    dotnet ef database update
+    dotnet run
+    ```
 
-Navigate to `http://localhost:5000` in a browser. Select the **Create New** link and create a couple _to-do_ items.
+1. Navigate to `http://localhost:5000` in a browser. Select the **Create New** link and create a couple _to-do_ items.
 
-![connects successfully to SQL Database](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
+    ![connects successfully to SQL Database](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
-To stop .NET Core at any time, press `Ctrl+C` in the terminal.
+1. To stop .NET Core at any time, press `Ctrl+C` in the terminal.
 
 ## Create production SQL Database
 
@@ -122,21 +131,21 @@ When the SQL Database logical server is created, the Azure CLI shows information
 
 ### Configure a server firewall rule
 
-Create an [Azure SQL Database server-level firewall rule](../azure-sql/database/firewall-configure.md) using the [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure resources. 
+1. Create an [Azure SQL Database server-level firewall rule](../azure-sql/database/firewall-configure.md) using the [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure resources. 
 
-```azurecli-interactive
-az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
-```
+    ```azurecli-interactive
+    az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+    ```
+    
+    > [!TIP] 
+    > You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](overview-inbound-outbound-ips.md#find-outbound-ips).
+    >
 
-> [!TIP] 
-> You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](overview-inbound-outbound-ips.md#find-outbound-ips).
->
+1. In the Cloud Shell, run the command again to allow access from your local computer by replacing *\<your-ip-address>* with [your local IPv4 IP address](https://www.whatsmyip.org/).
 
-In the Cloud Shell, run the command again to allow access from your local computer by replacing *\<your-ip-address>* with [your local IPv4 IP address](https://www.whatsmyip.org/).
-
-```azurecli-interactive
-az sql server firewall-rule create --name AllowLocalClient --server <server-name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
-```
+    ```azurecli-interactive
+    az sql server firewall-rule create --name AllowLocalClient --server <server-name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
+    ```
 
 ### Create a database
 
@@ -204,20 +213,20 @@ dotnet ef database update
 
 ### Run app with new configuration
 
-Now that database migrations is run on the production database, test your app by running:
+1. Now that database migrations is run on the production database, test your app by running:
 
-```
-dotnet run
-```
+    ```
+    dotnet run
+    ```
 
-Navigate to `http://localhost:5000` in a browser. Select the **Create New** link and create a couple _to-do_ items. Your app is now reading and writing data to the production database.
+1. Navigate to `http://localhost:5000` in a browser. Select the **Create New** link and create a couple _to-do_ items. Your app is now reading and writing data to the production database.
 
-Commit your local changes, then commit it into your Git repository. 
+1. Commit your local changes, then commit it into your Git repository. 
 
-```bash
-git add .
-git commit -m "connect to SQLDB in Azure"
-```
+    ```bash
+    git add .
+    git commit -m "connect to SQLDB in Azure"
+    ```
 
 You're now ready to deploy your code.
 
@@ -271,84 +280,82 @@ To see how the connection string is referenced in your code, see [Configure app 
 
 ### Push to Azure from Git
 
-::: zone pivot="platform-windows"  
-
 [!INCLUDE [push-to-azure-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-<pre>
-Enumerating objects: 268, done.
-Counting objects: 100% (268/268), done.
-Compressing objects: 100% (171/171), done.
-Writing objects: 100% (268/268), 1.18 MiB | 1.55 MiB/s, done.
-Total 268 (delta 95), reused 251 (delta 87), pack-reused 0
-remote: Resolving deltas: 100% (95/95), done.
-remote: Updating branch 'main'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id '64821c3558'.
-remote: Generating deployment script.
-remote: Project file path: .\DotNetCoreSqlDb.csproj
-remote: Generating deployment script for ASP.NET MSBuild16 App
-remote: Generated deployment script files
-remote: Running deployment command...
-remote: Handling ASP.NET Core Web Application deployment with MSBuild16.
-remote: .
-remote: .
-remote: .
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Triggering recycle (preview mode disabled).
-remote: App container will begin restart within 10 seconds.
-To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
- * [new branch]      main -> main
-</pre>
+::: zone pivot="platform-windows"  
+
+   <pre>
+   Enumerating objects: 268, done.
+   Counting objects: 100% (268/268), done.
+   Compressing objects: 100% (171/171), done.
+   Writing objects: 100% (268/268), 1.18 MiB | 1.55 MiB/s, done.
+   Total 268 (delta 95), reused 251 (delta 87), pack-reused 0
+   remote: Resolving deltas: 100% (95/95), done.
+   remote: Updating branch 'main'.
+   remote: Updating submodules.
+   remote: Preparing deployment for commit id '64821c3558'.
+   remote: Generating deployment script.
+   remote: Project file path: .\DotNetCoreSqlDb.csproj
+   remote: Generating deployment script for ASP.NET MSBuild16 App
+   remote: Generated deployment script files
+   remote: Running deployment command...
+   remote: Handling ASP.NET Core Web Application deployment with MSBuild16.
+   remote: .
+   remote: .
+   remote: .
+   remote: Finished successfully.
+   remote: Running post deployment command(s)...
+   remote: Triggering recycle (preview mode disabled).
+   remote: App container will begin restart within 10 seconds.
+   To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
+    * [new branch]      main -> main
+   </pre>
 
 ::: zone-end
 
 ::: zone pivot="platform-linux"
 
-[!INCLUDE [push-to-azure-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
-
-<pre>
-Enumerating objects: 273, done.
-Counting objects: 100% (273/273), done.
-Delta compression using up to 4 threads
-Compressing objects: 100% (175/175), done.
-Writing objects: 100% (273/273), 1.19 MiB | 1.85 MiB/s, done.
-Total 273 (delta 96), reused 259 (delta 88)
-remote: Resolving deltas: 100% (96/96), done.
-remote: Deploy Async
-remote: Updating branch 'main'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'cccecf86c5'.
-remote: Repository path is /home/site/repository
-remote: Running oryx build...
-remote: Build orchestrated by Microsoft Oryx, https://github.com/Microsoft/Oryx
-remote: You can report issues at https://github.com/Microsoft/Oryx/issues
-remote: .
-remote: .
-remote: .
-remote: Done.
-remote: Running post deployment command(s)...
-remote: Triggering recycle (preview mode disabled).
-remote: Deployment successful.
-remote: Deployment Logs : 'https://&lt;app-name&gt;.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/cccecf86c56493ffa594e76ea1deb3abb3702d89/log'
-To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
- * [new branch]      main -> main
-</pre>
+   <pre>
+   Enumerating objects: 273, done.
+   Counting objects: 100% (273/273), done.
+   Delta compression using up to 4 threads
+   Compressing objects: 100% (175/175), done.
+   Writing objects: 100% (273/273), 1.19 MiB | 1.85 MiB/s, done.
+   Total 273 (delta 96), reused 259 (delta 88)
+   remote: Resolving deltas: 100% (96/96), done.
+   remote: Deploy Async
+   remote: Updating branch 'main'.
+   remote: Updating submodules.
+   remote: Preparing deployment for commit id 'cccecf86c5'.
+   remote: Repository path is /home/site/repository
+   remote: Running oryx build...
+   remote: Build orchestrated by Microsoft Oryx, https://github.com/Microsoft/Oryx
+   remote: You can report issues at https://github.com/Microsoft/Oryx/issues
+   remote: .
+   remote: .
+   remote: .
+   remote: Done.
+   remote: Running post deployment command(s)...
+   remote: Triggering recycle (preview mode disabled).
+   remote: Deployment successful.
+   remote: Deployment Logs : 'https://&lt;app-name&gt;.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/cccecf86c56493ffa594e76ea1deb3abb3702d89/log'
+   To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
+    * [new branch]      main -> main
+   </pre>
 
 ::: zone-end
 
 ### Browse to the Azure app
 
-Browse to the deployed app using your web browser.
+1. Browse to the deployed app using your web browser.
 
-```bash
-http://<app-name>.azurewebsites.net
-```
+    ```bash
+    http://<app-name>.azurewebsites.net
+    ```
 
-Add a few to-do items.
+1. Add a few to-do items.
 
-![app running in App Service](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+    ![app running in App Service](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
 **Congratulations!** You're running a data-driven .NET Core app in App Service.
 
@@ -381,73 +388,75 @@ dotnet ef database update
 
 Make some changes in your code to use the `Done` property. For simplicity in this tutorial, you're only going to change the `Index` and `Create` views to see the property in action.
 
-Open _Controllers/TodosController.cs_.
+1. Open _Controllers/TodosController.cs_.
 
-Find the `Create([Bind("ID,Description,CreatedDate")] Todo todo)` method and add `Done` to the list of properties in the `Bind` attribute. When you're done, your `Create()` method signature looks like the following code:
+1. Find the `Create([Bind("ID,Description,CreatedDate")] Todo todo)` method and add `Done` to the list of properties in the `Bind` attribute. When you're done, your `Create()` method signature looks like the following code:
 
-```csharp
-public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
-```
+    ```csharp
+    public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
+    ```
 
-Open _Views/Todos/Create.cshtml_.
+1. Open _Views/Todos/Create.cshtml_.
 
-In the Razor code, you should see a `<div class="form-group">` element for `Description`, and then another `<div class="form-group">` element for `CreatedDate`. Immediately following these two elements, add another `<div class="form-group">` element for `Done`:
+1. In the Razor code, you should see a `<div class="form-group">` element for `Description`, and then another `<div class="form-group">` element for `CreatedDate`. Immediately following these two elements, add another `<div class="form-group">` element for `Done`:
 
-```csharp
-<div class="form-group">
-    <label asp-for="Done" class="col-md-2 control-label"></label>
-    <div class="col-md-10">
-        <input asp-for="Done" class="form-control" />
-        <span asp-validation-for="Done" class="text-danger"></span>
+    ```csharp
+    <div class="form-group">
+        <label asp-for="Done" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Done" class="form-control" />
+            <span asp-validation-for="Done" class="text-danger"></span>
+        </div>
     </div>
-</div>
-```
+    ```
 
-Open _Views/Todos/Index.cshtml_.
+1. Open _Views/Todos/Index.cshtml_.
 
-Search for the empty `<th></th>` element. Just above this element, add the following Razor code:
+1. Search for the empty `<th></th>` element. Just above this element, add the following Razor code:
 
-```csharp
-<th>
-    @Html.DisplayNameFor(model => model.Done)
-</th>
-```
+    ```csharp
+    <th>
+        @Html.DisplayNameFor(model => model.Done)
+    </th>
+    ```
 
-Find the `<td>` element that contains the `asp-action` tag helpers. Just above this element, add the following Razor code:
+1. Find the `<td>` element that contains the `asp-action` tag helpers. Just above this element, add the following Razor code:
 
-```csharp
-<td>
-    @Html.DisplayFor(modelItem => item.Done)
-</td>
-```
+    ```csharp
+    <td>
+        @Html.DisplayFor(modelItem => item.Done)
+    </td>
+    ```
 
 That's all you need to see the changes in the `Index` and `Create` views.
 
 ### Test your changes locally
 
-Run the app locally.
+1. Run the app locally.
 
-```bash
-dotnet run
-```
+    ```bash
+    dotnet run
+    ```
 
-> [!NOTE]
-> If you open a new terminal window, you need to set the connection string to the production database in the terminal, like you did in [Run database migrations to the production database](#run-database-migrations-to-the-production-database).
->
+    > [!NOTE]
+    > If you open a new terminal window, you need to set the connection string to the production database in the terminal, like you did in [Run database migrations to the production database](#run-database-migrations-to-the-production-database).
+    >
 
-In your browser, navigate to `http://localhost:5000/`. You can now add a to-do item and check **Done**. Then it should show up in your homepage as a completed item. Remember that the `Edit` view doesn't show the `Done` field, because you didn't change the `Edit` view.
+1. In your browser, navigate to `http://localhost:5000/`. You can now add a to-do item and check **Done**. Then it should show up in your homepage as a completed item. Remember that the `Edit` view doesn't show the `Done` field, because you didn't change the `Edit` view.
 
 ### Publish changes to Azure
 
-```bash
-git add .
-git commit -m "added done field"
-git push azure main
-```
+1. Commit your changes to Git and push it to your App Service app.
 
-Once the `git push` is complete, navigate to your App Service app and try adding a to-do item and check **Done**.
+    ```bash
+    git add .
+    git commit -m "added done field"
+    git push azure main
+    ```
 
-![Azure app after Code First Migration](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
+1. Once the `git push` is complete, navigate to your App Service app and try adding a to-do item and check **Done**.
+
+    ![Azure app after Code First Migration](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
 
 All your existing to-do items are still displayed. When you republish your ASP.NET Core app, existing data in your SQL Database isn't lost. Also, Entity Framework Core Migrations only changes the data schema and leaves your existing data intact.
 
@@ -460,40 +469,40 @@ The sample project already follows the guidance at [ASP.NET Core Logging in Azur
 - Includes a reference to `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
 - Calls `loggerFactory.AddAzureWebAppDiagnostics()` in *Program.cs*.
 
-To set the ASP.NET Core [log level](/aspnet/core/fundamentals/logging#log-level) in App Service to `Information` from the default level `Error`, use the [`az webapp log config`](/cli/azure/webapp/log#az_webapp_log_config) command in the Cloud Shell.
+1. To set the ASP.NET Core [log level](/aspnet/core/fundamentals/logging#log-level) in App Service to `Information` from the default level `Error`, use the [`az webapp log config`](/cli/azure/webapp/log#az_webapp_log_config) command in the Cloud Shell.
 
-```azurecli-interactive
-az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging filesystem --level information
-```
+    ```azurecli-interactive
+    az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging filesystem --level information
+    ```
 
-> [!NOTE]
-> The project's log level is already set to `Information` in *appsettings.json*.
+    > [!NOTE]
+    > The project's log level is already set to `Information` in *appsettings.json*.
 
-To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log#az_webapp_log_tail) command in the Cloud Shell.
+1. To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log#az_webapp_log_tail) command in the Cloud Shell.
 
-```azurecli-interactive
-az webapp log tail --name <app-name> --resource-group myResourceGroup
-```
+    ```azurecli-interactive
+    az webapp log tail --name <app-name> --resource-group myResourceGroup
+    ```
 
-Once log streaming has started, refresh the Azure app in the browser to get some web traffic. You can now see console logs piped to the terminal. If you don't see console logs immediately, check again in 30 seconds.
+1. Once log streaming has started, refresh the Azure app in the browser to get some web traffic. You can now see console logs piped to the terminal. If you don't see console logs immediately, check again in 30 seconds.
 
-To stop log streaming at any time, type `Ctrl`+`C`.
+1. To stop log streaming at any time, type `Ctrl`+`C`.
 
 For more information on customizing the ASP.NET Core logs, see [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging).
 
 ## Manage your Azure app
 
-To see the app you created, in the [Azure portal](https://portal.azure.com), search for and select **App Services**.
+1. To see the app you created, in the [Azure portal](https://portal.azure.com), search for and select **App Services**.
 
-![Select App Services in Azure portal](./media/tutorial-dotnetcore-sqldb-app/app-services.png)
+    ![Select App Services in Azure portal](./media/tutorial-dotnetcore-sqldb-app/app-services.png)
 
-On the **App Services** page, select the name of your Azure app.
+1. On the **App Services** page, select the name of your Azure app.
 
-![Portal navigation to Azure app](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
+    ![Portal navigation to Azure app](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
 
-By default, the portal shows your app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
+    By default, the portal shows your app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
 
-![App Service page in Azure portal](./media/tutorial-dotnetcore-sqldb-app/web-app-blade.png)
+    ![App Service page in Azure portal](./media/tutorial-dotnetcore-sqldb-app/web-app-blade.png)
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
