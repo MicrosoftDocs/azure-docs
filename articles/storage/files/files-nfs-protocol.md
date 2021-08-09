@@ -91,14 +91,14 @@ NFS Azure file shares are only offered on premium file shares, which stores data
 > [!IMPORTANT]
 > We do not recommend using NFS for production during preview. See the [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md) article for list of known issues.
 
-During preview have been validated to work well with workloads such as home directories for general purpose file servers, content repositories and shared user space (home directories) for application workloads.
+NFS preview has been validated to work well with workloads such as home directories for general purpose file servers, content repositories for application workloads.
 
-The following workloads have open issues. See the [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md) article for list of known issues:
+The following workloads have known issues. See the [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md) article for list of known issues:
 - IBM MQ will experience locking issues.
 - Oracle Database will experience incompatibility with its dNFS feature.
 - SAP Application Layer will experience inconsistent behavior due to a known active issue with ls -l.
 
-We are looking forward to gathering more feedback. Reach out to azurefilesnfs@microsoft.com share feedback/suggestions/recommendations.
+We look forward to gathering more feedback. Reach out to azurefilesnfs@microsoft.com for sharing feedback/suggestions/recommendations.
 
 ## Next steps
 - [Create an NFS file share](storage-files-how-to-create-nfs-shares.md)
