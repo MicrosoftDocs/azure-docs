@@ -54,6 +54,13 @@ productDirectory:
         - ai-machine-learning
       url: cognitive-services/anomaly-detector/index.yml
     # Card
+    - title: Azure Applied AI Services
+      summary: Specialized services that enable organizations to accelerate time to value in applying AI to solve common scenarios
+      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
+      azureCategories:
+        - ai-machine-learning
+      url: /azure/bot-service/
+    # Card
     - title: Azure Bot Service
       summary: Intelligent, serverless bot service that scales on demand
       imageSrc: https://static.docs.com/ui/media/product/azure/bot-service.svg
