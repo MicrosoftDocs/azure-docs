@@ -36,7 +36,7 @@ Another approach is to use an Azure VM to set up a custom image.  After you’ve
 
 Using an Azure VM gives you more flexibility:
 -   You can create either [generalized or specialized](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) images.  Otherwise, if you use a lab’s template VM to [export an image](how-to-use-shared-image-gallery.md) the image is always specialized.
--   You have access to more advanced features of an Azure VM that may be helpful for setting up an image.  For example, you can use [extensions](../virtual-machines/extensions/overview.md) to do post-deployment configuration and automation.  Also, you can access the VM’s [boot diagnostics](../virtual-machines/boot-diagnostics.md) and [serial console](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/serial-console-overview).
+-   You have access to more advanced features of an Azure VM that may be helpful for setting up an image.  For example, you can use [extensions](../virtual-machines/extensions/overview.md) to do post-deployment configuration and automation.  Also, you can access the VM’s [boot diagnostics](../virtual-machines/boot-diagnostics.md) and [serial console](/troubleshoot/azure/virtual-machines/serial-console-overview).
 
 However, setting up an image using an Azure VM is more complex.  As a result, IT departments are typically responsible for creating custom images on an Azure VMs.
 
@@ -62,7 +62,7 @@ Here are a few reasons why you may want to use this approach:
 
 -   You can create either [generalized or specialized](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) images to use in your labs.  Otherwise, if you use a [lab’s template VM](how-to-use-shared-image-gallery.md) to export an image, the image is always specialized.
 -   You can access resources that exist within your on-prem environment.  For example, you may have large installation files in your on-prem environment that are too time consuming to copy to a lab’s template VM.
--   You can upload images created using other tools, such as [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/mem/configmgr/core/understand/introduction), so that you don’t have to manually set up an image using a lab’s template VM.
+-   You can upload images created using other tools, such as [Microsoft Endpoint Configuration Manager](/mem/configmgr/core/understand/introduction), so that you don’t have to manually set up an image using a lab’s template VM.
 
 Bringing a custom image from a VHD is the most advanced approach because you must ensure that the image is set up properly so that it works within Azure.  As a result, IT departments are typically responsible for creating custom images from VHDs.
 
@@ -70,7 +70,7 @@ Bringing a custom image from a VHD is the most advanced approach because you mus
 
 Here are the high-level steps to bring a custom image from a VHD:
 
-1.  Use [Windows Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/) on your on-premises machine to create a Windows or Linux VHD.
+1.  Use [Windows Hyper-V](/virtualization/hyper-v-on-windows/about/) on your on-premises machine to create a Windows or Linux VHD.
 1.  Connect to the Hyper-V VM and install additional software.  You can also make other customizations that are needed for your lab.  
 1.  When you’ve finished setting up the image, upload the VHD to create a [managed disk](../virtual-machines/managed-disks-overview.md) in Azure.
 1.  From the managed disk, create the [image’s definition](../virtual-machines/shared-image-galleries.md#image-definitions) and version in a shared image gallery.

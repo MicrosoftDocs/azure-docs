@@ -1025,7 +1025,7 @@
     - name: Overview
       href: vm/vminsights-overview.md
     - name: General Availability FAQ
-      href: vm/vminsights-ga-release-faq.yml  
+      href: vm/vminsights-ga-release-faq.yml
     - name: FAQ
       href: /azure/azure-monitor/faq#vm-insights
     - name: Configure workspace

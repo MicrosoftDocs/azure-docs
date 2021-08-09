@@ -71,4 +71,4 @@ Reconfigurations are considered transient conditions and are expected from time 
 - [Troubleshoot, diagnose, and prevent SQL connection errors](troubleshoot-common-connectivity-issues.md).
 - Learn more about [configuring Resource Health alerts](../../service-health/resource-health-alert-arm-template-guide.md).
 - Get an overview of [Resource Health](../../service-health/resource-health-overview.md).
-- Review [Resource Health FAQ](../../service-health/resource-health-faq.md).
+- Review [Resource Health FAQ](../../service-health/resource-health-faq.yml).

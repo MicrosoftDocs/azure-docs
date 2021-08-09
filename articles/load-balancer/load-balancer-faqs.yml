@@ -18,7 +18,7 @@ sections:
       - question: |
           What types of Load Balancer exist?
         answer: |
-          Internal load balancers which balance traffic within a VNET and external load balancers which balance traffic to and from an internet connected endpoint. For more information, see [Load Balancer Types](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). 
+          Internal load balancers which balance traffic within a VNET and external load balancers which balance traffic to and from an internet connected endpoint. For more information, see [Load Balancer Types](./load-balancer-overview.md). 
           
           For both these types, Azure offers a Basic SKU and Standard SKU that have different functional, performance, security and health tracking capabilities. These differences are explained in our [SKU Comparison](skus.md) article.
           
@@ -99,7 +99,7 @@ sections:
       - question: |
           If I enable DDoS Protection Standard for my load balancer frontend, what does that mean for the resources in the backend pool?
         answer: |
-          When enabled on the frontend IP for a load balancer, DDoS Protection Standard will apply protection for all backend pool resources that are accessible through that public IP.  Please see [Azure DDoS Protection Reference](https://docs.microsoft.com/azure/ddos-protection/ddos-protection-reference-architectures) for more details. 
+          When enabled on the frontend IP for a load balancer, DDoS Protection Standard will apply protection for all backend pool resources that are accessible through that public IP.  Please see [Azure DDoS Protection Reference](../ddos-protection/ddos-protection-reference-architectures.md) for more details. 
 
 additionalContent: |
 
