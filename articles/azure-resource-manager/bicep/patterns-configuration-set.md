@@ -63,4 +63,4 @@ When you define the resources, use the configuration map to define the resource 
 
 ## Next steps
 
-[Return to the list of patterns for Bicep code.](patterns-overview.md)
+[Learn about the Configuration Set pattern.](patterns-configuration-set.md)

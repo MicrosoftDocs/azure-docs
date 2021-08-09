@@ -1,16 +1,31 @@
 {
   "securityRules": [
     {
-      "name": "Client_communication_to_API_Management",
+      "name": "Allow_RDP_from_company_IP_address",
       "properties": {
+        "description": "Allow inbound RDP from the company's IP address range.",
         "protocol": "Tcp",
+        "sourceAddressPrefix": "203.0.113.0/24",
         "sourcePortRange": "*",
-        "destinationPortRange": "80",
-        "sourceAddressPrefix": "VirtualNetwork",
         "destinationAddressPrefix": "VirtualNetwork",
+        "destinationPortRange": "3389",
         "access": "Allow",
         "priority": 100,
         "direction": "Inbound"
+      }
+    },
+    {
+      "name": "Allow_VirtualNetwork_to_Storage",
+      "properties": {
+        "description": "Allow outbound connections to the Azure Storage service tag.",
+        "protocol": "Tcp",
+        "sourceAddressPrefix": "VirtualNetwork",
+        "sourcePortRange": "*",
+        "destinationAddressPrefix": "Storage",
+        "destinationPortRange": "*",
+        "access": "Allow",
+        "priority": 100,
+        "direction": "Outbound"
       }
     }
     // other rules here
