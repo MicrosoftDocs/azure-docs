@@ -22,7 +22,7 @@ keywords: on-premises, Docker, container, identify
 
 Azure Form Recognizer is an Azure Applied AI Service that lets you build automated data processing software using machine learning technology. Form Recognizer enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your form documents and output structured data that includes the relationships in the original file.
 
-In this article you'll learn how to download, install, and run Form Recognizer containers. Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom** (for Receipt, Business Card and ID Document containers you will also need the **Read** OCR container). 
+In this article you'll learn how to download, install, and run Form Recognizer containers. Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom** (for Receipt, Business Card and ID Document containers you will also need the **Read** OCR container).
 
 ## Prerequisites
 
@@ -367,36 +367,53 @@ In addition to the [prerequisites](#prerequisites) mentioned above, you will nee
 ```text
 worker_processes 1;
 
-events {
-  worker_connections 1024;
-}
+events { worker_connections 1024; }
 
 http {
 
-  sendfile on;
+    sendfile on;
 
-  upstream docker - api {
-      server azure - cognitive - service - custom - api: 5000;
-  }
+    upstream docker-api {
+        server azure-cognitive-service-custom-api:5000;
+    }
 
-  upstream docker - layout {
-      server azure - cognitive - service - layout: 5000;
-  }
+    upstream docker-layout {
+        server  azure-cognitive-service-layout:5000;
+    }
 
-  server {
-      listen 5000;
+    server {
+        listen 5000;
 
-      location / formrecognizer / v2 .1 / custom / {
-          proxy_pass http: //docker-api/formrecognizer/v2.1/custom/;
+        location = / {
+            proxy_pass         http://docker-api/;
 
-      }
+        }
 
-      location / formrecognizer / v2 .1 / layout / {
-          proxy_pass http: //docker-layout/formrecognizer/v2.1/layout/;
+        location /status {
+            proxy_pass         http://docker-api/status;
 
-      }
+        }
 
-  }
+        location /ready {
+            proxy_pass         http://docker-api/ready;
+
+        }
+
+        location /swagger {
+            proxy_pass         http://docker-api/swagger;
+
+        }
+
+        location /formrecognizer/v2.1/custom/ {
+            proxy_pass         http://docker-api/formrecognizer/v2.1/custom/;
+
+        }
+
+        location /formrecognizer/v2.1/layout/ {
+            proxy_pass         http://docker-layout/formrecognizer/v2.1/layout/;
+
+        }
+    }
 }
 ```
 
@@ -602,6 +619,6 @@ That's it! In this article, you learned concepts and workflows for downloading, 
 
 ## Next steps
 
-* [Form Recognizer container configuration settings](form-recognizer-container-configuration.md) 
+* [Form Recognizer container configuration settings](form-recognizer-container-configuration.md)
 * [Form Recognizer container image tags](../../containers/container-image-tags.md?tabs=current#form-recognizer)
 * [Cognitive Services container support page and release notes](../../containers/container-image-tags.md?tabs=current#form-recognizer)
