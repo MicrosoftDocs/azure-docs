@@ -45,7 +45,39 @@ You can have a source server in any [Azure Database for MySQL region](https://az
 
 You can create a read replica in any of the following regions, regardless of where your source server is located. The supported universal replica regions include:
 
-Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2, West Central US.
+| Region | Replica availability | 
+| --- | --- | 
+| Australia East | :heavy_check_mark: | 
+| Australia South East | :heavy_check_mark: | 
+| Brazil South | :heavy_check_mark: | 
+| Canada Central | :heavy_check_mark: |
+| Canada East | :heavy_check_mark: |
+| Central US | :heavy_check_mark: | 
+| East US | :heavy_check_mark: | 
+| East US 2 | :heavy_check_mark: |
+| East Asia | :heavy_check_mark: | 
+| Japan East | :heavy_check_mark: | 
+| Japan West | :heavy_check_mark: | 
+| Korea Central | :heavy_check_mark: |
+| Korea South | :heavy_check_mark: |
+| North Europe | :heavy_check_mark: | 
+| North Central US | :heavy_check_mark: | 
+| South Central US | :heavy_check_mark: | 
+| Southeast Asia | :heavy_check_mark: | 
+| UK South | :heavy_check_mark: | 
+| UK West | :heavy_check_mark: | 
+| West Central US | :heavy_check_mark: | 
+| West US | :heavy_check_mark: | 
+| West US 2 | :heavy_check_mark: | 
+| West Europe | :heavy_check_mark: | 
+| Central India* | :heavy_check_mark: | 
+| France Central* | :heavy_check_mark: | 
+| UAE North* | :heavy_check_mark: | 
+| South Africa North* | :heavy_check_mark: |
+
+> [!Note] 
+> *Regions where Azure Database for MySQL has General purpose storage v2 in Public Preview  <br /> 
+> *For these Azure regions, you will have an option to create server in both General purpose storage v1 and v2. For the servers created with General purpose storage v2 in public preview, you are limited to create replica server only in the Azure regions which support General purpose storage v2.
 
 ### Paired regions
 

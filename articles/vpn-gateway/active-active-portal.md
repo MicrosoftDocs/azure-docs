@@ -14,7 +14,7 @@ ms.author: jstrom
 
 # Configure active-active VPN gateways using the portal
 
-This article helps you create highly available active-active VPN gateways using the Resource Manager deployment model and Azure portal. You can also configure an active-active gateway using [PowerShell](vpn-gateway-activeactive-rm-powershell.md).
+This article helps you create highly available active-active VPN gateways using the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) and Azure portal. You can also configure an active-active gateway using [PowerShell](vpn-gateway-activeactive-rm-powershell.md).
 
 To achieve high availability for cross-premises and VNet-to-VNet connectivity, you should deploy multiple VPN gateways and establish multiple parallel connections between your networks and Azure. See [Highly Available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md) for an overview of connectivity options and topology.
 
@@ -73,7 +73,7 @@ This section helps you change an existing Azure VPN gateway from active-standby 
 
 ### Change active-standby to active-active
 
-Use the following steps to convert active-standby mode gateway to active-active mode. If your gateway was created using the Resource Manager deployment model, you can also upgrade the SKU on this page.
+Use the following steps to convert active-standby mode gateway to active-active mode. If your gateway was created using the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md), you can also upgrade the SKU on this page.
 
 1. Navigate to the page for your virtual network gateway.
 

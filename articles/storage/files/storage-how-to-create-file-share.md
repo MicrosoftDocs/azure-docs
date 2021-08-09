@@ -5,7 +5,7 @@ description: How to create an Azure file share by using the Azure portal, PowerS
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 07/27/2021
 ms.author: rogarana
 ms.subservice: files 
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
@@ -206,7 +206,7 @@ Standard file shares may be deployed into one of the standard tiers: transaction
 
 The **quota** property means something slightly different between premium and standard file shares:
 
-- For standard file shares, it's an upper boundary of the Azure file share, beyond which end-users cannot go. If a quota is not specified, standard file share can span up to 100 TiB or 5 TiB if the large file shares property is not set for a storage account. If you did not create your storage account with large file shares enabled, see [Enable large files shares on an existing account](#enable-large-files-shares-on-an-existing-account) for how to enable 100 TiB file shares.
+- For standard file shares, it's an upper boundary of the Azure file share, beyond which end-users cannot go. If a quota is not specified, standard file share can span up to 100 TiB or 5 TiB if the large file shares property is not set for a storage account. If you did not create your storage account with large file shares enabled, see [Enable large files shares on an existing account](#enable-large-files-shares-on-an-existing-account) for how to enable 100 TiB file shares. The performance (IOPs/Mbps) you receive depends on the quota you set.
 
 - For premium file shares, quota means **provisioned size**. The provisioned size is the amount that you will be billed for, regardless of actual usage. For more information on how to plan for a premium file share, see [provisioning premium file shares](understanding-billing.md#provisioned-model).
 
@@ -218,7 +218,7 @@ In the file share listing, you should see any file shares you have previously cr
 The new file share blade should appear on the screen. Complete the fields in the new file share blade to create a file share:
 
 - **Name**: the name of the file share to be created.
-- **Quota**: the quota of the file share for standard file shares; the provisioned size of the file share for premium file shares.
+- **Quota**: the quota of the file share for standard file shares; the provisioned size of the file share for premium file shares. For standard file shares, the quota will also determine what performance you receive.
 - **Tiers**: the selected tier for a file share. This field is only available in a **general purpose (GPv2) storage account**. You can choose transaction optimized, hot, or cool. The share's tier can be changed at any time. We recommend picking the hottest tier possible during a migration, to minimize transaction expenses, and then switching to a lower tier if desired after the migration is complete.
 
 Select **Create** to finishing creating the new share.

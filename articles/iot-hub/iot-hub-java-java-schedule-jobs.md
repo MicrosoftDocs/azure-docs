@@ -28,7 +28,7 @@ To learn more about each of these capabilities, see:
 
 * Device twin and properties: [Get started with device twins](iot-hub-java-java-twin-getstarted.md)
 
-* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Tutorial: Use direct methods](quickstart-control-device-java.md)
+* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Quickstart: Use direct methods](/azure/iot-hub/quickstart-control-device?pivots=programming-language-java)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -517,4 +517,4 @@ Use the following resources to learn how to:
 
 * Send telemetry from devices with the [Get started with IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) tutorial.
 
-* Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](quickstart-control-device-java.md) tutorial.s
+* Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](/azure/iot-hub/quickstart-control-device?pivots=programming-language-java) quickstart.

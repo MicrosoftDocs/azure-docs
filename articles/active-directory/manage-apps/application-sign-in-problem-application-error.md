@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: davidmu
-ms.reviewer: asteen
+ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 ---
 

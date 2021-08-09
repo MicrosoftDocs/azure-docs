@@ -15,7 +15,7 @@ ms.author: cherylmc
 
 This article helps you connect virtual networks by using the VNet-to-VNet connection type. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When connecting VNets from different subscriptions, the subscriptions do not need to be associated with the same Active Directory tenant.
 
-The steps in this article apply to the Resource Manager deployment model and use PowerShell. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+The steps in this article apply to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) and use PowerShell. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)

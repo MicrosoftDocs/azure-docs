@@ -205,11 +205,11 @@
           href: use-ultra-disks.md
         - name: CSI Storage Drivers
           items:
-            - name: Enable CSI Storage Drivers (preview)
+            - name: Enable CSI Storage Drivers
               href: csi-storage-drivers.md
-            - name: Azure Disk CSI drivers (preview)
+            - name: Azure Disk CSI drivers
               href: azure-disk-csi.md
-            - name: Azure Files CSI drivers (preview)
+            - name: Azure Files CSI drivers
               href: azure-files-csi.md
     - name: Configure networking
       items:
@@ -299,13 +299,10 @@
           href: csi-secrets-store-driver.md
     - name: Monitoring and logging
       items:
-        - name: View cluster metrics
-          href: view-metrics.md
-        - name: Container insights
-          href: ../azure-monitor/containers/container-insights-overview.md
-          maintainContext: true
-        - name: View the control plane component logs
-          href: view-control-plane-logs.md
+        - name: Monitor AKS
+          href: monitor-aks.md
+        - name: Monitor reference
+          href: monitor-aks-reference.md
         - name: View the kubelet logs
           href: kubelet-logs.md
         - name: View container data real-time
@@ -351,32 +348,12 @@
         - name: Use Azure API Management
           href: ../api-management/api-management-kubernetes.md
           maintainContext: true
-    - name: Select and deploy a service mesh
+    - name: Deploy a service mesh
       items:
         - name: About Service Meshes
           href: servicemesh-about.md
         - name: Open Service Mesh AKS add-on (preview)
           href: servicemesh-osm-about.md
-        - name: Use Istio
-          items:
-            - name: About Istio
-              href: servicemesh-istio-about.md
-            - name: Install and configure
-              href: servicemesh-istio-install.md
-            - name: Scenario - Intelligent routing and canary releases
-              href: servicemesh-istio-scenario-routing.md
-        - name: Use Linkerd
-          items:
-            - name: About Linkerd
-              href: servicemesh-linkerd-about.md
-            - name: Install and configure
-              href: servicemesh-linkerd-install.md
-        - name: Use Consul
-          items:
-            - name: About Consul
-              href: servicemesh-consul-about.md
-            - name: Install and configure
-              href: servicemesh-consul-install.md
     - name: DevOps
       items:
         - name: Use Ansible to create AKS clusters

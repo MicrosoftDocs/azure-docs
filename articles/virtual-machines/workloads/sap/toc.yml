@@ -142,6 +142,8 @@
     href: dbms_guide_sapase.md
   - name: SAP MaxDB, liveCache and Content Server on Azure
     href: dbms_guide_maxdb.md
+  - name: SAP IQ on Azure VMs
+    href: sap-iq-deployment-guide.md
   - name: HANA  
     items: 
     - name: Install SAP HANA on Azure VMs

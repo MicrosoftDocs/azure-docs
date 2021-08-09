@@ -13,7 +13,7 @@ ms.author: cherylmc
 ---
 # Create a virtual network with a Site-to-Site VPN connection using CLI
 
-This article shows you how to use the Azure CLI to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the Resource Manager deployment model. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:<br>
+This article shows you how to use the Azure CLI to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md). You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:<br>
 
 > [!div class="op_single_selector"]
 > * [Azure portal](./tutorial-site-to-site-portal.md)
