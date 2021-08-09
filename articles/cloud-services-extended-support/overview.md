@@ -15,8 +15,7 @@ Cloud Services (extended support) is a new [Azure Resource Manager](../azure-r
 
 With this change, the Azure Service Manager based deployment model for Cloud Services will be renamed [Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md). You will retain the ability to build and rapidly deploy your web and cloud applications and services. You will be able to scale your cloud services infrastructure based on current demand and ensure that the performance of your applications can keep up while simultaneously reducing costs.  
 
->[!VIDEO]
-> https://youtu.be/H4K9xTUvNdw
+> [!VIDEO https://youtu.be/H4K9xTUvNdw]
 
 ## What does not change 
 - You create the code, define the configurations, and deploy it to Azure. Azure sets up the compute environment, runs your code then monitors and maintains it for you.
