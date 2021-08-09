@@ -123,6 +123,6 @@ conceptualContent:
         - url: https://github.com/Azure/azureml-examples/blob/main/cli/README.md
           itemType: sample
           text: v2 CLI code examples (preview)
-        - url: /azure/machine-learning/classic/
+        - url: ./classic/index.yml
           itemType: overview
-          text: ML Studio (classic) documentation  
+          text: ML Studio (classic) documentation

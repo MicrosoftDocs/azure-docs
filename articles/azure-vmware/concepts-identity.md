@@ -20,7 +20,7 @@ Azure VMware Solution private clouds are provisioned with a vCenter Server and N
 
 You can view the privileges granted to the Azure VMware Solution CloudAdmin role on your Azure VMware Solution private cloud vCenter.
 
-1. Sign into the vSphere Client and go to **Menu** > **Administration**.
+1. Sign in to the vSphere Client and go to **Menu** > **Administration**.
 
 1. Under **Access Control**, select **Roles**.
 
@@ -60,7 +60,7 @@ You'll use the CloudAdmin role to create, modify, or delete custom roles with pr
 To prevent creating roles that can't be assigned or deleted, clone the CloudAdmin role as the basis for creating new custom roles.
 
 #### Create a custom role
-1. Sign into vCenter with cloudadmin\@vsphere.local or a user with the CloudAdmin role.
+1. Sign in to vCenter with cloudadmin\@vsphere.local or a user with the CloudAdmin role.
 
 1. Navigate to the **Roles** configuration section and select **Menu** > **Administration** > **Access Control** > **Roles**.
 
@@ -76,7 +76,7 @@ To prevent creating roles that can't be assigned or deleted, clone the CloudAdmi
 
 #### Apply a custom role
 
-1. Navigate to the object that requires the added permission. For example, to apply the permission to a folder, navigate to **Menu** > **VMs and Templates** > **Folder Name**.
+1. Navigate to the object that requires the added permission. For example, to apply permission to a folder, navigate to **Menu** > **VMs and Templates** > **Folder Name**.
 
 1. Right-click the object and select **Add Permission**.
 
@@ -84,16 +84,16 @@ To prevent creating roles that can't be assigned or deleted, clone the CloudAdmi
 
 1. Search for the user or group after selecting the Identity Source under the **User** section. 
 
-1. Select the role that will be applied for the user or group.
+1. Select the role that you want to apply to the user or group.
 
 1. Check the **Propagate to children** if needed, and select **OK**. The added permission displays in the **Permissions** section.
 
 ## NSX-T Manager access and identity
 
 >[!NOTE]
->NSX-T 3.1.2 is currently supported for all new private clouds.
+>NSX-T [!INCLUDE [nsxt-version](includes/nsxt-version.md)] is currently supported for all new private clouds.
 
-Use the *admin* account to access NSX-T Manager. It has full privileges and lets you create and manage Tier-1 (T1) Gateways, segments (logical switches), and all services. The privileges give you access to the NSX-T Tier-0 (T0) Gateway. A change to the T0 Gateway could result in degraded network performance or no private cloud access. Open a support request in the Azure portal to request any changes to your NSX-T T0 Gateway.
+Use the *admin* account to access NSX-T Manager. It has full privileges and lets you create and manage Tier-1 (T1) Gateways, segments (logical switches), and all services. In addition, the privileges give you access to the NSX-T Tier-0 (T0) Gateway. A change to the T0 Gateway could result in degraded network performance or no private cloud access. Open a support request in the Azure portal to request any changes to your NSX-T T0 Gateway.
 
  
 ## Next steps

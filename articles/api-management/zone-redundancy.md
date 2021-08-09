@@ -5,7 +5,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 08/09/2021
 ms.author: apimpm
 ms.custom: references_regions
 
@@ -31,7 +31,9 @@ Configuring API Management for zone redundancy is currently supported in the fol
 * East US
 * East US 2
 * France Central
+* Germany West Central
 * Japan East
+* Korea Central
 * North Europe
 * South Africa North
 * South Central US
