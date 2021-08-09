@@ -52,7 +52,7 @@ You can resize your virtual machines to the Av2-series using the [Azure portal](
     $vm.HardwareProfile.VmSize = "<newAv2VMsize>"
     Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
     ```
-    
+
 ## Help and support
 
 If you have questions, ask community experts in [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html). If you have a support plan and need technical help, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
