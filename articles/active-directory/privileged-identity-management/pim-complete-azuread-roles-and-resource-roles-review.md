@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 # Complete an access review of Azure resource and Azure AD roles in Privileged Identity Management
 
-Privileged role administrators can review privileged access once an [access review has been started](pim-start-azuread-roles-and-resource-roles-review.md). Privileged Identity Management (PIM) in Azure Active Directory (Azure AD) will automatically send an email that prompts users to review their access. If a user doesn't receive an email, you can send them the instructions for [how to perform an access review](pim-perform-azuread-roles-and-resource-roles-review.md).
+Privileged role administrators can review privileged access once an [access review has been started](pim-create-azuread-roles-and-resource-roles-review.md). Privileged Identity Management (PIM) in Azure Active Directory (Azure AD) will automatically send an email that prompts users to review their access. If a user doesn't receive an email, you can send them the instructions for [how to perform an access review](pim-perform-azuread-roles-and-resource-roles-review.md).
 
 After the access review period is over, or after all the users have finished their self-review, follow the steps in this article to manage the review and see the results.
 
@@ -83,5 +83,5 @@ On the **Reviewers** page, you may view and add reviewers to your existing acces
 
 ## Next steps
 
-- [Create an access review of Azure resource or Azure AD roles in PIM](pim-start-azuread-roles-and-resource-roles-review.md)
+- [Create an access review of Azure resource or Azure AD roles in PIM](pim-create-azuread-roles-and-resource-roles-review.md)
 - [Perform an access review of Azure resource or Azure AD roles in PIM](pim-perform-azuread-roles-and-resource-roles-review.md)
