@@ -84,7 +84,7 @@ If you're connecting to this VM for the first time, you'll be asked to verify th
 
 :::image type="content" source="./media/ssh-from-windows/validate-host-fingerprint.png" alt-text="Screenshot that shows using the Run Command Script shell to get a host fingerprint key in the Azure portal.":::
 
-To run the command by using the Azure CLI, use the [az vm run-command invoke](/cli/azure/vm/run-command?view=azure-cli-latest) command.
+To run the command by using the Azure CLI, use the [az vm run-command invoke](/cli/azure/vm/run-command?view=azure-cli-latest&preserve-view=true) command.
 
 If you configured a passphrase when you created your key pair, enter the passphrase when prompted.
 
