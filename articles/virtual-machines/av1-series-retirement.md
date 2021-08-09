@@ -57,7 +57,7 @@ You can resize your virtual machines to the Av2-series using the [Azure portal](
     ```
 ## Help and support
 
-If you have questions, ask community experts in Microsoft Q&A. If you have a support plan and need technical help, create a support request:
+If you have questions, ask community experts in [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html). If you have a support plan and need technical help, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
 
 1. For Issue type, select Technical.
 1. For Subscription, select your subscription.
