@@ -294,9 +294,9 @@ Service Fabric managed clusters automatically creates load balancer probes for f
 
 <a id="ipv6"></a>
 ## IPv6
-By default managed clusters do not enable IPv6 to keep the configuration simple. This feature will enable full dual stack IPv4/IPv6 capability from the Load Balancer frontend to the backend resources. 
+Managed clusters do not enable IPv6 by default. This feature will enable full dual stack IPv4/IPv6 capability from the Load Balancer frontend to the backend resources. 
 
-Any changes you make to Load Balancing rules will take affect for both of the IPv4 and IPv6 addresses.
+Any changes you make to Load Balancing rules will take effect for both of the IPv4 and IPv6 addresses.
 
 > [!NOTE]
 > This setting is not available in portal and cannot be changed once the cluster is created
@@ -329,15 +329,14 @@ TODO:Talk about v4 and v6 ip's on Load Balancers and NSG differences.
 
 <a id="byovnet"></a>
 ## Bring your own virtual network
-This feature allows customers to specify an existing virtual network and dedicated subnet(s) the managed cluster will use for ip resource allocation. This can be useful if you already have a configured VNet and related security policies that you want to leverage. After you deploy to an existing virtual network, it's easy to incorporate other networking features, like Azure ExpressRoute, Azure VPN Gateway, a network security group, and virtual network peering.
+This feature allows customers to use an existing virtual network by specifying a dedicated subnet the managed cluster will deploy it's resources into. This can be useful if you already have a configured VNet and subnet with related security policies and traffic routing that you want to use. After you deploy to an existing virtual network, it's easy to use or incorporate other networking features, like Azure ExpressRoute, Azure VPN Gateway, a network security group, and virtual network peering.
 
-When you setup a cluster to deploy in to an existing virtual network you can also:
-* Bring your own Load balancer(s) for either private or public traffic
-* Use a pre-configured Load Balancer static IP address
-* Use additional Azure Networking features managed clusters may not directly enable
+When you deploy a managed cluster in to an existing virtual network you can also:
+* [Bring your own Load balancer](#byolb)
 
 [!NOTE]
 > This setting cannot be changed once the cluster is created
+> The managed cluster will assign a NSG to the provided subnet. Do not override the NSG assignment or traffic may break.
 
 In the following example, we start with an existing virtual network named ExistingRG-vnet, in the ExistingRG resource group. The subnet is named default. These default resources are created when you use the Azure portal to create a standard virtual machine (VM). You could create the virtual network and subnet without creating the VM, but the main goal of adding a cluster to an existing virtual network is to provide network connectivity to other VMs. Creating the VM gives a good example of how an existing virtual network typically is used. 
 
