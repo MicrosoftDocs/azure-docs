@@ -17,15 +17,16 @@ This article describes how to replicate, failover, and failback Azure virtual ma
 >[!NOTE]
 > Azure Site Recovery does not move or store data out of the source and target region chosen by you. You may select a Recovery Services Vault from a different (third) region. The Recovery Services Vault contains metadata but no actual customer data.
 
-Site Recovery service contributes to your business continuity and disaster recovery strategy by keeping your business apps up and running, during planned and unplanned outages. We recommend Disaster Recovery option to keep your applications up and running if there are regional outages.
+Azure Site Recovery service contributes to your business continuity and disaster recovery strategy by keeping your business apps up and running, during planned and unplanned outages. We recommend Disaster Recovery option to keep your applications up and running if there are regional outages.
 
 ## Disaster recovery for global Azure regions
 
-Azure was the first large public cloud provider to launch a first-class cloud native disaster recovery solution with Azure-to-Azure Disaster Recovery. This offering  was  allowing you to replicate and failover your applications from one Azure region to another, on the same continent. also supporting Zone-to-Zone Disaster Recovery.   
+Azure was the first large public cloud provider to launch a first-class cloud native disaster recovery solution with Azure-to-Azure Disaster Recovery. This offering  was allowing you to replicate and fail over your applications from one Azure region to another, in the same continent. also supporting zone-to-zone Disaster Recovery.   
 
-Azure Site Recovery now supports global disaster recovery. You can now replicate and failover your applications from any Azure region, across continents.
+Azure Site Recovery now supports global disaster recovery. You can now replicate and fail over your applications from any Azure region, across continents.
 
-Many of you run global businesses and would like to host and replicate your applications across the world by leveraging Azure’s global presence. This is where you can leverage global disaster recovery via Azure Site Recovery. This new offering abolisheseremoves the continental boundaries of Azure to Azure Disaster Recovery. Supported by our powerful global networking backbone, you can replicate and failover your applications to any Azure region of your choice, around the globe.  
+Many of you run global businesses and would like to host and replicate your applications across the world by leveraging Azure’s global presence. This is where you can leverage global disaster recovery via Azure Site Recovery. This new offering removes the continental boundaries of Azure to Azure Disaster Recovery. Supported by our powerful global networking backbone, you can replicate and fail over your applications to any Azure region of your choice, around the globe.  
+
 This offering completes the native-public cloud disaster recovery portfolio of zone-to-zone disaster recovery, within-continent disaster recovery, and global disaster recovery.
 
 >[!NOTE]
@@ -34,7 +35,7 @@ This offering completes the native-public cloud disaster recovery portfolio of z
 This offering completes the native-public cloud disaster recovery portfolio of zone-to-zone disaster recovery, within-continent disaster recovery, and global disaster recovery.  
 
 ## Before you begin
-This article assumes that you've prepared for Site Recovery deployment, as described in the [Azure to Azure disaster recovery tutorial](azure-to-azure-tutorial-enable-replication.md).
+This article assumes that you've prepared for Azure Site Recovery deployment, as described in the [Azure to Azure disaster recovery tutorial](azure-to-azure-tutorial-enable-replication.md).
 
 Ensure the prerequisites are met and you have created a Recovery Services vault.
 
@@ -70,9 +71,9 @@ Use the following steps for quickly replicating your appliances:
 
    ![Settings for global disaster recovery](./media/azure-to-azure-enable-global-disaster-recovery/enable-global-disaster-recovery.png)
 
-   You can make additional configuration changes as required by you.
+   You can make other configuration changes as required by you.
 
-4. Click **Advanced Settings** for any additional settings such as  **Target Subscription**, **Target Virtual Network**, **Target Availability**, **Target Proximity Placement Group**.
+4. Click **Advanced Settings** for other settings such as  **Target Subscription**, **Target Virtual Network**, **Target Availability**, **Target Proximity Placement Group**.
 
 5. Click **Review + Start replication**.
 
