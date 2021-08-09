@@ -78,7 +78,7 @@ When you sign-in as a minor, you should see the following error message: *Unfort
 
 ## Enable age gating in your custom policy
 
-1. Get the example of an age gating policy on [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/age-gating).
+1. Get the example of an age gating policy on [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies).
 1. In each file, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, if the name of your B2C tenant is *contosob2c*, all instances of `yourtenant.onmicrosoft.com` become `contosob2c.onmicrosoft.com`.
 1. Upload the policy files.
 
@@ -87,4 +87,3 @@ When you sign-in as a minor, you should see the following error message: *Unfort
 ## Next steps
 
 - Learn how to [Manage user access in Azure AD B2C](manage-user-access.md).
-

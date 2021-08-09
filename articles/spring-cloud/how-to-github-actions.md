@@ -81,7 +81,7 @@ az spring-cloud app create --name solar-system-weather
 
 ### Deploy with Azure CLI directly
 
-Create the `.github/workflows/main.yml` file in the repository with the following content. Replace `<your resource group name>` and `<your service name>` with the correct values.
+Create the `.github/workflows/main.yml` file in the repository with the following content. Replace *\<your resource group name>* and *\<your service name>* with the correct values.
 
 ```yaml
 name: Steeltoe-CD
