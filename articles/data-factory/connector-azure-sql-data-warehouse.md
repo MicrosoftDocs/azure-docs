@@ -509,9 +509,9 @@ Azure Synapse Analytics COPY statement directly supports Azure Blob, Azure Data 
       5. `skipLineCount` is left as default or set to 0.
       6. `compression` can be **no compression** or **``GZip``**.
 
-3. If your source is a folder, `recursive` in copy activity must be set to true, and `wildcardFilename` need to be `*`. 
+3. If your source is a folder, `recursive` in copy activity must be set to true, and `wildcardFilename` need to be `*` or `*.*`. 
 
-4. `wildcardFolderPath` , `wildcardFilename` (other than `*`), `modifiedDateTimeStart`, `modifiedDateTimeEnd`, `prefix`, `enablePartitionDiscovery` and `additionalColumns` are not specified.
+4. `wildcardFolderPath` , `wildcardFilename` (other than `*`or `*.*`), `modifiedDateTimeStart`, `modifiedDateTimeEnd`, `prefix`, `enablePartitionDiscovery` and `additionalColumns` are not specified.
 
 The following COPY statement settings are supported under `allowCopyCommand` in copy activity:
 
