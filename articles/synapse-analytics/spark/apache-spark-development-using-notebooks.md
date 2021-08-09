@@ -457,6 +457,37 @@ You can access data in the primary storage account directly. There's no need to 
 
 ![data-to-cell](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
 
+## IPython Widgets
+
+Widgets are eventful python objects that have a representation in the browser, often as a control like a slider, textbox etc. 
+
+To use IPython Widget
+1. User needs to import ipywidgets firstly to use the widget framework.
+   ```
+   import ipywidgets as widgets
+   ```
+2. Always call display function when need to render widget cause technical limitation of the fake_shell.py on BBC-VHD.
+   ```
+   w = widgets.IntSlider()
+   display(w)
+   ```
+3. Run the cell, the widget will display at the output area.
+![ipython-widgets-slider](./media/apache-spark-development-using-notebooks/ipython-widgets-slider.png)
+4. User could use `display()` to show the same widget multiple times, the displayed instances in the front-end will remain in sync with each widget.
+![ipython-widgets-slider](./media/apache-spark-development-using-notebooks/ipython-widgets-sliders.png)
+
+
+We support multiple types of widgets as below:
+|Widgets Type|Widgets|
+|--|--|
+|Numeric widgets|IntSlider, FloatSlider, FloatLogSlider, IntRangeSlider, FloatRangeSlider, IntProgress, FloatProgress, BoundedIntText, BoundedFloatText, IntText, FloatText|
+|Boolean widgets|ToggleButton, Checkbox, Valid|
+|Selection widgets|Dropdown, RadioButtons, Select, SelectionSlider, SelectionRangeSlider, ToggleButtons, SelectMultiple|
+|String Widgets|Text, Textarea, Combobox, Password, Label, HTML, HTML Math, Image, Button, Output|
+|Play (Animation) widget|Date picker, Color picker, Controller|
+|Container/Layout widgets|Box, HBox, VBox, GridBox, Accordion, Tabs, Stacked|
+
+
 ## Save notebooks
 
 You can save a single notebook or all notebooks in your workspace.
