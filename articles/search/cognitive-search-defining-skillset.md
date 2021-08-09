@@ -26,11 +26,11 @@ Some rules for creating a skillset include:
 + A skillset must contain at least one skill.
 + Within a skillset, you can repeat skills for the same type (for example, variants of an image analysis skill).
 
-## Begin with the end in mind
+## Planning and design
 
-A recommended initial step is deciding which data to extract from your raw data and how you want to use that data in a search solution. Creating an illustration of the entire enrichment pipeline can help you identify the necessary steps.
+An initial step is to decide which data to extract from your raw data and how you want to use that data in a search solution.
 
-Suppose you are interested in processing a set of financial analyst comments. For each file, you want to extract company names and the general sentiment of the comments. You might also want to write a custom enricher that uses the Bing Entity Search service to find additional information about the company, such as what kind of business the company is engaged in. Essentially, you want to extract information like the following, indexed for each document:
+Suppose you are interested in processing a set of stock analyst comments. From each file, you want to extract company names and the general sentiment of the comments. You might also want to write a custom enricher that uses the Bing Entity Search service to find additional information about the company, such as what kind of business the company is engaged in. Essentially, you want to extract information like the following, indexed for each document:
 
 | record-text | companies | sentiment | company descriptions |
 |--------|-----|-----|-----|
@@ -40,9 +40,9 @@ The following diagram illustrates a hypothetical enrichment pipeline:
 
 ![A hypothetical enrichment pipeline](media/cognitive-search-defining-skillset/sample-skillset.png "A hypothetical enrichment pipeline")
 
-Once you have fair idea of what you want in the pipeline, you can express the skillset that provides these steps. Functionally, the skillset is expressed when you upload your indexer definition to Azure Cognitive Search. To learn more about how to upload your indexer, see the [indexer-documentation](/rest/api/searchservice/create-indexer).
+Once you have fair idea of what you want in the pipeline, you can express the skillset, and then attach it to an [indexer](/rest/api/searchservice/create-indexer) that you create or run.
 
-In the diagram, the *document cracking* step happens automatically. Essentially, Azure Cognitive Search knows how to open well-known files and creates a *content* field containing the text extracted from each document. The white boxes are built-in enrichers, and the dotted "Bing Entity Search" box represents a custom enricher that you are creating. As illustrated, the skillset contains three skills.
+In the diagram, the *document cracking* step happens automatically. The indexer opens well-known files and creates a *content* field containing the text extracted from each document. In the above diagram, the white boxes are built-in enrichers, and the dotted "Bing Entity Search" box represents a custom enricher that you are creating. As illustrated, the skillset contains three skills.
 
 ## Skillset definition
 
@@ -66,15 +66,17 @@ The following example shows the main sections:
   "cognitiveServices": 
     {
        "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-       "description": "mycogsvcs resource in West US 2",
-       "key": "<your cognitive services all-in-one key goes here>"
+       "description": "A Cognitive Services resource in the same region as Azure Cognitive Search",
+       "key": "<your Cognitive Services all-in-one key goes here>"
     },
   "knowledgeStore": { },
   "encryptionKey": { }
 }
 ```
 
-### Example of a skills definition
+Providing a description makes the skillset self-documenting (comments aren't allowed in JSON itself).
+
+### Example of a skills array
 
 The skills property specifies the skills used in the skillset. This example shows two built-in skills, with a third for a custom skill that is part of the skillset, but executes externally in a module that you provide.
 
@@ -138,18 +140,16 @@ The skills property specifies the skills used in the skillset. This example show
 ]
 ```
 
-## Create a skillset
-
-While creating a skillset, you can provide a description to make the skillset self-documenting. A description is optional, but useful for keeping track of what a skillset does. Because skillset is a JSON document, which does not allow comments, you must use a `description` element for this.
+## Add skills
 
 The next piece in the skillset is an array of skills. You can think of each skill as a primitive of enrichment. Each skill performs a small task in this enrichment pipeline. Each one takes an input (or a set of inputs), and returns some outputs. The next few sections focus on how to specify built-in and custom skills, chaining skills together through input and output references. Inputs can come from source data or from another skill. Outputs can be mapped to a field in a search index or used as an input to a downstream skill.
 
 > [!NOTE]
 > You can build complex skillsets with looping and branching, using the [Conditional skill](cognitive-search-skill-conditional.md) to create the expressions. The syntax is based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation, with a few modifications to identify nodes in the enrichment tree. A `"/"` traverses a level lower in the tree and  `"*"` acts as a for-each operator in the context. Numerous examples in this article illustrate the syntax. 
 
-## Add built-in skills
+### Add built-in skills
 
-Let's look at the first skill, which is the built-in [entity recognition skill](cognitive-search-skill-entity-recognition-v3.md):
+Each built-in skill is unique in the inputs and parameters it takes, but most skills have a common set of parameters. Using the [Entity Recognition skill](cognitive-search-skill-entity-recognition-v3.md):
 
 ```json
     {
@@ -210,7 +210,7 @@ The second skill for sentiment extraction follows the same pattern as the first 
     },
 ```
 
-## Add a custom skill
+### Add a custom skill
 
 Recall the structure of the custom Bing entity search enricher:
 
@@ -244,19 +244,19 @@ Notice that the "context" field is set to ```"/document/orgs/*"``` with an aster
 
 Output, in this case a company description, is generated for each organization identified. When referring to the description in a downstream step (for example, in key phrase extraction), you would use the path ```"/document/orgs/*/description"``` to do so. 
 
-## Add structure
+## Skill output
 
-The skillset generates structured information out of unstructured data. Consider the following example:
+The skillset generates enriched documents, where you will find the output of each enrichment step. Consider the following example of unstructured text:
 
 *"In its fourth quarter, Microsoft logged $1.1 billion in revenue from LinkedIn, the social networking company it bought last year. The acquisition enables Microsoft to combine LinkedIn capabilities with its CRM and Office capabilities. Stockholders are excited with the progress so far."*
 
-A likely outcome would be a generated structure similar to the following illustration:
+Using the sentiment analyzer and entity recognition, a likely outcome would be a generated structure similar to the following illustration:
 
 ![Sample output structure](media/cognitive-search-defining-skillset/enriched-doc.png "Sample output structure")
 
-Until now, this structure has been internal-only, memory-only, and used only in Azure Cognitive Search indexes. The addition of a knowledge store gives you a way to save shaped enrichments for use outside of search.
+Until now, enriched documents have been internal-only, memory-only, and used only in Azure Cognitive Search indexes. The addition of a knowledge store gives you a way to save shaped enrichments for use outside of search.
 
-## Add a knowledge store
+## Saving enrichment to a knowledge store
 
 [Knowledge store](knowledge-store-concept-intro.md) is a feature in Azure Cognitive Search for saving your enriched document. A knowledge store that you create, backed by an Azure storage account, is the repository where your enriched data lands. 
 
