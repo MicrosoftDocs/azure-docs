@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 08/03/2021
 ---
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) connection pooling
@@ -19,16 +19,7 @@ post](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-a
 
 You can run your own connection pooler, or use PgBouncer managed by Azure.
 
-## Managed PgBouncer (preview)
-
-> [!IMPORTANT]
-> The managed PgBouncer connection pooler in Hyperscale (Citus) is currently in
-> preview. This preview version is provided without a service level agreement,
-> and it's not recommended for production workloads. Certain features might not
-> be supported or might have constrained capabilities.
->
-> You can see a complete list of other new features in [preview features for
-> Hyperscale (Citus)](hyperscale-preview-features.md).
+## Managed PgBouncer
 
 Connection poolers such as PgBouncer allow more clients to connect to the
 coordinator node at once. Applications connect to the pooler, and the pooler
@@ -39,8 +30,8 @@ actively run in the database doesn't change. Instead, PgBouncer queues excess
 connections and runs them when the database is ready.
 
 Hyperscale (Citus) is now offering a managed instance of PgBouncer for server
-groups (in preview). It supports up to 2,000 simultaneous client connections.
-To connect through PgBouncer, follow these steps:
+groups. It supports up to 2,000 simultaneous client connections.  To connect
+through PgBouncer, follow these steps:
 
 1. Go to the **Connection strings** page for your server group in the Azure
    portal.

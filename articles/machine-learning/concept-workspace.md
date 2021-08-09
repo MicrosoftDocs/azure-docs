@@ -140,7 +140,7 @@ To learn more about planning a workspace for your organization's requirements, s
 
 To get started with Azure Machine Learning, see:
 
-+ [Azure Machine Learning overview](overview-what-is-azure-ml.md)
++ [What is Azure Machine Learning?](overview-what-is-azure-machine-learning.md)
 + [Create and manage a workspace](how-to-manage-workspace.md)
 + [Tutorial: Get started with Azure Machine Learning](quickstart-create-resources.md)
 + [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md) 

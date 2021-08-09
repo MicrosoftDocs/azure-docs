@@ -148,13 +148,29 @@ The following constraints are applicable on the operational data in Azure Cosmos
 
 ### Schema representation
 
-There are two modes of schema representation in the analytical store. These modes have tradeoffs between the simplicity of a columnar representation, handling the polymorphic schemas, and simplicity of query experience:
+There are two modes of schema representation in the analytical store. These modes define the schema representation method for all containers in the database account and have tradeoffs between the simplicity of query experience versus the convenience of a more inclusive columnar representation for polymorphic schemas.
 
-* Well-defined schema representation
-* Full fidelity schema representation
+* Well-defined schema representation, default option for SQL (CORE) API accounts. 
+* Full fidelity schema representation, default option for Azure Cosmos DB API for MongoDB accounts.
 
-> [!NOTE]
-> For SQL (Core) API accounts, when analytical store is enabled, the default schema representation in the analytical store is well-defined. Whereas for Azure Cosmos DB API for MongoDB accounts, the default schema representation in the analytical store is a full fidelity schema representation. 
+It is possible to use Full Fidelity Schema for SQL (Core) API accounts. Here are the considerations about this possibility:
+
+ * This option is only valid for accounts that don't have Synapse Link enabled.
+ * It is not possible to turn Synapse Link off and on again, to reset the default option and change from well-defined to full fidelity.
+ * It is not possible to change from well-defined to full fidelity using any other process.
+ * MongoDB accounts are not compatible with this possibility of changing the method of representation.
+ * Currently this decision cannot be made through the Azure portal.
+ * The decision on this option should be made at the same time that Synapse Link is enabled on the account:
+ 
+ With the Azure CLI:
+ ```cli
+ az cosmosdb create --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --subscription MySubscription --analytical-storage-schema-type "FullFidelity" --enable-analytical-storage true
+ ```
+ 
+  With the PowerShell:
+  ```
+   New-AzCosmosDBAccount -ResourceGroupName MyResourceGroup -Name MyCosmosDBDatabaseAccount  -EnableAnalyticalStorage true -AnalyticalStorageSchemaType "FullFidelity"
+   ```
 
 #### Well-defined schema representation
 

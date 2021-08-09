@@ -154,14 +154,14 @@
     items:
     - name: All operators
       href: operators.md
+    - name: Accessor operators
+      href: operators-access.md
     - name: Comparison operators
       href: operators-comparison.md
     - name: Logical operators
       href: operators-logical.md
     - name: Numeric operators
       href: operators-numeric.md
-    - name: Access operators
-      href: operators-access.md
   - name: Bicep CLI
     href: bicep-cli.md
     displayName: build,decompile,install,list-versions,list versions,upgrade,version

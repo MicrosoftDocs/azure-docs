@@ -27,6 +27,7 @@ Azure Static Web Apps is available through two different plans, Free and Standar
 | Custom domains | 2 per app | 5 per app |
 | APIs via Azure Functions | Managed | Managed or<br>[Bring your own Functions app](functions-bring-your-own.md) |
 | Authentication provider integration | [Pre-configured](authentication-authorization.md)<br>(Service defined) | [Custom registrations](authentication-custom.md) |
+| Private endpoints | - | ✔ |
 | [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/app-service-static/v1_0/) | None  | ✔ |
 
 ## Selecting a plan

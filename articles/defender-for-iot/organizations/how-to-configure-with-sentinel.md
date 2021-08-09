@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 06/14/2021
 ---
 
-# Connect your data from Defender for IoT for organizations to Azure Sentinel 
+# Connect your data from Defender for IoT for organizations to Azure Sentinel (Public preview)
 
 Use the Defender for IoT connector to stream all your Defender for IoT events into Azure Sentinel. 
 
