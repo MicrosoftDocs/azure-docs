@@ -70,12 +70,12 @@ If you want to add a new tile, you can add it to an existing workbook, either on
 2. After the tile is created, under **Pin**, select the workbook in which you want the tile to appear.
 
 ## Create new workbooks
+
 You can create a new workbook from scratch or use a built-in workbook as the basis for your new workbook.
 
 1. To create a new workbook from scratch, select **Workbooks** and then **+New workbook**.
-2. Select the subscription the workbook is created in and give it a descriptive name. Each workbook is an Azure resource like any other, and you can assign it roles (Azure RBAC) to define and limit who can access. 
-3. To enable it to show up in your workbooks to pin visualizations to, you have to share it. Click **Share** and then **Manage users**. 
- 
+1. Select the subscription the workbook is created in and give it a descriptive name. Each workbook is an Azure resource like any other, and you can assign it roles (Azure RBAC) to define and limit who can access.
+1. To enable it to show up in your workbooks to pin visualizations to, you have to share it. Click **Share** and then **Manage users**.
 1. Use the **Check access** and **Role assignments** as you would for any other Azure resource. For more information, see [Share Azure workbooks by using Azure RBAC](../azure-portal/azure-portal-dashboard-share-access.md).
 
 
@@ -116,7 +116,7 @@ To view all the out-of-the-box detections, go to **Analytics** and then **Rule t
    ![Use built-in detections to find threats with Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 
 For more information about getting out-of-the-box detections, see [Get built-in-analytics](detect-threats-built-in.md).
- 
+
 ## Next steps
 In this quickstart, you learned how to get started using Azure Sentinel. Continue to the article for [how to detect threats](detect-threats-built-in.md).
 
