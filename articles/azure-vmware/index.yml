@@ -46,7 +46,7 @@ landingContent:
       - linkListType: reference
         links:
         - text: General
-          url: /azure/azure-vmware/faq
+          url: ./faq.yml
         - text: Customer communication
           url: /azure/azure-vmware/faq#customer-communication
         - text: Configuration and setup 
@@ -93,7 +93,7 @@ landingContent:
             url: tutorial-configure-networking.md
           - text: Create a network segment 
             url: tutorial-nsx-t-network-segment.md
-          - text: Expand or shrink clusters in a private cloud 
+          - text: Scale clusters in a private cloud 
             url: tutorial-scale-private-cloud.md
           - text: Delete a private cloud
             url: tutorial-delete-private-cloud.md
