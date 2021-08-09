@@ -11,11 +11,12 @@ ms.date: 08/13/2021
 
 This sample application shows the integration of Video Analyzer's player widget with video playback, zone drawing and video clip generation features.
 
-<TODO: include for Python & C# for cloning respective repo>
-Follow the instrcutions in the README 
+<TODO: include for Python & C# for cloning respective repo>  
+Follow the instrcutions in the README in the src/video-player folder
 
+## Get Started
 1. Click 'Get Videos'
-2. Select a video from the drop-down list
+2. Select a Video from the drop-down list of all of the Videos in your Video Analyzer account
 
 ## Video Player
 The Video Player page presents the typical player as seen in the Portal
