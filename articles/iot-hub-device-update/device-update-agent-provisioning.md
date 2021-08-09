@@ -115,7 +115,7 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
 1. Install the IoT Identity Service and add the latest version to your IoT device. 
     1. Log onto the machine or IoT device.
     1. Open a terminal window.
-    1.	Install the latest [IoT Identity Service](https://github.com/Azure/iot-identity-service/blob/main/docs/packaging.md#installing-and-configuring-the-package) on your IoT device using this command:
+    1.	Install the latest [IoT Identity Service](https://github.com/Azure/iot-identity-service/blob/main/docs-dev/packaging.md#installing-and-configuring-the-package) on your IoT device using this command:
     > [!Note]
     > The IoT Identity service registers module identities with IoT Hub by using symmetric keys currently.
 

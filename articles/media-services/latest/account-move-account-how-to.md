@@ -21,12 +21,19 @@ To start managing, encrypting, encoding, analyzing, and streaming media content 
 
 [!INCLUDE [account creation note](./includes/note-2020-05-01-account-creation.md)]
 
-## Moving a Media Services account between subscriptions 
+## Media Services account names
+
+Media Services account names must be all lowercase letters or numbers with no spaces, and between 3 to 24 characters in length. Media Services account names must be unique within an Azure location.
+
+When a Media Services account is deleted, the account name is reserved for one year. For a year after the account is deleted, account name may only be reused in the same Azure location by the
+subscription that contained the original account.
+
+Media Services account names are used in DNS names, including for Key Delivery, Live Events and Streaming Endpoint names. If you have configured firewalls or proxies to allow Media Services
+DNS names, ensure these configurations are removed within a year of deleting a Media Services account.
+
+## Moving a Media Services account between subscriptions
 
 If you need to move a Media Services account to a new subscription, you need to first move the entire resource group that contains the Media Services account to the new subscription. You must move all attached resources: Azure Storage accounts, Azure CDN profiles, etc. For more information, see [Move resources to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md). As with any resources in Azure, resource group moves can take some time to complete.
-
-> [!NOTE]
-> Media Services v3 supports multi-tenancy model.
 
 ### Considerations
 

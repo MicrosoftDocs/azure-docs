@@ -2,7 +2,7 @@
 title: Quickstart - Provision Azure Spring Cloud using Azure CLI
 description: This quickstart shows you how to use Azure CLI to deploy a Spring Cloud cluster into an existing virtual network.
 services: azure-cli
-author: vinodramasubbu
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, devx-track-java
@@ -141,7 +141,7 @@ To deploy the Azure Spring Cloud cluster using the Azure CLI script, follow thes
 1. Add the required extensions to Azure CLI.
 
    ```azurecli
-   az extension add --name spring-cloud --version 2.3.0
+   az extension add --name spring-cloud
    ```
 
 1. Choose a deployment location from the regions where Azure Spring Cloud is available, as shown in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud&regions=all).
@@ -186,7 +186,7 @@ To deploy the Azure Spring Cloud cluster using the Azure CLI script, follow thes
 
    - The CIDR ranges from your virtual network to be used by Azure Spring Cloud (for example, *XX.X.X.X/16,XX.X.X.X/16,XX.X.X.X/16*).
 
-   - The key/value pairs to be applied as tags on all resources that support tags. For more information, see [Use tags to organize your Azure resources and management hierarchy](/azure/azure-resource-manager/management/tag-resources). Use a space-separated list to apply multiple tags (for example, *environment=Dev BusinessUnit=finance*).
+   - The key/value pairs to be applied as tags on all resources that support tags. For more information, see [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md). Use a space-separated list to apply multiple tags (for example, *environment=Dev BusinessUnit=finance*).
 
 After you provide this information, the script will create and deploy the Azure resources.
 
@@ -211,7 +211,7 @@ In this quickstart, you deployed an Azure Spring Cloud instance into an existing
 
 - Deploy one of the following sample applications from the locations below:
    - [Pet Clinic App with MySQL Integration](https://github.com/azure-samples/spring-petclinic-microservices) (Microservices with MySQL backend).
-   - [Simple Hello World](spring-cloud-quickstart.md?tabs=Azure-CLI&pivots=programming-language-java).
+   - [Simple Hello World](./quickstart.md?pivots=programming-language-java&tabs=Azure-CLI).
 - Use [custom domains](tutorial-custom-domain.md) with Azure Spring Cloud.
 - Expose Azure Spring Cloud applications to the internet using [Azure Application Gateway](expose-apps-gateway-azure-firewall.md).
 - View the secure end-to-end [Azure Spring Cloud reference architecture](reference-architecture.md), which is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).

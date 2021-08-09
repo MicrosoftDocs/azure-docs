@@ -1,11 +1,11 @@
 ---
 title: "Tutorial: Map an existing custom domain to Azure Spring Cloud"
 description: How to map an existing custom Distributed Name Service (DNS) name to Azure Spring Cloud
-author: MikeDodaro
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/19/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 ---
 
@@ -113,7 +113,7 @@ You need to grant Azure Spring Cloud access to your key vault before you import 
 
 #### [CLI](#tab/Azure-CLI)
 
-Grant Azure Spring Cloud read access to key vault, replace the `<key vault resource group>` and `<key vault name>` in the following command.
+Grant Azure Spring Cloud read access to key vault, replace the *\<key vault resource group>* and *\<key vault name>* in the following command.
 ```
 az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id 938df8e2-2b9d-40b1-940c-c75c33494239 --certificate-permissions get list --secret-permissions get list
 ``` 

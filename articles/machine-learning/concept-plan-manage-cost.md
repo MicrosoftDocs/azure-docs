@@ -46,10 +46,6 @@ For more information, see [Azure Machine Learning pricing](https://azure.microso
 Azure Machine Learning runs on Azure infrastructure that accrues costs along with Azure Machine Learning when you deploy the new resource. It's important to understand that additional infrastructure might accrue cost. You need to manage that cost when you make changes to deployed resources. 
 
 
-
-
-
-
 ### Costs that typically accrue with Azure Machine Learning
 
 When you create resources for an Azure Machine Learning workspace, resources for other Azure services are also created. They are:
@@ -58,7 +54,20 @@ When you create resources for an Azure Machine Learning workspace, resources for
 * [Azure Block Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) (general purpose v1)
 * [Key Vault](https://azure.microsoft.com/pricing/details/key-vault?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 * [Application Insights](https://azure.microsoft.com/en-us/pricing/details/monitor?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+
+When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  [Set up a schedule](how-to-create-manage-compute-instance.md#schedule) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
  
+### Costs might accrue before resource deletion
+
+Before you delete an Azure Machine Learning workspace in the Azure portal or with Azure CLI, the following sub resources are common costs that accumulate even when you are not actively working in the workspace. If you are planning on returning to your Azure Machine Learning workspace at a later time, these resources may continue to accrue costs.
+
+* VMs
+* Load Balancer
+* Virtual Network
+* Bandwidth
+
+Each VM is billed per hour it is running. Cost depends on VM specifications. VMs that are running but not actively working on a dataset will still be charged via the load balancer. For each compute instance, one load balancer will be billed per day. Every 50 nodes of a compute cluster will have one standard load balancer billed. Each load balancer is billed around $0.33/day. To avoid load balancer costs on stopped compute instances and compute clusters, delete the compute resource. One virtual network will be billed per subscription and per region. Virtual networks cannot span regions or subscriptions. Setting up private endpoints in vNet setups may also incur charges. Bandwidth is charged by usage; the more data transferred, the more you are charged.
+
 ### Costs might accrue after resource deletion
 
 After you delete an Azure Machine Learning workspace in the Azure portal or with Azure CLI, the following resources continue to exist. They continue to accrue costs until you delete them.
@@ -148,11 +157,13 @@ Use the following tips to help you manage and optimize your compute resource cos
 - Set quotas on your subscription and workspaces
 - Set termination policies on your training run
 - Use low-priority virtual machines (VM)
+- Schedule compute instances to shut down and start up automatically
 - Use an Azure Reserved VM Instance
 - Train locally
 - Parallelize training
 - Set data retention and deletion policies
 - Deploy resources to the same region
+- Delete instances and clusters if you do not plan on using them in the near future.
 
 For more information, see [manage and optimize costs in Azure Machine Learning](how-to-manage-optimize-cost.md).
 

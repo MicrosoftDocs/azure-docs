@@ -16,7 +16,7 @@ ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# JavaScript and page layout versions in Azure Active Directory B2C
+# Enable JavaScript and page layout versions in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -49,7 +49,7 @@ Azure AD B2C provides a set of packaged content containing HTML, CSS, and JavaSc
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 
-## Select a page layout version
+## Begin setting up a page layout version
 
 If you intend to enable JavaScript client-side code, the elements you base your JavaScript on must be immutable. If they're not immutable, any changes could cause unexpected behavior on your user pages. To prevent these issues, enforce the use of a page layout and specify a page layout version to ensure the content definitions you’ve based your JavaScript on are immutable. Even if you don’t intend to enable JavaScript, you can specify a page layout version for your pages.
 
@@ -69,9 +69,10 @@ For information about the different page layout versions, see the [Page layout v
 
 ::: zone pivot="b2c-custom-policy"
 
-Select a [page layout](contentdefinitions.md#select-a-page-layout) for the user interface elements of your application.
+To specify a page layout version for your custom policy pages:
 
-Define a [page layout version](contentdefinitions.md#migrating-to-page-layout) with page `contract` version for *all* of the content definitions in your custom policy. The format of the value must contain the word `contract`: _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. Learn how to [Migrating to page layout](contentdefinitions.md#migrating-to-page-layout) with page version.
+1. Select a [page layout](contentdefinitions.md#select-a-page-layout) for the user interface elements of your application.
+1. Define a [page layout version](contentdefinitions.md#migrating-to-page-layout) with page `contract` version for *all* of the content definitions in your custom policy. The format of the value must contain the word `contract`: _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. 
 
 The following example shows the content definition identifiers and the corresponding **DataUri** with page contract: 
 
@@ -142,16 +143,17 @@ You enable script execution by adding the **ScriptExecution** element to the [Re
 
 Follow these guidelines when you customize the interface of your application using JavaScript:
 
-- Don't bind a click event on `<a>` HTML elements.
-- Don’t take a dependency on Azure AD B2C code or comments.
-- Don't change the order or hierarchy of Azure AD B2C HTML elements. Use an Azure AD B2C policy to control the order of the UI elements.
+- Don't 
+    - bind a click event on `<a>` HTML elements.
+    - take a dependency on Azure AD B2C code or comments.
+    - change the order or hierarchy of Azure AD B2C HTML elements. Use an Azure AD B2C policy to control the order of the UI elements.
 - You can call any RESTful service with these considerations:
     - You may need to set your RESTful service CORS to allow client-side HTTP calls.
     - Make sure your RESTful service is secure and uses only the HTTPS protocol.
     - Don't use JavaScript directly to call Azure AD B2C endpoints.
 - You can embed your JavaScript or you can link to external JavaScript files. When using an external JavaScript file, make sure to use the absolute URL and not a relative URL.
 - JavaScript frameworks:
-    - Azure AD B2C uses a [specific version of jQuery](page-layout.md#jquery-version). Don’t include another version of jQuery. Using more than one version on the same page causes issues.
+    - Azure AD B2C uses a [specific version of jQuery](page-layout.md#jquery-and-handlebars-versions). Don’t include another version of jQuery. Using more than one version on the same page causes issues.
     - Using RequireJS isn't supported.
     - Most JavaScript frameworks are not supported by Azure AD B2C.
 - Azure AD B2C settings can be read by calling `window.SETTINGS`, `window.CONTENT` objects, such as the current UI language. Don’t change the value of these objects.
@@ -237,4 +239,4 @@ In the code, replace `termsOfUseUrl` with the link to your terms of use agreemen
 
 ## Next steps
 
-Find more information about how you can customize the user interface of your applications in [Customize the user interface of your application in Azure Active Directory B2C](customize-ui-with-html.md).
+Find more information about how to [Customize the user interface of your application in Azure Active Directory B2C](customize-ui-with-html.md).

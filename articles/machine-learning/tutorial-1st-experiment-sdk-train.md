@@ -130,10 +130,6 @@ The training code is taken from [this introductory example](https://pytorch.org/
 1. You now have the following folder structure:
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-train/directory-structure.png" alt-text="Directory structure shows train.py in src subdirectory":::
-    
-
-> [!div class="nextstepaction"]
-> [I created the training scripts](?success=create-scripts#test-local) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=create-scripts)
 
 
 ## <a name="test-local"></a> Test locally
@@ -143,9 +139,6 @@ Select **Save and run script in terminal** to run the *train.py* script directly
 After the script completes, select **Refresh** above the file folders. You'll see the new data folder called **get-started/data** Expand this folder to view the downloaded data.  
 
 :::image type="content" source="media/tutorial-1st-experiment-hello-world/directory-with-data.png" alt-text="Screenshot of folders shows new data folder created by running the file locally.":::
-
-> [!div class="nextstepaction"]
-> [I ran the code locally](?success=test-local#create-local) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=test-local)
 
 
 ## <a name="create-local"></a> Create the control script
@@ -200,10 +193,6 @@ if __name__ == "__main__":
    :::column-end:::
 :::row-end:::
 
-> [!div class="nextstepaction"]
-> [I created the control script](?success=control-script#submit) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=control-script)
-
-
 ## <a name="submit"></a> Submit the run to Azure Machine Learning
 
 Select **Save and run script in terminal** to run the *run-pytorch.py* script.
@@ -240,11 +229,6 @@ Finished Training
 > If you see an error `Your total snapshot size exceeds the limit`, the **data** folder is located in the `source_directory` value used in `ScriptRunConfig`.
 >
 > Select the **...** at the end of the folder, then select **Move** to move **data** to the **get-started** folder.  
-
-
-
-> [!div class="nextstepaction"]
-> [I submitted the run](?success=test-w-environment#log) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=test-w-environment)
 
 ## <a name="log"></a> Log training metrics
 
@@ -330,10 +314,6 @@ compare metrics.
 - Equipped with a UI so you can visualize training performance in the studio.
 - Designed to scale, so you keep these benefits even as you run hundreds of experiments.
 
-> [!div class="nextstepaction"]
-> [I modified train.py ](?success=modify-train#log) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=modify-train)
-
-
 ### <a name="submit-again"></a> Submit the run to Azure Machine Learning
 
 Select the tab for the *run-pytorch.py* script, then select **Save and run script in terminal** to re-run the *run-pytorch.py* script. 
@@ -341,9 +321,6 @@ Select the tab for the *run-pytorch.py* script, then select **Save and run scrip
 This time when you visit the studio, go to the **Metrics** tab where you can now see live updates on the model training loss! It may take a 1 to 2  minutes before the training begins.  
 
 :::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Training loss graph on the Metrics tab.":::
-
-> [!div class="nextstepaction"]
-> [I resubmitted the run](?success=resubmit-with-logging#next-steps) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=resubmit-with-logging)
 
 ## Next steps
 

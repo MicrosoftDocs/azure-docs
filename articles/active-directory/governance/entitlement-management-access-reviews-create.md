@@ -70,9 +70,6 @@ This setting determines how often access reviews will occur.
     ![Add the fallback reviewers](./media/entitlement-management-access-reviews/access-reviews-select-manager.png)
 
 1. Click **Review + Create** if you are creating a new access package or **Update** if you are editing an access package, at the bottom of the page.
- 
-> [!NOTE]
-> In Azure AD Entitlement Management, the result of an access package review is always auto-applied to the users assigned to the package, according to the setting selected in **If reviewers don’t respond**. When the review setting of **If reviewers don’t respond** is set to **No change**, this is equivalent to the system approving continued access for the users being reviewed.
 
 ## View the status of the access review
 

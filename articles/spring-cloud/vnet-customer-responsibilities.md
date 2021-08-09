@@ -1,8 +1,8 @@
 ---
 title:  "Customer responsibilities running Azure Spring Cloud in vnet"
 description: This article describes customer responsibilities running Azure Spring Cloud in vnet.
-author:  MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/02/2020
@@ -28,44 +28,46 @@ The following is a list of resource requirements for Azure Spring Cloud services
 
 ## Azure Spring Cloud network requirements
 
-  | Destination Endpoint | Port | Use | Note |
-  |------|------|------|------|
-  | *:1194 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:1194 | UDP:1194 | Underlying Kubernetes Cluster management. | |
-  | *:443 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:443 | TCP:443 | Azure Spring Cloud Service Management. | Information of service instance "requiredTraffics" could be known in resource payload, under "networkProfile" section. |
-  | *:9000 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:9000 | TCP:9000 | Underlying Kubernetes Cluster management. |
-  | *:123 *Or* ntp.ubuntu.com:123 | UDP:123 | NTP time synchronization on Linux nodes. | |
-  | *.azure.io:443 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureContainerRegistry:443 | TCP:443 | Azure Container Registry. | Can be replaced by enabling *Azure Container Registry* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
-  | *.core.windows.net:443 and *.core.windows.net:445 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Storage:443 and Storage:445 | TCP:443, TCP:445 | Azure File Storage | Can be replaced by enabling *Azure Storage* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
-  | *.servicebus.windows.net:443 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - EventHub:443 | TCP:443 | Azure Event Hub. | Can be replaced by enabling *Azure Event Hubs* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
-  
+| Destination Endpoint                                         | Port             | Use                                       | Note                                                         |
+| ------------------------------------------------------------ | ---------------- | ----------------------------------------- | ------------------------------------------------------------ |
+| *:1194 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:1194 | UDP:1194         | Underlying Kubernetes Cluster management. |                                                              |
+| *:443 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:443 | TCP:443          | Azure Spring Cloud Service Management.    | Information of service instance "requiredTraffics" could be known in resource payload, under "networkProfile" section. |
+| *:9000 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:9000 | TCP:9000         | Underlying Kubernetes Cluster management. |                                                              |
+| *:123 *Or* ntp.ubuntu.com:123                                | UDP:123          | NTP time synchronization on Linux nodes.  |                                                              |
+| *.azure.io:443 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureContainerRegistry:443 | TCP:443          | Azure Container Registry.                 | Can be replaced by enabling *Azure Container Registry* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
+| *.core.windows.net:443 and *.core.windows.net:445 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Storage:443 and Storage:445 | TCP:443, TCP:445 | Azure File Storage                        | Can be replaced by enabling *Azure Storage* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
+| *.servicebus.windows.net:443 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - EventHub:443 | TCP:443          | Azure Event Hub.                          | Can be replaced by enabling *Azure Event Hubs* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
+
 
 ## Azure Spring Cloud FQDN requirements/application rules
 
 Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the following configurations:
 
-  | Destination FQDN | Port | Use |
-  |------|------|------|
-  | *.azmk8s.io | HTTPS:443 | Underlying Kubernetes Cluster management. |
-  | <i>mcr.microsoft.com</i> | HTTPS:443 | Microsoft Container Registry (MCR). |
-  | *.cdn.mscr.io | HTTPS:443 | MCR storage backed by the Azure CDN. |
-  | *.data.mcr.microsoft.com | HTTPS:443 | MCR storage backed by the Azure CDN. |
-  | <i>management.azure.com</i> | HTTPS:443 | Underlying Kubernetes Cluster management. |
-  | <i>*login.microsoftonline.com</i> | HTTPS:443 | Azure Active Directory authentication. |
-  | <i>*login.microsoft.com</i> | HTTPS:443 | Azure Active Directory authentication. |
-  |<i>packages.microsoft.com</i>    | HTTPS:443 | Microsoft packages repository. |
-  | <i>acs-mirror.azureedge.net</i> | HTTPS:443 | Repository required to install required binaries like kubenet and Azure CNI.​ |
-  | *mscrl.microsoft.com* | HTTPS:80 | Required Microsoft Certificate Chain Paths. |
-  | *crl.microsoft.com* | HTTPS:80 | Required Microsoft Certificate Chain Paths. |
-  | *crl3.digicert.com* | HTTPS:80 | 3rd Party SSL Certificate Chain Paths. |
-  
+| Destination FQDN                  | Port      | Use                                                          |
+| --------------------------------- | --------- | ------------------------------------------------------------ |
+| *.azmk8s.io                       | HTTPS:443 | Underlying Kubernetes Cluster management.                    |
+| <i>mcr.microsoft.com</i>          | HTTPS:443 | Microsoft Container Registry (MCR).                          |
+| *.cdn.mscr.io                     | HTTPS:443 | MCR storage backed by the Azure CDN.                         |
+| *.data.mcr.microsoft.com          | HTTPS:443 | MCR storage backed by the Azure CDN.                         |
+| <i>management.azure.com</i>       | HTTPS:443 | Underlying Kubernetes Cluster management.                    |
+| <i>*login.microsoftonline.com</i> | HTTPS:443 | Azure Active Directory authentication.                       |
+| <i>*login.microsoft.com</i>       | HTTPS:443 | Azure Active Directory authentication.                       |
+| <i>packages.microsoft.com</i>     | HTTPS:443 | Microsoft packages repository.                               |
+| <i>acs-mirror.azureedge.net</i>   | HTTPS:443 | Repository required to install required binaries like kubenet and Azure CNI. |
+| *mscrl.microsoft.com*             | HTTPS:80  | Required Microsoft Certificate Chain Paths.                  |
+| *crl.microsoft.com*               | HTTPS:80  | Required Microsoft Certificate Chain Paths.                  |
+| *crl3.digicert.com*               | HTTPS:80  | 3rd Party SSL Certificate Chain Paths.                       |
+
 ## Azure Spring Cloud optional FQDN for third-party application performance management
 
 Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the following configurations:
 
-  | Destination FQDN | Port | Use                                                          |
-  | ---------------- | ---- | ------------------------------------------------------------ |
-  | collector*.newrelic.com | TCP:443/80 | Required networks of New Relic APM agents from US region, also see [APM Agents Networks](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents). |
-  | collector*.eu01.nr-data.net | TCP:443/80 | Required networks of New Relic APM agents from EU region, also see [APM Agents Networks](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents). |
+| Destination FQDN            | Port       | Use                                                          |
+| --------------------------- | ---------- | ------------------------------------------------------------ |
+| collector*.newrelic.com     | TCP:443/80 | Required networks of New Relic APM agents from US region, also see [APM Agents Networks](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents). |
+| collector*.eu01.nr-data.net | TCP:443/80 | Required networks of New Relic APM agents from EU region, also see [APM Agents Networks](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents). |
+| *.live.dynatrace.com        | TCP:443    | Required network of Dynatrace APM agents.                    |
+| *.live.ruxit.com            | TCP:443    | Required network of Dynatrace APM agents.                    |
 
 ## See also
 * [Access your application in a private network](access-app-virtual-network.md)

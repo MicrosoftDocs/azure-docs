@@ -72,4 +72,3 @@ Read the following articles:
 
 - [DevTest Labs concepts](devtest-lab-concepts.md)
 - [DevTest Labs FAQ](devtest-lab-faq.yml)
-

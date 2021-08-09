@@ -30,6 +30,7 @@ There are few exceptions to the retirement policy outlined above. Here is a list
 
 |Language Versions                        |EOL Date         |Expected Retirement Date|
 |-----------------------------------------|-----------------|----------------|
+|.NET 5|February 2022|TBA|
 |Node 6|30 April 2019|TBA| 
 |Node 8|31 December 2019|TBA| 
 |Node 10|30 April 2021|TBA| 

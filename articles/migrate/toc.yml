@@ -132,6 +132,9 @@
       href: migrate-replication-appliance.md
     - name: VMware agentless migration architecture
       href: concepts-vmware-agentless-migration.md
+      items:
+        - name: Prepare for VMware agentless migration
+          href: prepare-for-agentless-migration.md
     - name: Hyper-V migration architecture
       href: hyper-v-migration-architecture.md
     - name: VMware agent-based migration architecture

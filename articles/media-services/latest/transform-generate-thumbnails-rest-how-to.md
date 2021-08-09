@@ -20,6 +20,9 @@ ms.author: inhenkel
 
 You can use Media Encoder Standard to generate one or more thumbnails from your input video in [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), or [BMP](https://en.wikipedia.org/wiki/BMP_file_format) image file formats.
 
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]
+
+
 ## Recommended reading and practice
 
 It is recommended that you become familiar with custom transforms by reading [How to encode with a custom transform - REST](transform-custom-preset-rest-how-to.md).

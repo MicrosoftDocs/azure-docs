@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Olfeo SAAS for automatic user provisioning with Azur
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Olfeo SAAS.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 5f6b0320-dfe7-451c-8cd8-6ba7f2e40434
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Olfeo SAAS for automatic user provisioning

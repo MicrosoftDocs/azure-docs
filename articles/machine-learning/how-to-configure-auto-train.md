@@ -387,6 +387,9 @@ Configure  `max_concurrent_iterations` in your `AutoMLConfig` object. If it is n
 
 ## Explore models and metrics
 
+> [!WARNING]
+> The algorithms automated ML employs have inherent randomness that can cause slight variation in a recommended model's final metrics score, like accuracy. Automated ML also performs operations on data such as train-test split, train-validation split or cross-validation when necessary. So if you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score due to these factors. 
+
 Automated ML offers options for you to monitor and evaluate your training results. 
 
 * You can view your training results in a widget or inline if you are in a notebook. See [Monitor automated machine learning runs](#monitor) for more details.
@@ -489,8 +492,6 @@ best_run, model_from_aml = automl_run.get_output()
 print_model(model_from_aml)
 
 ```
-> [!NOTE]
-> The algorithms automated ML employs have inherent randomness that can cause slight variation in a recommended model's final metrics score, like accuracy. Automated ML also performs operations on data such as train-test split, train-validation split or cross-validation when necessary. So if you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score due to these factors. 
 
 ## <a name="monitor"></a> Monitor automated machine learning runs
 
@@ -516,7 +517,7 @@ To register a model from an automated ML run, use the [`register_model()`](/pyth
 
 ```Python
 
-best_run, fitted_model = run.get_output()
+best_run = run.get_best_child()
 print(fitted_model.steps)
 
 model_name = best_run.properties['model_name']
@@ -551,7 +552,5 @@ For general information on how model explanations and feature importance can be 
 + Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 
 + Learn more about [how to train a regression model with Automated machine learning](tutorial-auto-train-models.md).
-
-+ Learn how to train multiple models with AutoML in the [Many Models Solution Accelerator](https://aka.ms/many-models).
 
 + [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md). 

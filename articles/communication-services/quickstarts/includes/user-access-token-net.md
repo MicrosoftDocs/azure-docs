@@ -98,7 +98,7 @@ string accessKey = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_AC
 var client = new CommunicationIdentityClient(new Uri(endpoint), new AzureKeyCredential(accessKey));
 ```
 
-If you have managed identity set up, see [Use managed identities](../managed-identity.md), you may also authenticate with managed identity.
+If you have an Azure Active Directory(AD) application set up, see [Use Service Principals](../identity/service-principal.md), you may also authenticate with AD.
 ```csharp
 TokenCredential tokenCredential = new DefaultAzureCredential();
 var client = new CommunicationIdentityClient(new Uri(endpoint), tokenCredential);

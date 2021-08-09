@@ -170,7 +170,6 @@ Locations where only media processors are deployed (SIP flows via the closest da
 ## Media traffic: Codecs
 
 ### Leg between SBC and Cloud Media Processor or Microsoft Teams client.
-Applies to both media bypass case and non-bypass cases.
 
 The Azure direct routing interface on the leg between the Session Border Controller and Cloud Media Processor can use the following codecs:
 
@@ -180,7 +179,7 @@ You can force use of the specific codec on the Session Border Controller by excl
 
 ### Leg between Communication Services Calling SDK app and Cloud Media Processor
 
-On the leg between the Cloud Media Processor and Communication Services Calling SDK app, either SILK or G.722 is used. The codec choice on this leg is based on Microsoft algorithms, which take into consideration multiple parameters. 
+On the leg between the Cloud Media Processor and Communication Services Calling SDK app, G.722 is used. Microsoft is working on adding more codecs on this leg. 
 
 ## Supported Session Border Controllers (SBCs)
 

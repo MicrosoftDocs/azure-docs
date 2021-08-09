@@ -37,6 +37,7 @@ Azure Stack Edge Mini R has the following capabilities:
 |Data refresh     | Ability to refresh local files with the latest from cloud.|
 |Double encryption    | Use of self-encrypting drive provides the first layer of encryption. VPN provides the second layer of encryption. BitLocker support to locally encrypt data and secure data transfer to cloud over *https* .|
 |Bandwidth throttling| Throttle to limit bandwidth usage during peak hours.|
+|Easy ordering| Bulk ordering and tracking of the device via Azure Edge Hardware Center (Preview).|
 
 ## Use cases
 
@@ -61,6 +62,10 @@ The Azure Stack Edge Mini R solution comprises of an Azure Stack Edge resource, 
 * **Azure Stack Edge Mini R physical device** - An ultra portable, rugged, compute and storage device supplied by Microsoft. The device has an onboard battery and weighs less than 7 lbs.
 
     ![Azure Stack Edge Mini R device](media/azure-stack-edge-mini-r-overview/perspective-view-1.png)
+
+    [!INCLUDE [azure-stack-edge-gateway-edge-hardware-center-overview](../../includes/azure-stack-edge-gateway-edge-hardware-center-overview.md)]    
+
+    For more information, go to [Create an order for your Azure Stack Edge Mini R device](azure-stack-edge-mini-r-deploy-prep.md#create-a-new-resource).
 
 * **Azure Stack Edge resource** – A resource in the Azure portal that lets you manage a rugged, Azure Stack Edge Mini R device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
 

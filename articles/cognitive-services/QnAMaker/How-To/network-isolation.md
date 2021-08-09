@@ -4,68 +4,128 @@ description: Users can restrict public access to QnA Maker resources.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 07/13/2021
 ---
 
 # Recommended settings for network isolation
 
-You should follow the steps below to restrict public access to QnA Maker resources. Protect a Cognitive Services resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
+Follow the steps below to restrict public access to QnA Maker resources. Protect a Cognitive Services resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
 
-## Restrict access to App Service (QnA Runtime)
+## Restrict access to App Service (QnA runtime)
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
-You can add IPs to App service allow list to restrict access or Configure App Service Environment to host QnA Maker App Service.
+You can use the ServiceTag `CognitiveServicesMangement` to restrict inbound access to App Service or ASE (App Service Environment) network security group in-bound rules. Check out more information about service tags in the [virtual network service tags article](../../../virtual-network/service-tags-overview.md). 
 
-#### Add IPs to App Service allow list
+### Regular App Service
 
-1. Allow traffic only from Cognitive Services IPs. These are already included in Service Tag `CognitiveServicesManagement`. This is required for Authoring APIs (Create/Update KB) to invoke the app service and update Azure Search service accordingly. Check out [more information about service tags.](../../../virtual-network/service-tags-overview.md)
-2. Make sure you also allow other entry points like Azure Bot Service, QnA Maker portal, etc. for prediction "GenerateAnswer" API access.
-3. Please follow these steps to add the IP Address ranges to an allow list:
+1. Open the Cloud Shell (PowerShell) from the Azure portal.
+2. Run the following command in the PowerShell window at the bottom of the page:
 
-   1. Download [IP Ranges for all service tags](https://www.microsoft.com/download/details.aspx?id=56519).
-   2. Select the IPs of "CognitiveServicesManagement".
-   3. Navigate to the networking section of your App Service resource, and click on "Configure Access Restriction" option to add the IPs to an allow list.
+```ps
+Add-AzWebAppAccessRestrictionRule -ResourceGroupName "<resource group name>" -WebAppName "<app service name>" -Name "cognitive services Tag" -Priority 100 -Action Allow -ServiceTag "CognitiveServicesManagement" 
+```
+3.  Verify the added access rule is present in the **Access Restrictions** section of the **Networking** tab:  
 
-We also have an automated script to do the same for your App Service. You can find the [PowerShell script to configure an allow list](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) on GitHub. You need to input subscription id, resource group and actual App Service name as script parameters. Running the script will automatically add the IPs to App Service allow list.
+    > [!div class="mx-imgBorder"]
+    > [ ![Screenshot of access restriction rule]( ../media/network-isolation/access-restrictions.png) ](  ../media/network-isolation/access-restrictions.png#lightbox)
 
-#### Configure App Service Environment to host QnA Maker App Service
+4. To access the **Test pane** on the https://qnamaker.ai portal, add the **Public IP address of the machine** from where you want to access the portal. From the **Access Restrictions** page select **Add Rule**, and allow access to your client IP. 
+
+    > [!div class="mx-imgBorder"]
+    > [ ![Screenshot of access restriction rule with the addition of public IP address]( ../media/network-isolation/public-address.png) ](  ../media/network-isolation/public-address.png#lightbox)
+
+### Configure App Service Environment to host QnA Maker App Service
+
+The App Service Environment (ASE) can be used to host the QnA Maker App Service instance. Follow the steps below:
+
+1. Create a [new Azure Cognitive Search Resource](https://ms.portal.azure.com/#create/Microsoft.Search).
+2. Create an external ASE with App Service.
+    - Follow this [App Service quickstart](../../../app-service/environment/create-external-ase.md#create-an-ase-and-an-app-service-plan-together) for instructions. This process can take up to 1-2 hours.
+    - Finally, you will have an App Service endpoint that will appear similar to: `https://<app service name>.<ASE name>.p.azurewebsite.net` . 
+	- Example: `https:// mywebsite.myase.p.azurewebsite.net`  
+3. Add the following App service configurations:
     
-The App Service Environment(ASE) can be used to host QnA Maker App service. Please follow the steps below:
+    | Name                       | Value                                                     |
+    |:---------------------------|:----------------------------------------------------------| 
+    | PrimaryEndpointKey         | `<app service name>-PrimaryEndpointKey`                   | 
+    | AzureSearchName            | `<Azure Cognitive Search Resource Name from step #1>`     | 
+    | AzureSearchAdminKey        | `<Azure Cognitive Search Resource admin Key from step #1>`| 
+    | QNAMAKER_EXTENSION_VERSION | `latest`                                                  |
+    | DefaultAnswer              | `no answer found`                                         |
 
-1. Create an App Service Environment and mark it as “external”. Please follow the [tutorial](../../../app-service/environment/create-external-ase.md) for instructions.
-2.  Create an App service inside the App Service Environment.
-    1. Check the configuration for the App service and add 'PrimaryEndpointKey' as an application setting. The value for 'PrimaryEndpointKey' should be set to “\<app-name\>-PrimaryEndpointKey”. The App Name is defined in the App service URL. For instance, if the App service URL is "mywebsite.myase.p.azurewebsite.net", then the app-name is "mywebsite". In this case, the value for 'PrimaryEndpointKey' should be set to “mywebsite-PrimaryEndpointKey”.
-    2. Create an Azure search service.
-    3. Ensure Azure Search and App Settings are appropriately configured. 
-          Please follow this [tutorial](../reference-app-service.md?tabs=v1#app-service).
-3.  Update the Network Security Group associated with the App Service Environment
-    1. Update pre-created Inbound Security Rules as per your requirements.
-    2. Add a new Inbound Security Rule with source as 'Service Tag' and source service tag as 'CognitiveServicesManagement'.
-       
-    ![inbound port exceptions](../media/inbound-ports.png)
+4. Add CORS origin "*" on the App Service to allow access to https://qnamaker.ai portal Test pane. **CORS** is located under the API header in the App Service pane.
 
-4.  Create a QnA Maker cognitive service instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager, where QnA Maker endpoint should be set to the App Service     Endpoint created above (https:// mywebsite.myase.p.azurewebsite.net).
+    > [!div class="mx-imgBorder"]
+    > [ ![Screenshot of CORS interface within App Service UI]( ../media/network-isolation/cross-orgin-resource-sharing.png) ](  ../media/network-isolation/cross-orgin-resource-sharing.png#lightbox)
+
+5. Create a QnA Maker Cognitive Services instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager. The QnA Maker endpoint should be set to the App Service Endpoint created above (`https:// mywebsite.myase.p.azurewebsite.net`). Here is a [sample Azure Resource Manager template you can use for reference](https://github.com/pchoudhari/QnAMakerBackupRestore/tree/master/QnAMakerASEArmTemplate).
+
+### Related questions
+
+#### Can QnA Maker be deployed to an internal ASE? 
+
+The main reason for using an external ASE is so the QnAMaker service backend (authoring apis) can reach the App Service via the Internet. However, you can still protect it by adding inbound access restriction to allow only connections from addresses associated with the `CognitiveServicesManagement` service tag.
+
+If you still want to use an internal ASE, you need to expose that specific QnA Maker app in the ASE on a public domain via the app gateway DNS TLS/SSL cert. For more information, see this [article on Enterprise deployment of App Services](/azure/architecture/reference-architectures/enterprise-integration/ase-standard-deployment).
+
     
 # [Custom question answering (preview release)](#tab/v2)
 
-App service is not deployed with Custom question answering.
+App Service is not deployed with custom question answering.
 
 ---
 
-## Restrict access to Cognitive Search Resource
+## Restrict access to Cognitive Search resource
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
-Cognitive Search instance can be isolated via a Private Endpoint after the QnA Maker Resources have been created. Private Endpoint connections require a VNet through which the Search Service Instance can be accessed. 
+The Cognitive Search instance can be isolated via a private endpoint after the QnA Maker resources have been created. Use the following steps to lock down access:
 
-If the QnA Maker App Service is restricted using an App Service Environment, use the same VNet to create a Private Endpoint connection to the Cognitive Search instance. Create a new DNS entry in the VNet to map the Cognitive Search endpoint to the Cognitive Search Private Endpoint IP address. 
+1. Create a new [virtual network (VNet)](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) or use existing VNet of ASE (App Service Environment).
+2. Open the VNet resource, then under the **Subnets** tab create two subnets. One for the App Service **(appservicesubnet)** and another subnet **(searchservicesubnet)** for the Cognitive Search resource without delegation. 
 
-If an App Service Environment is not used for the QnAMaker App Service, create a new VNet resource first and then create the Private Endpoint connection to the Cognitive Search instance. In this case, the QnA Maker App Service needs [to be integrated with the VNet](../../../app-service/web-sites-integrate-with-vnet.md) to connect to the Cognitive Search instance. 
+    > [!div class="mx-imgBorder"]
+    > [ ![Screenshot of virtual networks subnets UI interface]( ../media/network-isolation/subnets.png) ](  ../media/network-isolation/subnets.png#lightbox)
+
+3. In the **Networking** tab in the Cognitive Search service instance switch endpoint connectivity data from public to private. This operation is a long running process and **can take up to 30 minutes** to complete.
+
+    > [!div class="mx-imgBorder"]
+    > [ ![Screenshot of networking UI with public/private toggle button]( ../media/network-isolation/private.png) ](  ../media/network-isolation/private.png#lightbox)
+
+4. Once the Search resource is switched to private, select add **private endpoint**.
+    - **Basic tab**: make sure you are creating your endpoint in the same region as search resource.
+    - **Resource tab**: select the required search resource of type `Microsoft.Search/searchServices`.
+
+    > [!div class="mx-imgBorder"]
+    > [ ![Screenshot of create a private endpoint UI window]( ../media/network-isolation/private-endpoint.png) ](  ../media/network-isolation/private-endpoint.png#lightbox)
+
+    - **Configuration tab**:  use the VNet, subnet (searchservicesubnet) created in step 2. After that, in section **Private DNS integration** select the corresponding subscription and create a new private DNS zone called **privatelink.search.windows.net**.
+
+     > [!div class="mx-imgBorder"]
+     > [ ![Screenshot of create private endpoint UI window with subnet field populated]( ../media/network-isolation/subnet.png) ](  ../media/network-isolation/subnet.png#lightbox)
+
+    5. Enable VNET integration for the regular App Service. You can skip this step for ASE, as that already has access to the VNET.
+        - Go to App Service **Networking** section, and open **VNet Integration**.
+        - Link to the dedicated App Service VNet, Subnet (appservicevnet) created in step 2.
+    
+     > [!div class="mx-imgBorder"]
+     > [ ![Screenshot of VNET integration UI]( ../media/network-isolation/integration.png) ](  ../media/network-isolation/integration.png#lightbox)
+
 
 # [Custom question answering (preview release)](#tab/v2)
 
 [Create Private endpoints](../reference-private-endpoint.md) to the Azure Search resource.
+
+Follow the steps below to restrict public access to QnA Maker resources. Protect a Cognitive Services resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
+
+After restricting access to Cognitive Service resource based on VNet, To browse knowledgebases on the https://qnamaker.ai portal from your on-premises network or your local browser.
+- Grant access to [on-premises network](../../cognitive-services-virtual-networks.md?tabs=portal#configuring-access-from-on-premises-networks).
+- Grant access to your [local browser/machine](../../cognitive-services-virtual-networks.md?tabs=portal#managing-ip-network-rules).
+- Add the **public IP address of the machine  under the Firewall** section of the **Networking** tab. By default `portal.azure.com` shows the current browsing machine's public IP (select this entry) and then select **Save**.
+
+     > [!div class="mx-imgBorder"]
+     > [ ![Screenshot of firewall and virtual networks configuration UI]( ../media/network-isolation/firewall.png) ](  ../media/network-isolation/firewall.png#lightbox)
 
 ---
 

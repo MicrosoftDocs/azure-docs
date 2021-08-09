@@ -548,7 +548,7 @@ To install:
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot that shows selecting the version.":::
 
-1. In the Installation Wizard define the appliance profile and network properties.
+1. In the Installation Wizard, define the appliance profile and network properties.
 
     :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="Screenshot that shows the Installation Wizard.":::
 
@@ -1033,9 +1033,9 @@ To install the software:
 
     :::image type="content" source="media/tutorial-install-components/defender-for-iot-management-console-sign-in-screen.png" alt-text="Screenshot that shows the management console's sign-in screen.":::
 
-## Legacy devices
+## Legacy appliances
 
-This section describes devices that are no longer available for purchase, but are still supported by Azure Defender for IoT.
+This section describes installation procedures for *legacy* appliances only. See [Identify required appliances](how-to-identify-required-appliances.md#identify-required-appliances), if you are buying a new appliance.
 
 ### Nuvo 5006LP installation
 

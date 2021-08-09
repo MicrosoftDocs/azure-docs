@@ -36,7 +36,7 @@ The following table contains the Azure RBAC permissions related to this configur
 |     |  Read & execute |  Read & execute |
 |     |  Read           |  Read    |
 |     |  Write          |  Write   |
-|Storage File Data SMB Share Elevated Contributor | Full control  |  Modify, Read, Write, Edit, Execute |
+|Storage File Data SMB Share Elevated Contributor | Full control  |  Modify, Read, Write, Edit (Change permissions), Execute |
 |     |  Modify          |  Modify |
 |     |  Read & execute  |  Read & execute |
 |     |  Read            |  Read   |

@@ -22,7 +22,7 @@ Recall that the center of Azure Digital Twins is the [twin graph](concepts-twins
 
 This graph can be queried to get information about the digital twins and relationships it contains. These queries are written in a custom SQL-like query language, referred to as the **Azure Digital Twins query language**. This language is similar to the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md) with many comparable features.
 
-This article describes the basics of the query language and its capabilities. For more detailed examples of query syntax and how to run query requests, see [How-to: Query the twin graph](how-to-query-graph.md).
+This article describes the basics of the query language and its capabilities. For more detailed examples of query syntax and how to run query requests, see [Query the twin graph](how-to-query-graph.md).
 
 ## About the queries
 
@@ -48,4 +48,4 @@ When writing queries for Azure Digital Twins, keep the following considerations 
 
 ## Next steps
 
-Learn how to write queries and see client code examples in [How-to: Query the twin graph](how-to-query-graph.md).
+Learn how to write queries and see client code examples in [Query the twin graph](how-to-query-graph.md).

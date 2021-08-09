@@ -2,7 +2,7 @@
 title: What is Azure Relay? | Microsoft Docs
 description: This article provides an overview of the Azure Relay service, which allows you to develop cloud applications that consume on-premises services running in your corporate network without opening a firewall connection or making intrusive changes to your network infrastructure.  
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 06/23/2021
 ---
 
 # What is Azure Relay?

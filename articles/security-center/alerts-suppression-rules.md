@@ -21,7 +21,7 @@ This page explains how you can use alerts suppression rules to suppress false po
 |Release state:|General Availability (GA)|
 |Pricing:|Free<br>(Most security alerts are only available with Azure Defender)|
 |Required roles and permissions:|**Security admin** and **Owner** can create/delete rules.<br>**Security reader** and **Reader** can view rules.|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (US Gov, Azure China)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (US Gov, Azure China 21Vianet)|
 |||
 
 
