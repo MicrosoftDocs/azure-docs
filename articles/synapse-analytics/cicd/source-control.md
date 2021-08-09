@@ -95,7 +95,10 @@ The GitHub integration with Synapse Studio supports both public GitHub (that is,
 
 ### GitHub settings
 
-When connecting to your git repository, first select your repository type as GitHub, and then provide your GitHub account or GitHub Enterprise Server URL if you use GitHub Enterprise Server,or your GitHub Enterprise organization name if using GitHub Enterprise Cloud (NOTE:If it is GitHub Enterprise Cloud, leave the GitHub Enterprise checkbox unchecked) and click **Continue**.
+When connecting to your git repository, first select your repository type as GitHub, and then provide your GitHub account, your GitHub Enterprise Server URL if you use GitHub Enterprise Server, or your GitHub Enterprise organization name if you use GitHub Enterprise Cloud. Select **Continue**.
+
+> [!NOTE]
+> If you're using GitHub Enterprise Cloud, leave the **Use GitHub Enterprise Server** checkbox cleared. 
 
 ![GitHub repository settings](media/connect-with-github-repo-1.png)
 
