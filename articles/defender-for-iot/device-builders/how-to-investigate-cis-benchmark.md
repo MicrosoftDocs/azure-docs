@@ -1,7 +1,7 @@
 ---
 title: Investigate CIS benchmark recommendation
 description: Perform basic and advanced investigations based on OS baseline recommendations.
-ms.date: 08/08/2021
+ms.date: 08/09/2021
 ms.topic: how-to
 ---
 
@@ -59,7 +59,7 @@ To query your IoT security events in Log Analytics workspace directly:
     
     summarize TimeStamp=max(TimeStamp) by DeviceId;
     
-    lastDates | join kind=inner (SecurityIoTRawEvent) on TimeStamp, DeviceId  |
+    lastDates | join kind=inner (SecurityIoTRawEvent) on TimeStamp, DeviceId |
     
     extend event = parse_json(EventDetails) |
     
@@ -71,57 +71,56 @@ To query your IoT security events in Log Analytics workspace directly:
 - **Specific device failure** - Run the following query to retrieve the latest information about checks that failed on a specific device:  
 
     ```azurecli
-    let id = SecurityIoTRawEvent
+    let id = SecurityIoTRawEvent |
+    extend IoTRawEventId = extractjson("$.EventId", EventDetails, typeof(string)) |
 
-    | extend IoTRawEventId = extractjson("$.EventId", EventDetails, typeof(string))
+    where TimeGenerated <= now() |
 
-    | where TimeGenerated <= now()
+    where RawEventName == "Baseline" |
 
-    | where RawEventName == "Baseline"
+    where DeviceId == "<device-id>" |
 
-    | where DeviceId == "<device-id>"
+    summarize arg_max(TimeGenerated, IoTRawEventId) |
 
-    | summarize arg_max(TimeGenerated, IoTRawEventId)
+    project IoTRawEventId;
 
-    | project IoTRawEventId;
+    SecurityIoTRawEvent |
 
-    SecurityIoTRawEvent
+    extend IoTRawEventId = extractjson("$.EventId", EventDetails, typeof(string)), extraDetails = todynamic(EventDetails) |
 
-    | extend IoTRawEventId = extractjson("$.EventId", EventDetails, typeof(string)), extraDetails = todynamic(EventDetails)
+    where IoTRawEventId == toscalar(id) |
 
-    | where IoTRawEventId == toscalar(id)
+    where extraDetails.BaselineCheckResult == "FAIL" |
 
-    | where extraDetails.BaselineCheckResult == "FAIL"
-
-    | project DeviceId, CceId = extraDetails.BaselineCheckId, Description = extraDetails.BaselineCheckDescription
+    project DeviceId, CceId = extraDetails.BaselineCheckId, Description = extraDetails.BaselineCheckDescription
     ```
 
 - **Specific device error** - Run this query to retrieve the latest information about checks that have an error on a specific device:
 
     ```azurecli
-    let id = SecurityIoTRawEvent
+    let id = SecurityIoTRawEvent |
 
-    | extend IoTRawEventId = extractjson("$.EventId", EventDetails, typeof(string))
+    extend IoTRawEventId = extractjson("$.EventId", EventDetails, typeof(string)) |
 
-    | where TimeGenerated <= now()
+    where TimeGenerated <= now() |
 
-    | where RawEventName == "Baseline"
+    where RawEventName == "Baseline" |
 
-    | where DeviceId == "<device-id>"
+    where DeviceId == "<device-id>" |
 
-    | summarize arg_max(TimeGenerated, IoTRawEventId)
+    summarize arg_max(TimeGenerated, IoTRawEventId) |
 
-    | project IoTRawEventId;
+    project IoTRawEventId;
 
-    SecurityIoTRawEvent
+    SecurityIoTRawEvent |
 
-    | extend IoTRawEventId = extractjson("$.EventId", EventDetails, typeof(string)), extraDetails = todynamic(EventDetails)
+    extend IoTRawEventId = extractjson("$.EventId", EventDetails, typeof(string)), extraDetails = todynamic(EventDetails) |
 
-    | where IoTRawEventId == toscalar(id)
+    where IoTRawEventId == toscalar(id) |
 
-    | where extraDetails.BaselineCheckResult == "ERROR"
+    where extraDetails.BaselineCheckResult == "ERROR" |
 
-    | project DeviceId, CceId = extraDetails.BaselineCheckId, Description = extraDetails.BaselineCheckDescription
+    project DeviceId, CceId = extraDetails.BaselineCheckId, Description = extraDetails.BaselineCheckDescription
     ```
 
 - **Update device list for device fleet that failed a specific check** - Run this query to retrieve updated list of devices (across the device fleet) that failed a specific check:  
@@ -133,7 +132,7 @@ To query your IoT security events in Log Analytics workspace directly:
     
     summarize TimeStamp=max(TimeStamp) by DeviceId;
     
-    lastDates | join kind=inner (SecurityIoTRawEvent) on TimeStamp, DeviceId  |
+    lastDates | join kind=inner (SecurityIoTRawEvent) on TimeStamp, DeviceId |
     
     extend event = parse_json(EventDetails) |
     
