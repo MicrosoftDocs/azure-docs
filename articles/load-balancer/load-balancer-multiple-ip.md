@@ -296,7 +296,7 @@ In this section, you'll connect through Remote Desktop Protocol (RDP) to **myVM1
      ## Create a new website and site binding for the second IP address 10.1.0.6. ##
     $para5 = @{
         Name = 'Fabrikam'
-        PhysicalPath = '$env:systemdrive\inetpub\fabrikam'
+        PhysicalPath = 'c:\inetpub\fabrikam'
         BindingInformation = '10.1.0.6:80:'
     }
     New-IISSite @para5
@@ -338,7 +338,7 @@ In this section, you'll connect through Remote Desktop Protocol (RDP) to **myVM1
     ## Add a new htm file that displays the Contoso website. ##
     $para3 = @{
         Path = 'c:\inetpub\wwwroot\iisstart.htm'
-        Value = $("Hello World from www.contoso.com" + $env:computername)
+        Value = $("Hello World from www.contoso.com" + "-" + $env:computername)
     }
     Add-Content @para3
 
@@ -361,7 +361,7 @@ In this section, you'll connect through Remote Desktop Protocol (RDP) to **myVM1
     ## Add a new htm file that displays the Fabrikam website. ##
     $para6 = @{
         Path = 'C:\inetpub\fabrikam\iisstart.htm'
-        Value = $("Hello World from www.fabrikam.com" + $env:computername)
+        Value = $("Hello World from www.fabrikam.com" + "-" + $env:computername)
     }
     Add-Content @para6
     ```
@@ -398,7 +398,7 @@ During the creation of the load balancer, you'll configure:
 
 5. In **Frontend IP configuration**, select **+ Add a frontend IP**.
 
-6. Enter **contoso-frontend** in **Name**.
+6. Enter **Frontend-contoso** in **Name**.
 
 7. Select **IPv4** for the **IP version**.
 
@@ -423,9 +423,11 @@ During the creation of the load balancer, you'll configure:
 
 13. Select **OK**.
 
+14. Select **Add**.
+
 14. Select **+ Add a frontend IP**.
 
-15. Enter **fabrikam-frontend** in **Name**.
+15. Enter **Frontend-fabrikam** in **Name**.
 
 7. Select **IPv4** for the **IP version**.
 
@@ -447,7 +449,7 @@ During the creation of the load balancer, you'll configure:
 
 18. Select **myVNet** in **Virtual network**.
 
-19. Select **NIC** for **Backend Pool Configuration**.
+19. Select **IP address** for **Backend Pool Configuration**.
 
 20. Select **IPv4** for **IP version**.
 
@@ -487,7 +489,7 @@ During the creation of the load balancer, you'll configure:
     | ------- | ----- |
     | Name | Enter **myHTTPRule-contoso** |
     | IP Version | Select **IPv4**. |
-    | Frontend IP address | Select **contoso-frontend**. |
+    | Frontend IP address | Select **Frontend-contoso**. |
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
@@ -509,7 +511,7 @@ During the creation of the load balancer, you'll configure:
     | ------- | ----- |
     | Name | Enter **myHTTPRule-fabrikam** |
     | IP Version | Select **IPv4**. |
-    | Frontend IP address | Select **fabrikam-frontend**. |
+    | Frontend IP address | Select **Frontend-fabrikam**. |
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
