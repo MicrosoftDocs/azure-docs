@@ -3,7 +3,7 @@ title: Azure Service Bus messaging samples overview
 description: The Service Bus messaging samples demonstrate key features in Azure Service Bus messaging. Provides links to samples on GitHub. 
 author: spelluru
 ms.topic: article
-ms.date: 06/18/2021
+ms.date: 07/23/2021
 ms.author: spelluru
 ---
 

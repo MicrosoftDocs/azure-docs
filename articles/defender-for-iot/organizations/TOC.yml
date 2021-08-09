@@ -22,6 +22,8 @@
 - name: Tutorial
   expanded: false
   items:
+  - name: Integrate Splunk
+    href: tutorial-splunk.md
   - name: Integrate ServiceNow
     href: tutorial-servicenow.md
 - name: Concepts
@@ -44,11 +46,13 @@
       - name: Connect sensors with a proxy
         displayName: Squid, proxy, connect, direct internet access, access, internet
         href: how-to-connect-sensor-by-proxy.md
-  - name: Prepare your on-premises management console
+  - name: Manage subscriptions
     items:
     - name: Manage subscriptions
-      displayName: onboard, offboard, subscription, billing, pricing, payment, trial, evaluate
+      displayName: onboard, offboard, subscription, billing, pricing, payment, trial, evaluate, committed devices
       href: how-to-manage-subscriptions.md 
+  - name: Prepare your on-premises management console
+    items:
     - name: Activate and set up your on-premises management console
       displayName: deployment, activate, certificate, sign in, SSL, TLS, login, setup, initial, committed activation file
       href: how-to-activate-and-set-up-your-on-premises-management-console.md
@@ -163,7 +167,7 @@
     displayName: Sentinel
     href: how-to-configure-with-sentinel.md  
   - name: Troubleshoot the sensor and on-premises management console
-    displayName: widget, password, traffic, broadcast, unicast, NTP, quality of service
+    displayName: widget, password, traffic, broadcast, unicast, NTP, quality of service, export, logs
     href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
   - name: Set up SNMP MIB monitoring
     href: how-to-set-up-snmp-mib-monitoring.md
@@ -178,10 +182,6 @@
       href: integration-fortinet.md
     - name: Palo Alto integration
       href: integration-palo-alto.md
-    - name: ServiceNow integration
-      href: integration-servicenow.md
-    - name: Splunk integration
-      href: integration-splunk.md
     - name: Qradar integration
       href: integration-qradar.md
 - name: Reference
@@ -225,4 +225,3 @@
       href: ../../security/index.yml
     - name: Azure IoT Security, Privacy, & Compliance blog
       href: https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity
-

@@ -51,8 +51,6 @@
         href: azure-stack-edge-gpu-technical-specifications-compliance.md
       - name: Power cord specifications
         href: azure-stack-edge-technical-specifications-power-cords-regional.md
-    - name: Understand data residency
-      href: azure-stack-edge-gpu-data-residency.md 
 
 - name: Azure Stack Edge Pro R
   items:
@@ -68,12 +66,9 @@
       href: azure-stack-edge-pro-r-system-requirements.md 
     - name: Understand limits
       href: azure-stack-edge-pro-r-limits.md 
-    - name: Security overview
-      href: azure-stack-edge-pro-r-security.md 
     - name: Review specifications
       href: azure-stack-edge-pro-r-technical-specifications-compliance.md
-    - name: Understand data residency
-      href: azure-stack-edge-gpu-data-residency.md 
+
   - name: Tutorials
     items:
     - name: 0 - Get checklist
@@ -118,12 +113,9 @@
       href: azure-stack-edge-mini-r-system-requirements.md 
     - name: Understand limits
       href: azure-stack-edge-mini-r-limits.md 
-    - name: Security overview
-      href: azure-stack-edge-pro-r-security.md 
     - name: Review specifications
       href: azure-stack-edge-mini-r-technical-specifications-compliance.md
-    - name: Understand data residency
-      href: azure-stack-edge-gpu-data-residency.md 
+
   - name: Tutorials
     items:
     - name: 0 - Get checklist
@@ -157,75 +149,10 @@
       href: azure-stack-edge-mini-r-manage-wifi.md
     - name: Use Wi-Fi profiles
       href: azure-stack-edge-mini-r-use-wifi-profiles.md
-- name: Shared Pro GPU, Pro R, Mini R
+
+- name: Shared features - Pro GPU, Pro R, Mini R
   items:
-  - name: Shared concepts
-    items:
-    - name: Understand Kubernetes
-      items:
-      - name: What is Kubernetes?
-        href: azure-stack-edge-gpu-kubernetes-overview.md  
-      - name: Kubernetes storage 
-        href: azure-stack-edge-gpu-kubernetes-storage.md 
-      - name: Kubernetes networking
-        href: azure-stack-edge-gpu-kubernetes-networking.md 
-      - name: Kubernetes RBAC
-        href: azure-stack-edge-gpu-kubernetes-rbac.md 
-      - name: Kubernetes workloads
-        href: azure-stack-edge-gpu-kubernetes-workload-management.md
-    - name: What is GPU sharing?
-      href: azure-stack-edge-gpu-sharing.md 
-    - name: View Key Vault integration 
-      href: azure-stack-edge-gpu-activation-key-vault.md
-    - name: Enable proactive logging
-      href: azure-stack-edge-gpu-proactive-log-collection.md
-  - name: Shared how-tos
-    items:
-    - name: Deploy IoT Edge samples
-      items:
-      - name: Module from Nvidia gallery
-        href: azure-stack-edge-gpu-configure-gpu-modules.md 
-      - name: GPU module from Git repo
-        href: azure-stack-edge-gpu-deploy-sample-module.md 
-      - name: GPU module via Marketplace
-        href: azure-stack-edge-gpu-deploy-sample-module-marketplace.md 
-      - name: Modules from FPGA devices
-        href: azure-stack-edge-gpu-modify-fpga-modules-gpu.md
-      - name: Module via Azure portal 
-        href: azure-stack-edge-gpu-deploy-compute-module-simple.md
-    - name: Deploy Kubernetes workloads
-      items:
-      - name: Via kubectl
-        items: 
-        - name: Kubernetes cluster access
-          href: azure-stack-edge-gpu-create-kubernetes-cluster.md
-        - name: Compute acceleration
-          href: azure-stack-edge-gpu-deploy-compute-acceleration.md 
-        - name: Stateless app
-          href: azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md 
-        - name: Statically provisioned stateful app 
-          href: azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md 
-        - name: Dynamically provisioned stateful app
-          href: azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md 
-        - name: GPU shared workload
-          href: azure-stack-edge-gpu-deploy-kubernetes-gpu-sharing.md         
-      - name: Via IoT Edge
-        items:
-        - name: Stateless app
-          href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md 
-        - name: GPU shared workload
-          href: azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing.md  
-        - name: Develop C# module
-          href: azure-stack-edge-gpu-create-iot-edge-module.md 
-      - name: Via Azure Arc (Preview)
-        items:
-        - name: Enable Arc on Kubernetes cluster
-          href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md 
-        - name: Deploy stateless app via GitOps
-          href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md   
-        - name: Deploy Azure Arc Data Controller
-          href: azure-stack-edge-gpu-deploy-arc-data-controller.md           
-    - name: Configure Azure Resource Manager (Preview)
+    - name: Local Azure Resource Manager (Preview)
       items:
       - name: What is local Azure Resource Manager?
         href: azure-stack-edge-gpu-local-resource-manager-overview.md 
@@ -235,7 +162,29 @@
         href: azure-stack-edge-gpu-set-azure-resource-manager-password.md 
       - name: Configure client TLS settings
         href: azure-stack-edge-gpu-configure-tls-settings.md 
-    - name: About virtual machines
+      - name: Troubleshoot Azure Resource Manager issues 
+        href: azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md
+
+    - name: Certificates
+      items:
+      - name: What are certificates?
+        href: azure-stack-edge-gpu-certificates-overview.md 
+      - name: View requirements
+        href: azure-stack-edge-gpu-certificate-requirements.md 
+      - name: Create certificates
+        items:
+        - name: Via Azure PowerShell
+          href: azure-stack-edge-gpu-create-certificates-powershell.md 
+        - name: Via Azure Stack Readiness Checker tool
+          href: azure-stack-edge-gpu-create-certificates-tool.md 
+      - name: Prepare certificates to upload on device
+        href: azure-stack-edge-gpu-prepare-certificates-device-upload.md 
+      - name: Upload, import, view expiry
+        href: azure-stack-edge-gpu-manage-certificates.md 
+      - name: Troubleshoot certificate errors
+        href: azure-stack-edge-gpu-certificate-troubleshooting.md 
+
+    - name: Virtual machines
       items:
       - name: What are VMs?
         href: azure-stack-edge-gpu-virtual-machine-overview.md
@@ -311,29 +260,70 @@
           href: azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md
         - name: GPU extension issues
           href: azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md
-    - name: About certificates
+
+    - name: Kubernetes
       items:
-      - name: What are certificates?
-        href: azure-stack-edge-gpu-certificates-overview.md 
-      - name: View requirements
-        href: azure-stack-edge-gpu-certificate-requirements.md 
-      - name: Create certificates
+      - name: What is Kubernetes?
+        href: azure-stack-edge-gpu-kubernetes-overview.md  
+      - name: Kubernetes storage 
+        href: azure-stack-edge-gpu-kubernetes-storage.md 
+      - name: Kubernetes networking
+        href: azure-stack-edge-gpu-kubernetes-networking.md 
+      - name: Kubernetes RBAC
+        href: azure-stack-edge-gpu-kubernetes-rbac.md 
+      - name: Kubernetes workloads
+        href: azure-stack-edge-gpu-kubernetes-workload-management.md
+      - name: Deploy Kubernetes workloads
         items:
-        - name: Via Azure PowerShell
-          href: azure-stack-edge-gpu-create-certificates-powershell.md 
-        - name: Via Azure Stack Readiness Checker tool
-          href: azure-stack-edge-gpu-create-certificates-tool.md 
-      - name: Prepare certificates to upload on device
-        href: azure-stack-edge-gpu-prepare-certificates-device-upload.md 
-      - name: Upload, import, view expiry
-        href: azure-stack-edge-gpu-manage-certificates.md 
-      - name: Troubleshoot certificate errors
-        href: azure-stack-edge-gpu-certificate-troubleshooting.md 
-    - name: Manage Edge compute 
-      href: azure-stack-edge-gpu-manage-compute.md
-    - name: Manage Edge container registry
-      href: azure-stack-edge-gpu-edge-container-registry.md 
-    - name: Manage storage gateway
+        - name: Via kubectl
+          items: 
+          - name: Kubernetes cluster access
+            href: azure-stack-edge-gpu-create-kubernetes-cluster.md
+          - name: Compute acceleration
+            href: azure-stack-edge-gpu-deploy-compute-acceleration.md 
+          - name: Stateless app
+            href: azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md 
+          - name: Statically provisioned stateful app 
+            href: azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md 
+          - name: Dynamically provisioned stateful app
+            href: azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md 
+          - name: GPU shared workload
+            href: azure-stack-edge-gpu-deploy-kubernetes-gpu-sharing.md         
+        - name: Via IoT Edge
+          items:
+          - name: Stateless app
+            href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md 
+          - name: GPU shared workload
+            href: azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing.md  
+          - name: Develop C# module
+            href: azure-stack-edge-gpu-create-iot-edge-module.md 
+        - name: Via Azure Arc (Preview)
+          items:
+          - name: Enable Arc on Kubernetes cluster
+            href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md 
+          - name: Deploy stateless app via GitOps
+            href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md   
+          - name: Deploy Azure Arc Data Controller
+            href: azure-stack-edge-gpu-deploy-arc-data-controller.md        
+
+    - name: IoT Edge
+      items:
+        - name: Deploy IoT Edge samples
+          items:
+          - name: Module from Nvidia gallery
+            href: azure-stack-edge-gpu-configure-gpu-modules.md 
+          - name: GPU module from Git repo
+            href: azure-stack-edge-gpu-deploy-sample-module.md 
+          - name: GPU module via Marketplace
+            href: azure-stack-edge-gpu-deploy-sample-module-marketplace.md 
+          - name: Modules from FPGA devices
+            href: azure-stack-edge-gpu-modify-fpga-modules-gpu.md
+          - name: Module via Azure portal 
+            href: azure-stack-edge-gpu-deploy-compute-module-simple.md
+        - name: Troubleshoot IoT Edge issues
+          href: azure-stack-edge-gpu-troubleshoot-iot-edge.md
+        
+    - name: Cloud storage gateway
       items:
       - name: Add, connect to share
         href: azure-stack-edge-gpu-deploy-add-shares.md 
@@ -347,6 +337,33 @@
         href: azure-stack-edge-gpu-manage-storage-accounts.md 
       - name: Bandwidth schedules
         href: azure-stack-edge-gpu-manage-bandwidth-schedules.md 
+      - name: Troubleshoot blob storage issues
+        href: azure-stack-edge-gpu-troubleshoot-blob-storage.md
+
+- name: Shared device - Pro GPU, Pro R, Mini R
+  items:
+  - name: Shared concepts
+    items:
+    - name: What is GPU sharing?
+      href: azure-stack-edge-gpu-sharing.md 
+    - name: Understand data residency
+      href: azure-stack-edge-gpu-data-residency.md 
+    - name: View key vault integration 
+      href: azure-stack-edge-gpu-activation-key-vault.md
+    - name: Enable proactive logging
+      href: azure-stack-edge-gpu-proactive-log-collection.md
+  - name: Shared security
+    items:
+    - name: Security overview
+      href: azure-stack-edge-pro-r-security.md 
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/stack-edge-security-baseline?toc=/azure/databox-online/TOC.json
+  - name: Shared how-tos
+    items:         
+    - name: Manage Edge compute 
+      href: azure-stack-edge-gpu-manage-compute.md
+    - name: Manage Edge container registry
+      href: azure-stack-edge-gpu-edge-container-registry.md 
     - name: Manage device
       items:
       - name: Power, access, connectivity
@@ -383,12 +400,6 @@
         href: azure-stack-edge-gpu-troubleshoot-activation.md    
       - name: Device logs and diagnostics 
         href: azure-stack-edge-gpu-troubleshoot.md
-      - name: Azure Resource Manager issues 
-        href: azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md
-      - name: Blob issues
-        href: azure-stack-edge-gpu-troubleshoot-blob-storage.md
-      - name: IoT Edge issues
-        href: azure-stack-edge-gpu-troubleshoot-iot-edge.md
       - name: Contact Microsoft Support
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
@@ -404,8 +415,7 @@
     - name: 2010 
       href: azure-stack-edge-gpu-2010-release-notes.md 
     - name: 2008 
-      href: azure-stack-edge-gpu-2008-release-notes.md 
-  
+      href: azure-stack-edge-gpu-2008-release-notes.md   
   - name: Shared reference
     items:
     - name: Azure PowerShell
@@ -414,6 +424,8 @@
       href: /rest/api/databoxedgegateway
     - name: .NET SDK
       href: /dotnet/api/overview/azure/databoxedge/databoxgateway
+    - name: Azure CLI
+      href: /cli/azure/databoxedge
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md
@@ -506,21 +518,11 @@
       - name: General availability (GA)
         href: ../databox-gateway/data-box-gateway-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
 
-- name: Security
-  items:
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/stack-edge-security-baseline?toc=/azure/databox-online/TOC.json
-
-- name: Reference
-  items:
-  - name: Azure CLI
-    href: /cli/azure/databoxedge
-
 - name: Resources
   items:
   - name: Azure Stack Edge Pro C# module samples (.NET)
     href: https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/
-  - name: Azure Stack Edge Pro/Data Box Gateway product  
+  - name: Azure Stack Edge product  
     href: https://azure.microsoft.com/services/storage/databox/edge/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/storage/databox/edge/
