@@ -17,7 +17,7 @@ Azure provides a global [role-based access control (RBAC) authorization system](
 
 + Allow access to control plane operations, such as adding capacity or rotating keys, on the search service itself through Owner, Contributor, and Reader roles.
 
-+ Allow access to data plane operations, such as creating or querying indexes. This capability is currently in public preview. Sign up is required. Check back for a sign up link in the next few days.
++ Allow access to data plane operations, such as creating or querying indexes. This capability is currently in public preview ([by request](https://aka.ms/azure-cognitive-search/rbac-preview)). After your subscription is on-boarded, follow the instructions in this article to use the feature.
 
 + Allow outbound indexer connections to be made [using a managed identity](search-howto-managed-identities-data-sources.md). For a search service that has a managed identity assigned to it, you can create roles assignments that extend external data services, such as Azure Blob Storage, to allow read access on blobs by your trusted search service.
 
@@ -61,13 +61,11 @@ Azure resources have the concept of [control plane and data plane](../azure-reso
 
 ## Configure Search for data plane authentication
 
-If you are using any of the preview data plane roles (Search Index Data Contributor or Search Index Data Reader) and Azure AD authentication, your search service must be configured to recognize an **authorization** header on data requests that provides an OAuth2 access token.
+If you are using any of the preview data plane roles (Search Index Data Contributor or Search Index Data Reader) and Azure AD authentication, your search service must be configured to recognize an **authorization** header on data requests that provide an OAuth2 access token. This section explains how to configure your search service. If you are using control plane roles (Owner, Contributor, Reader), you can skip this step.
 
-You can skip this step if you are using API keys only.
+Before you start, [sign up](https://aka.ms/azure-cognitive-search/rbac-preview) for the RBAC preview. Your subscription must be enrolled into the program before you can use this feature. It can take up to two business days to process enrollment requests. You'll receive an email when your service is ready.
 
 ### [**Azure portal**](#tab/config-svc-portal)
-
-Set the feature flag on the portal URL to work with the preview roles: Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader.
 
 1. Open the portal with this syntax: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true).
 
@@ -75,7 +73,7 @@ Set the feature flag on the portal URL to work with the preview roles: Search Se
 
 1. Select **Keys** in the left navigation pane.
 
-1. Choose an **API access control** mechanism:
+1. Choose an **API access control** mechanism. If you don't see these options, check the portal URL. If you can't save your selection, there is an issue with subscription enrollment. 
 
    | Option | Status | Description |
    |--------|--------|-------------|
@@ -119,7 +117,7 @@ Set the feature flag on the portal URL to work with the preview roles: Search Se
 
 ### [**PowerShell**](#tab/rbac-powershell)
 
-When [using PowerShell to assign roles](/role-based-access-control/role-assignments-powershell), call [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment), providing the Azure user or group name, and the scope of the assignment.
+When [using PowerShell to assign roles](/azure/role-based-access-control/role-assignments-powershell), call [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment), providing the Azure user or group name, and the scope of the assignment.
 
 Before you start, make sure you load the Azure and AzureAD modules and connect to Azure:
 
@@ -173,9 +171,11 @@ Alternatively, you can use the Azure portal and the roles assigned to yourself t
 
 API keys cannot be deleted, but they can be disabled on your service. If you are using Search Index Data Contributor and Search Index Data Reader roles and Azure AD authentication, you can disable API keys, causing the search service to refuse all data-related requests providing a key.
 
+Use the preview Management REST API, version 2021-04-01-preview, for this task.
+
 1. Set [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to `aadOrApiKey`.
 
-1. Assign roles and verify they are working correctly.
+1. [Assign roles](#assign-roles) and verify they are working correctly.
 
 1. Set `disableLocalAuth` to **True**.
 

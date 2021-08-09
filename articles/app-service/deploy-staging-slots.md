@@ -91,6 +91,9 @@ When you swap two slots (usually from a staging slot into the production slot), 
 
 At any point of the swap operation, all work of initializing the swapped apps happens on the source slot. The target slot remains online while the source slot is being prepared and warmed up, regardless of where the swap succeeds or fails. To swap a staging slot with the production slot, make sure that the production slot is always the target slot. This way, the swap operation doesn't affect your production app.
 
+> [!NOTE]
+> The instances in your former production instances (those that will be swapped into staging after this swap operation) will be recycled quickly in the last step of the swap process. In case you have any long running operations in your application, they will be abandoned, when the workers recycle. This also applies to function apps. Therefore your application code should be written in a fault tolerant way. 
+
 ### Which settings are swapped?
 
 [!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
@@ -169,7 +172,7 @@ If any errors occur in the target slot (for example, the production slot) after 
 ## Configure auto swap
 
 > [!NOTE]
-> Auto swap isn't supported in web apps on Linux.
+> Auto swap isn't supported in web apps on Linux and Web App for Containers.
 
 Auto swap streamlines Azure DevOps scenarios where you want to deploy your app continuously with zero cold starts and zero downtime for customers of the app. When auto swap is enabled from a slot into production, every time you push your code changes to that slot, App Service automatically [swaps the app into production](#swap-operation-steps) after it's warmed up in the source slot.
 

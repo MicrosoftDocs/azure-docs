@@ -1,6 +1,6 @@
 ---
 title: Overview - Azure Database for MariaDB
-description: Learn about the Azure Database for MariaDB service, a relational database service in the Microsoft cloud based on the MySQL community edition.
+description: Learn about the Azure Database for MariaDB service, a relational database service in the Microsoft cloud based on the MariaDB community edition.
 author: savjani
 ms.author: pariks
 ms.service: mariadb

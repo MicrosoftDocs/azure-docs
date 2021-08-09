@@ -16,8 +16,9 @@ The VMware software versions used in new deployments of Azure VMware Solution pr
 | ESXi                  |    6.7 U3l   | 
 | vSAN                  |    6.7 U3l   |
 | HCX                   |    4.1       |
-| NSX-T <br />**NOTE:** NSX-T is the only supported version of NSX.               |      [3.1.2](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/rn/VMware-NSX-T-Data-Center-312-Release-Notes.html)     |
+| NSX-T <br />**NOTE:** NSX-T is the only supported version of NSX.               |      [[!INCLUDE [nsxt-version](nsxt-version.md)]](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/rn/VMware-NSX-T-Data-Center-312-Release-Notes.html)     |
 
 
 The currently running software version is applied to new clusters added to an existing private cloud. For more information, see the [VMware software version requirements](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html).
+
 

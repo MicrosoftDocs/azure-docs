@@ -169,6 +169,13 @@ Here are some things that may cause this problem:
 
 * For more information on how to load a registered or local model, see [Where and how to deploy](how-to-deploy-and-where.md?tabs=azcli#define-a-dummy-entry-script).
 
+## Bug Fixes
+
+### 2021-07-26
+
+* `AZUREML_EXTRA_REQUIREMENTS_TXT` and `AZUREML_EXTRA_PYTHON_LIB_PATH` are now always relative to the directory of the score script.
+For example, if the both the requirements.txt and score script is in **my_folder**, then `AZUREML_EXTRA_REQUIREMENTS_TXT` will need to be set to requirements.txt. No longer will `AZUREML_EXTRA_REQUIREMENTS_TXT` be set to **my_folder/requirements.txt**.
+
 ## Next steps
 
 To learn more about deploying a model, see [How to deploy a model](how-to-deploy-and-where.md).

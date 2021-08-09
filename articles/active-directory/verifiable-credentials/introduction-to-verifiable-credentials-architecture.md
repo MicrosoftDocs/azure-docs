@@ -26,7 +26,7 @@ This architectural overview introduces the capabilities and components of the Az
 
 ## Approaches to identity
 
-Today most organizations use centralized identity systems to provide employees credentials. They also use use various methods to bring customers, partners, vendors, and relying parties into the organization’s trust boundaries. These methods include federation, creating and managing guest accounts with systems like Azure AD B2B, and creating explicit trusts with relying parties. Most business relationships have a digital component, so enabling some form of trust between organizations requires significant effort. 
+Today most organizations use centralized identity systems to provide employees credentials. They also use various methods to bring customers, partners, vendors, and relying parties into the organization’s trust boundaries. These methods include federation, creating and managing guest accounts with systems like Azure AD B2B, and creating explicit trusts with relying parties. Most business relationships have a digital component, so enabling some form of trust between organizations requires significant effort. 
 
 ### Centralized identity systems
 
@@ -78,7 +78,7 @@ Terminology for verifiable credentials (VCs) might be confusing if you're not fa
 
  “A ***decentralized identifier document***, also referred to as a ***DID document***, is a document that is accessible using a verifiable data registry and contains information related to a specific decentralized identifier, such as the associated repository and public key information.” 
 
-* In the scenario above, both the issuer and verifier have a DID, and a DID document. The DID document contains the public key, and the list of DNS web domains associated with DID (also known as linked domains).
+* In the scenario above, both the issuer and verifier have a DID, and a DID document. The DID document contains the public key, and the list of DNS web domains associated with the DID (also known as linked domains).
 
 * Woodgrove (issuer) signs their employees’ VCs with its public key; similarly, Proseware (verifier) signs requests to present a VC using its key, which is also associated with its DID.
 
@@ -129,7 +129,7 @@ These use cases demonstrate how centralized identities and decentralized identit
 
  **Awareness**: Alice is interested in working for Woodgrove, Inc. and visits Woodgrove’s career website. 
 
-**Activation**: The Woodgrove site presents Alice with a method to prove their identity by promptinthem with a QR code or a deep link to visit its trusted identity proofing partner, Adatum.
+**Activation**: The Woodgrove site presents Alice with a method to prove their identity by prompting them with a QR code or a deep link to visit its trusted identity proofing partner, Adatum.
 
 **Request and upload**: Adatum requests proof of identity from Alice. Alice takes a selfie and a driver’s license picture and uploads them to Adatum. 
 
@@ -166,7 +166,7 @@ By combining centralized and decentralized identity architectures for onboarding
 
 As an employee, Alice is operating inside of the trust boundary of Woodgrove. Woodgrove acts as the identity provider (IDP) and maintains complete control of the identity and the configuration of the apps Alice uses to interact within the Woodgrove trust boundary. To use resources in the Azure AD trust boundary, Alice provides potentially multiple forms of proof of identification to log on to Woodgrove’s trust boundary and access the resources inside of Woodgrove’s technology environment. This is a typical scenario that is well served using a centralized identity architecture. 
 
-* Woodgrove manages the trust boundary, and using good security practices provides the least-privileged level of access to Alice based on the job performed. To maintain a strong security posture, and potentially for compliance reasons, Woodgrove must also be able to track employees’ permissions and access to resources and must be able to revoke permissions when the employment is terminated.
+* Woodgrove manages the trust boundary and using good security practices provides the least-privileged level of access to Alice based on the job performed. To maintain a strong security posture, and potentially for compliance reasons, Woodgrove must also be able to track employees’ permissions and access to resources and must be able to revoke permissions when the employment is terminated.
 
 * Alice only uses the credential that Woodgrove maintains to access Woodgrove resources. Alice has no need to track when the credential is used since the credential is managed by Woodgrove and only used with Woodgrove resources. The identity is only valid inside of the Woodgrove trust boundary when access to Woodgrove resources is necessary, so Alice has no need to possess the credential. 
 
@@ -272,7 +272,7 @@ In this flow, a holder interacts with a relying party (RP) to present a VC as pa
 
 1. The wallet downloads the request from the link. The request includes:
 
-   * a [standards based request for credentials](https://identity.foundation/presentation-exchange/) of a schema or credentialType. 
+   * a [standards based request for credentials](https://identity.foundation/presentation-exchange/) of a schema or credential type. 
 
    * the DID of the RP, which the wallet looks up in ION.
 

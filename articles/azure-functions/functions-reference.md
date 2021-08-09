@@ -92,7 +92,7 @@ Having issues with errors coming from the bindings? Review the [Azure Functions 
 
 Your function project references connection information by name from its configuration provider. It does not directly accept the connection details, allowing them to be changed across environments. For example, a trigger definition might include a `connection` property. This might refer to a connection string, but you cannot set the connection string directly in a `function.json`. Instead, you would set `connection` to the name of an environment variable that contains the connection string.
 
-The default configuration provider uses environment variables. These might be set by [Application Settings](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) when running in the Azure Functions service, or from the [local settings file](functions-run-local.md#local-settings-file) when developing locally.
+The default configuration provider uses environment variables. These might be set by [Application Settings](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) when running in the Azure Functions service, or from the [local settings file](functions-develop-local.md#local-settings-file) when developing locally.
 
 ### Connection values
 

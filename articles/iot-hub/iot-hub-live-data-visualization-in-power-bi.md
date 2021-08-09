@@ -28,7 +28,7 @@ In this tutorial, you perform the following tasks:
 
 ## Prerequisites
 
-* Complete the one of the [Send telemetry](quickstart-send-telemetry-dotnet.md) quickstarts in the development language of your choice. Alternatively, you can use any device app that sends temperature telemetry; for example, the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) or one of the [Embedded device](/azure/iot-develop/quickstart-devkit-mxchip-az3166) quickstarts. These articles cover the following requirements:
+* Complete the one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstarts in the development language of your choice. Alternatively, you can use any device app that sends temperature telemetry; for example, the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) or one of the [Embedded device](../iot-develop/quickstart-devkit-mxchip-az3166.md) quickstarts. These articles cover the following requirements:
   
   * An active Azure subscription.
   * An Azure IoT hub in your subscription.

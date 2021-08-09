@@ -2,7 +2,9 @@
 title: What's new in Azure Site Recovery
 description: Provides a summary of new features and the latest updates in the Azure Site Recovery service.
 ms.topic: conceptual
-ms.date: 07/23/2021
+
+ms.date: 07/28/2021
+
 ---
 
 # What's new in Site Recovery
@@ -39,7 +41,10 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
 **Issue fixes/improvements** | A number of fixes and improvement as detailed in the rollup KB article.
+
 **Azure Site Recovery Service** | Made improvements so that enabling replication and re-protect operations are faster by 46%.
+**Azure Site Recovery Portal** | Replication can now be enabled between any two Azure regions around the world. You are no longer limited to enabling replication within your continent.
+
 
 ## Updates (April 2021)
 
