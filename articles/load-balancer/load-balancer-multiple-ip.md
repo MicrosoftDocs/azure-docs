@@ -181,71 +181,190 @@ In this section you'll create two virtual machines to host the IIS websites.
 
 ## Create secondary network configurations
 
-In this section, you'll change the private IP address of the existing NIC of each virtual machine to **Static**.  Next, you'll add a new NIC resource to each virtual machine with a **Static** private IP address configuration.
-
-### Change VM IP address to static
+In this section, you'll change the private IP address of the existing NIC of each virtual machine to **Static**. Next, you'll add a new NIC resource to each virtual machine with a **Static** private IP address configuration.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
 2. Select **myVM1**.
 
-3. Select **Networking** in **Settings**.
+3. If the virtual machine is running, stop the virtual machine. 
 
-4. In **Networking**, select the name of the network interface next to **Network interface**. The network interface will begin with the name of the VM and have a random number assigned. In this example, **myVM1481**.
+4. Select **Networking** in **Settings**.
 
-5. In the network interface page, select **IP configurations** in **Settings**.
+5. In **Networking**, select the name of the network interface next to **Network interface**. The network interface will begin with the name of the VM and have a random number assigned. In this example, **myVM1481**.
 
-6. In **IP configurations**, select **ipconfig1**.
+6. In the network interface page, select **IP configurations** in **Settings**.
 
-7. Select **Static** in **Assignment** in the **ipconfig1** configuration.
+7. In **IP configurations**, select **ipconfig1**.
 
-8. Select **Save**.
+8. Select **Static** in **Assignment** in the **ipconfig1** configuration.
 
-9. Repeat steps 1 through 8 for **myVM2**.
+9. Select **Save**.
 
-### Create secondary network interface
+10. Return to the **Overview** page of **myVM1**.
 
-1. In the search box at the top of the portal, enter **Network interface**. Select **Network interfaces** in the search results.
+11. Select **Networking** in **Settings**.
 
-2. In **Network interfaces**, select **+ Create**.
+12. In the **Networking** page, select **Attach network interface**.
 
-3. In **Create network interface**, enter or select the following information:
+13. In **Attach network interface**, select **Create and attach network interface**.
+
+14. In **Create network interface**, enter or select the following information:
 
     | Setting | Value |
+    | ------- | ----- |
     | **Project details** |   |
-    | Subscription | Select your subscription. |
     | Resource group | Select **CreateIPLBTutorial-rg**. |
-    | **Instance details** |  |
-    | Name | Enter **myVM1NIC2**. |
-    | Region | Select **(Europe) West Europe** |
-    | Virtual network | Select **myVNet**. |
-    | Subnet | Select **myBackendSubnet**. |
+    | **Network interface** |  |
+    | Name | Enter **myVM1NIC2** |
+    | Subnet | Select **myBackendSubnet (10.1.0.0/24)**. |
+    | NIC network security group | Select **Advanced**. |
+    | Configure network security group | Select **myNSG**. |
     | Private IP address assignment | Select **Static**. |
     | Private IP address | Enter **10.1.0.6**. |
-    | Network security group | Select **myNSG**. |
 
-4. Select **Review + create**.
+15. Select **Create**. 
 
-5. Select **Create**.
+16. Start **myVM1**.
 
-6. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
-
-7. Select **myVM1** and stop the VM if it's running.
-
-8. In **Settings**, select **Networking**.
-
-9. Select **Attach network interface** in **Networking**.
-
-10. Select **myVM1NIC2**.
-
-
-
-6. Repeat steps 1 through 5 for **myVM2**. Enter or select the following information for **myVM2**.
+17. Repeat steps 1 through 15 for **myVM2**, replacing the following information:
 
     | Setting | myVM2 |
-    | Name | Enter **myVM2NIC2**. |
-    | Private IP address | Enter **10.1.0.7**. |
-    | Network security group | Select **myNSG**. |
+    | ------  | ----- |
+    | Name | **myVM2NIC2** |
+    | Private IP address | **10.1.0.7** |
+
+## Install and configure IIS
+
+In this section, you'll connect through Remote Desktop Protocol (RDP) to **myVM1** and **myVM2** through Azure Bastion. You'll install IIS and configure the two test websites.
+
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+2. Select **myVM1**.
+
+3. Start **myVM1**.
+
+4. In **Overview**, select **Connect** then **Bastion**.
+
+5. Select **Use Bastion**.
+
+6. Enter the username and password you entered when you created the virtual machine.
+
+7. Select **Allow** for Bastion to use the clipboard.
+
+8. On the server desktop, navigate to Start > Windows Administrative Tools > Windows PowerShell > Windows PowerShell.
+
+9. Execute the following commands in the PowerShell windows to install and configure IIS and the test websites:
+
+    ```powershell
+    ## Install IIS and the management tools. ##
+    Install-WindowsFeature -Name Web-Server -IncludeManagementTools
+
+    ## Set the binding for the Default website to 10.1.0.4:80. ##
+    $para1 = @{
+        Name = 'Default Web Site'
+        BindingInformation = '10.1.0.4:80:'
+        Protocol = 'http'
+    }
+    New-IISSiteBinding @para1
+
+    ## Remove the default site binding. ##
+    $para2 = @{
+        Name = 'Default Web Site'
+        BindingInformation = '*:80:'
+    }
+    Remove-IISSiteBinding @para2
+
+    ## Remove the default htm file. ##
+    Remove-Item c:\inetpub\wwwroot\iisstart.htm
+
+    ## Add a new htm file that displays the Contoso website. ##
+    $para3 = @{
+        Path = 'c:\inetpub\wwwroot\iisstart.htm'
+        Value = $("Hello World from www.contoso.com" + "-" + $env:computername)
+    }
+    Add-Content @para3
+
+    ## Create folder to host website. ##
+    $para4 = @{
+        Path = 'c:\inetpub\'
+        Name = 'fabrikam'
+        Type = 'directory'
+    }
+    New-Item @para4
+
+     ## Create a new website and site binding for the second IP address 10.1.0.6. ##
+    $para5 = @{
+        Name = 'Fabrikam'
+        PhysicalPath = '$env:systemdrive\inetpub\fabrikam'
+        BindingInformation = '10.1.0.6:80:'
+    }
+    New-IISSite @para5
+
+    ## Add a new htm file that displays the Fabrikam website. ##
+    $para6 = @{
+        Path = 'C:\inetpub\fabrikam\iisstart.htm'
+        Value = $("Hello World from www.fabrikam.com" + "-" + $env:computername)
+
+    }
+    Add-Content @para6
+    ```
+10. Close the Bastion connection to **myVM1**.
+
+11. Repeat steps 1 through 10 for **myVM2**.
+
+    ```powershell
+    ## Install IIS and the management tools. ##
+    Install-WindowsFeature -Name Web-Server -IncludeManagementTools
+
+    ## Set the binding for the Default website to 10.1.0.5:80. ##
+    $para1 = @{
+        Name = 'Default Web Site'
+        BindingInformation = '10.1.0.5:80:'
+        Protocol = 'http'
+    }
+    New-IISSiteBinding @para1
+
+    ## Remove the default site binding. ##
+    $para2 = @{
+        Name = 'Default Web Site'
+        BindingInformation = '*:80:'
+    }
+    Remove-IISSiteBinding @para2
+
+    ## Remove the default htm file. ##
+    Remove-Item C:\inetpub\wwwroot\iisstart.htm
+
+    ## Add a new htm file that displays the Contoso website. ##
+    $para3 = @{
+        Path = 'c:\inetpub\wwwroot\iisstart.htm'
+        Value = $("Hello World from www.contoso.com" + $env:computername)
+    }
+    Add-Content @para3
+
+    ## Create folder to host website. ##
+    $para4 = @{
+        Path = 'c:\inetpub\'
+        Name = 'fabrikam'
+        Type = 'directory'
+    }
+    New-Item @para4
+
+    ## Create a new website and site binding for the second IP address 10.1.0.7. ##
+    $para5 = @{
+        Name = 'Fabrikam'
+        PhysicalPath = 'c:\inetpub\fabrikam'
+        BindingInformation = '10.1.0.7:80:'
+    }
+    New-IISSite @para5
+
+    ## Add a new htm file that displays the Fabrikam website. ##
+    $para6 = @{
+        Path = 'C:\inetpub\fabrikam\iisstart.htm'
+        Value = $("Hello World from www.fabrikam.com" + $env:computername)
+    }
+    Add-Content @para6
+    ```
 
 ## Create load balancer
 
@@ -275,15 +394,13 @@ During the creation of the load balancer, you'll configure:
     | SKU           | Leave the default **Standard**. |
     | Tier          | Leave the default **Regional**. |
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png" alt-text="Screenshot of create standard load balancer basics tab." border="true":::
-
 4. Select **Next: Frontend IP configuration** at the bottom of the page.
 
 5. In **Frontend IP configuration**, select **+ Add a frontend IP**.
 
-6. Enter **LoadBalancerFrontend** in **Name**.
+6. Enter **contoso-frontend** in **Name**.
 
-7. Select **IPv4** or **IPv6** for the **IP version**.
+7. Select **IPv4** for the **IP version**.
 
     > [!NOTE]
     > IPv6 isn't currently supported with Routing Preference or Cross-region load-balancing (Global Tier).
@@ -295,7 +412,7 @@ During the creation of the load balancer, you'll configure:
 
 9. Select **Create new** in **Public IP address**.
 
-10. In **Add a public IP address**, enter **myPublicIP** for **Name**.
+10. In **Add a public IP address**, enter **myPublicIP-contoso** for **Name**.
 
 11. Select **Zone-redundant** in **Availability zone**.
 
@@ -306,19 +423,57 @@ During the creation of the load balancer, you'll configure:
 
 13. Select **OK**.
 
+14. Select **+ Add a frontend IP**.
+
+15. Enter **fabrikam-frontend** in **Name**.
+
+7. Select **IPv4** for the **IP version**.
+
+8. Select **IP address** for the **IP type**.
+
+9. Select **Create new** in **Public IP address**.
+
+10. In **Add a public IP address**, enter **myPublicIP-fabrikam** for **Name**.
+
+11. Select **Zone-redundant** in **Availability zone**.
+
 14. Select **Add**.
 
 15. Select **Next: Backend pools** at the bottom of the page.
 
 16. In the **Backend pools** tab, select **+ Add a backend pool**.
 
-17. Enter **myBackendPool** for **Name** in **Add backend pool**.
+17. Enter **myBackendPool-contoso** for **Name** in **Add backend pool**.
 
 18. Select **myVNet** in **Virtual network**.
 
-19. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
+19. Select **NIC** for **Backend Pool Configuration**.
 
-20. Select **IPv4** or **IPv6** for **IP version**.
+20. Select **IPv4** for **IP version**.
+
+21. In **Virtual machines**, select **+ Add**.
+
+22. Select **myVM1** and **myVM2** that correspond with **ipconfig1 (10.1.0.4)** and **ipconfig1 (10.1.0.5)**.
+
+23. Select **Add**.
+
+21. Select **Add**.
+
+22. Select **+ Add a backend pool**.
+
+23. Enter **myBackendPool-fabrikam** for **Name** in **Add backend pool**.
+
+24. Select **myVNet** in **Virtual network**.
+
+19. Select **NIC** for **Backend Pool Configuration**.
+
+20. Select **IPv4** for **IP version**.
+
+21. In **Virtual machines**, select **+ Add**.
+
+22. Select **myVM1** and **myVM2** that correspond with **ipconfig1 (10.1.0.6)** and **ipconfig1 (10.1.0.7)**.
+
+23. Select **Add**.
 
 21. Select **Add**.
 
@@ -330,14 +485,36 @@ During the creation of the load balancer, you'll configure:
 
     | Setting | Value |
     | ------- | ----- |
-    | Name | Enter **myHTTPRule** |
-    | IP Version | Select **IPv4** or **IPv6** depending on your requirements. |
-    | Frontend IP address | Select **LoadBalancerFrontend**. |
+    | Name | Enter **myHTTPRule-contoso** |
+    | IP Version | Select **IPv4**. |
+    | Frontend IP address | Select **contoso-frontend**. |
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
-    | Backend pool | Select **myBackendPool**. |
-    | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
+    | Backend pool | Select **myBackendPool-contoso**. |
+    | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe-contoso**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
+    | Session persistence | Select **None**. |
+    | Idle timeout (minutes) | Enter or select **15**. |
+    | TCP reset | Select **Enabled**. |
+    | Floating IP | Select **Disabled**. |
+    | Outbound source network address translation (SNAT) | Leave the default of **(Recommended) Use outbound rules to provide backend pool members access to the internet.** |
+
+25. Select **Add**.
+
+26. Select **Add a load balancing rule**.
+
+27. In **Add load balancing rule**, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **myHTTPRule-fabrikam** |
+    | IP Version | Select **IPv4**. |
+    | Frontend IP address | Select **fabrikam-frontend**. |
+    | Protocol | Select **TCP**. |
+    | Port | Enter **80**. |
+    | Backend port | Enter **80**. |
+    | Backend pool | Select **myBackendPool-fabrikam**. |
+    | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe-fabrikam**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
     | Session persistence | Select **None**. |
     | Idle timeout (minutes) | Enter or select **15**. |
     | TCP reset | Select **Enabled**. |
@@ -354,16 +531,24 @@ During the creation of the load balancer, you'll configure:
     > In this example we created a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed as it's optional isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
     > For more information about outbound connections in Azure, see [Source Network Address Translation (SNAT) for outbound connections](../load-balancer/load-balancer-outbound-connections.md)
 
-## [Section n heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+## Test load balancer
 
-<!-- 6. Clean up resources
-Required. If resources were created during the tutorial. If no resources were created, 
-state that there are no resources to clean up in this section.
+In this section, you'll discover the public IP address for each website. You'll enter the website IP into a web browser to test the external load balancing of the websites you created earlier. Finally, you'll shutdown one of the virtual machines to display the failover of the load balancer.
+
+1. In the search box at the top of the portal, enter **Public IP**. Select **Public IP addresses** in the search results.
+
+2. Select **myPublicIP-contoso**.
+
+3. Copy the **IP address** in the overview page of **myPublicIP-contoso**.
+
+4. Open a web browser and paste the public IP address into the address bar.
+
+<!-- Screenshot
 -->
+
+5. Return to **Public IP addresses**.  Select **myPublicIP-fabrikam**.
+
+6. Copy the **IP address** in the overview page of **myPublicIP-fabrikam**.
 
 ## Clean up resources
 
