@@ -359,7 +359,7 @@ The feature reduces the number of authentications on web apps, which normally pr
 To enable and configure the option for users to remember their MFA status and bypass prompts, complete the following steps:
 
 1. In the Azure portal, search for and select **Azure Active Directory**, then choose **Users**.
-1. Select **Multi-Factor Authentication**.
+1. Select **Per-user MFA**.
 1. Under Multi-Factor Authentication, select **service settings**.
 1. On the **Service Settings** page, under **remember multi-factor authentication**, select the **Allow users to remember multi-factor authentication on devices they trust** option.
 1. Set the number of days to allow trusted devices to bypass multi-factor authentication. For the optimal user experience, extend the duration to *90* or more days.
