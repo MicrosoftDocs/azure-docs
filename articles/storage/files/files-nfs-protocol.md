@@ -85,7 +85,7 @@ The status of items that appear in this tables may change over time as support c
 [!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
 
 ## Performance
-NFS Azure file shares are only offered on premium file shares, which stores data on solid-state drives (SSD). The IOPS and the throughput of NFS shares scale with the provisioned capacity. See the [provisioned model](understanding-billing.md#provisioned-model) section of the understanding billing article to understand the formulas for IOPS, IO bursting, and throughput. The average IO latencies are low-single-digit-millisecond for small IO size while verage metadata latencies are high-single-digit-millisecond. Metadata heavy operations such as untar and workloads like WordPress may face additional latencies due to high number of open and close operations.
+NFS Azure file shares are only offered on premium file shares, which stores data on solid-state drives (SSD). The IOPS and the throughput of NFS shares scale with the provisioned capacity. See the [provisioned model](understanding-billing.md#provisioned-model) section of the understanding billing article to understand the formulas for IOPS, IO bursting, and throughput. The average IO latencies are low-single-digit-millisecond for small IO size while average metadata latencies are high-single-digit-millisecond. Metadata heavy operations such as untar and workloads like WordPress may face additional latencies due to high number of open and close operations.
 
 ## Workloads
 > [!IMPORTANT]
@@ -96,7 +96,7 @@ NFS preview has been validated to work well with workloads such as home director
 The following workloads have known issues. See the [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md) article for list of known issues:
 - IBM MQ will experience locking issues.
 - Oracle Database will experience incompatibility with its dNFS feature.
-- SAP Application Layer will experience inconsistent behavior due to a known active issue with ls -l.
+- SAP Application Layer will experience inconsistent behavior due to a [known active issue with ls -l](storage-troubleshooting-files-nfs.md#ls-la-throws-io-error).
 
 We look forward to gathering more feedback. Reach out to azurefilesnfs@microsoft.com for sharing feedback/suggestions/recommendations.
 
