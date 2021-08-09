@@ -376,7 +376,7 @@ This role assignment can be defined in the resources section template using the 
 ```JSON
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2020-04-01-preview",
-      "name": "[parameters('loadBalancerRoleAssignmentID')]",
+      "name": "[parameters('vnetRoleAssignmentID')]",
       "scope": "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'), '/subnets/', parameters('subnetName'))]",
       "dependsOn": [
         "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]"
@@ -387,16 +387,15 @@ This role assignment can be defined in the resources section template using the 
       }
 ```
 > [!NOTE]
-> loadBalancerRoleAssignmentID should be a valid GUID. If you deploy again the same template including this role assignment, make sure the GUID is the same as the one originally used or remove this resource as it just needs to be created once.
+> vnetRoleAssignmentID should be a valid GUID. If you deploy again the same template including this role assignment, make sure the GUID is the same as the one originally used or remove this resource as it just needs to be created once.
 
-or created via PowerShell using the principal ID and role definition name:
+or created via PowerShell using the principal ID, role definition name, and assignment scope:
 
 ```powershell
-New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Network Contributor" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<LoadBalancerName>"
+New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Network Contributor" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>"
 ```
 
-With this enabled the public endpoint is still created and managed by the resource provider. This does not allow you to specify the public ip/re-use static ip. You can [bring your own Azure Load Balancer](#byolb) if you require to cover those needs and more.
-
+With this enabled the public endpoint is still created and managed by the resource provider. This does not allow you to specify the public ip/re-use static ip. You can [bring your own Azure Load Balancer](#byolb) in concert with this feature or by itself if you require those or other load balancer scenarios that aren't natively supported.
 
 <a id="byolb"></a>
 ## Bring your own Load Balancer
@@ -458,7 +457,7 @@ This role assignment can be defined in the resources section template using the 
 > [!NOTE]
 > loadBalancerRoleAssignmentID should be a valid GUID. If you deploy again the same template including this role assignment, make sure the GUID is the same as the one originally used or remove this resource as it just needs to be created once.
 
-or created via PowerShell using the principal ID and role definition name:
+or created via PowerShell using the principal ID, role definition name, and assignment scope:
 
 ```powershell
 New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Network Contributor" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<LoadBalancerName>"
