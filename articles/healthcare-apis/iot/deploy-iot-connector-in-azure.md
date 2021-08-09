@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 08/06/2021
+ms.date: 08/09/2021
 ms.author: rabhaiya
 ---
 
@@ -18,7 +18,13 @@ In this quickstart, you'll learn how to deploy the IoT Connector in the Azure po
 
 ## Prerequisite
 
-Before getting started, you should have already deployed the Azure Healthcare APIs. For more information about deploying Azure Healthcare APIs, see **Deploy workspace in the Azure portal**.
+Before getting started, you should have the following prerequisites completed before creating an IoT Connector instance in Azure Healthcare APIs.
+
+* [A workspace deployed](../workspace-overview.md)  
+* [A FHIR service deployed](../fhir/fhir-portal-quickstart.md) 
+* [A resource group created](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal)
+* [An Azure event hub and event hub namespace](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
+
 
 ## Deploy IoT Connector 
 
@@ -27,7 +33,7 @@ Before getting started, you should have already deployed the Azure Healthcare AP
 
    [ ![Select workspace resource group](media/select-workspace-resource-group.png) ](media/select-workspace-resource-group.png#lightbox)
 
-3. Under Services, select the **IoT Connector** blade.
+3. Select **Deploy IoT Connectors**, or select the **IoT Connector** blade.
 
    [ ![IoT Connector](media/iot-connector-blade.png) ](media/iot-connector-blade.png#lightbox)
 
@@ -43,14 +49,27 @@ Before getting started, you should have already deployed the Azure Healthcare AP
 
 2. Enter a name for the IoT Connector.
 
-3. Enter a name for the Event Hub.
-For more information about Event Hubs, see [Azure Event Hubs overview](../../event-hubs/index.yml).
+3. Enter a name of the Azure Event Hub.
+
+   The Event Hub name is also known as the Host Name and is obtained when you select the **Events** blade.
+
+   [ ![Event hub name](media/event-hub-hostname.png) ](media/event-hub-hostname.png#lightbox)
+
+   For information about Azure event hubs, see [Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create#create-an-event-hubs-namespace).
 
 4. Enter a name for the Consumer Group.
-For more information about Consumer Groups,  see [Features and terminology in Azure Event Hubs](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#event-consumers).
 
-5. Enter a namespace for the IoT Connector.
-For more information about Event Hub namespaces,  see [Namespace](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) in the Features and terminology in Azure Event Hubs document].
+   The Consumer Group name is located in your Event Hub namespace by selecting the **Consumer group** blade.
+
+   [ ![Consumer group  name](media/consumer-group-name.png) ](media/consumer-group-name.png#lightbox)
+
+   For information about Consumer Groups,  see [Features and terminology in Azure Event Hubs](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#event-consumers).
+
+5. Enter the name of the **Fully Qualified Namespace**.
+
+   A Fully Qualified Namespace is the **Host name** located on the **Event Hubs Overview** page. 
+
+   For more information about Event Hub namespaces, see [Namespace](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) in the Features and terminology in Azure Event Hubs document].
 
 6. To review and create the IoT Connector, select **Review + create**, or select **Next: Destination >**. To enter the destination mapping properties associated with the IoT Connector, refer to the instructions in the following section. 
 
@@ -95,6 +114,8 @@ To enter the tagging properties associated with the IoT Connector, refer to the 
 Tags are name/value pairs used for categorizing resources. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](../../azure-resource-manager/management/tag-resources.md).
 
 ## Next steps
+
+In this article, you've learned how to deploy an IoT Connector in the Azure portal.  For an overview of the IoT Connector, see
 
 >[!div class="nextstepaction"]
 >[IoT Connector overview](iot-connector-overview.md)
