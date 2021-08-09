@@ -87,7 +87,7 @@ For example, if you use Visual Studio Code as your local development tool to run
 
    1. From the dynamic content list that opens, under **Parameters**, select you previously created parameter, for example:
 
-      ![Screenshot showing expanded example action with the cursor inside property edit box, the expanded dynamic content list, and the previously created parameter selected.](./media/parameterize-workflow-app/reference-parameter.png)
+      ![Screenshot showing example action with the cursor in property edit box, expanded dynamic content list, and previously created parameter selected.](./media/parameterize-workflow-app/reference-parameter.png)
 
 1. To view or edit parameters in the same logic app, follow either step:
 
