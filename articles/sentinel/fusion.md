@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/05/2021
+ms.date: 08/09/2021
 ms.author: yelevin
 
 ---
@@ -49,7 +49,7 @@ This detection is enabled by default in Azure Sentinel. To check the status, or 
  Since the **Fusion** rule type contains only one rule that can't be modified, rule templates are not applicable for this rule type.
 
 > [!NOTE]
-> Azure Sentinel currently uses 30 days of historical data to train the machine learning systems. This data is always encrypted using Microsoft’s keys as it passes through the machine learning pipeline. However, the training data is not encrypted using [Customer Managed Keys (CMK)](customer-managed-keys.md) if you enabled CMK in your Azure Sentinel workspace. To opt out of Fusion, navigate to **Azure Sentinel** \> **Configuration** \> **Analytics \> Active rules \> Advanced Multistage Attack Detection** and in the **Status** column, select **Disable.**
+> Azure Sentinel currently uses 30 days of historical data to train the machine learning systems. This data is always encrypted using Microsoft’s keys as it passes through the machine learning pipeline. However, the training data is not encrypted using [Customer-Managed Keys (CMK)](customer-managed-keys.md) if you enabled CMK in your Azure Sentinel workspace. To opt out of Fusion, navigate to **Azure Sentinel** \> **Configuration** \> **Analytics \> Active rules \> Advanced Multistage Attack Detection** and in the **Status** column, select **Disable.**
 
 ### Configure scheduled analytics rules for fusion detections
 
@@ -736,6 +736,26 @@ This scenario is currently in **PREVIEW**.
 - **Sign-in event from an anonymous IP address leading to ransomware in cloud app**
 
 - **Sign-in event from user with leaked credentials leading to ransomware in cloud app**
+
+### Multiple alerts possibly related to Ransomware activity detected (Public preview)
+
+Azure Sentinel generates an incident when multiple alerts of different types are detected from the following data sources, and may be related to Ransomware activity:
+
+- [Azure Defender (Azure Security Center)](connect-azure-security-center.md)
+- [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
+- [Microsoft Defender for Identity](connect-azure-atp.md)
+- [Microsoft Cloud App Security](connect-cloud-app-security.md)
+- [Azure Sentinel scheduled analytics rules](tutorial-detect-threats-built-in.md#scheduled). Fusion only considers scheduled analytics rules with tactics information.
+
+Such Fusion incidents are named **Multiple alerts possibly related to Ransomware activity detected**, and are generated when relevant alerts are detected during a specific time-frame and are associated with the **Execution** and **Defense Evasion** stages of an attack.
+
+For example, Azure Sentinel would generate an incident for possible Ransomware activities if the following alerts are triggered on the same host within a specific timeframe:
+
+- Azure Sentinel scheduled alerts (informational): **Windows Error and Warning Events**
+- Azure Defender (medium): **'GandCrab' ransomware was prevented**
+- Microsoft Defender for Endpoint (informational): **'Emotet' malware was detected**
+- Azure Defender (low): **'Tofsee' backdoor was detected**
+- Microsoft Defender for Endpoint (informational): **'Parite' malware was detected**
 
 ## Remote exploitation
 

@@ -17,7 +17,7 @@ ms.author: mnayak
 ---
 # Configure routing preference for a Kubernetes cluster using Azure CLI
 
-This article shows you how to configure routing preference via ISP network (**Internet** option) for a Kubernetes cluster using Azure CLI. Routing preference is set by creating a public IP address of routing preference type **Internet**** and then using it while creating the AKS cluster.
+This article shows you how to configure routing preference via ISP network (**Internet** option) for a Kubernetes cluster using Azure CLI. Routing preference is set by creating a public IP address of routing preference type **Internet** and then using it while creating the AKS cluster.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

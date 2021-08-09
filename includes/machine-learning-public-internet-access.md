@@ -5,7 +5,7 @@ author: lobrien
 ms.service: machine-learning
 services: machine-learning
 ms.topic: include
-ms.date: 07/15/2021
+ms.date: 07/21/2021
 ms.author: larryfr
 ms.custom: include file
 ---
@@ -17,10 +17,10 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 | Inbound | 29876-29877 | BatchNodeManagement | Azure Machine Learning compute instance and compute cluster. |
 | Inbound | 44224 | AzureMachineLearning | Azure Machine Learning compute instance. |
 | Outbound | * | AzureActiveDirectory | Azure Active Directory authentication. |
-| Outbound | * | AzureMachineLearning | Azure Machine Learning. |
-| Outbound | * | AzureResourceManager | Azure Resource Manager. |
+| Outbound | 443 | AzureMachineLearning | Azure Machine Learning. |
+| Outbound | 443 | AzureResourceManager | Azure Resource Manager. |
 | Outbound | 443 | Storage.region | Azure Storage Account. |
-| Outbound | 443 | AzureFrontDoor.FirstParty | Azure Front Door. | 
+| Outbound | 443 | AzureFrontDoor.FrontEnd</br>* Not needed in Azure China. | Azure Front Door. | 
 | Outbound | 443 | ContainerRegistry.region | Azure Container Registry. Only needed when using custom Docker images. Including small modifications (such as extra packages) to base images provided by Microsoft. |
 | Outbound | 443 | MicrosoftContainerRegistry.region | Only needed if you use Docker images provided by Microsoft and enable user-managed dependencies. |
 
@@ -32,7 +32,7 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 > 
 > The IP addresses may change periodically.
 
-You may also need to allow __outbound__ traffic to non-Microsoft sites for the installation of packages required by your machine learning project. The following table lists commonly used repositories for machine learning:
+You may also need to allow __outbound__ traffic to Visual Studio Code and non-Microsoft sites for the installation of packages required by your machine learning project. The following table lists commonly used repositories for machine learning:
 
 | Host name | Purpose |
 | ----- | ----- |
@@ -42,3 +42,5 @@ You may also need to allow __outbound__ traffic to non-Microsoft sites for the i
 | **cloud.r-project.org** | Used when installing CRAN packages for R development. |
 | **\*pytorch.org** | Used by some examples based on PyTorch. |
 | **\*.tensorflow.org** | Used by some examples based on Tensorflow. |
+| **update.code.visualstudio.com**</br></br>**\*.vo.msecnd.net** | Used to retrieve VS Code server bits which are installed on the compute instance through a setup script.|
+| **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** | Used to retrieve websocket server bits which are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance.|

@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Azure Backup Server v3
 description: This article provides the information about the known issues and workarounds for Microsoft Azure Backup Server (MABS) v3.
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 07/27/2021
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
 ---
 
@@ -69,6 +69,9 @@ This article provides the known issues and workarounds for Microsoft Azure Backu
 ## After installing UR1 the MABS reports aren't updated with new RDL files
 
 **Description**: With UR1, the MABS report formatting issue is fixed with updated RDL files. The new RDL files aren't automatically replaced with existing files.
+
+>[!NOTE]
+>This issue has been fixed in MABS v3 UR2.
 
 **Workaround**: To replace the RDL files, follow the steps below:
 

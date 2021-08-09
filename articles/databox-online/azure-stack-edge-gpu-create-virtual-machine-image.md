@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 07/16/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create Azure VM images that I can use to deploy virtual machines on my Azure Stack Edge Pro GPU device.
 ---
@@ -111,7 +111,7 @@ You can now use this VHD to create and deploy VMs on your Azure Stack Edge Pro G
 
 ## Copy VHD to storage account using AzCopy
 
-The following procedures describe how to use AzCopy to copy a custom VM image to an Azure Storage account so you can use the image to deploy VMs on your Azure Stack Edge Pro GPU device. We recommend that you store your custom VM images in the same storage account that you're using for your Azure Stack Edge Pro GPU device. 
+The following procedures describe how to use AzCopy to copy a custom VM image to an Azure Storage account so you can use the image to deploy VMs on your Azure Stack Edge Pro GPU device. We recommend that you store your custom VM images in any existing storage account that you're using which is in the same region/subscription as Azure Stack Edge.
 
 
 ### Create target URI for a container

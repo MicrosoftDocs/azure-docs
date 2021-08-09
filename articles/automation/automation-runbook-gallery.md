@@ -52,6 +52,9 @@ PowerShell modules contain cmdlets that you can use in your runbooks. Existing m
 
 You can also find modules to import in the Azure portal. They're listed for your Automation Account in the **Modules gallery** under **Shared resources**.
 
+> [!IMPORTANT] 
+> Do not include the keyword "AzureRm" in any script designed to be executed with the Az module. Inclusion of the keyword, even in a comment, may cause the AzureRm to load and then conflict with the Az module.
+
 ## Common scenarios available in the PowerShell Gallery
 
 The list below contains a few runbooks that support common scenarios. For a full list of runbooks created by the Azure Automation team, see [AzureAutomationTeam profile](https://www.powershellgallery.com/profiles/AzureAutomationTeam).

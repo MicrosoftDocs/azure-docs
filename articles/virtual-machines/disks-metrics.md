@@ -4,7 +4,7 @@ description: Examples of disk bursting metrics
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/29/2021
+ms.date: 07/19/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -52,7 +52,9 @@ The following metrics help with observability into our [bursting](disk-bursting.
 - **OS Disk Used Burst IO Credits Percentage**: The accumulated percentage of the IOPS burst used for the OS disk. Emitted on a 5 minute interval.
 
 ## Storage IO utilization metrics
-The following metrics help diagnose bottleneck in your Virtual Machine and Disk combination. These metrics are only available when using premium enabled VM. These metrics are available for all disk types except for Ultra. 
+The following metrics help diagnose bottleneck in your Virtual Machine and Disk combination. These metrics are only available with the following configuration:
+- Only available on VM series that support premium storage.
+- Not available for ultra disks, all other disk types on these VM series can utilize these metrics.
 
 Metrics that help diagnose disk IO capping:
 

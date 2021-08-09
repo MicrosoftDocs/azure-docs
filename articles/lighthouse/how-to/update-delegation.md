@@ -40,7 +40,7 @@ If you are updating the offer to adjust authorizations only, and keeping the sam
 
 :::image type="content" source="../media/update-delegation.jpg" alt-text="Diagram showing when to change mspOfferName and remove a previous delegation.":::
 
-Removing access to the delegation can be done by any user in the managing tenant who was granted the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) in the original delegation. If no user in your managing tenant has this role, you can ask the customer to [remove access to the offer in the Azure portal](view-manage-service-providers.md#add-or-remove-service-provider-offers).
+Removing access to the delegation can be done by any user in the managing tenant who was granted the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) in the original delegation. If no user in your managing tenant has this role, you can ask the customer to [remove access to the offer in the Azure portal](view-manage-service-providers.md#remove-service-provider-offers).
 
 > [!TIP]
 > If you have removed the previous delegation following the steps above, and are still unable to deploy the new ARM template, you may need to [remove the registration definition completely](/powershell/module/az.managedservices/remove-azmanagedservicesdefinition). This can be done by any user with a role that has the `Microsoft.Authorization/roleAssignments/write` permission, such as [Owner](../../role-based-access-control/built-in-roles.md#owner), in the customer tenant.  

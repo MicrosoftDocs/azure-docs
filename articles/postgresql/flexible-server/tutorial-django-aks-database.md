@@ -27,7 +27,7 @@ In this quickstart, you deploy a Django application on Azure Kubernetes Service 
 
 ## Create a resource group
 
-An Azure resource group is a logical group in which Azure resources are deployed and managed. Let's create a resource group, *django-project* using the [az-group-create](/cli/azure/groupt#az_group_create) command  in the *eastus* location.
+An Azure resource group is a logical group in which Azure resources are deployed and managed. Let's create a resource group, *django-project* using the [az-group-create](/cli/azure/group#az_group_create) command  in the *eastus* location.
 
 ```azurecli-interactive
 az group create --name django-project --location eastus

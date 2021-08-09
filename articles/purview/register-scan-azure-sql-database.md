@@ -116,7 +116,14 @@ It is required to get the service principal's application ID and secret:
 
 ### Firewall settings
 
-Your database server must allow Azure connections to be enabled. This will allow Azure Purview to reach and connect the server. You can follow the How-to guide for [Connections from inside Azure](../azure-sql/database/firewall-configure.md#connections-from-inside-azure).
+If your database server has a firewall enabled, you will need to update the firewall to allow access in one of two ways:
+
+1. Allow Azure connections through the firewall.
+1. Install a Self-Hosted Integration Runtime and give it access through the firewall.
+
+#### Allow Azure Connections
+
+Enabling Azure connections will allow Azure Purview to reach and connect the server without updating the firewall itself. You can follow the How-to guide for [Connections from inside Azure](../azure-sql/database/firewall-configure.md#connections-from-inside-azure).
 
 1. Navigate to your database account
 1. Select the server name in the **Overview** page
@@ -124,9 +131,14 @@ Your database server must allow Azure connections to be enabled. This will allow
 1. Select **Yes** for **Allow Azure services and resources to access this server**
 
     :::image type="content" source="media/register-scan-azure-sql-database/sql-firewall.png" alt-text="Allow Azure services and resources to access this server." border="true":::
-    
-> [!Note]
-> Currently Azure Purview does not support VNET configuration. Therefore you cannot do IP-based firewall settings.
+
+#### Self-Hosted Integration Runtime
+
+A self-hosted integration runtime (SHIR) can be installed on a machine to connect with a resource in a private network.
+
+1. [Create and install a self-hosted integration runtime](/azure/purview/manage-integration-runtimes) on a personal machine, or a machine inside the same VNet as your database server.
+1. Check your database server firewall to confirm that the SHIR machine has access through the firewall. Add the IP of the machine if it does not already have access.
+1. If your Azure SQL Server is behind a private endpoint or in a VNet, you can use an [ingestion private endpoint](catalog-private-link.md#ingestion-private-endpoints-and-scanning-sources) to ensure end-to-end network isolation.
 
 ## Register an Azure SQL Database data source
 
@@ -134,9 +146,9 @@ To register a new Azure SQL Database in your data catalog, do the following:
 
 1. Navigate to your Purview account.
 
-1. Select **Sources** on the left navigation.
+1. Select **Data Map** on the left navigation.
 
-1. Select **Register**.
+1. Select **Register**
 
 1. On **Register sources**, select **Azure SQL Database**. Select **Continue**.
 

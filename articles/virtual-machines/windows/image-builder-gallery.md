@@ -21,7 +21,7 @@ To distribute the image to a Shared Image Gallery, the template uses [sharedImag
 
 Azure Image Builder automatically runs sysprep to generalize the image, this is a generic sysprep command, which you can [override](../linux/image-builder-troubleshoot.md#vms-created-from-aib-images-do-not-create-successfully) if needed. 
 
-Be aware how many times you layer customizations. You can run the Sysprep command up to 8 times on a single Windows image. After running Sysprep 8 times, you must recreate your Windows image. For more information, see [Limits on how many times you can run Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
+Be aware how many times you layer customizations. You can run the Sysprep command a limited number times on a single Windows image. After reaching the Sysprep limit, you must recreate your Windows image. For more information, see [Limits on how many times you can run Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
 
 
 ## Register the features

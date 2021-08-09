@@ -67,6 +67,40 @@
       href: ./windows/tutorial-load-balancer.md
     - name: 8 - Manage networking
       href: ./windows/tutorial-virtual-network.md
+- name: Develop
+  items:
+  - name: REST API
+    href: /rest/api/compute/virtual-machines?context=/azure/virtual-machines/context/context
+  - name: Python
+    items: 
+    - name: Python SDK
+      href: https://github.com/Azure/azure-sdk-for-python
+    - name: Samples
+      href: /samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python/?context=/azure/virtual-machines/context/context
+  - name: .NET 
+    items:
+    - name: .NET SDK
+      href: https://github.com/Azure/azure-sdk-for-net
+    - name: Reference
+      href: /dotnet/api/overview/azure/virtualmachines?view=azure-dotnet?context=/azure/virtual-machines/context/context
+  - name: Java 
+    items:
+    - name: Java SDK
+      href: https://github.com/Azure/azure-sdk-for-java
+    - name: Reference
+      href: /java/api/com.azure.resourcemanager.compute?view=azure-java-stable?context=/azure/virtual-machines/context/context
+  - name: Go 
+    items:
+    - name: Go SDK
+      href: https://github.com/Azure/azure-sdk-for-go
+    - name: Reference
+      href: /azure/developer/go/azure-sdk-qs-vm
+  - name: Azure CLI samples repo
+    href: https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine
+  - name: PowerShell samples repo
+    href: https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 - name: Workloads
   items:
   - name: Red Hat
@@ -565,7 +599,7 @@
       href: ./extensions/update-linux-agent.md
     - name: Export extensions
       href: ./extensions/export-templates.md
-    - name: Troubleshoot
+    - name: General troubleshooting steps
       href: ./extensions/troubleshoot.md
     - name: Issues with Python 3-enabled Linux systems
       href: ./extensions/issues-using-vm-extensions-python-3.md
@@ -1805,40 +1839,40 @@
   - name: Back up VMs
     items:
     - name: Overview
-      href: ../backup/backup-azure-vms-introduction.md
+      href: ../backup/backup-azure-vms-introduction.md?context=/azure/virtual-machines/context/context
       dispayName: backup VMs, Azure Backup, recovery
     - name: Quickstarts
       items:
       - name: CLI
-        href: ../backup/quick-backup-vm-cli.md
+        href: ../backup/quick-backup-vm-cli.md?context=/azure/virtual-machines/context/context
         dispayName: backup VMs, Azure Backup, recovery
       - name: PowerShell
-        href: ../backup/quick-backup-vm-powershell.md
+        href: ../backup/quick-backup-vm-powershell.md?context=/azure/virtual-machines/context/context
         dispayName: backup VMs, Azure Backup, recovery
       - name: Portal
-        href: ../backup/quick-backup-vm-portal.md
+        href: ../backup/quick-backup-vm-portal.md?context=/azure/virtual-machines/context/context
         dispayName: backup VMs, Azure Backup, recovery
       - name: Template
-        href: ../backup/quick-backup-vm-template.md
+        href: ../backup/quick-backup-vm-template.md?context=/azure/virtual-machines/context/context
         dispayName: backup VMs, Azure Backup, recovery
     - name: Back up multiple VMs
-      href: ../backup/tutorial-backup-vm-at-scale.md
+      href: ../backup/tutorial-backup-vm-at-scale.md?context=/azure/virtual-machines/context/context
     - name: Restore options
-      href: ../backup/backup-azure-arm-restore-vms.md
+      href: ../backup/backup-azure-arm-restore-vms.md?context=/azure/virtual-machines/context/context
     - name: Support matrix
-      href: ../backup/backup-support-matrix-iaas.md
+      href: ../backup/backup-support-matrix-iaas.md?context=/azure/virtual-machines/context/context
       dispayName: backup VMs, Azure Backup, recovery
     - name: Pricing
-      href: ../backup/azure-backup-pricing.md
+      href: ../backup/azure-backup-pricing.md?context=/azure/virtual-machines/context/context
       dispayName: backup VMs, Azure Backup, recovery
     - name: FAQ
-      href: ../backup/backup-azure-vm-backup-faq.yml
+      href: ../backup/backup-azure-vm-backup-faq.yml?context=/azure/virtual-machines/context/context
       dispayName: backup VMs, Azure Backup, recovery
   - name: Disaster recovery
     items:
     - name: Overview
       displayName: Disaster Recovery Overview
-      href: ../site-recovery/site-recovery-overview.md
+      href: ../site-recovery/site-recovery-overview.md?context=/azure/virtual-machines/context/context
     - name: Enable disaster recovery
       items:
       - name: Linux
@@ -1848,9 +1882,9 @@
         displayName: Enable disaster recovery
         href: ./windows/tutorial-disaster-recovery.md
     - name: Fail over a VM to another region
-      href: ../site-recovery/azure-to-azure-tutorial-failover-failback.md
+      href: ../site-recovery/azure-to-azure-tutorial-failover-failback.md?context=/azure/virtual-machines/context/context
     - name: Fail back a VM to the primary region
-      href: ../site-recovery/azure-to-azure-tutorial-failback.md
+      href: ../site-recovery/azure-to-azure-tutorial-failback.md?context=/azure/virtual-machines/context/context
   - name: Move and migrate VMs
     items:
     - name: Change subscription or resource group
@@ -1865,9 +1899,9 @@
         displayName: Change subscription or resource group
         href: azure-cli-change-subscription-marketplace.md
     - name: Move VMs to another region
-      href: ../site-recovery/azure-to-azure-tutorial-migrate.md
+      href: ../site-recovery/azure-to-azure-tutorial-migrate.md?context=/azure/virtual-machines/context/context
     - name: Move to an availability zone
-      href: ../site-recovery/move-azure-vms-avset-azone.md
+      href: ../site-recovery/move-azure-vms-avset-azone.md?context=/azure/virtual-machines/context/context
     - name: Move Maintenance Control configurations to another region
       href: move-region-maintenance-configuration.md
     - name: Move Maintenance Control configuration resources to another region
@@ -1899,8 +1933,6 @@
     href: /azure/developer/jenkins/
   - name: Azure DevOps
     href: ./linux/tutorial-azure-devops-blue-green-strategy.md
-- name: Support and troubleshooting
-  href: vm-support-help.md
 - name: Resources
   items:
   - name: Cloud adoption framework
@@ -1923,12 +1955,6 @@
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Samples
-    items:
-    - name: Azure CLI samples repo
-      href: https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine
-    - name: PowerShell samples repo
-      href: https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine
   - name: Common CLI commands
     href: ./linux/cli-manage.md
   - name: Common PowerShell commands
@@ -1949,3 +1975,5 @@
       href: ./linux/faq.yml
     - name: Windows
       href: ./windows/faq.yml
+- name: Support and troubleshooting
+  href: vm-support-help.md

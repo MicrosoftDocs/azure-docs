@@ -69,7 +69,7 @@ This article is intended to be a copy and paste exercise.
 
 ## Prerequisites
 
-You must have the latest Azure PowerShell CmdLets installed, see [here](/powershell/azure/overview) for install details.
+You must have the latest Azure PowerShell CmdLets installed, see [Overview of Azure PowerShell](/powershell/azure/overview) for install details.
 
 ```PowerShell
 # check you are registered for the providers, ensure RegistrationState is set to 'Registered'.
@@ -267,7 +267,7 @@ $getStatus.LastRunStatusMessage
 $getStatus.LastRunStatusRunSubState
 ```
 ## Create a VM
-Now the build is finished you can build a VM from the image, use the examples from [here](/powershell/module/az.compute/new-azvm#examples).
+Now the build is finished you can build a VM from the image, use the examples from [New-AzVM (Az.Compute)](/powershell/module/az.compute/new-azvm#examples).
 
 ## Clean up
 
@@ -300,3 +300,4 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 ## Next steps
 
 You can try more examples [on GitHub](https://github.com/azure/azvmimagebuilder/tree/master/quickquickstarts).
+

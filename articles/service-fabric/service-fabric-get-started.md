@@ -43,8 +43,8 @@ If you only need the SDK, you can install this package:
 
 The current versions are:
 
-* Service Fabric SDK and Tools 5.0.521
-* Service Fabric runtime 8.0.521
+* Service Fabric SDK and Tools 5.1.316
+* Service Fabric runtime 8.1.316
 
 For a list of supported versions, see [Service Fabric versions](service-fabric-versions.md)
 

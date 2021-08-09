@@ -66,6 +66,8 @@
     href: ./samples/built-in-policies.md
   - name: Built-in initiatives
     href: ./samples/built-in-initiatives.md
+  - name: Built-in packages for guest configuration
+    href: ./samples/built-in-packages.md
   - name: Azure Resource Graph queries
     href: ./samples/resource-graph-samples.md
   - name: Patterns of use
@@ -118,11 +120,11 @@
       href: ./samples/nist-sp-800-171-r2.md
     - name: UK OFFICIAL and UK NHS
       href: ./samples/ukofficial-uknhs.md
-  - name: Guest Configuration baselines
+  - name: Compute security baselines
     items:
-    - name: Linux baseline for Azure Security Benchmark
+    - name: Linux security baseline
       href: ./samples/guest-configuration-baseline-linux.md
-    - name: Windows baseline for Azure Security Benchmark
+    - name: Windows security baseline
       href: ./samples/guest-configuration-baseline-windows.md
 - name: Concepts
   items:
@@ -337,7 +339,7 @@
     items:
     - name: Governance YouTube Channel
       href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
