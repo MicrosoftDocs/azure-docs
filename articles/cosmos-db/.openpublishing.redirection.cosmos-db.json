@@ -1926,6 +1926,11 @@
     "redirect_document_id": true
   },
   {
+    "source_path_from_root": "/articles/cosmos-db/connect-mongodb-account-experimental.md",
+    "redirect_url": "/azure/cosmos-db/mongodb/connect-mongodb-account",
+    "redirect_document_id": false
+  },
+  {
     "source_path_from_root": "/articles/cosmos-db/mongodb-compass.md",
     "redirect_url": "/azure/cosmos-db/mongodb/connect-using-compass",
     "redirect_document_id": true
