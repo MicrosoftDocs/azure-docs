@@ -1,21 +1,21 @@
 ---
-title: Translator Text API Dictionary Examples Method
-titlesuffix: Azure Cognitive Services
-description: Use the Translator Text API Dictionary Examples method.
+title: Translator Dictionary Examples Method
+titleSuffix: Azure Cognitive Services
+description: The Translator Dictionary Examples method provides examples that show how terms in the dictionary are used in context.
 services: cognitive-services
-author: Jann-Skotdal
-manager: cgronlun
+author: laujan
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
-ms.author: v-jansko
+ms.date: 01/21/2020
+ms.author: lajanuar
 ---
 
-# Translator Text API 3.0: Dictionary Examples
+# Translator 3.0: Dictionary Examples
 
-Provides examples that show how terms in the dictionary are used in context. This operation is used in tandem with [Dictionary lookup](.\v3-0-dictionary-lookup.md).
+Provides examples that show how terms in the dictionary are used in context. This operation is used in tandem with [Dictionary lookup](./v3-0-dictionary-lookup.md).
 
 ## Request URL
 
@@ -29,53 +29,28 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 Request parameters passed on the query string are:
 
-<table width="100%">
-  <th width="20%">Query parameter</th>
-  <th>Description</th>
-  <tr>
-    <td>api-version</td>
-    <td>*Required parameter*.<br/>Version of the API requested by the client. Value must be `3.0`.</td>
-  </tr>
-  <tr>
-    <td>from</td>
-    <td>*Required parameter*.<br/>Specifies the language of the input text. The source language must be one of the [supported languages](.\v3-0-languages.md) included in the `dictionary` scope.</td>
-  </tr>
-  <tr>
-    <td>to</td>
-    <td>*Required parameter*.<br/>Specifies the language of the output text. The target language must be one of the [supported languages](.\v3-0-languages.md) included in the `dictionary` scope.</td>
-  </tr>
-</table>
+| Query Parameter | Description |
+| --------- | ----------- |
+| api-version <img width=200/> | **Required parameter**.<br/>Version of the API requested by the client. Value must be `3.0`. |
+| from | **Required parameter**.<br/>Specifies the language of the input text. The source language must be one of the [supported languages](./v3-0-languages.md) included in the `dictionary` scope. |
+| to | **Required parameter**.<br/>Specifies the language of the output text. The target language must be one of the [supported languages](./v3-0-languages.md) included in the `dictionary` scope.  | 
 
 Request headers include:
 
-<table width="100%">
-  <th width="20%">Headers</th>
-  <th>Description</th>
-  <tr>
-    <td>_One authorization_<br/>_header_</td>
-    <td>*Required request header*.<br/>See [available options for authentication](./v3-0-reference.md#authentication).</td>
-  </tr>
-  <tr>
-    <td>Content-Type</td>
-    <td>*Required request header*.<br/>Specifies the content type of the payload. Possible values are: `application/json`.</td>
-  </tr>
-  <tr>
-    <td>Content-Length</td>
-    <td>*Required request header*.<br/>The length of the request body.</td>
-  </tr>
-  <tr>
-    <td>X-ClientTraceId</td>
-    <td>*Optional*.<br/>A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named `ClientTraceId`.</td>
-  </tr>
-</table> 
+| Headers  | Description |
+| ------ | ----------- |
+| Authentication header(s) <img width=200/>  | **Required request header**.<br/>See <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>. |
+| Content-Type | **Required request header**.<br/>Specifies the content type of the payload. Possible values are: `application/json`. |
+| Content-Length   | **Required request header**.<br/>The length of the request body. |
+| X-ClientTraceId   | **Optional**.<br/>A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named `ClientTraceId`. |
 
 ## Request body
 
 The body of the request is a JSON array. Each array element is a JSON object with the following properties:
 
-  * `Text`: A string specifying the term to lookup. This should be the value of a `normalizedText` field from the back-translations of a previous [Dictionary lookup](.\v3-0-dictionary-lookup.md) request. It can also be the value of the `normalizedSource` field.
+  * `Text`: A string specifying the term to lookup. This should be the value of a `normalizedText` field from the back-translations of a previous [Dictionary lookup](./v3-0-dictionary-lookup.md) request. It can also be the value of the `normalizedSource` field.
 
-  * `Translation`: A string specifying the translated text previously returned by the [Dictionary lookup](.\v3-0-dictionary-lookup.md) operation. This should be the value from the `normalizedTarget` field in the `translations` list of the [Dictionary lookup](.\v3-0-dictionary-lookup.md) response. The service will return examples for the specific source-target word-pair.
+  * `Translation`: A string specifying the translated text previously returned by the [Dictionary lookup](./v3-0-dictionary-lookup.md) operation. This should be the value from the `normalizedTarget` field in the `translations` list of the [Dictionary lookup](./v3-0-dictionary-lookup.md) response. The service will return examples for the specific source-target word-pair.
 
 An example is:
 
@@ -119,13 +94,9 @@ A successful response is a JSON array with one result for each string in the inp
 
 This example shows how to lookup examples for the pair made up of the English term `fly` and its Spanish translation `volar`.
 
-# [curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"
 ```
-
----
 
 The response body (abbreviated for clarity) is:
 

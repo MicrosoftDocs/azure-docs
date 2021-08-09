@@ -1,23 +1,14 @@
 ---
 title: Data Factory Use Case - Product Recommendations
 description: Learn about an use case implemented by using Azure Data Factory along with other services.
-services: data-factory
-documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
-ms.assetid: 6f1523c7-46c3-4b8d-9ed6-b847ae5ec4ae
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Use Case - Product Recommendations
 Azure Data Factory is one of many services used to implement the Cortana Intelligence Suite of solution accelerators.  See [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) page for details about this suite. In this document, we describe a common use case that Azure users have already solved and implemented using Azure Data Factory and other Cortana Intelligence component services.
 
@@ -40,7 +31,7 @@ Finally, retailers need to measure the effectiveness of their approach by tracki
 ## Solution Overview
 This example use case has been solved and implemented by real Azure users by using Azure Data Factory and other Cortana Intelligence component services, including [HDInsight](https://azure.microsoft.com/services/hdinsight/) and [Power BI](https://powerbi.microsoft.com/).
 
-The online retailer uses an Azure Blob store, an on-premises SQL server, Azure SQL DB, and a relational data mart as their data storage options throughout the workflow.  The blob store contains customer information, customer behavior data, and product information data. The product information data includes product brand information and a product catalog stored on-premises in a SQL data warehouse. 
+The online retailer uses an Azure Blob store, an on-premises SQL Server, Azure SQL Database, and a relational data mart as their data storage options throughout the workflow.  The blob store contains customer information, customer behavior data, and product information data. The product information data includes product brand information and a product catalog stored on-premises in a Azure Synapse Analytics. 
 
 All the data is combined and fed into a product recommendation system to deliver personalized recommendations based on customer interests and actions, while the user browses products in the catalog on the website. The customers also see products that are related to the product they are looking at based on overall website usage patterns that are not related to any one user.
 
@@ -48,7 +39,7 @@ All the data is combined and fed into a product recommendation system to deliver
 
 Gigabytes of raw web log files are generated daily from the online retailer’s website as semi-structured files. The raw web log files and the customer and product catalog information is ingested regularly into an Azure Blob storage using Data Factory’s globally deployed data movement as a service. The raw log files for the day are partitioned (by year and month) in blob storage for long-term storage.  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) is used to partition the raw log files in the blob store and process the ingested logs at scale using both Hive and Pig scripts. The partitioned web logs data is then processed to extract the needed inputs for a machine learning recommendation system to generate the personalized product recommendations.
 
-The recommendation system used for the machine learning in this example is an open source machine learning recommendation platform from [Apache Mahout](http://mahout.apache.org/).  Any [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) or custom model can be applied to the scenario.  The Mahout model is used to predict the similarity between items on the website based on overall usage patterns, and to generate the personalized recommendations based on the individual user.
+The recommendation system used for the machine learning in this example is an open source machine learning recommendation platform from [Apache Mahout](https://mahout.apache.org/).  Any [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) or custom model can be applied to the scenario.  The Mahout model is used to predict the similarity between items on the website based on overall usage patterns, and to generate the personalized recommendations based on the individual user.
 
 Finally, the result set of personalized product recommendations is moved to a relational data mart for consumption by the retailer website.  The result set could also be accessed directly from blob storage by another application, or moved to additional stores for other consumers and use cases.
 

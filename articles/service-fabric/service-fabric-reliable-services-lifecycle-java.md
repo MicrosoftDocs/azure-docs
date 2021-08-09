@@ -1,18 +1,11 @@
 ---
-title: Azure Service Fabric Reliable Services lifecycle | Microsoft Docs
-description: Learn about the lifecycle events in Service Fabric Reliable Services.
-services: service-fabric
-documentationcenter: java
+title: Azure Service Fabric Reliable Services lifecycle 
+description: Learn about the lifecycle events in an Azure Service Fabric Reliable Services application using Java for stateful and stateless services.
 author: PavanKunapareddyMSFT
-manager: timlt
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/30/2017
+ms.custom: devx-track-java
 ms.author: pakunapa
 ---
 
@@ -84,7 +77,7 @@ Like stateless services, the lifecycle events during shutdown are the same as du
 
 1. These events occur in parallel:
     - Any open listeners are closed. `CommunicationListener.closeAsync()` is called on each listener.
-    - The cancellation token that was passed to `runAsync()` is cancelled. A call to the cancellation token's `isCancelled()` method returns `true`, and if called, the token's `throwIfCancellationRequested()` method throws an `OperationCanceledException`.
+    - The cancellation token that was passed to `runAsync()` is canceled. A call to the cancellation token's `isCancelled()` method returns `true`, and if called, the token's `throwIfCancellationRequested()` method throws an `OperationCanceledException`.
 2. After `closeAsync()` finishes on each listener and `runAsync()` also finishes, the service's `StatefulServiceBase.onChangeRoleAsync()` is called. This call is not commonly overridden in the service.
 
    > [!NOTE]  
@@ -119,7 +112,7 @@ Services that don't handle cancellation cleanly can experience several issues. T
 
 Because the services are stateful, it's also likely that the services use [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). In Service Fabric, when a primary is demoted, one of the first things that happens is that write access to the underlying state is revoked. This leads to a second set of issues that might affect the service lifecycle. The collections return exceptions based on the timing and whether the replica is being moved or shut down. It's important to handle these exceptions correctly. 
 
-Exceptions thrown by Service Fabric are either permanent [(`FabricException`)](https://docs.microsoft.com/java/api/system.fabric.exception) or transient [(`FabricTransientException`)](https://docs.microsoft.com/java/api/system.fabric.exception._fabric_transient_exception). Permanent exceptions should be logged and thrown. Transient exceptions can be retried based on retry logic.
+Exceptions thrown by Service Fabric are either permanent [(`FabricException`)](/java/api/system.fabric.exception) or transient [(`FabricTransientException`)](/java/api/system.fabric.exception.fabrictransientexception). Permanent exceptions should be logged and thrown. Transient exceptions can be retried based on retry logic.
 
 An important part of testing and validating Reliable Services is handling the exceptions that come from using the `ReliableCollections` in conjunction with service lifecycle events. We recommend that you always run your service under load. You should also perform upgrades and [chaos testing](service-fabric-controlled-chaos.md) before deploying to production. These basic steps help ensure that your service is implemented correctly, and that it handles lifecycle events correctly.
 
@@ -134,4 +127,3 @@ An important part of testing and validating Reliable Services is handling the ex
 ## Next steps
 * [Introduction to Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Reliable Services quickstart](service-fabric-reliable-services-quick-start-java.md)
-

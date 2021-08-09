@@ -1,21 +1,11 @@
 ---
-title: Move data from Salesforce by using Data Factory | Microsoft Docs
+title: Move data from Salesforce by using Data Factory 
 description: Learn about how to move data from Salesforce by using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
-
-
-ms.assetid: dbe3bfd6-fa6a-491a-9638-3a9a10d396d1
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Move data from Salesforce by using Azure Data Factory
@@ -25,7 +15,6 @@ robots: noindex
 
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Salesforce connector in V2](../connector-salesforce.md).
-
 
 This article outlines how you can use Copy Activity in an Azure data factory to copy data from Salesforce to any data store that is listed under the Sink column in the [supported sources and sinks](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with Copy Activity and supported data store combinations.
 
@@ -44,24 +33,24 @@ Salesforce has limits for both total API requests and concurrent API requests. N
 - If the number of concurrent requests exceeds the limit, throttling occurs and you will see random failures.
 - If the total number of requests exceeds the limit, the Salesforce account will be blocked for 24 hours.
 
-You might also receive the “REQUEST_LIMIT_EXCEEDED“ error in both scenarios. See the "API Request Limits" section in the [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) article for details.
+You might also receive the "REQUEST_LIMIT_EXCEEDED" error in both scenarios. See the "API Request Limits" section in the [Salesforce Developer Limits](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) article for details.
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data from Salesforce by using different tools/APIs.
 
 The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
+You can also use the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
 
-Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store: 
+Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
 1. Create **linked services** to link input and output data stores to your data factory.
-2. Create **datasets** to represent input and output data for the copy operation. 
-3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output. 
+2. Create **datasets** to represent input and output data for the copy operation.
+3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output.
 
-When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data from Salesforce, see [JSON example: Copy data from Salesforce to Azure Blob](#json-example-copy-data-from-salesforce-to-azure-blob) section of this article. 
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format. For a sample with JSON definitions for Data Factory entities that are used to copy data from Salesforce, see [JSON example: Copy data from Salesforce to Azure Blob](#json-example-copy-data-from-salesforce-to-azure-blob) section of this article.
 
-The following sections provide details about JSON properties that are used to define Data Factory entities specific to Salesforce: 
+The following sections provide details about JSON properties that are used to define Data Factory entities specific to Salesforce:
 
 ## Linked service properties
 The following table provides descriptions for JSON elements that are specific to the Salesforce linked service.
@@ -69,7 +58,7 @@ The following table provides descriptions for JSON elements that are specific to
 | Property | Description | Required |
 | --- | --- | --- |
 | type |The type property must be set to: **Salesforce**. |Yes |
-| environmentUrl | Specify the URL of Salesforce instance. <br><br> - Default is "https://login.salesforce.com". <br> - To copy data from sandbox, specify "https://test.salesforce.com". <br> - To copy data from custom domain, specify, for example, "https://[domain].my.salesforce.com". |No |
+| environmentUrl | Specify the URL of Salesforce instance. <br><br> - Default is "https:\//login.salesforce.com". <br> - To copy data from sandbox, specify "https://test.salesforce.com". <br> - To copy data from custom domain, specify, for example, "https://[domain].my.salesforce.com". |No |
 | username |Specify a user name for the user account. |Yes |
 | password |Specify a password for the user account. |Yes |
 | securityToken |Specify a security token for the user account. See [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) for instructions on how to reset/get a security token. To learn about security tokens in general, see [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Yes |
@@ -86,7 +75,7 @@ The **typeProperties** section is different for each type of dataset and provide
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+![Screenshot shows the Custom Object Definition Detail where you can see the A P I names of the custom objects.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 ## Copy activity properties
 For a full list of sections and properties that are available for defining activities, see the [Creating pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, and various policies are available for all types of activities.
@@ -97,12 +86,12 @@ In copy activity, when the source is of the type **RelationalSource** (which inc
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
-| query |Use the custom query to read data. |A SQL-92 query or [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. For example:  `select * from MyTable__c`. |No (if the **tableName** of the **dataset** is specified) |
+| query |Use the custom query to read data. |A SQL-92 query or [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. For example: `select * from MyTable__c`. |No (if the **tableName** of the **dataset** is specified) |
 
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+![Screenshot shows the Custom Fields & Relationships where you can see the A P I names of the custom objects.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## Query tips
 ### Retrieving data using where clause on DateTime column
@@ -123,7 +112,7 @@ To query the soft deleted records from Salesforce Recycle Bin, you can specify *
 * To query all the records including the existing and the deleted, specify "select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**"
 
 ## JSON example: Copy data from Salesforce to Azure Blob
-The following example provides sample JSON definitions that you can use to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from Salesforce to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.   
+The following example provides sample JSON definitions that you can use to create a pipeline by using the [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from Salesforce to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
 Here are the Data Factory artifacts that you'll need to create to implement the scenario. The sections that follow the list provide details about these steps.
 
@@ -135,7 +124,7 @@ Here are the Data Factory artifacts that you'll need to create to implement the 
 
 **Salesforce linked service**
 
-This example uses the **Salesforce** linked service. See the [Salesforce linked service](#linked-service-properties) section for the properties that are supported by this linked service.  See [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) for instructions on how to reset/get the security token.
+This example uses the **Salesforce** linked service. See the [Salesforce linked service](#linked-service-properties) section for the properties that are supported by this linked service. See [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) for instructions on how to reset/get the security token.
 
 ```json
 {
@@ -158,10 +147,10 @@ This example uses the **Salesforce** linked service. See the [Salesforce linked 
 {
     "name": "AzureStorageLinkedService",
     "properties": {
-    "type": "AzureStorage",
-    "typeProperties": {
-        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-    }
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+        }
     }
 }
 ```
@@ -174,7 +163,7 @@ This example uses the **Salesforce** linked service. See the [Salesforce linked 
         "linkedServiceName": "SalesforceLinkedService",
         "type": "RelationalTable",
         "typeProperties": {
-            "tableName": "AllDataType__c"  
+            "tableName": "AllDataType__c"
         },
         "availability": {
             "frequency": "Hour",
@@ -197,7 +186,7 @@ Setting **external** to **true** informs the Data Factory service that the datas
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+![Screenshot shows the Custom Object Definition Detail where you can see Singular Label, Plural Label, Object Name, and A P I Name.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 **Azure blob output dataset**
 
@@ -230,13 +219,13 @@ The pipeline contains Copy Activity, which is configured to use the input and ou
 See [RelationalSource type properties](#copy-activity-properties) for the list of properties that are supported by the RelationalSource.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2016-06-01T18:00:00",
         "end":"2016-06-01T19:00:00",
         "description":"pipeline with copy activity",
-        "activities":[  
+        "activities":[
         {
             "name": "SalesforceToAzureBlob",
             "description": "Copy from Salesforce to an Azure blob",
@@ -254,7 +243,7 @@ See [RelationalSource type properties](#copy-activity-properties) for the list o
             "typeProperties": {
                 "source": {
                     "type": "RelationalSource",
-                    "query": "SELECT Id, Col_AutoNumber__c, Col_Checkbox__c, Col_Currency__c, Col_Date__c, Col_DateTime__c, Col_Email__c, Col_Number__c, Col_Percent__c, Col_Phone__c, Col_Picklist__c, Col_Picklist_MultiSelect__c, Col_Text__c, Col_Text_Area__c, Col_Text_AreaLong__c, Col_Text_AreaRich__c, Col_URL__c, Col_Text_Encrypt__c, Col_Lookup__c FROM AllDataType__c"                
+                    "query": "SELECT Id, Col_AutoNumber__c, Col_Checkbox__c, Col_Currency__c, Col_Date__c, Col_DateTime__c, Col_Email__c, Col_Number__c, Col_Percent__c, Col_Phone__c, Col_Picklist__c, Col_Picklist_MultiSelect__c, Col_Text__c, Col_Text_Area__c, Col_Text_AreaLong__c, Col_Text_AreaRich__c, Col_URL__c, Col_Text_Encrypt__c, Col_Lookup__c FROM AllDataType__c"
                 },
                 "sink": {
                     "type": "BlobSink"
@@ -278,10 +267,11 @@ See [RelationalSource type properties](#copy-activity-properties) for the list o
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+![Screenshot shows the Custom Fields & Relationships with the A P I names called out.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 
 ### Type mapping for Salesforce
+
 | Salesforce type | .NET-based type |
 | --- | --- |
 | Auto Number |String |
@@ -307,7 +297,7 @@ See [RelationalSource type properties](#copy-activity-properties) for the list o
 > [!NOTE]
 > To map columns from source dataset to columns from sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
 
-[!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../../includes/data-factory-structure-for-rectangualr-datasets.md)]
+[!INCLUDE [data-factory-structure-for-rectangular-datasets](includes/data-factory-structure-for-rectangular-datasets.md)]
 
 ## Performance and tuning
 See the [Copy Activity performance and tuning guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.

@@ -1,15 +1,16 @@
 ---
 title: 'Azure PowerShell script sample - Download device configuration template | Microsoft Docs'
-description: Download device configuration template.
+description: Learn how to use a PowerShell script to download the VPN device configuration template for a connection.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: anzaman
+author: yushwang
 
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 04/17/2018
-ms.author: alzam
+ms.date: 01/09/2020
+ms.author: yushwang 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -17,6 +18,7 @@ ms.author: alzam
 
 This script downloads the VPN device template for a connection
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 # Declare variables
@@ -25,19 +27,19 @@ $GWName      = "VNet1GW"
 $Connection  = "VNet1toSite1"
 
 # List the available VPN device models and versions
-Get-AzureRmVirtualNetworkGatewaySupportedVpnDevice -Name $GWName -ResourceGroupName $RG
+Get-AzVirtualNetworkGatewaySupportedVpnDevice -Name $GWName -ResourceGroupName $RG
 
 # Download the configuration template for the connection
-Get-AzureRmVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connection -ResourceGroupName $RG `
+Get-AzVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connection -ResourceGroupName $RG `
 -DeviceVendor Juniper -DeviceFamily Juniper_SRX_GA -FirmwareVersion Juniper_SRX_12.x_GA
 ```
 
 ## Clean up resources
 
-When you no longer need the resources you created, use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to delete the resource group. This will delete the resource group and all of the resources it contains.
+When you no longer need the resources you created, use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to delete the resource group. This will delete the resource group and all of the resources it contains.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name TestRG1
+Remove-AzResourceGroup -Name TestRG1
 ```
 
 ## Script explanation
@@ -46,9 +48,9 @@ This script uses the following commands to create the deployment. Each item in t
 
 | Command | Notes |
 |---|---|
-| [Get-AzureRmVirtualNetworkGatewaySupportedVpnDevice](/powershell/module/azurerm.network/Get-AzureRmVirtualNetworkGatewaySupportedVpnDevice) | Lists all the available VPN device models and versions. |
-| [Get-AzureRmVirtualNetworkGatewayConnectionVpnDeviceConfigScript](/powershell/module/azurerm.network/Get-AzureRmVirtualNetworkGatewayConnectionVpnDeviceConfigScript) | Downloads the configuration template for the connection. |
+| [Get-AzVirtualNetworkGatewaySupportedVpnDevice](/powershell/module/az.network/Get-azVirtualNetworkGatewaySupportedVpnDevice) | Lists all the available VPN device models and versions. |
+| [Get-AzVirtualNetworkGatewayConnectionVpnDeviceConfigScript](/powershell/module/az.network/Get-azVirtualNetworkGatewayConnectionVpnDeviceConfigScript) | Downloads the configuration template for the connection. |
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).

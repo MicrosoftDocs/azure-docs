@@ -1,105 +1,79 @@
 ---
-title: Set up two-step verification - Azure Active Directory | Microsoft Docs
-description: When your company configures Azure Multi-Factor Authentication, you will be prompted to sign up for two-step verification. Learn how to set it up.
+title: What is the Additional verification page? - Azure AD
+description: How to get to the Additional security verification page for two-factor verification
 services: active-directory
-keywords: how to use azure directory, active directory in the cloud, active directory tutorial
-author: eross-msft
-manager: mtillman
-ms.reviewer: richagi
-ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
+author: curtand
+manager: daveba
 
-ms.workload: identity
 ms.service: active-directory
-ms.component: user-help
-ms.topic: conceptual
-ms.date: 05/15/2017
-ms.author: lizross
+ms.subservice: user-help
+ms.workload: identity
+ms.topic: end-user-help
+ms.date: 05/28/2020
+ms.author: curtand
 ---
 
-# Set up my account for two-step verification
-Two-step verification is an additional security step that helps protect your account by making it harder for other people to break in. If you're reading this article, you probably got an email from your work or school admin about Multi-Factor Authentication. Or maybe you tried to sign in and got a message asking you to set up additional security verification. If that's the case, **you cannot sign in until you have completed the auto-enrollment process**.
+# What is the Additional verification page?
 
-This article helps you set up your **work or school account**. If you want to enable two-step verification for your own, personal Microsoft account, see [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
+Your organization is taking extra steps to make sure you are who you say you are when you sign in. This extra security verification is also known as two-factor verification. It consists of a combination of your username, password, and a mobile device or phone. If all you want to do is turn off two-factor verification for a Microsoft account such as alain@outlook.com, use the instructions in [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
-## Set up your account
+<center>
 
-When your company support requires you to start using two-step verification, you'll see a screen that says **Your admin has required that you set up this account for additional security verification**:
+![Conceptual authentication methods image](../authentication/media/concept-mfa-howitworks/methods.png)</center>
 
-![Setup](./media/multi-factor-authentication-end-user-first-time/first.png)
+Two-factor verification is more secure than just a password because it relies on two forms of authentication:
 
-To get started, select **Set it up now.**
+- Something you know, like your password.
+- Something you have, like a phone or other device that you carry.
 
-If you do not see a screen like this when you sign in, follow the directions in [Manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) to find the settings page where you can manage your verification options.
+Two-factor verification can help stop malicious hackers from pretending to be you. Even if they have your password, the odds are that they don't have your device, too.
 
-## Decide how you want to verify your sign-ins
+>[!Important]
+>If you're an administrator looking for information about how to turn on two-factor verification for your employees or other users, see the [Azure Active Directory Authentication documentation](../authentication/index.yml). This article is intended for users trying to use two-factor verification with a work or school account (such as alain@contoso.com).
 
-The first question in the enrollment process is how you want us to contact you. Take a look at the options in the table, and use the links to go to the setup steps for each method.
+## Who decides if you use this feature?
 
-| Contact method | Description |
-| --- | --- |
-| [Mobile app](#use-a-mobile-app-as-the-contact-method) |- **Receive notifications for verification.** This option pushes a notification to the authenticator app on your smartphone or tablet. View the notification and, if it is legitimate, select **Authenticate** in the app. Your work or school may require that you enter a PIN before you authenticate.<br>- **Use verification code.** In this mode, the authenticator app generates a verification code that updates every 30 seconds. Enter the most current verification code in the sign-in interface.<br>The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071). |
-| [Mobile phone call or text](#use-your-mobile-phone-as-the-contact-method) |- **Phone call** places an automated voice call to the phone number you provide. Answer the call and press # in the phone keypad to authenticate.<br>- **Text message** ends a text message containing a verification code. Following the prompt in the text, either reply to the text message or enter the verification code provided into the sign-in interface. |
-| [Office Phone Call](#use-your-office-phone-as-the-contact-method) |Places an automated voice call to the phone number you provide. Answer the call and presses # in the phone keypad to authenticate. |
+Who decides whether you use two-factor verification depends on what type of account you have:
 
-## Use a mobile app as the contact method
-Using this method requires that you install an authenticator app on your phone or tablet. The steps in this article are based on the Microsoft Authenticator app, which is available for [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](https://go.microsoft.com/fwlink/?Linkid=825073).
+- **Work or school account.** If you're using a work or school account (such as alain@contoso.com), it's up to your organization whether you use two-factor verification, along with the specific verification methods. Because your organization has decided you must use this feature, there's no way for you to individually turn it off.
 
->[!NOTE]
->You don’t have to use the Microsoft Authenticator app. If you’re already using another authenticator app, you can continue to use it.
+- **Personal Microsoft account.** You can choose to set up two-factor verification for your personal Microsoft accounts (such as alain@outlook.com). You can turn it on or off whenever you want, using the simple instructions in [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
-1. Select **Mobile app** from the drop-down list.
-2. Select either **Receive notifications for verification** or **Use verification code**, then select **Set up**.
+    >[!Note]
+    >If you're having other problems with two-factor verification and one of your personal Microsoft accounts, there are more suggestions in [How to use two-step verification with your Microsoft account](https://support.microsoft.com/help/12408/microsoft-account-how-to-use-two-step-verification).
 
-   ![Additional security verification screen](./media/multi-factor-authentication-end-user-first-time/mobileapp.png)
+## Open the Additional security verification page
 
-3. On your phone or tablet, open the app and select **+** to add an account. (On Android devices, select the three dots, then **Add account**.)
-4. Specify that you want to add a work or school account. The QR code scanner on your phone opens. If your camera is not working properly, you can select to enter your company information manually. For more information, see [Add an account manually](#add-an-account-manually).  
-5. Scan the QR code picture that appeared with the screen for configuring the mobile app.  Select **Done** to close the QR code screen.  
+After your organization turns on two-factor verification, every time you sign in you’ll get a prompt telling you to provide more information to help keep your account secure.
 
-   ![QR code screen](./media/multi-factor-authentication-end-user-first-time/scan2.png)
+![More info required prompt](media/multi-factor-authentication-verification-methods/multi-factor-authentication-initial-prompt.png)
 
-6. When activation finishes on the phone, select **Contact me**.  This step sends either a notification or a verification code to your phone. Select **Verify**.  
-7. If your company requires a PIN for approving sign-in verification, enter it.
+### To access the Additional security verification page
 
-   ![Box for entering a PIN](./media/multi-factor-authentication-end-user-first-time/scan3.png)
+1. Select **Next** from the **More information required** prompt.
 
-8. After PIN entry is complete, select **Close**. At this point, your verification should be successful.
-9. We recommend that you enter your mobile phone number in case you lose access to your mobile app. Specify your country from the drop-down list, and enter your mobile phone number in the box next to the country name. Select **Next**.
-10. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This is because some apps don't support two-step verification. If you do not use these apps, click **Done** and skip the rest of the steps.
-11. If you are using these apps, copy the app password provided and paste it into your application instead of your regular password. You can use the same app password for multiple apps. For more info, [help with app passwords].
-12. Click **Done**.
+    The **Additional security verification** page appears.
 
-### Add an account manually
-If you want to add an account to the mobile app manually, instead of using the QR reader, follow these steps.
+2. On the **Additional security verification** page, select the two-factor verification method to use to verify you are who you say you are when you sign into your work or school account. You can select:
 
-1. Select the **Enter account manually** button.  
-2. Enter the code and the URL that are provided on the same page that shows you the barcode. This info goes in the **Code** and **URL** boxes on the mobile app.
-
-    ![Setup](./media/multi-factor-authentication-end-user-first-time/barcode2.png)
-3. When the activation has finished, select **Contact me**. This step sends either a notification or a verification code to your phone. Select **Verify**.
-
-## Use your mobile phone as the contact method
-1. Select **Authentication Phone** from the drop-down list.  
-
-    ![Setup](./media/multi-factor-authentication-end-user-first-time/phone.png)  
-2. Choose your country from the drop-down list, and enter your mobile phone number.
-3. Select the method you would prefer to use with your mobile phone - text or call.
-4. Select **Contact me** to verify your phone number. Depending on the mode you selected, we send you a text or call you. Follow the instructions provided on the screen, then select **Verify**.
-5. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This is because some apps don't support two-step verification. If you do not use these apps, click **Done** and skip the rest of the steps.
-6. If you are using these apps, copy the app password provided and paste it into your application instead of your regular password. You can use the same app password for multiple apps. For more info, [help with app passwords].
-7. Click **Done**.
-
-## Use your office phone as the contact method
-1. Select **Office Phone** from the drop-down  
-
-    ![Setup](./media/multi-factor-authentication-end-user-first-time/office.png)  
-2. The phone number box is automatically filled with your company contact information. If the number is wrong or missing, ask your admin to make changes.
-3. Select **Contact me** to verify your phone number, and we will call your number. Follow the instructions provided on the screen, then select **Verify**.
-4. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This is because some apps don't support two-step verification. If you do not use these apps, click **Done** and skip the rest of the steps.
-5. If you are using these apps, copy the app password provided and paste it into your application instead of your regular password. You can use the same app password for multiple apps. For more info, see [What are App Passwords](multi-factor-authentication-end-user-app-passwords.md).
-6. Click **Done**.
+    | Contact method | Description |
+    | --- | --- |
+    | Mobile app | <ul><li>**Receive notifications for verification.** This option pushes a notification to the authenticator app on your smartphone or tablet. View the notification and, if it is legitimate, select **Authenticate** in the app. Your work or school may require that you enter a PIN before you authenticate.</li><li>**Use verification code.** In this mode, the app generates a verification code that updates every 30 seconds. Enter the most current verification code in the sign-in screen.<br>The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594) and [iOS](https://go.microsoft.com/fwlink/?linkid=866594).</li></ul> |
+    | Authentication phone | <ul><li>**Phone call** places an automated voice call to the phone number you provide. Answer the call and press the pound key (#) on the phone keypad to authenticate.</li><li>**Text message** ends a text message containing a verification code. Following the prompt in the text, either reply to the text message or enter the verification code provided into the sign-in interface.</li></ul> |
+    | Office phone | Places an automated voice call to the phone number you provide. Answer the call and press the pound key (#) on the phone keypad to authenticate. |
 
 ## Next steps
-* Change your preferred options and [manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md)
-* Set up [app passwords](multi-factor-authentication-end-user-app-passwords.md) for native device apps that don't support two-step verification.
-* Check out the [Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) for fast, secure authentication even when you don't have cell service.
+
+After you've selected a two-factor verification method on the **Additional security verification** page, you must set it up:
+
+- [Set up your mobile device as your verification method](multi-factor-authentication-setup-phone-number.md)
+
+- [Set up your office phone as your verification method](multi-factor-authentication-setup-office-phone.md)
+
+- [Set up the Microsoft Authenticator app as your verification method](multi-factor-authentication-setup-auth-app.md)
+
+## Related resources
+
+- [Sign-in using two-factor verification](multi-factor-authentication-end-user-signin.md)
+
+- [Get help with two-factor verification](multi-factor-authentication-end-user-troubleshoot.md)

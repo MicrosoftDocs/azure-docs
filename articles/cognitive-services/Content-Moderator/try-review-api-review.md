@@ -1,64 +1,194 @@
 ---
-title: Moderate content by using human reviews with the API console - Content Moderator
-titlesuffix: Azure Cognitive Services
-description: Learn how to create human reviews in the Content Moderator API console.
+title: Create moderation reviews with REST API console - Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Use the Azure Content Moderator Review APIs to create image or text reviews for human moderation.
 services: cognitive-services
-author: sanjeev3
-manager: cgronlun
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 08/05/2017
-ms.author: sajagtap
+ms.date: 03/18/2019
+ms.author: pafarley
+# reviews how-to for REST API
 ---
 
-# Create reviews from the API console
+# Create human reviews (API console)
 
-Use the Review API's [review operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4) to create image or text reviews for human moderation. Human moderators use the Review tool to review the content. Use this operation based on your post-moderation business logic. Use it after you have scanned your content by using any of the Content Moderator image or text APIs, or other Cognitive Services APIs. 
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
-After a human moderator reviews the auto-assigned tags and prediction data and submits a final moderation decision, the Review API submits all information to your API endpoint.
+[Reviews](./review-api.md#reviews) store and display content for human moderators to assess. When a user completes a review, the results are sent to a specified callback endpoint. In this guide, you'll learn how to set up reviews using the review REST APIs through the API console. Once you understand the structure of the APIs, you can easily port these calls to any REST-compatible platform.
 
-## Use the API console
-To test-drive the API by using the online console, you need a few values to enter into the console:
+## Prerequisites
 
-- **teamName**: The team name that you created when you set up your Review tool account. 
-- **ContentId**: This string is passed to the API and returned through the callback. The ContentId is useful for associating internal identifiers or metadata with the results of a moderation job.
-- **Metadata**: Custom key-value pairs returned to your API endpoint during the callback. If the key is a short code that is defined in the Review tool, it appears as a tag.
-- **Ocp-Apim-Subscription-Key**: Located on the **Settings** tab. For more information, see [Overview](overview.md).
+- Sign in or create an account on the Content Moderator [Review tool](https://contentmoderator.cognitive.microsoft.com/) site.
 
-The simplest way to access a testing console is from the **Credentials** window.
+## Create a review
 
-1.	In the **Credentials** window, select [Review API reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
+To create a review, go to the **[Review - Create](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)** API reference page and select the button for your key region (you can find this in the Endpoint URL on the **Credentials** page of the [Review tool](https://contentmoderator.cognitive.microsoft.com/)). This starts the API console, where you can easily construct and run REST API calls.
 
-  The **Review - Create** page opens.
+![Review - Get region selection](images/test-drive-region.png)
 
-2.	For **Open API testing console**, select the region that most closely describes your location.
+### Enter REST call parameters
 
-  ![Review - Create page region selection](images/test-drive-region.png)
+Enter values for **teamName**, and **Ocp-Apim-Subscription-Key**:
 
-  The **Review - Create** API console opens.
+- **teamName**: The team ID that you created when you set up your [Review tool](https://contentmoderator.cognitive.microsoft.com/) account (found in the **Id** field on your Review tool's Credentials screen).
+- **Ocp-Apim-Subscription-Key**: Your Content Moderator key. You can find this  on the **Settings** tab of the [Review tool](https://contentmoderator.cognitive.microsoft.com).
+
+### Enter a review definition
+
+Edit the **Request body** box to enter the JSON request with the following fields:
+
+- **Metadata**: Custom key-value pairs to be returned to your callback endpoint. If the key is a short code that is defined in the [Review tool](https://contentmoderator.cognitive.microsoft.com), it appears as a tag.
+- **Content**: In the case of Image and Video content, this is a URL string pointing to the content. For text content, this is the actual text string.
+- **ContentId**: A custom identifier string. This string is passed to the API and returned through the callback. It is useful for associating internal identifiers or metadata with the results of a moderation job.
+- **CallbackEndpoint**: (Optional) The URL to receive callback information when the review is completed.
+
+The default request body shows examples of the different types of reviews you can create:
+
+```json
+[Image]
+[
+  {
+    "Metadata": [
+      {
+        "Key": "string",
+        "Value": "string"
+      }
+    ],
+    "Type": "Image",
+    "Content": "<Content Url>",
+    "ContentId": "<Your identifier for this content>",
+    "CallbackEndpoint": "<Url where you would receive callbacks>"
+  }
+]
+[Text]
+[
+  {
+    "Metadata": [
+      {
+        "Key": "string",
+        "Value": "string"
+      }
+    ],
+    "Type": "Text",
+    "Content": "<Your Text Content>",
+    "ContentId": "<Your identifier for this content>",
+    "CallbackEndpoint": "<Url where you would receive callbacks>"
+  }
+]
+[Video]
+[
+  {
+    "VideoFrames":[
+      {
+          "Id": "<Frame Id>",
+          "Timestamp": "<Frame Timestamp",
+          "FrameImage":"<Frame Image URL",
+          "Metadata": [
+            {
+              "Key": "<Key>",
+              "Value": "<Value"
+            }
+          ],
+          "ReviewerResultTags": [
+          ]
+    ], 
+    "Metadata": [
+      {
+        "Key": "string",
+        "Value": "string"
+      },
+      //For encrypted Videos
+        {
+          "Key": "protectedType",
+          "Value": "AES or FairPlay or Widevine or Playready"
+        },
+        {
+          "Key": "authenticationToken",
+          "Value": "your viewtoken(In case of Video Indexer AES encryption type, this value is viewtoken from breakdown json)"
+        },
+      //For FairPlay encrypted type video include certificateUrl as well
+        {
+          "Key": "certificateUrl",
+          "Value": "your certificate url"
+        }
+    ],
+    "Type": "Video",
+    "Content": "<Stream Url>",
+    "ContentId": "<Your identifier for this content>",
+    "CallbackEndpoint": "<Url where you would receive callbacks>",
+    [Optional]
+    "Timescale": "<Timescale of the video>
+  }
+]
+```
+
+### Submit your request
   
-3.	Enter values for the required query parameters, content type, and your subscription key. In the **Request body** box, specify the content (for example, image location), metadata, and other information associated with the content.
+Select **Send**. If the operation succeeds, the **Response status** is `200 OK`, and the **Response content** box displays an ID for the review. Copy this ID to use in the following steps.
 
-  ![Review - Create console query parameters, headers, and Request body box](images/test-drive-review-1.PNG)
+![Review - Create console Response content box displays the review ID](images/test-drive-review-2.PNG)
+
+### Examine the new review
+
+In the [Review tool](https://contentmoderator.cognitive.microsoft.com), select **Review** > **Image**/**Text**/**Video** (depending on what content you used). The content that you uploaded should appear, ready for human review.
+
+![Review tool image of a soccer ball](images/test-drive-review-5.PNG)
+
+## Get review details
+
+To retrieve details about an existing review, go to the [Review - Get](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c2) API reference page and select the button for your region (the region in which your key is administered).
+
+![Workflow - Get region selection](images/test-drive-region.png)
+
+Enter the REST call parameters as in the above section. For this step, **reviewId** is the unique ID string you received when you created the review.
+
+![Review - Create console Get results](images/test-drive-review-3.PNG)
   
-4.	Select **Send**. A review ID is created. Copy this ID to use in the following steps.
+Select **Send**. If the operation succeeds, the **Response status** is `200 OK`, and the **Response content** box displays the review details in JSON format, like the following:
 
-  ![Review - Create console Response content box displays the review ID](images/test-drive-review-2.PNG)
-  
-5.	Select **Get**, and then open the API by selecting the button that matches your region. On the resulting page, enter the values for **teamName**, **ReviewID**, and **subscription key**. Select the **Send** button on the page. 
+```json
+{  
+  "reviewId":"201712i46950138c61a4740b118a43cac33f434",
+  "subTeam":"public",
+  "status":"Complete",
+  "reviewerResultTags":[  
+    {  
+      "key":"a",
+      "value":"False"
+    },
+    {  
+      "key":"r",
+      "value":"True"
+    },
+    {  
+      "key":"sc",
+      "value":"True"
+    }
+  ],
+  "createdBy":"<teamname>",
+  "metadata":[  
+    {  
+      "key":"sc",
+      "value":"true"
+    }
+  ],
+  "type":"Image",
+  "content":"https://reviewcontentprod.blob.core.windows.net/<teamname>/IMG_201712i46950138c61a4740b118a43cac33f434",
+  "contentId":"0",
+  "callbackEndpoint":"<callbackUrl>"
+}
+```
 
-  ![Review - Create console Get results](images/test-drive-review-3.PNG)
-  
-6.	You will see the results of the scan.
+Take note of the following fields in the response:
 
-  ![Review - Create console Response content box](images/test-drive-review-4.PNG)
-  
-7.	On the Content Moderator Dashboard, select **Review** > **Image**. The image that you scanned appears, ready for human review.
-
-  ![Review tool image of a soccer ball](images/test-drive-review-5.PNG)
+- **status**
+- **reviewerResultTags**: This appears if any tags have been manually added by the human review team (shown the **createdBy** field).
+- **metadata**: This shows the tags that were initially added in the review, before the human review team made changes.
 
 ## Next steps
 
-Use the REST API in your code or start with the [Reviews .NET quickstart](moderation-reviews-quickstart-dotnet.md) to integrate with your application.
+In this guide, you learned how to create content moderation reviews using the REST API. Next, integrate reviews into an end-to-end moderation scenario, such as the [E-commerce moderation](./ecommerce-retail-catalog-moderation.md) tutorial.

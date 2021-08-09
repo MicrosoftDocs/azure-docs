@@ -1,18 +1,28 @@
 ---
-title: Upgrading to the Azure Search .NET SDK version 3 | Microsoft Docs
-description: Upgrading to the Azure Search .NET SDK version 3
+title: Upgrade to Azure Search .NET SDK version 3
+titleSuffix: Azure Cognitive Search
+description: Migrate code to the Azure Search .NET SDK version 3 from older versions. Learn what's new and which code changes are required.
+
+manager: nitinme
 author: brjohnstmsft
-manager: jlembicz
-services: search
-ms.service: search
+ms.author: brjohnst
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/15/2018
-ms.author: brjohnst
-
+ms.date: 11/04/2019
+ms.custom: devx-track-csharp
 ---
-# Upgrading to the Azure Search .NET SDK version 3
-If you're using version 2.0-preview or older of the [Azure Search .NET SDK](https://aka.ms/search-sdk), this article will help you upgrade your application to use version 3.
+
+# Upgrade to Azure Search .NET SDK version 3
+
+<!--- DETAILS in the word doc
+cosmosdb
+NER v1 skill 
+Indexer execution result errors no longer have status
+the data source API will no longer return in the response of any REST operation, the connection string specified by the user.
+--->
+
+If you're using version 2.0-preview or older of the [Azure Search .NET SDK](/dotnet/api/overview/azure/search), this article will help you upgrade your application to use version 3.
 
 For a more general walkthrough of the SDK including examples, see [How to use Azure Search from a .NET Application](search-howto-dotnet-sdk.md).
 
@@ -28,7 +38,7 @@ Version 3 of the Azure Search .NET SDK contains some changes from earlier versio
 ## What's new in version 3
 Version 3 of the Azure Search .NET SDK targets the latest generally available version of the Azure Search REST API, specifically 2016-09-01. This makes it possible to use many new features of Azure Search from a .NET application, including the following:
 
-* [Custom analyzers](https://aka.ms/customanalyzers)
+* [Custom analyzers](index-add-custom-analyzers.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) and [Azure Table Storage](search-howto-indexing-azure-tables.md) indexer support
 * Indexer customization via [field mappings](search-indexer-field-mappings.md)
 * ETags support to enable safe concurrent updating of index definitions, indexers, and data sources
@@ -44,7 +54,9 @@ Once NuGet has downloaded the new packages and their dependencies, rebuild your 
 
 If your build fails, you should see a build error like the following:
 
-    Program.cs(31,45,31,86): error CS0266: Cannot implicitly convert type 'Microsoft.Azure.Search.ISearchIndexClient' to 'Microsoft.Azure.Search.SearchIndexClient'. An explicit conversion exists (are you missing a cast?)
+```output
+Program.cs(31,45,31,86): error CS0266: Cannot implicitly convert type 'Microsoft.Azure.Search.ISearchIndexClient' to 'Microsoft.Azure.Search.SearchIndexClient'. An explicit conversion exists (are you missing a cast?)
+```
 
 The next step is to fix this build error. See [Breaking changes in version 3](#ListOfChanges) for details on what causes the error and how to fix it.
 
@@ -134,6 +146,6 @@ If your application has a hard dependency on these features, you will not be abl
 ## Conclusion
 If you need more details on using the Azure Search .NET SDK, see the [.NET How-to](search-howto-dotnet-sdk.md).
 
-We welcome your feedback on the SDK. If you encounter problems, feel free to ask us for help on the [Azure Search MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch). If you find a bug, you can file an issue in the [Azure .NET SDK GitHub repository](https://github.com/Azure/azure-sdk-for-net/issues). Make sure to prefix your issue title with "[Azure Search]".
+We welcome your feedback on the SDK. If you encounter problems, feel free to ask us for help on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). If you find a bug, you can file an issue in the [Azure .NET SDK GitHub repository](https://github.com/Azure/azure-sdk-for-net/issues). Make sure to prefix your issue title with "[Azure Search]".
 
 Thank you for using Azure Search!

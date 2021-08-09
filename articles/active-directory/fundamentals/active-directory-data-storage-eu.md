@@ -1,76 +1,76 @@
 ---
-title: Where Azure AD stores identity data for European customers | Microsoft Docs
-description: Learn about where Microsoft Azure Active Directory stores identity-related data for its European customers.
+title: Identity data storage for European customers - Azure AD
+description: Learn about where Azure Active Directory stores identity-related data for its European customers.
 services: active-directory
-author: eross-msft
-manager: mtillman
-ms.author: lizross
+author: ajburnle
+manager: daveba
+ms.author: ajburnle
 
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/17/2018
-ms.custom: it-pro
+ms.date: 09/15/2020
+ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
-# Where does Microsoft Azure Active Directory (Azure AD) store identity data for European customers
-Azure AD helps you to manage user identities and to create intelligence-driven access policies that help secure your organization's resources. Identity data is stored in a location that's based on the address your organization provided when you subscribed to the service. For example, when you subscribed to Office 365 or Azure. For specific info about where your identity data is stored, you can use the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
+# Identity data storage for European customers in Azure Active Directory
+Identity data is stored by Azure AD in a geographical location  based on the address provided by your organization when subscribing for a Microsoft Online service such as Microsoft 365 and Azure. For information on where your identity data is stored, you can use the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
 
-While most Azure AD-related European identity data stays in European datacenters, there are five user-related attributes that are typically stored in U.S. datacenters. These attributes are GivenName, Surname, userPrincipalName, Domain, and PasswordHash. The PasswordHash attribute can be an exception and not stored in the U.S. if someone uses an on-premises, federated authentication method that stops the PasswordHash value from syncing with Azure AD. Additionally, there is some operational, service-specific data that's required for normal Azure AD operation, which is stored in the U.S. and doesn't include any personal data.
+For customers who provided an address in Europe, Azure AD keeps most of the identity data within European datacenters. This document provides information on any data that is stored outside of Europe by Azure AD services.
 
-## Data stored outside of European datacenters for European customers
+## Microsoft Azure AD Multi-Factor Authentication
 
-Most Azure AD-related European identity data, for organizations with European-based addresses, stays in European datacenters. Azure AD data that's not stored in European datacenters, includes:
+For cloud-based Azure AD Multi-Factor Authentication, authentication is complete in the closest datacenter to the user. Datacenters for Azure AD Multi-Factor Authentication exist in North America, Europe, and Asia Pacific.
 
-- **Identity-related attributes**
+* Multi-factor authentication using phone calls originate from US datacenters and are routed by global providers.
+* Multi-factor authentication using SMS is routed by global providers.
+* Multi-factor authentication requests using the Microsoft Authenticator app push notifications that originate from EU datacenters are processed in EU datacenters.
+    * Device vendor-specific services, such as Apple Push Notifications, may be outside Europe.
+* Multi-factor authentication requests using OATH codes that originate from EU datacenters are validated in the EU.
 
-    The following identity-related attributes will be replicated to the United States:
+For more information about what user information is collected by Azure Multi-Factor Authentication Server (MFA Server) and cloud-based Azure AD MFA, see [Azure Multi-Factor Authentication user data collection](../authentication/howto-mfa-reporting-datacollection.md).
 
-    - GivenName
-    - Surname
-    - userPrincipalName
-    - Domain
-    - PasswordHash
-    - SourceAnchor
-    - AccountEnabled
-    - PasswordPolicies
-    - StrongAuthenticationRequirement
-    - ApplicationPassword
-    - PUID
+## Password-based Single Sign-On for Enterprise Applications
+ 
+If a customer creates a new enterprise application (whether through Azure AD Gallery or non-Gallery) and enables password-based SSO, the Application sign in URL, and custom capture sign in fields are stored in the United States. For more information on this feature, please refer to [Configure password-based single sign-on](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
-- **Microsoft Azure multi-factor authentication (MFA) and Azure AD self-service password reset (SSPR)**
+## Microsoft Azure Active Directory B2C (Azure AD B2C)
+
+Azure AD B2C policy configuration data and Key Containers are stored in U.S. datacenters. These do not contain any user personal data. For more info about policy configurations, see the [Azure Active Directory B2C: Built-in policies](../../active-directory-b2c/user-flow-overview.md) article.
+
+## Microsoft Azure Active Directory B2B (Azure AD B2B) 
     
-    MFA stores all user data at-rest in European datacenters. However, some MFA service-specific data is stored in the U.S., including:
+Azure AD B2B stores invitations with redeem link and redirect URL information in US datacenters. In addition, email address of users that unsubscribe from receiving B2B invitations are  also stored in U.S. datacenters.
+
+## Microsoft Azure Active Directory Domain Services (Azure AD DS)
+
+Azure AD DS stores user data in the same location as the customer-selected Azure Virtual Network. So, if the network is outside Europe, the data is replicated and stored outside Europe.
+
+## Federation in Microsoft Exchange Server 2013
     
-    - Two-factor authentication and its related personal data might be stored in the U.S. if you're using MFA or SSPR.
-        - All two-factor authentication using phone calls or SMS might be completed by U.S. carriers.
-        - Push notifications using the Microsoft Authenticator app require notifications from the manufacturer's notification service (Apple or Google), which might be outside Europe.
-        - OATH codes are always validated in the U.S. 
-    - Some MFA and SSPR logs are stored in the U.S. for 30 days, regardless of authentication type.
+- Application identifier (AppID) - A unique number generated by the Azure Active Directory authentication system to identify Exchange organizations.
+- Approved Federated domains list for Application
+- Application’s token signing Public Key 
 
-- **Microsoft Azure Active Directory B2C (Azure AD B2C)**
+For more info about federation in Microsoft Exchange server, see the [Federation: Exchange 2013 Help](/exchange/federation-exchange-2013-help) article.
 
-    Azure AD B2C stores all user data at-rest in European datacenters. However, operational logs (with personal data removed) stay at the location from where the person is accessing the services. For example, if a B2C user accesses the service in the U.S., the operational logs stay in the U.S. Additionally, all policy configuration data not containing personal data is stored only in the U.S. For more info about policy configurations, see the [Azure Active Directory B2C: Built-in policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) article.
 
-- **Microsoft Azure Active Directory B2B (Azure AD B2B)** 
-    
-    Azure AD B2B stores all user data at-rest in European datacenters. However, B2B stores its non-personal metadata in tables within U.S. datacenters. This table includes fields like redeemUrl, invitationTicket, resource tenant Id, InviteRedirectUrl, and InviterAppId.
+## Other considerations
 
-- **Microsoft Azure Active Directory Domain Services (Azure AD DS)**
+Services and applications that integrate with Azure AD have access to identity data. Evaluate each service and application you use to determine how identity data is processed by that specific service and application, and whether they meet your company's data storage requirements.
 
-    Azure AD DS stores user data in the same location as the customer-selected Azure Virtual Network. So, if the network is outside Europe, the data is replicated and stored outside Europe.
-
-- **Services and apps integrated with Azure AD**
-
-    Any services and apps that integrate with Azure AD have access to identity data. Evaluate each service and app to determine how identity data is processed by that specific service and app, and whether they meet your company's data storage requirements.
-
-    For more information about Microsoft services' data residency, see the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
+For more information about Microsoft services' data residency, see the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
 
 ## Next steps
-For more information about any of the features and functionality described above, see these articles.
-- [What is Multi-Factor Authentication?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
-- [Azure AD self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
-- [What is Azure Active Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
-- [What is Azure AD B2B collaboration?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
-- [Azure Active Directory (AD) Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)
+For more information about any of the features and functionality described above, see these articles:
+- [What is Multi-Factor Authentication?](../authentication/concept-mfa-howitworks.md)
+
+- [Azure AD self-service password reset](../authentication/concept-sspr-howitworks.md)
+
+- [What is Azure Active Directory B2C?](../../active-directory-b2c/overview.md)
+
+- [What is Azure AD B2B collaboration?](../external-identities/what-is-b2b.md)
+
+- [Azure Active Directory (AD) Domain Services](../../active-directory-domain-services/overview.md)

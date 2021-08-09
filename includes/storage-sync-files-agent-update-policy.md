@@ -1,27 +1,56 @@
 ---
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: tamram
+ms.date: 12/11/2018
+ms.author: rogarana
 ---
 The Azure File Sync agent is updated on a regular basis to add new functionality and to address issues. We recommend you configure Microsoft Update to get updates for the Azure File Sync agent as they're available.
 
 #### Major vs. minor agent versions
-* Major agent versions often contain new features and have an increasing number as the first part of the version number. For example: *2.\*.\**
-* Minor agent versions are also called "patches" and are released more frequently than major versions. They often contain bug fixes and smaller improvements but no new features. For example: *\*.3.\**
+* Major agent versions often contain new features and have an increasing number as the first part of the version number. For example: \*2.\*.\*\*
+* Minor agent versions are also called "patches" and are released more frequently than major versions. They often contain bug fixes and smaller improvements but no new features. For example: \*\*.3.\*\*
 
 #### Upgrade paths
-There are three approved and tested ways to install the Azure File Sync agent updates. These update paths work for both major and minor versions.
+There are four approved and tested ways to install the Azure File Sync agent updates. 
 1. **(Preferred) Configure Microsoft Update to automatically download and install agent updates.**  
     We always recommend taking every Azure File Sync update to ensure you have access to the latest fixes for the server agent. Microsoft Update makes this process seamless, by automatically downloading and installing updates for you.
-2. **Patch an existing Azure File Sync agent by using a Microsoft Update patch file, or a .msp executable. The latest Azure File Sync update package can be downloaded from the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync).**  
+2. **Use AfsUpdater.exe to download and install agent updates.**  
+    The AfsUpdater.exe is located in the agent installation directory. Double-click the executable to download and install agent updates. 
+3. **Patch an existing Azure File Sync agent by using a Microsoft Update patch file, or a .msp executable. The latest Azure File Sync update package can be downloaded from the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync).**  
     Running a .msp executable will upgrade your Azure File Sync installation with the same method used automatically by Microsoft Update in the previous upgrade path. Applying a Microsoft Update patch will perform an in-place upgrade of an Azure File Sync installation.
-3. **Download the newest Azure File Sync agent installer from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). The installer download is a Microsoft Installer package, or a .msi executable.**  
-    To upgrade an existing Azure File Sync agent installation, uninstalled the older version and then install the latest version from the downloaded installer. The server registration, sync groups, and any other settings are maintained by the Azure File Sync installer.
+4. **Download the newest Azure File Sync agent installer from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257).**  
+    To upgrade an existing Azure File Sync agent installation, uninstall the older version and then install the latest version from the downloaded installer. The server registration, sync groups, and any other settings are maintained by the Azure File Sync installer.
+
+#### Automatic agent lifecycle management
+With agent version 6, the file sync team has introduced an agent auto-upgrade feature. You can select either of two modes and specify a maintenance window in which the upgrade shall be attempted on the server. This feature is designed to help you with the agent lifecycle management by either providing a guardrail preventing your agent from expiration or allowing for a no-hassle, stay current setting.
+1. The **default setting** will attempt to prevent the agent from expiration. Within 21 days of the posted expiration date of an agent, the agent will attempt to self-upgrade. It will start an attempt to upgrade once a week within 21 days prior to expiration and in the selected maintenance window. **This option does not eliminate the need for taking regular Microsoft Update patches.**
+1. Optionally, you can select that the agent will automatically upgrade itself as soon as a new agent version becomes available (currently not applicable to clustered servers). This update will occur during the selected maintenance window and allow your server to benefit from new features and improvements as soon as they become generally available. This is the recommended, worry-free setting that will provide major agent versions as well as regular update patches to your server. Every agent released is at GA quality. If you select this option, Microsoft will flight the newest agent version to you. Clustered servers are excluded. Once flighting is complete, the agent will also become available on [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257) aka.ms/AFS/agent.
+
+ ##### Changing the auto-upgrade setting
+
+The following instructions describe how to change the settings after you've completed the installer, if you need to make changes.
+
+Open a PowerShell console and navigate to the directory where you installed the sync agent then import the server cmdlets. By default this would look something like this:
+```powershell
+cd 'C:\Program Files\Azure\StorageSyncAgent'
+Import-Module -Name .\StorageSync.Management.ServerCmdlets.dll
+```
+
+You can run `Get-StorageSyncAgentAutoUpdatePolicy` to check the current policy setting and determine if you want to change it.
+
+To change the current policy setting to the delayed update track, you can use:
+```powershell
+Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode UpdateBeforeExpiration
+```
+
+To change the current policy setting to the immediate update track, you can use:
+```powershell
+Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode InstallLatest
+```
 
 #### Agent lifecycle and change management guarantees
-Azure File Sync is a cloud service, which enables continuously introduction of new features and functionality. This means that a specific Azure File Sync agent version can only be supported for a limited time. To facilitate your deployment, the following rules to guarantee you have enough time and notification to accommodate agent updates/upgrades in your change management process:
+Azure File Sync is a cloud service, which continuously introduces new features and improvements. This means that a specific Azure File Sync agent version can only be supported for a limited time. To facilitate your deployment, the following rules guarantee you have enough time and notification to accommodate agent updates/upgrades in your change management process:
 
 - Major agent versions are supported for at least six months from the date of initial release.
 - We guarantee there is an overlap of at least three months between the support of major agent versions. 

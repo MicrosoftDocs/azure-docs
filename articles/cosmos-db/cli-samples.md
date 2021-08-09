@@ -1,36 +1,43 @@
 ---
-title: Azure CLI Samples for Azure Cosmos DB | Microsoft Docs
-description: Azure CLI Samples - Create and manage Azure Cosmos DB accounts, databases, containers, regions, and firewalls. 
+title: Azure CLI Samples for Azure Cosmos DB Core (SQL) API
+description: Azure CLI Samples for Azure Cosmos DB Core (SQL) API
 author: markjbrown
-
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 10/26/2018
-ms.author: mjbrown
+ms.date: 10/13/2020
+ms.author: mjbrown 
+ms.custom: devx-track-azurecli
 ---
 
-# Azure CLI samples for Azure Cosmos DB
+# Azure CLI samples for Azure Cosmos DB Core (SQL) API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-The following table includes links to sample Azure CLI scripts for Azure Cosmos DB. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](/cli/azure/cosmosdb).
+The following table includes links to sample Azure CLI scripts for Azure Cosmos DB. Use the links on the right to navigate to API specific samples. Common samples are the same across all APIs. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](/cli/azure/cosmosdb). Azure Cosmos DB CLI script samples can also be found in the [Azure Cosmos DB CLI GitHub Repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-| |  |
+These samples require Azure CLI version 2.12.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli)
+
+For Azure CLI samples for other APIs see [CLI Samples for Cassandra](cassandra/cli-samples.md), [CLI Samples for MongoDB API](mongodb/cli-samples.md), [CLI Samples for Gremlin](cli-samples-gremlin.md), [CLI Samples for Table](table/cli-samples.md)
+
+## Common Samples
+
+These samples apply to all Azure Cosmos DB APIs
+
+|Task | Description |
 |---|---|
-|**Create Azure Cosmos DB account, database, and containers**||
-| [Create a SQL API account](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Creates a single Azure Cosmos DB SQL API account, database, and container. |
-| [Create a MongoDB API account](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a single Azure Cosmos DB MongoDB API account, database, and collection. |
-| [Create a Gremlin API account](scripts/create-gremlin-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a single Azure Cosmos DB Gremlin API account, database, and graph. |
-| [Create a Cassandra API account](scripts/create-cassandra-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a single Azure Cosmos DB Cassandra API account and database. |
-| [Create a Table API account](scripts/create-table-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a single Azure Cosmos DB Table API account, database, and table. |
-|**Scale Azure Cosmos DB**||
-| [Scale container throughput](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Changes the provisioned throughput on a container.|
-| [Replicate Azure Cosmos DB database account in multiple regions and configure failover priorities](scripts/scale-multiregion-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Globally replicates account data into multiple regions with a specified failover priority.|
-|**Secure Azure Cosmos DB**||
-| [Get account keys](scripts/secure-get-account-key-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Gets the primary and secondary master write keys and primary and secondary read-only keys for the account.|
-| [Get MongoDB connection string](scripts/secure-mongo-connection-string-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Gets the connection string to connect your MongoDB app to your Azure Cosmos DB account.|
-| [Regenerate account keys](scripts/secure-regenerate-key-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Regenerate the keys for the account.|
-| [Create a firewall](scripts/create-firewall-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Create an inbound IP access control policy to limit access to the account from an approved set of machines and/or cloud services.|
-|**High availability, disaster recovery, backup and restore**||
-| [Configure failover policy](scripts/ha-failover-policy-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Sets the failover priority of each region in which the account is replicated.|
-|**Connect Azure Cosmos DB to resources**||
-| [Connect a web app to Azure Cosmos DB](../app-service/scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json)|Create and connect an Azure Cosmos DB database and an Azure web app.|
+| [Add or failover regions](scripts/cli/common/regions.md?toc=%2fcli%2fazure%2ftoc.json) | Add a region, change failover priority, trigger a manual failover.|
+| [Account keys and connection strings](scripts/cli/common/keys.md?toc=%2fcli%2fazure%2ftoc.json) | List account keys, read-only keys, regenerate keys and list connection strings.|
+| [Secure with IP firewall](scripts/cli/common/ipfirewall.md?toc=%2fcli%2fazure%2ftoc.json)| Create a Cosmos account with IP firewall configured.|
+| [Secure new account with service endpoints](scripts/cli/common/service-endpoints.md?toc=%2fcli%2fazure%2ftoc.json)| Create a Cosmos account and secure with service-endpoints.|
+| [Secure existing account with service endpoints](scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=%2fcli%2fazure%2ftoc.json)| Update a Cosmos account to secure with service-endpoints when the subnet is eventually configured.|
+|||
+
+## Core (SQL) API Samples
+
+|Task | Description |
+|---|---|
+| [Create an Azure Cosmos account, database and container](scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account, database, and container for Core (SQL) API. |
+| [Create an Azure Cosmos account, database and container with autoscale](scripts/cli/sql/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account, database, and container with autoscale for Core (SQL) API. |
+| [Throughput operations](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Read, update and migrate between autoscale and standard throughput on a database and container.|
+| [Lock resources from deletion](scripts/cli/sql/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Prevent resources from being deleted with  resource locks.|
 |||

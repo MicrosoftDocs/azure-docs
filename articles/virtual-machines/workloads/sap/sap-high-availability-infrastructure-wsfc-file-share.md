@@ -1,22 +1,20 @@
 ---
-title: Azure infrastructure preparation for SAP high availability using a Windows failover cluster and file Share for SAP ASCS/SCS instances | Microsoft Docs
+title: Azure infrastructure for SAP ASCS/SCS HA with WSFC&file Share | Microsoft Docs
 description: Azure infrastructure preparation for SAP high availability using a Windows failover cluster and file Share for SAP ASCS/SCS instances
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: jeconnoc
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
 ms.assetid: 2ce38add-1078-4bb9-a1da-6f407a9bc910
-ms.service: virtual-machines-windows
-ms.devlang: NA
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
-ms.author: rclaus
+ms.date: 08/12/2020
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -31,19 +29,20 @@ ms.custom: H1Hack27Feb2017
 
 [ms-blog-s2d-in-azure]:https://blogs.technet.microsoft.com/filecab/2016/05/05/s2dazuretp5/
 [arm-sofs-s2d-managed-disks]:https://github.com/robotechredmond/301-storage-spaces-direct-md
-[arm-sofs-s2d-non-managed-disks]:https://github.com/Azure/azure-quickstart-templates/tree/master/301-storage-spaces-direct
+[arm-sofs-s2d-non-managed-disks]:https://github.com/Azure/azure-quickstart-templates/tree/master/demos/storage-spaces-direct
 [deploy-cloud-witness]:https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness
+[tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -54,11 +53,7 @@ ms.custom: H1Hack27Feb2017
 [sap-ascs-high-availability-multi-sid-wsfc]:sap-ascs-high-availability-multi-sid-wsfc.md
 
 [sap-high-availability-infrastructure-wsfc-shared-disk]:sap-high-availability-infrastructure-wsfc-shared-disk.md
-[sap-high-availability-infrastructure-wsfc-shared-disk-azure-network]:sap-high-availability-infrastructure-wsfc-shared-disk.md#47d5300a-a830-41d4-83dd-1a0d1ffdbe6a
-[sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip]:sap-high-availability-infrastructure-wsfc-shared-disk.md#b22d7b3b-4343-40ff-a319-097e13f62f9e
-[sap-ascs-high-availability-multi-sid-wsfc-set-static-ip]:sap-high-availability-infrastructure-wsfc-shared-disk.md#84c019fe-8c58-4dac-9e54-173efd4b2c30
-[sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb]:sap-high-availability-infrastructure-wsfc-shared-disk.md#7a8f3e9b-0624-4051-9e41-b73fff816a9e
-[sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]:sap-high-availability-infrastructure-wsfc-shared-disk.md#f19bd997-154d-4583-a46e-7f5a69d0153c
+[sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]:sap-high-availability-infrastructure-wsfc-shared-disk.md#fe0bd8b5-2b43-45e3-8295-80bee5415716
 [sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules]:sap-high-availability-infrastructure-wsfc-shared-disk.md#fe0bd8b5-2b43-45e3-8295-80bee5415716
 [sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]:sap-high-availability-infrastructure-wsfc-shared-disk.md#e69e9a34-4601-47a3-a41c-d2e11c626c0c
 [sap-high-availability-installation-wsfc-file-share]:sap-high-availability-installation-wsfc-file-share.md
@@ -194,13 +189,13 @@ ms.custom: H1Hack27Feb2017
 
 
 [sap-templates-3-tier-multisid-xscs-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-db-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-db-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-db-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -247,19 +242,11 @@ Before you start the installation, review the following article:
 
 To prepare the Azure infrastructure, complete the following:
 
-* [Prepare the infrastructure for architectural templates 1, 2, and 3][sap-high-availability-infrastructure-wsfc-shared-disk].
+* [Deploy the VMs][sap-high-availability-infrastructure-wsfc-shared-disk].
 
-* [Create an Azure virtual network][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network].
+* [Create and configure Azure Load balancer for SAP ASCS][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules].
 
-* [Set the required DNS IP addresses][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip].
-
-* [Set static IP addresses for the SAP virtual machines][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip].
-
-* [Set a static IP address for the Azure internal load balancer][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb].
-
-* [Set default ASCS/SCS load balancing rules for the Azure internal load balancer][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules].
-
-* [Change the ASCS/SCS default load balancing rules for the Azure internal load balancer][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules].
+* [If using Enqueue replication server 2 (ERS2), perform the Azure Load Balancer configuration for ERS2 ][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]. 
 
 * [Add Windows virtual machines to the domain][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
 
@@ -273,7 +260,7 @@ To prepare the Azure infrastructure, complete the following:
 You can deploy the Microsoft Scale-Out File Server cluster manually, as described in the blog [Storage Spaces Direct in Azure][ms-blog-s2d-in-azure], by executing the following code:  
 
 
-```PowerShell
+```powershell
 # Set an execution policy - all cluster nodes
 Set-ExecutionPolicy Unrestricted
 
@@ -329,7 +316,7 @@ In the template, do the following:
 3. In the **Sofs Name** box, enter the SAP global host network name, **sapglobalhost**.
 4. In the **Share Name** box, enter the file share name, **sapmnt**.
 
-###	Use unmanaged disks
+### Use unmanaged disks
 
 The Azure Resource Manager template for deploying Scale-Out File Server with Storage Spaces Direct and Azure Unmanaged Disks is available on [GitHub][arm-sofs-s2d-non-managed-disks].
 
@@ -338,6 +325,16 @@ The Azure Resource Manager template for deploying Scale-Out File Server with Sto
 _**Figure 2**: UI screen for the Scale-Out File Server Azure Resource Manager template without managed disks_
 
 In the **Storage Account Type** box, select **Premium Storage**. All other settings are the same as the settings for managed disks.
+
+## Adjust cluster timeout settings
+
+After you successfully install the Windows Scale-Out File Server cluster, adapt timeout thresholds for failover detection to conditions in Azure. The parameters to be changed are documented in [Tuning failover cluster network thresholds][tuning-failover-cluster-network-thresholds]. Assuming that your clustered VMs are in the same subnet, change the following parameters to these values:
+
+- SameSubNetDelay = 2000
+- SameSubNetThreshold = 15
+- RouteHistoryLength = 30
+
+These settings were tested with customers, and offer a good compromise. They are resilient enough, but they also provide fast enough failover in real error conditions or VM failure.
 
 ## Next steps
 

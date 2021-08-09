@@ -1,225 +1,138 @@
 ---
-title: "Example: Call the Computer Vision API"
-titlesuffix: Azure Cognitive Services
-description: Learn how to call the Computer Vision API by using REST in Azure Cognitive Services.
+title: Call the Image Analysis API
+titleSuffix: Azure Cognitive Services
+description: Learn how to call the Image Analysis API and configure its behavior.
 services: cognitive-services
-author: KellyDF
-manager: cgronlun
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: sample
-ms.date: 01/20/2017
+ms.date: 09/09/2019
 ms.author: kefre
+ms.custom: "seodec18, devx-track-csharp"
 ---
 
-# Example: How to call the Computer Vision API
+# Call the Image Analysis API
 
-This guide demonstrates how to call Computer Vision API using REST. The samples are written both in C# using the Computer Vision API client library, and as HTTP POST/GET calls. We will focus on:
+This article demonstrates how to call the Image Analysis API to return information about an image's visual features.
 
--	How to get "Tags", "Description" and "Categories".
--	How to get "Domain-specific" information (celebrities).
-
-### <a name="Prerequisites">Prerequisites</a> 
-Image URL or path to locally stored image.
-  * Supported input methods: Raw image binary in the form of an application/octet stream or image URL
-  * Supported image formats: JPEG, PNG, GIF, BMP
-  * Image file size: Less than 4MB
-  * Image dimension: Greater than 50 x 50 pixels
+This guide assumes you have already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> and obtained a subscription key and endpoint URL. If you haven't, follow a [quickstart](../quickstarts-sdk/image-analysis-client-library.md) to get started.
   
-In the examples below, the following features are demonstrated:
+## Submit data to the service
 
-1. Analyzing an image and getting an array of tags and a description returned.
-2. Analyzing an image with a domain-specific model (specifically, "celebrities"  model) and getting the corresponding result in JSON retune.
+You submit either a local image or a remote image to the Analyze API. For local, you put the binary image data in the HTTP request body. For remote, you specify the image's URL by formatting the request body like the following: `{"url":"http://example.com/images/test.jpg"}`.
 
-Features are broken down on:
+## Determine how to process the data
 
-  * **Option One:** Scoped Analysis - Analyze only a given model
-  * **Option Two:** Enhanced Analysis - Analyze to provide additional details with [86-categories taxonomy](../Category-Taxonomy.md)
-  
-### <a name="Step1">Step 1: Authorize the API call</a> 
-Every call to the Computer Vision API requires a subscription key. This key needs to be either passed through a query string parameter or specified in the request header. 
+###  Select visual features
 
-To obtain a subscription key, see [How to Obtain Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md
-).
+The [Analyze API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) gives you access to all of the service's image analysis features. You need to specify which features you want to use by setting the URL query parameters. A parameter can have multiple values, separated by commas. Each feature you specify will require additional computation time, so only specify what you need.
 
-**1.** Passing the subscription key through a query string, see below as a Computer Vision API example:
+|URL parameter | Value | Description|
+|---|---|--|
+|`visualFeatures`|`Adult` | detects if the image is pornographic in nature (depicts nudity or a sex act), or is gory (depicts extreme violence or blood). Sexually suggestive content (aka racy content) is also detected.|
+||`Brands` | detects various brands within an image, including the approximate location. The Brands argument is only available in English.|
+||`Categories` | categorizes image content according to a taxonomy defined in documentation. This is the default value of `visualFeatures`.|
+||`Color` | determines the accent color, dominant color, and whether an image is black&white.|
+||`Description` | describes the image content with a complete sentence in supported languages.|
+||`Faces` | detects if faces are present. If present, generate coordinates, gender and age.|
+||`ImageType` | detects if image is clip art or a line drawing.|
+||`Objects` | detects various objects within an image, including the approximate location. The Objects argument is only available in English.|
+||`Tags` | tags the image with a detailed list of words related to the image content.|
+|`details`| `Celebrities` | identifies celebrities if detected in the image.|
+||`Landmarks` |identifies landmarks if detected in the image.|
 
-```https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>```
+A populated URL might look like the following:
 
-**2.** Passing the subscription key can also be specified in the HTTP request header:
+`https://{endpoint}/vision/v2.1/analyze?visualFeatures=Description,Tags&details=Celebrities`
 
-```ocp-apim-subscription-key: <Your subscription key>```
+### Specify languages
 
-**3.** When using the client library, the subscription key is passed in through the constructor of VisionServiceClient:
+You can also specify the language of the returned data. The following URL query parameter specifies the language. The default value is `en`.
 
-```var visionClient = new VisionServiceClient(“Your subscriptionKey”);```
+|URL parameter | Value | Description|
+|---|---|--|
+|`language`|`en` | English|
+||`es` | Spanish|
+||`ja` | Japanese|
+||`pt` | Portuguese|
+||`zh` | Simplified Chinese|
 
-### <a name="Step2">Step 2: Upload an image to the Computer Vision API service and get back tags, descriptions and celebrities</a>
-The basic way to perform the Computer Vision API call is by uploading an image directly. This is done by sending a "POST" request with application/octet-stream content type together with the data read from the image. For "Tags" and "Description", this upload method will be the same for all the Computer Vision API calls. The only difference will be the query parameters the user specifies. 
+A populated URL might look like the following:
 
-Here’s how to get "Tags" and "Description" for a given image:
+`https://{endpoint}/vision/v2.1/analyze?visualFeatures=Description,Tags&details=Celebrities&language=en`
 
-**Option One:** Get list of "Tags" and one "Description"
-```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
-```
-```
-using Microsoft.ProjectOxford.Vision;
-using Microsoft.ProjectOxford.Vision.Contract;
-using System.IO;
+> [!NOTE]
+> **Scoped API calls**
+>
+> Some of the features in Image Analysis can be called directly as well as through the Analyze API call. For example, you can do a scoped analysis of only image tags by making a request to `https://{endpoint}/vision/v3.2/tag`. See the [reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) for other features that can be called separately.
 
-AnalysisResult analysisResult;
-var features = new VisualFeature[] { VisualFeature.Tags, VisualFeature.Description };
+## Get results from the service
 
-using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
-{
-  analysisResult = await visionClient.AnalyzeImageAsync(fs, features);
+The service returns a `200` HTTP response, and the body contains the returned data in the form of a JSON string. The following is an example of a JSON response.
+
+```json
+{  
+  "tags":[  
+    {  
+      "name":"outdoor",
+      "score":0.976
+    },
+    {  
+      "name":"bird",
+      "score":0.95
+    }
+  ],
+  "description":{  
+    "tags":[  
+      "outdoor",
+      "bird"
+    ],
+    "captions":[  
+      {  
+        "text":"partridge in a pear tree",
+        "confidence":0.96
+      }
+    ]
+  }
 }
 ```
-**Option Two** Get list of "Tags" only, or list of "Description" only:
 
-###### Tags-only:
-```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/tag&subscription-key=<Your subscription key>
-var analysisResult = await visionClient.GetTagsAsync("http://contoso.com/example.jpg");
-```
+See the following table for explanations of the fields in this example:
 
-###### Description-only:
-```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/describe&subscription-key=<Your subscription key>
-using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
-{
-  analysisResult = await visionClient.DescribeAsync(fs);
-}
-```
-### Here is how to get domain-specific analysis (in our case, for celebrities).
-
-**Option One:** Scoped Analysis - Analyze only a given model
-```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/models/celebrities/analyze
-var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celebrities");
-```
-For this option, all other query parameters {visualFeatures, details} are not valid. If you want to see all supported models, use: 
-```
-GET https://westus.api.cognitive.microsoft.com/vision/v2.0/models 
-var models = await visionClient.ListModelsAsync();
-```
-**Option Two:** Enhanced Analysis - Analyze to provide additional details with [86-categories taxonomy](../Category-Taxonomy.md)
-
-For applications where you want to get generic image analysis in addition to details from one or more domain-specific models, we extend the v1 API with the models query parameter.
-```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?details=celebrities
-```
-When this method is invoked, we will call the 86-category classifier first. If any of the categories match that of a known/matching model, a second pass of classifier invocations will occur. For example, if "details=all", or "details" include ‘celebrities’, we will call the celebrities model after the 86-category classifier is called and the result includes the category person. This will increase latency for users interested in celebrities, compared to Option One.
-
-All v1 query parameters will behave the same in this case.  If visualFeatures=categories is not specified, it will be implicitly enabled.
-
-### <a name="Step3">Step 3: Retrieving and understanding the JSON output for analyze&visualFeatures=Tags, Description</a>
-
-Here's an example:
-```
-  {
-    “tags”: [
-    {
-    "name": "outdoor",
-        "score": 0.976
-    },
-    {
-    "name": "bird",
-        "score": 0.95
-    }
-            ],
-    “description”: 
-    {
-    "tags": [
-    "outdoor",
-    "bird"
-            ],
-    "captions": [
-    {
-    "text”: “partridge in a pear tree”,
-			“confidence”: 0.96
-    }
-                ]
-  	}
-  }
-```
-Field	| Type	| Content
+Field | Type | Content
 ------|------|------|
-Tags 	| object	| Top-level object for array of tags
-tags[].Name	| string	| Keyword from tags classifier
-tags[].Score	| number	| Confidence score, between 0 and 1.
-description	 | object	| Top-level object for a description.
-description.tags[] |	string	| List of tags.  If there insufficient confidence in the ability to produce a caption, the tags maybe the only information available to the caller.
-description.captions[].text	| string	| A phrase describing the image.
-description.captions[].confidence	| number	| Confidence for the phrase.
+Tags  | `object` | The top-level object for an array of tags.
+tags[].Name | `string`    | The keyword from the tags classifier.
+tags[].Score    | `number`    | The confidence score, between 0 and 1.
+description     | `object`    | The top-level object for an image description.
+description.tags[] |    `string`    | The list of tags. If there is insufficient confidence in the ability to produce a caption, the tags might be the only information available to the caller.
+description.captions[].text    | `string`    | A phrase describing the image.
+description.captions[].confidence    | `number`    | The confidence score for the phrase.
 
-### <a name="Step4">Step 4: Retrieving and understanding the JSON output of domain-specific models</a>
+### Error codes
 
-**Option One:** Scoped Analysis - Analyze only a given model
+See the following list of possible errors and their causes:
 
-The output will be an array of tags, an example will be like this example:
-```
-  { 
-    "result": [ 
- 	  { 
-    "name": "golden retriever", 
-    "score": 0.98
-    },
-    { 
-    "name": "Labrador retriever", 
-    "score": 0.78
-    }
-              ]
-  }
-```
+* 400
+    * InvalidImageUrl - Image URL is badly formatted or not accessible.
+    * InvalidImageFormat - Input data is not a valid image.
+    * InvalidImageSize - Input image is too large.
+    * NotSupportedVisualFeature - Specified feature type is not valid.
+    * NotSupportedImage - Unsupported image, e.g. child pornography.
+    * InvalidDetails - Unsupported `detail` parameter value.
+    * NotSupportedLanguage - The requested operation is not supported in the language specified.
+    * BadArgument - Additional details are provided in the error message.
+* 415 - Unsupported media type error. The Content-Type is not in the allowed types:
+    * For an image URL: Content-Type should be application/json
+    * For a binary image data: Content-Type should be application/octet-stream or multipart/form-data
+* 500
+    * FailedToProcess
+    * Timeout - Image processing timed out.
+    * InternalServerError
 
-**Option Two:** Enhanced Analysis - Analyze to provide additional details with 86-categories taxonomy
+## Next steps
 
-For domain-specific models using Option Two (Enhanced Analysis), the categories return type is extended. An example follows:
-```
-  {
-    "requestId": "87e44580-925a-49c8-b661-d1c54d1b83b5",
-    "metadata":     {
-      "width": 640,
-      "height": 430,
-      "format": "Jpeg"
-                    },
-    "result": {
-      "celebrities": 
-      [
-        {
-        "name": "Richard Nixon",
-        "faceRectangle": {
-          "left": 107,
-          "top": 98,
-          "width": 165,
-          "height": 165
-                         },
-        "confidence": 0.9999827
-        }
-      ]
-  }
-```
-
-The categories field is a list of one or more of the [86-categories](../Category-Taxonomy.md) in the original taxonomy. Note also that categories ending in an underscore will match that category and its children (for example, people_ as well as people_group, for celebrities model).
-
-Field	| Type	| Content
-------|------|------|
-categories | object	| Top-level object
-categories[].name	 | string	| Name from 86-category taxonomy
-categories[].score	| number	| Confidence score, between 0 and 1
-categories[].detail	 | object?      | Optional detail object
-
-Note that if multiple categories match (for example, 86-category classifier returns a score for both people_ and people_young when model=celebrities), the details are attached to the most general level match (people_ in that example.)
-
-### <a name="Errors">Errors Responses</a>
-These are identical to vision.analyze, with the additional error of NotSupportedModel error (HTTP 400), which may be returned in both Option One and Option Two scenarios. For Option Two (Enhanced Analysis), if any of the models specified in details are not recognized, the API will return a NotSupportedModel, even if one or more of them are valid.  Users can call listModels to find out what models are supported.
-
-### <a name="Summary">Summary</a>
-
-These are the basic functionalities of the Computer Vision API: how you can upload images and retrieve valuable metadata in return.
-
-To use the REST API, go to [Computer Vision API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44).
- 
+To try out the REST API, go to the [Image Analysis API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b).

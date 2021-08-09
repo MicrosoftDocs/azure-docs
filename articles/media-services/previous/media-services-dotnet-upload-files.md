@@ -1,42 +1,39 @@
 ---
 title: Upload files into a Media Services account using .NET  | Microsoft Docs
-description: Learn how to get media content into Media Services by creating and uploading assets.
+description: Learn how to get media content into Media Services by creating and uploading assets using .NET.
 services: media-services
 documentationcenter: ''
-author: juliako
-manager: cfowler
+author: IngridAtMicrosoft
+manager: femila
 editor: ''
-
 ms.assetid: c9c86380-9395-4db8-acea-507c52066f73
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2018
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.custom: devx-track-csharp
 ---
 # Upload files into a Media Services account using .NET
-> [!div class="op_single_selector"]
-> * [.NET](media-services-dotnet-upload-files.md)
-> * [REST](media-services-rest-upload-files.md)
-> * [Portal](media-services-portal-upload-files.md)
-> 
-> 
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 In Media Services, you upload (or ingest) your digital files into an asset. The **Asset** entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)  Once the files are uploaded, your content is stored securely in the cloud for further processing and streaming.
 
 The files in the asset are called **Asset Files**. The **AssetFile** instance and the actual media file are two distinct objects. The AssetFile instance contains metadata about the media file, while the media file contains the actual media content.
 
-> [!NOTE]
-> The following considerations apply:
-> 
-> * Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one '.' for the file name extension.
-> * The length of the name should not be greater than 260 characters.
-> * There is a limit to the maximum file size supported for processing in Media Services. See [this](media-services-quotas-and-limitations.md) article for details about the file size limitation.
-> * There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) article.
-> 
+## Considerations
+
+The following considerations apply:
+ 
+ * Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one '.' for the file name extension.
+* The length of the name should not be greater than 260 characters.
+* There is a limit to the maximum file size supported for processing in Media Services. See [this](media-services-quotas-and-limitations.md) article for details about the file size limitation.
+* There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) article.
 
 When you create assets, you can specify the following encryption options:
 
@@ -50,13 +47,14 @@ When you create assets, you can specify the following encryption options:
   
     If your asset is storage encrypted, you must configure asset delivery policy. For more information, see [Configuring asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md).
 
-If you specify for your asset to be encrypted with a **CommonEncrypted** option, or an **EnvelopeEncypted** option, you need to associate your asset with a **ContentKey**. For more information, see [How to create a ContentKey](media-services-dotnet-create-contentkey.md). 
+If you specify for your asset to be encrypted with a **CommonEncrypted** option, or an **EnvelopeEncrypted** option, you need to associate your asset with a **ContentKey**. For more information, see [How to create a ContentKey](media-services-dotnet-create-contentkey.md). 
 
-If you specify for your asset to be encrypted with a **StorageEncrypted** option, the Media Services SDK for .NET creates a **StorateEncrypted** **ContentKey** for your asset.
+If you specify for your asset to be encrypted with a **StorageEncrypted** option, the Media Services SDK for .NET creates a **StorageEncrypted** **ContentKey** for your asset.
 
 This article shows how to use Media Services .NET SDK as well as Media Services .NET SDK extensions to upload files into a Media Services asset.
 
 ## Upload a single file with Media Services .NET SDK
+
 The following code uses .NET to upload a single file. The AccessPolicy and Locator are created and destroyed by the Upload function. 
 
 ```csharp
@@ -314,4 +312,3 @@ You can also use Azure Functions to trigger an encoding job based on a file arri
 Now that you have uploaded an asset to Media Services, go to the [How to Get a Media Processor][How to Get a Media Processor] article.
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
-

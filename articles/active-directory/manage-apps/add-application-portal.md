@@ -1,162 +1,74 @@
 ---
-title: 'Add an app to your Azure Active Directory tenant | Microsoft Docs'
+title: 'Quickstart: Add an application to your tenant'
+titleSuffix: Azure AD
 description: This quickstart uses the Azure portal to add a gallery application to your Azure Active Directory (Azure AD) tenant.
 services: active-directory
-author: barbkess
-manager: mtillman
+author: davidmu1
+manager: CelesteDG
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/24/2018
-ms.author: barbkess
-
+ms.date: 07/23/2021
+ms.author: davidmu
+ms.reviewer: ergreenl
 ---
-# Quickstart: Add an application to your Azure Active Directory tenant
 
-Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-integrated applications. Some of the applications your organization uses are probably in the gallery. This quickstart uses the Azure portal to add a gallery application to your Azure Active Directory (Azure AD) tenant. 
- 
+# Quickstart: Add an application to your tenant
+
+Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-integrated applications. Many of the applications your organization uses are probably already in the gallery.
+
 After an application is added to your Azure AD tenant, you can:
 
-- Manage user access to the application with a conditional access policy.
-- Configure users to single sign-on to the application with their Azure AD accounts.
+- Configure properties for the app.
+- Manage user access to the app with a Conditional Access policy.
+- Configure single sign-on so users can sign in to the app with their Azure AD credentials.
 
-## Before you begin
+## Prerequisites
 
-To add an application to your tenant, you need:
+To add an application to your Azure AD tenant, you need:
 
-- An Azure AD subscription
-- A single sign-on enabled subscription for your application
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+- (Optional: Completion of [View your apps](view-applications-portal.md)).
 
-Sign in to the [Azure portal](https://portal.azure.com) as a global admin for your Azure AD tenant, a cloud application admin, or an application admin.
+>[!IMPORTANT]
+>We recommend using a non-production environment to test the steps in this quickstart.
 
-To test the steps in this tutorial, we recommend using a non-production environment. If you don't have an Azure AD non-production environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+## Add an app to your Azure AD tenant
 
-## Add an application to your Azure AD tenant
+To add an application to your Azure AD tenant:
 
-To add a gallery application to your Azure AD tenant:
+1. In the [Azure portal](https://portal.azure.com), in the **Azure services** pane select **Enterprise applications**. The **All applications** pane opens and displays a random sample of the applications in your Azure AD tenant.
+2. In the **Enterprise applications** pane, select **New application**.
+3. The **Browse Azure AD Gallery** pane opens and displays tiles for cloud platforms, on-premises applications, and featured applications. Applications listed in the **Featured applications** section have icons indicating whether they support federated single sign-on (SSO) and provisioning.
+4. Switch back to the legacy app galley experience: In the banner at the top of the **Add an application page**, select the link that says **You're in the new and improved app gallery experience. Click here to switch back to the legacy app gallery experience**.
+    ![Search for an app by name or category](media/add-application-portal/browse-gallery.png)
+5. You can browse the gallery for the application you want to add, or search for the application by entering its name in the search box. Then select the application from the results.
+6. The next step depends on the way the developer of the application implemented single sign-on (SSO). Single sign-on can be implemented by app developers in four ways. The four ways are SAML, OpenID Connect, Password, and Linked. When you add an app, you can choose to filter and see only apps using a particular SSO implementation as shown in the screenshot. For example, a popular standard to implement SSO is called Security Assertion Markup Language (SAML). Another standard that is popular is called OpenId Connect (OIDC). The way you configure SSO with these standards is different so take note of the type of SSO that is implemented by the app that you are adding.
 
-1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, click **Azure Active Directory**. 
+    - If the developer of the app used the **OIDC standard** for SSO then select **Sign Up**. A setup page appears. Next, go to the quickstart on setting up OIDC-based single sign-on.
+    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Screenshot shows adding an OIDC-based SSO app.":::
 
-2. In the **Azure Active Directory** blade, click **Enterprise applications**. 
+    - If the developer of the app used the **SAML standard** for SSO then select **Create**. A getting started page appears with the options for configuring the application for your organization. In the form, you can edit the name of the application to match the needs of your organization. Next, go to the quickstart on setting up SAML-based single sign-on.
+    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Screenshot shows adding an SAML-based SSO app.":::
 
-    ![Open enterprise applications](media/add-application-portal/open-enterprise-apps.png)
+> [!IMPORTANT]
+> There are some key differences between SAML-based and OIDC-based SSO implementations. With SAML-based apps you can add multiple instances of the same app. For example, GitHub1, GitHub2, etc.. For OIDC-based apps you can only add one instance of an app. If you have already added an OIDC-based app and try to add the same app again and provide consent twice, it will not be added again in the tenant.
 
-3. The **All applications** blade opens to show a random sample of the applications in your Azure AD tenant. 
+If the application you are looking for is not in the gallery then you can select the link **Create your own application** and then under **What are you looking to do with your application?** choose **Integrate any other application you don't find in the gallery**. Microsoft has already worked with many application developers to pre-configure them to work with Azure AD. The pre-configured apps show up in the gallery. But if the app you want to add is not listed then you can create a new, generic, app and then configure it yourself or with the guidance of the developer that created it.
 
-    ![All applications blade](media/add-application-portal/applications-blade.png)
+You've finished adding an application. The next quickstart shows you how to change the logo and edit other properties for your application.
 
+> [!TIP]
+> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](/graph/application-saml-sso-configure-api).
 
-4. Click **New application** at the top of the **All applications** blade.
+## Clean up resources
 
-    ![New application](media/add-application-portal/new-application.png)
-
-5. To see a list of applications in the gallery, it's easiest to use the **Categories** since the icons under **Featured applications** are a random sample of gallery applications. 
-
-    ![Search by name or category](media/add-application-portal/categories.png)
-
-    To see more applications, you could click **Show more**. We don't recommend searching this way since there are thousands of applications in the gallery.
-
-6. To search for an application, under **Add from the gallery** enter the name of the application you want to add. Select the application from the results, and click **Add**. The following example shows the **Add app** form that appears after searching for GitHub.com.
-
-	![Add an application](media/add-application-portal/add-an-application.png)
-
-6. In the application-specific form, you can change property information. For example, you can edit the name of the application to match the needs of your organization. This example uses the name **GitHub-test**.
-
-8. When you are finished making changes to the properties, click **Add**.
-
-9. A getting started page appears with the options for configuring the application for your organization. 
-
-    ![Get started menu](media/add-application-portal/get-started.png)
-
-You have finished adding your application. Feel free to take a break.  The next sections show you how to change the logo and edit other properties for your application.
-
-## Find your Azure AD tenant application
-
-Let's assume you had to leave and now you're returning to continue configuring your application. The first thing you need to do is find your application.
-
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory**. 
-
-2. In the Azure Active Directory blade, click **Enterprise applications**. 
-
-3. From the **Application Type** drop-down menu, select **All Applications**, and click **Apply**. To learn more about the viewing options, see [View tenant applications](view-applications-portal.md).
-
-4. You can now see a list of all the applications in your Azure AD tenant.  The list is a random sample. To see more applications, click **Show more** one or more times. 
-
-5. To quickly find an application in your tenant, enter the application name in the search box and click **Apply**. This example finds the GitHub-test application that we added previously.
-
-    ![Search for an application](media/add-application-portal/find-application.png)
-
-
-## Configure user sign-in properties
-
-Now that you have found the application, you can open it and configure application properties.
-
-To edit the application properties
-
-1. Click the application to open it.
-2. Click **Properties** to open the properties blade for editing.
-
-    ![Edit properties blade](media/add-application-portal/edit-properties.png)
-
-3. Take a moment to understand the sign-in options. The **Enabled for users to sign-in**, **User assignment required**, and **Visible to user** combine to determine whether users who are assigned or unassigned to the application can sign in.  They also determine if the user can see the application in the access panel. 
-
-    - **Enabled for users to sign-in** determines whether users assigned to the application can sign in.
-    - **User assignment required** determines whether users who are not assigned to the application can sign in.
-    - **Visible to user** determines whether users assigned to an app can see it in the access panel and O365 launcher. 
-
-4. Use the following tables to help you choose the options that are best for your needs. 
-
-     - Behavior for **assigned** users:
-
-       | Application property settings | | | Assigned-user experience | |
-       |---|---|---|---|---|
-       | Enabled for users to sign-in? | User assignment required? | Visible to users? | Can assigned users sign in? | Can assigned users see the application?* |
-       | yes | yes | yes | yes | yes  |
-       | yes | yes | no  | yes | no   |
-       | yes | no  | yes | yes | yes  |
-       | yes | no  | no  | yes | no   |
-       | no  | yes | yes | no  | no   |
-       | no  | yes | no  | no  | no   |
-       | no  | no  | yes | no  | no   |
-       | no  | no  | no  | no  | no   |
-
-     - Behavior for **unassigned** users:
-  
-       | Application property settings | | | Unassigned-user experience | |
-       |---|---|---|---|---|
-       | Enabled for users to sign-in? | User assignment required? | Visible to users? | Can unassigned users sign in? | Can unassigned users see the application?* |
-       | yes | yes | yes | no  | no   |
-       | yes | yes | no  | no  | no   |
-       | yes | no  | yes | yes | no   |
-       | yes | no  | no  | yes | no   |
-       | no  | yes | yes | no  | no   |
-       | no  | yes | no  | no  | no   |
-       | no  | no  | yes | no  | no   |
-       | no  | no  | no  | no  | no   |
-
-    *Can the user see the application in the access panel and the Office 365 app launcher?
-
-## Use a custom logo
-
-To use a custom logo:
-
-1. Create a logo that is 215 by 215 pixels, and save it in PNG format.
-2. Since you have already found your application, click on the application.
-2. In the left blade, click **Properties**.
-4. Upload the logo.
-5. When you're finished, click **Save**.
-
-    ![Change the logo](media/add-application-portal/change-logo.png)
-
+If you're not going to continue with the quickstart series, then consider deleting the app to clean up your test tenant. Deleting the app is covered in the last quickstart in this series, see [Delete an app](delete-application-portal.md).
 
 ## Next steps
 
-In this quickstart, you've learned how to add a gallery application to your Azure AD tenant. You learned how to edit the properties for an application. 
-
-Now, you're ready to configure the application for single sign-on. 
-
+Advance to the next article to learn how to configure an app.
 > [!div class="nextstepaction"]
-> [Configure single sign-on](configure-single-sign-on-portal.md)
-
-
+> [Configure an app](add-application-portal-configure.md)

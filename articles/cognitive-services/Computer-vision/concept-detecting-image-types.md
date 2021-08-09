@@ -1,21 +1,22 @@
 ---
-title: Detecting image types - Computer Vision
+title: Image type detection - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepts related to detecting image types using the Computer Vision API.
+description: Concepts related to the image type detection feature of the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 03/11/2019
 ms.author: pafarley
+ms.custom: seodec18
 ---
 
-# Detecting image types
+# Detecting image types with Computer Vision
 
-Computer Vision can analyze the content type of images by indicating whether an image is clip art, rating the likelihood on a scale, or a line drawing.
+With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API, Computer Vision can analyze the content type of images, indicating whether an image is clip art or a line drawing.
 
 ## Detecting clip art
 
@@ -32,7 +33,7 @@ Computer Vision analyzes an image and rates the likelihood of the image being cl
 
 The following JSON responses illustrates what Computer Vision returns when rating the likelihood of the example images being clip art.
 
-![Vision Analyze Cheese Clip Art](./Images/cheese_clipart.png)
+![A clip art image of a slice of cheese](./Images/cheese_clipart.png)
 
 ```json
 {
@@ -49,7 +50,7 @@ The following JSON responses illustrates what Computer Vision returns when ratin
 }
 ```
 
-![Vision Analyze House Yard](./Images/house_yard.png)
+![A blue house and the front yard](./Images/house_yard.png)
 
 ```json
 {
@@ -74,7 +75,7 @@ Computer Vision analyzes an image and returns a boolean value indicating whether
 
 The following JSON responses illustrates what Computer Vision returns when indicating whether the example images are line drawings.
 
-![Vision Analyze Lion Drawing](./Images/lion_drawing.png)
+![A line drawing image of a lion](./Images/lion_drawing.png)
 
 ```json
 {
@@ -91,7 +92,7 @@ The following JSON responses illustrates what Computer Vision returns when indic
 }
 ```
 
-![Vision Analyze Flower](./Images/flower.png)
+![A white flower with a green background](./Images/flower.png)
 
 ```json
 {
@@ -108,6 +109,8 @@ The following JSON responses illustrates what Computer Vision returns when indic
 }
 ```
 
-## Next steps
+## Use the API
 
-Learn concepts about [tagging images](concept-tagging-images.md) and [categorizing images](concept-categorizing-images.md).
+The image type detection feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. You can call this API through a native SDK or through REST calls. Include `ImageType` in the **visualFeatures** query parameter. Then, when you get the full JSON response, simply parse the string for the contents of the `"imageType"` section.
+
+* [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)

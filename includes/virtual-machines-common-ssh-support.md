@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: virtual-machines-linux
- author: dlepow
+ author: cynthn
  ms.service: virtual-machines-linux
  ms.topic: include
  ms.date: 04/17/2018
- ms.author: danlep
+ ms.author: cynthn
  ms.custom: include file
 ---
 

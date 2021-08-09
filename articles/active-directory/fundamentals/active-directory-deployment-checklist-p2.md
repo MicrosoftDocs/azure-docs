@@ -1,92 +1,103 @@
 ---
-title: Azure AD deployment checklist 30 days, 90 days, and beyond
-description: Azure Active Directory Premium P2 feature deployment checklist
+title: Azure AD deployment checklist
+description: Azure Active Directory feature deployment checklist
 
 services: active-directory
 ms.service: active-directory
-ms.component: 
+ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 10/29/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer:
+manager: daveba
+ms.reviewer: martinco
 
+ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory Premium P2 licensing feature checklist
+# Azure Active Directory feature deployment guide
 
-It can seem daunting to deploy Azure Active Directory (Azure AD) for your organization and keep it secure. This article identifies some common tasks that customers find helpful to complete over the course of 30 days, 90 days, or beyond to enhance their security posture. Even organizations who have already deployed Azure AD can use this checklist to ensure they are getting the most out of their investment.
+It can seem daunting to deploy Azure Active Directory (Azure AD) for your organization and keep it secure. This article identifies common tasks that customers find helpful to complete in phases, over the course of 30, 60, 90 days, or more, to enhance their security posture. Even organizations who have already deployed Azure AD can use this guide to ensure they are getting the most out of their investment.
 
-A well-planned and executed identity infrastructure paves the way for more secure access to your productivity workloads and data only by authenticated users and devices.
+A well-planned and executed identity infrastructure paves the way for secure access to your productivity workloads and data by known users and devices only.
+
+Additionally customers can check their [identity secure score](identity-secure-score.md) to see how aligned they are to Microsoft best practices. Check your secure score before and after implementing these recommendations to see how well you are doing compared to others in your industry and to other organizations of your size.
 
 ## Prerequisites
 
-This guide assumes you have Azure AD Premium P2 licenses, Enterprise Mobility + Security E5, Microsoft 365 E5, or an equivalent license bundle.
+Many of the recommendations in this guide can be implemented with Azure AD Free or no license at all. Where licenses are required we state which license is required at minimum to accomplish the task.
 
-[Azure AD licensing](https://azure.microsoft.com/pricing/details/active-directory/)
+Additional information about licensing can be found on the following pages:
 
-[Microsoft 365 Enterprise](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise.aspx)
+* [Azure AD licensing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
+* [Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
+* [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
+* [Azure AD External Identities pricing](../external-identities/external-identities-pricing.md)
 
-[Enterprise Mobility + Security](https://www.microsoft.com/licensing/product-licensing/enterprise-mobility-security.aspx)
+## Phase 1: Build a foundation of security
 
-## Plan and deploy: Day 1-30
+In this phase, administrators enable baseline security features to create a more secure and easy to use foundation in Azure AD before we import or create normal user accounts. This foundational phase ensures you are in a more secure state from the start and that your end-users only have to be introduced to new concepts one time.
 
-- Designate more than one global administrator (break-glass account)
-   - [Manage emergency-access administrative accounts in Azure AD](../users-groups-roles/directory-emergency-access.md)
-- Turn on Azure AD Privileged Identity Management (PIM) to view reports
-   - [Start using PIM](../privileged-identity-management/pim-getting-started.md)
-- Use non-global administrative roles where possible.
-   - [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
-- Authentication
-   - [Roll out self-service password reset](../authentication/howto-sspr-deployment.md)
-   - Deploy Azure AD Password Protection (preview)
-      - [Eliminate bad passwords in your organization](../authentication/concept-password-ban-bad.md)
-      - [Enforce Azure AD password protection for Windows Server Active Directory](../authentication/concept-password-ban-bad-on-premises.md)
-   - Configure account lockout policies
-      - [Azure Active Directory smart lockout](../authentication/howto-password-smart-lockout.md)
-      - [AD FS Extranet Lockout and Extranet Smart Lockout](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection)
-   - [Deploy Azure AD Multi-Factor Authentication using conditional access policies](../authentication/howto-mfa-getstarted.md)
-   - [Enable converged registration for self-service password reset and Azure AD Multi-Factor Authentication (preview)](../authentication/concept-registration-mfa-sspr-converged.md)
-   - [Enable Azure Active Directory Identity Protection](../identity-protection/enable.md)
-      - [Use risk events to trigger Multi-Factor Authentication and password changes](../authentication/tutorial-risk-based-sspr-mfa.md)
-   - [Password guidance](https://www.microsoft.com/research/publication/password-guidance/)
-      - Maintain an eight-character minimum length requirement, longer is not necessarily better.
-      - Eliminate character-composition requirements.
-      - [Eliminate mandatory periodic password resets for user accounts.](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire)
-- Synchronize users from on-premises Active Directory
-   - [Install Azure AD Connect](../connect/active-directory-aadconnect-select-installation.md)
-   - [Implement Password Hash Sync](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)
-   - [Implement Password Writeback](../authentication/howto-sspr-writeback.md)
-   - [Implement Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)
-- [Assign licenses to users by group membership in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
+| Task | Detail | Required license |
+| ---- | ------ | ---------------- |
+| [Designate more than one global administrator](../roles/security-emergency-access.md) | Assign at least two cloud-only permanent global administrator accounts for use if there is an emergency. These accounts are not be used daily and should have long and complex passwords. | Azure AD Free |
+| [Use non-global administrative roles where possible](../roles/permissions-reference.md) | Give your administrators only the access they need to only the areas they need access to. Not all administrators need to be global administrators. | Azure AD Free |
+| [Enable Privileged Identity Management for tracking admin role use](../privileged-identity-management/pim-getting-started.md) | Enable Privileged Identity Management to start tracking administrative role usage. | Azure AD Premium P2 |
+| [Roll out self-service password reset](../authentication/howto-sspr-deployment.md) | Reduce helpdesk calls for password resets by allowing staff to reset their own passwords using policies you as an administrator control. | |
+| [Create an organization specific custom banned password list](../authentication/tutorial-configure-custom-password-protection.md) | Prevent users from creating passwords that include common words or phrases from your organization or area. | |
+| [Enable on-premises integration with Azure AD password protection](../authentication/concept-password-ban-bad-on-premises.md) | Extend the banned password list to your on-premises directory, to ensure passwords set on-premises are also in compliance with the global and tenant-specific banned password lists. | Azure AD Premium P1 |
+| [Enable Microsoft's password guidance](https://www.microsoft.com/research/publication/password-guidance/) | Stop requiring users to change their password on a set schedule, disable complexity requirements, and your users are more apt to remember their passwords and keep them something that is secure. | Azure AD Free |
+| [Disable periodic password resets for cloud-based user accounts](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) | Periodic password resets encourage your users to increment their existing passwords. Use the guidelines in Microsoft's password guidance doc and mirror your on-premises policy to cloud-only users. | Azure AD Free |
+| [Customize Azure Active Directory smart lockout](../authentication/howto-password-smart-lockout.md) | Stop lockouts from cloud-based users from being replicated to on-premises Active Directory users | |
+| [Enable Extranet Smart Lockout for AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) | AD FS extranet lockout protects against brute force password guessing attacks, while letting valid AD FS users continue to use their accounts. | |
+| [Block legacy authentication to Azure AD with Conditional Access](../conditional-access/block-legacy-authentication.md) | Block legacy authentication protocols like POP, SMTP, IMAP, and MAPI that can't enforce Multi-Factor Authentication, making them a preferred entry point for adversaries. | Azure AD Premium P1 |
+| [Deploy Azure AD Multi-Factor Authentication using Conditional Access policies](../authentication/howto-mfa-getstarted.md) | Require users to perform two-step verification when accessing sensitive applications using Conditional Access policies. | Azure AD Premium P1 |
+| [Enable Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md) | Enable tracking of risky sign-ins and compromised credentials for users in your organization. | Azure AD Premium P2 |
+| [Use risk detections to trigger multi-factor authentication and password changes](../authentication/tutorial-risk-based-sspr-mfa.md) | Enable automation that can trigger events such as multi-factor authentication, password reset, and blocking of sign-ins based on risk. | Azure AD Premium P2 |
+| [Enable combined registration for self-service password reset and Azure AD Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) | Allow your users to register from one common experience for both Azure AD Multi-Factor Authentication and self-service password reset. | Azure AD Premium P1 |
 
-## Plan and deploy: Day 31-90
+## Phase 2: Import users, enable synchronization, and manage devices
 
-- [Plan for guest user access](../b2b/what-is-b2b.md)
-   - [Add Azure Active Directory B2B collaboration users in the Azure portal](../b2b/add-users-administrator.md)
-   - [Allow or block invitations to B2B users from specific organizations](../b2b/allow-deny-list.md)
-   - [Grant B2B users in Azure AD access to your on-premises applications](../b2b/hybrid-cloud-to-on-premises.md)
-- Make decisions about user lifecycle management strategy
-- [Decide on device managment strategy](../devices/overview.md)
-   - [Usage scenarios and deployment considerations for Azure AD Join](../devices/azureadjoin-plan.md)
-- [Manage Windows Hello for Business in your organization](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization)
+Next, we add to the foundation laid in phase 1 by importing our users and enabling synchronization, planning for guest access, and preparing to support additional functionality.
 
-## Plan and deploy: Day 90 and beyond
+| Task | Detail | Required license |
+| ---- | ------ | ---------------- |
+| [Install Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md) | Prepare to synchronize users from your existing on-premises directory to the cloud. | Azure AD Free |
+| [Implement Password Hash Sync](../hybrid/how-to-connect-password-hash-synchronization.md) | Synchronize password hashes to allow password changes to be replicated, bad password detection and remediation, and leaked credential reporting. | Azure AD Free |
+| [Implement Password Writeback](../authentication/tutorial-enable-sspr-writeback.md) | Allow password changes in the cloud to be written back to an on-premises Windows Server Active Directory environment. | Azure AD Premium P1 |
+| [Implement Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) | Enable monitoring of key health statistics for your Azure AD Connect servers, AD FS servers, and domain controllers. | Azure AD Premium P1 |
+| [Assign licenses to users by group membership in Azure Active Directory](../enterprise-users/licensing-groups-assign.md) | Save time and effort by creating licensing groups that enable or disable features by group instead of setting per user. | |
+| [Create a plan for guest user access](../external-identities/what-is-b2b.md) | Collaborate with guest users by letting them sign in to your apps and services with their own work, school, or social identities. | [Azure AD External Identities pricing](../external-identities/external-identities-pricing.md) |
+| [Decide on device management strategy](../devices/overview.md) | Decide what your organization allows regarding devices. Registering vs joining, Bring Your Own Device vs company provided. | |
+| [Deploy Windows Hello for Business in your organization](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Prepare for passwordless authentication using Windows Hello | |
+| [Deploy passwordless authentication methods for your users](../authentication/concept-authentication-passwordless.md) | Provide your users with convenient passwordless authentication methods | Azure AD Premium P1 |
 
-- [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md)
-   - [Configure Azure AD directory role settings in PIM](../privileged-identity-management/pim-how-to-change-default-settings.md)
-   - [Assign Azure AD directory roles in PIM](../privileged-identity-management/pim-how-to-add-role-to-user.md)
-- [Complete an access review for Azure AD directory roles in PIM](../privileged-identity-management/pim-how-to-start-security-review.md)
-- Manage the user lifecycle holistically
-   - Azure AD has an approach to managing Identity lifecycle
-   - Remove manual steps from your employee account lifecycle, to prevent unauthorized access:
-      - Synchronize identities from your source of truth (HR System) to Azure AD. link to supported HR systems)
-      - [Use Dynamic Groups to automatically assign users to groups based on their attributes from HR (or your source of truth), such as department, title, region, and other attributes.](../users-groups-roles/groups-dynamic-membership.md)
-      - [Use group-based access management provisioning to automatically provision users for SaaS applications.](../manage-apps/what-is-access-management.md)
+## Phase 3: Manage applications
+
+As we continue to build on the previous phases, we identify candidate applications for migration and integration with Azure AD and complete the setup of those applications.
+
+| Task | Detail | Required license |
+| ---- | ------ | ---------------- |
+| Identify your applications | Identify applications in use in your organization: on-premises, SaaS applications in the cloud, and other line-of-business applications. Determine if these applications can and should be managed with Azure AD. | No license required |
+| [Integrate supported SaaS applications in the gallery](../manage-apps/add-application-portal.md) | Azure AD has a gallery that contains thousands of pre-integrated applications. Some of the applications your organization uses are probably in the gallery accessible directly from the Azure portal. | Azure AD Free |
+| [Use Application Proxy to integrate on-premises applications](../app-proxy/application-proxy-add-on-premises-application.md) | Application Proxy enables users to access on-premises applications by signing in with their Azure AD account. | |
+
+## Phase 4: Audit privileged identities, complete an access review, and manage user lifecycle
+
+Phase 4 sees administrators enforcing least privilege principles for administration, completing their first access reviews, and enabling automation of common user lifecycle tasks.
+
+| Task | Detail | Required license |
+| ---- | ------ | ---------------- |
+| [Enforce the use of Privileged Identity Management](../privileged-identity-management/pim-security-wizard.md) | Remove administrative roles from normal day to day user accounts. Make administrative users eligible to use their role after succeeding a multi-factor authentication check, providing a business justification, or requesting approval from designated approvers. | Azure AD Premium P2 |
+| [Complete an access review for Azure AD directory roles in PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Work with your security and leadership teams to create an access review policy to review administrative access based on your organization's policies. | Azure AD Premium P2 |
+| [Implement dynamic group membership policies](../enterprise-users/groups-dynamic-membership.md) | Use dynamic groups to automatically assign users to groups based on their attributes from HR (or your source of truth), such as department, title, region, and other attributes. |  |
+| [Implement group based application provisioning](../manage-apps/what-is-access-management.md) | Use group-based access management provisioning to automatically provision users for SaaS applications. |  |
+| [Automate user provisioning and deprovisioning](../app-provisioning/user-provisioning.md) | Remove manual steps from your employee account lifecycle to prevent unauthorized access. Synchronize identities from your source of truth (HR System) to Azure AD. |  |
 
 ## Next steps
 
-[Identity and device access configurations](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+[Azure AD licensing and pricing details](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
 
-[Common recommended identity and device access policies](https://docs.microsoft.com/microsoft-365/enterprise/identity-access-policies)
+[Identity and device access configurations](/microsoft-365/enterprise/microsoft-365-policies-configurations)
+
+[Common recommended identity and device access policies](/microsoft-365/enterprise/identity-access-policies)

@@ -1,12 +1,10 @@
 ---
-title: Support matrix for disaster recovery of VMware VMs or physical servers to a secondary VMware site with Azure Site Recovery | Microsoft Docs
+title: Support for VMware/physical disaster recovery to a secondary site with Azure Site Recovery 
 description: Summarizes the support for disaster recovery of VMware VMs and physical servers to a secondary site with Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 10/29/2018
-ms.author: raynew
+services: site-recovery
+ms.topic: conceptual
+ms.date: 11/14/2019
 ---
 
 # Support matrix for disaster recovery of VMware VMs and physical servers to a secondary site
@@ -19,6 +17,17 @@ This article summarizes what's supported when you use the [Azure Site Recovery](
 > [!NOTE]
 > Replication of on-premises VMware VMs and physical servers is provided by InMage Scout. InMage Scout is included in Azure Site Recovery service subscription.
 
+## End-of-support announcement
+The Site Recovery scenario for replication between on-premises VMware or physical datacenters is reaching end-of-support.
+
+- From August 2018, the scenario can’t be configured in the Recovery Services vault, and the InMage Scout software can’t be downloaded from the vault. Existing deployments will be supported.
+- - From December 31 2020, the scenario won’t be supported.
+Existing partners can onboard new customers to the scenario until support ends.
+- During 2018 and 2019, two updates will be released:
+
+    - Update 7: Fixes network configuration and compliance issues, and provides TLS 1.2 support.
+    - Update 8: Adds support for Linux operating systems RHEL/CentOS 7.3/7.4/7.5, and for SUSE 12
+    - After Update 8, no further updates will be released. There will be limited hotfix support for the operating systems added in Update 8, and bug fixes based on best effort.
 
 ## Host servers
 
@@ -58,7 +67,7 @@ Host - IPv6 | No
 Guest VM - NIC teaming | No
 Guest VM - IPv4 | Yes
 Guest VM - IPv6 | No
-Gues VM - Windows/Linux - Static IP address | Yes
+Guest VM - Windows/Linux - Static IP address | Yes
 Guest VM - Multi-NIC | Yes
 
 
@@ -104,15 +113,15 @@ Move storage, network, Azure VMs across resource groups (within or across subscr
 
 The Mobility service coordinates replication between on-premises VMware servers or physical servers, and the secondary site. When you set up replication, you should make sure you have the latest version of the Mobility service, and of other components.
 
-**Update** | **Details** 
---- | --- 
-Scout updates | [Learn about and download](vmware-physical-secondary-disaster-recovery.md#updates) the latest Scout updates | Scout updates are cumulative.
-Component updates | Scout updates include updates for all components, including the RX server, configuration server, process and master target servers, vContinuum servers, and source servers you want to protect.<br/><br/> [Learn more](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).
+| **Update** | **Details** |
+| --- | --- |
+|Scout updates | Scout updates are cumulative. <br/><br/> [Learn about and download](vmware-physical-secondary-disaster-recovery.md#updates) the latest Scout updates |
+|Component updates | Scout updates include updates for all components, including the RX server, configuration server, process and master target servers, vContinuum servers, and source servers you want to protect.<br/><br/> [Learn more](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|
 
 
 ## Next steps
 
 Download the [InMage Scout user guide](https://aka.ms/asr-scout-user-guide)
 
-- [Replicate Hyper-V VMs in VMM clouds to a secondary site](tutorial-vmm-to-vmm.md)
-- [Replicate VMware VMs and physical servers to a secondary site](tutorial-vmware-to-vmware.md)
+- [Replicate Hyper-V VMs in VMM clouds to a secondary site](./hyper-v-vmm-disaster-recovery.md)
+- [Replicate VMware VMs and physical servers to a secondary site](./vmware-physical-secondary-disaster-recovery.md)

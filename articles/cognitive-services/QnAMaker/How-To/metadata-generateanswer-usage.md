@@ -1,157 +1,113 @@
 ---
 title: Metadata with GenerateAnswer API - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker lets you add metadata, in the form of key/value pairs, to your question/answer sets. This information can be used to filter results to user queries and to store additional information that can be used in follow-up conversations.
+description: QnA Maker lets you add metadata, in the form of key/value pairs, to your question/answer pairs. You can filter results to user queries, and store additional information that can be used in follow-up conversations.
 services: cognitive-services
-author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: qna-maker
-ms.topic: article
-ms.date: 09/12/2018
-ms.author: tulasim88
+ms.subservice: qna-maker
+ms.topic: conceptual
+ms.date: 11/09/2020
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
-# Using metadata and the GenerateAnswer API
+# Get an answer with the GenerateAnswer API
 
-QnA Maker lets you add metadata, in the form of key/value pairs, to your question/answer sets. This information can be used to filter results to user queries and to store additional information that can be used in follow-up conversations. For more information, see [Knowledge base](../Concepts/knowledge-base.md).
+To get the predicted answer to a user's question, use the GenerateAnswer API. When you publish a knowledge base, you can see information about how to use this API on the **Publish** page. You can also configure the API to filter answers based on metadata tags, and test the knowledge base from the endpoint with the test query string parameter.
 
-## QnA Entity
+<a name="generateanswer-api"></a>
 
-First it's important to understand how QnA Maker stores the question/answer data. The following illustration shows a QnA entity:
+## Get answer predictions with the GenerateAnswer API
 
-![QnA Entity](../media/qnamaker-how-to-metadata-usage/qna-entity.png)
+You use the [GenerateAnswer API](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) in your bot or application to query your knowledge base with a user question, to get the best match from the question and answer pairs.
 
-Each QnA entity has a unique and persistent ID. The ID can be used to make updates to a particular QnA entity.
+<a name="generateanswer-endpoint"></a>
 
-## GenerateAnswer API
+## Publish to get GenerateAnswer endpoint
 
-You use the GenerateAnswer API in your Bot or application to query your knowledge base with a user question to get the best match from the question/answer sets.
-
-### GenerateAnswer endpoint
-
-Once you publish your knowledge base, either from the [QnA Maker portal](https://www.qnamaker.ai), or using the [API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff), you can get the details of your GenerateAnswer endpoint.
+After you publish your knowledge base, either from the [QnA Maker portal](https://www.qnamaker.ai), or by using the [API](/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), you can get the details of your GenerateAnswer endpoint.
 
 To get your endpoint details:
-1. Log in to [https://www.qnamaker.ai](https://www.qnamaker.ai).
-2. In **My knowledge bases**, click on **View Code** for your knowledge base.
-![my knowledge bases](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
-3. Get your GenerateAnswer endpoint details.
+1. Sign in to [https://www.qnamaker.ai](https://www.qnamaker.ai).
+1. In **My knowledge bases**, select **View Code** for your knowledge base.
+    ![Screenshot of My knowledge bases](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
+1. Get your GenerateAnswer endpoint details.
 
-![endpoint details](../media/qnamaker-how-to-metadata-usage/view-code.png)
+    # [QnA Maker GA (stable release)](#tab/v1)
+
+    ![Screenshot of endpoint details](../media/qnamaker-how-to-metadata-usage/view-code.png)
+
+    # [Custom question answering (preview release)](#tab/v2)
+
+    ![Screenshot of endpoint details managed](../media/qnamaker-how-to-metadata-usage/view-code-managed.png)
+
+    ---
 
 You can also get your endpoint details from the **Settings** tab of your knowledge base.
 
-### GenerateAnswer request
+<a name="generateanswer-request"></a>
 
-You call GenerateAnswer with an HTTP POST request. For sample code that shows how to call GenerateAnswer, see the [quickstarts](../quickstarts/csharp.md).
+## GenerateAnswer request configuration
 
-- **Request URL**: https://{QnA Maker endpoint}/knowledgebases/{knowledge base ID}/generateAnswer
+You call GenerateAnswer with an HTTP POST request. For sample code that shows how to call GenerateAnswer, see the [quickstarts](../quickstarts/quickstart-sdk.md#generate-an-answer-from-the-knowledge-base).
 
-- **Request parameters**: 
-    - **Knowledge base ID** (string): The GUID for your knowledge base.
-    - **QnAMaker endpoint** (string): The hostname of the endpoint deployed in your Azure subscription.
-- **Request headers**
-    - **Content-Type** (string): The media type of the body sent to the API.
-    - **Authorization** (string): Your endpoint key (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
-- **Request body**
-    - **question** (string): A user question to be queried against your knowledge base.
-    - **top** (optional, integer): The number of ranked results to include in the output. The default value is 1.
-    - **userId** (optional, string): A unique ID to identify the user. This ID will be recorded in the chat logs.
-    - **strictFilters** (optional, string): If specified, tells QnA Maker to return only answers that have the specified metadata. For more information, see below.
-    ```json
-    {
-        "question": "qna maker and luis",
-        "top": 6,
-        "strictFilters": [
-        {
-            "name": "category",
-            "value": "api"
-        }],
-        "userId": "sd53lsY="
-    }
-    ```
+The POST request uses:
 
-### GenerateAnswer Response
+* Required [URI parameters](/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
+* Required header property, `Authorization`, for security
+* Required [body properties](/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto).
 
-- **Response 200** - A successful call returns the result of the question. The response contains the following fields:
-    - **answers** - A list of answers for the user query, sorted in decreasing order of ranking score.
-        - **score**: A ranking score between 0 and 100.
-        - **questions**: The questions provided by the user.
-        - **answer**: The answer to the question.
-        - **source**: The name of the source from which the answer was extracted or saved in the knowledge base.
-        - **metadata**: The metadata associated with the answer.
-            - name: Metadata name. (string, max Length: 100, required)
-            - value: Metadata value. (string, max Length: 100, required)
-        - **Id**: A unique ID assigned to the answer.
-    ```json
-    {
-        "answers": [
-            {
-                "score": 28.54820341616869,
-                "Id": 20,
-                "answer": "There is no direct integration of LUIS with QnA Maker. But, in your bot code, you can use LUIS and QnA Maker together. [View a sample bot](https://github.com/Microsoft/BotBuilder-CognitiveServices/tree/master/Node/samples/QnAMaker/QnAWithLUIS)",
-                "source": "Custom Editorial",
-                "questions": [
-                    "How can I integrate LUIS with QnA Maker?"
-                ],
-                "metadata": [
-                    {
-                        "name": "category",
-                        "value": "api"
-                    }
-                ]
-            }
-        ]
-    }
-    ```
+The GenerateAnswer URL has the following format:
 
-## Metadata example
+```
+https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
+```
 
-Consider the below FAQ data for restaurants in Hyderabad. Add metadata to your knowledge base by clicking on the gear icon.
+Remember to set the HTTP header property of `Authorization` with a value of the string `EndpointKey` with a trailing space then the endpoint key found on the **Settings** page.
 
-![add metadata](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
-
-### Filter results with strictFilters
-
-Consider the user question "When does this hotel close?" where the intent is implied for the restaurant "Paradise."
-
-Since results are required only for the restaurant "Paradise", you can set a filter in the GenerateAnswer call on the metadata "Restaurant Name", as follows.
+An example JSON body looks like:
 
 ```json
 {
-    "question": "When does this hotel close?",
-    "top": 1,
+    "question": "qna maker and luis",
+    "top": 6,
+    "isTest": true,
+    "scoreThreshold": 30,
+    "rankerType": "" // values: QuestionOnly
     "strictFilters": [
-      {
-        "name": "restaurant",
-        "value": "paradise"
-      }]
+    {
+        "name": "category",
+        "value": "api"
+    }],
+    "userId": "sd53lsY="
 }
 ```
 
-### Keep context
-The response to the GenerateAnswer contains the corresponding metadata information of the matched question/answer set, as follows.
+Learn more about [rankerType](../concepts/best-practices.md#choosing-ranker-type).
+
+The previous JSON requested only answers that are at 30% or above the threshold score.
+
+<a name="generateanswer-response"></a>
+
+## GenerateAnswer response properties
+
+The [response](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) is a JSON object including all the information you need to display the answer and the next turn in the conversation, if available.
 
 ```json
 {
     "answers": [
         {
+            "score": 38.54820341616869,
+            "Id": 20,
+            "answer": "There is no direct integration of LUIS with QnA Maker. But, in your bot code, you can use LUIS and QnA Maker together. [View a sample bot](https://github.com/Microsoft/BotBuilder-CognitiveServices/tree/master/Node/samples/QnAMaker/QnAWithLUIS)",
+            "source": "Custom Editorial",
             "questions": [
-                "What is the closing time?"
+                "How can I integrate LUIS with QnA Maker?"
             ],
-            "answer": "10.30 PM",
-            "score": 100,
-            "id": 1,
-            "source": "Editorial",
             "metadata": [
                 {
-                    "name": "restaurant",
-                    "value": "paradise"
-                },
-                {
-                    "name": "location",
-                    "value": "secunderabad"
+                    "name": "category",
+                    "value": "api"
                 }
             ]
         }
@@ -159,9 +115,121 @@ The response to the GenerateAnswer contains the corresponding metadata informati
 }
 ```
 
-This information can be used to record the context of the previous conversation for use in later conversations. 
+The previous JSON responded with an answer with a score of 38.5%.
+
+## Match questions only, by text
+
+By default, QnA Maker searches through questions and answers. If you want to search through questions only, to generate an answer, use the `RankerType=QuestionOnly` in the POST body of the GenerateAnswer request.
+
+You can search through the published kb, using `isTest=false`, or in the test kb using `isTest=true`.
+
+```json
+{
+  "question": "Hi",
+  "top": 30,
+  "isTest": true,
+  "RankerType":"QuestionOnly"
+}
+
+```
+## Use QnA Maker with a bot in C#
+
+The bot framework provides access to the QnA Maker's properties with the [getAnswer API](/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
+
+```csharp
+using Microsoft.Bot.Builder.AI.QnA;
+var metadata = new Microsoft.Bot.Builder.AI.QnA.Metadata();
+var qnaOptions = new QnAMakerOptions();
+
+metadata.Name = Constants.MetadataName.Intent;
+metadata.Value = topIntent;
+qnaOptions.StrictFilters = new Microsoft.Bot.Builder.AI.QnA.Metadata[] { metadata };
+qnaOptions.Top = Constants.DefaultTop;
+qnaOptions.ScoreThreshold = 0.3F;
+var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnContext, qnaOptions);
+```
+
+The previous JSON requested only answers that are at 30% or above the threshold score.
+
+## Use QnA Maker with a bot in Node.js
+
+The bot framework provides access to the QnA Maker's properties with the [getAnswer API](/javascript/api/botbuilder-ai/qnamaker?preserve-view=true&view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-):
+
+```javascript
+const { QnAMaker } = require('botbuilder-ai');
+this.qnaMaker = new QnAMaker(endpoint);
+
+// Default QnAMakerOptions
+var qnaMakerOptions = {
+    ScoreThreshold: 0.30,
+    Top: 3
+};
+var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOptions);
+```
+
+The previous JSON requested only answers that are at 30% or above the threshold score.
+
+## Get precise answers with GenerateAnswer API
+
+# [QnA Maker GA (stable release)](#tab/v1)
+
+We offer precise answer feature only with the QnA Maker managed version.
+
+# [Custom question answering (preview release)](#tab/v2)
+
+The user can enable [precise answers](../reference-precise-answering.md) when using the Text Analytics resource with Custom question answering feature. The answerSpanRequest parameter has to be updated for the same.
+
+```json
+{
+    "question": "How long it takes to charge surface pro 4?",
+    "top": 3,
+    "answerSpanRequest": {
+        "enable": true,
+        "topAnswersWithSpan": 1
+    }
+}
+```
+
+Similarly, the users can choose to disable precise answers by not setting the answerSpanRequest parameter.
+
+```json
+{
+    "question": "How long it takes to charge surface pro 4?",
+    "top": 3
+}
+```
+### Bot settings
+
+If you want to configure precise answer settings for your bot service, navigate to the App service resource for you bot. Then you have to update the configurations by adding the following setting.
+
+- EnablePreciseAnswer
+- DisplayPreciseAnswerOnly
+
+|Display configuration|EnablePreciseAnswer|DisplayPreciseAnswerOnly|
+|:--|--|--|
+|Precise Answers Only|true|true|
+|Long Answers Only|false|false|
+|Both Long and Precise Answers|true|false|
+
+---
+
+## Common HTTP errors
+
+|Code|Explanation|
+|:--|--|
+|2xx|Success|
+|400|Request's parameters are incorrect meaning the required parameters are missing, malformed, or too large|
+|400|Request's body is incorrect meaning the JSON is missing, malformed, or too large|
+|401|Invalid key|
+|403|Forbidden - you do not have correct permissions|
+|404|KB doesn't exist|
+|410|This API is deprecated and is no longer available|
 
 ## Next steps
 
+The **Publish** page also provides information to [generate an answer](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md) with Postman or cURL.
+
 > [!div class="nextstepaction"]
-> [Create a knowledge base](./create-knowledge-base.md)
+> [Get analytics on your knowledge base](../how-to/get-analytics-knowledge-base.md)
+> [!div class="nextstepaction"]
+> [Confidence score](../Concepts/confidence-score.md)

@@ -5,8 +5,6 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ---
-<!--author=alkohli last changed: 01/18/2017-->
-
 
 #### To configure and register the device
 
@@ -95,7 +93,7 @@ ms.author: alkohli
 
     ```
 
-12. After the device is registered, a Service Data Encryption key will appear. Copy this key and save it in a safe location. **This key will be required with the service registration key to register additional devices with the StorSimple Device Manager service.** Refer to [StorSimple security](../articles/storsimple/storsimple-security.md) for more information about this key.
+12. After the device is registered, a Service Data Encryption key will appear. Copy this key and save it in a safe location. **This key will be required with the service registration key to register additional devices with the StorSimple Device Manager service.** Refer to [StorSimple security](../articles/storsimple/storsimple-8000-security.md) for more information about this key.
     
     ![StorSimple register device 7](./media/storsimple-8000-configure-and-register-device-u2/step3pssetup1.png)
     
@@ -114,4 +112,3 @@ ms.author: alkohli
         You may need to wait for a couple of minutes for the device status to change to **Ready to set up**.
        
         If the device does not show up in this list, then you need to make sure that your firewall network was configured as described in [networking requirements for your StorSimple device](../articles/storsimple/storsimple-8000-system-requirements.md). Verify that port 9354 is open for outbound communication as this is used by the service bus for StorSimple Device Manager service-to-device communication.
-

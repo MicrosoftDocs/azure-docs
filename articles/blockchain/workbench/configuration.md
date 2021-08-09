@@ -1,19 +1,14 @@
 ---
-title: Azure Blockchain Workbench configuration reference
-description: Azure Blockchain Workbench application configuration overview.
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
-ms.date: 10/4/2018
+title: Azure Blockchain Workbench configuration metadata reference
+description: Azure Blockchain Workbench Preview application configuration metadata overview.
+ms.date: 12/09/2019
 ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: zeyadr
-manager: femila
+ms.reviewer: brendal
+#Customer intent: As a developer, I want to understand application configuration metadata details used by Azure Blockchain Workbench.
 ---
 # Azure Blockchain Workbench configuration reference
 
- Azure Blockchain Workbench applications are multi-party workflows defined by configuration metadata and smart contract code. Configuration metadata defines the high-level workflows and interaction model of the blockchain application. Smart contracts define the business logic of the blockchain application. Workbench uses configuration and smart contract code to generate blockchain application user experiences.
+Azure Blockchain Workbench applications are multi-party workflows defined by configuration metadata and smart contract code. Configuration metadata defines the high-level workflows and interaction model of the blockchain application. Smart contracts define the business logic of the blockchain application. Workbench uses configuration and smart contract code to generate blockchain application user experiences.
 
 Configuration metadata specifies the following information for each blockchain application:
 
@@ -47,17 +42,17 @@ For an example, see [configuration file example](#configuration-file-example).
 
 An application's business logic may be modeled as a state machine where taking an action causes the flow of the business logic to move from one state to another. A workflow is a collection of such states and actions. Each workflow consists of one or more smart contracts, which represent the business logic in code files. An executable contract is an instance of a workflow.
 
-| Field | Description | Required |
-|-------|-------------|:--------:|
-| Name | Unique workflow name. The corresponding smart contract must use the same **Name** for the applicable contract class. | Yes |
-| DisplayName | Friendly display name of the workflow. | Yes |
-| Description | Description of the workflow. | No |
-| Initiators | Collection of [ApplicationRoles](#application-roles). Roles that are assigned to users who are authorized to create contracts in the workflow. | Yes |
-| StartState | Name of the initial state of the workflow. | Yes |
-| Properties | Collection of [identifiers](#identifiers). Represents data that can be read off-chain or visualized in a user experience tool. | Yes |
-| Constructor | Defines input parameters for creating an instance of the workflow. | Yes |
-| Functions | A collection of [functions](#functions) that can be executed in the workflow. | Yes |
-| States | A collection of workflow [states](#states). | Yes |
+| Field | Description | Required | Max length |
+|-------|-------------|:--------:|-----------:|
+| Name | Unique workflow name. The corresponding smart contract must use the same **Name** for the applicable contract class. | Yes | 50 |
+| DisplayName | Friendly display name of the workflow. | Yes | 255 |
+| Description | Description of the workflow. | No | 255 |
+| Initiators | Collection of [ApplicationRoles](#application-roles). Roles that are assigned to users who are authorized to create contracts in the workflow. | Yes | |
+| StartState | Name of the initial state of the workflow. | Yes | |
+| Properties | Collection of [identifiers](#identifiers). Represents data that can be read off-chain or visualized in a user experience tool. | Yes | |
+| Constructor | Defines input parameters for creating an instance of the workflow. | Yes | |
+| Functions | A collection of [functions](#functions) that can be executed in the workflow. | Yes | |
+| States | A collection of workflow [states](#states). | Yes | |
 
 For an example, see [configuration file example](#configuration-file-example).
 
@@ -141,7 +136,7 @@ Once an enum is defined in configuration, you can use enumeration types in Solid
 enum PropertyTypeEnum {House, Townhouse, Condo, Land} PropertyTypeEnum public PropertyType; 
 ```
 
-The list of strings need to match between the configuration and smart contract to be valid and consistent declarations in Blockchain Workbench.
+The list of strings needs to match between the configuration and smart contract to be valid and consistent declarations in Blockchain Workbench.
 
 Assignment example:
 
@@ -201,12 +196,12 @@ Defines input parameters for an instance of a workflow.
 
 Defines functions that can be executed on the workflow.
 
-| Field | Description | Required |
-|-------|-------------|:--------:|
-| Name | The unique name of the function. The corresponding smart contract must use the same **Name** for the applicable function. | Yes |
-| DisplayName | Friendly display name of the function. | Yes |
-| Description | Description of the function | No |
-| Parameters | Collection of [identifiers](#identifiers) corresponding to the parameters of the function. | Yes |
+| Field | Description | Required | Max length |
+|-------|-------------|:--------:|-----------:|
+| Name | The unique name of the function. The corresponding smart contract must use the same **Name** for the applicable function. | Yes | 50 |
+| DisplayName | Friendly display name of the function. | Yes | 255 |
+| Description | Description of the function | No | 255 |
+| Parameters | Collection of [identifiers](#identifiers) corresponding to the parameters of the function. | Yes | |
 
 ### Functions example
 
@@ -249,14 +244,14 @@ Defines functions that can be executed on the workflow.
 
 A collection of unique states within a workflow. Each state captures a step in the business logic's control flow. 
 
-| Field | Description | Required |
-|-------|-------------|:--------:|
-| Name | Unique name of the state. The corresponding smart contract must use the same **Name** for the applicable state. | Yes |
-| DisplayName | Friendly display name of the state. | Yes |
-| Description | Description of the state. | No |
-| PercentComplete | An integer value displayed in the Blockchain Workbench user interface to show the progress within the business logic control flow. | Yes |
-| Style | Visual hint indicating whether the state represents a success or failure state. There are two valid values: `Success` or `Failure`. | Yes |
-| Transitions | Collection of available [transitions](#transitions) from the current state to the next set of states. | No |
+| Field | Description | Required | Max length |
+|-------|-------------|:--------:|-----------:|
+| Name | Unique name of the state. The corresponding smart contract must use the same **Name** for the applicable state. | Yes | 50 |
+| DisplayName | Friendly display name of the state. | Yes | 255 |
+| Description | Description of the state. | No | 255 |
+| PercentComplete | An integer value displayed in the Blockchain Workbench user interface to show the progress within the business logic control flow. | Yes | |
+| Style | Visual hint indicating whether the state represents a success or failure state. There are two valid values: `Success` or `Failure`. | Yes | |
+| Transitions | Collection of available [transitions](#transitions) from the current state to the next set of states. | No | |
 
 ### States example
 
@@ -306,7 +301,7 @@ A collection of unique states within a workflow. Each state captures a step in t
     {
       "Name": "Terminated",
       "DisplayName": "Terminated",
-      "Description": "Asset transfer has been cancelled",
+      "Description": "Asset transfer has been canceled",
       "PercentComplete": 100,
       "Style": "Failure",
       "Transitions": []
@@ -363,10 +358,10 @@ Available actions to the next state. One or more user roles may perform an actio
 
 Application roles define a set of roles that can be assigned to users who want to act or participate within the application. Application roles can be used to restrict actions and participation within the blockchain application and corresponding workflows. 
 
-| Field | Description | Required |
-|-------|-------------|:--------:|
-| Name | The unique name of the application role. The corresponding smart contract must use the same **Name** for the applicable role. Base type names are reserved. You cannot name an application role with the same name as [Type](#type)| Yes |
-| Description | Description of the application role. | No |
+| Field | Description | Required | Max length |
+|-------|-------------|:--------:|-----------:|
+| Name | The unique name of the application role. The corresponding smart contract must use the same **Name** for the applicable role. Base type names are reserved. You cannot name an application role with the same name as [Type](#type)| Yes | 50 |
+| Description | Description of the application role. | No | 255 |
 
 ### Application roles example
 
@@ -386,11 +381,12 @@ Application roles define a set of roles that can be assigned to users who want t
 
 Identifiers represent a collection of information used to describe workflow properties, constructor, and function parameters. 
 
-| Field | Description | Required |
-|-------|-------------|:--------:|
-| Name | The unique name of the property or parameter. The corresponding smart contract must use the same **Name** for the applicable property or parameter. | Yes |
-| DisplayName | Friendly display name for the property or parameter. | Yes |
-| Description | Description of the property or parameter. | No |
+| Field | Description | Required | Max length |
+|-------|-------------|:--------:|-----------:|
+| Name | The unique name of the property or parameter. The corresponding smart contract must use the same **Name** for the applicable property or parameter. | Yes | 50 |
+| DisplayName | Friendly display name for the property or parameter. | Yes | 255 |
+| Description | Description of the property or parameter. | No | 255 |
+| Type | Property [data type](#type). | Yes |
 
 ### Identifiers example
 
@@ -983,7 +979,7 @@ The following configuration file is for the asset transfer sample:
         {
           "Name": "Terminated",
           "DisplayName": "Terminated",
-          "Description": "Asset transfer has been cancelled",
+          "Description": "Asset transfer has been canceled",
           "PercentComplete": 100,
           "Style": "Failure",
           "Transitions": []
@@ -996,5 +992,4 @@ The following configuration file is for the asset transfer sample:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Blockchain Workbench REST API reference](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)
-
+> [Azure Blockchain Workbench REST API reference](/rest/api/azure-blockchain-workbench)

@@ -1,16 +1,17 @@
 ---
-title: 'Tutorial:  Integrate a single AD forest to Azure using pass-through authentication (PTA)| Microsoft Docs'
+title: 'Tutorial:  Integrate a single AD forest to Azure using PTA'
 description: Demonstrates how to setup a hybrid identity environment using pass-through authentication.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
-ms.date: 09/18/2018
-ms.component: hybrid
+ms.topic: tutorial
+ms.date: 05/31/2019
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial:  Integrate a single AD forest using pass-through authentication (PTA)
@@ -21,9 +22,9 @@ The following tutorial will walk you through creating a hybrid identity environm
 
 ## Prerequisites
 The following are prerequisites required for completing this tutorial
-- A computer with [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installed.  It is suggested to do this on either a [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) or a [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) computer.
+- A computer with [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installed.  It is suggested to do this on either a [Windows 10](/virtualization/hyper-v-on-windows/about/supported-guest-os) or a [Windows Server 2016](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) computer.
 - An [Azure subscription](https://azure.microsoft.com/free)
-- - An [external network adapter](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) to allow the virtual machine to communicate with the internet.
+- - An [external network adapter](/virtualization/hyper-v-on-windows/quick-start/connect-to-network) to allow the virtual machine to communicate with the internet.
 - A copy of Windows Server 2016
 - A [custom domain](../../active-directory/fundamentals/add-custom-domain.md) that can be verified
 
@@ -32,7 +33,7 @@ The following are prerequisites required for completing this tutorial
 >
 >The scripts used create a general Active Directory environment prior to installing Azure AD Connect.  They are relevant for all of the tutorials.
 >
-> Copies of the PowerShell scripts that are used in this tutorial are available on Github [here](https://github.com/billmath/tutorial-phs).
+> Copies of the PowerShell scripts that are used in this tutorial are available on GitHub [here](https://github.com/billmath/tutorial-phs).
 
 ## Create a virtual machine
 The first thing that we need to do, in order to get our hybrid identity environment up and running is to create a virtual machine that will be used as our on-premises Active Directory server.  
@@ -75,7 +76,7 @@ In order to finish building the virtual machine, you need to finish the operatin
 
 1. Hyper-V Manager, double-click on the virtual machine
 2. Click on the Start button.
-3.  You will be prompted to ‘Press any key to boot from CD or DVD’. Go ahead and do so.
+3. You will be prompted to ‘Press any key to boot from CD or DVD’. Go ahead and do so.
 4. On the Windows Server start up screen select your language and click **Next**.
 5. Click **Install Now**.
 6. Enter your license key and click **Next**.
@@ -138,6 +139,7 @@ $LogPath = "c:\windows\NTDS"
 $SysVolPath = "c:\windows\SYSVOL"
 $featureLogPath = "c:\poshlog\featurelog.txt" 
 $Password = "Pass1w0rd"
+$SecureString = ConvertTo-SecureString $Password -AsPlainText -Force
 
 #Install AD DS, DNS and GPMC 
 start-job -Name addFeature -ScriptBlock { 
@@ -148,7 +150,7 @@ Wait-Job -Name addFeature
 Get-WindowsFeature | Where installed >>$featureLogPath
 
 #Create New AD Forest
-Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -DomainMode $DomainMode -DomainName $DomainName -SafeModeAdministratorPassword $Password -DomainNetbiosName $DomainNetBIOSName -ForestMode $ForestMode -InstallDns:$true -LogPath $LogPath -NoRebootOnCompletion:$false -SysvolPath $SysVolPath -Force:$true
+Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -DomainMode $DomainMode -DomainName $DomainName -SafeModeAdministratorPassword $SecureString -DomainNetbiosName $DomainNetBIOSName -ForestMode $ForestMode -InstallDns:$true -LogPath $LogPath -NoRebootOnCompletion:$false -SysvolPath $SysVolPath -Force:$true
 ```
 
 ## Create a Windows Server AD user
@@ -182,7 +184,7 @@ Now we need to create an Azure AD tenant so that we can synchronize our users to
 2. Select the **plus icon (+)** and search for **Azure Active Directory**.
 3. Select **Azure Active Directory** in the search results.
 4. Select **Create**.</br>
-![Create](media/tutorial-password-hash-sync/create1.png)</br>
+![Screenshot that shows how to create an Azure AD tenant.](media/tutorial-password-hash-sync/create1.png)</br>
 5. Provide a **name for the organization** along with the **initial domain name**. Then select **Create**. This will create your directory.
 6. Once this has completed, click the **here** link, to manage the directory.
 
@@ -190,10 +192,10 @@ Now we need to create an Azure AD tenant so that we can synchronize our users to
 Now that we have an Azure AD tenant, we will create a global administrator account.  This account is used to create the Azure AD Connector account during Azure AD Connect installation.  The Azure AD Connector account is used to write information to Azure AD.   To create the global administrator account do the following.
 
 1.  Under **Manage**, select **Users**.</br>
-![Create](media/tutorial-password-hash-sync/gadmin1.png)</br>
+![Screenshot that shows the User option selected in the Manage section where you create a global administrator in Azure AD.](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Select **All users** and then select **+ New user**.
 3.  Provide a name and username for this user. This will be your Global Admin for the tenant. You will also want to change the **Directory role** to **Global administrator.** You can also show the temporary password. When you are done, select **Create**.</br>
-![Create](media/tutorial-password-hash-sync/gadmin2.png)</br>
+![Screenshot that shows the Create button you select when you create a global administrator in Azure AD.](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. Once this has completed, open a new web browser and sign-in to myapps.microsoft.com using the new global administrator account and the temporary password.
 5. Change the password for the global administrator to something that you will remember.
 
@@ -203,12 +205,12 @@ Now that we have a tenant and a global administrator, we need to add our custom 
 1. Back in the [Azure portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) be sure to close the **All Users** blade.
 2. On the left, select **Custom domain names**.
 3. Select **Add custom domain**.</br>
-![Custom](media/tutorial-federation/custom1.png)</br>
+![Screenshot that shows the Add custom domain button highlighted.](media/tutorial-federation/custom1.png)</br>
 4. On **Custom domain names**, enter the name of your custom domain in the box, and click **Add Domain**.
 5. On the custom domain name screen you will be supplied with either TXT or MX information.  This information must be added to the DNS information of the domain registrar under your domain.  So you need to go to your domain registrar, enter either the TXT or MX information in the DNS settings for your domain.  This will allow Azure to verify your domain.  This may take up to 24 hours for Azure to verify it.  For more information, see the [add a custom domain](../../active-directory/fundamentals/add-custom-domain.md) documentation.</br>
-![Custom](media/tutorial-federation/custom2.png)</br>
+![Screenshot that shows where you add the TXT or MX information.](media/tutorial-federation/custom2.png)</br>
 6. To ensure that it is verified, click the Verify button.</br>
-![Custom](media/tutorial-federation/custom3.png)</br>
+![Screenshot that shows a successful verification message after you select Verify.](media/tutorial-federation/custom3.png)</br>
 
 ## Download and install Azure AD Connect
 Now it is time to download and install Azure AD Connect.  Once it has been installed we will run through the express installation.  Do the following:
@@ -246,9 +248,9 @@ We will now verify that the users that we had in our on-premises directory have 
 
 ## Test signing in with one of our users
 
-1.  Browse to [http://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Browse to [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Sign-in with a user account that was created in our new tenant.  You will need to sign-in using the following format: (user@domain.onmicrosoft.com). Use the same password that the user uses to sign-in on-premises.
-![Verify](media/tutorial-password-hash-sync/verify1.png)
+   ![Verify](media/tutorial-password-hash-sync/verify1.png)
 
 You have now successfully setup a hybrid identity environment that you can use to test and familiarize yourself with what Azure has to offer.
 

@@ -1,16 +1,21 @@
 ---
-title: Client-Side Encryption with Python for Microsoft Azure Storage | Microsoft Docs
+title: Client-side encryption with Python
+titleSuffix: Azure Storage
 description: The Azure Storage Client Library for Python supports client-side encryption for maximum security for your Azure Storage applications.
 services: storage
-author: lakasa
+author: tamram
+
 ms.service: storage
 ms.devlang: python
-ms.topic: article
-ms.date: 05/11/2017
-ms.author: lakasa
-ms.component: common
+ms.topic: how-to
+ms.date: 02/18/2021
+ms.author: tamram
+ms.reviewer: ozgun
+ms.subservice: common
 ---
-# Client-Side Encryption with Python for Microsoft Azure Storage
+
+# Client-side encryption with Python
+
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## Overview
@@ -42,7 +47,7 @@ Decryption via the envelope technique works in the following way:
 4. The content encryption key (CEK) is then used to decrypt the encrypted user data.
 
 ## Encryption Mechanism
-The storage client library uses [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. Specifically, [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES. Each service works somewhat differently, so we will discuss each of them here.
+The storage client library uses [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. Specifically, [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES. Each service works somewhat differently, so we will discuss each of them here.
 
 ### Blobs
 The client library currently supports encryption of whole blobs only. Specifically, encryption is supported when users use the **create*** methods. For downloads, both complete and range downloads are supported, and parallelization of both upload and download is available.
@@ -85,9 +90,9 @@ Table data encryption works as follows:
 2. The client library generates a random Initialization Vector (IV) of 16 bytes along with a random content encryption key (CEK) of 32 bytes for every entity, and performs envelope encryption on the individual properties to be encrypted by deriving a new IV per property. The encrypted property is stored as binary data.
 3. The wrapped CEK and some additional encryption metadata are then stored as two additional reserved properties. The first reserved property (\_ClientEncryptionMetadata1) is a string property that holds the information about IV, version, and wrapped key. The second reserved property (\_ClientEncryptionMetadata2) is a binary property that holds the information about the properties that are encrypted. The information in this second property (\_ClientEncryptionMetadata2) is itself encrypted.
 4. Due to these additional reserved properties required for encryption, users may now have only 250 custom properties instead of 252. The total size of the entity must be less than 1MB.
-   
+
    Note that only string properties can be encrypted. If other types of properties are to be encrypted, they must be converted to strings. The encrypted strings are stored on the service as binary properties, and they are converted back to strings (raw strings, not EntityProperties with type EdmType.STRING) after decryption.
-   
+
    For tables, in addition to the encryption policy, users must specify the properties to be encrypted. This can be done by either storing these properties in TableEntity objects with the type set to EdmType.STRING and encrypt set to true or setting the encryption_resolver_function on the tableservice object. An encryption resolver is a function that takes a partition key, row key, and property name and returns a boolean that indicates whether that property should be encrypted. During encryption, the client library will use this information to decide whether a property should be encrypted while writing to the wire. The delegate also provides for the possibility of logic around how properties are encrypted. (For example, if X, then encrypt property A; otherwise encrypt properties A and B.) Note that it is not necessary to provide this information while reading or querying entities.
 
 ### Batch Operations
@@ -99,9 +104,9 @@ Note that entities are encrypted as they are inserted into the batch using the b
 > [!NOTE]
 > Because the entities are encrypted, you cannot run queries that filter on an encrypted property.  If you try, results will be incorrect, because the service would be trying to compare encrypted data with unencrypted data.
 > 
->
-To perform query operations, you must specify a key resolver that is able to resolve all the keys in the result set. If an entity contained in the query result cannot be resolved to a provider, the client library will throw an error. For any query that performs server side projections, the client library will add the special encryption metadata properties (\_ClientEncryptionMetadata1 and \_ClientEncryptionMetadata2) by default to the selected columns.
-
+> 
+> To perform query operations, you must specify a key resolver that is able to resolve all the keys in the result set. If an entity contained in the query result cannot be resolved to a provider, the client library will throw an error. For any query that performs server side projections, the client library will add the special encryption metadata properties (\_ClientEncryptionMetadata1 and \_ClientEncryptionMetadata2) by default to the selected columns.
+> 
 > [!IMPORTANT]
 > Be aware of these important points when using client-side encryption:
 > 
@@ -109,8 +114,6 @@ To perform query operations, you must specify a key resolver that is able to res
 > * For tables, a similar constraint exists. Be careful to not update encrypted properties without updating the encryption metadata.
 > * If you set metadata on the encrypted blob, you may overwrite the encryption-related metadata required for decryption, since setting metadata is not additive. This is also true for snapshots; avoid specifying metadata while creating a snapshot of an encrypted blob. If metadata must be set, be sure to call the **get_blob_metadata** method first to get the current encryption metadata, and avoid concurrent writes while metadata is being set.
 > * Enable the **require_encryption** flag on the service object for users that should work only with encrypted data. See below for more info.
-> 
-> 
 
 The storage client library expects the provided KEK and key resolver to implement the following interface. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) support for Python KEK management is pending and will be integrated into this library when completed.
 
@@ -130,11 +133,11 @@ The key resolver must at least implement a method that, given a key id, returns 
 
 * For encryption, the key is used always and the absence of a key will result in an error.
 * For decryption:
-  
+
   * The key resolver is invoked if specified to get the key. If the resolver is specified but does not have a mapping for the key identifier, an error is thrown.
   * If resolver is not specified but a key is specified, the key is used if its identifier matches the required key identifier. If the identifier does not match, an error is thrown.
-    
-    The encryption samples in azure.storage.samples <fix URL>demonstrate a more detailed end-to-end scenario for blobs, queues and tables.
+
+    The encryption samples in azure.storage.samples demonstrate a more detailed end-to-end scenario for blobs, queues and tables.
       Sample implementations of the KEK and key resolver are provided in the sample files as KeyWrapper and KeyResolver respectively.
 
 ### RequireEncryption mode
@@ -143,10 +146,16 @@ Users can optionally enable a mode of operation where all uploads and downloads 
 ### Blob service encryption
 Set the encryption policy fields on the blockblobservice object. Everything else will be handled by the client library internally.
 
+# [Python v12 SDK](#tab/python)
+
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# [Python v2.1](#tab/python2)
+
 ```python
 # Create the KEK used for encryption.
 # KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
-kek = KeyWrapper('local:key1') # Key identifier
+kek = KeyWrapper('local:key1')  # Key identifier
 
 # Create the key resolver used for decryption.
 # KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
@@ -158,19 +167,27 @@ my_block_blob_service.key_encryption_key = kek
 my_block_blob_service.key_resolver_funcion = key_resolver.resolve_key
 
 # Upload the encrypted contents to the blob.
-my_block_blob_service.create_blob_from_stream(container_name, blob_name, stream)
+my_block_blob_service.create_blob_from_stream(
+    container_name, blob_name, stream)
 
 # Download and decrypt the encrypted contents from the blob.
 blob = my_block_blob_service.get_blob_to_bytes(container_name, blob_name)
 ```
+---
 
 ### Queue service encryption
 Set the encryption policy fields on the queueservice object. Everything else will be handled by the client library internally.
 
+# [Python v12 SDK](#tab/python)
+
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# [Python v2.1](#tab/python2)
+
 ```python
 # Create the KEK used for encryption.
 # KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
-kek = KeyWrapper('local:key1') # Key identifier
+kek = KeyWrapper('local:key1')  # Key identifier
 
 # Create the key resolver used for decryption.
 # KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
@@ -187,16 +204,23 @@ my_queue_service.put_message(queue_name, content)
 # Retrieve message
 retrieved_message_list = my_queue_service.get_messages(queue_name)
 ```
+---
 
 ### Table service encryption
 In addition to creating an encryption policy and setting it on request options, you must either specify an **encryption_resolver_function** on the **tableservice**, or set the encrypt attribute on the EntityProperty.
 
 ### Using the resolver
 
+# [Python v12 SDK](#tab/python)
+
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# [Python v2.1](#tab/python2)
+
 ```python
 # Create the KEK used for encryption.
 # KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
-kek = KeyWrapper('local:key1') # Key identifier
+kek = KeyWrapper('local:key1')  # Key identifier
 
 # Create the key resolver used for decryption.
 # KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
@@ -204,10 +228,13 @@ key_resolver = KeyResolver()
 key_resolver.put_key(kek)
 
 # Define the encryption resolver_function.
+
+
 def my_encryption_resolver(pk, rk, property_name):
     if property_name == 'foo':
         return True
     return False
+
 
 # Set the KEK and key resolver on the service object.
 my_table_service.key_encryption_key = kek
@@ -219,15 +246,24 @@ my_table_service.insert_entity(table_name, entity)
 
 # Retrieve Entity
 # Note: No need to specify an encryption resolver for retrieve, but it is harmless to leave the property set.
-my_table_service.get_entity(table_name, entity['PartitionKey'], entity['RowKey'])
+my_table_service.get_entity(
+    table_name, entity['PartitionKey'], entity['RowKey'])
 ```
+---
 
 ### Using attributes
 As mentioned above, a property may be marked for encryption by storing it in an EntityProperty object and setting the encrypt field.
 
+# [Python v12 SDK](#tab/python)
+
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# [Python v2.1](#tab/python2)
+
 ```python
 encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
 ```
+---
 
 ## Encryption and performance
 Note that encrypting your storage data results in additional performance overhead. The content key and IV must be generated, the content itself must be encrypted, and additional metadata must be formatted and uploaded. This overhead will vary depending on the quantity of data being encrypted. We recommend that customers always test their applications for performance during development.

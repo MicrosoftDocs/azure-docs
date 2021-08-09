@@ -5,13 +5,13 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
 ---
 
 # Set up VMware disaster recovery in a multi-tenancy environment with the Cloud Solution Provider (CSP) program
 
-The [CSP program](https://partner.microsoft.com/en-US/cloud-solution-provider) fosters better-together stories for Microsoft cloud services, including Office 365, Enterprise Mobility Suite, and Microsoft Azure. With CSP, partners own the end-to-end relationship with customers, and become the primary relationship contact point. Partners can deploy Azure subscriptions for customers, and combine the subscriptions with their own value-added, customized offerings.
+The [CSP program](https://partner.microsoft.com/cloud-solution-provider) fosters better-together stories for Microsoft cloud services, including Microsoft 365, Enterprise Mobility Suite, and Microsoft Azure. With CSP, partners own the end-to-end relationship with customers, and become the primary relationship contact point. Partners can deploy Azure subscriptions for customers, and combine the subscriptions with their own value-added, customized offerings.
 
 With [Azure Site Recovery](site-recovery-overview.md), as partners you can manage disaster recovery for customers directly through CSP. Alternately, you can use CSP to set up Site Recovery environments, and let customers manage their own disaster recovery needs in a self-service manner. In both scenarios, partners are the liaison between Site Recovery and their customers. Partners service the customer relationship, and bill customers for Site Recovery usage.
 
@@ -60,18 +60,22 @@ You can now perform and manage all Site Recovery operations for the tenant in th
 ## Assign tenant access to the subscription
 
 1. Ensure that the disaster recovery infrastructure is set up. Partners access tenant subscriptions through the CSP portal, regardless of whether disaster recovery is managed or self-service. Set up the vault and register infrastructure to the tenant subscriptions.
-2. Provide the tenant with the [account you created](#create-a-tenant-account).
-3. You can add a new user to the tenant subscription through the CSP portal as follows:
+1. Provide the tenant with the [account you created](#create-a-tenant-account).
+1. You can add a new user to the tenant subscription through the CSP portal as follows:
 
-    a) Go to the tenant’s CSP subscription page, and then select the **Users and licenses** option.
+    1. Go to the tenant’s CSP subscription page, and then select the **Users and licenses** option.
 
-	  ![The tenant's CSP subscription page](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
+       ![The tenant's CSP subscription page](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
 
-	  b) Now create a new user by entering the relevant details and selecting permissions, or by uploading the list of users in a CSV file.
-    c) After you've created a new user, go back to the Azure portal. In the **Subscription** page, select the relevant subscription.
-    d) Select **Access Control (IAM)**, and then click **Add**, to add a user with the relevant access level. The users that were created through the CSP portal are automatically displayed on the page that opens after you click an access level.
+	1. Now create a new user by entering the relevant details and selecting permissions, or by uploading the list of users in a CSV file.
 
-	  ![Add a user](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
+    1. After you've created a new user, go back to the Azure portal. In the **Subscription** page, select the relevant subscription.
+
+    1. Select **Access control (IAM)**, and then click **Role assignments**.
+
+    1. Click **Add role assignment** to add a user with the relevant access level. The users that were created through the CSP portal are displayed on the Role assignments tab.
+
+        ![Add a user](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
 
 - For most management operations, the *Contributor* role is sufficient. Users with this access level can do everything on a subscription except change access levels (for which *Owner*-level access is required).
 - Site Recovery also has three [predefined user roles](site-recovery-role-based-linked-access-control.md), that can be used to further restrict access levels as required.
@@ -89,7 +93,7 @@ There are three major multi-tenant models:
 By setting up tenant subscriptions as described in this article, you can quickly start enabling customers in any of the relevant multi-tenant models. You can learn more about the different multi-tenant models and enabling on-premises access controls [here](vmware-azure-multi-tenant-overview.md).
 
 ## Next steps
-- Learn more about [role-based access control](site-recovery-role-based-linked-access-control.md) to manage Azure Site Recovery deployments.
+- Learn more about [Azure role-based access control (Azure RBAC)](site-recovery-role-based-linked-access-control.md) to manage Azure Site Recovery deployments.
 - Learn more about VMware to Azure [replication architecture](vmware-azure-architecture.md).
 - [Review the tutorial](vmware-azure-tutorial.md) for replicating VMware VMs to Azure.
 Learn more about [multi-tenant environments](vmware-azure-multi-tenant-overview.md) for replicating VMware VMs to Azure.

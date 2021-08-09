@@ -1,57 +1,60 @@
 ---
-title: Azure Event Grid overview
-description: Describes Azure Event Grid and its concepts.
-services: event-grid
-author: banisadr
-manager: timlt
-
-ms.service: event-grid
+title: What is Azure Event Grid? 
+description: Send event data from a source to handlers with Azure Event Grid. Build event-based applications, and integrate with Azure services.
 ms.topic: overview
-ms.date: 08/17/2018
-ms.author: babanisa
+ms.date: 07/27/2021
 ---
 
-# An introduction to Azure Event Grid
+# What is Azure Event Grid?
 
-Azure Event Grid allows you to easily build applications with event-based architectures. First select the Azure resource you would like to subscribe to, and then give the event handler or WebHook endpoint to send the event to. Event Grid has built-in support for events coming from Azure services, like storage blobs and resource groups. Event Grid also has support for your own events, using custom topics. 
+Azure Event Grid allows you to easily build applications with event-based architectures. First, select the Azure resource you would like to subscribe to, and then give the event handler or WebHook endpoint to send the event to. Event Grid has built-in support for events coming from Azure services, like storage blobs and resource groups. Event Grid also has support for your own events, using custom topics. 
 
 You can use filters to route specific events to different endpoints, multicast to multiple endpoints, and make sure your events are reliably delivered.
 
-Currently, Azure Event Grid is available in all public regions. It is not yet available in the Azure Germany, Azure China, or Azure Government clouds.
+Azure Event Grid is deployed to maximize availability by natively spreading across multiple fault domains in every region, and across availability zones (in regions that support them). For a list of regions that are supported by Event Grid, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
 
 This article provides an overview of Azure Event Grid. If you want to get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md). 
 
-![Event Grid functional model](./media/overview/functional-model.png)
+:::image type="content" source="./media/overview/functional-model.png" alt-text="Event Grid model of sources and handlers" lightbox="./media/overview/functional-model-big.png":::
 
-Please note: this image shows how Event Grid connects sources and handlers, and is not a comprehensive list of supported integrations.
+> [!NOTE]
+> This image shows how Event Grid connects sources and handlers, and isn't a comprehensive list of supported integrations. For a list of all supported event sources, see the following section. 
 
 ## Event sources
 
-For full details on the capabilities of each source as well as related articles, see [event sources](event-sources.md). Currently, the following Azure services support sending events to Event Grid:
+Currently, the following Azure services support sending events to Event Grid. For more information about a source in the list, select the link.
 
-* Azure Subscriptions (management operations)
-* Container Registry
-* Custom Topics
-* Event Hubs
-* IoT Hub
-* Media Services
-* Resource Groups (management operations)
-* Service Bus
-* Storage Blob
-* Storage General-purpose v2 (GPv2)
+- [Azure App Configuration](event-schema-app-configuration.md)
+- [Azure Blob Storage](event-schema-blob-storage.md)
+- [Azure Communication Services](event-schema-communication-services.md) 
+- [Azure Container Registry](event-schema-container-registry.md)
+- [Azure Event Hubs](event-schema-event-hubs.md)
+- [Azure IoT Hub](event-schema-iot-hub.md)
+- [Azure Key Vault](event-schema-key-vault.md)
+- [Azure Machine Learning](event-schema-machine-learning.md)
+- [Azure Maps](event-schema-azure-maps.md)
+- [Azure Media Services](event-schema-media-services.md)
+- [Azure Policy](./event-schema-policy.md)
+- [Azure resource groups](event-schema-resource-groups.md)
+- [Azure Service Bus](event-schema-service-bus.md)
+- [Azure SignalR](event-schema-azure-signalr.md)
+- [Azure subscriptions](event-schema-subscriptions.md)
+- [Azure Cache for Redis](event-schema-azure-cache.md)
+- [Azure Kubernetes Service (preview)](event-schema-aks.md)
 
 ## Event handlers
 
 For full details on the capabilities of each handler as well as related articles, see [event handlers](event-handlers.md). Currently, the following Azure services support handling events from Event Grid: 
 
-* Azure Automation
-* Azure Functions
-* Event Hubs
-* Hybrid Connections
-* Logic Apps
-* Microsoft Flow
-* Queue Storage
-* WebHooks
+* [Azure Automation](handler-webhooks.md#azure-automation)
+* [Azure Functions](handler-functions.md)
+* [Event Hubs](handler-event-hubs.md)
+* [Relay Hybrid Connections](handler-relay-hybrid-connections.md)
+* [Logic Apps](handler-webhooks.md#logic-apps)
+* [Power Automate (Formerly known as Microsoft Flow)](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
+* [Service Bus](handler-service-bus.md)
+* [Queue Storage](handler-storage-queues.md)
+* [WebHooks](handler-webhooks.md)
 
 ## Concepts
 
@@ -60,7 +63,7 @@ There are five concepts in Azure Event Grid that let you get going:
 * **Events** - What happened.
 * **Event sources** - Where the event took place.
 * **Topics** - The endpoint where publishers send events.
-* **Event subscriptions** - The endpoint or built-in mechanism to route events, sometimes to multiple handlers. Subscriptions are also used by handlers to intelligently filter incoming events.
+* **Event subscriptions** - The endpoint or built-in mechanism to route events, sometimes to more than one handler. Subscriptions are also used by handlers to intelligently filter incoming events.
 * **Event handlers** - The app or service reacting to the event.
 
 For more information about these concepts, see [Concepts in Azure Event Grid](concepts.md).
@@ -70,37 +73,37 @@ For more information about these concepts, see [Concepts in Azure Event Grid](co
 Here are some of the key features of Azure Event Grid:
 
 * **Simplicity** - Point and click to aim events from your Azure resource to any event handler or endpoint.
-* **Advanced filtering** - Filter on event type or event publish path to ensure event handlers only receive relevant events.
-* **Fan-out** - Subscribe multiple endpoints to the same event to send copies of the event to as many places as needed.
-* **Reliability** - Utilize 24-hour retry with exponential backoff to ensure events are delivered.
+* **Advanced filtering** - Filter on event type or event publish path to make sure event handlers only receive relevant events.
+* **Fan-out** - Subscribe several endpoints to the same event to send copies of the event to as many places as needed.
+* **Reliability** - 24-hour retry with exponential backoff to make sure events are delivered.
 * **Pay-per-event** - Pay only for the amount you use Event Grid.
-* **High throughput** - Build high-volume workloads on Event Grid with support for millions of events per second.
+* **High throughput** - Build high-volume workloads on Event Grid.
 * **Built-in Events** - Get up and running quickly with resource-defined built-in events.
-* **Custom Events** - Use Event Grid route, filter, and reliably deliver custom events in your app.
+* **Custom Events** - Use Event Grid to route, filter, and reliably deliver custom events in your app.
 
 For a comparison of Event Grid, Event Hubs, and Service Bus, see [Choose between Azure services that deliver messages](compare-messaging-services.md).
 
 ## What can I do with Event Grid?
 
-Azure Event Grid provides several capabilities that vastly improve serverless, ops automation, and integration work: 
+Azure Event Grid provides several features that vastly improve serverless, ops automation, and [integration](https://azure.com/integration) work: 
 
 ### Serverless application architectures
 
-![Serverless application](./media/overview/serverless_web_app.png)
+![Serverless application architecture](./media/overview/serverless_web_app.png)
 
-Event Grid connects data sources and event handlers. For example, use Event Grid to instantly trigger a serverless function to run image analysis each time a new photo is added to a blob storage container. 
+Event Grid connects data sources and event handlers. For example, use Event Grid to trigger a serverless function that analyzes images when added to a blob storage container. 
 
 ### Ops Automation
 
-![Ops automation](./media/overview/Ops_automation.png)
+![Operations automation](./media/overview/Ops_automation.png)
 
-Event Grid allows you to speed automation and simplify policy enforcement. For example, Event Grid can notify Azure Automation when a virtual machine is created, or a SQL Database is spun up. These events can be used to automatically check that service configurations are compliant, put metadata into operations tools, tag virtual machines, or file work items.
+Event Grid allows you to speed automation and simplify policy enforcement. For example, use Event Grid to notify Azure Automation when a virtual machine or database in Azure SQL is created. Use the events to automatically check that service configurations are compliant, put metadata into operations tools, tag virtual machines, or file work items.
 
 ### Application integration
 
-![Application integration](./media/overview/app_integration.png)
+![Application integration with Azure](./media/overview/app_integration.png)
 
-Event Grid connects your app with other services. For example, create a custom topic to send your app's event data to Event Grid, and take advantage of its reliable delivery, advanced routing, and direct integration with Azure. Alternatively, you can use Event Grid with Logic Apps to process data anywhere, without writing code. 
+Event Grid connects your app with other services. For example, create a custom topic to send your app's event data to Event Grid, and take advantage of its reliable delivery, advanced routing, and direct integration with Azure. Or, you can use Event Grid with Logic Apps to process data anywhere, without writing code. 
 
 ## How much does Event Grid cost?
 
@@ -115,6 +118,6 @@ Azure Event Grid uses a pay-per-event pricing model, so you only pay for what yo
 * [Using Logic Apps as an Event Handler](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   A tutorial on building an app using Logic Apps to react to events pushed by Event Grid.
 * [Stream big data into a data warehouse](event-grid-event-hubs-integration.md)  
-  A tutorial that uses Azure Functions to stream data from Event Hubs to SQL Data Warehouse.
+  A tutorial that uses Azure Functions to stream data from Event Hubs to Azure Synapse Analytics.
 * [Event Grid REST API reference](/rest/api/eventgrid)  
-  Provides more technical information about the Azure Event Grid, and a reference for managing Event Subscriptions, routing, and filtering.
+  Provides reference content for managing Event Subscriptions, routing, and filtering.

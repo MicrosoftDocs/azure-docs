@@ -3,22 +3,23 @@ title: Get started with delivering video-on-demand by using the Azure portal | M
 description: This tutorial walks you through the steps of implementing a basic video-on-demand content delivery service with an Azure Media Services application in the Azure portal.
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: cfowler
+author: IngridAtMicrosoft
+manager: femila
 editor: ''
-
 ms.assetid: 6c98fcfa-39e6-43a5-83a5-d4954788f8a4
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 08/07/2017
-ms.author: juliako
-
+ms.topic: conceptual
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 # Get started with delivering content on demand by using the Azure portal
-[!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 This tutorial walks you through the steps of implementing a basic video-on-demand content delivery service with an Azure Media Services application in the Azure portal.
 
@@ -100,26 +101,26 @@ To provide your user with a URL that they can use to stream or download your con
 
 To build an HLS streaming URL, append *(format=m3u8-aapl)* to the URL:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
+`{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)`
 
 To build a streaming URL to play Smooth Streaming assets, use the following URL format:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest
+`{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest`
 
 To build an MPEG-DASH streaming URL, append *(format=mpd-time-csf)* to the URL:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
+`{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)`
 
 A shared access signature URL has the following format:
 
-    {blob container name}/{asset name}/{file name}/{shared access signature}
+`{blob container name}/{asset name}/{file name}/{shared access signature}`
 
 > [!NOTE]
 > Locators that were created in the Azure portal before March 2015 have a two-year expiration date.  
 > 
 > 
 
-To update an expiration date on a locator, you can use a [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) or a [.NET API](https://go.microsoft.com/fwlink/?LinkID=533259). 
+To update an expiration date on a locator, you can use a [REST API](/rest/api/media/operations/locator#update_a_locator) or a [.NET API](/dotnet/api/microsoft.windowsazure.mediaservices.client.ilocator). 
 
 > [!NOTE]
 > When you update the expiration date of a shared access signature locator, the URL changes.
@@ -146,7 +147,7 @@ Some considerations apply:
 
 * To begin streaming, start running the default streaming endpoint.
 * Make sure that the video has been published.
-* The Azure portal media player plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, select and copy the URL, and then paste it into another player. For example, you can test your video on the [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* The Azure portal media player plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, select and copy the URL, and then paste it into another player. For example, you can test your video on the [Azure Media Player](https://aka.ms/azuremediaplayer).
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

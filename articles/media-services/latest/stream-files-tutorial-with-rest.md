@@ -1,25 +1,29 @@
 ---
-title: Upload, encode, and stream using Azure Media Services - REST | Microsoft Docs
-description: Follow the steps of this tutorial to upload a file, and encode the video, and stream your content with Azure Media Services using REST.
+title: Encode a remote file and stream using Media Services
+description: Follow the steps of this tutorial to encode a file based on a URL and stream your content with Azure Media Services using REST.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/11/2018
-ms.author: juliako
+ms.date: 03/17/2021
+ms.author: inhenkel
 ---
 
-# Tutorial: Upload, encode, and stream videos with REST
+# Tutorial: Encode a remote file based on URL and stream the video - REST
 
-Azure Media Services enables you to encode your media files into formats that can be played on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. Before streaming, you should encode your high-quality digital media file. For encoding guidance, see [Encoding concept](encoding-concept.md).
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-This tutorial shows you how to upload, encode, and stream video files with Azure Media Services using REST. 
+Azure Media Services enables you to encode your media files into formats that can be played on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. Before streaming, you should encode your high-quality digital media file. For encoding guidance, see [Encoding concept](encode-concept.md).
+
+This tutorial shows you how to encode a file based on a URL and stream the video with Azure Media Services using REST.
+
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]
+
 
 ![Play the video](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -30,7 +34,7 @@ This tutorial shows you how to:
 > * Access the Media Services API
 > * Download Postman files
 > * Configure Postman
-> * Send reqests using Postman
+> * Send requests using Postman
 > * Test the streaming URL
 > * Clean up resources
 
@@ -38,11 +42,7 @@ This tutorial shows you how to:
 
 ## Prerequisites
 
-- Install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
-
-    Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
-
-- [Create a Media Services account](create-account-cli-how-to.md).
+- [Create a Media Services account](./account-create-how-to.md).
 
     Make sure to remember the values that you used for the resource group name and Media Services account name
 
@@ -58,15 +58,15 @@ Clone a GitHub repository that contains the  Postman collection and environment 
  git clone https://github.com/Azure-Samples/media-services-v3-rest-postman.git
  ```
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+## Access API
+
+For detailed information, see [Get credentials to access Media Services API](access-api-howto.md)
 
 ## Configure Postman
 
-This section configures the Postman.
-
 ### Configure the environment 
 
-1. Open the **Postman**.
+1. Open the **Postman** app.
 2. On the right of the screen, select the **Manage environment** option.
 
     ![Manage env](./media/develop-with-postman/postman-import-env.png)
@@ -77,7 +77,7 @@ This section configures the Postman.
     > [!Note]
     > Update access variables with values you got from the **Access the Media Services API** section above.
 
-7. Double-click on the selected file and enter values that you got by following the [accessing API](#access-the-media-services-api) steps.
+7. Double-click on the selected file and enter values that you got by following the [accessing API](#access-api) steps.
 8. Close the dialog.
 9. Select the **Azure Media Service v3 Environment** environment from the dropdown.
 
@@ -96,36 +96,64 @@ This section configures the Postman.
 In this section, we send requests that are relevant to encoding and creating URLs so you can stream your file. Specifically, the following requests are sent:
 
 1. Get Azure AD Token for Service Principal Authentication
+1. Start a Streaming Endpoint
 2. Create an output asset
-3. Create a transform
-4. Create a job 
-5. Create a streaming locator
-6. List paths of the streaming locator
+3. Create a Transform
+4. Create a Job
+5. Create a Streaming Locator
+6. List paths of the Streaming Locator
 
 > [!Note]
 >  This tutorial assumes you are creating all resources with unique names.  
 
 ### Get Azure AD Token 
 
-1. In the left window of the Postman, select "Step 1: Get AAD Auth token".
+1. In the left window of the Postman app, select "Step 1: Get AAD Auth token".
 2. Then, select "Get Azure AD Token for Service Principal Authentication".
 3. Press **Send**.
 
     The following **POST** operation is sent.
 
     ```
-    https://login.microsoftonline.com/:tenantId/oauth2/token
+    https://login.microsoftonline.com/:aadTenantDomain/oauth2/token
     ```
 
 4. The response comes back with the token and sets the "AccessToken" environment variable to the token value. To see the code that sets "AccessToken" , click on the **Tests** tab. 
 
     ![Get AAD token](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
+
+### Start a Streaming Endpoint
+
+To enable streaming, you first have to start the [Streaming Endpoint](./stream-streaming-endpoint-concept.md) from which you want to stream the video.
+
+> [!NOTE]
+> You are only billed when your Streaming Endpoint is in the running state.
+
+1. In the left window of the Postman app, select "Streaming and Live".
+2. Then, select "Start StreamingEndpoint".
+3. Press **Send**.
+
+    * The following **POST** operation is sent:
+
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName/start?api-version={{api-version}}
+        ```
+    * If the request is successful, the `Status: 202 Accepted` is returned.
+
+        This status means that the request has been accepted for processing; however, the processing has not been completed. You can query for the operation status based on the value in the `Azure-AsyncOperation` response header.
+
+        For example, the following GET operation returns the status of your operation:
+        
+        `https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/<resourceGroupName>/providers/Microsoft.Media/mediaservices/<accountName>/streamingendpointoperations/1be71957-4edc-4f3c-a29d-5c2777136a2e?api-version=2018-07-01`
+
+        The [track asynchronous Azure operations](../../azure-resource-manager/management/async-operations.md) article explains in depth how to track the status of asynchronous Azure operations through values returned in the response.
+
 ### Create an output asset
 
-The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the result of your encoding job. 
+The output [Asset](/rest/api/media/assets) stores the result of your encoding job. 
 
-1. In the left window of the Postman, select "Assets".
+1. In the left window of the Postman app, select "Assets".
 2. Then, select "Create or update an Asset".
 3. Press **Send**.
 
@@ -140,23 +168,30 @@ The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the 
         {
         "properties": {
             "description": "My Asset",
-            "alternateId" : "some GUID"
+            "alternateId" : "some GUID",
+            "storageAccountName": "<replace from environment file>",
+            "container": "<supply any valid container name of your choosing>"
          }
         }
         ```
 
+> [!NOTE]
+> Be sure to replace the storage account and container names either with those from the environment file or supply your own.
+>
+> As you complete the steps described in the rest of this article, make sure that you supply valid parameters in request bodies.
+
 ### Create a transform
 
-When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new Jobs for each new video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and jobs](transform-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices. 
+When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each new video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and Jobs](./transform-jobs-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices. 
 
-When creating a new [Transform](https://docs.microsoft.com/rest/api/media/transforms) instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object. Each **TransformOutput** contains a **Preset**. **Preset** describes the step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. The sample described in this article uses a built-in Preset called **AdaptiveStreaming**. The Preset encodes the input video into an auto-generated bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. For information about this Preset, see [auto-generating bitrate ladder](autogen-bitrate-ladder.md).
+When creating a new [Transform](/rest/api/media/transforms) instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object. Each **TransformOutput** contains a **Preset**. **Preset** describes the step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. The sample described in this article uses a built-in Preset called **AdaptiveStreaming**. The Preset encodes the input video into an auto-generated bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. For information about this Preset, see [auto-generating bitrate ladder](encode-autogen-bitrate-ladder.md).
 
 You can use a built-in EncoderNamedPreset or use custom presets. 
 
 > [!Note]
-> When creating a [Transform](https://docs.microsoft.com/rest/api/media/transforms), you should first check if one already exists using the **Get** method. This tutorial assumes you are creating the transform with a unique name.
+> When creating a [Transform](/rest/api/media/transforms), you should first check if one already exists using the **Get** method. This tutorial assumes you are creating the transform with a unique name.
 
-1. In the left window of the Postman, select "Encoding and Analysis".
+1. In the left window of the Postman app, select "Encoding and Analysis".
 2. Then, select "Create Transform".
 3. Press **Send**.
 
@@ -170,7 +205,7 @@ You can use a built-in EncoderNamedPreset or use custom presets.
         ```json
         {
             "properties": {
-                "description": "Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets",
+                "description": "Standard Transform using an Adaptive Streaming encoding preset from the library of built-in Standard Encoder presets",
                 "outputs": [
                     {
                     "onError": "StopProcessingJob",
@@ -187,11 +222,11 @@ You can use a built-in EncoderNamedPreset or use custom presets.
 
 ### Create a job
 
-A [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Media Services to apply the created **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output.
+A [Job](/rest/api/media/jobs) is the actual request to Media Services to apply the created **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output.
 
-In this example, the job's input is based on an HTTPS URL ("https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
+In this example, the job's input is based on an HTTPS URL ("https:\//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
 
-1. In the left window of the Postman, select "Encoding and Analysis".
+1. In the left window of the Postman app, select "Encoding and Analysis".
 2. Then, select "Create or Update Job".
 3. Press **Send**.
 
@@ -222,40 +257,46 @@ In this example, the job's input is based on an HTTPS URL ("https://nimbuscdn-ni
         }
         ```
 
-The job takes some time to complete and when it does you want to be notified. To see the progress of the job, we recommend using Event Grid. It is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.  See [Route events to a custom web endpoint](job-state-events-cli-how-to.md).
+The job takes some time to complete and when it does you want to be notified. To see the progress of the job, we recommend using Event Grid. It is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.  See [Route events to a custom web endpoint](monitoring/job-state-events-cli-how-to.md).
 
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 
+#### Job error codes
+
+See [Error codes](/rest/api/media/jobs/get#joberrorcode).
+
 ### Create a streaming locator
 
-After the encoding job is complete, the next step is to make the video in the output Asset available to clients for playback. You can accomplish this in two steps: first, create a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
+After the encoding job is complete, the next step is to make the video in the output **Asset** available to clients for playback. You can accomplish this in two steps: first, create a [StreamingLocator](/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
 
-The process of creating a **StreamingLocator** is called publishing. By default, the **StreamingLocator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
+The process of creating a streaming locator is called publishing. By default, the streaming locator is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
 
-When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), you will need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear (or non-encrypted) content, so the predefined clear streaming policy (**PredefinedStreamingPolicy.ClearStreamingOnly**) is used.
+When creating a [StreamingLocator](/rest/api/media/streaminglocators), you need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear (or non-encrypted) content, so the predefined clear streaming policy "Predefined_ClearStreamingOnly" is used.
 
 > [!IMPORTANT]
-> When using a custom [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. 
+> When using a custom [StreamingPolicy](/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. 
 
-Your Media Service account has a quota for the number of StreamingPolicy entries. You should not be creating a new StreamingPolicy for each StreamingLocator.
+Your Media Service account has a quota for the number of **Streaming Policy** entries. You should not be creating a new **Streaming Policy** for each streaming locator.
 
-1. In the left window of the Postman, select "Streaming Policies".
-2. Then, select "Create a Streaming Locator".
+1. In the left window of the Postman app, select "Streaming Policies and Locators".
+2. Then, select "Create a Streaming Locator (clear)".
 3. Press **Send**.
 
     * The following **PUT** operation is sent.
 
         ```
-        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}
         ```
     * The operation has the following body:
 
         ```json
         {
-            "properties":{
-            "assetName": "{{assetName}}",
-            "streamingPolicyName": "{{streamingPolicyName}}"
-            }
+          "properties": {
+            "streamingPolicyName": "Predefined_ClearStreamingOnly",
+            "assetName": "testAsset1",
+            "contentKeys": [],
+            "filters": []
+         }
         }
         ```
 
@@ -263,9 +304,9 @@ Your Media Service account has a quota for the number of StreamingPolicy entries
 
 #### List paths
 
-Now that the [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) has been created, you can get the streaming URLs
+Now that the [Streaming Locator](/rest/api/media/streaminglocators) has been created, you can get the streaming URLs
 
-1. In the left window of the Postman, select "Streaming Policies".
+1. In the left window of the Postman app, select "Streaming Policies".
 2. Then, select "List Paths".
 3. Press **Send**.
 
@@ -319,8 +360,9 @@ In this section, let's build an HLS streaming URL. URLs consist of the following
     To get the hostname, you can use the following GET operation:
     
     ```
-    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
+    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/default?api-version={{api-version}}
     ```
+    and make sure that you set the `resourceGroupName` and `accountName` parameters to match the environment file. 
     
 3. A path that you got in the previous (List paths) section.  
 
@@ -334,7 +376,7 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 
 
 > [!NOTE]
-> Make sure the streaming endpoint from which you want to stream is running.
+> Make sure the **Streaming Endpoint** from which you want to stream is running.
 
 To test the stream, this article uses Azure Media Player. 
 
@@ -346,7 +388,7 @@ Azure Media Player can be used for testing but should not be used in a productio
 
 ## Clean up resources in your Media Services account
 
-Generally, you should clean up everything except objects that you are planning to reuse (typically, you will reuse Transforms, and you will persist StreamingLocators, etc.). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  
+Generally, you should clean up everything except objects that you are planning to reuse (typically, you will reuse **Transforms**, and you will persist **Streaming Locators**, etc.). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  
 
 To delete a resource, select "Delete ..." operation under whichever resource you want to delete.
 
@@ -360,9 +402,13 @@ Execute the following CLI command:
 az group delete --name amsResourceGroup
 ```
 
+## Ask questions, give feedback, get updates
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
+
 ## Next steps
 
 Now that you know how to upload, encode, and stream your video, see the following article: 
 
 > [!div class="nextstepaction"]
-> [Analyze videos](analyze-videos-tutorial-with-api.md)
+> [Analyze videos](analyze-videos-tutorial.md)

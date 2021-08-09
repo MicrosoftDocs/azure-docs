@@ -1,30 +1,23 @@
 ---
-title: Azure Service Fabric reliable services application manifest examples | Microsoft Docs
+title: Reliable services app manifest examples
 description: Learn how to configure application and service manifest settings for a reliable services Service Fabric application.
-services: service-fabric
-documentationcenter: na
-author: rwike77
-manager: timlt
-editor: 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: xml
+author: peterpogorski
+
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 06/11/2018
-ms.author: ryanwi
+ms.author: pepogors
 ---
 
 # Reliable services application and service manifest examples
 The following are examples of the application and service manifests for a Service Fabric application with an ASP.NET Core web front-end and a stateful back-end. The purpose of these examples is to show what settings are available and how to use them. These application and service manifests are based on the [Service Fabric .NET Quickstart](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) manifests.
 
 The following features are shown:
+
 |Manifest|Features|
 |---|---|
 |[Application manifest](#application-manifest)| [resource governance](service-fabric-resource-governance.md), [run a service as a local admin account](service-fabric-application-runas-security.md), [apply a default policy to all service code packages](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages), [create user and group principals](service-fabric-application-runas-security.md), share a data package between service instances, [override service endpoints](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml)| 
-|[FrontEndService service manifest](#frontendservice-service-manifest)| [Run a script at service startup](service-fabric-run-script-at-service-startup.md), [define an HTTPS endpoint](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
-|[BackEndService service manifest](#backendservice-service-manifest)| [Declare a config package](service-fabric-application-and-service-manifests.md), [declare a data package](service-fabric-application-and-service-manifests.md), [configure an endpoint](service-fabric-service-manifest-resources.md)| 
+|FrontEndService service manifest| [Run a script at service startup](service-fabric-run-script-at-service-startup.md), [define an HTTPS endpoint](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
+|BackEndService service manifest| [Declare a config package](service-fabric-application-and-service-manifests.md), [declare a data package](service-fabric-application-and-service-manifests.md), [configure an endpoint](service-fabric-service-manifest-resources.md)| 
 
 See [Application manifest elements](#application-manifest-elements), [VotingWeb service manifest elements](#votingweb-service-manifest-elements), and [VotingData service manifest elements](#votingdata-service-manifest-elements) for more information on specific XML elements.
 
@@ -32,7 +25,7 @@ See [Application manifest elements](#application-manifest-elements), [VotingWeb 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="VotingData_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="VotingData_PartitionCount" DefaultValue="1" />
@@ -72,7 +65,7 @@ See [Application manifest elements](#application-manifest-elements), [VotingWeb 
                                 MemorySwapInMB="[MemorySwapInMB]"/>
 
       <!-- Share the data package across multiple instances of the VotingData service-->
-      <PackageSharingPolicy PackageRef="VotingDataPkg.Data"/>
+      <PackageSharingPolicy PackageRef="Data"/>
 
       <!-- Give read rights on the "DataEndpoint" endpoint to the Customer2 account.-->
       <SecurityAccessPolicy GrantRights="Read" PrincipalRef="Customer2" ResourceRef="DataEndpoint" ResourceType="Endpoint"/>         
@@ -169,8 +162,8 @@ See [Application manifest elements](#application-manifest-elements), [VotingWeb 
 <ServiceManifest Name="VotingWebPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType. 
          This name must match the string used in RegisterServiceType call in Program.cs. -->
@@ -193,7 +186,7 @@ See [Application manifest elements](#application-manifest-elements), [VotingWeb 
         the root of the code package regardless of where the EXE is defined in the code package directory. This is where the processes can write the data. Writing data 
         in the code package or code base is not recommended as those folders could be shared between different application instances and may get deleted.-->
         <WorkingFolder>CodePackage</WorkingFolder>
-        <!-- Warning! Do not use console rediriction in a production application, only use it for local development and debugging. Redirects console output from the startup
+        <!-- Warning! Do not use console redirection in a production application, only use it for local development and debugging. Redirects console output from the startup
         script to an output file in the application folder called "log" on the cluster node where the application is deployed and run. Also set the number of output files
         to retain and the maximum file size (in KB). -->
         <ConsoleRedirection FileRetentionCount="10" FileMaxSizeInKb="20480"/>
@@ -210,7 +203,7 @@ See [Application manifest elements](#application-manifest-elements), [VotingWeb 
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -233,8 +226,8 @@ See [Application manifest elements](#application-manifest-elements), [VotingWeb 
 <ServiceManifest Name="VotingDataPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType. 
          This name must match the string used in RegisterServiceType call in Program.cs. -->
@@ -397,7 +390,9 @@ The executable name.  For example, "MySetup.bat" or "MyServiceHost.exe". For mor
 The working directory for the process in the code package on the cluster node where the application is deployed. You can specify three values: Work (the default), CodePackage, or CodeBase. CodeBase specifies that the working directory is set to the directory in which the EXE is defined in the code package. CodePackage sets the working directory to be the root of the code package regardless of where the EXE is defined in the code package directory. Work sets the work directory to a unique folder created on the node.  This folder is the same for the entire application instance. By default, the working directory of all processes in the application is set to the application work folder. This is where the processes can write the data. Writing data in the code package or code base is not recommended as those folders could be shared between different application instances and may get deleted. For more information, see [WorkingFolder Element](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### ConsoleRedirection Element
-Warning! Do not use console rediriction in a production application, only use it for local development and debugging. Redirects console output from the startup script to an output file in the application folder called "log" on the cluster node where the application is deployed and run. For more information, see [ConsoleRedirection Element](service-fabric-service-model-schema-elements.md#ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+
+> [!WARNING]
+> Do not use console redirection in a production application, only use it for local development and debugging. Redirects console output from the startup script to an output file in the application folder called "log" on the cluster node where the application is deployed and run. For more information, see [ConsoleRedirection Element](service-fabric-service-model-schema-elements.md#ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### EntryPoint Element
 The executable specified by EntryPoint is typically the long-running service host. The presence of a separate setup entry point avoids having to run the service host with high privileges for extended periods of time. The executable specified by EntryPoint is run after SetupEntryPoint exits successfully. The resulting process is monitored and restarted (beginning again with SetupEntryPoint) if it ever terminates or crashes. For more information, see [EntryPoint Element](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType)

@@ -1,28 +1,16 @@
 ---
-title: Create a .NET app on Service Fabric in Azure | Microsoft Docs
+title: Create a .NET app on Service Fabric in Azure 
 description: In this tutorial, you learn how to create an application with an ASP.NET Core front-end and a reliable service stateful back-end and deploy the application to a cluster.
-services: service-fabric
-documentationcenter: .net
-author: rwike77
-manager: timlt
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 06/28/2018
-ms.author: ryanwi
-ms.custom: mvc
-
+ms.date: 07/10/2019
+ms.custom: "mvc, devx-track-js, devx-track-csharp"
 ---
 # Tutorial: Create and deploy an application with an ASP.NET Core Web API front-end service and a stateful back-end service
 
-This tutorial is part one of a series.  You will learn how to create an Azure Service Fabric application with an ASP.NET Core Web API front end and a stateful back-end service to store your data. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a stateful back-end service in the cluster. If you don't want to manually create the voting application, you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application and skip ahead to [Walk through the voting sample application](#walkthrough_anchor).  If you prefer, you can also watch a [video walk-through](https://channel9.msdn.com/Events/Connect/2017/E100) of this tutorial.
+This tutorial is part one of a series.  You will learn how to create an Azure Service Fabric application with an ASP.NET Core Web API front end and a stateful back-end service to store your data. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a stateful back-end service in the cluster. This tutorial series requires a Windows developer machine. If you don't want to manually create the voting application, you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application and skip ahead to [Walk through the voting sample application](#walkthrough_anchor).  If you prefer, you can also watch a [video walk-through](https://channel9.msdn.com/Events/Connect/2017/E100) of this tutorial.
 
-![Application Diagram](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+![AngularJS+ASP.NET API Front End, Connecting to a stateful backend service on Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 In part one of the series, you learn how to:
 
@@ -43,13 +31,13 @@ In this tutorial series you learn how to:
 
 Before you begin this tutorial:
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Install Visual Studio 2017](https://www.visualstudio.com/) version 15.5 or later with the **Azure development** and **ASP.NET and web development** workloads.
+* [Install Visual Studio 2019](https://www.visualstudio.com/) version 15.5 or later with the **Azure development** and **ASP.NET and web development** workloads.
 * [Install the Service Fabric SDK](service-fabric-get-started.md)
 
 ## Create an ASP.NET Web API service as a reliable service
 
 First, create the web front-end of the voting application using ASP.NET Core. ASP.NET Core is a lightweight, cross-platform web development framework that you can use to create modern web UI and web APIs. 
-To get a complete understanding of how ASP.NET Core integrates with Service Fabric, we strongly recommend reading through the [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) article. For now, you can follow this tutorial to get started quickly. To learn more about ASP.NET Core, see the [ASP.NET Core Documentation](https://docs.microsoft.com/aspnet/core/).
+To get a complete understanding of how ASP.NET Core integrates with Service Fabric, we strongly recommend reading through the [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) article. For now, you can follow this tutorial to get started quickly. To learn more about ASP.NET Core, see the [ASP.NET Core Documentation](/aspnet/core/).
 
 1. Launch Visual Studio as an **administrator**.
 
@@ -157,10 +145,10 @@ Open **Views/Home/Index.cshtml**, the view specific to the Home controller.  Rep
                     <div class="col-xs-8">
                         <button class="btn btn-success text-left btn-block" ng-click="add(vote.key)">
                             <span class="pull-left">
-                                {{vote.key}}
+                                {{vote.Key}}
                             </span>
                             <span class="badge pull-right">
-                                {{vote.value}} Votes
+                                {{vote.Value}} Votes
                             </span>
                         </button>
                     </div>
@@ -184,7 +172,7 @@ Open **Views/Shared/_Layout.cshtml**, the default layout for the ASP.NET app.  R
 
 ```html
 <!DOCTYPE html>
-<html ng-app="VotingApp" xmlns:ng="http://angularjs.org">
+<html ng-app="VotingApp" xmlns:ng="https://angularjs.org">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -323,8 +311,6 @@ In Solution Explorer, open  *VotingWeb/PackageRoot/ServiceManifest.xml*.  Find t
 
 Also update the Application URL property value in the Voting project so a web browser opens to the correct port when you debug your application.  In Solution Explorer, select the **Voting** project and update the **Application URL** property to **8080**.
 
-![Application URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
-
 ### Deploy and run the Voting application locally
 You can now go ahead and run the Voting application for debugging. In Visual Studio, press **F5** to deploy the application to your local Service Fabric cluster in debug mode. The application will fail if you didn't previously open Visual Studio as **administrator**.
 
@@ -451,12 +437,7 @@ In this next step, connect the two services and make the front-end Web applicati
 
 Service Fabric provides complete flexibility in how you communicate with reliable services. Within a single application, you might have services that are accessible via TCP. Other services that might be accessible via an HTTP REST API and still other services could be accessible via web sockets. For background on the options available and the tradeoffs involved, see [Communicating with services](service-fabric-connect-and-communicate-with-services.md).
 
-This tutorial uses [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) and the [Service Fabric reverse proxy](service-fabric-reverseproxy.md) so the VotingWeb front-end web service can communicate with the back-end VotingData service. The reverse proxy is configured by default to use port 19081 and should work for this tutorial. The port is set in the ARM template used to set up the cluster. To find which port is used, look in the cluster template in the **Microsoft.ServiceFabric/clusters** resource or look at the HttpApplicationGatewayEndpoint element in the cluster Manifest.
-
-> [!NOTE]
-> The reverse proxy is only supported on a cluster running Windows 8 and later or Windows Server 2012 and later.
-
-<u>Microsoft.ServiceFabric/clusters reverseProxyEndpointPort resource</u>
+This tutorial uses [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) and the [Service Fabric reverse proxy](service-fabric-reverseproxy.md) so the VotingWeb front-end web service can communicate with the back-end VotingData service. The reverse proxy is configured by default to use port 19081 and should work for this tutorial. The reverse proxy port is set in the Azure Resource Manager template used to set up the cluster. To find which port is used, look in the cluster template in the **Microsoft.ServiceFabric/clusters** resource: 
 
 ```json
 "nodeTypes": [
@@ -469,13 +450,10 @@ This tutorial uses [ASP.NET Core Web API](service-fabric-reliable-services-commu
           }
         ],
 ```
-To view the HttpApplicationGatewayEndpoint element in the local Service Fabric cluster Manifest:
-1. Open a browser window and navigate to http://localhost:19080.
-2. Click **Manifest**.
+To find the reverse proxy port used in your local development cluster, view the **HttpApplicationGatewayEndpoint** element in the local Service Fabric cluster manifest:
+1. Open a browser window and navigate to http:\//localhost:19080 to open the Service Fabric Explorer tool.
+2. Select **Cluster -> Manifest**.
 3. Make a note of the HttpApplicationGatewayEndpoint element port. By default this should be 19081. If it is not 19081, you will need to change the port in the GetProxyAddress method of the following VotesController.cs code.
-
-
-
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
@@ -619,31 +597,31 @@ When debugging application in Visual Studio, you are using a local Service Fabri
 
 To look at what happens in the code, complete the following steps:
 
-1. Open the **VotingWeb\VotesController.cs** file and set a breakpoint in the web API's **Put** method (line 63).
+1. Open the **VotingWeb\VotesController.cs** file and set a breakpoint in the web API's **Put** method (line 72).
 
-2. Open the **VotingData\VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 53).
+2. Open the **VotingData\VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 54).
 
 3. Press **F5** to start the application in debug mode.
 
 4. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front-end's api controller.
     
 
-    1. This is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
+   1. This is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
 
-    ![Add Vote Front-End Service](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
+      ![Add Vote Front-End Service](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-    2. First construct the URL to the ReverseProxy for the back-end service **(1)**.
-    3. Then send the HTTP PUT Request to the ReverseProxy **(2)**.
-    4. Finally the return the response from the back-end service to the client **(3)**.
+   2. First construct the URL to the ReverseProxy for the back-end service **(1)**.
+   3. Then send the HTTP PUT Request to the ReverseProxy **(2)**.
+   4. Finally the return the response from the back-end service to the client **(3)**.
 
 5. Press **F5** to continue.
-    1. You are now at the break point in the back-end service.
+   1. You are now at the break point in the back-end service.
 
-    ![Add Vote Back-End Service](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
+      ![Add Vote Back-End Service](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-    2. In the first line in the method **(1)** use the `StateManager` to get or add a reliable dictionary called `counts`.
-    3. All interactions with values in a reliable dictionary require a transaction, this using statement **(2)** creates that transaction.
-    4. In the transaction, update the value of the relevant key for the voting option and commits the operation **(3)**. Once the commit method returns, the data is updated in the dictionary and replicated to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes, still having the data available.
+   2. In the first line in the method **(1)** use the `StateManager` to get or add a reliable dictionary called `counts`.
+   3. All interactions with values in a reliable dictionary require a transaction, this using statement **(2)** creates that transaction.
+   4. In the transaction, update the value of the relevant key for the voting option and commits the operation **(3)**. Once the commit method returns, the data is updated in the dictionary and replicated to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes, still having the data available.
 6. Press **F5** to continue.
 
 To stop the debugging session, press **Shift+F5**.

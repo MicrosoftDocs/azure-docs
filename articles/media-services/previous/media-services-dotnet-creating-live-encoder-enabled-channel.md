@@ -3,25 +3,28 @@ title: How to perform live streaming using Azure Media Services to create multi-
 description: This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using .NET SDK.
 services: media-services
 documentationcenter: ''
-author: anilmur
-manager: cfowler
+author: IngridAtMicrosoft
+manager: femila
 editor: ''
-
 ms.assetid: 4df5e690-ff63-47cc-879b-9c57cb8ec240
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 12/09/2017
-ms.author: juliako;anilmur
-
+ms.topic: conceptual
+ms.date: 03/10/2021
+ms.author: anilmur
+ms.reviewer: juliako
+ms.custom: devx-track-csharp
 ---
 # How to perform live streaming using Azure Media Services to create multi-bitrate streams with .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [REST API](/rest/api/media/operations/channel)
 > 
 > [!NOTE]
 > To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
@@ -37,22 +40,20 @@ For more conceptual information related to Channels that are enabled for live en
 The following steps describe tasks involved in creating common live streaming applications.
 
 > [!NOTE]
-> Currently, the max recommended duration of a live event is 8 hours. Please contact amslived@microsoft.com if you need to run a Channel for longer periods of time.
-> 
-> 
+> Currently, the max recommended duration of a live event is 8 hours. Please contact amshelp@microsoft.com if you need to run a Channel for longer periods of time.
 
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP or Smooth Streaming. For more information, see [Azure Media Services RTMP Support and Live Encoders](https://go.microsoft.com/fwlink/?LinkId=532824).
 
-	This step could also be performed after you create your Channel.
+    This step could also be performed after you create your Channel.
 
 2. Create and start a Channel.
 3. Retrieve the Channel ingest URL.
 
-	The ingest URL is used by the live encoder to send the stream to the Channel.
+    The ingest URL is used by the live encoder to send the stream to the Channel.
 
 4. Retrieve the Channel preview URL.
 
-	Use this URL to verify that your channel is properly receiving the live stream.
+    Use this URL to verify that your channel is properly receiving the live stream.
 
 5. Create an asset.
 6. If you want for the asset to be dynamically encrypted during playback, do the following:
@@ -62,8 +63,8 @@ The following steps describe tasks involved in creating common live streaming ap
 10. Create a program and specify to use the asset that you created.
 11. Publish the asset associated with the program by creating an OnDemand locator.
 
-	>[!NOTE]
-	>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. The streaming endpoint from which you want to stream content has to be in the **Running** state. 
+    >[!NOTE]
+    >When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. The streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
 12. Start the program when you are ready to start streaming and archiving.
 13. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
@@ -94,7 +95,7 @@ The following are required to complete the tutorial.
 * A webcam and an encoder that can send a single bitrate live stream.
 
 ## Considerations
-* Currently, the max recommended duration of a live event is 8 hours. Please contact amslived@Microsoft.com if you need to run a Channel for longer periods of time.
+* Currently, the max recommended duration of a live event is 8 hours. Please contact amshelp@microsoft.com if you need to run a Channel for longer periods of time.
 * There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) article.
 
 ## Download sample
@@ -122,8 +123,8 @@ namespace EncodeLiveStreamWithAmsClear
     class Program
     {
         private const string ChannelName = "channel001";
-        private const string AssetlName = "asset001";
-        private const string ProgramlName = "program001";
+        private const string AssetName = "asset001";
+        private const string ProgramName = "program001";
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
@@ -192,7 +193,7 @@ namespace EncodeLiveStreamWithAmsClear
         public static IChannel CreateAndStartChannel()
         {
             var channelInput = CreateChannelInput();
-            var channePreview = CreateChannelPreview();
+            var channelPreview = CreateChannelPreview();
             var channelEncoding = CreateChannelEncoding();
 
             ChannelCreationOptions options = new ChannelCreationOptions
@@ -200,7 +201,7 @@ namespace EncodeLiveStreamWithAmsClear
                 EncodingType = ChannelEncodingType.Standard,
                 Name = ChannelName,
                 Input = channelInput,
-                Preview = channePreview,
+                Preview = channelPreview,
                 Encoding = channelEncoding
             };
 
@@ -208,7 +209,7 @@ namespace EncodeLiveStreamWithAmsClear
             IOperation channelCreateOperation = _context.Channels.SendCreateOperation(options);
             string channelId = TrackOperation(channelCreateOperation, "Channel create");
 
-            IChannel channel = _context.Channels.Where(c => c.Id == channelId).FirstOrDefault();
+            IChannel channel = _context.Channels.FirstOrDefault(c => c.Id == channelId);
 
             Log("Starting channel");
             var channelStartOperation = channel.SendStartOperation();
@@ -223,6 +224,10 @@ namespace EncodeLiveStreamWithAmsClear
         /// <returns></returns>
         private static ChannelInput CreateChannelInput()
         {
+            // When creating a Channel, you can specify allowed IP addresses in one of the following formats: 
+            // IpV4 address with 4 numbers
+            // CIDR address range
+
             return new ChannelInput
             {
                 StreamingProtocol = StreamingProtocol.FragmentedMP4,
@@ -247,6 +252,10 @@ namespace EncodeLiveStreamWithAmsClear
         /// <returns></returns>
         private static ChannelPreview CreateChannelPreview()
         {
+            // When creating a Channel, you can specify allowed IP addresses in one of the following formats: 
+            // IpV4 address with 4 numbers
+            // CIDR address range
+
             return new ChannelPreview
             {
                 AccessControl = new ChannelAccessControl
@@ -284,7 +293,7 @@ namespace EncodeLiveStreamWithAmsClear
         /// <returns></returns>
         public static IAsset CreateAndConfigureAsset()
         {
-            IAsset asset = _context.Assets.Create(AssetlName, AssetCreationOptions.None);
+            IAsset asset = _context.Assets.Create(AssetName, AssetCreationOptions.None);
 
             IAssetDeliveryPolicy policy =
             _context.AssetDeliveryPolicies.Create("Clear Policy",
@@ -305,7 +314,7 @@ namespace EncodeLiveStreamWithAmsClear
         /// <returns></returns>
         public static IProgram CreateAndStartProgram(IChannel channel, IAsset asset)
         {
-            IProgram program = channel.Programs.Create(ProgramlName, TimeSpan.FromHours(3), asset.Id);
+            IProgram program = channel.Programs.Create(ProgramName, TimeSpan.FromHours(3), asset.Id);
             Log("Program created", program.Id);
 
             Log("Starting program");
@@ -359,8 +368,8 @@ namespace EncodeLiveStreamWithAmsClear
             assetFile.Update();
 
             Log("Showing slate");
-            var showSlateOpeartion = channel.SendShowSlateOperation(TimeSpan.FromMinutes(1), slateAsset.Id);
-            TrackOperation(showSlateOpeartion, "Show slate");
+            var showSlateOperation = channel.SendShowSlateOperation(TimeSpan.FromMinutes(1), slateAsset.Id);
+            TrackOperation(showSlateOperation, "Show slate");
 
             Log("Hiding slate");
             var hideSlateOperation = channel.SendHideSlateOperation();
@@ -389,8 +398,7 @@ namespace EncodeLiveStreamWithAmsClear
             {
                 foreach (var program in channel.Programs)
                 {
-                    asset = _context.Assets.Where(se => se.Id == program.AssetId)
-                                .FirstOrDefault();
+                    asset = _context.Assets.FirstOrDefault(se => se.Id == program.AssetId);
 
                     Log("Stopping program");
                     var programStopOperation = program.SendStopOperation();
@@ -450,7 +458,7 @@ namespace EncodeLiveStreamWithAmsClear
         /// <param name="operationId">The operation Id.</param> 
         /// <param name="channel">
         /// If the operation succeeded, 
-        /// the entity Id associated with the sucessful operation is returned in the out parameter.</param>
+        /// the entity Id associated with the successful operation is returned in the out parameter.</param>
         /// <returns>Returns false if the operation is still in progress; otherwise, true.</returns> 
         private static bool IsCompleted(IOperation operation, out string entityId)
         {
@@ -498,5 +506,3 @@ Review Media Services learning paths.
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-
-

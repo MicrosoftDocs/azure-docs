@@ -2,29 +2,26 @@
  title: include file
  description: include file
  services: batch
- author: dlepow
+ author: JnHs
  ms.service: batch
  ms.topic: include
- ms.date: 10/11/2018
- ms.author: danlep
+ ms.date: 12/16/2020
+ ms.author: jenhayes
  ms.custom: include file
 ---
 
-| **Resource** | **Default Limit** | **Maximum Limit** |
+| **Resource** | **Default limit** | **Maximum limit** |
 | --- | --- | --- |
-| Batch accounts per region per subscription | 1 - 3 |50 |
-| Dedicated cores per Batch account | 10 - 100 | N/A<sup>1</sup> |
-| Low-priority cores per Batch account | 10 - 100 | N/A<sup>2</sup> |
-| Active jobs and job schedules<sup>3</sup> per Batch account | 100 - 300 | 1000<sup>4</sup> |
-| Pools per Batch account | 20 - 100 | 500<sup>4</sup> |
+| Azure Batch accounts per region per subscription | 1-3 |50 |
+| Dedicated cores per Batch account | 90-900 | Contact support |
+| Low-priority cores per Batch account | 10-100 | Contact support |
+| **[Active](/rest/api/batchservice/job/get#jobstate)** jobs and job schedules per Batch account (**completed** jobs have no limit) | 100-300 | 1,000<sup>1</sup> |
+| Pools per Batch account | 20-100 | 500<sup>1</sup> |
+
+<sup>1</sup>To request an increase beyond this limit, contact Azure Support.
 
 > [!NOTE]
-> Default limits vary depending on the type of subscription you use to create a Batch account. Cores quotas shown are for Batch accounts in Batch service mode. [View the quotas in your Batch account](../articles/batch/batch-quota-limit.md#view-batch-quotas). 
+> Default limits vary depending on the type of subscription you use to create a Batch account. Cores quotas shown are for Batch accounts in Batch service mode. [View the quotas in your Batch account](../articles/batch/batch-quota-limit.md#view-batch-quotas).
 
-<sup>1</sup> The number of dedicated cores per Batch account can be increased, but the maximum number is unspecified. Contact Azure support to discuss increase options.
-
-<sup>2</sup> The number of low-priority cores per Batch account can be increased, but the maximum number is unspecified. Contact Azure support to discuss increase options.
-
-<sup>3</sup> Completed jobs and job schedules are not limited.
-
-<sup>4</sup> Contact Azure support if you want to request an increase beyond this limit.
+> [!IMPORTANT]
+> To help us better manage capacity during the global health pandemic, the default core quotas for new Batch accounts in some regions and for some types of subscription have been reduced from the above range of values, in some cases to zero cores. When you create a new Batch account, [check your core quota](../articles/batch/batch-quota-limit.md#view-batch-quotas) and [request a core quota increase](../articles/batch/batch-quota-limit.md#increase-a-quota), if required. Alternatively, consider reusing Batch accounts that already have sufficient quota.

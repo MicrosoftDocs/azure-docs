@@ -1,26 +1,23 @@
 ---
 title: Azure CLI Script Sample - Peer two virtual networks | Microsoft Docs
-description: Azure CLI Script Sample - Peer two virtual networks
+description: Use an Azure CLI script sample to create and connect two virtual networks in the same region through the Azure network.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: timlt
-editor: tysonn
-tags:
-
-ms.assetid:
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: kumud
+ms.author: kumud 
+ms.custom: devx-track-azurecli
 ---
 
-# Peer two virtual networks
+# Use an Azure CLI sample script to connect two virtual networks
 
-This script creates and connects two virtual networks in the same region trhough the Azure network. After running the script, you will create a peering between two virtual networks.
+This script creates and connects two virtual networks in the same region through the Azure network. After running the script, you will create a peering between two virtual networks.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -45,13 +42,13 @@ This script uses the following commands to create a resource group, virtual mach
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az_network_vnet_create) | Creates an Azure virtual network and subnet. |
-| [az network vnet peering create](https://docs.microsoft.com/cli/azure/network/vnet/peering#az_network_vnet_peering_create) | Creates a peering between two virtual networks.  |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group) | Creates a resource group in which all resources are stored. |
+| [az network vnet create](/cli/azure/network/vnet) | Creates an Azure virtual network and subnet. |
+| [az network vnet peering create](/cli/azure/network/vnet/peering) | Creates a peering between two virtual networks.  |
+| [az group delete](/cli/azure/vm/extension) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional networking CLI script samples can be found in the [Azure Networking Overview documentation](../cli-samples.md).

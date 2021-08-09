@@ -1,9 +1,8 @@
 # Operating System files
- .DS_Store
+.DS_Store
 Thumbs.db
 
 # Visual Studio and VS Code files
-.settings.json
 .vscode/*
 .vs/*
 log/
@@ -20,3 +19,12 @@ _themes.MSDN.Modern/
 _themes.VS.Modern/
 articles/directories.txt
 AzureMigration.ps1
+
+!/.vscode/extensions.json
+.gitignore
+**/.vscode/settings.json
+!/.vscode/settings.json
+
+desktop.ini
+.fake
+.ionide

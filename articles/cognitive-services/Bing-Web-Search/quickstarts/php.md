@@ -1,44 +1,54 @@
 ---
 title: "Quickstart: Perform a search with PHP - Bing Web Search API"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you will learn how to make your first call to the Bing Web Search API using PHP and receive a JSON response.
+description: Use this quickstart to send requests to the Bing Web Search REST API using PHP, and receive a JSON response
 services: cognitive-services
-author: erhopf
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 8/16/2018
-ms.author: erhopf
+ms.date: 05/22/2020
+ms.author: aahi
+ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using PHP.
 ---
 
 # Quickstart: Use PHP to call the Bing Web Search API  
 
-Use this quickstart to make your first call to the Bing Web Search API and receive a JSON response in less than 10 minutes.  
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
+Use this quickstart to make your first call to the Bing Web Search API. This Node.js application sends a search request to the API, and shows the JSON response. Although this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
 Here are a few things that you'll need before running this quickstart:
 
-* [PHP 5.6.x](http://php.net/downloads.php) or later
+* [PHP 5.6.x](https://php.net/downloads.php) or later
 * A subscription key  
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## Enable secure HTTP support
 
-Before we get started, locate `php.ini` and uncomment this line:
+Before we get started, locate php.ini and uncomment this line:
 
+```php
+; extension=php_openssl.dll
 ```
-;extension=php_openssl.dll
-```
 
-## Create a project and define variables  
+## Create a project and define variables
 
-Create a new PHP project in your favorite IDE or editor. Don't forget to add opening and closing tags `<?php` and `?>`.
+1. Create a new PHP project in your favorite IDE or editor. Add opening and closing tags: `<?php` and `?>`.
 
-A few variables must be set before we can continue. Confirm that the `$endpoint` is correct and replace the `$accesskey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `$term`.
+2. For the `$endpoint` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
+
+3. Confirm that the `$endpoint` value is correct and replace the `$accesskey` value with a valid subscription key from your Azure account. 
+
+4. Optionally, customize the search query by replacing the value for `$term`.
 
 ```php
 $accessKey = 'enter key here';
@@ -48,7 +58,7 @@ $term = 'Microsoft Cognitive Services';
 
 ## Construct a request
 
-This code declares a function called `BingWebSearch` that is used to construct requests to the Bing Web Search API. It takes three arguments: `$url`, `$key`, and `$query`.
+This code declares a function called `BingWebSearch` that's used to construct requests to the Bing Web Search API. It takes three arguments: `$url`, `$key`, and `$query`.
 
 ```php
 function BingWebSearch ($url, $key, $query) {
@@ -108,7 +118,7 @@ if (strlen($accessKey) == 32) {
 
 ## Put it all together
 
-The last step is to validate your code and run it! If you'd like to compare your code with ours, here's the complete program:
+The last step is to validate your code and run it. If you'd like to compare your code with ours, here's the complete program:
 
 ```php
 <?php
@@ -150,7 +160,7 @@ if (strlen($accessKey) == 32) {
 ?>
 ```
 
-## Sample response
+## Example JSON response
 
 Responses from the Bing Web Search API are returned as JSON. This sample response has been truncated to show a single result.  
 
@@ -172,9 +182,9 @@ Responses from the Bing Web Search API are returned as JSON. This sample respons
         "snippet": "Knock down barriers between you and your ideas. Enable natural and contextual interaction with tools that augment users' experiences via the power of machine-based AI. Plug them in and bring your ideas to life.",
         "deepLinks": [
           {
-            "name": "Face API",
+            "name": "Face",
             "url": "https://azure.microsoft.com/services/cognitive-services/face/",
-            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using a Face API from Microsoft Azure. ... Cognitive Services; Face API;"
+            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using the Face service from Microsoft Azure. ... Cognitive Services; Face service;"
           },
           {
             "name": "Text Analytics",
@@ -279,6 +289,6 @@ Responses from the Bing Web Search API are returned as JSON. This sample respons
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Web search single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
+> [Bing Web Search API single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

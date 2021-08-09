@@ -1,14 +1,16 @@
 ---
-title: 'Connect classic virtual networks to Azure Resource Manager VNets: Portal | Microsoft Docs'
-description: Steps to connect classic VNets to Resource Manager VNets using VPN Gateway and the portal
+title: 'Connect classic virtual networks to Azure Resource Manager VNets: Portal'
+titleSuffix: Azure VPN Gateway
+description: Learn how to to connect classic VNets to Resource Manager VNets using the portal.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 10/17/2018
-ms.author: cherylmc
+ms.topic: how-to
+ms.date: 02/10/2021
+ms.author: cherylmc 
+ms.custom: devx-track-azurepowershell
+
 ---
 # Connect virtual networks from different deployment models using the portal
 
@@ -26,9 +28,11 @@ If you do not already have a virtual network gateway and do not want to create o
 
 ### <a name="before"></a>Before you begin
 
+
+
 * These steps assume that both VNets have already been created. If you are using this article as an exercise and don't have VNets, there are links in the steps to help you create them.
 * Verify that the address ranges for the VNets do not overlap with each other, or overlap with any of the ranges for other connections that the gateways may be connected to.
-* Install the latest PowerShell cmdlets for both Resource Manager and Service Management (classic). In this article, we use both the Azure portal and PowerShell. PowerShell is required to create the connection from the classic VNet to the Resource Manager VNet. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview). 
+* Install the latest PowerShell cmdlets for both Resource Manager and Service Management (classic). In this article, we use both the Azure portal and PowerShell. PowerShell is required to create the connection from the classic VNet to the Resource Manager VNet. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/). 
 
 ### <a name="values"></a>Example settings
 
@@ -82,7 +86,7 @@ In this section, you create the classic VNet, the local network (local site), an
 
 ### 1. <a name="classicvnet"></a>Create a classic VNet
 
-If you don't have a classic VNet and are running these steps as an exercise, you can create a VNet by using [this article](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) and the [Example](#values) settings values from above.
+If you don't have a classic VNet and are running these steps as an exercise, you can create a VNet by using [this article](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) and the [Example](#values) settings values from above.
 
 If you already have a VNet with a VPN gateway, verify that the gateway is Dynamic. If it's Static, you must first delete the VPN gateway before you proceed to [Configure the local site](#local).
 
@@ -95,7 +99,7 @@ If you already have a VNet with a VPN gateway, verify that the gateway is Dynami
 ### 2. <a name="local"></a>Configure the local site
 
 1. Navigate to **All resources** and locate the **ClassicVNet** in the list.
-2. On the **Overview** page, in the **VPN connections** section, click **Gateway** to create a gateway.
+2. Click **Gateway** in the **Settings** section of the menu, and then click on the banner to create a gateway.
   ![Configure a VPN gateway](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Configure a VPN gateway")
 3. On the **New VPN Connection** page, for **Connection type**, select **Site-to-site**.
 4. For **Local site**, click **Configure required settings**. This opens the **Local site** page.
@@ -109,7 +113,7 @@ If you already have a VNet with a VPN gateway, verify that the gateway is Dynami
 1. On the **New VPN Connection** page, select the **Create gateway immediately** checkbox.
 2. Click **Optional gateway configuration** to open the **Gateway configuration** page.
 
-  ![Open gateway configuration page](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Open gateway configuration page")
+   ![Open gateway configuration page](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Open gateway configuration page")
 3. Click **Subnet - Configure required settings** to open the **Add subnet** page. The **Name** is already configured with the required value: **GatewaySubnet**.
 4. The **Address range** refers to the range for the gateway subnet. Although you can create a gateway subnet with a /29 address range (3 addresses), we recommend creating a gateway subnet that contains more IP addresses. This will accommodate future configurations that may require more available IP addresses. If possible, use /27 or /28. If you are using these steps as an exercise, you can refer to the [Example values](#values). For this example, we use '10.0.0.32/28'. Click **OK** to create the gateway subnet.
 5. On the **Gateway configuration** page, **Size** refers to the gateway SKU. Select the gateway SKU for your VPN gateway.
@@ -139,20 +143,13 @@ In this section, you create the virtual network gateway and the local network ga
 * Subnet name = Subnet-1 <br>
 * Address range = 192.168.1.0/24 <br>
 
-
 If you don't have a Resource Manager VNet and are running these steps as an exercise, create a virtual network with the steps in [Create a virtual network](../virtual-network/quick-create-portal.md), using the example values.
 
-### 2. Create a gateway subnet
+### <a name="creategw"></a>2. Create a virtual network gateway
 
-**Example value:** GatewaySubnet = 192.168.0.0/26
+In this step, you create the virtual network gateway for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
 
-Before creating a virtual network gateway, you first need to create the gateway subnet. Create a gateway subnet with CIDR count of /28 or larger (/27, /26, etc.). If you are creating this as part of an exercise, you can use the Example values.
-
-[!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
-
-[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
-
-### <a name="creategw"></a>3. Create a virtual network gateway
+[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
 **Example values:**
 
@@ -162,11 +159,14 @@ Before creating a virtual network gateway, you first need to create the gateway 
 * SKU = VpnGw1 <br>
 * Location = East US <br>
 * Virtual network = RMVNet <br>
+* GatewaySubnet = 192.168.0.0/26 <br>
 * First IP configuration = rmgwpip <br>
 
-[!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Add gateway](../../includes/vpn-gateway-add-gw-rm-portal-empty.md)]
 
-### <a name="createlng"></a>4. Create a local network gateway
+[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
+
+### <a name="createlng"></a>3. Create a local network gateway
 
 **Example values:** Local network gateway = ClassicVNetLocal
 
@@ -177,7 +177,7 @@ Before creating a virtual network gateway, you first need to create the gateway 
 
 The local network gateway specifies the address range and the Public IP address associated with your classic VNet and its virtual network gateway. If you are doing these steps as an exercise, refer to the Example values.
 
-[!INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
+[!INCLUDE [Add local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-ip-empty.md)]
 
 ## <a name="modifylng"></a>Section 3 - Modify the classic VNet local site settings
 
@@ -187,16 +187,16 @@ In this section, you replace the placeholder IP address that you used when speci
 2. On the page for your virtual network, click **Overview**.
 3. In the **VPN connections** section, click the name of your local site in the graphic.
 
-  ![VPN-connections](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN Connections")
+   ![VPN-connections](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN Connections")
 4. On the **Site-to-site VPN connections** page, click the name of the site.
 
-  ![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "Local site name")
+   ![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "Local site name")
 5. On the connection page for your local site, click the name of the local site to open the **Local site** page.
 
-  ![Open-local-site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "Open local site")
+   ![Open-local-site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "Open local site")
 6. On the **Local site** page, replace the **VPN gateway IP address** with the IP address of the Resource Manager gateway.
 
-  ![Gateway-ip-address](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Gateway IP address")
+   ![Gateway-ip-address](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Gateway IP address")
 7. Click **OK** to update the IP address.
 
 ## <a name="RMtoclassic"></a>Section 4 - Create Resource Manager to classic connection
@@ -220,22 +220,22 @@ In these steps, you configure the connection from the classic VNet to the Resour
 
 ### 1. Connect to your Azure account
 
-Open the PowerShell console with elevated rights and log in to your Azure account. After logging in, your account settings are downloaded so that they are available to Azure PowerShell. The following cmdlet prompts you for the login credentials for your Azure Account for the Resource Manager deployment model:
+Open the PowerShell console with elevated rights and log in to your Azure account. After logging in, your account settings are downloaded so that they are available to Azure PowerShell. The following cmdlet prompts you for the login credentials for your Azure Account for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md):
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Get a list of your Azure subscriptions.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 If you have more than one subscription, specify the subscription that you want to use.
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+Select-AzSubscription -SubscriptionName "Name of subscription"
 ```
 
 Next, log in to use the classic PowerShell cmdlets (Service Management). Use the following command to add your Azure account for the classic deployment model:

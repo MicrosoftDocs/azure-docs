@@ -1,44 +1,37 @@
 ---
-title: Maintenance notifications for virtual machine scale sets in Azure | Microsoft Docs
+title: Maintenance notifications for virtual machine scale sets in Azure
 description: View maintenance notifications and start self-service maintenance for virtual machine scale sets in Azure.
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: shants123
-editor: ''
-tags: azure-service-management,azure-resource-manager
-
-ms.assetid: 
+author: mimckitt
+ms.author: mimckitt
+ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/09/2018
-ms.author: shants
+ms.subservice: maintenance-control
+ms.date: 04/26/2021
+ms.reviewer: jushiman
+ms.custom: mimckitt, devx-track-azurepowershell
 
---- 
+---
 
 # Planned maintenance notifications for virtual machine scale sets
 
+
 Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines (VMs). Updates might include patching the hosting environment or upgrading and decommissioning hardware. Most updates don't affect the hosted VMs. However, updates affect VMs in these scenarios:
 
-- If the maintenance doesn't require a reboot, Azure uses in-place migration to pause the VM while the host is updated. Maintenance operations that don't require a reboot are applied fault domain by fault domain. Progress is stopped if any warning health signals are received.
+- If the maintenance does not require a reboot, Azure pauses the VM for few seconds while the host is updated. These types of maintenance operations are applied fault domain by fault domain. Progress is stopped if any warning health signals are received.
 
-- If maintenance requires a reboot, you receive a notification that shows when the maintenance is planned. In these cases, you are given a time window in which you can start the maintenance yourself when it works best for you.
+- If maintenance requires a reboot, you get a notice of when the maintenance is planned. In these cases, you are given a time window that is typically 35 days where you can start the maintenance yourself, when it works for you.
 
 
 Planned maintenance that requires a reboot is scheduled in waves. Each wave has different scope (regions):
 
-- A wave starts with a notification to customers. By default, notification is sent to the subscription owner and co-owners. You can add recipients and messaging options like email, SMS, and webhooks to the notifications by using Azure [Activity Log alerts](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
-- With notification, a *self-service window* is made available. During this window, you can find which of your VMs are included in the wave. You can proactively start maintenance according to your own scheduling needs.
+- A wave starts with a notification to customers. By default, notification is sent to the subscription owner and co-owners. You can add recipients and messaging options like email, SMS, and webhooks to the notifications by using Azure [Activity Log alerts](../azure-monitor/essentials/platform-logs-overview.md).  
+- With notification, a *self-service window* is made available. During this window that is typically 35 days, you can find which of your VMs are included in the wave. You can proactively start maintenance according to your own scheduling needs.
 - After the self-service window, a *scheduled maintenance window* begins. At some point during this window, Azure schedules and applies the required maintenance to your VM. 
 
 The goal in having two windows is to give you enough time to start maintenance and reboot your VM while knowing when Azure will automatically start maintenance.
 
-
 You can use the Azure portal, PowerShell, the REST API, and the Azure CLI to query for maintenance windows for your virtual machine scale set VMs, and to start self-service maintenance.
 
-  
 ## Should you start maintenance during the self-service window?  
 
 The following guidelines can help you decide whether to start maintenance at a time that you choose.
@@ -92,7 +85,7 @@ The **Self-service maintenance** column now appears in the list of virtual machi
 
 ## Notification and alerts in the portal
 
-Azure communicates a schedule for planned maintenance by sending an email to the subscription owner and co-owners group. You can add recipients and channels to this communication by creating Activity Log alerts. For more information, see [Monitor subscription activity with the Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Azure communicates a schedule for planned maintenance by sending an email to the subscription owner and co-owners group. You can add recipients and channels to this communication by creating Activity Log alerts. For more information, see [Monitor subscription activity with the Azure Activity Log](../azure-monitor/essentials/platform-logs-overview.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the left menu, select **Monitor**. 
@@ -102,7 +95,7 @@ Azure communicates a schedule for planned maintenance by sending an email to the
    - **Services**: Select **Virtual Machine Scale Sets and Virtual Machines**.
    - **Type**: Select **Planned maintenance**. 
 	
-To learn more about how to configure Activity Log alerts, see [Create Activity Log alerts](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
+To learn more about how to configure Activity Log alerts, see [Create Activity Log alerts](../azure-monitor/alerts/activity-log-alerts.md)
 	
 	
 ## Start maintenance on your virtual machine scale set from the portal
@@ -115,60 +108,62 @@ After you start maintenance, the affected VMs in your virtual machine scale set 
  
 ## Check maintenance status by using PowerShell
 
-You can use Azure PowerShell to see when VMs in your virtual machine scale sets are scheduled for maintenance. Planned maintenance information is available by using the [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) cmdlet when you use the `-InstanceView` parameter.
+You can use Azure PowerShell to see when VMs in your virtual machine scale sets are scheduled for maintenance. Planned maintenance information is available by using the [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) cmdlet when you use the `-InstanceView` parameter.
  
 Maintenance information is returned only if maintenance is planned. If no maintenance is scheduled that affects the VM instance, the cmdlet doesn't return any maintenance information. 
 
 ```powershell
-Get-AzureRmVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
+Get-AzVmssVm -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
 ```
 
 The following properties are returned under **MaintenanceRedeployStatus**: 
+
 | Value	| Description	|
 |-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | Indicates whether you can start maintenance on the VM at this time. ||
-| PreMaintenanceWindowStartTime         | The beginning of the maintenance self-service window when you can initiate maintenance on your VM. ||
-| PreMaintenanceWindowEndTime           | The end of the maintenance self-service window when you can initiate maintenance on your VM. ||
-| MaintenanceWindowStartTime            | The beginning of the maintenance scheduled in which Azure initiates maintenance on your VM. ||
-| MaintenanceWindowEndTime              | The end of the maintenance scheduled window in which Azure initiates maintenance on your VM. ||
-| LastOperationResultCode               | The result of the last attempt to initiate maintenance on the VM. ||
+| IsCustomerInitiatedMaintenanceAllowed | Indicates whether you can start maintenance on the VM at this time. |
+| PreMaintenanceWindowStartTime         | The beginning of the maintenance self-service window when you can initiate maintenance on your VM. |
+| PreMaintenanceWindowEndTime           | The end of the maintenance self-service window when you can initiate maintenance on your VM. |
+| MaintenanceWindowStartTime            | The beginning of the maintenance scheduled in which Azure initiates maintenance on your VM. |
+| MaintenanceWindowEndTime              | The end of the maintenance scheduled window in which Azure initiates maintenance on your VM. |
+| LastOperationResultCode               | The result of the last attempt to initiate maintenance on the VM. |
 
 
 
 ### Start maintenance on your VM instance by using PowerShell
 
-You can start maintenance on a VM if **IsCustomerInitiatedMaintenanceAllowed** is set to **true**. Use the [Set-AzureRmVmss](/powershell/module/azurerm.compute/set-azurermvmss) cmdlet with `-PerformMaintenance` parameter.
+You can start maintenance on a VM if **IsCustomerInitiatedMaintenanceAllowed** is set to **true**. Use the [Set-AzVmssVM](/powershell/module/az.compute/set-azvmssvm) cmdlet with `-PerformMaintenance` parameter.
 
 ```powershell
-Set-AzureRmVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
+Set-AzVmssVM -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
 ```
 
 ## Check maintenance status by using the CLI
 
-You can view planned maintenance information by using [az vmss list-instances](/cli/azure/vmss?view=azure-cli-latest#az-vmss-list-instances).
+You can view planned maintenance information by using [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances).
  
 Maintenance information is returned only if maintenance is planned. If no maintenance that affects the VM instance is scheduled, the command doesn't return any maintenance information. 
 
-```azure-cli
+```azurecli
 az vmss list-instances -g rgName -n vmssName --expand instanceView
 ```
 
 The following properties are returned under **MaintenanceRedeployStatus** for each VM instance: 
+
 | Value	| Description	|
 |-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | Indicates whether you can start maintenance on the VM at this time. ||
-| PreMaintenanceWindowStartTime         | The beginning of the maintenance self-service window when you can initiate maintenance on your VM. ||
-| PreMaintenanceWindowEndTime           | The end of the maintenance self-service window when you can initiate maintenance on your VM. ||
-| MaintenanceWindowStartTime            | The beginning of the maintenance scheduled in which Azure initiates maintenance on your VM. ||
-| MaintenanceWindowEndTime              | The end of the maintenance scheduled window in which Azure initiates maintenance on your VM. ||
-| LastOperationResultCode               | The result of the last attempt to initiate maintenance on the VM. ||
+| IsCustomerInitiatedMaintenanceAllowed | Indicates whether you can start maintenance on the VM at this time. |
+| PreMaintenanceWindowStartTime         | The beginning of the maintenance self-service window when you can initiate maintenance on your VM. |
+| PreMaintenanceWindowEndTime           | The end of the maintenance self-service window when you can initiate maintenance on your VM. |
+| MaintenanceWindowStartTime            | The beginning of the maintenance scheduled in which Azure initiates maintenance on your VM. |
+| MaintenanceWindowEndTime              | The end of the maintenance scheduled window in which Azure initiates maintenance on your VM. |
+| LastOperationResultCode               | The result of the last attempt to initiate maintenance on the VM. |
 
 
 ### Start maintenance on your VM instance by using the CLI
 
 The following call initiates maintenance on a VM instance if `IsCustomerInitiatedMaintenanceAllowed` is set to **true**:
 
-```azure-cli
+```azurecli
 az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 ```
 
@@ -182,11 +177,11 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **A:** Virtual machines deployed in an availability set or in virtual machine scale sets use update domains. When performing maintenance, Azure honors the update domain constraint and doesn't reboot VMs from a different update domain (within the same availability set). Azure also waits for at least 30 minutes before moving to the next group of VMs. 
 
-For more information about high availability, see [Regions and availability for virtual machines in Azure](../virtual-machines/windows/regions-and-availability.md).
+For more information about high availability, see [Regions and availability for virtual machines in Azure](../virtual-machines/availability.md).
 
 **Q: How can I be notified about planned maintenance?**
 
-**A:** A planned maintenance wave starts by setting a schedule to one or more Azure regions. Soon after, an email notification is sent to the subscription owners (one email per subscription). You can add channels and recipients for this notification by using Activity Log alerts. If you deploy a VM to a region in which planned maintenance is already scheduled, you don't receive the notification. Instead, check the maintenance state of the VM.
+**A:** A planned maintenance wave starts by setting a schedule to one or more Azure regions. Soon after, an email notification is sent to the subscription admins, co-admins, owners, and contributors (one email per subscription). Additional channels and recipients for this notification could be configured using Activity Log Alerts. In case you deploy a virtual machine to a region where planned maintenance is already scheduled, you will not receive the notification. Instead, check the maintenance state of the VM.
 
 **Q: I don't see any indication of planned maintenance in the portal, PowerShell, or the CLI. What's wrong?**
 

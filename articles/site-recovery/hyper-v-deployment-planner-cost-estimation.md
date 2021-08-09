@@ -2,12 +2,12 @@
 title: Review the Azure Site Recovery Deployment Planner cost estimation report for disaster recovery of Hyper-V VMs to Azure| Microsoft Docs
 description: This article describes how to review the cost estimation report generated the Azure Site Recovery Deployment Planner for Hyper-V disaster recovery to Azure.
 services: site-recovery
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.author: nisoneji
+ms.date: 4/9/2019
+ms.author: mayg
 
 ---
 # Cost estimation report by Azure Site Recovery Deployment Planner 
@@ -51,7 +51,7 @@ The first section shows the overall DR cost by components and DR cost by states.
 
 **Network**: ExpressRoute and site-to-site VPN cost for DR needs. 
 
-**ASR license**: The Site Recovery license cost for all compatible VMs. If you manually entered a VM in the detailed cost analysis table, the Site Recovery license cost also is included for that VM.
+**Azure Site Recovery license**: The Site Recovery license cost for all compatible VMs. If you manually entered a VM in the detailed cost analysis table, the Site Recovery license cost also is included for that VM.
 
 ### Overall DR costs by states
 The total DR cost is categorized based on two different states: replication and DR drill.
@@ -152,7 +152,7 @@ To manually add VMs:
 
 **Total DR-Drill cost (average)**: The compute and storage cost for DR drills.
 
-**ASR license cost**: The Site Recovery license cost.
+**Azure Site Recovery license cost**: The Site Recovery license cost.
 
 ## Supported target regions
 Site Recovery Deployment Planner provides cost estimation for the following Azure regions. If your region isn't listed here, you can use any of the following regions whose pricing is nearest to your region:
@@ -162,16 +162,16 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## Supported currencies
 Site Recovery Deployment Planner can generate the cost report with any of the following currencies.
 
-|Currency|Name||Currency|Name||Currency|Name|
-|---|---|---|---|---|---|---|---|
-|ARS|Argentine peso ($)||AUD|Australian dollar ($)||BRL|Brazilian real (R$)|
-|CAD|Canadian dollar ($)||CHF|Swiss franc (chf)||DKK|Danish krone (kr)|
-|EUR|Euro (€)||GBP|British pound (£)||HKD|Hong Kong dollar (HK$)|
-|IDR|Indonesia rupiah (Rp)||INR|Indian rupee (₹)||JPY|Japanese yen (¥)|
-|KRW|Korean won (₩)||MXN|Mexican peso (MX$)||MYR|Malaysian ringgit (RM$)|
-|NOK|Norwegian krone (kr)||NZD|New Zealand dollar ($)||RUB|Russian ruble (руб)|
-|SAR|Saudi riyal (SR)||SEK|Swedish krona (kr)||TWD|Taiwanese dollar (NT$)|
-|TRY|Turkish lira (TL)||USD| US dollar ($)||ZAR|South African rand (R)|
+|Currency|Name|Currency|Name|Currency|Name|
+|---|---|---|---|---|---|
+|ARS|Argentine peso ($)|AUD|Australian dollar ($)|BRL|Brazilian real (R$)|
+|CAD|Canadian dollar ($)|CHF|Swiss franc (chf)|DKK|Danish krone (kr)|
+|EUR|Euro (&euro;)|GBP|British pound (£)|HKD|Hong Kong dollar (HK$)|
+|IDR|Indonesia rupiah (Rp)|INR|Indian rupee (₹)|JPY|Japanese yen (¥)|
+|KRW|Korean won (₩)|MXN|Mexican peso (MX$)|MYR|Malaysian ringgit (RM$)|
+|NOK|Norwegian krone (kr)|NZD|New Zealand dollar ($)|RUB|Russian ruble (руб)|
+|SAR|Saudi riyal (SR)|SEK|Swedish krona (kr)|TWD|Taiwanese dollar (NT$)|
+|TRY|Turkish lira (TL)|USD| US dollar ($)|ZAR|South African rand (R)|
 
 ## Next steps
 Learn more about how to protect [Hyper-V VMs to Azure by using Site Recovery](hyper-v-azure-tutorial.md).

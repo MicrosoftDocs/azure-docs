@@ -1,15 +1,13 @@
 ---
 title: Monitor and troubleshoot a cloud storage application in Azure | Microsoft Docs 
 description: Use diagnostic tools, metrics, and alerting to troubleshoot and monitor a cloud application.
-services: storage
-author: tamram
-
-
+author: normesta
 ms.service: storage
+ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 07/20/2018
-ms.author: tamram
-ms.custom: mvc
+ms.author: normesta
+ms.reviewer: fryu
 ---
 
 # Monitor and troubleshoot a cloud storage application
@@ -40,7 +38,7 @@ Under **Diagnostics settings (classic)** set **Status** to **On**. Ensure all of
 
 When complete, click **Save**
 
-![Diagnostics pane](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
+![Screenshot that highlights the section that contains the configuration settings for turning on logging and metrics.](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
 ## Enable alerts
 
@@ -80,11 +78,11 @@ The following image is an example alert that is based off the simulated failure 
 
 Storage logs store data in a set of blobs in a blob container named **$logs** in your storage account. This container does not show up if you list all the blob containers in your account but you can see its contents if you access it directly.
 
-In this scenario, you use [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx) to interact with your Azure storage account.
+In this scenario, you use [Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide) to interact with your Azure storage account.
 
 ### Download Microsoft Message Analyzer
 
-Download [Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) and install the application.
+Download [Microsoft Message Analyzer](/message-analyzer/installing-and-upgrading-message-analyzer) and install the application.
 
 Launch the application and choose **File** > **Open** > **From Other File Sources**.
 
@@ -94,7 +92,7 @@ In the **File Selector** dialog, select **+ Add Azure Connection**. Enter in you
 
 Once you are connected, expand the containers in the storage tree view to view the log blobs. Select the latest log and click **OK**.
 
-![Microsoft Message Analyzer - Add Azure Storage Connection Dialog](media/storage-monitor-troubleshoot-storage-application/figure4.png)
+![Screenshot that shows the Microsoft Message Analyzer and highlights the selected log file.](media/storage-monitor-troubleshoot-storage-application/figure4.png)
 
 On the **New Session** dialog, click **Start** to view your log.
 

@@ -1,23 +1,20 @@
 ---
-title: "Tutorial: Load Balancer VMs within a zone--Azure portal | Microsoft Docs"
+title: "Tutorial: Load Balancer VMs within a zone--Azure portal"
+titleSuffix: Azure Load Balancer
 description: This tutorial demonstrates how to create a Standard Load Balancer with zonal frontend to load balance VMs within an availability zone by using Azure portal
 services: load-balancer
 documentationcenter: na
-author: KumudD 
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region. 
-
-ms.assetid:
+author: asudbring
+manager: twooley
+# Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region. 
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/17/2018
-ms.author: kumud
-ms.custom: mvc
+ms.date: 02/27/2019
+ms.author: allensu
+ms.custom: seodec18
 ---
 
 # Tutorial: Load balance VMs within an availability zone with Standard Load Balancer by using the Azure portal
@@ -35,49 +32,63 @@ This tutorial creates a public [Azure Standard Load Balancer instance](https://a
 
 For more information about using availability zones with Standard Load Balancer, see [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md).
 
-If you prefer, use [Azure CLI](load-balancer-standard-public-zonal-cli.md) to complete this tutorial.
+If you prefer, use [Azure CLI](./quickstart-load-balancer-standard-public-cli.md) to complete this tutorial.
+
+## Prerequisites
+
+* An Azure subscription
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Create a public Standard Load Balancer instance
 
 Standard Load Balancer only supports a standard public IP address. When you create a new public IP while creating the load balancer, it's automatically configured as a Standard SKU version. It's also automatically zone redundant.
 
 1. On the upper left side of the screen, select **Create a resource** > **Networking** > **Load Balancer**.
-2. In the **Create load balancer** page, enter these values for the load balancer:
-    - **myLoadBalancer**, for the name of the load balancer.
-    - **Public**, for the type of the load balancer.
-     - **myPublicIPZonal**, for the new public IP address that you create. Select **Choose a public IP address**. Then select **Create new**. For name, enter **myPublicIP**. SKU is standard by default. For **Availability zone**, select **Zone 1**.
-    - **myResourceGroupZLB**, for the name of the new resource group that you create.
-    - **westeurope**, for the location.
-3. Select **Create** to create the load balancer.
-   
-    ![Create a zonal Standard Load Balancer instance by using the Azure portal](./media/tutorial-load-balancer-standard-zonal-portal/create-load-balancer-zonal-frontend.png)
+2. In the **Basics** tab of the **Create load balancer** page, enter or select the following information, accept the defaults for the remaining settings, and then select **Review + create**:
 
+    | Setting                 | Value                                              |
+    | ---                     | ---                                                |
+    | Subscription               | Select your subscription.    |    
+    | Resource group         | Select **Create new** and type *MyResourceGroupZLB* in the text box.|
+    | Name                   | *myLoadBalancer*                                   |
+    | Region         | Select **West Europe**.                                        |
+    | Type          | Select **Public**.                                        |
+    | SKU           | Select **Standard**.                          |
+    | Public IP address | Select **Create new**. |
+    | Public IP address name              | Type *myPublicIP* in the text box.   |
+    |Availability zone| Select **1**.    |
+3. In the **Review + create** tab, click **Create**.   
 
 ## Create backend servers
 
 In this section, you create a virtual network. You also create two virtual machines in same zone (namely, zone 1) for the region to add to the backend pool of your load balancer. Then you install IIS on the virtual machines to help test the zone-redundant load balancer. If one VM fails, the health probe for the VM in the same zone fails. Traffic continues to be served by other VMs within the same zone.
 
-### Create a virtual network
-1. On the upper left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.  Enter these values for the virtual network:
-    - **myVnet**, for the name of the virtual network.
-    - **myResourceGroupZLB**, for the name of the existing resource group.
-    - **myBackendSubnet**, for the subnet name.
-2. Select **Create** to create the virtual network.
+## Virtual network and parameters
 
-    ![Create a virtual network](./media/tutorial-load-balancer-standard-zonal-portal/create-virtual-network.png)
+In this section you'll need to replace the following parameters in the steps with the information below:
+
+| Parameter                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupZLB (Select existing resource group) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | West Europe      |
+| **\<IPv4-address-space>**   | 10.0.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.0.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## Create a network security group
 
 1. On the upper left side of the screen, select **Create a resource**. In the search box, enter **Network Security Group**. In the network security group page, select **Create**.
 2. In the **Create network security group** page, enter these values:
-    - **myNetworkSecurityGroup**, for the name of the network security group.
-    - **myResourceGroupLBAZ**, for the name of the existing resource group.
+   - **myNetworkSecurityGroup**, for the name of the network security group.
+   - **myResourceGroupLBAZ**, for the name of the existing resource group.
    
-    ![Create a network security group](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
+     ![Create a network security group](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
 
 ### Create NSG rules
 
@@ -96,7 +107,7 @@ In this section, you create NSG rules to allow inbound connections that use HTTP
     - **Allow HTTP**, for **Description**.
 4. Select **OK**.
  
- ![Create NSG rules](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![Create NSG rules](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 
 5. Repeat steps 2 to 4 to create another rule named **myRDPRule**. This rule allows for an inbound RDP connection that uses port 3389, with the following values:
     - **Service Tag**, for **Source**.
@@ -108,7 +119,7 @@ In this section, you create NSG rules to allow inbound connections that use HTTP
     - **myRDPRule**, for **Name**.
     - **Allow RDP**, for **Description**.
 
-    ![Create a RDP rule](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
+      ![Create a RDP rule](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
 
 ### Create virtual machines
 
@@ -216,5 +227,6 @@ When they're no longer needed, delete the resource group, load balancer, and all
 
 ## Next steps
 
-- Learn more about [Standard Load Balancer](load-balancer-standard-overview.md).
-- [Load balance VMs across availability zones](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
+Advance to the next article to learn how to load balance VMs across availability zones..
+> [!div class="nextstepaction"]
+> [Load balance VMs across availability zones](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

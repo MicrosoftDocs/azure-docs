@@ -1,43 +1,48 @@
 ---
-title: Copy data from MySQL using Azure Data Factory | Microsoft Docs
+title: Copy data from MySQL using Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about MySQL connector in Azure Data Factory that lets you copy data from a MySQL database to a data store supported as a sink.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: craigg
-ms.reviewer: douglasl
-
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/23/2018
-ms.author: jingwang
-
+ms.date: 09/09/2020
+ms.author: jianleishen
 ---
+
 # Copy data from MySQL using Azure Data Factory
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-onprem-mysql-connector.md)
 > * [Current version](connector-mysql.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a MySQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
+>[!NOTE]
+>To copy data from or to [Azure Database for MySQL](../mysql/overview.md) service, use the specialized [Azure Database for MySQL connector](connector-azure-database-for-mysql.md).
+
 ## Supported capabilities
+
+This MySQL connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from MySQL database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this MySQL connector supports MySQL **version 5.1 and above**.
+Specifically, this MySQL connector supports MySQL **version 5.6, 5.7 and 8.0**.
 
 ## Prerequisites
 
-If your MySQL database is not publicly accessible, you need to set up a Self-hosted Integration Runtime. To learn about Self-hosted integration runtimes, see [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article. The Integration Runtime provides a built-in MySQL driver starting from version 3.7, therefore you don't need to manually install any driver.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
-For Self-hosted IR version lower than 3.7, you need to install the [MySQL Connector/Net for Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) version between 6.6.5 and 6.10.7 on the Integration Runtime machine. This 32 bit driver is compatible with 64 bit IR.
+The Integration Runtime provides a built-in MySQL driver starting from version 3.7, therefore you don't need to manually install any driver.
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to MySQL connector.
 
@@ -48,14 +53,16 @@ The following properties are supported for MySQL linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **MySql** | Yes |
-| connectionString | Specify information needed to connect to the Azure Database for MySQL instance. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
+| connectionString | Specify information needed to connect to the Azure Database for MySQL instance.<br/> You can also put password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
 A typical connection string is `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. More properties you can set per your case:
 
 | Property | Description | Options | Required |
-|:--- |:--- |:--- |:--- |:--- |
-| SSLMode | This option specifies whether the driver uses SSL encryption and verification when connecting to MySQL. E.g. `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(Default)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
+|:--- |:--- |:--- |:--- |
+| SSLMode | This option specifies whether the driver uses TLS encryption and verification when connecting to MySQL. E.g.,  `SSLMode=<0/1/2/3/4>`.| DISABLED (0) / PREFERRED (1) **(Default)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
+| SSLCert | The full path and name of a .pem file containing the SSL certificate used for proving the identity of the client. <br/> To specify a private key for encrypting this certificate before sending it to the server, use the `SSLKey` property.| | Yes, if using two-way SSL verification. |
+| SSLKey | The full path and name of a file containing the private key used for encrypting the client-side certificate during two-way SSL verification.|  | Yes, if using two-way SSL verification. |
 | UseSystemTrustStore | This option specifies whether to use a CA certificate from the system trust store, or from a specified PEM file. E.g. `UseSystemTrustStore=<0/1>;`| Enabled (1) / Disabled (0) **(Default)** | No |
 
 **Example:**
@@ -66,9 +73,32 @@ A typical connection string is `Server=<server>;Port=<port>;Database=<database>;
     "properties": {
         "type": "MySql",
         "typeProperties": {
-            "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
+            "connectionString": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Example: store password in Azure Key Vault**
+
+```json
+{
+    "name": "MySQLLinkedService",
+    "properties": {
+        "type": "MySql",
+        "typeProperties": {
+            "connectionString": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;",
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -107,13 +137,13 @@ If you were using MySQL linked service with the following payload, it is still s
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by MySQL dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by MySQL dataset.
 
-To copy data from MySQL, set the type property of the dataset to **RelationalTable**. The following properties are supported:
+To copy data from MySQL, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to: **RelationalTable** | Yes |
+| type | The type property of the dataset must be set to: **MySqlTable** | Yes |
 | tableName | Name of the table in the MySQL database. | No (if "query" in activity source is specified) |
 
 **Example**
@@ -123,15 +153,18 @@ To copy data from MySQL, set the type property of the dataset to **RelationalTab
     "name": "MySQLDataset",
     "properties":
     {
-        "type": "RelationalTable",
+        "type": "MySqlTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<MySQL linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+If you were using `RelationalTable` typed dataset, it is still supported as-is, while you are suggested to use the new one going forward.
 
 ## Copy activity properties
 
@@ -139,11 +172,11 @@ For a full list of sections and properties available for defining activities, se
 
 ### MySQL as source
 
-To copy data from MySQL, set the source type in the copy activity to **RelationalSource**. The following properties are supported in the copy activity **source** section:
+To copy data from MySQL, the following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **RelationalSource** | Yes |
+| type | The type property of the copy activity source must be set to: **MySqlSource** | Yes |
 | query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
@@ -167,7 +200,7 @@ To copy data from MySQL, set the source type in the copy activity to **Relationa
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "MySqlSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -177,6 +210,8 @@ To copy data from MySQL, set the source type in the copy activity to **Relationa
     }
 ]
 ```
+
+If you were using `RelationalSource` typed source, it is still supported as-is, while you are suggested to use the new one going forward.
 
 ## Data type mapping for MySQL
 
@@ -225,6 +260,10 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 | `varchar` |`String` |
 | `year` |`Int` |
 
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

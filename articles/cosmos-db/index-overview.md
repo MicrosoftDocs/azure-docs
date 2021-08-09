@@ -1,60 +1,389 @@
 ---
 title: Indexing in Azure Cosmos DB 
-description: Understand how indexing works in Azure Cosmos DB.
-author: markjbrown
-
+description: Understand how indexing works in Azure Cosmos DB, different types of indexes such as Range, Spatial, composite indexes supported. 
+author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/10/2018
-ms.author: mjbrown
+ms.date: 05/04/2021
+ms.author: tisande
 ---
 
-# Indexing in Azure Cosmos DB
+# Indexing in Azure Cosmos DB - Overview
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB is a schema-agnostic database and allows you to iterate on your application quickly without having to deal with schema or index management. By default, Azure Cosmos DB automatically indexes all items in your container without requiring schema or secondary indexes from developers.
+Azure Cosmos DB is a schema-agnostic database that allows you to iterate on your application without having to deal with schema or index management. By default, Azure Cosmos DB automatically indexes every property for all items in your [container](account-databases-containers-items.md#azure-cosmos-containers) without having to define any schema or configure secondary indexes.
 
-## Items as trees
+The goal of this article is to explain how Azure Cosmos DB indexes data and how it uses indexes to improve query performance. It is recommended to go through this section before exploring how to customize [indexing policies](index-policy.md).
 
-By projecting items in a container as JSON documents and representing them as trees, Azure Cosmos DB normalizes both the structure and the instance values across items into the unifying concept of a **dynamically encoded path structure**. In this representation, each label in a JSON document, which includes both the property names and their values becomes a node of the tree. The leaves of the tree contain actual values and the intermediate nodes contain the schema information. The following image represents the trees created for two items(1 and 2) in a container:
+## From items to trees
 
-![Tree representation for two different items in an Azure Cosmos container](./media/index-overview/indexing-as-tree.png)
+Every time an item is stored in a container, its content is projected as a JSON document, then converted into a tree representation. What that means is that every property of that item gets represented as a node in a tree. A pseudo root node is created as a parent to all the first-level properties of the item. The leaf nodes contain the actual scalar values carried by an item.
 
-A pseudo root node is created as a parent to the actual nodes corresponding to the labels in the document underneath. The nested data structures drive the hierarchy in the tree. Intermediate artificial nodes labeled with numeric values (for example, 0, 1, ...) are employed for representing enumerations, and array indices.
+As an example, consider this item:
 
-## Index paths
+```json
+    {
+        "locations": [
+            { "country": "Germany", "city": "Berlin" },
+            { "country": "France", "city": "Paris" }
+        ],
+        "headquarters": { "country": "Belgium", "employees": 250 },
+        "exports": [
+            { "city": "Moscow" },
+            { "city": "Athens" }
+        ]
+    }
+```
 
-Azure Cosmos DB projects items as JSON documents and index as trees. You can then tune to the policies for paths within the tree. You can choose to include or exclude paths from indexing. This can offer improved write performance and lower the index storage for scenarios where the query patterns are known ahead. to learn more, see [Index Paths](index-paths.md).
+It would be represented by the following tree:
 
-## Indexing: Under the hood
+:::image type="content" source="./media/index-overview/item-as-tree.png" alt-text="The previous item represented as a tree" border="false":::
 
-Azure Cosmos database applies automatic indexing to the data, where every path in a tree is indexed unless you configure to exclude certain paths.
+Note how arrays are encoded in the tree: every entry in an array gets an intermediate node labeled with the index of that entry within the array (0, 1 etc.).
 
-Azure Cosmos database employs inverted index data structure to store the information of each item and to facilitate efficient representation for querying. The index tree is a document that is constructed with the union of all of the trees representing individual items in the container. The index tree grows over time as new items are added or existing items are updated in the container. Unlike relational database indexing, Azure Cosmos DB doesn't restart the indexing from scratch as new fields are introduced, new items are added to the existing structure. 
+## From trees to property paths
 
-Each node of the index tree is an index entry containing the label and position values, called the term, and the ids of the items, called the postings. The postings in the curly brackets (for example {1,2}) in the inverted index figure correspond to the items such as Document1 and Document2 containing the given label value. An important implication of treating both the schema labels and instance values uniformly is that everything is packed inside a large index. An instance value that is still in the leaves is not repeated, it can be in different roles across items, with different schema labels, but it is the same value. The following image shows inverted indexing for different items:
+The reason why Azure Cosmos DB transforms items into trees is because it allows properties to be referenced by their paths within those trees. To get the path for a property, we can traverse the tree from the root node to that property, and concatenate the labels of each traversed node.
 
-![Indexing under the hood, inverted Index](./media/index-overview/inverted-index.png)
+Here are the paths for each property from the example item described above:
+
+- /locations/0/country: "Germany"
+- /locations/0/city: "Berlin"
+- /locations/1/country: "France"
+- /locations/1/city: "Paris"
+- /headquarters/country: "Belgium"
+- /headquarters/employees: 250
+- /exports/0/city: "Moscow"
+- /exports/1/city: "Athens"
+
+When an item is written, Azure Cosmos DB effectively indexes each property's path and its corresponding value.
+
+## <a id="index-types"></a>Types of indexes
+
+Azure Cosmos DB currently supports three types of indexes. You can configure these index types when defining the indexing policy.
+
+### Range Index
+
+**Range** index is based on an ordered tree-like structure. The range index type is used for:
+
+- Equality queries:
+
+    ```sql
+       SELECT * FROM container c WHERE c.property = 'value'
+    ```
+
+
+   ```sql
+   SELECT * FROM c WHERE c.property IN ("value1", "value2", "value3")
+   ```
+
+   Equality match on an array element
+   ```sql
+    SELECT * FROM c WHERE ARRAY_CONTAINS(c.tags, "tag1")
+   ```
+
+- Range queries:
+
+   ```sql
+   SELECT * FROM container c WHERE c.property > 'value'
+   ```
+    (works for `>`, `<`, `>=`, `<=`, `!=`)
+
+- Checking for the presence of a property:
+
+   ```sql
+   SELECT * FROM c WHERE IS_DEFINED(c.property)
+   ```
+
+- String system functions:
+
+   ```sql
+   SELECT * FROM c WHERE CONTAINS(c.property, "value")
+   ```
+
+   ```sql
+   SELECT * FROM c WHERE STRINGEQUALS(c.property, "value")
+   ```
+
+- `ORDER BY` queries:
+
+   ```sql
+   SELECT * FROM container c ORDER BY c.property
+   ```
+
+- `JOIN` queries:
+
+   ```sql
+   SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'
+   ```
+
+Range indexes can be used on scalar values (string or number). The default indexing policy for newly created containers enforces range indexes for any string or number. To learn how to configure range indexes, see [Range indexing policy examples](how-to-manage-indexing-policy.md#range-index)
 
 > [!NOTE]
-> The inverted index may appear similar to the indexing structures used in a search engine in the information retrieval domain. With this method, Azure Cosmos DB allows you to search your database for any item regardless of its schema structure.
+> An `ORDER BY` clause that orders by a single property *always* needs a range index and will fail if the path it references doesn't have one. Similarly, an `ORDER BY` query which orders by multiple properties *always* needs a composite index.
 
-For the normalized path, the index encodes the forward path all the way from the root to the value, along with the type information of the value. The path and the value are encoded to provide various types of indexing such as range, spatial kinds. The value encoding is designed to provide unique value or a composition of a set of paths.
+### Spatial index
 
-## Querying with indexes
+**Spatial** indices enable efficient queries on geospatial objects such as - points, lines, polygons, and multipolygon. These queries use ST_DISTANCE, ST_WITHIN, ST_INTERSECTS keywords. The following are some examples that use spatial index type:
 
-The inverted index allows a query to identify the documents that match the query predicate quickly. By treating both the schema and instance values uniformly in terms of paths, the inverted index is also a tree. Thus, the index and the results can be serialized to a valid JSON document and returned as documents themselves as they are returned in the tree representation. This method enables recursing over the results for additional querying. The following image illustrates an example of indexing in a point query:  
+- Geospatial distance queries:
 
-![Point query example](./media/index-overview/index-point-query.png)
+   ```sql
+   SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40
+   ```
 
-For a range query, GermanTax is a user-defined function executed as part of query processing. The user-defined function is any registered, Javascript function that can provide rich programming logic integrated into the query. The following image illustrates an example of indexing in a range query:
+- Geospatial within queries:
 
-![Range query example](./media/index-overview/index-range-query.png)
+   ```sql
+   SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] })
+   ```
+
+- Geospatial intersect queries:
+
+   ```sql
+   SELECT * FROM c WHERE ST_INTERSECTS(c.property, { 'type':'Polygon', 'coordinates': [[ [31.8, -5], [32, -5], [31.8, -5] ]]  })  
+   ```
+
+Spatial indexes can be used on correctly formatted [GeoJSON](./sql-query-geospatial-intro.md) objects. Points, LineStrings, Polygons, and MultiPolygons are currently supported. To use this index type, set by using the `"kind": "Range"` property when configuring the indexing policy. To learn how to configure spatial indexes, see [Spatial indexing policy examples](how-to-manage-indexing-policy.md#spatial-index)
+
+### Composite indexes
+
+**Composite** indexes increase the efficiency when you are performing operations on multiple fields. The composite index type is used for:
+
+- `ORDER BY` queries on multiple properties:
+
+```sql
+ SELECT * FROM container c ORDER BY c.property1, c.property2
+```
+
+- Queries with a filter and `ORDER BY`. These queries can utilize a composite index if the filter property is added to the `ORDER BY` clause.
+
+```sql
+ SELECT * FROM container c WHERE c.property1 = 'value' ORDER BY c.property1, c.property2
+```
+
+- Queries with a filter on two or more properties where at least one property is an equality filter
+
+```sql
+ SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
+```
+
+As long as one filter predicate uses one of the index type, the query engine will evaluate that first before scanning the rest. For example, if you have a SQL query such as `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
+
+* The above query will first filter for entries where firstName = "Andrew" by using the index. It then pass all of the firstName = "Andrew" entries through a subsequent pipeline to evaluate the CONTAINS filter predicate.
+
+* You can speed up queries and avoid full container scans when using functions that don't use the index (e.g. CONTAINS) by adding additional filter predicates that do use the index. The order of filter clauses isn't important. The query engine is will figure out which predicates are more selective and run the query accordingly.
+
+To learn how to configure composite indexes, see [Composite indexing policy examples](how-to-manage-indexing-policy.md#composite-index)
+
+## Index usage
+
+There are five ways that the query engine can evaluate query filters, sorted by most-efficient to least-efficient:
+
+- Index seek
+- Precise index scan
+- Expanded index scan
+- Full index scan
+- Full scan
+
+When you index property paths, the query engine will automatically use the index as efficiently as possible. Aside from indexing new property paths, you don't need to configure anything to optimize how queries use the index. A query's RU charge is a combination of both the RU charge from index usage and the RU charge from loading items.
+
+Here is a table that summarizes the different ways indexes are used in Azure Cosmos DB:
+
+| Index lookup type  | Description                                                  | Common Examples                                 | RU charge from index usage                                   | RU charge from loading items from transactional data store                   |
+| ------------------ | ------------------------------------------------------------ | ----------------------------------------------- | ------------------------------------------------------------ | --------------------------------------------------- |
+| Index seek         | Read only required indexed values and load only matching items from the transactional data store | Equality filters, IN                            | Constant per equality filter                                                     | Increases based on number of items in query results |
+| Precise index scan | Binary search of indexed values and load only matching items from the transactional data store | Range comparisons (>, <, <=, or >=), StartsWith | Comparable to index seek, increases slightly based on the cardinality of indexed properties | Increases based on number of items in query results |
+| Expanded index scan | Optimized search (but less efficient than a binary search) of indexed values and load only matching items from the transactional data store | StartsWith (case-insensitive), StringEquals (case-insensitive) | Increases slightly based on the cardinality of indexed properties | Increases based on number of items in query results |
+| Full index scan    | Read distinct set of indexed values and load only matching items from the transactional data store                                              | Contains, EndsWith, RegexMatch, LIKE                                    | Increases linearly based on the cardinality of indexed properties | Increases based on number of items in query results |
+| Full scan          | Load all items from the transactional data store                                          | Upper, Lower                                    | N/A                                                          | Increases based on number of items in container |
+
+When writing queries, you should use filter predicate that use the index as efficiently as possible. For example, if either `StartsWith` or `Contains` would work for your use case, you should opt for `StartsWith` since it will do a precise index scan instead of a full index scan.
+
+## Index usage details
+
+In this section, we'll cover more details about how queries use indexes. This isn't necessary to learn to get started with Azure Cosmos DB but is documented in detail for curious users. We'll reference the example item shared earlier in this document:
+
+Example items:
+
+```json
+    {
+        "id": 1,
+        "locations": [
+            { "country": "Germany", "city": "Berlin" },
+            { "country": "France", "city": "Paris" }
+        ],
+        "headquarters": { "country": "Belgium", "employees": 250 },
+        "exports": [
+            { "city": "Moscow" },
+            { "city": "Athens" }
+        ]
+    }
+```
+
+```json
+    {
+        "id": 2,
+        "locations": [
+            { "country": "Ireland", "city": "Dublin" }
+        ],
+        "headquarters": { "country": "Belgium", "employees": 200 },
+        "exports": [
+            { "city": "Moscow" },
+            { "city": "Athens" },
+            { "city": "London" }
+        ]
+    }
+```
+
+Azure Cosmos DB uses an inverted index. The index works by mapping each JSON path to the set of items that contain that value. The item ID mapping is represented across many different index pages for the container. Here is a sample diagram of an inverted index for a container that includes the two example items:
+
+| Path                    | Value   | List of item IDs   |
+| ----------------------- | ------- | ---------- |
+| /locations/0/country    | Germany | 1          |
+| /locations/0/country    | Ireland | 2          |
+| /locations/0/city       | Berlin  | 1          |
+| /locations/0/city       | Dublin  | 2          |
+| /locations/1/country    | France  | 1          |
+| /locations/1/city       | Paris   | 1          |
+| /headquarters/country   | Belgium | 1,2        |
+| /headquarters/employees | 200     | 2          |
+| /headquarters/employees | 250     | 1          |
+
+The inverted index has two important attributes:
+- For a given path, values are sorted in ascending order. Therefore, the query engine can easily serve `ORDER BY` from the index.
+- For a given path, the query engine can scan through the distinct set of possible values to identify the index pages where there are results.
+
+The query engine can utilize the inverted index in four different ways:
+
+### Index seek
+
+Consider the following query: 
+
+```sql
+SELECT location
+FROM location IN company.locations
+WHERE location.country = 'France'`
+```
+
+The query predicate (filtering on items where any location has "France" as its country/region) would match the path highlighted in red below:
+
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Matching a specific path within a tree" border="false":::
+
+Since this query has an equality filter, after traversing this tree, we can quickly identify the index pages that contain the query results. In this case, the query engine would read index pages that contain Item 1. An index seek is the most efficient way to use the index. With an index seek we only read the necessary index pages and load only the items in the query results. Therefore, the index lookup time and RU charge from index lookup are incredibly low, regardless of the total data volume. 
+
+### Precise index scan
+
+Consider the following query: 
+
+```sql
+SELECT *
+FROM company
+WHERE company.headquarters.employees > 200
+```
+
+The query predicate (filtering on items where there are more than 200 employees) can be evaluated with a precise index scan of the `headquarters/employees` path. When doing a precise index scan, the query engine starts by doing a binary search of the distinct set of possible values to find the location of the value `200` for the `headquarters/employees` path. Since the values for each path are sorted in ascending order, it's easy for the query engine to do a binary search. After the query engine finds the value `200`, it starts reading all remaining index pages (going in the ascending direction).
+
+Because the query engine can do a binary search to avoid scanning unnecessary index pages, precise index scans tend to have comparable latency and RU charges to index seek operations.
+
+### Expanded index scan
+
+Consider the following query: 
+
+```sql
+SELECT *
+FROM company
+WHERE STARTSWITH(company.headquarters.country, "United", true)
+```
+
+The query predicate (filtering on items that have headquarters in a country that start with case-insensitive "United") can be evaluated with an expanded index scan of the `headquarters/country` path. Operations that do an expanded index scan have optimizations that can help avoid needs to scan every index page but are slightly more expensive than a precise index scan's binary search.
+
+For example, when evaluating case-insensitive `StartsWith`, the query engine will check the index for different possible combinations of uppercase and lowercase values. This optimization allows the query engine to avoid reading the majority of index pages. Different system functions have different optimizations that they can use to avoid reading every index page, so we'll broadly categorize these as expanded index scan. 
+
+### Full index scan
+
+Consider the following query: 
+
+```sql
+SELECT *
+FROM company
+WHERE CONTAINS(company.headquarters.country, "United")
+```
+
+The query predicate (filtering on items that have headquarters in a country that contains "United") can be evaluated with an index scan of the `headquarters/country` path. Unlike a precise index scan, a full index scan will always scan through the distinct set of possible values to identify the index pages where there are results. In this case, `Contains` is run on the index. The index lookup time and RU charge for index scans increases as the cardinality of the path increases. In other words, the more possible distinct values that the query engine needs to scan, the higher the latency and RU charge involved in doing a full index scan.  
+
+For example, consider two properties: town and country. The cardinality of town is 5,000 and the cardinality of country is 200. Here are two example queries that each have a [Contains](sql-query-contains.md) system function that does a full index scan on the `town` property. The first query will use more RUs than the second query because the cardinality of town is higher than country.
+
+```sql
+    SELECT *
+    FROM c
+    WHERE CONTAINS(c.town, "Red", false)
+```
+
+```sql
+    SELECT *
+    FROM c
+    WHERE CONTAINS(c.country, "States", false)
+```
+
+### Full scan
+
+In some cases, the query engine may not be able to evaluate a query filter using the index. In this case, the query engine will need to load all items from the transactional store in order to evaluate the query filter. Full scans do not use the index and have an RU charge that increases linearly with the total data size. Luckily, operations that require full scans are rare. 
+
+### Queries with complex filter expressions
+
+In the earlier examples, we only considered queries that had simple filter expressions (for example, queries with just a single equality or range filter). In reality, most queries have much more complex filter expressions.
+
+Consider the following query:
+
+```sql
+SELECT *
+FROM company
+WHERE company.headquarters.employees = 200 AND CONTAINS(company.headquarters.country, "United")
+```
+
+To execute this query, the query engine must do an index seek on `headquarters/employees` and full index scan on `headquarters/country`. The query engine has internal heuristics that it uses to evaluate the query filter expression as efficiently as possible. In this case, the query engine would avoid needing to read unnecessary index pages by doing the index seek first. If, for example, only 50 items matched the equality filter, the query engine would only need to evaluate `Contains` on the index pages that contained those 50 items. A full index scan of the entire container wouldn't be necessary.
+
+## Index utilization for scalar aggregate functions
+
+Queries with aggregate functions must rely exclusively on the index in order to use it. 
+
+In some cases, the index can return false positives. For example, when evaluating `Contains` on the index, the number of matches in the index may exceed the number of query results. The query engine will load all index matches, evaluate the filter on the loaded items, and return only the correct results.
+
+For the majority of queries, loading false positive index matches will not have any noticeable impact on index utilization.
+
+For example, consider the following query:
+
+```sql
+SELECT *
+FROM company
+WHERE CONTAINS(company.headquarters.country, "United")
+```
+
+The `Contains` system function may return some false positive matches, so the query engine will need to verify whether each loaded item matches the filter expression. In this example, the query engine may only need to load an extra few items, so the impact on index utilization and RU charge is minimal.
+
+However, queries with aggregate functions must rely exclusively on the index in order to use it. For example, consider the following query with a `Count` aggregate:
+
+```sql
+SELECT COUNT(1)
+FROM company
+WHERE CONTAINS(company.headquarters.country, "United")
+```
+
+Like in the first example, the `Contains` system function may return some false positive matches. Unlike the `SELECT *` query, however, the `Count` query can't evaluate the filter expression on the loaded items to verify all index matches. The `Count` query must rely exclusively on the index, so if there's a chance a filter expression will return false positive matches, the query engine will resort to a full scan.
+
+Queries with the following aggregate functions must rely exclusively on the index, so evaluating some system functions requires a full scan.
+
+- [Avg](sql-query-aggregate-avg.md)
+- [Count](sql-query-aggregate-count.md)
+- [Max](sql-query-aggregate-max.md)
+- [Min](sql-query-aggregate-min.md)
+- [Sum](sql-query-aggregate-sum.md)
 
 ## Next steps
 
 Read more about indexing in the following articles:
 
 - [Indexing policy](index-policy.md)
-- [Index types](index-types.md)
-- [Index paths](index-paths.md)
 - [How to manage indexing policy](how-to-manage-indexing-policy.md)

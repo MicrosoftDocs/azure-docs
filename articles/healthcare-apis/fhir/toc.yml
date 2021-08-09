@@ -1,0 +1,92 @@
+items:
+- name: FHIR service
+  href: index.yml
+- name: Overview
+  items:
+  - name: About FHIR service
+    href: overview.md
+
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Deploy FHIR service
+    expanded: true
+    items:
+    - name: Using Portal
+      href: fhir-portal-quickstart.md
+    - name: Using ARM template
+      href: fhir-arm-template-quickstart.md
+  - name: Access FHIR service using Postman
+    href: using-postman.md
+
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Interoperability and Patient Access
+    expanded: true
+    items:
+    - name: CMS Interoperability and Patient Access rule introduction
+      href: cms-tutorial-introduction.md
+    - name: CARIN Implementation Guide for Blue Button
+      href: carin-implementation-guide-blue-button-tutorial.md
+    - name: Da Vinci Drug Formulary
+      href: davinci-drug-formulary-tutorial.md
+    - name: Da Vinci PDex
+      href: davinci-pdex-tutorial.md
+    - name: Da Vinci Plan Net
+      href: davinci-plan-net.md
+
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Search
+    expanded: true
+    items:
+    - name: Overview of FHIR search
+      href: overview-of-search.md
+    - name: Defining custom search parameters
+      href: how-to-do-custom-search.md
+    - name: How to run a reindex job
+      href: how-to-run-a-reindex.md
+    - name: Search examples
+      href: search-samples.md
+
+  - name: Operations
+    expanded: true
+    items:  
+    - name: Profile validation
+      href: validation-against-profiles.md
+    - name: Patient-everything in FHIR
+      href: patient-everything.md
+    - name: $member-match operation
+      href: tutorial-member-match.md
+
+  - name: Configure settings
+    expanded: true
+    items:
+    - name: Configure RBAC
+      href: configure-azure-rbac-for-fhir.md
+    - name: Configure CORS
+      href: configure-cross-origin-resource-sharing.md
+  
+  - name: Using Azure Active Directory (AAD) for FHIR service
+    expanded: true
+    items:
+    - name: AAD for FHIR service
+      href: azure-ad-hcapi.md
+    - name: Access token validation
+      href: azure-ad-hcapi-token-validation.md
+    - name: Get access token using CLI
+      href: get-healthcare-apis-access-token-cli.md
+
+- name: Concepts
+  items:
+  - name: Security controls by Azure Policy
+    href: ./security-controls-policy.md
+
+- name: Resources
+  items:
+  - name: FAQ
+    href: fhir-faq.md
+  - name: Supported features
+    href: fhir-features-supported.md

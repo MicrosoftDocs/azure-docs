@@ -1,0 +1,85 @@
+- name: Azure Advisor Documentation
+  href: index.yml
+- name: Overview 
+  items:
+  - name: What is Azure Advisor?
+    href: advisor-overview.md
+- name: Quickstarts
+  items:
+  - name: Configure alerts for new recommendations
+    items:
+    - name: Azure portal
+      href: advisor-alerts-portal.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: advisor-alerts-arm.md
+- name: Concepts
+  items:
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/advisor-security-baseline?toc=/azure/advisor/toc.json
+- name: Tutorials
+  items:
+  - name: Get started with Advisor
+    href: advisor-get-started.md
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
+- name: How-to guides
+  items:
+  - name: Reliability
+    href: advisor-high-availability-recommendations.md
+  - name: Security
+    href: advisor-security-recommendations.md
+  - name: Performance efficiency
+    href: advisor-performance-recommendations.md
+  - name: Cost optimization
+    href: advisor-cost-recommendations.md
+  - name: Operational excellence
+    href: advisor-operational-excellence-recommendations.md
+  - name: Configure recommendations
+    href: view-recommendations.md
+  - name: Permissions and blocked actions
+    href: permissions.md
+  - name: Configure Alerts for recommendations
+    href: advisor-alerts-portal.md
+  - name: Configure recommendations summary
+    href: advisor-recommendations-digest.md
+  - name: Bulk remediation for recommendations
+    href: advisor-quick-fix.md
+  - name: Advisor data in Azure Resource Graph
+    href: advisor-azure-resource-graph.md
+  - name: Consume Advisor score 
+    href: azure-advisor-score.md
+- name: Reference
+  items:
+  - name: Security Center
+    href: https://azure.microsoft.com/services/security-center/
+  - name: SQL Database Advisor
+    href: ../azure-sql/database/database-advisor-implement-performance-recommendations.md
+  - name: App Service
+    href: ../app-service/app-service-best-practices.md
+  - name: REST API
+    href: /rest/api/advisor/
+  - name: Azure CLI
+    href: /cli/azure/advisor
+  - name: PowerShell
+    href: /powershell/module/az.advisor/
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/advisor
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=advisor
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=advisor
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=advisor
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=azure+advisor
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?service=advisor

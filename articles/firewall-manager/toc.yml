@@ -1,0 +1,93 @@
+- name: Azure Firewall Manager documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Firewall Manager?
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Secure virtual hub - ARM template
+    displayName: Resource Manager
+    href: quick-secure-virtual-hub.md
+  - name: Deploy firewall with policy - ARM template
+    displayName: Resource Manager
+    href: quick-firewall-policy.md
+- name: Tutorials
+  items:
+  - name: Secure your virtual hub - portal
+    href: secure-cloud-network.md
+  - name: Secure your virtual hub - PowerShell
+    href: secure-cloud-network-powershell.md
+  - name: Secure your hub virtual network - portal
+    href: secure-hybrid-network.md
+- name: Concepts
+  items:
+  - name: Policy overview
+    href: policy-overview.md
+  - name: What is a secured virtual hub?
+    href: secured-virtual-hub.md
+  - name: General deployment process
+    href: deployment-overview.md
+  - name: Security partner providers
+    href: trusted-security-partners.md
+  - name: Secure hubs using Check Point Cloudguard Connect
+    href: check-point-overview.md
+  - name: IP Groups
+    href: ip-groups.md
+  - name: Rule processing logic
+    href: rule-processing.md
+  - name: Architecture options
+    href: vhubs-and-vnets.md
+  - name: Threat intelligence settings
+    href: threat-intelligence-settings.md
+  - name: FQDN in network rules
+    href: fqdn-filtering-network-rules.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/firewall-manager-security-baseline?toc=/azure/firewall-manager/toc.json
+- name: How-to guides
+  items:
+  - name: Deploy security partner providers
+    href: deploy-trusted-security-partner.md
+  - name: Secure private endpoints
+    href: private-link-inspection-secure-virtual-hub.md
+  - name: Migrate to Firewall policy - PowerShell
+    href: migrate-to-policy.md
+  - name: DNS settings
+    href: dns-settings.md
+  - name: Deploy multiple public IPs - PowerShell
+    href: multiple-public-ip-powershell.md
+  - name: Define a rule hierarchy
+    href: rule-hierarchy.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/network/firewall/policy
+  - name: Azure PowerShell
+    href: /powershell/module/az.network/new-azfirewallpolicy
+  - name: .NET
+    href: /dotnet/api
+  - name: Java
+    href: /java/api
+  - name: Node.js
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+  - name: Python
+    href: https://azure.microsoft.com/develop/python/
+  - name: REST
+    href: /rest/api/virtualnetwork/firewallpolicies
+  - name: Azure Resource Manager
+    href: ../azure-resource-manager/management/overview.md
+- name: Resources
+  items:
+  - name: Author templates
+    href: ../azure-resource-manager/templates/syntax.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Community templates
+    href: https://azure.microsoft.com/documentation/templates
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/azure-firewall/
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/

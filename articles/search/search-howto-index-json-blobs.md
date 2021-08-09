@@ -1,220 +1,216 @@
 ---
-title: Indexing JSON blobs with Azure Search blob indexer
-description: Indexing JSON blobs with Azure Search blob indexer
+title: Search over JSON blobs
+titleSuffix: Azure Cognitive Search
+description: Crawl Azure JSON blobs for text content using the Azure Cognitive Search Blob indexer. Indexers automate data ingestion for selected data sources like Azure Blob Storage.
 
-ms.date: 10/17/2018
-author: mgottein 
-manager: cgronlun
-ms.author: magottei
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
 
-services: search
-ms.service: search
-ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
+ms.date: 02/01/2021
 ---
+# How to index JSON blobs using a Blob indexer in Azure Cognitive Search
 
-# Indexing JSON blobs with Azure Search blob indexer
-This article shows you how to configure an Azure Search blob indexer to extract structured content from JSON blobs in Azure Blob storage.
+This article shows you how to [configure a blob indexer](search-howto-indexing-azure-blob-storage.md) for blobs that consist of JSON documents. JSON blobs in Azure Blob Storage commonly assume any of these forms:
 
-JSON blobs in Azure Blob storage are typically either a single JSON document or a JSON array. The blob indexer in Azure Search can parse either construction, depending on how you set the **parsingMode** parameter on the request.
++ A single JSON document
++ A JSON document containing an array of well-formed JSON elements
++ A JSON document containing multiple entities, separated by a newline
 
-| JSON document | parsingMode | Description | Availability |
-|--------------|-------------|--------------|--------------|
-| One per blob | `json` | Parses JSON blobs as a single chunk of text. Each JSON blob becomes a single Azure Search document. | Generally available in both [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) and [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) APIs. |
-| Multiple per blob | `jsonArray` | Parses a JSON array in the blob, where each element of the array becomes a separate Azure Search document.  | In preview, in [REST api-version=`2017-11-11-Preview`](search-api-2017-11-11-preview.md) and [.NET SDK Preview](https://aka.ms/search-sdk-preview). |
+The blob indexer provides a **`parsingMode`** parameter to optimize the output of the search document based on the structure Parsing modes consist of the following options:
 
-> [!Note]
-> Preview APIs are intended for testing and evaluation, and should not be used in production environments.
->
+| parsingMode | JSON document | Description |
+|--------------|-------------|--------------|
+| **`json`** | One per blob | (default) Parses JSON blobs as a single chunk of text. Each JSON blob becomes a single search document. |
+| **`jsonArray`** | Multiple per blob | Parses a JSON array in the blob, where each element of the array becomes a separate search document.  |
+| **`jsonLines`** | Multiple per blob | Parses a blob that contains multiple JSON entities (also an array), with individual elements separated by a newline. The indexer starts a new search document after each new line. |
 
-## Setting up JSON indexing
-Indexing JSON blobs is similar to the regular document extraction in a three-part workflow common to all indexers in Azure Search.
+For both **`jsonArray`** and **`jsonLines`**, you should review [Indexing one blob to produce many search documents](search-howto-index-one-to-many-blobs.md) to understand how the blob indexer handles disambiguation of the document key for multiple search documents produced from the same blob.
 
-### Step 1: Create a data source
+Within the indexer definition, you can optionally set [field mappings](search-indexer-field-mappings.md) to choose which properties of the source JSON document are used to populate your target search index. For example, when using the **`jsonArray`** parsing mode, if the array exists as a lower-level property, you can set a **`document root`** property indicating where the array is placed within the blob.
 
-The first step is to provide data source connection information used by the indexer. 
-The data source type, specified here as `azureblob`, determines which data extraction behaviors are invoked by the indexer. For JSON blob indexing, data source definition is the same for both JSON documents and arrays. 
+The following sections describe each mode in more detail. If you are unfamiliar with indexer clients and concepts, see [Create a search indexer](search-howto-create-indexers.md). You should also be familiar with the details of [basic blob indexer configuration](search-howto-indexing-azure-blob-storage.md), which isn't repeated here.
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
-    Content-Type: application/json
-    api-key: [admin key]
+<a name="parsing-single-blobs"></a>
 
-    {
-        "name" : "my-blob-datasource",
-        "type" : "azureblob",
-        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
-        "container" : { "name" : "my-container", "query" : "optional, my-folder" }
-    }   
+## Index single JSON documents (one per blob)
 
-### Step 2: Create a target search index 
+By default, blob indexers parse JSON blobs as a single chunk of text, one search document for each blob in a container. If the JSON is structured, the search document can reflect that structure, with individual elements represented as individual fields. For example, assume you have the following JSON document in Azure Blob Storage:
 
-Indexers are paired with an index schema. If you are using the API (rather than the portal), prepare an index in advance so that you can specify it on the indexer operation. 
-
-> [!Note]
-> Indexers are exposed in the portal through the **Import** action for a limited number of generally available indexers. Often, the import workflow can often construct a preliminary index based on metadata in the source. For more information, see [Import data into Azure Search in the portal](search-import-data-portal.md).
-
-### Step 3: Configure and run the indexer
-
-Until now, definitions for the data source and index have been parsingMode agnostic. However, in step 3 for Indexer configuration, the path diverges depending on how you want the JSON blob content to be parsed and structured in an Azure Search index.
-
-When calling the indexer, do the following:
-
-+ Set the **parsingMode** parameter to `json` (to index each blob as a single document) or `jsonArray` (if your blobs contain JSON arrays and you need each element of an array to be treated as a separate document).
-
-+ Optionally, use **field mappings** to choose which properties of the source JSON document are used to populate your target search index. For JSON arrays, if the array exists as a lower level property, you can set a document root indicating where the array is placed within the blob.
-
-> [!IMPORTANT]
-> When you use `json` or `jsonArray` parsing mode, Azure Search assumes that all blobs in your data source contain JSON. If you need to support a mix of JSON and non-JSON blobs in the same data source, let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
-
-
-## How to parse single JSON blobs
-
-By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage.md) parses JSON blobs as a single chunk of text. Often, you want to preserve the structure of your JSON documents. For example, assume you have the following JSON document in Azure Blob storage:
-
-    {
-        "article" : {
-            "text" : "A hopefully useful article explaining how to parse JSON blobs",
-            "datePublished" : "2016-04-13",
-            "tags" : [ "search", "storage", "howto" ]    
-        }
+```http
+{
+    "article" : {
+        "text" : "A hopefully useful article explaining how to parse JSON blobs",
+        "datePublished" : "2020-04-13",
+        "tags" : [ "search", "storage", "howto" ]    
     }
+}
+```
 
-### Indexer definition for single JSON blobs
+The blob indexer parses the JSON document into a single search document, loading an index by matching "text", "datePublished", and "tags" from the source against identically named and typed target index fields. Given an index with "text", "datePublished, and "tags" fields, the blob indexer can infer the correct mapping without a field mapping present in the request.
 
-Using the Azure Search blob indexer, a JSON document similar to the previous example is parsed into a single Azure Search document. The indexer loads an index by matching "text", "datePublished", and "tags" from the source against identically named and typed target fields.
+Although the default behavior is one search document per JSON blob, setting the 'json' parsing mode changes the internal field mappings for content, promoting fields inside `content` to actual fields in the search index. An example indexer definition for the **`json`** parsing mode might look like this:
 
-Configuration is provided in the body of an indexer operation. Recall that the data source object, previously defined, specifies the data source type and connection information. Additionally, the target index must also exist as an empty container in your service. Schedule and parameters are optional, but if you omit them, the indexer runs immediately, using `json` as the parsing mode.
+```http
+POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
 
-A fully specified request might look as follows:
+{
+    "name" : "my-json-indexer",
+    "dataSourceName" : "my-blob-datasource",
+    "targetIndexName" : "my-target-index",
+    "parameters" : { "configuration" : { "parsingMode" : "json" } }
+}
+```
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
-    Content-Type: application/json
-    api-key: [admin key]
+> [!NOTE]
+> As with all indexers, if fields do not clearly match, you should expect to explicitly specify individual [field mappings](search-indexer-field-mappings.md) unless you are using the implicit fields mappings available for blob content and metadata, as described in [basic blob indexer configuration](search-howto-indexing-azure-blob-storage.md).
 
-    {
-      "name" : "my-json-indexer",
-      "dataSourceName" : "my-blob-datasource",
-      "targetIndexName" : "my-target-index",
-      "schedule" : { "interval" : "PT2H" },
-      "parameters" : { "configuration" : { "parsingMode" : "json" } }
-    }
+### json example (single hotel JSON files)
 
-As noted, field mappings are not required. Given an index with "text", "datePublished, and "tags" fields, the blob indexer can infer the correct mapping without a field mapping present in the request.
+The [hotel JSON document data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotel-json-documents) on GitHub is helpful for testing JSON parsing, where each blob represents a structured JSON file. You can upload the data files to Blob storage and use the **Import data** wizard to quickly evaluate how this content is parsed into individual search documents. 
 
-## How to parse JSON arrays (preview)
+The data set consists of five blobs, each containing a hotel document with an address collection and a rooms collection. The blob indexer detects both collections and reflects the structure of the input documents in the index schema.
 
-Alternatively, you can opt for the JSON array preview feature. This capability is useful when blobs contain an *array of JSON objects*, and you want each element to become a separate Azure Search document. For example, given the following JSON blob, you can populate your Azure Search index with three separate documents, each with "id" and "text" fields.  
+<a name="parsing-arrays"></a>
 
-    [
-        { "id" : "1", "text" : "example 1" },
-        { "id" : "2", "text" : "example 2" },
-        { "id" : "3", "text" : "example 3" }
-    ]
+## Parse JSON arrays
 
-### Indexer definition for a JSON array
+Alternatively, you can use the JSON array option. This option is useful when blobs contain an array of well-formed JSON objects, and you want each element to become a separate search document. Using **`jsonArrays`**, the following JSON blob produces three separate documents, each with `"id"` and `"text"` fields.  
 
-For a JSON array, the indexer request uses the preview API and the `jsonArray` parser. These are the only two array-specific requirements for indexing JSON blobs.
+```text
+[
+    { "id" : "1", "text" : "example 1" },
+    { "id" : "2", "text" : "example 2" },
+    { "id" : "3", "text" : "example 3" }
+]
+```
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
-    Content-Type: application/json
-    api-key: [admin key]
+The **`parameters`** property on the indexer contains parsing mode values. For a JSON array, the indexer definition should look similar to the following example.
 
-    {
-      "name" : "my-json-indexer",
-      "dataSourceName" : "my-blob-datasource",
-      "targetIndexName" : "my-target-index",
-      "schedule" : { "interval" : "PT2H" },
-      "parameters" : { "configuration" : { "parsingMode" : "jsonArray" } }
-    }
+```http
+POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
 
-Again, notice that field mappings are not required. Given an index with "id" and "text" fields, the blob indexer can infer the correct mapping without a field mapping list.
+{
+    "name" : "my-json-indexer",
+    "dataSourceName" : "my-blob-datasource",
+    "targetIndexName" : "my-target-index",
+    "parameters" : { "configuration" : { "parsingMode" : "jsonArray" } }
+}
+```
+
+### jsonArrays example (clinical trials sample data)
+
+The [clinical trials JSON data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials-json) on GitHub is helpful for testing JSON array parsing. You can upload the data files to Blob storage and use the **Import data** wizard to quickly evaluate how this content is parsed into individual search documents. 
+
+The data set consists of eight blobs, each containing a JSON array of entities, for a total of 100 entities. The entities vary as to which fields are populated, but the end result is one search document per entity, from all arrays, in all blobs.
 
 <a name="nested-json-arrays"></a>
 
-### Nested JSON arrays
-What if you wish to index an array of JSON objects, but that array is nested somewhere within the document? You can pick which property contains the array using the `documentRoot` configuration property. For example, if your blobs look like this:
+### Parsing nested JSON arrays
 
-    {
-        "level1" : {
-            "level2" : [
-                { "id" : "1", "text" : "Use the documentRoot property" },
-                { "id" : "2", "text" : "to pluck the array you want to index" },
-                { "id" : "3", "text" : "even if it's nested inside the document" }  
-            ]
-        }
+For JSON arrays having nested elements, you can specify a **`documentRoot`** to indicate a multi-level structure. For example, if your blobs look like this:
+
+```http
+{
+    "level1" : {
+        "level2" : [
+            { "id" : "1", "text" : "Use the documentRoot property" },
+            { "id" : "2", "text" : "to pluck the array you want to index" },
+            { "id" : "3", "text" : "even if it's nested inside the document" }  
+        ]
     }
+}
+```
 
 Use this configuration to index the array contained in the `level2` property:
 
-    {
-        "name" : "my-json-array-indexer",
-        ... other indexer properties
-        "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
+```http
+{
+    "name" : "my-json-array-indexer",
+    ... other indexer properties
+    "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
+}
+```
+
+## Parse JSON entities separated by newlines
+
+If your blob contains multiple JSON entities separated by a newline, and you want each element to become a separate search document, use **`jsonLines`**.
+
+```text
+{ "id" : "1", "text" : "example 1" }
+{ "id" : "2", "text" : "example 2" }
+{ "id" : "3", "text" : "example 3" }
+```
+
+For JSON lines, the indexer definition should look similar to the following example.
+
+```http
+POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
+
+{
+    "name" : "my-json-indexer",
+    "dataSourceName" : "my-blob-datasource",
+    "targetIndexName" : "my-target-index",
+    "parameters" : { "configuration" : { "parsingMode" : "jsonLines" } }
+}
+```
+
+### jsonLines example (caselaw sample data)
+
+The [caselaw JSON data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) on GitHub is helpful for testing JSON new line parsing. As with other samples, you can upload this data to Blob storage and use the **Import data** wizard to quickly evaluate the impact of parsing mode on individual blobs.
+
+The data set consists of one blob containing 10 JSON entities separate by a new line, where each entity describes a single legal case. The end result is one search document per entity.
+
+## Map JSON fields to search fields
+
+Field mappings are used to associate a source field with a destination field in situations where the field names and types are not identical. But field mappings can also be used to match parts of a JSON document and "lift" them into top-level fields of the search document.
+
+The following example illustrates this scenario. For more information about field mappings in general, see [field mappings](search-indexer-field-mappings.md).
+
+```http
+{
+    "article" : {
+        "text" : "A hopefully useful article explaining how to parse JSON blobs",
+        "datePublished" : "2016-04-13"
+        "tags" : [ "search", "storage", "howto" ]    
     }
-
-## Using field mappings to build search documents
-
-When source and target fields are not perfectly aligned, you can define a field mapping section in the request body for explicit field-to-field associations.
-
-Currently, Azure Search cannot index arbitrary JSON documents directly, because it supports only primitive data types, string arrays, and GeoJSON points. However, you can use **field mappings** to pick parts of your JSON document and "lift" them into top-level fields of the search document. To learn about field mappings basics, see [Field mappings in Azure Search indexers](search-indexer-field-mappings.md).
-
-Revisiting our example JSON document:
-
-    {
-        "article" : {
-            "text" : "A hopefully useful article explaining how to parse JSON blobs",
-            "datePublished" : "2016-04-13"
-            "tags" : [ "search", "storage", "howto" ]    
-        }
-    }
+}
+```
 
 Assume a search index with the following fields: `text` of type `Edm.String`, `date` of type `Edm.DateTimeOffset`, and `tags` of type `Collection(Edm.String)`. Notice the discrepancy between "datePublished" in the source and `date` field in the index. To map your JSON into the desired shape, use the following field mappings:
 
-    "fieldMappings" : [
-        { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
-        { "sourceFieldName" : "/article/datePublished", "targetFieldName" : "date" },
-        { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
-      ]
+```http
+"fieldMappings" : [
+    { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
+    { "sourceFieldName" : "/article/datePublished", "targetFieldName" : "date" },
+    { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
+    ]
+```
 
-The source field names in the mappings are specified using the [JSON Pointer](http://tools.ietf.org/html/rfc6901) notation. You start with a forward slash to refer to the root of your JSON document, then pick the desired property (at arbitrary level of nesting) by using forward slash-separated path.
+Source fields are specified using the [JSON Pointer](https://tools.ietf.org/html/rfc6901) notation. You start with a forward slash to refer to the root of your JSON document, then pick the desired property (at arbitrary level of nesting) by using forward slash-separated path.
 
 You can also refer to individual array elements by using a zero-based index. For example, to pick the first element of the "tags" array from the above example, use a field mapping like this:
 
-    { "sourceFieldName" : "/article/tags/0", "targetFieldName" : "firstTag" }
+```http
+{ "sourceFieldName" : "/article/tags/0", "targetFieldName" : "firstTag" }
+```
 
 > [!NOTE]
-> If a source field name in a field mapping path refers to a property that doesn't exist in JSON, that mapping is skipped without an error. This is done so that we can support documents with a different schema (which is a common use case). Because there is no validation, you need to take care to avoid typos in your field mapping specification.
+> If **`sourceFieldName`** refers to a property that doesn't exist in the JSON blob, that mapping is skipped without an error. This behavior allows indexing to continue for JSON blobs that have a different schema (which is a common use case). Because there is no validation check, check the mappings carefully for typos so that you aren't losing documents for the wrong reason.
 >
->
 
-## Example: Indexer request with field mappings
+## Next steps
 
-The following example is a fully specified indexer payload, including field mappings:
-
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      "name" : "my-json-indexer",
-      "dataSourceName" : "my-blob-datasource",
-      "targetIndexName" : "my-target-index",
-      "schedule" : { "interval" : "PT2H" },
-      "parameters" : { "configuration" : { "parsingMode" : "json" } },
-      "fieldMappings" : [
-        { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
-        { "sourceFieldName" : "/article/datePublished", "targetFieldName" : "date" },
-        { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
-        ]
-    }
-
-
-## Help us make Azure Search better
-If you have feature requests or ideas for improvements, reach out to us on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
-
-## See also
-
-+ [Indexers in Azure Search](search-indexer-overview.md)
-+ [Indexing Azure Blob Storage with Azure Search](search-howto-index-json-blobs.md)
-+ [Indexing CSV blobs with Azure Search blob indexer](search-howto-index-csv-blobs.md)
-+ [Tutorial: Search semi-structured data from Azure Blob storage ](search-semi-structured-data.md)
++ [Configure blob indexers](search-howto-indexing-azure-blob-storage.md)
++ [Define field mappings](search-indexer-field-mappings.md)
++ [Indexers overview](search-indexer-overview.md)
++ [How to index CSV blobs with a blob indexer](search-howto-index-csv-blobs.md)
++ [Tutorial: Search semi-structured data from Azure Blob Storage](search-semi-structured-data.md)

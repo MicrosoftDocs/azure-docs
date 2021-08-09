@@ -2,24 +2,21 @@
 title: 'Tutorial: Configure Concur for automatic user provisioning with Azure Active Directory| Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Concur.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: df47f55f-a894-4e01-a82e-0dbf55fc8af1
+manager: CelesteDG
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-
 ---
 # Tutorial: Configure Concur for automatic user provisioning
 
 The objective of this tutorial is to show you the steps you need to perform in Concur and Azure AD to automatically provision and de-provision user accounts from Azure AD to Concur.
+
+> [!WARNING]
+> This provisioning integration is no longer supported. As a result of this, the provisioning functionality of the SAP Concur application in the Azure Active Directory Enterprise App Gallery will be removed soon. The application's SSO functionality will remain intact. Microsoft is working with SAP Concur to build a new modernized provisioning integration, but there is currently no ETA on when this will be completed.
 
 ## Prerequisites
 
@@ -35,7 +32,7 @@ Azure Active Directory uses a concept called "assignments" to determine which us
 
 Before configuring and enabling the provisioning service, you need to decide what users and/or groups in Azure AD represent the users who need access to your Concur app. Once decided, you can assign these users to your Concur app by following the instructions here:
 
-[Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### Important tips for assigning users to Concur
 
@@ -96,7 +93,7 @@ For the following reasons, this action should not be done with the profile they 
 
 9. Set the **Provisioning Mode** to **Automatic**. 
  
-    ![provisioning](./media/concur-provisioning-tutorial/provisioning.png)
+    ![Screenshot of the Provisioning tab for Concur in Azure portal. Provisioning Mode is set to Automatic and the Test Connection button is highlighted.](./media/concur-provisioning-tutorial/provisioning.png)
 
 10. Under the **Admin Credentials** section, enter the **user name** and the **password** of your Concur administrator.
 
@@ -121,4 +118,3 @@ You can now create a test account. Wait for up to 20 minutes to verify that the 
 * [Managing user account provisioning for Enterprise Apps](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Configure Single Sign-on](concur-tutorial.md)
-

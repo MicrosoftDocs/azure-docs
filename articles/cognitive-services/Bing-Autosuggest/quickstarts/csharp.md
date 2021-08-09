@@ -1,159 +1,97 @@
 ---
-title: "Quickstart: Bing Autosuggest API, C#"
-titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing Autosuggest API.
+title: "Quickstart: Suggest search queries with the Bing Autosuggest REST API and C#"
+titleSuffix: Azure Cognitive Services
+description: Learn how to quickly start suggesting search terms in real time with the Bing Autosuggest API and C#.
 services: cognitive-services
-author: v-jaswel
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 09/14/2017
-ms.author: v-jaswel
+ms.date: 05/06/2020
+ms.author: aahi
+ms.custom: devx-track-csharp
 ---
-# Quickstart for Bing Autosuggest API with C#
+# Quickstart: Suggest search queries with the Bing Autosuggest REST API and C#
 
-This article shows you how to use the [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) with C#. The Bing Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Typically, you would call this API each time the user types a new character in the search box, and then display the suggestions in the search box's drop down list. This article shows how to send a request that returns the suggested query strings for *sail*.
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
+Follow this quickstart to learn how to make calls to the Bing Autosuggest API and read the JSON response. This simple C# application sends a partial search query to the API, and returns suggestions for searches. While this application is written in C#, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
 
 ## Prerequisites
 
-You will need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run this code on Windows. (The free Community Edition will work.)
+* Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
+* If you're using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Autosuggest API v7**. The [free trial](https://azure.microsoft.com/try/cognitive-services/#search) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
-## Get Autosuggest results
+## Create a Visual Search Solution
 
-1. Create a new C# project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
-4. Run the program.
+1. Create a new console solution in Visual Studio. Then, add the following namespaces into the main code file.
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Text;
+    ```
 
-namespace AutosuggestSample1
-{
-    class Program
+2. In a new class, create variables for your API host and path, [market code](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and a partial search query. Use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+
+    ```csharp
+    static string host = "https://api.cognitive.microsoft.com";
+    static string path = "/bing/v7.0/Suggestions";
+    static string market = "en-US";
+    static string key = "your-api-key";
+    
+    static string query = "sail";
+    ```
+
+
+## Create and send an API request
+
+1. Create a function called `Autosuggest()` to send a request to the API. Create a new `HttpClient()`, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
+
+    ```csharp
+    async static void Autosuggest()
     {
-        static string host = "https://api.cognitive.microsoft.com";
-        static string path = "/bing/v7.0/Suggestions";
-
-        // For a list of available markets, go to:
-        // https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes
-        static string market = "en-US";
-
-        // NOTE: Replace this example key with a valid subscription key.
-                static string key = "INSERT API KEY";
-
-        static string query = "sail";
-
-        // These properties are used for optional headers (see below).
-        // static string ClientId = "<Client ID from Previous Response Goes Here>";
-        // static string ClientIp = "999.999.999.999";
-        // static string ClientLocation = "+90.0000000000000;long: 00.0000000000000;re:100.000000000000";
-
-        async static void Autosuggest()
-        {
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
-
-            // The following headers are optional, but it is recommended they be treated as required.
-            // These headers help the service return more accurate results.
-            //client.DefaultRequestHeaders.Add("X-Search-Location", ClientLocation);
-            //client.DefaultRequestHeaders.Add("X-MSEdge-ClientID", ClientId);
-            //client.DefaultRequestHeaders.Add("X-MSEdge-ClientIP", ClientIp);
-
-            string uri = host + path + "?mkt=" + market + "&query=" + System.Net.WebUtility.UrlEncode (query);
-
-            HttpResponseMessage response = await client.GetAsync(uri);
-
-            string contentString = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(JsonPrettyPrint(contentString));
-        }
-
-        static void Main(string[] args)
-        {
-            Autosuggest();
-            Console.ReadLine();
-        }
-
-        static string JsonPrettyPrint(string json)
-        {
-            if (string.IsNullOrEmpty(json)) {
-                return string.Empty;
-            }
-
-            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
-
-            StringBuilder sb = new StringBuilder();
-            bool quote = false;
-            bool ignore = false;
-            char last = ' ';
-            int offset = 0;
-            int indentLength = 3;
-
-            foreach (char ch in json)
-            {
-                switch (ch)
-                {
-                    case '"':
-                        if (!ignore) quote = !quote;
-                        break;
-                    case '\\':
-                        if (quote && last != '\\') ignore = true;
-                        break;
-                }
-
-                if (quote)
-                {
-                    sb.Append(ch);
-                    if (last == '\\' && ignore) ignore = false;
-                }
-                else
-                {
-                    switch (ch)
-                    {
-                        case '{':
-                        case '[':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', ++offset * indentLength));
-                            break;
-                        case '}':
-                        case ']':
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', --offset * indentLength));
-                            sb.Append(ch);
-                            break;
-                        case ',':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', offset * indentLength));
-                            break;
-                        case ':':
-                            sb.Append(ch);
-                            sb.Append(' ');
-                            break;
-                        default:
-                            if (quote || ch != ' ') sb.Append(ch);
-                            break;
-                    }
-                }
-                last = ch;
-            }
-
-            return sb.ToString().Trim();
-        }
+        HttpClient client = new HttpClient();
+        client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+        //..
     }
-}
-```
+    ```
 
-### Response
+2. In the same function above, create a request URI by combining your API host and path. Append your market to the `mkt=` parameter, and your query to the `query=` parameter. Be sure to URL-encode your query. 
+
+    ```csharp
+    string uri = host + path + "?mkt=" + market + "&query=" + System.Net.WebUtility.UrlEncode (query);
+    ```
+
+3. Send the request to the uri constructed above, and print the response.
+
+    ```csharp
+    HttpResponseMessage response = await client.GetAsync(uri);
+
+    string contentString = await response.Content.ReadAsStringAsync();
+    Console.WriteLine(contentString);
+    ```
+
+4. In the main method of your program, call `Autosuggest()`.
+
+    ```csharp
+    static void Main(string[] args)
+    {
+        Autosuggest();
+        Console.ReadLine();
+    }
+    ```
+
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -229,4 +167,4 @@ A successful response is returned in JSON, as shown in the following example:
 ## See also
 
 - [What is Bing Autosuggest?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

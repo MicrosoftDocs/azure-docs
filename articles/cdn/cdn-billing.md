@@ -1,20 +1,20 @@
-﻿---
+---
 title: Understanding Azure CDN billing | Microsoft Docs
-description: This FAQ describes how Azure CDN billing works.
+description: Learn about the billing structure for content hosted by Azure Content Delivery Network, including billing regions, delivery charges, and to manage costs.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
 ms.assetid: 
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
-ms.author: magattus
+ms.date: 09/13/2019
+ms.author: allensu
 
 ---
 # Understanding Azure CDN billing
@@ -34,9 +34,9 @@ A billing region is a geographic area used to determine what rate is charged for
 
 - Zone 5: India
 
-For information about point-of-presence (POP) regions, see [Azure CDN POP locations by region](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). For example, a POP located in Mexico is in the North America region and is therefore included in zone 1. 
+For information about point-of-presence (POP) regions, see [Azure CDN POP locations by region](./cdn-pop-locations.md). For example, a POP located in Mexico is in the North America region and is therefore included in zone 1. 
 
-For information about Azure CDN pricing, see [Content Delivery Network pricing](https://azure.microsoft.com/is-is/pricing/details/cdn/).
+For information about Azure CDN pricing, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
 
 ## How are delivery charges calculated by region?
 The Azure CDN billing region is based on the location of the source server delivering the content to the end user. The destination (physical location) of the client is not considered the billing region.
@@ -53,9 +53,12 @@ If you are using Azure Blob storage as the origin for your content, you also inc
 
 - Actual GB used: The actual storage of your source objects.
 
+- Transactions: As needed to fill the cache.
+
 - Transfers in GB: The amount of data transferred to fill the CDN caches.
 
-- Transactions: As needed to fill the cache.
+> [!NOTE]
+> Starting October 2019, If you are using Azure CDN from Microsoft, the cost of data transfer from Origins hosted in Azure to CDN PoPs is free of charge. Azure CDN from Verizon and Azure CDN from Akamai are subject to the rates described below.
 
 For more information about Azure Storage billing, see [Understanding Azure Storage Billing – Bandwidth, Transactions, and Capacity](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
@@ -80,5 +83,36 @@ Each time a CDN POP needs to fill its cache, it makes a request to the origin fo
 
 - TTL influence: A higher TTL for an object means it needs to be fetched from the origin less frequently. It also means clients, such as browsers, can cache the object longer, which can reduce the transactions to the CDN.
 
+## Which origin services are eligible for free data transfer with Azure CDN from Microsoft? 
+If you use one of the following Azure services as your CDN origin, you will not be charged from Data transfer from the Origin to the CDN PoPs. 
+
+- Azure Storage
+- Azure Media Services
+- Azure Virtual Machines
+- Virtual Network
+- Load Balancer
+- Application Gateway
+- Azure DNS
+- ExpressRoute
+- VPN Gateway
+- Traffic Manager
+- Network Watcher
+- Azure Firewall
+- Azure Front Door Service
+- Azure Bastion
+- Azure App service
+- Azure Functions
+- Azure Data Factory
+- Azure API Management
+- Azure Batch 
+- Azure Data Explorer
+- HDInsight
+- Azure Cosmos DB
+- Azure Data Lake Store
+- Azure Machine Learning 
+- Azure SQL Database
+- Azure SQL Managed Instance
+- Azure Cache for Redis
+
 ## How do I manage my costs most effectively?
-Set the longest TTL possible on your content. 
+Set the longest TTL possible on your content.

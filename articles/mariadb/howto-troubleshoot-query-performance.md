@@ -1,14 +1,11 @@
 ---
-title: How to troubleshoot query performance in Azure Database for MariaDB
-description: This article describes how to use EXPLAIN to troubleshoot query performance in Azure Database for MariaDB.
-services: mariadb
-author: ajlam
-ms.author: andrela
-manager: kfile
-editor: jasonwhowell
+title: Troubleshoot query performance - Azure Database for MariaDB
+description: Learn how to use EXPLAIN to troubleshoot query performance in Azure Database for MariaDB.
+author: savjani
+ms.author: pariks
 ms.service: mariadb
-ms.topic: article
-ms.date: 11/09/2018
+ms.topic: troubleshooting
+ms.date: 3/18/2020
 ---
 
 # How to use EXPLAIN to profile query performance in Azure Database for MariaDB
@@ -161,7 +158,7 @@ The EXPLAIN now shows that MariaDB is able to use combined index to avoid additi
  
 ## Conclusion
  
-Using EXPLAIN and different type of Indexes can increase performance significantly. Just because you have an index on the table does not necessarily mean MariaDB would be able to use it for your queries. Always validate your assumptions using EXPLAIN and optimize your queries using indexes.
+Using EXPLAIN and different type of Indexes can increase performance significantly. Having an index on the table does not necessarily mean MariaDB would be able to use it for your queries. Always validate your assumptions using EXPLAIN and optimize your queries using indexes.
 
 ## Next steps
-- To find peer answers to your most concerned questions or post a new question/answer, visit [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMariadb) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).
+- To find peer answers to your most concerned questions or post a new question/answer, visit [Microsoft Q&A question page](/answers/topics/azure-database-mariadb.html) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).

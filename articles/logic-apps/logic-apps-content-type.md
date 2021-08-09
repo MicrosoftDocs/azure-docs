@@ -1,18 +1,11 @@
 ---
-# required metadata
-title: Handle content types - Azure Logic Apps | Microsoft Docs
-description: Learn how Logic Apps handles content types at design time and run time
+title: Handle content types
+description: Learn how to handle various content types in workflows during design time and run time in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 07/20/2018
-
-# optional metadata
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
+ms.date: 07/20/2018
 ---
 
 # Handle content types in Azure Logic Apps
@@ -85,7 +78,7 @@ reference and use those properties more easily in your logic app's workflow.
   2. Under **Enter or paste a sample JSON payload**, provide a sample payload 
   and then choose **Done**. For example: 
 
-     ![Provide sample JSON payload](./media/logic-apps-content-type/request-trigger.png)
+     ![Screenshot that shows the "When a HTTP request is received" action with a sample JSON payload.](./media/logic-apps-content-type/request-trigger.png)
 
      The generated schema now appears in your trigger.
 
@@ -191,11 +184,12 @@ This list describes how Logic Apps converts content when you use these
 * `xml()`: Casts data to `application/xml`
 * `binary()`: Casts data to `application/octet-stream`
 * `string()`: Casts data to `text/plain`
-* `base64()`: Converts content to a base64 string
-* `base64toString()`: Converts a base64 encoded string to `text/plain`
-* `base64toBinary()`: Converts a base64 encoded string to `application/octet-stream`
-* `encodeDataUri()`: Encodes a string as a dataUri byte array
-* `decodeDataUri()`: Decodes a `dataUri` into a byte array
+* `base64()`: Converts content to a base64-encoded string
+* `base64toString()`: Converts a base64-encoded string to `text/plain`
+* `base64toBinary()`: Converts a base64-encoded string to `application/octet-stream`
+* `dataUri()`: Converts a string to a data URI
+* `dataUriToBinary()`: Converts a data URI to a binary string
+* `dataUriToString()`: Converts a data URI to a string
 
 For example, if you receive an HTTP request 
 where `Content-Type` set to `application/xml`, 

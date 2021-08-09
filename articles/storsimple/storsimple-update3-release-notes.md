@@ -1,18 +1,10 @@
 ---
-title: StorSimple 8000 Series Update 3 release notes | Microsoft Docs
+title: StorSimple 8000 Series Update 3 release notes
 description: Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 3.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
 ms.assetid: 2158aa7a-4ac3-42ba-8796-610d1adb984d
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
@@ -79,14 +71,13 @@ The following table provides a summary of known issues in this release.
 | 19 |Locally pinned volumes |If you cancel a restore job or if a restore fails and then a controller failover occurs, an additional restore job appears on the **Jobs** page. |This behavior can occur if your restore job has only locally pinned volumes or a mix of locally pinned and tiered volumes. If the restore job includes only tiered volumes, then this behavior will not occur. No user intervention is required. |Yes |No |
 | 20 |Locally pinned volumes |If you try to convert a tiered volume (created and cloned with Update 1.2 or earlier) to a locally pinned volume and your device is running out of space or there is a cloud outage, then the clone(s) can be corrupted. |This problem occurs only with volumes that were created and cloned with pre-Update 2.1 software. This should be an infrequent scenario. | | |
 | 21 |Volume conversion |Do not update the ACRs attached to a volume while a volume conversion is in progress (tiered to locally pinned or vice versa). Updating the ACRs could result in data corruption. |If needed, update the ACRs prior to the volume conversion and do not make any further ACR updates while the conversion is in progress. | | |
-| 22 |Updates |When applying Update 3, the **Maintenance** page in the Azure classic portal will display the following message related to Update 2 - "StorSimple 8000 series Update 2 includes the ability  for Microsoft to proactively collect log information from your device when we detect potential problems". This is misleading as it indicates that the device is being updated to Update 2. After the device is succeesfully updated to Update 3, this message will disappear. |This behavior will be fixed in a future release. |Yes |No |
+| 22 |Updates |When applying Update 3, the **Maintenance** page in the Azure classic portal will display the following message related to Update 2 - "StorSimple 8000 series Update 2 includes the ability  for Microsoft to proactively collect log information from your device when we detect potential problems". This is misleading as it indicates that the device is being updated to Update 2. After the device is successfully updated to Update 3, this message will disappear. |This behavior will be fixed in a future release. |Yes |No |
 
 ## Controller and firmware updates in Update 3
-This release has LSI driver and firmware updates. For more information on how to install the LSI driver and firmware updates, see [install Update 3](storsimple-install-update-3.md) on your StorSimple device.
+This release has LSI driver and firmware updates. For more information on how to install the LSI driver and firmware updates, see [install Update 3](./index.yml) on your StorSimple device.
 
 ## Virtual device updates in Update 3
 This update cannot be applied to the StorSimple Cloud Appliance (also known as the virtual device). New virtual devices will need to be created. 
 
 ## Next step
-Learn how to [install Update 3](storsimple-install-update-3.md) on your StorSimple device.
-
+Learn how to [install Update 3](./index.yml) on your StorSimple device.

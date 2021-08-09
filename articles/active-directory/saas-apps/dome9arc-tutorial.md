@@ -1,307 +1,218 @@
-﻿---
-title: 'Tutorial: Azure Active Directory integration with Dome9 Arc | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Dome9 Arc.
-services: active-directory
-documentationCenter: na
-author: jeevansd
-manager: femila
-ms.reviewer: joflore
-
-ms.assetid: 4c12875f-de71-40cb-b9ac-216a805334e5
-ms.service: active-directory
-ms.component: saas-app-tutorial
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/22/2018
-ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with Dome9 Arc
+title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Check Point CloudGuard Posture Management | Microsoft Docs"
+description: Learn how to configure single sign-on between Azure Active Directory and Check Point CloudGuard Posture Management.
+services: active-directory
+author: jeevansd
+manager: CelesteDG
+ms.reviewer: celested
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
+ms.workload: identity
+ms.topic: tutorial
+ms.date: 05/13/2021
+ms.author: jeedes
+---
 
-In this tutorial, you learn how to integrate Dome9 Arc with Azure Active Directory (Azure AD).
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Check Point CloudGuard Posture Management
 
-Integrating Dome9 Arc with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate Check Point CloudGuard Posture Management with Azure Active Directory (Azure AD). When you integrate Check Point CloudGuard Posture Management with Azure AD, you can:
 
-- You can control in Azure AD who has access to Dome9 Arc.
-- You can enable your users to automatically get signed-on to Dome9 Arc (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+- Control in Azure AD who has access to Check Point CloudGuard Posture Management.
+- Enable your users to be automatically signed-in to Check Point CloudGuard Posture Management with their Azure AD accounts.
+- Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
-To configure Azure AD integration with Dome9 Arc, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A Dome9 Arc single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Check Point CloudGuard Posture Management single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you test Azure AD single sign-on in a test environment.
-The scenario outlined in this tutorial consists of two main building blocks:
+In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-1. Adding Dome9 Arc from the gallery
-2. Configuring and testing Azure AD single sign-on
+* Check Point CloudGuard Posture Management supports **SP and IDP** initiated SSO.
 
-## Adding Dome9 Arc from the gallery
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-To configure the integration of Dome9 Arc into Azure AD, you need to add Dome9 Arc from the gallery to your list of managed SaaS apps.
+## Adding Check Point CloudGuard Posture Management from the gallery
 
-**To add Dome9 Arc from the gallery, perform the following steps:**
+To configure the integration of Check Point CloudGuard Posture Management into Azure AD, you need to add Check Point CloudGuard Posture Management from the gallery to your list of managed SaaS apps.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Check Point CloudGuard Posture Management** in the search box.
+1. Select **Check Point CloudGuard Posture Management** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-	![The Azure Active Directory button][1]
+## Configure and test Azure AD SSO for Check Point CloudGuard Posture Management
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+Configure and test Azure AD SSO with Check Point CloudGuard Posture Management using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Check Point CloudGuard Posture Management.
 
-	![The Enterprise applications blade][2]
+To configure and test Azure AD SSO with Check Point CloudGuard Posture Management, perform the following steps:
 
-3. To add new application, click **New application** button on the top of dialog.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+   1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+   1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Check Point CloudGuard Posture Management SSO](#configure-check-point-cloudguard-posture-management-sso)** - to configure the single sign-on settings on application side.
+   1. **[Create Check Point CloudGuard Posture Management test user](#create-check-point-cloudguard-posture-management-test-user)** - to have a counterpart of B.Simon in Check Point CloudGuard Posture Management that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	![The New application button][3]
+## Configure Azure AD SSO
 
-4. In the search box, type **Dome9 Arc**, select **Dome9 Arc** from result panel then click **Add** button to add the application.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-	![Dome9 Arc in the results list](./media/dome9arc-tutorial/tutorial_dome9arc_addfromgallery.png)
+1. In the Azure portal, on the **Check Point CloudGuard Posture Management** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-## Configure and test Azure AD single sign-on
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-In this section, you configure and test Azure AD single sign-on with Dome9 Arc based on a test user called "Britta Simon".
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following step:
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Dome9 Arc is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Dome9 Arc needs to be established.
+   In the **Reply URL** text box, type a URL using the following pattern:
+   `https://secure.dome9.com/sso/saml/<YOURCOMPANYNAME>`
 
-To configure and test Azure AD single sign-on with Dome9 Arc, you need to complete the following building blocks:
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Dome9 Arc test user](#create-a-dome9-arc-test-user)** - to have a counterpart of Britta Simon in Dome9 Arc that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+   In the **Sign-on URL** text box, type a URL using the following pattern:
+   `https://secure.dome9.com/sso/saml/<YOURCOMPANYNAME>`
 
-### Configure Azure AD single sign-on
+   > [!NOTE]
+   > These values are not real. Update these values with the actual Reply URL and Sign-on URL. You will get the `<company name>` value from the **Configure Check Point CloudGuard Posture Management SSO** section, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Dome9 Arc application.
+1. Check Point CloudGuard Posture Management application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-**To configure Azure AD single sign-on with Dome9 Arc, perform the following steps:**
+   ![image](common/edit-attribute.png)
 
-1. In the Azure portal, on the **Dome9 Arc** application integration page, click **Single sign-on**.
+1. In addition to above, Check Point CloudGuard Posture Management application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement.
 
-	![Configure single sign-on link][4]
+   | Name     | Source Attribute   |
+   | -------- | ------------------ |
+   | memberof | user.assignedroles |
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Single sign-on dialog box](./media/dome9arc-tutorial/tutorial_dome9arc_samlbase.png)
+   > [!NOTE]
+   > Click [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) to know how to create roles in Azure AD.
 
-3. On the **Dome9 Arc Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![Dome9 Arc Domain and URLs single sign-on information](./media/dome9arc-tutorial/tutorial_dome9arc_url.png)
+   ![The Certificate download link](common/certificatebase64.png)
 
-    a. In the **Identifier** textbox, type the URL: `https://secure.dome9.com/`
+1. On the **Set up Check Point CloudGuard Posture Management** section, copy the appropriate URL(s) based on your requirement.
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://secure.dome9.com/sso/saml/yourcompanyname`
-
-	> [!NOTE]
-	> You will select your company name value in the dome9 admin portal, which is explained later in the tutorial.
-
-4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-	![Dome9 Arc Domain and URLs single sign-on information](./media/dome9arc-tutorial/tutorial_dome9arc_url1.png)
-
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://secure.dome9.com/sso/saml/<yourcompanyname>`
- 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Dome9 Arc Client support team](https://dome9.com/about/contact-us/) to get these values. 
-
-5. The Dome9 Arc Software application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
-
-	![Configure Single Sign-On attb](./media/dome9arc-tutorial/tutorial_dome9arc_attribute.png)
-
-6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
-	
-	| Attribute Name  | Attribute Value | 
-	| --------------- | --------------- | 
-	| memberof | user.assignedroles |
-	
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
-
-	![Configure Single Sign-On add attb](./media/dome9arc-tutorial/tutorial_dome9_04.png)
-
-	![Configure Single Sign-On edit attb](./media/dome9arc-tutorial/tutorial_attribute_05.png)
-
-	b. In the **Name** textbox, type the attribute name shown for that row.
-
-	c. From the **Value** list, type the attribute value shown for that row.
-
-	d. Click **Ok**.
-	
-	> [!NOTE]
-	> Please refer to this [link](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) on how to configure and setup the roles for the application.
-
-7. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
-
-	![The Certificate download link](./media/dome9arc-tutorial/tutorial_dome9arc_certificate.png) 
-
-8. Click **Save** button.
-
-	![Configure Single Sign-On Save button](./media/dome9arc-tutorial/tutorial_general_400.png)
-
-9. On the **Dome9 Arc Configuration** section, click **Configure Dome9 Arc** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
-
-	![Dome9 Arc Configuration](./media/dome9arc-tutorial/tutorial_dome9arc_configure.png) 
-
-10. In a different web browser window, log into your Dome9 Arc company site as an administrator.
-
-11. Click on the **Profile Settings** on the right top corner and then click **Account Settings**. 
-
-	![Dome9 Arc Configuration](./media/dome9arc-tutorial/configure1.png)
-
-12. Navigate to **SSO** and then click **ENABLE**.
-
-	![Dome9 Arc Configuration](./media/dome9arc-tutorial/configure2.png)
-
-13. In the SSO Configuration section, perform the following steps:
-
-	![Dome9 Arc Configuration](./media/dome9arc-tutorial/configure3.png)
-
-	a. Enter company name in the **Account ID** textbox. This value is to be used in the reply url mentioned in the Azure portal URL section.
-
-	b. In the **Issuer** textbox, paste the value of **SAML Entity ID**, which you have copied form the Azure portal.
-
-	c. In the **Idp endpoint url** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied form the Azure portal.
-
-	d. Open your downloaded Base64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 certificate** textbox.
-
-	e. Click **Save**.
+   ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-   ![Create an Azure AD test user][100]
-
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
-
-    ![The Azure Active Directory button](./media/dome9arc-tutorial/create_aaduser_01.png)
-
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
-
-    ![The "Users and groups" and "All users" links](./media/dome9arc-tutorial/create_aaduser_02.png)
-
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
-
-    ![The Add button](./media/dome9arc-tutorial/create_aaduser_03.png)
-
-4. In the **User** dialog box, perform the following steps:
-
-    ![The User dialog box](./media/dome9arc-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
-
-    d. Click **Create**.
-
-### Create a Dome9 Arc test user
-
-To enable Azure AD users to log in to Dome9 Arc, they must be provisioned into application. Dome9 Arc supports just-in-time provisioning but for that to work properly, user have to select particular **Role** and assign the same to the user.
-
-   >[!Note]
-   >For **Role** creation and other details contact [Dome9 Arc Client support team](https://dome9.com/about/contact-us/).
-
-**To provision a user account manually, perform the following steps:**
-
-1. Log in to your Dome9 Arc company site as an administrator.
-
-2. Click on the **Users & Roles** and then click **Users**.
-
-	![Add Employee](./media/dome9arc-tutorial/user1.png)
-
-3. Click **ADD USER**.
-
-	![Add Employee](./media/dome9arc-tutorial/user2.png)
-
-4. In the **Create User** section, perform the following steps:
-
-	![Add Employee](./media/dome9arc-tutorial/user3.png)
-
-	a. In the **Email** textbox, type the email of user like Brittasimon@contoso.com.
-
-	b. In the **First Name** textbox, type first name of the user like Britta.
-
-	c. In the **Last Name** textbox, type last name of the user like Simon.
-
-	d. Make **SSO User** as **On**.
-
-	e. Click **CREATE**.
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Dome9 Arc.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Check Point CloudGuard Posture Management.
 
-![Assign the user role][200] 
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Check Point CloudGuard Posture Management**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you have setup the roles as explained in the above, you can select it from the **Select a role** dropdown.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-**To assign Britta Simon to Dome9 Arc, perform the following steps:**
+## Configure Check Point CloudGuard Posture Management SSO
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+1. To automate the configuration within Check Point CloudGuard Posture Management, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![Assign User][201] 
+   ![My apps extension](common/install-myappssecure-extension.png)
 
-2. In the applications list, select **Dome9 Arc**.
+2. After adding extension to the browser, click on **Setup Check Point CloudGuard Posture Management** will direct you to the Check Point CloudGuard Posture Management application. From there, provide the admin credentials to sign into Check Point CloudGuard Posture Management. The browser extension will automatically configure the application for you and automate steps 3-6.
 
-	![The Dome9 Arc link in the Applications list](./media/dome9arc-tutorial/tutorial_dome9arc_app.png)  
+   ![Setup configuration](common/setup-sso.png)
 
-3. In the menu on the left, click **Users and groups**.
+3. If you want to setup Check Point CloudGuard Posture Management manually, open a new web browser window and sign into your Check Point CloudGuard Posture Management company site as an administrator and perform the following steps:
 
-	![The "Users and groups" link][202]
+4. Click on the **Profile Settings** on the right top corner and then click **Account Settings**.
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+   ![Screenshot that shows the "Profile Settings" menu with "Account Settings" selected.](./media/dome9arc-tutorial/account-settings.png)
 
-	![The Add Assignment pane][203]
+5. Navigate to **SSO** and then click **ENABLE**.
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+   ![Screenshot that shows the "S S O" tab and "Enable" selected.](./media/dome9arc-tutorial/enable.png)
 
-6. Click **Select** button on **Users and groups** dialog.
+6. In the SSO Configuration section, perform the following steps:
 
-7. Click **Assign** button on **Add Assignment** dialog.
+   ![Check Point CloudGuard Posture Management Configuration](./media/dome9arc-tutorial/configuration.png)
 
-### Test single sign-on
+   a. Enter company name in the **Account ID** textbox. This value is to be used in the **Reply** and **Sign on** URL mentioned in **Basic SAML Configuration** section of Azure portal.
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+   b. In the **Issuer** textbox, paste the value of **Azure AD Identifier**, which you have copied form the Azure portal.
 
-When you click the Dome9 Arc tile in the Access Panel, you should get automatically signed-on to your Dome9 Arc application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+   c. In the **Idp endpoint url** textbox, paste the value of **Login URL**, which you have copied form the Azure portal.
 
-## Additional resources
+   d. Open your downloaded Base64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 certificate** textbox.
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+   e. Click **Save**.
 
-<!--Image references-->
+### Create Check Point CloudGuard Posture Management test user
 
-[1]: ./media/dome9arc-tutorial/tutorial_general_01.png
-[2]: ./media/dome9arc-tutorial/tutorial_general_02.png
-[3]: ./media/dome9arc-tutorial/tutorial_general_03.png
-[4]: ./media/dome9arc-tutorial/tutorial_general_04.png
+To enable Azure AD users to sign in to Check Point CloudGuard Posture Management, they must be provisioned into application. Check Point CloudGuard Posture Management supports just-in-time provisioning but for that to work properly, user have to select particular **Role** and assign the same to the user.
 
-[100]: ./media/dome9arc-tutorial/tutorial_general_100.png
+> [!Note]
+> For **Role** creation and other details contact [Check Point CloudGuard Posture Management Client support team](mailto:Dome9@checkpoint.com).
 
-[200]: ./media/dome9arc-tutorial/tutorial_general_200.png
-[201]: ./media/dome9arc-tutorial/tutorial_general_201.png
-[202]: ./media/dome9arc-tutorial/tutorial_general_202.png
-[203]: ./media/dome9arc-tutorial/tutorial_general_203.png
+**To provision a user account manually, perform the following steps:**
+
+1. Sign in to your Check Point CloudGuard Posture Management company site as an administrator.
+
+2. Click on the **Users & Roles** and then click **Users**.
+
+   ![Screenshot that shows "Users & Roles" with the "Users" action selected.](./media/dome9arc-tutorial/users.png)
+
+3. Click **ADD USER**.
+
+   ![Screenshot that shows "Users & Roles" with the "ADD USER" button selected.](./media/dome9arc-tutorial/add-user.png)
+
+4. In the **Create User** section, perform the following steps:
+
+   ![Add Employee](./media/dome9arc-tutorial/create-user.png)
+
+   a. In the **Email** textbox, type the email of user like B.Simon@contoso.com.
+
+   b. In the **First Name** textbox, type first name of the user like B.
+
+   c. In the **Last Name** textbox, type last name of the user like Simon.
+
+   d. Make **SSO User** as **On**.
+
+   e. Click **CREATE**.
+
+## Test SSO
+
+In this section, you test your Azure AD single sign-on configuration with following options. 
+
+#### SP initiated:
+
+* Click on **Test this application** in Azure portal. This will redirect to Check Point CloudGuard Posture Management Sign on URL where you can initiate the login flow.
+
+* Go to Check Point CloudGuard Posture Management Sign-on URL directly and initiate the login flow from there.
+
+#### IDP initiated:
+
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Check Point CloudGuard Posture Management for which you set up the SSO
+
+You can also use Microsoft My Apps to test the application in any mode. When you click the Check Point CloudGuard Posture Management tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Check Point CloudGuard Posture Management for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+
+## Next steps
+
+Once you configure Check Point CloudGuard Posture Management you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 

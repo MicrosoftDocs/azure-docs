@@ -1,168 +1,125 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with OrgChart Now | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and OrgChart Now.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
-
-ms.assetid: 50a1522f-81de-4d14-9b6b-dd27bb1338a4
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/19/2018
+ms.topic: tutorial
+ms.date: 05/11/2021
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with OrgChart Now
 
-In this tutorial, you learn how to integrate OrgChart Now with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate OrgChart Now with Azure Active Directory (Azure AD). When you integrate OrgChart Now with Azure AD, you can:
 
-Integrating OrgChart Now with Azure AD provides you with the following benefits:
-
-- You can control in Azure AD who has access to OrgChart Now.
-- You can enable your users to automatically get signed-on to OrgChart Now (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Azure AD who has access to OrgChart Now.
+* Enable your users to be automatically signed-in to OrgChart Now with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
-To configure Azure AD integration with OrgChart Now, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- An OrgChart Now single-sign on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* OrgChart Now single sign-on (SSO) enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding OrgChart Now from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-## Adding OrgChart Now from the gallery
+* OrgChart Now supports **SP** and **IDP** initiated SSO.
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
+## Add OrgChart Now from the gallery
+
 To configure the integration of OrgChart Now into Azure AD, you need to add OrgChart Now from the gallery to your list of managed SaaS apps.
 
-**To add OrgChart Now from the gallery, perform the following steps:**
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **OrgChart Now** in the search box.
+1. Select **OrgChart Now** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Configure and test Azure AD SSO for OrgChart Now
 
-	![The Azure Active Directory button][1]
+Configure and test Azure AD SSO with OrgChart Now using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in OrgChart Now.
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+To configure and test Azure AD SSO with OrgChart Now, perform the following steps:
 
-	![The Enterprise applications blade][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure OrgChart Now SSO](#configure-orgchart-now-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create OrgChart Now test user](#create-orgchart-now-test-user)** - to have a counterpart of B.Simon in OrgChart Now that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	![The New application button][3]
+## Configure Azure AD SSO 
 
-1. In the search box, type **OrgChart Now**, select **OrgChart Now** from result panel then click **Add** button to add the application.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-	![OrgChart Now in the results list](./media/orgchartnow-tutorial/tutorial_orgchartnow_addfromgallery.png)
+1. In the Azure portal, on the **OrgChart Now** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-## Configure and test Azure AD single sign-on
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-In this section, you configure and test Azure AD single sign-on with OrgChart Now based on a test user called "Britta Simon".
+4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following step:
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in OrgChart Now is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in OrgChart Now needs to be established.
+    In the **Identifier** text box, type the URL:
+    `https://sso2.orgchartnow.com`
 
-To configure and test Azure AD single sign-on with OrgChart Now, you need to complete the following building blocks:
+5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create an OrgChart Now test user](#create-an-orgchart-now-test-user)** - to have a counterpart of Britta Simon in OrgChart Now that is linked to the Azure AD representation of user.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+    In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://sso2.orgchartnow.com/Shibboleth.sso/Login?entityID=<YourEntityID>&target=https://sso2.orgchartnow.com`
 
-### Configure Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your OrgChart Now application.
-
-**To configure Azure AD single sign-on with OrgChart Now, perform the following steps:**
-
-1. In the Azure portal, on the **OrgChart Now** application integration page, click **Single sign-on**.
-
-	![Configure single sign-on link][4]
-
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Single sign-on dialog box](./media/orgchartnow-tutorial/tutorial_orgchartnow_samlbase.png)
-
-1. On the **OrgChart Now Domain and URLs** section, if you wish to configure the application in **IDP** initiated mode:
-
-	![OrgChart Now Domain and URLs single sign-on information](./media/orgchartnow-tutorial/tutorial_orgchartnow_url.png)
-
-	In the **Identifier** textbox, type a URL: `https://sso2.orgchartnow.com`
-
-1. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-	![OrgChart Now Domain and URLs single sign-on information](./media/orgchartnow-tutorial/tutorial_orgchartnow_url1.png)
-
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://sso2.orgchartnow.com/Shibboleth.sso/Login?entityID=<YourEntityID>&target=https://sso2.orgchartnow.com`
-	 
 	> [!NOTE]
-	> `<YourEntityID>` is the SAML Entity ID copied from the Quick Reference section, described later in tutorial.
+	> `<YourEntityID>` is the **Azure AD Identifier** copied from the **Set up OrgChart Now** section, described later in tutorial.
 
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](./media/orgchartnow-tutorial/tutorial_orgchartnow_certificate.png) 
+	![The Certificate download link](common/metadataxml.png)
 
-1. Click **Save** button.
+7. On the **Set up OrgChart Now** section, copy the appropriate URL(s) as per your requirement.
 
-	![Configure Single Sign-On Save button](./media/orgchartnow-tutorial/tutorial_general_400.png)
-	
-1. On the **OrgChart Now Configuration** section, click **Configure OrgChart Now** to open **Configure sign-on** window. Copy the **SAML Entity ID** from the **Quick Reference section** and use it to complete **Sign-on URL** in **OrgChart Now Domain and URLs section**.
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	![OrgChart Now Configuration](./media/orgchartnow-tutorial/tutorial_orgchartnow_configure.png) 
+### Create an Azure AD test user 
 
-1. To configure single sign-on on **OrgChart Now** side, you need to send the downloaded **Metadata XML** to [OrgChart Now support team](mailto:ocnsupport@officeworksoftware.com). They set this setting to have the SAML SSO connection set properly on both sides.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-### Create an Azure AD test user
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+### Assign the Azure AD test user
 
-   ![Create an Azure AD test user][100]
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to OrgChart Now.
 
-**To create a test user in Azure AD, perform the following steps:**
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **OrgChart Now**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
+## Configure OrgChart Now SSO
 
-    ![The Azure Active Directory button](./media/orgchartnow-tutorial/create_aaduser_01.png)
+To configure single sign-on on **OrgChart Now** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [OrgChart Now support team](mailto:ocnsupport@officeworksoftware.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-1. To display the list of users, go to **Users and groups**, and then click **All users**.
-
-    ![The "Users and groups" and "All users" links](./media/orgchartnow-tutorial/create_aaduser_02.png)
-
-1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
-
-    ![The Add button](./media/orgchartnow-tutorial/create_aaduser_03.png)
-
-1. In the **User** dialog box, perform the following steps:
-
-    ![The User dialog box](./media/orgchartnow-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
-
-    d. Click **Create**.
- 
-### Create an OrgChart Now test user
+### Create OrgChart Now test user
 
 To enable Azure AD users to log in to OrgChart Now, they must be provisioned into OrgChart Now. 
 
@@ -170,93 +127,54 @@ To enable Azure AD users to log in to OrgChart Now, they must be provisioned int
 
 	a. Go to the **Manage Groups** option after clicking the **gear** in the top right corner of the UI.
 
-    ![OrgChart Now groups](./media/orgchartnow-tutorial/tutorial_orgchartnow_manage.png)	
+   	  ![OrgChart Now groups](./media/orgchartnow-tutorial/groups.png)	
 
 	b. Select the **Add** icon and name the group **General** then click **OK**. 
 
-	![OrgChart Now add](./media/orgchartnow-tutorial/tutorial_orgchartnow_add.png)
+	  ![OrgChart Now add](./media/orgchartnow-tutorial/general.png)
 
 	c. Select the folder(s) you wish the general or read-only users to be able to access:
-
-	![OrgChart Now folders](./media/orgchartnow-tutorial/tutorial_orgchartnow_chart.png)
+	
+	  ![OrgChart Now folders](./media/orgchartnow-tutorial/folders.png)
 
 	d. **Lock** the folders so that only Admin users can modify them. Then press **OK**.
 
-	![OrgChart Now lock](./media/orgchartnow-tutorial/tutorial_orgchartnow_lock.png)
+	  ![OrgChart Now lock](./media/orgchartnow-tutorial/lock.png)
 
-1. To create **Admin** users and **read/write** users, you must manually create a user in order to get access to their privilege level via SSO. To provision a user account, perform the following steps:
+2. To create **Admin** users and **read/write** users, you must manually create a user in order to get access to their privilege level via SSO. To provision a user account, perform the following steps:
 
 	a. Log in to OrgChart Now as a Security Administrator.
 
-	b.  Click on **Settings** on the top right corner and then navigate to **Manage Users**.
+	b. Click on **Settings** on the top right corner and then navigate to **Manage Users**.
 
-	![OrgChart Now settings](./media/orgchartnow-tutorial/tutorial_orgchartnow_settings.png)
+	  ![OrgChart Now settings](./media/orgchartnow-tutorial/settings.png)
 
 	c. Click on **Add** and perform the following steps:
 
-	![OrgChart Now manage](./media/orgchartnow-tutorial/tutorial_orgchartnow_manageusers.png)
+	  ![OrgChart Now manage](./media/orgchartnow-tutorial/manage-users.png)
 
-	* In the **User ID** textbox, enter the User ID like **brittasimon@contoso.com**.
+	1. In the **User ID** textbox, enter the User ID like **brittasimon\@contoso.com**.
 
-	* In **Email Address** text box, enter the email of user like **brittasimon@contoso.com**.
+	1. In **Email Address** text box, enter the email of user like **brittasimon\@contoso.com**.
 
-	* Click **Add**.
-	
-### Assign the Azure AD test user
+	1. Click **Add**.
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to OrgChart Now.
+## Test SSO
 
-![Assign the user role][200] 
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-**To assign Britta Simon to OrgChart Now, perform the following steps:**
+#### SP initiated:
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+* Click on **Test this application** in Azure portal. This will redirect to OrgChart Now Sign on URL where you can initiate the login flow.  
 
-	![Assign User][201] 
+* Go to OrgChart Now Sign-on URL directly and initiate the login flow from there.
 
-1. In the applications list, select **OrgChart Now**.
+#### IDP initiated:
 
-	![The OrgChart Now link in the Applications list](./media/orgchartnow-tutorial/tutorial_orgchartnow_app.png)  
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the OrgChart Now for which you set up the SSO. 
 
-1. In the menu on the left, click **Users and groups**.
+You can also use Microsoft My Apps to test the application in any mode. When you click the OrgChart Now tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the OrgChart Now for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-	![The "Users and groups" link][202]
+## Next steps
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![The Add Assignment pane][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Test single sign-on
-
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the OrgChart Now tile in the Access Panel, you should get automatically signed-on to your OrgChart Now application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
-
-<!--Image references-->
-
-[1]: ./media/orgchartnow-tutorial/tutorial_general_01.png
-[2]: ./media/orgchartnow-tutorial/tutorial_general_02.png
-[3]: ./media/orgchartnow-tutorial/tutorial_general_03.png
-[4]: ./media/orgchartnow-tutorial/tutorial_general_04.png
-
-[100]: ./media/orgchartnow-tutorial/tutorial_general_100.png
-
-[200]: ./media/orgchartnow-tutorial/tutorial_general_200.png
-[201]: ./media/orgchartnow-tutorial/tutorial_general_201.png
-[202]: ./media/orgchartnow-tutorial/tutorial_general_202.png
-[203]: ./media/orgchartnow-tutorial/tutorial_general_203.png
-
+Once you configure OrgChart Now you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

@@ -1,18 +1,20 @@
 ---
-title: OCR cognitive search skill (Azure Search) | Microsoft Docs
-description: Extract text from image files in an Azure Search enrichment pipeline.
-services: search
-manager: pablocas
-author: luiscabrer
-ms.service: search
-ms.devlang: NA
-ms.workload: search
+title: OCR cognitive skill
+titleSuffix: Azure Cognitive Search
+description: Extract text from image files using optical character recognition (OCR) in an enrichment pipeline in Azure Cognitive Search.
+
+author: LiamCavanagh
+ms.author: liamca
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.date: 05/01/2018
-ms.author: luisca
+ms.date: 06/17/2020
 ---
 # OCR cognitive skill
+
+The **Optical character recognition (OCR)** skill recognizes printed and handwritten text in image files. This skill uses the machine learning models provided by [Computer Vision](../cognitive-services/computer-vision/overview.md) API [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) in Cognitive Services. The **OCR** skill maps to the following functionality:
+
++ For English, Spanish, German, French, Italian, Portuguese, and Dutch, the new ["Read"](../cognitive-services/computer-vision/overview-ocr.md#read-api) API is used.
++ For all other languages, the [legacy OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f20d) API is used.
 
 The **OCR** skill extracts text from image files. Supported file formats include:
 
@@ -21,64 +23,70 @@ The **OCR** skill extracts text from image files. Supported file formats include
 + .PNG
 + .BMP
 + .GIF
++ .TIFF
 
 > [!NOTE]
-> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
+> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
+>
+> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
+
 
 ## Skill parameters
 
 Parameters are case-sensitive.
 
-| Parameter name	 | Description |
+| Parameter name     | Description |
 |--------------------|-------------|
-| detectOrientation	| Enables autodetection of image orientation. <br/> Valid values: true / false.|
-|defaultLanguageCode | <p>	Language code of the input text. Supported languages include: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>cs (Czech) <br/>da (Danish) <br/>nl (Dutch) <br/>en (English) <br/>fi (Finnish)  <br/>fr (French) <br/>  de (German) <br/>el (Greek) <br/> hu (Hungarian) <br/> it (Italian) <br/>  ja (Japanese) <br/> ko (Korean) <br/> nb (Norwegian) <br/>   pl (Polish) <br/> pt (Portuguese) <br/>  ru (Russian) <br/>  es (Spanish) <br/>  sv (Swedish) <br/>  tr (Turkish) <br/> ar (Arabic) <br/> ro (Romanian) <br/> sr-Cyrl (SerbianCyrillic) <br/> sr-Latn (SerbianLatin) <br/>  sk (Slovak). <br/>  unk (Unknown) <br/><br/> If the language code is unspecified or null, the language is autodetected. </p> |
-| textExtractionAlgorithm | "printed" or "handwritten". The "handwritten" text recognition OCR algorithm is currently in preview and only supported in English. |
+| `detectOrientation`    | Enables autodetection of image orientation. <br/> Valid values: true / false.|
+| `defaultLanguageCode` | <p>    Language code of the input text. Supported languages include: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>cs (Czech) <br/>da (Danish) <br/>nl (Dutch) <br/>en (English) <br/>fi (Finnish)  <br/>fr (French) <br/>  de (German) <br/>el (Greek) <br/> hu (Hungarian) <br/> it (Italian) <br/>  ja (Japanese) <br/> ko (Korean) <br/> nb (Norwegian) <br/>   pl (Polish) <br/> pt (Portuguese) <br/>  ru (Russian) <br/>  es (Spanish) <br/>  sv (Swedish) <br/>  tr (Turkish) <br/> ar (Arabic) <br/> ro (Romanian) <br/> sr-Cyrl (SerbianCyrillic) <br/> sr-Latn (SerbianLatin) <br/>  sk (Slovak) <br/>  unk (Unknown) <br/><br/> If the language code is unspecified or null, the language will be set to English. If the language is explicitly set to "unk", the language will be auto-detected. </p> |
+| `lineEnding` | The value to use between each detected line. Possible values: "Space", "CarriageReturn", "LineFeed".  The default is "Space". |
+
+Previously, there was a parameter called "textExtractionAlgorithm" for specifying whether the skill should extract "printed" or "handwritten" text.  This parameter is deprecated and no longer necessary as the latest Read API algorithm is capable of extracting both types of text at once.  If your skill definition already includes this parameter, you do not need to remove it, but it will no longer be used and both types of text will be extracted going forward regardless of what it is set to.
 
 ## Skill inputs
 
-| Input name	  | Description                                          |
+| Input name      | Description                                          |
 |---------------|------------------------------------------------------|
-| image         | Complex Type. Currently only works with "/document/normalized_images" field, produced by the Azure Blob indexer when ```imageAction``` is set to ```generateNormalizedImages```. See the [sample](#sample-output) for more information.|
+| `image`         | Complex Type. Currently only works with "/document/normalized_images" field, produced by the Azure Blob indexer when ```imageAction``` is set to a value other than ```none```. See the [sample](#sample-output) for more information.|
 
 
 ## Skill outputs
-| Output name	  | Description                   |
+| Output name      | Description                   |
 |---------------|-------------------------------|
-| text         	| Plain text extracted from the image.   |
-| layoutText    | Complex type that describes the extracted text as well as the location where the text was found.|
+| `text`             | Plain text extracted from the image.   |
+| `layoutText`    | Complex type that describes the extracted text and the location where the text was found.|
 
 
 ## Sample definition
 
 ```json
 {
-    "skills": [
-      {
-        "description": "Extracts text (plain and structured) from image.",
-        "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
-        "context": "/document/normalized_images/*",
-        "defaultLanguageCode": null,
-        "detectOrientation": true,
-        "inputs": [
-          {
-            "name": "image",
-            "source": "/document/normalized_images/*"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "text",
-            "targetName": "myText"
-          },
-          {
-            "name": "layoutText",
-            "targetName": "myLayoutText"
-          }
-        ]
-      }
-    ]
- }
+  "skills": [
+    {
+      "description": "Extracts text (plain and structured) from image.",
+      "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
+      "context": "/document/normalized_images/*",
+      "defaultLanguageCode": null,
+      "detectOrientation": true,
+      "inputs": [
+        {
+          "name": "image",
+          "source": "/document/normalized_images/*"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "targetName": "myText"
+        },
+        {
+          "name": "layoutText",
+          "targetName": "myLayoutText"
+        }
+      ]
+    }
+  ]
+}
 ```
 <a name="sample-output"></a>
 
@@ -122,9 +130,9 @@ Parameters are case-sensitive.
 
 ## Sample: Merging text extracted from embedded images with the content of the document.
 
-A common use case for Text Merger is the ability to merge the textual representation of images (text from an OCR skill, or the caption of an image)  into the content field of a document. 
+A common use case for Text Merger is the ability to merge the textual representation of images (text from an OCR skill, or the caption of an image)  into the content field of a document.
 
-The following example skillset creates a *merged_text* field to contain the textual content of your document, as well as the OCRed text from each of the images embedded in that document. 
+The following example skillset creates a *merged_text* field. This field contains the textual content of your document and the OCRed text from each of the images embedded in that document.
 
 #### Request Body Syntax
 ```json
@@ -133,23 +141,22 @@ The following example skillset creates a *merged_text* field to contain the text
   "skills":
   [
     {
-        "name": "OCR skill",
-        "description": "Extract text (plain and structured) from image.",
-        "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
-        "context": "/document/normalized_images/*",
-        "defaultLanguageCode": "en",
-        "detectOrientation": true,
-        "inputs": [
-          {
-            "name": "image",
-            "source": "/document/normalized_images/*"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "text"
-          }
-        ]
+      "description": "Extract text (plain and structured) from image.",
+      "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
+      "context": "/document/normalized_images/*",
+      "defaultLanguageCode": "en",
+      "detectOrientation": true,
+      "inputs": [
+        {
+          "name": "image",
+          "source": "/document/normalized_images/*"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text"
+        }
+      ]
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.MergeSkill",
@@ -159,18 +166,22 @@ The following example skillset creates a *merged_text* field to contain the text
       "insertPostTag": " ",
       "inputs": [
         {
-          "name":"text", "source": "/document/content"
+          "name":"text",
+          "source": "/document/content"
         },
         {
-          "name": "itemsToInsert", "source": "/document/normalized_images/*/text"
+          "name": "itemsToInsert", 
+          "source": "/document/normalized_images/*/text"
         },
         {
-          "name":"offsets", "source": "/document/normalized_images/*/contentOffset" 
+          "name":"offsets", 
+          "source": "/document/normalized_images/*/contentOffset"
         }
       ],
       "outputs": [
         {
-          "name": "mergedText", "targetName" : "merged_text"
+          "name": "mergedText", 
+          "targetName" : "merged_text"
         }
       ]
     }
@@ -180,19 +191,21 @@ The following example skillset creates a *merged_text* field to contain the text
 The above skillset example assumes that a normalized-images field exists. To generate this field, set the *imageAction* configuration in your indexer definition to *generateNormalizedImages* as shown below:
 
 ```json
-{  
-   //...rest of your indexer definition goes here ... 
-  "parameters":{  
-      "configuration":{  
-         "dataToExtract":"contentAndMetadata",
-         "imageAction":"generateNormalizedImages"
-      }
-   }
+{
+  //...rest of your indexer definition goes here ...
+  "parameters": {
+    "configuration": {
+      "dataToExtract":"contentAndMetadata",
+      "imageAction":"generateNormalizedImages"
+    }
+  }
 }
 ```
 
 ## See also
-+ [Predefined skills](cognitive-search-predefined-skills.md)
+
++ [What is optical character recognition](../cognitive-services/computer-vision/overview-ocr.md)
++ [Built-in skills](cognitive-search-predefined-skills.md)
 + [TextMerger skill](cognitive-search-skill-textmerger.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Create Indexer (REST)](/rest/api/searchservice/create-indexer)

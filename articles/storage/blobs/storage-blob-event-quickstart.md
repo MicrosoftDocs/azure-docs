@@ -1,17 +1,17 @@
 ---
-title: Route Azure Blob storage events to a custom web endpoint | Microsoft Docs
-description: Use Azure Event Grid to subscribe to Blob storage events. 
-services: storage,event-grid 
-author: cbrooksmsft
-
-ms.author: cbrooks
-ms.date: 08/23/2018
-ms.topic: quickstart
+title: Send Azure Blob storage events to web endpoint - Azure CLI | Microsoft Docs
+description: Use Azure Event Grid to subscribe to Blob storage events. Send the events to a Webhook. Handle the events in a web application.
+author: normesta
+ms.author: normesta
+ms.reviewer: dineshm
+ms.date: 03/05/2020
+ms.topic: how-to
 ms.service: storage
-ms.component: blobs
+ms.subservice: blobs 
+ms.custom: devx-track-azurecli
 ---
 
-# Route Blob storage events to a custom web endpoint with Azure CLI
+# Quickstart: Route storage events to web endpoint with Azure CLI
 
 Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to subscribe to Blob storage events, and trigger the event to view the result.
 
@@ -19,22 +19,19 @@ Typically, you send events to an endpoint that processes the event data and take
 
 When you complete the steps described in this article, you see that the event data has been sent to the web app.
 
-![View subscription event](./media/storage-blob-event-quickstart/view-results.png)
-
+![Screenshot of the Azure Event Grid Viewer that shows event data that has been sent to the web app.](./media/storage-blob-event-quickstart/view-results.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the latest version of Azure CLI (2.0.24 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
-
-If you are not using Cloud Shell, you must first sign in using `az login`.
+- This article requires version 2.0.70 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. 
+Create a resource group with the [az group create](/cli/azure/group) command. 
 
 The following example creates a resource group named `<resource_group_name>` in the *westcentralus* location.  Replace `<resource_group_name>` with a unique name for your resource group.
 
@@ -67,7 +64,7 @@ Replace `<your-site-name>` with a unique name for your web app. The web app name
 ```azurecli-interactive
 sitename=<your-site-name>
 
-az group deployment create \
+az deployment group create \
   --resource-group <resource_group_name> \
   --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
   --parameters siteName=$sitename hostingPlanName=viewerhost
@@ -90,7 +87,7 @@ storageid=$(az storage account show --name <storage_account_name> --resource-gro
 endpoint=https://$sitename.azurewebsites.net/api/updates
 
 az eventgrid event-subscription create \
-  --resource-id $storageid \
+  --source-resource-id $storageid \
   --name <event_subscription_name> \
   --endpoint $endpoint
 ```
@@ -105,7 +102,7 @@ Now, let's trigger an event to see how Event Grid distributes the message to you
 
 ```azurecli-interactive
 export AZURE_STORAGE_ACCOUNT=<storage_account_name>
-export AZURE_STORAGE_ACCESS_KEY="$(az storage account keys list --account-name <storage_account_name> --resource-group <resource_group_name> --query "[0].value" --output tsv)"
+export AZURE_STORAGE_KEY="$(az storage account keys list --account-name <storage_account_name> --resource-group <resource_group_name> --query "[0].value" --output tsv)"
 
 az storage container create --name testcontainer
 
@@ -113,7 +110,7 @@ touch testfile.txt
 az storage blob upload --file testfile.txt --container-name testcontainer --name testfile.txt
 ```
 
-You have triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. View your web app to see the event you just sent.
+You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. View your web app to see the event you just sent.
 
 
 ```json

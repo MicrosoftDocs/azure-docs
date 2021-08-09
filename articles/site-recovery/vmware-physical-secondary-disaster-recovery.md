@@ -1,12 +1,10 @@
 ---
-title: Set up disaster recovery of VMware VMs or physical servers to a secondary site with Azure Site Recovery | Microsoft Docs
+title: Disaster recovery of VMware VMs/physical servers to a secondary site with Azure Site Recovery 
 description: Learn how to set up disaster recovery of VMware VMs, or Windows and Linux physical servers, to a secondary site with Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
-ms.author: raynew
+ms.date: 11/05/2019
 
 ---
 # Set up disaster recovery of on-premises VMware virtual machines or physical servers to a secondary site
@@ -45,11 +43,11 @@ o	For physical machines, follow this [tutorial](./physical-azure-disaster-recove
 --|--|--
 **Required components** |Mobility service on replicated machines. On-premises configuration server, process server, master target server.Temporary process server in Azure for failback.|Mobility service, Process Server, Configuration Server and Master Target
 **Configuration and orchestration** |Recovery Services vault in the Azure portal | Using vContinuum 
-**Replicated**|Disk (Windows and Linux) |Volume-Windows<br> Disk-Linux
-**Shared disk cluster**|Not supported|Supported
+**Replicated** |Disk (Windows and Linux) |Volume-Windows<br> Disk-Linux
+**Shared disk cluster** |Not supported|Supported
 **Data churn limits (average)** |10 MB/s data per disk<br> 25MB/s data per VM<br> [Learn more](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > 10 MB/s data per disk  <br> > 25 MB/s data per VM
 **Monitoring** |From Azure portal|From CX (Configuration Server)
-**Support Matrix**| [Click here for details](./vmware-physical-azure-support-matrix.md)|[Download ASR Scout compatible matrix](https://aka.ms/asr-scout-cm)
+**Support Matrix** | [Click here for details](./vmware-physical-azure-support-matrix.md)|[Download ASR Scout compatible matrix](https://aka.ms/asr-scout-cm)
 
 
 ## Prerequisites
@@ -58,18 +56,6 @@ To complete this tutorial:
 - [Review](vmware-physical-secondary-support-matrix.md) the support requirements for all components.
 - Make sure that the machines you want to replicate comply with [replicated machine support](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
-
-## Create a vault
-
-[!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
-
-## Choose a protection goal
-
-Select what to replicate, and where to replicate it to.
-
-1. Click **Site Recovery** > **Prepare Infrastructure** > **Protection goal**.
-2. Select **To recovery site** > **Yes, with VMware vSphere Hypervisor**. Then click **OK**.
-3. In **Scout Setup**, download the InMage Scout 8.0.1 GA software, and the registration key. The setup files for all components are included in the downloaded .zip file.
 
 ## Download and install component updates
 
@@ -87,24 +73,53 @@ Install the updates as follows:
 > [!NOTE]
 >All Scout components' file update version may not be the same in the update .zip file. The older version indicate that there is no change in the component since previous update to this update.
 
-Download the [update](https://aka.ms/asr-scout-update6) .zip file. The file contains the following components: 
-  - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
-  - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
-  - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
-  - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-  - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-  - UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-1. Extract the .zip files.
-2. **RX server**: Copy **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** to the RX server, and extract it. In the extracted folder, run **/Install**.
-3. **Configuration server and process server**: Copy **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** to the configuration server and process server. Double-click to run it.<br>
-4. **Windows Master Target server**: To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the server. Double-click it to run it. The same unified agent update is also applicable for the source server. If source hasn't been updated to Update 4, you should update the unified agent.
-  The update does not need to apply on the Master target prepared with **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**  as this is new GA installer with all the latest changes.
-5. **vContinuum server**:  Copy **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** to the server.  Make sure that you've closed the vContinuum wizard. Double-click on the file to run it.
-	The update does not need to apply on the Master Target prepared with **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** as this is new GA installer with all the latest changes.
-6. **Linux master target server**: To update the unified agent, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the master target server and extract it. In the extracted folder, run **/Install**.
-7. **Windows source server**: To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the source server. Double-click on the file to run it. 
-	You don't need to install the Update 5 agent on the source server if it has already been updated to Update 4 or source agent is installed with latest base installer **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
-8. **Linux source server**: To update the unified agent, copy the corresponding version of the unified agent file to the Linux server, and extract it. In the extracted folder, run **/Install**.  Example: For RHEL 6.7 64-bit server, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the server, and extract it. In the extracted folder, run **/Install**.
+Download the [update](https://aka.ms/asr-scout-update7) .zip file and the [MySQL and PHP upgrade](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade) configuration files. The update .zip file contains the all the base binaries and cumulative upgrade binaries of the following components: 
+- InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
+- RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz
+- InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
+- InMage_CX_TP_8.0.1.0_Windows_GA_26Feb2015_release.exe
+- CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe
+- InMage_PI_8.0.1.0_Windows_GA_26Feb2015_release.exe
+- InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe
+- InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe
+- InMage_UA_8.0.7.0_OL5-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_OL5-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_OL6-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_OL6-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL5-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL5-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL6-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL7-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP1-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP1-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP2-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP2-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP3-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP3-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP4-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP4-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-64_GA_04Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP1-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP1-64_GA_04Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP2-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP2-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP3-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP3-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP4-64_GA_03Dec2018_release.tar.gz
+  1. Extract the .zip files.
+  2. **RX server**: Copy **RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz** to the RX server, and extract it. In the extracted folder, run **/Install**.
+  3. **Configuration server and process server**: Copy **CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe** to the configuration server and process server. Double-click to run it.<br>
+  4. **Windows Master Target server**: To update the unified agent, copy **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** to the server. Double-click it to run it. The same file can also be used for fresh installation. The same unified agent update is also applicable for the source server.
+  The update does not need to apply on the Master target prepared with **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe**  as this is new GA installer with all the latest changes.
+  5. **vContinuum server**:  Copy **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** to the server.  Make sure that you've closed the vContinuum wizard. Double-click on the file to run it.
+  6. **Linux master target server**: To update the unified agent, copy **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** to the Linux Master Target server and extract it. In the extracted folder, run **/Install**.
+  7. **Windows source server**: To update the unified agent, copy **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** to the source server. Double-click on the file to run it. 
+  8. **Linux source server**: To update the unified agent, copy the corresponding version of the unified agent file to the Linux server, and extract it. In the extracted folder, run **/Install**.  Example: For RHEL 6.7 64-bit server, copy **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** to the server, and extract it. In the extracted folder, run **/Install**.
+  9. After upgrading Configuration Server, Process Server and RX server with the above mentioned installers, the PHP and MySQL libraries needs to be upgraded manually with steps mentioned in section 7.4 of the [quick installation guide](https://aka.ms/asr-scout-quick-install-guide).
 
 ## Enable replication
 
@@ -116,8 +131,29 @@ Download the [update](https://aka.ms/asr-scout-update6) .zip file. The file cont
    * [User guide](https://aka.ms/asr-scout-user-guide)
    * [RX user guide](https://aka.ms/asr-scout-rx-user-guide)
    * [Quick installation guide](https://aka.ms/asr-scout-quick-install-guide)
+   * [Upgrading MYSQL and PHP libraries](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade)
 
 ## Updates
+
+### Site Recovery Scout 8.0.1 Update 7 
+Updated: December 31, 2018
+Download [Scout update 7](https://aka.ms/asr-scout-update7).
+Scout Update 7 is a full installer which can be used for fresh installation as well as to upgrade existing agents/MT which are on previous updates (from Update 1 to Update 6). It contains all fixes from Update 1 to Update 6 plus the new fixes and enhancements described below.
+ 
+#### New features
+* PCI compliance
+* TLS v1.2 Support
+
+#### Bug and Security Fixes
+* Fixed: Windows Cluster/Standalone Machines have incorrect IP configuration upon recovery/DR-Drill.
+* Fixed: Sometimes Add disk operation fails for V2V cluster.
+* Fixed: vContinuum Wizard gets stuck during recovery phase if the Master Target is Windows Server 2016
+* Fixed: MySQL security issues are mitigated by upgrading MySQL to version 5.7.23
+
+#### Manual Upgrade for PHP and MySQL on CS,PS, and RX
+The PHP scripting platform should be upgraded to version 7.2.10 on Configuration Server, Process Server and RX Server.
+The MySQL database management system should be upgraded to version 5.7.23 on Configuration Server, Process Server and RX Server.
+Please follow the manual steps given in the [Quick installation guide](https://aka.ms/asr-scout-quick-install-guide) to upgrade PHP and MySQL versions.
 
 ### Site Recovery Scout 8.0.1 Update 6 
 Updated: October 12, 2017
@@ -135,10 +171,35 @@ Scout Update 6 is a cumulative update. It contains all fixes from Update 1 to Up
     - Oracle Linux 6.8
 * Support has been added for VMware Center 6.5
 
+Install the updates as follows:
+
+> [!NOTE]
+>All Scout components' file update version may not be the same in the update .zip file. The older version indicate that there is no change in the component since previous update to this update.
+
+Download the [update](https://aka.ms/asr-scout-update6) .zip file. The file contains the following components: 
+- RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
+- CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
+- UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
+- UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+- vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
+- UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_\<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  1. Extract the .zip files.
+  2. **RX server**: Copy **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** to the RX server, and extract it. In the extracted folder, run **/Install**.
+  3. **Configuration server and process server**: Copy **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** to the configuration server and process server. Double-click to run it.<br>
+  4. **Windows Master Target server**: To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the server. Double-click it to run it. The same unified agent update is also applicable for the source server. If source hasn't been updated to Update 4, you should update the unified agent.
+  The update does not need to apply on the Master target prepared with **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**  as this is new GA installer with all the latest changes.
+  5. **vContinuum server**:  Copy **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** to the server.  Make sure that you've closed the vContinuum wizard. Double-click on the file to run it.
+  The update does not need to apply on the Master Target prepared with **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** as this is new GA installer with all the latest changes.
+  6. **Linux master target server**: To update the unified agent, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the master target server and extract it. In the extracted folder, run **/Install**.
+  7. **Windows source server**: To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the source server. Double-click on the file to run it. 
+  You don't need to install the Update 5 agent on the source server if it has already been updated to Update 4 or source agent is installed with latest base installer **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
+  8. **Linux source server**: To update the unified agent, copy the corresponding version of the unified agent file to the Linux server, and extract it. In the extracted folder, run **/Install**.  Example: For RHEL 6.7 64-bit server, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the server, and extract it. In the extracted folder, run **/Install**.
+
+
 > [!NOTE]
 > * Base Unified Agent(UA) installer for Windows has been refreshed to support Windows Server 2016. The new installer **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** is packaged with the base Scout GA package (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). The same installer will be used for all supported Windows version. 
 > * Base Windows vContinuum & Master Target installer has been refreshed to support Windows Server 2016. The new installer **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** is packaged with the base Scout GA package (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). The same installer will be used to deploy Windows 2016 Master Target and Windows 2012R2 Master Target.
-> * Download the GA package from the portal, as described in [create a vault](#create-a-vault).
+> * Windows server 2016 on physical server is not supported by ASR Scout. It supports only Windows Server 2016 VMware VM. 
 >
 
 #### Bug fixes and enhancements
@@ -151,7 +212,7 @@ Scout Update 5 is a cumulative update. It contains all fixes from Update 1 to Up
 
 #### New platform support
 * SUSE Linux Enterprise Server 11 Service Pack 4(SP4)
-* SLES 11 SP4 64 bit  **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** is packaged with the base Scout GA package (**InMage_Scout_Standard_8.0.1 GA.zip**). Download the GA package from the portal, as described in [create a vault](#create-a-vault).
+* SLES 11 SP4 64 bit  **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** is packaged with the base Scout GA package (**InMage_Scout_Standard_8.0.1 GA.zip**). Download the GA package from the portal, as described in create a vault.
 
 
 #### Bug fixes and enhancements
@@ -185,7 +246,7 @@ Scout Update 4 is a cumulative update. It includes all fixes from Update 1 to Up
   * CentOS 6.8
 
 > [!NOTE]
-> RHEL/CentOS 7 64 bit  **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** is packaged with the base Scout GA package **InMage_Scout_Standard_8.0.1 GA.zip**. Download the Scout GA package from the portal as described in [create a vault](#create-a-vault).
+> RHEL/CentOS 7 64 bit  **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** is packaged with the base Scout GA package **InMage_Scout_Standard_8.0.1 GA.zip**. Download the Scout GA package from the portal as described in create a vault.
 
 #### Bug fixes and enhancements
 
@@ -209,9 +270,9 @@ Scout Update 4 is a cumulative update. It includes all fixes from Update 1 to Up
 
 > [!NOTE]
 > * **InMage_Scout_Standard_8.0.1_GA.zip** base package has:
-	* An updated configuration server base installer (**InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
-	* A Windows master target base installer (**InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**).
-	* For all new installations, use the new configuration server and Windows master target GA bits.
+>     * An updated configuration server base installer (**InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
+>     * A Windows master target base installer (**InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**).
+>     * For all new installations, use the new configuration server and Windows master target GA bits.
 > * Update 4 can be applied directly on 8.0.1 GA.
 > * The configuration server and RX updates can’t be rolled back after they've been applied.
 

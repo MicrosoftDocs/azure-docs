@@ -3,21 +3,25 @@ title: Use Azure Webhooks to monitor Media Services job notifications with .NET 
 description: Learn how to use Azure Webhooks to monitor Media Services job notifications. The code sample is written in C# and uses the Media Services SDK for .NET.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: a61fe157-81b1-45c1-89f2-224b7ef55869
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.custom: devx-track-csharp
 ---
 # Use Azure Webhooks to monitor Media Services job notifications with .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
+
 When you run jobs, you often require a way to track job progress. You can monitor Media Services job notifications by using Azure Webhooks or [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). This article shows how to work with webhooks.
 
 This article shows how to
@@ -26,7 +30,7 @@ This article shows how to
 	
 	In this case, the webhook is triggered by Media Services when your encoding job changes status. The function listens for the webhook call back from Media Services notifications and publishes the output asset once the job finishes. 
 	
-	>[!NOTE]
+	>[!TIP]
 	>Before continuing, make sure you understand how [Azure Functions HTTP and webhook bindings](../../azure-functions/functions-bindings-http-webhook.md) work.
 	>
 	
@@ -44,7 +48,7 @@ The following are required to complete the tutorial:
 
 ## Create a function app
 
-1. Go to the [Azure portal](http://portal.azure.com) and sign-in with your Azure account.
+1. Go to the [Azure portal](https://portal.azure.com) and sign-in with your Azure account.
 2. Create a function app as described [here](../../azure-functions/functions-create-function-app-portal.md).
 
 ## Configure function app settings
@@ -56,7 +60,7 @@ The [application settings](media-services-dotnet-how-to-use-azure-functions.md#c
 |Name|Definition|Example| 
 |---|---|---|
 |SigningKey |A signing key.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
-|WebHookEndpoint | A webhook endpoint address. Once your webhook function is created, you can copy the URL from the **Get function URL** link. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
+|WebHookEndpoint | A webhook endpoint address. Once your webhook function is created, you can copy the URL from the **Get function URL** link. | https:\//juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
 
 ## Create a function
 
@@ -237,7 +241,7 @@ private static string PublishAndBuildStreamingURLs(String jobID)
 
     // Get a reference to the streaming manifest file from the  
     // collection of files in the asset. 
-    var manifestFile = asset.AssetFiles.Where(f => f.Name.ToLower().
+    var manifestFile = asset.AssetFiles.ToList().Where(f => f.Name.ToLower().
                 EndsWith(".ism")).
                 FirstOrDefault();
 
@@ -346,25 +350,27 @@ Save and run your function.
 
 Once the webhook is triggered, the example above produces the following output, your values will vary.
 
-	C# HTTP trigger function processed a request. RequestUri=https://juliako001-functions.azurewebsites.net/api/Notification_Webhook_Function?code=9376d69kygoy49oft81nel8frty5cme8hb9xsjslxjhalwhfrqd79awz8ic4ieku74dvkdfgvi
-	Request Body = 
-    {
-	  "MessageVersion": "1.1",
-	  "ETag": "b8977308f48858a8f224708bc963e1a09ff917ce730316b4e7ae9137f78f3b20",
-	  "EventType": 4,
-	  "TimeStamp": "2017-02-16T03:59:53.3041122Z",
-	  "Properties": {
-	    "JobId": "nb:jid:UUID:badd996c-8d7c-4ae0-9bc1-bd7f1902dbdd",
-	    "TaskId": "nb:tid:UUID:80e26fb9-ee04-4739-abd8-2555dc24639f",
-	    "NewState": "Finished",
-	    "OldState": "Processing",
-	    "AccountName": "mediapkeewmg5c3peq",
-	    "AccountId": "301912b0-659e-47e0-9bc4-6973f2be3424",
-	    "NotificationEndPointId": "nb:nepid:UUID:cb5d707b-4db8-45fe-a558-19f8d3306093"
-	  }
-	}
-	
-	URL to the manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.windows.net/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
+```output
+C# HTTP trigger function processed a request. RequestUri=https://juliako001-functions.azurewebsites.net/api/otification_Webhook_Function?code=9376d69kygoy49oft81nel8frty5cme8hb9xsjslxjhalwhfrqd79awz8ic4ieku74dvkdfgvi
+Request Body = 
+{
+  "MessageVersion": "1.1",
+  "ETag": "b8977308f48858a8f224708bc963e1a09ff917ce730316b4e7ae9137f78f3b20",
+  "EventType": 4,
+  "TimeStamp": "2017-02-16T03:59:53.3041122Z",
+  "Properties": {
+    "JobId": "nb:jid:UUID:badd996c-8d7c-4ae0-9bc1-bd7f1902dbdd",
+    "TaskId": "nb:tid:UUID:80e26fb9-ee04-4739-abd8-2555dc24639f",
+    "NewState": "Finished",
+    "OldState": "Processing",
+    "AccountName": "mediapkeewmg5c3peq",
+    "AccountId": "301912b0-659e-47e0-9bc4-6973f2be3424",
+    "NotificationEndPointId": "nb:nepid:UUID:cb5d707b-4db8-45fe-a558-19f8d3306093"
+  }
+}
+
+URL to the manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.windows.net/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
+```
 
 ## Add a webhook to your encoding task
 
@@ -374,22 +380,22 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
 2. Use [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) to install Azure Media Services.
 3. Update App.config file with appropriate values: 
 	
-	* Azure Media Services connection information, 
-	* webhook URL that expects to get the notifications, 
-	* the signing key that matches the key that your webhook expects. The signing key is the 64-byte Base64 encoded value that is used to protect and secure your webhooks callbacks from Azure Media Services. 
+   * Azure Media Services connection information, 
+   * webhook URL that expects to get the notifications, 
+   * the signing key that matches the key that your webhook expects. The signing key is the 64-byte Base64 encoded value that is used to protect and secure your webhooks callbacks from Azure Media Services. 
 
-    ```xml
-            <appSettings>
-                <add key="AMSAADTenantDomain" value="domain" />
-                <add key="AMSRESTAPIEndpoint" value="endpoint" />
+     ```xml
+           <appSettings>
+               <add key="AMSAADTenantDomain" value="domain" />
+               <add key="AMSRESTAPIEndpoint" value="endpoint" />
 
-                <add key="AMSClientId" value="clinet id" />
-                <add key="AMSClientSecret" value="client secret" />
+               <add key="AMSClientId" value="clinet id" />
+               <add key="AMSClientSecret" value="client secret" />
 
-                <add key="WebhookURL" value="https://yourapp.azurewebsites.net/api/functionname?code=ApiKey" />
-                <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
-            </appSettings>
-    ```
+               <add key="WebhookURL" value="https://yourapp.azurewebsites.net/api/functionname?code=ApiKey" />
+               <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
+           </appSettings>
+     ```
 
 4. Update your Program.cs file with the following code:
 

@@ -1,24 +1,25 @@
 ---
 title: H264 Single Bitrate 4K Audio 5.1 | Microsoft Docs
 description: The topic gives an overview of the **H264 Single Bitrate 4K Audio 5.1** task preset.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.assetid: 72cb95ac-2cd6-4ef4-9938-8f22cea04920
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 
 # H264 Single Bitrate 4K Audio 5.1
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 `Media Encoder Standard` defines a set of encoding presets you can use when creating encoding jobs. You can either use a `preset name` to specify into which format you would like to encode your media file. Or, you can create your own JSON or XML-based presets (using UTF-8 or UTF-16 encoding. You would then pass the custom preset to the encoder. For the list of all the preset names supported by this `Media Encoder Standard` encoder, see [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).  
   
  This topic shows the `H264 Single Bitrate 4K Audio 5.1` preset (in XML and JSON format).  
@@ -26,13 +27,13 @@ ms.author: juliako
  This preset produces a single MP4 file with a bitrate of 18000 kbps, and AAC 5.1 audio. For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine the XML or JSON defined below. For explanations of what each element means, and the valid values for each element, see the [Media Encoder Standard schema](media-services-mes-schema.md).  
   
 > [!NOTE]
->  You should get the Premium reserved unit type with 4K encodes. For more information, see [How to Scale Encoding](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  You should get the Premium reserved unit type with 4K encodes. For more information, see [How to Scale Encoding](./media-services-scale-media-processing-overview.md).  
   
  XML  
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
-<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">  
+<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">  
   <Encoding>  
     <H264Video>  
       <KeyFrameInterval>00:00:02</KeyFrameInterval>  

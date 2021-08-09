@@ -1,28 +1,26 @@
 ---
-title: 'Quickstart: Create an Azure Database for MariaDB server - Azure CLI'
+title: 'Quickstart: Create a server - Azure CLI - Azure Database for MariaDB'
 description: This quickstart describes how to use the Azure CLI to create an Azure Database for MariaDB server in an Azure resource group.
-author: ajlam
-ms.author: andrela
-editor: jasonwhowell
-services: mariadb
+author: savjani
+ms.author: pariks
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.custom: mvc
+ms.date: 3/18/2020
+ms.custom: mvc, devx-track-azurecli
 ---
 
-# Create an Azure Database for MariaDB server by using the Azure CLI
+# Quickstart: Create an Azure Database for MariaDB server by using the Azure CLI
 
-You can use the Azure CLI to create and manage Azure resources from the command line or in scripts. This quickstart describes how to use the Azure CLI to create an Azure Database for MariaDB server in an Azure resource group in about five minutes. 
+You can use the Azure CLI to create and manage Azure resources from the command line or in scripts. This quickstart describes how to use the Azure CLI to create an Azure Database for MariaDB server in an Azure resource group in about five minutes.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you install and use the CLI locally, for this quickstart, you must run Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+- This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-If you have multiple subscriptions, choose the subscription that contains the resource or the subscription in which you are billed. To select a specific subscription ID in your account, use the [az account set](/cli/azure/account#az-account-set) command:
+If you have multiple subscriptions, choose the subscription that contains the resource or the subscription in which you are billed. To select a specific subscription ID in your account, use the [az account set](/cli/azure/account#az_account_set) command:
 
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
@@ -30,7 +28,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 
 ## Create a resource group
 
-Create an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) by using the [az group create](/cli/azure/group#az-group-create) command. A resource group is a logical container in which Azure resources are deployed and managed as a group.
+Create an [Azure resource group](../azure-resource-manager/management/overview.md) by using the [az group create](/cli/azure/group#az_group_create) command. A resource group is a logical container in which Azure resources are deployed and managed as a group.
 
 The following example creates a resource group named `myresourcegroup` in the `westus` location:
 
@@ -40,7 +38,7 @@ az group create --name myresourcegroup --location westus
 
 ## Create an Azure Database for MariaDB server
 
-Create an Azure Database for MariaDB server by using the [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create) command. A server can manage multiple databases. Typically, a separate database is used for each project or for each user.
+Create an Azure Database for MariaDB server by using the [az mariadb server create](/cli/azure/mariadb/server#az_mariadb_server_create) command. A server can manage multiple databases. Typically, a separate database is used for each project or for each user.
 
 Setting | Sample value | Description
 ---|---|---
@@ -56,10 +54,10 @@ version | **10.2** | The MariaDB major engine version.
 admin-user | **myadmin** | The user name for the administrator login. The **admin-user** parameter can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
 admin-password | *your password* | The password of the administrator user. Your password must contain between 8 and 128 characters. It must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 
-The **sku-name** parameter value follows the convention *pricing tier*\_*compute generation*\_*vCores* as shown in the following examples:
-+ `--sku-name B_Gen5_4` maps to the Basic pricing tier, the Gen 5 compute generation, and 4 vCores.
-+ `--sku-name GP_Gen5_32` maps to the General Purpose pricing tier, the Gen 5 compute generation, and 32 vCores.
-+ `--sku-name MO_Gen5_2` maps to the Memory Optimized pricing tier, the Gen 5 compute generation, and 2 vCores.
+The sku-name parameter value follows the convention {pricing tier}\_{compute generation}\_{vCores} as in the examples below:
++ `--sku-name B_Gen5_1` maps to Basic, Gen 5, and 1 vCore. This option is the smallest SKU available.
++ `--sku-name GP_Gen5_32` maps to General Purpose, Gen 5, and 32 vCores.
++ `--sku-name MO_Gen5_2` maps to Memory Optimized, Gen 5, and 2 vCores.
 
 For information about valid values by region and for tiers, see [Pricing tiers](./concepts-pricing-tiers.md).
 
@@ -69,11 +67,14 @@ The following example creates a server named **mydemoserver** in the West US reg
 az mariadb server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 10.2
 ```
 
+> [!NOTE]
+> Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier cannot later be scaled to General Purpose or Memory Optimized. See the [pricing page](https://azure.microsoft.com/pricing/details/mariadb/) for more information.
+
 ## Configure a firewall rule
 
-Create an Azure Database for MariaDB server-level firewall rule by using the [az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create) command. A server-level firewall rule allows an external application like the mysql command-line tool or MySQL Workbench to connect to your server through the Azure Database for MariaDB service firewall. 
+Create an Azure Database for MariaDB server-level firewall rule by using the [az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az_mariadb_server_firewall_rule_create) command. A server-level firewall rule allows an external application like the mysql command-line tool or MySQL Workbench to connect to your server through the Azure Database for MariaDB service firewall.
 
-The following example creates a firewall rule called `AllowMyIP` that allows connections from a specific IP address, 192.168.0.1. Substitute an IP address or range of IP addresses that corresponds to the location you connect from. 
+The following example creates a firewall rule called `AllowMyIP` that allows connections from a specific IP address, 192.168.0.1. Substitute an IP address or range of IP addresses that corresponds to the location you connect from.
 
 ```azurecli-interactive
 az mariadb server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowMyIP --start-ip-address 192.168.0.1 --end-ip-address 192.168.0.1
@@ -81,14 +82,13 @@ az mariadb server firewall-rule create --resource-group myresourcegroup --server
 
 > [!NOTE]
 > Connections to Azure Database for MariaDB communicate over port 3306. If you try to connect from inside a corporate network, outbound traffic over port 3306 might not be allowed. In this case, you can connect to your server only if your IT department opens port 3306.
-> 
 
 ## Configure SSL settings
 
 By default, SSL connections between your server and client applications are enforced. This default setting ensures security of "in-motion" data by encrypting the data stream over the internet. For this quickstart, disable SSL connections for your server. Disabling SSL is not recommended for production servers. For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md).
 
 The following example disables SSL enforcing on your Azure Database for MariaDB server:
- 
+
 ```azurecli-interactive
 az mariadb server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Disabled
 ```
@@ -140,78 +140,79 @@ To connect to the server by using the mysql command-line tool:
 
 1. Connect to the server:
 
-  ```azurecli-interactive
-  mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
-  ```
+   ```azurecli-interactive
+   mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
+   ```
 
 2. View the server status at the `mysql>` prompt:
 
-  ```sql
-  status
-  ```
-  You should see something similar to the following text:
+   ```sql
+   status
+   ```
 
-  ```bash
-  C:\Users\>mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
-  Enter password: ***********
-  Welcome to the MySQL monitor.  Commands end with ; or \g.
-  Your MySQL connection id is 65512
-  Server version: 5.6.39.0 MariaDB Server
+   You should see something similar to the following text:
 
-  Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
+   ```cmd
+   C:\Users\>mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
+   Enter password: ***********
+   Welcome to the MySQL monitor.  Commands end with ; or \g.
+   Your MySQL connection id is 65512
+   Server version: 5.6.39.0 MariaDB Server
 
-  Oracle is a registered trademark of Oracle Corporation and/or its
-  affiliates. Other names may be trademarks of their respective
-  owners.
+   Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
 
-  Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+   Oracle is a registered trademark of Oracle Corporation and/or its
+   affiliates. Other names may be trademarks of their respective
+   owners.
 
-  mysql> status
-  --------------
-  mysql  Ver 14.14 Distrib 5.7.23, for Linux (x86_64)
+   Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-  Connection id:          64681
-  Current database:
-  Current user:           myadmin@40.118.201.21
-  SSL:                    Cipher in use is AES256-SHA
-  Current pager:          stdout
-  Using outfile:          ''
-  Using delimiter:        ;
-  Server version:         5.6.39.0 MariaDB Server
-  Protocol version:       10
-  Connection:             mydemoserver.mariadb.database.azure.com via TCP/IP
-  Server characterset:    latin1
-  Db     characterset:    latin1
-  Client characterset:    utf8
-  Conn.  characterset:    utf8
-  TCP port:               3306
-  Uptime:                 1 day 3 hours 28 min 50 sec
+   mysql> status
+   --------------
+   mysql  Ver 14.14 Distrib 5.7.23, for Linux (x86_64)
 
-  Threads: 10  Questions: 29002  Slow queries: 0  Opens: 33  Flush tables: 3  Open tables: 1  Queries per second avg: 0.293
-  --------------
+   Connection id:          64681
+   Current database:
+   Current user:           myadmin@40.118.201.21
+   SSL:                    Cipher in use is AES256-SHA
+   Current pager:          stdout
+   Using outfile:          ''
+   Using delimiter:        ;
+   Server version:         5.6.39.0 MariaDB Server
+   Protocol version:       10
+   Connection:             mydemoserver.mariadb.database.azure.com via TCP/IP
+   Server characterset:    latin1
+   Db     characterset:    latin1
+   Client characterset:    utf8
+   Conn.  characterset:    utf8
+   TCP port:               3306
+   Uptime:                 1 day 3 hours 28 min 50 sec
 
-  mysql>
-  ```
+   Threads: 10  Questions: 29002  Slow queries: 0  Opens: 33  Flush tables: 3  Open tables: 1  Queries per second avg: 0.293
+   --------------
+
+   mysql>
+   ```
 
 > [!TIP]
 > For additional commands, see [MySQL 5.7 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
 ## Connect to the server by using MySQL Workbench
 
-1.	Open MySQL Workbench on your client computer. If it's not already installed, [download](https://dev.mysql.com/downloads/workbench/) and install the application.
+1. Open MySQL Workbench on your client computer. If it's not already installed, [download](https://dev.mysql.com/downloads/workbench/) and install the application.
 
-2.	In the **Setup New Connection** dialog box, on the **Parameters** tab, enter the following information:
+2. In the **Setup New Connection** dialog box, on the **Parameters** tab, enter the following information:
 
- ![Set up a new connection](./media/quickstart-create-mariadb-server-database-using-azure-cli/setup-new-connection.png)
+   ![Set up a new connection](./media/quickstart-create-mariadb-server-database-using-azure-cli/setup-new-connection.png)
 
-  | Setting | Suggested value | Description |
-  |---|---|---|
-  |	Connection Name | **Demo connection** | Enter a label for this connection (the connection name can be anything) |
-  | Connection Method | **Standard (TCP/IP)** | Use the TCP/IP protocol to connect to Azure Database for MariaDB |
-  | Hostname | **mydemoserver.mariadb.database.azure.com** | The server name that you noted earlier. |
-  | Port | **3306** | The default port for Azure Database for MariaDB. |
-  | Username | **myadmin@mydemoserver** | The server admin login that you noted earlier. |
-  | Password | *your password* | Use the admin account password that you set up earlier. |
+   | Setting | Suggested value | Description |
+   |---|---|---|
+   | Connection Name | **Demo connection** | Enter a label for this connection (the connection name can be anything) |
+   | Connection Method | **Standard (TCP/IP)** | Use the TCP/IP protocol to connect to Azure Database for MariaDB |
+   | Hostname | **mydemoserver.mariadb.database.azure.com** | The server name that you noted earlier. |
+   | Port | **3306** | The default port for Azure Database for MariaDB. |
+   | Username | **myadmin\@mydemoserver** | The server admin login that you noted earlier. |
+   | Password | *your password* | Use the admin account password that you set up earlier. |
 
 3. To check whether all parameters are configured correctly, select **Test Connection**.
 
@@ -225,7 +226,7 @@ If you don't need the resources that you used in this quickstart for another qui
 az group delete --name myresourcegroup
 ```
 
-If you want to delete only the server that you created in this quickstart, run the [az mariadb server delete](/cli/azure/mariadb/server#az-mariadb-server-delete) command:
+If you want to delete only the server that you created in this quickstart, run the [az mariadb server delete](/cli/azure/mariadb/server#az_mariadb_server_delete) command:
 
 ```azurecli-interactive
 az mariadb server delete --resource-group myresourcegroup --name mydemoserver
@@ -234,4 +235,4 @@ az mariadb server delete --resource-group myresourcegroup --name mydemoserver
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Design a MariaDB Database with Azure CLI](./tutorial-design-database-cli.md)
+> [Design a MariaDB Database with Azure CLI](tutorial-design-database-cli.md)

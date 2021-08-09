@@ -1,19 +1,13 @@
 ---
-title: Create a Windows VM from a specialized VHD in the Azure portal| Microsoft Docs
+title: Create a Windows VM from a specialized VHD in the Azure portal
 description: Create a new Windows VM from a VHD in the Azure portal.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.collection: windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
-ms.date: 09/20/2018
+ms.topic: how-to
+ms.date: 01/18/2019
 ms.author: cynthn
 
 ---
@@ -24,11 +18,17 @@ There are several ways to create a virtual machine (VM) in Azure:
 - If you already have a virtual hard disk (VHD) to use or you want to copy the VHD from an existing VM to use, you can create a new VM by *attaching* the VHD to the new VM as an OS disk. 
 
 - You can create a new VM from the VHD of a VM that has been deleted. For example, if you have an Azure VM that isn't working correctly, you can delete the VM and use its VHD to create a new VM. You can either reuse the same VHD or create a copy of the VHD by creating a snapshot and then creating a new managed disk from the snapshot. Although creating a snapshot takes a few more steps, it preserves the original VHD and provides you with a fallback.
+
+- Take a classic VM and use the VHD to create a new VM that uses the Resource Manager deployment model and managed disks. For the best results, **Stop** the classic VM in the Azure portal before creating the snapshot.
  
 - You can create an Azure VM from an on-premises VHD by uploading the on-premises VHD and attaching it to a new VM. You use PowerShell or another tool to upload the VHD to a storage account, and then you create a managed disk from the VHD. For more information, see [Upload a specialized VHD](create-vm-specialized.md#option-2-upload-a-specialized-vhd). 
 
-Don't use a specialized disk if you want to create multiple VMs. Instead, for larger deployments, [create an image](capture-image-resource.md) and then [use that image to create multiple VMs](create-vm-generalized-managed.md).
+> [!IMPORTANT]
+> 
+> When you use a specialized disk to create a new VM, the new VM retains the computer name of the original VM. Other computer-specific information (e.g. CMID) is also kept and, in some cases, this duplicate information could cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.  
+> Thus, don't use a specialized disk if you want to create multiple VMs. Instead, for larger deployments, [create an image](capture-image-resource.md) and then [use that image to create multiple VMs](create-vm-generalized-managed.md).
 
+We recommend that you limit the number of concurrent deployments to 20 VMs from a single snapshot or VHD. 
 
 ## Copy a disk
 
@@ -69,6 +69,7 @@ After you have the managed disk VHD that you want to use, you can create the VM 
 10. On the **Guest config** page, add any extensions as needed.
 11. When you're done, select **Review + create**. 
 12. If the VM configuration passes validation, select **Create** to start the deployment.
+
 
 ## Next steps
 

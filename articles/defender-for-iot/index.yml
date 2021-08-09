@@ -1,0 +1,78 @@
+### YamlMime:Hub
+
+title: Azure Defender for IoT 
+summary: Azure Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options including fully on-premises, cloud-connected, or hybrid.
+brand: azure ## Used for color theming of icons and hero area
+
+metadata:
+  title: Azure Defender for IoT documentation
+  description: Learn how Azure Defender for IoT, an Azure based cloud security service provides comprehensive IoT device threat protection.
+  services: service
+  ms.service: defender-for-iot
+  ms.topic: landing-page
+  ms.collection: M365-security-compliance
+  author: elazark
+  ms.author: v-ekrieg
+  manager: raynew
+  ms.date: 06/16/2021
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+  items:
+    - title: What is Azure Defender for IoT for end-user organizations?
+      itemType: overview # controls the icon image and super-title text
+      url: organizations/overview.md
+    - title: What's new for organizations?
+      itemType: whats-new
+      url: organizations/release-notes.md
+    - title: Agentless solution architecture for organizations
+      itemType: architecture 
+      url: organizations/architecture.md
+    - title: What is Azure Defender for IoT for device builders?
+      itemType: overview
+      url: device-builders/overview.md
+    - title: What's new for device builders?
+      itemType: whats-new
+      url: device-builders/release-notes.md
+    - title: Agent-based solution architecture for device builders
+      itemType: architecture
+      url: device-builders/architecture-agent-based.md
+
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+  items:
+    - title: Azure Defender for IoT for end-user organizations 
+      links:
+        - url: organizations/quickstart-system-prerequisites.md
+          itemType: quickstart
+          text: System prerequisites
+        - url: organizations/getting-started.md
+          itemType: quickstart
+          text: Get started with Defender for IoT for end-user organizations
+        - url: organizations/concept-key-concepts.md
+          itemType: quickstart
+          text: Key concepts
+        - url: organizations/how-to-set-up-your-network.md
+          itemType: how-to-guide
+          text: About Azure Defender for IoT network setup
+      footerLink:
+        url: organizations/index.yml
+        text: See more
+
+    - title: Azure Defender for IoT for device builders
+      links:
+        - url: device-builders/quickstart-onboard-iot-hub.md
+          itemType: quickstart
+          text: Onboard Defender for IoT to an agent-based solution
+        - url: device-builders/quickstart-configure-your-solution.md
+          itemType: quickstart
+          text: Configure your Azure Defender for IoT solution
+        - url: device-builders/concept-recommendations.md
+          itemType: concept
+          text: Security recommendations for IoT Hub
+        - url: device-builders/how-to-configure-agent-based-solution.md
+          itemType: how-to-guide
+          text: Configure Azure Defender for IoT
+      footerLink:
+        url: device-builders/index.yml
+        text: See more

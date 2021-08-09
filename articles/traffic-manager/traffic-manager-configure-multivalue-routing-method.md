@@ -1,16 +1,16 @@
 ---
-title: Configure multivalue traffic routing method in Azure Traffic Manager | Microsoft Docs
+title: Configure multivalue traffic routing - Azure Traffic Manager
 description: This article explains how to configure Traffic Manager to route traffic to A/AAAA endpoints. 
 services: traffic-manager
 documentationcenter: ''
-author: KumudD
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: kumud
+ms.author: duau
 ---
 
 # Configure MultiValue routing method in Traffic Manager
@@ -35,16 +35,17 @@ Create a Traffic Manager profile that directs user traffic by sending them to th
 
 1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
 2. In **Create Traffic Manager profile**, enter or select, the following information, accept the defaults for the remaining settings, and then select **Create**:
-    | Setting                 | Value                                              |
+    
+	| Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Name                   | This name needs to be unique within the trafficmanager.net zone and results in the DNS name, trafficmanager.net that is used to access your Traffic Manager profile.                                   |
     | Routing method          | Select the **Multivalue** routing method.                                       |
     | Subscription            | Select your subscription.                          |
     | Resource group          | Select *myResourceGroupTM1*. |
     | Location                | This setting refers to the location of the resource group, and has no impact on the Traffic Manager profile that will be deployed globally.                              |
-    |
+   |        |           | 
   
-    ![Create a Traffic Manager profile](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
+   ![Create a Traffic Manager profile](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 
 ## Add Traffic Manager endpoints
 
@@ -62,9 +63,9 @@ Add two IP addresses as external endpoints to the MultiValue Traffic Manager pro
     |        |           |
 
 4. Repeat steps 2 and 3 to add another endpoint named *myEndpoint2*, for **Fully qualified domain name (FQDN) or IP**, enter the public IP address of the second endpoint.
-5.	When the addition of both endpoints is complete, they are displayed in **Traffic Manager profile** along with their monitoring status as **Online**.
+5. When the addition of both endpoints is complete, they are displayed in **Traffic Manager profile** along with their monitoring status as **Online**.
 
-    ![Add a Traffic Manager endpoint](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
+   ![Add a Traffic Manager endpoint](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
  
 ## Next steps
 

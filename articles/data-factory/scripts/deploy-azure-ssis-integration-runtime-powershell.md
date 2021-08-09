@@ -1,25 +1,22 @@
 ---
-title: PowerShell script - deploy Azure-SSIS integration runtime | Microsoft Docs
+title: Deploy Azure SSIS integration runtime using PowerShell
 description: This PowerShell script creates an Azure-SSIS integration runtime that can run SSIS packages in the cloud. 
-services: data-factory
-author: douglaslMS
-manager: craigg
-editor: ''
-
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: integration-services
 ms.topic: article
+ms.author: sawinark
+author: swinarko
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 09/12/2017
-ms.author: douglasl
 ---
 
 # PowerShell script - deploy Azure-SSIS integration runtime
 
 This sample PowerShell script creates an Azure-SSIS integration runtime that can run your SSIS packages in Azure.  
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## Sample script
 
@@ -30,12 +27,12 @@ This sample PowerShell script creates an Azure-SSIS integration runtime that can
 After you run the sample script, you can use the following command to remove the resource group and all resources associated with it:
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $resourceGroupName
+Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 ```
 To remove the data factory from the resource group, run the following command: 
 
 ```powershell
-Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
+Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
 ```
 
 ## Script explanation
@@ -44,16 +41,16 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
-| [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2) | Create a data factory. |
-| [Set-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2integrationruntime) | Creates an Azure-SSIS integration runtime that can run SSIS packages in the cloud |
-| [Start-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/start-azurermdatafactoryv2integrationruntime) | Starts the Azure-SSIS integration runtime. |
-| [Get-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2integrationruntime) | Gets information about the Azure-SSIS integration runtime. |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
+| [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Create a data factory. |
+| [Set-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) | Creates an Azure-SSIS integration runtime that can run SSIS packages in the cloud |
+| [Start-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) | Starts the Azure-SSIS integration runtime. |
+| [Get-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/get-Azdatafactoryv2integrationruntime) | Gets information about the Azure-SSIS integration runtime. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
 
 Additional Azure Data Factory PowerShell script samples can be found in the [Azure Data Factory PowerShell samples](../samples-powershell.md).

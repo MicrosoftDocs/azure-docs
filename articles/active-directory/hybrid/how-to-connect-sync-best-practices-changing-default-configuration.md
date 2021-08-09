@@ -4,18 +4,19 @@ description: Provides best practices for changing the default configuration of A
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 7638a031-1635-4942-94c3-fce8f09eed5e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/29/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Best practices for changing the default configuration
 The purpose of this topic is to describe supported and unsupported changes to Azure AD Connect sync.
@@ -25,7 +26,9 @@ The configuration created by Azure AD Connect works “as is” for most environ
 ## Changes to the service account
 Azure AD Connect sync is running under a service account created by the installation wizard. This service account holds the encryption keys to the database used by sync. It is created with a 127 characters long password and the password is set to not expire.
 
-* It is **unsupported** to change or reset the password of the service account. Doing so destroys the encryption keys and the service is not able to access the database and is not able to start.
+> [!WARNING]
+> If you change or reset the ADSync service account password, the Synchronization Service will not be able start correctly until you have abandoned the encryption key and reinitialized the ADSync service account password.
+> To do this, see [Changing the ADSync service account password](how-to-connect-sync-change-serviceacct-pass.md).
 
 ## Changes to the scheduler
 Starting with the releases from build 1.1 (February 2016) you can configure the [scheduler](how-to-connect-sync-feature-scheduler.md) to have a different sync cycle than the default 30 minutes.

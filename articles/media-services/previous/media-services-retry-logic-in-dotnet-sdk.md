@@ -1,23 +1,24 @@
 ---
 title: Retry logic in the Media Services SDK for .NET | Microsoft Docs
 description: The topic gives an overview of retry logic in the Media Services SDK for .NET.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.assetid: 527b61a6-c862-4bd8-bcbc-b9aea1ffdee3
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
-ms.author: juliako
-
+ms.date: 3/10/2021
+ms.author: inhenkel
 ---
 # Retry logic in the Media Services SDK for .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 When working with Microsoft Azure services, transient faults can occur. If a transient fault occurs, in most cases, after a few retries the operation succeeds. The Media Services SDK for .NET implements the retry logic to handle transient faults associated with exceptions and errors that are caused by web requests, executing queries, saving changes, and storage operations.  By default, the Media Services SDK for .NET executes four retries before re-throwing the exception to your application. The code in your application must then handle this exception properly.  
 
  The following is a brief guideline of Web Request, Storage, Query, and SaveChanges policies:  
@@ -45,7 +46,7 @@ The following table describes exceptions that the Media Services SDK for .NET ha
 | IOException |No |Yes |No |No |
 
 ### <a name="WebExceptionStatus"></a> WebException status codes
-The following table shows for which WebException error codes the retry logic is implemented. The [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) enumeration defines the status codes.  
+The following table shows for which WebException error codes the retry logic is implemented. The [WebExceptionStatus](/dotnet/api/system.net.webexceptionstatus) enumeration defines the status codes.  
 
 | Status | Web Request | Storage | Query | SaveChanges |
 | --- | --- | --- | --- | --- |
@@ -83,4 +84,3 @@ If you want to take a look at the actual implementation of the Media Services SD
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

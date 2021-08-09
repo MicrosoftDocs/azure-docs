@@ -1,55 +1,118 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure IoT Edge
+### YamlMime:Landing
+
+title: Azure IoT Edge documentation
+summary: Azure IoT Edge extends IoT Hub. Analyze device data locally instead of in the cloud to send less data to the cloud, react to events quickly, and operate offline.
+
 metadata:
-  title: Azure IoT Edge - Tutorials, API Reference
-  description: Use Azure IoT Edge to deploy Azure services and custom business logic to devices at the edge.
-  author: kgremban
-  manager: philmea
-  ms.service: iot-edge
+  title: Azure IoT Edge documentation
+  description: Azure IoT Edge extends IoT Hub. Analyze device data locally instead of in the cloud to send less data to the cloud, react to events quickly, and operate offline.
   services: iot-edge
+  ms.service: iot-edge
   ms.topic: landing-page
-  ms.date: 06/21/2018
+  author: kgremban
   ms.author: kgremban
-abstract:
-  description: Azure IoT Edge is an Internet of Things (IoT) service that builds on top of IoT Hub. This service is meant for customers who want to analyze data on devices, a.k.a. "at the edge", instead of in the cloud. By moving parts of your workload to the edge, your devices can spend less time sending messages to the cloud and react more quickly to changes in status.
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: ./media/index/iot-edge-thumbnail.png
-      width: 250  
-    title: Creating the intelligent edge with Azure IoT Edge (6:59)
-    href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Creating-the-intelligent-edge-with-Azure-IoT-Edge
-    width: 250
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Deploy your first IoT Edge module and process data on a simulated device:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/media/logos/logo_Windows.svg
-      text: Windows
-      href: /azure/iot-edge/quickstart
-    - image: 
-        src: https://docs.microsoft.com/media/logos/logo_linux-color.svg
-      text: Linux
-      href: /azure/iot-edge/quickstart-linux
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to install and configure IoT Edge, deploy modules, and utilize Azure services like Stream Analytics at the edge.
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="/azure/iot-edge/tutorial-deploy-function">Filter messages with Azure Functions</a>
-    - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Find averages with Azure Stream Analytics as a module</a>
-    - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">Score data with Azure Machine Learning as a module</a>
-    - html: <a href="/azure/iot-edge/tutorial-csharp-module">Filter data with a C# module</a>
-    - html: <a href="/azure/iot-edge/tutorial-python-module">Filter data with a Python module</a>
-    - html: <a href="/azure/iot-edge/tutorial-node-module">Filter data with a Node.js module</a>
-    - html: <a href="/azure/iot-edge/tutorial-c-module">Filter data with a C module</a>
-    - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">Store data at the edge with SQL Server</a>
+  manager: philmea
+  ms.date: 08/05/2019
+  ms.custom: e2e-hybrid
+
+landingContent:
+  - title: Develop for Linux devices
+    linkLists: 
+      - linkListType: quickstart
+        links: 
+          - text: Deploy your first IoT Edge module to a Linux device
+            url: quickstart-linux.md
+      - linkListType: tutorial
+        links: 
+          - text: Develop IoT Edge modules for Linux devices
+            url: tutorial-develop-for-linux.md
+      - linkListType: how-to-guide
+        links: 
+          - text: Use Visual Studio Code to develop and debug modules
+            url: how-to-vs-code-develop-module.md
+  - title: Develop for Windows devices
+    linkLists: 
+      - linkListType: quickstart
+        links: 
+          - text: Deploy your first IoT Edge module to a Windows device
+            url: quickstart.md
+      - linkListType: tutorial
+        links: 
+          - text: Develop IoT Edge modules for Windows devices
+            url: tutorial-develop-for-windows.md
+      - linkListType: how-to-guide
+        links: 
+          - text: Use Visual Studio 2017 to develop and debug modules
+            url: how-to-visual-studio-develop-module.md
+  - title: Create an IoT Edge device
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Register a single device
+            url: how-to-register-device.md
+          - text: Register and provision devices at scale
+            url: how-to-auto-provision-symmetric-keys.md
+          - text: Install the IoT Edge runtime on Linux devices
+            url: how-to-install-iot-edge.md
+          - text: Install the IoT Edge runtime on Windows devices
+            url: how-to-install-iot-edge-on-windows.md
+  - title: Engage with the open-source community
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: IoT Edge repository
+            url: https://github.com/Azure/iotedge
+          - text: IoT Edge GitHub issues
+            url: https://github.com/Azure/iotedge/issues
+          - text: Latest releases and changelogs
+            url: https://github.com/Azure/azure-iotedge/releases
+  - title: Use IoT Edge devices as gateways
+    linkLists: 
+      - linkListType: concept
+        links: 
+          - text: How an IoT Edge device can be used as a gateway
+            url: iot-edge-as-gateway.md
+      - linkListType: how-to-guide
+        links: 
+          - text: Configure a transparent gateway
+            url: how-to-create-transparent-gateway.md
+          - text: Authenticate a downstream device to Azure IoT Hub
+            url: how-to-authenticate-downstream-device.md
+          - text: Connect a downstream device to a gateway
+            url: how-to-connect-downstream-device.md
+  - title: Prepare for production scenarios
+    linkLists: 
+      - linkListType: concept
+        links: 
+          - text: Understand automatic deployments
+            url: module-deployment-monitoring.md
+          - text: Platform support
+            url: support.md
+          - text: Production deployment checklist
+            url: production-checklist.md
+          - text: Understand IoT Edge certificate usage
+            url: iot-edge-certs.md
+          - text: Security standards for IoT Edge
+            url: security.md
+      - linkListType: how-to-guide
+        links: 
+          - text: Deploy and monitor at scale using the Azure CLI
+            url: how-to-deploy-cli-at-scale.md
+          - text: Create a CI/CD pipeline with Azure Pipelines
+            url: how-to-continuous-integration-continuous-deployment.md
+      - linkListType: deploy
+        links:
+          - text: REST API for IoT Hub
+            url: /rest/api/iothub/
+  - title:  Deploy AI to the edge
+    linkLists: 
+      - linkListType: tutorial
+        links: 
+          - text: Deploy Azure Machine Learning as an IoT Edge module
+            url: tutorial-deploy-machine-learning.md
+          - text: Perform image classification at the edge with Custom Vision Service
+            url: tutorial-deploy-custom-vision.md
+      - linkListType: deploy
+        links: 
+          - text: Find Azure Cognitive Services modules in the Azure Marketplace
+            url: https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?subcategories=iot-edge-modules&search=azure%20cognitive%20services

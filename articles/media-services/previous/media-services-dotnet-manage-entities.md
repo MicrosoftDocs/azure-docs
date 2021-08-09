@@ -1,33 +1,36 @@
 ---
 title: Managing Assets and Related Entities with Media Services .NET SDK
 description: Learn how to manage assets and related entities with the Media Services SDK for .NET.
-author: juliako
-manager: cfowler
+author: IngridAtMicrosoft
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.assetid: 1bd8fd42-7306-463d-bfe5-f642802f1906
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.custom: devx-track-csharp
 ---
 # Managing Assets and Related Entities with Media Services .NET SDK
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-manage-entities.md)
 > * [REST](media-services-rest-manage-entities.md)
 > 
 > 
 
-This topic shows how to manage Azure Media Services entities with .NET. 
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
->[!NOTE]
-> Starting April 1, 2017, any Job record in your account older than 90 days will be automatically deleted, along with its associated Task records, even if the total number of records is below the maximum quota. For example, on April 1, 2017, any Job record in your account older than December 31, 2016, will be automatically deleted. If you need to archive the job/task information, you can use the code described in this topic.
+This topic shows how to manage Azure Media Services entities with .NET.
+
+Starting April 1, 2017, any Job record in your account older than 90 days will be automatically deleted, along with its associated Task records, even if the total number of records is below the maximum quota. For example, on April 1, 2017, any Job record in your account older than December 31, 2016, will be automatically deleted. If you need to archive the job/task information, you can use the code described in this topic.
 
 ## Prerequisites
 
@@ -198,7 +201,7 @@ For more information on options for delivering assets, see [Deliver Assets with 
 ```
 
 ## List all Access Policies
-In Media Services, you can define an access policy on an asset or its files. An access policy defines the permissions for a file or an asset (what type of access, and the duration). In your Media Services code, you typically define an access policy by creating an IAccessPolicy object and then associating it with an existing asset. Then you create a ILocator object, which lets you provide direct access to assets in Media Services. The Visual Studio project that accompanies this documentation series contains several code examples that show how to create and assign access policies and locators to assets.
+In Media Services, you can define an access policy on an asset or its files. An access policy defines the permissions for a file or an asset (what type of access, and the duration). In your Media Services code, you typically define an access policy by creating an IAccessPolicy object and then associating it with an existing asset. Then you create an ILocator object, which lets you provide direct access to assets in Media Services. The Visual Studio project that accompanies this documentation series contains several code examples that show how to create and assign access policies and locators to assets.
 
 The following code example shows how to list all access policies on the server, and shows the type of permissions associated with each. Another useful way to view access policies is to list all ILocator objects on the server, and then for each locator, you can list its associated access policy by using its AccessPolicy property.
 
@@ -424,4 +427,3 @@ The following code example shows how to get a reference to an access policy base
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

@@ -1,25 +1,21 @@
 ---
-title: Configure your Azure App Service Environment to be forced tunneled
-description: Enable your App Service Environment to work when outbound traffic is forced tunneled
-services: app-service
-documentationcenter: na
+title: Configure forced tunneling
+description: Learn how to enable your App Service Environment to work when outbound traffic is forced tunneled in your virtual network.
 author: ccompy
-manager: stefsch
 
 ms.assetid: 384cf393-5c63-4ffb-9eb2-bfd990bc7af1
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ---
 
 # Configure your App Service Environment with forced tunneling
+> [!NOTE]
+> This article is about the App Service Environment v2 which is used with Isolated App Service plans
+> 
 
-The App Service Environment (ASE) is a deployment of Azure App Service in a customer's Azure Virtual Network. Many customers configure their Azure virtual networks to be extensions of their on-premises networks with VPNs or Azure ExpressRoute connections. Forced tunneling is when you redirect internet bound traffic to your VPN or a virtual appliance instead. This is often done as a part of security requirements to inspect and audit all outbound traffic. 
+The App Service Environment (ASE) is a deployment of Azure App Service in a customer's Azure Virtual Network. Many customers configure their Azure virtual networks to be extensions of their on-premises networks with VPNs or Azure ExpressRoute connections. Forced tunneling is when you redirect internet bound traffic to your VPN or a virtual appliance instead. Virtual appliances are often used to inspect and audit outbound network traffic. 
 
 The ASE has a number of external dependencies, which are described in the [App Service Environment network architecture][network] document. Normally all ASE outbound dependency traffic must go through the VIP that is provisioned with the ASE. If you change the routing for the traffic to or from the ASE without following the information below, your ASE will stop working.
 
@@ -58,28 +54,25 @@ If the network is already routing traffic on premises, then you need to create t
 
 ## Configure your ASE subnet to ignore BGP routes ## 
 
-You can configure your ASE subnet to ignore all BGP routes.  When this is configured the ASE will be able to access its dependencies without any problems.  You will need to create UDRs however to enable your apps to access on premises resources.
+You can configure your ASE subnet to ignore all BGP routes.  When configured to ignore BGP routes, the ASE will be able to access its dependencies without any problems.  You will need to create UDRs however to enable your apps to access on premises resources.
 
 To configure your ASE subnet to ignore BGP routes:
 
 * create a UDR and assign it to your ASE subnet if you did not have one already.
-* In the Azure portal, open the UI for the route table assigned to your ASE subnet.  Select Configuration.  Set BGP route propagation to Disabled.  Click Save. The documentation on turning that off is in the [Create a route table][routetable] document.
+* In the Azure portal, open the UI for the route table assigned to your ASE subnet.  Select Configuration.  Set Virtual network gateway route propagation to Disabled.  Click Save. The documentation on turning that off is in the [Create a route table][routetable] document.
 
-After you do this, your apps will no longer be able to reach on premises. To solve that, edit the UDR assigned to your ASE subnet and add routes for your on premises address ranges. The Next hop type should be set to Virtual network gateway. 
+After you configure the ASE subnet to ignore all BGP routes, your apps will no longer be able to reach on premises. To enable your apps to access resources on-premises, edit the UDR assigned to your ASE subnet and add routes for your on premises address ranges. The Next hop type should be set to Virtual network gateway. 
 
 
 ## Configure your ASE with Service Endpoints ##
 
- > [!NOTE]
-   > Service endpoints with SQL does not work with ASE in the US Government regions.  The following information is only valid in the Azure public regions.  
-
 To route all outbound traffic from your ASE, except that which goes to Azure SQL and Azure Storage, perform the following steps:
 
-1. Create a route table and assign it to your ASE subnet. Find the addresses that match your region here [App Service Environment management addresses][management]. Create routes for those addresses with a next hop of internet. This is needed because the App Service Environment inbound management traffic must reply from the same address it was sent to.   
+1. Create a route table and assign it to your ASE subnet. Find the addresses that match your region here [App Service Environment management addresses][management]. Create routes for those addresses with a next hop of internet. These routes are needed because the App Service Environment inbound management traffic must reply from the same address it was sent to.   
 
 2. Enable Service Endpoints with Azure SQL and Azure Storage with your ASE subnet.  After this step is completed, you can then configure your VNet with forced tunneling.
 
-To create your ASE in a virtual network that is already configured to route all traffic on premises, you need to create your ASE using a resource manager template.  It is not possible to create an ASE with the portal into a pre-existing subnet.  When deploying your ASE into a VNet that is already configured to route outbound traffic on premises, you need to create your ASE using a resource manager template, which does allow you to specify a pre-existing subnet. For details on deploying an ASE with a template read [Creating an App Service Environment using a template][template].
+For details on deploying an ASE with a template, read [Creating an App Service Environment using a template][template].
 
 Service Endpoints enable you to restrict access to multi-tenant services to a set of Azure virtual networks and subnets. You can read more about Service Endpoints in the [Virtual Network Service Endpoints][serviceendpoints] documentation. 
 
@@ -87,7 +80,7 @@ When you enable Service Endpoints on a resource, there are routes created with h
 
 When Service Endpoints is enabled on a subnet with an Azure SQL instance, all Azure SQL instances connected to from that subnet must have Service Endpoints enabled. if you want to access multiple Azure SQL instances from the same subnet, you can't enable Service Endpoints on one Azure SQL instance and not on another.  Azure Storage does not behave the same as Azure SQL.  When you enable Service Endpoints with Azure Storage, you lock access to that resource from your subnet but can still access other Azure Storage accounts even if they do not have Service Endpoints enabled.  
 
-If you configure forced tunneling with a network filter appliance, then remember that the ASE has dependencies in addition to Azure SQL and Azure Storage. You must allow traffic to those dependencies or the ASE will not function properly.
+If you configure forced tunneling with a network filter appliance, then remember that the ASE has dependencies in addition to Azure SQL and Azure Storage. If traffic is blocked to those dependencies, the ASE will not function properly.
 
 ![Forced tunnel with service endpoints][2]
 
@@ -95,7 +88,7 @@ If you configure forced tunneling with a network filter appliance, then remember
 
 To tunnel all outbound traffic from your ASE, except that which goes to Azure Storage, perform the following steps:
 
-1. Create a route table and assign it to your ASE subnet. Find the addresses that match your region here [App Service Environment management addresses][management]. Create routes for those addresses with a next hop of internet. This is needed because the App Service Environment inbound management traffic must reply from the same address it was sent to. 
+1. Create a route table and assign it to your ASE subnet. Find the addresses that match your region here [App Service Environment management addresses][management]. Create routes for those addresses with a next hop of internet. These routes are needed because the App Service Environment inbound management traffic must reply from the same address it was sent to. 
 
 2. Enable Service Endpoints with Azure Storage with your ASE subnet
 
@@ -103,37 +96,41 @@ To tunnel all outbound traffic from your ASE, except that which goes to Azure St
 
 4. _To set the egress addresses in an existing App Service Environment:_ Go to resources.azure.com, and go to Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. Then you can see the JSON that describes your App Service Environment. Make sure it says **read/write** at the top. Select **Edit**. Scroll down to the bottom. Change the **userWhitelistedIpRanges** value from **null** to something like the following. Use the addresses you want to set as the egress address range. 
 
-        "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
+    ```json
+    "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"]
+    ```
 
    Select **PUT** at the top. This option triggers a scale operation on your App Service Environment and adjusts the firewall.
 
 _To create your ASE with the egress addresses_: Follow the directions in [Create an App Service Environment with a template][template] and pull down the appropriate template.  Edit the "resources" section in the azuredeploy.json file, but not in the "properties" block and include a line for **userWhitelistedIpRanges** with your values.
 
-    "resources": [
-      {
+```json
+"resources": [
+    {
         "apiVersion": "2015-08-01",
         "type": "Microsoft.Web/hostingEnvironments",
         "name": "[parameters('aseName')]",
         "kind": "ASEV2",
         "location": "[parameters('aseLocation')]",
         "properties": {
-          "name": "[parameters('aseName')]",
-          "location": "[parameters('aseLocation')]",
-          "ipSslAddressCount": 0,
-          "internalLoadBalancingMode": "[parameters('internalLoadBalancingMode')]",
-          "dnsSuffix" : "[parameters('dnsSuffix')]",
-          "virtualNetwork": {
-            "Id": "[parameters('existingVnetResourceId')]",
-            "Subnet": "[parameters('subnetName')]"
-          },
-        "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
+            "name": "[parameters('aseName')]",
+            "location": "[parameters('aseLocation')]",
+            "ipSslAddressCount": 0,
+            "internalLoadBalancingMode": "[parameters('internalLoadBalancingMode')]",
+            "dnsSuffix" : "[parameters('dnsSuffix')]",
+            "virtualNetwork": {
+                "Id": "[parameters('existingVnetResourceId')]",
+                "Subnet": "[parameters('subnetName')]"
+            },
+            "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
         }
-      }
-    ]
+    }
+]
+```
 
 These changes send traffic to Azure Storage directly from the ASE and allow access to the Azure SQL from additional addresses other than the VIP of the ASE.
 
-   ![Forced tunnel with SQL whitelist][3]
+   ![Forced tunnel with SQL allowlist][3]
 
 ## Preventing issues ##
 

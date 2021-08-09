@@ -1,23 +1,16 @@
 ---
-title: Visualize data anomalies in real-time events sent to Azure Event Hubs | Microsoft Docs
-# event-hubs-tutorial-visualize-anomalies.md
-description: Tutorial - Visualize data anomalies in real-time events sent to Microsoft Azure Event Hubs
-services: event-hubs
-author: ShubhaVijayasarathy
-manager: timlt
-ms.author: shvija
-ms.date: 08/08/2018
+title: Azure Event Hubs - Visualize data anomalies in real-time events
+description: 'Tutorial: Visualize data anomalies in real-time events sent to Microsoft Azure Event Hubs'
 ms.topic: tutorial
-ms.service: event-hubs
-ms.custom: mvc
-#Customer intent: As a developer, I want to learn how to visualize anomalies in my real-time data flowing into an event hub. 
+ms.date: 06/23/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Visualize data anomalies in real-time events sent to Azure Event Hubs
 
-With Azure Event Hubs, you can use Azure Stream Analytics to check the incoming data and pull out the anomalies, which you can then visualize in Power BI. Let's say you have thousands of devices constantly sending real-time data to an event hub, adding up to millions of events per second. How do you check that much data for anomalies, or errors, in the data? For example, what if the devices are sending credit card transactions, and you need to capture anywhere you have multiple transactions in multiple countries within a 5-second time interval? This could happen if someone steals credit cards and then uses them to purchase items around the globe at the same time. 
+With Azure Event Hubs, you can use Azure Stream Analytics to check the incoming data and pull out the anomalies, which you can then visualize in Power BI. Let's say you have thousands of devices constantly sending real-time data to an event hub, adding up to millions of events per second. How do you check that much data for anomalies, or errors, in the data? For example, what if the devices are sending credit card transactions, and you need to capture anywhere you have multiple transactions in multiple countries/regions within a 5-second time interval? This could happen if someone steals credit cards and then uses them to purchase items around the globe at the same time. 
 
-In this tutorial, you simulate this example. You run an application that creates and sends credit card transactions to an event hub. Then you read the stream of data in real-time with Azure Stream Analytics, which separates the valid transactions from the invalid transactions, and then use Power BI to visually identify the transactions that are tagged as invalid.
+In this tutorial, you simulate this example. You run an application that creates and sends credit card transactions to an event hub. Then you read the stream of data in real time with Azure Stream Analytics, which separates the valid transactions from the invalid transactions, and then use Power BI to visually identify the transactions that are tagged as invalid.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -29,12 +22,12 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need an Azure subscription. If you don't have one, [create a free account][] before you begin.
 
-## Prerequisites
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - Install [Visual Studio](https://www.visualstudio.com/). 
 - You need a Power BI account to analyze output from a Stream Analytics job. You can [try Power BI for free](https://app.powerbi.com/signupredirect?pbi_source=web).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Set up resources
 
@@ -42,7 +35,7 @@ For this tutorial, you need an Event Hubs namespace and an event hub. You can cr
 
 The following sections describe how to perform these required steps. Follow the CLI *or* the PowerShell instructions to perform the following steps:
 
-1. Create a [resource group](../azure-resource-manager/resource-group-overview.md). 
+1. Create a [resource group](../azure-resource-manager/management/overview.md). 
 
 2. Create an Event Hubs namespace. 
 
@@ -109,7 +102,7 @@ The variables that must be globally unique have `$(Get-Random)` concatenated to 
 
 ```azurepowershell-interactive
 # Log in to Azure account.
-Login-AzureRMAccount
+Login-AzAccount
 
 # Set the values for the location and resource group.
 $location = "West US"
@@ -117,7 +110,7 @@ $resourceGroup = "ContosoResourcesEH"
 
 # Create the resource group to be used  
 #   for all resources for this tutorial.
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 
 # The Event Hubs namespace name must be globally unique, so add a random number to the end.
 $eventHubNamespace = "contosoEHNamespace$(Get-Random)"
@@ -128,12 +121,12 @@ $eventHubName = "contosoEHhub$(Get-Random)"
 Write-Host "Event hub Name is " $eventHubName
 
 # Create the Event Hubs namespace.
-New-AzureRmEventHubNamespace -ResourceGroupName $resourceGroup `
+New-AzEventHubNamespace -ResourceGroupName $resourceGroup `
      -NamespaceName $eventHubNamespace `
      -Location $location
 
 # Create the event hub.
-$yourEventHub = New-AzureRmEventHub -ResourceGroupName $resourceGroup `
+$yourEventHub = New-AzEventHub -ResourceGroupName $resourceGroup `
     -NamespaceName $eventHubNamespace `
     -Name $eventHubName `
     -MessageRetentionInDays 3 `
@@ -141,7 +134,7 @@ $yourEventHub = New-AzureRmEventHub -ResourceGroupName $resourceGroup `
 
 # Get the event hub key, and retrieve the connection string from that object.
 # You need this to run the app that sends test messages to the event hub.
-$eventHubKey = Get-AzureRmEventHubKey -ResourceGroupName $resourceGroup `
+$eventHubKey = Get-AzEventHubKey -ResourceGroupName $resourceGroup `
     -Namespace $eventHubNamespace `
     -AuthorizationRuleName RootManageSharedAccessKey
 
@@ -151,14 +144,14 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
 ## Run app to produce test event data
 
-The Event Hubs [samples on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) include an [anomaly detector app](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/AnomalyDetector) that produces test data for you. It simulates the use of credit cards by writing credit card transactions to the event hub, including occasionally writing several transactions for the same credit card in multiple locations so that they are tagged as anomalies. To run this app, follow these steps: 
+The Event Hubs [samples on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) include an Anomaly Detector app that produces test data for you. It simulates the use of credit cards by writing credit card transactions to the event hub, including occasionally writing several transactions for the same credit card in multiple locations so that they are tagged as anomalies. To run this app, follow these steps: 
 
 1. Download the [Azure Event Hubs samples](https://github.com/Azure/azure-event-hubs/archive/master.zip) from GitHub and unzip it locally.
+2. Navigate to the folder **\azure-event-hubs-master\samples\DotNet\\** folder. 
+3. Switch to the **Azure.Messaging.EventHubs\AnomalyDetector\\** folder and double-click on **AnomalyDetector.sln** to open the solution in Visual Studio. 
 
-2. Go to the folder \azure-event-hubs-master\samples\DotNet\AnomalyDetector\ and double-click on AnomalyDetector.sln to open the solution in Visual Studio. 
-
+    To use the old version of the sample that uses the old Microsoft.Azure.EventHubs package, open the solution from the **Microsoft.Azure.EventHubs\AnomalyDetector** folder. 
 3. Open Program.cs and replace **Event Hubs connection string** with the connection string you saved when running the script. 
-
 4. Replace **Event Hub name** with your event hub name. Click F5 to run the application. It starts sending events to your event hub, and continues until it has sent 1000 events. There are a few instances where the app needs to be running for you to retrieve data. These cases are pointed out in the following instructions, where needed.
 
 ## Set up Azure Stream Analytics
@@ -301,7 +294,7 @@ In the Stream Analytics job, click **Start**, then **Now**, then **Start**. Once
 
    ![Screenshot of specifying dashboard name.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-name.png)
 
-7. On the Dashboard page, click **Add tile**, select **Custom Streaming Data** in the **REAL - TIME DATA** section, then click **Next**.
+7. On the Dashboard page, click **Add tile**, select **Custom Streaming Data** in the **REAL-TIME DATA** section, then click **Next**.
 
    ![Screenshot specifying source for tile.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-real-time-data.png)
 
@@ -309,7 +302,7 @@ In the Stream Analytics job, click **Start**, then **Now**, then **Start**. Once
 
    ![Screenshot specifying dataset.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-select-dataset.png)
 
-9. Select **Card** for visualization type. Under **Fields**, click **Add value**, then select **fraudulentuses**.
+9. Select **Card** for visualization type. Under **Fields**, click **Add value**, then select `fraudulentuses`.
 
    ![Screenshot specifying visualization type and fields.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-tile.png)
 
@@ -319,18 +312,20 @@ In the Stream Analytics job, click **Start**, then **Now**, then **Start**. Once
 
     ![Screenshot specifying title and subtitle for dashboard tile.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-tile-details.png)
 
+    > [!IMPORTANT]
+    > When you run the sample application and stream data to the event hub, the number on this tile changes rapidly (every second). It's because the Stream Analytics query actually updates the value **every second**. Update the query to a 3 minute tumbling window to see the sum in the last few minutes. 
 11. Add another visualization. Repeat the first few steps again:
 
-   * Click **Add Tile**.
-   * Select **Custom Streaming Data**. 
-   * Click **Next**.
-   * Select your dataset and then click **Next**. 
+    * Click **Add Tile**.
+    * Select **Custom Streaming Data**. 
+    * Click **Next**.
+    * Select your dataset and then click **Next**. 
 
 12. Under **Visualization Type**, select **Line chart**.
 
-13. Under **Axis**, click **Add Value**, and select **windowend**. 
+13. Under **Axis**, click **Add Value**, and select `windowend`. 
 
-14. Under **Values**, click **Add value** and select **fraudulentuses**.
+14. Under **Values**, click **Add value** and select `fraudulentuses`.
 
 15. Under **Time window to display**, select the last five minutes. Click **Next**.
 
@@ -350,7 +345,7 @@ Log into your Power BI account. Go to **My Workspace**. On the line with your da
 
 ### Clean up resources using Azure CLI
 
-To remove the resource group, use the [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) command.
+To remove the resource group, use the [az group delete](/cli/azure/group#az_group_delete) command.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -358,10 +353,10 @@ az group delete --name $resourceGroup
 
 ### Clean up resources using PowerShell
 
-To remove the resource group, use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command.
+To remove the resource group, use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## Next steps

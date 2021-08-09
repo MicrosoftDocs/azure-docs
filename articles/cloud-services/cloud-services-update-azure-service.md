@@ -1,30 +1,26 @@
 ---
-title: How to update a cloud service | Microsoft Docs
+title: How to update a cloud service (classic) | Microsoft Docs
 description: Learn how to update cloud services in Azure. Learn how an update on a cloud service proceeds to ensure availability.
-services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: c6a8b5e6-5c99-454c-9911-5c7ae8d1af63
-ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
-ms.author: jeconnoc
-
+ms.service: cloud-services
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# How to update a cloud service
+
+# How to update an Azure Cloud Service (classic)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 
 Updating a cloud service, including both its roles and guest OS, is a three step process. First, the binaries and configuration files for the new cloud service or OS version must be uploaded. Next, Azure reserves compute and network resources for the cloud service based on the requirements of the new cloud service version. Finally, Azure performs a rolling upgrade to incrementally update the tenant to the new version or guest OS, while preserving your availability. This article discusses the details of this last step – the rolling upgrade.
 
 ## Update an Azure Service
 Azure organizes your role instances into logical groupings called upgrade domains (UD). Upgrade domains (UD) are logical sets of role instances that are updated as a group.  Azure updates a cloud service one UD at a time, which allows instances in other UDs to continue serving traffic.
 
-The default number of upgrade domains is 5. You can specify a different number of upgrade domains by including the upgradeDomainCount attribute in the service’s definition file (.csdef). For more information about the upgradeDomainCount attribute, see [WebRole Schema](https://msdn.microsoft.com/library/azure/gg557553.aspx) or [WorkerRole Schema](https://msdn.microsoft.com/library/azure/gg557552.aspx).
+The default number of upgrade domains is 5. You can specify a different number of upgrade domains by including the upgradeDomainCount attribute in the service’s definition file (.csdef). For more information about the upgradeDomainCount attribute, see [Azure Cloud Services Definition Schema (.csdef File)](./schema-csdef-file.md).
 
 When you perform an in-place update of one or more roles in your service, Azure updates sets of role instances according to the upgrade domain to which they belong. Azure updates all of the instances in a given upgrade domain – stopping them, updating them, bringing them back on-line – then moves onto the next domain. By stopping only the instances running in the current upgrade domain, Azure makes sure that an update occurs with the least possible impact to the running service. For more information, see [How the update proceeds](#howanupgradeproceeds) later in this article.
 
@@ -78,7 +74,7 @@ The following items are not supported during an update:
 * Changing of the Upgrade Domain count.
 * Decreasing the size of the local resources.
 
-If you are making other updates to your service's definition, such as decreasing the size of local resource, you must perform a VIP swap update instead. For more information, see [Swap Deployment](https://msdn.microsoft.com/library/azure/ee460814.aspx).
+If you are making other updates to your service's definition, such as decreasing the size of local resource, you must perform a VIP swap update instead. For more information, see [Swap Deployment](/previous-versions/azure/reference/ee460814(v=azure.100)).
 
 <a name="howanupgradeproceeds"></a>
 
@@ -117,7 +113,7 @@ To minimize the downtime when upgrading a single-instance service, deploy a new 
 <a name="RollbackofanUpdate"></a>
 
 ## Rollback of an update
-Azure provides flexibility in managing services during an update by letting you initiate additional operations on a service, after the initial update request is accepted by the Azure Fabric Controller. A rollback can only be performed when an update (configuration change) or upgrade is in the **in progress** state on the deployment. An update or upgrade is considered to be in-progress as long as there is at least one instance of the service which has not yet been updated to the new version. To test whether a rollback is allowed, check the value of the RollbackAllowed flag, returned by [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) and [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx) operations, is set to true.
+Azure provides flexibility in managing services during an update by letting you initiate additional operations on a service, after the initial update request is accepted by the Azure Fabric Controller. A rollback can only be performed when an update (configuration change) or upgrade is in the **in progress** state on the deployment. An update or upgrade is considered to be in-progress as long as there is at least one instance of the service which has not yet been updated to the new version. To test whether a rollback is allowed, check the value of the RollbackAllowed flag, returned by [Get Deployment](/previous-versions/azure/reference/ee460804(v=azure.100)) and [Get Cloud Service Properties](/previous-versions/azure/reference/ee460806(v=azure.100)) operations, is set to true.
 
 > [!NOTE]
 > It only makes sense to call Rollback on an **in-place** update or upgrade because VIP swap upgrades involve replacing one entire running instance of your service with another.
@@ -131,13 +127,13 @@ Rollback of an in-progress update has the following effects on the deployment:
 
 This functionally is provided by the following features:
 
-* The [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx) operation, which can be called on a configuration update (triggered by calling [Change Deployment Configuration](https://msdn.microsoft.com/library/azure/ee460809.aspx)) or an upgrade (triggered by calling [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx)) as long as there is at least one instance in the service which has not yet been updated to the new version.
-* The Locked element and the RollbackAllowed element, which are returned as part of the response body of the [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) and [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx) operations:
+* The [Rollback Update Or Upgrade](/previous-versions/azure/reference/hh403977(v=azure.100)) operation, which can be called on a configuration update (triggered by calling [Change Deployment Configuration](/previous-versions/azure/reference/ee460809(v=azure.100))) or an upgrade (triggered by calling [Upgrade Deployment](/previous-versions/azure/reference/ee460793(v=azure.100))) as long as there is at least one instance in the service which has not yet been updated to the new version.
+* The Locked element and the RollbackAllowed element, which are returned as part of the response body of the [Get Deployment](/previous-versions/azure/reference/ee460804(v=azure.100)) and [Get Cloud Service Properties](/previous-versions/azure/reference/ee460806(v=azure.100)) operations:
 
   1. The Locked element allows you to detect when a mutating operation can be invoked on a given deployment.
-  2. The RollbackAllowed element allows you to detect when the [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx) operation can be called on a given deployment.
+  2. The RollbackAllowed element allows you to detect when the [Rollback Update Or Upgrade](/previous-versions/azure/reference/hh403977(v=azure.100)) operation can be called on a given deployment.
 
-  In order to perform a rollback, you do not have to check both the Locked and the RollbackAllowed elements. It suffices to confirm that RollbackAllowed is set to true. These elements are only returned if these methods are invoked by using the request header set to “x-ms-version: 2011-10-01” or a later version. For more information about versioning headers, see [Service Management Versioning](https://msdn.microsoft.com/library/azure/gg592580.aspx).
+  In order to perform a rollback, you do not have to check both the Locked and the RollbackAllowed elements. It suffices to confirm that RollbackAllowed is set to true. These elements are only returned if these methods are invoked by using the request header set to “x-ms-version: 2011-10-01” or a later version. For more information about versioning headers, see [Service Management Versioning](/previous-versions/azure/gg592580(v=azure.100)).
 
 There are some situations where a rollback of an update or upgrade is not supported, these are as follows:
 
@@ -145,9 +141,9 @@ There are some situations where a rollback of an update or upgrade is not suppor
 * Quota limitations - If the update was a scale down operation you may no longer have sufficient compute quota to complete the rollback operation. Each Azure subscription has a quota associated with it that specifies the maximum number of cores which can be consumed by all hosted services that belong to that subscription. If performing a rollback of a given update would put your subscription over quota then that a rollback will not be enabled.
 * Race condition - If the initial update has completed, a rollback is not possible.
 
-An example of when the rollback of an update might be useful is if you are using the [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx) operation in manual mode to control the rate at which a major in-place upgrade to your Azure hosted service is rolled out.
+An example of when the rollback of an update might be useful is if you are using the [Upgrade Deployment](/previous-versions/azure/reference/ee460793(v=azure.100)) operation in manual mode to control the rate at which a major in-place upgrade to your Azure hosted service is rolled out.
 
-During the rollout of the upgrade you call [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx) in manual mode and begin to walk upgrade domains. If at some point, as you monitor the upgrade, you note some role instances in the first upgrade domains that you examine have become unresponsive, you can call the [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx) operation on the deployment, which will leave untouched the instances which had not yet been upgraded and rollback instances which had been upgraded to the previous service package and configuration.
+During the rollout of the upgrade you call [Upgrade Deployment](/previous-versions/azure/reference/ee460793(v=azure.100)) in manual mode and begin to walk upgrade domains. If at some point, as you monitor the upgrade, you note some role instances in the first upgrade domains that you examine have become unresponsive, you can call the [Rollback Update Or Upgrade](/previous-versions/azure/reference/hh403977(v=azure.100)) operation on the deployment, which will leave untouched the instances which had not yet been upgraded and rollback instances which had been upgraded to the previous service package and configuration.
 
 <a name="multiplemutatingoperations"></a>
 
@@ -158,11 +154,11 @@ Once the initial request to update or upgrade the service has been received by t
 
 Initiating a second update operation while the first update is ongoing will perform similar to the rollback operation. If the second update is in automatic mode, the first upgrade domain will be upgraded immediately, possibly leading to instances from multiple upgrade domains being offline at the same point in time.
 
-The mutating operations are as follows: [Change Deployment Configuration](https://msdn.microsoft.com/library/azure/ee460809.aspx), [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx), [Update Deployment Status](https://msdn.microsoft.com/library/azure/ee460808.aspx), [Delete Deployment](https://msdn.microsoft.com/library/azure/ee460815.aspx), and [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx).
+The mutating operations are as follows: [Change Deployment Configuration](/previous-versions/azure/reference/ee460809(v=azure.100)), [Upgrade Deployment](/previous-versions/azure/reference/ee460793(v=azure.100)), [Update Deployment Status](/previous-versions/azure/reference/ee460808(v=azure.100)), [Delete Deployment](/previous-versions/azure/reference/ee460815(v=azure.100)), and [Rollback Update Or Upgrade](/previous-versions/azure/reference/hh403977(v=azure.100)).
 
-Two operations, [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) and [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx), return the Locked flag which can be examined to determine whether a mutating operation can be invoked on a given deployment.
+Two operations, [Get Deployment](/previous-versions/azure/reference/ee460804(v=azure.100)) and [Get Cloud Service Properties](/previous-versions/azure/reference/ee460806(v=azure.100)), return the Locked flag which can be examined to determine whether a mutating operation can be invoked on a given deployment.
 
-In order to call the version of these methods which returns the Locked flag, you must set request header to “x-ms-version: 2011-10-01” or a later. For more information about versioning headers, see [Service Management Versioning](https://msdn.microsoft.com/library/azure/gg592580.aspx).
+In order to call the version of these methods which returns the Locked flag, you must set request header to “x-ms-version: 2011-10-01” or a later. For more information about versioning headers, see [Service Management Versioning](/previous-versions/azure/gg592580(v=azure.100)).
 
 <a name="distributiondfroles"></a>
 
@@ -185,4 +181,4 @@ The following diagram illustrates how a service than contains two roles are dist
 ## Next steps
 [How to Manage Cloud Services](cloud-services-how-to-manage-portal.md)  
 [How to Monitor Cloud Services](cloud-services-how-to-monitor.md)  
-[How to Configure Cloud Services](cloud-services-how-to-configure-portal.md)  
+[How to Configure Cloud Services](cloud-services-how-to-configure-portal.md)

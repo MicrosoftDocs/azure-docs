@@ -1,95 +1,116 @@
 ---
-title: Make application data highly available in Azure | Microsoft Docs 
-description: Use read-access geo-redundant storage to make your application data highly available
+title: Tutorial - Build a highly available application with Blob storage
+titleSuffix: Azure Storage
+description: Use read-access geo-zone-redundant (RA-GZRS) storage to make your application data highly available.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/26/2018
+ms.date: 02/18/2021
 ms.author: tamram
-ms.custom: mvc
-ms.component: blobs
+ms.reviewer: artek
+ms.custom: "mvc, devx-track-python, devx-track-js, devx-track-csharp"
+ms.subservice: blobs
+#Customer intent: As a developer, I want to have my data be highly available, so that in the event of a disaster I may retrieve it.
 ---
 
-# Tutorial: Make your application data highly available with Azure storage
+# Tutorial: Build a highly available application with Blob storage
 
-This tutorial is part one of a series, which shows you how to make your application data highly available in Azure. When you're finished, you have a console application that uploads and retrieves a blob to a [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) storage account. RA-GRS works by replicating transactions from the primary to the secondary region. This replication process guarantees that the data in the secondary region is eventually consistent. The application uses the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) pattern to determine which endpoint to connect to. The application switches to secondary endpoint when a failure is simulated.
+This tutorial is part one of a series. In it, you learn how to make your application data highly available in Azure.
+
+When you've completed this tutorial, you will have a console application that uploads and retrieves a blob from a [read-access geo-zone-redundant](../common/storage-redundancy.md) (RA-GZRS) storage account.
+
+Geo-redundancy in Azure Storage replicates transactions asynchronously from a primary region to a secondary region that is hundreds of miles away. This replication process guarantees that the data in the secondary region is eventually consistent. The console application uses the [circuit breaker](/azure/architecture/patterns/circuit-breaker) pattern to determine which endpoint to connect to, automatically switching between endpoints as failures and recoveries are simulated.
+
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 In part one of the series, you learn how to:
 
 > [!div class="checklist"]
 > * Create a storage account
-> * Download the sample
 > * Set the connection string
 > * Run the console application
 
 ## Prerequisites
 
 To complete this tutorial:
- 
-# [.NET] (#tab/dotnet)
-* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
-  - **Azure development**
+
+# [.NET v12 SDK](#tab/dotnet)
+
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# [.NET v11 SDK](#tab/dotnet11)
+
+* Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **Azure development** workload.
 
   ![Azure development (under Web & Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
 
-* (Optional) Download and install [Fiddler](https://www.telerik.com/download/fiddler)
- 
-# [Python] (#tab/python) 
+# [Python v12 SDK](#tab/python)
+
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# [Python v2.1](#tab/python2)
 
 * Install [Python](https://www.python.org/downloads/)
 * Download and install [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
-* (Optional) Download and install [Fiddler](https://www.telerik.com/download/fiddler)
 
-# [Java] (#tab/java)
+# [Node.js v12 SDK](#tab/nodejs)
 
-* Install and configure [Maven](http://maven.apache.org/download.cgi) to work from the command line
-* Install and configure a [JDK](https://aka.ms/azure-jdks)
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# [Node.js v11 SDK](#tab/nodejs11)
+
+* Install [Node.js](https://nodejs.org).
 
 ---
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+## Sign in to the Azure portal
 
-## Log in to the Azure portal
-
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a storage account
 
-A storage account provides a unique namespace to store and access your Azure storage data objects.
+A storage account provides a unique namespace to store and access your Azure Storage data objects.
 
-Follow these steps to create a read-access geo-redundant storage account:
+Follow these steps to create a read-access geo-zone-redundant (RA-GZRS) storage account:
 
-1. Select the **Create a resource** button found on the upper left-hand corner of the Azure portal.
+1. Select the **Create a resource** button in the Azure portal.
+2. Select **Storage account - blob, file, table, queue** from the **New** page.
+4. Fill out the storage account form with the following information, as shown in the following image and select **Create**:
 
-2. Select **Storage** from the **New** page, and select **Storage account - blob, file, table, queue** under **Featured**.
-3. Fill out the storage account form with the following information, as shown in the following image and select **Create**:
-
-   | Setting       | Suggested value | Description |
+   | Setting       | Sample value | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Name** | mystorageaccount | A unique value for your storage account |
-   | **Deployment model** | Resource Manager  | Resource Manager contains the latest features.|
-   | **Account kind** | StorageV2 | For details on the types of accounts, see [types of storage accounts](../common/storage-introduction.md#types-of-storage-accounts) |
-   | **Performance** | Standard | Standard is sufficient for the example scenario. |
-   | **Replication**| Read-access geo-redundant storage (RA-GRS) | This is necessary for the sample to work. |
-   |**Secure transfer required** | Disabled| Secure transfer is not required for this scenario. |
-   |**Subscription** | your subscription |For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-   |**ResourceGroup** | myResourceGroup |For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   |**Location** | East US | Choose a location. |
+   | **Subscription** | *My subscription* | For details about your subscriptions, see [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). |
+   | **ResourceGroup** | *myResourceGroup* | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
+   | **Name** | *mystorageaccount* | A unique name for your storage account. |
+   | **Location** | *East US* | Choose a location. |
+   | **Performance** | *Standard* | Standard performance is a good option for the example scenario. |
+   | **Account kind** | *StorageV2* | Using a general-purpose v2 storage account is recommended. For more information on types of Azure storage accounts, see [Storage account overview](../common/storage-account-overview.md). |
+   | **Replication**| *Read-access geo-zone-redundant storage (RA-GZRS)* | The primary region is zone-redundant and is replicated to a secondary region, with read access to the secondary region enabled. |
+   | **Access tier**| *Hot* | Use the hot tier for frequently-accessed data. |
 
-![create storage account](media/storage-create-geo-redundant-storage/createragrsstracct.png)
+    ![create storage account](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## Download the sample
 
-# [.NET] (#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
+
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# [.NET v11 SDK](#tab/dotnet11)
 
 [Download the sample project](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) and extract (unzip) the storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip file. You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project contains a console application.
 
 ```bash
-git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git 
+git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
-# [Python] (#tab/python) 
+
+# [Python v12 SDK](#tab/python)
+
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# [Python v2.1](#tab/python2)
 
 [Download the sample project](https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) and extract (unzip) the storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip file. You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project contains a basic Python application.
 
@@ -97,67 +118,164 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# [Java] (#tab/java)
-[Download the sample project](https://github.com/Azure-Samples/storage-java-ha-ra-grs) and extract the storage-java-ragrs.zip file. You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project contains a basic Java application.
+# [Node.js v12 SDK](#tab/nodejs)
+
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# [Node.js v11 SDK](#tab/nodejs11)
+
+[Download the sample project](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) and unzip the file. You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project contains a basic Node.js application.
 
 ```bash
-git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
+git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
 ```
----
-
-
-## Set the connection string
-
-In the application, you must provide the connection string for your storage account. It is recommended to store this connection string within an environment variable on the local machine running the application. Follow one of the examples below depending on your Operating System to create the environment variable.
-
-In the Azure portal, navigate to your storage account. Select **Access keys** under **Settings** in your storage account. Copy the **connection string** from the primary or secondary key. Replace \<yourconnectionstring\> with your actual connection string by running one of the following commands based on your Operating System. This command saves an environment variable to the local machine. In Windows, the environment variable is not available until to reload the **Command Prompt** or shell you are using. Replace **\<storageConnectionString\>** in the following sample:
-
-# [Linux] (#tab/linux) 
-export storageconnectionstring=\<yourconnectionstring\> 
-
-# [Windows] (#tab/windows) 
-setx storageconnectionstring "\<yourconnectionstring\>"
 
 ---
 
+## Configure the sample
+
+# [.NET v12 SDK](#tab/dotnet)
+
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# [.NET v11 SDK](#tab/dotnet11)
+
+In the application, you must provide the connection string for your storage account. You can store this connection string within an environment variable on the local machine running the application. Follow one of the examples below depending on your Operating System to create the environment variable.
+
+In the Azure portal, navigate to your storage account. Select **Access keys** under **Settings** in your storage account. Copy the **connection string** from the primary or secondary key. Run one of the following commands based on your operating system, replacing \<yourconnectionstring\> with your actual connection string. This command saves an environment variable to the local machine. In Windows, the environment variable is not available until you reload the **Command Prompt** or shell you are using.
+
+### Linux
+
+```
+export storageconnectionstring=<yourconnectionstring>
+```
+
+### Windows
+
+```powershell
+setx storageconnectionstring "<yourconnectionstring>"
+```
+
+# [Python v12 SDK](#tab/python)
+
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# [Python v2.1](#tab/python2)
+
+In the application, you must provide your storage account credentials. You can store this information in environment variables on the local machine running the application. Follow one of the examples below depending on your Operating System to create the environment variables.
+
+In the Azure portal, navigate to your storage account. Select **Access keys** under **Settings** in your storage account. Paste the **Storage account name** and **Key** values into the following commands, replacing the \<youraccountname\> and \<youraccountkey\> placeholders. This command saves the environment variables to the local machine. In Windows, the environment variable is not available until you reload the **Command Prompt** or shell you are using.
+
+### Linux
+
+```
+export accountname=<youraccountname>
+export accountkey=<youraccountkey>
+```
+
+### Windows
+
+```powershell
+setx accountname "<youraccountname>"
+setx accountkey "<youraccountkey>"
+```
+
+# [Node.js v12 SDK](#tab/nodejs)
+
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# [Node.js v11 SDK](#tab/nodejs11)
+
+To run this sample, you must add your storage account credentials to the `.env.example` file and then rename it to `.env`.
+
+```
+AZURE_STORAGE_ACCOUNT_NAME=<replace with your storage account name>
+AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
+```
+
+You can find this information in the Azure portal by navigating to your storage account and selecting **Access keys** in the **Settings** section.
+
+Install the required dependencies. To do this, open a command prompt, navigate to the sample folder, then enter `npm install`.
+
+---
 
 ## Run the console application
 
-# [.NET] (#tab/dotnet)
-In Visual Studio, press **F5** or select **Start** to start debugging the application. Visual studio automatically restores missing NuGet packages if configured, visit to [Installing and reinstalling packages with package restore](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) to learn more.
+# [.NET v12 SDK](#tab/dotnet)
 
-A console window launches and the application begins running. The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or a **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-![Console app running](media/storage-create-geo-redundant-storage/figure3.png)
+# [.NET v11 SDK](#tab/dotnet11)
 
-In the sample code, the `RunCircuitBreakerAsync` task in the `Program.cs` file is used to download an image from the storage account using the [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) method. Prior to the download, an [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) is defined. The operation context defines event handlers, that fire when a download completes successfully or if a download fails and is retrying.
+In Visual Studio, press **F5** or select **Start** to begin debugging the application. Visual studio automatically restores missing NuGet packages if configured, visit [Installing and reinstalling packages with package restore](/nuget/consume-packages/package-restore#package-restore-overview) to learn more.
 
-# [Python] (#tab/python) 
-To run the application on a terminal or command prompt, go to the **circuitbreaker.py** directory, then enter `python circuitbreaker.py`. The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or a **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
+A console window launches and the application begins running. The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GZRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or an **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
 
 ![Console app running](media/storage-create-geo-redundant-storage/figure3.png)
 
-In the sample code, the `run_circuit_breaker` method in the `circuitbreaker.py` file is used to download an image from the storage account using the [get_blob_to_path](https://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html) method. 
+In the sample code, the `RunCircuitBreakerAsync` task in the `Program.cs` file is used to download an image from the storage account using the [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) method. Prior to the download, an [OperationContext](/dotnet/api/microsoft.azure.cosmos.table.operationcontext) is defined. The operation context defines event handlers, that fire when a download completes successfully or if a download fails and is retrying.
+
+# [Python v12 SDK](#tab/python)
+
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# [Python v2.1](#tab/python2)
+
+To run the application on a terminal or command prompt, go to the **circuitbreaker.py** directory, then enter `python circuitbreaker.py`. The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GZRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or an **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
+
+![Console app running](media/storage-create-geo-redundant-storage/figure3.png)
+
+In the sample code, the `run_circuit_breaker` method in the `circuitbreaker.py` file is used to download an image from the storage account using the [get_blob_to_path](/python/api/azure-storage-blob/azure.storage.blob.baseblobservice.baseblobservice#get-blob-to-path-container-name--blob-name--file-path--open-mode--wb---snapshot-none--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--lease-id-none--if-modified-since-none--if-unmodified-since-none--if-match-none--if-none-match-none--timeout-none-) method.
 
 The Storage object retry function is set to a linear retry policy. The retry function determines whether to retry a request, and specifies the number of seconds to wait before retrying the request. Set the **retry\_to\_secondary** value to true, if request should be retried to secondary in case the initial request to primary fails. In the sample application, a custom retry policy is defined in the `retry_callback` function of the storage object.
- 
-Prior to the download, the Service object [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) and [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) function is defined. These functions define event handlers that fire when a download completes successfully or if a download fails and is retrying.  
 
-# [Java] (#tab/java)
-You can run the application by opening a terminal or command prompt scoped to the downloaded application folder. From there, enter `mvn compile exec:java` to run the application. The application then uploads the **HelloWorld.png** image from the directory to your storage account and checks to ensure that the image has replicated to the secondary RA-GRS endpoint. Once the check is complete, the application will begin downloading the image repeatedly, while reporting back the endpoint it is downloading from.
+Before the download, the Service object [retry_callback](/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient) and [response_callback](/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient) function is defined. These functions define event handlers that fire when a download completes successfully or if a download fails and is retrying.
 
-The Storage object retry function is set to use a linear retry policy. The retry function determines whether to retry a request and specifies the number of seconds to wait between each retry. The **LocationMode** property of your **BlobRequestOptions** is set to **PRIMARY\_THEN\_SECONDARY**. This allows the application to automatically switch to the secondary location if it fails to reach the primary location when attempting to download **HelloWorld.png**.
+# [Node.js v12 SDK](#tab/nodejs)
+
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# [Node.js v11 SDK](#tab/nodejs11)
+
+To run the sample, open a command prompt, navigate to the sample folder, then enter `node index.js`.
+
+The sample creates a container in your Blob storage account, uploads **HelloWorld.png** into the container, then repeatedly checks whether the container and image have replicated to the secondary region. After replication, it prompts you to enter **D** or **Q** (followed by ENTER) to download or quit. Your output should look similar to the following example:
+
+```
+Created container successfully: newcontainer1550799840726
+Uploaded blob: HelloWorld.png
+Checking to see if container and blob have replicated to secondary region.
+[0] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
+[1] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
+...
+[31] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
+[32] Container found, but blob has not replicated to secondary region yet.
+...
+[67] Container found, but blob has not replicated to secondary region yet.
+[68] Blob has replicated to secondary region.
+Ready for blob download. Enter (D) to download or (Q) to quit, followed by ENTER.
+> D
+Attempting to download blob...
+Blob downloaded from primary endpoint.
+> Q
+Exiting...
+Deleted container newcontainer1550799840726
+```
 
 ---
 
 ## Understand the sample code
 
-# [.NET] (#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
+
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# [.NET v11 SDK](#tab/dotnet11)
 
 ### Retry event handler
 
-The `OperationContextRetrying` event handler is called when the download of the image fails and is set to retry. If the maximum number of retries defined in the application are reached, the [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) of the request is changed to `SecondaryOnly`. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint is not retried indefinitely.
- 
+The `OperationContextRetrying` event handler is called when the download of the image fails and is set to retry. If the maximum number of retries defined in the application are reached, the [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode) of the request is changed to `SecondaryOnly`. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint is not retried indefinitely.
+
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
 {
@@ -184,14 +302,14 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 
 ### Request completed event handler
 
-The `OperationContextRequestCompleted` event handler is called when the download of the image is successful. If the application is using the secondary endpoint, the application continues to use this endpoint up to 20 times. After 20 times, the application sets the [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) back to `PrimaryThenSecondary` and retries the primary endpoint. If a request is successful, the application continues to read from the primary endpoint.
- 
+The `OperationContextRequestCompleted` event handler is called when the download of the image is successful. If the application is using the secondary endpoint, the application continues to use this endpoint up to 20 times. After 20 times, the application sets the [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode) back to `PrimaryThenSecondary` and retries the primary endpoint. If a request is successful, the application continues to read from the primary endpoint.
+
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
 {
     if (blobClient.DefaultRequestOptions.LocationMode == LocationMode.SecondaryOnly)
     {
-        // You're reading the secondary. Let it read the secondary [secondaryThreshold] times, 
+        // You're reading the secondary. Let it read the secondary [secondaryThreshold] times,
         //    then switch back to the primary and see if it's available now.
         secondaryReadCount++;
         if (secondaryReadCount >= secondaryThreshold)
@@ -203,17 +321,22 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-# [Python] (#tab/python) 
+# [Python v12 SDK](#tab/python)
+
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# [Python v2.1](#tab/python2)
 
 ### Retry event handler
 
-The `retry_callback` event handler is called when the download of the image fails and is set to retry. If the maximum number of retries defined in the application are reached, the [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python) of the request is changed to `SECONDARY`. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint is not retried indefinitely.  
+The `retry_callback` event handler is called when the download of the image fails and is set to retry. If the maximum number of retries defined in the application are reached, the [LocationMode](/python/api/azure-storage-common/azure.storage.common.models.locationmode) of the request is changed to `SECONDARY`. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint is not retried indefinitely.
 
 ```python
 def retry_callback(retry_context):
     global retry_count
     retry_count = retry_context.count
-    sys.stdout.write("\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
+    sys.stdout.write(
+        "\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
     sys.stdout.flush()
 
     # Check if we have more than n-retries in which case switch to secondary
@@ -230,7 +353,7 @@ def retry_callback(retry_context):
 
 ### Request completed event handler
 
-The `response_callback` event handler is called when the download of the image is successful. If the application is using the secondary endpoint, the application continues to use this endpoint up to 20 times. After 20 times, the application sets the [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python) back to `PRIMARY` and retries the primary endpoint. If a request is successful, the application continues to read from the primary endpoint.
+The `response_callback` event handler is called when the download of the image is successful. If the application is using the secondary endpoint, the application continues to use this endpoint up to 20 times. After 20 times, the application sets the [LocationMode](/python/api/azure-storage-common/azure.storage.common.models.locationmode) back to `PRIMARY` and retries the primary endpoint. If a request is successful, the application continues to read from the primary endpoint.
 
 ```python
 def response_callback(response):
@@ -245,32 +368,40 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# [Java] (#tab/java)
+# [Node.js v12 SDK](#tab/nodejs)
 
-With Java, defining callback handlers is unnecessary if the **LocationMode** property of your **BlobRequestOptions** is set to **PRIMARY\_THEN\_SECONDARY**. This allows the application to automatically switch to the secondary location if it fails to reach the primary location when attempting to download **HelloWorld.png**.
+We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-```java
-    BlobRequestOptions myReqOptions = new BlobRequestOptions();
-    myReqOptions.setRetryPolicyFactory(new RetryLinearRetry(deltaBackOff, maxAttempts));
-    myReqOptions.setLocationMode(LocationMode.PRIMARY_THEN_SECONDARY);
-    blobClient.setDefaultRequestOptions(myReqOptions);
+# [Node.js v11 SDK](#tab/nodejs11)
 
-    blob.downloadToFile(downloadedFile.getAbsolutePath(),null,blobClient.getDefaultRequestOptions(),opContext);
+With the Node.js V10 SDK, callback handlers are unnecessary. Instead, the sample creates a pipeline configured with retry options and a secondary endpoint. This allows the application to automatically switch to the secondary pipeline if it fails to reach your data through the primary pipeline.
+
+```javascript
+const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+const storageAccessKey = process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY;
+const sharedKeyCredential = new SharedKeyCredential(accountName, storageAccessKey);
+
+const primaryAccountURL = `https://${accountName}.blob.core.windows.net`;
+const secondaryAccountURL = `https://${accountName}-secondary.blob.core.windows.net`;
+
+const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
+  retryOptions: {
+    maxTries: 3,
+    tryTimeoutInMs: 10000,
+    retryDelayInMs: 500,
+    maxRetryDelayInMs: 1000,
+    secondaryHost: secondaryAccountURL
+  }
+});
 ```
----
 
+---
 
 ## Next steps
 
-In part one of the series, you learned about making an application highly available with RA-GRS storage accounts, such as how to:
+In part one of the series, you learned about making an application highly available with RA-GZRS storage accounts.
 
-> [!div class="checklist"]
-> * Create a storage account
-> * Download the sample
-> * Set the connection string
-> * Run the console application
-
-Advance to part two of the series to learn how to simulate a failure and force your application to use the secondary RA-GRS endpoint.
+Advance to part two of the series to learn how to simulate a failure and force your application to use the secondary RA-GZRS endpoint.
 
 > [!div class="nextstepaction"]
-> [Simulate a failure in connection to your primary storage endpoint](storage-simulate-failure-ragrs-account-app.md)
+> [Simulate a failure in reading from the primary region](simulate-primary-region-failure.md)

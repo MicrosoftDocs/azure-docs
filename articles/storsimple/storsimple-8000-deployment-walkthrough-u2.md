@@ -1,23 +1,16 @@
 ---
-title: Deploy your StorSimple 8000 series device in Azure portal | Microsoft Docs
+title: Deploy your StorSimple 8000 series device in Azure portal
 description: Describes the steps and best practices for deploying the StorSimple 8000 series device running Update 3 and later, and StorSimple Device Manager service.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid:
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: alkohli
 
 ---
 # Deploy your on-premises StorSimple device (Update 3 and later)
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## Overview
 Welcome to Microsoft Azure StorSimple device deployment. These deployment tutorials apply to StorSimple 8000 Series Update 3 or later. This series of tutorials includes a configuration checklist, configuration prerequisites, and detailed configuration steps for your StorSimple device.
@@ -168,7 +161,7 @@ You have completed the device configuration.
 ## Configure a new storage account for the service
 This is an optional step that you need to perform only if you did not enable the automatic creation of a storage account with your service. A Microsoft Azure storage account is required to create a StorSimple volume container.
 
-If you need to create an Azure storage account in a different region, see [About Azure Storage Accounts](../storage/common/storage-create-storage-account.md) for step-by-step instructions.
+If you need to create an Azure storage account in a different region, see [About Azure Storage Accounts](../storage/common/storage-account-create.md) for step-by-step instructions.
 
 Perform the following steps in the Azure portal, on the **StorSimple Device Manager service** page.
 
@@ -209,4 +202,3 @@ The tip of the stereo jack is considered to be PIN 3 RX, the middle is PIN 2 TX 
 ## Next steps
 * [Configure a StorSimple Cloud Appliance](storsimple-8000-cloud-appliance-u2.md).
 * [Use the StorSimple Device Manager service to manage your StorSimple device](storsimple-8000-manager-service-administration.md).
-

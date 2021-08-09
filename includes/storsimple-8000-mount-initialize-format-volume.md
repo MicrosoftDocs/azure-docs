@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ---
-<!--author=SharS last changed: 9/17/15-->
 
 #### To mount, initialize, and format a volume
 1. Start the Microsoft iSCSI initiator.
@@ -27,4 +26,4 @@ ms.author: alkohli
     4. Perform a quick format.
 
 <!--Link references-->
-[1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee338480(v=ws.10)

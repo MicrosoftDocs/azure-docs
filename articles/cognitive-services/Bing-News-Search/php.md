@@ -1,38 +1,47 @@
 ---
-title: "Quickstart: Bing News Search API, PHP"
-titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing News Search API.
+title: "Quickstart: Perform a news search with PHP and the Bing News Search REST API"
+titleSuffix: Azure Cognitive Services
+description: Use this quickstart to send a request to the Bing News Search REST API using PHP, and receive a JSON response.
 services: cognitive-services
-author: v-jerkin
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-news-search
+ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 9/21/2017
-ms.author: v-jerkin
+ms.date: 05/22/2020
+ms.author: aahi
+ms.custom: seodec2018
 ---
-# Quickstart for Bing News Search API with PHP
+# Quickstart: Perform a news search using PHP and the Bing News Search REST API
 
-This article shows you how use the Bing News Search API, part of Microsoft Cognitive Services on Azure. While this article employs PHP, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-The example code was written to work under PHP 5.6.
+Use this quickstart to make your first call to the Bing News Search API. This simple PHP application sends a search query to the API and displays the JSON response.
 
-Refer to the [API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) for technical details about the APIs.
+Although this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You will need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+* PHP 5.6 or later
 
-## Bing News search
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-The [Bing News Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) returns news results from the Bing search engine.
+For more information, see [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-1. Make sure secure HTTP support is enabled in your `php.ini` as described in the code comment.
+## Run the application
+
+To run this application, follow these steps:
+
+1. Enable secure HTTP support in your `php.ini` file by uncommenting the `;extension=php_openssl.dll` line, as described in the code comment.
 2. Create a new PHP project in your favorite IDE or editor.
 3. Add the code provided below.
 4. Replace the `accessKey` value with an access key valid for your subscription.
-5. Run the program.
+5. You can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+6. Run the program.
 
 ```php
 <?php
@@ -58,7 +67,7 @@ $term = 'Microsoft';
 function BingNewsSearch ($url, $key, $query) {
     // Prepare HTTP request
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
     $options = array ('http' => array (
                           'header' => $headers,
@@ -94,7 +103,7 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 ?>
 ```
 
-**Response**
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -192,8 +201,4 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Paging news](paging-news.md)
-> [Using decoration markers to highlight text](hit-highlighting.md)
-> [Searching the web for news](search-the-web.md)  
-> [Try it](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
-
+> [Create a single-page web app](tutorial-bing-news-search-single-page-app.md)

@@ -1,24 +1,15 @@
 ---
-title: Move data from MongoDB using Data Factory | Microsoft Docs
+title: Move data from MongoDB
 description: Learn about how to move data from MongoDB database using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
-
-
-ms.assetid: 10ca7d9a-7715-4446-bf59-2d2876584550
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/13/2018
-ms.author: jingwang
-
-robots: noindex
 ---
+
 # Move data From MongoDB using Azure Data Factory
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-on-premises-mongodb-connector.md)
 > * [Version 2 (current version)](../connector-mongodb.md)
@@ -29,12 +20,12 @@ robots: noindex
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises MongoDB database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
-You can copy data from an on-premises MongoDB data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from a MongoDB data store to other data stores, but not for moving data from other data stores to an MongoDB datastore. 
+You can copy data from an on-premises MongoDB data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from a MongoDB data store to other data stores, but not for moving data from other data stores to an MongoDB datastore.
 
 ## Prerequisites
 For the Azure Data Factory service to be able to connect to your on-premises MongoDB database, you must install the following components:
 
-- Supported MongoDB versions are:  2.4, 2.6, 3.0, 3.2, 3.4 and 3.6.
+- Supported MongoDB versions are: 2.4, 2.6, 3.0, 3.2, 3.4 and 3.6.
 - Data Management Gateway on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a software that connects on-premises data sources to cloud services in a secure and managed way. See [Data Management Gateway](data-factory-data-management-gateway.md) article for details about Data Management Gateway. See [Move data from on-premises to cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on setting up the gateway a data pipeline to move data.
 
     When you install the gateway, it automatically installs a Microsoft MongoDB ODBC driver used to connect to MongoDB.
@@ -47,15 +38,15 @@ You can create a pipeline with a copy activity that moves data from an on-premis
 
 The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
+You can also use the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
 
-Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store: 
+Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
 1. Create **linked services** to link input and output data stores to your data factory.
-2. Create **datasets** to represent input and output data for the copy operation. 
-3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output. 
+2. Create **datasets** to represent input and output data for the copy operation.
+3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output.
 
-When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data from an on-premises MongoDB data store, see [JSON example: Copy data from MongoDB to Azure Blob](#json-example-copy-data-from-mongodb-to-azure-blob) section of this article. 
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data from an on-premises MongoDB data store, see [JSON example: Copy data from MongoDB to Azure Blob](#json-example-copy-data-from-mongodb-to-azure-blob) section of this article.
 
 The following sections provide details about JSON properties that are used to define Data Factory entities specific to MongoDB source:
 
@@ -98,7 +89,7 @@ When the source is of type **MongoDbSource** the following properties are availa
 
 
 ## JSON example: Copy data from MongoDB to Azure Blob
-This example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). It shows how to copy data from an on-premises MongoDB to an Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
+This example provides sample JSON definitions that you can use to create a pipeline by using [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). It shows how to copy data from an on-premises MongoDB to an Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
 The sample has the following data factory entities:
 
@@ -123,11 +114,11 @@ As a first step, setup the data management gateway as per the instructions in th
         "typeProperties":
         {
             "authenticationType": "<Basic or Anonymous>",
-            "server": "< The IP address or host name of the MongoDB server >",  
+            "server": "< The IP address or host name of the MongoDB server >",
             "port": "<The number of the TCP port that the MongoDB server uses to listen for client connections.>",
             "username": "<username>",
             "password": "<password>",
-           "authSource": "< The database that you want to use to check your credentials for authentication. >",
+            "authSource": "< The database that you want to use to check your credentials for authentication. >",
             "databaseName": "<database name>",
             "gatewayName": "<mygateway>"
         }
@@ -154,12 +145,12 @@ Setting “external”: ”true” informs the Data Factory service that the tab
 
 ```json
 {
-     "name":  "MongoDbInputDataset",
+    "name": "MongoDbInputDataset",
     "properties": {
         "type": "MongoDbCollection",
         "linkedServiceName": "OnPremisesMongoDbLinkedService",
         "typeProperties": {
-            "collectionName": "<Collection name>"    
+            "collectionName": "<Collection name>"
         },
         "availability": {
             "frequency": "Hour",
@@ -245,7 +236,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
                 "typeProperties": {
                     "source": {
                         "type": "MongoDbSource",
-                        "query": "$$Text.Format('select * from  MyTable where LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)"
+                        "query": "$$Text.Format('select * from MyTable where LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)"
                     },
                     "sink": {
                         "type": "BlobSink",

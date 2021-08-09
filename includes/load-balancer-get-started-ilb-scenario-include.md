@@ -1,3 +1,10 @@
+---
+author: kumudD
+ms.service: load-balancer
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: kumud
+---
 ## Configuration scenario
 
 In this scenario, we're creating an internal load balancer in a virtual network as shown in the following figure:

@@ -1,292 +1,532 @@
 ---
-title: Use entity recognition with the Text Analytics API 
+title: Use entity recognition with the Text Analytics API
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize entities using the Text Analytics REST API.
+description: Learn how to identify and disambiguate the identity of an entity found in text with the Text Analytics REST API.
 services: cognitive-services
-author: ashmaka
+author: aahill
 
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
-ms.date: 10/01/2018
-ms.author: ashmaka
+ms.date: 06/15/2021
+ms.author: aahi
 ---
 
-# How to use Named Entity Recognition in Text Analytics (Preview)
+# How to use Named Entity Recognition in Text Analytics
 
-The [Entity Recognition API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) takes unstructured text, and for each JSON document, returns a list of disambiguated entities with links to more information on the web (Wikipedia and Bing). 
+The Text Analytics API lets you takes unstructured text and returns a list of disambiguated entities, with links to more information on the web. The API supports both named entity recognition (NER) for several entity categories, and entity linking.
 
-## Entity Linking and Named Entity Recognition
+## Entity Linking
 
-The Text Analytics' `entities` endpoint supprts both named entity recognition (NER) and entity linking.
+Entity linking is the ability to identify and disambiguate the identity of an entity found in text (for example, determining whether an occurrence of the word "Mars" refers to the planet, or to the Roman god of war). This process requires the presence of a knowledge base in an appropriate language, to link recognized entities in text. Entity Linking uses [Wikipedia](https://www.wikipedia.org/) as this knowledge base.
 
-### Entity Linking
-Entity linking is the ability to identify and disambiguate the identity of an entity found in text (for example, determining whether the "Mars" is being used as the planet or as the Roman god of war). This process requires the presence of a knowledge base to which recognized entities are linked - Wikipedia is used as the knowledge base for the `entities` endpoint Text Analytics.
+## Named Entity Recognition (NER)
 
-In Text Analytics [Version 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634), only entity linking is available.
+Named Entity Recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization.  
 
-### Named Entity Recognition (NER)
-Named entity recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes. The supported classes of entities are listed below.
+## Personally Identifiable Information (PII)
 
-In Text Analytics [Version 2.1-Preview](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), both entity linking and named entity recognition (NER) are available.
+The PII feature is part of NER and it can identify and redact sensitive entities in text that are associated with an individual person such as: phone number, email address, mailing address, passport number.
 
-### Language support
+## Named Entity Recognition features and versions
 
-Using entity linking in various languages requires using a corresponding knowledge base in each language. For entity linking in Text Analytics, this means each language that is supported by the `entities` endpoint will link to the corresponding Wikipedia corpus in that language. Since the size of corpora varies between languages, it is expected that the entity linking functionality's recall will also vary.
+| Feature                                                         | NER v3.0 | NER v3.1 |
+|-----------------------------------------------------------------|--------|----------|
+| Methods for single, and batch requests                          | X      | X        |
+| Expanded entity recognition across several categories           | X      | X        |
+| Separate endpoints for sending entity linking and NER requests. | X      | X        |
+| Recognition of personal (`PII`) and health (`PHI`) information entities        |        | X        |
+| Redaction of `PII`        |        | X        |
 
-## Supported Types for Named Entity Recognition
+See [language support](../language-support.md) for information.
 
-| Type  | SubType | Example |
-|:-----------   |:------------- |:---------|
-| Person        | N/A\*         | "Jeff", "Bill Gates"     |
-| Location      | N/A\*         | "Redmond, Washington", "Paris"  |
-| Organization  | N/A\*         | "Microsoft"   |
-| Quantity      | Number        | "6", "six"     | 
-| Quantity      | Percentage    | "50%", "fifty percent"| 
-| Quantity      | Ordinal       | "2nd", "second"     | 
-| Quantity      | NumberRange   | "4 to 8"     | 
-| Quantity      | Age           | "90 day old", "30 years old"    | 
-| Quantity      | Currency      | "$10.99"     | 
-| Quantity      | Dimension     | "10 miles", "40 cm"     | 
-| Quantity      | Temperature   | "32 degrees"    |
-| DateTime      | N/A\*         | "6:30PM February 4, 2012"      | 
-| DateTime      | Date          | "May 2nd, 2017", "05/02/2017"   | 
-| Date Time     | Time          | "8am", "8:00"  | 
-| DateTime      | DateRange     | "May 2nd to May 5th"    | 
-| DateTime      | TimeRange     | "6pm to 7pm"     | 
-| DateTime      | Duration      | "1 minute and 45 seconds"   | 
-| DateTime      | Set           | "every Tuesday"     | 
-| DateTime      | TimeZone      |    | 
-| URL           | N/A\*         | "http://www.bing.com"    |
-| Email         | N/A\*         | "support@contoso.com" |
-\* Depending on the input and extracted entities, certain entities may omit the `SubType`.
+Named Entity Recognition v3 provides expanded detection across multiple types. Currently, NER v3.0 can recognize entities in the [general entity category](../named-entity-types.md).
 
+Named Entity Recognition v3.1 includes the detection capabilities of v3.0, and: 
+* The ability to detect personal information (`PII`) using the `v3.1/entities/recognition/pii` endpoint. 
+* An optional `domain=phi` parameter to detect confidential health information (`PHI`).
+* [Asynchronous operation](text-analytics-how-to-call-api.md) using the `/analyze` endpoint.
+
+For more information, see the [entity categories](../named-entity-types.md) article, and [request endpoints](#request-endpoints) section below. For more information on confidence scores, see the [Text Analytics transparency note](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context). 
+
+## Sending a REST API request
+
+### Preparation
+
+You must have JSON documents in this format: ID, text, language.
+
+Each document must be under 5,120 characters, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request.
+
+### Structure the request
+
+Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) or the **API testing console** in the following links to quickly structure and send one. 
+
+> [!NOTE]
+> You can find your key and endpoint for your Text Analytics resource on the azure portal. They will be located on the resource's **Quick start** page, under **resource management**. 
 
 
-## Preparation
+### Request endpoints
 
-You must have JSON documents in this format: id, text, language
+#### [Version 3.1](#tab/version-3-1)
 
-For currently supported languages, see [this list](../text-analytics-supported-languages.md).
+Named Entity Recognition `v3.1` uses separate endpoints for NER, PII, and entity linking requests. Use a URL format below based on your request.
 
-Document size must be under 5,000 characters per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following example is an illustration of content you might submit to the entity linking end.
+**Entity linking**
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/linking`
 
-```
-{"documents": [{"id": "1",
-				"language": "en",
-                "text": "Jeff bought three dozen eggs because there was a 50% discount."
-				},
-               {"id": "2",
-            	"language": "en",
-                "text": "The Great Depression began in 1929. By 1933, the GDP in America fell by 25%."
-                }
-               ]
-}
-```    
-    
-## Step 1: Structure the request
+[Named Entity Recognition version 3.1 reference for `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesLinking)
 
-Details on request definition can be found in [How to call the Text Analytics API](text-analytics-how-to-call-api.md). The following points are restated for convenience:
+**Named Entity Recognition**
+* General entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/recognition/general`
 
-+ Create a **POST** request. Review the API documentation for this request: [Entity Linking API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
+[Named Entity Recognition version 3.1 reference for `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesRecognitionGeneral)
 
-+ Set the HTTP endpoint for entity extraction. It must include the `/entities` resource: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
+**Personally Identifiable Information (PII)**
+* Personal (`PII`) information - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/recognition/pii`
 
-+ Set a request header to include the access key for Text Analytics operations. For more information, see [How to find endpoints and access keys](text-analytics-how-to-access-key.md).
+You can also use the optional `domain=phi` parameter to detect health (`PHI`) information in text. 
 
-+ In the request body, provide the JSON documents collection you prepared for this analysis
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/recognition/pii?domain=phi`
 
-> [!Tip]
-> Use [Postman](text-analytics-how-to-call-api.md) or open the **API testing console** in the [documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) to structure a request and POST it to the service.
+Starting in `v3.1`, The JSON response includes a `redactedText` property, which contains the modified input text where the detected PII entities are replaced by an `*` for each character in the entities.
 
-## Step 2: Post the request
+[Named Entity Recognition version 3.1 reference for `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesRecognitionPii)
 
-Analysis is performed upon receipt of the request. The service accepts up to 100 requests per minute. Each request can be a maximum of 1 MB.
+The API will attempt to detect the [listed entity categories](../named-entity-types.md?tabs=personal) for a given document language. If you want to specify which entities will be detected and returned, use the optional `piiCategories` parameter with the appropriate entity categories. This parameter can also let you detect entities that aren't enabled by default for your document language. The following example would detect a French driver's license number that might occur in English text, along with the default English entities.
 
-Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
+> [!TIP]
+> If you don't include `default` when specifying entity categories, The API will only return the entity categories you specify.
 
-## Step 3: View results
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/recognition/pii?piiCategories=default,FRDriversLicenseNumber`
 
-All POST requests return a JSON formatted response with the IDs and detected properties.
+**Asynchronous operation**
 
-Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data.
+Starting in `v3.1`, You can send NER and entity linking requests asynchronously using the `/analyze` endpoint.
 
-An example of the output for entity linking is shown next:
+* Asynchronous operation - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/analyze`
+
+See [How to call the Text Analytics API](text-analytics-how-to-call-api.md) for information on sending asynchronous requests.
+
+#### [Version 3.0](#tab/version-3)
+
+Named Entity Recognition v3 uses separate endpoints for NER and entity linking requests. Use a URL format below based on your request:
+
+**Entity linking**
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/linking`
+
+[Named Entity Recognition version 3.1 reference for `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesRecognitionGeneral)
+
+**Named Entity Recognition**
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
+
+[Named Entity Recognition version 3.0 reference for `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
+
+---
+
+Set a request header to include your Text Analytics API key. In the request body, provide the JSON documents you prepared.
+
+## Example requests
+
+#### [Version 3.1](#tab/version-3-1)
+
+### Example synchronous NER request 
+
+The following JSON is an example of content you might send to the API. The request format is the same for both versions of the API.
 
 ```json
 {
-    "Documents": [
-        {
-            "Id": "1",
-            "Entities": [
-                {
-                    "Name": "Jeff",
-                    "Matches": [
-                        {
-                            "Text": "Jeff",
-                            "Offset": 0,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "Person"
-                },
-                {
-                    "Name": "three dozen",
-                    "Matches": [
-                        {
-                            "Text": "three dozen",
-                            "Offset": 12,
-                            "Length": 11
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50",
-                    "Matches": [
-                        {
-                            "Text": "50",
-                            "Offset": 49,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50%",
-                    "Matches": [
-                        {
-                            "Text": "50%",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        },
-        {
-            "Id": "2",
-            "Entities": [
-                {
-                    "Name": "Great Depression",
-                    "Matches": [
-                        {
-                            "Text": "The Great Depression",
-                            "Offset": 0,
-                            "Length": 20
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Great Depression",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
-                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
-                },
-                {
-                    "Name": "1929",
-                    "Matches": [
-                        {
-                            "Text": "1929",
-                            "Offset": 30,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "By 1933",
-                    "Matches": [
-                        {
-                            "Text": "By 1933",
-                            "Offset": 36,
-                            "Length": 7
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "Gross domestic product",
-                    "Matches": [
-                        {
-                            "Text": "GDP",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Gross domestic product",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
-                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
-                },
-                {
-                    "Name": "United States",
-                    "Matches": [
-                        {
-                            "Text": "America",
-                            "Offset": 56,
-                            "Length": 7
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "United States",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
-                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
-                    "Type": "Location"
-                },
-                {
-                    "Name": "25",
-                    "Matches": [
-                        {
-                            "Text": "25",
-                            "Offset": 72,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "25%",
-                    "Matches": [
-                        {
-                            "Text": "25%",
-                            "Offset": 72,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        }
-    ],
-    "Errors": []
+  "documents": [
+    {
+        "id": "1",
+        "language": "en",
+        "text": "Our tour guide took us up the Space Needle during our trip to Seattle last week."
+    }
+  ]
 }
 ```
+
+### Example synchronous PII request
+
+The following JSON is an example of content you might send to the API to detect PII in text.
+
+```json
+{
+  "documents": [
+    {
+        "id": "1",
+        "language": "en",
+        "text": "You can even pre-order from their online menu at www.contososteakhouse.com, call 312-555-0176 or send email to order@contososteakhouse.com!"
+    }
+  ]
+}
+```
+
+### Example asynchronous NER request
+
+If you use the `/analyze` endpoint for [asynchronous operation](text-analytics-how-to-call-api.md), you will get a response containing the tasks you sent to the API.
+
+```json
+{
+    "displayName": "My Job",
+    "analysisInput": {
+        "documents": [
+            {
+                "id": "doc1",
+                "text": "It's incredibly sunny outside! I'm so happy"
+            },
+            {
+                "id": "doc2",
+                "text": "Pike place market is my favorite Seattle attraction."
+            }
+        ]
+    },
+    "tasks": {
+        "entityRecognitionTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest"
+                }
+            }
+        ],
+        "entityRecognitionPiiTasks": [{
+            "parameters": {
+                "model-version": "latest"
+            }
+        }]
+    }
+}
+```
+
+#### [Version 3.0](#tab/version-3)
+
+### Example synchronous NER request 
+
+Version 3.0 only includes synchronous operation. The following JSON is an example of content you might send to the API. The request format is the same for both versions of the API.
+
+```json
+{
+  "documents": [
+    {
+        "id": "1",
+        "language": "en",
+        "text": "Our tour guide took us up the Space Needle during our trip to Seattle last week."
+    }
+  ]
+}
+```
+
+---
+
+## Post the request
+
+Analysis is performed upon receipt of the request. See the [data limits](../overview.md#data-limits) article for information on the size and number of requests you can send per minute and second.
+
+The Text Analytics API is stateless. No data is stored in your account, and results are returned immediately in the response.
+
+## View results
+
+All POST requests return a JSON formatted response with the IDs and detected entity properties.
+
+Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data. Due to multilingual and emoji support, the response may contain text offsets. For more information, see [how to process text offsets](../concepts/text-offsets.md).
+
+### Example responses
+
+Version 3 provides separate endpoints for general NER, PII, and entity linking. Version 3.1-pareview includes an asynchronous Analyze mode. The responses for these operations are below. 
+
+#### [Version 3.1](#tab/version-3-1)
+
+### Synchronous example results
+
+Example of a general NER response:
+
+```json
+{
+    "documents": [
+        {
+            "id": "1",
+            "entities": [
+                {
+                    "text": "tour guide",
+                    "category": "PersonType",
+                    "offset": 4,
+                    "length": 10,
+                    "confidenceScore": 0.94
+                },
+                {
+                    "text": "Space Needle",
+                    "category": "Location",
+                    "offset": 30,
+                    "length": 12,
+                    "confidenceScore": 0.96
+                },
+                {
+                    "text": "Seattle",
+                    "category": "Location",
+                    "subcategory": "GPE",
+                    "offset": 62,
+                    "length": 7,
+                    "confidenceScore": 1.0
+                },
+                {
+                    "text": "last week",
+                    "category": "DateTime",
+                    "subcategory": "DateRange",
+                    "offset": 70,
+                    "length": 9,
+                    "confidenceScore": 0.8
+                }
+            ],
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2021-06-01"
+}
+```
+
+Example of a PII response:
+
+```json
+{
+    "documents": [
+        {
+            "redactedText": "You can even pre-order from their online menu at www.contososteakhouse.com, call ************ or send email to ***************************!",
+            "id": "1",
+            "entities": [
+                {
+                    "text": "312-555-0176",
+                    "category": "PhoneNumber",
+                    "offset": 81,
+                    "length": 12,
+                    "confidenceScore": 0.8
+                },
+                {
+                    "text": "order@contososteakhouse.com",
+                    "category": "Email",
+                    "offset": 111,
+                    "length": 27,
+                    "confidenceScore": 0.8
+                },
+                {
+                    "text": "contososteakhouse",
+                    "category": "Organization",
+                    "offset": 117,
+                    "length": 17,
+                    "confidenceScore": 0.45
+                }
+            ],
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2021-01-15"
+}
+```
+
+Example of an Entity linking response:
+
+```json
+{
+    "documents": [
+        {
+            "id": "1",
+            "entities": [
+                {
+                    "bingId": "f8dd5b08-206d-2554-6e4a-893f51f4de7e",
+                    "name": "Space Needle",
+                    "matches": [
+                        {
+                            "text": "Space Needle",
+                            "offset": 30,
+                            "length": 12,
+                            "confidenceScore": 0.4
+                        }
+                    ],
+                    "language": "en",
+                    "id": "Space Needle",
+                    "url": "https://en.wikipedia.org/wiki/Space_Needle",
+                    "dataSource": "Wikipedia"
+                },
+                {
+                    "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
+                    "name": "Seattle",
+                    "matches": [
+                        {
+                            "text": "Seattle",
+                            "offset": 62,
+                            "length": 7,
+                            "confidenceScore": 0.25
+                        }
+                    ],
+                    "language": "en",
+                    "id": "Seattle",
+                    "url": "https://en.wikipedia.org/wiki/Seattle",
+                    "dataSource": "Wikipedia"
+                }
+            ],
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2021-06-01"
+}
+```
+
+### Example asynchronous result
+
+```json
+{
+    "jobId": "f480e1f9-0b61-4d47-93da-240f084582cf",
+    "lastUpdateDateTime": "2021-07-06T19:03:15Z",
+    "createdDateTime": "2021-07-06T19:02:47Z",
+    "expirationDateTime": "2021-07-07T19:02:47Z",
+    "status": "succeeded",
+    "errors": [],
+    "displayName": "My Job",
+    "tasks": {
+        "completed": 2,
+        "failed": 0,
+        "inProgress": 0,
+        "total": 2,
+        "entityRecognitionTasks": [
+            {
+                "lastUpdateDateTime": "2021-07-06T19:03:15.212633Z",
+                "taskName": "NamedEntityRecognition_latest",
+                "state": "succeeded",
+                "results": {
+                    "documents": [
+                        {
+                            "id": "doc1",
+                            "entities": [],
+                            "warnings": []
+                        },
+                        {
+                            "id": "doc2",
+                            "entities": [
+                                {
+                                    "text": "Pike place market",
+                                    "category": "Location",
+                                    "offset": 0,
+                                    "length": 17,
+                                    "confidenceScore": 0.95
+                                },
+                                {
+                                    "text": "Seattle",
+                                    "category": "Location",
+                                    "subcategory": "GPE",
+                                    "offset": 33,
+                                    "length": 7,
+                                    "confidenceScore": 0.99
+                                }
+                            ],
+                            "warnings": []
+                        }
+                    ],
+                    "errors": [],
+                    "modelVersion": "2021-06-01"
+                }
+            }
+        ],
+        "entityRecognitionPiiTasks": [
+            {
+                "lastUpdateDateTime": "2021-07-06T19:03:03.2063832Z",
+                "taskName": "PersonallyIdentifiableInformation_latest",
+                "state": "succeeded",
+                "results": {
+                    "documents": [
+                        {
+                            "redactedText": "It's incredibly sunny outside! I'm so happy",
+                            "id": "doc1",
+                            "entities": [],
+                            "warnings": []
+                        },
+                        {
+                            "redactedText": "Pike place market is my favorite Seattle attraction.",
+                            "id": "doc2",
+                            "entities": [],
+                            "warnings": []
+                        }
+                    ],
+                    "errors": [],
+                    "modelVersion": "2021-01-15"
+                }
+            }
+        ]
+    }
+}
+```
+
+
+#### [Version 3.0](#tab/version-3)
+
+Example of a general NER response:
+```json
+{
+  "documents": [
+    {
+      "id": "1",
+      "entities": [
+        {
+          "text": "tour guide",
+          "category": "PersonType",
+          "offset": 4,
+          "length": 10,
+          "confidenceScore": 0.45
+        },
+        {
+          "text": "Space Needle",
+          "category": "Location",
+          "offset": 30,
+          "length": 12,
+          "confidenceScore": 0.38
+        },
+        {
+          "text": "trip",
+          "category": "Event",
+          "offset": 54,
+          "length": 4,
+          "confidenceScore": 0.78
+        },
+        {
+          "text": "Seattle",
+          "category": "Location",
+          "subcategory": "GPE",
+          "offset": 62,
+          "length": 7,
+          "confidenceScore": 0.78
+        },
+        {
+          "text": "last week",
+          "category": "DateTime",
+          "subcategory": "DateRange",
+          "offset": 70,
+          "length": 9,
+          "confidenceScore": 0.8
+        }
+      ],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-04-01"
+}
+```
+
+---
 
 
 ## Summary
 
 In this article, you learned concepts and workflow for entity linking using Text Analytics in Cognitive Services. In summary:
 
-+ [Entities API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) is available for selected languages.
-+ JSON documents in the request body include an id, text, and language code.
-+ POST request is to a `/entities` endpoint, using a personalized [access key and an endpoint](text-analytics-how-to-access-key.md) that is valid for your subscription.
-+ Response output, which consists of linked entities (including confidence scores, offsets, and web links, for each document ID) can be used in any application
-
-## See also 
-
- [Text Analytics overview](../overview.md)  
- [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)</br>
- [Text Analytics product page](//go.microsoft.com/fwlink/?LinkID=759712) 
+* JSON documents in the request body include an ID, text, and language code.
+* POST requests are sent to one or more endpoints, using a personalized [access key and an endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that is valid for your subscription.
+* Response output, which consists of linked entities (including confidence scores, offsets, and web links, for each document ID) can be used in any application
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Text Analytics API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
+* [Text Analytics overview](../overview.md)
+* [Using the Text Analytics client library](../quickstarts/client-libraries-rest-api.md)
+* [Model versions](../concepts/model-versioning.md)
+* [What's new](../whats-new.md)

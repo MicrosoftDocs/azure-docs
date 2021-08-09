@@ -1,89 +1,117 @@
 ---
-title:  "Quickstart: Bing Entity Search API, Node.js"
-titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing Entity Search API.
+title:  "Quickstart: Send a search request to the REST API using Node.js - Bing Entity Search"
+titleSuffix: Azure Cognitive Services
+description: Use this quickstart to send a request to the Bing Entity Search REST API using Node.js and receive a JSON response.
 services: cognitive-services
-author: v-jaswel
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
-ms.author: v-jaswel
+ms.date: 05/08/2020
+ms.author: aahi
+ms.custom: devx-track-js
 ---
-# Quickstart for Bing Entity Search API with Node.js
 
-This article shows you how to use the [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API with Node.JS.
+# Quickstart: Send a search request to the Bing Entity Search REST API using Node.js
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
+Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple JavaScript application sends a news search query to the API, and displays the response. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingEntitySearchv7.js).
+
+Although this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
-You will need [Node.js 6](https://nodejs.org/en/download/) to run this code.
+* The latest version of [Node.js](https://nodejs.org/en/download/).
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Entity Search API**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+* The [JavaScript Request Library](https://github.com/request/request).
 
-## Search entities
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-To run this application, follow these steps.
+## Create and initialize the application
 
-1. Create a new Node.JS project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `key` value with an access key valid for your subscription.
-4. Run the program.
+1. Create a new JavaScript file in your favorite IDE or editor, and set the strictness and HTTPS requirements.
 
-```nodejs
-'use strict';
+    ```javaScript
+    'use strict';
+    let https = require ('https');
+    ```
 
-let https = require ('https');
+2. Create variables for the API endpoint, your subscription key, and search query. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+    ```javascript
+    let subscriptionKey = 'ENTER YOUR KEY HERE';
+    let host = 'api.bing.microsoft.com';
+    let path = '/v7.0/search';
+    
+    let mkt = 'en-US';
+    let q = 'italian restaurant near me';
+    ```
 
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'ENTER KEY HERE';
+3. Append your market and query parameters to a string called `query`. Be sure to url-encode your query with `encodeURI()`.
+    ```javascript 
+    let query = '?mkt=' + mkt + '&q=' + encodeURI(q);
+    ```
 
-let host = 'api.cognitive.microsoft.com';
-let path = '/bing/v7.0/entities';
+## Handle and parse the response
 
-let mkt = 'en-US';
-let q = 'italian restaurant near me';
+1. Define a function named `response_handler()` that takes an HTTP call, `response`, as a parameter. 
 
-let params = '?mkt=' + mkt + '&q=' + encodeURI(q);
+2. Within this function, define a variable to contain the body of the JSON response.  
+    ```javascript
+    let response_handler = function (response) {
+        let body = '';
+    };
+    ```
 
-let response_handler = function (response) {
-    let body = '';
-    response.on ('data', function (d) {
+3. Store the body of the response when the `data` flag is called.
+    ```javascript
+    response.on('data', function (d) {
         body += d;
     });
+    ```
+
+4. When an `end` flag is signaled, parse the JSON, and print it.
+
+    ```javascript
     response.on ('end', function () {
-		let body_ = JSON.parse (body);
-		let body__ = JSON.stringify (body_, null, '  ');
-        console.log (body__);
+    let json = JSON.stringify(JSON.parse(body), null, '  ');
+    console.log (json);
     });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
+    ```
 
-let Search = function () {
-	let request_params = {
-		method : 'GET',
-		hostname : host,
-		path : path + params,
-		headers : {
-			'Ocp-Apim-Subscription-Key' : subscriptionKey,
-		}
-	};
+## Send a request
 
-	let req = https.request (request_params, response_handler);
-	req.end ();
-}
+1. Create a function called `Search()` to send a search request. In it, perform the following steps:
 
-Search ();
-```
+2. Within this function, create a JSON object containing your request parameters. Use `Get` for the method, and add your host and path information. Add your subscription key to the `Ocp-Apim-Subscription-Key` header. 
 
-**Response**
+3. Use `https.request()` to send the request with the response handler created previously, and your search parameters.
+    
+   ```javascript
+   let Search = function () {
+    let request_params = {
+        method : 'GET',
+        hostname : host,
+        path : path + query,
+        headers : {
+            'Ocp-Apim-Subscription-Key' : subscriptionKey,
+        }
+    };
+    
+    let req = https.request (request_params, response_handler);
+    req.end ();
+   }
+      ```
+
+2. Call the `Search()` function.
+
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -123,7 +151,7 @@ A successful response is returned in JSON, as shown in the following example:
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [
@@ -148,11 +176,10 @@ A successful response is returned in JSON, as shown in the following example:
 }
 ```
 
-[Back to top](#HOLTop)
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Entity Search tutorial](../tutorial-bing-entities-search-single-page-app.md)
-> [Bing Entity Search overview](../search-the-web.md )
-> [API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
+
+* [What is the Bing Entity Search API?](../overview.md )
+* [Bing Entity Search API reference](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

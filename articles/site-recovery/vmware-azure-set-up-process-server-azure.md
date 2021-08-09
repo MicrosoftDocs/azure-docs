@@ -1,13 +1,13 @@
 ---
-title: 'Set up a process server in Azure for VMware VM and physical server failback with Azure Site Recovery | Microsoft Docs'
+title: Set up a process server VMware/physical failback in Azure Site Recovery 
 description: This article describes how to set up a process server in Azure, to failback Azure VMs to VMware.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
-ms.topic: article
-ms.date: 10/10/2018
-ms.author: raynew
+ms.topic: conceptual
+ms.author: sharrai
+ms.date: 05/27/2021
 ---
 
 # Set up a process server in Azure for failback
@@ -20,6 +20,7 @@ Learn more about the [reprotection](vmware-azure-reprotect.md) and [failback](vm
 
 [!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
 
+
 ## Deploy a process server in Azure
 
 1. In the vault > **Site Recovery Infrastructure**> **Manage** > **Configuration Servers**, select the configuration server.
@@ -27,11 +28,11 @@ Learn more about the [reprotection](vmware-azure-reprotect.md) and [failback](vm
 3. In **Add process server** page, and select to deploy the process server in Azure.
 4. Specify the Azure settings, including the subscription used for failover, a resource group, the Azure region used for failover, and the virtual network in which the Azure VMs are located. If you used multiple Azure networks, you need a process server in each one.
 
-  ![Add process server gallery item](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
+   ![Add process server gallery item](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
 
 4. In **Server name**, **User name**, and **Password**, specify a name for the process server, and credentials that will be assigned Admin permissions on the server.
 5. Specify a storage account to be used for the server VM disks, the subnet in which the process server VM will be located, and the server IP address that will be assigned when the VM starts.
-6. Click **OK** button to start deploying the process server VM.
+6. Click **OK** button to start deploying the process server VM. The process server will be deployed on Standard_A8_v2 SKU. Ensure that this VM SKU is available for your subscription.
 
 >
 

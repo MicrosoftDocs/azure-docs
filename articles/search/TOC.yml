@@ -1,112 +1,243 @@
-- name: Azure Search Documentation
+- name: Azure Cognitive Search Documentation
   href: index.yml
 - name: Overview
-  items:
-  - name: About Azure Search
-    href: search-what-is-azure-search.md
-- name: Quickstarts
   expanded: true
   items:
-  - name: Create a service
-    href: search-create-service-portal.md
-  - name: Try cognitive search
-    href: cognitive-search-quickstart-blob.md
-  - name: .NET
+  - name: What is Cognitive Search?
+    href: search-what-is-azure-search.md
+  - name: Features in Search
+    href: search-features-list.md
+  - name: New in Search
+    href: whats-new.md
+- name: Quickstarts
+  items:
+  - name: Portal
     items:
     - name: Create an index
-      href: search-create-index-dotnet.md
-    - name: Import data
-      href: search-import-data-dotnet.md
-    - name: Search
-      href: search-query-dotnet.md
+      href: search-get-started-portal.md
+    - name: Create a demo app
+      href: search-create-app-portal.md
+    - name: Create a skillset
+      href: cognitive-search-quickstart-blob.md
+    - name: Create a knowledge store
+      href: knowledge-store-create-portal.md
+    - name: Query with Search explorer
+      href: search-explorer.md
+  - name: Visual Studio Code 
+    href: search-get-started-vs-code.md
+  - name: C#
+    href: search-get-started-dotnet.md
+  - name: Java
+    href: search-get-started-java.md
+  - name : JavaScript
+    href: search-get-started-javascript.md
   - name: REST
-    items:
-    - name: Create an index
-      href: search-create-index-rest-api.md
-    - name: Import data
-      href: search-import-data-rest-api.md
-    - name: Search
-      href: search-query-rest-api.md
-    - name: Explore using Postman or Fiddler
-      href: search-fiddler.md
+    href: search-get-started-rest.md
+  - name: PowerShell
+    href: search-get-started-powershell.md
+  - name: Python
+    href: search-get-started-python.md
+  - name: ARM template
+    displayName: Resource Manager 
+    href: search-get-started-arm.md
 - name: Tutorials
   items:
-  - name: Use built-in tools
-    href: search-get-started-portal.md
-  - name: Learn cognitive search APIs
-    href: cognitive-search-tutorial-blob.md
-  - name: Index Azure blobs
-    href: search-semi-structured-data.md
-  - name: Index Azure SQL Database
-    href: search-indexer-tutorial.md
-  - name: Add synonyms in .NET
-    href: search-synonyms-tutorial-sdk.md
-  - name: Add auto-complete in .NET
-    href: search-autocomplete-tutorial.md
+  - name: Add search to web apps
+    items: 
+    - name: C#
+      items: 
+      - name: Overview
+        href: tutorial-csharp-overview.md
+      - name: Create a search index
+        href: tutorial-csharp-create-load-index.md
+      - name: Deploy static web app
+        href: tutorial-csharp-deploy-static-web-app.md
+      - name: Explore the code
+        href: tutorial-csharp-search-query-integration.md          
+    - name: JavaScript 
+      items:         
+      - name: Overview
+        href: tutorial-javascript-overview.md
+      - name: Create a search index
+        href: tutorial-javascript-create-load-index.md
+      - name: Deploy static web app
+        href: tutorial-javascript-deploy-static-web-app.md
+      - name: Explore the code
+        href: tutorial-javascript-search-query-integration.md
+    - name: Python 
+      items:         
+      - name: Overview
+        href: tutorial-python-overview.md
+      - name: Create a search index
+        href: tutorial-python-create-load-index.md
+      - name: Deploy static web app
+        href: tutorial-python-deploy-static-web-app.md
+      - name: Explore the code
+        href: tutorial-python-search-query-integration.md                
+  - name: Create a C# app
+    items:
+    - name: 1 - Basic search page
+      href: tutorial-csharp-create-first-app.md
+    - name: 2 - Add results paging
+      href: tutorial-csharp-paging.md
+    - name: 3 - Add type-ahead
+      href: tutorial-csharp-type-ahead-and-suggestions.md
+    - name: 4 - Add facets
+      href: tutorial-csharp-facets.md
+    - name: 5 - Add results ordering
+      href: tutorial-csharp-orders.md
+  - name: Index Azure data
+    items:
+    - name: Index Azure SQL Database
+      href: search-indexer-tutorial.md
+    - name: Index Azure JSON blobs
+      href: search-semi-structured-data.md
+    - name: Index multiple Azure data sources 
+      href: tutorial-multiple-data-sources.md
+  - name: Index any data
+    href: tutorial-optimize-indexing-push-api.md
+  - name: Use AI to create content
+    items:
+    - name: C#
+      href: cognitive-search-tutorial-blob-dotnet.md
+    - name: REST
+      href: cognitive-search-tutorial-blob.md
+    - name: Python
+      href: cognitive-search-tutorial-blob-python.md
+  - name: Debug a skillset
+    href: cognitive-search-tutorial-debug-sessions.md
+  - name: Create a custom analyzer
+    href: tutorial-create-custom-analyzer.md
+  - name: Query from Power Apps   
+    href: search-howto-powerapps.md  
 - name: Samples
   items:
-  - name: Azure code samples
-    href: https://azure.microsoft.com/resources/samples/?service=search
+  - name: C# samples
+    href: samples-dotnet.md
+  - name: Java samples
+    href: samples-java.md
+  - name: JavaScript samples
+    href: samples-javascript.md
+  - name: Python samples
+    href: samples-python.md
+  - name: REST samples
+    href: samples-rest.md
 - name: Concepts
   items:
-  - name: Cognitive search (Preview)
-    href: cognitive-search-concept-intro.md
-  - name: Full text search
+  - name: Full-text search
     href: search-lucene-query-architecture.md
-- name: How-to guides
-  items:
-  - name: Cognitive search (Preview)
+  - name: Semantic search
+    href: semantic-search-overview.md
+  - name: Relevance scoring
+    href: index-similarity-and-scoring.md
+  - name: Indexers
+    href: search-indexer-overview.md
+  - name: AI enrichment
+    href: cognitive-search-concept-intro.md
     items:
-    - name: Define a skillset
-      href: cognitive-search-defining-skillset.md
-    - name: Reference an annotation
-      href: cognitive-search-concept-annotations-syntax.md
-    - name: Map to index fields
-      href: cognitive-search-output-field-mapping.md
-    - name: Process and extract information from images
-      href: cognitive-search-concept-image-scenarios.md
-    - name: Integrate custom skills
-      href: cognitive-search-custom-skill-interface.md
-    - name: Example - custom skills
-      href: cognitive-search-create-custom-skill-example.md
-    - name: Troubleshooting tips
-      href: cognitive-search-concept-troubleshooting.md
-    - name: Documentation links
-      href: cognitive-search-resources-documentation.md
-  - name: Planning
-    items:
-    - name: Choose a tier
-      href: search-sku-tier.md
-    - name: Service limits
-      href: search-limits-quotas-capacity.md
-    - name: Allocate partitions and replicas
-      href: search-capacity-planning.md
-    - name: Design patterns for multitenancy
-      href: search-modeling-multitenant-saas-applications.md
+    - name: Skillsets
+      href: cognitive-search-working-with-skillsets.md
+    - name: Debug sessions
+      href: cognitive-search-debug-session.md
+    - name: Knowledge store 
+      href: knowledge-store-concept-intro.md
+    - name: Projections
+      href: knowledge-store-projection-overview.md
+    - name: Enrichment cache
+      href: cognitive-search-incremental-indexing-conceptual.md
   - name: Security
     items:
     - name: Security overview
       href: search-security-overview.md
-    - name: Service key management
-      href: search-security-api-keys.md
-    - name: Role-based admin access
-      href: search-security-rbac.md
-    - name: Security filters
-      href: search-security-trimming-for-azure-search.md
-    - name: Filter on AAD identities
-      href: search-security-trimming-for-azure-search-with-aad.md
+    - name: Secure access to external data
+      href: search-indexer-securing-resources.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/cognitive-search-security-baseline?toc=/azure/search/TOC.json
+- name: How-to guides
+  items:
+  - name: Service management
+    items:
+    - name: Choose a tier
+      href: search-sku-tier.md
+    - name: Plan capacity
+      href: search-capacity-planning.md
+    - name: Create a service
+      href: search-create-service-portal.md
+    - name: Service limits
+      href: search-limits-quotas-capacity.md
+    - name: Manage costs
+      href: search-sku-manage-costs.md
+    - name: Availability and recovery
+      href: search-performance-optimization.md
+    - name: Multi-tenancy
+      href: search-modeling-multitenant-saas-applications.md
+    - name: Manage in the portal
+      href: search-manage.md
+    - name: Manage with PowerShell
+      href: search-manage-powershell.md
+    - name: Manage with Azure CLI
+      href: search-manage-azure-cli.md
+    - name: Move service across regions
+      href: search-howto-move-across-regions.md
+    - name: Troubleshoot issues with creating Shared Private Link Resources
+      href: troubleshoot-shared-private-link-resources.md
+  - name: Security
+    items:
+    - name: Data encryption
+      items:
+      - name: Customer-managed keys
+        href: search-security-manage-encryption-keys.md
+      - name: Find encrypted objects
+        href: search-security-get-encryption-keys.md
+    - name: Inbound security
+      items:
+      - name: Key-based authentication
+        href: search-security-api-keys.md
+      - name: Role-based authorization
+        href: search-security-rbac.md
+      - name: Configure an IP firewall
+        href: service-configure-firewall.md
+      - name: Create a private endpoint
+        href: service-create-private-endpoint.md
+    - name: Outbound security (indexers)  
+      items:
+      - name: Data access over an IP range
+        href: search-indexer-howto-access-ip-restricted.md
+      - name: Data access using a system identity
+        href: search-indexer-howto-access-trusted-service-exception.md
+      - name: Data access through private endpoints
+        href: search-indexer-howto-access-private.md
+    - name: Document-level security
+      items:
+      - name: Security filters
+        href: search-security-trimming-for-azure-search.md
+      - name: Filter on user identities
+        href: search-security-trimming-for-azure-search-with-aad.md
   - name: Development
     items:
     - name: API versions
       href: search-api-versions.md
+    - name: Preview features
+      href: search-api-preview.md
     - name: Develop in .NET
-      href: search-howto-dotnet-sdk.md
-    - name: Develop in Node.js
-      href: search-get-started-nodejs.md
-    - name: Develop in Java
-      href: search-get-started-java.md
+      items:
+      - name: Use Azure.Search.Documents
+        href: search-howto-dotnet-sdk.md
+      - name: Use Microsoft.Azure.Search
+        href: search-howto-dotnet-sdk-v10.md
+      - name: Legacy quickstart (Microsoft.Azure.Search)
+        href: search-get-started-dotnet-v10.md
     - name: Upgrade the SDK
       items:
+      - name: .NET SDK 11.0
+        href: search-dotnet-sdk-migration-version-11.md
+      - name: .NET SDK 10.0
+        href: search-dotnet-sdk-migration-version-10.md
+      - name: .NET SDK 9.0
+        href: search-dotnet-sdk-migration-version-9.md
       - name: .NET SDK 5.0
         href: search-dotnet-sdk-migration-version-5.md
       - name: .NET SDK 3.0
@@ -117,161 +248,390 @@
         href: search-dotnet-mgmt-sdk-migration.md
     - name: Upgrade the REST API
       href: search-api-migration.md
-  - name: Index design
+  - name: Indexes
     items:
-    - name: Index definition
+    - name: Create an index
       href: search-what-is-an-index.md
-    - name: Create an index (portal)
-      href: search-create-index-portal.md
-    - name: Analyzers
+    - name: Create a multi-language index
+      href: search-language-support.md
+    - name: Synonyms
       items:
-      - name: Text Analyzers
-        href: search-analyzers.md
-      - name: Language analyzers API
-        href: https://docs.microsoft.com/rest/api/searchservice/language-support
-      - name: Custom analyzers API
-        href: https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search
-    - name: Auto-suggestions
-      href: https://docs.microsoft.com/rest/api/searchservice/suggesters
+      - name: Add synonyms
+        href: search-synonyms.md
+      - name: Synonyms C# example
+        href: search-synonyms-tutorial-sdk.md
     - name: Model complex data types
       href: search-howto-complex-data-types.md
-    - name: Faceted navigation
-      href: search-faceted-navigation.md
-    - name: Relevance tuning
-      href: https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index
-    - name: Synonyms
-      href: search-synonyms.md
-  - name: Index data
+    - name: Model relational data
+      href: index-sql-relational-data.md
+  - name: Analyzers
     items:
-    - name: Load data
+    - name: Adding analyzers
+      href: search-analyzers.md
+    - name: Add a language analyzer
+      href: index-add-language-analyzers.md
+    - name: Add a custom analyzer
+      href: index-add-custom-analyzers.md
+  - name: Data import
+    items:
+    - name: Data import overview
       href: search-what-is-data-import.md
+    - name: Import data (portal)
+      href: search-import-data-portal.md
     - name: Rebuild an index
       href: search-howto-reindex.md
-    - name: Import wizard (portal)
-      href: search-import-data-portal.md
     - name: Index large data sets
       href: search-howto-large-index.md
     - name: Handle concurrent updates
       href: search-howto-concurrency.md
-    - name: Indexers
-      items:
-      - name: Indexers overview
-        href: search-indexer-overview.md
-      - name: Blob storage indexer
-        href: search-howto-indexing-azure-blob-storage.md
-      - name: Table storage indexer
-        href: search-howto-indexing-azure-tables.md
-      - name: SQL DB indexer
-        href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-      - name: Cosmos DB indexer
-        href: search-howto-index-cosmosdb.md
-      - name: CSV blob indexing
-        href: search-howto-index-csv-blobs.md
-      - name: JSON blob indexing
-        href: search-howto-index-json-blobs.md
-      - name: Connect to SQL Server VMs
-        href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-      - name: Field mappings
-        href: search-indexer-field-mappings.md
-  - name: Query data
+  - name: Indexers
     items:
-    - name: Query types & composition
+    - name: Create an indexer
+      href: search-howto-create-indexers.md
+    - name: Run or reset indexers
+      href: search-howto-run-reset-indexers.md
+    - name: Schedule an indexer
+      href: search-howto-schedule-indexers.md
+    - name: Define field mappings
+      href: search-indexer-field-mappings.md
+    - name: Content metadata properties
+      href: search-blob-metadata-properties.md
+    - name: Connect with managed identities
+      items:
+      - name: Managed identities overview
+        href: search-howto-managed-identities-data-sources.md
+      - name: Azure Storage
+        href: search-howto-managed-identities-storage.md
+      - name: Azure Cosmos DB
+        href: search-howto-managed-identities-cosmos-db.md
+      - name: SQL Database
+        href: search-howto-managed-identities-sql.md
+    - name: Troubleshooting guidance
+      href: search-indexer-troubleshooting.md
+    - name: Troubleshoot indexer errors and warnings
+      href: cognitive-search-common-errors-warnings.md
+  - name: Data sources (indexers)
+    items:
+      - name: Data sources gallery
+        href: search-data-sources-gallery.md
+      - name: Azure Blobs
+        items:      
+        - name: Search over blobs
+          href: search-blob-storage-integration.md
+        - name: AI enrichment over blobs
+          href: search-blob-ai-integration.md
+        - name: Configure a blob indexer
+          href: search-howto-indexing-azure-blob-storage.md
+        - name: Index changed and deleted blobs
+          href: search-howto-index-changed-deleted-blobs.md
+        - name: Index one-to-many blobs
+          href: search-howto-index-one-to-many-blobs.md
+        - name: Index plain text
+          href: search-howto-index-plaintext-blobs.md
+        - name: Index CSV blobs
+          href: search-howto-index-csv-blobs.md
+        - name: Index JSON blobs
+          href: search-howto-index-json-blobs.md
+        - name: Index encrypted blobs
+          href: search-howto-index-encrypted-blobs.md
+      - name: Azure Tables
+        href: search-howto-indexing-azure-tables.md
+      - name: Azure Cosmos DB
+        items:
+        - name: SQL and MongoDB APIs
+          href: search-howto-index-cosmosdb.md
+        - name: Gremlin API
+          href: search-howto-index-cosmosdb-gremlin.md
+      - name: Azure Data Lake Storage Gen2
+        href: search-howto-index-azure-data-lake-storage.md
+      - name: Azure MySQL
+        href: search-howto-index-mysql.md
+      - name: Azure SQL
+        items:
+        - name: Azure SQL Databases
+          href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+        - name: Azure SQL Managed Instances
+          href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
+        - name: Azure SQL Server VMs
+          href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+      - name: Power Query data sources
+        href: search-how-to-index-power-query-data-sources.md
+      - name: SharePoint Online
+        href: search-howto-index-sharepoint-online.md
+  - name: Skillsets (indexers)
+    items:
+    - name: Attach a Cognitive Services resource
+      href: cognitive-search-attach-cognitive-services.md
+    - name: Define a skillset
+      href: cognitive-search-defining-skillset.md
+    - name: Reference an annotation    
+      href: cognitive-search-concept-annotations-syntax.md
+    - name: Map to index fields
+      href: cognitive-search-output-field-mapping.md
+    - name: Process image files
+      href: cognitive-search-concept-image-scenarios.md
+    - name: Cache (incremental) enrichment
+      href: search-howto-incremental-index.md
+    - name: Design tips
+      href: cognitive-search-concept-troubleshooting.md
+    - name: Custom skills
+      items:
+      - name: Integrate custom skills
+        href: cognitive-search-custom-skill-interface.md
+      - name: Scale out custom skills
+        href: cognitive-search-custom-skill-scale.md
+      - name: Example - Azure Functions (Python)
+        href: cognitive-search-custom-skill-python.md
+      - name: Example - Azure Functions
+        href: cognitive-search-create-custom-skill-example.md
+      - name: Example - Azure Form Recognizer
+        href: cognitive-search-custom-skill-form.md
+      - name: Example - Azure Machine Learning
+        href: cognitive-search-tutorial-aml-custom-skill.md
+      - name: Example - Azure Machine Learning Designer
+        href: cognitive-search-tutorial-aml-designer-custom-skill.md
+    - name: Knowledge store
+      items:
+      - name: Create using REST
+        href: knowledge-store-create-rest.md
+      - name: Shaping data
+        href: knowledge-store-projection-shape.md
+      - name: Define projections
+        href: knowledge-store-projections-examples.md 
+      - name: View with Storage Explorer
+        href: knowledge-store-view-storage-explorer.md
+      - name: Connect with Power BI
+        href: knowledge-store-connect-power-bi.md 
+  - name: Queries
+    items:
+    - name: Create a basic query
+      href: search-query-create.md
+    - name: Create a semantic query
+      href: semantic-how-to-query-request.md
+    - name: Return a semantic answer
+      href: semantic-answers.md
+    - name: Add spell check to queries
+      href: speller-how-to-add.md
+    - name: Query types and composition
       href: search-query-overview.md
-    - name: Search explorer (portal)
-      href: search-explorer.md
-    - name: Simple syntax examples 
+    - name: Use simple syntax (examples)
       href: search-query-simple-examples.md
-    - name: Lucene syntax examples
+    - name: Use full Lucene (examples)
       href: search-query-lucene-examples.md
-    - name: Query reference
+    - name: Partial terms and special characters
+      href: search-query-partial-matching.md
+    - name: Fuzzy search
+      href: search-query-fuzzy.md
+    - name: Autocomplete "Search-as-you-type"
+      items:
+      - name: Create a suggester
+        href: index-add-suggesters.md
+      - name: Add autocomplete and suggestions
+        href: search-add-autocomplete-suggestions.md
+    - name: Paging and counts
+      href: search-pagination-page-layout.md
+    - name: Syntax reference
       items:
       - name: Simple query syntax
-        href: https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search
-      - name: Lucene query syntax
-        href: https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search
-    - name: Paging results
-      href: search-pagination-page-layout.md
-    - name: Relevance tuning
-      href: https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index
-    - name: Filters
-      items:
-      - name: Filter overview
-        href: search-filters.md
-      - name: Facet filters
-        href: search-filters-facets.md
-      - name: Filter expression syntax
-        href: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
-    - name: Performance & optimization
-      href: search-performance-optimization.md
-  - name: Administration & analytics
+        href: query-simple-syntax.md
+      - name: Full Lucene query syntax
+        href: query-lucene-syntax.md
+      - name: moreLikeThis (preview)
+        href: search-more-like-this.md
+  - name: Filters
     items:
-    - name: Administration (portal)
-      href: search-manage.md
-    - name: PowerShell (Azure Search)
-      href: search-manage-powershell.md
-    - name: Monitor usage & statistics
+    - name: Filter overview
+      href: search-filters.md
+    - name: Facet filters
+      href: search-filters-facets.md
+    - name: Add faceted navigation
+      href: search-faceted-navigation.md
+    - name: Troubleshoot collection filters
+      href: search-query-troubleshoot-collection-filters.md
+    - name: Understand collection filters
+      href: search-query-understand-collection-filters.md
+    - name: Normalize text
+      href: search-normalizers.md
+  - name: Relevance
+    items:
+    - name: Similarity ranking
+      href: index-ranking-similarity.md
+    - name: Semantic ranking
+      href: semantic-ranking.md
+    - name: Scoring profiles 
+      href: index-add-scoring-profiles.md
+  - name: Performance and monitoring
+    items:
+    - name: Performance analysis
+      href: search-performance-analysis.md
+    - name: Performance benchmarks
+      href: performance-benchmarks.md
+    - name: Tips for better performance
+      href: search-performance-tips.md
+    - name: Diagnostic logging
+      href: search-monitor-logs.md
+    - name: Visualize diagnostic logs
+      href: search-monitor-logs-powerbi.md
+    - name: Monitoring overview
       href: search-monitor-usage.md
-    - name: Search traffic analytics
-      href: search-traffic-analytics.md
+    - name: Monitor queries
+      href: search-monitor-queries.md
+    - name: Monitor indexer-based indexing
+      href: search-howto-monitor-indexers.md
+    - name: Monitor client-side interactions
+      href: search-traffic-analytics.md  
 - name: Reference
   items:
   - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest
+    href: /cli/azure/search
   - name: Azure PowerShell
-    href: https://www.powershellgallery.com/packages/AzureRM.search/0.1.0-preview
-  - name: .NET
-    href: /dotnet/api/?term=microsoft.azure.search
-  - name: .NET (Management)
-    href: /dotnet/api/?term=microsoft.azure.management.search
-  - name: Python (Management)
-    href: /python/api/?view=azure-python&term=search
+    href: /powershell/module/az.search 
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.search/searchservices
   - name: REST
-    href: /rest/api/searchservice
-  - name: REST (Management)
-    href: /rest/api/searchmanagement
-  - name: REST (Preview)
-    href: search-api-preview.md
-  - name: Predefined skills (Preview) 
-    href: cognitive-search-predefined-skills.md
     items:
-    - name: Key Phrase Extraction 
-      href: cognitive-search-skill-keyphrases.md
-    - name: Language Detection
-      href: cognitive-search-skill-language-detection.md
-    - name: Named Entity Recognition
-      href: cognitive-search-skill-named-entity-recognition.md
-    - name: Text Merger
-      href: cognitive-search-skill-textmerger.md
-    - name: Text Split
-      href: cognitive-search-skill-textsplit.md 
-    - name: Sentiment
-      href: cognitive-search-skill-sentiment.md
-    - name: Image Analysis
-      href: cognitive-search-skill-image-analysis.md
-    - name: Ocr
-      href: cognitive-search-skill-ocr.md
-    - name: Shaper
-      href: cognitive-search-skill-shaper.md
+    - name: Search API
+      href: /rest/api/searchservice
+    - name: Management API
+      href: /rest/api/searchmanagement
+  - name: .NET
+    items:
+    - name: Search API
+      href: /dotnet/api/overview/azure/search.documents-readme
+    - name: Management API
+      href: /dotnet/api/overview/azure/search/management
+  - name: Java
+    items:
+    - name: Search API
+      href: /java/api/overview/azure/search-documents-readme
+    - name: Management API
+      href: /java/api/overview/azure/search/management
+  - name: JavaScript
+    items:
+    - name: Search API
+      href: /javascript/api/overview/azure/search-documents-readme
+    - name: Management API
+      href: /javascript/api/overview/azure/search/management
+  - name: Python
+    items:
+    - name: Search API
+      href: /python/api/overview/azure/search-documents-readme
+    - name: Management API
+      href: /python/api/overview/azure/search/management
+  - name: OData language reference
+    items:
+    - name: Overview
+      href: query-odata-filter-orderby-syntax.md
+    - name: $filter
+      href: search-query-odata-filter.md
+    - name: $orderby
+      href: search-query-odata-orderby.md
+    - name: $select
+      href: search-query-odata-select.md
+    - name: any, all
+      href: search-query-odata-collection-operators.md
+    - name: eq, ne, gt, lt, ge, le
+      href: search-query-odata-comparison-operators.md
+    - name: search.ismatch, search.ismatchscoring
+      href: search-query-odata-full-text-search-functions.md
+    - name: geo.distance, geo.intersects
+      href: search-query-odata-geo-spatial-functions.md
+    - name: and, or, not
+      href: search-query-odata-logical-operators.md
+    - name: search.in
+      href: search-query-odata-search-in-function.md
+    - name: search.score
+      href: search-query-odata-search-score-function.md
+    - name: OData Language Grammar
+      href: search-query-odata-syntax-reference.md
+  - name: Skills reference
+    items:
+    - name: Built-in skills
+      items: 
+      - name: Overview
+        href: cognitive-search-predefined-skills.md
+      - name: Conditional
+        href: cognitive-search-skill-conditional.md
+      - name: Custom Entity Lookup
+        href: cognitive-search-skill-custom-entity-lookup.md 
+      - name: Document Extraction
+        href: cognitive-search-skill-document-extraction.md
+      - name: Entity Linking (V3)
+        href: cognitive-search-skill-entity-linking-v3.md
+      - name: Entity Recognition (V3)
+        href: cognitive-search-skill-entity-recognition-v3.md
+      - name: Image Analysis
+        href: cognitive-search-skill-image-analysis.md
+      - name: Key Phrase Extraction 
+        href: cognitive-search-skill-keyphrases.md
+      - name: Language Detection
+        href: cognitive-search-skill-language-detection.md
+      - name: OCR
+        href: cognitive-search-skill-ocr.md
+      - name: PII Detection
+        href: cognitive-search-skill-pii-detection.md  
+      - name: Sentiment (V3)
+        href: cognitive-search-skill-sentiment-v3.md
+      - name: Shaper
+        href: cognitive-search-skill-shaper.md
+      - name: Text Merger
+        href: cognitive-search-skill-textmerger.md
+      - name: Text Split
+        href: cognitive-search-skill-textsplit.md 
+      - name: Text Translation
+        href: cognitive-search-skill-text-translation.md
+    - name: Custom skills
+      items:
+      - name: Azure Machine Learning (AML)
+        href: cognitive-search-aml-skill.md
+      - name: Custom Web API
+        href: cognitive-search-custom-skill-web-api.md
+    - name: Deprecated skills
+      href: cognitive-search-skill-deprecated.md
+      items:
+      - name: Named Entity Recognition
+        href: cognitive-search-skill-named-entity-recognition.md
+      - name: Entity Recognition
+        href: cognitive-search-skill-entity-recognition.md
+      - name: Sentiment
+        href: cognitive-search-skill-sentiment.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure Community Support
     href: https://azure.microsoft.com/support/community/?product=search
+  - name: Partner spotlight
+    href: resource-partners-knowledge-mining.md
+  - name: Partner data sources (Terms of Use)
+    href: search-data-sources-terms-of-use.md
   - name: Azure Updates
     href: https://azure.microsoft.com/updates/?product=search
+  - name: Feedback Forum (UserVoice)
+    href:  https://feedback.azure.com/forums/263029-azure-search 
+  - name: Compliance and certifications
+    href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
+  - name: Documentation links (AI enrichment)
+    href: cognitive-search-resources-documentation.md
   - name: Demo sites
     items:
     - name: Financial files demo
-      href: http://wolterskluwereap.azurewebsites.net/
+      href: https://wolterskluwereap.azurewebsites.net/
     - name: JFK files demo
-      href: http://aka.ms/jfkfiles
-    - name: Job listings app
-      href: http://aka.ms/azjobsdemo
-    - name: Search Analyzer demo
-      href: http://alice.unearth.ai/
-    - name: Search use cases
-      href: https://searchsamples.azurewebsites.net/
+      href: https://www.microsoft.com/en-us/ai/ai-lab-jfk-files
+    - name: NYC Jobs demo
+      href: https://azjobsdemo.azurewebsites.net/
+  - name: Training
+    items:
+    - name: Introduction (Microsoft Learn)
+      href: /learn/modules/intro-to-azure-search/
+    - name: Add search to apps (Pluralsight)
+      href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
+    - name: Developer course (Pluralsight)
+      href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
   - name: FAQ
-    href: search-faq-frequently-asked-questions.md
+    href: search-faq-frequently-asked-questions.yml
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Videos

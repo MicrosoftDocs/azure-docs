@@ -8,42 +8,41 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: "include file"
 ms.topic: "include"
-ms.date: 09/24/2018
+ms.date: 05/11/2021
 ---
 
-Sign in to the [Azure portal](https://portal.azure.com/) by using the credentials for the Azure subscription you use. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
+1. Sign in to the [Azure portal](https://portal.azure.com/) by using the credentials for your Azure subscription.
 
-The portal's workspace dashboard is supported on Edge, Chrome, and Firefox browsers only.
+1. In the upper-left corner of the Azure portal, select the three bars, then **+ Create a resource**.
 
-   ![Azure portal](./media/aml-create-in-portal/portal-dashboard.png)
+    :::image type="content" source="media/aml-create-in-portal/create-resource.png" alt-text="Screenshot showing + Create a resource.":::
 
-In the upper-left corner of the portal, select **Create a resource**.
+1. Use the search bar to find **Machine Learning**.
 
-   ![Create a resource in Azure portal](./media/aml-create-in-portal/portal-create-a-resource.png)
+1. Select **Machine Learning**.
 
-In the search bar, enter **Machine Learning**. Select the **Machine Learning service workspace** search result.
+   :::image type="content" source="media/aml-create-in-portal/machine-learning.png" alt-text="Screenshot shows search results to select Machine Learning.":::
 
-   ![Search for workspace](./media/aml-create-in-portal/allservices-search.PNG)
 
-In the **Machine Learning service workspace** pane, scroll to the bottom and select **Create** to begin.
+1. In the **Machine Learning** pane, select **Create** to begin.
 
-   ![Create](./media/aml-create-in-portal/portal-create-button.png)
-
-In the **ML service workspace** pane, configure your workspace.
+1. Provide the following information to configure your new workspace:
 
    Field|Description
    ---|---
-   Workspace name |Enter a unique name that identifies your workspace. Here we use docs-ws. Names must be unique across the resource group. Use a name that's easy to recall and differentiate from workspaces created by others.  
+   Workspace name |Enter a unique name that identifies your workspace. In this example, we use **docs-ws**. Names must be unique across the resource group. Use a name that's easy to recall and to differentiate from workspaces created by others.
    Subscription |Select the Azure subscription that you want to use.
-   Resource group | Use an existing resource group in your subscription, or enter a name to create a new resource group. A resource group is a container that holds related resources for an Azure solution. Here we use docs-aml. 
-   Location | Select the location closest to your users and the data resources. This location is where the workspace is created.
+   Resource group | Use an existing resource group in your subscription, or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. In this example, we use **docs-aml**. 
+   Location | Select the location closest to your users and the data resources to create your workspace.
 
-   ![Create workspace](./media/aml-create-in-portal/workspace-create.png)
+1. After you're finished configuring the workspace, select **Review + Create**.
+1. Select **Create** to create the workspace.
 
-To start the creation process, select **Create**. It can take a few moments to create the workspace.
+   > [!Warning]
+   > It can take several minutes to create your workspace in the cloud.
 
-To check on the status of the deployment, select the Notifications icon (bell) on the toolbar.
+   When the process is finished, a deployment success message appears.
+ 
+ 1. To view the new workspace, select **Go to resource**.
+ 1. From the portal view of your workspace, select **Launch studio** to go to the Azure Machine Learning studio. 
 
-   ![Workspace creation status](./media/aml-create-in-portal/notifications.png)
-
-When the process is finished, a deployment success message appears. It's also present in the notifications section. To view the new workspace, select **Go to resource**.

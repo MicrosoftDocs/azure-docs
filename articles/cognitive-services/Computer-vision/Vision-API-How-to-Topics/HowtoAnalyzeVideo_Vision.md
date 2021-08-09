@@ -1,207 +1,248 @@
-﻿---
-title: "Example: Real-time video analysis with the Computer Vision API"
-titlesuffix: Azure Cognitive Services
-description: Learn how to perform near-real-time analysis on frames taken from a live video stream by using the Computer Vision API.
+---
+title: Analyze videos in near real time - Computer Vision
+titleSuffix: Azure Cognitive Services
+description: Learn how to perform near real-time analysis on frames that are taken from a live video stream by using the Computer Vision API.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: sample
-ms.date: 01/20/2017
+ms.date: 09/09/2019
 ms.author: kefre
+ms.custom: "seodec18, devx-track-csharp"
 ---
 
-# How to Analyze Videos in Real-time
-This guide will demonstrate how to perform near-real-time analysis on frames taken from a live video stream. The basic components in such a system are:
+# Analyze videos in near real time
 
-- Acquire frames from a video source
-- Select which frames to analyze
-- Submit these frames to the API
-- Consume each analysis result that is returned from the API call
+This article demonstrates how to perform near real-time analysis on frames that are taken from a live video stream by using the Computer Vision API. The basic elements of such an analysis are:
 
-These samples are written in C# and the code can be found on GitHub here: [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/).
+- Acquiring frames from a video source.
+- Selecting which frames to analyze.
+- Submitting these frames to the API.
+- Consuming each analysis result that's returned from the API call.
 
-## The Approach
-There are multiple ways to solve the problem of running near-real-time analysis on video streams. We will start by outlining three approaches in increasing levels of sophistication.
+The samples in this article are written in C#. To access the code, go to the [Video frame analysis sample](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) page on GitHub.
 
-### A Simple Approach
-The simplest design for a near-real-time analysis system is an infinite loop, where in each iteration we grab a frame, analyze it, and then consume the result:
-```CSharp
+## Approaches to running near real-time analysis
+
+You can solve the problem of running near real-time analysis on video streams by using a variety of approaches. This article outlines three of them, in increasing levels of sophistication.
+
+### Design an infinite loop
+
+The simplest design for near real-time analysis is an infinite loop. In each iteration of this loop, you grab a frame, analyze it, and then consume the result:
+
+```csharp
 while (true)
 {
-	Frame f = GrabFrame();
-	if (ShouldAnalyze(f))
-	{
-		AnalysisResult r = await Analyze(f);
-		ConsumeResult(r);
-	}
+    Frame f = GrabFrame();
+    if (ShouldAnalyze(f))
+    {
+        AnalysisResult r = await Analyze(f);
+        ConsumeResult(r);
+    }
 }
 ```
-If our analysis consisted of a lightweight client-side algorithm, this approach would be suitable. However, when our analysis is happening in the cloud, the latency involved means that an API call might take several seconds, during which time we are not capturing images, and our thread is essentially doing nothing. Our maximum frame-rate is limited by the latency of the API calls.
 
-### Parallelizing API Calls
-While a simple single-threaded loop makes sense for a lightweight client-side algorithm, it doesn't fit well with the latency involved in cloud API calls. The solution to this problem is to allow the long-running API calls to execute in parallel with the frame-grabbing. In C#, we could achieve this using Task-based parallelism, for example:
-```CSharp
+If your analysis were to consist of a lightweight, client-side algorithm, this approach would be suitable. However, when the analysis occurs in the cloud, the resulting latency means that an API call might take several seconds. During this time, you're not capturing images, and your thread is essentially doing nothing. Your maximum frame rate is limited by the latency of the API calls.
+
+### Allow the API calls to run in parallel
+
+Although a simple, single-threaded loop makes sense for a lightweight, client-side algorithm, it doesn't fit well with the latency of a cloud API call. The solution to this problem is to allow the long-running API call to run in parallel with the frame-grabbing. In C#, you could do this by using task-based parallelism. For example, you can run the following code:
+
+```csharp
 while (true)
 {
-	Frame f = GrabFrame();
-	if (ShouldAnalyze(f))
-	{
-		var t = Task.Run(async () => 
-		{
-			AnalysisResult r = await Analyze(f);
-			ConsumeResult(r);
-		}
-	}
+    Frame f = GrabFrame();
+    if (ShouldAnalyze(f))
+    {
+        var t = Task.Run(async () =>
+        {
+            AnalysisResult r = await Analyze(f);
+            ConsumeResult(r);
+        }
+    }
 }
 ```
-This approach launches each analysis in a separate Task, which can run in the background while we continue grabbing new frames. It avoids blocking the main thread while waiting for an API call to return, however we have lost some of the guarantees that the simple version provided -- multiple API calls might occur in parallel, and the results might get returned in the wrong order. This approach could also cause multiple threads to enter the ConsumeResult() function simultaneously, which could be dangerous, if the function is not thread-safe. Finally, this simple code does not keep track of the Tasks that get created, so exceptions will silently disappear. Thus, the final ingredient for us to add is a "consumer" thread that will track the analysis tasks, raise exceptions, kill long-running tasks, and ensure the results get consumed in the correct order, one at a time.
 
-### A Producer-Consumer Design
-In our final "producer-consumer" system, we have a producer thread that looks similar to our previous infinite loop. However, instead of consuming analysis results as soon as they are available, the producer simply puts the tasks into a queue to keep track of them.
-```CSharp
-// Queue that will contain the API call tasks. 
+With this approach, you launch each analysis in a separate task. The task can run in the background while you continue grabbing new frames. The approach avoids blocking the main thread as you wait for an API call to return. However, the approach can present certain disadvantages:
+* It costs you some of the guarantees that the simple version provided. That is, multiple API calls might occur in parallel, and the results might get returned in the wrong order. 
+* It could also cause multiple threads to enter the ConsumeResult() function simultaneously, which might be dangerous if the function isn't thread-safe. 
+* Finally, this simple code doesn't keep track of the tasks that get created, so exceptions silently disappear. Thus, you need to add a "consumer" thread that tracks the analysis tasks, raises exceptions, kills long-running tasks, and ensures that the results get consumed in the correct order, one at a time.
+
+### Design a producer-consumer system
+
+For your final approach, designing a "producer-consumer" system, you build a producer thread that looks similar to your previously mentioned infinite loop. However, instead of consuming the analysis results as soon as they're available, the producer simply places the tasks in a queue to keep track of them.
+
+```csharp
+// Queue that will contain the API call tasks.
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
-	 
-// Producer thread. 
+
+// Producer thread.
 while (true)
 {
-	// Grab a frame. 
-	Frame f = GrabFrame();
- 
-	// Decide whether to analyze the frame. 
-	if (ShouldAnalyze(f))
-	{
-		// Start a task that will run in parallel with this thread. 
-		var analysisTask = Task.Run(async () => 
-		{
-			// Put the frame, and the result/exception into a wrapper object.
-			var output = new ResultWrapper(f);
-			try
-			{
-				output.Analysis = await Analyze(f);
-			}
-			catch (Exception e)
-			{
-				output.Exception = e;
-			}
-			return output;
-		}
-		
-		// Push the task onto the queue. 
-		taskQueue.Add(analysisTask);
-	}
-}
-```
-We also have a consumer thread, that is taking tasks off the queue, waiting for them to finish, and either displaying the result or raising the exception that was thrown. By using the queue, we can guarantee that results get consumed one at a time, in the correct order, without limiting the maximum frame-rate of the system.
-```CSharp
-// Consumer thread. 
-while (true)
-{
-	// Get the oldest task. 
-	Task<ResultWrapper> analysisTask = taskQueue.Take();
- 
-	// Await until the task is completed. 
-	var output = await analysisTask;
-	 
-	// Consume the exception or result. 
-	if (output.Exception != null)
-	{
-		throw output.Exception;
-	}
-	else
-	{
-		ConsumeResult(output.Analysis);
-	}
+    // Grab a frame.
+    Frame f = GrabFrame();
+
+    // Decide whether to analyze the frame.
+    if (ShouldAnalyze(f))
+    {
+        // Start a task that will run in parallel with this thread.
+        var analysisTask = Task.Run(async () =>
+        {
+            // Put the frame, and the result/exception into a wrapper object.
+            var output = new ResultWrapper(f);
+            try
+            {
+                output.Analysis = await Analyze(f);
+            }
+            catch (Exception e)
+            {
+                output.Exception = e;
+            }
+            return output;
+        }
+
+        // Push the task onto the queue.
+        taskQueue.Add(analysisTask);
+    }
 }
 ```
 
-## Implementing the Solution
-### Getting Started
-To get your app up and running as quickly as possible, we have implemented the system described above, intending it to be flexible enough to implement many scenarios, while being easy to use. To access the code, go to [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis).
+You also create a consumer thread, which takes tasks off the queue, waits for them to finish, and either displays the result or raises the exception that was thrown. By using the queue, you can guarantee that the results get consumed one at a time, in the correct order, without limiting the maximum frame rate of the system.
 
-The library contains the class FrameGrabber, which implements the producer-consumer system discussed above to process video frames from a webcam. The user can specify the exact form of the API call, and the class uses events to let the calling code know when a new frame is acquired, or a new analysis result is available.
+```csharp
+// Consumer thread.
+while (true)
+{
+    // Get the oldest task.
+    Task<ResultWrapper> analysisTask = taskQueue.Take();
+ 
+    // Wait until the task is completed.
+    var output = await analysisTask;
 
-To illustrate some of the possibilities, there are two sample apps that use the library. The first is a simple console app, and a simplified version of this is reproduced below. It grabs frames from the default webcam, and submits them to the Face API for face detection.
-```CSharp
+    // Consume the exception or result.
+    if (output.Exception != null)
+    {
+        throw output.Exception;
+    }
+    else
+    {
+        ConsumeResult(output.Analysis);
+    }
+}
+```
+
+## Implement the solution
+
+### Get started quickly
+
+To help get your app up and running as quickly as possible, we've implemented the system that's described in the preceding section. It's intended to be flexible enough to accommodate many scenarios, while being easy to use. To access the code, go to the [Video frame analysis sample](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) page on GitHub.
+
+The library contains the `FrameGrabber` class, which implements the previously discussed producer-consumer system to process video frames from a webcam. Users can specify the exact form of the API call, and the class uses events to let the calling code know when a new frame is acquired, or when a new analysis result is available.
+
+To illustrate some of the possibilities, we've provided two sample apps that use the library. 
+
+The first sample app is a simple console app that grabs frames from the default webcam and then submits them to the Face service for face detection. A simplified version of the app is reproduced in the following code:
+
+```csharp
 using System;
+using System.Linq;
+using Microsoft.Azure.CognitiveServices.Vision.Face;
+using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
 using VideoFrameAnalyzer;
-using Microsoft.ProjectOxford.Face;
-using Microsoft.ProjectOxford.Face.Contract;
-	 
-namespace VideoFrameConsoleApplication
+
+namespace BasicConsoleSample
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			// Create grabber, with analysis type Face[]. 
-			FrameGrabber<Face[]> grabber = new FrameGrabber<Face[]>();
-			
-			// Create Face API Client. Insert your Face API key here.
-			FaceServiceClient faceClient = new FaceServiceClient("<subscription key>");
+    internal class Program
+    {
+        const string ApiKey = "<your API key>";
+        const string Endpoint = "https://<your API region>.api.cognitive.microsoft.com";
 
-			// Set up our Face API call.
-			grabber.AnalysisFunction = async frame => return await faceClient.DetectAsync(frame.Image.ToMemoryStream(".jpg"));
+        private static async Task Main(string[] args)
+        {
+            // Create grabber.
+            FrameGrabber<DetectedFace[]> grabber = new FrameGrabber<DetectedFace[]>();
 
-			// Set up a listener for when we receive a new result from an API call. 
-			grabber.NewResultAvailable += (s, e) =>
-			{
-				if (e.Analysis != null)
-					Console.WriteLine("New result received for frame acquired at {0}. {1} faces detected", e.Frame.Metadata.Timestamp, e.Analysis.Length);
-			};
-			
-			// Tell grabber to call the Face API every 3 seconds.
-			grabber.TriggerAnalysisOnInterval(TimeSpan.FromMilliseconds(3000));
+            // Create Face Client.
+            FaceClient faceClient = new FaceClient(new ApiKeyServiceClientCredentials(ApiKey))
+            {
+                Endpoint = Endpoint
+            };
 
-			// Start running.
-			grabber.StartProcessingCameraAsync().Wait();
+            // Set up a listener for when we acquire a new frame.
+            grabber.NewFrameProvided += (s, e) =>
+            {
+                Console.WriteLine($"New frame acquired at {e.Frame.Metadata.Timestamp}");
+            };
 
-			// Wait for keypress to stop
-			Console.WriteLine("Press any key to stop...");
-			Console.ReadKey();
-			
-			// Stop, blocking until done.
-			grabber.StopProcessingAsync().Wait();
-		}
-	}
+            // Set up a Face API call.
+            grabber.AnalysisFunction = async frame =>
+            {
+                Console.WriteLine($"Submitting frame acquired at {frame.Metadata.Timestamp}");
+                // Encode image and submit to Face service.
+                return (await faceClient.Face.DetectWithStreamAsync(frame.Image.ToMemoryStream(".jpg"))).ToArray();
+            };
+
+            // Set up a listener for when we receive a new result from an API call.
+            grabber.NewResultAvailable += (s, e) =>
+            {
+                if (e.TimedOut)
+                    Console.WriteLine("API call timed out.");
+                else if (e.Exception != null)
+                    Console.WriteLine("API call threw an exception.");
+                else
+                    Console.WriteLine($"New result received for frame acquired at {e.Frame.Metadata.Timestamp}. {e.Analysis.Length} faces detected");
+            };
+
+            // Tell grabber when to call the API.
+            // See also TriggerAnalysisOnPredicate
+            grabber.TriggerAnalysisOnInterval(TimeSpan.FromMilliseconds(3000));
+
+            // Start running in the background.
+            await grabber.StartProcessingCameraAsync();
+
+            // Wait for key press to stop.
+            Console.WriteLine("Press any key to stop...");
+            Console.ReadKey();
+
+            // Stop, blocking until done.
+            await grabber.StopProcessingAsync();
+        }
+    }
 }
 ```
-The second sample app is a bit more interesting, and allows you to choose which API to call on the video frames. On the left-hand side, the app shows a preview of the live video, on the right-hand side it shows the most recent API result overlaid on the corresponding frame.
 
-In most modes, there will be a visible delay between the live video on the left, and the visualized analysis on the right. This delay is the time taken to make the API call. The exception to this is in the "EmotionsWithClientFaceDetect" mode, which performs face detection locally on the client computer using OpenCV, before submitting any images to Cognitive Services. By doing this, we can visualize the detected face immediately, and then update the emotions later once the API call returns. This demonstrates the possibility of a "hybrid" approach, where some simple processing can be performed on the client, and then Cognitive Services APIs can be used to augment this with more advanced analysis when necessary.
+The second sample app is a bit more interesting. It allows you to choose which API to call on the video frames. On the left side, the app shows a preview of the live video. On the right, it overlays the most recent API result on the corresponding frame.
 
-![HowToAnalyzeVideo](../../Video/Images/FramebyFrame.jpg)
+In most modes, there's a visible delay between the live video on the left and the visualized analysis on the right. This delay is the time that it takes to make the API call. An exception is in the "EmotionsWithClientFaceDetect" mode, which performs face detection locally on the client computer by using OpenCV before it submits any images to Azure Cognitive Services. 
 
-### Integrating into your codebase
-To get started with this sample, follow these steps:
+By using this approach, you can visualize the detected face immediately. You can then update the emotions later, after the API call returns. This demonstrates the possibility of a "hybrid" approach. That is, some simple processing can be performed on the client, and then Cognitive Services APIs can be used to augment this processing with more advanced analysis when necessary.
 
-1. Get API keys for the Vision APIs from [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). For video frame analysis, the applicable APIs are:
-	- [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
-	- [Emotion API](https://docs.microsoft.com/azure/cognitive-services/emotion/home)
-	- [Face API](https://docs.microsoft.com/azure/cognitive-services/face/overview)
-2. Clone the [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub repo
+![The LiveCameraSample app displaying an image with tags](../../Video/Images/FramebyFrame.jpg)
 
-3. Open the sample in Visual Studio 2015, build and run the sample applications:
-	- For BasicConsoleSample, the Face API key is hard-coded directly in [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
-	- For LiveCameraSample, the keys should be entered into the Settings pane of the app. They will be persisted across sessions as user data.
-		
+### Integrate the samples into your codebase
 
-When you're ready to integrate, **simply reference the VideoFrameAnalyzer library from your own projects.** 
+To get started with this sample, do the following:
 
+1. Create an [Azure account](https://azure.microsoft.com/free/cognitive-services/). If you already have one, you can skip to the next step.
+2. Create resources for Computer Vision and Face in the Azure portal to get your key and endpoint. Make sure to select the free tier (F0) during setup.
+   - [Computer Vision](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
+   - [Face](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace)
+   After the resources are deployed, click **Go to resource** to collect your key and endpoint for each resource. 
+3. Clone the [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub repo.
+4. Open the sample in Visual Studio 2015 or later, and then build and run the sample applications:
+    - For BasicConsoleSample, the Face key is hard-coded directly in [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
+    - For LiveCameraSample, enter the keys in the **Settings** pane of the app. The keys are persisted across sessions as user data.
 
+When you're ready to integrate the samples, reference the VideoFrameAnalyzer library from your own projects.
 
-## Developer Code of Conduct
-As with all the Cognitive Services, Developers developing with our APIs and samples are required to follow the "[Developer Code of Conduct for Microsoft Cognitive Services](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)." 
-
-
-The image, voice, video or text understanding capabilities of VideoFrameAnalyzer uses Azure Cognitive Services. Microsoft will receive the images, audio, video, and other data that you upload (via this app) and may use them for service improvement purposes. We ask for your help in protecting the people whose data your app sends to Azure Cognitive Services. 
-
+The image-, voice-, video-, and text-understanding capabilities of VideoFrameAnalyzer use Azure Cognitive Services. Microsoft receives the images, audio, video, and other data that you upload (via this app) and might use them for service-improvement purposes. We ask for your help in protecting the people whose data your app sends to Azure Cognitive Services.
 
 ## Summary
-In this guide, you learned how to run near-real-time analysis on live video streams using the Face, Computer Vision, and Emotion APIs, and how you can use our sample code to get started. You can get started building your app with free API keys at the [Microsoft Cognitive Services sign-up page](https://azure.microsoft.com/try/cognitive-services/). 
 
-Please feel free to provide feedback and suggestions in the [GitHub repository](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/), or for more broad API feedback, on our [UserVoice site](https://cognitive.uservoice.com/).
+In this article, you learned how to run near real-time analysis on live video streams by using the Face and Computer Vision services. You also learned how you can use our sample code to get started.
+
+Feel free to provide feedback and suggestions in the [GitHub repository](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/). To provide broader API feedback, go to our [UserVoice](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743) site.
 

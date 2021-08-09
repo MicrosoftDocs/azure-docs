@@ -1,27 +1,33 @@
 ---
-title: Named Entity Recognition cognitive search skill (Azure Search) | Microsoft Docs
-description: Extract named entities for person, location and organization from text in an Azure Search cognitive search pipeline.
-services: search
-manager: pablocas
-author: luiscabrer
+title: Named Entity Recognition cognitive skill
+titleSuffix: Azure Cognitive Search
+description: Extract named entities for person, location and organization from text in an AI enrichment pipeline in Azure Cognitive Search.
 
-ms.service: search
-ms.devlang: NA
-ms.workload: search
+author: LiamCavanagh
+ms.author: liamca
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/01/2018
-ms.author: luisca
+ms.date: 11/04/2019
 ---
 
 #	 Named Entity Recognition cognitive skill
 
-The **Named Entity Recognition** skill extracts named entities from text. Available entities include the types `person`, `location`, and `organization`.
+The **Named Entity Recognition** skill extracts named entities from text. Available entities include the types `person`, `location` and `organization`.
+
+> [!IMPORTANT]
+> Named entity recognition skill is now discontinued replaced by [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md). Follow the recommendations in [Deprecated cognitive search skills](cognitive-search-skill-deprecated.md) to migrate to a supported skill.
 
 > [!NOTE]
-> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
+> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
+>
+> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
+
 
 ## @odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
+
+## Data limits
+The maximum size of a record should be 50,000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to break up your data before sending it to the key phrase extractor, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
 
 ## Skill parameters
 
@@ -30,7 +36,7 @@ Parameters are case-sensitive.
 | Parameter name	 | Description |
 |--------------------|-------------|
 | categories	| Array of categories that should be extracted.  Possible category types: `"Person"`, `"Location"`, `"Organization"`. If no category is provided, all types are returned.|
-|defaultLanguageCode |	Language code of the input text. The following languages are supported: `ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt`|
+|defaultLanguageCode |	Language code of the input text. The following languages are supported: `de, en, es, fr, it`|
 | minimumPrecision	| A number between 0 and 1. If the precision is lower than this value, the entity is not returned. The default is 0.|
 
 ## Skill inputs
@@ -54,7 +60,7 @@ Parameters are case-sensitive.
 ```json
   {
     "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
-    "categories": [ "Person"],
+    "categories": [ "Person", "Location", "Organization"],
     "defaultLanguageCode": "en",
     "inputs": [
       {
@@ -79,7 +85,7 @@ Parameters are case-sensitive.
         "recordId": "1",
         "data":
            {
-             "text": "This is a the loan application for Joe Romero, he is a Microsoft employee who was born in Chile and then moved to Australia… Ana Smith is provided as a reference.",
+             "text": "This is the loan application for Joe Romero, a Microsoft employee who was born in Chile and who then moved to Australia… Ana Smith is provided as a reference.",
              "languageCode": "en"
            }
       }
@@ -97,32 +103,38 @@ Parameters are case-sensitive.
       "data" : 
       {
         "persons": [ "Joe Romero", "Ana Smith"],
-        "locations": ["Seattle"],
-        "organizations":["Microsoft Corporation"],
+        "locations": ["Chile", "Australia"],
+        "organizations":["Microsoft"],
         "entities":  
         [
           {
             "category":"person",
             "value": "Joe Romero",
-            "offset": 45,
+            "offset": 33,
             "confidence": 0.87
           },
           {
             "category":"person",
             "value": "Ana Smith",
-            "offset": 59,
+            "offset": 124,
             "confidence": 0.87
           },
           {
             "category":"location",
-            "value": "Seattle",
-            "offset": 5,
+            "value": "Chile",
+            "offset": 88,
+            "confidence": 0.99
+          },
+          {
+            "category":"location",
+            "value": "Australia",
+            "offset": 112,
             "confidence": 0.99
           },
           {
             "category":"organization",
-            "value": "Microsoft Corporation",
-            "offset": 120,
+            "value": "Microsoft",
+            "offset": 54,
             "confidence": 0.99
           }
         ]
@@ -133,10 +145,11 @@ Parameters are case-sensitive.
 ```
 
 
-## Error cases
-If you specify an unsupported language code, or if content doesn't match the language specified, an error is return and no entities are extracted.
+## Warning cases
+If the language code for the document is unsupported, a warning is returned and no entities are extracted.
 
 ## See also
 
-+ [Predefined skills](cognitive-search-predefined-skills.md)
++ [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
++ [Entity Recognition Skill (V3)](cognitive-search-skill-entity-recognition-v3.md)

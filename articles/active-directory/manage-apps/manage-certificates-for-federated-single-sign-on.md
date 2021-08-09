@@ -2,90 +2,111 @@
 title: Manage federation certificates in Azure AD | Microsoft Docs
 description: Learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire.
 services: active-directory
-documentationcenter: ''
-author: barbkess
-manager: mtillman
-editor: ''
-
+author: davidmu1
+manager: CelesteDG
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
-ms.author: barbkess
-ms.reviewer: jeedes
-
+ms.date: 04/04/2019
+ms.author: davidmu
+ms.reviewer: saumadan
+ms.collection: M365-identity-device-management
 ---
+
 # Manage certificates for federated single sign-on in Azure Active Directory
-This article covers common questions and information related to the certificates that Azure Active Directory (Azure AD) creates to establish federated single sign-on (SSO) to your SaaS applications. Add applications from the Azure AD app gallery or by using a non-gallery application template. Configure the application by using the federated SSO option.
 
-This article is relevant only to apps that are configured to use Azure AD SSO through SAML federation, as shown in the following example:
+In this article, we cover common questions and information related to certificates that Azure Active Directory (Azure AD) creates to establish federated single sign-on (SSO) to your software as a service (SaaS) applications. Add applications from the Azure AD app gallery or by using a non-gallery application template. Configure the application by using the federated SSO option.
 
-![Azure AD Single Sign-On](./media/manage-certificates-for-federated-single-sign-on/saml_sso.PNG)
+This article is relevant only to apps that are configured to use Azure AD SSO through [Security Assertion Markup Language](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML) federation.
 
 ## Auto-generated certificate for gallery and non-gallery applications
-When you add a new application from the gallery and configure a SAML-based sign-on, Azure AD generates a certificate for the application that is valid for three years. You can download this certificate from the **SAML Signing Certificate** section. For gallery applications, this section might show an option to download the certificate or metadata, depending on the requirement of the application.
 
-![Azure AD single sign-on](./media/manage-certificates-for-federated-single-sign-on/saml_certificate_download.png)
+When you add a new application from the gallery and configure a SAML-based sign-on (by selecting **Single sign-on** > **SAML** from the application overview page), Azure AD generates a certificate for the application that is valid for three years. To download the active certificate as a security certificate (**.cer**) file, return to that page (**SAML-based sign-on**) and select a download link in the **SAML Signing Certificate** heading. You can choose between the raw (binary) certificate or the Base64 (base 64-encoded text) certificate. For gallery applications, this section might also show a link to download the certificate as federation metadata XML (an **.xml** file), depending on the requirement of the application.
+
+![SAML active signing certificate download options](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
+
+You can also download an active or inactive certificate by selecting the **SAML Signing Certificate** heading's **Edit** icon (a pencil), which displays the **SAML Signing Certificate** page. Select the ellipsis (**...**) next to the certificate you want to download, and then choose which certificate format you want. You have the additional option to download the certificate in privacy-enhanced mail (PEM) format. This format is identical to Base64 but with a **.pem** file name extension, which isn't recognized in Windows as a certificate format.
+
+![SAML signing certificate download options (active and inactive)](./media/manage-certificates-for-federated-single-sign-on/all-certificate-download-options.png)
 
 ## Customize the expiration date for your federation certificate and roll it over to a new certificate
-By default, certificates are set to expire after three years. You can choose a different expiration date for your certificate by completing the following steps.
-The screenshots use Salesforce for the sake of example, but these steps can apply to any federated SaaS app.
 
-1. In the [Azure portal](https://aad.portal.azure.com), click **Enterprise application** in the left pane and then click **New application** on the **Overview** page:
+By default, Azure configures a certificate to expire after three years when it is created automatically during SAML single sign-on configuration. Because you can't change the date of a certificate after you save it, you have to:
 
-   ![Open the SSO configuration wizard](./media/manage-certificates-for-federated-single-sign-on/enterprise_application_new_application.png)
+1. Create a new certificate with the desired date.
+1. Save the new certificate.
+1. Download the new certificate in the correct format.
+1. Upload the new certificate to the application.
+1. Make the new certificate active in the Azure Active Directory portal.
 
-2. Search for the gallery application and then select the application that you want to add. If you cannot find the required application, add the application by using the **Non-gallery application** option. This feature is available only in the Azure AD Premium (P1 and P2) SKU.
+The following two sections help you perform these steps.
 
-    ![Azure AD single sign-on](./media/manage-certificates-for-federated-single-sign-on/add_gallery_application.png)
+### Create a new certificate
 
-3. Click the **Single sign-on** link in the left pane and change **Single Sign-on Mode** to **SAML-based Sign-on**. This step generates a three-year certificate for your application.
+First, create and save new certificate with a different expiration date:
 
-4. To create a new certificate, click the **Create new certificate** link in the **SAML Signing Certificate** section.
+1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/). The **Azure Active Directory admin center** page appears.
+1. In the left pane, select **Enterprise applications**. A list of the enterprise applications in your account appears.
+1. Select the affected application. An overview page for the application appears.
+1. In the left pane of the application overview page, select **Single sign-on**.
+1. If the **Select a single sign-on method** page appears, select **SAML**.
+1. In the **Set up Single Sign-On with SAML - Preview** page, find the **SAML Signing Certificate** heading and select the **Edit** icon (a pencil). The **SAML Signing Certificate** page appears, which displays the status (**Active** or **Inactive**), expiration date, and thumbprint (a hash string) of each certificate.
+1. Select **New Certificate**. A new row appears below the certificate list, where the expiration date defaults to exactly three years after the current date. (Your changes haven't been saved yet, so you can still modify the expiration date.)
+1. In the new certificate row, hover over the expiration date column and select the **Select Date** icon (a calendar). A calendar control appears, displaying the days of a month of the new row's current expiration date.
+1. Use the calendar control to set a new date. You can set any date between the current date and three years after the current date.
+1. Select **Save**. The new certificate now appears with a status of **Inactive**, the expiration date that you chose, and a thumbprint. **Note**- When you have an existing certificate that is already expired and you generate a new certificate, the new certificate will be considered for signing tokens, even though you have not activated it yet.
+1. Select the **X** to return to the **Set up Single Sign-On with SAML - Preview** page.
 
-    ![Generate a new certificate](./media/manage-certificates-for-federated-single-sign-on/create_new_certficate.png)
+### Upload and activate a certificate
 
-5. The **Create a new certificate** link opens the calendar control. You can set any date and time up to three years from the current date. The selected date and time is the new expiration date and time of your new certificate. Click **Save**.
+Next, download the new certificate in the correct format, upload it to the application, and make it active in Azure Active Directory:
 
-    ![Download then upload the certificate](./media/manage-certificates-for-federated-single-sign-on/certifcate_date_selection.PNG)
+1. View the application's additional SAML sign-on configuration instructions by either:
 
-6. Now the new certificate is available to download. Click the **Certificate** link to download it. At this point, your certificate is not active. When you want to roll over to this certificate, select the **Make new certificate active** check box and click **Save**. From that point, Azure AD starts using the new certificate for signing the response.
+   - Selecting the **configuration guide** link to view in a separate browser window or tab, or
+   - Going to the **set up** heading and selecting **View step-by-step instructions** to view in a sidebar.
 
-7.	To learn how to upload the certificate to your particular SaaS application, click the **View application configuration tutorial** link.
+1. In the instructions, note the encoding format required for the certificate upload.
+1. Follow the instructions in the [Auto-generated certificate for gallery and non-gallery applications](#auto-generated-certificate-for-gallery-and-non-gallery-applications) section earlier. This step downloads the certificate in the encoding format required for upload by the application.
+1. When you want to roll over to the new certificate, go back to the **SAML Signing Certificate** page, and in the newly saved certificate row, select the ellipsis (**...**) and select **Make certificate active**. The status of the new certificate changes to **Active**, and the previously active certificate changes to a status of **Inactive**.
+1. Continue following the application's SAML sign-on configuration instructions that you displayed earlier, so that you can upload the SAML signing certificate in the correct encoding format.
 
-## Certificate expiration notification email
+If your application does not have any validation for the certificate's expiration, and the certificate matches in both Azure Active Directory and your application, your app is still accessible despite having an expired certificate. Please ensure your application can validate the certificate's expiration date.
 
-Azure AD will send an email notification 60, 30, and 7 days before SAML certificate expires. To specify the email address for where to send the notification:
+## Add email notification addresses for certificate expiration
 
-- On the Azure Active Directory application Single sign-on page, go to the Notification Email field.
-- Enter the email address that should receive the certificate expiration notification email. By default, this field uses the email address of the admin who added the application.
+Azure AD will send an email notification 60, 30, and 7 days before the SAML certificate expires. You may add more than one email address to receive notifications. To specify the email address(es) you want the notifications to be sent to:
 
-You will receive the notification email from aadnotification@microsoft.com. To avoid the email going to your spam location, be sure to add this email to your contacts. 
+1. In the **SAML Signing Certificate** page, go to the **notification email addresses** heading. By default, this heading uses only the email address of the admin who added the application.
+1. Below the final email address, type the email address that should receive the certificate's expiration notice, and then press Enter.
+1. Repeat the previous step for each email address you want to add.
+1. For each email address you want to delete, select the **Delete** icon (a garbage can) next to the email address.
+1. Select **Save**.
+
+You can add up to 5 email addresses to the Notification list (including the email address of the admin who added the application). If you need more people to be notified, use the distribution list emails.
+
+You will receive the notification email from azure-noreply@microsoft.com. To avoid the email going to your spam location, add this email to your contacts.
 
 ## Renew a certificate that will soon expire
-The following renewal steps should result in no significant downtime for your users. The screenshots in this section feature Salesforce as an example, but these steps can apply to any federated SaaS app.
 
-1. On the **Azure Active Directory** application **Single sign-on** page, generate the new certificate for your application. You can do this by clicking the **Create new certificate** link in the **SAML Signing Certificate** section.
+If a certificate is about to expire, you can renew it using a procedure that results in no significant downtime for your users. To renew an expiring certificate:
 
-    ![Generate a new certificate](./media/manage-certificates-for-federated-single-sign-on/create_new_certficate.png)
+1. Follow the instructions in the [Create a new certificate](#create-a-new-certificate) section earlier, using a date that overlaps with the existing certificate. That date limits the amount of downtime caused by the certificate expiration.
+1. If the application can automatically roll over a certificate, set the new certificate to active by following these steps:
+   1. Go back to the **SAML Signing Certificate** page.
+   1. In the newly saved certificate row, select the ellipsis (**...**) and then select **Make certificate active**.
+   1. Skip the next two steps.
 
-2. Select the desired expiration date and time for your new certificate and click **Save**. Selecting a date that overlaps with the existing certificate will ensure that any downtime due to cert expiry is limited. 
+1. If the app can only handle one certificate at a time, pick a downtime interval to perform the next step. (Otherwise, if the application doesn’t automatically pick up the new certificate but can handle more than one signing certificate, you can perform the next step anytime.)
+1. Before the old certificate expires, follow the instructions in the [Upload and activate a certificate](#upload-and-activate-a-certificate) section earlier. If your application certificate isn't updated after a new certificate is updated in Azure Active Directory, authentication on your app may fail.
+1. Sign in to the application to make sure that the certificate works correctly.
 
-3. If the app can automatically roll over a certificate, set the new certificate to active.  Sign in to the app to check that it works.
-
-4. If the app doesn’t automatically pickup the new cert, but can handle more than one signing cert, before the old one expires, upload the new one to the app, then go back to the portal and make it the active certificate. 
-
-5. If the app can only handle one certificate at a time, pick a downtime window, download the new certificate, upload it to the application, come back to the Azure Portal and set the new certificate as active. 
-   
-6. To activate the new certificate in Azure AD, select the **Make new certificate active** check box and click the **Save** button at the top of the page. This rolls over the new certificate on the Azure AD side. The status of the certificate changes from **New** to **Active**. From that point, Azure AD starts using the new certificate for signing the response. 
-   
-    ![Generate a new certificate](./media/manage-certificates-for-federated-single-sign-on/new_certificate_download.png)
+If your application does not validate the certificate expiration configured in Azure Active Directory, and the certificate matches in both Azure Active Directory and your application, your app is still accessible despite having an expired certificate. Please ensure your application can validate certificate expiration.
 
 ## Related articles
-* [List of tutorials on how to integrate SaaS apps with Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Application Management in Azure Active Directory](what-is-application-management.md)
-* [Application access and single sign-on with Azure Active Directory](what-is-single-sign-on.md)
-* [Troubleshooting SAML-based single sign-on](../develop/howto-v1-debug-saml-sso-issues.md)
+
+- [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
+- [Application management with Azure Active Directory](what-is-application-management.md)
+- [Single sign-on to applications in Azure Active Directory](what-is-single-sign-on.md)
+- [Debug SAML-based single sign-on to applications in Azure Active Directory](./debug-saml-sso-issues.md)

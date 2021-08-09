@@ -1,28 +1,29 @@
-﻿---
+---
 title: Hybrid identity design - content management requirements Azure | Microsoft Docs
 description: Provides insight into how to determine the content management requirements of your business. Usually when a user has their own device, they might also have multiple credentials that will be alternating according to the application that they use. It is important to differentiate what content was created using personal credentials versus the ones created using corporate credentials. Your identity solution should be able to interact with cloud services to provide a seamless experience to the end user while ensure their privacy and increase the protection against data leakage.
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: dd1ef776-db4d-4ab8-9761-2adaa5a4f004
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
-ms.component: hybrid
+ms.date: 04/29/2019
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Determine content management requirements for your hybrid identity solution
-Understanding the content management requirements for your business may direct affect your decision on which hybrid identity solution to use. With the proliferation of multiple devices and the capability of users to bring their own devices ([BYOD](https://aka.ms/byodcg)), the company must protect its own data but it also must keep user’s privacy intact. Usually when a user has their own device, they might also have multiple credentials that will be alternating according to the application that they use. It is important to differentiate what content was created using personal credentials versus the ones created using corporate credentials. Your identity solution should be able to interact with cloud services to provide a seamless experience to the end user while ensure their privacy and increase the protection against data leakage. 
+Understanding the content management requirements for your business may direct affect your decision on which hybrid identity solution to use. With the proliferation of multiple devices and the capability of users to bring their own devices ([BYOD](/mem/intune/fundamentals/byod-technology-decisions)), the company must protect its own data but it also must keep user’s privacy intact. Usually when a user has their own device, they might also have multiple credentials that will be alternating according to the application that they use. It is important to differentiate what content was created using personal credentials versus the ones created using corporate credentials. Your identity solution should be able to interact with cloud services to provide a seamless experience to the end user while ensure their privacy and increase the protection against data leakage. 
 
 Your identity solution will be leveraged by different technical controls in order to provide content management as shown in the figure below:
 
-![](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
+![security controls](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
 
 **Security controls that will be leveraging your identity management system**
 
@@ -63,4 +64,3 @@ When planning your hybrid identity solution ensure that the following questions 
 
 ## See Also
 [Design considerations overview](plan-hybrid-identity-design-considerations-overview.md)
-

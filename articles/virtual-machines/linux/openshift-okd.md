@@ -1,20 +1,14 @@
 ---
-title: Deploy OKD in Azure | Microsoft Docs
+title: Deploy OKD in Azure 
 description: Deploy OKD in Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: haroldwongms
 manager: joraio
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
+ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 
+ms.date: 10/15/2019
 ms.author: haroldw
 ---
 
@@ -43,7 +37,7 @@ The following is an example of a parameters file named azuredeploy.parameters.js
 
 ```json
 {
-	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"masterVmSize": {
@@ -121,12 +115,12 @@ Different releases may have different parameters so please verify the necessary 
 
 
 > [!NOTE] 
-> The following command requires Azure CLI 2.0.8 or later. You can verify the CLI version with the `az --version` command. To update the CLI version, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> The following command requires Azure CLI 2.0.8 or later. You can verify the CLI version with the `az --version` command. To update the CLI version, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 The following example deploys the OKD cluster and all related resources into a resource group named openshiftrg, with a deployment name of myOpenShiftCluster. The template is referenced directly from the GitHub repo while using a local parameters file named azuredeploy.parameters.json.
 
 ```azurecli 
-az group deployment create -g openshiftrg --name myOpenShiftCluster \
+az deployment group create -g openshiftrg --name myOpenShiftCluster \
       --template-uri https://raw.githubusercontent.com/Microsoft/openshift-origin/master/azuredeploy.json \
       --parameters @./azuredeploy.parameters.json
 ```
@@ -152,7 +146,7 @@ $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
 
 ## Clean up resources
 
-Use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, OpenShift cluster, and all related resources when they're no longer needed.
+Use the [az group delete](/cli/azure/group) command to remove the resource group, OpenShift cluster, and all related resources when they're no longer needed.
 
 ```azurecli 
 az group delete --name openshiftrg
@@ -160,6 +154,6 @@ az group delete --name openshiftrg
 
 ## Next steps
 
-- [Post-deployment tasks](./openshift-post-deployment.md)
-- [Troubleshoot OpenShift deployment](./openshift-troubleshooting.md)
+- [Post-deployment tasks](./openshift-container-platform-3x-post-deployment.md)
+- [Troubleshoot OpenShift deployment](./openshift-container-platform-3x-troubleshooting.md)
 - [Getting started with OKD](https://docs.okd.io)

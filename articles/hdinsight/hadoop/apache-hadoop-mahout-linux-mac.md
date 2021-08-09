@@ -1,39 +1,25 @@
 ---
-title: Generate recommendations using Apache Mahout and HDInsight (SSH) - Azure 
-description: Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop).
-services: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
+title: Generate recommendations using Apache Mahout in Azure HDInsight
+description: Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight.
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/01/2018
-
-
+ms.topic: how-to
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 05/14/2020
 ---
-# Generate movie recommendations by using Apache Mahout with Linux-based Apache Hadoop in HDInsight (SSH)
 
-[!INCLUDE [mahout-selector](../../../includes/hdinsight-selector-mahout.md)]
+# Generate recommendations using Apache Mahout in Azure HDInsight
 
-Learn how to use the [Apache Mahout](http://mahout.apache.org) machine learning library with Azure HDInsight to generate movie recommendations.
+Learn how to use the [Apache Mahout](https://mahout.apache.org) machine learning library with Azure HDInsight to generate movie recommendations.
 
-Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains algorithms for processing data, such as filtering, classification, and clustering. In this article, you use a recommendation engine to generate movie recommendations that are based on movies your friends have seen.
+Mahout is a [machine learning](https://en.wikipedia.org/wiki/Machine_learning) library for Apache Hadoop. Mahout contains algorithms for processing data, such as filtering, classification, and clustering. In this article, you use a recommendation engine to generate movie recommendations that are based on movies your friends have seen.
+
+Mahout is avaiable in HDInsight 3.6, and is not available in HDInsight 4.0. For more information about the version of Mahout in HDInsight, see [HDInsight 3.6 component versions](../hdinsight-36-component-versioning.md).
 
 ## Prerequisites
 
-* A Linux-based HDInsight cluster. For information about creating one, see [Get started using Linux-based Hadoop in HDInsight][getstarted].
+An Apache Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-> [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
-* An SSH client. For more information, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
-
-## Mahout versioning
-
-For more information about the version of Mahout in HDInsight, see [HDInsight versions and Hadoop components](../hdinsight-component-versioning.md).
-
-## <a name="recommendations"></a>Understanding recommendations
+## Understanding recommendations
 
 One of the functions that is provided by Mahout is a recommendation engine. This engine accepts data in the format of `userID`, `itemId`, and `prefValue` (the preference for the item). Mahout can then perform co-occurrence analysis to determine: *users who have a preference for an item also have a preference for these other items*. Mahout then determines users with like-item preferences, which can be used to make recommendations.
 
@@ -43,31 +29,39 @@ The following workflow is a simplified example that uses movie data:
 
 * **Co-occurrence**: Bob and Alice also liked *The Phantom Menace*, *Attack of the Clones*, and *Revenge of the Sith*. Mahout determines that users who liked the previous three movies also like these three movies.
 
-* **Similarity recommendation**: Because Joe liked the first three movies, Mahout looks at movies that others with similar preferences liked, but Joe has not watched (liked/rated). In this case, Mahout recommends *The Phantom Menace*, *Attack of the Clones*, and *Revenge of the Sith*.
+* **Similarity recommendation**: Because Joe liked the first three movies, Mahout looks at movies that others with similar preferences liked, but Joe hasn't watched (liked/rated). In this case, Mahout recommends *The Phantom Menace*, *Attack of the Clones*, and *Revenge of the Sith*.
 
 ### Understanding the data
 
-Conveniently, [GroupLens Research][movielens] provides rating data for movies in a format that is compatible with Mahout. This data is available on your cluster's default storage at `/HdiSamples/HdiSamples/MahoutMovieData`.
+Conveniently, [GroupLens Research](https://grouplens.org/datasets/movielens/) provides rating data for movies in a format that is compatible with Mahout. This data is available on your cluster's default storage at `/HdiSamples/HdiSamples/MahoutMovieData`.
 
 There are two files, `moviedb.txt` and `user-ratings.txt`. The `user-ratings.txt` file is used during analysis. The `moviedb.txt` is used to provide user-friendly text information when viewing the results.
 
-The data contained in user-ratings.txt has a structure of `userID`, `movieID`, `userRating`, and `timestamp`, which indicates how highly each user rated a movie. Here is an example of the data:
+The data contained in `user-ratings.txt` has a structure of `userID`, `movieID`, `userRating`, and `timestamp`, which indicates how highly each user rated a movie. Here is an example of the data:
 
+```output
     196    242    3    881250949
     186    302    3    891717742
-    22    377    1    878887116
-    244    51    2    880606923
+    22     377    1    878887116
+    244    51     2    880606923
     166    346    1    886397596
+```
 
 ## Run the analysis
 
-From an SSH connection to the cluster, use the following command to run the recommendation job:
+1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your cluster. Edit the command below by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
 
-```bash
-mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt -o /example/data/mahoutout --tempDir /temp/mahouttemp
-```
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
 
-> [!NOTE]
+1. Use the following command to run the recommendation job:
+
+    ```bash
+    mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt -o /example/data/mahoutout --tempDir /temp/mahouttemp
+    ```
+
+> [!NOTE]  
 > The job may take several minutes to complete, and may run multiple MapReduce jobs.
 
 ## View the output
@@ -80,10 +74,12 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     The output appears as follows:
 
-        1    [234:5.0,347:5.0,237:5.0,47:5.0,282:5.0,275:5.0,88:5.0,515:5.0,514:5.0,121:5.0]
-        2    [282:5.0,210:5.0,237:5.0,234:5.0,347:5.0,121:5.0,258:5.0,515:5.0,462:5.0,79:5.0]
-        3    [284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
-        4    [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
+    ```output
+    1    [234:5.0,347:5.0,237:5.0,47:5.0,282:5.0,275:5.0,88:5.0,515:5.0,514:5.0,121:5.0]
+    2    [282:5.0,210:5.0,237:5.0,234:5.0,347:5.0,121:5.0,258:5.0,515:5.0,462:5.0,79:5.0]
+    3    [284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
+    4    [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
+    ```
 
     The first column is the `userID`. The values contained in '[' and ']' are `movieId`:`recommendationScore`.
 
@@ -166,14 +162,15 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     This command looks at the recommendations generated for user ID 4.
 
-    * The **user-ratings.txt** file is used to retrieve movies that have been rated.
+   * The **user-ratings.txt** file is used to retrieve movies that have been rated.
 
-    * The **moviedb.txt** file is used to retrieve the names of the movies.
+   * The **moviedb.txt** file is used to retrieve the names of the movies.
 
-    * The **recommendations.txt** is used to retrieve the movie recommendations for this user.
+   * The **recommendations.txt** is used to retrieve the movie recommendations for this user.
 
      The output from this command is similar to the following text:
 
+        ```output
         Seven Years in Tibet (1997), score=5.0
         Indiana Jones and the Last Crusade (1989), score=5.0
         Jaws (1975), score=5.0
@@ -183,37 +180,24 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
         Jerry Maguire (1996), score=5.0
         Scream 2 (1997), score=5.0
         Time to Kill, A (1996), score=5.0
+        ```
 
 ## Delete temporary data
 
-Mahout jobs do not remove temporary data that is created while processing the job. The `--tempDir` parameter is specified in the example job to isolate the temporary files into a specific path for easy deletion. To remove the temp files, use the following command:
+Mahout jobs don't remove temporary data that is created while processing the job. The `--tempDir` parameter is specified in the example job to isolate the temporary files into a specific path for easy deletion. To remove the temp files, use the following command:
 
 ```bash
 hdfs dfs -rm -f -r /temp/mahouttemp
 ```
 
-> [!WARNING]
+> [!WARNING]  
 > If you want to run the command again, you must also delete the output directory. Use the following to delete this directory:
 >
 > `hdfs dfs -rm -f -r /example/data/mahoutout`
 
-
 ## Next steps
 
-Now that you have learned how to use Mahout, discover other ways of working with data on HDInsight:
+Now that you've learned how to use Mahout, discover other ways of working with data on HDInsight:
 
-* [Hive with HDInsight](hdinsight-use-hive.md)
-* [Pig with HDInsight](hdinsight-use-pig.md)
+* [Apache Hive with HDInsight](hdinsight-use-hive.md)
 * [MapReduce with HDInsight](hdinsight-use-mapreduce.md)
-
-[build]: http://mahout.apache.org/developers/buildingmahout.html
-[movielens]: http://grouplens.org/datasets/movielens/
-[100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
-[getstarted]:apache-hadoop-linux-tutorial-get-started.md
-[upload]: hdinsight-upload-data.md
-[ml]: http://en.wikipedia.org/wiki/Machine_learning
-[forest]: http://en.wikipedia.org/wiki/Random_forest
-[enableremote]: ./media/hdinsight-mahout/enableremote.png
-[connect]: ./media/hdinsight-mahout/connect.png
-[hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
-[tools]: https://github.com/Blackmist/hdinsight-tools

@@ -1,226 +1,163 @@
-﻿---
-title: 'Tutorial: Azure Active Directory integration with Bpm’online | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Bpm’online.
-services: active-directory
-documentationCenter: na
-author: jeevansd
-manager: femila
-ms.reviewer: joflore
-
-ms.assetid: 052db91d-ccff-4098-8ae3-2f76eca90539
-ms.service: active-directory
-ms.component: saas-app-tutorial
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/16/2018
-ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with Bpm’online
+title: 'Tutorial: Azure Active Directory integration with Creatio | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Creatio.
+services: active-directory
+author: jeevansd
+manager: CelesteDG
+ms.reviewer: celested
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
+ms.workload: identity
+ms.topic: tutorial
+ms.date: 05/11/2021
+ms.author: jeedes
+---
 
-In this tutorial, you learn how to integrate Bpm’online with Azure Active Directory (Azure AD).
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Creatio
 
-Integrating Bpm’online with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate Creatio with Azure Active Directory (Azure AD). When you integrate Creatio with Azure AD, you can:
 
-- You can control in Azure AD who has access to Bpm’online.
-- You can enable your users to automatically get signed-on to Bpm’online (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Azure AD who has access to Creatio.
+* Enable your users to be automatically signed-in to Creatio with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
-To configure Azure AD integration with Bpm’online, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A Bpm’online single-sign on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Creatio single sign-on (SSO) enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Bpm’online from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-## Adding Bpm’online from the gallery
-To configure the integration of Bpm’online into Azure AD, you need to add Bpm’online from the gallery to your list of managed SaaS apps.
+* Creatio supports **SP and IDP** initiated SSO.
 
-**To add Bpm’online from the gallery, perform the following steps:**
+## Add Creatio from the gallery
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+To configure the integration of Creatio into Azure AD, you need to add Creatio from the gallery to your list of managed SaaS apps.
 
-	![The Azure Active Directory button][1]
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Creatio** in the search box.
+1. Select **Creatio** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+## Configure and test Azure AD SSO for Creatio
 
-	![The Enterprise applications blade][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+Configure and test Azure AD SSO with Creatio using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Creatio.
 
-	![The New application button][3]
+To configure and test Azure AD SSO with Creatio, perform the following steps:
 
-1. In the search box, type **Bpm’online**, select **Bpm’online** from result panel then click **Add** button to add the application.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Creatio SSO](#configure-creatio-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Creatio test user](#create-creatio-test-user)** - to have a counterpart of B.Simon in Creatio that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	![Bpm’online in the results list](./media/bpmonline-tutorial/tutorial_bpmonline_addfromgallery.png)
+## Configure Azure AD SSO
 
-## Configure and test Azure AD single sign-on
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-In this section, you configure and test Azure AD single sign-on with Bpm’online based on a test user called "Britta Simon."
+1. In the Azure portal, on the **Creatio** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Bpm’online is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Bpm’online needs to be established.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-In Bpm’online, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-To configure and test Azure AD single sign-on with Bpm’online, you need to complete the following building blocks:
+    a. In the **Identifier** text box, type a URL using one of the following patterns:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create a Bpm’online test user](#create-a-bpmonline-test-user)** - to have a counterpart of Britta Simon in Bpm’online that is linked to the Azure AD representation of user.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+    | Identifier |
+    |-------------|
+    | `https://<SUBDOMAIN>.creatio.com/` |
+    | `https://<SUBDOMAIN>.terrasoft.ru/` |
+    | `https://<SUBDOMAIN>.terrasoft.ua/` |
+    |
 
-### Configure Azure AD single sign-on
+    b. In the **Reply URL** text box, type a URL using one of the following patterns:
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Bpm’online application.
+    | Reply URL |
+    |-------------|
+    | `https://<SUBDOMAIN>.creatio.com/ServiceModel/AuthService.svc/SsoLogin` |
+    | `https://<SUBDOMAIN>.terrasoft.ru/ServiceModel/AuthService.svc/SsoLogin` |
+    | `https://<SUBDOMAIN>.terrasoft.ua/ServiceModel/AuthService.svc/SsoLogin` |
+    |
 
-**To configure Azure AD single sign-on with Bpm’online, perform the following steps:**
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-1. In the Azure portal, on the **Bpm’online** application integration page, click **Single sign-on**.
+    In the **Sign-on URL** text box, type a URL using one of the following patterns:
 
-	![Configure single sign-on link][4]
+    | Sign-on URL |
+    |-------------|
+    | `https://<SUBDOMAIN>.creatio.com/` |
+    | `https://<SUBDOMAIN>.terrasoft.ru/` |
+    | `https://<SUBDOMAIN>.terrasoft.ua/` |
+    |
 
-1. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
-
-	![Single sign-on dialog box](./media/bpmonline-tutorial/tutorial_bpmonline_samlbase.png)
-
-1. On the **Bpm’online Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
-
-	![Bpm’online Domain and URLs single sign-on information](./media/bpmonline-tutorial/tutorial_bpmonline_url.png)
-
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<client site name>.bpmonline.com/`
-
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<client site name>.bpmonline.com/ServiceModel/AuthService.svc/SsoLogin`
-
-1. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-	![Bpm’online Domain and URLs single sign-on information](./media/bpmonline-tutorial/tutorial_bpmonline_url1.png)
-
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<client site name>.bpmonline.com/`
-	 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Bpm’online Client support team](mailto:support@bpmonline.com) to get these values. 
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Creatio Client support team](mailto:support@creatio.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
-    
-    ![Configure Single Sign-On](./media/bpmonline-tutorial/tutorial_metadataurl.png)
-     
-1. Click **Save** button.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-	![Configure Single Sign-On Save button](./media/bpmonline-tutorial/tutorial_general_400.png)
-	
-1. To configure single sign-on on **Bpm’online** side, you need to send the **App Federation Metadata Url** to [Bpm’online support team](mailto:support@bpmonline.com). They set this setting to have the SAML SSO connection set properly on both sides.
+	![Screenshot shows SAML Signing Certificate page with a download link for a base64 certificate.](common/certificatebase64.png)
+
+1. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+
+	![Screenshot shows SAML Signing Certificate page where you can copy App Federation Metadata U r l.](common/copy-metadataurl.png)
 
 ### Create an Azure AD test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-   ![Create an Azure AD test user][100]
-
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
-
-    ![The Azure Active Directory button](./media/bpmonline-tutorial/create_aaduser_01.png)
-
-1. To display the list of users, go to **Users and groups**, and then click **All users**.
-
-    ![The "Users and groups" and "All users" links](./media/bpmonline-tutorial/create_aaduser_02.png)
-
-1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
-
-    ![The Add button](./media/bpmonline-tutorial/create_aaduser_03.png)
-
-1. In the **User** dialog box, perform the following steps:
-
-    ![The User dialog box](./media/bpmonline-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
-
-    d. Click **Create**.
- 
-### Create a Bpm’online test user
-
-In this section, you create a user called Britta Simon in Bpm’online. Work with [Bpm’online support team](mailto:support@bpmonline.com) to add the users in the Bpm’online platform. Users must be created and activated before you use single sign-on. 
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Bpm’online.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Creatio.
 
-![Assign the user role][200] 
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Creatio**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-**To assign Britta Simon to Bpm’online, perform the following steps:**
+## Configure Creatio SSO
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+To configure single sign-on on **Creatio** side, you need to send the **App Federation Metadata Url** to [Creatio support team](mailto:support@creatio.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-	![Assign User][201] 
+### Create Creatio test user
 
-1. In the applications list, select **Bpm’online**.
+In this section, you create a user called Britta Simon in Creatio. Work with [Creatio support team](mailto:support@creatio.com) to add the users in the Creatio platform. Users must be created and activated before you use single sign-on.
 
-	![The Bpm’online link in the Applications list](./media/bpmonline-tutorial/tutorial_bpmonline_app.png)  
+## Test SSO 
 
-1. In the menu on the left, click **Users and groups**.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-	![The "Users and groups" link][202]
+#### SP initiated:
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+* Click on **Test this application** in Azure portal. This will redirect to Creatio Sign on URL where you can initiate the login flow.  
 
-	![The Add Assignment pane][203]
+* Go to Creatio Sign-on URL directly and initiate the login flow from there.
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+#### IDP initiated:
 
-1. Click **Select** button on **Users and groups** dialog.
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Creatio for which you set up the SSO. 
 
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Test single sign-on
+You can also use Microsoft My Apps to test the application in any mode. When you click the Creatio tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Creatio for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+## Next steps
 
-When you click the Bpm’online tile in the Access Panel, you should get automatically signed-on to your Bpm’online application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
-
-<!--Image references-->
-
-[1]: ./media/bpmonline-tutorial/tutorial_general_01.png
-[2]: ./media/bpmonline-tutorial/tutorial_general_02.png
-[3]: ./media/bpmonline-tutorial/tutorial_general_03.png
-[4]: ./media/bpmonline-tutorial/tutorial_general_04.png
-
-[100]: ./media/bpmonline-tutorial/tutorial_general_100.png
-
-[200]: ./media/bpmonline-tutorial/tutorial_general_200.png
-[201]: ./media/bpmonline-tutorial/tutorial_general_201.png
-[202]: ./media/bpmonline-tutorial/tutorial_general_202.png
-[203]: ./media/bpmonline-tutorial/tutorial_general_203.png
-
+Once you configure Creatio you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

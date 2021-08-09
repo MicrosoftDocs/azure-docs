@@ -1,173 +1,109 @@
 ---
-title: "Quickstart: Bing Spell Check SDK, C#"
-titlesuffix: Azure Cognitive Services
-description: Setup for Spell Check SDK console application
+title: "Quickstart: Check spelling with the Bing Spell Check SDK for C#"
+titleSuffix: Azure Cognitive Services
+description: Get started using the Bing Spell Check REST API to check spelling and grammar.
 services: cognitive-services
-author: mikedodaro
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 01/30/2018
-ms.author: v-gedod
+ms.date: 12/16/2019
+ms.author: aahi
+ms.custom: devx-track-csharp
 ---
-# Quickstart: Bing Spell Check SDK with C#
 
-The Bing Spell Check SDK contains the functionality of the REST API for spell check.
+# Quickstart: Check spelling with the Bing Spell Check SDK for C#
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
+Use this quickstart to begin spell checking with the Bing Spell Check SDK for C#. While Bing Spell Check has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/SpellCheck).
 
 ## Application dependencies
 
-To set up a console application using the Bing Spell Check SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio. Add the `Microsoft.Azure.CognitiveServices.SpellCheck` package.
+* Any edition of [Visual Studio 2017 or later](https://visualstudio.microsoft.com/downloads/).
+* The Bing Spell Check [NuGet Package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.SpellCheck)
 
-Installing the [SpellCheck SDK package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.SpellCheck/1.2.0) also installs dependencies, including:
+To add the Bing Spell Check SDK to your project, select **Manage NuGet Packages** from **Solution Explorer** in Visual Studio. Add the `Microsoft.Azure.CognitiveServices.Language.SpellCheck` package. The package also installs the following dependencies:
 
 * Microsoft.Rest.ClientRuntime
-* Microsoft.Rest.ClientRuntime.AZure
+* Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-## Spell check client
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-To create an instance of the `SpellCheckAPI` client, add using directive:
+## Create and initialize the application
 
-```cs
-using Microsoft.Azure.CognitiveServices.SpellCheck;
-```
+1. Create a new C# console solution in Visual Studio. Then add the following `using` statement.
+    
+    ```csharp
+    using System;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using Microsoft.Azure.CognitiveServices.Language.SpellCheck;
+    using Microsoft.Azure.CognitiveServices.Language.SpellCheck.Models;
+    ```
 
-Then, instantiate the client:
+2. Create a new class. Then create an asynchronous function called `SpellCheckCorrection()` that takes a subscription key and sends the spell check request.
 
-```cs
-var client = new SpellCheckAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
-```
+3. Instantiate the client by creating a new `ApiKeyServiceClientCredentials` object. 
 
-Use the client to check spelling:
+    ```csharp
+    public static class SpellCheckSample{
+        public static async Task SpellCheckCorrection(string key){
+            var client = new SpellCheckClient(new ApiKeyServiceClientCredentials(key));
+        }
+        //...
+    }
+    ```
 
-```cs
-var result = client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof", acceptLanguage: "en-US").Result;
-Console.WriteLine("Correction for Query# \"bill gatas\"");
-```
+## Send the request and read the response
 
-Parse the results:
+1. In the function created above, perform the following steps. Send the spell check request with the client. Add the text to be checked to the `text` parameter, and set the mode to `proof`.  
+    
+    ```csharp
+    var result = await client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof");
+    ```
 
-```cs
-// SpellCheck Results
-if (result?.Body.FlaggedTokens?.Count > 0)
-{
-    // find the first spellcheck result
+2. Get the first spell check result, if there is one. Print the first misspelled word (token) returned, the token type, and the number of suggestions.
+
+    ```csharp
     var firstspellCheckResult = result.Body.FlaggedTokens.FirstOrDefault();
-
+    
     if (firstspellCheckResult != null)
     {
         Console.WriteLine("SpellCheck Results#{0}", result.Body.FlaggedTokens.Count);
         Console.WriteLine("First SpellCheck Result token: {0} ", firstspellCheckResult.Token);
         Console.WriteLine("First SpellCheck Result Type: {0} ", firstspellCheckResult.Type);
         Console.WriteLine("First SpellCheck Result Suggestion Count: {0} ", firstspellCheckResult.Suggestions.Count);
-
-        var suggestions = firstspellCheckResult.Suggestions;
-        if (suggestions?.Count > 0)
-        {
-            var firstSuggestion = suggestions.FirstOrDefault();
-            Console.WriteLine("First SpellCheck Suggestion Score: {0} ", firstSuggestion.Score);
-            Console.WriteLine("First SpellCheck Suggestion : {0} ", firstSuggestion.Suggestion);
-        }
-        }
-        else
-        {
-            Console.WriteLine("Couldn't get any Spell check results!");
-        }
     }
-    else
+    ```
+
+3. Get the first suggested correction, if there is one. Print the suggestion score, and the suggested word. 
+
+    ```csharp
+    var suggestions = firstspellCheckResult.Suggestions;
+
+    if (suggestions?.Count > 0)
     {
-        Console.WriteLine("Didn't see any SpellCheck results..");
+        var firstSuggestion = suggestions.FirstOrDefault();
+        Console.WriteLine("First SpellCheck Suggestion Score: {0} ", firstSuggestion.Score);
+        Console.WriteLine("First SpellCheck Suggestion : {0} ", firstSuggestion.Suggestion);
     }
-```
+    ```
 
-## Complete console application
+## Run the application
 
-The following console application executes the previous code:
-
-```cs
-using System;
-using System.Linq;
-using Microsoft.Azure.CognitiveServices.SpellCheck;
-
-namespace SpellCheckSDK
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var client = new SpellCheckAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
-
-            try
-            {
-                var result = client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof", acceptLanguage: "en-US").Result;
-                Console.WriteLine("Correction for Query# \"bill gatas\"");
-
-                // SpellCheck Results
-                if (result?.Body.FlaggedTokens?.Count > 0)
-                {
-                    // find the first spellcheck result
-                    var firstspellCheckResult = result.Body.FlaggedTokens.FirstOrDefault();
-
-                    if (firstspellCheckResult != null)
-                    {
-                        Console.WriteLine("SpellCheck Results#{0}", result.Body.FlaggedTokens.Count);
-                        Console.WriteLine("First SpellCheck Result token: {0} ", firstspellCheckResult.Token);
-                        Console.WriteLine("First SpellCheck Result Type: {0} ", firstspellCheckResult.Type);
-                        Console.WriteLine("First SpellCheck Result Suggestion Count: {0} ", firstspellCheckResult.Suggestions.Count);
-
-                        var suggestions = firstspellCheckResult.Suggestions;
-                        if (suggestions?.Count > 0)
-                        {
-                            var firstSuggestion = suggestions.FirstOrDefault();
-                            Console.WriteLine("First SpellCheck Suggestion Score: {0} ", firstSuggestion.Score);
-                            Console.WriteLine("First SpellCheck Suggestion : {0} ", firstSuggestion.Suggestion);
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't get any Spell check results!");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Didn't see any SpellCheck results..");
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("Encountered exception. " + ex.Message);
-            }
-
-            Console.WriteLine("Any key to exit...");
-            Console.ReadKey();
-        }
-
-        // This will trigger an error response from the API.
-        public static void SpellCheckError(string subscriptionKey)
-        {
-            var client = new SpellCheckAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
-
-            try
-            {
-                var result = client.SpellCheckerAsync(mode: "proof").Result;
-                Console.WriteLine("Correction for Query# \"empty text field\"");
-            }
-            catch (Exception ex)
-            {
-                if (ex.GetBaseException().GetType() == typeof(Exception) )
-                {
-                    Console.WriteLine("Encountered exception. " + ex.Message);
-                }
-            }
-        }
-    }
-}
-
-```
+Build and run your project. If you're using Visual Studio, press **F5** to debug the file.
 
 ## Next steps
 
-[Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+> [!div class="nextstepaction"]
+> [Create a single page web-app](tutorials/spellcheck.md)
+
+- [What is the Bing Spell Check API?](overview.md)
+- [Bing Spell Check C# SDK reference guide](/dotnet/api/overview/azure/cognitiveservices/bing-spell-check-readme)

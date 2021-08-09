@@ -1,48 +1,46 @@
 ---
-title: Create an application gateway with SSL termination - Azure CLI
-description: Learn how to create an application gateway and add a certificate for SSL termination using the Azure CLI.
+title: TLS termination using CLI - Azure Application Gateway
+description: Learn how to create an application gateway and add a certificate for TLS termination using the Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.topic: how-to
+ms.date: 11/14/2019
 ms.author: victorh
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
-# Tutorial: Create an application gateway with SSL termination using the Azure CLI
 
-You can use the Azure CLI to create an [application gateway](overview.md) with a certificate for [SSL termination](ssl-overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
+# Create an application gateway with TLS termination using the Azure CLI
 
-In this tutorial, you learn how to:
+You can use the Azure CLI to create an [application gateway](overview.md) with a certificate for [TLS termination](ssl-overview.md). For backend servers, you can use a [virtual machine scale set](../virtual-machine-scale-sets/overview.md). In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
 
-> [!div class="checklist"]
-> * Create a self-signed certificate
-> * Set up a network
-> * Create an application gateway with the certificate
-> * Create a virtual machine scale set with the default backend pool
+In this article, you learn how to:
 
-If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-ssl-powershell.md).
+* Create a self-signed certificate
+* Set up a network
+* Create an application gateway with the certificate
+* Create a virtual machine scale set with the default backend pool
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you prefer, you can complete this procedure using [Azure PowerShell](tutorial-ssl-powershell.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires you to run the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+ - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a self-signed certificate
 
-For production use, you should import a valid certificate signed by trusted provider. For this tutorial, you create a self-signed certificate and pfx file using the openssl command.
+For production use, you should import a valid certificate signed by trusted provider. For this article, you create a self-signed certificate and pfx file using the openssl command.
 
-```azurecli-interactive
+```console
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
 ```
 
 Enter values that make sense for your certificate. You can accept the default values.
 
-```azurecli-interactive
+```console
 openssl pkcs12 -export -out appgwcert.pfx -inkey privateKey.key -in appgwcert.crt
 ```
 
@@ -50,7 +48,7 @@ Enter the password for the certificate. In this example, *Azure123456!* is being
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group using [az group create](/cli/azure/group#create).
+A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group using [az group create](/cli/azure/group).
 
 The following example creates a resource group named *myResourceGroupAG* in the *eastus* location.
 
@@ -60,7 +58,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## Create network resources
 
-Create the virtual network named *myVNet* and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet#az-net). You can then add the subnet named *myBackendSubnet* that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
+Create the virtual network named *myVNet* and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet). You can then add the subnet named *myBackendSubnet* that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/network/public-ip).
 
 ```azurecli-interactive
 az network vnet create \
@@ -79,12 +77,14 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## Create the application gateway
 
-You can use [az network application-gateway create](/cli/azure/network/application-gateway#create) to create the application gateway. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. 
+You can use [az network application-gateway create](/cli/azure/network/application-gateway) to create the application gateway. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. 
 
 The application gateway is assigned to *myAGSubnet* and *myAGPublicIPAddress* that you previously created. In this example, you associate the certificate that you created and its password when you create the application gateway. 
 
@@ -96,7 +96,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 443 \
   --http-settings-port 80 \
@@ -117,7 +117,7 @@ az network application-gateway create \
 
 ## Create a virtual machine scale set
 
-In this example, you create a virtual machine scale set that provides servers for the default backend pool in the application gateway. The virtual machines in the scale set are associated with *myBackendSubnet* and *appGatewayBackendPool*. To create the scale set, you can use [az vmss create](/cli/azure/vmss#az-vmss-create).
+In this example, you create a virtual machine scale set that provides servers for the default backend pool in the application gateway. The virtual machines in the scale set are associated with *myBackendSubnet* and *appGatewayBackendPool*. To create the scale set, you can use [az vmss create](/cli/azure/vmss#az_vmss_create).
 
 ```azurecli-interactive
 az vmss create \
@@ -150,7 +150,7 @@ az vmss extension set \
 
 ## Test the application gateway
 
-To get the public IP address of the application gateway, you can use [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show).
+To get the public IP address of the application gateway, you can use [az network public-ip show](/cli/azure/network/public-ip).
 
 ```azurecli-interactive
 az network public-ip show \
@@ -178,5 +178,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Create an application gateway that hosts multiple web sites](./tutorial-multiple-sites-cli.md)
+[Create an application gateway that hosts multiple web sites](./tutorial-multiple-sites-cli.md)

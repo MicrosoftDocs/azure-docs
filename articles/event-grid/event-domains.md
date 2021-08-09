@@ -1,13 +1,8 @@
 ---
 title: Event Domains in Azure Event Grid
-description: Describes how Event Domains are used to manage topics in Azure Event Grid.
-services: event-grid
-author: banisadr
-
-ms.service: event-grid
-ms.author: babanisa
+description: This article describes how to use event domains to manage the flow of custom events to your various business organizations, customers, or applications.
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 04/13/2021
 ---
 
 # Understand event domains for managing Event Grid topics
@@ -19,39 +14,33 @@ This article describes how to use event domains to manage the flow of custom eve
 * Partition your topics without managing each individually.
 * Avoid individually publishing to each of your topic endpoints.
 
-This feature is in preview. To use it, you must install a preview extension or module. For instructions, see [Manage topics and publish events using Event Domains](how-to-event-domains.md).
-
 ## Event domain overview
 
 An event domain is a management tool for large numbers of Event Grid topics related to the same application. You can think of it as a meta-topic that can have thousands of individual topics.
 
-Event domains make available to you the same architecture used by Azure services (like Storage and IoT Hub) to publish their events. They allow you to publish events to thousands of topics. Domains also give you authorization and authentication control over each topic so you can partition your tenants.
+Event domains provide you the same architecture used by Azure services like Storage and IoT Hub to publish their events. They allow you to publish events to thousands of topics. Domains also give you authorization and authentication control over each topic so you can partition your tenants.
 
-### Example use case
-
-Event domains are most easily explained using an example. Let’s say you run Contoso Construction Machinery, where you manufacture tractors, digging equipment, and other heavy machinery. As a part of running the business, you push real-time information to customers about equipment maintenance, systems health, and contract updates. All of this information goes to various endpoints including your app, customer endpoints, and other infrastructure that customers have set up.
-
-Event domains allow you to model Contoso Construction Machinery as a single eventing entity. Each of your customers is represented as a topic within the domain. Authentication and authorization are handled using Azure Active Directory. Each of your customers can subscribe to their topic and get their events delivered to them. Managed access through the event domain ensures they can only access their topic.
-
-It also gives you a single endpoint, which you can publish all of your customer events to. Event Grid will take care of making sure each topic is only aware of events scoped to its tenant.
-
-![Contoso Construction Example](./media/event-domains/contoso-construction-example.png)
+## Example use case
+[!INCLUDE [event-grid-domain-example-use-case.md](./includes/event-grid-domain-example-use-case.md)]
 
 ## Access management
 
-With a domain, you get fine grain authorization and authentication control over each topic via Azure's role-based access control (RBAC). You can use these roles to restrict each tenant in your application to only the topics you wish to grant them access to.
+With a domain, you get fine grain authorization and authentication control over each topic via Azure role-based access control (Azure RBAC). You can use these roles to restrict each tenant in your application to only the topics you wish to grant them access to.
 
-RBAC in event domains works the same way [managed access control](security-authentication.md#management-access-control) works in the rest of Event Grid and Azure. Use RBAC to create and enforce custom role definitions in event domains.
+Azure RBAC in event domains works the same way [managed access control](security-authorization.md) works in the rest of Event Grid and Azure. Use Azure RBAC to create and enforce custom role definitions in event domains.
 
 ### Built in roles
 
-Event Grid has two built-in role definitions to make RBAC easier for working with event domains. These roles are **EventGrid EventSubscription Contributor (Preview)** and **EventGrid EventSubscription Reader (Preview)**. You assign these roles to users who need to subscribe to topics in your event domain. You scope the role assignment to only the topic that users needs to subscribe to.
+Event Grid has two built-in role definitions to make Azure RBAC easier for working with event domains. These roles are **EventGrid EventSubscription Contributor (Preview)** and **EventGrid EventSubscription Reader (Preview)**. You assign these roles to users who need to subscribe to topics in your event domain. You scope the role assignment to only the topic that users need to subscribe to.
 
-For information about these roles, see [Built-in roles for Event Grid](security-authentication.md#built-in-roles).
+For information about these roles, see [Built-in roles for Event Grid](security-authorization.md#built-in-roles).
 
 ## Subscribing to topics
 
 Subscribing to events on a topic within an event domain is the same as [creating an Event Subscription on a custom topic](./custom-event-quickstart.md) or subscribing to an event from an Azure service.
+
+> [!IMPORTANT]
+> Domain topic is considered an **auto-managed** resource in Event Grid. You can create an event subscription at the [domain scope](#domain-scope-subscriptions) without creating the domain topic. In this case, Event Grid automatically creates the domain topic on your behalf. Of course, you can still choose to create the domain topic manually. This behavior allows you to worry about one less resource when dealing with a huge number of domain topics. When the last subscription to a domain topic is deleted, the domain topic is also deleted irrespective of whether the domain topic was manually created or auto-created. 
 
 ### Domain scope subscriptions
 
@@ -95,20 +84,22 @@ For example, publishing the following array of events would send event with `"id
 Event domains handle publishing to topics for you. Instead of publishing events to each topic you manage individually, you can publish all of your events to the domain's endpoint. Event Grid makes sure each event is sent to the correct topic.
 
 ## Limits and quotas
+Here are the limits and quotas related to event domains:
 
-### Control plane
+- 100,000 topics per event domain 
+- 100 event domains per Azure subscription 
+- 500 event subscriptions per topic in an event domain
+- 50 domain scope subscriptions 
+- 5,000 events per second ingestion rate (into a domain)
 
-During preview, event domains are limited to 1,000 topics within a domain, and 50 event subscriptions per topic within a domain. Event domain scope subscriptions are also limited to 50.
-
-### Data plane
-
-During preview, event throughput for an event domain will be limited to the same 5,000 events per second ingestion rate that custom topics are limited to.
+If these limits don't suit you, open a support ticket or send an email to [askgrid@microsoft.com](mailto:askgrid@microsoft.com). 
 
 ## Pricing
-
-During the preview, event domains use the same [operations pricing](https://azure.microsoft.com/pricing/details/event-grid/) that all other features in Event Grid use.
+Event domains use the same [operations pricing](https://azure.microsoft.com/pricing/details/event-grid/) that all other features in Event Grid use.
 
 Operations work the same in event domains as they do in custom topics. Each ingress of an event to an event domain is an operation, and each delivery attempt for an event is an operation.
+
+
 
 ## Next steps
 

@@ -1,23 +1,27 @@
 ---
-title: Concepts, terms, and entities - Azure Scheduler  | Microsoft Docs
+title: Concepts, terms, and entities
 description: Learn the concepts, terminology, and entity hierarchy, including jobs and job collections, in Azure Scheduler
 services: scheduler
 ms.service: scheduler
 ms.suite: infrastructure-services
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
-ms.topic: get-started-article
+ms.reviewer: klam, estfan
+ms.topic: conceptual
 ms.date: 08/18/2016
 ---
 
 # Concepts, terminology, and entities in Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
-> is replacing Azure Scheduler, which is being retired. 
-> To schedule jobs, [try Azure Logic Apps instead](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) is replacing Azure Scheduler, which is 
+> [being retired](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). 
+> To continue working with the jobs that you set up in Scheduler, please 
+> [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible. 
+>
+> Scheduler is no longer available in the Azure portal, but the [REST API](/rest/api/scheduler) 
+> and [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) remain available 
+> at this time so that you can manage your jobs and job collections.
 
 ## Entity hierarchy
 
@@ -39,36 +43,42 @@ At a high-level, the Scheduler REST API exposes these operations for managing en
 Supports operations for creating and editing jobs. 
 All jobs must belong to an existing job collection, 
 so there's no implicit creation. For more information, see 
-[Scheduler REST API - Jobs](https://docs.microsoft.com/rest/api/scheduler/jobs). 
-Here is the URI address for these operations:
+[Scheduler REST API - Jobs](/rest/api/scheduler/jobs). 
+Here's the URI address for these operations:
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`
+```
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
+```
 
 ### Job collection management
 
 Supports operations for creating and editing jobs and job collections, 
 which map to quotas and shared settings. For example, quotas specify 
 the maximum number of jobs and smallest recurrence interval. 
-For more information, see [Scheduler REST API - Job Collections](https://docs.microsoft.com/rest/api/scheduler/jobcollections). 
-Here is the URI address for these operations:
+For more information, see [Scheduler REST API - Job Collections](/rest/api/scheduler/jobcollections). 
+Here's the URI address for these operations:
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`
+```
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
+```
 
 ### Job history management
 
 Supports the GET operation for fetching 60 days of job execution history, 
 for example, job elapsed time and job execution results. 
 Includes query string parameter support for filtering based on state and status. 
-For more information, see [Scheduler REST API - Jobs - List Job History](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). 
-Here is the URI address for this operation:
+For more information, see [Scheduler REST API - Jobs - List Job History](/rest/api/scheduler/jobs/listjobhistory). 
+Here's the URI address for this operation:
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`
+```
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
+```
 
 ## Job types
 
 Azure Scheduler supports multiple job types: 
 
-* HTTP jobs, including HTTPS jobs that support SSL, 
+* HTTP jobs, including HTTPS jobs that support TLS, 
 for when you have the endpoint for an existing service or workload
 * Storage queue jobs for workloads that use Storage queues, 
 such as posting messages to Storage queues
@@ -90,7 +100,7 @@ which has these elements:
 
 | Element | Required | Description | 
 |---------|----------|-------------| 
-| [**startTime**](#start-time) | No | The start time for the job with a time zone offset in [ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601) | 
+| [**startTime**](#start-time) | No | The start time for the job with a time zone offset in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**action**](#action) | Yes | The details for the primary action, which can include an **errorAction** object | 
 | [**errorAction**](#error-action) | No | The details for the secondary action that runs if the primary action fails |
 | [**recurrence**](#recurrence) | No | The details such as frequency and interval for a recurring job | 
@@ -152,7 +162,7 @@ HTTP action with fuller element details described in later sections:
 ## startTime
 
 In the **startTime** object, you can specify the start time and a time 
-zone offset in [ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601).
+zone offset in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601).
 
 <a name="action"></a>
 
@@ -161,7 +171,7 @@ zone offset in [ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601).
 Your Scheduler job runs a primary **action** based on the specified schedule. 
 Scheduler supports HTTP, Storage queue, Service Bus queue, and Service Bus 
 topic actions. If the primary **action** fails, Scheduler can run a 
-secondary [**errorAction**](#errorAction) that handles the error. 
+secondary [**errorAction**](#erroraction) that handles the error. 
 The **action** object describes these elements:
 
 * The action's service type
@@ -228,7 +238,7 @@ Here's an example for a Service Bus topic action:
 ```
 
 For more information about Shared Access Signature (SAS) tokens, see 
-[Authorize with Shared Access Signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+[Authorize with Shared Access Signatures](../storage/common/storage-sas-overview.md).
 
 <a name="error-action"></a>
 
@@ -272,7 +282,7 @@ A job recurs if the job's JSON definition includes the **recurrence** object, fo
 | **interval** | No | 1 to 1000 inclusively | A positive integer that determines the number of time units between each occurrence based on **frequency** | 
 | **schedule** | No | Varies | The details for more complex and advanced schedules. See **hours**, **minutes**, **weekDays**, **months**, and **monthDays** | 
 | **hours** | No | 1 to 24 | An array with the hour marks for when to run the job | 
-| **minutes** | No | 1 to 24 | An array with the minute marks for when to run the job | 
+| **minutes** | No | 0 to 59 | An array with the minute marks for when to run the job | 
 | **months** | No | 1 to 12 | An array with the months for when to run the job | 
 | **monthDays** | No | Varies | An array with the days of the month for when to run the job | 
 | **weekDays** | No | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | An array with days of the week for when to run the job | 
@@ -355,11 +365,9 @@ For example:
 }
 ```
 
-## See also
+## Next steps
 
-* [What is Azure Scheduler?](scheduler-intro.md)
-* [Concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 * [Build complex schedules and advanced recurrence](scheduler-advanced-complexity.md)
-* [Limits, quotas, default values, and error codes](scheduler-limits-defaults-errors.md)
-* [Azure Scheduler REST API reference](https://docs.microsoft.com/rest/api/schedule)
+* [Azure Scheduler REST API reference](/rest/api/scheduler)
 * [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
+* [Limits, quotas, default values, and error codes](scheduler-limits-defaults-errors.md)

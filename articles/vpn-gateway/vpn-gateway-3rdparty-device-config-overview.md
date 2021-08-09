@@ -1,25 +1,20 @@
-﻿---
-title: Partner VPN device configurations for connecting to Azure VPN gateways | Microsoft Docs
-description: This article provides an overview of partner VPN device configurations for connecting to Azure VPN gateways.
+---
+title: 'Partner VPN device configurations for connecting to Azure VPN gateways'
+description: Learn about partner VPN device configurations for connecting to Azure VPN gateways.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: ''
 
-ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/20/2017
-ms.author: yushwang
+ms.topic: how-to
+ms.date: 09/02/2020
+ms.author: yushwang 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Overview of partner VPN device configurations
 This article provides an overview of configuring on-premises VPN devices for connecting to Azure VPN gateways. A sample Azure virtual network and VPN gateway setup is used to show you how to connect to different on-premises VPN device configurations by using the same parameters.
+
+
 
 ## Device requirements
 Azure VPN gateways use standard IPsec/IKE protocol suites for site-to-site (S2S) VPN tunnels. For a list of IPsec/IKE parameters and cryptographic algorithms for Azure VPN gateways, see [About VPN devices](vpn-gateway-about-vpn-devices.md). You can also specify the exact algorithms and key strengths for a specific connection as described in [About cryptographic requirements](vpn-gateway-about-compliance-crypto.md).
@@ -29,7 +24,7 @@ The first configuration in the sample consists of a single S2S VPN tunnel betwee
 
 ![Diagram of a single S2S VPN tunnel](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
 
-For step-by-step instructions to set up a single VPN tunnel, see [Configure a site-to-site connection](vpn-gateway-howto-site-to-site-resource-manager-portal.md). The following sections specify the connection parameters for the sample configuration and provide a PowerShell script to help you get started.
+For step-by-step instructions to set up a single VPN tunnel, see [Configure a site-to-site connection](./tutorial-site-to-site-portal.md). The following sections specify the connection parameters for the sample configuration and provide a PowerShell script to help you get started.
 
 ### Connection parameters
 This section lists the parameters for the examples that are described in the previous sections.
@@ -81,36 +76,36 @@ $BGPPeerIP5    = "10.52.255.254"
 
 # Connect to your subscription and create a new resource group
 
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName $Sub1
-New-AzureRmResourceGroup -Name $RG1 -Location $Location1
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName $Sub1
+New-AzResourceGroup -Name $RG1 -Location $Location1
 
 # Create virtual network
 
-$fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1 $besub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
-$gwsub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
+$fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1 $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
+$gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
 
-New-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
+New-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
 
 # Create VPN gateway
 
-$gwpip1    = New-AzureRmPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 -Location $Location1 -AllocationMethod Dynamic
-$vnet1     = Get-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
-$subnet1   = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
-$gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 -Subnet $subnet1 -PublicIpAddress $gwpip1
+$gwpip1    = New-AzPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 -Location $Location1 -AllocationMethod Dynamic
+$vnet1     = Get-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
+$subnet1   = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
+$gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 -Subnet $subnet1 -PublicIpAddress $gwpip1
 
-New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN
+New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN
 
 # Create local network gateway
 
-New-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP5 -AddressPrefix $LNGPrefix51,$LNGPrefix52 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP5
+New-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP5 -AddressPrefix $LNGPrefix51,$LNGPrefix52 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP5
 
 # Create the S2S VPN connection
 
-$vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
-$lng5gw  = Get-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1
+$vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
+$lng5gw  = Get-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1
 
-New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $False
+New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $False
 ```
 
 ### <a name ="policybased"></a>(Optional) Use custom IPsec/IKE policy with UsePolicyBasedTrafficSelectors
@@ -127,12 +122,12 @@ The sample script creates an IPsec/IKE policy with the following algorithms and 
 The script applies the IPsec/IKE policy and enables the **UsePolicyBasedTrafficSelectors** option on the connection.
 
 ```powershell
-$ipsecpolicy5 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA1 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 20480000
+$ipsecpolicy5 = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA1 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 20480000
 
-$vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
-$lng5gw  = Get-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1
+$vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
+$lng5gw  = Get-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1
 
-New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $False -IpsecPolicies $ipsecpolicy5 -UsePolicyBasedTrafficSelectors $True
+New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $False -IpsecPolicies $ipsecpolicy5 -UsePolicyBasedTrafficSelectors $True
 ```
 
 ### <a name ="bgp"></a>(Optional) Use BGP on S2S VPN connection
@@ -141,15 +136,14 @@ When you create the S2S VPN connection, you can optionally use [BGP for the VPN 
 * The on-premises address prefixes can be a single host address. The on-premises BGP peer IP address is specified as follows:
 
     ```powershell
-    New-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP5 -AddressPrefix $LNGPrefix50 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP5
+    New-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP5 -AddressPrefix $LNGPrefix50 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP5
     ```
 
 * When you create the connection, you must set the **-EnableBGP** option to $True:
 
     ```powershell
-    New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
+    New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
     ```
 
 ## Next steps
 For step-by-step instructions to set up active-active VPN gateways, see [Configuring active-active VPN gateways for cross-premises and VNet-to-VNet connections](vpn-gateway-activeactive-rm-powershell.md).
-

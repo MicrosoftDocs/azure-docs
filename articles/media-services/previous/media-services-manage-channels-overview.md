@@ -1,28 +1,28 @@
 ---
 title: Overview of Live Streaming using Azure Media Services | Microsoft Docs
-description: This topic gives an overview of live streaming using Azure Media Services.
+description: This article gives an overview of live streaming using Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: cfowler
+author: IngridAtMicrosoft
+manager: femila
 editor: ''
-
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/20/2018
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
-# Overview of Live Streaming using Azure Media Services
+# Overview of Live Streaming using Media Services
 
-> [!NOTE]
-> Starting May 12, 2018, live channels will no longer support the RTP/MPEG-2 transport stream ingest protocol. Please migrate from RTP/MPEG-2 to RTMP or fragmented MP4 (Smooth Streaming) ingest protocols.
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 ## Overview
+
 When delivering live streaming events with Azure Media Services the following components are commonly involved:
 
 * A camera that is used to broadcast an event.
@@ -39,19 +39,24 @@ When delivering live streaming events with Azure Media Services the following co
 
 **Microsoft Azure Media Services** (AMS) provides the ability to ingest,  encode, preview, store, and deliver your live streaming content.
 
-When delivering your content to customers your goal is to deliver a high quality video to various devices under different network conditions. To achieve this, use live encoders to encode your stream to a multi-bitrate (adaptive bitrate) video stream.  To take care of streaming on different devices, use Media Services [dynamic packaging](media-services-dynamic-packaging-overview.md) to dynamically re-package your stream to different protocols. Media Services supports delivery of the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
+With Media Services, you can take advantage of [dynamic packaging](media-services-dynamic-packaging-overview.md), which allows you to broadcast your live streams in MPEG DASH, HLS, and Smooth Streaming formats from the contribution feed that is being sent to the service. Your viewers can play back the live stream with any HLS, DASH, or Smooth Streaming compatible players. You can use Azure Media Player in your web or mobile applications to deliver your stream in any of these protocols.
+
+> [!NOTE]
+> Starting May 12, 2018, live channels will no longer support the RTP/MPEG-2 transport stream ingest protocol. Please migrate from RTP/MPEG-2 to RTMP or fragmented MP4 (Smooth Streaming) ingest protocols.
+
+## Streaming Endpoints, Channels, Programs
 
 In Azure Media Services, **Channels**, **Programs**, and **StreamingEndpoints** handle all the live streaming functionalities including ingest, formatting, DVR, security, scalability and redundancy.
 
 A **Channel** represents a pipeline for processing live streaming content. A Channel can receive a live input streams in the following ways:
 
-* An on-premises live encoder sends multi-bitrate **RTMP** or **Smooth Streaming** (fragmented MP4) to the Channel that is configured for **pass-through** delivery. The **pass-through** delivery is when the ingested streams pass through **Channel**s without any further processing. You can use the following live encoders that output multi-bitrate Smooth Streaming: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco and Elemental. The following live encoders output RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek and Tricaster transcoders.  A live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
+* An on-premises live encoder sends multi-bitrate **RTMP** or **Smooth Streaming** (fragmented MP4) to the Channel that is configured for **pass-through** delivery. The **pass-through** delivery is when the ingested streams pass through **Channel**s without any further processing. You can use the following live encoders that output multi-bitrate Smooth Streaming: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco and Elemental. The following live encoders output RTMP: Telestream Wirecast, Haivision, Teradek transcoders.  A live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
 
   > [!NOTE]
   > Using a pass-through method is the most economical way to do live streaming when you are doing multiple events over a long period of time, and you have already invested in on-premises encoders. See [pricing](https://azure.microsoft.com/pricing/details/media-services/) details.
   > 
   > 
-* An on-premises live encoder sends a single-bitrate stream to the Channel that is enabled to perform live encoding with Media Services in one of the following formats: RTMP or Smooth Streaming (fragmented MP4). The following live encoders with RTMP output are known to work with channels of this type: Telestream Wirecast, FMLE. The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
+* An on-premises live encoder sends a single-bitrate stream to the Channel that is enabled to perform live encoding with Media Services in one of the following formats: RTMP or Smooth Streaming (fragmented MP4). The following live encoders with RTMP output are known to work with channels of this type: Telestream Wirecast. The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
 
 Starting with the Media Services 2.10 release, when you create a Channel, you can specify in which way you want for your channel to receive the input stream and whether or not you want for the channel to perform live encoding of your stream. You have two options:
 
@@ -59,6 +64,7 @@ Starting with the Media Services 2.10 release, when you create a Channel, you ca
 * **Standard** – Choose this value, if you plan to use Media Services to encode your single bitrate live stream to multi-bitrate stream. This method is more economical for scaling up quickly for infrequent events. Be aware that there is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges.
 
 ## Comparison of Channel Types
+
 Following table provides a guide to comparing the two Channel types supported in Media Services
 
 | Feature | Pass-through Channel | Standard Channel |
@@ -76,13 +82,15 @@ Following table provides a guide to comparing the two Channel types supported in
 | Auto-shutoff of Channels when input feed is lost |No |After 12 hours, if there is no Program running |
 
 ## Working with Channels that receive multi-bitrate live stream from on-premises encoders (pass-through)
+
 The following diagram shows the major parts of the AMS platform that are involved in the **pass-through** workflow.
 
-![Live workflow](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
+![Diagram that shows the major parts of the A M S platform for the "pass-through" workflow.](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
 
 For more information, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-live-streaming-with-onprem-encoders.md).
 
 ## Working with Channels that are enabled to perform live encoding with Azure Media Services
+
 The following diagram shows the major parts of the AMS platform that are involved in Live Streaming workflow where a Channel is enabled to perform live encoding with Media Services.
 
 ![Live workflow](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png)
@@ -90,18 +98,22 @@ The following diagram shows the major parts of the AMS platform that are involve
 For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 ## Description of a Channel and its related components
+
 ### Channel
-In Media Services, [Channel](https://docs.microsoft.com/rest/api/media/operations/channel)s are responsible for processing live streaming content. A Channel provides an input endpoint (ingest URL) that you then provide to a live transcoder. The channel receives live input streams from the live transcoder and makes it available for streaming through one or more StreamingEndpoints. Channels also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery.
+
+In Media Services, [Channel](/rest/api/media/operations/channel)s are responsible for processing live streaming content. A Channel provides an input endpoint (ingest URL) that you then provide to a live transcoder. The channel receives live input streams from the live transcoder and makes it available for streaming through one or more StreamingEndpoints. Channels also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery.
 
 You can get the ingest URL and the preview URL when you create the channel. To get these URLs, the channel does not have to be in the started state. When you are ready to start pushing data from a live transcoder into the channel, the channel must be started. Once the live transcoder starts ingesting data, you can preview your stream.
 
 Each Media Services account can contain multiple Channels, multiple Programs, and multiple StreamingEndpoints. Depending on the bandwidth and security needs, StreamingEndpoint services can be dedicated to one or more channels. Any StreamingEndpoint can pull from any Channel.
 
+When creating a Channel, you can specify allowed IP addresses in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
+
 ### Program
-A [Program](https://docs.microsoft.com/rest/api/media/operations/program) enables you to control the publishing and storage of segments in a live stream. Channels manage Programs. The Channel and Program relationship is very similar to traditional media where a channel has a constant stream of content and a program is scoped to some timed event on that channel.
+A [Program](/rest/api/media/operations/program) enables you to control the publishing and storage of segments in a live stream. Channels manage Programs. The Channel and Program relationship is very similar to traditional media where a channel has a constant stream of content and a program is scoped to some timed event on that channel.
 You can specify the number of hours you want to retain the recorded content for the program by setting the **ArchiveWindowLength** property. This value can be set from a minimum of 5 minutes to a maximum of 25 hours.
 
-ArchiveWindowLength also dictates the maximum amount of time clients can seek back in time from the current live position. Programs can run over the specified amount of time, but content that falls behind the window length is continuously discarded. This value of this property also determines how long the client manifests can grow.
+ArchiveWindowLength also dictates the maximum amount of time clients can seek back in time from the current live position. Programs can run over the specified amount of time, but content that falls behind the window length is continuously discarded. The value of this property also determines how long the client manifests can grow.
 
 Each program is associated with an Asset. To publish the program you must create a locator for the associated asset. Having this locator will enable you to build a streaming URL that you can provide to your clients.
 
@@ -145,7 +157,7 @@ The following table shows how Channel states map to the billing mode.
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## Related topics
-[Azure Media Services Fragmented MP4 Live Ingest Specification](media-services-fmp4-live-ingest-overview.md)
+[Azure Media Services Fragmented MP4 Live Ingest Specification](../media-services-fmp4-live-ingest-overview.md)
 
 [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md)
 

@@ -1,14 +1,15 @@
 ---
-title: About the Azure Site Recovery Deployment Planner for disaster recovery of VMware VMs to Azure| Microsoft Docs
+title: Azure Site Recovery Deployment Planner for VMware disaster recovery 
 description: Learn about the Azure Site Recovery Deployment Planner for disaster recovery of VMware VMs to Azure.
-author: nsoneji
-manager: garavd
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.author: nisoneji
-
+ms.author: sharrai
+ms.date: 05/27/2021
 ---
+
+
 # About the Azure Site Recovery Deployment Planner for VMware to Azure
 This article is the Azure Site Recovery Deployment Planner user guide for VMware to Azure production deployments.
 
@@ -36,10 +37,9 @@ The tool provides the following details:
 
 **Azure infrastructure requirements**
 
-* Storage type (standard or premium storage account) requirement for each VM
-* Total number of standard and premium storage accounts to be set up for replication
+* Storage type (standard or premium storage) requirement for each VM
+* Total number of standard and premium storage accounts to be set up for replication (Includes cache storage accounts)
 * Storage-account naming suggestions, based on Storage guidance
-* Storage account placement for all VMs
 * Number of Azure cores to be set up before test failover or failover on the subscription
 * Azure VM-recommended size for each on-premises VM
 
@@ -58,10 +58,10 @@ The tool provides the following details:
 
 ## Support matrix
 
-| | **VMware to Azure** |**Hyper-V to Azure**|**Azure to Azure**|**Hyper-V to secondary site**|**VMware to secondary site**
+| **Category** | **VMware to Azure** |**Hyper-V to Azure**|**Azure to Azure**|**Hyper-V to secondary site**|**VMware to secondary site**
 --|--|--|--|--|--
 Supported scenarios |Yes|Yes|No|Yes*|No
-Supported version | vCenter 6.5, 6.0 or 5.5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA
+Supported version | vCenter 7.0, 6.7, 6.5, 6.0 or 5.5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA
 Supported configuration|vCenter, ESXi| Hyper-V cluster, Hyper-V host|NA|Hyper-V cluster, Hyper-V host|NA|
 Number of servers that can be profiled per running instance of Site Recovery Deployment Planner |Single (VMs belonging to one vCenter Server or one ESXi server can be profiled at a time)|Multiple (VMs across multiple hosts or host clusters can be profiled at a time)| NA |Multiple (VMs across multiple hosts or host clusters can be profiled at a time)| NA
 
@@ -72,8 +72,8 @@ The tool has two main phases: profiling and report generation. There is also a t
 
 | Server requirement | Description|
 |---|---|
-|Profiling and throughput measurement| <ul><li>Operating system: Windows Server 2016 or Windows Server 2012 R2<br>(ideally matching at least the [size recommendations for the configuration server](https://aka.ms/asr-v2a-on-prem-components))</li><li>Machine configuration: 8 vCPUs, 16 GB RAM, 300 GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internet access to Azure from this server</li><li>Azure storage account</li><li>Administrator access on the server</li><li>Minimum 100 GB of free disk space (assuming 1,000 VMs with an average of three disks each, profiled for 30 days)</li><li>VMware vCenter statistics level settings can be 1 or higher level</li><li>Allow vCenter port (default 443): Site Recovery Deployment Planner uses this port to connect to the vCenter server/ESXi host</ul></ul>|
-| Report generation | A Windows PC or Windows Server with Excel 2013 or later.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli) is required only when you pass -User option in the report generation command to fetch the latest VM configuration information of the VMs. The Depolyment Planner connects to vCenter server. Allow  vCenter port (default 443) port to connect to vCenter server.</li>|
+|Profiling and throughput measurement| <ul><li>Operating system: Windows Server 2016 or Windows Server 2012 R2<br>(ideally matching at least the [size recommendations for the configuration server](/en-in/azure/site-recovery/site-recovery-plan-capacity-vmware#size-recommendations-for-the-configuration-server))</li><li>Machine configuration: 8 vCPUs, 16 GB RAM, 300 GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internet access to Azure (*.blob.core.windows.net) from this server, port 443<br>[This is optional. You can choose to provide the available bandwidth during Report Generation manually.]</li><li>Azure storage account</li><li>Administrator access on the server</li><li>Minimum 100 GB of free disk space (assuming 1,000 VMs with an average of three disks each, profiled for 30 days)</li><li>VMware vCenter statistics level settings can be 1 or higher level</li><li>Allow vCenter port (default 443): Site Recovery Deployment Planner uses this port to connect to the vCenter server/ESXi host</ul></ul>|
+| Report generation | A Windows PC or Windows Server with Excel 2013 or later.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli) is required only when you pass -User option in the report generation command to fetch the latest VM configuration information of the VMs. The Deployment Planner connects to vCenter server. Allow  vCenter port (default 443) port to connect to vCenter server.</li>|
 | User permissions | Read-only permission for the user account that's used to access the VMware vCenter server/VMware vSphere ESXi host during profiling |
 
 > [!NOTE]
@@ -86,7 +86,7 @@ The tool has two main phases: profiling and report generation. There is also a t
 The tool is packaged in a .zip folder. The current version of the tool supports only the VMware to Azure scenario.
 
 2. Copy the .zip folder to the Windows server from which you want to run the tool.
-You can run the tool from Windows Server 2012 R2 if the server has network access to connect to the vCenter server/vSphere ESXi host that holds the VMs to be profiled. However, we recommend that you run the tool on a server whose hardware configuration meets the [configuration server sizing guidelines](https://aka.ms/asr-v2a-on-prem-components). If you already deployed Site Recovery components on-premises, run the tool from the configuration server.
+You can run the tool from Windows Server 2012 R2 if the server has network access to connect to the vCenter server/vSphere ESXi host that holds the VMs to be profiled. However, we recommend that you run the tool on a server whose hardware configuration meets the [configuration server sizing guidelines](/en-in/azure/site-recovery/site-recovery-plan-capacity-vmware#size-recommendations-for-the-configuration-server). If you already deployed Site Recovery components on-premises, run the tool from the configuration server.
 
     We recommend that you have the same hardware configuration as the configuration server (which has an in-built process server) on the server where you run the tool. Such a configuration ensures that the achieved throughput that the tool reports matches the actual throughput that Site Recovery can achieve during replication. The throughput calculation depends on available network bandwidth on the server and hardware configuration (such as CPU and storage) of the server. If you run the tool from any other server, the throughput is calculated from that server to Azure. Also, because the hardware configuration of the server might differ from that of the configuration server, the achieved throughput that the tool reports might be inaccurate.
 
@@ -95,11 +95,14 @@ The folder contains multiple files and subfolders. The executable file is ASRDep
 
     Example:
     Copy the .zip file to E:\ drive and extract it.
-    E:\ASR Deployment Planner_v2.2.zip
+    E:\ASR Deployment Planner_v2.3.zip
 
-    E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### Update to the latest version of Deployment Planner
+
+The latest updates are summarized in the Deployment Planner [version history](site-recovery-deployment-planner-history.md).
+
 If you have a previous version of Deployment Planner, do either of the following:
  * If the latest version doesn't contain a profiling fix and profiling is already in progress on your current version of the planner, continue the profiling.
  * If the latest version does contain a profiling fix, we recommend that you stop profiling on your current version and restart the profiling with the new version.
@@ -113,8 +116,8 @@ If you have a previous version of Deployment Planner, do either of the following
 
 
 ## Version history
-The latest Site Recovery Deployment Planner tool version is 2.2.
-See the [Site Recovery Deployment Planner version history](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) page for the fixes that are added in each update.
+The latest Site Recovery Deployment Planner tool version is 2.5.
+See the [Site Recovery Deployment Planner version history](./site-recovery-deployment-planner-history.md) page for the fixes that are added in each update.
 
 ## Next steps
 [Run Site Recovery Deployment Planner](site-recovery-vmware-deployment-planner-run.md)

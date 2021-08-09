@@ -1,22 +1,10 @@
 ---
-title: Package and deploy containers as a Service Fabric app in Azure | Microsoft Docs
+title: Package and deploy containers
 description: In this tutorial, you learn how to generate an Azure Service Fabric application definition using Yeoman and package the application. 
-services: service-fabric
-documentationcenter: ''
-author: suhuruli
-manager: timlt
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, Containers, Microservices, Service Fabric, Azure
 
-ms.assetid: 
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/12/2017
-ms.author: suhuruli
-ms.custom: mvc
+ms.date: 07/22/2019
+ms.custom: mvc, devx-track-azurecli
 ---
 # Tutorial: Package and deploy containers as a Service Fabric application using Yeoman
 
@@ -90,7 +78,7 @@ To add another container service to an application already created using Yeoman,
 1. Change directory one level to the **TestContainer** directory, for example, *./TestContainer*
 2. Run `yo azuresfcontainer:AddService`
 3. Name the service 'azurevoteback'
-4. Provide the container image path for Redis - 'alpine:redis'
+4. Provide the container image path for Redis - 'redis:alpine'
 5. Press Enter to leave the Commands section empty
 6. Specify an instance count of "1".
 
@@ -98,7 +86,7 @@ The entries for adding the service used are all shown:
 
 ```bash
 ? Name of the application service: azurevoteback
-? Input the Image Name: alpine:redis
+? Input the Image Name: redis:alpine
 ? Commands:
 ? Number of instances of guest container application: 1
    create TestContainer/azurevotebackPkg/ServiceManifest.xml
@@ -117,9 +105,9 @@ ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 
 For Service Fabric to pull the container images from Azure Container Registry, we need to provide the credentials in the **ApplicationManifest.xml**.
 
-Log in to your ACR instance. Use the **az acr login** command to complete the operation. Provide the unique name given to the container registry when it was created.
+Sign in to your ACR instance. Use the **az acr login** command to complete the operation. Provide the unique name given to the container registry when it was created.
 
-```bash
+```azurecli
 az acr login --name <acrName>
 ```
 
@@ -127,7 +115,7 @@ The command returns a **Login Succeeded** message once completed.
 
 Next, run the following command to get the password of your container registry. This password is used by Service Fabric to authenticate with ACR to pull the container images.
 
-```bash
+```azurecli
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
@@ -204,7 +192,7 @@ For Service Fabric to assign this DNS name to the backend service, the name need
 
 The frontend service reads an environment variable to know the DNS name of the Redis instance. This environment variable is already defined in the Dockerfile that was used to generate the Docker image and no action needs to be taken here.
 
-```Dockerfile
+```dockerfile
 ENV REDIS redisbackend.testapp
 ```
 
@@ -222,28 +210,53 @@ At this point in the tutorial, the template for a Service Package application is
 
 ## Create a Service Fabric cluster
 
-To deploy the application to a cluster in Azure, create your own cluster.
+To deploy the application to Azure, you need a Service Fabric cluster to run the application. The following commands create a five-node cluster in Azure.  The commands also create a self-signed certificate, adds it to a key vault, and downloads the certificate locally as a PEM file. The new certificate is used to secure the cluster when it deploys and is used to authenticate clients.
 
-Party clusters are free, limited-time Service Fabric clusters hosted on Azure. They are run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](https://aka.ms/tryservicefabric).
+```azurecli
+#!/bin/bash
 
-In order to perform management operations on the secure party cluster, you can use Service Fabric Explorer, CLI, or Powershell. To use Service Fabric Explorer, you will need to download the PFX file from the Party Cluster website and import the certificate into your certificate store (Windows or Mac) or into the browser itself (Ubuntu). There is no password for the self-signed certificates from the party cluster.
+# Variables
+ResourceGroupName="containertestcluster" 
+ClusterName="containertestcluster" 
+Location="eastus" 
+Password="q6D7nN%6ck@6" 
+Subject="containertestcluster.eastus.cloudapp.azure.com" 
+VaultName="containertestvault" 
+VmPassword="Mypa$$word!321"
+VmUserName="sfadminuser"
 
-To perform management operations with Powershell or CLI, you will need the PFX (Powershell) or PEM (CLI). To convert the PFX to a PEM file, please run the following command:
+# Login to Azure and set the subscription
+az login
 
-```bash
-openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+az account set --subscription <mySubscriptionID>
+
+# Create resource group
+az group create --name $ResourceGroupName --location $Location 
+
+# Create secure five node Linux cluster. Creates a key vault in a resource group
+# and creates a certficate in the key vault. The certificate's subject name must match 
+# the domain that you use to access the Service Fabric cluster.  
+# The certificate is downloaded locally as a PEM file.
+az sf cluster create --resource-group $ResourceGroupName --location $Location \ 
+--certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \ 
+--cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName \ 
+--vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
 ```
 
-For information about creating your own cluster, see [Create a Service Fabric cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+> [!Note]
+> The web front end service is configured to listen on port 80 for incoming traffic. By default, port 80 is open on your cluster VMs and the Azure load balancer.
+>
+
+For more information about creating your own cluster, see [Create a Service Fabric cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 ## Build and deploy the application to the cluster
 
 You can deploy the application the Azure cluster using the Service Fabric CLI. If Service Fabric CLI is not installed on your machine, follow instructions [here](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) to install it.
 
-Connect to the Service Fabric cluster in Azure. Replace the sample endpoint with your own. The endpoint must be a full URL similar to the one below.
+Connect to the Service Fabric cluster in Azure. Replace the sample endpoint with your own. The endpoint must be a full URL similar to the one below.  The PEM file is the self-signed certificate that was previously created.
 
 ```bash
-sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
+sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem containertestcluster22019013100.pem --no-verify
 ```
 
 Use the install script provided in the **TestContainer** directory to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
@@ -252,13 +265,13 @@ Use the install script provided in the **TestContainer** directory to copy the a
 ./install.sh
 ```
 
-Open a browser and navigate to Service Fabric Explorer at http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer. Expand the Applications node and note that there is an entry for your application type and another for the instance.
+Open a browser and navigate to Service Fabric Explorer at https:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expand the Applications node and note that there is an entry for your application type and another for the instance.
 
 ![Service Fabric Explorer][sfx]
 
-In order to connect to the running application, open a web browser and go to the cluster url - for example http://lin0823ryf2he.cloudapp.azure.com:80. You should see the Voting application in the web UI.
+In order to connect to the running application, open a web browser and go to the cluster url - for example http:\//containertestcluster.eastus.cloudapp.azure.com:80. You should see the Voting application in the web UI.
 
-![votingapp][votingapp]
+![Screenshot shows the Azure Voting App with buttons for Cats, Dogs, and Reset, and totals.][votingapp]
 
 ## Clean up
 
@@ -274,7 +287,7 @@ Use the uninstall script provided in the template to delete the application inst
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ApplicationManifest ApplicationTypeName="TestContainerType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ApplicationManifest ApplicationTypeName="TestContainerType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="azurevotefrontPkg" ServiceManifestVersion="1.0.0"/>
     <Policies>
@@ -312,7 +325,7 @@ Use the uninstall script provided in the template to delete the application inst
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest Name="azurevotefrontPkg" Version="1.0.0"
-                 xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+                 xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" >
 
    <ServiceTypes>
       <StatelessServiceType ServiceTypeName="azurevotefrontType" UseImplicitHost="true">
@@ -327,7 +340,7 @@ Use the uninstall script provided in the template to delete the application inst
          </ContainerHost>
       </EntryPoint>
       <EnvironmentVariables>
-      </EnvironmentVariables>
+      </EnvironmentVariables>
    </CodePackage>
 
   <Resources>
@@ -347,7 +360,7 @@ Use the uninstall script provided in the template to delete the application inst
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest Name="azurevotebackPkg" Version="1.0.0"
-                 xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+                 xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" >
 
    <ServiceTypes>
       <StatelessServiceType ServiceTypeName="azurevotebackType" UseImplicitHost="true">
@@ -357,12 +370,11 @@ Use the uninstall script provided in the template to delete the application inst
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>alpine:redis</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>
       <EnvironmentVariables>
-      </EnvironmentVariables>
+      </EnvironmentVariables>
    </CodePackage>
      <Resources>
     <Endpoints>

@@ -1,10 +1,10 @@
 ---
 title: Troubleshooting connectivity problems between Azure VMs | Microsoft Docs
-description: Learn how to Troubleshoot the connectivity problems between Azure VMs.
+description: Learn how to troubleshoot and resolve the connectivity problems that you might experience between Azure VMs.
 services: virtual-network
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 
@@ -45,7 +45,7 @@ Follow these steps to troubleshoot the problem. After you complete each step, ch
 
 ### Step 1: Check whether NIC is misconfigured
 
-Follow the steps in [How to reset network interface for Azure Windows VM](../virtual-machines/windows/reset-network-interface.md). 
+Follow the steps in [How to reset network interface for Azure Windows VM](/troubleshoot/azure/virtual-machines/reset-network-interface). 
 
 If the problem occurs after you modify the network interface (NIC), follow these steps:
 
@@ -58,8 +58,8 @@ For more information, see [Add network interfaces to or remove from virtual mach
 
 **Single-NIC VM** 
 
-- [Redeploy Windows VM](../virtual-machines/windows/redeploy-to-new-node.md)
-- [Redeploy Linux VM](../virtual-machines/linux/redeploy-to-new-node.md)
+- [Redeploy Windows VM](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows)
+- [Redeploy Linux VM](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-linux)
 
 ### Step 2: Check whether network traffic is blocked by NSG or UDR
 
@@ -77,11 +77,15 @@ You can use one of the following methods to check whether the VM app or service 
 
 **Windows VM**
 
-    netstat –ano
+```console
+netstat –ano
+```
 
 **Linux VM**
 
-    netstat -l
+```console
+netstat -l
+```
 
 - Run the **telnet** command on the virtual machine itself to test the port. If the test fails, the application or service is not configured to listen on that port.
 
@@ -91,15 +95,15 @@ In some scenarios, the VM is placed behind a load balance solution that has a de
 
 ### Step 6: Check whether traffic is blocked by ACLs for the classic VM
 
-An  access control list (ACL) provides the ability to selectively permit or deny traffic for a virtual machine endpoint. For more information, see [Manage the ACL on an endpoint](../virtual-machines/windows/classic/setup-endpoints.md#manage-the-acl-on-an-endpoint).
+An  access control list (ACL) provides the ability to selectively permit or deny traffic for a virtual machine endpoint. For more information, see [Manage the ACL on an endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
 ### Step 7: Check whether the endpoint is created for the classic VM
 
-All VMs that you create in Azure by using the classic deployment model can automatically communicate over a private network channel with other virtual machines in the same cloud service or virtual network. However, computers on other virtual networks require endpoints to direct the inbound network traffic to a virtual machine. For more information, see [How to set up endpoints](../virtual-machines/windows/classic/setup-endpoints.md).
+All VMs that you create in Azure by using the classic deployment model can automatically communicate over a private network channel with other virtual machines in the same cloud service or virtual network. However, computers on other virtual networks require endpoints to direct the inbound network traffic to a virtual machine. For more information, see [How to set up endpoints](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints).
 
 ### Step 8: Try to connect to a VM network share
 
-If you cannot connect to a VM network share, the problem may be caused by unavailable NICs in the VM. To delete the unavailable NICs, see [How to delete the unavailable NICs](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)
+If you cannot connect to a VM network share, the problem may be caused by unavailable NICs in the VM. To delete the unavailable NICs, see [How to delete the unavailable NICs](/troubleshoot/azure/virtual-machines/reset-network-interface#delete-the-unavailable-nics)
 
 ### Step 9: Check Inter-Vnet connectivity
 

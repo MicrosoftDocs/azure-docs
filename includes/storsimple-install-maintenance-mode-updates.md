@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ---
-<!--author=SharS last changed: 9/17/15-->
 
 #### To install Maintenance mode updates via Windows PowerShell for StorSimple
 1. If you haven't done so already, access the device serial console and select option 1, **Log in with full access**. 

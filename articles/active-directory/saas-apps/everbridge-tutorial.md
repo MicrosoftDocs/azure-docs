@@ -1,248 +1,174 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with EverBridge | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and EverBridge.
+title: 'Tutorial: Azure Active Directory integration with Everbridge | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Everbridge.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: 58d7cd22-98c0-4606-9ce5-8bdb22ee8b3e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/16/2017
+ms.topic: tutorial
+ms.date: 05/10/2021
 ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with EverBridge
+# Tutorial: Azure Active Directory integration with Everbridge
 
-In this tutorial, you learn how to integrate EverBridge with Azure Active Directory (Azure AD).
+In this tutorial, you learn how to integrate Everbridge with Azure Active Directory (Azure AD).
+When you integrate Everbridge with Azure AD, you can:
 
-Integrating EverBridge with Azure AD provides you with the following benefits:
-
-- You can control in Azure AD who has access to EverBridge
-- You can enable your users to automatically get signed-on to EverBridge (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Azure AD who has access to Everbridge.
+* Allow your users to be automatically signed in to Everbridge with their Azure AD accounts. This access control is called single sign-on (SSO).
+* Manage your accounts in one central location by using the Azure portal.
 
 ## Prerequisites
 
-To configure Azure AD integration with EverBridge, you need the following items:
+To configure Azure AD integration with Everbridge, you need the following items:
 
-- An Azure AD subscription
-- An EverBridge single-sign on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
+* An Everbridge subscription that uses single sign-on.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding EverBridge from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-## Adding EverBridge from the gallery
-To configure the integration of EverBridge into Azure AD, you need to add EverBridge from the gallery to your list of managed SaaS apps.
+* Everbridge supports IDP-initiated SSO.
 
-**To add EverBridge from the gallery, perform the following steps:**
+## Add Everbridge from the Gallery
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+To configure the integration of Everbridge into Azure AD, you need to add Everbridge from the gallery to your list of managed SaaS apps.
 
-	![Active Directory][1]
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Everbridge** in the search box.
+1. Select **Everbridge** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+## Configure and test Azure AD SSO for Everbridge
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+Configure and test Azure AD SSO with Everbridge using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Everbridge.
 
-	![Applications][3]
+To configure and test Azure AD SSO with Everbridge, perform the following steps:
 
-1. In the search box, type **EverBridge**.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Everbridge SSO](#configure-everbridge-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Everbridge test user](#create-everbridge-test-user)** - to have a counterpart of B.Simon in Everbridge that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	![Creating an Azure AD test user](./media/everbridge-tutorial/tutorial_everbridge_search.png)
+### Configure Azure AD SSO
 
-1. In the results panel, select **EverBridge**, and then click **Add** button to add the application.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-	![Creating an Azure AD test user](./media/everbridge-tutorial/tutorial_everbridge_addfromgallery.png)
+1. In the Azure portal, on the **Everbridge** application integration page, find the **Manage** section and select **Single sign-on**.
+1. On the **Select a Single sign-on method** page, select **SAML**.
+1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with EverBridge based on a test user called "Britta Simon".
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in EverBridge is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in EverBridge needs to be established.
+    >[!NOTE]
+	>Configure the application either as the manager portal *or* as the member portal on both the Azure portal and the Everbridge portal.
 
-In EverBridge, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+4. To configure the **Everbridge** application as the **Everbridge manager portal**, in the **Basic SAML Configuration** section, follow these steps:
 
-To configure and test Azure AD single sign-on with EverBridge, you need to complete the following building blocks:
+    a. In the **Identifier** box, enter a URL that follows the pattern.
+    `https://sso.everbridge.net/<API_Name>`
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating an EverBridge test user](#creating-an-everbridge-test-user)** - to have a counterpart of Britta Simon in EverBridge that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+    b. In the **Reply URL** box, enter a URL that follows the pattern.
+    `https://manager.everbridge.net/saml/SSO/<API_Name>/alias/defaultAlias`
 
-### Configuring Azure AD single sign-on
+	> [!NOTE]
+	> These values aren't real. Update these values with the actual Identifier and Reply URL values. To get these values, contact the [Everbridge support team](mailto:support@everbridge.com). You also can refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your EverBridge application.
+5. To configure the **Everbridge** application as the **Everbridge member portal**, in the **Basic SAML Configuration** section, follow these steps:
 
-**To configure Azure AD single sign-on with EverBridge, perform the following steps:**
+  * If you want to configure the application in IDP-initiated mode, follow these steps:
 
-1. In the Azure portal, on the **EverBridge** application integration page, click **Single sign-on**.
+    a. In the **Identifier** box, enter a URL that follows the pattern `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
 
-	![Configure Single Sign-On][4]
+    b. In the **Reply URL** box, enter a URL that follows the pattern `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+   * If you want to configure the application in SP-initiated mode, select **Set additional URLs** and follow this step:
+
+     a. In the **Sign on URL** box, enter a URL that follows the pattern `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
+
+     > [!NOTE]
+     > These values aren't real. Update these values with the actual Identifier, Reply URL, and Sign on URL values. To get these values, contact the [Everbridge support team](mailto:support@everbridge.com). You also can refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+
+6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select **Download** to download the **Federation Metadata XML**. Save it on your computer.
+
+	![Certificate download link](common/metadataxml.png)
+
+7. In the **Set up Everbridge** section, copy the URLs you need for your requirements:
+
+	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+### Create an Azure AD test user 
+
+In this section, you'll create a test user in the Azure portal called B.Simon.
+
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
+
+### Assign the Azure AD test user
+
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Everbridge.
+
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Everbridge**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
+
+## Configure Everbridge SSO
+
+To configure SSO on **Everbridge** as an **Everbridge manager portal** application, follow these steps.
  
-	![Configure Single Sign-On](./media/everbridge-tutorial/tutorial_everbridge_samlbase.png)
+1. In a different web browser window, sign in to Everbridge as an administrator.
 
-1. On the **EverBridge Domain and URLs** section, perform the following steps:
-
-	![Configure Single Sign-On](./media/everbridge-tutorial/tutorial_everbridge_url.png)
-
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://sso.everbridge.net/<companyname>`
-
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://manager.everbridge.net/saml/SSO/<companyname>/alias/defaultAlias`
-
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [EverBridge support team](mailto:support@everbridge.com) to get these values.
- 
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
-
-	![Configure Single Sign-On](./media/everbridge-tutorial/tutorial_everbridge_certificate.png) 
-
-1. Click **Save** button.
-
-	![Configure Single Sign-On](./media/everbridge-tutorial/tutorial_general_400.png)
-
-1. On the **EverBridge Configuration** section, click **Configure EverBridge** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
-
-	![Configure Single Sign-On](./media/everbridge-tutorial/tutorial_everbridge_configure.png) 
-
-1. To get SSO configured for your application, you need to sign-on to your Everbridge tenant as an administrator.
-
-1. In the menu on the top, click the **Settings** tab and select **Single Sign-On** under **Security**.
+1. In the menu on the top, select the **Settings** tab. Under **Security**, select **Single Sign-On for Manager Portal**.
    
-    ![Configure Single Sign-On](./media/everbridge-tutorial/tutorial_everbridge_002.png)
+     ![Configure single sign-on](./media/everbridge-tutorial/settings.png)
    
-    a. In the **Name** textbox, type the name of Identifier Provider (for example: your company name).
+     a. In the **Name** box, enter the name of the identifier provider. An example is your company name.
    
-    b. In the **API Name** textbox, type the name of API.
+     b. In the **API Name** box, enter the name of the API.
    
-    c. Click **Choose File** button to upload the metadata file which you downloaded from Azure portal.
+     c. Select **Choose File** to upload the metadata file that you downloaded from the Azure portal.
    
-    d. In the SAML Identity Location, select **Identity is in the NameIdentifier element of the Subject statement**.
+     d. For **SAML Identity Location**, select **Identity is in the NameIdentifier element of the Subject statement**.
    
-    e. In the **Identity Provider Login URL** textbox, paste the value of SAML SSO URL from Azure AD.
+     e. In the **Identity Provider Login URL** box, paste the **Login URL** value that you copied from the Azure portal.
    
-    ![Configure Single Sign-On](./media/everbridge-tutorial/tutorial_everbridge_003.png)
-   
-    f. In the Service Provider Initiated Request Binding, select **HTTP Redirect**.
+     f. For **Service Provider initiated Request Binding**, select **HTTP Redirect**.
 
-	g. Click **Save**
+     g. Select **Save**.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+## Configure Everbridge as Everbridge member portal SSO
 
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+To configure single sign-on on **Everbridge** as an **Everbridge member portal**, send the downloaded **Federation Metadata XML** to the [Everbridge support team](mailto:support@everbridge.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-![Create Azure AD User][100]
+### Create Everbridge test user
 
-**To create a test user in Azure AD, perform the following steps:**
+In this section, you create the test user Britta Simon in Everbridge. To add users in the Everbridge platform, work with the [Everbridge support team](mailto:support@everbridge.com). Users must be created and activated in Everbridge before you use single sign-on. 
 
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+## Test SSO
 
-	![Creating an Azure AD test user](./media/everbridge-tutorial/create_aaduser_01.png) 
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/everbridge-tutorial/create_aaduser_02.png) 
+* Click on Test this application in Azure portal and you should be automatically signed in to the Everbridge for which you set up the SSO.
 
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/everbridge-tutorial/create_aaduser_03.png) 
+* You can use Microsoft My Apps. When you click the Everbridge tile in the My Apps, you should be automatically signed in to the Everbridge for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/everbridge-tutorial/create_aaduser_04.png) 
+## Next steps
 
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**.
- 
-### Creating an EverBridge test user
-
-In this section, you create a user called Britta Simon in Everbridge. Work with [EverBridge support team](mailto:support@everbridge.com) to add the users in the Everbridge platform.
-
-### Assigning the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to EverBridge.
-
-![Assign User][200] 
-
-**To assign Britta Simon to EverBridge, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
-1. In the applications list, select **EverBridge**.
-
-	![Configure Single Sign-On](./media/everbridge-tutorial/tutorial_everbridge_app.png) 
-
-1. In the menu on the left, click **Users and groups**.
-
-	![Assign User][202] 
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![Assign User][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
-
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the Everbridge tile in the Access Panel, you should get automatically signed-on to your Everbridge application.
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
-
-<!--Image references-->
-
-[1]: ./media/everbridge-tutorial/tutorial_general_01.png
-[2]: ./media/everbridge-tutorial/tutorial_general_02.png
-[3]: ./media/everbridge-tutorial/tutorial_general_03.png
-[4]: ./media/everbridge-tutorial/tutorial_general_04.png
-
-[100]: ./media/everbridge-tutorial/tutorial_general_100.png
-
-[200]: ./media/everbridge-tutorial/tutorial_general_200.png
-[201]: ./media/everbridge-tutorial/tutorial_general_201.png
-[202]: ./media/everbridge-tutorial/tutorial_general_202.png
-[203]: ./media/everbridge-tutorial/tutorial_general_203.png
-
+Once you configure Everbridge you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

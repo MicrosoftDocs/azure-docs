@@ -1,20 +1,20 @@
 ---
-title: Run the Azure Site Recovery Deployment Planner for VMware disaster recovery to Azure| Microsoft Docs
+title: Run the Deployment Planner for VMware disaster recovery with Azure Site Recovery
 description: This article describes how to run Azure Site Recovery Deployment Planner for VMware disaster recovery to Azure.
-author: nsoneji
-manager: garavd
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.author: nisoneji
+ms.author: sharrai
+ms.date: 05/27/2021
 
 ---
-# Run the Azure Site Recovery Deployment Planner for VMware disaster recovery to Azure
+# Run the Deployment Planner for VMware disaster recovery
 This article is the Azure Site Recovery Deployment Planner user guide for VMware-to-Azure production deployments.
 
 
 ## Modes of running deployment planner
-You can run the command-line tool (ASRDeploymentPlanner.exe) in any of the following four modes:
+You can run the command-line tool (ASRDeploymentPlanner.exe) in any of the following three modes:
 
 1.	[Profiling](#profile-vmware-vms)
 2.	[Report generation](#generate-report)
@@ -35,18 +35,24 @@ First, you need a list of the VMs to be profiled. You can get all the names of V
 2. Open the VMware vSphere PowerCLI console.
 3. Ensure that the execution policy is enabled for the script. If it is disabled, launch the VMware vSphere PowerCLI console in administrator mode, and then enable it by running the following command:
 
-			Set-ExecutionPolicy –ExecutionPolicy AllSigned
+    ```powershell
+    Set-ExecutionPolicy –ExecutionPolicy AllSigned
+    ```
 
-4. You may optionly need to run the following command if Connect-VIServer is not recognized as the name of cmdlet.
+4. You may optionally need to run the following command if Connect-VIServer is not recognized as the name of cmdlet.
 
-			Add-PSSnapin VMware.VimAutomation.Core
+    ```powershell
+    Add-PSSnapin VMware.VimAutomation.Core
+    ```
 
 5. To get all the names of VMs on a vCenter server/vSphere ESXi host and store the list in a .txt file, run the two commands listed here.
 Replace &lsaquo;server name&rsaquo;, &lsaquo;user name&rsaquo;, &lsaquo;password&rsaquo;, &lsaquo;outputfile.txt&rsaquo;; with your inputs.
 
-			Connect-VIServer -Server <server name> -User <user name> -Password <password>
+    ```powershell
+    Connect-VIServer -Server <server name> -User <user name> -Password <password>
 
-			Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
+    Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
+    ```
 
 6. Open the output file in Notepad, and then copy the names of all VMs that you want to profile to another file (for example, ProfileVMList.txt), one VM name per line. This file is used as input to the *-VMListFile* parameter of the command-line tool.
 
@@ -76,7 +82,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Protocol| (Optional) Specified the protocol either ‘http’ or ‘https’ to connect to vCenter. Default protocol is https.|
 | -StorageAccountName | (Optional) The storage-account name that's used to find the throughput achievable for replication of data from on-premises to Azure. The tool uploads test data to this storage account to calculate throughput. The storage account must be General-purpose v1 (GPv1) type. |
 | -StorageAccountKey | (Optional) The storage-account key that's used to access the storage account. Go to the Azure portal > Storage accounts > <*Storage account name*> > Settings > Access Keys > Key1. |
-| -Environment | (optional) This is your target Azure Storage account environment. This can be one of three values - AzureCloud,AzureUSGovernment, AzureChinaCloud. Default is AzureCloud. Use the parameter when your target Azure region is either Azure US Government or Azure China clouds. |
+| -Environment | (optional) This is your target Azure Storage account environment. This can be one of three values - AzureCloud,AzureUSGovernment, AzureChinaCloud. Default is AzureCloud. Use the parameter when your target Azure region is either Azure US Government or Azure China 21Vianet. |
 
 
 We recommend that you profile your VMs for more than 7 days. If churn pattern varies in a month, we recommend to profile during the week when you see the maximum churn. The best way is to profile for 31 days to get better recommendation. During the profiling period, ASRDeploymentPlanner.exe keeps running. The tool takes profiling time input in days. For a quick test of the tool or for proof of concept you can profile for few hours or minutes. The minimum allowed profiling time is 30 minutes.
@@ -85,12 +91,12 @@ During profiling, you can optionally pass a storage-account name and key to find
 
 You can run multiple instances of the tool for various sets of VMs. Ensure that the VM names are not repeated in any of the profiling sets. For example, if you have profiled ten VMs (VM1 through VM10) and after few days you want to profile another five VMs (VM11 through VM15), you can run the tool from another command-line console for the second set of VMs (VM11 through VM15). Ensure that the second set of VMs do not have any VM names from the first profiling instance or you use a different output directory for the second run. If two instances of the tool are used for profiling the same VMs and use the same output directory, the generated report will be incorrect.
 
-By default, the tool is configured to profile and generate report upto 1000 VMs. You can change limit by changing MaxVMsSupported key value in *ASRDeploymentPlanner.exe.config* file.
+By default, the tool is configured to profile and generate report up to 1000 VMs. You can change limit by changing MaxVMsSupported key value in *ASRDeploymentPlanner.exe.config* file.
 ```
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-With the default settings, to profile say 1500 VMs, create two VMList.txt files. One with 1000 VMs and other with 500 VM list. Run the two instances of ASR Deployment Planner, one with VMList1.txt and other with VMList2.txt. You can use the same directory path to store the profiled data of both the VMList VMs.
+With the default settings, to profile say 1500 VMs, create two VMList.txt files. One with 1000 VMs and other with 500 VM list. Run the two instances of Azure Site Recovery Deployment Planner, one with VMList1.txt and other with VMList2.txt. You can use the same directory path to store the profiled data of both the VMList VMs.
 
 We have seen that based on the hardware configuration especially RAM size of the server from where the tool is run to generate the report, the operation may fail with insufficient memory. If you have good hardware, you can change the  MaxVMsSupported any higher value.  
 
@@ -131,7 +137,10 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 
 
 ## Generate report
-The tool generates a macro-enabled Microsoft Excel file (XLSM file) as the report output, which summarizes all the deployment recommendations. The report is named DeploymentPlannerReport_<unique numeric identifier>.xlsm and placed in the specified directory.
+The tool generates a macro-enabled Microsoft Excel file (XLSM file) as the report output, which summarizes all the deployment recommendations. The report is named `DeploymentPlannerReport_<unique numeric identifier>.xlsm` and placed in the specified directory.
+
+>[!NOTE]
+>The report generation requires a Windows PC or Windows Server with Excel 2013 or later. The decimal symbol on this machine should be configured as "." to produce the cost estimates. In case you have setup "," as decimal symbol, please go to "Change date, time or number formats" in Control Panel and go to "Additional Settings" to change the decimal symbol to ".".
 
 After profiling is complete, you can run the tool in report-generation mode. The following table contains a list of mandatory and optional tool parameters to run in report-generation mode.
 
@@ -155,13 +164,13 @@ After profiling is complete, you can run the tool in report-generation mode. The
 | -EndDate | (Optional) The end date and time in MM-DD-YYYY:HH:MM (24-hour format). *EndDate* must be specified along with *StartDate*. When EndDate is specified, the report is generated for the profiled data that's collected between StartDate and EndDate. |
 | -GrowthFactor | (Optional) The growth factor, expressed as a percentage. The default is 30 percent. |
 | -UseManagedDisks | (Optional) UseManagedDisks - Yes/No. Default is Yes. The number of virtual machines that can be placed into a single storage account is calculated considering whether Failover/Test failover of virtual machines is done on managed disk instead of unmanaged disk. |
-|-SubscriptionId |(Optional) The subscription GUID. Use this parameter to generate the cost estimation report with the latest price based on your subscription, the offer that is associated with your subscription and for your specific target Azure region in the specified currency.|
+|-SubscriptionId |(Optional) The subscription GUID. Note that this parameter is required when you need to generate the cost estimation report with the latest price based on your subscription, the offer that is associated with your subscription and for your specific target Azure region in the **specified currency**.|
 |-TargetRegion|(Optional) The Azure region where replication is targeted. Since Azure has different costs per region, to generate report with specific target Azure region use this parameter.<br>Default is WestUS2 or the last used target region.<br>Refer to the list of [supported target regions](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Optional) The offer associated with the give subscription. Default is MS-AZR-0003P (Pay-As-You-Go).|
 |-Currency|(Optional) The currency in which cost is shown in the generated report. Default is US Dollar ($) or the last used currency.<br>Refer to the list of [supported currencies](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
 
-By default, the tool is configurd to profile and generate report upto 1000 VMs. You can change limit by changing MaxVMsSupported key value in *ASRDeploymentPlanner.exe.config* file.
-```
+By default, the tool is configured to profile and generate report up to 1000 VMs. You can change limit by changing MaxVMsSupported key value in *ASRDeploymentPlanner.exe.config* file.
+```xml
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
@@ -184,7 +193,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 
 #### Example 4: Generate a report with a 5 percent growth factor instead of the default 30 percent
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualzation VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
 ```
 
 #### Example 5: Generate a report with a subset of profiled data
@@ -199,6 +208,8 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 ```
 
 #### Example 7: Generate a report for South India Azure region with Indian Rupee and specific offer ID
+
+Note that the subscription ID is required to generate cost report in a specific currency.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
@@ -209,7 +220,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 The tool defaults to the 95th percentile values of read/write IOPS, write IOPS, and data churn that are collected during profiling of all the VMs. This metric ensures that the 100th percentile spike your VMs might see because of temporary events is not used to determine your target storage-account and source-bandwidth requirements. For example, a temporary event might be a backup job running once a day, a periodic database indexing or analytics report-generation activity, or other similar short-lived, point-in-time events.
 
 Using 95th percentile values gives a true picture of real workload characteristics, and it gives you the best performance when the workloads are running on Azure. We do not anticipate that you would need to change this number. If you do change the value (to the 90th percentile, for example), you can update the configuration file *ASRDeploymentPlanner.exe.config* in the default folder and save it to generate a new report on the existing profiled data.
-```
+```xml
 <add key="WriteIOPSPercentile" value="95" />      
 <add key="ReadWriteIOPSPercentile" value="95" />      
 <add key="DataChurnPercentile" value="95" />
@@ -255,7 +266,7 @@ Open a command-line console, and go to the Site Recovery deployment planning too
 | -StorageAccountName | The storage-account name that's used to find the bandwidth consumed for replication of data from on-premises to Azure. The tool uploads test data to this storage account to find the bandwidth consumed. The storage account must be either  General-purpose v1 (GPv1) type.|
 | -StorageAccountKey | The storage-account key that's used to access the storage account. Go to the Azure portal > Storage accounts > <*Storage account name*> > Settings > Access Keys > Key1 (or a primary access key for a classic storage account). |
 | -VMListFile | The file that contains the list of VMs to be profiled for calculating the bandwidth consumed. The file path can be absolute or relative. The file should contain one VM name/IP address per line. The VM names specified in the file should be the same as the VM names on the vCenter server/vSphere ESXi host.<br>For example, the file VMList.txt contains the following VMs:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
-| -Environment | (optional) This is your target Azure Storage account environment. This can be one of three values - AzureCloud,AzureUSGovernment, AzureChinaCloud. Default is AzureCloud. Use the parameter when your target Azure region is either Azure US Government or Azure China clouds. |
+| -Environment | (optional) This is your target Azure Storage account environment. This can be one of three values - AzureCloud,AzureUSGovernment, AzureChinaCloud. Default is AzureCloud. Use the parameter when your target Azure region is either Azure US Government or Azure China 21Vianet. |
 
 The tool creates several 64-MB asrvhdfile<#>.vhd files (where "#" is the number of files) on the specified directory. The tool uploads the files to the storage account to find the throughput. After the throughput is measured, the tool deletes all the files from the storage account and from the local server. If the tool is terminated for any reason while it is calculating throughput, it doesn't delete the files from the storage or from the local server. You will have to delete them manually.
 

@@ -1,17 +1,18 @@
 ---
 title: Understand Azure IoT Hub module twins | Microsoft Docs
 description: Developer guide - use module twins to synchronize state and configuration data between IoT Hub and your devices
-author: chrissie926
+author: nehsin
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/26/2018
-ms.author: menchi
+ms.date: 09/29/2020
+ms.author: nehsin
+ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
 
 # Understand and use module twins in IoT Hub
 
-This article assumes you've read [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md) first. In IoT Hub, under each device identity, you can create up to 20 module identities. Each module identity implicitly generates a module twin. Similar to device twins, module twins are JSON documents that store module state information including metadata, configurations, and conditions. Azure IoT Hub maintains a module twin for each module that you connect to IoT Hub. 
+This article assumes you've read [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md) first. In IoT Hub, under each device identity, you can create up to 50 module identities. Each module identity implicitly generates a module twin. Similar to device twins, module twins are JSON documents that store module state information including metadata, configurations, and conditions. Azure IoT Hub maintains a module twin for each module that you connect to IoT Hub. 
 
 On the device side, the IoT Hub device SDKs enable you to create modules where each one opens an independent connection to IoT Hub. This functionality enables you to use separate namespaces for different components on your device. For example, you have a vending machine that has three different sensors. Each sensor is controlled by different departments in your company. You can create a module for each sensor. This way, each department is only able to send jobs or direct methods to the sensor that they control, avoiding conflicts and user errors.
 
@@ -88,7 +89,7 @@ The following example shows a module twin JSON document:
             "telemetryConfig": {
                 "sendFrequency": "5m",
                 "status": "success"
-            }
+            },
             "batteryLevel": 55,
             "$metadata" : {...},
             "$version": 4
@@ -169,7 +170,7 @@ The solution back end operates on the module twin using the following atomic ope
 
 * **Receive twin notifications**. This operation allows the solution back end to be notified when the twin is modified. To do so, your IoT solution needs to create a route and to set the Data Source equal to *twinChangeEvents*. By default, no twin notifications are sent, that is, no such routes pre-exist. If the rate of change is too high, or for other reasons such as internal failures, the IoT Hub might send only one notification that contains all changes. Therefore, if your application needs reliable auditing and logging of all intermediate states, you should use device-to-cloud messages. The twin notification message includes properties and body.
 
-    - Properties
+  - Properties
 
     | Name | Value |
     | --- | --- |
@@ -181,31 +182,31 @@ The solution back end operates on the module twin using the following atomic ope
     moduleId | ID of the module |
     hubName | Name of IoT Hub |
     operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp of operation |
-    iothub-message-schema | deviceLifecycleNotification |
+    iothub-message-schema | twinChangeNotification |
     opType | "replaceTwin" or "updateTwin" |
 
     Message system properties are prefixed with the `$` symbol.
 
-    - Body
+  - Body
         
     This section includes all the twin changes in a JSON format. It uses the same format as a patch, with the difference that it can contain all twin sections: tags, properties.reported, properties.desired, and that it contains the “$metadata” elements. For example,
 
     ```json
     {
-        "properties": {
-            "desired": {
-                "$metadata": {
-                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                },
-                "$version": 1
-            },
-            "reported": {
-                "$metadata": {
-                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                },
-                "$version": 1
-            }
-        }
+      "properties": {
+          "desired": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          },
+          "reported": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          }
+      }
     }
     ```
 
@@ -217,13 +218,13 @@ In addition to these operations, the solution back end can query the module twin
 
 The module app operates on the module twin using the following atomic operations:
 
-* **Retrieve module twin**. This operation returns the module twin document (including tags and desired and reported system properties) for the currently connected module.
+* **Retrieve module twin**. This operation returns the module twin document (including desired and reported system properties) for the currently connected module.
 
 * **Partially update reported properties**. This operation enables the partial update of the reported properties of the currently connected module. This operation uses the same JSON update format that the solution back end uses for a partial update of desired properties.
 
 * **Observe desired properties**. The currently connected module can choose to be notified of updates to the desired properties when they happen. The module receives the same form of update (partial or full replacement) executed by the solution back end.
 
-All the preceding operations require the **ModuleConnect** permission, as defined in the [Control Access to IoT Hub](iot-hub-devguide-security.md) article.
+All the preceding operations require the **DeviceConnect** permission, as defined in the [Control Access to IoT Hub](iot-hub-devguide-security.md) article.
 
 The [Azure IoT device SDKs](iot-hub-devguide-sdks.md) make it easy to use the preceding operations from many languages and platforms.
 
@@ -231,39 +232,61 @@ The [Azure IoT device SDKs](iot-hub-devguide-sdks.md) make it easy to use the pr
 
 Tags, desired properties, and reported properties are JSON objects with the following restrictions:
 
-* All keys in JSON objects are case-sensitive 64 bytes UTF-8 UNICODE strings. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `.`, SP, and `$`.
+* **Keys**: All keys in JSON objects are UTF-8 encoded, case-sensitive, and up-to 1 KB in length. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `.`, `$`, and SP.
 
-* All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are not allowed. The maximum value for integers is 4503599627370495 and the minimum value for integers is -4503599627370496.
+* **Values**: All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are also supported.
 
-* All JSON objects in tags, desired, and reported properties can have a maximum depth of 5. For instance, the following object is valid:
+    * Integers can have a minimum value of -4503599627370496 and a maximum value of 4503599627370495.
 
-    ```json
-    {
-        ...
-        "tags": {
-            "one": {
-                "two": {
-                    "three": {
-                        "four": {
-                            "five": {
-                                "property": "value"
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        ...
-    }
-    ```
+    * String values are UTF-8 encoded and can have a maximum length of 4 KB.
 
-* All string values can be at most 512 bytes in length.
+* **Depth**: The maximum depth of JSON objects in tags, desired properties, and reported properties is 10. For example, the following object is valid:
+
+   ```json
+   {
+       ...
+       "tags": {
+           "one": {
+               "two": {
+                   "three": {
+                       "four": {
+                           "five": {
+                               "six": {
+                                   "seven": {
+                                       "eight": {
+                                           "nine": {
+                                               "ten": {
+                                                   "property": "value"
+                                               }
+                                           }
+                                       }
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+       },
+       ...
+   }
+   ```
 
 ## Module twin size
 
-IoT Hub enforces an 8KB size limitation on each of the respective total values of `tags`, `properties/desired`, and `properties/reported`, excluding read-only elements.
+IoT Hub enforces an 8 KB size limit on the value of `tags`, and a 32 KB size limit each on the value of `properties/desired` and `properties/reported`. These totals are exclusive of read-only elements like `$etag`, `$version`, and `$metadata/$lastUpdated`.
 
-The size is computed by counting all characters, excluding UNICODE control characters (segments C0 and C1) and spaces that are outside of string constants.
+Twin size is computed as follows:
+
+* For each property in the JSON document, IoT Hub cumulatively computes and adds the length of the property's key and value.
+
+* Property keys are considered as UTF8-encoded strings.
+
+* Simple property values are considered as UTF8-encoded strings, numeric values (8 Bytes), or Boolean values (4 Bytes).
+
+* The size of UTF8-encoded strings is computed by counting all characters, excluding UNICODE control characters (segments C0 and C1).
+
+* Complex property values (nested objects) are computed based on the aggregate size of the property keys and property values that they contain.
 
 IoT Hub rejects with an error all operations that would increase the size of those documents above the limit.
 
@@ -295,7 +318,7 @@ For example:
             "telemetryConfig": {
                 "sendFrequency": "5m",
                 "status": "success"
-            }
+            },
             "batteryLevel": "55%",
             "$metadata": {
                 "telemetryConfig": {
@@ -304,7 +327,7 @@ For example:
                         "$lastUpdated": "2016-03-31T16:35:48.789Z"
                     },
                     "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                }
+                },
                 "batteryLevel": {
                     "$lastUpdated": "2016-04-01T16:35:48.789Z"
                 },
@@ -322,7 +345,7 @@ This information is kept at every level (not just the leaves of the JSON structu
 ## Optimistic concurrency
 
 Tags, desired, and reported properties all support optimistic concurrency.
-Tags have an ETag, as per [RFC7232]()https://tools.ietf.org/html/rfc7232, that represents the tag's JSON representation. You can use ETags in conditional update operations from the solution back end to ensure consistency.
+Tags have an ETag, as per [RFC7232](https://tools.ietf.org/html/rfc7232), that represents the tag's JSON representation. You can use ETags in conditional update operations from the solution back end to ensure consistency.
 
 Module twin desired and reported properties do not have ETags, but have a `$version` value that is guaranteed to be incremental. Similarly to an ETag, the version can be used by the updating party to enforce consistency of updates. For example, a module app for a reported property or the solution back end for a desired property.
 

@@ -1,118 +1,157 @@
 ---
-title: "Quickstart: Bing Entity Search API, Java"
-titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing Entity Search API.
+title: "Quickstart: Send a search request to the REST API using Java - Bing Entity Search"
+titleSuffix: Azure Cognitive Services
+description: Use this quickstart to send a request to the Bing Entity Search REST API using Java, and receive a JSON response.
 services: cognitive-services
-author: v-jaswel
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
-ms.author: v-jaswel
+ms.date: 05/08/2020
+ms.custom: devx-track-java
+ms.author: aahi
 ---
-# Quickstart for Bing Entity Search API with Java 
+# Quickstart: Send a search request to the Bing Entity Search REST API using Java
 
-This article shows you how to use the [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API with Java.
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
+Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple Java application sends a news search query to the API, and displays the response.
+
+Although this application is written in Java, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
-You will need [JDK 7 or 8](https://aka.ms/azure-jdks) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice.
+* The [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/).
+* The [Gson library](https://github.com/google/gson).
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Entity Search API**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
 
-## Search entities
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-To run this application, follow these steps.
+## Create and initialize a project
 
-1. Create a new Java project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `key` value with an access key valid for your subscription.
-4. Run the program.
+1. Create a new Java project in your favorite IDE or editor, and import the following libraries:
 
-```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import javax.net.ssl.HttpsURLConnection;
+   ```java
+   import java.io.*;
+   import java.net.*;
+   import java.util.*;
+   import javax.net.ssl.HttpsURLConnection;
+   import com.google.gson.Gson;
+   import com.google.gson.GsonBuilder;
+   import com.google.gson.JsonObject;
+   import com.google.gson.JsonParser;
+   import com.google.gson.Gson;
+   import com.google.gson.GsonBuilder;
+   import com.google.gson.JsonObject;
+   import com.google.gson.JsonParser;
+   ```
 
-/*
- * Gson: https://github.com/google/gson
- * Maven info:
- *     groupId: com.google.code.gson
- *     artifactId: gson
- *     version: 2.8.1
- *
- * Once you have compiled or downloaded gson-2.8.1.jar, assuming you have placed it in the
- * same folder as this file (EntitySearch.java), you can compile and run this program at
- * the command line as follows.
- *
- * javac EntitySearch.java -cp .;gson-2.8.1.jar
- * java -cp .;gson-2.8.1.jar EntitySearch
- */
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+2. In a new class, create variables for the API endpoint, your subscription key, and a search query. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
-public class EntitySearch {
+   ```java
+   public class EntitySearch {
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+      static String subscriptionKey = "ENTER KEY HERE";
+    
+    	static String host = "https://api.bing.microsoft.com";
+    	static String path = "/v7.0/search";
+    
+    	static String mkt = "en-US";
+    	static String query = "italian restaurant near me";
+   //...
+    
+   ```
 
-// Replace the subscriptionKey string value with your valid subscription key.
-	static String subscriptionKey = "ENTER KEY HERE";
+## Construct a search request string
 
-	static String host = "https://api.cognitive.microsoft.com";
-	static String path = "/bing/v7.0/entities";
-
-	static String mkt = "en-US";
-	static String query = "italian restaurant near me";
-
-	public static String search () throws Exception {
+1. Create a function called `search()` that returns a JSON `String`. url-encode your search query, and add it to a parameters string with `&q=`. Add your market to the parameter string with `?mkt=`.
+ 
+2. Create a URL object with your host, path, and parameters strings.
+    
+    ```java
+    //...
+    public static String search () throws Exception {
         String encoded_query = URLEncoder.encode (query, "UTF-8");
         String params = "?mkt=" + mkt + "&q=" + encoded_query;
-		URL url = new URL (host + path + params);
+        URL url = new URL (host + path + params);
+    //...
+    ```
+      
+## Send a search request and receive a response
 
-		HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-		connection.setRequestMethod("GET");
-		connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-		connection.setDoOutput(true);
+1. In the `search()` function created above, create a new `HttpsURLConnection` object with `url.openCOnnection()`. Set the request method to `GET`, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
-		StringBuilder response = new StringBuilder ();
-		BufferedReader in = new BufferedReader(
-		new InputStreamReader(connection.getInputStream()));
-		String line;
-		while ((line = in.readLine()) != null) {
-			response.append(line);
-		}
-		in.close();
+    ```java
+    //...
+    HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+    connection.setRequestMethod("GET");
+    connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+    connection.setDoOutput(true);
+    //...
+    ```
 
-		return response.toString();
+2. Create a new `StringBuilder`. Use a new `InputStreamReader` as a parameter when instantiating  `BufferedReader` to read the API response.  
+    
+    ```java
+    //...
+    StringBuilder response = new StringBuilder ();
+    BufferedReader in = new BufferedReader(
+        new InputStreamReader(connection.getInputStream()));
+    //...
+    ```
+
+3. Create a `String` object to store the response from the `BufferedReader`. Iterate through it, and append each line to the string. Then, close the reader and return the response. 
+    
+    ```java
+    String line;
+    
+    while ((line = in.readLine()) != null) {
+      response.append(line);
     }
+    in.close();
+    
+    return response.toString();
+    ```
 
-	public static String prettify (String json_text) {
-		JsonParser parser = new JsonParser();
-		JsonObject json = parser.parse(json_text).getAsJsonObject();
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		return gson.toJson(json);
-	}
+## Format the JSON response
 
-	public static void main(String[] args) {
-		try {
-			String response = search ();
-			System.out.println (prettify (response));
-		}
-		catch (Exception e) {
-			System.out.println (e);
-		}
-	}
-}
-```
+1. Create a new function called `prettify` to format the JSON response. Create a new `JsonParser`, call `parse()` on the JSON text, and then store it as a JSON object. 
 
-**Response**
+2. Use the Gson library to create a new `GsonBuilder()`, use `setPrettyPrinting().create()` to format the JSON, and then return it.    
+  
+   ```java
+   //...
+   public static String prettify (String json_text) {
+    JsonParser parser = new JsonParser();
+    JsonObject json = parser.parse(json_text).getAsJsonObject();
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    return gson.toJson(json);
+   }
+   //...
+   ```
+
+## Call the search function
+
+- From the main method of your project, call `search()`, and use `prettify()` to format the text.
+    
+    ```java
+    	public static void main(String[] args) {
+    		try {
+    			String response = search ();
+    			System.out.println (prettify (response));
+    		}
+    		catch (Exception e) {
+    			System.out.println (e);
+    		}
+    	}
+    ```
+
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -152,7 +191,7 @@ A successful response is returned in JSON, as shown in the following example:
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [
@@ -177,11 +216,10 @@ A successful response is returned in JSON, as shown in the following example:
 }
 ```
 
-[Back to top](#HOLTop)
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Entity Search tutorial](../tutorial-bing-entities-search-single-page-app.md)
-> [Bing Entity Search overview](../search-the-web.md )
-> [API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
+
+* [What is the Bing Entity Search API?](../overview.md)
+* [Bing Entity Search API reference](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

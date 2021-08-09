@@ -1,22 +1,20 @@
 ---
-title: Azure Virtual Machines high availability for SAP NetWeaver on SUSE Linux Enterprise Server for SAP applications | Microsoft Docs
+title: Azure VMs high availability for SAP NetWeaver on SLES | Microsoft Docs
 description: High-availability guide for SAP NetWeaver on SUSE Linux Enterprise Server for SAP applications
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: jeconnoc
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
-ms.devlang: NA
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
-ms.author: sedusch
+ms.date: 04/12/2021
+ms.author: radeltch
 
 ---
 
@@ -41,10 +39,11 @@ ms.author: sedusch
 
 [suse-ha-guide]:https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/
 [suse-drbd-guide]:https://www.suse.com/documentation/sle-ha-12/singlehtml/book_sleha_techguides/book_sleha_techguides.html
+[suse-ha-12sp3-relnotes]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP3/
 
-[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
-[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
-[template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-file-server-md%2Fazuredeploy.json
+[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
+[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
+[template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-file-server-md%2Fazuredeploy.json
 
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
@@ -54,26 +53,27 @@ In the example configurations, installation commands etc. ASCS instance number 0
 
 Read the following SAP Notes and papers first
 
-* SAP Note [1928533], which has:
+* SAP Note [1928533][1928533], which has:
   * List of Azure VM sizes that are supported for the deployment of SAP software
   * Important capacity information for Azure VM sizes
   * Supported SAP software, and operating system (OS) and database combinations
   * Required SAP kernel version for Windows and Linux on Microsoft Azure
 
-* SAP Note [2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
-* SAP Note [2205917] has recommended OS settings for SUSE Linux Enterprise Server for SAP Applications
-* SAP Note [1944799] has SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications
-* SAP Note [2178632] has detailed information about all monitoring metrics reported for SAP in Azure.
-* SAP Note [2191498] has the required SAP Host Agent version for Linux in Azure.
-* SAP Note [2243692] has information about SAP licensing on Linux in Azure.
-* SAP Note [1984787] has general information about SUSE Linux Enterprise Server 12.
-* SAP Note [1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
+* SAP Note [2015553][2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
+* SAP Note [2205917][2205917] has recommended OS settings for SUSE Linux Enterprise Server for SAP Applications
+* SAP Note [1944799][1944799] has SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications
+* SAP Note [2178632][2178632] has detailed information about all monitoring metrics reported for SAP in Azure.
+* SAP Note [2191498][2191498] has the required SAP Host Agent version for Linux in Azure.
+* SAP Note [2243692][2243692] has information about SAP licensing on Linux in Azure.
+* SAP Note [1984787][1984787] has general information about SUSE Linux Enterprise Server 12.
+* SAP Note [1999351][1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
 * [Azure Virtual Machines deployment for SAP on Linux][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
 * [SUSE SAP HA Best Practice Guides][suse-ha-guide]
   The guides contain all required information to set up Netweaver HA and SAP HANA System Replication on-premises. Use these guides as a general baseline. They provide much more detailed information.
+* [SUSE High Availability Extension 12 SP3 Release Notes][suse-ha-12sp3-relnotes]
 
 ## Overview
 
@@ -81,38 +81,43 @@ To achieve high availability, SAP NetWeaver requires an NFS server. The NFS serv
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse/ha-suse.png)
 
-The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the (A)SCS and ERS load balancer.
+The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. We recommend using [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). The following list shows the configuration of the (A)SCS and ERS load balancer.
 
 ### (A)SCS
 
 * Frontend configuration
   * IP address 10.0.0.7
-* Backend configuration
-  * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
 * Probe Port
-  * Port 620**&lt;nr&gt;**
-* Loadbalancing rules
-  * 32**&lt;nr&gt;** TCP
-  * 36**&lt;nr&gt;** TCP
-  * 39**&lt;nr&gt;** TCP
-  * 81**&lt;nr&gt;** TCP
-  * 5**&lt;nr&gt;**13 TCP
-  * 5**&lt;nr&gt;**14 TCP
-  * 5**&lt;nr&gt;**16 TCP
+  * Port 620<strong>&lt;nr&gt;</strong>
+* Load balancing rules
+  * If using Standard Load Balancer, select **HA ports**
+  * If using Basic Load Balancer, create Load balancing rules for the following ports
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 36<strong>&lt;nr&gt;</strong> TCP
+    * 39<strong>&lt;nr&gt;</strong> TCP
+    * 81<strong>&lt;nr&gt;</strong> TCP
+    * 5<strong>&lt;nr&gt;</strong>13 TCP
+    * 5<strong>&lt;nr&gt;</strong>14 TCP
+    * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ### ERS
 
 * Frontend configuration
   * IP address 10.0.0.8
+* Probe Port
+  * Port 621<strong>&lt;nr&gt;</strong>
+* Load-balancing rules
+  * If using Standard Load Balancer, select **HA ports**
+  * If using Basic Load Balancer, create Load balancing rules for the following ports
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 33<strong>&lt;nr&gt;</strong> TCP
+    * 5<strong>&lt;nr&gt;</strong>13 TCP
+    * 5<strong>&lt;nr&gt;</strong>14 TCP
+    * 5<strong>&lt;nr&gt;</strong>16 TCP
+
 * Backend configuration
   * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
-* Probe Port
-  * Port 621**&lt;nr&gt;**
-* Loadbalancing rules
-  * 33**&lt;nr&gt;** TCP
-  * 5**&lt;nr&gt;**13 TCP
-  * 5**&lt;nr&gt;**14 TCP
-  * 5**&lt;nr&gt;**16 TCP
+
 
 ## Setting up a highly available NFS server
 
@@ -129,7 +134,7 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
 You can use one of the quickstart templates on GitHub to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
 Follow these steps to deploy the template:
 
-1. Open the [ASCS/SCS Multi SID template][template-multisid-xscs] or the [converged template][template-converged] on the Azure portal
+1. Open the [ASCS/SCS Multi SID template][template-multisid-xscs] or the [converged template][template-converged] on the Azure portal. 
    The ASCS/SCS template only creates the load-balancing rules for the SAP NetWeaver ASCS/SCS and ERS (Linux only) instances whereas the converged template also creates the load-balancing rules for a database (for example Microsoft SQL Server or SAP HANA). If you plan to install an SAP NetWeaver based system and you also want to install the database on the same machines, use the [converged template][template-converged].
 1. Enter the following parameters
    1. Resource Prefix (ASCS/SCS Multi SID template only)  
@@ -142,7 +147,7 @@ Follow these steps to deploy the template:
       Select one of the Linux distributions. For this example, select SLES 12 BYOS
    6. Db Type  
       Select HANA
-   7. Sap System Size  
+   7. Sap System Size.  
       The amount of SAPS the new system provides. If you are not sure how many SAPS the system requires, ask your SAP Technology Partner or System Integrator
    8. System Availability  
       Select HA
@@ -153,7 +158,7 @@ Follow these steps to deploy the template:
 
 ### Deploy Linux manually via Azure portal
 
-You first need to create the virtual machines for this NFS cluster. Afterwards, you create a load balancer and use the virtual machines in the backend pools.
+You first need to create the virtual machines for this NFS cluster. Afterwards, you create a load balancer and use the virtual machines in the backend pool.
 
 1. Create a Resource Group
 1. Create a Virtual Network
@@ -171,7 +176,7 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
    Select Availability Set created earlier  
 1. Add at least one data disk to both virtual machines  
    The data disks are used for the /usr/sap/`<SAPSID`> directory
-1. Create a Load Balancer (internal)  
+1. Create load balancer (internal, standard):  
    1. Create the frontend IP addresses
       1. IP address 10.0.0.7 for the ASCS
          1. Open the load balancer, select frontend IP pool, and click Add
@@ -180,16 +185,13 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. Click OK
       1. IP address 10.0.0.8 for the ASCS ERS
          * Repeat the steps above to create an IP address for the ERS (for example **10.0.0.8** and **nw1-aers-backend**)
-   1. Create the backend pools
-      1. Create a backend pool for the ASCS
-         1. Open the load balancer, select backend pools, and click Add
-         1. Enter the name of the new backend pool (for example **nw1-ascs-backend**)
-         1. Click Add a virtual machine.
-         1. Select the Availability Set you created earlier
-         1. Select the virtual machines of the (A)SCS cluster
-         1. Click OK
-      1. Create a backend pool for the ASCS ERS
-         * Repeat the steps above to create a backend pool for the ERS (for example **nw1-aers-backend**)
+   1. Create the backend pool
+      1. Open the load balancer, select backend pools, and click Add
+      1. Enter the name of the new backend pool (for example **nw1-backend**)
+      1. Click Add a virtual machine.
+      1. Select Virtual Machine
+      1. Select the virtual machines of the (A)SCS cluster and their IP addresses.
+      1. Click Add
    1. Create the health probes
       1. Port 620**00** for ASCS
          1. Open the load balancer, select health probes, and click Add
@@ -198,9 +200,42 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. Click OK
       1. Port 621**02** for ASCS ERS
          * Repeat the steps above to create a health probe for the ERS (for example 621**02** and **nw1-aers-hp**)
-   1. Loadbalancing rules
+   1. Load-balancing rules
+      1. Load-balancing rules for ASCS
+         1. Open the load balancer, select load-balancing rules and click Add
+         1. Enter the name of the new load balancer rule (for example **nw1-lb-ascs**)
+         1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-ascs-frontend**, **nw1-backend** and **nw1-ascs-hp**)
+         1. Select **HA ports**
+         1. **Make sure to enable Floating IP**
+         1. Click OK
+         * Repeat the steps above to create load balancing rules for ERS (for example **nw1-lb-ers**)
+1. Alternatively, if your scenario requires basic load balancer (internal), follow these steps:  
+   1. Create the frontend IP addresses
+      1. IP address 10.0.0.7 for the ASCS
+         1. Open the load balancer, select frontend IP pool, and click Add
+         1. Enter the name of the new frontend IP pool (for example **nw1-ascs-frontend**)
+         1. Set the Assignment to Static and enter the IP address (for example **10.0.0.7**)
+         1. Click OK
+      1. IP address 10.0.0.8 for the ASCS ERS
+         * Repeat the steps above to create an IP address for the ERS (for example **10.0.0.8** and **nw1-aers-frontend**)
+   1. Create the backend pool
+      1. Open the load balancer, select backend pools, and click Add
+      1. Enter the name of the new backend pool (for example **nw1-backend**)
+      1. Click Add a virtual machine.
+      1. Select the Availability Set you created earlier
+      1. Select the virtual machines of the (A)SCS cluster
+      1. Click OK
+   1. Create the health probes
+      1. Port 620**00** for ASCS
+         1. Open the load balancer, select health probes, and click Add
+         1. Enter the name of the new health probe (for example **nw1-ascs-hp**)
+         1. Select TCP as protocol, port 620**00**, keep Interval 5 and Unhealthy threshold 2
+         1. Click OK
+      1. Port 621**02** for ASCS ERS
+         * Repeat the steps above to create a health probe for the ERS (for example 621**02** and **nw1-aers-hp**)
+   1. Load-balancing rules
       1. 32**00** TCP for ASCS
-         1. Open the load balancer, select load balancing rules and click Add
+         1. Open the load balancer, select load-balancing rules and click Add
          1. Enter the name of the new load balancer rule (for example **nw1-lb-3200**)
          1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-ascs-frontend**)
          1. Keep protocol **TCP**, enter port **3200**
@@ -211,6 +246,15 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          * Repeat the steps above for ports 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 and TCP for the ASCS
       1. Additional ports for the ASCS ERS
          * Repeat the steps above for ports 33**02**, 5**02**13, 5**02**14, 5**02**16 and TCP for the ASCS ERS
+
+> [!IMPORTANT]
+> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
+
+> [!Note]
+> When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
+
+> [!IMPORTANT]
+> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md).
 
 ### Create Pacemaker cluster
 
@@ -226,11 +270,12 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
 
    > [!NOTE]
-   > Do not use dashes in the hostnames of your cluster nodes. Otherwise your cluster will not work. This is a known limitation and SUSE is working on a fix. The fix will be released as a patch of the sap-suse-cloud-connector package.
+   > The known issue with using a dash in host names is fixed with version **3.1.1** of package **sap-suse-cluster-connector**. Make sure that you are using at least version 3.1.1 of package sap-suse-cluster-connector, if using cluster nodes with dash in the host name. Otherwise your cluster will not work. 
 
    Make sure that you installed the new version of the SAP SUSE cluster connector. The old one was called sap_suse_cluster_connector and the new one is called **sap-suse-cluster-connector**.
 
-   <pre><code>sudo zypper info sap-suse-cluster-connector
+   ```
+   sudo zypper info sap-suse-cluster-connector
    
    Information for package sap-suse-cluster-connector:
    ---------------------------------------------------
@@ -245,7 +290,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    Status         : up-to-date
    Source package : sap-suse-cluster-connector-3.0.0-2.2.src
    Summary        : SUSE High Availability Setup for SAP Products
-   </code></pre>
+   ```
 
 1. **[A]** Update SAP resource agents  
    
@@ -353,6 +398,15 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Create a virtual IP resource and health-probe for the ASCS instance
 
+   > [!IMPORTANT]
+   > Recent testing revealed situations, where netcat stops responding to requests due to backlog and its limitation of handling only one connection. The netcat resource stops listening to the Azure Load balancer requests and the floating IP becomes unavailable.  
+   > For existing Pacemaker clusters, we recommended in the past replacing netcat with socat. Currently we recommend using azure-lb resource agent, which is part of package resource-agents, with the following package version requirements:
+   > - For SLES 12 SP4/SP5, the version must be at least resource-agents-4.3.018.a7fb5035-3.30.1.  
+   > - For SLES 15/15 SP1, the version must be at least resource-agents-4.3.0184.6ee15eb2-4.13.1.  
+   >
+   > Note that the change will require brief downtime.  
+   > For existing Pacemaker clusters, if the configuration was already changed to use socat as described in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), there is no requirement to switch immediately to azure-lb resource agent.
+
    <pre><code>sudo crm node standby <b>nw1-cl-1</b>
    
    sudo crm configure primitive fs_<b>NW1</b>_ASCS Filesystem device='<b>nw1-nfs</b>:/<b>NW1</b>/ASCS' directory='/usr/sap/<b>NW1</b>/ASCS<b>00</b>' fstype='nfs4' \
@@ -364,9 +418,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      params ip=<b>10.0.0.7</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>NW1</b>_ASCS anything \
-     params binfile="/usr/bin/nc" cmdline_options="-l -k 620<b>00</b>" \
-     op monitor timeout=20s interval=10 depth=0
+   sudo crm configure primitive nc_<b>NW1</b>_ASCS azure-lb port=620<b>00</b>
    
    sudo crm configure group g-<b>NW1</b>_ASCS fs_<b>NW1</b>_ASCS nc_<b>NW1</b>_ASCS vip_<b>NW1</b>_ASCS \
       meta resource-stickiness=3000
@@ -384,7 +436,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-0</b>
    #  Resource Group: g-NW1_ASCS
    #      fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    <b>Started nw1-cl-0</b>
-   #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-0</b>
+   #      nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      <b>Started nw1-cl-0</b>
    #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-0</b>
    </code></pre>
 
@@ -394,7 +446,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
-   <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
+   <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
    </code></pre>
 
    If the installation fails to create a subfolder in /usr/sap/**NW1**/ASCS**00**, try setting the owner and group of the ASCS**00** folder and retry.
@@ -417,12 +469,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      params ip=<b>10.0.0.8</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>NW1</b>_ERS anything \
-    params binfile="/usr/bin/nc" cmdline_options="-l -k 621<b>02</b>" \
-    op monitor timeout=20s interval=10 depth=0
-   
-   # WARNING: Resources nc_NW1_ASCS,nc_NW1_ERS violate uniqueness for parameter "binfile": "/usr/bin/nc"
-   # Do you still want to commit (y/n)? y
+   sudo crm configure primitive nc_<b>NW1</b>_ERS azure-lb port=621<b>02</b>
    
    sudo crm configure group g-<b>NW1</b>_ERS fs_<b>NW1</b>_ERS nc_<b>NW1</b>_ERS vip_<b>NW1</b>_ERS
    </code></pre>
@@ -439,11 +486,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-1</b>
    #  Resource Group: g-NW1_ASCS
    #      fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    <b>Started nw1-cl-1</b>
-   #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
+   #      nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      <b>Started nw1-cl-1</b>
    #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
    #  Resource Group: g-NW1_ERS
    #      fs_NW1_ERS (ocf::heartbeat:Filesystem):    <b>Started nw1-cl-1</b>
-   #      nc_NW1_ERS (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
+   #      nc_NW1_ERS (ocf::heartbeat:azure-lb):      <b>Started nw1-cl-1</b>
    #      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
    </code></pre>
 
@@ -453,7 +500,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
-   <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
+   <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
    </code></pre>
 
    > [!NOTE]
@@ -480,9 +527,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    service/halib = $(DIR_CT_RUN)/saphascriptco.so
    service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
    
-   # Add the keep alive parameter
+   # Add the keep alive parameter, if using ENSA1
    enque/encni/set_so_keepalive = true
    </code></pre>
+
+   For both ENSA1 and ENSA2, make sure that the `keepalive` OS parameters are set as described in SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736).    
 
    * ERS profile
 
@@ -502,12 +551,10 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Configure Keep Alive
 
-   The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this you need to set a parameter in the SAP NetWeaver ASCS/SCS profile and change the Linux system settings. Read [SAP Note 1410736][1410736] for more information.
-
-   The ASCS/SCS profile parameter enque/encni/set_so_keepalive was already added in the last step.
+   The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this you need to set a parameter in the SAP NetWeaver ASCS/SCS profile, if using ENSA1, and change the Linux system `keepalive` settings on all SAP servers for both ENSA1/ENSA2. Read [SAP Note 1410736][1410736] for more information.
 
    <pre><code># Change the Linux system configuration
-   sudo sysctl net.ipv4.tcp_keepalive_time=120
+   sudo sysctl net.ipv4.tcp_keepalive_time=300
    </code></pre>
 
 1. **[A]** Configure the SAP users after the installation
@@ -526,18 +573,20 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Create the SAP cluster resources
 
+If using enqueue server 1 architecture (ENSA1), define the resources as follows:
+
    <pre><code>sudo crm configure property maintenance-mode="true"
    
    sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
     operations \$id=rsc_sap_<b>NW1</b>_ASCS<b>00</b>-operations \
-    op monitor interval=11 timeout=60 on_fail=restart \
+    op monitor interval=11 timeout=60 on-fail=restart \
     params InstanceName=<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b>" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 failure-timeout=60 migration-threshold=1 priority=10
    
    sudo crm configure primitive rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
     operations \$id=rsc_sap_<b>NW1</b>_ERS<b>02</b>-operations \
-    op monitor interval=11 timeout=60 on_fail=restart \
+    op monitor interval=11 timeout=60 on-fail=restart \
     params InstanceName=<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>" AUTOMATIC_RECOVER=false IS_ERS=true \
     meta priority=1000
    
@@ -552,7 +601,37 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
+  SAP introduced support for enqueue server 2, including replication, as of SAP NW 7.52. Starting with ABAP Platform 1809, enqueue server 2 is installed by default. See SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) for enqueue server 2 support.
+  If using enqueue server 2 architecture ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), define the resources as follows:
+
+<pre><code>sudo crm configure property maintenance-mode="true"
+   
+   sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
+    operations \$id=rsc_sap_<b>NW1</b>_ASCS<b>00</b>-operations \
+    op monitor interval=11 timeout=60 on-fail=restart \
+    params InstanceName=<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000
+   
+   sudo crm configure primitive rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
+    operations \$id=rsc_sap_<b>NW1</b>_ERS<b>02</b>-operations \
+    op monitor interval=11 timeout=60 on-fail=restart \
+    params InstanceName=<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>" AUTOMATIC_RECOVER=false IS_ERS=true 
+   
+   sudo crm configure modgroup g-<b>NW1</b>_ASCS add rsc_sap_<b>NW1</b>_ASCS<b>00</b>
+   sudo crm configure modgroup g-<b>NW1</b>_ERS add rsc_sap_<b>NW1</b>_ERS<b>02</b>
+   
+   sudo crm configure colocation col_sap_<b>NW1</b>_no_both -5000: g-<b>NW1</b>_ERS g-<b>NW1</b>_ASCS
+   sudo crm configure order ord_sap_<b>NW1</b>_first_start_ascs Optional: rsc_sap_<b>NW1</b>_ASCS<b>00</b>:start rsc_sap_<b>NW1</b>_ERS<b>02</b>:stop symmetrical=false
+   
+   sudo crm node online <b>nw1-cl-0</b>
+   sudo crm configure property maintenance-mode="false"
+   </code></pre>
+
+  If you are upgrading from an older version and switching to enqueue server 2, see SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
+
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
+
 
    <pre><code>sudo crm_mon -r
    
@@ -563,12 +642,12 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-1</b>
    #  Resource Group: g-NW1_ASCS
    #      fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    <b>Started nw1-cl-1</b>
-   #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
+   #      nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      <b>Started nw1-cl-1</b>
    #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
    #      rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-1</b>
    #  Resource Group: g-NW1_ERS
    #      fs_NW1_ERS (ocf::heartbeat:Filesystem):    <b>Started nw1-cl-0</b>
-   #      nc_NW1_ERS (ocf::heartbeat:anything):      <b>Started nw1-cl-0</b>
+   #      nc_NW1_ERS (ocf::heartbeat:azure-lb):      <b>Started nw1-cl-0</b>
    #      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-0</b>
    #      rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-0</b>
    </code></pre>
@@ -676,7 +755,7 @@ In this example, SAP NetWeaver is installed on SAP HANA. You can use every suppo
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
-   <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
+   <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
    </code></pre>
 
 ## SAP NetWeaver application server installation
@@ -685,7 +764,7 @@ Follow these steps to install an SAP application server.
 
 1. Prepare application server
 
-Follow the steps in the chapter [SAP NetWeaver application server preparation](high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) above to prepare the application server.
+   Follow the steps in the chapter [SAP NetWeaver application server preparation](high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) above to prepare the application server.
 
 1. Install SAP NetWeaver application server
 
@@ -693,7 +772,7 @@ Follow the steps in the chapter [SAP NetWeaver application server preparation](h
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
-   <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
+   <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
    </code></pre>
 
 1. Update SAP HANA secure store
@@ -784,12 +863,12 @@ The following tests are a copy of the test cases in the best practices guides of
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    </code></pre>
@@ -802,7 +881,7 @@ The following tests are a copy of the test cases in the best practices guides of
    nw1-cl-0:~ # crm resource unmigrate rsc_sap_NW1_ASCS00
    # INFO: Removed migration constraints for rsc_sap_NW1_ASCS00
    
-   # Remove failed actions for the ERS that occured as part of the migration
+   # Remove failed actions for the ERS that occurred as part of the migration
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
    </code></pre>
 
@@ -811,12 +890,12 @@ The following tests are a copy of the test cases in the best practices guides of
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
@@ -828,12 +907,12 @@ The following tests are a copy of the test cases in the best practices guides of
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
@@ -843,8 +922,11 @@ The following tests are a copy of the test cases in the best practices guides of
    <pre><code>nw1-cl-0:nw1adm 55> sapcontrol -nr 00 -host nw1-ascs -user nw1adm &lt;password&gt; -function HAFailoverToNode ""
    
    # run as root
-   # Remove failed actions for the ERS that occured as part of the migration
+   # Remove failed actions for the ERS that occurred as part of the migration
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
+   # Remove migration constraints
+   nw1-cl-0:~ # crm resource clear rsc_sap_NW1_ASCS00
+   #INFO: Removed migration constraints for rsc_sap_NW1_ASCS00
    </code></pre>
 
    Resource state after the test:
@@ -852,12 +934,12 @@ The following tests are a copy of the test cases in the best practices guides of
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    </code></pre>
@@ -869,12 +951,12 @@ The following tests are a copy of the test cases in the best practices guides of
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    </code></pre>
@@ -894,12 +976,12 @@ The following tests are a copy of the test cases in the best practices guides of
    stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    
@@ -927,12 +1009,12 @@ The following tests are a copy of the test cases in the best practices guides of
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
@@ -944,17 +1026,17 @@ The following tests are a copy of the test cases in the best practices guides of
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   Create an enqueue lock by, for example edit a user in transaction su01. Run the following commands as \<sapsid>adm on the node where the ASCS instance is running. The commands will stop the ASCS instance and start it again. The enqueue lock is expected to be lost in this test.
+   Create an enqueue lock by, for example edit a user in transaction su01. Run the following commands as \<sapsid>adm on the node where the ASCS instance is running. The commands will stop the ASCS instance and start it again. If using enqueue server 1 architecture, the enqueue lock is expected to be lost in this test. If using enqueue server 2 architecture, the enqueue will be retained. 
 
    <pre><code>nw1-cl-1:nw1adm 54> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>
@@ -974,12 +1056,12 @@ The following tests are a copy of the test cases in the best practices guides of
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
@@ -991,12 +1073,12 @@ The following tests are a copy of the test cases in the best practices guides of
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
@@ -1017,12 +1099,12 @@ The following tests are a copy of the test cases in the best practices guides of
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    </code></pre>
@@ -1034,12 +1116,12 @@ The following tests are a copy of the test cases in the best practices guides of
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    </code></pre>
@@ -1060,12 +1142,12 @@ The following tests are a copy of the test cases in the best practices guides of
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
@@ -1077,12 +1159,12 @@ The following tests are a copy of the test cases in the best practices guides of
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
@@ -1102,12 +1184,12 @@ The following tests are a copy of the test cases in the best practices guides of
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
@@ -1119,12 +1201,12 @@ The following tests are a copy of the test cases in the best practices guides of
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
@@ -1142,20 +1224,20 @@ The following tests are a copy of the test cases in the best practices guides of
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
 ## Next steps
 
+* [HA for SAP NW on Azure VMs on SLES for SAP applications multi-SID guide](./high-availability-guide-suse-multi-sid.md)
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]
 * [Azure Virtual Machines deployment for SAP][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
-* To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md).
 * To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha]

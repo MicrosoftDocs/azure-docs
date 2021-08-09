@@ -1,41 +1,43 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: IoT Solution Accelerators Documentation
+### YamlMime:Landing
+
+title: Azure IoT solution accelerators documentation
+summary: Azure IoT solution accelerators are complete, ready-to-deploy IoT solutions that implement common IoT scenarios such as connected factory.
+
 metadata:
-  title: IoT solution accelerators documentation
-  meta.description: Learn how to use the IoT solution accelerators. These articles show you how to use the solution accelerators to kick-start your implementation of common IoT scenarios such as remote monitoring, industrial IoT, predictive maintenance, and device simulation.
+  title: Azure IoT Solution accelerators documentation
+  description: The IoT solution accelerators are complete, ready-to-deploy IoT solutions that implement common IoT scenarios. The scenarios include connected factory. When you deploy a solution accelerator, the deployment includes all the required cloud-based services along with any required application code.
   services: iot-accelerators
-  author: dominicbetts
-  manager: timlt
   ms.service: iot-accelerators
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/26/2018
+  author: dominicbetts
   ms.author: dobett
-abstract:
-  description: Learn how to use the IoT solution accelerators. These articles show you how to use the solution accelerators to kick-start your implementation of common IoT scenarios such as remote monitoring, industrial IoT, predictive maintenance, and device simulation.
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Get started with the IoT solution accelerators:'
-  - type: list
-    style: unordered
-    items: 
-    - html: <a href="/azure/iot-accelerators/quickstart-remote-monitoring-deploy">Try a cloud-based remote monitoring solution</a>
-    - html: <a href="/azure/iot-accelerators/quickstart-predictive-maintenance-deploy">Try a cloud-based predictive maintenance solution</a>
-    - html: <a href="/azure/iot-accelerators/quickstart-connected-factory-deploy">Try a cloud-based connected factory solution</a>
-    - html: <a href="/azure/iot-accelerators/quickstart-device-simulation-deploy">Try a cloud-based device simulation solution</a>
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: 'Learn about the IoT solution accelerators and the key scenarios they implement:'
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-monitor">Monitor your IoT devices</a>
-    - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate">Detect issues with devices connected to your monitoring solution</a>
-    - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-manage">Configure and manage devices connected to your monitoring solution</a>
-    - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-root-cause-analysis">Conduct a root cause analysis on an alert</a>
-    - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-maintain">Use alerts and fix device issues</a>
+  manager: philmea
+  ms.date: 09/16/2019
+
+landingContent:
+  - title: About IoT solution accelerators
+    linkLists: 
+      - linkListType: overview
+        links: 
+          - text: What are Azure IoT solution accelerators?
+            url: about-iot-accelerators.md
+          - text: The AzureIoTSolutions.com site
+            url: iot-accelerators-permissions.md
+  - title: Get started with industrial IoT
+    linkLists: 
+      - linkListType: overview
+        links: 
+          - text: Industrial IoT overview
+            url: overview-iot-industrial.md
+          - text: OPC Twin overview
+            url: /previous-versions/azure/iot-accelerators/overview-opc-twin
+          - text: OPC Vault overview
+            url: /previous-versions/azure/iot-accelerators/overview-opc-vault
+          - text: OPC Publisher overview
+            url: /previous-versions/azure/iot-accelerators/overview-opc-publisher
+          - text: What is industrial IoT?
+            url: iot-accelerators-connected-factory-features.md
+      - linkListType: quickstart
+        links: 
+          - text: Try a cloud-based connected factory solution
+            url: quickstart-connected-factory-deploy.md

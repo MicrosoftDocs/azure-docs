@@ -1,23 +1,24 @@
 ---
 title: Widevine license template overview | Microsoft Docs
 description: This topic gives an overview of a Widevine license template that is used to configure Widevine licenses.
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.assetid: 0e6f1f05-7ed6-4ed6-82a0-0cc2182b075a
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
-ms.author: juliako
-
+ms.date: 3/10/2021
+ms.author: inhenkel
 ---
 # Widevine license template overview
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 You can use Azure Media Services to configure and request Google Widevine licenses. When the player tries to play your Widevine-protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, the service issues the license. It's sent to the client and is used to decrypt and play the specified content.
 
 A Widevine license request is formatted as a JSON message.  
@@ -25,34 +26,36 @@ A Widevine license request is formatted as a JSON message.
 >[!NOTE]
 > You can create an empty message with no values, just "{}." Then a license template is created with defaults. The default works for most cases. Microsoft-based license-delivery scenarios should always use the defaults. If you need to set the "provider" and "content_id" values, a provider must match Widevine credentials.
 
-    {  
-       “payload”:“<license challenge>”,
-       “content_id”: “<content id>” 
-       “provider”: ”<provider>”
-       “allowed_track_types”:“<types>”,
-       “content_key_specs”:[  
-          {  
-             “track_type”:“<track type 1>”
-          },
-          {  
-             “track_type”:“<track type 2>”
-          },
-          …
-       ],
-       “policy_overrides”:{  
-          “can_play”:<can play>,
-          “can persist”:<can persist>,
-          “can_renew”:<can renew>,
-          “rental_duration_seconds”:<rental duration>,
-          “playback_duration_seconds”:<playback duration>,
-          “license_duration_seconds”:<license duration>,
-          “renewal_recovery_duration_seconds”:<renewal recovery duration>,
-          “renewal_server_url”:”<renewal server url>”,
-          “renewal_delay_seconds”:<renewal delay>,
-          “renewal_retry_interval_seconds”:<renewal retry interval>,
-          “renew_with_usage”:<renew with usage>
-       }
-    }
+```json
+{  
+   "payload": "<license challenge>",
+   "content_id": "<content id>" 
+   "provider": "<provider>"
+   "allowed_track_types": "<types>",
+   "content_key_specs": [  
+      {  
+         "track_type": "<track type 1>"
+      },
+      {  
+         "track_type": "<track type 2>"
+      },
+      …
+   ],
+   "policy_overrides": {  
+      "can_play": <can play>,
+      "can persist": <can persist>,
+      "can_renew": <can renew>,
+      "rental_duration_seconds": <rental duration>,
+      "playback_duration_seconds": <playback duration>,
+      "license_duration_seconds": <license duration>,
+      "renewal_recovery_duration_seconds": <renewal recovery duration>,
+      "renewal_server_url": "<renewal server url>",
+      "renewal_delay_seconds": <renewal delay>,
+      "renewal_retry_interval_seconds": <renewal retry interval>,
+      "renew_with_usage": <renew with usage>
+   }
+}
+```
 
 ## JSON message
 | Name | Value | Description |
@@ -109,82 +112,89 @@ Media Services provides .NET APIs that you can use to configure your Widevine li
 ### Classes as defined in the Media Services .NET SDK
 The following classes are the definitions of these types:
 
-    public class WidevineMessage
-    {
-        public WidevineMessage();
+```dotnetcli
+public class WidevineMessage
+{
+    public WidevineMessage();
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public AllowedTrackTypes? allowed_track_types { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public ContentKeySpecs[] content_key_specs { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public object policy_overrides { get; set; }
-    }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public AllowedTrackTypes? allowed_track_types { get; set; }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public ContentKeySpecs[] content_key_specs { get; set; }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public object policy_overrides { get; set; }
+}
 
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum AllowedTrackTypes
-    {
-        SD_ONLY = 0,
-        SD_HD = 1
-    }
-    public class ContentKeySpecs
-    {
-        public ContentKeySpecs();
+[JsonConverter(typeof(StringEnumConverter))]
+public enum AllowedTrackTypes
+{
+    SD_ONLY = 0,
+    SD_HD = 1
+}
+public class ContentKeySpecs
+{
+    public ContentKeySpecs();
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string key_id { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public RequiredOutputProtection required_output_protection { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public int? security_level { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string track_type { get; set; }
-    }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public string key_id { get; set; }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public RequiredOutputProtection required_output_protection { get; set; }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public int? security_level { get; set; }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public string track_type { get; set; }
+}
 
-    public class RequiredOutputProtection
-    {
-        public RequiredOutputProtection();
+public class RequiredOutputProtection
+{
+    public RequiredOutputProtection();
 
-        public Hdcp hdcp { get; set; }
-    }
+    public Hdcp hdcp { get; set; }
+}
 
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum Hdcp
-    {
-        HDCP_NONE = 0,
-        HDCP_V1 = 1,
-        HDCP_V2 = 2
-    }
+[JsonConverter(typeof(StringEnumConverter))]
+public enum Hdcp
+{
+    HDCP_NONE = 0,
+    HDCP_V1 = 1,
+    HDCP_V2 = 2
+}
+```
 
 ### Example
 The following example shows how to use .NET APIs to configure a simple Widevine license:
 
-    private static string ConfigureWidevineLicenseTemplate()
+```dotnetcli
+private static string ConfigureWidevineLicenseTemplate()
+{
+    var template = new WidevineMessage
     {
-        var template = new WidevineMessage
+        allowed_track_types = AllowedTrackTypes.SD_HD,
+        content_key_specs = new[]
         {
-            allowed_track_types = AllowedTrackTypes.SD_HD,
-            content_key_specs = new[]
+            new ContentKeySpecs
             {
-                new ContentKeySpecs
-                {
-                    required_output_protection = new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
-                    security_level = 1,
-                    track_type = "SD"
-                }
-            },
-            policy_overrides = new
-            {
-                can_play = true,
-                can_persist = true,
-                can_renew = false
+                required_output_protection = new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
+                security_level = 1,
+                track_type = "SD"
             }
-        };
+        },
+        policy_overrides = new
+        {
+            can_play = true,
+            can_persist = true,
+            can_renew = false
+        }
+    };
 
-        string configuration = JsonConvert.SerializeObject(template);
-        return configuration;
-    }
+    string configuration = JsonConvert.SerializeObject(template);
+    return configuration;
+}
+```
 
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

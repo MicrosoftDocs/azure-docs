@@ -4,16 +4,17 @@ description: This document describes how to obtain GDPR compliancy with Azure AD
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 05/21/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # User privacy and Azure AD Connect 
@@ -37,7 +38,7 @@ An Azure AD Connect sync server stores the following user privacy data:
 
 Azure AD Connect customers should use the following guidelines when removing user data:
 1.	Delete the contents of the folder that contains the Azure AD Connect installation log files on a regular basis – at least every 48 hours
-2.	This product may also create Event Logs.  To learn more about Event Logs logs, please see the [documentation here](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx).
+2.	This product may also create Event Logs.  To learn more about Event Logs logs, please see the [documentation here](/windows/win32/wes/windows-event-log).
 
 Data about a person is automatically removed from the Azure AD Connect database when that person’s data is removed from the source system where it originated from. No specific action from administrators is required to be GDPR compliant.  However, it does require that the Azure AD Connect data is synced with your data source at least every two days.
 
@@ -78,4 +79,4 @@ Use the following steps to schedule the script to run every 48 hours.
 
 ## Next steps
 * [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trustcenter)
-- [Azure AD Connect Health and User Privacy](reference-connect-health-user-privacy.md)
+* [Azure AD Connect Health and User Privacy](reference-connect-health-user-privacy.md)

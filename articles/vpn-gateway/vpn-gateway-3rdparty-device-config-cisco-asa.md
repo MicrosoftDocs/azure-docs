@@ -1,12 +1,13 @@
 ---
-title: Sample configuration for connecting Cisco ASA devices to Azure VPN gateways | Microsoft Docs
-description: This article provides a sample configuration for connecting Cisco ASA devices to Azure VPN gateways.
+title: 'Sample configuration for connecting Cisco ASA devices to VPN gateways'
+titleSuffix: Azure VPN Gateway
+description: View sample configurations for connecting Cisco ASA devices to Azure VPN gateways.
 services: vpn-gateway
 author: yushwang
 
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 10/19/2018
+ms.topic: how-to
+ms.date: 04/29/2021
 ms.author: yushwang
 
 ---
@@ -15,17 +16,14 @@ This article provides sample configurations for connecting Cisco Adaptive Securi
 
 ## Device at a glance
 
-|                        |                                   |
-| ---                    | ---                               |
-| Device vendor          | Cisco                             |
-| Device model           | ASA                               |
-| Target version         | 8.4 and later                     |
-| Tested model           | ASA 5505                          |
-| Tested version         | 9.2                               |
-| IKE version            | IKEv2                             |
-| BGP                    | No                                |
-| Azure VPN gateway type | Route-based VPN gateway           |
-|                        |                                   |
+* Device vendor: **Cisco**
+* Device model: **ASA**           
+* Target version: **8.4 and later**
+* Tested model: **ASA 5505**
+* Tested version: **9.2**             
+* IKE version: **IKEv2**                  
+* BGP: **No**      
+* Azure VPN gateway type: **Route-based VPN gateway**
 
 > [!NOTE]
 > The sample configuration connects a Cisco ASA device to an Azure **route-based** VPN gateway. The connection uses a custom IPsec/IKE policy with the **UsePolicyBasedTrafficSelectors** option, as described in [this article](vpn-gateway-connect-multiple-policybased-rm-ps.md).
@@ -40,7 +38,7 @@ Azure VPN gateways use the standard IPsec/IKE protocol suites to establish Site-
 > You can optionally specify an exact combination of cryptographic algorithms and key strengths for a specific connection, as described in [About cryptographic requirements](vpn-gateway-about-compliance-crypto.md). If you specify an exact combination of algorithms and key strengths, be sure to use the corresponding specifications on your VPN devices.
 
 ## Single VPN tunnel
-This configuration consists of a single S2S VPN tunnel between an Azure VPN gateway and an on-premises VPN device. You can optionally configure the [BGP across the VPN tunnel](#bgp).
+This configuration consists of a single S2S VPN tunnel between an Azure VPN gateway and an on-premises VPN device. You can optionally configure the BGP across the VPN tunnel.
 
 ![Single S2S VPN tunnel](./media/vpn-gateway-3rdparty-device-config-cisco-asa/singletunnel.png)
 
@@ -244,7 +242,7 @@ crypto ipsec ikev2 ipsec-proposal AES-256
  protocol esp integrity  sha-1
 exit
 !
-!     > Set access list & traffic selectors, PFS, IPsec protposal, SA lifetime
+!     > Set access list & traffic selectors, PFS, IPsec proposal, SA lifetime
 !       - This sample uses "Azure-<VNetName>-map" as the crypto map name
 !       - ASA supports only one crypto map per interface, if you already have
 !         an existing crypto map assigned to your outside interface, you must use

@@ -1,54 +1,163 @@
 ---
-title: Search explorer for querying indexes in Azure Search | Microsoft Docs
-description: Learn how to use Search explorer for querying indexes in Azure Search.
-manager: cgronlun
+title: Search explorer query tool in Azure portal
+titleSuffix: Azure Cognitive Search
+description: In this Azure portal quickstart, use Search Explorer to learn query syntax, test query expressions, or inspect a search document. Search explorer queries indexes in Azure Cognitive Search. 
+
+manager: nitinme
 author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 07/10/2018
 ms.author: heidist
-
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.date: 01/12/2021
 ---
-# How to use Search explorer to query indexes in Azure Search 
 
-This article shows you how to query an existing Azure Search index using **Search explorer** in the Azure portal. You can use Search explorer to submit simple or full Lucene query strings to any existing index in your service.
+# Quickstart: Use Search explorer to run queries in the portal
 
-## Open the service dashboard
-1. Click **All resources** in the jump bar on the left side of the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
-2. Select your Azure Search service.
+**Search explorer** is a built-in query tool used for running queries against a search index in Azure Cognitive Search. This tool makes it easy to learn query syntax, test a query or filter expression, or confirm data refresh by checking whether new content exists in the index.
 
-## Select an index
+This quickstart uses an existing index to demonstrate Search explorer. Requests are formulated using the [Search REST API](/rest/api/searchservice/search-documents), with responses returned as verbose JSON documents.
 
-Select the index you would like to search from the **Indexes** tile.
+## Prerequisites
 
-   ![](./media/search-explorer/pick-index.png)
+Before you begin, have the following prerequisites in place:
 
-## Open Search explorer
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-Click on the Search explorer tile to slide open the search bar and results pane.
++ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
-   ![](./media/search-explorer/search-explorer-tile.png)
++ The *realestate-us-sample-index* is used for this quickstart. Use the [Quickstart: Create an index](search-import-data-portal.md) to create the index using default values. A built-in sample data source hosted by Microsoft (**realestate-us-sample**) provides the data.
 
-## Start searching
+## Start Search explorer
 
-When using the Search explorer, you can specify [query parameters](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) to formulate the query.
+1. In the [Azure portal](https://portal.azure.com), open the search overview page from the dashboard or [find your service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
-1. In **Query string**, type a query and then press **Search**. 
+1. Open Search explorer from the command bar:
 
-   The query string is automatically parsed into the proper request URL to submit a HTTP request against the Azure Search REST API.   
+   :::image type="content" source="media/search-explorer/search-explorer-cmd2.png" alt-text="Search explorer command in portal" border="true":::
+
+    Or use the embedded **Search explorer** tab on an open index:
+
+   :::image type="content" source="media/search-explorer/search-explorer-tab.png" alt-text="Search explorer tab" border="true":::
+
+## Unspecified query
+
+For a first look at content, execute an empty search by clicking **Search** with no terms provided. An empty search is useful as a first query because it returns entire documents so that you can review document composition. On an empty search, there is no search rank and documents are returned in arbitrary order (`"@search.score": 1` for all documents). By default, 50 documents are returned in a search request.
+
+Equivalent syntax for an empty search is `*` or `search=*`.
    
-   You can use any valid simple or full Lucene query syntax to create the request. The `*` character is equivalent to an empty or unspecified search that returns all documents in no particular order.
+   ```http
+   search=*
+   ```
 
-2. In  **Results**, query results are presented in raw JSON, identical to the payload returned in an HTTP Response Body when issuing requests programmatically.
+   **Results**
+   
+   :::image type="content" source="media/search-explorer/search-explorer-example-empty.png" alt-text="Unqualified or empty query example" border="true":::
 
-   ![](./media/search-explorer/search-bar.png)
+## Free text search
+
+Free-form queries, with or without operators, are useful for simulating user-defined queries sent from a custom app to Azure Cognitive Search. Only those fields attributed as **Searchable** in the index definition are scanned for matches. 
+
+Notice that when you provide search criteria, such as query terms or expressions, search rank comes into play. The following example illustrates a free text search.
+
+   ```http
+   Seattle apartment "Lake Washington" miele OR thermador appliance
+   ```
+
+   **Results**
+
+   You can use Ctrl-F to search within results for specific terms of interest.
+
+   :::image type="content" source="media/search-explorer/search-explorer-example-freetext.png" alt-text="Free text query example" border="true":::
+
+## Count of matching documents 
+
+Add **$count=true** to get the number of matches found in an index. On an empty search, count is the total number of documents in the index. On a qualified search, it's the number of documents matching the query input. Recall that the service returns the top 50 matches by default, so you might have more matches in the index than what's included in the results.
+
+   ```http
+   $count=true
+   ```
+
+   **Results**
+
+   :::image type="content" source="media/search-explorer/search-explorer-example-count.png" alt-text="Count of matching documents in index" border="true":::
+
+## Limit fields in search results
+
+Add [**$select**](search-query-odata-select.md) to limit results to the explicitly named fields for more readable output in **Search explorer**. To keep the search string and **$count=true**, prefix arguments with **&**. 
+
+   ```http
+   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true
+   ```
+
+   **Results**
+
+   :::image type="content" source="media/search-explorer/search-explorer-example-selectfield.png" alt-text="Restrict fields in search results" border="true":::
+
+## Return next batch of results
+
+Azure Cognitive Search returns the top 50 matches based on the search rank. To get the next set of matching documents, append **$top=100,&$skip=50** to increase the result set to 100 documents (default is 50, maximum is 1000), skipping the first 50 documents. You can check the document key (listingID) to identify a document. 
+
+Recall that you need to provide search criteria, such as a query term or expression, to get ranked results. Notice that search scores decrease the deeper you reach into search results.
+
+   ```http
+   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100&$skip=50
+   ```
+
+   **Results**
+
+   :::image type="content" source="media/search-explorer/search-explorer-example-topskip.png" alt-text="Return next batch of search results" border="true":::
+
+## Filter expressions (greater than, less than, equal to)
+
+Use the [**$filter**](search-query-odata-filter.md) parameter when you want to specify precise criteria rather than free text search. The field must be attributed as **Filterable** in the index. This example searches for bedrooms greater than 3:
+
+   ```http
+   search=seattle condo&$filter=beds gt 3&$count=true
+   ```
+   
+   **Results**
+
+   :::image type="content" source="media/search-explorer/search-explorer-example-filter.png" alt-text="Filter by criteria" border="true":::
+
+## Order-by expressions
+
+Add [**$orderby**](search-query-odata-orderby.md) to sort results by another field besides search score. The field must be attributed as **Sortable** in the index. An example expression you can use to test this out is:
+
+   ```http
+   search=seattle condo&$select=listingId,beds,price&$filter=beds gt 3&$count=true&$orderby=price asc
+   ```
+   
+   **Results**
+
+   :::image type="content" source="media/search-explorer/search-explorer-example-ordery.png" alt-text="Change the sort order" border="true":::
+
+Both **$filter** and **$orderby** expressions are OData constructions. For more information, see [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+
+<a name="start-search-explorer"></a>
+
+## Takeaways
+
+In this quickstart, you used **Search explorer** to query an index using the REST API.
+
++ Results are returned as verbose JSON documents so that you can view document construction and content, in entirety. The **$select** parameter in a query expression can limit which fields are returned.
+
++ Documents are composed of all fields marked as **Retrievable** in the index. To view index attributes in the portal, click *realestate-us-sample* in the **Indexes** list on the search overview page.
+
++ Free-form queries, similar to what you might enter in a commercial web browser, are useful for testing an end-user experience. For example, assuming the built-in realestate sample index, you could enter "Seattle apartments lake washington", and then you can use Ctrl-F to find terms within the search results. 
+
++ Query and filter expressions are articulated in a syntax implemented by Azure Cognitive Search. The default is a [simple syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search), but you can optionally use [full Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search) for more powerful queries. [Filter expressions](/rest/api/searchservice/odata-expression-syntax-for-azure-search) are an OData syntax.
+
+## Clean up resources
+
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
+
+If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## Next steps
 
-The following resources provide additional query syntax information and examples.
+To learn more about query structures and syntax, use Postman or an equivalent tool to create query expressions that leverage more parts of the API. The [Search REST API](/rest/api/searchservice/search-documents) is especially helpful for learning and exploration.
 
- + [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
- + [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
- + [Lucene query syntax examples](https://docs.microsoft.com/azure/search/search-query-lucene-examples) 
- + [OData Filter expression syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) 
+> [!div class="nextstepaction"]
+> [Create a basic query in Postman](search-get-started-rest.md)

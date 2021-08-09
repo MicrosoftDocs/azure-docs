@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ---
-<!--author=SharS last changed: 06/22/2016-->
 
 ### To configure and register the device
 1. Access the Windows PowerShell interface on your StorSimple device serial console. See [Use PuTTY to connect to the device serial console](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#use-putty-to-connect-to-the-device-serial-console) for instructions. **Be sure to follow the procedure exactly or you will not be able to access the console.**
@@ -39,7 +38,7 @@ ms.author: alkohli
    4. Optionally, configure your web proxy server.
       
       > [!IMPORTANT]
-      > Although web proxy configuration is optional, be aware that if you use a web proxy, you can only configure it here. For more information, go to [Configure web proxy for your device](../articles/storsimple/storsimple-configure-web-proxy.md).
+      > Although web proxy configuration is optional, be aware that if you use a web proxy, you can only configure it here. For more information, go to [Configure web proxy for your device](../articles/storsimple/storsimple-8000-configure-web-proxy.md).
      
 6. Press Ctrl + C to exit the setup wizard.
 8. Run the following cmdlet to point the device to the Microsoft Azure Government portal (because it points to the public Azure classic portal by default). This will restart both controllers. We recommend that you use two PuTTY sessions to simultaneously connect to both controllers so that you can see when each controller is restarted.
@@ -75,11 +74,10 @@ ms.author: alkohli
 15. Return to the Azure Government Portal, and complete the following steps:
     
     1. Go to your StorSimple Device Manager service.
-    2. Click **Devices**. From the list of devices, identify the device that you are ddeploying. Verify that the device has successfully connected to the service by looking up the status. The device status should be **Online**.
+    2. Click **Devices**. From the list of devices, identify the device that you are deploying. Verify that the device has successfully connected to the service by looking up the status. The device status should be **Online**.
             
         If the device status is **Offline**, wait for a couple of minutes for the device to come online.
        
         If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in [networking requirements for your StorSimple device](../articles/storsimple/storsimple-8000-system-requirements.md).
        
         Verify that port 9354 is open for outbound communication as this is used by the service bus for StorSimple Device Manager Service-to-device communication.
-

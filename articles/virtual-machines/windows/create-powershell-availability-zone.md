@@ -1,47 +1,38 @@
-﻿---
-title: Create a zoned Windows VM - Azure PowerShell | Microsoft Docs
-description: Create a Windows virtual machine in an availability zone with Azure PowerShell
-services: virtual-machines-windows
-documentationcenter: virtual-machines
-author: dlepow
-manager: jeconnoc
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-windows
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: vm-windows
+---
+title: Create a zoned VM using Azure PowerShell 
+description: Create a virtual machine in an availability zone with Azure PowerShell
+author: cynthn
+ms.service: virtual-machines
+ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 03/27/2018
-ms.author: danlep
-ms.custom: 
+ms.author: cynthn
+ms.custom: devx-track-azurepowershell
 ---
 
-# Create a Windows virtual machine in an availability zone with PowerShell
+# Create a virtual machine in an availability zone using Azure PowerShell
 
 This article details using Azure PowerShell to create an Azure virtual machine running Windows Server 2016 in an Azure availability zone. An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
 
-To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
+To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-region.md).
 
-Make sure that you have installed the latest Azure PowerShell module. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+ 
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
+Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ## Check VM SKU availability
-The availability of VM sizes, or SKUs, may vary by region and zone. To help you plan for the use of Availability Zones, you can list the available VM SKUs by Azure region and zone. This ability makes sure that you choose an appropriate VM size, and obtain the desired resiliency across zones. For more information on the different VM types and sizes, see [VM Sizes overview](sizes.md).
+The availability of VM sizes, or SKUs, may vary by region and zone. To help you plan for the use of Availability Zones, you can list the available VM SKUs by Azure region and zone. This ability makes sure that you choose an appropriate VM size, and obtain the desired resiliency across zones. For more information on the different VM types and sizes, see [VM Sizes overview](../sizes.md).
 
-You can view the available VM SKUs with the [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) command. The following example lists available VM SKUs in the *eastus2* region:
+You can view the available VM SKUs with the [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) command. The following example lists available VM SKUs in the *eastus2* region:
 
 ```powershell
-Get-AzureRmComputeResourceSku | where {$_.Locations.Contains("eastus2")};
+Get-AzComputeResourceSku | where {$_.Locations.Contains("eastus2")};
 ```
 
 The output is similar to the following condensed example, which shows the Availability Zones in which each VM size is available:
@@ -65,10 +56,10 @@ virtualMachines   Standard_E4_v3   eastus2  {1, 2, 3}
 
 ## Create resource group
 
-Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. In this example, a resource group named *myResourceGroup* is created in the *eastus2* region. 
+Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. In this example, a resource group named *myResourceGroup* is created in the *eastus2* region. 
 
 ```powershell
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS2
+New-AzResourceGroup -Name myResourceGroup -Location EastUS2
 ```
 
 ## Create networking resources
@@ -78,15 +69,15 @@ These resources are used to provide network connectivity to the virtual machine 
 
 ```powershell
 # Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
 
 # Create a virtual network
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location eastus2 `
+$vnet = New-AzVirtualNetwork -ResourceGroupName myResourceGroup -Location eastus2 `
     -Name myVNet -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
 # Create a public IP address in an availability zone and specify a DNS name
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location eastus2 -Zone 2 `
-    -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
+$pip = New-AzPublicIpAddress -ResourceGroupName myResourceGroup -Location eastus2 -Zone 2 `
+    -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)" -Sku Standard
 ```
 
 ### Create a network security group and a network security group rule 
@@ -94,26 +85,26 @@ The network security group secures the virtual machine using inbound and outboun
 
 ```powershell
 # Create an inbound network security group rule for port 3389
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
+$nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
     -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
     -DestinationPortRange 3389 -Access Allow
 
 # Create an inbound network security group rule for port 80
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleWWW  -Protocol Tcp `
+$nsgRuleWeb = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleWWW  -Protocol Tcp `
     -Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
     -DestinationPortRange 80 -Access Allow
 
 # Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location eastus2 `
+$nsg = New-AzNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location eastus2 `
     -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 ```
 
 ### Create a network card for the virtual machine 
-Create a network card with [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) for the virtual machine. The network card connects the virtual machine to a subnet, network security group, and public IP address.
+Create a network card with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) for the virtual machine. The network card connects the virtual machine to a subnet, network security group, and public IP address.
 
 ```powershell
 # Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location eastus2 `
+$nic = New-AzNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location eastus2 `
     -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
@@ -126,24 +117,24 @@ Create a virtual machine configuration. This configuration includes the settings
 $cred = Get-Credential
 
 # Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS1_v2 -Zone 2 | `
-    Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
-    Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer `
-    -Skus 2016-Datacenter -Version latest | Add-AzureRmVMNetworkInterface -Id $nic.Id
+$vmConfig = New-AzVMConfig -VMName myVM -VMSize Standard_DS1_v2 -Zone 2 | `
+    Set-AzVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
+    Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer `
+    -Skus 2016-Datacenter -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
 ```
 
-Create the virtual machine with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+Create the virtual machine with [New-AzVM](/powershell/module/az.compute/new-azvm).
 
 ```powershell
-New-AzureRmVM -ResourceGroupName myResourceGroup -Location eastus2 -VM $vmConfig
+New-AzVM -ResourceGroupName myResourceGroup -Location eastus2 -VM $vmConfig
 ```
 
 ## Confirm zone for managed disk
 
-You created the VM's IP address resource in the same availability zone as the VM. The managed disk resource for the VM is created in the same availability zone. You can verify this with [Get-AzureRmDisk](/powershell/module/azurerm.compute/get-azurermdisk):
+You created the VM's IP address resource in the same availability zone as the VM. The managed disk resource for the VM is created in the same availability zone. You can verify this with [Get-AzDisk](/powershell/module/az.compute/get-azdisk):
 
 ```powershell
-Get-AzureRmDisk -ResourceGroupName myResourceGroup
+Get-AzDisk -ResourceGroupName myResourceGroup
 ```
 
 The output shows that the managed disk is in the same availability zone as the VM:
@@ -174,4 +165,4 @@ Tags               : {}
 
 ## Next steps
 
-In this article, you learned how to create a VM in an availability zone. Learn more about [regions and availability](regions-and-availability.md) for Azure VMs.
+In this article, you learned how to create a VM in an availability zone. Learn more about [availability](../availability.md) for Azure VMs.

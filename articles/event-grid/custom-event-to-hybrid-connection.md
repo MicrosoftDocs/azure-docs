@@ -1,31 +1,28 @@
 ---
-title: Send custom events for Azure Event Grid to hybrid connection | Microsoft Docs
-description: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. A hybrid connection is used for the endpoint. 
-services: event-grid 
-keywords: 
-author: tfitzmac
-ms.author: tomfitz
-ms.date: 10/30/2018
-ms.topic: tutorial
-ms.service: event-grid
+title: 'Tutorial: Send custom events to hybrid connection - Event Grid'
+description: 'Tutorial: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. A hybrid connection is used for the endpoint.' 
+ms.date: 07/07/2020
+ms.topic: tutorial 
+ms.custom: devx-track-azurecli
 ---
-# Route custom events to Azure Relay Hybrid Connections with Azure CLI and Event Grid
+
+# Tutorial: Route custom events to Azure Relay Hybrid Connections with Azure CLI and Event Grid
 
 Azure Event Grid is an eventing service for the cloud. Azure Relay Hybrid Connections is one of the supported event handlers. You use hybrid connections as the event handler when you need to process events from applications that don't have a public endpoint. These applications might be within your corporate enterprise network. In this article, you use the Azure CLI to create a custom topic, subscribe to the custom topic, and trigger the event to view the result. You send the events to the hybrid connection.
 
 ## Prerequisites
 
-This article assumes you already have a hybrid connection and a listener application. To get started with hybrid connections, see [Get started with Relay Hybrid Connections - .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) or [Get started with Relay Hybrid Connections - Node](../service-bus-relay/relay-hybrid-connections-node-get-started.md).
+- This article assumes you already have a hybrid connection and a listener application. To get started with hybrid connections, see [Get started with Relay Hybrid Connections - .NET](../azure-relay/relay-hybrid-connections-dotnet-get-started.md) or [Get started with Relay Hybrid Connections - Node](../azure-relay/relay-hybrid-connections-node-get-started.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+- This article requires version 2.0.56 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. 
+Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. 
 
 The following example creates a resource group named *gridResourceGroup* in the *westus2* location.
 
@@ -38,10 +35,6 @@ az group create --name gridResourceGroup --location westus2
 An event grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<topic_name>` with a unique name for your custom topic. The event grid topic name must be unique because it's represented by a DNS entry.
 
 ```azurecli-interactive
-# if you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 
@@ -76,7 +69,7 @@ Notice that an [expiration date](concepts.md#event-subscription-expiration) is s
 
 You need an application that can retrieve events from the hybrid connection. The [Microsoft Azure Event Grid Hybrid Connection Consumer sample for C#](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination) performs that operation. You've already finished the prerequisite steps.
 
-1. Make sure you have Visual Studio 2017 Version 15.5 or later.
+1. Make sure you have Visual Studio 2019 or later.
 
 1. Clone the repository to your local machine.
 

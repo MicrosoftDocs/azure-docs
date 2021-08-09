@@ -2,12 +2,12 @@
  title: include file
  description: include file
  services: event-grid
- author: tfitzmac
+ author: spelluru
  ms.service: event-grid
  ms.topic: include
  ms.date: 07/05/2018
- ms.author: tomfitz
- ms.custom: include file
+ ms.author: spelluru
+ ms.custom: include file, devx-track-azurepowershell
 ---
 
 ## Enable Event Grid resource provider
@@ -15,13 +15,13 @@
 If you haven't previously used Event Grid in your Azure subscription, you may need to register the Event Grid resource provider. Run the following command:
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.EventGrid
+Register-AzResourceProvider -ProviderNamespace Microsoft.EventGrid
 ```
 
 It may take a moment for the registration to finish. To check the status, run:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ProviderNamespace Microsoft.EventGrid
+Get-AzResourceProvider -ProviderNamespace Microsoft.EventGrid
 ```
 
 When `RegistrationStatus` is `Registered`, you're ready to continue.

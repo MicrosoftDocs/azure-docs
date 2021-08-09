@@ -1,25 +1,28 @@
 ---
-title: 'Connect to Azure Database for MySQL using Go'
+title: 'Quickstart: Connect using Go - Azure Database for MySQL'
 description: This quickstart provides several Go code samples you can use to connect and query data from Azure Database for MySQL.
-services: mysql
-author: jasonwhowell
-ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 02/28/2018
+ms.date: 5/26/2020
 ---
 
-# Azure Database for MySQL: Use Go language to connect and query data
+# Quickstart: Use Go language to connect and query data in Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 This quickstart demonstrates how to connect to an Azure Database for MySQL from Windows, Ubuntu Linux, and Apple macOS platforms by using code written in the [Go](https://golang.org/) language. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes that you are familiar with development using Go and that you are new to working with Azure Database for MySQL.
 
 ## Prerequisites
 This quickstart uses the resources created in either of these guides as a starting point:
 - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
+
+> [!IMPORTANT] 
+> Ensure the IP address you're connecting from has been added the server's firewall rules using the [Azure portal](./howto-manage-firewall-using-portal.md) or [Azure CLI](./howto-manage-firewall-using-cli.md)
 
 ## Install Go and MySQL connector
 Install [Go](https://golang.org/doc/install) and the [go-sql-driver for MySQL](https://github.com/go-sql-driver/mysql#installation) on your own computer. Depending on your platform, follow the steps in the appropriate section:
@@ -80,11 +83,11 @@ Get the connection information needed to connect to the Azure Database for MySQL
 2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
 3. Click the server name.
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
- ![Azure Database for MySQL server name](./media/connect-go/1_server-overview-name-login.png)
+ :::image type="content" source="./media/connect-go/1_server-overview-name-login.png" alt-text="Azure Database for MySQL server name":::
    
 
 ## Build and run Go code 
-1. To write Golang code, you can use a simple text editor, such as Notepad in Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) or [Nano](https://www.nano-editor.org/) in Ubuntu, or TextEdit in macOS. If you prefer a richer Interactive Development Environment (IDE), try [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/).
+1. To write Golang code, you can use a simple text editor, such as Notepad in Microsoft Windows, [vi](https://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) or [Nano](https://www.nano-editor.org/) in Ubuntu, or TextEdit in macOS. If you prefer a richer Interactive Development Environment (IDE), try [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/).
 2. Paste the Go code from the sections below into text files, and then save them into your project folder with file extension \*.go (such as Windows path `%USERPROFILE%\go\src\mysqlgo\createtable.go` or Linux path `~/go/src/mysqlgo/createtable.go`).
 3. Locate the `HOST`, `DATABASE`, `USER`, and `PASSWORD` constants in the code, and then replace the example values with your own values. 
 4. Launch the command prompt or Bash shell. Change directory into your project folder. For example, on Windows `cd %USERPROFILE%\go\src\mysqlgo\`. On Linux `cd ~/go/src/mysqlgo/`.  Some of the IDE editors mentioned offer debug and runtime capabilities without requiring shell commands.
@@ -287,7 +290,7 @@ func main() {
 	rows, err := db.Exec("UPDATE inventory SET quantity = ? WHERE name = ?", 200, "banana")
 	checkError(err)
 	rowCount, err := rows.RowsAffected()
-	fmt.Printf("Deleted %d row(s) of data.\n", rowCount)
+	fmt.Printf("Updated %d row(s) of data.\n", rowCount)
 	fmt.Println("Done.")
 }
 ```
@@ -344,6 +347,16 @@ func main() {
 	fmt.Printf("Deleted %d row(s) of data.\n", rowCount)
 	fmt.Println("Done.")
 }
+```
+
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## Next steps

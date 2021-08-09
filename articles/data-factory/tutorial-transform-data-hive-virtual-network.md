@@ -1,20 +1,19 @@
-﻿---
-title: 'Transform data using Hive in Azure Virtual Network | Microsoft Docs'
-description: 'This tutorial provides step-by-step instructions for transforming data by using Hive activity in Azure Data Factory.'
-services: data-factory
-documentationcenter: ''
-author: douglaslMS
-manager: craigg
-
-ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 01/22/2018
-ms.author: douglasl
 ---
+title: Transform data using Hive in Azure Virtual Network
+description: Use Azure PowerShell to create a Data Factory pipeline that transforms data using Hive Activity on a HDInsight cluster that is in an Azure Virtual Network (VNet).
+ms.service: data-factory
+ms.subservice: tutorials
+author: nabhishek
+ms.author: abnarain
+ms.topic: tutorial
+ms.custom: devx-track-azurepowershell
+ms.date: 01/22/2018
+---
+
 # Transform data in Azure Virtual Network using Hive activity in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 In this tutorial, you use Azure PowerShell to create a Data Factory pipeline that transforms data using Hive Activity on a HDInsight cluster that is in an Azure Virtual Network (VNet). You perform the following steps in this tutorial:
 
 > [!div class="checklist"]
@@ -29,14 +28,17 @@ In this tutorial, you use Azure PowerShell to create a Data Factory pipeline tha
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - **Azure Storage account**. You create a hive script, and upload it to the Azure storage. The output from the Hive script is stored in this storage account. In this sample, HDInsight cluster uses this Azure Storage account as the primary storage. 
 - **Azure Virtual Network.** If you don't have an Azure virtual network, create it by following [these instructions](../virtual-network/quick-create-portal.md). In this sample, the HDInsight is in an Azure Virtual Network. Here is a sample configuration of Azure Virtual Network. 
 
 	![Create virtual network](media/tutorial-transform-data-using-hive-in-vnet/create-virtual-network.png)
-- **HDInsight cluster.** Create a HDInsight cluster and join it to the virtual network you created in the previous step by following this article: [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Here is a sample configuration of HDInsight in a virtual network. 
+- **HDInsight cluster.** Create a HDInsight cluster and join it to the virtual network you created in the previous step by following this article: [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-plan-virtual-network-deployment.md). Here is a sample configuration of HDInsight in a virtual network. 
 
 	![HDInsight in a virtual network](media/tutorial-transform-data-using-hive-in-vnet/hdinsight-in-vnet-configuration.png)
-- **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
+- **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ### Upload Hive script to your Blob Storage account
 
@@ -60,7 +62,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 3. Create a folder named **hivescripts**.
 4. Upload the **hivescript.hql** file to the **hivescripts** subfolder.
 
- ​
+  
 
 ## Create a data factory
 
@@ -89,27 +91,27 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     Run the following command, and enter the user name and password that you use to sign in to the Azure portal:
         
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```        
     Run the following command to view all the subscriptions for this account:
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
     Run the following command to select the subscription that you want to work with. Replace **SubscriptionId** with the ID of your Azure subscription:
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"    
+    Select-AzSubscription -SubscriptionId "<SubscriptionId>"    
     ```  
 3. Create the resource group: ADFTutorialResourceGroup if it does not exist already in your subscription. 
 
     ```powershell
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location "East Us" 
+    New-AzResourceGroup -Name $resourceGroupName -Location "East Us" 
     ```
 4. Create the data factory. 
 
     ```powershell
-     $df = Set-AzureRmDataFactoryV2 -Location EastUS -Name $dataFactoryName -ResourceGroupName $resourceGroupName
+     $df = Set-AzDataFactoryV2 -Location EastUS -Name $dataFactoryName -ResourceGroupName $resourceGroupName
     ```
 
     Execute the following command to see the output: 
@@ -124,13 +126,13 @@ In this section, you create a self-hosted integration runtime and associate it w
 1. Create Self-hosted integration runtime. Use a unique name in case if another integration runtime with the same name exists.
 
    ```powershell
-   Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted
+   Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted
    ```
     This command creates a logical registration of the self-hosted integration runtime. 
 2. Use PowerShell to retrieve authentication keys to register the self-hosted integration runtime. Copy one of the keys for registering the self-hosted integration runtime.
 
    ```powershell
-   Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName | ConvertTo-Json
+   Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName | ConvertTo-Json
    ```
 
    Here is the sample output: 
@@ -169,10 +171,7 @@ Create a JSON file using your preferred editor, copy the following JSON definiti
     "properties": {
       "type": "AzureStorage",
       "typeProperties": {
-        "connectionString": {
-          "value": "DefaultEndpointsProtocol=https;AccountName=<storageAccountName>;AccountKey=<storageAccountKey>",
-          "type": "SecureString"
-        }
+        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<storageAccountName>;AccountKey=<storageAccountKey>"
       },
       "connectVia": {
         "referenceName": "MySelfhostedIR",
@@ -217,7 +216,7 @@ Update values for the following properties in the linked service definition:
 
 - **userName**. Name of the cluster login user that you specified when creating the cluster. 
 - **password**. The password for the user.
-- **clusterUri**. Specify the URL of your HDInsight cluster in the following format: https://<clustername>.azurehdinsight.net.  This article assumes that you have access to the cluster over the internet. For example, you can connect to the cluster at `https://clustername.azurehdinsight.net`. This address uses the public gateway, which is not available if you have used network security groups (NSGs) or user-defined routes (UDRs) to restrict access from the internet. For Data Factory to submit jobs to HDInsight clusters in Azure Virtual Network, your Azure Virtual Network needs to be configured in such a way that the URL can be resolved to the private IP address of the gateway used by HDInsight.
+- **clusterUri**. Specify the URL of your HDInsight cluster in the following format: `https://<clustername>.azurehdinsight.net`.  This article assumes that you have access to the cluster over the internet. For example, you can connect to the cluster at `https://clustername.azurehdinsight.net`. This address uses the public gateway, which is not available if you have used network security groups (NSGs) or user-defined routes (UDRs) to restrict access from the internet. For Data Factory to submit jobs to HDInsight clusters in Azure Virtual Network, your Azure Virtual Network needs to be configured in such a way that the URL can be resolved to the private IP address of the gateway used by HDInsight.
 
   1. From Azure portal, open the Virtual Network the HDInsight is in. Open the network interface with name starting with `nic-gateway-0`. Note down its private IP address. For example, 10.6.0.15. 
   2. If your Azure Virtual Network has DNS server, update the DNS record so the HDInsight cluster URL `https://<clustername>.azurehdinsight.net` can be resolved to `10.6.0.15`. This is the recommended approach. If you don’t have a DNS server in your Azure Virtual Network, you can temporarily work around this by editing the hosts file (C:\Windows\System32\drivers\etc) of all VMs that registered as self-hosted integration runtime nodes by adding an entry like this: 
@@ -231,12 +230,12 @@ In the PowerShell, switch to the folder where you created JSON files, and run th
 2. Run the following command to create an Azure Storage linked service. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
     ```
 3. Run the following command to create an Azure HDInsight linked service. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyHDInsightLinkedService" -File "MyHDInsightLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyHDInsightLinkedService" -File "MyHDInsightLinkedService.json"
     ```
 
 ## Author a pipeline
@@ -282,7 +281,7 @@ Switch to the folder where you created JSON files, and run the following command
 
 
 ```powershell
-Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name $pipelineName -File "MyHivePipeline.json"
+Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name $pipelineName -File "MyHivePipeline.json"
 ```
 
 ## Start the pipeline 
@@ -290,13 +289,13 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
 1. Start a pipeline run. It also captures the pipeline run ID for future monitoring.
 
     ```powershell
-    $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
+    $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
    ```
 2. Run the following script to continuously check the pipeline run status until it finishes.
 
     ```powershell
     while ($True) {
-        $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+        $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
         if(!$result) {
             Write-Host "Waiting for pipeline to start..." -foregroundcolor "Yellow"
@@ -404,6 +403,3 @@ Advance to the following tutorial to learn about transforming data by using a Sp
 
 > [!div class="nextstepaction"]
 >[Branching and chaining Data Factory control flow](tutorial-control-flow.md)
-
-
-

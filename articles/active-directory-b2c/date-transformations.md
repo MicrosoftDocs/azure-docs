@@ -1,43 +1,44 @@
 ---
-title: Date claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C  | Microsoft Docs
-description: Date claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
+title: Date claims transformation examples for custom policies
+description: Date claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: msmimart
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: davidmu
-ms.component: B2C
+ms.date: 02/16/2020
+ms.author: mimart
+ms.subservice: B2C
+ms.custom: "b2c-support"
 ---
 
 # Date claims transformations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article provides examples for using the date claims transformations of the Identity Experience Framework  schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claimstransformations.md).
+This article provides examples for using the date claims transformations of the Identity Experience Framework  schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [ClaimsTransformations](claimstransformations.md).
 
-## AssertDateTimeIsGreaterThan 
+## AssertDateTimeIsGreaterThan
 
 Checks that one date and time claim (string data type) is later than a second date and time claim (string data type), and throws an exception.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | string | First claim's type, which should be later than the second claim. |
-| inputClaim | rightOperand | string | Second claim's type, which should be earlier than the first claim. |
-| InputParameter | AssertIfEqualTo | boolean | Specifies whether this assertion should pass if the left operand is equal to the right operand. |
+| InputClaim | leftOperand | string | First claim's type, which should be later than the second claim. |
+| InputClaim | rightOperand | string | Second claim's type, which should be earlier than the first claim. |
+| InputParameter | AssertIfEqualTo | boolean | Specifies whether this assertion should throw an error if the left operand is equal to the right operand. An error will be thrown if the left operand is equal to the right operand and the value is set to `true`. Possible values: `true` (default), or `false`. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Specifies whether this assertion should pass if the right operand is missing. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Specifies the number of milliseconds to allow between the two date times to consider the times equal (for example, to account for clock skew). |
 
-The **AssertDateTimeIsGreaterThan** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md). The **DateTimeGreaterThan** self-asserted technical profile metadata controls the error message that the technical profile presents to the user.
+The **AssertDateTimeIsGreaterThan** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md). The **DateTimeGreaterThan** self-asserted technical profile metadata controls the error message that the technical profile presents to the user. The error messages can be [localized](localization-string-ids.md#claims-transformations-error-messages).
 
 ![AssertStringClaimsAreEqual execution](./media/date-transformations/assert-execution.png)
 
-The following example compares the `currentDateTime` claim with the `approvedDateTime` claim. An error is thrown if `currentDateTime` is later than `approvedDateTime`. The transformation treats values as equal if they are within 5 minutes (30000 milliseconds) difference.
+The following example compares the `currentDateTime` claim with the `approvedDateTime` claim. An error is thrown if `currentDateTime` is later than `approvedDateTime`. The transformation treats values as equal if they are within 5 minutes (30000 milliseconds) difference. It won't throw an error if the values are equal because `AssertIfEqualTo` is set to `false`.
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertApprovedDateTimeLaterThanCurrentDateTime" TransformationMethod="AssertDateTimeIsGreaterThan">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="approvedDateTime" TransformationClaimType="leftOperand" />
@@ -51,8 +52,12 @@ The following example compares the `currentDateTime` claim with the `approvedDat
 </ClaimsTransformation>
 ```
 
+> [!NOTE]
+> In the example above, if you remove the `AssertIfEqualTo` input parameter, and the `currentDateTime` is equal to`approvedDateTime`, an error will be thrown. The `AssertIfEqualTo` default value is `true`.
+>
+
 The `login-NonInteractive` validation technical profile calls the `AssertApprovedDateTimeLaterThanCurrentDateTime` claims transformation.
-```XML
+```xml
 <TechnicalProfile Id="login-NonInteractive">
   ...
   <OutputClaimsTransformations>
@@ -63,7 +68,7 @@ The `login-NonInteractive` validation technical profile calls the `AssertApprove
 
 The self-asserted technical profile calls the validation **login-NonInteractive** technical profile.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
   <Metadata>
     <Item Key="DateTimeGreaterThan">Custom error message if the provided left operand is greater than the right operand.</Item>
@@ -77,10 +82,9 @@ The self-asserted technical profile calls the validation **login-NonInteractive*
 ### Example
 
 - Input claims:
-    - **leftOperand**: 2018-10-01T15:00:00.0000000Z
-    - **rightOperand**: 2018-10-01T14:00:00.0000000Z
+    - **leftOperand**: 2020-03-01T15:00:00.0000000Z
+    - **rightOperand**: 2020-03-01T14:00:00.0000000Z
 - Result: Error thrown
-
 
 ## ConvertDateToDateTimeClaim
 
@@ -93,8 +97,8 @@ Converts a **Date** ClaimType to a **DateTime** ClaimType. The claims transforma
 
 The following example demonstrates the conversion of the claim `dateOfBirth` (date data type) to another claim `dateOfBirthWithTime` (dateTime data type).
 
-```XML
-<ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
+```xml
+  <ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
     <InputClaims>
       <InputClaim ClaimTypeReferenceId="dateOfBirth" TransformationClaimType="inputClaim" />
     </InputClaims>
@@ -107,9 +111,38 @@ The following example demonstrates the conversion of the claim `dateOfBirth` (da
 ### Example
 
 - Input claims:
-    - **inputClaim**: 2019-06-01
+    - **inputClaim**: 2020-15-03
 - Output claims:
-    - **outputClaim**: 1559347200 (June 1, 2019 12:00:00 AM)
+    - **outputClaim**: 2020-15-03T00:00:00.0000000Z
+
+## ConvertDateTimeToDateClaim
+
+Converts a **DateTime** ClaimType to a **Date** ClaimType. The claims transformation removes the time format from the date.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | dateTime | The ClaimType to be converted. |
+| OutputClaim | outputClaim | date | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
+
+The following example demonstrates the conversion of the claim `systemDateTime` (dateTime data type) to another claim `systemDate` (date data type).
+
+```xml
+<ClaimsTransformation Id="ConvertToDate" TransformationMethod="ConvertDateTimeToDateClaim">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="systemDateTime" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="systemDate" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example
+
+- Input claims:
+  - **inputClaim**: 2020-15-03T11:34:22.0000000Z
+- Output claims:
+  - **outputClaim**: 2020-15-03
 
 ## GetCurrentDateTime
 
@@ -119,7 +152,7 @@ Get the current UTC date and time and add the value to a ClaimType.
 | ---- | ----------------------- | --------- | ----- |
 | OutputClaim | currentDateTime | dateTime | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
 
-```XML
+```xml
 <ClaimsTransformation Id="GetSystemDateTime" TransformationMethod="GetCurrentDateTime">
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="systemDateTime" TransformationClaimType="currentDateTime" />
@@ -130,7 +163,7 @@ Get the current UTC date and time and add the value to a ClaimType.
 ### Example
 
 * Output claims:
-    * **currentDateTime**: 1534418820 (August 16, 2018 11:27:00 AM)
+    * **currentDateTime**: 2020-15-03T11:40:35.0000000Z
 
 ## DateTimeComparison
 
@@ -147,7 +180,7 @@ Determine whether one dateTime is later, earlier, or equal to another. The resul
 Use this claims transformation to determine if two ClaimTypes are  equal, later, or earlier than each other. For example, you may store the last time a user accepted your terms of services (TOS). After 3 months, you can ask the user to access the TOS again.
 To run the claim transformation, you first need to get the current dateTime and also the last time user accepts the TOS.
 
-```XML
+```xml
 <ClaimsTransformation Id="CompareLastTOSAcceptedWithCurrentDateTime" TransformationMethod="DateTimeComparison">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="currentDateTime" TransformationClaimType="firstDateTime" />
@@ -159,18 +192,17 @@ To run the claim transformation, you first need to get the current dateTime and 
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="isLastTOSAcceptedGreaterThanNow" TransformationClaimType="result" />
-  </OutputClaims>      
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 
 ### Example
 
 - Input claims:
-    - **firstDateTime**: 2018-01-01T00:00:00.100000Z
-    - **secondDateTime**: 2018-04-01T00:00:00.100000Z
+    - **firstDateTime**: 2020-01-01T00:00:00.100000Z
+    - **secondDateTime**: 2020-04-01T00:00:00.100000Z
 - Input parameters:
     - **operator**: later than
     - **timeSpanInSeconds**: 7776000 (90 days)
-- Output claims: 
+- Output claims:
     - **result**: true
-

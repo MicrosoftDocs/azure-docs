@@ -1,186 +1,85 @@
 ---
-title: How to configure password single sign-on for a non-gallery applicationn | Microsoft Docs
-description: How to configure an custom non-gallery application for secure password-based single sign-on when it is not listed in the Azure AD Application Gallery
+title: Understand password-based single sign-on (SSO) for apps in Azure Active Directory
+description: Understand password-based single sign-on (SSO) for apps in Azure Active Directory
 services: active-directory
-author: barbkess
-manager: mtillman
+author: davidmu1
+manager: CelesteDG
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
-ms.author: barbkess
-
+ms.date: 07/29/2020
+ms.author: davidmu
+ms.reviewer: ergreenl
 ---
 
-# How to configure password single sign-on for a non-gallery application
+# Understand password-based single sign-on
 
-In addition to the choices found within the Azure AD Application Gallery, you also have the option to add a **non-gallery application** when the application you want is not listed there. Using this capability, you can add any application that already exists in your organization, or any third-party application that you might use from a vendor who is not already part of the [Azure AD Application Gallery](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery).
+In the [quickstart series](view-applications-portal.md) on application management, you learned how to use Azure AD as the Identity Provider (IdP) for an application. In the quickstart guide, you configure SAML-based or OIDC-based SSO. Another option is password-based SSO. This article goes into more detail about the password-based SSO option.
 
-Once you add a non-gallery application, you can then configure the Single sign-on method this application uses by selecting the **Single Sign-on** navigation item on an Enterprise Application in the [Azure portal](https://portal.azure.com/).
+This option is available for any website with an HTML sign-in page. Password-based SSO is also known as password vaulting. Password-based SSO enables you to manage user access and passwords to web applications that don't support identity federation. It's also useful where several users need to share a single account, such as to your organization's social media app accounts.
 
-One of the Single Sign-on methods available to you is the [Password-Based Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) option. With the **add a non-gallery application** experience, you can integrate any application that renders an HTML-based username and password input field, even if it is not in our set of pre-integrated applications.
+Password-based SSO is a great way to get started integrating applications into Azure AD quickly, and allows you to:
 
-The way this works is by a page scraping technology that is part of the Access Panel extension that allows us to auto-detect username and password input fields, store them securely for your specific application instance. Then securely replay usernames and passwords to those fields when a user navigates to that application on the application access panel.
+- Enable single sign-on for your users by securely storing and replaying usernames and passwords
 
-This is a great way to get started integrating any kind of application into Azure AD quickly, and allows you to:
+- Support applications that require multiple sign-in fields for applications that require more than just username and password fields to sign in
 
--   Integrate **any application in the world** with your Azure AD tenant, so long as it renders an HTML username and password input field
+- Customize the labels of the username and password fields your users see on [My Apps](../user-help/my-apps-portal-end-user-access.md) when they enter their credentials
 
--   Enable **Single Sign-on for your users** by securely storing and replaying usernames and passwords for the application you’ve integrated with Azure AD
+- Allow your users to provide their own usernames and passwords for any existing application accounts they're typing in manually.
 
--   **Auto-detect input** fields for any application and allow you to manually detect those fields using the Access Panel Browser Extension, in case auto-detection does not find them
+- Allow a member of the business group to specify the usernames and passwords assigned to a user by using the [Self-Service Application Access](./manage-self-service-access.md) feature.
 
--   **Support applications that require multiple sign-in fields** for applications that require more than just username and password fields to sign in
+- Allow an administrator to specify a username and password to be used by individuals or groups when they sign in to the application with the Update Credentials feature.
 
--   **Customize the labels** of the username and password input fields your users see on the [Application Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) when they enter their credentials
+## Before you begin
 
--   Allow your **users** to provide their own usernames and passwords for any existing application accounts they are typing in manually on the [Application Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Using Azure AD as your Identity Provider (IdP) and configuring single sign-on (SSO) can be simple or complex depending on the application being used. Some applications can be configured with just a few actions. Others require in-depth configuration. To ramp knowledge quickly, walk through the [quickstart series](view-applications-portal.md) on application management. If the application you're adding is simple, then you probably don't need to read this article. If the application you're adding requires custom configuration and you need to use password-based SSO, then this article is for you.
 
--   Allow a **member of the business group** to specify the usernames and passwords assigned to a user by using the [Self-Service Application Access](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) feature
+> [!IMPORTANT]
+> There are some scenarios where the **Single sign-on** option will not be in the navigation for an application in **Enterprise applications**.
+>
+> If the application was registered using **App registrations** then the single sign-on capability is configured to use OIDC OAuth by default. In this case, the **Single sign-on** option won't show in the navigation under **Enterprise applications**. When you use **App registrations** to add your custom app, you configure options in the manifest file. To learn more about the manifest file, see [Azure Active Directory app manifest](../develop/reference-app-manifest.md). To learn more about SSO standards, see [Authentication and authorization using Microsoft identity platform](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-the-microsoft-identity-platform).
+>
+> Other scenarios where **Single sign-on** will be missing from the navigation include when an application is hosted in another tenant or if your account does not have the required permissions (Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal). Permissions can also cause a scenario where you can open **Single sign-on** but won't be able to save. To learn more about Azure AD administrative roles, see (https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
 
--   Allow an **administrator** to specify the usernames and passwords assigned to a user by using the Update Credentials feature when [assigning a user to an application](#_How_to_configure_1)
+## Basic configuration
 
--   Allow an **administrator** to specify the shared username or password used by a group of people by using the Update Credentials feature when [assigning a group to an application](#assign-an-application-to-a-group-directly)
+In the [quickstart series](view-applications-portal.md), you learned how to add an app to your tenant, which lets Azure AD knows it's being used as the Identity Provider (IdP) for the app. Some apps are already pre-configured and they show in the Azure AD gallery. Other apps are not in the gallery and you have to create a generic app and configure it manually. Depending on the app, the password-based SSO option might not be available. If you don't see the Password-based option list on the single sign-on page for the app, then it is not available.
 
-The following section describes how you can enable [Password-Based Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) to any application that you add using the **add a non-gallery application** experience.
+> [!IMPORTANT]
+> The My Apps browser extension is required for password-based SSO. To learn more, see [Plan a My Apps deployment](my-apps-deployment-plan.md).
 
-## Overview of steps required
+The configuration page for password-based SSO is simple. It includes only the URL of the sign-on page that the app uses. This string must be the page that includes the username input field.
 
-To configure an application from the Azure AD gallery you need to:
+After you enter the URL, select **Save**. Azure AD parses the HTML of the sign-in page for username and password input fields. If the attempt succeeds, you're done.
+Your next step is to [Assign users or groups to the application](./assign-user-or-group-access-portal.md). After you've assigned users and groups, you can provide credentials to be used for a user when they sign in to the application. Select **Users and groups**, select the checkbox for the user's or group's row, and then select **Update Credentials**. Finally, enter the username and password to be used for the user or group. If you don't, users will be prompted to enter the credentials themselves upon launch.
 
--   [Add a non-gallery application](#add-a-non-gallery-application)
+## Manual configuration
 
--   [Configure the application for password single sign-on](#configure-the-application-for-password-single-sign-on)
+If Azure AD's parsing attempt fails, you can configure sign-on manually.
 
--   [Assign the application to a user or a group](#assign-the-application-to-a-user-or-a-group)
+1. Under **\<application name> Configuration**, select **Configure \<application name> Password Single Sign-on Settings** to display the **Configure sign-on** page.
 
-    -   [Assign a user to an application directly](#assign-a-user-to-an-application-directly)
+2. Select **Manually detect sign-in fields**. Additional instructions describing the manual detection of sign-in fields appear.
 
-    -   [Assign an application to a group directly](#assign-an-application-to-a-group-directly)
+   ![Manual configuration of password-based single sign-on](./media/configure-password-single-sign-on/password-configure-sign-on.png)
+3. Select **Capture sign-in fields**. A capture status page opens in a new tab, showing the message **metadata capture is currently in progress**.
 
-## Add a non-gallery application
+4. If the **My Apps Extension Required** box appears in a new tab, select **Install Now** to install the **My Apps Secure Sign-in Extension** browser extension. (The browser extension requires Microsoft Edge, Chrome, or Firefox.) Then install, launch, and enable the extension, and refresh the capture status page.
 
-To add an application from the Azure AD Gallery, follow these steps:
+   The browser extension then opens another tab that displays the entered URL.
+5. In the tab with the entered URL, go through the sign-in process. Fill in the username and password fields, and try to sign in. (You don't have to provide the correct password.)
 
-1.  Open the [Azure portal](https://portal.azure.com) and sign in as a **Global Administrator** or **Co-admin**
+   A prompt asks you to save the captured sign-in fields.
+6. Select **OK**. The browser extension updates the capture status page with the message **Metadata has been updated for the application**. The browser tab closes.
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+7. In the Azure AD **Configure sign-on** page, select **Ok, I was able to sign-in to the app successfully**.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-
-4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-
-5.  click the **Add** button at the top-right corner on the **Enterprise Applications** pane.
-
-6.  click **Non-gallery application**.
-
-7.  Enter the name of your application in the **Name** textbox. Select **Add.**
-
-After a short period, you be able to see the application’s configuration pane.
-
-## Configure the application for password single sign-on
-
-To configure single sign-on for an application, follow these steps:
-
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
-
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-
-4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-
-5.  click **All Applications** to view a list of all your applications.
-
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
-
-6.  Select the application you want to configure single sign-on.
-
-7.  Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
-
-8.  Select the mode **Password-based Sign-on.**
-
-9.  Enter the **Sign-on URL**. This is the URL where users enter their username and password to sign in to. Ensure the sign-in fields are visible at the URL.
-
-10. Assign users to the application.
-
-11. Additionally, you can also provide credentials on behalf of the user by selecting the rows of the users and clicking on **Update Credentials** and entering the username and password on behalf of the users. Otherwise, users be prompted to enter the credentials themselves upon launch.
-
-
-## Assign a user to an application directly
-
-To assign one or more users to an application directly, follow these steps:
-
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
-
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-
-4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-
-5.  click **All Applications** to view a list of all your applications.
-
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
-
-6.  Select the application you want to assign a user to from the list.
-
-7.  Once the application loads, click **Users and Groups** from the application’s left-hand navigation menu.
-
-8.  To open the **Add Assignment** pane, click the **Add** button on top of the **Users and Groups** list.
-
-9.  click the **Users and groups** selector from the **Add Assignment** pane.
-
-10. Type in the **full name** or **email address** of the user you are interested in assigning into the **Search by name or email address** search box.
-
-11. Hover over the **user** in the list to reveal a **checkbox**. Click the checkbox next to the user’s profile photo or logo to add your user to the **Selected** list.
-
-12. **Optional:** If you would like to **add more than one user**, type in another **full name** or **email address** into the **Search by name or email address** search box, and click the checkbox to add this user to the **Selected** list.
-
-13. When you are finished selecting users, click the **Select** button to add them to the list of users and groups to be assigned to the application.
-
-14. **Optional:** click the **Select Role** selector in the **Add Assignment** pane to select a role to assign to the users you have selected.
-
-15. Click the **Assign** button to assign the application to the selected users.
-
-## Assign an application to a group directly
-
-To assign one or more groups to an application directly, follow these steps:
-
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
-
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-
-4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-
-5.  click **All Applications** to view a list of all your applications.
-
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
-
-6.  Select the application you want to assign a user to from the list.
-
-7.  Once the application loads, click **Users and Groups** from the application’s left-hand navigation menu.
-
-8.  To open the **Add Assignment** pane, click the **Add** button on top of the **Users and Groups** list.
-
-9.  click the **Users and groups** selector from the **Add Assignment** pane.
-
-10. Type in the **full group name** of the group you are interested in assigning into the **Search by name or email address** search box.
-
-11. Hover over the **group** in the list to reveal a **checkbox**. Click the checkbox next to the group’s profile photo or logo to add your user to the **Selected** list.
-
-12. **Optional:** If you would like to **add more than one group**, type in another **full group name** into the **Search by name or email address** search box, and click the checkbox to add this group to the **Selected** list.
-
-13. When you are finished selecting groups, click the **Select** button to add them to the list of users and groups to be assigned to the application.
-
-14. **Optional:** click the **Select Role** selector in the **Add Assignment** pane to select a role to assign to the groups you have selected.
-
-15. Click the **Assign** button to assign the application to the selected groups.
-
-After a short period, the users you have selected be able to launch these applications in the Access Panel.
+8. Select **OK**.
 
 ## Next steps
-[Provide single sign-on to your apps with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)
+
+- [Assign users or groups to the application](./assign-user-or-group-access-portal.md)
+- [Configure automatic user account provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md)

@@ -1,28 +1,30 @@
 ---
 title: Media Encoder Standard schema | Microsoft Docs
-description: The article gives an overview of the Media Encoder Standard schema.
-author: Juliako
+description: This article describes some of the elements and types of the XML schema on which Media Encoder Standard presets are based.
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 # Media Encoder Standard schema
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 This article describes some of the elements and types of the XML schema on which [Media Encoder Standard presets](media-services-mes-presets-overview.md) are based. The article gives explanation of elements and their valid values.  
 
 ## <a name="Preset"></a> Preset (root element)
 Defines an encoding preset.  
 
 ### Elements
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Encoding** |[Encoding](media-services-mes-schema.md#Encoding) |Root element, indicates that the input sources are to be encoded. |
@@ -30,6 +32,7 @@ Defines an encoding preset.
 | **StretchMode**<br/>minOccurs="0"<br/>default="AutoSize|xs:string|Control the output video frame size, padding, pixel, or display aspect ratio. **StretchMode** could be one of the following values: **None**, **AutoSize** (default), or **AutoFit**.<br/><br/>**None**: Strictly follow the output resolution (for example, the **Width** and **Height** in the preset) without considering the pixel aspect ratio or display aspect ratio of the input video. Recommended in scenarios such as [cropping](media-services-crop-video.md), where the output video has a different aspect ratio compared to the input. <br/><br/>**AutoSize**: The output resolution will fit inside the window (Width * Height) specified by preset. However, the encoder produces an output video that has square (1:1) pixel aspect ratio. Therefore, either output Width or output Height could be overridden in order to match the display aspect ratio of the input, without padding. For example, if the input is 1920x1080 and the encoding preset asks for 1280x1280, then the Height value in the preset is overridden, and the output will be at 1280x720, which maintains the input aspect ratio of 16:9. <br/><br/>**AutoFit**: If needed, pad the output video (with either letterbox or pillarbox) to honor the desired output resolution, while ensuring that the active video region in the output has the same aspect ratio as the input. For example, suppose the input is 1920x1080 and the encoding preset asks for 1280x1280. Then the output video will be at 1280x1280, but it will contain an inner 1280x720 rectangle of ‘active video’ with aspect ratio of 16:9, and letterbox regions 280 pixels high at the top and bottom. For another example, if the input is 1440x1080 and the encoding preset asks for 1280x720, then the output will be at 1280x720, which contains an inner rectangle of 960x720 at aspect ratio of 4:3, and pillar box regions 160 pixels wide at the left and right. 
 
 ### Attributes
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Version**<br/><br/> Required |**xs: decimal** |The preset version. The following restrictions apply: xs:fractionDigits value="1"  and xs:minInclusive value="1" For example, **version="1.0"**. |
@@ -38,6 +41,7 @@ Defines an encoding preset.
 Contains a sequence of the following elements:  
 
 ### Elements
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **H264Video** |[H264Video](media-services-mes-schema.md#H264Video) |Settings for H.264 encoding of video. |
@@ -48,6 +52,7 @@ Contains a sequence of the following elements:
 
 ## <a name="H264Video"></a> H264Video
 ### Elements
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> minOccurs="0" |**xs:boolean** |Currently, only one-pass encoding is supported. |
@@ -58,6 +63,7 @@ Contains a sequence of the following elements:
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Collection of output video layers. |
 
 ### Attributes
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Condition** |**xs:string** | When the input has no video, you may want to force the encoder to insert a monochrome video track. To do that, use Condition="InsertBlackIfNoVideoBottomLayerOnly" (to insert a video at only the lowest bitrate) or Condition="InsertBlackIfNoVideo" (to insert a video at all output bitrates). For more information, see [this](media-services-advanced-encoding-with-mes.md#no_video) article.|
@@ -67,6 +73,7 @@ Contains a sequence of the following elements:
 By default, if you send an input to the encoder that contains only audio, and no video, the output asset contains files with audio data only. Some players may not be able to handle such output streams. You can use the H264Video's **InsertBlackIfNoVideo** attribute setting to force the encoder to add a video track to the output in that scenario. For more information, see [this](media-services-advanced-encoding-with-mes.md#no_video) article.
               
 ### Elements
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **H264Layer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[H264Layer](media-services-mes-schema.md#H264Layer) |A collection of H264 layers. |
@@ -78,6 +85,7 @@ By default, if you send an input to the encoder that contains only audio, and no
 > 
 
 ### Elements
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Profile**<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs: string** |Could be of one of the following **xs: string** values: **Auto**, **Baseline**, **Main**, **High**. |
@@ -100,16 +108,19 @@ By default, if you send an input to the encoder that contains only audio, and no
  For more information about AAC, see [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding).  
 
 ### Elements
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Profile**<br/><br/> minOccurs="0 "<br/><br/> default="AACLC" |**xs: string** |Could be one of the following values: **AACLC**, **HEAACV1**, or **HEAACV2**. |
 
 ### Attributes
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Condition** |**xs: string** |To force the encoder to produce an asset that contains a silent audio track when input has no audio, specify the "InsertSilenceIfNoAudio" value.<br/><br/> By default, if you send an input to the encoder that contains only video, and no audio, then the output asset contains files that contain only video data. Some players may not be able to handle such output streams. You can use this setting to force the encoder to add a silent audio track to the output in that scenario. |
 
 ### Groups
+
 | Reference | Description |
 | --- | --- |
 | [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |See description of [AudioGroup](media-services-mes-schema.md#AudioGroup) to know the appropriate number of channels, sampling rate, and bit rate that could be set for each profile. |
@@ -118,6 +129,7 @@ By default, if you send an input to the encoder that contains only audio, and no
 For details about what values are valid for each profile, see the “Audio codec details” table that follows.  
 
 ### Elements
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Channels**<br/><br/> minOccurs="0" |**xs: int** |The number of audio channels encoded. The following are valid options: 1, 2, 5, 6, 8.<br/><br/> Default: 2. |
@@ -125,14 +137,16 @@ For details about what values are valid for each profile, see the “Audio codec
 | **Bitrate**<br/><br/> minOccurs="0" |**xs: int** |The bitrate used when encoding the audio, specified in kbps. |
 
 ### Audio codec details
+
 Audio Codec|Details  
 -----------------|---  
-**AACLC**|1:<br/><br/> - 11025: 8 &lt;= bitrate &lt; 16<br/><br/> - 12000: 8 &lt;= bitrate &lt; 16<br/><br/> - 16000: 8 &lt;= bitrate &lt;32<br/><br/>- 22050: 24 &lt;= bitrate &lt; 32<br/><br/> - 24000: 24 &lt;= bitrate &lt; 32<br/><br/> - 32000: 32 &lt;= bitrate &lt;= 192<br/><br/> - 44100: 56 &lt;= bitrate &lt;= 288<br/><br/> - 48000: 56 &lt;= bitrate &lt;= 288<br/><br/> - 88200 : 128 &lt;= bitrate &lt;= 288<br/><br/> - 96000 : 128 &lt;= bitrate &lt;= 288<br/><br/> 2:<br/><br/> - 11025: 16 &lt;= bitrate &lt; 24<br/><br/> - 12000: 16 &lt;= bitrate &lt; 24<br/><br/> - 16000: 16 &lt;= bitrate &lt; 40<br/><br/> - 22050: 32 &lt;= bitrate &lt; 40<br/><br/> - 24000 : 32 &lt;= bitrate &lt; 40<br/><br/> - 32000:  40 &lt;= bitrate &lt;= 384<br/><br/> - 44100: 96 &lt;= bitrate &lt;= 576<br/><br/> - 48000 : 96 &lt;= bitrate &lt;= 576<br/><br/> - 88200: 256 &lt;= bitrate &lt;= 576<br/><br/> - 96000: 256 &lt;= bitrate &lt;= 576<br/><br/> 5/6:<br/><br/> - 32000: 160 &lt;= bitrate &lt;= 896<br/><br/> - 44100: 240 &lt;= bitrate &lt;= 1024<br/><br/> - 48000: 240 &lt;= bitrate &lt;= 1024<br/><br/> - 88200: 640 &lt;= bitrate &lt;= 1024<br/><br/> - 96000: 640 &lt;= bitrate &lt;= 1024<br/><br/> 8:<br/><br/> - 32000 : 224 &lt;= bitrate &lt;= 1024<br/><br/> - 44100 : 384 &lt;= bitrate &lt;= 1024<br/><br/> - 48000: 384 &lt;= bitrate &lt;= 1024<br/><br/> - 88200: 896 &lt;= bitrate &lt;= 1024<br/><br/> - 96000: 896 &lt;= bitrate &lt;= 1024  
-**HEAACV1**|1:<br/><br/> - 22050: bitrate = 8<br/><br/> - 24000: 8 &lt;= bitrate &lt;= 10<br/><br/> - 32000: 12 &lt;= bitrate &lt;= 64<br/><br/> - 44100: 20 &lt;= bitrate &lt;= 64<br/><br/> - 48000: 20 &lt;= bitrate &lt;= 64<br/><br/> - 88200: bitrate = 64<br/><br/> 2:<br/><br/> - 32000: 16 &lt;= bitrate &lt;= 128<br/><br/> - 44100: 16 &lt;= bitrate &lt;= 128<br/><br/> - 48000: 16 &lt;= bitrate &lt;= 128<br/><br/> - 88200 : 96 &lt;= bitrate &lt;= 128<br/><br/> - 96000: 96 &lt;= bitrate &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000 : 64 &lt;= bitrate &lt;= 320<br/><br/> - 44100: 64 &lt;= bitrate &lt;= 320<br/><br/> - 48000: 64 &lt;= bitrate &lt;= 320<br/><br/> - 88200 : 256 &lt;= bitrate &lt;= 320<br/><br/> - 96000: 256 &lt;= bitrate &lt;= 320<br/><br/> 8:<br/><br/> - 32000: 96 &lt;= bitrate &lt;= 448<br/><br/> - 44100: 96 &lt;= bitrate &lt;= 448<br/><br/> - 48000: 96 &lt;= bitrate &lt;= 448<br/><br/> - 88200: 384 &lt;= bitrate &lt;= 448<br/><br/> - 96000: 384 &lt;= bitrate &lt;= 448  
-**HEAACV2**|2:<br/><br/> - 22050: 8 &lt;= bitrate &lt;= 10<br/><br/> - 24000: 8 &lt;= bitrate &lt;= 10<br/><br/> - 32000: 12 &lt;= bitrate &lt;= 64<br/><br/> - 44100: 20 &lt;= bitrate &lt;= 64<br/><br/> - 48000: 20 &lt;= bitrate &lt;= 64<br/><br/> - 88200: 64 &lt;= bitrate &lt;= 64  
+**AACLC** |1:<br/><br/> - 11025: 8 &lt;= bitrate &lt; 16<br/><br/> - 12000: 8 &lt;= bitrate &lt; 16<br/><br/> - 16000: 8 &lt;= bitrate &lt;32<br/><br/>- 22050: 24 &lt;= bitrate &lt; 32<br/><br/> - 24000: 24 &lt;= bitrate &lt; 32<br/><br/> - 32000: 32 &lt;= bitrate &lt;= 192<br/><br/> - 44100: 56 &lt;= bitrate &lt;= 288<br/><br/> - 48000: 56 &lt;= bitrate &lt;= 288<br/><br/> - 88200 : 128 &lt;= bitrate &lt;= 288<br/><br/> - 96000 : 128 &lt;= bitrate &lt;= 288<br/><br/> 2:<br/><br/> - 11025: 16 &lt;= bitrate &lt; 24<br/><br/> - 12000: 16 &lt;= bitrate &lt; 24<br/><br/> - 16000: 16 &lt;= bitrate &lt; 40<br/><br/> - 22050: 32 &lt;= bitrate &lt; 40<br/><br/> - 24000 : 32 &lt;= bitrate &lt; 40<br/><br/> - 32000:  40 &lt;= bitrate &lt;= 384<br/><br/> - 44100: 96 &lt;= bitrate &lt;= 576<br/><br/> - 48000 : 96 &lt;= bitrate &lt;= 576<br/><br/> - 88200: 256 &lt;= bitrate &lt;= 576<br/><br/> - 96000: 256 &lt;= bitrate &lt;= 576<br/><br/> 5/6:<br/><br/> - 32000: 160 &lt;= bitrate &lt;= 896<br/><br/> - 44100: 240 &lt;= bitrate &lt;= 1024<br/><br/> - 48000: 240 &lt;= bitrate &lt;= 1024<br/><br/> - 88200: 640 &lt;= bitrate &lt;= 1024<br/><br/> - 96000: 640 &lt;= bitrate &lt;= 1024<br/><br/> 8:<br/><br/> - 32000 : 224 &lt;= bitrate &lt;= 1024<br/><br/> - 44100 : 384 &lt;= bitrate &lt;= 1024<br/><br/> - 48000: 384 &lt;= bitrate &lt;= 1024<br/><br/> - 88200: 896 &lt;= bitrate &lt;= 1024<br/><br/> - 96000: 896 &lt;= bitrate &lt;= 1024  
+**HEAACV1** |1:<br/><br/> - 22050: bitrate = 8<br/><br/> - 24000: 8 &lt;= bitrate &lt;= 10<br/><br/> - 32000: 12 &lt;= bitrate &lt;= 64<br/><br/> - 44100: 20 &lt;= bitrate &lt;= 64<br/><br/> - 48000: 20 &lt;= bitrate &lt;= 64<br/><br/> - 88200: bitrate = 64<br/><br/> 2:<br/><br/> - 32000: 16 &lt;= bitrate &lt;= 128<br/><br/> - 44100: 16 &lt;= bitrate &lt;= 128<br/><br/> - 48000: 16 &lt;= bitrate &lt;= 128<br/><br/> - 88200 : 96 &lt;= bitrate &lt;= 128<br/><br/> - 96000: 96 &lt;= bitrate &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000 : 64 &lt;= bitrate &lt;= 320<br/><br/> - 44100: 64 &lt;= bitrate &lt;= 320<br/><br/> - 48000: 64 &lt;= bitrate &lt;= 320<br/><br/> - 88200 : 256 &lt;= bitrate &lt;= 320<br/><br/> - 96000: 256 &lt;= bitrate &lt;= 320<br/><br/> 8:<br/><br/> - 32000: 96 &lt;= bitrate &lt;= 448<br/><br/> - 44100: 96 &lt;= bitrate &lt;= 448<br/><br/> - 48000: 96 &lt;= bitrate &lt;= 448<br/><br/> - 88200: 384 &lt;= bitrate &lt;= 448<br/><br/> - 96000: 384 &lt;= bitrate &lt;= 448  
+**HEAACV2** |2:<br/><br/> - 22050: 8 &lt;= bitrate &lt;= 10<br/><br/> - 24000: 8 &lt;= bitrate &lt;= 10<br/><br/> - 32000: 12 &lt;= bitrate &lt;= 64<br/><br/> - 44100: 20 &lt;= bitrate &lt;= 64<br/><br/> - 48000: 20 &lt;= bitrate &lt;= 64<br/><br/> - 88200: 64 &lt;= bitrate &lt;= 64  
   
 ## <a name="Clip"></a> Clip
 ### Attributes
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **StartTime** |**xs:duration** |Specifies the start time of a presentation. The value of StartTime needs to match the absolute timestamps of the input video. For example, if the first frame of the input video has a timestamp of 12:00:10.000, then StartTime should be at least 12:00:10.000 or greater. |
@@ -140,11 +154,13 @@ Audio Codec|Details
 
 ## <a name="Output"></a> Output
 ### Attributes
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **FileName** |**xs:string** |The name of the output file.<br/><br/> You can use macros described in the following table to build the output file names. For example:<br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
 
 ### Macros
+
 | Macro | Description |
 | --- | --- |
 | **{Basename}** |If you are doing VoD encoding, the {Basename} is the first 32 characters of the AssetFile.Name property of the primary file in the input asset.<br/><br/> If the input asset is a live archive, then the {Basename} is derived from the trackName attributes in the server manifest. If you are submitting a subclip job using the TopBitrate, as in: "<VideoStream\>TopBitrate</VideoStream\>", and the output file contains video, then the {Basename} is the first 32 characters of the trackName of the video layer with the highest bitrate.<br/><br/> If instead you are submitting a subclip job using all of the input bitrates, such as "<VideoStream\>*</VideoStream\>", and the output file contains video, then {Basename} is the first 32 characters of the trackName of the corresponding video layer. |
@@ -158,6 +174,7 @@ Audio Codec|Details
 
 ## <a name="Video"></a> Video (complex type inherits from Codec)
 ### Attributes
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Start** |**xs:string** | |
@@ -182,6 +199,7 @@ Alternatively, you can make use of the **PreserveResolutionAfterRotation** flag 
 
 ## <a name="FormatGroup"></a> FormatGroup (group)
 ### Elements
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **BmpFormat** |**BmpFormat** | |
@@ -190,30 +208,35 @@ Alternatively, you can make use of the **PreserveResolutionAfterRotation** flag 
 
 ## <a name="BmpLayer"></a> BmpLayer
 ### Element
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Width**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Height**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### Attributes
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
 ## <a name="PngLayer"></a> PngLayer
 ### Element
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Width**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Height**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### Attributes
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
 ## <a name="JpgLayer"></a> JpgLayer
 ### Element
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Width**<br/><br/> minOccurs="0" |**xs:int** | |
@@ -221,42 +244,49 @@ Alternatively, you can make use of the **PreserveResolutionAfterRotation** flag 
 | **Quality**<br/><br/> minOccurs="0" |**xs:int** |Valid values: 1(worst)-100(best) |
 
 ### Attributes
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
 ## <a name="PngLayers"></a> PngLayers
 ### Elements
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **PngLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[PngLayer](media-services-mes-schema.md#PngLayer) | |
 
 ## <a name="BmpLayers"></a> BmpLayers
 ### Elements
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **BmpLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[BmpLayer](media-services-mes-schema.md#BmpLayer) | |
 
 ## <a name="JpgLayers"></a> JpgLayers
 ### Elements
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **JpgLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[JpgLayer](media-services-mes-schema.md#JpgLayer) | |
 
 ## <a name="BmpImage"></a> BmpImage (complex type inherits from Video)
 ### Elements
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png layers |
 
 ## <a name="JpgImage"></a> JpgImage (complex type inherits from Video)
 ### Elements
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png layers |
 
 ## <a name="PngImage"></a> PngImage (complex type inherits from Video)
 ### Elements
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png layers |

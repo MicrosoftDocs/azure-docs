@@ -1,109 +1,132 @@
 ---
-title: Azure Service Bus IP connection filters | Microsoft Docs
-description: How to use IP filtering to block connections from specific IP addresses to Azure Service Bus. 
-services: service-bus
-documentationcenter: ''
-author: clemensv
-manager: timlt
-
-ms.service: service-bus
-ms.devlang: na
+title: Configure IP firewall rules for Azure Service Bus
+description: How to use Firewall Rules to allow connections from specific IP addresses to Azure Service Bus. 
 ms.topic: article
-ms.date: 09/26/2018
-ms.author: clemensv
-
+ms.date: 03/29/2021
 ---
 
-# Use IP filters
+# Allow access to Azure Service Bus namespace from specific IP addresses or ranges
+By default, Service Bus namespaces are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
 
-For scenarios in which Azure Service Bus is only accessible from certain well-known sites, the *IP filter* feature enables you to configure rules for rejecting or accepting traffic originating from specific IPv4 addresses. For example, these addresses may be those of a corporate NAT gateway.
+This feature is helpful in scenarios in which Azure Service Bus should be only accessible from certain well-known sites. Firewall rules enable you to configure rules to accept traffic originating from specific IPv4 addresses. For example, if you use Service Bus with [Azure Express Route][express-route], you can create a **firewall rule** to allow traffic from only your on-premises infrastructure IP addresses or addresses of a corporate NAT gateway. 
 
-## When to use
+## IP firewall rules
+The IP firewall rules are applied at the Service Bus namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the Service Bus namespace is rejected as unauthorized. The response does not mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
-There are two specific use cases in which it is useful to block Service Bus endpoints for certain IP addresses:
+## Important points
+- Firewalls and Virtual Networks are supported only in the **premium** tier of Service Bus. If upgrading to the **premier** tier isn't an option, we recommend that you keep the Shared Access Signature (SAS) token secure and share with only authorized users. For information about SAS authentication, see [Authentication and authorization](service-bus-authentication-and-authorization.md#shared-access-signature).
+- Specify **at least one IP firewall rule or virtual network rule** for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network. If there are no IP and virtual network rules, the namespace can be accessed over the public internet (using the access key).  
+- Implementing firewall rules can prevent other Azure services from interacting with Service Bus. As an exception, you can allow access to Service Bus resources from certain **trusted services** even when IP filtering is enabled. For a list of trusted services, see [Trusted services](#trusted-microsoft-services). 
 
-- Service Bus should receive traffic only from a specified range of IP addresses and reject everything else. For example, you are using Service Bus with [Azure Express Route][express-route] to create private connections to your on-premises infrastructure.
-- You need to reject traffic from IP addresses that have been identified as suspicious by the Service Bus administrator.
+    The following Microsoft services are required to be on a virtual network
+    - Azure App Service
+    - Azure Functions
 
-## How filter rules are applied
+## Use Azure portal
+This section shows you how to use the Azure portal to create IP firewall rules for a Service Bus namespace. 
 
-The IP filter rules are applied at the Service Bus namespace level. Therefore, the rules apply to all connections from clients using any supported protocol.
+1. Navigate to your **Service Bus namespace** in the [Azure portal](https://portal.azure.com).
+2. On the left menu, select **Networking** option under **Settings**.  
 
-Any connection attempt from an IP address that matches a rejecting IP rule on the Service Bus namespace is rejected as unauthorized. The response does not mention the IP rule.
+    > [!NOTE]
+    > You see the **Networking** tab only for **premium** namespaces.  
+    
+    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Networking page - default" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
+    
+    If you select the **All networks** option, your Service Bus namespace accepts connections from any IP address. This default setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 
-## Default setting
+    ![Screenshot of the Azure portal Networking page. The option to allow access from All networks is selected on the Firewalls and virtual networks tab.](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+1. To allow access from only specified IP address, select the **Selected networks** option if it isn't already selected. In the **Firewall** section, follow these steps:
+    1. Select **Add your client IP address** option to give your current client IP the access to the namespace. 
+    2. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation. 
+    3. Specify whether you want to **allow trusted Microsoft services to bypass this firewall**. 
 
-By default, the **IP Filter** grid in the portal for Service Bus is empty. This default setting means that your namespace accepts connections any IP address. This default setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range.
+        >[!WARNING]
+        > If you select the **Selected networks** option and don't add at least one IP firewall rule or a virtual network on this page, the namespace can be accessed over public internet (using the access key).    
 
-## IP filter rule evaluation
+        ![Screenshot of the Azure portal Networking page. The option to allow access from Selected networks is selected and the Firewall section is highlighted.](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
+3. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.
 
-IP filter rules are applied in order and the first rule that matches the IP address determines the accept or reject action.
+    > [!NOTE]
+    > To restrict access to specific virtual networks, see [Allow access from specific networks](service-bus-service-endpoints.md).
 
-For example, if you want to accept addresses in the range 70.37.104.0/24 and reject everything else, the first rule in the grid should accept the address range 70.37.104.0/24. The next rule should reject all addresses by using the range 0.0.0.0/0.
+[!INCLUDE [service-bus-trusted-services](./includes/service-bus-trusted-services.md)]
 
-> [!NOTE]
-> Rejecting IP addresses can prevent other Azure services (such as Azure Stream Analytics, Azure Virtual Machines, or the Device Explorer in the portal) from interacting with Service Bus.
+## Use Resource Manager template
+This section has a sample Azure Resource Manager template that adds a virtual network and a firewall rule to an existing Service Bus namespace.
 
-### Creating a virtual network rule with Azure Resource Manager templates
+**ipMask** is a single IPv4 address or a block of IP addresses in CIDR notation. For example, in CIDR notation 70.37.104.0/24 represents the 256 IPv4 addresses from 70.37.104.0 to 70.37.104.255, with 24 indicating the number of significant prefix bits for the range.
 
-> ![IMPORTANT]
-> Virtual Networks are supported only in the **premium** tier of Service Bus.
+When adding virtual network or firewalls rules, set the value of `defaultAction` to `Deny`.
 
-The following Resource Manager template enables adding a virtual network rule to an existing Service Bus namespace.
-
-Template parameters:
-
-- **ipFilterRuleName** must be a unique, case-insensitive, alphanumeric string up to 128 characters long.
-- **ipFilterAction** is either **Reject** or **Accept** as the action to apply for the IP filter rule.
-- **ipMask** is a single IPv4 address or a block of IP addresses in CIDR notation. For example, in CIDR notation 70.37.104.0/24 represents the 256 IPv4 addresses from 70.37.104.0 to 70.37.104.255, with 24 indicating the number of significant prefix bits for the range.
 
 ```json
-{  
-   "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{	  
-		  "namespaceName":{  
-			 "type":"string",
-			 "metadata":{  
-				"description":"Name of the namespace"
-			 }
-		  },
-		  "ipFilterRuleName":{  
-			 "type":"string",
-			 "metadata":{  
-				"description":"Name of the Authorization rule"
-			 }
-		  },
-		  "ipFilterAction":{  
-			 "type":"string",
-			 "allowedValues": ["Reject", "Accept"],
-			 "metadata":{  
-				"description":"IP Filter Action"
-			 }
-		  },
-		  "IpMask":{  
-			 "type":"string",
-			 "metadata":{  
-				"description":"IP Mask"
-			 }
-		  }
-	  },
-	"resources": [
-        {
-            "apiVersion": "2018-01-01-preview",
-            "name": "[concat(parameters('namespaceName'), '/', parameters('ipFilterRuleName'))]",
-            "type": "Microsoft.ServiceBus/Namespaces/IPFilterRules",
-            "properties": {
-				"FilterName":"[parameters('ipFilterRuleName')]",
-				"Action":"[parameters('ipFilterAction')]",				
-                "IpMask": "[parameters('IpMask')]"
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "servicebusNamespaceName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Service Bus namespace"
+        }
+      },
+      "location": {
+        "type": "string",
+        "metadata": {
+          "description": "Location for Namespace"
+        }
+      }
+    },
+    "variables": {
+      "namespaceNetworkRuleSetName": "[concat(parameters('servicebusNamespaceName'), concat('/', 'default'))]",
+    },
+    "resources": [
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[parameters('servicebusNamespaceName')]",
+        "type": "Microsoft.ServiceBus/namespaces",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Premium",
+          "tier": "Premium"
+        },
+        "properties": { }
+      },
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[variables('namespaceNetworkRuleSetName')]",
+        "type": "Microsoft.ServiceBus/namespaces/networkrulesets",
+        "dependsOn": [
+          "[concat('Microsoft.ServiceBus/namespaces/', parameters('servicebusNamespaceName'))]"
+        ],
+        "properties": {
+		  "virtualNetworkRules": [<YOUR EXISTING VIRTUAL NETWORK RULES>],
+          "ipRules": 
+          [
+            {
+                "ipMask":"10.1.1.1",
+                "action":"Allow"
+            },
+            {
+                "ipMask":"11.0.0.0/24",
+                "action":"Allow"
             }
-        } 
-    ]
-}
+          ],
+          "trustedServiceAccessEnabled": false,          
+          "defaultAction": "Deny"
+        }
+      }
+    ],
+    "outputs": { }
+  }
 ```
 
 To deploy the template, follow the instructions for [Azure Resource Manager][lnk-deploy].
+
+> [!IMPORTANT]
+> If there are no IP and virtual network rules, all the traffic flows into the namespace even if you set the `defaultAction` to `deny`. The namespace can be accessed over the public internet (using the access key). Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network.  
+
 
 ## Next steps
 
@@ -113,6 +136,6 @@ For constraining access to Service Bus to Azure virtual networks, see the follow
 
 <!-- Links -->
 
-[lnk-deploy]: ../azure-resource-manager/resource-group-template-deploy.md
+[lnk-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 [lnk-vnet]: service-bus-service-endpoints.md
-[express-route]:  /azure/expressroute/expressroute-faqs#supported-services
+[express-route]:  ../expressroute/expressroute-faqs.md#supported-services

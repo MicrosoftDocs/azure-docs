@@ -1,265 +1,183 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with SAML SSO for Bitbucket by resolution GmbH | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SAML SSO for Bitbucket by resolution GmbH.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: joflore
-
-ms.assetid: fc947df1-f24e-43ae-9a34-518293583d69
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/04/2017
+ms.topic: tutorial
+ms.date: 01/12/2021
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with SAML SSO for Bitbucket by resolution GmbH
 
-In this tutorial, you learn how to integrate SAML SSO for Bitbucket by resolution GmbH with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate SAML SSO for Bitbucket by resolution GmbH with Azure Active Directory (Azure AD). When you integrate SAML SSO for Bitbucket by resolution GmbH with Azure AD, you can:
 
-Integrating SAML SSO for Bitbucket by resolution GmbH with Azure AD provides you with the following benefits:
+* Control in Azure AD who has access toSAML SSO for Bitbucket by resolution GmbH.
+* Enable your users to be automatically signed in toSAML SSO for Bitbucket by resolution GmbH with their Azure AD accounts.
+* Manage your accounts in one central location: the Azure portal.
 
-- You can control in Azure AD who has access to SAML SSO for Bitbucket by resolution GmbH.
-- You can enable your users to automatically get signed-on to SAML SSO for Bitbucket by resolution GmbH (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
 To configure Azure AD integration with SAML SSO for Bitbucket by resolution GmbH, you need the following items:
 
-- An Azure AD subscription
-- A SAML SSO for Bitbucket by resolution GmbH single-sign on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* SAML SSO for Bitbucket by resolution GmbH single sign-on enabled subscription
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding SAML SSO for Bitbucket by resolution GmbH from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-## Adding SAML SSO for Bitbucket by resolution GmbH from the gallery
+* SAML SSO for Bitbucket by resolution GmbH supports **SP and IDP** initiated SSO
+* SAML SSO for Bitbucket by resolution GmbH supports **Just In Time** user provisioning
+
+
+## Add SAML SSO for Bitbucket by resolution GmbH from the gallery
+
 To configure the integration of SAML SSO for Bitbucket by resolution GmbH into Azure AD, you need to add SAML SSO for Bitbucket by resolution GmbH from the gallery to your list of managed SaaS apps.
 
-**To add SAML SSO for Bitbucket by resolution GmbH from the gallery, perform the following steps:**
+1. Sign in to the Azure portal by using either a work or school account, or a personal Microsoft account.
+1. On the left pane, select **Azure Active Directory**.
+1. Go to **Enterprise Applications**, and then select **All Applications**.
+1. To add a new application, select **New application**.
+1. In the **Add from the gallery** section, type **SAML SSO for Bitbucket by resolution GmbH** in the search box.
+1. Select **SAML SSO for Bitbucket by resolution GmbH** from the results, and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Configure and test Azure AD SSO for SAML SSO for Bitbucket by resolution GmbH
 
-	![The Azure Active Directory button][1]
+Configure and test Azure AD SSO with SAML SSO for Bitbucket by resolution GmbH, by using a test user called **B.Simon**. For SSO to work, you need to establish a linked relationship between an Azure AD user and the related user in SAML SSO for Bitbucket by resolution GmbH.
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+To configure and test Azure AD SSO with SAML SSO for Bitbucket by resolution GmbH, perform the following steps:
 
-	![The Enterprise applications blade][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+2. **[Configure SAML SSO for Bitbucket by resolution GmbH SSO](#configure-saml-sso-for-bitbucket-by-resolution-gmbh-sso)** - to configure the Single Sign-On settings on application side.
+    1. **[Create SAML SSO for Bitbucket by resolution GmbH test user](#create-saml-sso-for-bitbucket-by-resolution-gmbh-test-user)** - to have a counterpart of Britta Simon in SAML SSO for Bitbucket by resolution GmbH that is linked to the Azure AD representation of user.
+6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-1. In the search box, type **SAML SSO for Bitbucket by resolution GmbH**, select **SAML SSO for Bitbucket by resolution GmbH** from result panel then click **Add** button to add the application.
+## Configure Azure AD SSO
 
-	![SAML SSO for Bitbucket by resolution GmbH in the results list](./media/bitbucket-tutorial/tutorial_bitbucket_addfromgallery.png)
-
-## Configure and test Azure AD single sign-on
-
-In this section, you configure and test Azure AD single sign-on with SAML SSO for Bitbucket by resolution GmbH based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in SAML SSO for Bitbucket by resolution GmbH is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in SAML SSO for Bitbucket by resolution GmbH needs to be established.
-
-In SAML SSO for Bitbucket by resolution GmbH, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
-
-To configure and test Azure AD single sign-on with SAML SSO for Bitbucket by resolution GmbH, you need to complete the following building blocks:
-
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create a SAML SSO for Bitbucket by resolution GmbH test user](#create-a-saml-sso-for-bitbucket-by-resolution-gmbh-test-user)** - to have a counterpart of Britta Simon in SAML SSO for Bitbucket by resolution GmbH that is linked to the Azure AD representation of user.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
-
-### Configure Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your SAML SSO for Bitbucket by resolution GmbH application.
-
-**To configure Azure AD single sign-on with SAML SSO for Bitbucket by resolution GmbH, perform the following steps:**
-
-1. In the Azure portal, on the **SAML SSO for Bitbucket by resolution GmbH** application integration page, click **Single sign-on**.
-
-	![Configure single sign-on link][4]
-
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+In this section, you enable Azure AD SSO in the Azure portal.
  
-	![Single sign-on dialog box](./media/bitbucket-tutorial/tutorial_bitbucket_samlbase.png)
+1. In the Azure portal, on the **SAML SSO for Bitbucket by resolution GmbH** application integration page, find the **Manage** section and select **Single Sign-On**.
+1. On the **Select a Single Sign-On Method** page, select **SAML**.
+1. On the **Set up Single Sign-On with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-1. On the **SAML SSO for Bitbucket by resolution GmbH Domain and URLs** section, perform the following steps if you wish to configure the application in IDP initiated mode:
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	![SAML SSO for Bitbucket by resolution GmbH Domain and URLs single sign-on information](./media/bitbucket-tutorial/tutorial_bitbucket_url.png)
+4. On the **Basic SAML Configuration** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/samlsso`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/samlsso`
+    a. In the **Identifier** text box, type a URL using the following pattern:
+    `https://<server-base-url>/plugins/servlet/samlsso`
 
-1. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<server-base-url>/plugins/servlet/samlsso`
 
-	![SAML SSO for Bitbucket by resolution GmbH Domain and URLs single sign-on information](./media/bitbucket-tutorial/tutorial_bitbucket_url1.png)
+    c. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+    
+    In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<server-base-url>/plugins/servlet/samlsso`
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/samlsso`
-	 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [SAML SSO for Bitbucket by resolution GmbH Client support team](https://marketplace.atlassian.com/plugins/com.resolution.atlasplugins.samlsso-bitbucket/server/support) to get these values. 
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [SAML SSO for Bitbucket by resolution GmbH Client support team](https://marketplace.atlassian.com/apps/1217045/saml-single-sign-on-sso-bitbucket?hosting=server&tab=support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](./media/bitbucket-tutorial/tutorial_bitbucket_certificate.png) 
-
-1. Click **Save** button.
-
-	![Configure Single Sign-On Save button](./media/bitbucket-tutorial/tutorial_general_400.png)
-	
-1. Sign-on to your SAML SSO for Bitbucket by resolution GmbH company site as administrator.
-
-1. On the right side of the main toolbar, click **Settings**.
-
-1. Go to ACCOUNTS section, click on **SAML SingleSignOn** on the Menubar.
-
-	![The Samlsingle](./media/bitbucket-tutorial/tutorial_bitbucket_samlsingle.png)
-
-1. On the **SAML SIngleSignOn Plugin Configuration page**, click **Add idp**. 
-
-	![The Add idp](./media/bitbucket-tutorial/tutorial_bitbucket_addidp.png)
-
-1. On the **Choose your SAML Identity Provider** Page, perform the following steps:
-
-	![The identity provider](./media/bitbucket-tutorial/tutorial_bitbucket_identityprovider.png)
-
-	a. Select **Idp Type** as **AZURE AD**.
-
-	b. In the **Name** textbox, type the name.
-
-	c. In the **Description** textbox, type the description.
-
-	d. Click **Next**.
-
-1. On the **Identity provider configuration page**, click **Next**.
-
-	![The identity config](./media/bitbucket-tutorial/tutorial_bitbucket_identityconfig.png)
-
-1.  On the **Import SAML Idp Metadata** Page, click **Load File** to upload the **METADATA XML** file which you have downloaded from Azure portal.
-
-	![The idpmetadata](./media/bitbucket-tutorial/tutorial_bitbucket_idpmetadata.png)
-	
-1. Click **Next**.
-
-1. Click **Save settings**.
-
-	![The save](./media/bitbucket-tutorial/tutorial_bitbucket_save.png)
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+    ![The Certificate download link](common/metadataxml.png)
 
 ### Create an Azure AD test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+In this section, you create a test user in the Azure portal called B.Simon.
 
-   ![Create an Azure AD test user][100]
-
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
-
-    ![The Azure Active Directory button](./media/bitbucket-tutorial/create_aaduser_01.png)
-
-1. To display the list of users, go to **Users and groups**, and then click **All users**.
-
-    ![The "Users and groups" and "All users" links](./media/bitbucket-tutorial/create_aaduser_02.png)
-
-1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
-
-    ![The Add button](./media/bitbucket-tutorial/create_aaduser_03.png)
-
-1. In the **User** dialog box, perform the following steps:
-
-    ![The User dialog box](./media/bitbucket-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
-
-    d. Click **Create**.
- 
-### Create a SAML SSO for Bitbucket by resolution GmbH test user
-
-The objective of this section is to create a user called Britta Simon in SAML SSO for Bitbucket by resolution GmbH. SAML SSO for Bitbucket by resolution GmbH supports just-in-time provisioning and also users can be created manually, contact [SAML SSO for Bitbucket by resolution GmbH Client support team](https://marketplace.atlassian.com/plugins/com.resolution.atlasplugins.samlsso-bitbucket/server/support) as per your requirement.
+1. From the left pane in the Azure portal, select **Azure Active Directory** > **Users** > **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write the password down.
+   1. Select **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to SAML SSO for Bitbucket by resolution GmbH.
+In this section, you enable B.Simon to use Azure single sign-on by granting access to SAML SSO for Bitbucket by resolution GmbH.
 
-![Assign the user role][200] 
-
-**To assign Britta Simon to SAML SSO for Bitbucket by resolution GmbH, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
+1. In the Azure portal, select **Enterprise Applications** > **All applications**.
 1. In the applications list, select **SAML SSO for Bitbucket by resolution GmbH**.
+1. In the app's overview page, find the **Manage** section, and select **Users and groups**.
+1. Select **Add user**. Then, in the **Add Assignment** dialog box, select **Users and groups**.
+1. In the **Users and groups** dialog box, select **B.Simon** from the list of users. Then choose **Select** at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog box, select **Assign**.
 
-	![The SAML SSO for Bitbucket by resolution GmbH link in the Applications list](./media/bitbucket-tutorial/tutorial_bitbucket_app.png)  
+## Configure SAML SSO for Bitbucket by resolution GmbH SSO
 
-1. In the menu on the left, click **Users and groups**.
+1. Sign-on to your SAML SSO for Bitbucket by resolution GmbH company site as administrator.
 
-	![The "Users and groups" link][202]
+2. On the right side of the main toolbar, click **Settings**.
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+3. Go to ACCOUNTS section, click on **SAML SingleSignOn** on the Menubar.
 
-	![The Add Assignment pane][203]
+    ![The Samlsingle](./media/bitbucket-tutorial/tutorial_bitbucket_samlsingle.png)
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+4. On the **SAML SIngleSignOn Plugin Configuration page**, click **Add idp**. 
 
-1. Click **Select** button on **Users and groups** dialog.
+    ![The Add idp](./media/bitbucket-tutorial/tutorial_bitbucket_addidp.png)
 
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Test single sign-on
+5. On the **Choose your SAML Identity Provider** Page, perform the following steps:
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+    ![The identity provider](./media/bitbucket-tutorial/tutorial_bitbucket_identityprovider.png)
 
-When you click the SAML SSO for Bitbucket by resolution GmbH tile in the Access Panel, you should get automatically signed-on to your SAML SSO for Bitbucket by resolution GmbH application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+    a. Select **Idp Type** as **AZURE AD**.
 
-## Additional resources
+    b. In the **Name** textbox, type the name.
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+    c. In the **Description** textbox, type the description.
+
+    d. Click **Next**.
+
+6. On the **Identity provider configuration page**, click **Next**.
+
+    ![The identity config](./media/bitbucket-tutorial/tutorial_bitbucket_identityconfig.png)
+
+7.  On the **Import SAML Idp Metadata** Page, click **Load File** to upload the **METADATA XML** file which you have downloaded from Azure portal.
+
+    ![The idpmetadata](./media/bitbucket-tutorial/tutorial_bitbucket_idpmetadata.png)
+
+8. Click **Next**.
+
+9. Click **Save settings**.
+
+    ![The save](./media/bitbucket-tutorial/tutorial_bitbucket_save.png)
 
 
+## Create SAML SSO for Bitbucket by resolution GmbH test user
 
-<!--Image references-->
+The objective of this section is to create a user called Britta Simon in SAML SSO for Bitbucket by resolution GmbH. SAML SSO for Bitbucket by resolution GmbH supports just-in-time provisioning and also users can be created manually, contact [SAML SSO for Bitbucket by resolution GmbH Client support team](https://marketplace.atlassian.com/plugins/com.resolution.atlasplugins.samlsso-bitbucket/server/support) as per your requirement.
 
-[1]: ./media/bitbucket-tutorial/tutorial_general_01.png
-[2]: ./media/bitbucket-tutorial/tutorial_general_02.png
-[3]: ./media/bitbucket-tutorial/tutorial_general_03.png
-[4]: ./media/bitbucket-tutorial/tutorial_general_04.png
+## Test SSO 
 
-[100]: ./media/bitbucket-tutorial/tutorial_general_100.png
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-[200]: ./media/bitbucket-tutorial/tutorial_general_200.png
-[201]: ./media/bitbucket-tutorial/tutorial_general_201.png
-[202]: ./media/bitbucket-tutorial/tutorial_general_202.png
-[203]: ./media/bitbucket-tutorial/tutorial_general_203.png
+#### SP initiated:
 
+* Click on **Test this application** in Azure portal. This will redirect to SAML SSO for Bitbucket by resolution GmbH Sign on URL where you can initiate the login flow.  
+
+* Go to SAML SSO for Bitbucket by resolution GmbH Sign-on URL directly and initiate the login flow from there.
+
+#### IDP initiated:
+
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the SAML SSO for Bitbucket by resolution GmbH for which you set up the SSO.
+
+You can also use Microsoft My Apps to test the application in any mode. When you click the SAML SSO for Bitbucket by resolution GmbH tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the SAML SSO for Bitbucket by resolution GmbH for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+
+
+## Next steps
+
+Once you configure the SAML SSO for Bitbucket by resolution GmbH you can enforce session controls, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

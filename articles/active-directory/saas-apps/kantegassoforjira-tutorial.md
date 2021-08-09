@@ -1,337 +1,253 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Kantega SSO for JIRA | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Kantega SSO for JIRA.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: e2af4891-e3c8-43b3-bdcb-0500c493e9b4
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/12/2017
+ms.topic: tutorial
+ms.date: 05/27/2021
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Kantega SSO for JIRA
 
-In this tutorial, you learn how to integrate Kantega SSO for JIRA with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate Kantega SSO for JIRA with Azure Active Directory (Azure AD). When you integrate Kantega SSO for JIRA with Azure AD, you can:
 
-Integrating Kantega SSO for JIRA with Azure AD provides you with the following benefits:
-
-- You can control in Azure AD who has access to Kantega SSO for JIRA
-- You can enable your users to automatically get signed-on to Kantega SSO for JIRA (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Azure AD who has access to Kantega SSO for JIRA.
+* Enable your users to be automatically signed-in to Kantega SSO for JIRA with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
 To configure Azure AD integration with Kantega SSO for JIRA, you need the following items:
 
-- An Azure AD subscription
-- A Kantega SSO for JIRA single sign-on enabled subscription
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
 
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* Kantega SSO for JIRA single sign-on enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Kantega SSO for JIRA from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-## Adding Kantega SSO for JIRA from the gallery
+* Kantega SSO for JIRA supports **SP and IDP** initiated SSO.
+
+## Add Kantega SSO for JIRA from the gallery
+
 To configure the integration of Kantega SSO for JIRA into Azure AD, you need to add Kantega SSO for JIRA from the gallery to your list of managed SaaS apps.
 
-**To add Kantega SSO for JIRA from the gallery, perform the following steps:**
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Kantega SSO for JIRA** in the search box.
+1. Select **Kantega SSO for JIRA** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Configure and test Azure AD SSO for Kantega SSO for JIRA
 
-	![Active Directory][1]
+Configure and test Azure AD SSO with Kantega SSO for JIRA using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Kantega SSO for JIRA.
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+To configure and test Azure AD SSO with Kantega SSO for JIRA, perform the following steps:
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Kantega SSO for JIRA SSO](#configure-kantega-sso-for-jira-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Kantega SSO for JIRA test user](#create-kantega-sso-for-jira-test-user)** - to have a counterpart of B.Simon in Kantega SSO for JIRA that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	![Applications][3]
+## Configure Azure AD SSO
 
-1. In the search box, type **Kantega SSO for JIRA**.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-	![Creating an Azure AD test user](./media/kantegassoforjira-tutorial/tutorial_kantegassoforjira_search.png)
+1. In the Azure portal, on the **Kantega SSO for JIRA** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-1. In the results panel, select **Kantega SSO for JIRA**, and then click **Add** button to add the application.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	![Creating an Azure AD test user](./media/kantegassoforjira-tutorial/tutorial_kantegassoforjira_addfromgallery.png)
+4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Kantega SSO for JIRA based on a test user called "Britta Simon".
+    a. In the **Identifier** text box, type a URL using the following pattern:
+    `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<UNIQUE_ID>/login`
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Kantega SSO for JIRA is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Kantega SSO for JIRA needs to be established.
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<UNIQUE_ID>/login`
 
-In Kantega SSO for JIRA, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-To configure and test Azure AD single sign-on with Kantega SSO for JIRA, you need to complete the following building blocks:
+    In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<UNIQUE_ID>/login`
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a Kantega SSO for JIRA test user](#creating-a-kantega-sso-for-jira-test-user)** - to have a counterpart of Britta Simon in Kantega SSO for JIRA that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
-
-### Configuring Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Kantega SSO for JIRA application.
-
-**To configure Azure AD single sign-on with Kantega SSO for JIRA, perform the following steps:**
-
-1. In the Azure portal, on the **Kantega SSO for JIRA** application integration page, click **Single sign-on**.
-
-	![Configure Single Sign-On][4]
-
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/kantegassoforjira-tutorial/tutorial_kantegassoforjira_samlbase.png)
-
-1. In **IDP** initiated mode, on the **Kantega SSO for JIRA Domain and URLs** section perform the following step:
-
-	![Configure Single Sign-On](./media/kantegassoforjira-tutorial/tutorial_kantegassoforjira_url1.png)
-
-	a. In the **Identifier** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
-
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
-
-1. In **SP** initiated mode, check **Show advanced URL settings** and  perform the following step:
-
-	![Configure Single Sign-On](./media/kantegassoforjira-tutorial/tutorial_kantegassoforjira_url2.png)
-
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
-
-	> [!NOTE] 
+	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. These values are received during the configuration of Jira plugin, which is explained later in the tutorial.
 
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![Configure Single Sign-On](./media/kantegassoforjira-tutorial/tutorial_kantegassoforjira_certificate.png) 
+	![The Certificate download link](common/metadataxml.png)
 
-1. Click **Save** button.
+7. On the **Set up Kantega SSO for JIRA** section, copy the appropriate URL(s) as per your requirement.
 
-	![Configure Single Sign-On](./media/kantegassoforjira-tutorial/tutorial_general_400.png)
-	
-1. In a different web browser window, log in to your JIRA on-premises server as an administrator.
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-1. Hover on cog and click the **Add-ons**.
+### Create an Azure AD test user
 
-	![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon1.png)
+In this section, you'll create a test user in the Azure portal called B.Simon.
+
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
+
+### Assign the Azure AD test user
+
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Kantega SSO for JIRA.
+
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Kantega SSO for JIRA**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
+
+## Configure Kantega SSO for JIRA SSO
+
+1. In a different web browser window, sign in to your JIRA on-premises server as an administrator.
+
+1. However on cog and click the **Add-ons**.
+
+	![Screenshot that shows the "Cog" icon selected and "Add-ons" selected from the drop-down.](./media/kantegassoforjira-tutorial/settings.png)
 
 1. Under Add-ons tab section, click **Find new add-ons**. Search **Kantega SSO for JIRA (SAML & Kerberos)** and click **Install** button to install the new SAML plugin.
 
-	![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon2.png)
+	![Screenshot that shows the "Find new Add-ons" section with "Kantego S S O for JIRA (S A M L & Kerberos)" in the search box and the "Install" button selected.](./media/kantegassoforjira-tutorial/install-tab.png)
 
 1. The plugin installation starts.
 
-	![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon3.png)
+	![Screenshot that shows the plugin "Installing" dialog.](./media/kantegassoforjira-tutorial/installation.png)
 
 1. Once the installation is complete. Click **Close**.
 
-	![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon33.png)
+	![Screenshot that shows the "Installed and ready to go!" dialog with the "Close" action selected.](./media/kantegassoforjira-tutorial/close-tab.png)
 
 1.	Click **Manage**.
 
-	![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon34.png)
+	![Screenshot that shows the "Kantega S S O" app page with the "Manage" button selected.](./media/kantegassoforjira-tutorial/manage-tab.png)
     
 1. New plugin is listed under **INTEGRATIONS**. Click **Configure** to configure the new plugin.
 
-	![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon35.png)
+	![Screenshot that shows "INTEGRATIONS" in the left-side navigation menu highlighted and the "Configure" button selected in the "Manage add-ons" section.](./media/kantegassoforjira-tutorial/integration.png)
 
 1. In the **SAML** section. Select **Azure Active Directory (Azure AD)** from the **Add identity provider** dropdown.
 
-	![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon4.png)
+    ![Screenshot that shows the "Add identity provider" drop-down with "Azure Active Directory (Azure A D)" selected.](./media/kantegassoforjira-tutorial/identity-provider.png)
 
 1. Select subscription level as **Basic**.
 
-	![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon5.png)  	 
+    ![Screenshot that shows the "Preparing Azure A D" section with "Basic" selected.](./media/kantegassoforjira-tutorial/basic-tab.png)
 
 1. On the **App properties** section, perform following steps: 
 
-	![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon6.png)
+    ![Screenshot that shows the "App properties" section with the "App I D U R L" textbox and copy button highlighted, and the "Next" button selected.](./media/kantegassoforjira-tutorial/properties.png)
 
-	a. Copy the **App ID URI** value and use it as **Identifier, Reply URL, and Sign-On URL** on the **Kantega SSO for JIRA Domain and URLs** section in Azure portal.
+    1. Copy the **App ID URI** value and use it as **Identifier, Reply URL, and Sign-On URL** on the **Basic SAML Configuration** section in Azure portal.
 
-	b. Click **Next**.
+    1. Click **Next**.
 
 1. On the **Metadata import** section, perform following steps: 
 
-	![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon7.png)
+    ![Screenshot that shows the "Metadata import" section with "Metadata file on my computer" selected.](./media/kantegassoforjira-tutorial/metadata.png)
 
-	a. Select **Metadata file on my computer**, and upload metadata file, which you have downloaded from Azure portal.
+    1. Select **Metadata file on my computer**, and upload metadata file, which you have downloaded from Azure portal.
 
-	b. Click **Next**.
+    1. Click **Next**.
 
 1. On the **Name and SSO location** section, perform following steps:
 
-	![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon8.png)
-	
-	a. Add Name of the Identity Provider in **Identity provider name** textbox (e.g Azure AD).
+    ![Screenshot that shows the "Name and S S O location" with the "Identity provider name" textbox highlighted, and the "Next" button selected.](./media/kantegassoforjira-tutorial/location.png)
 
-	b. Click **Next**.
+    1. Add Name of the Identity Provider in **Identity provider name** textbox (e.g Azure AD).
+
+    1. Click **Next**.
 
 1. Verify the Signing certificate and click **Next**.
 
-	![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon9.png)
+    ![Screenshot that shows the "Signature verification" section with the "Next" button selected.](./media/kantegassoforjira-tutorial/certificate.png)
 
 1. On the **JIRA user accounts** section, perform following steps:
 
-	![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon10.png)
+    ![Screenshot that shows the "JIRA user accounts" with the "Create users in JIRA's Internal Directory if needed" option highlighted and the "Next" button selected.](./media/kantegassoforjira-tutorial/accounts.png)
 
-	a. Select **Create users in JIRA's internal Directory if needed** and enter the appropriate name of the group for users (can be multiple no. of groups separated by comma).
+    1. Select **Create users in JIRA's internal Directory if needed** and enter the appropriate name of the group for users (can be multiple no. of groups separated by comma).
 
-	b. Click **Next**.
+    1. Click **Next**.
 
-1. Click **Finish**.	
+1. Click **Finish**.
 
-	![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon11.png)
+    ![Screenshot that shows the "Summary" section with teh "Finish" button selected.](./media/kantegassoforjira-tutorial/finish-tab.png)
 
-1. On the **Known domains for Azure AD** section, perform following steps: 
+1. On the **Known domains for Azure AD** section, perform following steps:
 
-	![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon12.png)
+    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/save-tab.png)
 
-	a. Select **Known domains** from the left panel of the page.
+    1. Select **Known domains** from the left panel of the page.
 
-	b. Enter domain name in the **Known domains** textbox.
+    2. Enter domain name in the **Known domains** textbox.
 
-	c. Click **Save**. 
+    3. Click **Save**.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+### Create Kantega SSO for JIRA test user
 
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-![Create Azure AD User][100]
-
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
-
-	![Creating an Azure AD test user](./media/kantegassoforjira-tutorial/create_aaduser_01.png) 
-
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/kantegassoforjira-tutorial/create_aaduser_02.png) 
-
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/kantegassoforjira-tutorial/create_aaduser_03.png) 
-
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/kantegassoforjira-tutorial/create_aaduser_04.png) 
-
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**.
- 
-### Creating a Kantega SSO for JIRA test user
-
-To enable Azure AD users to log in to JIRA, they must be provisioned into JIRA. In Kantega SSO for JIRA, provisioning is a manual task.
+To enable Azure AD users to sign in to JIRA, they must be provisioned into JIRA. In Kantega SSO for JIRA, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your JIRA on-premises server as an administrator.
+1. Sign in to your JIRA on-premises server as an administrator.
 
 1. Hover on cog and click the **User management**.
 
-    ![Add Employee](./media/kantegassoforjira-tutorial/user1.png) 
+    ![Screenshot that shows the "Cog" icon selected, and "User management" selected from the drop-down.](./media/kantegassoforjira-tutorial/user.png) 
 
 1. Under **User management** tab section, click **Create user**.
 
-	![Add Employee](./media/kantegassoforjira-tutorial/user2.png) 
+    ![Screenshot that shows the "User management" section with the "Create user" button selected.](./media/kantegassoforjira-tutorial/create-user.png) 
 
 1. On the **“Create new user”** dialog page, perform the following steps:
 
-	![Add Employee](./media/kantegassoforjira-tutorial/user3.png) 
+    ![Add Employee](./media/kantegassoforjira-tutorial/new-user.png) 
 
-	a. In the **Email address** textbox, type the email address of user like Brittasimon@contoso.com.
+    1. In the **Email address** textbox, type the email address of user like Brittasimon@contoso.com.
 
-	b. In the **Full Name** textbox, type full name of the user like Britta Simon.
+    2. In the **Full Name** textbox, type full name of the user like Britta Simon.
 
-	c. In the **Username** textbox, type the email of user like Brittasimon@contoso.com.
+    3. In the **Username** textbox, type the email of user like Brittasimon@contoso.com.
 
-	d. In the **Password** textbox, type the password of user.
+    4. In the **Password** textbox, type the password of user.
 
-	e. Click **Create user**.	
+    5. Click **Create user**.
 
-### Assigning the Azure AD test user
+## Test SSO
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Kantega SSO for JIRA.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-![Assign User][200] 
+#### SP initiated:
 
-**To assign Britta Simon to Kantega SSO for JIRA, perform the following steps:**
+* Click on **Test this application** in Azure portal. This will redirect to Kantega SSO for JIRA Sign on URL where you can initiate the login flow.  
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+* Go to Kantega SSO for JIRA Sign-on URL directly and initiate the login flow from there.
 
-	![Assign User][201] 
+#### IDP initiated:
 
-1. In the applications list, select **Kantega SSO for JIRA**.
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Kantega SSO for JIRA for which you set up the SSO. 
 
-	![Configure Single Sign-On](./media/kantegassoforjira-tutorial/tutorial_kantegassoforjira_app.png) 
+You can also use Microsoft My Apps to test the application in any mode. When you click the Kantega SSO for JIRA tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Kantega SSO for JIRA for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-1. In the menu on the left, click **Users and groups**.
+## Next steps
 
-	![Assign User][202] 
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![Assign User][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
-
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the Kantega SSO for JIRA tile in the Access Panel, you should get automatically signed-on to your Kantega SSO for JIRA application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-<!--Image references-->
-
-[1]: ./media/kantegassoforjira-tutorial/tutorial_general_01.png
-[2]: ./media/kantegassoforjira-tutorial/tutorial_general_02.png
-[3]: ./media/kantegassoforjira-tutorial/tutorial_general_03.png
-[4]: ./media/kantegassoforjira-tutorial/tutorial_general_04.png
-
-[100]: ./media/kantegassoforjira-tutorial/tutorial_general_100.png
-
-[200]: ./media/kantegassoforjira-tutorial/tutorial_general_200.png
-[201]: ./media/kantegassoforjira-tutorial/tutorial_general_201.png
-[202]: ./media/kantegassoforjira-tutorial/tutorial_general_202.png
-[203]: ./media/kantegassoforjira-tutorial/tutorial_general_203.png
-
+Once you configure Kantega SSO for JIRA you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

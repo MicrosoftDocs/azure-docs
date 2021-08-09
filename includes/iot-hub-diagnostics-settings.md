@@ -1,18 +1,20 @@
-﻿---
+---
  title: include file
  description: include file
  services: iot-hub
  author: dominicbetts
  ms.service: iot-hub
  ms.topic: include
- ms.date: 05/17/2018
+ ms.date: 02/20/2019
  ms.author: dobett
- ms.custom: include file
+ ms.custom: include file, devx-track-azurepowershell
 ---
 
 ### Enable logging with diagnostics settings
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub.
+[!INCLUDE [updated-for-az](./updated-for-az.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
 
 2. Select **Diagnostics settings**.
 
@@ -41,15 +43,19 @@
    * Twin operations
    * Job operations
    * Direct methods  
+   * Distributed tracing (preview)
+   * Configurations
+   * Device streams
+   * Device metrics
 
 6. Save the new settings. 
 
 If you want to turn on diagnostics settings with PowerShell, use the following code:
 
 ```azurepowershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName <subscription that includes your IoT Hub>
-Set-AzureRmDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName <subscription that includes your IoT Hub>
+Set-AzDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```
 
-New settings take effect in about 10 minutes. After that, logs appear in the configured archival target on the **Diagnostics settings** blade. For more information about configuring diagnostics, see [Collect and consume log data from your azure resources](../articles/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+New settings take effect in about 10 minutes. After that, logs appear in the configured archival target on the **Diagnostics settings** blade. For more information about configuring diagnostics, see [Collect and consume log data from your Azure resources](../articles/azure-monitor/essentials/platform-logs-overview.md).

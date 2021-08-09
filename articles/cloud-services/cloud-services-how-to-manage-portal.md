@@ -1,23 +1,20 @@
 ---
 title: Common cloud service management tasks | Microsoft Docs
 description: Learn how to manage Cloud Services in the Azure portal. These examples use the Azure portal.
-services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: cb218ad9-77d4-4149-83db-71159c00767e
-ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
-ms.author: jeconnoc
-
+ms.service: cloud-services
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Manage Cloud Services in the Azure portal
+
+# Manage Cloud Services (classic) in the Azure portal
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 In the **Cloud Services** area of the Azure portal, you can:
 
 * Update a service role or a deployment.
@@ -79,13 +76,13 @@ There are two key prerequisites for a successful deployment swap:
 
 - If you want to use a static IP address for your production slot, you must reserve one for your staging slot as well. Otherwise, the swap fails.
 
-- All instances of your roles must be running before you can perform the swap. You can check the status of your instances on the **Overview** blade of the Azure portal. Alternatively, you can use the [Get-AzureRole](/powershell/module/servicemanagement/azure/get-azurerole?view=azuresmps-3.7.0) command in Windows PowerShell.
+- All instances of your roles must be running before you can perform the swap. You can check the status of your instances on the **Overview** blade of the Azure portal. Alternatively, you can use the [Get-AzureRole](/powershell/module/servicemanagement/azure.service/get-azurerole) command in Windows PowerShell.
 
 Note that guest OS updates and service healing operations also can cause deployment swaps to fail. For more information, see [Troubleshoot cloud service deployment problems](cloud-services-troubleshoot-deployment-problems.md).
 
 **Does a swap incur downtime for my application? How should I handle it?**
 
-As described in the previous section, a deployment swap is typically fast because it's just a configuration change in the Azure load balancer. In some cases, it can take 10 or more seconds and result in transient connection failures. To limit impact to your customers, consider implementing [client retry logic](../best-practices-retry-general.md).
+As described in the previous section, a deployment swap is typically fast because it's just a configuration change in the Azure load balancer. In some cases, it can take 10 or more seconds and result in transient connection failures. To limit impact to your customers, consider implementing [client retry logic](/azure/architecture/best-practices/transient-faults).
 
 ## Delete deployments and a cloud service
 Before you can delete a cloud service, you must delete each existing deployment.
@@ -125,4 +122,4 @@ The **Overview** blade has a status bar at the top. When you select the bar, a n
 * [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
 * Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).
 * Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
-* Configure [SSL certificates](cloud-services-configure-ssl-certificate-portal.md).
+* Configure [TLS/SSL certificates](cloud-services-configure-ssl-certificate-portal.md).

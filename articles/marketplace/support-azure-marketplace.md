@@ -1,57 +1,46 @@
 ---
-title: Support for Azure Marketplace and AppSource | Azure
-description: Support information and links for Azure Marketplace and AppSource
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter:
-author: yijenj
-manager: nunoc
-editor:
-
-ms.assetid: 
+title: Microsoft commercial marketplace support - Azure Marketplace
+description: Support information and links for Azure Marketplace and AppSource in Partner Center
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
-ms.topic: article
-ms.date: 10/05/2018
-ms.author: yijenj
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
+author: navits09
+ms.author: navits
+ms.date: 06/14/2021
+---
 
----  
+# Support for the Microsoft commercial marketplace
 
-# Support for the Marketplace  
-Here is a list of support options for the Marketplace.  
-
-Additionally, you can get many of your questions answered in the [Marketplace channel of C+AI Community Forum](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
+Do you have questions about getting started as a Microsoft commercial marketplace publisher? Here's a list of support options for the commercial marketplace. In addition to the following resources, you can also get many of your questions answered in the [Marketplace channel of C+AI Community Forum](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
 
 ## Onboarding
 
-Open a ticket for with Microsoft [marketplace publisher support](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) for all issues with onboarding and getting started.
+Open a ticket with Microsoft [marketplace publisher support](https://aka.ms/marketplacepublishersupport) for issues with onboarding and getting started.
 
-## Cloud Partner Portal  
+## Partner Center
 
 | Support channel | Description | Availability |  
 |:--- |:--- |:--- |  
-| For assistance, visit the Create an incident page located at [Marketplace Support](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Support for Cloud Partner Portal. | Support is provided between 6am - 6pm PST. |  
+| For assistance, visit the Create an incident page located at [Marketplace Support](https://aka.ms/marketplacepublishersupport)</li> </ul> | Support for Partner Center. | Support is provided 24x5. |
+|
 
 ## Technical  
 
 | Support channel | Description |  
 |:--- |:--- |  
-| Slack: [join.marketplace.azure.com](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Slack environment to support Partners with technical issues. There about 350+ Partners currently working in this environment. |  
-| MSDN forums: Marketplace located at [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Microsoft Developer Network forum. |  
+| MSDN forums: Marketplace located at [Microsoft Q&A question page](/answers/products/azure) | Microsoft Developer Network forum. |  
 | Stack Overflow: Azure located at [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflow environment to get solutions and ask questions about everything related to Azure Marketplace.<ul> <li>Stack Overflow: Azure Marketplace located at [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Azure Resource Manager located at [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: Virtual Machines on Azure located at [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: Containers on Azure located at [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
-| Support for AppSource: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Support publishing for Dynamics Apps |
 
 ## Marketing resources  
 
 | Support channel | Description | Availability |  
-|:--- |:--- |:--- |  
-| Email: [cosell@microsoft.com](mailto:cosell@microsoft.com) | Support for onboarding processes and questions related to the Co-Sell program. | Based in the Pacific time zone. |  
-| Email: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Support for GTM benefits and program questions. | Business hours are in the Pacific time zone. |  
-| Email: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Answers to questions about usage for Azure logos and branding. |  |  
+|:--- |:--- |:--- |
+| Email: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Answers to questions about usage for Azure logos and branding. |  |
+|
 
+For questions about Marketplace Rewards, contact [Partner Center support](https://partner.microsoft.com/support/v2/?stage=1).
 
 ## Next steps
-Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
- 
----  
+
+- Visit the [commercial marketplace publisher guide page](index.yml)
+- Learn more about [support for the commercial marketplace program in Partner Center](support.md)

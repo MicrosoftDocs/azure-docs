@@ -1,43 +1,55 @@
 ---
-title: Disable user sign-ins for an enterprise app in Azure Active Directory | Microsoft Docs
+title: Disable user sign-ins for an enterprise app in Azure AD
 description: How to disable an enterprise application so that no users may sign in to it in Azure Active Directory
 services: active-directory
-documentationcenter: ''
-author: barbkess
-manager: mtillman
-editor: ''
-
+author: davidmu1
+manager: CelesteDG
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 08/28/2017
-ms.author: barbkess
-ms.reviewer: asteen
+ms.topic: how-to
+ms.date: 04/12/2019
+ms.author: davidmu
+ms.reviewer: alamaral
 ms.custom: it-pro
-
+ms.collection: M365-identity-device-management
 ---
 # Disable user sign-ins for an enterprise app in Azure Active Directory
-It's easy to disable an enterprise application so that no users may sign in to it in Azure Active Directory (Azure AD). You must have the appropriate permissions to manage the enterprise app, and you must be global admin for the directory.
+
+It's easy to disable an enterprise application so no users can sign in to it in Azure Active Directory (Azure AD). You need the appropriate permissions to manage the enterprise app. And, you must be global admin for the directory.
 
 ## How do I disable user sign-ins?
+
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-2. Select **All services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
-3. On the **Azure Active Directory** -  ***directoryname*** pane (that is, the Azure AD pane for the directory you are managing), select **Enterprise applications**.
+1. Select **All services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
+1. On the **Azure Active Directory** -  ***directoryname*** pane (that is, the Azure AD pane for the directory you're managing), select **Enterprise applications**.
+1. On the **Enterprise applications - All applications** pane, you see a list of the apps you can manage. Select an app.
+1. On the ***appname*** pane (that is, the pane with the name of the selected app in the title), select **Properties**.
+1. On the ***appname*** - **Properties** pane, select **No** for **Enabled for users to sign-in?**.
+1. Select the **Save** command.
 
-    ![Opening Enterprise apps](./media/disable-user-sign-in-portal/open-enterprise-apps.png)
-4. On the **Enterprise applications** pane, select **All applications**. You see a list of the apps you can manage.
-5. On the **Enterprise applications - All applications** pane, select an app.
-6. On the ***appname*** pane (that is, the pane with the name of the selected app in the title), select **Properties**.
+## Use Azure AD PowerShell to disable an unlisted app
 
-    ![Selecting the all applications command](./media/disable-user-sign-in-portal/select-app.png)
-7. On the ***appname*** - **Properties** pane, select **No** for **Enabled for users to sign-in?**.
-8. Select the **Save** command.
+If you know the AppId of an app that doesn't appear on the Enterprise apps list (for example, because you deleted the app or the service principal hasn't yet been created due to the app being pre-authorized by Microsoft), you can manually create the service principal for the app and then disable it by using [AzureAD PowerShell cmdlet](/powershell/module/azuread/New-AzureADServicePrincipal).
+
+```PowerShell
+# The AppId of the app to be disabled
+$appId = "{AppId}"
+
+# Check if a service principal already exists for the app
+$servicePrincipal = Get-AzureADServicePrincipal -Filter "appId eq '$appId'"
+if ($servicePrincipal) {
+    # Service principal exists already, disable it
+    Set-AzureADServicePrincipal -ObjectId $servicePrincipal.ObjectId -AccountEnabled $false
+} else {
+    # Service principal does not yet exist, create it and disable it at the same time
+    $servicePrincipal = New-AzureADServicePrincipal -AppId $appId -AccountEnabled $false
+}
+```
 
 ## Next steps
+
 * [See all my groups](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Assign a user or group to an enterprise app](assign-user-or-group-access-portal.md)
-* [Remove a user or group assignment from an enterprise app](remove-user-or-group-access-portal.md)
-* [Change the name or logo of an enterprise app](change-name-or-logo-portal.md)
+* [Remove a user or group assignment from an enterprise app](./assign-user-or-group-access-portal.md)
+* [Change the name or logo of an enterprise app](./add-application-portal-configure.md)

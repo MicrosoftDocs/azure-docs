@@ -1,154 +1,156 @@
 ---
-title: Create Apache Hadoop clusters using a web browser - Azure HDInsight 
-description: Learn how to create Apache Hadoop, Apache HBase, Apache Storm, or Apache Spark clusters on Linux for HDInsight using a web browser and the Azure preview portal.
-services: hdinsight
-author: hrasheed-msft
-ms.reviewer: jasonh
-
+title: Create Apache Hadoop clusters using web browser, Azure HDInsight
+description: Learn to create Apache Hadoop, Apache HBase, Apache Storm, or Apache Spark clusters on HDInsight. Use web browser and the Azure portal.
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: hrasheed
-
+ms.topic: how-to
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 08/06/2020
 ---
-# Create Linux-based clusters in HDInsight using the Azure portal
-[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-The Azure portal is a web-based management tool for services and resources hosted in the Microsoft Azure cloud. In this article, you learn how to create Linux-based HDInsight clusters using the portal.
+# Create Linux-based clusters in HDInsight by using the Azure portal
 
-## Prerequisites
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [selector](includes/hdinsight-create-linux-cluster-selector.md)]
 
-* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **A modern web browser**. The Azure  portal uses HTML5 and Javascript, and may not function correctly in older web browsers.
+The Azure portal is a web-based management tool for services and resources hosted in the Microsoft Azure cloud. In this article, you learn how to create Linux-based Azure HDInsight clusters by using the portal. Additional details are available from [Create HDInsight clusters](./hdinsight-hadoop-provision-linux-clusters.md).
+
+[!INCLUDE [delete-cluster-warning](includes/hdinsight-delete-cluster-warning.md)]
+
+The Azure portal exposes most of the cluster properties. By using Azure Resource Manager templates, you can hide many details. For more information, see [Create Apache Hadoop clusters in HDInsight by using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create clusters
-The Azure portal exposes most of the cluster properties. Using Azure Resource Manager template, you can hide many details. For more information, see [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+[!INCLUDE [secure-transfer-enabled-storage-account](includes/hdinsight-secure-transfer.md)]
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Sign in to the [Azure  portal](https://portal.azure.com).
-2. Click **+ Create a resource**, click **Analytics**, and then click **HDInsight**.
-   
-    ![Creating a new cluster in the Azure portal](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster.png "Creating a new cluster in the Azure portal")
+1. From the top menu, select **+ Create a resource**.
 
-3. In the **HDInsight** blade, click **Custom (size, settings, apps)**, click **Basics**, and then enter the following information.
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-create-resource.png" alt-text="Create a new cluster in the Azure portal":::
 
-	![Creating a new cluster in the Azure portal](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-basics.png "Creating a new cluster in the Azure portal")
+1. Select **Analytics** > **Azure HDInsight** to go to the **Create HDInsight cluster** page.
 
-	* Enter **Cluster Name**: This name must be globally unique.
+## Basics
 
-	* From the **Subscription** drop-down, select the Azure subscription that is used for the cluster.
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-basics.png" alt-text="HDInsight create cluster basics":::
 
-	* Click **Cluster type**, and then select the type of cluster (Hadoop, Spark, etc.) you want to create. For **Operating system**, click **Linux** and then select a version. Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
-     
-    	> [!IMPORTANT]
-    	> HDInsight clusters come in a variety of types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster. 
-    	> 
-    	> 
-		
-    * For **Cluster login username** and **Cluster login password**, provide the username and password for the admin user.
+From the **Basics** tab, provide the following information:
 
-    * Enter an **SSH Username** and if you want to have the SSH password same as the admin password you specified earlier, select the **Use same password as cluster login** check box. If not, provide either a **PASSWORD** or **PUBLIC KEY**, which will be used to authenticate the SSH user. Using a public key is the recommended approach. Click **Select** at the bottom to save the credentials configuration.
-   
-	For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+|Property |Description |
+|---|---|
+|Subscription|From the drop-down list, select the Azure subscription that's used for the cluster.|
+|Resource group|From the drop-down list, select your existing resource group, or select **Create new**.|
+|Cluster name|Enter a globally unique name.|
+|Region|From the drop-down list, select a region where the cluster is created.|
+|Cluster type|Click **Select cluster type** to open a list. From the list, select the wanted cluster type. HDInsight clusters come in different types. They correspond to the workload or technology that the cluster is tuned for. There's no supported method to create a cluster that combines multiple types.|
+|Version|From the drop-down list, select a **version**. Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).|
+|Cluster login username|Provide the username, default is **admin**.|
+|Cluster login password|Provide the password.|
+|Confirm cluster login password|Reenter the password|
+|Secure Shell (SSH) username|Provide the username, default is **sshuser**|
+|Use cluster login password for SSH|If you want the same SSH password as the admin password you specified earlier, select the **Use cluster login password for SSH** check box. If not, provide either a **PASSWORD** or **PUBLIC KEY** to authenticate the SSH user. A public key is the approach we recommend. Choose **Select** at the bottom to save the credentials configuration.  For more information, see [Connect to HDInsight (Apache Hadoop) by using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).|
 
-    * For **Resource group**, specify whether you want to create a new resource group or use an existing one.
+Select **Next: Storage >>** to advance to the next tab.
 
-    * Specify a data center **location** where the cluster is created.
+## Storage
 
-    * Click **Next**.
+> [!WARNING] 
+> Starting June 15th, 2020 customers will not be able to create new service principal using HDInsight. See [Create Service Principal and Certificates](../active-directory/develop/howto-create-service-principal-portal.md) using Azure Active Directory.
 
-4. In **Security and Networking**, you can connect your cluster to a virtual network using the provided dropdown. Select an Azure virtual network and the subnet if you want to place the cluster into a virtual network. For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md). If you want to use the **Enterprise Security Package**, you can also follow instructions here: [Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png" alt-text="HDInsight create cluster storage":::
 
-5. For **Storage**, specify whether you want Azure Storage (WASB) or Data Lake Storage as your default storage. Look at the table below for more information.
+### Primary storage
 
-	![Creating a new cluster in the Azure portal](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "Creating a new cluster in the Azure portal")
+From the drop-down list for **Primary storage type**, select your default storage type. The later fields to complete will vary based upon your selection. For **Azure Storage**:
 
-	| Storage                                      | Description |
-	|----------------------------------------------|-------------|
-	| **Azure Storage Blobs as default storage**   | <ul><li>For **Primary Storage type**, select **Azure Storage**. After that, for **Selection method**, you can choose **My subscriptions** if you want to specify a storage account that is part of your Azure subscription and then select the storage account. Otherwise, click **Access key** and provide the information for the storage account that you want to choose from outside your Azure subscription.</li><li>For **Default container**, you can choose to go with the default container name suggested by the portal or specify your own.</li><li>If you are using WASB as default storage, you can (optionally) click **Additional Storage Accounts** to specify additional storage accounts to associate with the cluster. For **Azure Storage Keys**, click **Add a storage key**, and then you can provide a storage account from your Azure subscriptions or from other subscriptions (by providing the storage account access key).</li><li>If you are using WASB as default storage, you can (optionally) click **Data Lake Store access** to specify Azure Data Lake Storage as additional storage. For more information, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
-	| **Azure Data Lake Storage as default storage** | For **Primary storage type**, select **Azure Data Lake Storage Gen1** or **Azure Data Lake Storage Gen2 (Preview)** and then refer to the article [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) for instructions. |
-	| **External metastores**                      | Optionally, you can specify a SQL database to save Hive and Oozie metadata associated with the cluster. For **Select a SQL database for Hive** select a SQL database, and then provide the username/password for the database. Repeat these steps for Oozie metadata.<br><br>Some considerations while using Azure SQL database for metastores. <ul><li>The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Azure Services**, click **Yes**, and then click **Save**.</li><li>When creating a metastore, do not use a database name that contains dashes or hyphens, as this can cause the cluster creation process to fail.</li></ul> |
+1. For **Selection method**, choose either **Select from list**, or **Use access key**.
+    * For **Select from list**, then select your **Primary storage account** from the drop-down list, or select **Create new**.
+    * For **Use access key**, enter your **Storage account name**. Then provide the **Access key**.
 
-	Click **Next**. 
+1. For **Container**, accept the default value, or enter a new one.
 
-	> [!WARNING]
-	> Using an additional storage account in a different location than the HDInsight cluster is not supported.
+### Additional Azure Storage
 
-6. Optionally, click **Applications** to install applications that work with HDInsight clusters. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. For more information, see [Install HDInsight applications](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
+Optional: Select **Add Azure Storage** for additional cluster storage. Using an additional storage account in a different region than the HDInsight cluster isn't supported.
 
+### Metastore Settings
 
-6. Click **Cluster size** to display information about the nodes that are used for this cluster. Set the number of worker nodes that you need for the cluster. The estimated cost of running the cluster is also shown.
-   
-    ![Node pricing tiers](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-nodes.png "Specify number of cluster nodes")
-   
-   > [!IMPORTANT]
-   > If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14 GB RAM.
-   > 
-   > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
-   > 
-   > 
-   
-   Click **Next** to save the node pricing configuration.
+Optional: Specify an existing SQL Database to save Apache Hive, Apache Oozie, and, or Apache Ambari metadata outside of the cluster. The Azure SQL Database that's used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. When you create a metastore, don't name a database with dashes or hyphens. These characters can cause the cluster creation process to fail.
 
-8. In **Script Actions**, you can customize a cluster to install custom components.  Use this option if you want to use a custom script to customize a cluster, as the cluster is being created. For more information about script actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
-Click **Next**.
+> [!IMPORTANT]
+> For cluster shapes that support metastores, the default metastore provides an Azure SQL Database with a **basic tier 5 DTU limit (not upgradeable)**! Suitable for basic testing purposes. For large or production workloads, we recommend migrating to an external metastore.
 
-9. For **Summary**, verify the information you entered earlier and then click **Create**.
+Select **Next: Security + networking >>** to advance to the next tab.
 
-	![Node pricing tiers](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-summary.png "Specify number of cluster nodes")
-    
-    > [!NOTE]
-    > It takes some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the provisioning process.
-    > 
-    > 
-10. Once the creation process completes, click the tile for the cluster from the Startboard. The cluster window provides the following information.
-    
-    ![Cluster interface](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-completed.png "Cluster properties")
-    
-    Use the following to understand the icons at the top.
-    
-    * **Overview** tab provides all the essential information about the cluster such as the name, the resource group it belongs to, the location, the operating system, URL for the cluster dashboard, etc.
-    * **Dashboard** directs you to the Ambari portal associated with the cluster.
-    * **Secure Shell**: Information needed to access the cluster using SSH.
-    * **Scale cluster** lets you increase the number of worker nodes associated with the cluster.
-	* **Delete**: Deletes the HDInsight cluster.
-    
+## Security + networking
 
-## Customize clusters
-* See [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
-* See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-security-networking.png" alt-text="HDInsight create cluster security networking":::
+
+From the **Security + networking** tab, provide the following information:
+
+|Property |Description |
+|---|---|
+|Enterprise security package|Optional: Select the check box to use **Enterprise Security Package**. For more information, see [Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
+|TLS|Optional: Select a TLS version from the drop-down list. For more information, see [Transport Layer Security](./transport-layer-security.md).|
+|Virtual network|Optional: Select an existing virtual network and subnet from the drop-down list. For information, see [Plan a virtual network deployment for Azure HDInsight clusters](hdinsight-plan-virtual-network-deployment.md). The article includes specific configuration requirements for the virtual network.|
+|Disk encryption settings|Optional: Select the check box to use encryption. For more information, see [Customer-managed key disk encryption](./disk-encryption.md).|
+|Kafka REST proxy|This setting is only available for cluster type Kafka. For more information, see [Using a REST proxy](./kafka/rest-proxy.md).|
+|Identity|Optional: Select an existing user-assigned service identity from the drop-down list. For more information, see [Managed identities in Azure HDInsight](./hdinsight-managed-identities.md).|
+
+Select **Next: Configuration + pricing >>** to advance to the next tab.
+
+## Configuration + pricing
+
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-configuration.png" alt-text="HDInsight create cluster configuration":::
+
+From the **Configuration + pricing** tab, provide the following information:
+
+|Property |Description |
+|---|---|
+|+ Add application|Optional: Select any applications that you want. Microsoft, independent software vendors (ISVs), or you can develop these applications. For more information, see [Install applications during cluster creation](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).|
+|Node size|Optional: Select a different-sized node.|
+|Number of nodes|Optional: Enter the number of nodes for the specified node type. If you plan on more than 32 worker nodes, select a head node size with at least eight cores and 14-GB RAM. Plan the nodes either at cluster creation or by scaling the cluster after creation.|
+|Enable autoscale|Optional: Select the checkbox to enable the feature. For more information, see [Automatically scale Azure HDInsight clusters](./hdinsight-autoscale-clusters.md).|
+|+ Add script action|Optional: This option works if you want to use a custom script to customize a cluster, as the cluster is being created. For more information about script actions, see [Customize Linux-based HDInsight clusters by using script actions](hdinsight-hadoop-customize-cluster-linux.md).|
+
+Select **Review + create >>** to validate the cluster configuration and advance to the final tab.
+
+## Review + create
+
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-review-create-hadoop.png" alt-text="HDInsight create cluster summary":::
+
+Review the settings. Select **Create** to create the cluster.
+
+It takes some time for the cluster to be created, usually around 20 minutes. Monitor **Notifications** to check on the provisioning process.
+
+## Post creation
+
+After the creation process finishes, select **Go to Resource** from the **Deployment succeeded** notification. The cluster window provides the following information.
+
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-completed.png" alt-text="HDI Azure portal cluster overview":::
+
+Some of the icons in the window are explained as follows:
+
+|Property | Description |
+|---|---|
+|Overview|Provides all the essential information about the cluster. Examples are the name, the resource group it belongs to, the location, the operating system, and the URL for the cluster dashboard.|
+|Cluster dashboards|Directs you to the Ambari portal associated with the cluster.|
+|SSH + Cluster login|Provides information needed to access the cluster by using SSH.|
+|Delete|Deletes the HDInsight cluster.|
 
 ## Delete the cluster
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+See [Delete an HDInsight cluster using your browser, PowerShell, or the Azure CLI](./hdinsight-delete-cluster.md).
 
 ## Troubleshoot
 
-If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
+If you run into issues with creating HDInsight clusters, see [access control requirements](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
 ## Next steps
-Now that you have successfully created an HDInsight cluster, use the following to learn how to work with your cluster:
 
-### Hadoop clusters
-* [Use Hive with HDInsight](hadoop/hdinsight-use-hive.md)
-* [Use Pig with HDInsight](hadoop/hdinsight-use-pig.md)
-* [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
+You've successfully created an HDInsight cluster. Now learn how to work with your cluster.
 
-### HBase clusters
-* [Get started with HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Develop Java applications for HBase on HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
-
-### Storm clusters
-* [Develop Java topologies for Storm on HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Use Python components in Storm on HDInsight](storm/apache-storm-develop-python-topology.md)
-* [Deploy and monitor topologies with Storm on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
-
-### Spark clusters
-* [Create a standalone application using Scala](spark/apache-spark-create-standalone-application.md)
-* [Run jobs remotely on a Spark cluster using Livy](spark/apache-spark-livy-rest-interface.md)
-* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](spark/apache-spark-use-bi-tools.md)
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](spark/apache-spark-machine-learning-mllib-ipython.md)
-
+* [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
+* [Get started with Apache HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Customize Linux-based HDInsight clusters by using script actions](hdinsight-hadoop-customize-cluster-linux.md)

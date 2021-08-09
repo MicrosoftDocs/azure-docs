@@ -1,23 +1,21 @@
 ---
-title: What is a Cloud Service model and package | Microsoft Docs
+title: What is a Cloud Service (classic) model and package | Microsoft Docs
 description: Describes the cloud service model (.csdef, .cscfg) and package (.cspkg) in Azure
-services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: 4ce2feb5-0437-496c-98da-1fb6dcb7f59e
-ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
-ms.author: jeconnoc
-
+ms.service: cloud-services
+ms.subservice: deployment-files
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# What is the Cloud Service model and how do I package it?
+
+# What is the Cloud Service (classic) model and how do I package it?
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 A cloud service is created from three components, the service definition *(.csdef)*, the service config *(.cscfg)*, and a service package *(.cspkg)*. Both the **ServiceDefinition.csdef** and **ServiceConfig.cscfg** files are XML-based and describe the structure of the cloud service and how it's configured; collectively called the model. The **ServicePackage.cspkg** is a zip file that is generated from the **ServiceDefinition.csdef** and among other things, contains all the required binary-based dependencies. Azure creates a cloud service from both the **ServicePackage.cspkg** and the **ServiceConfig.cscfg**.
 
 Once the cloud service is running in Azure, you can reconfigure it through the **ServiceConfig.cscfg** file, but you cannot alter the definition.
@@ -35,7 +33,7 @@ Once the cloud service is running in Azure, you can reconfigure it through the *
 <a name="csdef"></a>
 
 ## ServiceDefinition.csdef
-The **ServiceDefinition.csdef** file specifies the settings that are used by Azure to configure a cloud service. The [Azure Service Definition Schema (.csdef File)](https://msdn.microsoft.com/library/azure/ee758711.aspx) provides the allowable format for a service definition file. The following example shows the settings that can be defined for the Web and Worker roles:
+The **ServiceDefinition.csdef** file specifies the settings that are used by Azure to configure a cloud service. The [Azure Service Definition Schema (.csdef File)](/previous-versions/azure/reference/ee758711(v=azure.100)) provides the allowable format for a service definition file. The following example shows the settings that can be defined for the Web and Worker roles:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -86,7 +84,7 @@ The **ServiceDefinition.csdef** file specifies the settings that are used by Azu
 </ServiceDefinition>
 ```
 
-You can refer to the [Service Definition Schema](https://msdn.microsoft.com/library/azure/ee758711.aspx) for a better understanding of the XML schema used here, however, here is a quick explanation of some of the elements:
+You can refer to the [Service Definition Schema](/previous-versions/azure/reference/ee758711(v=azure.100)) for a better understanding of the XML schema used here, however, here is a quick explanation of some of the elements:
 
 **Sites**  
 Contains the definitions for websites or web applications that are hosted in IIS7.
@@ -115,7 +113,7 @@ Contains tasks that are run when the role starts. The tasks are defined in a .cm
 <a name="cscfg"></a>
 
 ## ServiceConfiguration.cscfg
-The configuration of the settings for your cloud service is determined by the values in the **ServiceConfiguration.cscfg** file. You specify the number of instances that you want to deploy for each role in this file. The values for the configuration settings that you defined in the service definition file are added to the service configuration file. The thumbprints for any management certificates that are associated with the cloud service are also added to the file. The [Azure Service Configuration Schema (.cscfg File)](https://msdn.microsoft.com/library/azure/ee758710.aspx) provides the allowable format for a service configuration file.
+The configuration of the settings for your cloud service is determined by the values in the **ServiceConfiguration.cscfg** file. You specify the number of instances that you want to deploy for each role in this file. The values for the configuration settings that you defined in the service definition file are added to the service configuration file. The thumbprints for any management certificates that are associated with the cloud service are also added to the file. The [Azure Service Configuration Schema (.cscfg File)](/previous-versions/azure/reference/ee758710(v=azure.100)) provides the allowable format for a service configuration file.
 
 The service configuration file is not packaged with the application, but is uploaded to Azure as a separate file and is used to configure the cloud service. You can upload a new service configuration file without redeploying your cloud service. The configuration values for the cloud service can be changed while the cloud service is running. The following example shows the configuration settings that can be defined for the Web and Worker roles:
 
@@ -137,7 +135,7 @@ The service configuration file is not packaged with the application, but is uplo
 </ServiceConfiguration>
 ```
 
-You can refer to the [Service Configuration Schema](https://msdn.microsoft.com/library/azure/ee758710.aspx) for better understanding the XML schema used here, however, here is a quick explanation of the elements:
+You can refer to the [Service Configuration Schema](/previous-versions/azure/reference/ee758710(v=azure.100)) for better understanding the XML schema used here, however, here is a quick explanation of the elements:
 
 **Instances**  
 Configures the number of running instances for the role. To prevent your cloud service from potentially becoming unavailable during upgrades, it is recommended that you deploy more than one instance of your web-facing roles. By deploying more than one instance, you are adhering to the guidelines in the [Azure Compute Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/), which guarantees 99.95% external connectivity for Internet-facing roles when two or more role instances are deployed for a service.
@@ -182,7 +180,7 @@ The following sample shows the configuration for a web role with a website and w
   </Site>
   <Site name="MailSite" packageDir="MailSite">
     <Bindings>
-      <Binding name="mail" endpointName="HttpIn" hostheader="mail.mysite.cloudapp.net" />
+      <Binding name="mail" endpointName="HttpIn" hostHeader="mail.mysite.cloudapp.net" />
     </Bindings>
     <VirtualDirectory name="artifacts" />
     <VirtualApplication name="storageproxy">
@@ -204,11 +202,11 @@ You can update the configuration of your cloud service while it is running in Az
   You can only update a certificate when a role instance is offline. If a certificate is added, deleted, or changed while a role instance is online, Azure gracefully takes the instance offline to update the certificate and bring it back online after the change is complete.
 
 ### Handling configuration changes with Service Runtime Events
-The [Azure Runtime Library](https://msdn.microsoft.com/library/azure/mt419365.aspx) includes the [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx) namespace, which provides classes for interacting with the Azure environment from a role. The [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) class defines the following events that are raised before and after a configuration change:
+The [Azure Runtime Library](/previous-versions/azure/reference/mt419365(v=azure.100)) includes the [Microsoft.WindowsAzure.ServiceRuntime](/previous-versions/azure/reference/ee741722(v=azure.100)) namespace, which provides classes for interacting with the Azure environment from a role. The [RoleEnvironment](/previous-versions/azure/reference/ee773173(v=azure.100)) class defines the following events that are raised before and after a configuration change:
 
-* **[Changing](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx) event**  
+* **[Changing](/previous-versions/azure/reference/ee758134(v=azure.100)) event**  
   This occurs before the configuration change is applied to a specified instance of a role giving you a chance to take down the role instances if necessary.
-* **[Changed](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx) event**  
+* **[Changed](/previous-versions/azure/reference/ee758129(v=azure.100)) event**  
   Occurs after the configuration change is applied to a specified instance of a role.
 
 > [!NOTE]
@@ -219,6 +217,9 @@ The [Azure Runtime Library](https://msdn.microsoft.com/library/azure/mt419365.as
 <a name="cspkg"></a>
 
 ## ServicePackage.cspkg
+> [!NOTE]
+> The maximum package size that can be deployed is 600MB
+
 To deploy an application as a cloud service in Azure, you must first package the application in the appropriate format. You can use the **CSPack** command-line tool (installed with the [Azure SDK](https://azure.microsoft.com/downloads/)) to create the package file as an alternative to Visual Studio.
 
 **CSPack** uses the contents of the service definition file and service configuration file to define the contents of the package. **CSPack** generates an application package file (.cspkg) that you can upload to Azure by using the [Azure portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). By default, the package is named `[ServiceDefinitionFileName].cspkg`, but you can specify a different name by using the `/out` option of **CSPack**.
@@ -289,6 +290,6 @@ I am using Visual Studio and I want to...
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md
 [vs_remote]: cloud-services-role-enable-remote-desktop-visual-studio.md
-[vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
-[vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
-[vs_create]: ../vs-azure-tools-azure-project-create.md
+[vs_deploy]: /visualstudio/azure/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio
+[vs_reconfigure]: /visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service
+[vs_create]: /visualstudio/azure/vs-azure-tools-azure-project-create

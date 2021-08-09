@@ -1,19 +1,25 @@
 ---
-title: "Tutorial: Bing News Search single-page app"
-titlesuffix: Azure Cognitive Services
-description: Explains how to use the Bing News Search API in a single-page Web application.
+title: "Tutorial: Create a single-page web app using the Bing News Search API"
+titleSuffix: Azure Cognitive Services
+description: Use this tutorial to build a single-page web application that can send search queries to the Bing News API, and display the results within the webpage.
 services: cognitive-services
-author: mikedodaro
-manager: cgronlun
-
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-news-search
+ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 10/30/2017
-ms.author: v-gedod
+ms.date: 06/23/2020
+ms.author: aahi
+ms.custom: seodec2018, devx-track-js
 ---
-# Tutorial: Single-page News Search app
-The Bing News Search API lets you search the Web and obtain results of the news type relevant to a search query. In this tutorial, we build a single-page Web application that uses the Bing News Search API to display search results on the page. The application includes HTML, CSS, and JavaScript components.
+# Tutorial: Create a single-page web app
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
+The Bing News Search API lets you search the Web and obtain results of the news type relevant to a search query. In this tutorial, we build a single-page Web application that uses the Bing News Search API to display search results on the page. The application includes HTML, CSS, and JavaScript components. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingNewsSearchApp.html).
 
 <!-- Remove until we can replace it with sanitized copy
 ![Single-page Bing News Search app](media/news-search-singlepage.png)
@@ -33,7 +39,13 @@ The tutorial app illustrates how to:
 
 The tutorial page is entirely self-contained; it does not use any external frameworks, style sheets, or image files. It uses only widely supported JavaScript language features and works with current versions of all major Web browsers.
 
-In this tutorial, we discuss selected portions of the source code. The complete [source code](tutorial-bing-news-search-single-page-app-source.md) is available. To run the example, copy and paste the source code into a text editor and save it as `bing.html`.
+
+## Prerequisites
+
+To follow along with the tutorial, you need subscription keys for the Bing Search API. If you don't have these, you'll need to create them:
+
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
 
 ## App components
 Like any single-page Web app, this tutorial application includes three parts:
@@ -56,7 +68,7 @@ The HTML also contains the divisions (HTML `<div>` tags) where the search result
 
 To avoid having to include the Bing Search API subscription key in the code, we use the browser's persistent storage to store the key. Before the key is stored, we prompt for the user's key. If the key is later rejected by the API, we invalidate the stored key so the user will be prompted again.
 
-We define `storeValue` and `retrieveValue` functions that use either the `localStorage` object (not all browsers support it) or a cookie. The `getSubscriptionKey()` function uses these functions to store and retrieve the user's key.
+We define `storeValue` and `retrieveValue` functions that use either the `localStorage` object (not all browsers support it) or a cookie. The `getSubscriptionKey()` function uses these functions to store and retrieve the user's key. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
 ``` javascript
 // Cookie names for data we store
@@ -325,8 +337,8 @@ In the JavaScript code the object, `searchItemRenderers`, contains *renderers:* 
 
 ```javascript
 searchItemRenderers = {
-	news: function(item) { ... },
-	webPages: function (item) { ... }, 
+    news: function(item) { ... },
+    webPages: function (item) { ... }, 
     images: function(item, index, count) { ... },
     relatedSearches: function(item) { ... }
 }
@@ -341,7 +353,7 @@ A renderer function can accept the following parameters:
 
 The `index` and `count` parameters can be used to number results, to generate special HTML for the beginning or end of a collection, to insert line breaks after a certain number of items, and so on. If a renderer does not need this functionality, it does not need to accept these two parameters.
 
-The `news` renderer is shown in the following javascript excerpt:
+The `news` renderer is shown in the following JavaScript excerpt:
 ```javascript
     // render news story
     news: function (item) {
@@ -376,7 +388,7 @@ The news renderer function:
 > * Builds the HTML `<a>` tags that link to the image and the page that contains it.
 > * Builds the description that displays information about the image and the site it's on.
 
-The thumbnail size is used in both the `<img>` tag and the `h` and `w` fields in the thumbnail's URL. The [Bing thumbnail service](resize-and-crop-thumbnails.md) then delivers a thumbnail of exactly that size.
+The thumbnail size is used in both the `<img>` tag and the `h` and `w` fields in the thumbnail's URL. The [Bing thumbnail service](../bing-web-search/resize-and-crop-thumbnails.md) then delivers a thumbnail of exactly that size.
 
 ## Persisting client ID
 Responses from the Bing search APIs may include an `X-MSEdge-ClientID` header that should be sent back to the API with successive requests. If multiple Bing Search APIs are being used, the same client ID should be used with all of them, if possible.
@@ -392,22 +404,25 @@ Browser security policies (CORS) may prevent the `X-MSEdge-ClientID` header from
 > [!NOTE]
 > In a production Web application, you should perform the request server-side. Otherwise, your Bing Search API key must be included in the Web page, where it is available to anyone who views source. You are billed for all usage under your API subscription key, even requests made by unauthorized parties, so it is important not to expose your key.
 
-For development purposes, you can make the Bing Web Search API request through a CORS proxy. The response from such a proxy has an `Access-Control-Expose-Headers` header that whitelists response headers and makes them available to JavaScript.
+For development purposes, you can make the Bing Web Search API request through a CORS proxy. The response from such a proxy has an `Access-Control-Expose-Headers` header that allows response headers and makes them available to JavaScript.
 
 It's easy to install a CORS proxy to allow our tutorial app to access the client ID header. First, if you don't already have it, [install Node.js](https://nodejs.org/en/download/). Then issue the following command in a command window:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Next, change the Bing Web Search endpoint in the HTML file to:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+Next, change the Bing Web Search endpoint in the HTML file to:\
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Finally, start the CORS proxy with the following command:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Leave the command window open while you use the tutorial app; closing the window stops the proxy. In the expandable HTTP Headers section below the search results, you can now see the `X-MSEdge-ClientID` header (among others) and verify that it is the same for each request.
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Bing News Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)
+> [Bing News Search API reference](/rest/api/cognitiveservices/bing-news-api-v7-reference)

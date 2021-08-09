@@ -1,23 +1,19 @@
 ---
-title: Configure and access server logs for PostgreSQL in Azure Portal
-description: This article describes how to configure and access the server logs in Azure Database for PostgreSQL from the Azure Portal.
-services: postgresql
-author: rachel-msft
-ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
+title: Manage logs - Azure portal - Azure Database for PostgreSQL - Single Server
+description: This article describes how to configure and access the server logs (.log files) in Azure Database for PostgreSQL - Single Server from the Azure portal.
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
-ms.topic: article
-ms.date: 02/28/2018
+ms.topic: how-to
+ms.date: 5/6/2019
 ---
 
-# Configure and access server logs in the Azure portal
+# Configure and access Azure Database for PostgreSQL - Single Server logs from the Azure portal
 
-You can configure, list, and download the [Azure Database for PostgreSQL server logs](concepts-server-logs.md) from the Azure portal.
+You can configure, list, and download the [Azure Database for PostgreSQL logs](concepts-server-logs.md) from the Azure portal.
 
 ## Prerequisites
-To step through this how-to guide, you need:
-- [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md)
+The steps in this article require that you have [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md).
 
 ## Configure logging
 Configure access to the query logs and error logs. 
@@ -26,44 +22,44 @@ Configure access to the query logs and error logs.
 
 2. Select your Azure Database for PostgreSQL server.
 
-3. Under the **Monitoring** section in the sidebar, select **Server Logs**. 
+3. Under the **Monitoring** section in the sidebar, select **Server logs**. 
 
-   ![Select Server Logs and select 'Click here to enable...'](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png" alt-text="Screenshot of Server logs options":::
 
-4. Select the heading **Click here to enable logs and configure log parameters** to see the server parameters.
+4. To see the server parameters, select **Click here to enable logs and configure log parameters**.
 
 5. Change the parameters that you need to adjust. All changes you make in this session are highlighted in purple.
 
-   Once you have changed the parameters, you can click **Save**. Or you can **Discard** your changes. 
+   After you have changed the parameters, select **Save**. Or, you can discard your changes. 
 
-   ![Long list of parameters with changes to save or discard](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Screenshot of Server Parameters options":::
 
-6. Return to the list of logs by clicking the **close button** (X icon) on the **Server Parameters** page.
+From the **Server Parameters** page, you can return to the list of logs by closing the page.
 
 ## View list and download logs
-Once logging begins, you can view a list of available logs and download individual log files on the Server Logs pane. 
+After logging begins, you can view a list of available logs, and download individual log files. 
 
 1. Open the Azure portal.
 
 2. Select your Azure Database for PostgreSQL server.
 
-3. Under the **Monitoring** section in the sidebar, select **Server Logs**. The page shows a list of your log files, as shown:
+3. Under the **Monitoring** section in the sidebar, select **Server logs**. The page shows a list of your log files.
 
-   ![Server logs list](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="Screenshot of Server logs page, with list of logs highlighted":::
 
    > [!TIP]
-   > The naming convention of the log is **postgresql-yyyy-mm-dd_hh0000.log**. The date and time used in the file name is the time is when the log was issued. The log files rotate every one hour or 100-MB size, whichever comes first.
+   > The naming convention of the log is **postgresql-yyyy-mm-dd_hh0000.log**. The date and time used in the file name is the time when the log was issued. The log files rotate every hour or 100 MB, whichever comes first.
 
-4. If needed, use the **search box** to quickly narrow down to a specific log based on date/time. The search is on the name of the log.
+4. If needed, use the search box to quickly narrow down to a specific log, based on date and time. The search is on the name of the log.
 
-   ![Example search on log names](./media/howto-configure-server-logs-in-portal/5-search.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/5-search.png" alt-text="Screenshot of Server logs page, with search box and results highlighted":::
 
-5. Download individual log files using the **download** button (down arrow icon) next to each log file in the table row as shown:
+5. To download individual log files, select the down-arrow icon next to each log file in the table row.
 
-   ![Click download icon](./media/howto-configure-server-logs-in-portal/6-download.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/6-download.png" alt-text="Screenshot of Server logs page, with down-arrow icon highlighted":::
 
 ## Next steps
-- See [Access Server Logs in CLI](howto-configure-server-logs-using-cli.md) to learn how to download logs programmatically.
-- Learn more about [Server Logs](concepts-server-logs.md) in Azure DB for PostgreSQL. 
-- For more information about the parameter definitions and PostgreSQL logging, see the PostgreSQL documentation on [Error Reporting and Logging](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
+- See [Access server logs in CLI](howto-configure-server-logs-using-cli.md) to learn how to download logs programmatically.
+- Learn more about [server logs](concepts-server-logs.md) in Azure Database for PostgreSQL. 
+- For more information about the parameter definitions and PostgreSQL logging, see the PostgreSQL documentation on [error reporting and logging](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
 

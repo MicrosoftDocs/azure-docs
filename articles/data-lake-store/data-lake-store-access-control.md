@@ -1,10 +1,10 @@
 ---
 title: Overview of access control in Data Lake Storage Gen1 | Microsoft Docs
-description: Understand how access control works in Azure Data Lake Storage Gen1
+description: Learn about the basics of the access control model of Azure Data Lake Storage Gen1, which derives from HDFS.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: d16f8c09-c954-40d3-afab-c86ffa8c353d
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Access control in Azure Data Lake Storage Gen1
@@ -29,8 +29,6 @@ There are two kinds of access control lists (ACLs), **Access ACLs** and **Defaul
 
 
 Both Access ACLs and Default ACLs have the same structure.
-
-
 
 > [!NOTE]
 > Changing the Default ACL on a parent does not affect the Access ACL or Default ACL of child items that already exist.
@@ -67,15 +65,15 @@ In the POSIX-style model that's used by Data Lake Storage Gen1, permissions for 
 
 Following are some common scenarios to help you understand which permissions are needed to perform certain operations on a Data Lake Storage Gen1 account.
 
-|    Operation             |    /    | Seattle/ | Portland/ | Data.txt     |
-|--------------------------|---------|----------|-----------|--------------|
-| Read Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Append to Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Delete Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Create Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| List /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
-| List /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
-| List /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
+| Operation | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
+|-----------|---------------------|-----------|------------|-------------|----------------|
+| Read      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Append to | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `-W-`          |
+| Delete    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Create    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| List      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| List      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| List      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -162,7 +160,7 @@ def access_check( user, desired_perms, path ) :
   # Handle the owning user. Note that mask IS NOT used.
   entry = get_acl_entry( path, OWNER )
   if (user == entry.identity)
-      return ( (desired_perms & e.permissions) == desired_perms )
+      return ( (desired_perms & entry.permissions) == desired_perms )
 
   # Handle the named users. Note that mask IS used.
   entries = get_acl_entries( path, NAMED_USER )
@@ -212,9 +210,9 @@ When a new file or folder is created under an existing folder, the Default ACL o
 
 ### umask
 
-When creating a file or folder, umask is used to modify how the default ACLs are set on the child item. umask is a 9 bit a 9-bit value on parent folders that contains an RWX value for **owning user**, **owning group**, and **other**.
+When creating a file or folder, umask is used to modify how the default ACLs are set on the child item. umask is a 9-bit value on parent folders that contains an RWX value for **owning user**, **owning group**, and **other**.
 
-The umask for Azure Data Lake Storage Gen1 a constant value that is set to 007. This value translates to
+The umask for Azure Data Lake Storage Gen1 is a constant value set to 007. This value translates to
 
 | umask component     | Numeric form | Short form | Meaning |
 |---------------------|--------------|------------|---------|
@@ -276,22 +274,30 @@ Entries in the ACLs are stored as GUIDs that correspond to users in Azure AD. Th
 
 ### Why do I sometimes see GUIDs in the ACLs when I'm using the Azure portal?
 
-A GUID is shown when the user doesn't exist in Azure AD anymore. Usually this happens when the user has left the company or if their account has been deleted in Azure AD.
+A GUID is shown when the user doesn't exist in Azure AD anymore. Usually this happens when the user has left the company or if their account has been deleted in Azure AD. Also, ensure that you're using the right ID for setting ACLs (details in question below).
+
+### When using service principal, what ID should I use to set ACLs?
+
+On the Azure Portal, go to **Azure Active Directory -> Enterprise applications** and select your application. The **Overview** tab should display an Object ID and this is what should be used when adding ACLs for data access (and not Application Id).
 
 ### Does Data Lake Storage Gen1 support inheritance of ACLs?
 
-No, but Default ACLs can be used to set ACLs for child files and folder newly created under the parent folder.  
+No, but Default ACLs can be used to set ACLs for child files and folder newly created under the parent folder.
+
+### What are the limits for ACL entries on files and folders?
+
+32 ACLs can be set per file and per directory. Access and default ACLs each have their own 32 ACL entry limit. Use security groups for ACL assignments if possible. By using groups, you're less likely to exceed the maximum number of ACL entries per file or directory.
 
 ### Where can I learn more about POSIX access control model?
 
 * [POSIX Access Control Lists on Linux](https://www.linux.com/news/posix-acls-linux)
-* [HDFS permission guide](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
-* [POSIX FAQ](http://www.opengroup.org/austin/papers/posix_faq.html)
-* [POSIX 1003.1 2008](http://standards.ieee.org/findstds/standard/1003.1-2008.html)
-* [POSIX 1003.1 2013](http://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
-* [POSIX 1003.1 2016](http://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
+* [HDFS permission guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
+* [POSIX FAQ](https://www.opengroup.org/austin/papers/posix_faq.html)
+* [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
+* [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
+* [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
 * [POSIX ACL on Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
-* [ACL using access control lists on Linux](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
+* [ACL using access control lists on Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## See also
 

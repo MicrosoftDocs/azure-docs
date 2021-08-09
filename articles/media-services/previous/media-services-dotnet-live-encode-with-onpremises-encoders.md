@@ -3,27 +3,30 @@ title: How to perform live streaming with on-premises encoders using .NET | Micr
 description: This topic shows how to use .NET to perform live encoding with on-premises encoders.
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: cfowler
+author: IngridAtMicrosoft
+manager: femila
 editor: ''
-
-ms.assetid: 15908152-d23c-4d55-906a-3bfd74927db5
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/09/2017
-ms.author: cenkdin;juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.custom: devx-track-csharp
 ---
 # How to perform live streaming with on-premises encoders using .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-> * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [REST](/rest/api/media/operations/channel)
 > 
 > 
+
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 This tutorial walks you through the steps of using the Azure Media Services .NET SDK to create a **Channel** that is configured for a pass-through delivery. 
 
@@ -31,9 +34,10 @@ This tutorial walks you through the steps of using the Azure Media Services .NET
 The following are required to complete the tutorial:
 
 * An Azure account.
-* A Media Services account.    To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
+* A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
+* Make sure the streaming endpoint from which you want to stream content is in the **Running** state. 
 * Set up your dev environment. For more information, see [Set up your environment](media-services-set-up-computer.md).
-* A webcam. For example, [Telestream Wirecast encoder](http://www.telestream.net/wirecast/overview.htm).
+* A webcam. For example, [Telestream Wirecast encoder](media-services-configure-wirecast-live-encoder.md).
 
 Recommended to review the following articles:
 
@@ -45,6 +49,7 @@ Recommended to review the following articles:
 Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
 
 ## Example
+
 The following code example demonstrates how to achieve the following tasks:
 
 * Connect to Media Services
@@ -57,9 +62,6 @@ The following code example demonstrates how to achieve the following tasks:
 * Create and start a StreamingEndpoint
 * Update the streaming endpoint
 * Shut down resources
-
->[!IMPORTANT]
->Make sure the streaming endpoint from which you want to stream content is in the **Running** state. 
 	
 >[!NOTE]
 >There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) article.
@@ -81,8 +83,8 @@ namespace AMSLiveTest
     {
         private const string StreamingEndpointName = "streamingendpoint001";
         private const string ChannelName = "channel001";
-        private const string AssetlName = "asset001";
-        private const string ProgramlName = "program001";
+        private const string AssetName = "asset001";
+        private const string ProgramName = "program001";
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
@@ -145,6 +147,10 @@ namespace AMSLiveTest
 
         private static ChannelInput CreateChannelInput()
         {
+            // When creating a Channel, you can specify allowed IP addresses in one of the following formats: 
+            // IpV4 address with 4 numbers
+            // CIDR address range
+	    
             return new ChannelInput
             {
                 StreamingProtocol = StreamingProtocol.RTMP,
@@ -167,6 +173,10 @@ namespace AMSLiveTest
 
         private static ChannelPreview CreateChannelPreview()
         {
+            // When creating a Channel, you can specify allowed IP addresses in one of the following formats: 
+            // IpV4 address with 4 numbers
+            // CIDR address range
+	    
             return new ChannelPreview
             {
                 AccessControl = new ChannelAccessControl
@@ -217,11 +227,11 @@ namespace AMSLiveTest
 
         public static IProgram CreateAndStartProgram(IChannel channel)
         {
-            IAsset asset = _context.Assets.Create(AssetlName, AssetCreationOptions.None);
+            IAsset asset = _context.Assets.Create(AssetName, AssetCreationOptions.None);
 
             // Create a Program on the Channel. You can have multiple Programs that overlap or are sequential;
             // however each Program must have a unique name within your Media Services account.
-            IProgram program = channel.Programs.Create(ProgramlName, TimeSpan.FromHours(3), asset.Id);
+            IProgram program = channel.Programs.Create(ProgramName, TimeSpan.FromHours(3), asset.Id);
             program.Start();
 
             return program;
@@ -393,4 +403,3 @@ Review Media Services learning paths
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

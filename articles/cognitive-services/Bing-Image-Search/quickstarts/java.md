@@ -1,28 +1,32 @@
 ---
-title: "Quickstart: Perform an image search with Java - Bing Image Search API"
+title: "Quickstart: Search for images using the Bing Image Search REST API and Java"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple Java application sends a search query to the API and displays the raw results.
+description: Use this quickstart to send image search requests to the Bing Image Search REST API using Java, and receive JSON responses.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 8/20/2018
+ms.date: 05/08/2020
 ms.author: aahi
+ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 ---
-# Quickstart: Send search queries using the Bing Image Search REST API and Java
+# Quickstart: Search for images with the Bing Image Search API and Java 
 
-Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple Java application sends a search query to the API and displays the raw results.
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-While this application is written in Java, the API is a RESTful Web service compatible with most programming languages.
+Use this quickstart to learn how to send search requests to the Bing Image Search API in Azure Cognitive Services. This Java application sends a search query to the API, and displays the URL of the first image in the results. Although this application is written in Java, the API is a RESTful web service compatible with most programming languages.
 
-The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) with additional error handling, and code annotations.
+The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) with additional error handling and annotations.
 
 ## Prerequisites
 
-* The [Java Development Kit(JDK) 7 or 8](https://aka.ms/azure-jdks)
+* The [Java Development Kit(JDK)](/azure/developer/java/fundamentals/java-support-on-azure)
 
 * The [Gson library](https://github.com/google/gson)
 
@@ -30,7 +34,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Create and initialize a project
 
-1. Create a new Java project in your favorite IDE or editor, and import the following libraries.
+1. Create a new Java project in your favorite IDE or editor, and import the following libraries:
 
     ```java
     import java.net.*;
@@ -43,7 +47,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     import com.google.gson.JsonParser;
     ```
 
-2. Create variables for the API endpoint, your subscription key, and search term.
+2. Create variables for the API endpoint, your subscription key, and search term. For `host`, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```java
     static String subscriptionKey = "enter key here";
@@ -54,18 +58,18 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Construct the search request and query
 
-1. Use the variables from the last step to format a search URL for the API request. Note that your search term must be URL-encoded before being appended to the request.
+Use the variables from the previous step to format a search URL for the API request. URL-encode the search term before you appended it to the request.
 
-    ```java
-    // construct the search request URL (in the form of endpoint + query string)
-    URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
-    HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-    connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-    ```
+```java
+// construct the search request URL (in the form of endpoint + query string)
+URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
+HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
+connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+```
 
 ## Receive and process the JSON response
 
-1. Receive the JSON response from the Bing Image Search API, and construct the result object.
+1. Receive the JSON response from the Bing Image Search API and construct the result object.
 
     ```java
     // receive JSON body
@@ -74,7 +78,8 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
     ```
-2. Separate the Bing-related HTTP headers from the JSON body
+2. Separate the Bing-related HTTP headers from the JSON body.
+
     ```java
     // extract Bing-related HTTP headers
     Map<String, List<String>> headers = connection.getHeaderFields();
@@ -86,7 +91,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     }
     ```
 
-3. Close the stream, and parse the response. Get the total number of returned search results, and the thumbnail url to the first image result.
+3. Close the stream, and parse the response. Get the total number of returned search results and the thumbnail url to the first image result.
 
     ```java
     stream.close();
@@ -99,9 +104,8 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     JsonObject first_result = (JsonObject)results.get(0);
     String resultURL = first_result.get("thumbnailUrl").getAsString();
     ```
-4. Remember to remove your subscription key from the application code.
 
-## JSON response
+## Example JSON response
 
 Responses from the Bing Image Search API are returned as JSON. This sample response has been truncated to show a single result.
 
@@ -145,7 +149,7 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 
@@ -156,8 +160,8 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 
 ## See also
 
-* [What is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Get a free Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Azure Cognitive Services Documentation](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [What is the Bing Image Search API?](../overview.md)  
+* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
+* [Pricing details for the Bing Search APIs](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)
+* [Azure Cognitive Services documentation](../../index.yml)
+* [Bing Image Search API reference](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

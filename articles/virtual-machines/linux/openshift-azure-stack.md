@@ -1,20 +1,14 @@
 ---
-title: Deploy OpenShift in Azure Stack | Microsoft Docs
+title: Deploy OpenShift in Azure Stack 
 description: Deploy OpenShift in Azure Stack.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: haroldwongms
 manager: joraio
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
+ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 
+ms.date: 10/14/2019
 ms.author: haroldw
 ---
 
@@ -63,9 +57,9 @@ Some common customization options include, but aren't limited to:
 - OpenShift cluster specifics, modified via hosts file (deployOpenShift.sh)
 - RHEL image reference (variable in azuredeploy.json)
 
-For the steps to deploy using the Azure CLI, follow the appropriate section in the [OpenShift Container Platform](./openshift-container-platform.md) section or the [OKD](./openshift-okd.md) section.
+For the steps to deploy using the Azure CLI, follow the appropriate section in the [OpenShift Container Platform](./openshift-container-platform-3x.md) section or the [OKD](./openshift-okd.md) section.
 
 ## Next steps
 
-- [Post-deployment tasks](./openshift-post-deployment.md)
-- [Troubleshoot OpenShift deployment in Azure](./openshift-troubleshooting.md)
+- [Post-deployment tasks](./openshift-container-platform-3x-post-deployment.md)
+- [Troubleshoot OpenShift deployment in Azure](./openshift-container-platform-3x-troubleshooting.md)

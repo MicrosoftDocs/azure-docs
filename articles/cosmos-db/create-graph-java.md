@@ -1,20 +1,18 @@
 ---
-title: Create an Azure Cosmos DB graph database with Java | Microsoft Docs
+title: Build a graph database with Java in Azure Cosmos DB 
 description: Presents a Java code sample you can use to connect to and query graph data in Azure Cosmos DB using Gremlin.
-services: cosmos-db
-author: luisbosquez
-manager: kfile
-
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-graph
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 03/26/2018
-ms.author: lbosq
-
+ms.date: 03/26/2019
+author: manishmsfte
+ms.author: mansha
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 ---
-# Azure Cosmos DB: Create a graph database using Java and the Azure portal
+
+# Quickstart: Build a graph database with the Java SDK and the Azure Cosmos DB Gremlin API
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin console](create-graph-gremlin-console.md)
@@ -25,32 +23,23 @@ ms.author: lbosq
 > * [PHP](create-graph-php.md)
 >  
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. Using Azure Cosmos DB, you can quickly create and query managed document, table, and graph databases. 
-
-This quickstart creates a simple graph database using the Azure portal tools for Azure Cosmos DB. This quickstart also shows you how to quickly create a Java console app using a [Gremlin API](graph-introduction.md) database using the OSS [Apache TinkerPop](http://tinkerpop.apache.org/) driver. The instructions in this quickstart can be followed on any operating system that is capable of running Java. This quickstart familiarizes you with creating and modifying graphs in either the UI or programmatically, whichever is your preference. 
+In this quickstart, you create and manage an Azure Cosmos DB Gremlin (graph) API account from the Azure portal, and add data by using a Java app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 
 ## Prerequisites
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-In addition:
-
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
-    * On Ubuntu, run `apt-get install default-jdk` to install the JDK.
-    * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
-* [Download](http://maven.apache.org/download.cgi) and [install](http://maven.apache.org/install.html) a [Maven](http://maven.apache.org/) binary archive
-    * On Ubuntu, you can run `apt-get install maven` to install Maven.
-* [Git](https://www.git-scm.com/)
-    * On Ubuntu, you can run `sudo apt-get install git` to install Git.
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Point your `JAVA_HOME` environment variable to the folder where the JDK is installed.
+- A [Maven binary archive](https://maven.apache.org/download.cgi). 
+- [Git](https://www.git-scm.com/downloads). 
 
 ## Create a database account
 
 Before you can create a graph database, you need to create a Gremlin (Graph) database account with Azure Cosmos DB.
 
-[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## Add a graph
 
-[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
+[!INCLUDE [cosmos-db-create-graph](includes/cosmos-db-create-graph.md)]
 
 ## Clone the sample application
 
@@ -78,9 +67,11 @@ Now let's switch to working with code. Let's clone a Gremlin API app from GitHub
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-information).
 
-The following snippets are all taken from the C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted\Program.java file.
+The following snippets are all taken from the *C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted\Program.java* file.
 
-* The Gremlin `Client` is initialized from the configuration in the C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\remote.yaml file.
+This Java console app uses a [Gremlin API](graph-introduction.md) database with the OSS [Apache TinkerPop](https://tinkerpop.apache.org/) driver. 
+
+- The Gremlin `Client` is initialized from the configuration in the *C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\remote.yaml* file.
 
     ```java
     cluster = Cluster.build(new File("src/remote.yaml")).create();
@@ -88,7 +79,7 @@ The following snippets are all taken from the C:\git-samples\azure-cosmos-db-gra
     client = cluster.connect();
     ```
 
-* Series of Gremlin steps are executed using the `client.submit` method.
+- Series of Gremlin steps are executed using the `client.submit` method.
 
     ```java
     ResultSet results = client.submit(gremlin);
@@ -105,14 +96,15 @@ The following snippets are all taken from the C:\git-samples\azure-cosmos-db-gra
 
 Now go back to the Azure portal to get your connection information and copy it into the app. These settings enable your app to communicate with your hosted database.
 
-1. In the [Azure portal](http://portal.azure.com/), click **Keys**. 
+1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Keys**. 
 
     Copy the first portion of the URI value.
 
-    ![View and copy an access key in the Azure portal, Keys page](./media/create-graph-java/keys.png)
-2. Open the src/remote.yaml file and paste the unique ID value over `$name$` in `hosts: [$name$.graphs.azure.com]`.
+    :::image type="content" source="./media/create-graph-java/copy-access-key-azure-portal.png" alt-text="View and copy an access key in the Azure portal, Keys page":::
 
-    Line 1 of remote.yaml should now look similar to 
+2. Open the *src/remote.yaml* file and paste the unique ID value over `$name$` in `hosts: [$name$.graphs.azure.com]`.
+
+    Line 1 of *remote.yaml* should now look similar to 
 
     `hosts: [test-graph.graphs.azure.com]`
 
@@ -124,11 +116,11 @@ Now go back to the Azure portal to get your connection information and copy it i
 
 4. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `$masterKey$` in `password: $masterKey$`.
 
-    Line 4 of remote.yaml should now look similar to 
+    Line 4 of *remote.yaml* should now look similar to 
 
     `password: 2Ggkr662ifxz2Mg==`
 
-5. Change line 3 of remote.yaml from
+5. Change line 3 of *remote.yaml* from
 
     `username: /dbs/$database$/colls/$collection$`
 
@@ -138,7 +130,7 @@ Now go back to the Azure portal to get your connection information and copy it i
 
     If you used a unique name for your sample database or graph, update the values as appropriate.
 
-6. Save the remote.yaml file.
+6. Save the *remote.yaml* file.
 
 ## Run the console app
 
@@ -150,13 +142,13 @@ Now go back to the Azure portal to get your connection information and copy it i
 
 2. In the git terminal window, use the following command to install the required Java packages.
 
-   ```
+   ```git
    mvn package
    ```
 
 3. In the git terminal window, use the following command to start the Java application.
     
-    ```
+    ```git
     mvn exec:java -D exec.mainClass=GetStarted.Program
     ```
 
@@ -164,28 +156,28 @@ Now go back to the Azure portal to get your connection information and copy it i
     
     If you experience timeout errors, check that you updated the connection information correctly in [Update your connection information](#update-your-connection-information), and also try running the last command again. 
     
-    Once the program stops, press Enter, then switch back to the Azure portal in your internet browser. 
+    Once the program stops, select Enter, then switch back to the Azure portal in your internet browser. 
 
 <a id="add-sample-data"></a>
 ## Review and add sample data
 
 You can now go back to Data Explorer and see the vertices added to the graph, and add additional data points.
 
-1. Click **Data Explorer**, expand **sample-graph**, click **Graph**, and then click **Apply Filter**. 
+1. In your Azure Cosmos DB account in the Azure portal, select **Data Explorer**, expand **sample-graph**, select **Graph**, and then select **Apply Filter**. 
 
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
+   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png" alt-text="Screenshot shows Graph selected from the A P I with the option to Apply Filter.":::
 
 2. In the **Results** list, notice the new users added to the graph. Select **ben** and notice that the user is connected to robin. You can move the vertices around by dragging and dropping, zoom in and out by scrolling the wheel of your mouse, and expand the size of the graph with the double-arrow. 
 
-   ![New vertices in the graph in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
+   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png" alt-text="New vertices in the graph in Data Explorer in the Azure portal":::
 
-3. Let's add a few new users. Click the **New Vertex** button to add data to your graph.
+3. Let's add a few new users. Select **New Vertex** to add data to your graph.
 
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
+   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Screenshot shows the New Vertex pane where you can enter values.":::
 
 4. In the label box, enter *person*.
 
-5. Click **Add property** to add each of the following properties. Notice that you can create unique properties for each person in your graph. Only the id key is required.
+5. Select **Add property** to add each of the following properties. Notice that you can create unique properties for each person in your graph. Only the id key is required.
 
     key|value|Notes
     ----|----|----
@@ -196,13 +188,13 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
     > [!NOTE]
     > In this quickstart you create a non-partitioned collection. However, if you create a partitioned collection by specifying a partition key during the collection creation, then you need to include the partition key as a key in each new vertex. 
 
-6. Click **OK**. You may need to expand your screen to see **OK** on the bottom of the screen.
+6. Select **OK**. You may need to expand your screen to see **OK** on the bottom of the screen.
 
-7. Click **New Vertex** again and add an additional new user. 
+7. Select **New Vertex** again and add an additional new user. 
 
 8. Enter a label of *person*.
 
-9. Click **Add property** to add each of the following properties:
+9. Select **Add property** to add each of the following properties:
 
     key|value|Notes
     ----|----|----
@@ -210,37 +202,37 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
     gender|male| 
     school|MIT| 
 
-10. Click **OK**. 
+10. Select **OK**. 
 
-11. Click the **Apply Filter** button with the default `g.V()` filter to display all the values in the graph. All of the users now show in the **Results** list. 
+11. Select the **Apply Filter** button with the default `g.V()` filter to display all the values in the graph. All of the users now show in the **Results** list. 
 
-    As you add more data, you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph. You can change it to a different [graph query](tutorial-query-graph.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format. If you changed the filter, change the filter back to `g.V()` and click **Apply Filter** to display all the results again.
+    As you add more data, you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph. You can change it to a different [graph query](tutorial-query-graph.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format. If you changed the filter, change the filter back to `g.V()` and select **Apply Filter** to display all the results again.
 
-12. Now you can connect rakesh, and ashley. Ensure **ashley** is selected in the **Results** list, then click ![Change the target of a vertex in a graph](./media/create-graph-java/edit-pencil-button.png)  next to **Targets** on lower right side. You may need to widen your window to see the button.
+12. Now you can connect rakesh, and ashley. Ensure **ashley** is selected in the **Results** list, then select :::image type="content" source="./media/create-graph-java/edit-pencil-button.png" alt-text="Change the target of a vertex in a graph":::  next to **Targets** on lower right side. You may need to widen your window to see the button.
 
-   ![Change the target of a vertex in a graph](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
+    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Change the target of a vertex in a graph - Azure CosmosDB":::
 
-13. In the **Target** box type *rakesh*, and in the **Edge label** box type *knows*, and then click the checkbox.
+13. In the **Target** box enter *rakesh*, and in the **Edge label** box enter *knows*, and then select the check box.
 
-   ![Add a connection between ashley and rakesh in Data Explorer](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
+    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png" alt-text="Add a connection in Data Explorer - Azure CosmosDB":::
 
 14. Now select **rakesh** from the results list and see that ashley and rakesh are connected. 
 
-   ![Two vertices connected in Data Explorer](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
+    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer.png" alt-text="Two vertices connected in Data Explorer - Azure CosmosDB":::
 
-   That completes the resource creation part of this tutorial. You can continue to add vertexes to your graph, modify the existing vertexes, or change the queries. Now let's review the metrics Azure Cosmos DB provides, and then clean up the resources. 
+That completes the resource creation part of this tutorial. You can continue to add vertexes to your graph, modify the existing vertexes, or change the queries. Now let's review the metrics Azure Cosmos DB provides, and then clean up the resources. 
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a graph using the Data Explorer, and run an app. You can now build more complex queries and implement powerful graph traversal logic using Gremlin. 
+In this quickstart, you learned how to create an Azure Cosmos DB account, create a graph using the Data Explorer, and run a Java app that adds data to the graph. You can now build more complex queries and implement powerful graph traversal logic using Gremlin. 
 
 > [!div class="nextstepaction"]
 > [Query using Gremlin](tutorial-query-graph.md)

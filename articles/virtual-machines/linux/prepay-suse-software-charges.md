@@ -1,69 +1,71 @@
 ---
-title: Buy SUSE Linux plans - Azure Reservations | Microsoft Docs
-description: Learn how you can prepay for your SUSE usage and save money over your pay-as-you-go costs.
-services: virtual-machines-linux
-documentationcenter: ''
-author: yashesvi
+title: Prepay for software plans - Azure Reservations
+description: Learn how you can prepay for software plans to save money over your pay-as-you-go costs.
+author: bandersmsft
 manager: yashesvi
-editor: ''
-ms.service: virtual-machines-linux
-ms.devlang: na
+ms.service: virtual-machines
+ms.subservice: reserved-instances
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/29/2018
-ms.author: yashar
+ms.date: 04/06/2020
+ms.author: banders
 ---
-# Prepay for SUSE software plans from Azure Reservations
+# Prepay for Azure software plans
 
-Prepay for your SUSE usage and save money over your pay-as-you-go costs. The discounts only apply to SUSE meters and not on the virtual machine usage. You can buy reservations for virtual machines separately to save even more.
+When you prepay for your SUSE and RedHat software usage in Azure, you can save money over your pay-as-you-go costs. The discounts only apply to SUSE and RedHat meters and not on the virtual machine usage. You can buy reservations for virtual machines separately for additional savings.
 
-You can buy SUSE software plans in the Azure portal. To buy a plan:
+You can buy SUSE and RedHat software plans in the Azure portal. To buy a plan:
 
-- You must be in an Owner role for at least one Enterprise or Pay-As-You-Go subscription.
-- For Enterprise subscriptions, reservation purchases must be enabled in the [EA portal](https://ea.azure.com).
-- For the Cloud Solution Provider (CSP) program, the admin agents or sales agents can buy the SUSE plans.
+- You must have the owner role for at least one Enterprise or individual subscription with pay-as-you-go pricing.
+- For Enterprise subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). If the setting is disabled, you must be an EA Admin for the subscription.
+- For the Cloud Solution Provider (CSP) program, the admin agents or sales agents can buy the software plans.
 
-## Buy a SUSE software plan
+## Buy a software plan
 
-1. Go to [Reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) in Azure portal.
-1. Select **Add** and select SUSE Linux.
-1. Fill in the required fields. Any SUSE Linux VM that matches the attributes of what you buy gets the discount. The actual number of deployments that get the discount depend on the scope and quantity selected.
+1. Sign in to the Azure portal and go to [Reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+2. Click **Add** and then select the software plan that you want to buy.
+Fill in the required fields. Any SUSE Linux VM or RedHat VM that matches the attributes of what you buy gets the discount. The actual number of deployments that get the discount depend on the scope and quantity selected.
+3. Select a subscription. It's used to pay for the plan.
+The subscription payment method is charged the upfront costs for the reservation. The subscription type must be an Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or individual agreement with pay-as-you-go pricing (offer numbers: MS-AZR-0003P or MS-AZR-0023P).
+    - For an enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage.
+    - For an individual subscription with pay-as-you-go pricing, the charges are billed to the subscription's credit card or invoice payment method.
+4. Select a scope. The scope can cover one subscription or multiple subscriptions (shared scope).
+    - Single subscription - The plan discount is applied to matching usage in the subscription.
+    - Shared - The plan discount is applied to matching instances in any subscription in your billing context. For enterprise customers, the billing context is the enrollment and includes all subscriptions in the enrollment. For individual plan with pay-as-you-go pricing customers, the billing context is all individual plans with pay-as-you-go pricing subscriptions created by the account administrator.
+    - Single resource group - Applies the reservation discount to the matching resources in the selected resource group only.
+5. Select a product to choose the VM size and the image type. The discount applies to the selected VM size only.
+6. Select a one-year or three-year term.
+7. Choose a quantity, which is the number of prepaid VM instances that can get the billing discount.
+8. Add the product to the cart, review and purchase.
 
-    | Field      | Description|
-    |:------------|:--------------|
-    |Name        |The name of this purchase.|
-    |Subscription|The subscription used to pay for this plan. The payment method on the subscription is charged the upfront costs for the reservation. The subscription type must be an enterprise agreement (offer number: MS-AZR-0017P) or Pay-As-You-Go (offer number: MS-AZR-0003P). For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage. For Pay-As-You-Go subscription, the charges are billed to the credit card or invoice payment method on the subscription.|
-    |Scope       |The scope can cover one subscription or multiple subscriptions (shared scope). If you select: <ul><li>Single subscription - The plan discount is applied to SUSE Linux usage in this subscription. </li><li>Shared - The plan discount is applied to SUSE Linux usage in any subscription within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions (except dev/test subscriptions) within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.</li></ul>|
-    |Software plan     |Select the SUSE Linux plan. For help in identifying what to buy, see [Understand how the SUSE Linux Enterprise software reservation discount is applied](../../billing/billing-understand-suse-reservation-charges.md).|
-    |VM size     |SUSE Linux pricing depends on the number of vCPUs on the VM. Select the option that represents the number of vCPUs on your SUSE Linux VMs.|
-    |Term        |One year or three years.|
-    |Quantity    |The number of VMs that you are buying this SUSE Linux plan for. The quantity is the number of running SUSE Linux instances that can get the billing discount.|
-1. Select **Purchase**.
-1. Select **View this Reservation** to see the status of your purchase.
+The reservation discount is automatically applied to the software meter that you pre-pay for. VM compute charges aren't covered by the plan. You can purchase the VM reservations separately.
 
-The reservation discount is automatically applied to any running SUSE virtual machines that matches the reservation. The discount applies only to the SUSE meter. The VM compute charges are not covered by this plan.
+## Discount applies to different SUSE VM sizes
 
-## Discount applies to different VM sizes with instance size flexibility
+Like reserved VM instances, SUSE Linux plans offer instance size flexibility. Your discount applies even when you deploy a VM that's a different size from the SUSE plan you bought. For more information, see [Understand how the software plan discount is applied](../../cost-management-billing/reservations/understand-suse-reservation-charges.md).
 
-Like Reserved VM Instances, SUSE Linux plans offer instance size flexibility. This means that your discount applies  even when you deploy a VM that's a different size from the SUSE plan you bought. For more information, see [Understand how the SUSE Linux Enterprise software reservation discount is applied](../../billing/billing-understand-suse-reservation-charges.md).
+## RedHat plan discount
+
+Plans are available only for Red Hat Enterprise Linux virtual machines. The discount doesn't apply to RedHat Enterprise Linux SAP HANA VMs or RedHat Enterprise Linux SAP Business Apps VMs.
+
+RedHat plan discounts apply only to the VM size that you select at the time of purchase. RHEL plans can't be refunded or exchanged after purchase.
+
 
 ## Cancellation and exchanges not allowed
 
-You can't cancel or exchange a SUSE plan that you bought. Check your usage to make sure you buy the right plan. For help in identifying what to buy, see [Understand how the SUSE Linux Enterprise software reservation discount is applied](../../billing/billing-understand-suse-reservation-charges.md).
+You can't cancel or exchange a SUSE or RedHat plan that you bought. Check your usage to make sure you buy the right plan. For help to identify what to buy, see [Understand how the software plan discount is applied](../../cost-management-billing/reservations/understand-suse-reservation-charges.md).
+
+## Need help? Contact us.
+
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## Next steps
 
-To learn how to manage a reservation, see [Manage Azure reservations](../../billing/billing-manage-reserved-vm-instance.md).
+To learn how to manage a reservation, see [Manage Azure reservations](../../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 
 To learn more, see the following articles:
 
-- [What are Azure Reservations?](../../billing/billing-save-compute-costs-reservations.md)
-- [Manage Reservations in Azure](../../billing/billing-manage-reserved-vm-instance.md)
-- [Understand how the SUSE reservation discount is applied](../../billing/billing-understand-suse-reservation-charges.md)
-- [Understand reservation usage for your Pay-As-You-Go subscription](../../billing/billing-understand-reserved-instance-usage.md)
-- [Understand reservation usage for your Enterprise enrollment](../../billing/billing-understand-reserved-instance-usage-ea.md)
-
-## Need help? Contact support
-
-If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+- [What are Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Manage Reservations in Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+- [Understand how the SUSE reservation discount is applied](../../cost-management-billing/reservations/understand-suse-reservation-charges.md)
+- [Understand reservation usage for your Pay-As-You-Go subscription](../../cost-management-billing/reservations/understand-reserved-instance-usage.md)
+- [Understand reservation usage for your Enterprise enrollment](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)

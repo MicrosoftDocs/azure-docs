@@ -1,29 +1,25 @@
 ---
-title: Transform data using Spark activity in Azure Data Factory | Microsoft Docs
-description: Learn how to transform data by running Spark programs from an Azure data factory pipeline using the Spark Activity. 
-services: data-factory
-documentationcenter: ''
-author: douglaslMS
-manager: craigg
-
+title: Transform data using Spark activity
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to transform data by running Spark programs from an Azure Data Factory pipeline using the Spark Activity. 
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: tutorials
 ms.topic: conceptual
-ms.date: 05/31/2018
-ms.author: douglasl
-
+author: nabhishek
+ms.author: abnarain
+ms.custom: synapse
+ms.date: 06/09/2021
 ---
+
 # Transform data using Spark activity in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-spark.md)
 > * [Current version](transform-data-using-spark.md)
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 The Spark activity in a Data Factory [pipeline](concepts-pipelines-activities.md) executes a Spark program on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)  HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. When you use an on-demand Spark linked service, Data Factory automatically creates a Spark cluster for you just-in-time to process the data and then deletes the cluster once the processing is complete. 
 
-> [!IMPORTANT]
-> Spark Activity does not support HDInsight Spark clusters that use an Azure Data Lake Store as primary storage.
 
 ## Spark activity properties
 Here is the sample JSON definition of a Spark Activity:    
@@ -42,7 +38,7 @@ Here is the sample JSON definition of a Spark Activity:
             "referenceName": "MyAzureStorageLinkedService",
             "type": "LinkedServiceReference"
         },
-        "rootPath": "adfspark\\pyFiles",
+        "rootPath": "adfspark",
         "entryFilePath": "test.py",
         "sparkConfig": {
             "ConfigItem1": "Value"
@@ -63,7 +59,7 @@ The following table describes the JSON properties used in the JSON definition:
 | description           | Text describing what the activity does.  | No       |
 | type                  | For Spark Activity, the activity type is HDInsightSpark. | Yes      |
 | linkedServiceName     | Name of the HDInsight Spark Linked Service on which the Spark program runs. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article. | Yes      |
-| SparkJobLinkedService | The Azure Storage linked service that holds the Spark job file, dependencies, and logs.  If you do not specify a value for this property, the storage associated with HDInsight cluster is used. The value of this property can only be an Azure Storage linked service. | No       |
+| SparkJobLinkedService | The Azure Storage linked service that holds the Spark job file, dependencies, and logs. Only **[Azure Blob Storage](./connector-azure-blob-storage.md)** and **[ADLS Gen2](./connector-azure-data-lake-storage.md)** linked services are supported here. If you do not specify a value for this property, the storage associated with HDInsight cluster is used. The value of this property can only be an Azure Storage linked service. | No       |
 | rootPath              | The Azure Blob container and folder that contains the Spark file. The file name is case-sensitive. Refer to folder structure section (next section) for details about the structure of this folder. | Yes      |
 | entryFilePath         | Relative path to the root folder of the Spark code/package. The entry file must be either a Python file or a .jar file. | Yes      |
 | className             | Application's Java/Spark main class      | No       |
@@ -99,6 +95,10 @@ SparkJob1
 		package1.jar
 		package2.jar
 	logs
+	
+	archives
+	
+	pyFiles
 
 SparkJob2
 	main.py
@@ -106,6 +106,13 @@ SparkJob2
 		scrip1.py
 		script2.py
 	logs
+	
+	archives
+	
+	jars
+	
+	files
+	
 ```
 ## Next steps
 See the following articles that explain how to transform data in other ways: 
@@ -117,5 +124,5 @@ See the following articles that explain how to transform data in other ways:
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)
 * [Spark activity](transform-data-using-spark.md)
 * [.NET custom activity](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md)
+* [Azure Machine Learning Studio (classic) Batch Execution activity](transform-data-using-machine-learning.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md)

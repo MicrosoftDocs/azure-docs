@@ -1,19 +1,17 @@
 ---
-title: Connect to Azure Database for PostgreSQL using Go language
-description: This quickstart provides a Go programming language sample you can use to connect and query data from Azure Database for PostgreSQL.
-services: postgresql
-author: rachel-msft
-ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
+title: 'Quickstart: Connect with Go - Azure Database for PostgreSQL - Single Server'
+description: This quickstart provides a Go programming language sample you can use to connect and query data from Azure Database for PostgreSQL - Single Server.
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 02/28/2018
+ms.date: 5/6/2019
 ---
 
-# Azure Database for PostgreSQL: Use Go language to connect and query data
+# Quickstart: Use Go language to connect and query data in Azure Database for PostgreSQL - Single Server
+
 This quickstart demonstrates how to connect to an Azure Database for PostgreSQL using code written in the [Go](https://golang.org/) language (golang). It shows how to use SQL statements to query, insert, update, and delete data in the database. This article assumes you are familiar with development using Go, but that you are new to working with Azure Database for PostgreSQL.
 
 ## Prerequisites
@@ -80,10 +78,10 @@ Get the connection information needed to connect to the Azure Database for Postg
 2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
 3. Click the server name.
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
- ![Azure Database for PostgreSQL server name](./media/connect-go/1-connection-string.png)
+ :::image type="content" source="./media/connect-go/1-connection-string.png" alt-text="Azure Database for PostgreSQL server name":::
 
 ## Build and run Go code 
-1. To write Golang code, you can use a plain text editor, such as Notepad in Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) or [Nano](https://www.nano-editor.org/) in Ubuntu, or TextEdit in macOS. If you prefer a richer Interactive Development Environment (IDE) try [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/).
+1. To write Golang code, you can use a plain text editor, such as Notepad in Microsoft Windows, [vi](https://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) or [Nano](https://www.nano-editor.org/) in Ubuntu, or TextEdit in macOS. If you prefer a richer Interactive Development Environment (IDE) try [GoLand](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/).
 2. Paste the Golang code from the following sections into text files, and save into your project folder with file extension \*.go, such as Windows path `%USERPROFILE%\go\src\postgresqlgo\createtable.go` or Linux path `~/go/src/postgresqlgo/createtable.go`.
 3. Locate the `HOST`, `DATABASE`, `USER`, and `PASSWORD` constants in the code, and replace the example values with your own values.  
 4. Launch the command prompt or bash shell. Change directory into your project folder. For example, on Windows `cd %USERPROFILE%\go\src\postgresqlgo\`. On Linux `cd ~/go/src/postgresqlgo/`. Some of the IDE environments mentioned offer debug and runtime capabilities without requiring shell commands.
@@ -329,6 +327,16 @@ func main() {
 	checkError(err)
 	fmt.Println("Deleted 1 row of data")
 }
+```
+
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## Next steps

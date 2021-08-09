@@ -1,25 +1,21 @@
 ---
-title: Stackify Retrace Azure Linux Agent Extension | Microsoft Docs
+title: Stackify Retrace Azure Linux Agent Extension 
 description: Deploy the Stackify Retrace Linux agent on a Linux virtual machine.
-services: virtual-machines-linux 
-documentationcenter: ''
-author:  darinhoward
-manager: jeconnoc 
-editor: ''
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services 
-ms.date: 04/12/2018
-ms.author: roiyz
+ms.service: virtual-machines
+ms.subservice: extensions
+author:  amjads1
+ms.author: amjads
+ms.collection: linux
+ms.date: 04/12/2018 
+ms.custom: devx-track-azurepowershell
+
 
 ---
 # Stackify Retrace Linux Agent Extension
 
 ## Overview
+
 Stackify provides products that track details about your application to help find and fix problems quickly. For developer teams, Retrace is a fully integrated, multi-environment, app performance super-power. It combines several tools every development team needs.
 
 Retrace is the ONLY tool that delivers all of the following capabilities across all environments in a single platform.
@@ -36,6 +32,7 @@ This extension provides an install path for the Linux Agent for Retrace.
 ## Prerequisites
 
 ### Operating system 
+
 The Retrace agent can be run against these Linux distributions
 
 | Distribution | Version |
@@ -46,12 +43,14 @@ The Retrace agent can be run against these Linux distributions
 | CentOS | 6.3+, 7.0+ |
 
 ### Internet connectivity
+
 The Stackify Agent extension for Linux requires that the target virtual machine is connected to the internet. 
 
 You may need to adjust your network configuration to allow connections to Stackify, see https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall. 
 
 
 ## Extension schema
+
 ---
 
 The following JSON shows the schema for the Stackify Retrace Agent extension. The extension requires the `environment` and `activationKey`.
@@ -143,15 +142,15 @@ When placing the extension JSON at the root of the template, the resource name i
 
 ## PowerShell deployment
 
-The `Set-AzureRmVMExtension` command can be used to deploy the Stackify Retrace Linux Agent virtual machine extension to an existing virtual machine. Before running the command, the public and private configurations need to be stored in a PowerShell hash table.
+The `Set-AzVMExtension` command can be used to deploy the Stackify Retrace Linux Agent virtual machine extension to an existing virtual machine. Before running the command, the public and private configurations need to be stored in a PowerShell hash table.
 
 The extension requires the `environment` and `activationKey`.
 
-```
+```powershell
 $PublicSettings = @{"environment" = "myEnvironment"}
 $ProtectedSettings = @{"activationKey" = "myActivationKey"}
 
-Set-AzureRmVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
+Set-AzVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Publisher "Stackify.LinuxAgent.Extension" `

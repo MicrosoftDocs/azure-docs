@@ -1,11 +1,9 @@
 ---
-title: About disaster recovery of VMware VMs to Azure using Azure Site Recovery | Microsoft Docs
+title: VMware disaster recovery with Azure Site Recovery
 description: This article provides an overview of disaster recovery of VMware VMs to Azure using the Azure Site Recovery service.
-author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
-ms.author: raynew
+ms.date: 11/12/2019
 ---
 
 # About disaster recovery of VMware VMs to Azure
@@ -16,8 +14,11 @@ This article provides an overview of disaster recovery for on-premises VMware VM
 
 A business continuity and disaster recovery (BCDR) strategy helps keep your business up and running. During planned downtime and unexpected outages, BCDR keeps data safe and available, and ensures that apps continue running. In addition to platform BCDR features such as regional pairing, and high availability storage, Azure provides Recovery Services as an integral part of your BCDR solution. Recovery services include: 
 
-- [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) backs up your on-premises and Azure VM data. You can back up a file and folders, specific workloads, or an entire VM. 
+- [Azure Backup](../backup/backup-overview.md) backs up your on-premises and Azure VM data. You can back up a file and folders, specific workloads, or an entire VM. 
 - [Azure Site Recovery](site-recovery-overview.md) provides resilience and disaster recovery for apps and workloads running on on-premises machines, or Azure IaaS VMs. Site Recovery orchestrates replication, and handles failover to Azure when outages occur. It also handles recovery from Azure to your primary site. 
+
+> [!NOTE]
+> Site Recovery does not move or store customer data out of the target region, in which disaster recovery has been setup for the source machines. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
 
 ## How does Site Recovery do disaster recovery?
 
@@ -28,7 +29,7 @@ A business continuity and disaster recovery (BCDR) strategy helps keep your busi
     - The drill helps ensure that failover will work as expected when a real need arises.
     - The drill performs a test failover without impacting your production environment.
 5. If an outage occurs, you run a full failover to Azure. You can fail over a single machine, or you can create a recovery plan that fails over multiple machines at the same time.
-6. On failover, Azure VMs are created from the VM data in Azure Storage. Users can continue accessing apps and workloads from the Azure VM
+6. On failover, Azure VMs are created from the VM data in Managed disks or storage accounts. Users can continue accessing apps and workloads from the Azure VM
 7. When your on-premises site is available again, you fail back from Azure.
 8. After you fail back and are working from your primary site once more, you start replicating on-premises VMs to Azure again.
 
@@ -50,13 +51,12 @@ Site Recovery can replicate any workload running on a supported VMware VM or phy
 In Azure you need to prepare the following:
 
 1. Verify that your Azure account has permissions to create VMs in Azure.
-2. Create a storage account to hold images of replicated machines.
-3. Create an Azure network that Azure VMs will join when they're created from storage after failover.
-4. Set up an Azure Recovery Services vault for Site Recovery. The vault resides in the Azure portal, and is used to deploy, configure, orchestrate, monitor, and troubleshoot your Site Recovery deployment.
+2. Create an Azure network that Azure VMs will join when they're created from storage accounts or managed disks after failover.
+3. Set up an Azure Recovery Services vault for Site Recovery. The vault resides in the Azure portal, and is used to deploy, configure, orchestrate, monitor, and troubleshoot your Site Recovery deployment.
 
 *Need more help?*
 
-Learn how to set up Azure by [verifying your account](tutorial-prepare-azure.md#verify-account-permissions), creating a [storage account](tutorial-prepare-azure.md#create-a-storage-account) and [network](tutorial-prepare-azure.md#set-up-an-azure-network), and [setting up a vault](tutorial-prepare-azure.md#create-a-recovery-services-vault).
+Learn how to set up Azure by [verifying your account](tutorial-prepare-azure.md#verify-account-permissions), creating a [network](tutorial-prepare-azure.md#set-up-an-azure-network), and [setting up a vault](tutorial-prepare-azure.md#create-a-recovery-services-vault).
 
 
 
@@ -66,7 +66,7 @@ On-premises here's what you need to do:
 
 1. You need to set up a couple of accounts:
 
-    - If you're replicating VMware VMs, an account is needed for Site Recovery to access vCenter SErver or vSphere ESXi hosts to automatically discover VMs.
+    - If you're replicating VMware VMs, an account is needed for Site Recovery to access vCenter Server or vSphere ESXi hosts to automatically discover VMs.
     - An account is needed to install the Site Recovery Mobility service agent on each physical machine or VM you want to replicate.
 
 2. You need to check the compatibility of your VMware infrastructure if you didn't previously do that.
@@ -88,10 +88,10 @@ After you have your Azure and on-premises infrastructure in place, you can set u
     - The configuration server is a single on-premises machine. For VMware disaster recovery, we recommend that you deploy it as a VMware VM that can be deployed from a downloadable OVF template.
     - The configuration server coordinates communications between on-premises and Azure
     - A couple of other components run on the configuration server machine.
-        - The process server receives, optimizes, and sends replication data to Azure storage. It also handles automatic installation of the Mobility service on machines you want to replicate, and performs automatic discovery of VMs on VMware servers.
+        - The process server receives, optimizes, and sends replication data to cache storage account in Azure. It also handles automatic installation of the Mobility service on machines you want to replicate, and performs automatic discovery of VMs on VMware servers.
         - The master target server handles replication data during failback from Azure.
     - Set up includes registering the configuration server in the vault, downloading MySQL Server and VMware PowerCLI, and specifying the accounts created for automatic discovery and Mobility service installation.
-4. **Target environment**: You set up your target Azure environment by specifying your Azure subscription, storage, and network settings.
+4. **Target environment**: You set up your target Azure environment by specifying your Azure subscription and network settings.
 5. **Replication policy**: You specify how replication should occur. Settings include how often recovery points are created and stored, and whether app-consistent snapshots should be created.
 6. **Enable replication**. You enable replication for on-premises machines. If you created an account to install the Mobility service, then it will be installed when you enable replication for a machine. 
 

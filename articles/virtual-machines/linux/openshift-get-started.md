@@ -1,20 +1,14 @@
 ---
-title: OpenShift in Azure overview | Microsoft Docs
+title: OpenShift in Azure overview 
 description: An overview of OpenShift in Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: haroldwongms
-manager: joraio
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
+manager: mdotson
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
+ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 
+ms.date: 05/7/2019
 ms.author: haroldw
 ---
 
@@ -28,45 +22,27 @@ OpenShift includes Kubernetes for container orchestration and management. It add
 - Easy deployment and scaling.
 - Long-term lifecycle maintenance for teams and applications.
 
-There are multiple versions of OpenShift available:
+There are multiple versions of OpenShift available.  Of these versions, only two are available today for customers to deploy in Azure: OpenShift Container Platform and OKD (formerly OpenShift Origin).
 
-- OpenShift Container Platform
-- OpenShift On Azure (fully managed OpenShift coming in early CY2019)
-- OKD (Formerly OpenShift Origin)
-- OpenShift Dedicated
-- OpenShift Online
+## Azure Red Hat OpenShift
 
-Of the five versions covered in this article, only two are available today for customers to deploy in Azure: OpenShift Container Platform and OKD.
+Microsoft Azure Red Hat OpenShift is a fully managed offering of OpenShift running in Azure. This service is jointly managed and supported by Microsoft and Red Hat. For more details, see the [Azure Red Hat OpenShift Service](../../openshift/index.yml) documentation.
 
 ## OpenShift Container Platform
 
 Container Platform is an enterprise-ready [commercial version](https://www.openshift.com) from and supported by Red Hat. With this version, customers purchase the necessary entitlements for OpenShift Container Platform and are responsible for installation and management of the entire infrastructure.
 
-Because customers "own" the entire platform, they can install it in their on-premises datacenter, or in a public cloud (such as Azure, AWS, or Google).
+Because customers "own" the entire platform, they can install it in their on-premises datacenter, or in a public cloud (such as Azure).
 
-## OpenShift On Azure
-
-OpenShift On Azure is a fully managed offering of OpenShift running in Azure. This service is jointly managed and supported by Microsoft and Red Hat. The cluster will deploy into the customer's Azure subscription. The service is currently in Private Preview and is scheduled to be GA in early CY 2019. More information will be provided as the offering gets closer to GA.
-
-## OKD (Formerly OpenShift Origin)
+## OKD
 
 OKD is an [open-source](https://www.okd.io/) upstream project of OpenShift that's community supported. OKD can be installed on CentOS or Red Hat Enterprise Linux (RHEL).
 
-## OpenShift Dedicated
-
-Dedicated is a Red Hat-managed *single-tenant* OpenShift that uses OpenShift Container Platform. Red Hat manages all of the underlying infrastructure (VMs, OpenShift cluster, networking, storage, etc.). The cluster is specific to one customer and runs in a public cloud (such as AWS or Google). A starting cluster includes four application nodes and all costs are annual and paid upfront.
-
-## OpenShift Online
-
-Online is a Red Hat-managed *multi-tenant* OpenShift that uses Container Platform. Red Hat manages all of the underlying infrastructure (such as VMs, OpenShift cluster, networking, and storage). 
-
-With this version, the customer deploys containers but has no control over which hosts the containers run. Because Online is multi-tenant, containers may be located on the same VM hosts as containers from other customers. Cost is per container.
-
 ## Next steps
 
-- [Configure common prerequisites for OpenShift in Azure](./openshift-prerequisites.md)
-- [Deploy OpenShift Container Platform in Azure](./openshift-container-platform.md)
-- [Deploy OKD in Azure](./openshift-okd.md)
+- [Configure common prerequisites for OpenShift in Azure](./openshift-container-platform-3x-prerequisites.md)
+- [Deploy OpenShift Container Platform in Azure](./openshift-container-platform-3x.md)
+- [Deploy OpenShift Container Platform Self-Managed Marketplace Offer](./openshift-container-platform-3x-marketplace-self-managed.md)
 - [Deploy OpenShift in Azure Stack](./openshift-azure-stack.md)
-- [Post-deployment tasks](./openshift-post-deployment.md)
-- [Troubleshoot OpenShift deployment](./openshift-troubleshooting.md)
+- [Post-deployment tasks](./openshift-container-platform-3x-post-deployment.md)
+- [Troubleshoot OpenShift deployment](./openshift-container-platform-3x-troubleshooting.md)

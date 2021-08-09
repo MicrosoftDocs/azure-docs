@@ -1,31 +1,28 @@
 ---
-title: NVIDIA GPU Driver Extension - Azure Windows VMs | Microsoft Docs
+title: NVIDIA GPU Driver Extension - Azure Windows VMs 
 description: Microsoft Azure extension for installing NVIDIA GPU Drivers on N-series compute VMs running Windows.
-services: virtual-machines-windows
+services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
-ms.service: virtual-machines-windows
-ms.devlang: na
+ms.service: virtual-machines
+ms.subservice: hpc
+ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
-ms.author: roiyz
+ms.date: 05/15/2021
+ms.author: amverma 
+ms.custom: devx-track-azurepowershell
 
 ---
 # NVIDIA GPU Driver Extension for Windows
 
 ## Overview
 
-This extension installs NVIDIA GPU drivers on Windows N-series VMs. Depending on the VM family, the extension installs CUDA or GRID drivers. When you install NVIDIA drivers using this extension, you are accepting and agreeing to the terms of the NVIDIA End-User License Agreement. During the installation process, your virtual machine may reboot to complete the driver setup.
+This extension installs NVIDIA GPU drivers on Windows N-series VMs. Depending on the VM family, the extension installs CUDA or GRID drivers. When you install NVIDIA drivers using this extension, you are accepting and agreeing to the terms of the [NVIDIA End-User License Agreement](https://go.microsoft.com/fwlink/?linkid=874330). During the installation process, the VM may reboot to complete the driver setup.
 
+Instructions on manual installation of the drivers and the current supported versions are available. For more information, see [Azure N-series NVIDIA GPU driver setup for Windows](../windows/n-series-driver-setup.md).
 An extension is also available to install NVIDIA GPU drivers on [Linux N-series VMs](hpccompute-gpu-linux.md).
-
-Terms of NVIDIA End-User License Agreement are located here - https://go.microsoft.com/fwlink/?linkid=874330
 
 ## Prerequisites
 
@@ -36,12 +33,13 @@ This extension supports the following OSs:
 | Distribution | Version |
 |---|---|
 | Windows 10 | Core |
+| Windows Server 2019 | Core |
 | Windows Server 2016 | Core |
-| Windows Server 2012R2 | Core |
+| Windows Server 2012 R2 | Core |
 
 ### Internet connectivity
 
-The Microsoft Azure Extension for NVIDIA GPU Drivers requires that the target virtual machine is connected to the internet and have access.
+The Microsoft Azure Extension for NVIDIA GPU Drivers requires that the target VM is connected to the internet and have access.
 
 ## Extension schema
 
@@ -59,7 +57,7 @@ The following JSON shows the schema for the extension.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.2",
+    "typeHandlerVersion": "1.3",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -67,24 +65,23 @@ The following JSON shows the schema for the extension.
 }
 ```
 
-### Property values
+### Properties
 
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
 | type | NvidiaGpuDriverWindows | string |
-| typeHandlerVersion | 1.2 | int |
+| typeHandlerVersion | 1.3 | int |
 
 
 ## Deployment
-
 
 ### Azure Resource Manager Template 
 
 Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration.
 
-The JSON configuration for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON configuration affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/resource-manager-template-child-resource.md). 
+The JSON configuration for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON configuration affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/templates/child-resource-name-type.md). 
 
 The following example assumes the extension is nested inside the virtual machine resource. When nesting the extension resource, the JSON is placed in the `"resources": []` object of the virtual machine.
 
@@ -100,7 +97,7 @@ The following example assumes the extension is nested inside the virtual machine
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.2",
+    "typeHandlerVersion": "1.3",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -111,14 +108,14 @@ The following example assumes the extension is nested inside the virtual machine
 ### PowerShell
 
 ```powershell
-Set-AzureRmVMExtension
+Set-AzVMExtension
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Location "southcentralus" `
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverWindows" `
     -ExtensionType "NvidiaGpuDriverWindows" `
-    -TypeHandlerVersion 1.2 `
+    -TypeHandlerVersion 1.3 `
     -SettingString '{ `
 	}'
 ```
@@ -126,13 +123,13 @@ Set-AzureRmVMExtension
 ### Azure CLI
 
 ```azurecli
-az vm extension set `
-  --resource-group myResourceGroup `
-  --vm-name myVM `
-  --name NvidiaGpuDriverWindows `
-  --publisher Microsoft.HpcCompute `
-  --version 1.2 `
-  --settings '{ `
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name NvidiaGpuDriverWindows \
+  --publisher Microsoft.HpcCompute \
+  --version 1.3 \
+  --settings '{ \
   }'
 ```
 
@@ -143,7 +140,7 @@ az vm extension set `
 Data about the state of extension deployments can be retrieved from the Azure portal, and by using Azure PowerShell and Azure CLI. To see the deployment state of extensions for a given VM, run the following command.
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 ```azurecli
@@ -153,7 +150,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 Extension execution output is logged to the following directory:
 
 ```cmd
-C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
+C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverWindows\
 ```
 
 ### Error codes
@@ -175,4 +172,4 @@ If you need more help at any point in this article, you can contact the Azure ex
 ## Next steps
 For more information about extensions, see [Virtual machine extensions and features for Windows](features-windows.md).
 
-For more information about N-series VMs, see [GPU optimized virtual machine sizes](../windows/sizes-gpu.md).
+For more information about N-series VMs, see [GPU optimized virtual machine sizes](../sizes-gpu.md).

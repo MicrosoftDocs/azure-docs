@@ -1,21 +1,18 @@
 ﻿---
 
-title: Monitor VPN gateways with Azure Network Watcher troubleshooting | Microsoft Docs
+title: Troubleshoot and monitor VPN gateways - Azure Automation
+titleSuffix: Azure Network Watcher
 description: This article describes how diagnose On-premises connectivity with Azure Automation and Network Watcher
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor:
-
-
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
+ms.author: damendo
 
 ---
 
@@ -42,7 +39,7 @@ Before you start this scenario, you must have the following pre-requisites:
 
 - An Azure automation account in Azure. Ensure that the automation account has the latest modules and also has the AzureRM.Network module. The AzureRM.Network module is available in the module gallery if you need to add it to your automation account.
 - You must have a set of credentials configure in Azure Automation. Learn more at [Azure Automation security](../automation/automation-security-overview.md)
-- A valid SMTP server (Office 365, your on-premises email or another) and credentials defined in Azure Automation
+- A valid SMTP server (Microsoft 365, your on-premises email or another) and credentials defined in Azure Automation
 - A configured Virtual Network Gateway in Azure.
 - An existing storage account with an existing container to store the logs in.
 
@@ -51,7 +48,7 @@ Before you start this scenario, you must have the following pre-requisites:
 
 ### Create the runbook
 
-The first step to configuring the example is to create the runbook. This example uses a run-as account. To learn about run-as accounts, visit [Authenticate Runbooks with Azure Run As account](../automation/automation-create-runas-account.md)
+The first step to configuring the example is to create the runbook. This example uses a run-as account. To learn about run-as accounts, visit [Authenticate Runbooks with Azure Run As account](../automation/manage-runas-account.md)
 
 ### Step 1
 
@@ -83,9 +80,9 @@ In this step the runbook is created, the following code example provides all the
 
 Use the following code as click **Save**
 
-```PowerShell
+```powershell
 # Set these variables to the proper values for your environment
-$o365AutomationCredential = "<Office 365 account>"
+$automationCredential = "<work or school account>"
 $fromEmail = "<from email address>"
 $toEmail = "<to email address>"
 $smtpServer = "<smtp.office365.com>"
@@ -99,8 +96,8 @@ $storageAccountName = "<storage account name>"
 $storageAccountResourceGroup = "<resource group name>"
 $storageAccountContainer = "<container name>"
 
-# Get credentials for Office 365 account
-$cred = Get-AutomationPSCredential -Name $o365AutomationCredential
+# Get credentials for work or school account
+$cred = Get-AutomationPSCredential -Name $automationCredential
 
 # Get the connection "AzureRunAsConnection "
 $servicePrincipalConnection=Get-AutomationConnection -Name $runAsConnectionName

@@ -1,25 +1,19 @@
 ---
 title: Get Azure Blockchain Workbench database details
-description: Learn how to get Azure Blockchain Workbench database and database server information.
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
-ms.date: 10/1/2018
-ms.topic: article
-ms.service: azure-blockchain
+description: Learn how to get Azure Blockchain Workbench Preview database and database server information.
+ms.date: 09/05/2019
+ms.topic: how-to
 ms.reviewer: mmercuri
-manager: femila
-
+#Customer intent: As a developer, I want to get Azure Blockchain database details to connect and view off-chain blockchain data.
 ---
 
 # Get information about your Azure Blockchain Workbench database
 
-This article shows how to get detailed information about your Azure Blockchain Workbench database.
+This article shows how to get detailed information about your Azure Blockchain Workbench Preview database.
 
 ## Overview
 
-Information about applications, workflows, and smart contract execution is provided using database views in the Blockchain Workbench SQL DB. Developers can use this information when using tools such as Microsoft Excel, PowerBI, Visual Studio, and SQL Server Management Studio.
+Information about applications, workflows, and smart contract execution is provided using database views in the Blockchain Workbench SQL DB. Developers can use this information when using tools such as Microsoft Excel, Power BI, Visual Studio, and SQL Server Management Studio.
 
 Before a developer can connect to the database, they need:
 
@@ -30,10 +24,10 @@ Before a developer can connect to the database, they need:
 
 To connect to the database:
 
-1. Sign in to the Azure Portal with an account that has **Owner** permissions for the Azure Blockchain Workbench resources.
+1. Sign in to the Azure portal with an account that has **Owner** permissions for the Azure Blockchain Workbench resources.
 2. In the left navigation pane, choose **Resource groups**.
 3. Choose the name of the resource group for your Blockchain Workbench deployment.
-4. Select **Type** to sort the resource list, and then choose your **SQL server**. The sorted list in the next screen capture shows two SQL databases, "master" and one that uses "lhgn" as the **Resource prefix**.
+4. Select **Type** to sort the resource list, and then choose your **SQL server**. The sorted list in the next screen capture shows two databases, "master" and one that uses "lhgn" as the **Resource prefix**.
 
    ![Sorted Blockchain Workbench resource list](./media/getdb-details/sorted-workbench-resource-list.png)
 

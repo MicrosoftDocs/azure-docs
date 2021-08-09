@@ -1,20 +1,21 @@
 ---
-title: Create a Stream Analytics job by using the Azure Stream Analytics tools for Visual Studio | Microsoft Docs
+title: Quickstart - Create an Azure Stream Analytics job using Visual Studio
 description: This quickstart shows you how to get started by creating a Stream Analytics job, configuring inputs, outputs, and defining a query with Visual Studio.
-services: stream-analytics
-author: mamccrea
-ms.author: mamccrea
-ms.date: 06/15/2018
+author: enkrumah
+ms.author: ebnkruma
+ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.custom: mvc
-manager: kfile
+
 #Customer intent: "As an IT admin/developer I want to create a Stream Analytics job, configure input and output & analyze data by using Visual Studio."
 ---
 
-# Quickstart: Create a Stream Analytics job by using the Azure Stream Analytics tools for Visual Studio
+# Quickstart: Create an Azure Stream Analytics job by using Visual Studio
 
-This quickstart shows you how to create and run a Stream Analytics job using Azure Stream Analytics tools for Visual Studio. The example job reads streaming data from Azure blob storage. The input data file used in this quickstart contains static data for illustrative purposes only. In a real world scenario, you use streaming input data for a Stream Analytics job. In this quickstart, you define a job that calculates the average temperature when over 100° and writes the resulting output events to a new file.
+This quickstart shows you how to create and run a Stream Analytics job using Azure Stream Analytics tools for Visual Studio. The example job reads streaming data from an IoT Hub device. You define a job that calculates the average temperature when over 27° and writes the resulting output events to a new file in blob storage.
+
+> [!NOTE]
+> Visual Studio and Visual Studio Code tools don't support jobs in the China East, China North, Germany Central, and Germany NorthEast regions.
 
 ## Before you begin
 
@@ -22,39 +23,60 @@ This quickstart shows you how to create and run a Stream Analytics job using Azu
 
 * Sign in to the [Azure portal](https://portal.azure.com/).
 
-* Install Visual Studio 2017, Visual Studio 2015, or Visual Studio 2013 Update 4. Enterprise (Ultimate/Premium), Professional, and Community editions are supported. Express edition is not supported.
+* Install Visual Studio 2019, Visual Studio 2015, or Visual Studio 2013 Update 4. Enterprise (Ultimate/Premium), Professional, and Community editions are supported. Express edition is not supported.
 
-* Follow the  [installation instructions](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) to install Stream Analytics tools for Visual Studio.
+* Follow the  [installation instructions](./stream-analytics-tools-for-visual-studio-install.md) to install Stream Analytics tools for Visual Studio.
 
 ## Prepare the input data
 
-Before defining the Stream Analytics job, you should prepare the data, which is configured as input to the job. To prepare the input data required by the job, run the following steps:
+Before defining the Stream Analytics job, you should prepare the data, which is later configured as the job input. To prepare the input data required by the job, complete the following steps:
 
-1. Download the [sample sensor data](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) from GitHub. The sample data contains sensor information in the following JSON format:  
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-   ```json
-   {
-     "time": "2018-01-26T21:18:52.0000000",
-     "dspl": "sensorC",
-     "temp": 87,
-     "hmdt": 44
-   }
-   ```
-2. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Select **Create a resource** > **Internet of Things** > **IoT Hub**.
 
-3. From the upper left-hand corner of the Azure portal, select **Create a resource** > **Storage** > **Storage account**. Fill out the Storage account job page with **Name** set to "asaquickstartstorage", **Location** set to "West US", **Resource group** set to "asaquickstart-resourcegroup" (host the storage account in the same resource group as the Streaming job for increased performance). The remaining settings can be left to their default values.  
+3. In the **IoT Hub** pane, enter the following information:
+   
+   |**Setting**  |**Suggested value**  |**Description**  |
+   |---------|---------|---------|
+   |Subscription  | \<Your subscription\> |  Select the Azure subscription that you want to use. |
+   |Resource group   |   asaquickstart-resourcegroup  |   Select **Create New** and enter a new resource-group name for your account. |
+   |Region  |  \<Select the region that is closest to your users\> | Select a geographic location where you can host your IoT Hub. Use the location that's closest to your users. |
+   |IoT Hub Name  | MyASAIoTHub  |   Select a name for your IoT Hub.   |
 
-   ![Create storage account](./media/stream-analytics-quick-create-vs/create-a-storage-account-vs.png)
+   ![Create an IoT Hub](./media/stream-analytics-quick-create-vs/create-iot-hub.png)
 
-4. From **All resources** page, find the storage account you created in the previous step. Open the **Overview** page, and then the **Blobs** tile.  
+4. Select **Next: Set size and scale**.
 
-5. From the **Blob Service** page, select **Container**, provide a **Name** for your container, such as *container1* > select **OK**.  
+5. Choose your **Pricing and scale tier**. For this quickstart, select the **F1 - Free** tier if it's still available on your subscription. If the free tier is unavailable, choose the lowest tier available. For more information, see [IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-   ![Create a container](./media/stream-analytics-quick-create-vs/create-a-storage-container.png)
+   ![Size and scale your IoT Hub](./media/stream-analytics-quick-create-vs/iot-hub-size-and-scale.png)
 
-6. Go to the container you created in the previous step. Select **Upload** and upload the sensor data that you got from the first step.  
+6. Select **Review + create**. Review your IoT Hub information and click **Create**. Your IoT Hub might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
 
-   ![Upload sample data to blob](./media/stream-analytics-quick-create-vs/upload-sample-data-to-blob.png)
+7. In your IoT Hub navigation menu, click **Add** under **IoT devices**. Add a **Device ID** and click **Save**.
+
+   ![Add a device to your IoT Hub](./media/stream-analytics-quick-create-vs/add-device-iot-hub.png)
+
+8. Once the device is created, open the device from the **IoT devices** list. Copy the **Connection string -- primary key** and save it to a notepad to use later.
+
+   ![Copy IoT Hub device connection string](./media/stream-analytics-quick-create-vs/save-iot-device-connection-string.png)
+
+## Create blob storage
+
+1. From the upper left-hand corner of the Azure portal, select **Create a resource** > **Storage** > **Storage account**.
+
+2. In the **Create storage account** pane, enter a storage account name, location, and resource group. Choose the same location and resource group as the IoT Hub you created. Then click **Review + create** to create the account.
+
+   ![Create storage account](./media/stream-analytics-quick-create-portal/create-storage-account.png)
+
+3. Once your storage account is created, select the **Blobs** tile on the **Overview** pane.
+
+   ![Storage account overview](./media/stream-analytics-quick-create-portal/blob-storage.png)
+
+4. From the **Blob Service** page, select **Container** and provide a name for your container, such as *container1*. Leave the **Public access level** as **Private (no anonymous access)** and select **OK**.
+
+   ![Create blob container](./media/stream-analytics-quick-create-portal/create-blob-container.png)
 
 ## Create a Stream Analytics project
 
@@ -89,11 +111,10 @@ Notice the elements that are included in an Azure Stream Analytics project.
    |---------|---------|---------|
    |Input Alias  |  Input   |  Enter a name to identify the job’s input.   |
    |Source Type   |  Data Stream |  Choose the appropriate input source: Data Stream or Reference Data.   |
-   |Source  |  Blob Storage |  Choose the appropriate input source.   |
+   |Source  |  IoT Hub |  Choose the appropriate input source.   |
    |Resource  | Choose data source from current account | Choose to enter data manually or select an existing account.   |
-   |Subscription  |  \<Your subscription\>   | Select the Azure subscription that has the storage account you created. The storage account can be in the same or in a different subscription. This example assumes that you have created storage account in the same subscription.   |
-   |Storage Account  |  asaquickstartstorage   |  Choose or enter the name of the storage account. Storage account names are automatically detected if they are created in the same subscription.   |
-   |Container  |  container1   |  Select the existing container that you created in your storage account.   |
+   |Subscription  |  \<Your subscription\>   | Select the Azure subscription that has the IoT Hub you created.   |
+   |IoT Hub  |  MyASAIoTHub   |  Choose or enter the name of your IoT Hub. IoT Hub names are automatically detected if they are created in the same subscription.   |
    
 3. Leave other options to default values and select **Save** to save the settings.  
 
@@ -126,16 +147,10 @@ Notice the elements that are included in an Azure Stream Analytics project.
 2. Add the following query:
 
    ```sql
-   SELECT 
-   System.Timestamp AS OutputTime,
-   dspl AS SensorName,
-   Avg(temp) AS AvgTemperature
-   INTO
-     Output
-   FROM
-     Input TIMESTAMP BY time
-   GROUP BY TumblingWindow(second,30),dspl
-   HAVING Avg(temp)>100
+   SELECT *
+   INTO Output
+   FROM Input
+   HAVING Temperature > 27
    ```
 
 ## Submit a Stream Analytics query to Azure
@@ -146,13 +161,23 @@ Notice the elements that are included in an Azure Stream Analytics project.
 
    ![Submit job to Azure](./media/stream-analytics-quick-create-vs/stream-analytics-job-to-azure.png)
 
+## Run the IoT simulator
+
+1. Open the [Raspberry Pi Azure IoT Online Simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/) in a new browser tab or window.
+
+2. Replace the placeholder in Line 15 with the Azure IoT Hub device connection string you saved in a previous section.
+
+3. Click **Run**. The output should show the sensor data and messages that are being sent to your IoT Hub.
+
+   ![Raspberry Pi Azure IoT Online Simulator](./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png)
+
 ## Start the Stream Analytics job and check output
 
 1. When your job is created, the job view opens automatically. Select the green arrow button to start the job,
 
    ![Start Stream Analytics job](./media/stream-analytics-quick-create-vs/start-stream-analytics-job-vs.png)
 
-2. Change the date **Custom Time** to `2018-01-01` and select **Start**.
+2. Change the **Job output start mode** to **JobStartTime** and select **Start**.
 
    ![Start job configuration](./media/stream-analytics-quick-create-vs/stream-analytics-start-configuration.png)
 
@@ -176,7 +201,7 @@ When no longer needed, delete the resource group, the streaming job, and all rel
 
 In this quickstart, you deployed a simple Stream Analytics job using Visual Studio. You can also deploy Stream Analytics jobs using the [Azure portal](stream-analytics-quick-create-portal.md) and [PowerShell](stream-analytics-quick-create-powershell.md). 
 
-To learn about configuring other input sources and performing real-time detection, continue to the following article:
+To learn about Azure Stream Analytics tools for Visual Studio, continue to the following article:
 
 > [!div class="nextstepaction"]
-> [Real-time fraud detection using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+> [Use Visual Studio to view Azure Stream Analytics jobs](stream-analytics-vs-tools.md)

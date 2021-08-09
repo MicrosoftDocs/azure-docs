@@ -1,51 +1,58 @@
 ---
-
-title: Azure Media Services Streaming Endpoint overview | Microsoft Docs 
-description: This topic gives an overview of Azure Media Services streaming endpoints.
+title: Azure Media Services Streaming Endpoint overview | Microsoft Docs
+description: This article gives an overview of Azure Media Services streaming endpoints.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 writer: juliako
 manager: femila
 editor: ''
-
-ms.assetid: 097ab5e5-24e1-4e8e-b112-be74172c2701
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
-ms.author: juliako
-
+ms.date: 3/10/2021
+ms.author: inhenkel
 ---
-# Streaming endpoints overview 
+# Streaming endpoints overview  
 
-## Overview
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 In Microsoft Azure Media Services (AMS), a **Streaming Endpoint** represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. Media Services also provides seamless Azure CDN integration. The outbound stream from a StreamingEndpoint service can be a live stream, a video on demand, or progressive download of your asset in your Media Services account. Each Azure Media Services account includes a default StreamingEndpoint. Additional StreamingEndpoints can be created under the account. There are two versions of StreamingEndpoints, 1.0 and 2.0. Starting with January 10th 2017, any newly created AMS accounts will include version 2.0 **default** StreamingEndpoint. Additional streaming endpoints that you add to this account will also be version 2.0. This change will not impact the existing accounts; existing StreamingEndpoints will be version 1.0 and can be upgraded to version 2.0. With this change there will be behavior, billing and feature changes (for more information, see the **Streaming types and versions** section documented below).
 
-In addition, starting with the 2.15 version (released in January 2017), Azure Media Services added the following properties to the Streaming Endpoint entity: **CdnProvider**, **CdnProfile**, **FreeTrialEndTime**, **StreamingEndpointVersion**. For detailed overview of these properties, see [this](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
+Azure Media Services added the following properties to the Streaming Endpoint entity: **CdnProvider**, **CdnProfile**, **StreamingEndpointVersion**. For detailed overview of these properties, see [this](/rest/api/media/operations/streamingendpoint). 
 
 When you create an Azure Media Services account a default standard streaming endpoint is created for you in the **Stopped** state. You cannot delete the default streaming endpoint. Depending on the Azure CDN availability in the targeted region, by default newly created default streaming endpoint also includes "StandardVerizon" CDN provider integration. 
-
->[!NOTE]
->Azure CDN integration can be disabled before starting the streaming endpoint.
+                
+> [!NOTE]
+> Azure CDN integration can be disabled before starting the streaming endpoint. The `hostname` and the streaming URL remains the same whether or not you enable CDN.
 
 This topic gives an overview of the main functionalities that are provided by streaming endpoints.
+
+## Naming conventions
+
+For the default endpoint: `{AccountName}.streaming.mediaservices.windows.net`
+
+For any additional endpoints: `{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
 
 ## Streaming types and versions
 
 ### Standard/Premium types (version 2.0)
 
-Starting with the January 2017 release of Media Services, you have two streaming types: **Standard** and **Premium**. These types are part of the Streaming endpoint version "2.0".
+Starting with the January 2017 release of Media Services, you have two streaming types: **Standard** (preview) and **Premium**. These types are part of the Streaming endpoint version "2.0".
 
-Type|Description
----|---
-**Standard**|This is the default option that would work for the majority of the scenarios.<br/>With this option, you get fixed/limited SLA, first 15 days after you start the streaming endpoint is free.<br/>If you create more than one streaming endpoints, only the first one is free for the first 15 days, the others are billed as soon as you start them. <br/>Note that free trial only applies to newly created media services accounts and default streaming endpoint. Existing streaming endpoints and additionally created streaming endpoints doesn't includes free trial period even they are upgraded to version 2.0 or they are created as version 2.0.
-**Premium**|This option is suitable for professional scenarios that require higher scale or control.<br/>Variable SLA that is based on premium streaming unit (SU) capacity purchased, dedicated streaming endpoints live in isolated environment and do not compete for resources.
 
-For more detailed information, see the **Compare Streaming types** following section.
+|Type|Description|
+|--------|--------|  
+|**Standard**|The default Streaming Endpoint is a **Standard** type, can be changed to the Premium type by adjusting streaming units.|
+|**Premium** |This option is suitable for professional scenarios that require higher scale or control. You move to a **Premium** type by adjusting streaming units.<br/>Dedicated Streaming Endpoints live in isolated environment and do not compete for resources.|
+
+For customers looking to deliver content to large internet audiences, we recommend that you enable CDN on the Streaming Endpoint.
+
+For more detailed information, see the [Compare Streaming types](#comparing-streaming-types) following section.
 
 ### Classic type (version 1.0)
 
@@ -63,29 +70,30 @@ If your **version "1.0"** streaming endpoint has >=1 premium streaming units (SU
 
 ### Versions
 
-|Type|StreamingEndpointVersion|ScaleUnits|CDN|Billing|SLA| 
-|--------------|----------|-----------------|-----------------|-----------------|-----------------|    
-|Classic|1.0|0|NA|Free|NA|
-|Standard Streaming Endpoint|2.0|0|Yes|Paid|Yes|
-|Premium Streaming Units|1.0|>0|Yes|Paid|Yes|
-|Premium Streaming Units|2.0|>0|Yes|Paid|Yes|
+|Type|StreamingEndpointVersion|ScaleUnits|CDN|Billing|
+|--------------|----------|-----------------|-----------------|-----------------|
+|Classic|1.0|0|NA|Free|
+|Standard Streaming Endpoint (preview)|2.0|0|Yes|Paid|
+|Premium Streaming Units|1.0|>0|Yes|Paid|
+|Premium Streaming Units|2.0|>0|Yes|Paid|
 
 ### Features
 
 Feature|Standard|Premium
 ---|---|---
-Free first 15 days| Yes |No
-Throughput |Up to 600 Mbps when Azure CDN is not used. Scales with CDN.|200 Mbps per streaming unit (SU). Scales with CDN.
-SLA | 99.9|99.9(200 Mbps per SU).
+Throughput |Up to 600 Mbps and can provide a much higher effective throughput when a CDN is used.|200 Mbps per streaming unit (SU). Can provide a much higher effective throughput when a CDN is used.
 CDN|Azure CDN, third party CDN, or no CDN.|Azure CDN, third party CDN, or no CDN.
 Billing is prorated| Daily|Daily
 Dynamic encryption|Yes|Yes
 Dynamic packaging|Yes|Yes
-Scale|Auto scales up to the targeted throughput.|Additional streaming units
-IP filtering/G20/Custom host|Yes|Yes
+Scale|Auto scales up to the targeted throughput.|Additional streaming units.
+IP filtering/G20/Custom host <sup>1</sup>|Yes|Yes
 Progressive download|Yes|Yes
-Recommended usage |Recommended for the vast majority of streaming scenarios.|Professional usage.<br/>If you think you may have needs beyond Standard. Contact us (amsstreaming@microsoft.com) if you expect a concurrent audience size larger than 50,000 viewers.
+Recommended usage |Recommended for the vast majority of streaming scenarios.|Professional usage. 
 
+<sup>1</sup> Only used directly on the Streaming Endpoint when the CDN is not enabled on the endpoint.<br/>
+
+For SLA information, see [Pricing and SLA](https://azure.microsoft.com/pricing/details/media-services/).
 
 ## Migration between types
 
@@ -109,4 +117,3 @@ Review Media Services learning paths.
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

@@ -1,44 +1,65 @@
 ---
-title: About Speech Translation
-titlesuffix: Azure Cognitive Services
-description: An overview of the capabilities of Speech Translation
+title: Speech translation overview - Speech service
+titleSuffix: Azure Cognitive Services
+description: Speech translation allows you to add end-to-end, real-time, multi-language translation of speech to your applications, tools, and devices. The same API can be used for both speech-to-speech and speech-to-text translation. This article is an overview of the benefits and capabilities of the speech translation service.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
-
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 09/01/2020
 ms.author: erhopf
+ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
+keywords: speech translation
 ---
 
-# About the Speech Translation API
+# What is speech translation?
 
-The Speech Service API lets you add end-to-end, real-time, multi-language translation  of speech to your applications, tools, and devices. The same API can be used for both speech-to-speech and speech-to-text translation.
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-With the Translator Speech API, client applications stream speech audio to the service and receive back a stream of results. These results include the recognized text in the source language and its translation in the target language. Interim translations can be provided until an utterance is complete, at which time a final translation is provided.
+In this overview, you learn about the benefits and capabilities of the speech translation service, which enables real-time, [multi-language speech-to-speech](language-support.md#speech-translation) and speech-to-text translation of audio streams. With the Speech SDK, your applications, tools, and devices have access to source transcriptions and translation outputs for provided audio. Interim transcription and translation results are returned as speech is detected, and final results can be converted into synthesized speech.
 
-Optionally, a synthesized audio version of the final translation can be prepared, enabling true speech-to-speech translation.
+This documentation contains the following article types:
 
-The Speech Translation API uses a WebSockets protocol to provide a full-duplex communication channel between the client and the server. But you don't need to deal with WebSockets; the Speech SDK handles that for you.
+* **Quickstarts** are getting-started instructions to guide you through making requests to the service.
+* **How-to guides** contain instructions for using the service in more specific or customized ways.
+* **Concepts** provide in-depth explanations of the service functionality and features.
+* **Tutorials** are longer guides that show you how to use the service as a component in broader business solutions.
 
-The Speech Translation API employs the same technologies that power various Microsoft products and services. This service is already used by thousands of businesses worldwide in their applications and workflows.
+## Core features
 
-## About the technology
+* Speech-to-text translation with recognition results.
+* Speech-to-speech translation.
+* Support for translation to multiple target languages.
+* Interim recognition and translation results.
 
-Underlying Microsoft's translation engine are two different approaches: statistical machine translation (SMT) and neural machine translation (NMT). The latter, an artificial intelligence approach employing neural networks, is the more modern approach to machine translation. NMT provides better translations — not just more accurate, but also more fluent and natural. The key reason for this fluidity is that NMT uses the full context of a sentence to translate words.
+## Get started 
 
-Today, Microsoft has migrated to NMT for the most popular languages, employing SMT only for less-frequently-used languages. All [languages available for speech-to-speech translation](language-support.md#speech-translation) are powered by NMT. Speech-to-text translation may use SMT or NMT depending on the language pair. If the target language is supported by NMT, the full translation is NMT-powered. If the target language isn't supported by NMT, the translation is a hybrid of NMT and SMT, using English as a "pivot" between the two languages.
+See the [quickstart](get-started-speech-translation.md) to get started with speech translation. The speech translation service is available via the [Speech SDK](speech-sdk.md) and the [Speech CLI](spx-overview.md).
 
-The differences between models are internal to the translation engine. End users notice only the improved translation quality, especially for Chinese, Japanese, and Arabic.
+## Sample code
 
-> [!NOTE]
-> Interested in learning more about the technology behind Microsoft's translation engine? See [Machine Translation](https://www.microsoft.com/en-us/translator/mt.aspx).
+Sample code for the Speech SDK is available on GitHub. These samples cover common scenarios like reading audio from a file or stream, continuous and single-shot recognition/translation, and working with custom models.
+
+* [Speech-to-text and translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+
+## Migration guides
+
+If your applications, tools, or products are using the [Translator Speech API](./how-to-migrate-from-translator-speech-api.md), we've created guides to help you migrate to the Speech service.
+
+* [Migrate from the Translator Speech API to the Speech service](how-to-migrate-from-translator-speech-api.md)
+
+## Reference docs
+
+* [Speech SDK](./speech-sdk.md)
+* [Speech Devices SDK](speech-devices-sdk.md)
+* [REST API: Speech-to-text](rest-speech-to-text.md)
+* [REST API: Text-to-speech](rest-text-to-speech.md)
+* [REST API: Batch transcription and customization](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
 ## Next steps
 
-* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to translate speech in C#](how-to-translate-speech-csharp.md)
-* [See how to translate speech in C++](how-to-translate-speech-cpp.md)
-* [See how to translate speech in Java](how-to-translate-speech-java.md)
+* Complete the speech translation [quickstart](get-started-speech-translation.md)
+* [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
+* [Get the Speech SDK](speech-sdk.md)

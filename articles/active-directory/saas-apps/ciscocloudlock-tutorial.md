@@ -1,222 +1,160 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with The Cloud Security Fabric | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and The Cloud Security Fabric.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
-
-ms.assetid: 549e8810-1b3b-4351-bf4b-f07de98980d1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/20/2018
+ms.topic: tutorial
+ms.date: 07/18/2019
 ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with The Cloud Security Fabric
 
-In this tutorial, you learn how to integrate The Cloud Security Fabric with Azure Active Directory (Azure AD).
+# Tutorial: Integrate The Cloud Security Fabric with Azure Active Directory
 
-Integrating The Cloud Security Fabric with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate The Cloud Security Fabric with Azure Active Directory (Azure AD). When you integrate The Cloud Security Fabric with Azure AD, you can:
 
-- You can control in Azure AD who has access to The Cloud Security Fabric.
-- You can enable your users to automatically get signed-on to The Cloud Security Fabric (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
+* Control in Azure AD who has access to The Cloud Security Fabric.
+* Enable your users to be automatically signed-in to The Cloud Security Fabric with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with The Cloud Security Fabric, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A The Cloud Security Fabric single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* The Cloud Security Fabric single sign-on (SSO) enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding The Cloud Security Fabric from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD SSO in a test environment.
+
+* The Cloud Security Fabric supports **SP** initiated SSO
 
 ## Adding The Cloud Security Fabric from the gallery
+
 To configure the integration of The Cloud Security Fabric into Azure AD, you need to add The Cloud Security Fabric from the gallery to your list of managed SaaS apps.
 
-**To add The Cloud Security Fabric from the gallery, perform the following steps:**
+1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **The Cloud Security Fabric** in the search box.
+1. Select **The Cloud Security Fabric** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
-
-	![The Azure Active Directory button][1]
-
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
-
-	![The Enterprise applications blade][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
-
-	![The New application button][3]
-
-1. In the search box, type **The Cloud Security Fabric**, select **The Cloud Security Fabric** from result panel then click **Add** button to add the application.
-
-	![The Cloud Security Fabric in the results list](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with The Cloud Security Fabric based on a test user called "Britta Simon".
+Configure and test Azure AD SSO with The Cloud Security Fabric using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in The Cloud Security Fabric.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in The Cloud Security Fabric is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in The Cloud Security Fabric needs to be established.
+To configure and test Azure AD SSO with The Cloud Security Fabric, complete the following building blocks:
 
-To configure and test Azure AD single sign-on with The Cloud Security Fabric, you need to complete the following building blocks:
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+2. **[Configure The Cloud Security Fabric SSO](#configure-the-cloud-security-fabric-sso)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+5. **[Create The Cloud Security Fabric test user](#create-the-cloud-security-fabric-test-user)** - to have a counterpart of B.Simon in The Cloud Security Fabric that is linked to the Azure AD representation of user.
+6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create a The Cloud Security Fabric test user](#create-a-the-cloud-security-fabric-test-user)** - to have a counterpart of Britta Simon in The Cloud Security Fabric that is linked to the Azure AD representation of user.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+### Configure Azure AD SSO
 
-### Configure Azure AD single sign-on
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your The Cloud Security Fabric application.
+1. In the [Azure portal](https://portal.azure.com/), on the **The Cloud Security Fabric** application integration page, find the **Manage** section and select **Single sign-on**.
+1. On the **Select a Single sign-on method** page, select **SAML**.
+1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
-**To configure Azure AD single sign-on with The Cloud Security Fabric, perform the following steps:**
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. In the Azure portal, on the **The Cloud Security Fabric** application integration page, click **Single sign-on**.
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
-	![Configure single sign-on link][4]
+	a. In the **Sign on URL** text box, type a URL:
 
-1. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+      ```http
+      https://platform.cloudlock.com
+      https://app.cloudlock.com
+      ```
 
-	![Single sign-on dialog box](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_samlbase.png)
+    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
 
-1. On the **The Cloud Security Fabric Domain and URLs** section, perform the following steps:
-
-	![The Cloud Security Fabric Domain and URLs single sign-on information](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
-
-    a. In the **Sign-on URL** textbox, type a URL:
-	| |
-	|--|
-	| `https://platform.cloudlock.com` |
-	| `https://app.cloudlock.com` |
-
-	b. In the **Identifier** textbox, type a URL using the following pattern:
-	| |
-	|--|
-	| `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
-	| `https://app.cloudlock.com/gate/saml/sso/<subdomain>` |
+      ```http
+      https://platform.cloudlock.com/gate/saml/sso/<subdomain>
+      https://app.cloudlock.com/gate/saml/sso/<subdomain>
+      ```
 
 	> [!NOTE]
-	> The Identifier value is not real. Update the value with the actual Identifier. Contact [The Cloud Security Fabric Client support team](mailto:support@cloudlock.com) to get the value. 
+	> The Identifier value is not real. Update the value with the actual Identifier. Contact [The Cloud Security Fabric Client support team](mailto:support@cloudlock.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_certificate.png)
+	![The Certificate download link](common/metadataxml.png)
 
-1. Click **Save** button.
+5. To Modify the **Signing** options as per your requirement, click **Edit** button to open **SAML Signing Certificate** dialog.
 
-	![Configure Single Sign-On Save button](./media/ciscocloudlock-tutorial/tutorial_general_400.png)
+	![Saml Response](./media/ciscocloudlock-tutorial/saml.png)
 
-1. To configure single sign-on on **The Cloud Security Fabric** side, you need to send the downloaded **Metadata XML** to [The Cloud Security Fabric support team](mailto:support@cloudlock.com). They set this setting to have the SAML SSO connection set properly on both sides.
+	a. Select the **Sign SAML response and assertion** option for **Signing Option**.
 
+	b. Select the **SHA-256** option for **Signing Algorithm**.
+
+	c. Click **Save**.	
+
+6. On the **Set up The Cloud Security Fabric** section, copy the appropriate URL(s) based on your requirement.
+
+	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+### Configure The Cloud Security Fabric SSO
+
+To configure single sign-on on **The Cloud Security Fabric** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [The Cloud Security Fabric support team](mailto:support@cloudlock.com). They set this setting to have the SAML SSO connection set properly on both sides.
 ### Create an Azure AD test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-   ![Create an Azure AD test user][100]
-
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
-
-    ![The Azure Active Directory button](./media/ciscocloudlock-tutorial/create_aaduser_01.png)
-
-1. To display the list of users, go to **Users and groups**, and then click **All users**.
-
-    ![The "Users and groups" and "All users" links](./media/ciscocloudlock-tutorial/create_aaduser_02.png)
-
-1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
-
-    ![The Add button](./media/ciscocloudlock-tutorial/create_aaduser_03.png)
-
-1. In the **User** dialog box, perform the following steps:
-
-    ![The User dialog box](./media/ciscocloudlock-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
-
-    d. Click **Create**.
-
-### Create a The Cloud Security Fabric test user
-
-In this section, you create a user called Britta Simon in The Cloud Security Fabric. Work with [The Cloud Security Fabric support team](mailto:support@cloudlock.com) to add the users in The Cloud Security Fabric platform. Users must be created and activated before you use single sign-on. 
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to The Cloud Security Fabric.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to The Cloud Security Fabric.
 
-![Assign the user role][200]
-
-**To assign Britta Simon to The Cloud Security Fabric, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201]
-
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **The Cloud Security Fabric**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-	![The Cloud Security Fabric link in the Applications list](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_app.png)  
+   ![The "Users and groups" link](common/users-groups-blade.png)
 
-1. In the menu on the left, click **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The "Users and groups" link][202]
+	![The Add User link](common/add-assign-user.png)
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	![The Add Assignment pane][203]
+### Create The Cloud Security Fabric test user
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+In this section, you create a user called B.Simon in The Cloud Security Fabric. Work with [The Cloud Security Fabric support team](mailto:support@cloudlock.com) to add the users in the The Cloud Security Fabric platform. Users must be created and activated before you use single sign-on.
 
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-
-### Test single sign-on
+### Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click The Cloud Security Fabric tile in the Access Panel, you should get automatically signed-on to your The Cloud Security Fabric application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
+When you click the The Cloud Security Fabric tile in the Access Panel, you should be automatically signed in to the The Cloud Security Fabric for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
-## Additional resources
+## Additional Resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-[1]: ./media/ciscocloudlock-tutorial/tutorial_general_01.png
-[2]: ./media/ciscocloudlock-tutorial/tutorial_general_02.png
-[3]: ./media/ciscocloudlock-tutorial/tutorial_general_03.png
-[4]: ./media/ciscocloudlock-tutorial/tutorial_general_04.png
-
-[100]: ./media/ciscocloudlock-tutorial/tutorial_general_100.png
-
-[200]: ./media/ciscocloudlock-tutorial/tutorial_general_200.png
-[201]: ./media/ciscocloudlock-tutorial/tutorial_general_201.png
-[202]: ./media/ciscocloudlock-tutorial/tutorial_general_202.png
-[203]: ./media/ciscocloudlock-tutorial/tutorial_general_203.png
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)

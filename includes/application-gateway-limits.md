@@ -2,30 +2,42 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 03/04/2020
 ms.author: victorh
 ---
-| Resource | Default limit | Note |
+| Resource | Limit | Note |
 | --- | --- | --- |
-| Application Gateway |1000 per subscription | |
-| Frontend IP Configurations |2 |1 public and 1 private |
-| Frontend Ports |40 | |
-| Backend Address Pools |40 | |
-| Backend Servers per pool |1200 | |
-| HTTP Listeners |40 | |
-| HTTP load balancing rules |400 |# of HTTP Listeners * n |
-| Backend HTTP settings |40 | |
-| Instances per gateway |75 | |
-| SSL certificates |40 |1 per HTTP Listeners |
-| Authentication certificates |40 | |
-| Request time out min |1 second | |
-| Request time out max |24 hrs | |
-| Number of sites |20 |1 per HTTP Listeners |
-| URL Maps per listener |1 | |
-| Maximum path-based rules per URL map|100|
-| Redirect configurations |40| |
-| Concurrent WebSocket Connections |5000| |
-|Maximum URL length|8000|
-| Maximum file upload size Standard |2 GB | |
-| Maximum file upload size WAF |Medium WAF Gateways - 100 MB<br>Large WAF Gateways - 500 MB| |
-|WAF body size limit (without files)|128 KB|
+| Azure Application Gateway |1,000 per subscription | |
+| Front-end IP configurations |2 |1 public and 1 private |
+| Front-end ports |100<sup>1</sup> | |
+| Back-end address pools |100<sup>1</sup> | |
+| Back-end servers per pool |1,200 | |
+| HTTP listeners |200<sup>1</sup> |Limited to 100 active listeners that are routing traffic. Active listeners = total number of listeners - listeners not active.<br>If a default configuration inside a routing rule is set to route traffic (for example, it has a listener, a backend pool, and HTTP settings) then that also counts as a listener.|
+| HTTP load-balancing rules |100<sup>1</sup> | |
+| Back-end HTTP settings |100<sup>1</sup> | |
+| Instances per gateway |V1 SKU - 32<br>V2 SKU - 125 | |
+| SSL certificates |100<sup>1</sup> |1 per HTTP listener |
+| Maximum SSL certificate size |V1 SKU - 10 KB<br>V2 SKU - 16 KB| |
+| Authentication certificates |100 | |
+| Trusted root certificates |100 | |
+| Request timeout minimum |1 second | |
+| Request timeout maximum |24 hours | |
+| Number of sites |100<sup>1</sup> |1 per HTTP listener |
+| URL maps per listener |1 | |
+| Maximum path-based rules per URL map|100||
+| Redirect configurations |100<sup>1</sup>| |
+| Number of rewrite rule sets |400| |
+| Number of Header or URL configuration per rewrite rule set|40| |
+| Number of conditions per rewrite rule set|40| |
+| Concurrent WebSocket connections |Medium gateways 20k<sup>2</sup><br> Large gateways 50k<sup>2</sup>| |
+| Maximum URL length|32KB| |
+| Maximum header size for HTTP/2 |16KB| |
+| Maximum file upload size (Standard SKU) |V2 - 4 GB<br>V1 - 2GB | |
+| Maximum file upload size (WAF SKU) |V1 Medium - 100 MB<br>V1 Large - 500 MB<br>V2 - 750 MB<br>V2 (with CRS 3.2 or newer) - 4GB| |
+| WAF body size limit (without files)|V1 or V2 (with CRS 3.1 and older) - 128KB<br>V2 (with CRS 3.2 or newer) - 2MB| |
+| Maximum WAF custom rules|100||
+| Maximum WAF exclusions per Application Gateway|40||
+
+<sup>1</sup> In case of WAF-enabled SKUs, you must limit the number of resources to 40.
+
+<sup>2</sup> Limit is per Application Gateway instance not per Application Gateway resource.

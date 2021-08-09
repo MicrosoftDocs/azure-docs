@@ -5,49 +5,64 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
-ms.date: 11/02/2018
+ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
 ---
 
 This section describes how to create an IoT hub using the [Azure portal](https://portal.azure.com).
 
-1. Log in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Choose +**Create a resource**, then choose **Internet of Things**.
+1. From the Azure homepage, select the **+ Create a resource** button, and then enter *IoT Hub* in the **Search the Marketplace** field.
 
-3. Click **Iot Hub** from the list on the right. You see the first screen for creating an IoT hub.
+1. Select **IoT Hub** from the search results, and then select **Create**.
 
-   ![Screenshot showing creating a hub in the Azure portal](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
+1. On the **Basics** tab, complete the fields as follows:
 
-   Fill in the fields.
+   - **Subscription**: Select the subscription to use for your hub.
 
-   **Subscription**: Select the subscription to use for your IoT hub.
+   - **Resource Group**: Select a resource group or create a new one. To create a new one, select **Create new** and fill in the name you want to use. To use an existing resource group, select that resource group. For more information, see [Manage Azure Resource Manager resource groups](../articles/azure-resource-manager/management/manage-resource-groups-portal.md).
 
-   **Resource Group**: You can create a new resource group or use an existing one. To create a new one, click **Create new** and fill in the name you want to use. To use an existing resource group, click **Use existing** and select the resource group from the dropdown list. For more information, see [Use resource groups to manage your Azure resources](../articles/azure-resource-manager/resource-group-portal.md).
+   - **Region**: Select the region in which you want your hub to be located. Select the location closest to you. Some features, such as [IoT Hub device streams](../articles/iot-hub/iot-hub-device-streams-overview.md), are only available in specific regions. For these limited features, you must select one of the supported regions.
 
-   **Region**: This is the region in which you want your hub to be located. Select the location closest to you from the dropdown list.
-
-   **IoT Hub Name**: Put in the name for your IoT Hub. This name must be globally unique. If the name you enter is available, a green check mark appears.
+   - **IoT Hub Name**: Enter a name for your hub. This name must be globally unique, with a length between 3 and 50 alphanumeric characters. The name can also include the dash (`'-'`) character.
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-4. Click **Next: Size and scale** to continue creating your IoT hub.
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png" alt-text="Create a hub in the Azure portal.":::
 
-   ![Screenshot showing setting size and scale for a new IoT hub using the Azure portal](./media/iot-hub-include-create-hub/iot-hub-create-screen-size-scale.png)
+1. Select **Next: Networking** to continue creating your hub.
 
-   On this screen, you can take the defaults and just click **Review + create** at the bottom. 
+   Choose the endpoints that devices can use to connect to your IoT Hub. You can select the default setting **Public endpoint (all networks)**, or choose **Public endpoint (selected IP ranges)**, or **Private endpoint**. Accept the default setting for this example.
 
-   **Pricing and scale tier**: You can choose from several tiers depending on how many features you want and how many messages you send through your solution per day. The free tier is intended for testing and evaluation. It allows 500 devices to be connected to the IoT hub and up to 8,000 messages per day. Each Azure subscription can create one IoT Hub in the free tier. 
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png" alt-text="Choose the endpoints that can connect.":::
 
-   **IoT Hub units**: The number of messages allowed per unit per day depends on your hub's pricing tier. For example, if you want the IoT hub to support ingress of 700,000 messages, you choose two S1 tier units.
+1. Select **Next: Management** to continue creating your hub.
 
-   For details about the other tier options, see [Choosing the right IoT Hub tier](../articles/iot-hub/iot-hub-scaling.md).
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management.png" alt-text="Set the size and scale for a new hub using the Azure portal.":::
 
-   **Advanced / Device-to-cloud partitions**: This property relates the device-to-cloud messages to the number of simultaneous readers of the messages. Most IoT hubs only need four partitions. 
+    You can accept the default settings here. If desired, you can modify any of the following fields:
 
-5. Click **Review + create** to review your choices. You see something similar to this screen.
+    - **Pricing and scale tier**: Your selected tier. You can choose from several tiers, depending on how many features you want and how many messages you send through your solution per day. The free tier is intended for testing and evaluation. It allows 500 devices to be connected to the hub and up to 8,000 messages per day. Each Azure subscription can create one IoT hub in the free tier.
 
-   ![Screenshot reviewing information for creating the new IoT hub](./media/iot-hub-include-create-hub/iot-hub-create-review.png)
+      If you are working through a Quickstart for IoT Hub device streams, select the free tier.
 
-6. Click **Create** to create your new IoT hub. Creating the hub takes a few minutes.
+    - **IoT Hub units**: The number of messages allowed per unit per day depends on your hub's pricing tier. For example, if you want the hub to support ingress of 700,000 messages, you choose two S1 tier units.
+    For details about the other tier options, see [Choosing the right IoT Hub tier](../articles/iot-hub/iot-hub-scaling.md).
+
+    - **Defender for IoT**: Turn this on to add an extra layer of threat protection to IoT and your devices. This option is not available for hubs in the free tier. For more information about this feature, see [Azure Defender for IoT](/azure/asc-for-iot/).
+
+    - **Advanced Settings** > **Device-to-cloud partitions**: This property relates the device-to-cloud messages to the number of simultaneous readers of the messages. Most hubs need only four partitions.
+
+1. Select **Next: Tags** to continue to the next screen.
+
+    Tags are name/value pairs. You can assign the same tag to multiple resources and resource groups to categorize resources and consolidate billing. In this document, you won't be adding any tags. For more information, see [Use tags to organize your Azure resources](../articles/azure-resource-manager/management/tag-resources.md).
+
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-tags.png" alt-text="Assign tags for the hub using the Azure portal.":::
+
+1. Select **Next: Review + create** to review your choices. You see something similar to this screen, but with the values you selected when creating the hub.
+
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-review-and-create.png" alt-text="Review information for creating the new hub.":::
+
+1. Select **Create** to start the deployment of your new hub. Your deployment will be in progress a few minutes while the hub is being created. Once the deployment is complete, click **Go to resource** to open the new hub.

@@ -4,21 +4,21 @@ description: How to view and change hostnames for Azure virtual machines, web an
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
-editor: tysonn
+manager: dcscontentpm
+
 
 ms.assetid: c668cd8e-4e43-4d05-acc3-db64fa78d828
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2018
+ms.date: 05/14/2021
 ms.author: genli
 
 ---
 # Viewing and modifying hostnames
-To allow your role instances to be referenced by host name, you must set the value for the host name in the service configuration file for each role. You do that by adding the desired host name to the **vmName** attribute of the **Role** element. The value of the **vmName** attribute is used as a base for the host name of each role instance. For example, if **vmName** is *webrole* and there are three instances of that role, the host names of the instances will be *webrole0*, *webrole1*, and *webrole2*. You do not need to specify a host name for virtual machines in the configuration file, because the host name for a virtual machine is populated based on the virtual machine name. For more information about configuring a Microsoft Azure service, see [Azure Service Configuration Schema (.cscfg File)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
+To allow your role instances to be referenced by host name, you must set the value for the host name in the service configuration file for each role. You do that by adding the desired host name to the **vmName** attribute of the **Role** element. The value of the **vmName** attribute is used as a base for the host name of each role instance. For example, if **vmName** is *webrole* and there are three instances of that role, the host names of the instances will be *webrole0*, *webrole1*, and *webrole2*. You do not need to specify a host name for virtual machines in the configuration file, because the host name for a virtual machine is populated based on the virtual machine name. For more information about configuring a Microsoft Azure service, see [Azure Service Configuration Schema (.cscfg File)](/previous-versions/azure/reference/ee758710(v=azure.100))
 
 ## Viewing hostnames
 You can view the host names of virtual machines and role instances in a cloud service by using any of the tools below.
@@ -36,9 +36,9 @@ After you enable Remote Desktop (Windows), Windows PowerShell remoting (Windows)
 ### Azure Service Management REST API
 From a REST client, follow these instructions:
 
-1. Ensure that you have a client certificate to connect to the Azure portal. To obtain a client certificate, follow the steps presented in [How to: Download and Import Publish Settings and Subscription Information](https://msdn.microsoft.com/library/dn385850.aspx). 
+1. Ensure that you have a client certificate to connect to the Azure portal. To obtain a client certificate, follow the steps presented in [How to: Download and Import Publish Settings and Subscription Information](/previous-versions/dynamicsnav-2013/dn385850(v=nav.70)). 
 2. Set a header entry named x-ms-version with a value of 2013-11-01.
-3. Send a request in the following format: https://management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
+3. Send a request in the following format: `https://management.core.windows.net/<subscription-id>/services/hostedservices/<service-name>?embed-detail=true`
 4. Look for the **HostName** element for each **RoleInstance** element.
 
 > [!WARNING]
@@ -52,9 +52,8 @@ You can modify the host name for any virtual machine or role instance by uploadi
 ## Next steps
 [Name Resolution (DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
-[Azure Service Configuration Schema (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
+[Azure Service Configuration Schema (.cscfg)](/previous-versions/azure/reference/ee758710(v=azure.100))
 
-[Azure Virtual Network Configuration Schema](https://go.microsoft.com/fwlink/?LinkId=248093)
+[Azure Virtual Network Configuration Schema](/previous-versions/azure/reference/jj157100(v=azure.100))
 
-[Specify DNS settings using network configuration files](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
-
+[Specify DNS settings using network configuration files](/previous-versions/azure/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file)

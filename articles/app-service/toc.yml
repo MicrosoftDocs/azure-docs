@@ -3,207 +3,339 @@
 - name: Overview
   items:
   - name: About Web Apps
-    href: app-service-web-overview.md
-  - name: About App Service on Linux
-    href: containers/app-service-linux-intro.md
+    href: overview.md
   - name: About App Service Environments
     href: environment/intro.md
   - name: Compare hosting options
-    href: choose-web-site-cloud-service-vm.md
+    href: /azure/architecture/guide/technology-choices/compute-decision-tree
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create .NET Core app
-    href: app-service-web-get-started-dotnet.md
-  - name: Create .NET Framework app
-    href: app-service-web-get-started-dotnet-framework.md
-  - name: Create Node.js app
-    href: app-service-web-get-started-nodejs.md
-  - name: Create PHP app
-    href: app-service-web-get-started-php.md
-  - name: Create Java app
-    href: app-service-web-get-started-java.md
-  - name: Create static HTML site
-    href: app-service-web-get-started-html.md
-  - name: Run Windows container
-    href: app-service-web-get-started-windows-container.md
+  - name: ASP.NET
+    href: quickstart-dotnetcore.md
+  - name: Node.js
+    href: quickstart-nodejs.md
+  - name: PHP
+    href: quickstart-php.md
+  - name: Java
+    href: quickstart-java.md
+  - name: Python
+    href: quickstart-python.md
+  - name: Ruby
+    href: quickstart-ruby.md
+  - name: Static HTML site
+    href: quickstart-html.md
+  - name: ARM template
+    displayName: Resource Manager
+    href: quickstart-arm-template.md
+  - name: Custom container
+    href: quickstart-custom-container.md
+  - name: Multi-container app
+    href: quickstart-multi-container.md
+  - name: App on Azure Arc (preview)
+    href: quickstart-arc.md
 - name: Tutorials
   items:
+  - name: Secure app accesses storage and Microsoft Graph
+    items:
+    - name: Overview
+      href: scenario-secure-app-overview.md
+    - name: Set up App Service authentication
+      href: scenario-secure-app-authentication-app-service.md
+    - name: Secure app accesses storage
+      href: scenario-secure-app-access-storage.md
+    - name: Secure app accesses Microsoft Graph as the user
+      href: scenario-secure-app-access-microsoft-graph-as-user.md
+    - name: Secure app accesses Microsoft Graph as the app
+      href: scenario-secure-app-access-microsoft-graph-as-app.md    
+    - name: Clean up resources
+      href: scenario-secure-app-clean-up-resources.md
   - name: App with DB
     items:
-    - name: .NET Core with SQL DB
-      href: app-service-web-tutorial-dotnetcore-sqldb.md
-    - name: .NET with SQL DB
+    - name: ASP.NET Core with SQL DB
+      href: tutorial-dotnetcore-sqldb-app.md
+    - name: ASP.NET with SQL DB
       href: app-service-web-tutorial-dotnet-sqldatabase.md
     - name: PHP with MySQL
-      href: app-service-web-tutorial-php-mysql.md 
+      href: tutorial-php-mysql-app.md
     - name: Node.js with MongoDB
-      href: app-service-web-tutorial-nodejs-mongodb-app.md
-    - name: Java with MySQL
-      href: app-service-web-tutorial-java-mysql.md
-  - name: Customize Windows (container)
-    href: app-service-web-tutorial-windows-containers-custom-fonts.md
+      href: tutorial-nodejs-mongodb-app.md
+    - name: Ruby with Postgres
+      href: tutorial-ruby-postgres-app.md
+    - name: Python with Postgres
+      href: tutorial-python-postgresql-app.md
+    - name: Java with Spring Data
+      href: tutorial-java-spring-cosmosdb.md
+  - name: Custom containers
+    items:
+    - name: Deploy from ACR
+      href: tutorial-custom-container.md
+    - name: Multi-container app
+      href: tutorial-multi-container-app.md
   - name: Access SQL DB securely
     href: app-service-web-tutorial-connect-msi.md
   - name: Host RESTful API
     href: app-service-web-tutorial-rest-api.md
-  - name: Map Custom Domain
+  - name: Map custom domain
     href: app-service-web-tutorial-custom-domain.md
-  - name: Bind SSL Certificate
-    href: app-service-web-tutorial-custom-ssl.md
+  - name: Secure domain with TLS/SSL
+    href: configure-ssl-bindings.md
   - name: Add CDN
     href: ../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fcdn%2ftoc.json
   - name: Authenticate users
-    href: app-service-web-tutorial-auth-aad.md
+    href: tutorial-auth-aad.md
+  - name: Send email/tweet
+    href: tutorial-send-email.md
+  - name: Troubleshoot errors
+    href: tutorial-troubleshoot-monitor.md
+  - name: GitHub Actions
+    items:
+    - name: ASP.NET Core with a container
+      href: app-service-sql-github-actions.md
 - name: Samples
   items:
   - name: Azure CLI
-    href: app-service-cli-samples.md
+    href: samples-cli.md
   - name: Azure PowerShell
-    href: app-service-powershell-samples.md
+    href: samples-powershell.md
   - name: Resource Manager templates
-    href: app-service-rm-template-samples.md
+    href: samples-resource-manager-templates.md
+  - name: Terraform
+    href: samples-terraform.md
 - name: Concepts
   items:
-  - name: How App Service works
-    href: app-service-how-works-readme.md
   - name: App Service plans
-    href: azure-web-sites-web-hosting-plans-in-depth-overview.md
+    href: overview-hosting-plans.md
+  - name: Cost management
+    href: overview-manage-costs.md
   - name: OS functionality
-    href: web-sites-available-operating-system-functionality.md
+    href: operating-system-functionality.md
+  - name: Deployment best practices
+    href: deploy-best-practices.md
+  - name: Azure Arc hosting (preview)
+    href: overview-arc-integration.md
   - name: Security
-    href: app-service-security.md
     items:
+    - name: Recommendations
+      href: security-recommendations.md
     - name: Authentication and authorization
-      href: app-service-authentication-overview.md
+      href: overview-authentication-authorization.md
     - name: OS and runtime patching
-      href: app-service-patch-os-runtime.md
-  - name: Inbound and outbound IPs
-    href: app-service-ip-addresses.md
-  - name: Hybrid connections
-    href: app-service-hybrid-connections.md
-  - name: Traffic Manager integration
-    href: web-sites-traffic-manager.md
+      href: overview-patch-os-runtime.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
+    - name: Security overview
+      href: overview-security.md
+  - name: Networking
+    items:
+    - name: Overview
+      href: networking-features.md
+    - name: Inbound and outbound IPs
+      href: overview-inbound-outbound-ips.md
+    - name: Private endpoint
+      href: networking/private-endpoint.md
+    - name: Hybrid connections
+      href: app-service-hybrid-connections.md
+    - name: Virtual Network Integration
+      href: web-sites-integrate-with-vnet.md
+    - name: Application Gateway integration
+      href: networking/app-gateway-with-service-endpoints.md
+    - name: NAT gateway integration
+      href: networking/nat-gateway-integration.md
+    - name: Traffic Manager integration
+      href: web-sites-traffic-manager.md
   - name: Local cache
-    href: app-service-local-cache-overview.md
+    href: overview-local-cache.md
   - name: Diagnostics
-    href: app-service-diagnostics.md
+    href: overview-diagnostics.md
 - name: How-To guides
   items:
   - name: Configure app
     items:
-    - name: Use app settings
-      href: web-sites-configure.md
+    - name: Configure common settings
+      href: configure-common.md
+    - name: Configure ASP.NET
+      href: configure-language-dotnet-framework.md
+    - name: Configure ASP.NET Core
+      href: configure-language-dotnetcore.md
+    - name: Configure Node.js
+      href: configure-language-nodejs.md
     - name: Configure PHP
-      href: web-sites-php-configure.md
+      href: configure-language-php.md
+    - name: Configure Python
+      href: configure-language-python.md
+    - name: Configure Java
+      href: configure-language-java.md
+    - name: Configure Ruby
+      href: configure-language-ruby.md
+    - name: Configure custom container
+      href: configure-custom-container.md
     - name: Connect to on-prem resources
       href: web-sites-integrate-with-vnet.md
+    - name: Configure Azure Storage (container)
+      href: configure-connect-to-azure-storage.md
   - name: Deploy to Azure
     items:
     - name: Deploy the app
       items:
+      - name: Run from package
+        href: deploy-run-package.md
       - name: Deploy ZIP or WAR
-        href: app-service-deploy-zip.md
+        href: deploy-zip.md
       - name: Deploy via FTP
-        href: app-service-deploy-ftp.md
+        href: deploy-ftp.md
       - name: Deploy via cloud sync
-        href: app-service-deploy-content-sync.md
+        href: deploy-content-sync.md
       - name: Deploy continuously
-        href: app-service-continuous-deployment.md
+        href: deploy-continuous-deployment.md
+      - name: Custom containers CI/CD
+        href: deploy-ci-cd-custom-container.md
       - name: Deploy from local Git
-        href: app-service-deploy-local-git.md
+        href: deploy-local-git.md
+      - name: GitHub Actions
+        href: deploy-github-actions.md
+      - name: GitHub Actions for Containers
+        href: deploy-container-github-action.md
       - name: Deploy with template
-        href: app-service-deploy-complex-application-predictably.md
+        href: deploy-complex-application-predictably.md
     - name: Set deployment credentials
-      href: app-service-deployment-credentials.md
+      href: deploy-configure-credentials.md
     - name: Create staging environments
-      href: web-sites-staged-publishing.md
+      href: deploy-staging-slots.md
     - name: Resource Manager template guidance
-      href: web-sites-rm-template-guidance.md
+      href: deploy-resource-manager-template.md
   - name: Map custom domain
     items:
     - name: Buy domain
-      href: custom-dns-web-site-buydomains-web-app.md
+      href: manage-custom-dns-buy-domain.md
     - name: Map domains with Traffic Manager
-      href: web-sites-traffic-manager-custom-domain-name.md
+      href: configure-domain-traffic-manager.md
     - name: Migrate an active domain
-      href: app-service-custom-domain-name-migrate.md
-  - name: Secure app
+      href: manage-custom-dns-migrate-domain.md
+  - name: Authenticate users
     items:
-    - name: Buy SSL cert
-      href: web-sites-purchase-ssl-web-site.md
-    - name: Authenticate users
+    - name: Configure identity providers
       items:
       - name: Authenticate with Azure AD
-        href: app-service-mobile-how-to-configure-active-directory-authentication.md
+        href: configure-authentication-provider-aad.md
       - name: Authenticate with Facebook
-        href: app-service-mobile-how-to-configure-facebook-authentication.md
+        href: configure-authentication-provider-facebook.md
       - name: Authenticate with Google
-        href: app-service-mobile-how-to-configure-google-authentication.md
-      - name: Authenticate with Microsoft account
-        href: app-service-mobile-how-to-configure-microsoft-authentication.md
+        href: configure-authentication-provider-google.md
       - name: Authenticate with Twitter
-        href: app-service-mobile-how-to-configure-twitter-authentication.md
-    - name: Advanced auth
-      href: app-service-authentication-how-to.md
-    - name: Restrict IPs
+        href: configure-authentication-provider-twitter.md
+      - name: Authenticate with an OpenID Connect provider (Preview)
+        href: configure-authentication-provider-openid-connect.md
+      - name: Authenticate using Sign in with Apple (Preview)
+        href: configure-authentication-provider-apple.md
+    - name: Customize sign-ins/outs
+      href: configure-authentication-customize-sign-in-out.md
+    - name: Access user identities
+      href: configure-authentication-user-identities.md
+    - name: Work with tokens
+      href: configure-authentication-oauth-tokens.md
+    - name: Manage API versions
+      href: configure-authentication-api-version.md
+    - name: File-based configuration
+      href: configure-authentication-file-based.md
+  - name: Secure app
+    items:
+    - name: Add TSL/SSL cert
+      href: configure-ssl-certificate.md
+    - name: Restrict access
       href: app-service-ip-restrictions.md
     - name: Use a managed identity
-      href: app-service-managed-service-identity.md
-    - name: Use SSL cert in application code
-      href: app-service-web-ssl-cert-load.md
+      href: overview-managed-identity.md
+    - name: Reference secrets from Key Vault
+      href: app-service-key-vault-references.md
+    - name: Use TLS/SSL cert in code
+      href: configure-ssl-certificate-in-code.md
     - name: Configure TLS mutual authentication
       href: app-service-web-configure-tls-mutual-auth.md
+    - name: Encrypt site data
+      href: configure-encrypt-at-rest-using-cmk.md
   - name: Scale app
     items:
     - name: Scale up server capacity
-      href: web-sites-scale.md
-    - name: Configure PremiumV2 tier
+      href: manage-scale-up.md
+    - name: Configure PremiumV3 tier
       href: app-service-configure-premium-tier.md
     - name: Scale out to multiple instances
-      href: ../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
+      href: ../azure-monitor/autoscale/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
     - name: High density hosting
-      href: app-service-high-density-hosting.md
+      href: manage-scale-per-app.md
   - name: Monitor app
     items:
+    - name: Monitor App Service with Azure Monitor
+      href: monitor-app-service.md
     - name: Quotas & alerts
       href: web-sites-monitor.md
     - name: Enable logs
-      href: web-sites-enable-diagnostic-log.md
+      href: troubleshoot-diagnostic-logs.md
+    - name: Get resource events
+      href: get-resource-events.md
+    - name: Health check
+      href: monitor-instances-health-check.md      
+    - name: Open SSH session to Linux container
+      href: configure-linux-open-ssh-session.md
   - name: Manage app
     items:
     - name: Manage the hosting plan
       href: app-service-plan-manage.md
     - name: Back up an app
-      href: web-sites-backup.md
+      href: manage-backup.md
     - name: Restore a backup
       href: web-sites-restore.md
     - name: Restore a snapshot
       href: app-service-web-restore-snapshots.md
     - name: Clone an app
       href: app-service-web-app-cloning.md
-    - name: Move resources
-      href: ../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations
+    - name: Restore deleted App Service
+      href: app-service-undelete.md
+    - name: Restore from downed region
+      href: manage-disaster-recovery.md
+    - name: Enable on Azure Arc
+      href: manage-create-arc-environment.md
+  - name: Move app
+    items:
+    - name: Move between regions
+      href: manage-move-across-regions.md
+    - name: Move subscriptions
+      href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#checklist-before-moving-resources
   - name: Run background tasks
     items:
     - name: Create WebJobs
-      href: web-sites-create-web-jobs.md
+      href: webjobs-create.md
     - name: Develop WebJobs using VS
-      href: websites-dotnet-deploy-webjobs.md
+      href: webjobs-dotnet-deploy-vs.md
     - name: Get started with WebJobs SDK
       href: webjobs-sdk-get-started.md
     - name: Use WebJobs SDK
       href: webjobs-sdk-how-to.md
 - name: Reference
   items:
+  - name: Monitoring data
+    href: monitor-app-service-reference.md
   - name: Azure CLI
     href: /cli/azure/appservice
   - name: Azure PowerShell
-    href: /powershell
+    href: /powershell/module/az.websites/#app_service
   - name: REST API
     href: /rest/api/appservice/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.web/allversions
+  - name: App settings reference
+    href: reference-app-settings.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
+  - name: App Service Blog
+    href: https://aka.ms/appserviceblog
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/
   - name: Azure Roadmap
@@ -211,35 +343,13 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Quota Information
-    href: ../azure-subscription-service-limits.md#app-service-limits
-  - name: Service Updates & Release Notes
-    items:
-    - name: Azure Updates
-      href: https://azure.microsoft.com/updates/?product=app-service
-    - name: Azure SDK for .NET 3.0
-      href: azure-sdk-dotnet-release-notes-3-0.md
-    - name: Azure SDK for .NET 2.9
-      href: azure-sdk-dotnet-release-notes-2-9.md
-    - name: Azure SDK for .NET 2.8
-      href: azure-sdk-dotnet-release-notes-2-8.md
-    - name: Azure SDK for .NET 2.7
-      href: azure-sdk-dotnet-release-notes-2-7.md
-    - name: Azure SDK for .NET 2.6
-      href: azure-sdk-dotnet-release-notes-2-6.md
-    - name: Azure SDK for .NET 2.5.1
-      href: app-service-release-notes.md
-    - name: Azure SDK for .NET 2.5
-      href: https://msdn.microsoft.com/library/azure/dn873976.aspx
-    - name: Azure SDK for .NET 2.4
-      href: https://msdn.microsoft.com/library/azure/dn794167.aspx
-    - name: Azure SDK for .NET 2.3
-      href: https://msdn.microsoft.com/library/azure/dn655054.aspx
-    - name: Azure SDK for .NET 2.2
-      href: https://msdn.microsoft.com/library/azure/dn459835.aspx
-    - name: Azure SDK for .NET 2.1
-      href: https://msdn.microsoft.com/library/azure/dn407359.aspx
-    - name: Azure SDK for .NET 2.0
-      href: https://msdn.microsoft.com/library/azure/dn169556.aspx
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
+  - name: Service Updates
+    href: https://azure.microsoft.com/updates/?product=app-service
+  - name: Kudu service
+    href: resources-kudu.md
+  - name: Migration Assistant
+    href: app-service-migration-assistant.md
   - name: Best practices
     href: app-service-best-practices.md
   - name: Samples
@@ -249,36 +359,38 @@
   - name: Cookbooks
     items:
     - name: Reference Architectures
-      href: https://docs.microsoft.com/azure/architecture/reference-architectures/#web-applications
+      href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
     - name: Deployment Scripts
       href: https://azure.microsoft.com/documentation/scripts/
   - name: Troubleshooting
     items:
+    - name: Troubleshoot intermittent outbound connection errors
+      href: troubleshoot-intermittent-outbound-connection-errors.md
     - name: Troubleshoot with Visual Studio
-      href: web-sites-dotnet-troubleshoot-visual-studio.md
+      href: troubleshoot-dotnet-visual-studio.md
     - name: Troubleshoot Node.js app
       href: app-service-web-nodejs-best-practices-and-troubleshoot-guide.md
     - name: Troubleshoot HTTP 502 & 503
-      href: app-service-web-troubleshoot-http-502-http-503.md
+      href: troubleshoot-http-502-http-503.md
     - name: Troubleshoot performance issues
-      href: app-service-web-troubleshoot-performance-degradation.md
+      href: troubleshoot-performance-degradation.md
     - name: Troubleshoot domain and certificate issues
-      href: app-service-web-troubleshoot-domain-ssl-certificates.md
+      href: troubleshoot-domain-ssl-certificates.md
     - name: FAQ
       items:
       - name: Availability, performance, and application FAQ
-        href: app-service-web-availability-performance-application-issues-faq.md
+        href: faq-availability-performance-application-issues.yml
       - name: Deployment FAQ
-        href: app-service-web-deployment-faq.md
-      - name: Open source technologies FAQ
-        href: app-service-web-open-source-technologies-faq.md
+        href: faq-deployment.yml
+      - name: Open-source technologies FAQ
+        href: faq-open-source-technologies.yml
       - name: Configuration and management FAQ
-        href: app-service-web-configuration-and-management-faq.md
+        href: faq-configuration-and-management.yml
   - name: IP address change
     items:
     - name: Inbound IP address
       href: ip-address-change-inbound.md
     - name: Outbound IP address
       href: ip-address-change-outbound.md
-    - name: SSL address
+    - name: TLS/SSL address
       href: ip-address-change-ssl.md

@@ -1,249 +1,156 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with SpaceIQ | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SpaceIQ.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: joflore
-
-ms.assetid: 5b55ae29-491f-401f-9299-d3a6b64a1b99
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 09/04/2017
+ms.topic: tutorial
+ms.date: 06/11/2021
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with SpaceIQ
 
-In this tutorial, you learn how to integrate SpaceIQ with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate SpaceIQ with Azure Active Directory (Azure AD). When you integrate SpaceIQ with Azure AD, you can:
 
-Integrating SpaceIQ with Azure AD provides you with the following benefits:
-
-- You can control in Azure AD who has access to SpaceIQ.
-- You can enable your users to automatically get signed-on to SpaceIQ (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Azure AD who has access to SpaceIQ.
+* Enable your users to be automatically signed-in to SpaceIQ with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
 To configure Azure AD integration with SpaceIQ, you need the following items:
 
-- An Azure AD subscription
-- A SpaceIQ single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
+* SpaceIQ single sign-on enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding SpaceIQ from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-## Adding SpaceIQ from the gallery
+* SpaceIQ supports **IDP** initiated SSO.
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
+## Add SpaceIQ from the gallery
+
 To configure the integration of SpaceIQ into Azure AD, you need to add SpaceIQ from the gallery to your list of managed SaaS apps.
 
-**To add SpaceIQ from the gallery, perform the following steps:**
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **SpaceIQ** in the search box.
+1. Select **SpaceIQ** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Configure and test Azure AD SSO for SpaceIQ
 
-	![The Azure Active Directory button][1]
+Configure and test Azure AD SSO with SpaceIQ using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in SpaceIQ.
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+To configure and test Azure AD SSO with SpaceIQ, perform the following steps:
 
-	![The Enterprise applications blade][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure SpaceIQ SSO](#configure-spaceiq-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create SpaceIQ test user](#create-spaceiq-test-user)** - to have a counterpart of B.Simon in SpaceIQ that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	![The New application button][3]
+## Configure Azure AD SSO
 
-1. In the search box, type **SpaceIQ**, select **SpaceIQ** from result panel then click **Add** button to add the application.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-	![SpaceIQ in the results list](./media/spaceiq-tutorial/tutorial_spaceiq_addfromgallery.png)
+1. In the Azure portal, on the **SpaceIQ** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-## Configure and test Azure AD single sign-on
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-In this section, you configure and test Azure AD single sign-on with SpaceIQ based on a test user called "Britta Simon."
+4. On the **Set up Single Sign-On with SAML** page, perform the following steps:
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in SpaceIQ is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in SpaceIQ needs to be established.
+    a. In the **Identifier** text box, type the URL:
+    `https://api.spaceiq.com`
 
-In SpaceIQ, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://api.spaceiq.com/saml/<INSTANCE_ID>/callback`
 
-To configure and test Azure AD single sign-on with SpaceIQ, you need to complete the following building blocks:
-
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create a SpaceIQ test user](#create-a-spaceiq-test-user)** - to have a counterpart of Britta Simon in SpaceIQ that is linked to the Azure AD representation of user.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
-
-### Configure Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your SpaceIQ application.
-
-**To configure Azure AD single sign-on with SpaceIQ, perform the following steps:**
-
-1. In the Azure portal, on the **SpaceIQ** application integration page, click **Single sign-on**.
-
-	![Configure single sign-on link][4]
-
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Single sign-on dialog box](./media/spaceiq-tutorial/tutorial_spaceiq_samlbase.png)
-
-1. On the **SpaceIQ Domain and URLs** section, perform the following steps:
-
-	![SpaceIQ Domain and URLs single sign-on information](./media/spaceiq-tutorial/tutorial_spaceiq_url.png)
-
-    a. In the **Identifier** textbox, type the URL: `https://api.spaceiq.com`
-
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://api.spaceiq.com/saml/<instanceid>/callback`
-
-	> [!NOTE] 
+	> [!NOTE]
 	> Update these values with the actual Reply URL and identifier which is explained later in the tutorial.
- 
-1. On the **SAML Signing Certificate** section, click **(Certificate Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/spaceiq-tutorial/tutorial_spaceiq_certificate.png) 
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-1. Click **Save** button.
+	![The Certificate download link](common/certificatebase64.png)
 
-	![Configure Single Sign-On Save button](./media/spaceiq-tutorial/tutorial_general_400.png)
+6. On the **Set up SpaceIQ** section, copy the appropriate URL(s) as per your requirement.
 
-1. On the **SpaceIQ Configuration** section, click **Configure SpaceIQ** to open **Configure sign-on** window. Copy the **SAML Entity ID** from the **Quick Reference section.**
-
-	![SpaceIQ Configuration](./media/spaceiq-tutorial/tutorial_spaceiq_configure.png) 
-
-1.  Open a new browser window, and then sign in to your SpaceIQ environment as an administrator.
-
-1. Once you are logged in, click on the puzzle sign at the top right, then click on **"Integrations"**
-
-	![Account settings](./media/spaceiq-tutorial/setting1.png) 
-
-1. Under **All PROVISIONING & SSO**, click on the **Azure** tile to add an instance of Azure as IDP.
-
-	![SAML icon](./media/spaceiq-tutorial/setting2.png)
-
-1. In the **SSO** dialog box, perform the following steps:
-
-    ![SAML Authentication Settings](./media/spaceiq-tutorial/setting3.png)
-
-	a. In the **SAML Issuer URL** box, paste the **SAML Entity ID** value copied from the Azure AD application configuration window.
-	
-	b. Copy the **SAML CallBack Endpoint URL (read-only)** value and paste the value in the **Reply URL** box in the Azure portal, under SpaceIQ **Domain and URLs** section.
-	
-	c. Copy the **SAML Audience URI (read-only)** value and paste the value in the **Identifier** box in the Azure portal, under SpaceIQ **Domain and URLs** section.
-
-	d. Open the downloaded certificate file in notepad, copy the content, and then paste it in the **X.509 Certificate** box.
-	
-	e. Click **Save**.
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-   ![Create an Azure AD test user][100]
-
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
-
-    ![The Azure Active Directory button](./media/spaceiq-tutorial/create_aaduser_01.png)
-
-1. To display the list of users, go to **Users and groups**, and then click **All users**.
-
-    ![The "Users and groups" and "All users" links](./media/spaceiq-tutorial/create_aaduser_02.png)
-
-1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
-
-    ![The Add button](./media/spaceiq-tutorial/create_aaduser_03.png)
-
-1. In the **User** dialog box, perform the following steps:
-
-    ![The User dialog box](./media/spaceiq-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
-
-    d. Click **Create**.
-  
-### Create a SpaceIQ test user
-
-In this section, you create a user called Britta Simon in SpaceIQ. Work [SpaceIQ support team](mailto:eng@spaceiq.com) to add the users in the SpaceIQ platform. Users must be created and activated before you use single sign-on.
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to SpaceIQ.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to SpaceIQ.
 
-![Assign the user role][200] 
-
-**To assign Britta Simon to SpaceIQ, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **SpaceIQ**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	![The SpaceIQ link in the Applications list](./media/spaceiq-tutorial/tutorial_spaceiq_app.png)  
+## Configure SpaceIQ SSO
 
-1. In the menu on the left, click **Users and groups**.
+1. Open a new browser window, and then sign in to your SpaceIQ environment as an administrator.
 
-	![The "Users and groups" link][202]
+1. Once you are logged in, click on the puzzle sign at the top right, then click on **Integrations**
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+	![Account settings](./media/spaceiq-tutorial/setting.png) 
 
-	![The Add Assignment pane][203]
+1. Under **All PROVISIONING & SSO**, click on the **Azure** tile to add an instance of Azure as IDP.
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+	![SAML icon](./media/spaceiq-tutorial/azure.png)
 
-1. Click **Select** button on **Users and groups** dialog.
+1. In the **SSO** dialog box, perform the following steps:
 
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Test single sign-on
+    ![SAML Authentication Settings](./media/spaceiq-tutorial/configuration.png)
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+	a. In the **SAML Issuer URL** box, paste the **Azure AD Identifier** value copied from the Azure AD application configuration window.
 
-When you click the SpaceIQ tile in the Access Panel, you should get automatically signed-on to your SpaceIQ application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+	b. Copy the **SAML CallBack Endpoint URL (read-only)** value and paste the value in the **Reply URL** box in the **Basic SAML Configuration** section in the Azure portal.
 
-## Additional resources
+	c. Copy the **SAML Audience URI (read-only)** value and paste the value in the **Identifier** box in the **Basic SAML Configuration** section in the Azure portal.
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+	d. Open the downloaded certificate file in notepad, copy the content, and then paste it in the **X.509 Certificate** box.
 
+	e. Click **Save**.
 
+### Create SpaceIQ test user
 
-<!--Image references-->
+In this section, you create a user called Britta Simon in SpaceIQ. Work [SpaceIQ support team](mailto:eng@spaceiq.com) to add the users in the SpaceIQ platform. Users must be created and activated before you use single sign-on.
 
-[1]: ./media/spaceiq-tutorial/tutorial_general_01.png
-[2]: ./media/spaceiq-tutorial/tutorial_general_02.png
-[3]: ./media/spaceiq-tutorial/tutorial_general_03.png
-[4]: ./media/spaceiq-tutorial/tutorial_general_04.png
+## Test SSO
 
-[100]: ./media/spaceiq-tutorial/tutorial_general_100.png
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-[200]: ./media/spaceiq-tutorial/tutorial_general_200.png
-[201]: ./media/spaceiq-tutorial/tutorial_general_201.png
-[202]: ./media/spaceiq-tutorial/tutorial_general_202.png
-[203]: ./media/spaceiq-tutorial/tutorial_general_203.png
+* Click on Test this application in Azure portal and you should be automatically signed in to the SpaceIQ for which you set up the SSO.
 
+* You can use Microsoft My Apps. When you click the SpaceIQ tile in the My Apps, you should be automatically signed in to the SpaceIQ for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+
+## Next steps
+
+Once you configure SpaceIQ you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

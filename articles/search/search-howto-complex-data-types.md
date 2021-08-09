@@ -1,130 +1,166 @@
 ---
-title: How to model complex data types in Azure Search | Microsoft Docs
-description: Nested or hierarchical data structures can be modeled in an Azure Search index using flattened rowset and Collections data type.
+title: How to model complex data types
+titleSuffix: Azure Cognitive Search
+description: Nested or hierarchical data structures can be modeled in an Azure Cognitive Search index using ComplexType and Collections data types.
+
+manager: nitinme
 author: brjohnstmsft
-manager: jlembicz
 ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/01/2017
-
+ms.date: 04/02/2021
 ---
-# How to model complex data types in Azure Search
-External datasets used to populate an Azure Search index sometimes include hierarchical or nested substructures that do not break down neatly into a tabular rowset. Examples of such structures might include multiple locations and phone numbers for a single customer, multiple colors and sizes for a single SKU, multiple authors of a single book, and so on. In modeling terms, you might see these structures referred to as *complex data types*, *compound data types*, *composite data types*, or *aggregate data types*, to name a few.
 
-Complex data types are not natively supported in Azure Search, but a proven workaround includes a two-step process of flattening the structure and then using a **Collection** data type to reconstitute the interior structure. Following the technique described in this article allows the content to be searched, faceted, filtered, and sorted.
+# How to model complex data types in Azure Cognitive Search
 
-## Example of a complex data structure
-Typically, the data in question resides as a set of JSON or XML documents, or as items in a NoSQL store such as Azure Cosmos DB. Structurally, the challenge stems from having multiple child items that need to be searched and filtered.  As a starting point for illustrating the workaround, take the following JSON document that lists a set of contacts as an example:
+External datasets used to populate an Azure Cognitive Search index can come in many shapes. Sometimes they include hierarchical or nested substructures. Examples might include multiple addresses for a single customer, multiple colors and sizes for a single SKU, multiple authors of a single book, and so on. In modeling terms, you might see these structures referred to as *complex*, *compound*, *composite*, or *aggregate* data types. The term Azure Cognitive Search uses for this concept is **complex type**. In Azure Cognitive Search, complex types are modeled using **complex fields**. A complex field is a field that contains children (sub-fields) which can be of any data type, including other complex types. This works in a similar way as structured data types in a programming language.
 
-~~~~~
-[
-  {
-    "id": "1",
-    "name": "John Smith",
-    "company": "Adventureworks",
-    "locations": [
-      {
-        "id": "1",
-        "description": "Adventureworks Headquarters"
-      },
-      {
-        "id": "2",
-        "description": "Home Office"
-      }
-    ]
-  }, 
-  {
-    "id": "2",
-    "name": "Jen Campbell",
-    "company": "Northwind",
-    "locations": [
-      {
-        "id": "3",
-        "description": "Northwind Headquarter"
-      },
-      {
-        "id": "4",
-        "description": "Home Office"
-      }
-    ]
-}]
-~~~~~
+Complex fields represent either a single object in the document, or an array of objects, depending on the data type. Fields of type `Edm.ComplexType` represent single objects, while fields of type `Collection(Edm.ComplexType)` represent arrays of objects.
 
-While the fields named ‘id’, ‘name’ and ‘company’ can easily be mapped one-to-one as fields within an Azure Search index, the ‘locations’ field contains an array of locations, having both a set of location IDs as well as location descriptions. Given that Azure Search does not have a data type that supports this, we need a different way to model this in Azure Search. 
+Azure Cognitive Search natively supports complex types and collections. These types allow you to model almost any JSON structure in an Azure Cognitive Search index. In previous versions of Azure Cognitive Search APIs, only flattened row sets could be imported. In the newest version, your index can now more closely correspond to source data. In other words, if your source data has complex types, your index can have complex types also.
 
-> [!NOTE]
-> This technique is also described by Kirk Evans in a blog post [Indexing Azure Cosmos DB with Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), which shows a technique called "flattening the data", whereby you would have a field called `locationsID` and `locationsDescription` that are both [collections](https://msdn.microsoft.com/library/azure/dn798938.aspx) (or an array of strings).   
-> 
-> 
+To get started, we recommend the [Hotels data set](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), which you can load in the **Import data** wizard in the Azure portal. The wizard detects complex types in the source and suggests an index schema based on the detected structures.
 
-## Part 1: Flatten the array into individual fields
-To create an Azure Search index that accommodates this dataset, create individual fields for the nested substructure: `locationsID` and `locationsDescription` with a data type of [collections](https://msdn.microsoft.com/library/azure/dn798938.aspx) (or an array of strings). In these fields you would index the values ‘1’ and ‘2’ into the `locationsID` field for John Smith and the values ‘3’ & ‘4’ into the `locationsID` field for Jen Campbell.  
+> [!Note]
+> Support for complex types became generally available starting in `api-version=2019-05-06`. 
+>
+> If your search solution is built on earlier workarounds of flattened datasets in a collection, you should change your index to include complex types as supported in the newest API version. For more information about upgrading API versions, see [Upgrade to the newest REST API version](search-api-migration.md) or [Upgrade to the newest .NET SDK version](search-dotnet-sdk-migration-version-9.md).
 
-Your data within Azure Search would look like this: 
+## Example of a complex structure
 
-![sample data, 2 rows](./media/search-howto-complex-data-types/sample-data.png)
+The following JSON document is composed of simple fields and complex fields. Complex fields, such as `Address` and `Rooms`, have sub-fields. `Address` has a single set of values for those sub-fields, since it's a single object in the document. In contrast, `Rooms` has multiple sets of values for its sub-fields, one for each object in the collection.
 
-## Part 2: Add a collection field in the index definition
-In the index schema, the field definitions might look similar to this example.
 
-~~~~
-var index = new Index()
+```json
 {
-    Name = indexName,
-    Fields = new[]
+  "HotelId": "1",
+  "HotelName": "Secret Point Motel",
+  "Description": "Ideally located on the main commercial artery of the city in the heart of New York.",
+  "Tags": ["Free wifi", "on-site parking", "indoor pool", "continental breakfast"],
+  "Address": {
+    "StreetAddress": "677 5th Ave",
+    "City": "New York",
+    "StateProvince": "NY"
+  },
+  "Rooms": [
     {
-        new Field("id", DataType.String) { IsKey = true },
-        new Field("name", DataType.String) { IsSearchable = true, IsFilterable = false, IsSortable = false, IsFacetable = false },
-        new Field("company", DataType.String) { IsSearchable = true, IsFilterable = false, IsSortable = false, IsFacetable = false },
-        new Field("locationsId", DataType.Collection(DataType.String)) { IsSearchable = true, IsFilterable = true, IsFacetable = true },
-        new Field("locationsDescription", DataType.Collection(DataType.String)) { IsSearchable = true, IsFilterable = true, IsFacetable = true }
+      "Description": "Budget Room, 1 Queen Bed (Cityside)",
+      "RoomNumber": 1105,
+      "BaseRate": 96.99,
+    },
+    {
+      "Description": "Deluxe Room, 2 Double Beds (City View)",
+      "Type": "Deluxe Room",
+      "BaseRate": 150.99,
     }
-};
-~~~~
+    . . .
+  ]
+}
+```
 
-## Validate search behaviors and optionally extend the index
-Assuming you created the index and loaded the data, you can now test the solution to verify search query execution against the dataset. Each **collection** field should be **searchable**, **filterable** and **facetable**. You should be able to run queries like:
+## Indexing complex types
 
-* Find all people who work at the ‘Adventureworks Headquarters’.
-* Get a count of the number of people who work in a ‘Home Office’.  
-* Of the people who work at a ‘Home Office’, show what other offices they work along with a count of the people in each location.  
+During indexing, you can have a maximum of 3000 elements across all complex collections within a single document. An element of a complex collection is a member of that collection, so in the case of Rooms (the only complex collection in the Hotel example), each room is an element. In the example above, if the "Secret Point Motel" had 500 rooms, the hotel document would have 500 room elements. For nested complex collections, each nested element is also counted, in addition to the outer (parent) element.
 
-Where this technique falls apart is when you need to do a search that combines both the location id as well as the location description. For example:
+This limit applies only to complex collections, and not complex types (like Address) or string collections (like Tags).
 
-* Find all people where they have a Home Office AND has a location ID of 4.  
+## Creating complex fields
 
-If you recall the original content looked like this:
+As with any index definition, you can use the portal, [REST API](/rest/api/searchservice/create-index), or [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindex) to create a schema that includes complex types. 
 
-~~~~
-   {
-        id: '4',
-        description: 'Home Office'
-   }
-~~~~
+The following example shows a JSON index schema with simple fields, collections, and complex types. Notice that within a complex type, each sub-field has a type and may have attributes, just as top-level fields do. The schema corresponds to the example data above. `Address` is a complex field that isn't a collection (a hotel has one address). `Rooms` is a complex collection field (a hotel has many rooms).
 
-However, now that we have separated the data into separate fields, we have no way of knowing if the Home Office for Jen Campbell relates to `locationsID 3` or `locationsID 4`.  
+```json
+{
+  "name": "hotels",
+  "fields": [
+    { "name": "HotelId", "type": "Edm.String", "key": true, "filterable": true },
+    { "name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false },
+    { "name": "Description", "type": "Edm.String", "searchable": true, "analyzer": "en.lucene" },
+    { "name": "Address", "type": "Edm.ComplexType",
+      "fields": [
+        { "name": "StreetAddress", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "searchable": true },
+        { "name": "City", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true },
+        { "name": "StateProvince", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true }
+      ]
+    },
+    { "name": "Rooms", "type": "Collection(Edm.ComplexType)",
+      "fields": [
+        { "name": "Description", "type": "Edm.String", "searchable": true, "analyzer": "en.lucene" },
+        { "name": "Type", "type": "Edm.String", "searchable": true },
+        { "name": "BaseRate", "type": "Edm.Double", "filterable": true, "facetable": true }
+      ]
+    }
+  ]
+}
+```
 
-To handle this case, define another field in the index that combines all of the data into a single collection.  For our example, we will call this field `locationsCombined` and we will separate the content with a `||` although you can choose any separator that you think would be a unique set of characters for your content. For example: 
+## Updating complex fields
 
-![sample data, 2 rows with separator](./media/search-howto-complex-data-types/sample-data-2.png)
+All of the [reindexing rules](search-howto-reindex.md) that apply to fields in general still apply to complex fields. Restating a few of the main rules here, adding a field to a complex type doesn't require an index rebuild, but most modifications do.
 
-Using this `locationsCombined` field, we can now accommodate even more queries, such as:
+### Structural updates to the definition
 
-* Show a count of people who work at a ‘Home Office’ with location Id of ‘4’.  
-* Search for people who work at a ‘Home Office’ with location Id ‘4’. 
+You can add new sub-fields to a complex field at any time without the need for an index rebuild. For example, adding "ZipCode" to `Address` or "Amenities" to `Rooms` is allowed, just like adding a top-level field to an index. Existing documents have a null value for new fields until you explicitly populate those fields by updating your data.
 
-## Limitations
-This technique is useful for a number of scenarios, but it is not applicable in every case.  For example:
+Notice that within a complex type, each sub-field has a type and may have attributes, just as top-level fields do
 
-1. If you do not have a static set of fields in your complex data type and there was no way to map all the possible types to a single field. 
-2. Updating the nested objects requires some extra work to determine exactly what needs to be updated in the Azure Search index
+### Data updates
 
-## Sample code
-You can see an example on how to index a complex JSON data set into Azure Search and perform a number of queries over this dataset at this [GitHub repo](https://github.com/liamca/AzureSearchComplexTypes).
+Updating existing documents in an index with the `upload` action works the same way for complex and simple fields -- all fields are replaced. However, `merge` (or `mergeOrUpload` when applied to an existing document) doesn't work the same across all fields. Specifically, `merge` doesn't support merging elements within a collection. This limitation exists for collections of primitive types and complex collections. To update a collection, you'll need to retrieve the full collection value, make changes, and then include the new collection in the Index API request.
 
-## Next step
-[Vote for native support for complex data types](https://feedback.azure.com/forums/263029-azure-search) on the Azure Search UserVoice page and provide any additional input that you’d like us to consider regarding feature implementation. You can also reach out to me directly on Twitter at @liamca.
+## Searching complex fields
 
+Free-form search expressions work as expected with complex types. If any searchable field or sub-field anywhere in a document matches, then the document itself is a match.
+
+Queries get more nuanced when you have multiple terms and operators, and some terms have field names specified, as is possible with the [Lucene syntax](query-lucene-syntax.md). For example, this query attempts to match two terms, "Portland" and "OR", against two sub-fields of the Address field:
+
+> `search=Address/City:Portland AND Address/State:OR`
+
+Queries like this are *uncorrelated* for full-text search, unlike filters. In filters, queries over sub-fields of a complex collection are correlated using range variables in [`any` or `all`](search-query-odata-collection-operators.md). The Lucene query above returns documents containing both "Portland, Maine" and "Portland, Oregon", along with other cities in Oregon. This happens because each clause applies to all values of its field in the entire document, so there's no concept of a "current sub-document". For more information on this, see [Understanding OData collection filters in Azure Cognitive Search](search-query-understand-collection-filters.md).
+
+## Selecting complex fields
+
+The `$select` parameter is used to choose which fields are returned in search results. To use this parameter to select specific sub-fields of a complex field, include the parent field and sub-field separated by a slash (`/`).
+
+> `$select=HotelName, Address/City, Rooms/BaseRate`
+
+Fields must be marked as Retrievable in the index if you want them in search results. Only fields marked as Retrievable can be used in a `$select` statement.
+
+## Filter, facet, and sort complex fields
+
+The same [OData path syntax](query-odata-filter-orderby-syntax.md) used for filtering and fielded searches can also be used for faceting, sorting, and selecting fields in a search request. For complex types, rules apply that govern which sub-fields can be marked as sortable or facetable. For more information on these rules, see the [Create Index API reference](/rest/api/searchservice/create-index).
+
+### Faceting sub-fields
+
+Any sub-field can be marked as facetable unless it is of type `Edm.GeographyPoint` or `Collection(Edm.GeographyPoint)`.
+
+The document counts returned in the facet results are calculated for the parent document (a hotel), not the sub-documents in a complex collection (rooms). For example, suppose a hotel has 20 rooms of type "suite". Given this facet parameter `facet=Rooms/Type`, the facet count will be one for the hotel, not 20 for the rooms.
+
+### Sorting complex fields
+
+Sort operations apply to documents (Hotels) and not sub-documents (Rooms). When you have a complex type collection, such as Rooms, it's important to realize that you can't sort on Rooms at all. In fact, you can't sort on any collection.
+
+Sort operations work when fields have a single value per document, whether the field is a simple field, or a sub-field in a complex type. For example, `Address/City` is allowed to be sortable because there's only one address per hotel, so `$orderby=Address/City` will sort hotels by city.
+
+### Filtering on complex fields
+
+You can refer to sub-fields of a complex field in a filter expression. Just use the same [OData path syntax](query-odata-filter-orderby-syntax.md) that's used for faceting, sorting, and selecting fields. For example, the following filter will return all hotels in Canada:
+
+> `$filter=Address/Country eq 'Canada'`
+
+To filter on a complex collection field, you can use a **lambda expression** with the [`any` and `all` operators](search-query-odata-collection-operators.md). In that case, the **range variable** of the lambda expression is an object with sub-fields. You can refer to those sub-fields with the standard OData path syntax. For example, the following filter will return all hotels with at least one deluxe room and all non-smoking rooms:
+
+> `$filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)`
+
+As with top-level simple fields, simple sub-fields of complex fields can only be included in filters if they have the **filterable** attribute set to `true` in the index definition. For more information, see the [Create Index API reference](/rest/api/searchservice/create-index).
+
+## Next steps
+
+Try the [Hotels data set](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md) in the **Import data** wizard. You'll need the Cosmos DB connection information provided in the readme to access the data.
+
+With that information in hand, your first step in the wizard is to create a new Azure Cosmos DB data source. Further on in the wizard, when you get to the target index page, you'll see an index with complex types. Create and load this index, and then execute queries to understand the new structure.
+
+> [!div class="nextstepaction"]
+> [Quickstart: portal wizard for import, indexing, and queries](search-get-started-portal.md)

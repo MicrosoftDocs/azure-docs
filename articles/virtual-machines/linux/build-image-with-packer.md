@@ -1,31 +1,27 @@
 ---
-title: How to create Linux Azure VM Images with Packer | Microsoft Docs
+title: Create Linux Azure VM Images with Packer 
 description: Learn how to use Packer to create images of Linux virtual machines in Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 05/03/2018
+ms.date: 05/07/2019
 ms.author: cynthn
+ms.collection: linux
 ---
 
 # How to use Packer to create Linux virtual machine images in Azure
 Each virtual machine (VM) in Azure is created from an image that defines the Linux distribution and OS version. Images can include pre-installed applications and configurations. The Azure Marketplace provides many first and third-party images for most common distributions and application environments, or you can create your own custom images tailored to your needs. This article details how to use the open source tool [Packer](https://www.packer.io/) to define and build custom images in Azure.
 
+> [!NOTE]
+> Azure now has a service, Azure Image Builder, for defining and creating your own custom images. Azure Image Builder is built on Packer, so you can even use your existing Packer shell provisioner scripts with it. To get started with Azure Image Builder, see [Create a Linux VM with Azure Image Builder](image-builder.md).
+
 
 ## Create Azure resource group
 During the build process, Packer creates temporary Azure resources as it builds the source VM. To capture that source VM for use as an image, you must define a resource group. The output from the Packer build process is stored in this resource group.
 
-Create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli
 az group create -n myResourceGroup -l eastus
@@ -35,7 +31,7 @@ az group create -n myResourceGroup -l eastus
 ## Create Azure credentials
 Packer authenticates with Azure using a service principal. An Azure service principal is a security identity that you can use with apps, services, and automation tools like Packer. You control and define the permissions as to what operations the service principal can perform in Azure.
 
-Create a service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) and output the credentials that Packer needs:
+Create a service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp) and output the credentials that Packer needs:
 
 ```azurecli
 az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
@@ -43,7 +39,7 @@ az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, t
 
 An example of the output from the preceding commands is as follows:
 
-```azurecli
+```output
 {
     "client_id": "f5b6a5cf-fbdf-4a9f-b3b8-3c2cd00225a4",
     "client_secret": "0e760437-bf34-4aad-9f8d-870be799c55d",
@@ -51,7 +47,7 @@ An example of the output from the preceding commands is as follows:
 }
 ```
 
-To authenticate to Azure, you also need to obtain your Azure subscription ID with [az account show](/cli/azure/account#az_account_show):
+To authenticate to Azure, you also need to obtain your Azure subscription ID with [az account show](/cli/azure/account):
 
 ```azurecli
 az account show --query "{ subscription_id: id }"
@@ -124,7 +120,7 @@ This template builds an Ubuntu 16.04 LTS image, installs NGINX, then deprovision
 
 
 ## Build Packer image
-If you don't already have Packer installed on your local machine, [follow the Packer installation instructions](https://www.packer.io/docs/install/index.html).
+If you don't already have Packer installed on your local machine, [follow the Packer installation instructions](https://www.packer.io/docs/install).
 
 Build the image by specifying your Packer template file as follows:
 
@@ -134,7 +130,7 @@ Build the image by specifying your Packer template file as follows:
 
 An example of the output from the preceding commands is as follows:
 
-```bash
+```output
 azure-arm output will be in this color.
 
 ==> azure-arm: Running builder ...
@@ -197,7 +193,7 @@ It takes a few minutes for Packer to build the VM, run the provisioners, and cle
 
 
 ## Create VM from Azure Image
-You can now create a VM from your Image with [az vm create](/cli/azure/vm#az_vm_create). Specify the Image you created with the `--image` parameter. The following example creates a VM named *myVM* from *myPackerImage* and generates SSH keys if they do not already exist:
+You can now create a VM from your Image with [az vm create](/cli/azure/vm). Specify the Image you created with the `--image` parameter. The following example creates a VM named *myVM* from *myPackerImage* and generates SSH keys if they do not already exist:
 
 ```azurecli
 az vm create \
@@ -208,11 +204,11 @@ az vm create \
     --generate-ssh-keys
 ```
 
-If you wish to create VMs in a different resource group or region than your Packer image, specify the image ID rather than image name. You can obtain the image ID with [az image show](/cli/azure/image#az-image-show).
+If you wish to create VMs in a different resource group or region than your Packer image, specify the image ID rather than image name. You can obtain the image ID with [az image show](/cli/azure/image#az_image_show).
 
 It takes a few minutes to create the VM. Once the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. This address is used to access the NGINX site via a web browser.
 
-To allow web traffic to reach your VM, open port 80 from the Internet with [az vm open-port](/cli/azure/vm#open-port):
+To allow web traffic to reach your VM, open port 80 from the Internet with [az vm open-port](/cli/azure/vm):
 
 ```azurecli
 az vm open-port \
@@ -228,6 +224,4 @@ Now you can open a web browser and enter `http://publicIpAddress` in the address
 
 
 ## Next steps
-In this example, you used Packer to create a VM image with NGINX already installed. You can use this VM image alongside existing deployment workflows, such as to deploy your app to VMs created from the Image with Ansible, Chef, or Puppet.
-
-For additional example Packer templates for other Linux distros, see [this GitHub repo](https://github.com/hashicorp/packer/tree/master/examples/azure).
+You can also use existing Packer provisioner scripts with [Azure Image Builder](image-builder.md).

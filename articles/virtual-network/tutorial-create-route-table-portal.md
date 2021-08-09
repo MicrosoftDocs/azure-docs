@@ -1,263 +1,450 @@
 ---
-title: Route network traffic - tutorial - Azure portal | Microsoft Docs
+title: Route network traffic - tutorial - Azure portal
+titlesuffix: Azure Virtual Network
 description: In this tutorial, learn how to route network traffic with a route table using the Azure portal.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
-
-ms.assetid: 
+author: KumudD
+# Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/13/2018
-ms.author: jdial
-ms.custom: mvc
+ms.date: 03/16/2021
+ms.author: kumud
 ---
 
 # Tutorial: Route network traffic with a route table using the Azure portal
 
-Azure automatically routes traffic between all subnets within a virtual network, by default. You can create your own routes to override Azure's default routing. The ability to create custom routes is helpful if, for example, you want to route traffic between subnets through a network virtual appliance (NVA). In this tutorial, you learn how to:
+Azure routes traffic between all subnets within a virtual network, by default. You can create your own routes to override Azure's default routing. Custom routes are helpful when, for example, you want to route traffic between subnets through a network virtual appliance (NVA). In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> * Create an NVA that routes traffic
 > * Create a route table
 > * Create a route
-> * Create a virtual network with multiple subnets
 > * Associate a route table to a subnet
-> * Create an NVA that routes traffic
 > * Deploy virtual machines (VM) into different subnets
 > * Route traffic from one subnet to another through an NVA
 
-If you prefer, you can complete this tutorial using the [Azure CLI](tutorial-create-route-table-cli.md) or [Azure PowerShell](tutorial-create-route-table-powershell.md).
+This tutorial uses the [Azure portal](https://portal.azure.com). You can also use [Azure CLI](tutorial-create-route-table-cli.md) or [Azure PowerShell](tutorial-create-route-table-powershell.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Prerequisites
 
-## Log in to Azure 
+Before you begin, you require an Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Log in to the Azure portal at http://portal.azure.com.
+## Sign in to Azure
 
-## Create a route table
+Sign in to the Azure portal at https://portal.azure.com.
 
-1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
-2. Select **Networking**, and then select **Route table**.
-3. Enter, or select, the following information, accept the default for the remaining setting, and then select **Create**:
+## Create a virtual network
 
-    |Setting|Value|
-    |---|---|
-    |Name|myRouteTablePublic|
-    |Subscription| Select your subscription.|
-    |Resource group | Select **Create new** and enter *myResourceGroup*.|
-    |Location|East US|
- 
-    ![Create route table](./media/tutorial-create-route-table-portal/create-route-table.png) 
+1. From the Azure portal menu, select **Create a resource**. From the Azure Marketplace, select **Networking** > **Virtual network**, or search for **Virtual Network** in the search box.
 
-## Create a route
+2. Select **Create**.
 
-1. In the *Search resources, services, and docs* box at the top of the portal, begin typing *myRouteTablePublic*. When **myRouteTablePublic** appears in the search results, select it.
-2. Under **SETTINGS**, select **Routes** and then select **+ Add**, as shown in the following picture:
+2. In **Create virtual network**, enter or select this information:
 
-    ![Add route](./media/tutorial-create-route-table-portal/add-route.png) 
- 
-3. Under **Add route**, enter, or select, the following information, accept the default for the remaining settings, and then select **Create**:
+    | Setting | Value |
+    | ------- | ----- |
+    | Subscription | Select your subscription.|
+    | Resource group | Select **Create new**, enter **myResourceGroup**. </br> Select **OK**. |
+    | Name | Enter **myVirtualNetwork**. |
+    | Location | Select **(US) East US**.|
 
-    |Setting|Value|
-    |---|---|
-    |Route name|ToPrivateSubnet|
-    |Address prefix| 10.0.1.0/24|
-    |Next hop type | Select **Virtual appliance**.|
-    |Next hop address| 10.0.2.4|
+3. Select the **IP Addresses** tab, or select the **Next: IP Addresses** button at the bottom of the page.
 
-## Associate a route table to a subnet
+4. In **IPv4 address space**, select the existing address space and change it to **10.0.0.0/16**.
 
-Before you can associate a route table to a subnet, you have to create a virtual network and subnet, then you can associate the route table to a subnet:
+4. Select **+ Add subnet**, then enter **Public** for **Subnet name** and **10.0.0.0/24** for **Subnet address range**.
 
-1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
-2. Select **Networking**, and then select **Virtual network**.
-3. Under **Create virtual network**, Enter, or select, the following information, accept the default for the remaining settings, and then select **Create**:
+5. Select **Add**.
 
-    |Setting|Value|
-    |---|---|
-    |Name|myVirtualNetwork|
-    |Address space| 10.0.0.0/16|
-    |Subscription | Select your subscription.|
-    |Resource group|Select **Use existing** and then select **myResourceGroup**.|
-    |Location|Select *East US*|
-    |Subnet name|Public|
-    |Address range|10.0.0.0/24|
-    
-4. In the **Search resources, services, and docs** box at the top of the portal, begin typing *myVirtualNetwork*. When **myVirtualNetwork** appears in the search results, select it.
-5. Under **SETTINGS**, select **Subnets** and then select **+ Subnet**, as shown in the following picture:
+6. Select **+ Add subnet**, then enter **Private** for **Subnet name** and **10.0.1.0/24** for **Subnet address range**.
 
-    ![Add subnet](./media/tutorial-create-route-table-portal/add-subnet.png) 
+7. Select **Add**.
 
-6. Select or enter the following information, then select **OK**:
+8. Select **+ Add subnet**, then enter **DMZ** for **Subnet name** and **10.0.2.0/24** for **Subnet address range**.
 
-    |Setting|Value|
-    |---|---|
-    |Name|Private|
-    |Address space| 10.0.1.0/24|
+9. Select **Add**.
 
-7. Complete steps 5 and 6 again, providing the following information:
+10. Select the **Security** tab, or select the **Next: Security** button at the bottom of the page.
 
-    |Setting|Value|
-    |---|---|
-    |Name|DMZ|
-    |Address space| 10.0.2.0/24|
+11. Under **BastionHost**, select **Enable**. Enter this information:
 
-8. The **myVirtualNetwork - Subnets** box is displayed after completing the previous step. Under **SETTINGS**, select **Subnets** and then select **Public**.
-9. As shown in the following picture, select **Route table**, select **MyRouteTablePublic**, and then select **Save**:
+    | Setting            | Value                      |
+    |--------------------|----------------------------|
+    | Bastion name | Enter **myBastionHost** |
+    | AzureBastionSubnet address space | Enter **10.0.3.0/24** |
+    | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
-    ![Associate route table](./media/tutorial-create-route-table-portal/associate-route-table.png) 
+12. Select the **Review + create** tab or select the **Review + create** button.
+
+13. Select **Create**.
 
 ## Create an NVA
 
-An NVA is a VM that performs a network function, such as routing, firewalling, or WAN optimization.
+Network virtual appliances (NVAs) are virtual machines that help with network functions, such as routing and firewall optimization. This tutorial assumes you're using **Windows Server 2019 Datacenter**. You can select a different operating system if you want.
 
-1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
-2. Select **Compute**, and then select **Windows Server 2016 Datacenter**. You can select a different operating system, but the remaining steps assume you selected **Windows Server 2016 Datacenter**. 
-3. Select or enter the following information for **Basics**, then select **OK**:
+1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Virtual machine**. 
+   
+2. In **Create a virtual machine**, type or select the values in the **Basics** tab:
 
-    |Setting|Value|
-    |---|---|
-    |Name|myVmNva|
-    |User name|Enter a user name of your choosing.|
-    |Password|Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Resource group| Select **Use existing** and then select *myResourceGroup*.|
-    |Location|Select **East US**.|
-4. Select a VM size under **Choose a size**.
-5. Select or enter the following information for **Settings**, then select **OK**:
+    | Setting | Value                                          |
+    |-----------------------|----------------------------------|
+    | **Project Details** |  |
+    | Subscription | Select your Azure subscription |
+    | Resource Group | Select **myResourceGroup** |
+    | **Instance details** |  |
+    | Virtual machine name | Enter **myVMNVA** |
+    | Region | Select **(US) East US** |
+    | Availability Options | Select **No infrastructure redundancy required** |
+    | Image | Select **Windows Server 2019 Datacenter** |
+    | Azure Spot instance | Select **No** |
+    | Size | Choose VM size or take default setting |
+    | **Administrator account** |  |
+    | Username | Enter a username |
+    | Password | Enter a password |
+    | Confirm password | Reenter password |
+    | **Inbound port rules** |    |
+    | Public inbound ports | Select **None**. |
+    |
 
-    |Setting|Value|
-    |---|---|
-    |Virtual network|myVirtualNetwork - If it's not selected, select **Virtual network**, then select **myVirtualNetwork** under **Choose virtual network**.|
-    |Subnet|Select **Subnet** and then select **DMZ** under **Choose subnet**. |
-    |Public IP address| Select **Public IP address** and select **None** under **Choose public IP address**. No public IP address is assigned to this VM since it won't be connected to from the internet.
-6. Under **Create** in the **Summary**, select **Create** to start the VM deployment.
+3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
+  
+4. In the Networking tab, select or enter:
 
-    The VM takes a few minutes to create. Do not continue to the next step until Azure finishes creating the VM and opens a box with information about the VM.
+    | Setting | Value |
+    |-|-|
+    | **Network interface** |  |
+    | Virtual network | Select **myVirtualNetwork**. |
+    | Subnet | Select **DMZ** |
+    | Public IP | Select **None** |
+    | NIC network security group | Select **Basic**|
+    | Public inbound ports network | Select **None**. |
+   
+5. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
+  
+6. Review the settings, and then select **Create**.
 
-7. In the box that opened for the VM after it was created, under **SETTINGS**, select **Networking**, and then select **myvmnva158** (the network interface Azure created for your VM has a different number after **myvmnva**), as shown in the following picture:
+## Create a route table
 
-    ![VM networking](./media/tutorial-create-route-table-portal/virtual-machine-networking.png) 
+1. On the [Azure portal](https://portal.azure.com) menu or from the **Home** page, select **Create a resource**.
 
-8. For a network interface to be able to forward network traffic sent to it, that is not destined for its own IP address, IP forwarding must be enabled for the network interface. Under **SETTINGS**, select **IP configurations**, select **Enabled** for **IP forwarding**, and then select **Save**, as shown in the following picture:
+2. In the search box, enter **Route table**. When **Route table** appears in the search results, select it.
 
-    ![Enable IP forwarding](./media/tutorial-create-route-table-portal/enable-ip-forwarding.png) 
+3. In the **Route table** page, select **Create**.
 
-## Create virtual machines
+4. In **Create route table** in the **Basics** tab, enter or select the following information:
 
-Create two VMs in the virtual network, so that you can validate that traffic from the *Public* subnet is routed to the *Private* subnet through the NVA in a later step. Complete steps 1-6 of [Create a NVA](#create-a-network-virtual-appliance). Use the same settings in steps 3 and 5, except for the following changes:
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription.|
+    | Resource group | Select **myResourceGroup**. |
+    | **Instance details** |    |
+    | Region | Select **East US**. |
+    | Name | Enter **myRouteTablePublic**. |
+    | Propagate gateway routes | Select **Yes**. |
 
-|Virtual machine name      |Subnet      | Public IP address     |
-|--------- | -----------|---------              |
-| myVmPublic  | Public     | Accept portal default |
-| myVmPrivate | Private    | Accept portal default |
+    :::image type="content" source="./media/tutorial-create-route-table-portal/create-route-table.png" alt-text="Create route table, Azure portal." border="true":::
 
-You can create the *myVmPrivate* VM while Azure creates the *myVmPublic* VM. Do not continue with the following steps until Azure finishes creating both VMs.
+5. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
+
+## Create a route
+
+1. Go to the [Azure portal](https://portal.azure.com) to manage your route table. Search for and select **Route tables**.
+
+2. Select the name of your route table **myRouteTablePublic**.
+
+3. In the **myRouteTablePublic** page, in the **Settings** section, select **Routes**.
+
+4. In the routes page, select the **+ Add** button.
+
+5. In **Add route**, enter or select this information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Route name | Enter **ToPrivateSubnet** |
+    | Address prefix | Enter **10.0.1.0/24** (The address range of the **Private** subnet created earlier) |
+    | Next hop type | Select **Virtual appliance**. |
+    | Next hop address | Enter **10.0.2.4** (An address within the address range of the **DMZ** subnet) |
+
+6. Select **OK**.
+
+## Associate a route table to a subnet
+
+1. Go to the [Azure portal](https://portal.azure.com) to manage your virtual network. Search for and select **Virtual networks**.
+
+2. Select the name of your virtual network **myVirtualNetwork**.
+
+3. In the **myVirtualNetwork** page, in the **Settings** section, select **Subnets**.
+
+4. In the virtual network's subnet list, select **Public**.
+
+5. In **Route table**, choose the route table you created **myRouteTablePublic**. 
+
+6. Select **Save** to associate your route table to the **Public** subnet.
+
+    :::image type="content" source="./media/tutorial-create-route-table-portal/associate-route-table.png" alt-text="Associate route table, subnet list, virtual network, Azure portal." border="true":::
+
+## Turn on IP forwarding
+
+Next, turn on IP forwarding for your new NVA virtual machine, **myVMNVA**. When Azure sends network traffic to **myVMNVA**, if the traffic is destined for a different IP address, IP forwarding sends the traffic to the correct location.
+
+1. Go to the [Azure portal](https://portal.azure.com) to manage your VM. Search for and select **Virtual machines**.
+
+2. Select the name of your virtual machine **myVMNVA**.
+
+3. In the **myVMNVA** overview page, in **Settings**, select **Networking**.
+
+4. In the **Networking** page of **myVMNVA**, select the network interface next to **Network Interface**.  The name of the interface will begin with **myvmnva**.
+
+    :::image type="content" source="./media/tutorial-create-route-table-portal/virtual-machine-networking.png" alt-text="Networking, network virtual appliance (NVA) virtual machine (VM), Azure portal" border="true":::
+
+5. In the network interface overview page, in **Settings**, select **IP configurations**.
+
+6. In the **IP configurations** page, set **IP forwarding** to **Enabled**, then select **Save**.
+
+    :::image type="content" source="./media/tutorial-create-route-table-portal/enable-ip-forwarding.png" alt-text="Enable IP forwarding" border="true":::
+
+## Create public and private virtual machines
+
+Create a public VM and a private VM in the virtual network. Later, you'll use them to see that Azure routes the **Public** subnet traffic to the **Private** subnet through the NVA.
+
+
+### Public VM
+
+1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Virtual machine**. 
+   
+2. In **Create a virtual machine**, type or select the values in the **Basics** tab:
+
+    | Setting | Value                                          |
+    |-----------------------|----------------------------------|
+    | **Project Details** |  |
+    | Subscription | Select your Azure subscription |
+    | Resource Group | Select **myResourceGroup** |
+    | **Instance details** |  |
+    | Virtual machine name | Enter **myVMPublic** |
+    | Region | Select **(US) East US** |
+    | Availability Options | Select **No infrastructure redundancy required** |
+    | Image | Select **Windows Server 2019 Datacenter** |
+    | Azure Spot instance | Select **No** |
+    | Size | Choose VM size or take default setting |
+    | **Administrator account** |  |
+    | Username | Enter a username |
+    | Password | Enter a password |
+    | Confirm password | Reenter password |
+    | **Inbound port rules** |    |
+    | Public inbound ports | Select **None**. |
+    |
+
+3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
+  
+4. In the Networking tab, select or enter:
+
+    | Setting | Value |
+    |-|-|
+    | **Network interface** |  |
+    | Virtual network | Select **myVirtualNetwork**. |
+    | Subnet | Select **Public** |
+    | Public IP | Select **None** |
+    | NIC network security group | Select **Basic**|
+    | Public inbound ports network | Select **None**. |
+   
+5. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
+  
+6. Review the settings, and then select **Create**.
+
+### Private VM
+
+1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Virtual machine**. 
+   
+2. In **Create a virtual machine**, type or select the values in the **Basics** tab:
+
+    | Setting | Value                                          |
+    |-----------------------|----------------------------------|
+    | **Project Details** |  |
+    | Subscription | Select your Azure subscription |
+    | Resource Group | Select **myResourceGroup** |
+    | **Instance details** |  |
+    | Virtual machine name | Enter **myVMPrivate** |
+    | Region | Select **(US) East US** |
+    | Availability Options | Select **No infrastructure redundancy required** |
+    | Image | Select **Windows Server 2019 Datacenter** |
+    | Azure Spot instance | Select **No** |
+    | Size | Choose VM size or take default setting |
+    | **Administrator account** |  |
+    | Username | Enter a username |
+    | Password | Enter a password |
+    | Confirm password | Reenter password |
+    | **Inbound port rules** |    |
+    | Public inbound ports | Select **None**. |
+    |
+
+3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
+  
+4. In the Networking tab, select or enter:
+
+    | Setting | Value |
+    |-|-|
+    | **Network interface** |  |
+    | Virtual network | Select **myVirtualNetwork**. |
+    | Subnet | Select **Private** |
+    | Public IP | Select **None** |
+    | NIC network security group | Select **Basic**|
+    | Public inbound ports network | Select **None**. |
+   
+5. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
+  
+6. Review the settings, and then select **Create**.
 
 ## Route traffic through an NVA
 
-1. In the *Search* box at the top of the portal, begin typing *myVmPrivate*. When the **myVmPrivate** VM appears in the search results, select it.
-2. Create a remote desktop connection to the *myVmPrivate* VM by selecting **Connect**, as shown in the following picture:
+### Sign in to private vm
 
-    ![Connect to VM ](./media/tutorial-create-route-table-portal/connect-to-virtual-machine.png)  
+1. Go to the [Azure portal](https://portal.azure.com) to manage your private VM. Search for and select **Virtual machines**.
 
-3. To connect to the VM, open the downloaded RDP file. If prompted, select **Connect**.
-4. Enter the user name and password you specified when creating the VM (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**.
-5. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection.
-6. In a later step, the trace route tool is used to test routing. Trace route uses the Internet Control Message Protocol (ICMP), which is denied through the Windows Firewall. Enable ICMP through the Windows firewall by entering the following command from PowerShell on the *myVmPrivate* VM:
+2. Pick the name of your private virtual machine **myVmPrivate**.
+
+3. In the VM menu bar, select **Connect**, then select **Bastion**.
+
+4. In the **Connect** page, select the blue **Use Bastion** button.
+
+5. In the **Bastion** page, enter the username and password you created for the virtual machine previously.
+
+6. Select **Connect**.
+
+### Configure firewall
+
+In a later step, you'll use the trace route tool to test routing. Trace route uses the Internet Control Message Protocol (ICMP), which the Windows Firewall denies by default. 
+
+Enable ICMP through the Windows firewall.
+
+1. In the bastion connection of **myVMPrivate**, open PowerShell with administrative privileges.
+
+2. Enter this command:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
-    Though trace route is used to test routing in this tutorial, allowing ICMP through the Windows Firewall for production deployments is not recommended.
-7. You enabled IP forwarding within Azure for the VM's network interface in [Enable IP forwarding](#enable-ip-forwarding). Within the VM, the operating system, or an application running within the VM, must also be able to forward network traffic. Enable IP forwarding within the operating system of the *myVmNva* VM:
+    You'll be using trace route to test routing in this tutorial. For production environments, we don't recommend allowing ICMP through the Windows Firewall.
 
-    From a command prompt on the *myVmPrivate* VM, remote desktop to the *myVmNva* VM:
+### Turn on IP forwarding within myVMNVA
 
-    ``` 
+You [turned on IP forwarding](#turn-on-ip-forwarding) for the VM's network interface using Azure. The virtual machine's operating system also has to forward network traffic. 
+
+Turn on IP forwarding for **myVMNVA** with these commands.
+
+1. From PowerShell on the **myVMPrivate** VM, open a remote desktop to the **myVMNVA** VM:
+
+    ```powershell
     mstsc /v:myvmnva
     ```
-    
-    To enable IP forwarding within the operating system, enter the following command in PowerShell from the *myVmNva* VM:
+
+2. From PowerShell on the **myVMNVA** VM, enter this command to turn on IP forwarding:
 
     ```powershell
     Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
     ```
-    
-    Restart the *myVmNva* VM, which also disconnects the remote desktop session.
-8. While still connected to the *myVmPrivate* VM, create a remote desktop session to the *myVmPublic* VM, after the *myVmNva* VM restarts:
 
-    ``` 
-    mstsc /v:myVmPublic
-    ```
-    
-    Enable ICMP through the Windows firewall by entering the following command from PowerShell on the *myVmPublic* VM:
+3. Restart **myVMNVA**.
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    Restart-Computer
     ```
 
-9. To test routing of network traffic to the *myVmPrivate* VM  from the *myVmPublic* VM, enter the following command from PowerShell on the *myVmPublic* VM:
-
-    ```
-    tracert myVmPrivate
-    ```
-
-    The response is similar to the following example:
+4. After **myVMNVA** restarts, create a remote desktop session to **myVMPublic**. 
     
+    While still connected to **myVMPrivate**, open PowerShell and run this command:
+
+    ```powershell
+    mstsc /v:myvmpublic
     ```
-    Tracing route to myVmPrivate.vpgub4nqnocezhjgurw44dnxrc.bx.internal.cloudapp.net [10.0.1.4]
+5. In the remote desktop of **myVMPublic**, open PowerShell.
+
+6. Enable ICMP through the Windows firewall by entering this command:
+
+    ```powershell
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
+    ```
+
+## Test the routing of network traffic
+
+First, let's test routing of network traffic from **myVMPublic** to **myVMPrivate**.
+
+1. From PowerShell on **myVMPublic**, enter this command:
+
+    ```powershell
+    tracert myvmprivate
+    ```
+
+    The response is similar to this example:
+
+    ```powershell
+    Tracing route to myvmprivate.q04q2hv50taerlrtdyjz5nza1f.bx.internal.cloudapp.net [10.0.1.4]
     over a maximum of 30 hops:
-        
-    1    <1 ms     *        1 ms  10.0.2.4
-    2     1 ms     1 ms     1 ms  10.0.1.4
-        
+
+      1     1 ms     *        2 ms  myvmnva.internal.cloudapp.net [10.0.2.4]
+      2     2 ms     1 ms     1 ms  myvmprivate.internal.cloudapp.net [10.0.1.4]
+
     Trace complete.
     ```
-      
-    You can see that the first hop is 10.0.2.4, which is the NVA's private IP address. The second hop is 10.0.1.4, the private IP address of the *myVmPrivate* VM. The route added to the *myRouteTablePublic* route table and associated to the *Public* subnet caused Azure to route the traffic through the NVA, rather than directly to the *Private* subnet.
-10.  Close the remote desktop session to the *myVmPublic* VM, which leaves you still connected to the *myVmPrivate* VM.
-11. To test routing of network traffic to the *myVmPublic* VM from the *myVmPrivate* VM, enter the following command from a command prompt on the *myVmPrivate* VM:
 
-    ```
-    tracert myVmPublic
+    * You can see the first hop is to 10.0.2.4, which is **myVMNVA's** private IP address. 
+
+    * The second hop is to the private IP address of **myVMPrivate**: 10.0.1.4. 
+
+    Earlier, you added the route to the **myRouteTablePublic** route table and associated it to the *Public* subnet. Azure sent the traffic through the NVA and not directly to the *Private* subnet.
+
+2. Close the remote desktop session to **myVMPublic**, which leaves you still connected to **myVMPrivate**.
+
+3. Open PowerShell on **myVMPrivate**, enter this command:
+
+    ```powershell
+    tracert myvmpublic
     ```
 
-    The response is similar to the following example:
+    This command tests the routing of network traffic from the *myVmPrivate* VM to the *myVmPublic* VM. The response is similar to this example:
 
-    ```
-    Tracing route to myVmPublic.vpgub4nqnocezhjgurw44dnxrc.bx.internal.cloudapp.net [10.0.0.4]
+    ```cmd
+    Tracing route to myvmpublic.q04q2hv50taerlrtdyjz5nza1f.bx.internal.cloudapp.net [10.0.0.4]
     over a maximum of 30 hops:
-    
-    1     1 ms     1 ms     1 ms  10.0.0.4
-    
+
+      1     1 ms     1 ms     1 ms  myvmpublic.internal.cloudapp.net [10.0.0.4]
+
     Trace complete.
     ```
 
-    You can see that traffic is routed directly from the *myVmPrivate* VM to the *myVmPublic* VM. By default, Azure routes traffic directly between subnets.
-12. Close the remote desktop session to the *myVmPrivate* VM.
+    You can see that Azure routes traffic directly from *myVMPrivate* to *myVMPublic*. By default, Azure routes traffic directly between subnets.
+
+4. Close the bastion session to **myVMPrivate**.
 
 ## Clean up resources
 
-When no longer needed, delete the resource group and all resources it contains: 
+When the resource group is no longer needed, delete **myResourceGroup** and all the resources it contains:
 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
-2. Select **Delete resource group**.
-3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
+1. Go to the [Azure portal](https://portal.azure.com) to manage your resource group. Search for and select **Resource groups**.
+
+2. Select the name of your resource group **myResourceGroup**.
+
+3. Select **Delete resource group**.
+
+4. In the confirmation dialog box, enter **myResourceGroup** for **TYPE THE RESOURCE GROUP NAME**, and then select **Delete**. 
+
 
 ## Next steps
 
-In this tutorial, you created a route table and associated it to a subnet. You created a simple NVA that routed traffic from a public subnet to a private subnet. Deploy a variety of pre-configured NVAs that perform network functions such as firewall and WAN optimization from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). To learn more about routing, see [Routing overview](virtual-networks-udr-overview.md) and [Manage a route table](manage-route-table.md).
+In this tutorial, you:
 
+* Created a route table and associated it to a subnet.
+* Created a simple NVA that routed traffic from a public subnet to a private subnet. 
 
-While you can deploy many Azure resources within a virtual network, resources for some Azure PaaS services cannot be deployed into a virtual network. You can still restrict access to the resources of some Azure PaaS services to traffic only from a virtual network subnet though. To learn how to restrict network access to Azure PaaS resources, advance to the next tutorial.
+You can deploy different pre-configured NVAs from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking), which provide many useful network functions. 
 
+To learn more about routing, see [Routing overview](virtual-networks-udr-overview.md) and [Manage a route table](manage-route-table.md).
+
+To filter network traffic in a virtual network, see:
 > [!div class="nextstepaction"]
-> [Restrict network access to PaaS resources](tutorial-restrict-network-access-to-resources.md)
+> [Tutorial: Filter network traffic with a network security group using the Azure portal](tutorial-filter-network-traffic.md)

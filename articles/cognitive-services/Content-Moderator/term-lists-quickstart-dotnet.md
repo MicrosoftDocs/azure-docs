@@ -1,20 +1,21 @@
 ---
 title: "Check text against a custom term list in C# - Content Moderator"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: How to moderate text with custom term lists using the Content Moderator SDK for C#.
 services: cognitive-services
-author: sanjeev3
-manager: cgronlun
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
-ms.topic: quickstart
-ms.date: 10/10/2018
-ms.author: sajagtap
-#As a C# developer of content-providing software, I want to analyze text content for terms that are particular to my product, so that I can categorize and handle it accordingly.
+ms.subservice: content-moderator
+ms.topic: conceptual
+ms.date: 10/24/2019
+ms.author: pafarley
+ms.custom: devx-track-csharp
+#Customer intent: As a C# developer of content-providing software, I want to analyze text content for terms that are particular to my product, so that I can categorize and handle it accordingly.
 ---
 
-# Quickstart: Check text against a custom term list in C#
+# Check text against a custom term list in C#
 
 The default global list of terms in Azure Content Moderator is sufficient for most content moderation needs. However, you might need to screen for terms that are specific to your organization. For example, you might want to tag competitor names for further review. 
 
@@ -30,7 +31,7 @@ the Content Moderator SDK for .NET to:
 - Edit list information.
 - Refresh the index so that changes to the list are included in a new scan.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin. 
 
 ## Sign up for Content Moderator services
 
@@ -57,8 +58,7 @@ Add the following `using` statements.
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -68,11 +68,7 @@ using System.Threading;
 
 ### Create the Content Moderator client
 
-Add the following code to create a Content Moderator client for your subscription.
-
-> [!IMPORTANT]
-> Update the **AzureRegion** and **CMSubscriptionKey** fields with 
-> the values of your region identifier and subscription key.
+Add the following code to create a Content Moderator client for your subscription. Update the `AzureEndpoint` and `CMSubscriptionKey` fields with the values of your endpoint URL and subscription key. You can find these in the **Quick start** tab of your resource in the Azure portal.
 
 ```csharp
 /// <summary>
@@ -84,16 +80,9 @@ Add the following code to create a Content Moderator client for your subscriptio
 public static class Clients
 {
     /// <summary>
-    /// The region/location for your Content Moderator account, 
-    /// for example, westus.
-    /// </summary>
-    private static readonly string AzureRegion = "YOUR API REGION";
-
-    /// <summary>
     /// The base URL fragment for Content Moderator calls.
     /// </summary>
-    private static readonly string AzureBaseURL =
-        $"https://{AzureRegion}.api.cognitive.microsoft.com";
+    private static readonly string AzureEndpoint = "YOUR ENDPOINT URL";
 
     /// <summary>
     /// Your Content Moderator subscription key.
@@ -112,7 +101,7 @@ public static class Clients
         // Create and initialize an instance of the Content Moderator API wrapper.
         ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
 
-        client.Endpoint = AzureBaseURL;
+        client.Endpoint = AzureEndpoint;
         return client;
     }
 }
@@ -275,7 +264,7 @@ You screen text using a term list with **ContentModeratorClient.TextModeration.S
 - A MIME type, which can be "text/html", "text/xml", "text/markdown", or "text/plain".
 - The text to screen.
 - A boolean value. Set this field to **true** to autocorrect the text before screening it.
-- A boolean value. Set this field to **true** to detect Personal Identifiable Information (PII) in the text.
+- A boolean value. Set this field to **true** to detect personal data in the text.
 - The term list ID.
 
 For more information, see the [API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
@@ -306,7 +295,7 @@ static void ScreenText (ContentModeratorClient client, string list_id, string te
             Console.WriteLine(String.Format("Found term: \"{0}\" from list ID {1} at index {2}.", term.Term, term.ListId, term.Index));
         }
     }
-    read.Sleep(throttleRate);
+    Thread.Sleep(throttleRate);
 }
 ```
 
@@ -373,7 +362,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 }
 ```
 
-## Putting it all together
+## Compose the Main method
 
 Add the **Main** method definition to namespace **TermLists**, class **Program**. Finally, close the **Program** class and the **TermLists** namespace.
 
@@ -415,9 +404,9 @@ static void Main(string[] args)
 
 ## Run the application to see the output
 
-Your output will be on the following lines but the data may vary.
+Your console output will look like the following:
 
-```
+```console
 Creating term list.
 Term list created. ID: 252.
 Updating information for term list with ID 252.

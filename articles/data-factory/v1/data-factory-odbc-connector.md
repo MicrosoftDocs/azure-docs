@@ -1,21 +1,12 @@
 ---
-title: Move data from ODBC data stores | Microsoft Docs
+title: Move data from ODBC data stores 
 description: Learn about how to move data from ODBC data stores using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
-
-
-ms.assetid: ad70a598-c031-4339-a883-c6125403cb76
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
-ms.author: jingwang
-
+ms.date: 11/19/2018
+ms.author: jingwang 
+ms.custom: devx-track-azurepowershell
 robots: noindex
 ---
 # Move data From ODBC data stores using Azure Data Factory
@@ -29,7 +20,9 @@ robots: noindex
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises ODBC data store. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
-You can copy data from an ODBC data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from an ODBC data store to other data stores, but not for moving data from other data stores to an ODBC data store. 
+You can copy data from an ODBC data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from an ODBC data store to other data stores, but not for moving data from other data stores to an ODBC data store.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Enabling connectivity
 Data Factory service supports connecting to on-premises ODBC sources using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. Use the gateway to connect to an ODBC data store even if it is hosted in an Azure IaaS VM.
@@ -46,15 +39,15 @@ You can create a pipeline with a copy activity that moves data from an ODBC data
 
 The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
+You can also use the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
 
-Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store: 
+Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
 1. Create **linked services** to link input and output data stores to your data factory.
-2. Create **datasets** to represent input and output data for the copy operation. 
-3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output. 
+2. Create **datasets** to represent input and output data for the copy operation.
+3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output.
 
-When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data from an ODBC data store, see [JSON example: Copy data from ODBC data store to Azure Blob](#json-example-copy-data-from-odbc-data-store-to-azure-blob) section of this article. 
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format. For a sample with JSON definitions for Data Factory entities that are used to copy data from an ODBC data store, see [JSON example: Copy data from ODBC data store to Azure Blob](#json-example-copy-data-from-odbc-data-store-to-azure-blob) section of this article.
 
 The following sections provide details about JSON properties that are used to define Data Factory entities specific to ODBC data store:
 
@@ -67,8 +60,8 @@ The following table provides description for JSON elements specific to ODBC link
 | connectionString |The non-access credential portion of the connection string and an optional encrypted credential. See examples in the following sections. <br/><br/>You can specify the connection string with pattern like `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, or use the system DSN (Data Source Name) you set up on the gateway machine with `"DSN=<name of the DSN>;"` (you need still specify the credential portion in linked service accordingly). |Yes |
 | credential |The access credential portion of the connection string specified in driver-specific property-value format. Example: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |No |
 | authenticationType |Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. |Yes |
-| username |Specify user name if you are using Basic authentication. |No |
-| password |Specify password for the user account you specified for the username. |No |
+| userName |Specify the user name if you're using Basic authentication. |No |
+| password |Specify the password for the user account that you specified for the userName. |No |
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the ODBC data store. |Yes |
 
 ### Using Basic authentication
@@ -91,7 +84,7 @@ The following table provides description for JSON elements specific to ODBC link
 }
 ```
 ### Using Basic authentication with encrypted credentials
-You can encrypt the credentials using the [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) (1.0 version of Azure PowerShell) cmdlet or [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0.9 or earlier version of the Azure PowerShell).  
+You can encrypt the credentials using the [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) (1.0 version of Azure PowerShell) cmdlet or [New-AzureDataFactoryEncryptValue](/previous-versions/azure/dn834940(v=azure.100)) (0.9 or earlier version of the Azure PowerShell).
 
 ```json
 {
@@ -128,7 +121,6 @@ You can encrypt the credentials using the [New-AzureRMDataFactoryEncryptValue](h
 }
 ```
 
-
 ## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
@@ -151,7 +143,7 @@ In copy activity, when source is of type **RelationalSource** (which includes OD
 
 
 ## JSON example: Copy data from ODBC data store to Azure Blob
-This example provides JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). It shows how to copy data from an ODBC source to an Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
+This example provides JSON definitions that you can use to create a pipeline by using [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). It shows how to copy data from an ODBC source to an Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
 The sample has the following data factory entities:
 
@@ -192,19 +184,19 @@ This example uses the Basic authentication. See [ODBC linked service](#linked-se
 {
     "name": "AzureStorageLinkedService",
     "properties": {
-    "type": "AzureStorage",
-    "typeProperties": {
-        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-    }
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+        }
     }
 }
 ```
 
 **ODBC input dataset**
 
-The sample assumes you have created a table “MyTable” in an ODBC database and it contains a column called “timestampcolumn” for time series data.
+The sample assumes you have created a table "MyTable" in an ODBC database and it contains a column called "timestampcolumn" for time series data.
 
-Setting “external”: ”true” informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
+Setting "external": "true" informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
 ```json
 {
@@ -290,7 +282,6 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 }
 ```
 
-
 **Copy activity in a pipeline with ODBC source (RelationalSource) and Blob sink (BlobSink)**
 
 The pipeline contains a Copy Activity that is configured to use these input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data in the past hour to copy.
@@ -346,40 +337,13 @@ As mentioned in the [data movement activities](data-factory-data-movement-activi
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type
 
-When moving data from ODBC data stores, ODBC data types are mapped to .NET types as mentioned in the [ODBC Data Type Mappings](https://msdn.microsoft.com/library/cc668763.aspx) topic.
+When moving data from ODBC data stores, ODBC data types are mapped to .NET types as mentioned in the [ODBC Data Type Mappings](/dotnet/framework/data/adonet/odbc-data-type-mappings) topic.
 
 ## Map source to sink columns
 To learn about mapping columns in source dataset to columns in sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
 
 ## Repeatable read from relational sources
 When copying data from relational data stores, keep repeatability in mind to avoid unintended outcomes. In Azure Data Factory, you can rerun a slice manually. You can also configure retry policy for a dataset so that a slice is rerun when a failure occurs. When a slice is rerun in either way, you need to make sure that the same data is read no matter how many times a slice is run. See [Repeatable read from relational sources](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
-
-## GE Historian store
-You create an ODBC linked service to link a [GE Proficy Historian (now GE Historian)](http://www.geautomation.com/products/proficy-historian) data store to an Azure data factory as shown in the following example:
-
-```json
-{
-    "name": "HistorianLinkedService",
-    "properties":
-    {
-        "type": "OnPremisesOdbc",
-        "typeProperties":
-        {
-            "connectionString": "DSN=<name of the GE Historian store>;",
-            "gatewayName": "<gateway name>",
-            "authenticationType": "Basic",
-            "userName": "<user name>",
-            "password": "<password>"
-        }
-    }
-}
-```
-
-Install Data Management Gateway on an on-premises machine and register the gateway with the portal. The gateway installed on your on-premises computer uses the ODBC driver for GE Historian to connect to the GE Historian data store. Therefore, install the driver if it is not already installed on the gateway machine. See [Enabling connectivity](#enabling-connectivity) section for details.
-
-Before you use the GE Historian store in a Data Factory solution, verify whether the gateway can connect to the data store using instructions in the next section.
-
-Read the article from the beginning for a detailed overview of using ODBC data stores as source data stores in a copy operation.  
 
 ## Troubleshoot connectivity issues
 To troubleshoot connection issues, use the **Diagnostics** tab of **Data Management Gateway Configuration Manager**.

@@ -1,21 +1,9 @@
 ---
-title: Create chaos and failover tests for Azure Service Fabric | Microsoft Docs
+title: Create chaos and failover tests for Azure Service Fabric 
 description: Using the Service Fabric chaos test and failover test scenarios to induce faults and verify the reliability of your services.
-services: service-fabric
-documentationcenter: .net
-author: motanv
-manager: rsinha
-editor: toddabel
-
-ms.assetid: 8eee7e89-404a-4605-8f00-7e4d4fb17553
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 06/07/2017
-ms.author: motanv
-
+ms.date: 10/1/2019
+ms.custom: devx-track-csharp
 ---
 # Testability scenarios
 Large distributed systems like cloud infrastructures are inherently unreliable. Azure Service Fabric gives developers the ability to write services to run on top of unreliable infrastructures. In order to write high-quality services, developers need to be able to induce such unreliable infrastructure to test the stability of their services.
@@ -128,6 +116,8 @@ class Test
 ```
 
 PowerShell
+
+The Service Fabric Powershell module includes two ways to begin a chaos scenario. `Invoke-ServiceFabricChaosTestScenario` is client-based, and if the client machine is shutdown midway through the test, no further faults will be introduced. Alternatively, there is a set of commands meant to keep the test running in the event of machine shutdown. `Start-ServiceFabricChaos` uses a stateful and reliable system service called FaultAnalysisService, ensuring faults will remain introduced until the TimeToRun is up. `Stop-ServiceFabricChaos` can be used to manually stop the scenario, and `Get-ServiceFabricChaosReport` will obtain a report. For more information see the [Azure Service Fabric Powershell reference](/powershell/module/ServiceFabric/New-ServiceFabricService?preserve-view=true&view=azureservicefabricps) and [Inducing controlled chaos in Service Fabric clusters](service-fabric-controlled-chaos.md).
 
 ```powershell
 $connection = "localhost:19000"

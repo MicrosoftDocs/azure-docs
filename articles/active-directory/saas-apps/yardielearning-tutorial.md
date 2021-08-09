@@ -2,228 +2,137 @@
 title: 'Tutorial: Azure Active Directory integration with Yardi eLearning | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Yardi eLearning.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: 7ea58b54-ec5b-4576-8586-814b11d0f4fb
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/13/2017
+ms.topic: tutorial
+ms.date: 05/26/2021
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Yardi eLearning
 
-In this tutorial, you learn how to integrate Yardi eLearning with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate Yardi eLearning with Azure Active Directory (Azure AD). When you integrate Yardi eLearning with Azure AD, you can:
 
-Integrating Yardi eLearning with Azure AD provides you with the following benefits:
-
-- You can control in Azure AD who has access to Yardi eLearning
-- You can enable your users to automatically get signed-on to Yardi eLearning (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Azure AD who has access to Yardi eLearning.
+* Enable your users to be automatically signed-in to Yardi eLearning with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
 To configure Azure AD integration with Yardi eLearning, you need the following items:
 
-- An Azure AD subscription
-- A Yardi eLearning single-sign on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
+* Yardi eLearning single sign-on enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Yardi eLearning from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-## Adding Yardi eLearning from the gallery
+* Yardi eLearning supports **SP** initiated SSO.
+
+* Yardi eLearning supports **Just In Time** user provisioning.
+
+## Add Yardi eLearning from the gallery
+
 To configure the integration of Yardi eLearning into Azure AD, you need to add Yardi eLearning from the gallery to your list of managed SaaS apps.
 
-**To add Yardi eLearning from the gallery, perform the following steps:**
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Yardi eLearning** in the search box.
+1. Select **Yardi eLearning** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Configure and test Azure AD SSO for Yardi eLearning
 
-	![Active Directory][1]
+Configure and test Azure AD SSO with Yardi eLearning using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Yardi eLearning.
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+To configure and test Azure AD SSO with Yardi eLearning, perform the following steps:
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Yardi eLearning SSO](#configure-yardi-elearning-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Yardi eLearning test user](#create-yardi-elearning-test-user)** - to have a counterpart of B.Simon in Yardi eLearning that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	![Applications][3]
+## Configure Azure AD SSO
 
-1. In the search box, type **Yardi eLearning**.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-	![Creating an Azure AD test user](./media/yardielearning-tutorial/tutorial_yardielearning_search.png)
+1. In the Azure portal, on the **Yardi eLearning** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-1. In the results panel, select **Yardi eLearning**, and then click **Add** button to add the application.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	![Creating an Azure AD test user](./media/yardielearning-tutorial/tutorial_yardielearning_addfromgallery.png)
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Yardi eLearning based on a test user called "Britta Simon."
+	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<COMPANY_NAME>.yardielearning.com/login`
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Yardi eLearning is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Yardi eLearning needs to be established.
+    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    `https://<COMPANY_NAME>.yardielearning.com/trust`
 
-In Yardi eLearning, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Yardi eLearning Client support team](mailto:elearning@yardi.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-To configure and test Azure AD single sign-on with Yardi eLearning, you need to complete the following building blocks:
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a Yardi eLearning test user](#creating-a-yardi-elearning-test-user)** - to have a counterpart of Britta Simon in Yardi eLearning that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+	![The Certificate download link](common/metadataxml.png)
 
-### Configuring Azure AD single sign-on
+6. On the **Set up Yardi eLearning** section, copy the appropriate URL(s) as per your requirement.
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Yardi eLearning application.
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-**To configure Azure AD single sign-on with Yardi eLearning, perform the following steps:**
+### Create an Azure AD test user 
 
-1. In the Azure portal, on the **Yardi eLearning** application integration page, click **Single sign-on**.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-	![Configure Single Sign-On][4]
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/yardielearning-tutorial/tutorial_yardielearning_samlbase.png)
+### Assign the Azure AD test user
 
-1. On the **Yardi eLearning Domain and URLs** section, perform the following steps:
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Yardi eLearning.
 
-	![Configure Single Sign-On](./media/yardielearning-tutorial/tutorial_yardielearning_url.png)
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Yardi eLearning**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.yardielearning.com/login`
+## Configure Yardi eLearning SSO
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.yardielearning.com/trust`
+To configure single sign-on on **Yardi eLearning** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Yardi eLearning support team](mailto:elearning@yardi.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Yardi eLearning Client support team](mailto:elearning@yardi.com) to get these values. 
- 
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+### Create Yardi eLearning test user
 
-	![Configure Single Sign-On](./media/yardielearning-tutorial/tutorial_yardielearning_certificate.png) 
-
-1. Click **Save** button.
-
-	![Configure Single Sign-On](./media/yardielearning-tutorial/tutorial_general_400.png)
-
-1. To configure single sign-on on **Yardi eLearning** side, you need to send the downloaded **Metadata XML** to [Yardi eLearning support team](mailto:elearning@yardi.com). 
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-![Create Azure AD User][100]
-
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
-
-	![Creating an Azure AD test user](./media/yardielearning-tutorial/create_aaduser_01.png) 
-
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/yardielearning-tutorial/create_aaduser_02.png) 
-
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/yardielearning-tutorial/create_aaduser_03.png) 
-
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/yardielearning-tutorial/create_aaduser_04.png) 
-
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**.
- 
-### Creating a Yardi eLearning test user
-
-The objective of this section is to create a user called Britta Simon in Yardi eLearning. Yardi eLearning supports just-in-time provisioning, which is by default enabled.
-
-There is no action item for you in this section. A new user is created during an attempt to access Yardi eLearning if it doesn't exist yet. 
+In this section, a user called Britta Simon is created in Yardi eLearning. Yardi eLearning supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Yardi eLearning, a new one is created after authentication.
 
 >[!NOTE]
 >If you need to create a user manually, you need to contact the [Yardi eLearning support team](mailto:elearning@yardi.com).
 
-### Assigning the Azure AD test user
+## Test SSO
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Yardi eLearning.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-![Assign User][200] 
+* Click on **Test this application** in Azure portal. This will redirect to Yardi eLearning Sign-on URL where you can initiate the login flow. 
 
-**To assign Britta Simon to Yardi eLearning, perform the following steps:**
+* Go to Yardi eLearning Sign-on URL directly and initiate the login flow from there.
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+* You can use Microsoft My Apps. When you click the Yardi eLearning tile in the My Apps, this will redirect to Yardi eLearning Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-	![Assign User][201] 
+## Next steps
 
-1. In the applications list, select **Yardi eLearning**.
-
-	![Configure Single Sign-On](./media/yardielearning-tutorial/tutorial_yardielearning_app.png) 
-
-1. In the menu on the left, click **Users and groups**.
-
-	![Assign User][202] 
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![Assign User][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
-
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the Yardi eLearning tile in the Access Panel, you should get automatically signed-on to your Yardi eLearning application. 
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
-
-<!--Image references-->
-
-[1]: ./media/yardielearning-tutorial/tutorial_general_01.png
-[2]: ./media/yardielearning-tutorial/tutorial_general_02.png
-[3]: ./media/yardielearning-tutorial/tutorial_general_03.png
-[4]: ./media/yardielearning-tutorial/tutorial_general_04.png
-
-[100]: ./media/yardielearning-tutorial/tutorial_general_100.png
-
-[200]: ./media/yardielearning-tutorial/tutorial_general_200.png
-[201]: ./media/yardielearning-tutorial/tutorial_general_201.png
-[202]: ./media/yardielearning-tutorial/tutorial_general_202.png
-[203]: ./media/yardielearning-tutorial/tutorial_general_203.png
-
+Once you configure Yardi eLearning you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

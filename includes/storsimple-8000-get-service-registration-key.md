@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ---
-<!--author=alkohli last changed: 06/22/17-->
 
 #### To get the StorSimple service registration key
 
@@ -15,7 +14,7 @@ ms.author: alkohli
 
 2.  Go to **Management > Keys**.
    
-     ![Keys blade](./media/storsimple-8000-get-service-registration-key/getregkey2.png)
+     ![Management Keys blade](./media/storsimple-8000-get-service-registration-key/getregkey2.png)
 
 3.  In the blade that opens up, click the copy icon to copy the service registration key and save it for later use.
 

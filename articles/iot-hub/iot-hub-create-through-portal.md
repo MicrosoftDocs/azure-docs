@@ -7,6 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
+ms.custom: ['Role: Cloud Development']
 ---
 
 # Create an IoT hub using the Azure portal
@@ -45,13 +46,19 @@ Click **Add** to open the **Add a shared access policy** blade.  You can enter t
 
 ![Screenshot showing adding a shared access policy](./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png)
 
-* The **Registry read** and **Registry write** policies grant read and write access rights to the identity registry. Choosing the write option automatically chooses the read option.
+* The **Registry read** and **Registry write** policies grant read and write access rights to the identity registry. These permissions are used by back-end cloud services to manage device identities. Choosing the write option automatically chooses the read option.
 
-* The **Service connect** policy grants permission to access service endpoints such as **Receive device-to-cloud**. 
+* The **Service connect** policy grants permission to access service endpoints. This permission is used by back-end cloud services to send and receive messages from devices as well as to update and read device twin and module twin data.
 
-* The **Device connect** policy grants permissions for sending and receiving messages using the IoT Hub device-side endpoints.
+* The **Device connect** policy grants permissions for sending and receiving messages using the IoT Hub device-side endpoints. This permission is used by devices to send and receive messages from an IoT hub, update and read device twin and module twin data, and perform file uploads.
 
 Click **Create** to add this newly created policy to the existing list.
+
+For more detailed information about the access granted by specific permissions, see [IoT Hub permissions](./iot-hub-dev-guide-sas.md#access-control-and-permissions).
+
+## Register a new device in the IoT hub
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## Message Routing for an IoT hub
 
@@ -65,7 +72,7 @@ Routes is the first tab on the Message Routing pane. To add a new route, click +
 
 ![Screenshot showing adding a new route](./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png)
 
-Name your hub. The name must be unique within the list of routes for that hub. 
+Name your route. The route name must be unique within the list of routes for that hub. 
 
 For **Endpoint**, you can select one from the dropdown list, or add a new one. In this example, a storage account and container are already available. To add them as an endpoint, click +**Add** next to the Endpoint dropdown and select **Blob Storage**. The following screen shows where the storage account and container are specified.
 
@@ -112,5 +119,4 @@ To delete an Iot hub, find the IoT hub you want to delete, then click the **Dele
 Follow these links to learn more about managing Azure IoT Hub:
 
 * [Message routing with IoT Hub](tutorial-routing.md)
-* [IoT Hub metrics](iot-hub-metrics.md)
-* [Operations monitoring](iot-hub-operations-monitoring.md)
+* [Monitor your IoT hub](monitor-iot-hub.md)

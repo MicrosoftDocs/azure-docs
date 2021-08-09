@@ -1,42 +1,38 @@
 ---
-title: Real-time data visualization of sensor data from Azure IoT Hub – Power BI | Microsoft Docs
+title: Real-time data visualization of data from Azure IoT Hub – Power BI
 description: Use Power BI to visualize temperature and humidity data that is collected from the sensor and sent to your Azure IoT hub.
-author: rangv
+author: robinsh
 keywords: real time data visualization, live data visualization, sensor data visualization
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 4/11/2018
-ms.author: rangv
+ms.date: 7/23/2021
+ms.author: robinsh
 ---
 
-# Visualize real-time sensor data from Azure IoT Hub using Power BI
+# Tutorial: Visualize real-time sensor data from Azure IoT Hub using Power BI
 
-![End-to-end diagram](./media/iot-hub-live-data-visualization-in-power-bi/1_end-to-end-diagram.png)
+You can use Microsoft Power BI to visualize real-time sensor data that your Azure IoT hub receives. To do so, you configure an Azure Stream Analytics job to consume the data from IoT Hub and route it to a dataset in Power BI. 
 
+:::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/end-to-end-diagram.png" alt-text="End-to-end diagram" border="false":::
 
-[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
+ [Microsoft Power BI](https://powerbi.microsoft.com/) is a data visualization tool that you can use to perform self-service and enterprise business intelligence (BI) over large data sets. [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#overview) is a fully managed, real-time analytics service designed to help you analyze and process fast moving streams of data that can be used to get insights, build reports or trigger alerts and actions. 
 
-## What you learn
+In this tutorial, you perform the following tasks:
 
-You learn how to visualize real-time sensor data that your Azure IoT hub receives by using Power BI. If you want to try toe visualize the data in your IoT hub with Web Apps, please see [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+> [!div class="checklist"]
+> * Create a consumer group on your IoT hub.
+> * Create and configure an Azure Stream Analytics job to read temperature telemetry from your consumer group and send it to Power BI.
+> * Create a report of the temperature data in Power BI and share it to the web.
 
-## What you do
+## Prerequisites
 
-* Get your IoT hub ready for data access by adding a consumer group.
-
-* Create, configure, and run a Stream Analytics job for data transfer from your IoT hub to your Power BI account.
-
-* Create and publish a Power BI report to visualize the data.
-
-## What you need
-
- * Tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers the following requirements:
-
-   * An active Azure subscription.
-   * An Azure IoT hub under your subscription.
-   * A client application that sends messages to your Azure IoT hub.
+* Complete the one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstarts in the development language of your choice. Alternatively, you can use any device app that sends temperature telemetry; for example, the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) or one of the [Embedded device](../iot-develop/quickstart-devkit-mxchip-az3166.md) quickstarts. These articles cover the following requirements:
+  
+  * An active Azure subscription.
+  * An Azure IoT hub in your subscription.
+  * A client app that sends messages to your Azure IoT hub.
 
 * A Power BI account. ([Try Power BI for free](https://powerbi.microsoft.com/))
 
@@ -48,7 +44,7 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
 ### Create a Stream Analytics job
 
-1. In the [Azure portal](https://portal.azure.com), click **Create a resource** > **Internet of Things** > **Stream Analytics job**.
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource**. Type *Stream Analytics Job* in the search box and select it from the drop-down list. On the **Stream Analytics job** overview page, select **Create**
 
 2. Enter the following information for the job.
 
@@ -58,122 +54,173 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
    **Location**: Use the same location as your resource group.
 
-   **Pin to dashboard**: Check this option for easy access to your IoT hub from the dashboard.
+   :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/create-stream-analytics-job.png" alt-text="Create a Stream Analytics job in Azure":::
 
-   ![Create a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/2_create-stream-analytics-job-azure.png)
-
-3. Click **Create**.
+3. Select **Create**.
 
 ### Add an input to the Stream Analytics job
 
 1. Open the Stream Analytics job.
 
-2. Under **Job Topology**, click **Inputs**.
+2. Under **Job topology**, select **Inputs**.
 
-3. In the **Inputs** pane, click **Add**, and then enter the following information:
+3. In the **Inputs** pane, select **Add stream input**, then select **IoT Hub** from the drop-down list. On the new input pane, enter the following information:
 
-   **Input alias**: The unique alias for the input.
+   **Input alias**: Enter a unique alias for the input.
 
-   **Source**: Select **IoT hub**.
+   **Select IoT Hub from your subscription**: Select this radio button.
 
-   **Consumer group**: Select the consumer group you just created.
+   **Subscription**: Select the Azure subscription you're using for this tutorial.
 
-4. Click **Create**.
+   **IoT Hub**: Select the IoT Hub you're using for this tutorial.
 
-   ![Add an input to a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/3_add-input-to-stream-analytics-job-azure.png)
+   **Endpoint**: Select **Messaging**.
+
+   **Shared access policy name**: Select the name of the shared access policy you want the Stream Analytics job to use for your IoT hub. For this tutorial, you can select *service*. The *service* policy is created by default on new IoT hubs and grants permission to send and receive on cloud-side endpoints exposed by the IoT hub. To learn more, see [Access control and permissions](iot-hub-dev-guide-sas.md#access-control-and-permissions).
+
+   **Shared access policy key**: This field is autofilled based on your selection for the shared access policy name.
+
+   **Consumer group**: Select the consumer group you created previously.
+
+   Leave all other fields at their defaults.
+
+   :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/add-input-to-stream-analytics-job.png" alt-text="Add an input to a Stream Analytics job in Azure":::
+
+4. Select **Save**.
 
 ### Add an output to the Stream Analytics job
 
-1. Under **Job Topology**, click **Outputs**.
+1. Under **Job topology**, select **Outputs**.
 
-2. In the **Outputs** pane, click **Add**, and then enter the following information:
+2. In the **Outputs** pane, select **Add**, and then select **Power BI** from the drop-down list.
 
-   **Output alias**: The unique alias for the output.
+3. On the **Power BI - New output** pane, select **Authorize** and follow the prompts to sign in to your Power BI account.
 
-   **Sink**: Select **Power BI**.
+4. After you've signed in to Power BI, enter the following information:
 
-3. Click **Authorize**, and then sign into your Power BI account.
+   **Output alias**: A unique alias for the output.
 
-4. Once authorized, enter the following information:
+   **Group workspace**: Select your target group workspace.
 
-   **Group Workspace**: Select your target group workspace.
+   **Dataset name**: Enter a dataset name.
 
-   **Dataset Name**: Enter a dataset name.
+   **Table name**: Enter a table name.
 
-   **Table Name**: Enter a table name.
+   **Authentication mode**: Leave at the default.
 
-5. Click **Create**.
+   :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/add-output-to-stream-analytics-job.png" alt-text="Add an output to a Stream Analytics job in Azure":::
 
-   ![Add an output to a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/4_add-output-to-stream-analytics-job-azure.png)
+5. Select **Save**.
 
 ### Configure the query of the Stream Analytics job
 
-1. Under **Job Topology**, click **Query**.
+1. Under **Job topology**, select **Query**.
 
 2. Replace `[YourInputAlias]` with the input alias of the job.
 
 3. Replace `[YourOutputAlias]` with the output alias of the job.
 
-4. Click **Save**.
+1. Add the following `WHERE` clause as the last line of the query. This line ensures that only messages with a **temperature** property will be forwarded to Power BI.
 
-   ![Add a query to a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/5_add-query-stream-analytics-job-azure.png)
+    ```sql
+    WHERE temperature IS NOT NULL
+    ```
+1. Your query should look similar to the following screenshot. Select **Save query**.
+
+    :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/add-query-to-stream-analytics-job.png" alt-text="Add a query to a Stream Analytics job":::
 
 ### Run the Stream Analytics job
 
-In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job successfully starts, the job status changes from **Stopped** to **Running**.
+In the Stream Analytics job, select **Overview**, then select **Start** > **Now** > **Start**. Once the job successfully starts, the job status changes from **Stopped** to **Running**.
 
-![Run a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/6_run-stream-analytics-job-azure.png)
+:::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/run-stream-analytics-job.png" alt-text="Run a Stream Analytics job in Azure":::
 
 ## Create and publish a Power BI report to visualize the data
 
-1. Ensure the sample application is running on your device. If not, you can refer to the tutorials under [Setup your device](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started).
+The following steps show you how to create and publish a report using the Power BI service. You can follow these steps, with some modification, if you want to use the "new look" in Power BI. To understand the differences and how to navigate in the "new look", see [The 'new look' of the Power BI service](/power-bi/consumer/service-new-look).
 
-2. Sign in to your [Power BI](https://powerbi.microsoft.com/en-us/) account.
+1. Make sure the client app is running on your device.
 
-3. Go to the group workspace that you set when you created the output for the Stream Analytics job.
+2. Sign in to your [Power BI](https://powerbi.microsoft.com/) account and select **Power BI service** from the top menu.
 
-4. Click **Streaming datasets**.
+3. Select the workspace you used from the side menu, **My Workspace**.
 
-   You should see the listed dataset that you specified when you created the output for the Stream Analytics job.
+4. Under the **All** tab or the **Datasets + dataflows** tab, you should see the dataset that you specified when you created the output for the Stream Analytics job.
 
-5. Under **ACTIONS**, click the first icon to create a report.
+5. Hover over the dataset you created, select **More options** menu (the three dots to the right of the dataset name), and then select **Create report**.
 
-   ![Create a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/7_create-power-bi-report-microsoft.png)
+    :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/power-bi-create-report.png" alt-text="Create a Microsoft Power BI report":::
 
 6. Create a line chart to show real-time temperature over time.
 
-   1. On the report creation page, add a line chart.
+   1. On the **Visualizations** pane of the report creation page, select the line chart icon to add a line chart. Use the guides located on the sides and corners of the chart to adjust its size and position.
 
    2. On the **Fields** pane, expand the table that you specified when you created the output for the Stream Analytics job.
-   
+
    3. Drag **EventEnqueuedUtcTime** to **Axis** on the **Visualizations** pane.
-   
+
    4. Drag **temperature** to **Values**.
 
       A line chart is created. The x-axis displays date and time in the UTC time zone. The y-axis displays temperature from the sensor.
 
-      ![Add a line chart for temperature to a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/8_add-line-chart-for-temperature-to-power-bi-report-microsoft.png)
+      :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/power-bi-add-temperature.png" alt-text="Add a line chart for temperature to a Microsoft Power BI report":::
 
-7. Create another line chart to show real-time humidity over time. To do this, follow the same steps above and place **EventEnqueuedUtcTime** on the x-axis and **humidity** on the y-axis.
+     > [!NOTE]
+     > Depending on the device or simulated device that you use to send telemetry data, you may have a slightly different list of fields.
+     >
 
-   ![Add a line chart for humidity to a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/9_add-line-chart-for-humidity-to-power-bi-report-microsoft.png)
+8. Select **Save** to save the report. When prompted, enter a name for your report. When prompted for a sensitivity label, you can select **Public** and then select **Save**.
 
-8. Click **Save** to save the report.
+10. Still on the report pane, select **File** > **Embed report** > **Website or portal**.
 
-9. Click **File** > **Publish to web**.
+    :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/power-bi-select-embed-report.png" alt-text="Select embed report website for the Microsoft Power BI report":::
 
-10. Click **Create embed code**, and then click **Publish**.
+    > [!NOTE]
+    > If you get a notification to contact your administrator to enable embed code creation, you may need to contact them. Embed code creation must be enabled before you can complete this step.
+    >
+    > :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/contact-admin.png" alt-text="Contact your administrator notification":::
 
-You're provided the report link that you can share with anyone for report access and a code snippet to integrate the report into your blog or website.
 
-![Publish a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/10_publish-power-bi-report-microsoft.png)
+11. You're provided the report link that you can share with anyone for report access and a code snippet that you can use to integrate the report into a blog or website. Copy the link in the **Secure embed code** window and then close the window.
 
-Microsoft also offers the [Power BI mobile apps](https://powerbi.microsoft.com/en-us/documentation/powerbi-power-bi-apps-for-mobile-devices/) for viewing and interacting with your Power BI dashboards and reports on your mobile device.
+    :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/copy-secure-embed-code.png" alt-text="Copy the embed report link":::
+
+12. Open a web browser and paste the link into the address bar.
+
+    :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/power-bi-web-output.png" alt-text="Publish a Microsoft Power BI report":::
+
+Microsoft also offers the [Power BI mobile apps](https://powerbi.microsoft.com/documentation/powerbi-power-bi-apps-for-mobile-devices/) for viewing and interacting with your Power BI dashboards and reports on your mobile device.
+
+## Cleanup resources
+
+In this tutorial, you've created a resource group, an IoT hub, a Stream Analytics job, and a dataset in Power BI. 
+
+If you plan to complete other tutorials, you may want to leave the resource group and IoT hub and reuse them later. 
+
+If you don't need the IoT hub or the other resources you created any longer, you can delete the resource group in the portal. To do so, select the resource group and then select **Delete resource group**. If you want to keep the IoT hub, you can delete other resources from the **Overview** pane of the resource group. To do so, right-click the resource, select **Delete** from the context menu, and follow the prompts. 
+
+### Use the Azure CLI to clean up Azure resources
+
+To remove the resource group and all of its resources, use the [az group delete](/cli/azure/group#az_group_delete) command.
+
+```azurecli-interactive
+az group delete --name {your resource group}
+```
+
+### Clean up Power BI resources
+
+You created a dataset, **PowerBiVisualizationDataSet**, in Power BI. To remove it, sign in to your [Power BI](https://powerbi.microsoft.com/) account. On the left-hand menu under **Workspaces**, select **My workspace**. In the list of datasets under the **DataSets + dataflows** tab, hover over the **PowerBiVisualizationDataSet** dataset. Select the three vertical dots that appear to the right of the dataset name to open the **More options** menu, then select **Delete** and follow the prompts. When you remove the dataset, the report is removed as well.
 
 ## Next steps
 
-You’ve successfully used Power BI to visualize real-time sensor data from your Azure IoT hub.
+In this tutorial, you learned how to use Power BI to visualize real-time sensor data from your Azure IoT hub by performing the following tasks:
 
-There is an alternate way to visualize data from Azure IoT Hub. See [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+> [!div class="checklist"]
+> * Create a consumer group on your IoT hub.
+> * Create and configure an Azure Stream Analytics job to read temperature telemetry from your consumer group and send it to Power BI.
+> * Configure a report for the temperature data in Power BI and share it to the web.
 
-[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+For another way to visualize data from Azure IoT Hub, see the following article.
+
+> [!div class="nextstepaction"]
+> [Use a web app to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).

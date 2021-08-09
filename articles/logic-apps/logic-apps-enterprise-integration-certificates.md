@@ -1,29 +1,21 @@
 ---
-title: Secure B2B messages with certificates - Azure Logic Apps | Microsoft Docs
-description: Add certificates to secure B2B messages in Azure Logic Apps with the Enterprise Integration Pack 
+title: Secure B2B messages with certificates
+description: Add certificates to help secure B2B messages in Azure Logic Apps with the Enterprise Integration Pack 
 services: logic-apps
-ms.service: logic-apps
+ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, LADocs
-manager: jeconnoc
-ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
-ms.suite: integration
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
 ---
 
-# Secure B2B messages with certificates
+# Improve security for B2B messages by using certificates
 
-When you need to keep B2B communication confidential, 
-you can secure B2B communication for your enterprise integration apps, 
-specifically logic apps, by adding certificates to your integration account. 
-Certificates are digital documents that check the identities for 
-the participants in electronic communications and help you 
-secure communication in these ways:
+When you need to keep B2B communication confidential, you can increase security for B2B communication in your enterprise integration apps, specifically logic apps, by adding certificates to your integration account. Certificates are digital documents that check the identities for the participants in electronic communications and help you secure communication in these ways:
 
 * Encrypt message content.
-* Digitally sign messages. 
+* Digitally sign messages.
 
 You can use these certificates in your enterprise integration apps:
 
@@ -34,6 +26,8 @@ but don't require any keys.
 
 * Private certificates or [*self-signed certificates*](https://en.wikipedia.org/wiki/Self-signed_certificate), 
 which you create and issue yourself but also require private keys. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Upload a public certificate
 
@@ -64,19 +58,19 @@ provide these details for your certificate. When you're done, choose **OK**.
    | **Certificate** | <*certificate-file-name*> | To find and select the certificate file you want to upload, choose the folder icon next to the **Certificate** box. |
    ||||
 
-   ![Choose "Add", provide certificate details](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
+   ![Screenshot shows where to select Add to provide certificate details.](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
 
    After Azure validates your selection, 
    Azure uploads your certificate.
 
-   ![Azure displays new certificate](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png) 
+   ![Screenshot that shows where Azure displays the new certificate.](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png) 
 
 ## Upload a private certificate
 
 To use a *private certificate* in logic apps that have B2B capabilities, 
 you must first upload the certificate to your integration account. 
 You also need to have a private key that you first add to 
-[Azure Key Vault](../key-vault/key-vault-get-started.md). 
+[Azure Key Vault](../key-vault/general/overview.md). 
 
 After you define the properties in the 
 [agreements](logic-apps-enterprise-integration-agreements.md) that you create, 
@@ -88,15 +82,15 @@ the certificate is available to help you secure your B2B messages.
 > [AS2 agreement's](logic-apps-enterprise-integration-as2.md) **Send and Receive** settings 
 > for signing and encrypting messages.
 
-1. [Add your private key to Azure Key Vault](../key-vault/key-vault-get-started.md#add) 
+1. [Add your private key to Azure Key Vault](../key-vault/certificates/certificate-scenarios.md#import-a-certificate) 
 and provide a **Key Name**.
    
 2. Authorize Azure Logic Apps to perform operations on Azure Key Vault. 
 To grant access to the Logic Apps service principal, use the PowerShell command, 
-[Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy), 
+[Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), 
 for example:
 
-   `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
+   `Set-AzKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
  
 3. Sign in to the [Azure portal](https://portal.azure.com). 
@@ -117,7 +111,7 @@ provide these details for your certificate. When you're done, choose **OK**.
    |----------|-------|-------------|
    | **Name** | <*certificate-name*> | Your certificate's name, which is "privateCert" in this example | 
    | **Certificate Type** | Private | Your certificate's type |
-   | **Certificate** | <*certificate-file-name*> | To find and select the certificate file you want to upload, choose the folder icon next to the **Certificate** box. | 
+   | **Certificate** | <*certificate-file-name*> | To find and select the certificate file you want to upload, choose the folder icon next to the **Certificate** box. When using a key vault for the private key, the uploaded file will be the public certificate. | 
    | **Resource Group** | <*integration-account-resource-group*> | Your integration account's resource group, which is "MyResourceGroup" in this example | 
    | **Key Vault** | <*key-vault-name*> | Your Azure key vault's name |
    | **Key name** | <*key-name*> | Your key's name |

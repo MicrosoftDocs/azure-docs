@@ -1,32 +1,34 @@
 ---
-title: Geo-filtering on a domain for Azure Front Door Service | Microsoft Docs
-description: In this article, you learn about geo-filtering policy for Azure Front Door Service
+title: Geo-filtering on a domain for Azure Front Door | Microsoft Docs
+description: In this article, you learn about geo-filtering policy for Azure Front Door
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
-ms.date: 10/09/2018
-ms.author: sharadag
+ms.topic: article
+ms.date: 09/28/2020
+ms.author: duau
+ms.reviewer: amsriva
 
 ---
-# Geo-filtering: Geographic based access control to Azure Front Door Service frontends
+# Geo-filtering on a domain for Azure Front Door
 
-By default, Azure Front Door Service responds to user requests regardless of the location of the user making the request. However, in some cases, you may want to restrict access to your web applications by country. Azure Front Door's application layer security enables you to define a policy using custom protection rules for specific path on your endpoint to allow or block access from specified countries. 
+By default, Azure Front Door will respond to all user requests regardless of the location where the request is coming from. In some scenarios, you may want to restrict the access to your web application by countries/regions. The Web application firewall (WAF) service in Front Door enables you to define a policy using custom access rules for a specific path on your endpoint to either allow or block access from specified countries/regions.
 
-An application security policy usually includes a set of custom rules. A rule consists of match conditions, an action, and a priority. In match condition, you define a match variable, operator, and match value.  For geo filtering rule, match variable is REMOTE_ADDR, operator is GeoMatch, value is the two letter country code of interest. You may combine a GeoMatch condition and a REQUEST_URI string match condition to create a path-based geo-filtering rule.
+A WAF policy contains a set of custom rules. The rule consists of match conditions, an action, and a priority. In a match condition, you define a match variable, operator, and match value. For a geo filtering rule, a match variable is REMOTE_ADDR, the operator is GeoMatch, and the value is a two letter country/region code of interest. "ZZ" country code or "Unknown" country captures IP addresses that are not yet mapped to a country in our dataset. You may add ZZ to your match condition to avoid false positives. You can combine a GeoMatch condition and a REQUEST_URI string match condition to create a path-based geo-filtering rule.
 
-You can configure a geo-filtering policy for your Front Door by either using [Azure PowerShell](front-door-tutorial-geo-filtering.md) or by using our [quick-start template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
-## Country Code Reference
+You can configure a geo-filtering policy for your Front Door by using [Azure PowerShell](front-door-tutorial-geo-filtering.md) or by using a [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-geo-filtering).
 
-|Country Code | Country Name |
+## Country/Region code reference
+
+|Country/Region code | Country/Region name |
 | ----- | ----- |
-| AD | Russian Federation |
+| AD | Andorra |
 | AE | United Arab Emirates|
 | AF | Afghanistan|
 | AG | Antigua and Barbuda|
@@ -47,7 +49,7 @@ You can configure a geo-filtering policy for your Front Door by either using [Az
 | BH | Bahrain|
 | BI | Burundi|
 | BJ | Benin|
-| BL | Saint Barthelemy|
+| BL | Saint Barthélemy|
 | BN | Brunei Darussalam|
 | BO | Bolivia|
 | BR | Brazil|
@@ -57,7 +59,8 @@ You can configure a geo-filtering policy for your Front Door by either using [Az
 | BY | Belarus|
 | BZ | Belize|
 | CA | Canada|
-| CD | Congo, The Democratic Republic of the|
+| CD | Democratic Republic of the Congo|
+| CG | Republic of the Congo |
 | CF | Central African Republic|
 | CH | Switzerland|
 | CI | Cote d'Ivoire|
@@ -67,7 +70,7 @@ You can configure a geo-filtering policy for your Front Door by either using [Az
 | CO | Colombia|
 | CR | Costa Rica|
 | CU | Cuba|
-| CV | Cape Verde|
+| CV | Cabo Verde|
 | CY | Cyprus|
 | CZ | Czech Republic|
 | DE | Germany|
@@ -92,7 +95,7 @@ You can configure a geo-filtering policy for your Front Door by either using [Az
 | GR | Greece|
 | GT | Guatemala|
 | GY | Guyana|
-| HK | Hong Kong|
+| HK | Hong Kong SAR|
 | HN | Honduras|
 | HR | Croatia|
 | HT | Haiti|
@@ -127,15 +130,15 @@ You can configure a geo-filtering policy for your Front Door by either using [Az
 | LT | Lithuania|
 | LU | Luxembourg|
 | LV | Latvia|
-| LY | Libyan Arab Jamahiriya|
+| LY | Libya |
 | MA | Morocco|
 | MD | Moldova, Republic of|
 | MG | Madagascar|
-| MK | Macedonia|
+| MK | North Macedonia|
 | ML | Mali|
 | MM | Myanmar|
 | MN | Mongolia|
-| MO | Macao|
+| MO | Macao SAR|
 | MQ | Martinique|
 | MR | Mauritania|
 | MT | Malta|
@@ -206,5 +209,5 @@ You can configure a geo-filtering policy for your Front Door by either using [Az
 
 ## Next steps
 
-- Learn about [application layer security with Front Door](front-door-application-security.md).
 - Learn how to [create a Front Door](quickstart-create-front-door.md).
+- Learn how to [set up a geo-filtering WAF policy](front-door-tutorial-geo-filtering.md).

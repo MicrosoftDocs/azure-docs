@@ -1,287 +1,349 @@
 ---
-title: Tutorial for searching semi-structured data from Azure cloud storage in Azure Search | Microsoft Docs
-description: In this tutorial, learn how to search semi-structured Azure blob data using Azure Search.
+title: 'Tutorial: Index semi-structured data in JSON blobs'
+titleSuffix: Azure Cognitive Search
+description: Learn how to index and search semi-structured Azure JSON blobs using Azure Cognitive Search REST APIs and Postman.
+
+manager: nitinme
 author: HeidiSteen
-manager: cgronlun
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 07/12/2018
 ms.author: heidist
-#Customer intent: As a developer, I want an introduction the indexing Azure blob data for Azure Search.
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 01/25/2021
+#Customer intent: As a developer, I want an introduction the indexing Azure blob data for Azure Cognitive Search.
 ---
 
-# Tutorial: Search semi-structured data in Azure cloud storage
+# Tutorial: Index JSON blobs from Azure Storage using REST
 
-In a two-part tutorial series, you learn how to search semi-structured and unstructured data using Azure search. [Part 1](../storage/blobs/storage-unstructured-search.md) walked you through search over unstructured data, but also included important prerequisites for this tutorial, like creating the storage account. 
+Azure Cognitive Search can index JSON documents and arrays in Azure Blob Storage using an [indexer](search-indexer-overview.md) that knows how to read semi-structured data. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data, which must be fully indexed, and formally structured data that adheres to a data model, such as a relational database schema, that can be indexed on a per-field basis.
 
-In Part 2, focus shifts to semi-structured data, such as JSON, stored in Azure blobs. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data which must be indexed wholistically, and formally structured data that adheres to a data model, such as a relational database schema, that can be crawled on a per-field basis.
-
-In Part 2, learn how to:
+This tutorial uses Postman and the [Search REST APIs](/rest/api/searchservice/) to perform the following tasks:
 
 > [!div class="checklist"]
-> * Configure an Azure Search data source for an Azure blob container
-> * Create and populate an Azure Search index and indexer to crawl the container and extract searchable content
+> * Configure an Azure Cognitive Search data source for an Azure blob container
+> * Create an Azure Cognitive Search index to contain searchable content
+> * Configure and run an indexer to read the container and extract searchable content from Azure Blob Storage
 > * Search the index you just created
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-* Completion of the [previous tutorial](../storage/blobs/storage-unstructured-search.md) providing the storage account and search service created in the previous tutorial.
++ [Azure Storage](../storage/common/storage-account-create.md)
++ [Postman desktop app](https://www.getpostman.com/)
++ [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
-* Installation of a REST client and an understanding of how to construct an HTTP request. For the purposes of this tutorial, we are using [Postman](https://www.getpostman.com/). Feel free to use a different REST client if you're already comfortable with a particular one.
+> [!Note]
+> You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
-> [!NOTE]
-> This tutorial relies on JSON array support, which is currently a preview feature in Azure Search. It is not available in the portal. For this reason, we're using the preview REST API, which provides this feature, and a REST client tool to call the API.
+## Download files
 
-## Set up Postman
+[Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) contains the data used in this tutorial. Download and unzip this file to its own folder. Data originates from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), converted to JSON for this tutorial.
 
-Start Postman and set up an HTTP request. If you are unfamiliar with this tool, see [Explore Azure Search REST APIs using Fiddler or Postman](search-fiddler.md) for more information.
+## 1 - Create services
 
-The request method for every call in this tutorial is "POST." The header keys are "Content-type" and "api-key." The values of the header keys are "application/json" and your "admin key" (the admin key is a placeholder for your search primary key) respectively. The body is where you place the actual contents of your call. Depending on the client you're using, there may be some variations on how you construct your query, but those are the basics.
+This tutorial uses Azure Cognitive Search for indexing and queries, and Azure Blob Storage to provide the data. 
 
-  ![Semi-structured search](media/search-semi-structured-data/postmanoverview.png)
+If possible, create both in the same region and resource group for proximity and manageability. In practice, your Azure Storage account can be in any region.
 
-For the REST calls covered in this tutorial, your search api-key is required. You can find your api-key under **Keys** inside your search service. This api-key must be in the header of every API call (replace "admin key" in the preceding screenshot with it) this tutorial directs you to make. Retain the key since you need it for each call.
+### Start with Azure Storage
 
-  ![Semi-structured search](media/search-semi-structured-data/keys.png)
+1. [Sign in to the Azure portal](https://portal.azure.com/) and click **+ Create Resource**.
 
-## Download the sample data
+1. Search for *storage account* and select Microsoft's Storage Account offering.
 
-A sample data set has been prepared for you. **Download [clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)** and unzip it to its own folder.
+   :::image type="content" source="media/cognitive-search-tutorial-blob/storage-account.png" alt-text="Create Storage account" border="false":::
 
-Contained in the sample are example JSON files, which were originally text files obtained from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). We have converted them to JSON for your convenience.
+1. In the Basics tab, the following items are required. Accept the defaults for everything else.
 
-## Sign in to Azure
+   + **Resource group**. Select an existing one or create a new one, but use the same group for all services so that you can manage them collectively.
 
-Sign in to the [Azure portal](http://portal.azure.com).
+   + **Storage account name**. If you think you might have multiple resources of the same type, use the name to disambiguate by type and region, for example *blobstoragewestus*. 
 
-## Upload the sample data
+   + **Location**. If possible, choose the same location used for Azure Cognitive Search and Cognitive Services. A single location voids bandwidth charges.
 
-In the Azure portal, navigate back to the storage account created in the [previous tutorial](../storage/blobs/storage-unstructured-search.md). Then open the **data** container, and click **Upload**.
+   + **Account Kind**. Choose the default, *StorageV2 (general purpose v2)*.
 
-Click **Advanced**, enter "clinical-trials-json", and then upload all of the JSON files you downloaded.
+1. Click **Review + Create** to create the service.
 
-  ![Semi-structured search](media/search-semi-structured-data/clinicalupload.png)
+1. Once it's created, click **Go to the resource** to open the Overview page.
+
+1. Click **Blobs** service.
+
+1. [Create a Blob container](../storage/blobs/storage-quickstart-blobs-portal.md) to contain sample data. You can set the Public Access Level to any of its valid values.
+
+1. After the container is created, open it and select **Upload** on the command bar.
+
+   :::image type="content" source="media/search-semi-structured-data/upload-command-bar.png" alt-text="Upload on command bar" border="false":::
+
+1. Navigate to the folder containing the sample files. Select all of them and then click **Upload**.
+
+   :::image type="content" source="media/search-semi-structured-data/clinicalupload.png" alt-text="Upload files" border="false":::
 
 After the upload completes, the files should appear in their own subfolder inside the data container.
 
-## Connect your search service to your container
+### Azure Cognitive Search
 
-We are using Postman to make three API calls to your search service in order to create a data source, an index, and an indexer. The data source includes a pointer to your storage account and your JSON data. Your search service makes the connection when loading the data.
+The next resource is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this walkthrough. 
 
-The query string must contain **api-version=2016-09-01-Preview** and each call should return a **201 Created**. The generally available api-version does not yet have the capability to handle json as a jsonArray, currently only the preview api-version does.
+As with Azure Blob Storage, take a moment to collect the access key. Further on, when you begin structuring requests, you will need to provide the endpoint and admin api-key used to authenticate each request.
 
-Execute the following three API calls from your REST client.
+### Get a key and URL
 
-### Create a datasource
+REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
 
-A data source specifies what data to index.
+1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
-The endpoint of this call is `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. Replace `[service name]` with the name of your search service.
+1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-For this call, you need the name of your storage account and your storage account key. The storage account key can be found in the Azure portal inside your storage account's **Access Keys**. The location is shown in the following image:
+   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Get an HTTP endpoint and access key" border="false":::
 
-  ![Semi-structured search](media/search-semi-structured-data/storagekeys.png)
+All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-Make sure to replace the `[storage account name]` and `[storage account key]` in the body of your call before executing the call.
+## 2 - Set up Postman
 
-```json
-{
-    "name" : "clinical-trials-json",
-    "type" : "azureblob",
-    "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=[storage account name];AccountKey=[storage account key];" },
-    "container" : { "name" : "data", "query" : "clinical-trials-json" }
-}
-```
+Start Postman and set up an HTTP request. If you are unfamiliar with this tool, see [Create a search index using REST APIs](search-get-started-rest.md).
 
-The response should look like:
+The request methods for every call in this tutorial are **POST** and **GET**. You'll make three API calls to your search service to create a data source, an index, and an indexer. The data source includes a pointer to your storage account and your JSON data. Your search service makes the connection when loading the data.
 
-```json
-{
-    "@odata.context": "https://exampleurl.search.windows.net/$metadata#datasources/$entity",
-    "@odata.etag": "\"0x8D505FBC3856C9E\"",
-    "name": "clinical-trials-json",
-    "description": null,
-    "type": "azureblob",
-    "subtype": null,
-    "credentials": {
-        "connectionString": "DefaultEndpointsProtocol=https;AccountName=[mystorageaccounthere];AccountKey=[[myaccountkeyhere]]];"
-    },
-    "container": {
-        "name": "data",
-        "query": "clinical-trials-json"
-    },
-    "dataChangeDetectionPolicy": null,
-    "dataDeletionDetectionPolicy": null
-}
-```
+In Headers, set "Content-type" to `application/json` and set `api-key` to the admin api-key of your Azure Cognitive Search service. Once you set the headers, you can use them for every request in this exercise.
 
-### Create an index
-    
-The second API call creates an index. An index specifies all the parameters and their attributes.
+  :::image type="content" source="media/search-get-started-rest/postman-url.png" alt-text="Postman request URL and header" border="false":::
 
-The URL for this call is `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`. Replace `[service name]` with the name of your search service.
+URIs must specify an api-version and each call should return a **201 Created**. The generally available api-version for using JSON arrays is `2020-06-30`.
 
-First replace the URL. Then copy and paste the following code into your body and run the query.
+## 3 - Create a data source
 
-```json
-{
-  "name": "clinical-trials-json-index",  
-  "fields": [
-  {"name": "FileName", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": false, "filterable": false, "sortable": true},
-  {"name": "Description", "type": "Edm.String", "searchable": true, "retrievable": false, "facetable": false, "filterable": false, "sortable": false},
-  {"name": "MinimumAge", "type": "Edm.Int32", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": true},
-  {"name": "Title", "type": "Edm.String", "searchable": true, "retrievable": true, "facetable": false, "filterable": true, "sortable": true},
-  {"name": "URL", "type": "Edm.String", "searchable": false, "retrievable": false, "facetable": false, "filterable": false, "sortable": false},
-  {"name": "MyURL", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": false, "filterable": false, "sortable": false},
-  {"name": "Gender", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": false},
-  {"name": "MaximumAge", "type": "Edm.Int32", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": true},
-  {"name": "Summary", "type": "Edm.String", "searchable": true, "retrievable": true, "facetable": false, "filterable": false, "sortable": false},
-  {"name": "NCTID", "type": "Edm.String", "key": true, "searchable": true, "retrievable": true, "facetable": false, "filterable": true, "sortable": true},
-  {"name": "Phase", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": false},
-  {"name": "Date", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": false, "filterable": false, "sortable": true},
-  {"name": "OverallStatus", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": false},
-  {"name": "OrgStudyId", "type": "Edm.String", "searchable": true, "retrievable": true, "facetable": false, "filterable": true, "sortable": false},
-  {"name": "HealthyVolunteers", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": false},
-  {"name": "Keywords", "type": "Collection(Edm.String)", "searchable": true, "retrievable": true, "facetable": true, "filterable": false, "sortable": false},
-  {"name": "metadata_storage_last_modified", "type":"Edm.DateTimeOffset", "searchable": false, "retrievable": true, "filterable": true, "sortable": false},
-  {"name": "metadata_storage_size", "type":"Edm.String", "searchable": false, "retrievable": true, "filterable": true, "sortable": false},
-  {"name": "metadata_content_type", "type":"Edm.String", "searchable": true, "retrievable": true, "filterable": true, "sortable": false}
-  ],
-  "suggesters": [
-  {
-    "name": "sg",
-    "searchMode": "analyzingInfixMatching",
-    "sourceFields": ["Title"]
-  }
-  ]
-}
-```
+The [Create Data Source API](/rest/api/searchservice/create-data-source) creates an Azure Cognitive Search object that specifies what data to index.
 
-The response should look like:
+1. Set the endpoint of this call to `https://[service name].search.windows.net/datasources?api-version=2020-06-30`. Replace `[service name]` with the name of your search service. 
 
-```json
-{
-    "@odata.context": "https://exampleurl.search.windows.net/$metadata#indexes/$entity",
-    "@odata.etag": "\"0x8D505FC00EDD5FA\"",
-    "name": "clinical-trials-json-index",
-    "fields": [
-        {
-            "name": "FileName",
-            "type": "Edm.String",
-            "searchable": false,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": true,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
+1. Copy the following JSON into the request body.
+
+    ```json
+    {
+        "name" : "clinical-trials-json-ds",
+        "type" : "azureblob",
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=[storage account name];AccountKey=[storage account key];" },
+        "container" : { "name" : "[blob container name]"}
+    }
+    ```
+
+1. Replace the connection string with a valid string for your account.
+
+1. Replace "[blob container name]" with the container you created for the sample data. 
+
+1. Send the request. The response should look like:
+
+    ```json
+    {
+        "@odata.context": "https://exampleurl.search.windows.net/$metadata#datasources/$entity",
+        "@odata.etag": "\"0x8D505FBC3856C9E\"",
+        "name": "clinical-trials-json-ds",
+        "description": null,
+        "type": "azureblob",
+        "subtype": null,
+        "credentials": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=[mystorageaccounthere];AccountKey=[[myaccountkeyhere]]];"
         },
-        {
-            "name": "Description",
-            "type": "Edm.String",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": false,
-            "sortable": false,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
+        "container": {
+            "name": "[mycontainernamehere]",
+            "query": null
         },
-        ...
-          "scoringProfiles": [],
-    "defaultScoringProfile": null,
-    "corsOptions": null,
-    "suggesters": [],
-    "analyzers": [],
-    "tokenizers": [],
-    "tokenFilters": [],
-    "charFilters": []
-}
+        "dataChangeDetectionPolicy": null,
+        "dataDeletionDetectionPolicy": null
+    }
+    ```
+
+## 4 - Create an index
+
+The second call is [Create Index API](/rest/api/searchservice/create-index), creating an Azure Cognitive Search index that stores all searchable data. An index specifies all the parameters and their attributes.
+
+1. Set the endpoint of this call to `https://[service name].search.windows.net/indexes?api-version=2020-06-30`. Replace `[service name]` with the name of your search service.
+
+1. Copy the following JSON into the request body.
+
+    ```json
+    {
+      "name": "clinical-trials-json-index",  
+      "fields": [
+      {"name": "FileName", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": false, "filterable": false, "sortable": true},
+      {"name": "Description", "type": "Edm.String", "searchable": true, "retrievable": false, "facetable": false, "filterable": false, "sortable": false},
+      {"name": "MinimumAge", "type": "Edm.Int32", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": true},
+      {"name": "Title", "type": "Edm.String", "searchable": true, "retrievable": true, "facetable": false, "filterable": true, "sortable": true},
+      {"name": "URL", "type": "Edm.String", "searchable": false, "retrievable": false, "facetable": false, "filterable": false, "sortable": false},
+      {"name": "MyURL", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": false, "filterable": false, "sortable": false},
+      {"name": "Gender", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": false},
+      {"name": "MaximumAge", "type": "Edm.Int32", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": true},
+      {"name": "Summary", "type": "Edm.String", "searchable": true, "retrievable": true, "facetable": false, "filterable": false, "sortable": false},
+      {"name": "NCTID", "type": "Edm.String", "key": true, "searchable": true, "retrievable": true, "facetable": false, "filterable": true, "sortable": true},
+      {"name": "Phase", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": false},
+      {"name": "Date", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": false, "filterable": false, "sortable": true},
+      {"name": "OverallStatus", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": false},
+      {"name": "OrgStudyId", "type": "Edm.String", "searchable": true, "retrievable": true, "facetable": false, "filterable": true, "sortable": false},
+      {"name": "HealthyVolunteers", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": false},
+      {"name": "Keywords", "type": "Collection(Edm.String)", "searchable": true, "retrievable": true, "facetable": true, "filterable": false, "sortable": false},
+      {"name": "metadata_storage_last_modified", "type":"Edm.DateTimeOffset", "searchable": false, "retrievable": true, "filterable": true, "sortable": false},
+      {"name": "metadata_storage_size", "type":"Edm.String", "searchable": false, "retrievable": true, "filterable": true, "sortable": false},
+      {"name": "metadata_content_type", "type":"Edm.String", "searchable": true, "retrievable": true, "filterable": true, "sortable": false}
+      ]
+    }
+   ```
+
+1. Send the request. The response should look like:
+
+    ```json
+    {
+        "@odata.context": "https://exampleurl.search.windows.net/$metadata#indexes/$entity",
+        "@odata.etag": "\"0x8D505FC00EDD5FA\"",
+        "name": "clinical-trials-json-index",
+        "fields": [
+            {
+                "name": "FileName",
+                "type": "Edm.String",
+                "searchable": false,
+                "filterable": false,
+                "retrievable": true,
+                "sortable": true,
+                "facetable": false,
+                "key": false,
+                "indexAnalyzer": null,
+                "searchAnalyzer": null,
+                "analyzer": null,
+                "synonymMaps": []
+            },
+            {
+                "name": "Description",
+                "type": "Edm.String",
+                "searchable": true,
+                "filterable": false,
+                "retrievable": false,
+                "sortable": false,
+                "facetable": false,
+                "key": false,
+                "indexAnalyzer": null,
+                "searchAnalyzer": null,
+                "analyzer": null,
+                "synonymMaps": []
+            },
+            ...
+          }
+    ```
+
+## 5 - Create and run an indexer
+
+An indexer connects to the data source, imports data into the target search index, and optionally provides a schedule to automate the data refresh. The REST API is [Create Indexer](/rest/api/searchservice/create-indexer).
+
+1. Set the URI for this call to `https://[service name].search.windows.net/indexers?api-version=2020-06-30`. Replace `[service name]` with the name of your search service.
+
+1. Copy the following JSON into the request body.
+
+    ```json
+    {
+      "name" : "clinical-trials-json-indexer",
+      "dataSourceName" : "clinical-trials-json-ds",
+      "targetIndexName" : "clinical-trials-json-index",
+      "parameters" : { "configuration" : { "parsingMode" : "jsonArray" } }
+    }
+    ```
+
+1. Send the request. The request is processed immediately. When the response comes back, you will have an index that is full-text searchable. The response should look like:
+
+    ```json
+    {
+        "@odata.context": "https://exampleurl.search.windows.net/$metadata#indexers/$entity",
+        "@odata.etag": "\"0x8D505FDE143D164\"",
+        "name": "clinical-trials-json-indexer",
+        "description": null,
+        "dataSourceName": "clinical-trials-json-ds",
+        "targetIndexName": "clinical-trials-json-index",
+        "schedule": null,
+        "parameters": {
+            "batchSize": null,
+            "maxFailedItems": null,
+            "maxFailedItemsPerBatch": null,
+            "base64EncodeKeys": null,
+            "configuration": {
+                "parsingMode": "jsonArray"
+            }
+        },
+        "fieldMappings": [],
+        "enrichers": [],
+        "disabled": null
+    }
+    ```
+
+## 6 - Search your JSON files
+
+You can start searching as soon as the first document is loaded.
+
+1. Change the verb to **GET**.
+
+1. Set the URI for this call to `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2020-06-30&$count=true`. Replace `[service name]` with the name of your search service.
+
+1. Send the request. This is an unspecified full text search query that returns all of the fields marked as retrievable in the index, along with a document count. The response should look like:
+
+    ```json
+    {
+        "@odata.context": "https://exampleurl.search.windows.net/indexes('clinical-trials-json-index')/$metadata#docs(*)",
+        "@odata.count": 100,
+        "value": [
+            {
+                "@search.score": 1.0,
+                "FileName": "NCT00000102.txt",
+                "MinimumAge": 14,
+                "Title": "Congenital Adrenal Hyperplasia: Calcium Channels as Therapeutic Targets",
+                "MyURL": "https://azure.storagedemos.com/clinical-trials/NCT00000102.txt",
+                "Gender": "Both",
+                "MaximumAge": 35,
+                "Summary": "This study will test the ability of extended release nifedipine (Procardia XL), a blood pressure medication, to permit a decrease in the dose of glucocorticoid medication children take to treat congenital adrenal hyperplasia (CAH).",
+                "NCTID": "NCT00000102",
+                "Phase": "Phase 1/Phase 2",
+                "Date": "ClinicalTrials.gov processed this data on October 25, 2016",
+                "OverallStatus": "Completed",
+                "OrgStudyId": "NCRR-M01RR01070-0506",
+                "HealthyVolunteers": "No",
+                "Keywords": [],
+                "metadata_storage_last_modified": "2019-04-09T18:16:24Z",
+                "metadata_storage_size": "33060",
+                "metadata_content_type": null
+            },
+            . . . 
+    ```
+
+1. Add the `$select` query parameter to limit the results to fewer fields: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true`.  For this query, 100 documents match, but by default, Azure Cognitive Search only returns 50 in the results.
+
+   :::image type="content" source="media/search-semi-structured-data/lastquery.png" alt-text="Parameterized query" border="false":::
+
+1. An example of more complex query would include `$filter=MinimumAge ge 30 and MaximumAge lt 75`, which returns only results where the parameters MinimumAge is greater than or equal to 30 and MaximumAge is less than 75. Replace the `$select` expression with the `$filter` expression.
+
+   :::image type="content" source="media/search-semi-structured-data/metadatashort.png" alt-text="Semi-structured search" border="false":::
+
+You can also use Logical operators (and, or, not) and comparison operators (eq, ne, gt, lt, ge, le). String comparisons are case-sensitive. For more information and examples, see [Create a simple query](search-query-simple-examples.md).
+
+> [!NOTE]
+> The `$filter` parameter only works with metadata that were marked filterable at the creation of your index.
+
+## Reset and rerun
+
+In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+
+You can use the portal to delete indexes, indexers, and data sources. Or use **DELETE** and provide URLs to each object. The following command deletes an indexer.
+
+```http
+DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2020-06-30
 ```
 
-### Create an indexer
-
-An indexer connects the data source to the target search index and optionally provides a schedule to automate the data refresh.
-
-The URL for this call is `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`. Replace `[service name]` with the name of your search service.
-
-First replace the URL. Then copy and paste the following code into your body and run the query.
-
-```json
-{
-  "name" : "clinical-trials-json-indexer",
-  "dataSourceName" : "clinical-trials-json",
-  "targetIndexName" : "clinical-trials-json-index",
-  "parameters" : { "configuration" : { "parsingMode" : "jsonArray" } }
-}
-```
-
-The response should look like:
-
-```json
-{
-    "@odata.context": "https://exampleurl.search.windows.net/$metadata#indexers/$entity",
-    "@odata.etag": "\"0x8D505FDE143D164\"",
-    "name": "clinical-trials-json-indexer",
-    "description": null,
-    "dataSourceName": "clinical-trials-json",
-    "targetIndexName": "clinical-trials-json-index",
-    "schedule": null,
-    "parameters": {
-        "batchSize": null,
-        "maxFailedItems": null,
-        "maxFailedItemsPerBatch": null,
-        "base64EncodeKeys": null,
-        "configuration": {
-            "parsingMode": "jsonArray"
-        }
-    },
-    "fieldMappings": [],
-    "enrichers": [],
-    "disabled": null
-}
-```
-
-## Search your JSON files
-
-Now that your search service has been connected to your data container, you can begin searching your files.
-
-Open up the Azure portal and navigate back to your search service. Just like you did in the previous tutorial.
-
-  ![Unstructured search](media/search-semi-structured-data/indexespane.png)
-
-### User-defined metadata search
-
-As before, the data can be queried in a number of ways: full text search, system properties, or user-defined metadata. Both system properties and user-defined metadata may only be searched with the `$select` parameter if they were marked as **retrievable** during creation of the target index. Parameters in the index may not be altered once they are created. However, additional parameters may be added.
-
-An example of a basic query is `$select=Gender,metadata_storage_size`, which limits the return to those two parameters.
-
-  ![Semi-structured search](media/search-semi-structured-data/lastquery.png)
-
-An example of more complex query would be `$filter=MinimumAge ge 30 and MaximumAge lt 75`, which returns only results where the parameters MinimumAge is greater than or equal to 30 and MaximumAge is less than 75.
-
-  ![Semi-structured search](media/search-semi-structured-data/metadatashort.png)
-
-If you'd like to experiment and try a few more queries yourself, feel free to do so. Know that you can use Logical operators (and, or, not) and comparison operators (eq, ne, gt, lt, ge, le). String comparisons are case-sensitive.
-
-The `$filter` parameter only works with metadata that were marked filterable at the creation of your index.
+Status code 204 is returned on successful deletion.
 
 ## Clean up resources
 
-The fastest way to clean up after a tutorial is by deleting the resource group containing the Azure Search service. You can delete the resource group now to permanently delete everything in it. In the portal, the resource group name is on the Overview page of Azure Search service.
+When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+
+You can find and manage resources in the portal, using the All resources or Resource groups link in the left-navigation pane.
 
 ## Next steps
 
-You can attach AI-powered algorithms to an indexer pipeline. As a next step, continue on with the following tutorial.
+Now that you're familiar with the basics of Azure Blob indexing, let's take a closer look at indexer configuration for JSON blobs in Azure Storage.
 
 > [!div class="nextstepaction"]
-> [Indexing Documents in Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
+> [Configure JSON blob indexing](search-howto-index-json-blobs.md)

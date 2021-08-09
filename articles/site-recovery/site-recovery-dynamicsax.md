@@ -1,15 +1,13 @@
 ---
-title: Set up disaster recovery for a multitier Dynamics AX deployment by using Azure Site Recovery | Microsoft Docs
-description: This article describes how to set up disaster recovery for Dynamics AX with Azure Site Recovery
-author: asgang
+title: Disaster recovery of Dynamics AX with Azure Site Recovery 
+description: Learn how to set up disaster recovery for Dynamics AX with Azure Site Recovery
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: asgang
+ms.topic: how-to
+ms.date: 11/27/2018
 
 ---
-# Set up disaster recovery for a multitier Dynamics AX application 
+# Set up disaster recovery for a multitier Dynamics AX application   
 
 
 
@@ -34,7 +32,7 @@ Implementing disaster recovery for Dynamics AX application by using Site Recover
 
 ## Site Recovery support
 
-For the purpose of creating this article, we used VMware virtual machines with Dynamics AX 2012 R3 on Windows Server 2012 R2 Enterprise. Because site recovery replication is application agnostic, we expect the recommendations provided here to hold for the following scenarios.
+For the purpose of creating this article, we used VMware virtual machines with Dynamics AX 2012 R3 on Windows Server 2012 R2 Enterprise. Because Site Recovery replication is application agnostic, we expect the recommendations provided here to hold for the following scenarios.
 
 ### Source and target
 
@@ -66,7 +64,7 @@ The customer has a large number of applications and is running an Active Directo
 For technical guidance on the recommended option for protecting the SQL tier, see [Replicate applications with SQL Server and Azure Site Recovery](site-recovery-sql.md).
 
 ### 3. Enable protection for the Dynamics AX client and Application Object Server VMs
-Perform relevant Site Recovery configuration based on whether the VMs are deployed on [Hyper-V](site-recovery-hyper-v-site-to-azure.md) or [VMware](site-recovery-vmware-to-azure.md).
+Perform relevant Site Recovery configuration based on whether the VMs are deployed on [Hyper-V](./hyper-v-azure-tutorial.md) or [VMware](./vmware-azure-tutorial.md).
 
 > [!TIP]
 > We recommend that you configure the crash-consistent frequency to 15 minutes.
@@ -87,7 +85,7 @@ You can select the VM in the replicated items to configure the network settings,
 
 * If you're using a static IP, specify the IP that you want the VM to take in the **Target IP** text box.
 
-    ![Network settings ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
+    ![Network settings](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
 ### 5. Create a recovery plan
@@ -174,7 +172,7 @@ For considerations specific to SQL Server during failback, see [Replicate applic
 6. Select **✓** to start the failback process.
 
 
-For more information on doing a failback, see [Failback VMware VMs from Azure to on-premises](site-recovery-failback-azure-to-vmware.md).
+For more information on doing a failback, see [Failback VMware VMs from Azure to on-premises](./vmware-azure-failback.md).
 
 ## Summary
 By using Site Recovery, you can create a complete automated disaster recovery plan for your Dynamics AX application. In the event of a disruption, you can initiate the failover within seconds from anywhere and get the application up and running in minutes.

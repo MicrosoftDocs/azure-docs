@@ -1,23 +1,23 @@
 ---
-title: Integrate Azure ExpressRoute with disaster recovery for Azure VMs using the Azure Site Recovery service | Microsoft Docs
+title: Integrate Azure ExpressRoute Azure VM disaster recovery with Azure Site Recovery
 description: Describes how to set up disaster recovery for Azure VMs using Azure Site Recovery and Azure ExpressRoute
 services: site-recovery
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 07/25/2021
 ms.author: mayg
 
 ---
-# Integrate Azure ExpressRoute with disaster recovery for Azure VMs
+# Integrate ExpressRoute with disaster recovery for Azure VMs
 
 
 This article describes how to integrate Azure ExpressRoute with [Azure Site Recovery](site-recovery-overview.md), when you set up disaster recovery for Azure VMs to a secondary Azure region.
 
 Site Recovery enables disaster recovery of Azure VMs by replicating Azure VM data to Azure.
 
-- If Azure VMs use [Azure managed disks](../virtual-machines/windows/managed-disks-overview.md), VM data is replicated to an replicated managed disk in the secondary region.
+- If Azure VMs use [Azure managed disks](../virtual-machines/managed-disks-overview.md), VM data is replicated to an replicated managed disk in the secondary region.
 - If Azure VMs don't use managed disks, VM data is replicated to an Azure storage account.
 - Replication endpoints are public, but replication traffic for Azure VMs doesn't cross the internet.
 
@@ -32,7 +32,7 @@ ExpressRoute enables you to extend on-premises networks into the Microsoft Azure
 Before you begin, make sure you understand the following concepts:
 
 - ExpressRoute [circuits](../expressroute/expressroute-circuit-peerings.md)
-- ExpressRoute [routing domains](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains)
+- ExpressRoute [routing domains](../expressroute/expressroute-circuit-peerings.md#routingdomains)
 - ExpressRoute [locations](../expressroute/expressroute-locations.md).
 - Azure VM [replication architecture](azure-to-azure-architecture.md)
 - How to [set up replication](azure-to-azure-tutorial-enable-replication.md) for Azure VMs.
@@ -86,11 +86,11 @@ Typically enterprise deployments have workloads split across multiple Azure VNet
     - **Source vNet2**: 10.2.0.0/24.
     - Each spoke virtual network is connected to **Hub vNet**.
 - **Hub vNet**. There's a hub vNet **Source Hub vNet**: 10.10.10.0/24.
-    - This hub vNet acts as the gatekeeper.
-    - All communications across subnets go through this hub.
- - ****Hub vNet subnets**. The hub vNet has two subnets:
-     - **NVA subnet**: 10.10.10.0/25. This subnet contains an NVA (10.10.10.10).
-     - **Gateway subnet**: 10.10.10.128/25. This subnet contains an ExpressRoute gateway connected to an ExpressRoute connection that routes to the on-premises site via a private peering routing domain.
+  - This hub vNet acts as the gatekeeper.
+  - All communications across subnets go through this hub.
+    - **Hub vNet subnets**. The hub vNet has two subnets:
+    - **NVA subnet**: 10.10.10.0/25. This subnet contains an NVA (10.10.10.10).
+    - **Gateway subnet**: 10.10.10.128/25. This subnet contains an ExpressRoute gateway connected to an ExpressRoute connection that routes to the on-premises site via a private peering routing domain.
 - The on-premises datacenter has an ExpressRoute circuit connection through a partner edge in Hong Kong.
 - All routing is controlled through Azure route tables (UDR).
 - All outbound traffic between vNets, or to the on-premises datacenter is routed through the NVA.
@@ -131,7 +131,7 @@ In our example, the following should happen when enabling replication for Azure 
 
 ## Fail over Azure VMs when using ExpressRoute
 
-After you fail Azure VMs over to the target Azure region using Site Recovery, you can access them using ExpressRoute [private peering](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+After you fail Azure VMs over to the target Azure region using Site Recovery, you can access them using ExpressRoute [private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 - You need to connect ExpressRoute to the target vNet with a new connection. The existing ExpressRoute connection isn't automatically transferred.
 - The way in which you set up your ExpressRoute connection to the target vNet depends on your ExpressRoute topology.
@@ -141,7 +141,7 @@ After you fail Azure VMs over to the target Azure region using Site Recovery, yo
 
 #### Two circuits with two peering locations
 
-This configuration helps protects ExpressRoute circuits against regional disaster. If your primary peering loation goes down, connections can continue from the other location.
+This configuration helps protects ExpressRoute circuits against regional disaster. If your primary peering location goes down, connections can continue from the other location.
 
 - The circuit connected to the production environment is usually the primary. The secondary circuit typically has lower bandwidth, which can be increased if a disaster occurs.
 - After failover, you can establish connections from the secondary ExpressRoute circuit to the target vNet. Alternatively, you can have connections set up and ready in case of disaster, to reduce overall recovery time.
@@ -161,7 +161,7 @@ This configuration helps protect against failure of the primary ExpressRoute cir
 
 In this configuration there's only one Expressroute circuit. Although the circuit has a redundant connection in case one goes down, a single route circuit will not provide resilience if your peering region goes down. Note that:
 
-- You can replicate Azure VMs to any Azure region in the [same geographic location](azure-to-azure-support-matrix.md#region-support). If the target Azure region isn't in the same location as the source, you need to enable ExpressRoute Premium if you’re using a single ExpressRoute circuit. Learn about [ExpressRoute locations](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) and [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
+- If the target Azure region isn't in the same location as the source, you need to enable ExpressRoute Premium if you’re using a single ExpressRoute circuit. Learn about [ExpressRoute locations](../expressroute/expressroute-locations.md) and [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 - You can’t connect source and target vNets simultaneously to the circuit if the same IP address space is used on the target region. In this scenario:    
     -  Disconnect the source side connection, and then establish the target side connection. This connection change can be scripted as part of a Site Recovery recovery plan. Note that:
         - In a regional failure, if the primary region is inaccessible, the disconnect operation could fail. This could impact connection creation to the target region.
@@ -185,7 +185,7 @@ For a simple topology that uses a single ExpressRoute circuit, with same IP addr
 ### Example steps
 To automate recovery in this example, here's what you need to do:
 
-1. Follow the steps to [set up replication](#azure-vm-replication-steps).
+1. Follow the steps to set up replication.
 2. [Fail over the Azure VMs](azure-to-azure-tutorial-failover-failback.md), with these additional steps during or after the failover.
 
     a. Create the Azure ExpressRoute Gateway in the target region hub VNet. This is need to connect the target hub vNet to the ExpressRoute circuit.

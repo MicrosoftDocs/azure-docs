@@ -1,68 +1,82 @@
 ---
-title: "Quickstart: Bing Entity Search API, Ruby"
-titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing Entity Search API.
+title: "Quickstart: Send a search request to the REST API using Ruby - Bing Entity Search"
+titleSuffix: Azure Cognitive Services
+description: Use this quickstart to send a request to the Bing Entity Search REST API using Ruby, and receive a JSON response.
 services: cognitive-services
-author: v-jaswel
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
-ms.author: v-jaswel
+ms.date: 05/08/2020
+ms.author: aahi
 ---
-# Quickstart for Bing Entity Search API with Ruby
 
-This article shows you how to use the [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API with Ruby.
+# Quickstart: Send a search request to the Bing Entity Search REST API using Ruby
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
+Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple Ruby application sends a news search query to the API, and displays the response. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingEntitySearchv7.rb).
+
+Although this application is written in Ruby, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
-You will need [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) or later to run this code.
+* [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) or later.
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Entity Search API**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-## Search entities
+## Create and initialize the application
 
-To run this application, follow these steps.
+1. In your favorite IDE or code editor, create a news Ruby file and import the following packages:
 
-1. Create a new Ruby project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `key` value with an access key valid for your subscription.
-4. Run the program.
+    ```ruby
+    require 'net/https'
+    require 'cgi'
+    require 'json'
+    ```
 
-```ruby
-require 'net/https'
-require 'cgi'
-require 'json'
+2. Create variables for your API endpoint, News search URL, your subscription key, and search query. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+    
+    ```ruby
+    host = 'https://api.bing.microsoft.com'
+    path = '/v7.0/search'
+    
+    mkt = 'en-US'
+    query = 'italian restaurants near me'
+    ```
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+## Format and make an API request
 
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = 'ENTER KEY HERE'
+1. Create the parameters string for your request by appending your market variable to the `?mkt=` parameter. Encode your query and append it to the `&q=` parameter. Combine your API host, path, and the parameters for your request, and cast them as a URI object.
 
-host = 'https://api.cognitive.microsoft.com'
-path = '/bing/v7.0/entities'
+    ```ruby
+    params = '?mkt=' + mkt + '&q=' + CGI.escape(query)
+    uri = URI (host + path + params)
+    ```
 
-mkt = 'en-US'
-query = 'italian restaurants near me'
+2. Use the variables from the last step to create the request. Add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
-params = '?mkt=' + mkt + '&q=' + CGI.escape(query)
-uri = URI (host + path + params)
+    ```ruby
+    request = Net::HTTP::Get.new(uri)
+    request['Ocp-Apim-Subscription-Key'] = subscriptionKey
+    ```
 
-request = Net::HTTP::Get.new(uri)
-request['Ocp-Apim-Subscription-Key'] = subscriptionKey
+3. Send the request, and print the response.
 
-response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-    http.request (request)
-end
+    ```ruby
+    response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+        http.request (request)
+    end
 
-puts JSON::pretty_generate (JSON (response.body))
-```
+    puts JSON::pretty_generate (JSON (response.body))
+    ```
 
-**Response**
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -102,7 +116,7 @@ A successful response is returned in JSON, as shown in the following example:
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [
@@ -127,11 +141,10 @@ A successful response is returned in JSON, as shown in the following example:
 }
 ```
 
-[Back to top](#HOLTop)
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Entity Search tutorial](../tutorial-bing-entities-search-single-page-app.md)
-> [Bing Entity Search overview](../search-the-web.md )
-> [API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
+
+* [What is the Bing Entity Search API?](../overview.md)
+* [Bing Entity Search API reference](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

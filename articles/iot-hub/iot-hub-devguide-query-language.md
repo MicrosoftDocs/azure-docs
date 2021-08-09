@@ -1,17 +1,18 @@
-﻿---
+---
 title: Understand the Azure IoT Hub query language | Microsoft Docs
 description: Developer guide - description of the SQL-like IoT Hub query language used to retrieve information about device/module twins and jobs from your IoT hub.
-author: rezasherafat
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/29/2018
-ms.author: rezas
+ms.date: 05/07/2021
+ms.author: robinsh
+ms.custom: devx-track-csharp
 ---
 
 # IoT Hub query language for device and module twins, jobs, and message routing
 
-IoT Hub provides a powerful SQL-like language to retrieve information regarding [device twins](iot-hub-devguide-device-twins.md) and [jobs](iot-hub-devguide-jobs.md), and [message routing](iot-hub-devguide-messages-d2c.md). This article presents:
+IoT Hub provides a powerful SQL-like language to retrieve information regarding [device twins](iot-hub-devguide-device-twins.md), [module twins](iot-hub-devguide-module-twins.md), [jobs](iot-hub-devguide-jobs.md), and [message routing](iot-hub-devguide-messages-d2c.md). This article presents:
 
 * An introduction to the major features of the IoT Hub query language, and
 * The detailed description of the language. For details on query language for message routing, see [queries in message routing](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
@@ -20,7 +21,7 @@ IoT Hub provides a powerful SQL-like language to retrieve information regarding 
 
 ## Device and module twin queries
 
-[Device twins](iot-hub-devguide-device-twins.md) and module twins can contain arbitrary JSON objects as both tags and properties. IoT Hub enables you to query device twins and module twins as a single JSON document containing all twin information.
+[Device twins](iot-hub-devguide-device-twins.md) and [module twins](iot-hub-devguide-module-twins.md) can contain arbitrary JSON objects as both tags and properties. IoT Hub enables you to query device twins and module twins as a single JSON document containing all twin information.
 
 Assume, for instance, that your IoT hub device twins have the following structure (module twin would be similar just with an additional moduleId):
 
@@ -29,12 +30,12 @@ Assume, for instance, that your IoT hub device twins have the following structur
     "deviceId": "myDeviceId",
     "etag": "AAAAAAAAAAc=",
     "status": "enabled",
-    "statusUpdateTime": "0001-01-01T00:00:00",    
-    "connectionState": "Disconnected",    
+    "statusUpdateTime": "0001-01-01T00:00:00",
+    "connectionState": "Disconnected",
     "lastActivityTime": "0001-01-01T00:00:00",
     "cloudToDeviceMessageCount": 0,
-    "authenticationType": "sas",    
-    "x509Thumbprint": {    
+    "authenticationType": "sas",
+    "x509Thumbprint": {
         "primaryThumbprint": null,
         "secondaryThumbprint": null
     },
@@ -146,15 +147,27 @@ This grouping query would return a result similar to the following example:
 
 In this example, three devices reported successful configuration, two are still applying the configuration, and one reported an error.
 
-Projection queries allow developers to return only the properties they care about. For example, to retrieve the last activity time of all disconnected devices use the following query:
+Projection queries allow developers to return only the properties they care about. For example, to retrieve the last activity time along with the device ID of all enabled devices that are disconnected, use the following query:
 
 ```sql
-SELECT LastActivityTime FROM devices WHERE status = 'enabled'
+SELECT DeviceId, LastActivityTime FROM devices WHERE status = 'enabled' AND connectionState = 'Disconnected'
 ```
+
+Here is an example query result of that query in **Query Explorer** for an IoT Hub:
+
+```json
+[
+  {
+    "deviceId": "AZ3166Device",
+    "lastActivityTime": "2021-05-07T00:50:38.0543092Z"
+  }
+]
+```
+
 
 ### Module twin queries
 
-Querying on module twins is similar to querying on device twins, but using a different collection/namespace, i.e. instead of “from devices” you can query device.modules:
+Querying on module twins is similar to querying on device twins, but using a different collection/namespace; instead of from **devices**, you query from **devices.modules**:
 
 ```sql
 SELECT * FROM devices.modules
@@ -163,15 +176,15 @@ SELECT * FROM devices.modules
 We don't allow join between the devices and devices.modules collections. If you want to query module twins across devices, you do it based on tags. This query will return all module twins across all devices with the scanning status:
 
 ```sql
-Select * from devices.modules where properties.reported.status = 'scanning'
+SELECT * FROM devices.modules WHERE properties.reported.status = 'scanning'
 ```
 
 This query will return all module twins with the scanning status, but only on the specified subset of devices:
 
 ```sql
-Select * from devices.modules 
-  where properties.reported.status = 'scanning' 
-  and deviceId IN ['device1', 'device2']
+SELECT * FROM devices.modules
+  WHERE properties.reported.status = 'scanning'
+  AND deviceId IN ['device1', 'device2']
 ```
 
 ### C# example
@@ -202,7 +215,7 @@ The query functionality is exposed by the [Azure IoT service SDK for Node.js](io
 
 Here is an example of a simple query:
 
-```nodejs
+```javascript
 var query = registry.createQuery('SELECT * FROM devices', 100);
 var onResults = function(err, results) {
     if (err) {
@@ -228,7 +241,7 @@ The query object exposes multiple **Next** values, depending on the deserializat
 ### Limitations
 
 > [!IMPORTANT]
-> Query results can have a few minutes of delay with respect to the latest values in device twins. If querying individual device twins by ID, use the retrieve device twin API. This API always contains the latest values and has higher throttling limits.
+> Query results can have a few minutes of delay with respect to the latest values in device twins. If querying individual device twins by ID, use the [get twin REST API](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin). This API always returns the latest values and has higher throttling limits. You can issue the REST API directly or use the equivalent functionality in one of the [Azure IoT Hub Service SDKs](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Currently, comparisons are supported only between primitive types (no objects), for instance `... WHERE properties.desired.config = properties.reported.config` is supported only if those properties have primitive values.
 
@@ -310,7 +323,7 @@ Currently, queries on **devices.jobs** do not support:
 
 ## Basics of an IoT Hub query
 
-Every IoT Hub query consists of SELECT and FROM clauses, with optional WHERE and GROUP BY clauses. Every query is run on a collection of JSON documents, for example device twins. The FROM clause indicates the document collection to be iterated on (**devices** or **devices.jobs**). Then, the filter in the WHERE clause is applied. With aggregations, the results of this step are grouped as specified in the GROUP BY clause. For each group, a row is generated as specified in the SELECT clause.
+Every IoT Hub query consists of SELECT and FROM clauses, with optional WHERE and GROUP BY clauses. Every query is run on a collection of JSON documents, for example device twins. The FROM clause indicates the document collection to be iterated on (**devices**, **devices.modules**, or **devices.jobs**). Then, the filter in the WHERE clause is applied. With aggregations, the results of this step are grouped as specified in the GROUP BY clause. For each group, a row is generated as specified in the SELECT clause.
 
 ```sql
 SELECT <select_list>
@@ -321,10 +334,10 @@ SELECT <select_list>
 
 ## FROM clause
 
-The **FROM <from_specification>** clause can assume only two values: **FROM devices** to query device twins, or **FROM devices.jobs** to query job per-device details.
-
+The **FROM <from_specification>** clause can assume only three values: **FROM devices** to query device twins, **FROM devices.modules** to query module twins, or **FROM devices.jobs** to query job per-device details.
 
 ## WHERE clause
+
 The **WHERE <filter_condition>** clause is optional. It specifies one or more conditions that the JSON documents in the FROM collection must satisfy to be included as part of the result. Any JSON document must evaluate the specified conditions to "true" to be included in the result.
 
 The allowed conditions are described in section [Expressions and conditions](iot-hub-devguide-query-language.md#expressions-and-conditions).
@@ -356,11 +369,12 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-**Attribute_name** refers to any property of the JSON document in the FROM collection. Some examples of SELECT clauses can be found in the [Getting started with device twin queries](iot-hub-devguide-query-language.md#get-started-with-device-twin-queries) section.
+**Attribute_name** refers to any property of the JSON document in the FROM collection. Some examples of SELECT clauses can be found in the Getting started with device twin queries section.
 
 Currently, selection clauses different than **SELECT*** are only supported in aggregate queries on device twins.
 
 ## GROUP BY clause
+
 The **GROUP BY <group_specification>** clause is an optional step that executes after the filter specified in the WHERE clause, and before the projection specified in the SELECT. It groups documents based on the value of an attribute. These groups are used to generate aggregated values as specified in the SELECT clause.
 
 An example of a query using GROUP BY is:
@@ -388,9 +402,9 @@ Currently, the GROUP BY clause is only supported when querying device twins.
 > [!IMPORTANT]
 > The term `group` is currently treated as a special keyword in queries. In case, you use `group` as your property name, consider surrounding it with double brackets to avoid errors, e.g., `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
 >
->
 
 ## Expressions and conditions
+
 At a high level, an *expression*:
 
 * Evaluates to an instance of a JSON type (such as Boolean, number, string, array, or object).
@@ -434,10 +448,11 @@ To understand what each symbol in the expressions syntax stands for, refer to th
 | binary_operator | Any binary operator listed in the [Operators](#operators) section. |
 | function_name| Any function listed in the [Functions](#functions) section. |
 | decimal_literal |A float expressed in decimal notation. |
-| hexadecimal_literal |A number expressed by the string ‘0x’ followed by a string of hexadecimal digits. |
+| hexadecimal_literal |A number expressed by the string '0x' followed by a string of hexadecimal digits. |
 | string_literal |String literals are Unicode strings represented by a sequence of zero or more Unicode characters or escape sequences. String literals are enclosed in single quotes or double quotes. Allowed escapes: `\'`, `\"`, `\\`, `\uXXXX` for Unicode characters defined by 4 hexadecimal digits. |
 
 ### Operators
+
 The following operators are supported:
 
 | Family | Operators |
@@ -447,6 +462,7 @@ The following operators are supported:
 | Comparison |=, !=, <, >, <=, >=, <> |
 
 ### Functions
+
 When querying twins and jobs the only supported function is:
 
 | Function | Description |
@@ -460,7 +476,7 @@ In routes conditions, the following math functions are supported:
 | ABS(x) | Returns the absolute (positive) value of the specified numeric expression. |
 | EXP(x) | Returns the exponential value of the specified numeric expression (e^x). |
 | POWER(x,y) | Returns the value of the specified expression to the specified power (x^y).|
-| SQUARE(x)	| Returns the square of the specified numeric value. |
+| SQUARE(x)    | Returns the square of the specified numeric value. |
 | CEILING(x) | Returns the smallest integer value greater than, or equal to, the specified numeric expression. |
 | FLOOR(x) | Returns the largest integer less than or equal to the specified numeric expression. |
 | SIGN(x) | Returns the positive (+1), zero (0), or negative (-1) sign of the specified numeric expression.|
@@ -473,7 +489,7 @@ In routes conditions, the following type checking and casting functions are supp
 | AS_NUMBER | Converts the input string to a number. `noop` if input is a number; `Undefined` if string does not represent a number.|
 | IS_ARRAY | Returns a Boolean value indicating if the type of the specified expression is an array. |
 | IS_BOOL | Returns a Boolean value indicating if the type of the specified expression is a Boolean. |
-| IS_DEFINED | Returns a Boolean indicating if the property has been assigned a value. |
+| IS_DEFINED | Returns a Boolean indicating if the property has been assigned a value. This is supported only when the value is a primitive type. Primitive types include string, Boolean, numeric, or `null`. DateTime, object types and arrays are not supported. |
 | IS_NULL | Returns a Boolean value indicating if the type of the specified expression is null. |
 | IS_NUMBER | Returns a Boolean value indicating if the type of the specified expression is a number. |
 | IS_OBJECT | Returns a Boolean value indicating if the type of the specified expression is a JSON object. |

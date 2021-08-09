@@ -1,62 +1,52 @@
 ---
 title: Supported languages in Azure Functions
-description: Learn which languages are supported (GA) and which are experimental or in preview.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
-ms.devlang: dotnet
-ms.topic: reference
-ms.date: 08/02/2018
-ms.author: glenga
+description: Learn which languages are supported (GA) and which are in preview, and ways to extend Functions development to other languages.
+ms.topic: conceptual
+ms.date: 11/27/2019
 
 ---
 
 # Supported languages in Azure Functions
 
-This article explains the levels of support offered for languages that you can use with Azure Functions.
+This article explains the levels of support offered for languages that you can use with Azure Functions. It also describes strategies for creating functions using languages not natively supported.
 
 ## Levels of support
 
-There are three levels of support:
+There are two levels of support:
 
 * **Generally available (GA)** - Fully supported and approved for production use.
 * **Preview** - Not yet supported but is expected to reach GA status in the future.
-* **Experimental** - Not supported and might be abandoned in the future; no guarantee of eventual preview or GA status.
 
-## Languages in runtime 1.x and 2.x
+## Languages by runtime version 
 
-[Two versions of the Azure Functions runtime](functions-versions.md) are available. The following table shows which languages are supported in each runtime version.
+[Three versions of the Azure Functions runtime](functions-versions.md) are available. The following table shows which languages are supported in each runtime version.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-### Experimental languages
+### Language major version support
 
-The experimental languages in version 1.x don't scale well and don't support all bindings. For example, 1.x Python is slow because the Functions runtime runs *python.exe* with each function invocation. And while Python supports HTTP bindings, it can't access the request object.
+Azure Functions provides a guarantee of support for the major versions of supported programming languages. For most languages, there are minor or patch versions released to update a supported major version. Examples of minor or patch versions include such as Python 3.9.1 and Node 14.17. After new minor versions of supported languages become available, the minor versions used by your functions apps are automatically upgraded to these newer minor or patch versions. 
 
-Experimental support for PowerShell in 1.x is limited to version 5.1, because that is what's installed by default on the VMs on which function apps run. If you want to run PowerShell scripts, consider [Azure Automation](https://azure.microsoft.com/services/automation/).
+> [!NOTE]
+>Because Azure Functions can remove the support of older minor versions at any time after a new minor version is available, you shouldn't pin your function apps to a specific minor/patch version of a programming language.  
+>
 
-Don't use experimental languages for anything that you rely on, as there is no official support for them. Support cases should not be opened for problems with experimental languages. 
+## Custom handlers
 
-The version 2.x runtime doesn't support experimental languages. Support for new languages is added only when the language can be supported in production. 
+Custom handlers are lightweight web servers that receive events from the Azure Functions host. Any language that supports HTTP primitives can implement a custom handler. This means that custom handlers can be used to create functions in languages that aren't officially supported. To learn more, see [Azure Functions custom handlers](functions-custom-handlers.md).
 
-### Language extensibility
+## Language extensibility
 
-The 2.x runtime is designed to offer [language extensibility](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). The JavaScript and Java languages in the 2.x runtime are built with this extensibility.
+Starting with version 2.x, the runtime is designed to offer [language extensibility](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). The JavaScript and Java languages in the 2.x runtime are built with this extensibility.
 
 ## Next steps
 
-To learn more about how to use one of the GA or preview languages in Azure Functions, see the following resources:
+To learn more about how to develop functions in the supported languages, see the following resources:
 
-> [!div class="nextstepaction"]
-> [C#](functions-reference-csharp.md)
-
-> [!div class="nextstepaction"]
-> [F#](functions-reference-fsharp.md)
-
-> [!div class="nextstepaction"]
-> [JavaScript](functions-reference-node.md)
-
-> [!div class="nextstepaction"]
-> [Java](functions-reference-java.md)
++ [C# class library developer reference](functions-dotnet-class-library.md)
++ [C# script developer reference](functions-reference-csharp.md)
++ [Java developer reference](functions-reference-java.md)
++ [JavaScript developer reference](functions-reference-node.md)
++ [PowerShell developer reference](functions-reference-powershell.md)
++ [Python developer reference](functions-reference-python.md)
++ [TypeScript developer reference](functions-reference-node.md#typescript)
