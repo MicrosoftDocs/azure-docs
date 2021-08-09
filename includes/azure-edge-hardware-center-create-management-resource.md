@@ -16,11 +16,11 @@ To create a management resource for a device ordered through the Azure Edge Hard
     
        The **Configure hardware** option appears after a device is shipped. 
 
-       ![Illustration showing how to create a management resource from an order item in the Azure Edge Hardware Center](media/azure-edge-hardware-center-create-management-resource/create-management-resource-01-a.png#lightbox) 
+       ![Illustration showing 4 steps to start management resource creation from an order item in the Azure Edge Hardware Center.](media/azure-edge-hardware-center-create-management-resource/create-management-resource-01-a.png#lightbox) 
     
     - In Azure Stack Edge: Search for and select **Azure Stack Edge**. Select **+ Create**. Then select **Create management resource**.
     
-       ![Illustration showing how to create a management resource from Azure Stack Edge](media/azure-edge-hardware-center-create-management-resource/create-management-resource-01-b.png#lightbox) 
+       ![Illustration showing 3 steps to start management resource creation in Azure Stack Edge.](media/azure-edge-hardware-center-create-management-resource/create-management-resource-01-b.png#lightbox) 
 
     The **Create management resource** wizard opens.
 
@@ -38,7 +38,7 @@ To create a management resource for a device ordered through the Azure Edge Hard
 
     <sup>2</sup> When you use **Configure hardware** from the order item, the device type is taken from the order item, and **DEVICE DETAILS** aren't displayed. 
 
-    ![Screenshot of the Basics tab in the Create management resource wizard, with example field entries.](media/azure-edge-hardware-center-create-management-resource/create-management-resource-02.png)
+    ![Screenshot of the Basics tab for Create Management Resource. The Basics tab, options, and Review Plus Create button are highlighted.](media/azure-edge-hardware-center-create-management-resource/create-management-resource-02.png)<!--Remove boxes from field entries. Not very useful, since all fields are highlighted.-->
 
     Select **Review + create** to continue.
 
