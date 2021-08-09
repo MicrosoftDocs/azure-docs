@@ -54,7 +54,7 @@ In this tutorial, you created an NSX-T network segment to use for VMs in vCenter
 You can now: 
 
 - [Configure and manage DHCP for Azure VMware Solution](configure-dhcp-azure-vmware-solution.md)
-- [Create a content Library to deploy VMs in Azure VMware Solution](deploy-vm-content-library.md) 
+- [Create a Content Library to deploy VMs in Azure VMware Solution](deploy-vm-content-library.md) 
 - [Peer on-premises environments to a private cloud](tutorial-expressroute-global-reach-private-cloud.md)
 
 
