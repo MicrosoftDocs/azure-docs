@@ -54,7 +54,7 @@ In [Azure PowerShell](tutorial-multiple-sites-powershell.md), you must use `-Hos
 
 In [Azure CLI](tutorial-multiple-sites-cli.md), you must use `--host-names` instead of `--host-name`. With host-names, you can mention up to 5 host names as comma-separated values and use wildcard characters. For example, `--host-names "*.contoso.com,*.fabrikam.com"`
 
-In Azure portal, under the multi-site listener, you must chose the Multiple/Wildcard Host type to mention up to 5 host names with allowed wildcard characters.
+In Azure portal, under the multi-site listener, you must chose the **Multiple/Wildcard** host type to mention up to five host names with allowed wildcard characters.
 
 :::image type="content" source="./media/multiple-site-overview/wildcard-listener-example.png" alt-text="Wildcard Listener UI":::
 
