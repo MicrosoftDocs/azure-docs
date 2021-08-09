@@ -7,11 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-<<<<<<< HEAD
 ms.date: 08/09/2021
-=======
-ms.date: 07/26/2021
->>>>>>> a2092ae5c51db1c107d7644f69ab5a347ee6d6cb
 
 ms.author: mimart
 author: msmimart
@@ -46,7 +42,7 @@ Microsoft account is an identity provider option for your self-service sign-up u
 ## Verifying the application's publisher domain
 As of November 2020, new application registrations show up as unverified in the user consent prompt unless [the application's publisher domain is verified](../active-directory/develop/howto-configure-publisher-domain.md) ***and*** the company’s identity has been verified with the Microsoft Partner Network and associated with the application. ([Learn more](../active-directory/develop/publisher-verification-overview.md) about this change.) Note that for Azure AD user flows, the publisher’s domain appears only when using a Microsoft account or other [Azure AD tenant](azure-ad-account.md) as the identity provider. To meet these new requirements, do the following:
 
-1. [Verify your company identity using your Microsoft Partner Network (MPN) account](../partner-center/verification-responses.md). This process verifies information about your company and your company’s primary contact.
+1. [Verify your company identity using your Microsoft Partner Network (MPN) account](https://docs.microsoft.com/partner-center/verification-responses). This process verifies information about your company and your company’s primary contact.
 1. Complete the publisher verification process to associate your MPN account with your app registration using one of the following options:
    - If the app registration for the Microsoft account identity provider is in an Azure AD tenant, [verify your app in the App Registration portal](../active-directory/develop/mark-app-as-publisher-verified.md).
    - If your app registration for the Microsoft account identity provider is in an Azure AD B2C tenant, [mark your app as publisher verified using Microsoft Graph APIs](../active-directory/develop/troubleshoot-publisher-verification.md#making-microsoft-graph-api-calls) (for example, using Graph Explorer).
