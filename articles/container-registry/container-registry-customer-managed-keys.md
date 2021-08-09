@@ -590,7 +590,7 @@ If this issue occurs with a user-assigned identity, first reassign the identity 
 
 ```azurecli
 az acr identity assign -n myRegistry \
-    --identities identities /subscriptions/mysubscription/resourcegroups/myresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myidentity
+    --identities "/subscriptions/mysubscription/resourcegroups/myresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myidentity"
 ```
         
 Then, after changing the key and assigning a different identity, you can remove the original user-assigned identity.
