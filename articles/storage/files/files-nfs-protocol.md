@@ -85,7 +85,7 @@ The status of items that appear in this tables may change over time as support c
 [!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
 
 ## Performance
-NFS Azure file shares are only offered on premium file shares, which are SSD-backed. The IOPS and the throughput of NFS shares scale with the provisioned capacity. See the [provisioned model](understanding-billing.md#provisioned-model) section of the understanding billing article to understand the formulas for IOPS, IO bursting, and throughput. The average IO latencies are low-single-digit-millisecond for small IO size while metadata latencies are high-single-digit-millisecond. For xxample, operations like untar or metadata heavy workloads like WordPress will not be as performant as IO heavy workloads such as databases.
+NFS Azure file shares are only offered on premium file shares, which are SSD-backed. The IOPS and the throughput of NFS shares scale with the provisioned capacity. See the [provisioned model](understanding-billing.md#provisioned-model) section of the understanding billing article to understand the formulas for IOPS, IO bursting, and throughput. The average IO latencies are low-single-digit-millisecond for small IO size while metadata latencies are high-single-digit-millisecond. For example, operations like untar or metadata heavy workloads like WordPress will not be as performant as IO heavy workloads such as databases.
 
 ## Validated workloads
 > [!IMPORTANT]
@@ -101,7 +101,7 @@ The following workloads have open issues and shouldn't be deployed at this time:
 - Oracle Database will experience incompatibility with its dNFS feature.
 - SAP Application Layer will experience inconsistent behavior due to a known active issue with ls -l.
 
-Reach out to azurefilesnfs@microsoft .com to validate workloads not in the prior list or to share more successful workloads stories.
+Reach out to azurefilesnfs@microsoft.com to validate workloads not in the prior list or to share more successful workloads stories.
 
 ## Next steps
 - [Create an NFS file share](storage-files-how-to-create-nfs-shares.md)
