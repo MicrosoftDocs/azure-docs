@@ -24,7 +24,7 @@ To create a management resource for a device ordered through the Azure Edge Hard
 
     The **Create management resource** wizard opens.
 
-1. On the **Basics** tab, enter the following settings:
+1. On the **Basics** tab, enter the following settings:<!--These are restricted to a subscription and related resource group, region, and device type for an existing order? Is that clear for all of these options?-->
 
     |Setting                                  |Value                                                                                       |
     |-----------------------------------------|--------------------------------------------------------------------------------------------|
@@ -56,4 +56,4 @@ To create a management resource for a device ordered through the Azure Edge Hard
 
 6. When the process completes, the Overview pane for new resource opens.<!--Does the pane look the same whether they initiated the management resource from an order item or in Azure Stack Edge? Can't test without creating my own order, which reaches Delivered state. In the latter case, is there the link between the management resource and the order item made when the management resource is created?-->
 
-    ![Screenshot showing a completed management resource in Azure Stack Edge](media/azure-edge-hardware-center-create-management-resource/create-management-resource-05\.png) 
+    ![Screenshot showing a completed management resource in Azure Stack Edge.](media/azure-edge-hardware-center-create-management-resource/create-management-resource-05\.png) 
