@@ -1249,7 +1249,7 @@
         - name: Response headers
           href: graph/gremlin-headers.md
         - name: Limits
-          href: vgremlin-limits.md
+          href: graph/gremlin-limits.md
     - name: How-to guides
       items:
         - name: Graph data modeling
