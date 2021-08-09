@@ -47,7 +47,7 @@
   - name: Prepare your on-premises management console
     items:
     - name: Manage subscriptions
-      displayName: onboard, offboard, subscription, billing, pricing, payment
+      displayName: onboard, offboard, subscription, billing, pricing, payment, trial, evaluate
       href: how-to-manage-subscriptions.md 
     - name: Activate and set up your on-premises management console
       displayName: deployment, activate, certificate, sign in, SSL, TLS, login, setup, initial, committed activation file
