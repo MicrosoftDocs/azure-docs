@@ -6,7 +6,7 @@ ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: troubleshooting
 ms.custom: mvc
-ms.date: 08/08/2021
+ms.date: 08/09/2021
 ms.subservice: azure-sentinel
 
 ---
@@ -292,20 +292,34 @@ For example, use `javatz = GMT+12` or `abaptz = GMT-3**`.
 
 If you're not able to import the [required SAP log change requests](sap-solution-detailed-requirements.md#required-sap-log-change-requests) and are getting an error about an invalid component version, add `ignore invalid component version` when you import the change request.
 
-### Audit Log Data not ingested past initial load
+### Audit log data not ingested past initial load
 
-In case Audit Log data in SAP (visable in transaction RSAU_READ_LOAD or SM200 is not ingested into Sentinel past the initial load (New install or after the metadata.db delition), this can be caused be a miss configuration of the SAP system and the OS (Eg. in transaction STZAC the SAP TZ is CET and the SAP host OS is UTC), To check if the configuration is correct please run the following report RSDBTIME in transaction SE38, If there is a missmatch please do the following:
-1. Stop the container
-2. Delete the metadata.db
-3. Set both SAP and OS to the same TZ - see SAP wiki https://wiki.scn.sap.com/wiki/display/Basis/Time+zone+settings%2C+SAP+vs.+OS+level
-4. Start the container
-```bash
-docker stop sapcon-NPL
-rm ~/sapcon/NPL/metadata.db
-# Match OS and SAP timezone
-docker start sapcon-NPL
-```
+If the SAP audit log data, visible in either the **RSAU_READ_LOAD** or **SM200** transactions, is not ingested into Azure Sentinel past the initial load, you may have a misconfiguration of the SAP system and the SAP host operating system.
 
+- Initial loads are ingested after a fresh installation of the SAP data connector, or after the **metadata.db** file is deleted.
+- A sample misconfiguration might be when your SAP system timezone is set to **CET** in the **STZAC** transaction, but the SAP host operating system time zone is set to **UTC**.
+
+To check for misconfigurations, run the **RSDBTIME** report in transaction **SE38**. If you find a mismatch between the SAP system and the SAP host operating system:
+
+1. Stop the Docker container. Run
+
+    ```bash
+    docker stop sapcon-[SID]
+    ```
+
+1.	Delete the **metadata.db** file from the **sapcon/[SID]** directory. Run:
+
+    ```bash
+    rm ~/sapcon/[SID]/metadata.db
+    ```
+
+1. Update the SAP system and the SAP host operating system to have matching settings, such as the same time zone. For more information, see the [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/Basis/Time+zone+settings%2C+SAP+vs.+OS+level).
+
+1. Start the container again. Run:
+
+    ```bash
+    docker start sapcon-[SID]
+    ```
 
 ## Next steps
 
