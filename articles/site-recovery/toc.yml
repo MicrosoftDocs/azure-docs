@@ -222,6 +222,8 @@
       items:
       - name: Enable replication between zones within a region
         href: azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
+    - name: Enable global disaster recovery
+      href: azure-to-azure-enable-global-disaster-recovery.md
     - name: Manage
       items:
       - name: Update the Mobility Service for Azure VMs
