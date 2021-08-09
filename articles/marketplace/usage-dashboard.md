@@ -4,9 +4,10 @@ description: Learn how to access all usage and metered billing metrics for offer
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/15/2021
 author: smannepalle
 ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 07/15/2021
 ---
 
 # Usage dashboard in commercial marketplace analytics
