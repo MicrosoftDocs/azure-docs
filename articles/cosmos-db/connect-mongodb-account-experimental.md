@@ -13,7 +13,7 @@ robots: noindex
 # Connect a MongoDB application to Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
-Learn how to connect your MongoDB app to an Azure Cosmos DB by using a MongoDB connection string. You can then use an Azure Cosmos database as the data store for your MongoDB app. In addition to the tutorial below, you can explore MongoDB [samples](mongodb-samples.md) with Azure Cosmos DB's API for MongoDB.
+Learn how to connect your MongoDB app to an Azure Cosmos DB by using a MongoDB connection string. You can then use an Azure Cosmos database as the data store for your MongoDB app. In addition to the tutorial below, you can explore MongoDB [samples](mongodb/nodejs-console-app.md) with Azure Cosmos DB's API for MongoDB.
 
 This tutorial provides two ways to retrieve connection string information:
 
@@ -23,7 +23,7 @@ This tutorial provides two ways to retrieve connection string information:
 ## Prerequisites
 
 - An Azure account. If you don't have an Azure account, create a [free Azure account](https://azure.microsoft.com/free/) now.
-- A Cosmos account. For instructions, see [Build a web app using Azure Cosmos DB's API for MongoDB and .NET SDK](create-mongodb-dotnet.md).
+- A Cosmos account. For instructions, see [Build a web app using Azure Cosmos DB's API for MongoDB and .NET SDK](mongodb/create-mongodb-dotnet.md).
 
 ## Get the MongoDB connection string by using the quick start
 
@@ -33,7 +33,7 @@ This tutorial provides two ways to retrieve connection string information:
 4. Choose your platform (**.NET**, **Node.js**, **MongoDB Shell**, **Java**, **Python**). If you don't see your driver or tool listed, don't worry--we continuously document more connection code snippets. Please comment below on what you'd like to see. To learn how to craft your own connection, read [Get the account's connection string information](#get-the-mongodb-connection-string-to-customize).
 5. Copy and paste the code snippet into your MongoDB app.
 
-    :::image type="content" source="./media/connect-mongodb-account/QuickStartBlade.png" alt-text="Quick start blade":::
+    :::image type="content" source="./mongodb/media/connect-mongodb-account/quickstart-blade.png" alt-text="Quick start blade":::
 
 ## Get the MongoDB connection string to customize
 
@@ -42,7 +42,7 @@ This tutorial provides two ways to retrieve connection string information:
 3. In the left pane of the account blade, click **Connection String**.
 4. The **Connection String** blade opens. It has all the information necessary to connect to the account by using a driver for MongoDB, including a preconstructed connection string.
 
-   :::image type="content" source="./media/connect-mongodb-account/ConnectionStringBlade.png" alt-text="Connection String blade" lightbox= "./media/connect-mongodb-account/ConnectionStringBlade.png" :::
+   :::image type="content" source="./mongodb/media/connect-mongodb-account/connection-string-blade.png" alt-text="Connection String blade" lightbox= "./mongodb/media/connect-mongodb-account/connection-string-blade.png" :::
 
 ## Connection string requirements
 
@@ -68,6 +68,6 @@ For example, consider the account shown in the **Connection String** blade. A va
 
 ## Next steps
 
-- Learn how to [use Studio 3T](mongodb-mongochef.md) with Azure Cosmos DB's API for MongoDB.
-- Learn how to [use Robo 3T](mongodb-robomongo.md) with Azure Cosmos DB's API for MongoDB.
-- Explore MongoDB [samples](mongodb-samples.md) with Azure Cosmos DB's API for MongoDB.
+- Learn how to [use Studio 3T](mongodb/connect-using-mongochef.md) with Azure Cosmos DB's API for MongoDB.
+- Learn how to [use Robo 3T](mongodb/connect-using-robomongo.md) with Azure Cosmos DB's API for MongoDB.
+- Explore MongoDB [samples](mongodb/nodejs-console-app.md) with Azure Cosmos DB's API for MongoDB.

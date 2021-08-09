@@ -244,6 +244,8 @@
     items:
     - name: Troubleshoot Azure Migrate appliance
       href: troubleshoot-appliance.md
+    - name: Troubleshoot appliance diagnostics
+      href: troubleshoot-appliance-diagnostic.md
     - name: Troubleshoot discovery
       href: troubleshoot-discovery.md
     - name: Troubleshoot dependency visualization

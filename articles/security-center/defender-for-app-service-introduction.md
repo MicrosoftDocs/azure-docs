@@ -32,7 +32,7 @@ To protect your Azure App Service plan with Azure Defender for App Service, you'
 | Release state:               | General Availability (GA)                                                                                                                                                                      |
 | Pricing:                     | [Azure Defender for App Service](azure-defender.md) is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)<br>Billing is according to total compute instances in all plans       |
 | Supported App Service plans: | [All App Service plans](https://azure.microsoft.com/pricing/details/app-service/plans/) are supported except [Azure Functions on the consumption plan](../azure-functions/functions-scale.md). |
-| Clouds:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (US Gov, Azure China)                                                     |
+| Clouds:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)                                                     |
 |                              |                                                                                                                                                                                                |
 
 ## What are the benefits of Azure Defender for App Service?

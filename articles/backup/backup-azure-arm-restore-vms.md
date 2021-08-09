@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 08/05/2021
+ms.date: 08/06/2021
 ---
 # How to restore Azure VM data in Azure portal
 
@@ -268,7 +268,7 @@ You can also select the [user-managed identity](/azure/active-directory/managed-
 >
 >Cross Region Restore isn't supported with managed identities.
 >
->Currently, this is available in all Azure public regions, except Germany West Central and India Central.
+>Currently, this is available in all Azure public and national cloud regions.
 
 ## Track the restore operation
 
