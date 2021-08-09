@@ -14,12 +14,16 @@
   - name: Create instance
     expanded: true
     items:
-    - name: CLI
-      href: quickstart-create-cli.md
     - name: Portal
       href: howto-develop-create-instance.md
-  - name: Try a simple Pub/Sub demo
-    href: quickstart-live-demo.md
+    - name: CLI
+      href: quickstart-cli-create.md
+  - name: Connect to the instance
+    items:
+    - name: Pub/Sub from the browser
+      href: quickstart-live-demo.md
+    - name: Pub/Sub from CLI
+      href: quickstart-cli-try.md
   - name: Build a serverless chat
     href: quickstart-serverless.md
 

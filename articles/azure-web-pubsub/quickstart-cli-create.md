@@ -28,8 +28,17 @@ The [Azure command-line interface (Azure CLI)](/cli/azure) is a set of commands 
 
 ## Try the newly created instance
 
-[!INCLUDE [Try the Web PubSub instance](includes/cli-awps-client.md)]
+> [!div class="nextstepaction"]
+> [Try the newly created instance using CLI](./quickstart-cli-try.md)
+
+
+> [!div class="nextstepaction"]
+> [Try the newly created instance from browser](./quickstart-live-demo.md)
 
 ## Clean up resources
 
 [!INCLUDE [Clean up resource](includes/cli-delete-resources.md)]
+
+## Next step
+
+[!INCLUDE [next step](includes/include-next-step.md)]
