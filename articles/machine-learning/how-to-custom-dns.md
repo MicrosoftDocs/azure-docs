@@ -152,10 +152,37 @@ To find the internal IP addresses for the FQDNs in the VNet, use one of the foll
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
-az network private-endpoint show --endpoint-name <endpoint> --resource-group <resource-group> --query 'customDnsConfigs[*].{FQDN: fqdn, IPAddress: ipAddresses[0]}' --output table
-```
+1. To get the ID of the private endpoint network interface, use the following command:
 
+    ```azurecli
+    az network private-endpoint show --endpoint-name <endpoint> --resource-group <resource-group> --query 'networkInterfaces[*].id' --output table
+    ```
+
+1. To get the IP address and FQDN information, use the following command. Replace `<resource-id>` with the ID from the previous step:
+
+    ```azurecli
+    az network nic show --ids <resource-id> --query 'ipConfigurations[*].{IPAddress: privateIpAddress, FQDNs: privateLinkConnectionProperties.fqdns}'
+    ```
+
+    The output will be similar to the following text:
+
+    ```json
+    [
+        {
+            "FQDNs": [
+            "<guid>.workspace.southcentralus.api.azureml.ms",
+            "<guid>.workspace.southcentralus.cert.api.azureml.ms"
+            ],
+            "IPAddress": "10.3.0.6"
+        },
+        {
+            "FQDNs": [
+            "mywkspc--southcentralus-<guid>.notebooks.azure.net"
+            ],
+            "IPAddress": "10.3.0.7"
+        }
+    ]
+    ```
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
