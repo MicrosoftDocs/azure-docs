@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Cognitive Services Translator Overview
+title: What is the Microsoft Azure Cognitive Services Translator?
 titlesuffix: Azure Cognitive Services
 description: Integrate Translator into your applications, websites, tools, and other solutions to provide multi-language user experiences.
 services: cognitive-services

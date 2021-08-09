@@ -1,5 +1,5 @@
 ---
-title: What is Document Translation?
+title: What is Microsoft Azure Cognitive Services Document Translation?
 description: An overview of the cloud-based batch document translation service and process.
 ms.topic: overview
 manager: nitinme

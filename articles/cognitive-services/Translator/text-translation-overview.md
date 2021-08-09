@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Cognitive Services Text Translation
+title: What is Microsoft Azure Cognitive Services Text Translation?
 titlesuffix: Azure Cognitive Services
 description: Integrate the Text Translation API into your applications, websites, tools, and other solutions to provide multi-language user experiences.
 services: cognitive-services
