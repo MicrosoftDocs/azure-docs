@@ -241,11 +241,9 @@ data factory from the resources list.
 4. Select + **New** under **Managed private endpoints**.
 5. Select the **Private Link Service** tile from the list and select **Continue**.
 6. Enter the name of private endpoint and select **myPrivateLinkService** in private link service list.
-7. Add FQDN of your target on-premises SQL Server and your private link Service.
-    
-    :::image type="content" source="./media/tutorial-managed-virtual-network/link-service-fqdn.png" alt-text="Screenshot that shows the alias in the linked service." :::
+7. Add FQDN of your target on-premises SQL Server.
 
-    :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-3.png" alt-text="Screenshot that shows the private endpoint settings.":::
+    :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-6.png" alt-text="Screenshot that shows the private endpoint settings.":::
 
 8. Create private endpoint.
 
