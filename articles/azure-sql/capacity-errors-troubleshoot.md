@@ -8,11 +8,11 @@ ms.topic: how-to
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: mathoma
-ms.date: 06/04/2020
+ms.date: 08/09/2021
 ---
 
 # Resolve capacity errors with Azure SQL Database or Azure SQL Managed Instance
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 In this article, learn how to resolve capacity errors when deploying Azure SQL Database or Azure SQL Managed Instance resources. 
 
@@ -44,9 +44,9 @@ Your subscription does not have access to create a server in the selected region
 
 ## Enable region 
 
-Your subscription may not have access to create a server in the selected region if that region has not been enabled. To resolve this, file a [support request to enable a specific region](quota-increase-request.md#region) for your subscription. 
+Your subscription may not have access to create a server in the selected region if that region has not been enabled. To resolve this, file a [support request to enable a specific region](database/quota-increase-request.md#region) for your subscription. 
 
-If you see the below error, file a support  ticket to enable a specific region: 
+If you see the below error, file a support ticket to enable a specific region: 
 
 ```
 Your subscription does not have access to create a server in the selected region.
@@ -69,7 +69,7 @@ To register your subscription in the Azure portal, follow these steps:
 1. Enter **sql** in the filter to bring up the SQL-related extensions.
 1. Select **Register**, **Re-register**, or **Unregister** for the  **Microsoft.Sql** provider, depending on your desired action.
 
-   ![Modify the provider](./media/sql-agent-extension-manually-register-single-vm/register-with-sql-rp.png)
+   ![Modify the provider](./media/capacity-errors-troubleshoot/register-with-sql-rp.png)
 
 # [Azure CLI](#tab/bash)
 
@@ -95,4 +95,4 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Sql
 
 After you submit your request, it will be reviewed. You will be contacted with an answer based on the information you provided in the form.
 
-For more information about other Azure limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+For more information about other Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
