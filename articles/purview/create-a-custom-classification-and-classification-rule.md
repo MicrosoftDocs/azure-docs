@@ -12,13 +12,16 @@ ms.date: 3/24/2021
 
 This article describes how you can create custom classifications to define data types in your data estate that are unique to your organization. It also describes the creation of custom classification rules that let you find specified data throughout your data estate.
 
-## Default classifications
+## Default system classifications
 
-The Azure Purview Data Catalog provides a large set of default classifications that represent typical personal data types that you might have in your data estate.
+The Azure Purview Data Catalog provides a large set of default system classifications that represent typical personal data types that you might have in your data estate. The entire list of available system classifications can be found [here](https://docs.microsoft.com/en-us/azure/purview/supported-classifications).
 
 :::image type="content" source="media/create-a-custom-classification-and-classification-rule/classification.png" alt-text="select classification" border="true":::
 
 You also have the ability to create custom classifications, if any of the default classifications don't meet your needs.
+
+> [!Note]
+> Our data sampling rules listed [here](https://docs.microsoft.com/en-us/azure/purview/sources-and-scans#sampling-within-a-file) are applied to both system and custom classifications.  
 
 ## Steps to create a custom classification
 
