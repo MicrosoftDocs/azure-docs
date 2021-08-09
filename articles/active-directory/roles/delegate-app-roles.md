@@ -58,7 +58,7 @@ In some cases, enterprise applications created from the application gallery incl
 ### To assign an owner to an enterprise application
 
 1. Sign in to [your Azure AD organization](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that eligible for the Application Administrator or Cloud Application Administrator for the organization.
-1. On the [App registrations page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) for the organization, select an app to open the Overview page for the app.
+1. On the [Enterprise applications page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) for the organization, select an app to open the Overview page for the app.
 1. Select **Owners** to see the list of the owners for the app.
 1. Select **Add** to select one or more owners to add to the app.
 

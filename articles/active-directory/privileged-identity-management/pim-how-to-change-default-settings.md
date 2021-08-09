@@ -11,14 +11,14 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/14/2021
+ms.date: 07/27/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 # Configure Azure AD role settings in Privileged Identity Management
 
-A Privileged role administrator can customize Privileged Identity Management (PIM) in their Azure Active Directory (Azure AD) organization, including changing the experience for a user who is activating an eligible role assignment.
+A privileged role administrator can customize Privileged Identity Management (PIM) in their Azure Active Directory (Azure AD) organization, including changing the experience for a user who is activating an eligible role assignment.
 
 ## Open role settings
 
@@ -46,17 +46,17 @@ You can choose from two assignment duration options for each assignment type (el
 
 You can choose one of these **eligible** assignment duration options:
 
-| | Description |
+| Setting | Description |
 | --- | --- |
-| **Allow permanent eligible assignment** | Global admins and Privileged role admins can assign permanent eligible assignment. |
-| **Expire eligible assignment after** | Global admins and Privileged role admins can require that all eligible assignments have a specified start and end date. |
+| Allow permanent eligible assignment | Global admins and Privileged role admins can assign permanent eligible assignment. |
+| Expire eligible assignment after | Global admins and Privileged role admins can require that all eligible assignments have a specified start and end date. |
 
 And, you can choose one of these **active** assignment duration options:
 
-| | Description |
+| Setting | Description |
 | --- | --- |
-| **Allow permanent active assignment** | Global admins and Privileged role admins can assign permanent active assignment. |
-| **Expire active assignment after** | Global admins and Privileged role admins can require that all active assignments have a specified start and end date. |
+| Allow permanent active assignment | Global admins and Privileged role admins can assign permanent active assignment. |
+| Expire active assignment after | Global admins and Privileged role admins can require that all active assignments have a specified start and end date. |
 
 > [!NOTE]
 > All assignments that have a specified end date can be renewed by Global admins and Privileged role admins. Also, users can initiate self-service requests to [extend or renew role assignments](pim-resource-roles-renew-extend.md).
@@ -97,7 +97,7 @@ If setting multiple approvers, approval completes as soon as one of them approve
 
     ![Select a user or group pane to select approvers](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-1. Select at least one user and then click **Select**. Select at least one approver. There are no default approvers.
+1. Select at least one user and then click **Select**. Select at least one approver. If no specific approvers are selected, privileged role administrators/global administrators will become the default approvers.
 
     Your selections will appear in the list of selected approvers.
 

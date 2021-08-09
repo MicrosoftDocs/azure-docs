@@ -68,8 +68,10 @@ items:
     href: concept-insights.md
   - name: Supported Browsers
     href: supported-browsers.md
+  - name: Asset normalization
+    href: concept-asset-normalization.md
   - name: Frequently asked questions
-    href: frequently-asked-questions.md
+    href: /azure/purview/frequently-asked-questions.yml
 - name: How-to guides
   items:
   - name: Register & scan
@@ -127,8 +129,16 @@ items:
         displayName: Register and scan Azure SQL DB Managed Instance
       - name: Azure Dedicated SQL pool (formerly SQL DW)
         href: register-scan-azure-synapse-analytics.md
+      - name: Cassandra
+        href: register-scan-cassandra-source.md
+      - name: Erwin
+        href: register-scan-erwin-source.md
+      - name: Google BigQuery
+        href: register-scan-google-bigquery-source.md
       - name: Hive Metastore Database
         href: register-scan-hive-metastore-source.md
+      - name: Looker
+        href: register-scan-looker-source.md
       - name: On-premises SQL server
         href: register-scan-on-premises-sql-server.md
       - name: Oracle

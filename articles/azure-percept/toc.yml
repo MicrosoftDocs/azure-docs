@@ -38,8 +38,6 @@
       items:
         - name: 80/20 integration
           href: overview-8020-integration.md   
-        - name: Connect Over Cellular
-          href: connect-over-cellular.md
         - name: Device updates
           href: overview-update-experience.md   
     - name: Azure Percept Audio
@@ -51,7 +49,9 @@
         - name: Advanced development
           href: overview-advanced-code.md
         - name: Azure Percept AI models
-          href: overview-ai-models.md      
+          href: overview-ai-models.md
+        - name: Speech module interface and workflow
+          href: speech-module-interface-workflow.md
     - name: Security
       items:
         - name: Azure Percept security
@@ -77,6 +77,10 @@
           href: how-to-configure-voice-assistant.md
         - name: Configure your voice assistant in Azure Percept Studio
           href: how-to-manage-voice-assistant.md
+        - name: Return to your voice assistant application
+          href: return-to-voice-assistant-application-window.md
+        - name: Delete your voice assistant application
+          href: delete-voice-assistant-application.md
     - name: Update your Azure Percept devices
       items:
         - name: Set up over-the-air updates
@@ -91,6 +95,10 @@
       items:
         - name: Connect over Ethernet
           href: how-to-connect-over-ethernet.md
+        - name: Set up advanced network settings
+          href: how-to-set-up-advanced-network-settings.md
+        - name: Connect over a 5G or LTE network
+          href: connect-over-cellular.md
         - name: Connect over SSH
           href: how-to-ssh-into-percept-dk.md
         - name: Connect over serial

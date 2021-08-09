@@ -9,7 +9,7 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 05/03/2021
 ms.topic: conceptual
-ms.custom: how-to, deploy
+ms.custom: how-to, deploy, devplatv2
 ---
 
 # View costs for an Azure Machine Learning managed online endpoint (preview)

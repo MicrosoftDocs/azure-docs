@@ -86,7 +86,8 @@ union <Azure Data Explorer table>, cluster(CL1).database(<workspace-name>).<tabl
 
 :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-cross-query-proxy.png" alt-text="Cross service query from the Azure Data Explorer.":::
 
-Using the [`join` operator](/azure/data-explorer/kusto/query/joinoperator), instead of union, may require a [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) to run it on an Azure Data Explorer native cluster.
+>[!TIP]
+>* Using the [`join` operator](/azure/data-explorer/kusto/query/joinoperator), instead of union, may require a [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) to run it on an Azure Data Explorer native cluster.
 
 ### Join data from an Azure Data Explorer cluster in one tenant with an Azure Monitor resource in another
 

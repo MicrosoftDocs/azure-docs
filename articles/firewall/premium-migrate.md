@@ -1,18 +1,18 @@
 ---
-title: Migrate to Azure Firewall Premium Preview
-description: Learn how to migrate from Azure Firewall Standard to Azure Firewall Premium Preview.
+title: Migrate to Azure Firewall Premium
+description: Learn how to migrate from Azure Firewall Standard to Azure Firewall Premium.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 07/15/2021
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Migrate to Azure Firewall Premium Preview
+# Migrate to Azure Firewall Premium
 
-You can migrate Azure Firewall Standard to Azure Firewall Premium Preview to take advantage of the new Premium capabilities. For more information about Azure Firewall Premium Preview features, see [Azure Firewall Premium Preview features](premium-features.md).
+You can migrate Azure Firewall Standard to Azure Firewall Premium to take advantage of the new Premium capabilities. For more information about Azure Firewall Premium features, see [Azure Firewall Premium features](premium-features.md).
 
 The following two examples show how to:
 - Migrate an existing standard policy using Azure PowerShell
@@ -53,7 +53,7 @@ param (
     [string]
     $PolicyId,
 
-    # #new filewallpolicy name, if not specified will be the previous name with the '_premium' suffix
+     #new firewallpolicy name, if not specified will be the previous name with the '_premium' suffix
     [Parameter(Mandatory=$false)]
     [string]
     $NewPolicyName = ""
@@ -195,7 +195,7 @@ This example shows how to use the Azure portal to migrate a standard firewall (c
 1. Select **Review + Create**.
 1. Select **Create**.
 
-When the deployment completes, you can now configure all the new Azure Firewall Premium Preview features.
+When the deployment completes, you can now configure all the new Azure Firewall Premium features.
 
 ## Next steps
 

@@ -73,7 +73,7 @@ To learn more about the service, see the [Mobility services documentation](/rest
 
 ### Render service
 
-The [Render service V2 (Preview)](/rest/api/maps/renderv2) introduces a new version of the [Get Map Tile V2 API](/rest/api/maps/renderv2/getmaptilepreview). The Get Map Tile V2 API now allows customers to request Azure Maps road tiles, weather tiles, or the map tiles created using Azure Maps Creator. It's recommended that you use the new Get Map Tile V2 API.  
+The [Render service V2 (Preview)](/rest/api/maps/renderv2) introduces a new version of the [Get Map Tile V2 API](/rest/api/maps/render-v2/get-map-tile). The Get Map Tile V2 API now allows customers to request Azure Maps road tiles, weather tiles, or the map tiles created using Azure Maps Creator. It's recommended that you use the new Get Map Tile V2 API.  
 
 :::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Example of a map from the Render service V2":::
 
@@ -171,7 +171,7 @@ Weather services offer APIs that developers can use to retrieve weather informat
 
 Developers can use the [Get Weather along route API](/rest/api/maps/weather/getweatheralongroute) to retrieve weather information along a particular route. Also, the service supports the generation of weather notifications for waypoints that are affected by weather hazards, such as flooding or heavy rain.
 
-The [Get Map Tile V2 API](/rest/api/maps/renderv2/getmaptilepreview) allows you to request past, current, and future radar and satellite tiles.
+The [Get Map Tile V2 API](/rest/api/maps/render-v2/get-map-tile) allows you to request past, current, and future radar and satellite tiles.
 
 ![Example of map with real-time weather radar tiles](media/about-azure-maps/intro_weather.png)
 

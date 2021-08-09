@@ -7,12 +7,12 @@ ms.topic: how-to
 author: palanis-MSFT
 ms.author: palanis
 ms.reviewer: stmummer
-ms.date: 3/17/2021
+ms.date: 07/13/2021
 ---
 
 # Configure co-sell for a commercial marketplace offer
 
-This article describes how to configure the **Co-sell with Microsoft** tab for a commercial marketplace offer. Providing information on this tab is entirely optional but it is required to achieve [Co-sell Ready and IP Co-sell Incentivized status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). The information you provide will be used by Microsoft sales teams to learn more about your offer when evaluating its fit for customer needs. This information is not available directly to customers. For more information about co-sell, see [Co-sell with Microsoft sellers and partners overview](./co-sell-overview.md) and [Co-sell with Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
+This article describes how to configure the **Co-sell with Microsoft** tab for a commercial marketplace offer. Providing information on this tab is entirely optional but it is required to achieve [Co-sell Ready and IP Co-sell incentive status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). The information you provide will be used by Microsoft sales teams to learn more about your offer when evaluating its fit for customer needs. This information is not available directly to customers. For more information about co-sell, see [Co-sell with Microsoft sellers and partners overview](./co-sell-overview.md) and [Co-sell with Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
 The Co-sell option is available for the following offer types.
 
@@ -88,7 +88,7 @@ You must provide collateral documents that provide details about your offer. Mic
 The supported file types are .pdf, .ppt, .pptx, .doc, .docx, .xls, .xlsx, .jpg, .png, and .mp4. Templates for some documents are provided in Table 2 below.
 
 > [!NOTE]
-> The **Solution/offer one-pager** and **Solution/offer pitch deck** are required to attain Co-sell Ready status. They are also prerequisites for some offers to be Azure IP Co-sell incentivized. The Reference architecture diagram is also required for Azure IP co-sell incentivized status. The other documents described in this table are optional but recommended.
+> The **Solution/offer one-pager** and **Solution/offer pitch deck** are required to attain Co-sell Ready status. They are also prerequisites for some offers to be a Azure IP Co-sell incentive. The Reference architecture diagram is also required for Azure IP co-sell incentive status. The other documents described in this table are optional but recommended.
 
 ***Table 2: Documents that support co-sell***
 
@@ -99,7 +99,7 @@ The supported file types are .pdf, .ppt, .pptx, .doc, .docx, .xls, .xlsx, .jpg, 
 | *Customer case study* (Optional)| Use the [Case study template](https://aka.ms/GTM_Case_Study_Template) to create your customer case study. This information shows a potential customer how you and Microsoft have successfully deployed your offer in prior cases. |
 | *Verifiable customer wins* (Optional) | Provide specific examples of customer successes after your offer has been deployed. |
 | *Channel pitch deck* (Optional) | A slide deck with information that helps channel resellers learn more about your offer and get their sales teams ready to sell it. This deck typically includes an elevator pitch, information about target customers, questions to ask customers, talking points, and links to videos, documentation, and support information. |
-| *Reference architecture diagram* (Required for Azure IP co-sell incentivized status) | A diagram that represents your offer and its relationship with Microsoft cloud services. It may also demonstrate how your offer meets the technical requirements for Azure IP Co-sell incentivized status. [Learn more about the reference architecture diagram.](reference-architecture-diagram.md) |
+| *Reference architecture diagram* (Required for Azure IP co-sell incentive status) | A diagram that represents your offer and its relationship with Microsoft cloud services. It may also demonstrate how your offer meets the technical requirements for Azure IP Co-sell incentive status. [Learn more about the reference architecture diagram.](reference-architecture-diagram.md) |
 | *Other documents* (Optional) | You may upload up to five additional documents or videos to help Microsoft sales teams and channel resellers learn more about your offer, organization, and how it's different from other offers. |
 |||
 

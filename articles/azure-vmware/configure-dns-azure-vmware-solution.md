@@ -31,7 +31,7 @@ This capability uses the DNS Forwarder Service in NSX-T. A DNS service and defau
 
 The diagram shows that the NSX-T DNS Service can forward DNS queries to DNS systems hosted in Azure and on-premises environments.
 
-:::image type="content" source="media/networking/dns-forwarder-diagram.png" alt-text="Diagram showing that the NSX-T DNS Service can forward DNS queries to DNS systems hosted in Azure and on-premises environments." border="false":::
+:::image type="content" source="media/networking/dns/dns-forwarder-diagram.png" alt-text="Diagram showing that the NSX-T DNS Service can forward DNS queries to DNS systems hosted in Azure and on-premises environments." border="false":::
 
 
 ## Configure DNS forwarder
@@ -41,21 +41,18 @@ The diagram shows that the NSX-T DNS Service can forward DNS queries to DNS syst
    >[!NOTE]
    >For private clouds created on or after July 1, 2021, the default DNS zone is created for you during the private cloud creation.
 
+   :::image type="content" source="media/networking/dns/configure-dns-forwarder-1.png" alt-text="Screenshot showing how to add DNS zones to an Azure VMware Solution private cloud.":::
 
-   :::image type="content" source="media/networking/configure-dns-forwarder-1.png" alt-text="Screenshot showing how to add DNS zones to an Azure VMware Solution private cloud.":::
+1. Select **FQDN zone**, provide a name and up to three DNS server IP addresses in the format of **10.0.0.53**. Then select **OK**.
 
-1. Select **FQDN zone** and provide a name, the FQDN zone, and up to three DNS server IP addresses in the format of **10.0.0.53**. Then select **OK**.
-
-   It takes several minutes to complete, and you can follow the progress from **Notifications**.
-
-   :::image type="content" source="media/networking/nsxt-workload-networking-configure-fqdn-zone.png" alt-text="Screenshot showing the required information needed to add an FQDN zone.":::
+   :::image type="content" source="media/networking/dns/nsxt-workload-networking-configure-fqdn-zone.png" alt-text="Screenshot showing the required information needed to add an FQDN zone.":::
 
    >[!IMPORTANT]
    >While NSX-T allows spaces and other non-alphanumeric characters in a DNS zone name, certain NSX resources such as a DNS Zone are mapped to an Azure resource whose names don’t permit certain characters. 
    >
    >As a result, DNS zone names that would otherwise be valid in NSX-T may need adjustment to adhere to the [Azure resource naming conventions](../azure-resource-manager/management/resource-name-rules.md#microsoftresources).
 
-   You’ll see a message in the Notifications when the DNS zone has been created.
+      It takes several minutes to complete, and you can follow the progress from **Notifications**. You’ll see a message in the Notifications when the DNS zone has been created.
 
 1. Ignore the message about a default DNS zone. A DNS zone is created for you as part of your private cloud.
 
@@ -68,15 +65,13 @@ The diagram shows that the NSX-T DNS Service can forward DNS queries to DNS syst
    >[!IMPORTANT]
    >While certain operations in your private cloud may be performed from NSX-T Manager, for private clouds created on or after July 1, 2021, you _must_ edit the DNS service from the Simplified Networking experience in the Azure portal for any configuration changes made to the default Tier-1 Gateway.  
 
-   :::image type="content" source="media/networking/configure-dns-forwarder-2.png" alt-text="Screenshot showing the DNS service tab with the Edit button selected.":::   
+   :::image type="content" source="media/networking/dns/configure-dns-forwarder-2.png" alt-text="Screenshot showing the DNS service tab with the Edit button selected.":::   
 
-1. From the **FQDN zones** drop-down, select the newly created FQDN and then select **OK**.
+1. From the **FQDN zones** drop-down, select the newly created FQDN, and then select **OK**.
 
-   It takes several minutes to complete and once finished, you'll see the *Completed* message from **Notifications**.
+   :::image type="content" source="media/networking/dns/configure-dns-forwarder-3.png" alt-text="Screenshot showing the selected FQDN for the DNS service.":::
 
-   :::image type="content" source="media/networking/configure-dns-forwarder-3.png" alt-text="Screenshot showing the selected FQDN for the DNS service.":::
-
-   At this point, management components in your private cloud should be able to resolve DNS entries from the FQDN zone provided to the NSX-T DNS Service. 
+   It takes several minutes to complete and once finished, you'll see the *Completed* message from **Notifications**. At this point, management components in your private cloud should be able to resolve DNS entries from the FQDN zone provided to the NSX-T DNS Service. 
 
 1. Repeat the above steps for other FQDN zones, including any applicable reverse lookup zones.
 
@@ -91,13 +86,13 @@ NSX-T Manager provides the DNS Forwarder Service statistics at the global servic
 
 1. In NSX-T Manager, select **Networking** > **DNS**, and then expand your DNS Forwarder Service.
 
-   :::image type="content" source="media/networking/nsxt-manager-dns-services.png" alt-text="Screenshot showing the DNS Services tab in NSX-T Manager.":::
+   :::image type="content" source="media/networking/dns/nsxt-manager-dns-services.png" alt-text="Screenshot showing the DNS Services tab in NSX-T Manager.":::
 
 1. Select **View Statistics** and then from the **Zone Statistics** drop-down, select your FQDN Zone.
 
    The top half shows the statistics for the entire service, and the bottom half shows the statistics for your specified zone. In this example, you can see the forwarded queries to the DNS services specified during the configuration of the FQDN zone.
 
-   :::image type="content" source="media/networking/nsxt-manager-dns-services-statistics.png" alt-text="Screenshot showing the DNS Forwarder statistics.":::
+   :::image type="content" source="media/networking/dns/nsxt-manager-dns-services-statistics.png" alt-text="Screenshot showing the DNS Forwarder statistics.":::
 
 
 ### PowerCLI
@@ -108,8 +103,6 @@ The NSX-T Policy API lets you run nslookup commands from the NSX-T DNS Forwarder
 
    >[!TIP]
    >You can obtain the IP address of your NSX-T Server from the Azure portal under **Manage** > **Identity**.
-   >
-   >:::image type="content" source="media/networking/configure-dns-forwarder-4.png" alt-text="Screenshot showing the NSX-T Server IP address.":::
  
    ```powershell
    Connect-NsxtServer -Server 10.103.64.3

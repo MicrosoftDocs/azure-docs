@@ -220,7 +220,7 @@ Import-based Azure VM assessments are assessments created with machines that are
 
 ## Why is the suggested migration tool in import-based AVS assessment marked as unknown?
 
-For machines imported via a CSV file, the default migration tool in an AVS assessment is unknown. Though, for VMware machines, it is recommended to use the VMware Hybrid Cloud Extension (HCX) solution. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+For machines imported via a CSV file, the default migration tool in an AVS assessment is unknown. Though, for VMware machines, it is recommended to use the VMware Hybrid Cloud Extension (HCX) solution. [Learn More](../azure-vmware/install-vmware-hcx.md).
 
 
 ## What is dependency visualization?
@@ -278,7 +278,7 @@ For agent-based dependency visualization:
 
 - Use a [script to install the Dependency agent](../azure-monitor/vm/vminsights-enable-hybrid.md#dependency-agent).
 - For MMA, [use the command line or automation](../azure-monitor/agents/log-analytics-agent.md#installation-options), or use a [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
-- In addition to scripts, you can use deployment tools like Microsoft Endpoint Configuration Manager and [Intigua](https://www.intigua.com/intigua-for-azure-migration) to deploy the agents.
+- In addition to scripts, you can use deployment tools like Microsoft Endpoint Configuration Manager and Intigua to deploy the agents.
 
 ## What operating systems does MMA support?
 

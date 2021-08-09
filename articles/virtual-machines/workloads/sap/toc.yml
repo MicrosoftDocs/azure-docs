@@ -142,6 +142,8 @@
     href: dbms_guide_sapase.md
   - name: SAP MaxDB, liveCache and Content Server on Azure
     href: dbms_guide_maxdb.md
+  - name: SAP IQ on Azure VMs
+    href: sap-iq-deployment-guide.md
   - name: HANA  
     items: 
     - name: Install SAP HANA on Azure VMs
@@ -276,10 +278,12 @@
     href: azure-monitor-providers.md
   - name: Configure AMS - Portal
     href: azure-monitor-sap-quickstart.md
+  - name: Configure Alerts in AMS - Portal
+    href: azure-monitor-alerts-portal.md
   - name: Configure AMS - Azure PowerShell
     href: azure-monitor-sap-quickstart-powershell.md
   - name: AMS FAQ
-    href: azure-monitor-faq.md
+    href: azure-monitor-faq.yml
 - name: Reference
   items:
   - name: Azure CLI

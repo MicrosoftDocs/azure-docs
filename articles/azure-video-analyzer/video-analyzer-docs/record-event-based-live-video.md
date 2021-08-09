@@ -2,7 +2,7 @@
 title: Event-based video recording to the cloud and playback from the cloud tutorial - Azure
 description: In this tutorial, you'll learn how to use Azure Video Analyzer to record an event-based video recording to the cloud and play it back from the cloud.
 ms.topic: tutorial
-ms.date: 04/13/2021
+ms.date: 06/01/2021
 
 ---
 # Tutorial: Event-based video recording and playback
@@ -56,9 +56,9 @@ Alternatively, you can trigger recording only when an inferencing service detect
 The diagram is a pictorial representation of a [pipeline](pipeline.md) and additional modules that accomplish the desired scenario. Four IoT Edge modules are involved:
 
 * Video Analyzer on an IoT Edge module.
-* An edge module running an AI model behind an HTTP endpoint. This AI module uses the [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) model, which can detect many types of objects.
+* An edge module running an AI model behind an HTTP endpoint. This AI module uses the [YOLOv3](https://github.com/Azure/video-analyzer/tree/main/edge-modules/extensions/yolo/yolov3) model, which can detect many types of objects.
 * A custom module to count and filter objects, which is referred to as an Object Counter in the diagram. You'll build an Object Counter and deploy it in this tutorial.
-* An [RTSP simulator module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) to simulate an RTSP camera.
+* An [RTSP simulator module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) to simulate an RTSP camera.
     
 As the diagram shows, you'll use an [RTSP source](pipeline.md#rtsp-source) node in the pipeline to capture the simulated live video of traffic on a highway and send that video to two paths:
 
@@ -159,7 +159,7 @@ In about 30 seconds, refresh Azure IoT Hub in the lower-left section in Visual S
     
 1. Next, under the **livePipelineSet** and **pipelineTopologyDelete** nodes, ensure that the value of **topologyName** matches the value of the **name** property in the above pipeline topology:
 
-    `"pipelineTopologyName" : "EVRtoVideosOnObjDetect"`
+    `"pipelineTopologyName" : "EVRtoVideoSinkOnObjDetect"`
 1. Open the [pipeline topology](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-hubMessage-video-sink/topology.json) in a browser, and look at videoName - it is hard-coded to `sample-evr-video`. This is acceptable for a tutorial. In production, you would take care to ensure that each unique RTSP camera is recorded to a video resource with a unique name.
 1. Start a debugging session by selecting F5. You'll see some messages printed in the **TERMINAL** window.
 1. The operations.json file starts off with calls to pipelineTopologyList and livePipelineList. If you've cleaned up resources after previous quickstarts or tutorials, this action returns empty lists and then pauses for you to select **Enter**, as shown:
@@ -187,7 +187,7 @@ In about 30 seconds, refresh Azure IoT Hub in the lower-left section in Visual S
           "@apiVersion": "1.0",
           "name": "Sample-Pipeline-1",
           "properties": {
-            "topologyName": "EVRtoVideosOnObjDetect",
+            "topologyName": "EVRtoVideoSinkOnObjDetect",
             "description": "Sample topology description",
             "parameters": [
               {

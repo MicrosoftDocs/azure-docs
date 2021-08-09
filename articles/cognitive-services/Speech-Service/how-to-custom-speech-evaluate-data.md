@@ -3,13 +3,13 @@ title: "Evaluate and improve Custom Speech accuracy - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "In this document you learn how to quantitatively measure and improve the quality of our speech-to-text model or your custom model. Audio + human-labeled transcription data is required to test accuracy, and 30 minutes to 5 hours of representative audio should be provided."
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: trbye
+ms.author: nitinme
 ---
 
 # Evaluate and improve Custom Speech accuracy

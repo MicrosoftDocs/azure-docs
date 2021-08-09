@@ -3,8 +3,8 @@ title: "Scale an application in Azure Spring Cloud | Microsoft Docs"
 description: Learn how to scale an application with Azure Spring Cloud in the Azure portal
 ms.service: spring-cloud
 ms.topic: how-to
-ms.author: brendm
-author: brendm
+ms.author: karler
+author: karlerickson
 ms.date: 10/06/2019
 ms.custom: devx-track-java
 ---

@@ -209,7 +209,7 @@
   - name: .NET
     href: /dotnet/api/overview/azure/virtual-network
   - name: Node.js
-    href: /javascript/api/@azure/arm-network
+    href: /javascript/api/overview/azure/arm-network-readme
   - name: REST
     href: /rest/api/network-watcher/
 - name: Resources

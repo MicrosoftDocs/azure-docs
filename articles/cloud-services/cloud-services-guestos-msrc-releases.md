@@ -76,7 +76,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 |  Rel 21-06 |  [5003646]  |  Latest Cumulative Update(LCU) | [6.32] | June 8, 2021 |
-|  Rel 21-06 |  [4580325]  |  Flash update | [3.98], [4.91], [5.56], [6.32] | Oct 13, 2020 |
+|  Rel 21-06 |  4580325  |  Flash update | [3.98], [4.91], [5.56], [6.32] | Oct 13, 2020 |
 |  Rel 21-06 |  [5003636]  |  IE Cumulative Updates | [2.111], [3.98], [4.91] | June 8, 2021 |
 |  Rel 21-06 |  [5003638]  |  Latest Cumulative Update(LCU) | [5.56] | June 8, 2021 |
 |  Rel 21-06 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup  | [2.111] | Oct 13, 2020 |
@@ -100,7 +100,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 21-06 |  [4052623]  |  Update for Microsoft Defender antimalware platform | [6.32], [5.56] | May 13, 2021 |
 
 [5003646]: https://support.microsoft.com/kb/5003646
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [5003636]: https://support.microsoft.com/kb/5003636
 [5003638]: https://support.microsoft.com/kb/5003638
 [4578952]: https://support.microsoft.com/kb/4578952
@@ -134,7 +134,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 |  Rel 21-05 |  [5003171]  |  Latest Cumulative Update(LCU) | [6.31] | May 11, 2021 |
-|  Rel 21-05 |  [4580325]  |  Flash update | [3.97], [4.90], [5.55], [6.31] | Oct 13, 2020 |
+|  Rel 21-05 |  4580325  |  Flash update | [3.97], [4.90], [5.55], [6.31] | Oct 13, 2020 |
 |  Rel 21-05 |  [5003165]  |  IE Cumulative Updates | [2.110], [3.97], [4.90] | May 11, 2021 |
 |  Rel 21-05 |  [5003197]  |  Latest Cumulative Update(LCU) | [5.55] | May 11, 2021 |
 |  Rel 21-05 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup  | [2.110] | Oct 13, 2020 |
@@ -157,7 +157,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 21-05 |  [4494174]  |  Microcode  | [6.31] | Sep 1, 2020 |
 
 [5003171]: https://support.microsoft.com/kb/5003171
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [5003165]: https://support.microsoft.com/kb/5003165
 [5003197]: https://support.microsoft.com/kb/5003197
 [4578952]: https://support.microsoft.com/kb/4578952
@@ -190,7 +190,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 |  Rel 21-04 |  [5001342]  |  Latest Cumulative Update(LCU) | [6.30] | Apr 13, 2021 |
-|  Rel 21-04 |  [4580325]  |  Flash update | [3.96], [4.89], [5.54], [6.30] | Oct 13, 2020 |
+|  Rel 21-04 |  4580325  |  Flash update | [3.96], [4.89], [5.54], [6.30] | Oct 13, 2020 |
 |  Rel 21-04 |  [5000800]  |  IE Cumulative Updates | [2.109], [3.96], [4.89] | Mar 9, 2021 |
 |  Rel 21-04 |  [5001347]  |  Latest Cumulative Update(LCU) | [5.54] | Apr 13, 2021 |
 |  Rel 21-04 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup  | [2.109] | Oct 13, 2020 |
@@ -213,7 +213,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 21-04 |  [4494174]  |  Microcode  | [6.30] | Sep 1, 2020 |
 
 [5001342]: https://support.microsoft.com/kb/5001342
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [5000800]: https://support.microsoft.com/kb/5000800
 [5001347]: https://support.microsoft.com/kb/5001347
 [4578952]: https://support.microsoft.com/kb/4578952
@@ -246,7 +246,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 |  Rel 21-03 |  [5000822]  |  Latest Cumulative Update(LCU) | [6.29] | Mar 9, 2021 |
-|  Rel 21-03 |  [4580325]  |  Flash update | [3.95], [4.88], [5.53], [6.29] | Oct 13, 2020 |
+|  Rel 21-03 |  4580325  |  Flash update | [3.95], [4.88], [5.53], [6.29] | Oct 13, 2020 |
 |  Rel 21-03 |  [5000800]  |  IE Cumulative Updates | [2.108], [3.95], [4.88] | Mar 9, 2021 |
 |  Rel 21-03 |  [5000803]  |  Latest Cumulative Update(LCU) | [5.53] | Mar 9, 2021 |
 |  Rel 21-03 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup  | [2.108] | Oct 13, 2020 |
@@ -268,7 +268,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 21-03 |  [4494174]  |  Microcode  | [6.29] | Sep 1, 2020 |
 
 [5000822]: https://support.microsoft.com/kb/5000822
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [5000800]: https://support.microsoft.com/kb/5000800
 [5000803]: https://support.microsoft.com/kb/5000803
 [4578952]: https://support.microsoft.com/kb/4578952
@@ -300,7 +300,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 |  Rel 21-02 |  [4601345]  |  Latest Cumulative Update(LCU) | [6.28] | Feb 9, 2021 |
-|  Rel 21-02 |  [4580325]  |  Flash update | [3.94], [4.87], [5.52], [6.28] | Oct 13, 2020 |
+|  Rel 21-02 |  4580325  |  Flash update | [3.94], [4.87], [5.52], [6.28] | Oct 13, 2020 |
 |  Rel 21-02 |  [4586768]  |  IE Cumulative Updates | [2.107], [3.94], [4.87] | Nov 10, 2020 |
 |  Rel 21-02 |  [4601318]  |  Latest Cumulative Update(LCU) | [5.52] | Feb 9, 2021 |
 |  Rel 21-02 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup | [2.107] | Jan 12, 2021 |
@@ -323,7 +323,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 21-02 |  [4494174]  |  Microcode | [6.28] | Sep 1, 2020 |
 
 [4601345]: https://support.microsoft.com/kb/4601345
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [4586768]: https://support.microsoft.com/kb/4586768
 [4601318]: https://support.microsoft.com/kb/4601318
 [4578952]: https://support.microsoft.com/kb/4578952
@@ -356,7 +356,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 |  Rel 21-01 |  [4598230]  |  Latest Cumulative Update (LCU) | [6.27] | Jan 12, 2021 |
-|  Rel 21-01 |  [4580325]  |  Flash update | [3.93], [4.86], [5.51], [6.27] | Oct 13, 2020 |
+|  Rel 21-01 |  4580325  |  Flash update | [3.93], [4.86], [5.51], [6.27] | Oct 13, 2020 |
 |  Rel 21-01 |  [4586768]  |  IE Cumulative Updates | [2.106], [3.93], [4.86] | Nov 10, 2020 |
 |  Rel 21-01 |  [4598243]  |  Latest Cumulative Update (LCU) | [5.51] | Jan 12, 2021 |
 |  Rel 21-01 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup | [2.106] | Jan 12, 2021 |
@@ -379,7 +379,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 21-01 |  [4494174]  |  Microcode | [6.27] | Sep 3, 2020 |
 
 [4598230]: https://support.microsoft.com/kb/4598230
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [4586768]: https://support.microsoft.com/kb/4586768
 [4598243]: https://support.microsoft.com/kb/4598243
 [4578952]: https://support.microsoft.com/kb/4578952
@@ -411,7 +411,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 |  Rel 20-12 |  [4592440]  |  Latest Cumulative Update | [6.26] | Dec 8, 2020 |
-|  Rel 20-12 |  [4580325]  |  Flash update | [3.92], [4.85], [5.50], [6.26] | Oct 13, 2020 |
+|  Rel 20-12 |  4580325  |  Flash update | [3.92], [4.85], [5.50], [6.26] | Oct 13, 2020 |
 |  Rel 20-12 |  [4586768]  |  IE Cumulative Updates | [2.105], [3.92], [4.85] | Nov 10, 2020 |
 |  Rel 20-12 |  [4593226]  |  Latest Cumulative Update | [5.50] | Dec 8, 2020 |
 |  Rel 20-12 |  [4052623]  |  Defender | [5.50], [6.26] | Dec 13, 2020 |
@@ -435,7 +435,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 20-12 |  [4494174]  |  Microcode | [6.26] | Sep 3, 2020 |
 
 [4592440]: https://support.microsoft.com/kb/4592440
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [4586768]: https://support.microsoft.com/kb/4586768
 [4593226]: https://support.microsoft.com/kb/4593226
 [4052623]: https://support.microsoft.com/kb/4052623
@@ -469,7 +469,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | --- | --- | --- | --- | --- |
 |  Rel 20-11 OOB |  [4594442]  |  Latest Cumulative Update | [6.25] | Nov 17, 2020 |
 |  Rel 20-11 OOB |  [4594441]  |  Latest Cumulative Update | [5.49] | Nov 19, 2020 |
-|  Rel 20-11 |  [4580325]  |  Flash Update | [3.91], [4.84], [5.49], [6.25] | Oct 13, 2020 |
+|  Rel 20-11 |  4580325  |  Flash Update | [3.91], [4.84], [5.49], [6.25] | Oct 13, 2020 |
 |  Rel 20-11 |  [4586768]  |  IE Cumulative Update | [2.104], [3.91], [4.84] | Nov 10, 2020 |
 |  Rel 20-11 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup | [2.104] | Nov 10, 2020 |
 |  Rel 20-11 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup | [2.104] | Nov 10, 2020 |
@@ -492,7 +492,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 [4594442]: https://support.microsoft.com/kb/4594442
 [4594441]: https://support.microsoft.com/kb/4594441
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [4586768]: https://support.microsoft.com/kb/4586768
 [4578952]: https://support.microsoft.com/kb/4578952
 [4578955]: https://support.microsoft.com/kb/4578955
@@ -525,7 +525,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 |  Rel 20-10 |  [4577010]  |  IE Cumulative Update | [2.103], [3.90], [4.83] | Sep 8, 2020 |
-|  Rel 20-10 |  [4580325]  |  Flash Update | [3.90], [4.83], [5.48], [6.24] | Oct 13, 2020 |
+|  Rel 20-10 |  4580325  |  Flash Update | [3.90], [4.83], [5.48], [6.24] | Oct 13, 2020 |
 |  Rel 20-10 |  [4577668]  |  Latest Cumulative Update | [6.24] | Oct 13, 2020 |
 |  Rel 20-10 |  [4580346]  |  Latest Cumulative Update | [5.48] | Oct 13, 2020 |
 |  Rel 20-10 |  [4580970]  |  Servicing Stack update | [2.103] | Oct 13, 2020 |
@@ -549,7 +549,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 
 [4577010]: https://support.microsoft.com/kb/4577010
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [4577668]: https://support.microsoft.com/kb/4577668
 [4580346]: https://support.microsoft.com/kb/4580346
 [4580970]: https://support.microsoft.com/kb/4580970

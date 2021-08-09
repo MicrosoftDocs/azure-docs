@@ -38,9 +38,9 @@ The service could be an Azure service such as:
 Here are some key details about private endpoints: 
 - Private endpoint enables connectivity between the consumers from the same VNet, regionally peered VNets, globally peered VNets and on premises using [VPN](https://azure.microsoft.com/services/vpn-gateway/) or [Express Route](https://azure.microsoft.com/services/expressroute/) and services powered by Private Link.
  
-- Network connections can only be initiated by clients connecting to the Private endpoint, Service providers don't have any routing configuration to create connections into service consumers. Connections can only be established in a single direction.
+- Network connections can only be initiated by clients connecting to the private endpoint. Service providers don't have routing configuration to create connections into service consumers. Connections can only be established in a single direction.
 
-- When creating a private endpoint, a read-only network interface is also created for the lifecycle of the resource. The interface is assigned dynamically private IP addresses from the subnet that maps to the private link resource. The value of the private IP address remains unchanged for the entire lifecycle of the private endpoint.
+- When creating a private endpoint, a read-only network interface is created for the lifecycle of the resource. The interface is assigned a dynamic private IP address from the subnet that maps to the private link resource. The value of the private IP address remains unchanged for the entire lifecycle of the private endpoint.
  
 - The private endpoint must be deployed in the same region and subscription as the virtual network. 
  
@@ -90,7 +90,7 @@ A private link resource is the destination target of a given private endpoint. T
 | **Azure Relay** | Microsoft.Relay/namespaces | namespace |
 | **Microsoft Search** | Microsoft.Search/searchServices | search service |
 | **Azure Service Bus** | Microsoft.ServiceBus/namespaces | namespace |
-| **SignalR** | Microsoft.SignalRService/SignalR | signalR |
+| **SignalR** | Microsoft.SignalRService/SignalR | signalr |
 | **SignalR** | Microsoft.SignalRService/webPubSub | signalR |
 | **Azure SQL Database** | Microsoft.Sql/servers | Sql Server (sqlServer) |
 | **Azure Storage** | Microsoft.Storage/storageAccounts | Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary) |
@@ -98,8 +98,9 @@ A private link resource is the destination target of a given private endpoint. T
 | **Azure Synapse** | Microsoft.Synapse/privateLinkHubs | synapse |
 | **Azure Synapse Analytics** | Microsoft.Synapse/workspaces | Sql, SqlOnDemand, Dev | 
 | **Azure App Service** | Microsoft.Web/hostingEnvironments | hosting environment |
-| **Azure App Service** | Microsoft.Web/sites | site |
+| **Azure App Service** | Microsoft.Web/sites | sites |
 | **Azure App Service** | Microsoft.Web/staticSites | staticSite |
+
  
 ## Network security of private endpoints 
 When using private endpoints for Azure services, traffic is secured to a specific private link resource. The platform performs an access control to validate network connections reaching only the specified private link resource. To access more resources within the same Azure service, extra private endpoints are required. 

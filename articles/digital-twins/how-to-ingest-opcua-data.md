@@ -63,7 +63,7 @@ For more detailed information on installing each of these pieces, see the follow
 * [Step-by-step guide to installing OPC Publisher on Azure IoT Edge](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher) 
 * [Install IoT Edge on Linux](../iot-edge/how-to-install-iot-edge.md) 
 * [OPC Publisher on GitHub](https://github.com/Azure/iot-edge-opc-publisher)
-* [Configure OPC Publisher](../iot-accelerators/howto-opc-publisher-configure.md)
+* [Configure OPC Publisher](/previous-versions/azure/iot-accelerators/howto-opc-publisher-configure)
 
 ### Set up OPC UA Server
 
@@ -263,7 +263,7 @@ az iot hub monitor-events -n <iot-hub-instance> -t 0
 ```
 
 > [!TIP]
-> Try using [Azure IoT Explorer](../iot-pnp/howto-use-iot-explorer.md) to monitor IoT Hub messages.
+> Try using [Azure IoT Explorer](../iot-fundamentals/howto-use-iot-explorer.md) to monitor IoT Hub messages.
 
 #### Verify completion
 
@@ -288,7 +288,7 @@ For this example, you'll use a single model and a single twin instance to match 
 
 ### Create Azure Digital Twins instance
 
-First, deploy a new Azure Digital Twins instance, using the guidance in [How-to: Set up an instance and authentication](how-to-set-up-instance-portal.md).
+First, deploy a new Azure Digital Twins instance, using the guidance in [Set up an instance and authentication](how-to-set-up-instance-portal.md).
 
 ### Upload model and create twin
 
@@ -438,6 +438,6 @@ Next, use the following resources to read more about the supporting tools and pr
 * [Step-by-step guide to installing OPC Publisher on Azure IoT Edge](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher) 
 * [Install IoT Edge on Linux](../iot-edge/how-to-install-iot-edge.md) 
 * [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher)
-* [Configure OPC Publisher](../iot-accelerators/howto-opc-publisher-configure.md)
+* [Configure OPC Publisher](/previous-versions/azure/iot-accelerators/howto-opc-publisher-configure)
 * [UANodeSetWebViewer](https://github.com/barnstee/UANodesetWebViewer) 
 * [OPCUA2DTDL](https://github.com/khilscher/OPCUA2DTDL)
