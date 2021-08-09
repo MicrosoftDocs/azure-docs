@@ -122,7 +122,7 @@ Start-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
 You can verify when your cluster has started by using the [Get-AzAksCluster][get-azakscluster] cmdlet and confirming the `ProvisioningState` shows `Succeeded` as on the below output:
 
 ```Output
-ProvisioningState       : Stopped
+ProvisioningState       : Succeeded
 MaxAgentPools           : 100
 KubernetesVersion       : 1.20.7
 ...
