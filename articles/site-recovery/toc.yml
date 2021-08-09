@@ -220,6 +220,8 @@
       items:
       - name: Enable Azure to Azure replication
         href: azure-to-azure-how-to-enable-replication.md
+      - name: Enable global disaster recovery
+        href: azure-to-azure-enable-global-disaster-recovery.md
       - name: Enable Azure to Azure replication using Policy
         href: azure-to-azure-how-to-enable-policy.md
       - name: Enable Azure to Azure replication for encrypted VMs
