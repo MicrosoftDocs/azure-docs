@@ -506,6 +506,8 @@
     - name: Replication
       href: flexible-server/concepts-logical.md
       displayName: logical decoding
+    - name: Intelligent tuning
+      href: flexible-server/concepts-intelligent-tuning.md
   - name: How-to guides
     items:
     - name: Manage a server
