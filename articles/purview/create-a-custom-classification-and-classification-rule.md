@@ -14,7 +14,7 @@ This article describes how you can create custom classifications to define data 
 
 ## Default system classifications
 
-The Azure Purview Data Catalog provides a large set of default system classifications that represent typical personal data types that you might have in your data estate. The entire list of available system classifications can be found [here](supported-classifications.md).
+The Azure Purview Data Catalog provides a large set of default system classifications that represent typical personal data types that you might have in your data estate. For the entire list of available system classifications, see [Supported classifications in Azure Purview](supported-classifications.md).
 
 :::image type="content" source="media/create-a-custom-classification-and-classification-rule/classification.png" alt-text="select classification" border="true":::
 
