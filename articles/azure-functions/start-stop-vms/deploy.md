@@ -14,6 +14,11 @@ Perform the steps in this topic in sequence to install the Start/Stop VMs v2 (pr
 > [!NOTE]
 > If you run into problems during deployment, you encounter an issue when using Start/Stop VMs v2 (preview), or if you have a related question, you can submit an issue on [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). Filing an Azure support incident from the [Azure support site](https://azure.microsoft.com/support/options/) is not available for this preview version. 
 
+> [!NOTE]
+> By design the solution allows those with appropriate RBAC (Role-Based Access Control) permission on the Start/Stop V2 deployment to add, remove and manage schedules for virtual machines under the scope of the Start/Stop V2. In practice this means a user who does not have direct RBAC permission on a virtual machine could still create start, stop and autostop operations on that virtual machine if they have the RBAC permission to modify the Start/Stop V2 solution managing it.
+> In addition to being able to indirectly act on virtual machines, any users with access to the Start/Stop V2 solution could also uncover cost, savings, operation history, and other data which is stored in the Start/Stop V2 application insights instance.
+> Due to this design, the person managing the Start/Stop V2 solution should be mindful of who has permission to the Start/Stop V2 solution, especially if those users do not have permission to directly modify the target virtual machines.
+
 ## Deploy feature
 
 The deployment is initiated from the Start/Stop VMs v2 GitHub organization [here](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md). While this feature is intended to manage all of your VMs in your subscription across all resource groups from a single deployment within the subscription, you can install another instance of it based on the operations model or requirements of your organization. It also can be configured to centrally manage VMs across multiple subscriptions.
@@ -49,7 +54,10 @@ To simplify management and removal, we recommend you deploy Start/Stop VMs v2 (p
     :::image type="content" source="media/deploy/deployment-results-resource-list.png" alt-text="Start/Stop VMs template deployment resource list":::
 
 > [!NOTE]
-> The naming format for the function app and storage account has changed. To guarantee global uniqueness, a random and unique string is now appended to the names of these resource.  
+> The naming format for the function app and storage account has changed. To guarantee global uniqueness, a random and unique string is now appended to the names of these resource.
+
+> [!NOTE]
+> We are collecting operation and heartbeat telemetry to better assist you if you reach the support team for any troubleshooting. We are also collecting virtual machine event history to verify when the service acted on a virtual machine and how long a virtual machine was snoozed in order to determine the efficacy of the service.
 
 ## Enable multiple subscriptions
 
