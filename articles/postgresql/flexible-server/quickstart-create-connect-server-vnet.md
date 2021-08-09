@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 07/29/2021
 ---
 
-# Connect Azure Database for PostgreSQL Flexible Server with private access connectivity method
+# Connect Azure Database for PostgreSQL Flexible Server with the private access connectivity method
 
 Azure Database for PostgreSQL Flexible Server is a managed service that you can use to run, manage, and scale highly available PostgreSQL servers in the cloud. This quickstart shows you how to create a flexible server in a virtual network by using the Azure portal.
 
@@ -38,7 +38,7 @@ Complete these steps to create a flexible server:
 
     :::image type="content" source="./media/quickstart-create-connect-server-vnet/deployment-option.png" alt-text="Screenshot that shows the Flexible server option." lightbox="./media/quickstart-create-connect-server-vnet/deployment-option.png":::
 
-4. On the **Basics** tab, enter the **subscription**, **resource group**, **region**, and **server name**.  With the default values, this will provision a PostgreSQL server of version 12 with General purpose pricing tier  using 2 vCores, 8 GiB RAM, 128 GiB storage. The backup retention is **seven** days. You can use **Development** workload to default to a lower-cost pricing tier.
+4. On the **Basics** tab, enter the **subscription**, **resource group**, **region**, and **server name**.  With the default values, this will provision a PostgreSQL server of version 12 with General purpose pricing tier  using 2 vCores, 8 GiB RAM, and 28 GiB storage. The backup retention is **seven** days. You can use **Development** workload to default to a lower-cost pricing tier.
 
     :::image type="content" source="./media/quickstart-create-connect-server-vnet/postgres-create-basics.png" alt-text="Screenshot that shows the Basics tab of the postgres flexible server page." lightbox="/media/quickstart-create-connect-server-vnet/postgres-create-basics.png":::
 
@@ -46,7 +46,7 @@ Complete these steps to create a flexible server:
 
     :::image type="content" source="./media/quickstart-create-connect-server-vnet/db-administrator-account.png" alt-text="Screenshot that shows the admin user information page." lightbox="/media/quickstart-create-connect-server-vnet/db-administrator-account.png":::
 
-6.  Go to the **Networking** tab, select **private access**.You can't change the connectivity method after you create the server. Select **Create virtual network** to create new  virtual network **vnetenvironment1**. Select **OK** once you have provided the virtual network name and subnet information.
+6.  Go to the **Networking** tab, and select **private access**. You can't change the connectivity method after you create the server. Select **Create virtual network** to create a new  virtual network **vnetenvironment1**. Select **OK** once you have provided the virtual network name and subnet information.
 
     :::image type="content" source="./media/quickstart-create-connect-server-vnet/create-new-vnet-for-postgres-server.png" alt-text="Screenshot that shows the Networking tab with new VNET." lightbox="./media/quickstart-create-connect-server-vnet/create-new-vnet-for-postgres-server.png":::
 
@@ -60,17 +60,17 @@ Complete these steps to create a flexible server:
 
 9.  Select **Go to resource** to view the server's **Overview** page opens.
 
-## Create Azure Linux virtual machine
+## Create an Azure Linux virtual machine
 
-Since the server is in virtual network, you can only connect to the server from other Azure services in the same virtual network as the server. To connect and manage the server, let's create a Linux virtual machine. The virtual machine must be created in the **same region** and **same subscription**. The Linux virtual machine can be used as SSH tunnel to manage your database server. 
+Since the server is in a virtual network, you can only connect to the server from other Azure services in the same virtual network as the server. To connect and manage the server, let's create a Linux virtual machine. The virtual machine must be created in the **same region** and **same subscription**. The Linux virtual machine can be used as an SSH tunnel to manage your database server. 
 
 1. Go to your resource group in which the server was created. Select **Add**.
-2. Select **Ubuntu Server 18.04 LTS**
+2. Select **Ubuntu Server 18.04 LTS**.
 3. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name.
 
    :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine." lightbox="../../virtual-machines/linux/media/quick-create-portal/project-details.png"::: 
 
-2. Under **Instance details**, type *myVM* for the **Virtual machine name**, choose the same **Region** as your database server.
+2. Under **Instance details**, type *myVM* for the **Virtual machine name**, and choose the same **Region** as your database server.
 
    :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size." lightbox="../../virtual-machines/linux/media/quick-create-portal/instance-details.png":::
 
@@ -86,7 +86,7 @@ Since the server is in virtual network, you can only connect to the server from 
 
    :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/inbound-port-rules.png" alt-text="Screenshot of the inbound port rules section where you select what ports inbound connections are allowed on." lightbox="../../virtual-machines/linux/media/quick-create-portal/inbound-port-rules.png":::
 
-7. Select **Networking** page to configure the virtual network. For virtual network, choose the **vnetenvironment1** created for the database server.
+7. Select the **Networking** page to configure the virtual network. For the virtual network, choose the **vnetenvironment1** created for the database server.
 
    :::image type="content" source="./media/quickstart-create-connect-server-vnet/vm-vnet-configuration.png" alt-text="Screenshot of select existing virtual network of the database server." lightbox="./media/quickstart-create-connect-server-vnet/vm-vnet-configuration.png":::
 
@@ -94,7 +94,7 @@ Since the server is in virtual network, you can only connect to the server from 
 
     :::image type="content" source="./media/quickstart-create-connect-server-vnet/vm-manage-subnet-integration.png" alt-text="Screenshot of manage subnet." lightbox="./media/quickstart-create-connect-server-vnet/vm-manage-subnet-integration.png":::
 
-9. Add new subnet for the virtual machine.
+9. Add the new subnet for the virtual machine.
 
     :::image type="content" source="./media/quickstart-create-connect-server-vnet/vm-add-new-subnet.png" alt-text="Screenshot of adding a new subnet for virtual machine." lightbox="./media/quickstart-create-connect-server-vnet/vm-add-new-subnet.png"::: 
 
@@ -106,7 +106,7 @@ Since the server is in virtual network, you can only connect to the server from 
 12. Select **Create**. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be downloaded as **myKey.pem**.
 
     >[!IMPORTANT]
-    > Make sure you know where the `.pem` file was downloaded, you will need the path to it in the next step.
+    > Make sure you know where the `.pem` file was downloaded. You will need the path to it in the next step.
 
 13. When the deployment is finished, select **Go to resource** to view the virtual machine **Overview** page.
 
@@ -123,9 +123,9 @@ ssh -i .\Downloads\myKey1.pem azureuser@10.111.12.123
 ```
 
 > [!TIP]
-> The SSH key you created can be used the next time your create a VM in Azure. Just select the **Use a key stored in Azure** for **SSH public key source** the next time you create a VM. You already have the private key on your computer, so you won't need to download anything.
+> The SSH key you created can be used the next time you create a VM in Azure. Just select the **Use a key stored in Azure** for **SSH public key source** the next time you create a VM. You already have the private key on your computer, so you won't need to download anything.
 
-You need to install postgresql-client tool to be able to connect to the server.
+You need to install the postgresql-client tool to be able to connect to the server.
 
 ```bash
 sude apt-getupdate
@@ -139,7 +139,7 @@ wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA
 ```
 
 ## Connect to the server from Azure Linux virtual machine
-With **psql** client tool installed, we can now connect to the server from your local environment.
+With the **psql** client tool installed, we can now connect to the server from your local environment.
 
 ```bash
 psql --host=mydemoserver-pg.postgres.database.azure.com --port=5432 --username=myadmin --dbname=postgres --set=sslmode=require --set=sslrootcert=DigiCertGlobalRootCA.crt.pem
