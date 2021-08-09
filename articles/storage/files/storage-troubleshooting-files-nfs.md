@@ -12,7 +12,7 @@ ms.custom: references_regions, devx-track-azurepowershell
 
 # Troubleshoot Azure NFS file share problems
 
-This article lists some common problems related to Azure NFS file shares. It provides potential causes and workarounds when these problems are encountered. Also, listing certain issues that have fix under development.
+This article lists some common problems related to Azure NFS file shares (preview). It provides potential causes and workarounds when these problems are encountered. Also, this article also covers known issues in public preview.
 
 ## Applies to
 | File share type | SMB | NFS |
