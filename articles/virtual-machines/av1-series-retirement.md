@@ -21,6 +21,9 @@ On 31 August 2024, we'll retire Basic and Standard A-series VMs. Before that dat
 
 You can resize your virtual machines to the Av2-series using the [Azure portal](https://portal.azure.com), [PowerShell](windows/resize-vm.md) and [CLI](/linux/change-vm-size.md). Below are examples on how to resize your VM using Azure portal and PowerShell. 
 
+> [!IMPORTANT]
+> Resizing the virtual machine will result in a restart. It is suggested to perform actions that will result in a restart during off-peak business hours. 
+
 ### Azure Portal 
 1. Open the [Azure portal](https://portal.azure.com).
 1. Type **virtual machines** in the search.
@@ -28,9 +31,6 @@ You can resize your virtual machines to the Av2-series using the [Azure portal](
 1. In the **Virtual machines** page, select the virtual machine you want to resize.
 1. In the left menu, select size.
 1. Pick a new Av2 size from the list of available sizes and select Resize.
-
-> [!NOTE]
-> Resizing the virtual machine will result in a restart. It is suggested to perform actions that will result in a restart during off-peak business hours. 
 
 ### Azure PowerShell
 1. Set the resource group and VM name variables. Replace the values with information of the VM you want to resize. 
@@ -46,9 +46,6 @@ You can resize your virtual machines to the Av2-series using the [Azure portal](
     ```
 
 3. Resize the VM to the new size.
-
-> [!NOTE]
-> Resizing the virtual machine will result in a restart. It is suggested to perform actions that will result in a restart during off-peak business hours. 
 
     ```powershell
     $vm = Get-AzVM -ResourceGroupName $resourceGroup -VMName $vmName
