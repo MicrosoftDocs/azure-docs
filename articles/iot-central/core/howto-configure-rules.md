@@ -27,7 +27,7 @@ Conditions are what rules trigger on. You can add multiple conditions to a rule 
 
 In the following screenshot, the conditions check when the temperature is greater than 70&deg; F and the humidity is less than 10. When any of these statements are true, the rule evaluates to true and triggers an action.
 
-:::image type="content" source="media/howto-configure-rules/conditionsv1.png" alt-text="Screenshot shows a refrigerator monitor with conditions specified for temperature and humidity.":::
+:::image type="content" source="media/howto-configure-rules/conditions.png" alt-text="Screenshot shows a refrigerator monitor with conditions specified for temperature and humidity.":::
 
 > [!NOTE]
 > Currently only Telemetry Conditions are supported.  
@@ -40,7 +40,7 @@ If you choose an event type telemetry value, the **Value** drop-down includes th
 
 ## Use aggregate windowing
 
-You can specify a time aggregation to trigger your rule based on a time window. Rule conditions evaluate aggregate time windows on telemetry data as tumbling windows. If there are any property filters in the Rule, they are applied at the end of the time window. In the screenshot below, the time window is five minutes. Every five minutes, the rule evaluates on the last five minutes of telemetry data. The data is only evaluated once in the window to which it corresponds.
+You can specify a time aggregation to trigger your rule based on a time window. Rule conditions evaluate aggregate time windows on telemetry data as tumbling windows. If there are any property filters in the rule, they're applied at the end of the time window. In the screenshot below, the time window is five minutes. Every five minutes, the rule evaluates on the last five minutes of telemetry data. The data is only evaluated once in the window to which it corresponds.
 
 :::image type="content" source="media/howto-configure-rules/tumbling-window.png" alt-text="A diagram showing how tumbling windows are defined.":::
 
