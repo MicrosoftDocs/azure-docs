@@ -146,7 +146,7 @@ psql --host=mydemoserver-pg.postgres.database.azure.com --port=5432 --username=m
 ```
 
 ## Clean up resources
-You have now created an Azure Database for PostgreSQL flexible server in a resource group. If you don't expect to need these resources in the future, you can delete them by deleting the resource group, or you can just delete the PostgreSQL server. To delete the resource group, complete these steps:
+You have now created an Azure Database for PostgreSQL flexible server in a resource group. If you don't expect to need these resources in the future, you can delete them by deleting the resource group, or you can just delete the PostgreSQL server. To delete the resource group, complete the following steps:
 
 1. In the Azure portal, search for and select **Resource groups**.
 1. In the list of resource groups, select the name of your resource group.
