@@ -9,7 +9,9 @@ ms.date: 08/03/2021
 
 # Tutorial: Expand or shrink clusters in a private cloud
 
-To get the most out of your Azure VMware Solution private cloud experience, scale the clusters and hosts to reflect what you need for planned workloads. You can scale the clusters and hosts in a private cloud as required for your application workload. Performance and availability limitations for specific services should be addressed on a case by case basis. The cluster and host limits are provided in the [private cloud concept](concepts-private-clouds-clusters.md) article.
+To get the most out of your Azure VMware Solution private cloud experience, scale the clusters and hosts to reflect what you need for planned workloads. You can scale the clusters and hosts in a private cloud as required for your application workload.  You should address performance and availability limitations for specific services on a case-by-case basis. 
+
+[!INCLUDE [azure-vmware-solutions-limits](includes/azure-vmware-solutions-limits.md)]
 
 In this tutorial, you'll use the Azure portal to:
 
