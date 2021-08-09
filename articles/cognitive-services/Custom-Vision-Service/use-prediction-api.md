@@ -14,14 +14,17 @@ ms.author: pafarley
 ms.custom: devx-track-csharp
 ---
 
-# Use your model with the prediction API
+# Call the prediction API
 
-After you've train your model, you can test images programmatically by submitting them to the Prediction API endpoint.
+After you've train your model, you can test images programmatically by submitting them to the prediction API endpoint. In this guide, you'll learn how to call the prediction API to score an image. You'll learn the different ways you can configure the behavior of this API to meet your needs.
+
 
 > [!NOTE]
-> This document demonstrates using C# to submit an image to the Prediction API. For more information and examples, see the [Prediction API reference](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).
+> This document demonstrates using the .NET client library with C# to submit an image to the Prediction API. For more information and examples, see the [Prediction API reference](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).
 
-## Publish your trained iteration
+## Setup
+
+### Publish your trained iteration
 
 From the [Custom Vision web page](https://customvision.ai), select your project and then select the __Performance__ tab.
 
@@ -33,7 +36,7 @@ Once your model has been successfully published, you'll see a "Published" label 
 
 ![The performance tab is shown, with a red rectangle surrounding the Published label and the name of the published iteration.](./media/use-prediction-api/published-iteration.png)
 
-## Get the URL and prediction key
+### Get the URL and prediction key
 
 Once your model has been published, you can retrieve the required information by selecting __Prediction URL__. This will open up a dialog with information for using the Prediction API, including the __Prediction URL__ and __Prediction-Key__.
 
@@ -41,10 +44,25 @@ Once your model has been published, you can retrieve the required information by
 
 ![The performance tab is shown with a red rectangle surrounding the Prediction URL value for using an image file and the Prediction-Key value.](./media/use-prediction-api/prediction-api-info.png)
 
+## Submit data to the service
 
-In this guide, you will use a local image, so copy the URL under **If you have an image file** to a temporary location. Copy the corresponding __Prediction-Key__ value as well.
+This guide assumes that you already constructed a FaceClient object, named faceClient, with a Face subscription key and endpoint URL. For instructions on how to set up this feature, follow one of the quickstarts.
 
+In this guide, you will use a local image, so download an image you'd like to use. Copy the corresponding __Prediction-Key__ value as well.
+
+
+The **[PredictImageAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclientextensions.predictimageasync?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Prediction_CustomVisionPredictionClientExtensions_PredictImageAsync_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Prediction_ICustomVisionPredictionClient_System_Guid_System_IO_Stream_System_Nullable_System_Guid__System_String_System_Threading_CancellationToken_)** method.
 ## Create the application
+
+## Determine how to process the data
+
+## Get results from the service
+
+[If this is a separate API call, show it here. Then show a sample response value, and explain any parts of the response that aren't intuitive. Explain error cases if they're relevant enough]
+
+
+---
+
 
 1. In Visual Studio, create a new C# console application.
 
