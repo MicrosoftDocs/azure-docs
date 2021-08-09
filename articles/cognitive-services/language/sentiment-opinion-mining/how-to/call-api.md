@@ -39,7 +39,7 @@ Opinion Mining is a feature of Sentiment Analysis. Also known as Aspect-based Se
 
 For example, if a customer leaves feedback about a hotel such as "The room was great, but the staff was unfriendly.", Opinion Mining will locate targets (aspects) in the text, and their associated assessments (opinions) and sentiments. Sentiment Analysis might only report a negative sentiment.
 
-:::image type="content" source="../../../text-analytics/media/how-tos/opinion-mining.png" alt-text="A diagram of the Opinion Mining example" lightbox="../../../text-analytics/media/how-tos/opinion-mining.png":::
+:::image type="content" source="../../../text-analytics/media/how-tos/opinion-mining.png" alt-text="A diagram of the Opinion Mining example" lightbox="../../../optext-analytics/media/how-tos/opinion-mining.png":::
 
 If you're using the REST API, to get Opinion Mining in your results, you must include the `opinionMining=true` flag in a request for sentiment analysis. The Opinion Mining results will be included in the sentiment analysis response. Opinion mining is an extension of Sentiment Analysis and is included in your current [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
@@ -113,7 +113,7 @@ In this article, you learned concepts and workflow for sentiment analysis and op
 
 + Sentiment Analysis and Opinion Mining is available for select languages.
 + Documents in the request include an ID, text, and language code.
-+ requests are sent using a personalized [access key and an endpoint](../../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that's valid for your opsubscription.
++ requests are sent using a personalized [access key and an endpoint](../../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that's valid for your ubscription.
 + Response output, which consists of a sentiment score for each document ID, can be streamed to any app that accepts JSON or the client library output. For example, Excel and Power BI.
 
 ## See also
