@@ -68,55 +68,59 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
          If it is not running, follow the [enable Application Insights monitoring instructions](#enable-application-insights).
 
-    - Confirm that the status source exists and looks like: `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
+    - Navigate to *D:\local\Temp\status.json* and open *status.json*.
 
-         If a similar value is not present, it means the application is not currently running or is not supported. To ensure that the application is running, try manually visiting the application url/application endpoints, which will allow the runtime information to become available.
+    Confirm that `SDKPresent` is set to false, `AgentInitializedSuccessfully` to true and `IKey` to have a valid iKey.
 
-    - Confirm that `IKeyExists` is `true`
-        If it is `false`, add `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` with your ikey guid to your application settings.
+    Below is an example of the JSON file:
+
+    ```json
+        "AppType":"node.js",
+                
+        "MachineName":"c89d3a6d0357",
+                
+        "PID":"47",
+                
+        "AgentInitializedSuccessfully":true,
+                
+        "SDKPresent":false,
+                
+        "IKey":"00000000-0000-0000-0000-000000000000",
+                
+        "SdkVersion":"1.8.10"
+    
+    ```
+
+    If `SDKPresent` is true this indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off.
 
 
 # [Linux](#tab/linux)
 
 1. Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~3".
-2. Navigate to */home\LogFiles\ApplicationInsights\status* and open *status_557de146e7fa_27_1.json*.
+2. Navigate to */var/log/applicationinsights/* and open *status.json*.
 
-    Confirm that `AppAlreadyInstrumented` is set to false, `AiHostingStartupLoaded` to true and `IKeyExists` to true.
+    Confirm that `SDKPresent` is set to false, `AgentInitializedSuccessfully` to true and `IKey` to have a valid iKey.
 
     Below is an example of the JSON file:
 
     ```json
-        "AppType":".NETCoreApp,Version=v6.0",
+        "AppType":"node.js",
                 
-        "MachineName":"557de146e7fa",
+        "MachineName":"c89d3a6d0357",
                 
-        "PID":"27",
+        "PID":"47",
                 
-        "AppDomainId":"1",
+        "AgentInitializedSuccessfully":true,
                 
-        "AppDomainName":"dotnet6demo",
-                
-        "InstrumentationEngineLoaded":false,
-                
-        "InstrumentationEngineExtensionLoaded":false,
-                
-        "HostingStartupBootstrapperLoaded":true,
-                
-        "AppAlreadyInstrumented":false,
-                
-        "AppDiagnosticSourceAssembly":"System.Diagnostics.DiagnosticSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
-                
-        "AiHostingStartupLoaded":true,
-                
-        "IKeyExists":true,
+        "SDKPresent":false,
                 
         "IKey":"00000000-0000-0000-0000-000000000000",
                 
-        "ConnectionString":"InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://westus-0.in.applicationinsights.azure.com/"
+        "SdkVersion":"1.8.10"
     
     ```
 
-    If `AppAlreadyInstrumented` is true this indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off.
+    If `SDKPresent` is true this indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off.
 ---
 
 
