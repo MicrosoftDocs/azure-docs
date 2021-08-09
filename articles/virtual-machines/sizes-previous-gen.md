@@ -224,7 +224,7 @@ The DC-series uses the latest generation of 3.7GHz Intel XEON E-2176G Processor 
 > DC-series VMs are [generation 2 VMs](./generation-2.md#creating-a-generation-2-vm) and only support `Gen2` images.
 
 
-### DS-series  
+### Ds-series  
 
 **Newer size recommendation**: [Dasv4-series](dav4-dasv4-series.md), [Dsv4-series](dv4-dsv4-series.md) and [Ddsv4-series](ddv4-ddsv4-series.md)
 
@@ -236,16 +236,16 @@ Premium Storage caching:  Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
-| Standard_DS1 | 1 | 3.5 | 7  | 4  | 4000/32 (43)    | 3200/32   | 2/500  |
-| Standard_DS2 | 2 | 7   | 14 | 8  | 8000/64 (86)    | 6400/64   | 2/1000 |
-| Standard_DS3 | 4 | 14  | 28 | 16 | 16000/128 (172) | 12800/128 | 4/2000 |
-| Standard_DS4 | 8 | 28  | 56 | 32 | 32000/256 (344) | 25600/256 | 8/4000 |
+| Standard_Ds1 | 1 | 3.5 | 7  | 4  | 4000/32 (43)    | 3200/32   | 2/500  |
+| Standard_Ds2 | 2 | 7   | 14 | 8  | 8000/64 (86)    | 6400/64   | 2/1000 |
+| Standard_Ds3 | 4 | 14  | 28 | 16 | 16000/128 (172) | 12800/128 | 4/2000 |
+| Standard_Ds4 | 8 | 28  | 56 | 32 | 32000/256 (344) | 25600/256 | 8/4000 |
 
 <sup>1</sup> VM Family can run on one of the following CPU's: 2.2 GHz Intel Xeon® E5-2660 v2,  2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) or 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
 
 <br>
 
-### DS-series - memory optimized  
+### Ds-series - memory optimized  
 
 **Newer size recommendation**: [Dasv4-series](dav4-dasv4-series.md), [Dsv4-series](dv4-dsv4-series.md) and [Ddsv4-series](ddv4-ddsv4-series.md)
 
@@ -257,10 +257,10 @@ Premium Storage caching:  Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
-| Standard_DS11 | 2  | 14  | 28  | 8  | 8000/64 (72)    | 6400/64   | 2/1000 |
-| Standard_DS12 | 4  | 28  | 56  | 16 | 16000/128 (144) | 12800/128 | 4/2000 |
-| Standard_DS13 | 8  | 56  | 112 | 32 | 32000/256 (288) | 25600/256 | 8/4000 |
-| Standard_DS14 | 16 | 112 | 224 | 64 | 64000/512 (576) | 51200/512 | 8/8000 |
+| Standard_Ds11 | 2  | 14  | 28  | 8  | 8000/64 (72)    | 6400/64   | 2/1000 |
+| Standard_Ds12 | 4  | 28  | 56  | 16 | 16000/128 (144) | 12800/128 | 4/2000 |
+| Standard_Ds13 | 8  | 56  | 112 | 32 | 32000/256 (288) | 25600/256 | 8/4000 |
+| Standard_Ds14 | 16 | 112 | 224 | 64 | 64000/512 (576) | 51200/512 | 8/8000 |
 
 <sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a DS series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Design for high performance](premium-storage-performance.md).
 <sup>2</sup> VM Family can run on one of the following CPU's: 2.2 GHz Intel Xeon® E5-2660 v2,  2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) or 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
