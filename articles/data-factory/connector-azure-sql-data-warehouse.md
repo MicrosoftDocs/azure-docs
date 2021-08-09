@@ -478,7 +478,7 @@ Using [COPY statement](/sql/t-sql/statements/copy-into-transact-sql) is a simple
 - If your source data store and format isn't originally supported by COPY statement, use the **[Staged copy by using COPY statement](#staged-copy-by-using-copy-statement)** feature instead. The staged copy feature also provides you better throughput. It automatically converts the data into COPY statement compatible format, stores the data in Azure Blob storage, then calls COPY statement to load data into Azure Synapse Analytics.
 
 >[!TIP]
->When using COPY statement with Azure Integration Runtime, effective [Data Integration Units (DIU)](copy-activity-performance-features.md#data-integration-units) is always 2. Tuning the DIU doesn't impact the performance, as loading data from storage is powered by Synapse engine.
+>When using COPY statement with Azure Integration Runtime, effective [Data Integration Units (DIU)](copy-activity-performance-features.md#data-integration-units) is always 2. Tuning the DIU doesn't impact the performance, as loading data from storage is powered by the Azure Synapse engine.
 
 ### Direct copy by using COPY statement
 
@@ -710,7 +710,7 @@ If the requirements aren't met, the service checks the settings and automaticall
 
 ### Staged copy by using PolyBase
 
-When your source data is not natively compatible with PolyBase, enable data copying via an interim staging Azure Blob or Azure Data Lake Storage Gen2 (it can't be Azure Premium Storage). In this case, the serivce automatically converts the data to meet the data format requirements of PolyBase. Then it invokes PolyBase to load data into Azure Synapse Analytics. Finally, it cleans up your temporary data from the storage. See [Staged copy](copy-activity-performance-features.md#staged-copy) for details about copying data via a staging.
+When your source data is not natively compatible with PolyBase, enable data copying via an interim staging Azure Blob or Azure Data Lake Storage Gen2 (it can't be Azure Premium Storage). In this case, the service automatically converts the data to meet the data format requirements of PolyBase. Then it invokes PolyBase to load data into Azure Synapse Analytics. Finally, it cleans up your temporary data from the storage. See [Staged copy](copy-activity-performance-features.md#staged-copy) for details about copying data via a staging.
 
 To use this feature, create an [Azure Blob Storage linked service](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2 linked service](connector-azure-data-lake-storage.md#linked-service-properties) with **account key or managed identity authentication** that refers to the Azure storage account as the interim storage.
 
@@ -847,7 +847,7 @@ Settings specific to Azure Synapse Analytics are available in the **Source Optio
 
 SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**Batch size**: Enter a batch size to chunk large data into reads. In data flows, the setting will be used to set Spark columnar caching. This is an option field, which will use Spark defaults if it is left blank.
+**Batch size**: Enter a batch size to chunk large data into reads. In data flows, this setting will be used to set Spark columnar caching. This is an option field, which will use Spark defaults if it is left blank.
 
 **Isolation Level**: The default for SQL sources in mapping data flow is read uncommitted. You can change the isolation level here to one of these values:
 
