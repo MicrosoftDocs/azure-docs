@@ -58,7 +58,7 @@ The information in the rest of this document provides information on what featur
 | Virtual Network (VNet) support for training                                | GA                   | YES                | YES         |
 | Virtual Network (VNet) support for inference                               | GA                   | YES                | YES         |
 | Scoring endpoint authentication                                            | Public Preview       | YES                | YES         |
-| Workplace private endpoint                                                 | Public Preview       | NO                 | NO          |
+| Workplace private endpoint                                                 | GA  |  Public Preview  |  Public Preview |
 | ACI behind VNet                                                            | Public Preview       | NO                 | NO          |
 | ACR behind VNet                                                            | GA       | YES                 | YES          |
 | Private IP of AKS cluster                                                  | Public Preview       | NO                 | NO          |
@@ -105,13 +105,12 @@ The information in the rest of this document provides information on what featur
 | Scenario                                                    | US-Virginia | US-Arizona| Limitations  |
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|-------------|
 | **General security setup** |   | | |
-| Private network communication between services                                     | NO | NO | No Private Link currently | 
 | Disable/control internet access (inbound and outbound) and specific VNet | PARTIAL| PARTIAL	|  | 
 | Placement for all associated resources/services  | YES | YES |  |
 | Encryption at-rest and in-transit.                                                 | YES | YES |  |
 | Root and SSH access to compute resources.                                          | YES | YES |  |
 | Maintain the security of deployed systems (instances, endpoints, etc.), including endpoint protection, patching, and logging |  PARTIAL|	PARTIAL	|ACI behind VNet and private endpoint currently not available |                                  
-| Control (disable/limit/restrict) the use of ACI/AKS integration                    | PARTIAL|	PARTIAL	|ACI behind VNet and private endpoint currently not available|
+| Control (disable/limit/restrict) the use of ACI/AKS integration                    | PARTIAL|	PARTIAL	|ACI behind VNet currently not available|
 | Azure role-based access control (Azure RBAC) - Custom Role Creations                           | YES | YES |  |
 | Control access to ACR images used by ML Service (Azure provided/maintained versus custom)  |PARTIAL|	PARTIAL	|  |
 | **General Machine Learning Service Usage** |  | | |
@@ -169,7 +168,7 @@ The information in the rest of this document provides information on what featur
 | Virtual Network (VNet) support for training                                | GA               | YES       | N/A        |
 | Virtual Network (VNet) support for inference                               | GA               | YES       | N/A        |
 | Scoring endpoint authentication                                            | Public Preview   | YES       | N/A        |
-| Workplace Private link                                                     | GA               | NO        | N/A        |
+| Workplace Private Endpoint                                                 | GA               | NO        | N/A        |
 | ACI behind VNet                                                            | Public Preview   | NO        | N/A        |
 | ACR behind VNet                                                            | GA   | YES       | N/A        |
 | Private IP of AKS cluster                                                  | Public Preview   | NO        | N/A        |
@@ -225,7 +224,7 @@ The information in the rest of this document provides information on what featur
 
 * Sample notebook may not work, if it needs access to public data.
 * IP address ranges: The CLI command used in the [required public internet access](how-to-secure-training-vnet.md#required-public-internet-access) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062) instead.
-* Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled for now, but CI will be supported in the next deployment for the service expansion to all AML regions.
+* Azure Machine Learning compute instances preview is not supported in a workspace where Private Endpoint is enabled for now, but CI will be supported in the next deployment for the service expansion to all AML regions.
 
 ## Next steps
 
