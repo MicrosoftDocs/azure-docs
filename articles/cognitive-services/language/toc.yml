@@ -24,6 +24,8 @@ items:
     items:
     - name: Create a project
       href: custom-classification/how-to/create-project.md
+    - name: Prepare your data
+      href: custom-classification/how-to/prepare-data.md
     - name: Deploy a model
       href: custom-classification/how-to/deploy-model.md
     - name: Improve a model
