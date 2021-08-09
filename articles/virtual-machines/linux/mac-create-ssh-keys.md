@@ -87,11 +87,11 @@ With the public key deployed on your Azure VM, and the private key on your local
 ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
-If you have never connected to this VM before you will be asked to verify the hosts fingerprint. It is tempting to simply accept the fingerprint presented, however, this exposes you to a possible person in the middle attack. You should always validate the hosts fingerprint. You only need to do this on the first time you connect from a client. To obtain the host fingerprint via the portal use the Run Command feature to execute the command `ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'`.
+If you have never connected to this VM before you will be asked to verify the hosts fingerprint. It is tempting to simply accept the fingerprint presented, however, this exposes you to a possible person in the middle attack. You should always validate the hosts fingerprint. You only need to do this on the first time you connect from a client. To obtain the host fingerprint via the portal use the Run Command with the following: `ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'`.
 
-![Portal Run Command](./media/ssh-from-windows/portal-run-rommand-to-obtain-host-fingerprint.png)
+:::image type="content" source="media/ssh-from-windows/portal-run-rommand-to-obtain-host-fingerprint.png" alt-text="Screenshot showing using the Run Command.":::
 
-To run the command using CLI you can use the [`az vm run-command invole` command](https://docs.microsoft.com/en-us/cli/azure/vm/run-command?view=azure-cli-latest).
+To run the command using CLI, use the [`az vm run-command invoke` command](/cli/azure/vm/run-command).
 
 If you specified a passphrase when you created your key pair, enter that passphrase when prompted during the login process. The VM is added to your ~/.ssh/known_hosts file, and you won't be asked to connect again until either the public key on your Azure VM changes or the server name is removed from ~/.ssh/known_hosts.
 
