@@ -104,13 +104,15 @@
     - name: Deploy on Azure Stack Edge
       href: deploy-on-stack-edge.md
   - name: Playback
-    items:      
-    - name: Playback a recording
-      href: playback-recordings-how-to.md
-    - name: Using the Azure Video Analyzer player widget
-      href: player-widget.md
+    items:     
     - name: Use access policies for playback
       href: access-policies.md
+    - name: Playback a recording
+      href: playback-recordings-how-to.md
+    - name: Player widget sample app 
+      href: sample-player-widget
+    - name: Building your player widget
+      href: player-widget.md
   - name: Record
     items:
     - name: Manage recording policy
