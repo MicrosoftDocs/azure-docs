@@ -81,6 +81,8 @@ items:
     displayName: NER, Named entity recognition, PII, redaction
   - name: Text Analytics for health
     href: How-tos/text-analytics-for-health.md
+  - name: Summarization
+    href: How-tos/extractive-summarization.md
   - name: Use containers
     items:
     - name: Install and run containers
@@ -133,6 +135,8 @@ items:
   items:
   - name: Text Analytics API
     items:
+      - name: v3.2-preview.1
+        href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-1
       - name: v3.1
         href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1
       - name: v3.0
