@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: azla
 ms.topic: how-to
-ms.date: 07/30/2021
+ms.date: 08/09/2021
 ---
 
 # Create parameters to use in workflows across environments in single-tenant Azure Logic Apps

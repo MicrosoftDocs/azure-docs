@@ -30,7 +30,7 @@
     href: tutorial-nsx-t-network-segment.md
   - name: Delete a private cloud
     href: tutorial-delete-private-cloud.md
-  - name: Expand or shrink clusters in a private cloud
+  - name: Scale clusters in a private cloud
     href: tutorial-scale-private-cloud.md
   - name: Network planning checklist
     href: tutorial-network-checklist.md
