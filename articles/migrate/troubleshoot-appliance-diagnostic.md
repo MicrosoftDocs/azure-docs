@@ -33,14 +33,16 @@ You can run **Diagnose and solve** at any time from the appliance configuration 
 || Credential store availability | Checks if the Credential store resources on the appliance server have not been moved/deleted/edited.
 || Replication appliance/ASR components | Checks if the same server has also been used to install any ASR/replication appliance components. *It is currently not supported to install both Azure Migrate and replication appliance (for agent-based migration) on the same server.*
 || OS license availability | Checks if the evaluation license on the appliance server created from OVA/VHD is still valid. *The Windows Server 2016 evaluation license is valid for 180 days.*
-|| CPU & memory utilization | Checks the CPU and memory utilized by the Migrate agents on the appliance server. <br> **checked and reported only if the appliance has already been registered. These checks are run in the context of the current Azure user logged in the appliance*.
+|| CPU & memory utilization | Checks the CPU and memory utilized by the Migrate agents on the appliance server.  
+
+**checked and reported only if the appliance has already been registered. These checks are run in the context of the current Azure user logged in the appliance*.
 
 ## Running diagnostic checks
 
 If you are getting any issues with the appliance during its configuration or seeing issues with the ongoing Migrate operations like discovery, assessment and/or replication (*in case of VMware appliance*) on the portal, you can go to the appliance configuration manager and run diagnostics.
 
 > [!NOTE]
-Currently **Diagnose and solve** can perform checks related to appliance connectivity to Azure, availability of required resources on appliance server and/or Azure. The connectivity or discovery issues with the source environment like vCenter Server/ESXi hosts/Hyper-V hosts/VMs/physical servers are currently not covered under **Diagnose and solve**.
+> Currently **Diagnose and solve** can perform checks related to appliance connectivity to Azure, availability of required resources on appliance server and/or Azure. The connectivity or discovery issues with the source environment like vCenter Server/ESXi hosts/Hyper-V hosts/VMs/physical servers are currently not covered under **Diagnose and solve**.
  
 1. Select **Diagnose and solve** from the ribbon at the top of the configuration manager.
 
