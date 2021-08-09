@@ -59,7 +59,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - ai-machine-learning
-      url: /azure/bot-service/
+      url: /azure/applied-ai-services/
     # Card
     - title: Azure Bot Service
       summary: Intelligent, serverless bot service that scales on demand
