@@ -83,7 +83,7 @@ The following table lists the additional supporting container(s) for each Form R
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
 | Read 3.2 | 8 cores, 16-GB memory | 8 cores, 24-GB memory|
-| Layout 2.1-preview | 8 cores, 16-GB memory | 4 core, 8-GB memory |
+| Layout 2.1-preview | 8 cores, 16-GB memory | 8 core, 24-GB memory |
 | Business Card 2.1-preview | 2 cores, 4-GB memory | 4 cores, 4-GB memory |
 | ID Document 2.1-preview | 1 core, 2-GB memory |2 cores, 2-GB memory |
 | Invoice 2.1-preview | 4 cores, 8-GB memory | 8 cores, 8-GB memory |
