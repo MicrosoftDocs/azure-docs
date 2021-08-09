@@ -151,7 +151,7 @@ To find out what versions are currently available for your subscription and regi
 [Get-AzAksVersion][get-azaksversion] cmdlet. The following example lists the available Kubernetes versions for the *EastUS* region:
 
 ```azurepowershell-interactive
-Get-AzAKSVersion -Location eastus
+Get-AzAksVersion -Location eastus
 ```
 
 ---
