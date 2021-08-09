@@ -83,17 +83,17 @@ The following how-to guides provide complete step-by-step instructions to perfor
 | [.NET](iot-hub-csharp-csharp-file-upload.md) | Yes | No |
 | [Java](iot-hub-java-java-file-upload.md) | Yes | Yes |
 | [Node.js](iot-hub-node-node-file-upload.md) | Yes | Yes |
-| [Python](iot-hub-python-python-file-upload.md) | Yes | No service SDK available in Python |
+| [Python](iot-hub-python-python-file-upload.md) | Yes | No |
 
 > [!NOTE]
 > The C device SDK uses a single call on the device client to perform file uploads. For more information, see [IoTHubDeviceClient_UploadToBlobAsync()](/azure/iot-hub/iot-c-sdk-ref/iothub-device-client-h/iothubdeviceclient-uploadtoblobasync) and [IoTHubDeviceClient_UploadMultipleBlocksToBlobAsync()](/azure/iot-hub/iot-c-sdk-ref/iothub-device-client-h/iothubdeviceclient-uploadmultipleblockstoblobasync). These functions perform all aspects of the file upload - initiating the upload, uploading the file to Azure storage, and notifying IoT Hub when it completes -- in a single call. Make sure that access to both the IoT Hub endpoint and the Azure storage endpoint (HTTPS) is available to the device as these functions will make calls to Azure storage APIs.
 
 ## Device: Initialize a file upload
 
-The device calls the [Create File Upload SAS URI](/rest/api/iothub/device/create-file-upload-sas-uri) REST API or the equivalent API in one of the device SDKs to initiate a file upload. IoT Hub responds with a correlation ID and the elements of a SAS URI that the device can use to authenticate with Azure storage. This response is subject to the throttling limits and per-device upload limits of the target IoT hub. 
+The device calls the [Create File Upload SAS URI](/rest/api/iothub/device/create-file-upload-sas-uri) REST API or the equivalent API in one of the device SDKs to initiate a file upload.
 
 **Supported protocols**: AMQP, AMQP-WS, MQTT, MQTT-WS, and HTTPS <br/>
-**Endpoint**: `{iot hub}.azure-devices.net/devices/{deviceId}/files` <br/>
+**Endpoint**: {iot hub}.azure-devices.net/devices/{deviceId}/files <br/>
 **Method**: POST
 
 ```json
@@ -106,7 +106,7 @@ The device calls the [Create File Upload SAS URI](/rest/api/iothub/device/create
 |----------|-------------|
 | blobName | The name of the blob to generate the SAS URI for. |
 
-IoT Hub returns the following data, subject to its throttling and per-device upload limits:
+ IoT Hub responds with a correlation ID and the elements of a SAS URI that the device can use to authenticate with Azure storage. This response is subject to the throttling limits and per-device upload limits of the target IoT hub. 
 
 ```json
 {
@@ -159,7 +159,7 @@ To learn more about uploadingSee the Azure storage documentation for more infoFo
 The device calls the [Update File Upload Status](/rest/api/iothub/device/update-file-upload-status) REST API or the equivalent API in one of the device SDKs when it completes the file upload. The device should update the file upload status with IoT Hub regardless of whether the upload succeeds or fails.
 
 **Supported protocols**: AMQP, AMQP-WS, MQTT, MQTT-WS, and HTTPS <br/>
-**Endpoint**: `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` <br/>
+**Endpoint**: {iot hub}.azure-devices.net/devices/{deviceId}/files/notifications <br/>
 **Method**: POST 
 
 ```json
@@ -189,7 +189,7 @@ When it receives a file upload complete notification from the device, IoT Hub:
 If file upload notifications are enabled on your IoT hub, IoT Hub generates a notification message for backend services when it receives notification from a device that a file upload is complete. IoT Hub delivers these file upload notifications through a service-facing endpoint. The receive semantics for file upload notifications are the same as for cloud-to-device messages and have the same [message life cycle](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). The service SDKs expose APIs to handle file upload notifications. 
 
 **Supported protocols** AMQP, AMQP-WS <br/>
-**Endpoint**: `{iot hub}.azure-devices.net/messages/servicebound/fileuploadnotifications` <br/>
+**Endpoint**: {iot hub}.azure-devices.net/messages/servicebound/fileuploadnotifications <br/>
 **Method** GET
 
 Each message retrieved from the file upload notification endpoint is a JSON record:
