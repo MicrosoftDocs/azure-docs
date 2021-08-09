@@ -89,40 +89,40 @@ For more information on supported browsers, see [Recommended browsers](../../azu
 
 Verify that your organizational security policy allows access to the following:
 
-- User access to the sensor and management console:
+#### User access to the sensor and management console
 
-    | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
-    |--|--|--|--|--|--|--|--|
-    | HTTPS | TCP | IN/OUT | 443 | Sensor and On-Premises Management Console Web Console | Access to Web console | Client | Sensor and on-premises management console |
-    | SSH | TCP | IN/OUT | 22 | CLI | Access to the CLI | Client | Sensor and on-premises management console |
+| Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
+|--|--|--|--|--|--|--|--|
+| HTTPS | TCP | IN/OUT | 443 | Sensor and On-Premises Management Console Web Console | Access to Web console | Client | Sensor and on-premises management console |
+| SSH | TCP | IN/OUT | 22 | CLI | Access to the CLI | Client | Sensor and on-premises management console |
 
-- Sensor access to the Azure Portal (cloud connected sensors)
+#### Sensor access to the Azure Portal (cloud connected sensors)
 
-    | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
-    |--|--|--|--|--|--|--|--|
-    | NTP | UDP | IN/OUT | 123 | Time Sync | Sensor connected to external NTP server, when there is no on-premises management console installed | sensor | NTP |
-    | HTTPS | TCP | IN/OUT | 443 | To connect to the Azure portal | Allows communication between the on-prem sensor and the Azure Defender for IoT instance. | sensor | "*.azure.com </br>*.azure.net </br>*.windows.net </br>*.azurecomcdn.net </br>*.azureedge.net </br>*.msecnd.net </br>login.microsoftonline.com </br>login.live.com" |
+| Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
+|--|--|--|--|--|--|--|--|
+| NTP | UDP | IN/OUT | 123 | Time Sync | Sensor connected to external NTP server, when there is no on-premises management console installed | sensor | NTP |
+| HTTPS | TCP | IN/OUT | 443 | To connect to the Azure portal | Allows communication between the on-prem sensor and the Azure Defender for IoT instance. | sensor | "*.azure.com </br>*.azure.net </br>*.windows.net </br>*.azurecomcdn.net </br>*.azureedge.net </br>*.msecnd.net </br>login.microsoftonline.com </br>login.live.com" |
 
-- Sensor access to the on-premises management console:
+#### Sensor access to the on-premises management console
 
-    | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
-    |--|--|--|--|--|--|--|--|
-    | SSL | TCP | IN/OUT | 443 | Sensor and on-premises management console | Connection between sensor and the Central Management | sensor | On-premises management console |
-    | NTP | UDP | IN | 123 | Time Sync | On-premises management console use as NTP to sensor | sensor | on-premises management console |
-    | Tunneling | TCP | IN | 9000 - on top of port 443 - From end user to the on-premises management console. - Port 22 from sensor to the on-premises management console | monitoring | Tunneling | Sensor | On-premises management console |
+| Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
+|--|--|--|--|--|--|--|--|
+| SSL | TCP | IN/OUT | 443 | Sensor and on-premises management console | Connection between sensor and the Central Management | sensor | On-premises management console |
+| NTP | UDP | IN | 123 | Time Sync | On-premises management console use as NTP to sensor | sensor | on-premises management console |
+| Tunneling | TCP | IN | 9000 </br></br> on top of port 443 </br></br> From end user to the on-premises management console. </br></br> Port 22 from sensor to the on-premises management console | monitoring | Tunneling | Sensor | On-premises management console |
 
-- (Optional) Defender for IoT additional services:
+#### (Optional) Defender for IoT additional services
 
-    Access additional capabilities by opening these additional ports.
+Access additional capabilities by opening these additional ports.
 
-    | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
-    |--|--|--|--|--|--|--|--|
-    | Syslog | UDP | OUT | 514 | LEEF/CEF | Logs that send from the on-premises management console to Syslog server | On-premises management console and Sensor | Syslog server |
-    | DNS | UDP/TCP | IN/OUT | 53 | DNS | DNS Server Port | On-premises management console and Sensor | DNS server |
-    | LDAP | TCP | IN/OUT | 389 | Active Directory | Active Directory management of users that have access to login to the system. | On-premises management console and Sensor | LDAP server |
-    | LDAPS | TCP | IN/OUT | 636 | Active Directory | Active Directory management of users that have access to login to the system. | On-premises management console and Sensor | LDAPS server |
-    | SNMP | UDP | OUT | 161 | MIB | Sensor health monitoring | On-premises management console and Sensor | SNMP server |
-    | SMTP | TCP | OUT | 25 | Email | To open the to the customers mail server to send emails for alerts, and events. | Sensor and On-premises management console | Email server |
+| Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
+|--|--|--|--|--|--|--|--|
+| Syslog | UDP | OUT | 514 | LEEF/CEF | Logs that send from the on-premises management console to Syslog server | On-premises management console and Sensor | Syslog server |
+| DNS | UDP/TCP | IN/OUT | 53 | DNS | DNS Server Port | On-premises management console and Sensor | DNS server |
+| LDAP | TCP | IN/OUT | 389 | Active Directory | Active Directory management of users that have access to login to the system. | On-premises management console and Sensor | LDAP server |
+| LDAPS | TCP | IN/OUT | 636 | Active Directory | Active Directory management of users that have access to login to the system. | On-premises management console and Sensor | LDAPS server |
+| SNMP | UDP | OUT | 161 | MIB | Sensor health monitoring | On-premises management console and Sensor | SNMP server |
+| SMTP | TCP | OUT | 25 | Email | To open the to the customers mail server to send emails for alerts, and events. | Sensor and On-premises management console | Email server |
 
 ### Planning rack installation
 
