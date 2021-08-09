@@ -147,6 +147,11 @@ Audio files can have silence at the beginning and end of the recording. If possi
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
+> [!TIP]
+> Don’t even have any real audio? You can also upload a text (.txt) file (select type **Transcript (automatic audio synthesis)** when uploading data) with some testing sentences, and audio pair for each spoken sentence will be automatically synthesized.
+>
+> The maximum file size is 500KB. We will synthesize one audio for each line, and the maximum size of each line is 65535 bytes.
+
 > [!NOTE]
 > When uploading training and testing data, the .zip file size cannot exceed 2 GB. You can only test from a *single* dataset, be sure to keep it within the appropriate file size. Additionally, each training file cannot exceed 60 seconds otherwise it will error out.
 

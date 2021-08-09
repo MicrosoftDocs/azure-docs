@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # How To: Export risk data
 
-Azure AD stores reports and security signals for a defined period of time. When it comes to risk information, 90 days may not be long enough.
+Azure AD stores reports and security signals for a defined period of time. When it comes to risk information, that may not be long enough.
 
 | Report / Signal | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | --- | --- | --- | --- |

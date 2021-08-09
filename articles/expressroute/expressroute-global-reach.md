@@ -50,6 +50,7 @@ ExpressRoute Global Reach is supported in the following places.
 * South Africa (Johannesburg only)
 * Sweden
 * Switzerland
+* Taiwan
 * United Kingdom
 * United States
 

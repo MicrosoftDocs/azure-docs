@@ -240,13 +240,11 @@ After you purchase the App Service Domain, you have five days to cancel your pur
 
 1. In the **App Service Domains** section, select the domain you want to configure.
 
-1. In the domain's left navigation, select **Hostname bindings**. The hostname bindings from all Azure services are listed here.
+1. In the domain's left navigation, select **Locks**. 
 
-    ![Screenshot that shows the Hostname bindings page.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
+    A delete lock has been created for your domain. As long as a delete lock exists, you can't delete the App Service domain.
 
-1. Delete each hostname binding by selecting **...** > **Delete**. After all the bindings are deleted, select **Save**.
-
-    <!-- ![Screenshot that shows where to delete the hostname bindings.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png) -->
+1. Click **Delete** to remove the lock.
 
 1. In the domain's left navigation, select **Overview**. 
 
