@@ -131,7 +131,7 @@ The Sentiment Analysis containers send billing information to Azure, using a _La
 
 [!INCLUDE [Container's Billing Settings](../../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-For more information about these options, see [Configure containers](../../../containers/includes/cognitive-services-faq-note.md).
+For more information about these options, see [Configure containers](../../concepts/configure-containers.md).
 
 ## Summary
 
@@ -147,4 +147,4 @@ In this article, you learned concepts and workflow for downloading, installing, 
 
 ## Next steps
 
-* See [Configure containers](../../../containers/includes/cognitive-services-faq-note.md) for configuration settings.
+* See [Configure containers](../../concepts/configure-containers.md) for configuration settings.
