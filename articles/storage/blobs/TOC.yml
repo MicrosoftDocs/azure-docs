@@ -468,7 +468,7 @@ items:
       items:
       - name: Rehydrate an archived blob
         href: archive-rehydrate-to-online-tier.md
-      - name: Handle events on blob rehydration
+      - name: Handle an event on blob rehydration
         href: archive-rehydrate-handle-event.md
     - name: Configure object replication
       href: object-replication-configure.md

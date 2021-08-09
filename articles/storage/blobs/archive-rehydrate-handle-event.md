@@ -1,32 +1,34 @@
 ---
-title: Trigger an event when an archived blob is rehydrated 
+title: Handle an event on blob rehydration 
 titleSuffix: Azure Storage
-description: Trigger an event when an archived blob is rehydrated.
+description: Handle an event on blob rehydration.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/03/2021
+ms.date: 08/04/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
 ms.subservice: blobs
 ---
 
-# Trigger an event when an archived blob is rehydrated 
+# Handle an event on blob rehydration 
 
-To read a blob that is in the archive tier, you must first change the tier of the blob to hot or cool. This process is known as rehydration and can take hours to complete. When the rehydration process is complete, an [Azure Event Grid](../../event-grid/overview.md) event fires. Your application can handle this event to be notified when a blob has been rehydrated.
+To read a blob that is in the archive tier, you must first rehydrate the blob to the hot or cool tier. The rehydration process can take several hours to complete. When the blob is rehydrated, an [Azure Event Grid](../../event-grid/overview.md) event fires. Your application can handle this event to be notified when the rehydration process is complete.
 
 When an event occurs, Azure Event Grid sends the event to an event handler via an endpoint. A number of Azure services can serve as event handlers, including [Azure Functions](../../azure-functions/functions-overview.md). An Azure Function is a block of code that can execute in response to an event. This how-to walks you through the process of creating an Azure Function and configuring Azure Event Grid to capture an event that occurs when a blob is rehydrated. Azure Event grid sends the event to the Azure Function, which executes code in response.
+
+During the blob rehydration operation, you can call the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation to check its status. However, rehydration of an archived blob may take up to 15 hours, and repeatedly polling **Get Blob Properties** to determine whether rehydration is complete is inefficient. Using Azure Event Grid to capture the event that fires when rehydration is complete offers better performance and cost optimization.
 
 This article shows how to create and test an Azure Function in the Azure portal, but you can build Azure Functions from a variety of local development environments. For more information, see [Code and test Azure Functions locally](../../azure-functions/functions-develop-local.md).
 
 For more information about rehydrating blobs from the archive tier, see [Rehydrate blob data from the archive tier](archive-rehydrate-overview.md).
 
-## Create a function app
+## Create an Azure Function app
 
-A function app is an Azure resource that serves as a container for your Azure functions. You can use a new or existing function app to complete the steps in this article.
+A function app is an Azure resource that serves as a container for your functions. You can use a new or existing function app to complete the steps in this article.
 
 This article shows how to create a .NET function. You can choose to use a different language for your function. For more information about supported languages for Azure Functions, see [Supported languages in Azure Functions](../../azure-functions/supported-languages.md).
 
@@ -66,7 +68,7 @@ Next, create an Azure Function that will run when a blob is rehydrated. Follow t
 
     :::image type="content" source="media/archive-rehydrate-handle-event/create-function-event-grid-trigger-portal.png" alt-text="Screenshot showing how to configure an Azure Function to handle an Event Grid event":::
 
-## Add code to the function to parse event data
+## Add code to the function to process the event
 
 After you have created the function, you can add code to respond to the blob rehydration event. Navigate to the **Code + Test** page for the new function. The function code consists of a **Run** method. This function is an Event Grid trigger, which means that it runs when the appropriate Event Grid event fires. The **Run** method includes a single line that outputs information about the event to the Azure portal log streaming service.
 
@@ -157,7 +159,10 @@ To learn more about event subscriptions, see [Azure Event Grid concepts](../../e
 
 ## Test the Azure Function event handler
 
-To test the Azure Function, you can trigger an event in the storage account that contains the event subscription. The event subscription is filtering on two events, **Microsoft.Storage.BlobCreated** and **Microsoft.Storage.BlobTierChanged**. Although the goal of this how-to is to handle these events in the context of blob rehydration, for testing purposes it's helpful to observe these events in response to uploading a blob or changing its tier, because the event fires immediately.
+To test the Azure Function, you can trigger an event in the storage account that contains the event subscription. The event subscription is filtering on two events, **Microsoft.Storage.BlobCreated** and **Microsoft.Storage.BlobTierChanged**. For more information on how to filter events by type, see [How to filter events for Azure Event Grid](../../event-grid/how-to-filter-events.md).
+
+> [!TIP]
+> Although the goal of this how-to is to handle these events in the context of blob rehydration, for testing purposes it may helpful to observe these events in response to uploading a blob or changing its tier, because the event fires immediately.
 
 This section describes different options for testing the Azure Function by triggering an event. To perform the tests, set up your environment as follows:
 
@@ -165,33 +170,9 @@ This section describes different options for testing the Azure Function by trigg
 1. Open a second browser window to the **Code + Test** page for your Azure Function.
 1. Expand the **Logs** window on the **Code + Test** page, and make sure that the logging service is started. You may need to stop and restart the logging service.
 
-### Upload a blob
-
-When you upload a blob to a container, the **Microsoft.Storage.BlobCreated** event fires immediately. In the **Logs** window, you'll see log output similar to the following example. Note that the operation that triggered the event was a **Put Blob** operation.
-
-```
-2021-08-03T03:51:53.583 [Information] Executing 'Functions.RehydrationEventHandler' (Reason='EventGrid trigger fired at 2021-08-03T03:51:53.4500718+00:00', Id=c8a2a680-dc83-451d-abae-9dd0e09dc97d)
-2021-08-03T03:51:53.930 [Information] PutBlob operation occurred. Blob URL: https://blobrehydrationsamples.blob.core.windows.net/sample-container/blob4.txt
-2021-08-03T03:51:53.931 [Information] Event details:Id=[17237253-801e-0001-7b1a-88b90c060fe9]EventType=[Microsoft.Storage.BlobCreated]EventTime=[8/3/2021 3:51:51 AM]Subject=[/blobServices/default/containers/sample-container/blobs/blob4.txt]Topic=[/subscriptions/32580eb9-bf6f-47b2-9f91-6f52f4c03736/resourceGroups/rehydration-samples/providers/Microsoft.Storage/storageAccounts/blobrehydrationsamples]
-2021-08-03T03:51:53.985 [Information] Executed 'Functions.RehydrationEventHandler' (Succeeded, Id=c8a2a680-dc83-451d-abae-9dd0e09dc97d, Duration=545ms)
-```
-
-### Change the blob's tier
-
-When you change the tier of a blob that is in the hot or cool tier to a different tier (hot, cool, or archive), the **Microsoft.Storage.BlobTierChanged** event fires immediately. In the **Logs** window, you'll see log output similar to the following example. Note that the operation that triggered the event was a **Set Blob Tier** operation.
-
-```
-2021-08-03T04:08:28.588 [Information] Executing 'Functions.RehydrationEventHandler' (Reason='EventGrid trigger fired at 2021-08-03T04:08:28.5367632+00:00', Id=b72776f2-57cd-4160-9eab-0565285e8d9f)
-2021-08-03T04:08:28.591 [Information] SetBlobTier operation occurred on blob https://blobrehydrationsamples.blob.core.windows.net/sample-container/blob4.txt.
-2021-08-03T04:08:28.595 [Information] Event details:Id=[a8182d48-a01e-004b-6a1d-881a83068c6e]EventType=[Microsoft.Storage.BlobTierChanged]EventTime=[8/3/2021 4:08:26 AM]Subject=[/blobServices/default/containers/sample-container/blobs/blob4.txt]Topic=[/subscriptions/32580eb9-bf6f-47b2-9f91-6f52f4c03736/resourceGroups/rehydration-samples/providers/Microsoft.Storage/storageAccounts/blobrehydrationsamples]
-2021-08-03T04:08:28.595 [Information] Executed 'Functions.RehydrationEventHandler' (Succeeded, Id=b72776f2-57cd-4160-9eab-0565285e8d9f, Duration=59ms)
-```
-
 ### Rehydrate a blob
 
 Rehydrating a blob can take up to 15 hours, depending on the rehydration priority setting. If you set the rehydration priority to **High**, rehydration may complete in under one hour for blobs that are less than 10 GB in size. However, a high-priority rehydration incurs a greater cost. For more information, see [Rehydrate blob data from the archive tier](archive-rehydrate-overview.md#rehydrate-an-archived-blob-to-an-online-tier).
-
-???Can we recommend high pri rehydrate for testing purposes? if so, any guidelines? ???
 
 > [!NOTE]
 > If you rehydrate a blob with standard priority using the Azure Function provided above, the logging service may time out before the event is triggered. The default logging service timeout period is two hours. You can change the timeout by changing the App Service setting SCM_LOGSTREAM_TIMEOUT (???I can't find any info about how to do this???), or you can use Application Insights to view live metrics. For more information about using the Application Insights live metrics stream with your Azure Function, see [Enable streaming execution logs in Azure Functions](../../azure-functions/streaming-logs.md) ???this doc is out of date???.
@@ -273,6 +254,8 @@ az storage blob copy start /
     --auth-mode login
 ```
 
+---
+
 When the rehydration is complete, the **Microsoft.Storage.BlobCreated** event fires to indicate that the destination blob has been rehydrated. The Azure Function log displays output similar to the following example:
 
 ```
@@ -282,9 +265,8 @@ When the rehydration is complete, the **Microsoft.Storage.BlobCreated** event fi
 2021-08-03T16:38:02.968 [Information] Executed 'Functions.RehydrationEventHandler' (Succeeded, Id=17fd3a9d-3852-468d-8ffc-0f888a9028b1, Duration=0ms)
 ```
 
----
-
 ## See also
 
 - [Access tiers for Azure Blob Storage - hot, cool, and archive](storage-blob-storage-tiers.md)
 - [Rehydrate blob data from the archive tier](archive-rehydrate-overview.md)
+- [Reacting to Blob storage events](storage-blob-event-overview.md)
