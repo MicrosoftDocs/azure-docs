@@ -91,7 +91,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name Cr
 
 ## Related blog posts
 
-- [Custom images or formulas?](./devtest-lab-faq.yml#blog-post)
+- [Custom images or formulas?](/azure/devtest-labs/devtest-lab-faq#blog-post)
 - [Copying Custom Images between Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## Next steps

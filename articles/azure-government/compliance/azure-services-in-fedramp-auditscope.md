@@ -106,7 +106,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Cloud Services](https://azure.microsoft.com/services/cloud-services/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Cognitive Services: Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Cognitive Services: Content Moderator](https://azure.microsoft.com/services/cognitive-services/content-moderator/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Cognitive Services Containers](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Cognitive Services Containers](../../cognitive-services/cognitive-services-container-support.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Cognitive Services: Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Cognitive Services: Face](https://azure.microsoft.com/services/cognitive-services/face/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Cognitive Services: Form Recognizer](https://azure.microsoft.com/services/cognitive-services/form-recognizer/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -128,8 +128,8 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Dynamics 365 Field Service](https://dynamics.microsoft.com/field-service/overview/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Dynamics 365 Finance](https://dynamics.microsoft.com/finance/overview/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Dynamics 365 Guides](/dynamics365/mixed-reality/guides/get-started)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Dynamics 365 Sales](https://docs.microsoft.com/dynamics365/sales-enterprise/overview) |  |  |  | :heavy_check_mark: |
-| [Dynamics 365 Sales Professional](https://docs.microsoft.com/dynamics365/sales-professional/sales-professional-overview) |  |  |  | :heavy_check_mark: |
+| [Dynamics 365 Sales](/dynamics365/sales-enterprise/overview) |  |  |  | :heavy_check_mark: |
+| [Dynamics 365 Sales Professional](/dynamics365/sales-professional/sales-professional-overview) |  |  |  | :heavy_check_mark: |
 | [Dynamics 365 Supply Chain](https://dynamics.microsoft.com/supply-chain-management/overview/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Dynamics 365 Chat (Dynamics 365 Omni-Channel Engagement Hub)](/dynamics365/omnichannel/introduction-omnichannel) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Dataverse (Common Data Service)](/powerapps/maker/common-data-service/data-platform-intro) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -150,7 +150,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Log Analytics](../../azure-monitor/logs/data-platform-logs.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Logic Apps](https://azure.microsoft.com/services/logic-apps/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Media Services](https://azure.microsoft.com/services/media-services/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Microsoft 365 Defender](https://docs.microsoft.com/microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Microsoft Azure Attestation](https://azure.microsoft.com/services/azure-attestation/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Microsoft Azure portal](https://azure.microsoft.com/features/azure-portal/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Microsoft Azure Peering Service](../../peering-service/about.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -184,7 +184,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [UEBA for Sentinel](https://docs.microsoft.com/azure/sentinel/identify-threats-with-entity-behavior-analytics#what-is-user-and-entity-behavior-analytics-ueba) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [UEBA for Sentinel](../../sentinel/identify-threats-with-entity-behavior-analytics.md#what-is-user-and-entity-behavior-analytics-ueba) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Virtual Machines (incl. Reserved Instances)](https://azure.microsoft.com/services/virtual-machines/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Virtual Network](https://azure.microsoft.com/services/virtual-network/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -323,7 +323,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Network Watcher](https://azure.microsoft.com/services/network-watcher/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Network Watcher(Traffic Analytics)](../../network-watcher/traffic-analytics.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Planned Maintenance](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-portal)  | :heavy_check_mark: |  |  |  | :heavy_check_mark: |
+| [Planned Maintenance](../../virtual-machines/maintenance-control-portal.md)  | :heavy_check_mark: |  |  |  | :heavy_check_mark: |
 | [Power BI](https://powerbi.microsoft.com/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Power Virtual Agents](/power-virtual-agents/fundamentals-what-is-power-virtual-agents)  | :heavy_check_mark: |  |  |  | :heavy_check_mark: |
