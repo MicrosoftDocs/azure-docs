@@ -16,14 +16,13 @@ To build an application with Azure Web PubSub service, you need to create the We
 
 [!INCLUDE [create-instance-portal](includes/create-instance-portal.md)]
 
-## Try the instance with a simple demo
+## Try the newly created instance
 
 > [!div class="nextstepaction"]
-> [Try the newly created instance using CLI](./quickstart-cli-try.md)
-
+> [Try the instance from the browser](./quickstart-live-demo.md)
 
 > [!div class="nextstepaction"]
-> [Try the newly created instance from browser](./quickstart-live-demo.md)
+> [Try the instance with Azure CLI](./quickstart-cli-try.md)
 
 ## Next step
 

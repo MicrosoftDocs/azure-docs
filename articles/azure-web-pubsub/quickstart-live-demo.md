@@ -10,11 +10,7 @@ ms.date: 04/26/2021
 
 # Quickstart: Connect to the Web PubSub instance from the browser
 
-Previously we talked about how to create the Web PubSub instance [using Azure CLI](./quickstart-cli-create.md) or [from the portal](./howto-develop-create-instance.md). After the instance is successfully created, you can try this [pub/sub live demo](https://azure.github.io/azure-webpubsub/demos/clientpubsub.html) to get a basic idea of the real-time messaging capability provided by Azure Web PubSub. With this live demo, you could easily join a chat group and send real-time message to a specific group. 
-
-:::image type="content" source="media/quickstart-live-demo/chat-live-demo.gif" alt-text="Using the chatroom live demo.":::
-
-In this quickstart, learn how to get started easily with a live demo.
+Previously we talked about how to create the Web PubSub instance [from the portal](./howto-develop-create-instance.md) or [using Azure CLI](./quickstart-cli-create.md). This quickstart shows you how to get started easily with a [Pub/Sub live demo](https://azure.github.io/azure-webpubsub/demos/clientpubsub.html).
 
 [!INCLUDE [try a simple live demo](includes/try-live-demo.md)]
 
