@@ -14,20 +14,17 @@ ms.date: 08/10/2021
 
 ![indexer stages](media/cognitive-search-defining-skillset/indexer-stages-skillset.png "indexer stages")
 
-A skillset defines the operations that extract and enrich data to make it searchable. A skillset executes after text and image content are extracted from source documents, and after any fields from the source document are (optionally) mapped to destination fields in an index or knowledge store.
+A skillset defines the operations that extract and enrich data to make it searchable. A skillset executes after document cracking, when text and image content are extracted from source documents, and after any fields from the source document are (optionally) mapped to destination fields in an index or knowledge store.
 
-A skillset contains one or more *cognitive skills* that represent a specific enrichment operation, like translating text, extracting key phrases, or performing optical character recognition from an image file. To create a skillset, you can use [built-in skills](cognitive-search-predefined-skills.md) from Microsoft, or custom skills that contain models or processing logic that you provide (see [Example: Creating a custom skill in an AI enrichment pipeline](cognitive-search-create-custom-skill-example.md) for more information).
+A skillset is an array of one or more *skills* that represent an atomic enrichment operation, like translating text, extracting key phrases, or performing optical character recognition from an image file. Skills can be the [built-in skills](cognitive-search-predefined-skills.md) from Microsoft, or [custom skills](cognitive-search-create-custom-skill-example.md) that contain models or processing logic that you provide. It produces enriched documents that are either consumed during indexing or projected to a knowledge store.
 
-In this article, you learn how to create an enrichment pipeline for the skills you want to use. A skillset is attached to an Azure Cognitive Search [indexer](search-indexer-overview.md). One part of pipeline design, covered in this article, is constructing the skillset itself. 
+In this article, you'll learn the steps of creating a skillset. For reference, this article uses the [Create Skillset (REST API)](/rest/api/searchservice/create-skillset). 
 
-> [!NOTE]
-> Another part of pipeline design is specifying an indexer, covered in the [next step](#next-step). An indexer definition includes a reference to the skillset, plus field mappings used for connecting inputs to outputs in the target index.
+Some rules for creating a skillset include:
 
-Key points to remember:
-
-+ You can only have one skillset per indexer.
-+ A skillset must have at least one skill.
-+ You can create multiple skills of the same type (for example, variants of an image analysis skill).
++ A skillset is a top-level resource, which means it can be created once and used by many indexers.
++ A skillset must contain at least one skill.
++ Within a skillset, you can repeat skills for the same type (for example, variants of an image analysis skill).
 
 ## Begin with the end in mind
 
@@ -293,4 +290,6 @@ You can choose to save the enriched documents as tables with hierarchical relati
 
 ## Next steps
 
-Now that you are familiar with the enrichment pipeline and skillsets, continue with [How to reference annotations in a skillset](cognitive-search-concept-annotations-syntax.md) or [How to map outputs to fields in an index](cognitive-search-output-field-mapping.md).
+After a skillset is defined, you can attach it to an [indexer](search-indexer-overview.md) to run it.
+
+<!-- Now that you are familiar with the enrichment pipeline and skillsets, continue with [How to reference annotations in a skillset](cognitive-search-concept-annotations-syntax.md) or [How to map outputs to fields in an index](cognitive-search-output-field-mapping.md). -->
