@@ -1,6 +1,6 @@
 ---
 title: "Migrate MySQL on-premises to Azure Database for MySQL: Planning"
-description: "an azure landing zone is the target environment defined as the final resting place of a cloud migration project."
+description: "An Azure landing zone is the target environment defined as the final resting place of a cloud migration project."
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
