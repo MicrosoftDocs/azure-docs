@@ -21,4 +21,4 @@ If the API Management instance is deployed in a virtual network, also configure 
 * Enable a [service endpoint](../articles/key-vault/general/overview-vnet-service-endpoints.md) to Azure Key Vault on the API Management subnet.
 * Configure a network security group (NSG) rule to allow outbound traffic to the AzureKeyVault and AzureActiveDirectory [service tags](../articles/virtual-network/service-tags-overview.md). 
 
-For details, see network configuration details in [Connect to a virtual network](../articles/api-management/api-management-using-with-vnet.md#-common-network-configuration-issues).
+For details, see network configuration details in [Connect to a virtual network](../articles/api-management/api-management-using-with-vnet.md#network-configuration).

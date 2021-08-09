@@ -41,14 +41,14 @@ The following are virtual network resource requirements for API Management. Some
 
 ### [v1](#tab/v1)
 
-* An Azure Resource Manager virtual networks is required.
+* An Azure Resource Manager virtual network is required.
 * The subnet used to connect to the API Management instance must be dedicated to API Management. It cannot contain other Azure resource types.
 * The API Management service, virtual network, and subnet resources must be in the same region and subscription.
 * For multi-region API Management deployments, you configure virtual network resources separately for each location.
 
 ### [v2](#tab/v2)
 
-* An Azure Resource Manager virtual networks is required.
+* An Azure Resource Manager virtual network is required.
 * You must provide a Standard SKU [public IPv4 address](../virtual-network/public-ip-addresses.md#standard) in addition to specifying a virtual network and subnet.
 * The subnet used to connect to the API Management instance may contain other Azure resource types.
 * The API Management service, virtual network and subnet, and public IP address resource must be in the same region and subscription.
@@ -72,7 +72,7 @@ The minimum size of the subnet in which API Management can be deployed is /29, w
 ## Routing
 + A load-balanced public IP address (VIP) is reserved to provide access to all service endpoints and resources outside the VNET.
   + Load balanced public IP addresses can be found on the **Overview/Essentials** blade in the Azure portal.
-+ An IP address from a subnet IP range (DIP) ks used to access resources within the VNET.
++ An IP address from a subnet IP range (DIP) is used to access resources within the VNET.
 
 > [!NOTE]
 > The VIP address of the API Management instance will change when:
@@ -82,24 +82,33 @@ The minimum size of the subnet in which API Management can be deployed is /29, w
 
 ## DNS
 
-A VNET by default enables [Azure-provided name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) for your API Management endpoints and other Azure resources. It does not provide name resolution for on-premises resources. 
+In external mode, the VNET enables [Azure-provided name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) for your API Management endpoints and other Azure resources. It does not provide name resolution for on-premises resources. 
+
+In internal mode, you must provide your own DNS solution to ensure name resolution for API Management endpoints and other required Azure resources. We recommend configuring an Azure [private DNS zone](../dns/private-dns-overview.md).
 
 If needed for your scenario, you may configure a custom DNS solution for your virtual network. Because the API Management service depends on several Azure services, when API Management is hosted in a VNET with a custom DNS server, it needs to resolve the hostnames of those Azure services.  
 
-* For guidance on custom DNS setup, see [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).  
-
-* For reference, see the [required ports table](api-management-using-with-vnet.md#required-ports) and network requirements.
+* For more information, see: 
+* [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).  
+* [Create an Azure private DNS zone](../dns/private-dns-getstarted-portal.md)
 
 > [!IMPORTANT]
-> If you plan to use a custom DNS server(s) for the VNET, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/2020-12-01/api-management-service/apply-network-configuration-updates).
+> If you plan to use a custom DNS solution for the VNET, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/2020-12-01/api-management-service/apply-network-configuration-updates).
 
 ## Limitations
+
+### [v1](#tab/v1)
 
 * A subnet containing API Management instances can't be moved across subscriptions.
 * For multi-region API Management deployments configured in internal VNET mode, users own the routing and are responsible for managing the load balancing across multiple regions.
 * Due to platform limitations, connectivity between a resource in a globally peered VNET in another region and an API Management service in internal mode will not work. For more information, see the [virtual network documentation](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
 
+### [v2](#tab/v2)
 
+* A subnet containing API Management instances can't be moved across subscriptions.
+* For multi-region API Management deployments configured in internal VNET mode, users own the routing and are responsible for managing the load balancing across multiple regions.
+
+---
 
 ## <a name="related-content"> </a>Related content
 * [Connecting a Virtual Network to backend using Vpn Gateway](../vpn-gateway/design.md#s2smulti)

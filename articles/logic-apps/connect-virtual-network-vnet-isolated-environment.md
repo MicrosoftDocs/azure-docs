@@ -155,7 +155,7 @@ If you don't permit access for these dependencies, your ISE deployment fails and
   * [Azure IP addresses for connectors in the ISE region, available in this download file](https://www.microsoft.com/download/details.aspx?id=56519)
   * [App Service Environment management addresses](../app-service/environment/management-addresses.md)  
   * [Azure Traffic Manager management addresses](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
-  * [Azure API Management Control Plane IP addresses](../api-management/api-management-using-with-vnet.md#control-plane-ips)
+  * [Azure API Management Control Plane IP addresses](../api-management/api-management-using-with-vnet.md#control-plane-ip-addresses)
 
 * Service endpoints
 
@@ -167,7 +167,7 @@ If you don't permit access for these dependencies, your ISE deployment fails and
    
    * [Azure App Service Dependencies](../app-service/environment/firewall-integration.md#deploying-your-ase-behind-a-firewall)
    * [Azure Cache Service Dependencies](../azure-cache-for-redis/cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-virtual-networks)
-   * [Azure API Management Dependencies](../api-management/api-management-using-with-vnet.md#-common-network-configuration-issues)
+   * [Azure API Management Dependencies](../api-management/api-management-using-with-vnet.md#network-configuration)
 
 <a name="create-environment"></a>
 
