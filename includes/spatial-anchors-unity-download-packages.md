@@ -22,7 +22,7 @@ To use Azure Spatial Anchors in Unity, you will need to download the core packag
 
 # [Download with web browser](#tab/unity-package-web-ui)
 
-Locate the Azure Spatial Anchors core package for Unity [here](https://aka.ms/aoa/unity-sdk/package). Select the version you want and download the package using the **Download** button. Repeat this step to download the package for each platform that you plan to support.
+Locate the Azure Spatial Anchors core package (com.microsoft.azure.spatial-anchors-sdk.core) for Unity [here](https://dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging?_a=feed&feed=Unity-packages). Select the version you want and download the package using the **Download** button. Repeat this step to download the package for each platform that you plan to support.
 
 # [Download with NPM](#tab/unity-package-npm)
 
