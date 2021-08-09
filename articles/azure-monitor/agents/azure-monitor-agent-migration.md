@@ -10,12 +10,12 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Migrate from a Log Analytics agent
-This article provides high-level guidance on when and how to migrate to the new Azure Monitor agent and data collection rules. This article will be updated as and when new migration tooling is available.
+This article provides high-level guidance on when and how to migrate to the new Azure Monitor agent and data collection rules. This article will be updated when new migration tooling is available.
 
 
 ## Review
-- To help you decide if you should migrate to the new Azure Monitor agent now or later, see the guidance in [Azure Monitor agent overview](./azure-monitor-agent-overview.md#should-i-switch-to-azure-monitor-agent).
-- For the Azure Monitor agent, review the new capabilities, availability of existing features, services, solutions, and current limitations in [Overview of Azure Monitor agents](./agents-overview.md#azure-monitor-agent).
+- To help you decide if you should migrate to the new Azure Monitor agent now or later, see the guidance in [Azure Monitor agent overview](./azure-monitor-agent-overview.md#should-i-switch-to-the-azure-monitor-agent).
+- For the Azure Monitor agent, review the new capabilities; the availability of existing features, services, and solutions; and current limitations in [Overview of Azure Monitor agents](./agents-overview.md#azure-monitor-agent).
 
 
 ## Test migration by using the Azure portal
