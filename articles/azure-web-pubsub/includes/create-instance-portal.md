@@ -33,4 +33,6 @@ Your application will connect to a Web PubSub service instance in Azure.
     | **Pricing tier** | Free | Try Azure Web PubSub service for free. |
     | **Unit count** |  Not applicable | Unit count specifies how many connections your Web PubSub service instance can accept. It is only configurable in the Standard tier. |
 
+:::image type="content" source="../media/howto-develop-create-instance/create-web-pubsub-instance-in-portal.png" alt-text="Screenshot of creating the Azure Web PubSub instance in portal.":::
+
 4. Select **Create** to start deploying the Web PubSub service instance.
