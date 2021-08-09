@@ -2,10 +2,8 @@
 title: "Quickstart: Create a public load balancer - Azure portal"
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a load balancer by using the Azure portal.
-services: load-balancer
 author: asudbring 
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/09/2021
 ms.author: allensu
