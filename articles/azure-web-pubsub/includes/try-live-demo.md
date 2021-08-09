@@ -11,7 +11,7 @@ ms.date: 08/08/2021
 With this live demo, you could join or leave a group and send messages to the group members easily:
 
 > [!div class="nextstepaction"]
-> [Open the demo]](https://azure.github.io/azure-webpubsub/demos/clientpubsub.html)
+> [Open the demo](https://azure.github.io/azure-webpubsub/demos/clientpubsub.html)
 
 ### How to get client URL with a temp access token
 
