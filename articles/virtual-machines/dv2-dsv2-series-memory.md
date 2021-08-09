@@ -23,7 +23,7 @@ Dv2-series sizes run on Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® X
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<sup>1</sup> <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br> 
 
@@ -33,10 +33,11 @@ Dv2-series sizes run on Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® X
 | Standard_D12_v2 | 4  | 28  | 200 | 12000/187/93  | 16/16x500 | 4|3000  |
 | Standard_D13_v2 | 8  | 56  | 400 | 24000/375/187 | 32/32x500 | 8|6000  |
 | Standard_D14_v2 | 16 | 112 | 800 | 48000/750/375 | 64/64x500 | 8|12000 |
-| Standard_D15_v2 <sup>1</sup> | 20 | 140 | 1000 | 60000/937/468 | 64/64x500 | 8|25000 <sup>2</sup> |
+| Standard_D15_v2 <sup>2</sup> | 20 | 140 | 1000 | 60000/937/468 | 64/64x500 | 8|25000 <sup>3</sup> |
 
-<sup>1</sup> Instance is isolated to hardware dedicated to a single customer.
-<sup>2</sup> 25000 Mbps with Accelerated Networking.
+<sup>1</sup> Virtual Machines with 2 vCPU can enable accelerated networking on only a single NIC. <br>
+<sup>2</sup> Instance is isolated to hardware dedicated to a single customer.<br>
+<sup>3</sup> 25000 Mbps with Accelerated Networking.
 
 ## Dsv2-series 11-15
 
@@ -48,7 +49,7 @@ Dsv2-series sizes run on Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® 
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<sup>5</sup> <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br> 
 
@@ -63,7 +64,8 @@ Dsv2-series sizes run on Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® 
 <sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a DSv2 series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Designing for high performance](./premium-storage-performance.md).
 <sup>2</sup>  Instance is isolated to the Intel Haswell based hardware and dedicated to a single customer.  
 <sup>3</sup> Constrained core sizes available.  
-<sup>4</sup> 25000 Mbps with Accelerated Networking.
+<sup>4</sup> 25000 Mbps with Accelerated Networking.<br>
+<sup>5</sup> Virtual Machines with 2 vCPU can enable accelerated networking on only a single NIC. 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

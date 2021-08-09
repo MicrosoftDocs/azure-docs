@@ -31,7 +31,7 @@ Remote Data disk storage is billed separately from virtual machines. To use prem
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<sup>1</sup> <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
 
@@ -46,6 +46,7 @@ Remote Data disk storage is billed separately from virtual machines. To use prem
 | Standard_E48_v4 | 48 | 384 | Remote Storage Only | 32 | 8|24000 |
 | Standard_E64_v4 | 64 | 504 | Remote Storage Only | 32| 8|30000 |
 
+<sup>1</sup> Virtual Machines with 2 vCPU can enable accelerated networking on only a single NIC. <br>
 
 ## Esv4-series
 
@@ -57,7 +58,7 @@ Esv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<sup>4</sup> <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
 
@@ -74,11 +75,10 @@ Esv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 | Standard_E64s_v4 <sup>2</sup> | 64 | 504| Remote Storage Only | 32 | 80000/1200 | 80000/2000 | 8|30000 |
 | Standard_E80is_v4 <sup>3</sup> | 80 | 504 | Remote Storage Only | 32 | 80000/1200 | 80000/2000 | 8|30000 |
 
-<sup>1</sup>  Esv4-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
-
-<sup>2</sup> [Constrained core sizes available)](./constrained-vcpu.md).
-
-<sup>3</sup> Instance is isolated to hardware dedicated to a single customer.
+<sup>1</sup>  Esv4-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
+<sup>2</sup> [Constrained core sizes available)](./constrained-vcpu.md).<br>
+<sup>3</sup> Instance is isolated to hardware dedicated to a single customer.<br>
+<sup>4</sup> Virtual Machines with 2 vCPU can enable accelerated networking on only a single NIC. <br>
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
