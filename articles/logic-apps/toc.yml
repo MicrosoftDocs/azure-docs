@@ -218,8 +218,8 @@
       - name: EDIFACT CONTRL acknowledgments and error codes
         href: logic-apps-enterprise-integration-edifact-contrl-acknowledgment.md
     - name: RosettaNet messaging
-      items: 	
-      - name: Exchange RosettaNet messages	
+      items:
+      - name: Exchange RosettaNet messages
         href: logic-apps-enterprise-integration-rosettanet.md
     - name: X12 messaging
       items:
