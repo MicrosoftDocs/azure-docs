@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 08/09/2021
 ---
 
 # What's new in Azure Sentinel
@@ -28,14 +28,108 @@ If you're looking for items older than six months, you'll find them in the [Arch
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 >
 
+## August 2021
+
+- [Advanced incident search (Public preview)](#advanced-incident-search-public-preview)
+- [Fusion detection for Ransomware (Public preview)](#fusion-detection-for-ransomware-public-preview)
+- [Watchlist templates for UEBA data](#watchlist-templates-for-ueba-data-public-preview)
+- [File event normalization schema (Public preview)](#file-event-normalization-schema-public-preview)
+- [New in docs: Best practice guidance](#new-in-docs-best-practice-guidance)
+
+### Advanced incident search (Public preview)
+
+By default, incident searches run across the **Incident ID**, **Title**, **Tags**, **Owner**, and **Product name** values only. Azure Sentinel now provides [advanced search options](tutorial-investigate-cases.md#search-for-incidents) to search across more data, including alert details, descriptions, entities, tactics, and more.
+
+For example:
+
+:::image type="content" source="media/tutorial-investigate-cases/advanced-search.png" alt-text="Screenshot of the Incidents page advanced search options.":::
+
+For more information, see [Search for incidents](tutorial-investigate-cases.md#search-for-incidents).
+
+### Fusion detection for Ransomware (Public preview)
+
+Azure Sentinel now provides new Fusion detections for possible Ransomware activities, generating incidents titled as **Multiple alerts possibly related to Ransomware activity detected**.
+
+Incidents are generated for alerts that are possibly associated with Ransomware activities, when they occur during a specific time-frame, and are associated with the Execution and Defense Evasion stages of an attack. You can use the alerts listed in the incident to analyze the techniques possibly used by attackers to compromise a host/device and to evade detection.
+
+Supported data connectors include:
+
+- [Azure Defender (Azure Security Center)](connect-azure-security-center.md)
+- [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
+- [Microsoft Defender for Identity](connect-azure-atp.md)
+- [Microsoft Cloud App Security](connect-cloud-app-security.md)
+- [Azure Sentinel scheduled analytics rules](tutorial-detect-threats-built-in.md#scheduled)
+
+For more information, see [Multiple alerts possibly related to Ransomware activity detected](fusion.md#multiple-alerts-possibly-related-to-ransomware-activity-detected-public-preview).
+
+### Watchlist templates for UEBA data (Public preview)
+
+Azure Sentinel now provides built-in watchlist templates for UEBA data, which you can customize for your environment and use during investigations.
+
+After UEBA watchlists are populated with data, you can correlate that data with analytics rules, view it in the entity pages and investigation graphs as insights, create custom uses such as to track VIP or sensitive users, and more.
+
+Watchlist templates currently include:
+
+- **VIP Users**. A list of user accounts of employees that have high impact value in the organization.
+- **Terminated Employees**. A list of user accounts of employees that have been, or are about to be, terminated.
+- **Service Accounts**. A list of service accounts and their owners.
+- **Identity Correlation**. A list of related user accounts that belong to the same person.
+- **High Value Assets**. A list of devices, resources, or other assets that have critical value in the organization.
+- **Network Mapping**. A list of IP subnets and their respective organizational contexts.
+
+For more information, see [Create a new watchlist using a template](watchlists.md#create-a-new-watchlist-using-a-template-public-preview) and [Built-in watchlist schemas](watchlist-schemas.md).
+
+
+
+### File Event normalization schema (Public preview)
+
+The Azure Sentinel Information Model (ASIM) now supports a File Event normalization schema, which is used to describe file activity, such as creating, modifying, or deleting files or documents. File events are reported by operating systems, file storage systems such as Azure Files, and document management systems such as Microsoft SharePoint.
+
+For more information, see:
+
+- [Azure Sentinel File Event normalization schema reference (Public preview)](file-event-normalization-schema.md)
+- [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md)
+
+
+### New in docs: Best practice guidance
+
+In response to multiple requests from customers and our support teams, we've added a series of best practice guidance to our documentation.
+
+For more information, see:
+
+- [Prerequisites for deploying Azure Sentinel](prerequisites.md)
+- [Best practices for Azure Sentinel](best-practices.md)
+- [Azure Sentinel workspace architecture best practices](best-practices-workspace-architecture.md)
+- [Design your Azure Sentinel workspace architecture](design-your-workspace-architecture.md)
+- [Azure Sentinel sample workspace designs](sample-workspace-designs.md)
+- [Data collection best practices](best-practices-data.md)
+
+> [!TIP]
+> You can find more guidance added across our documentation in relevant conceptual and how-to articles. For more information, see [Additional best practice references](best-practices.md#additional-best-practice-references).
+>
+
 ## July 2021
 
+- [Microsoft Threat Intelligence Matching Analytics (Public preview)](#microsoft-threat-intelligence-matching-analytics-public-preview)
 - [Use Azure AD data with Azure Sentinel's IdentityInfo table (Public preview)](#use-azure-ad-data-with-azure-sentinels-identityinfo-table-public-preview)
 - [Enrich Entities with geolocation data via API (Public preview)](#enrich-entities-with-geolocation-data-via-api-public-preview)
 - [Support for ADX cross-resource queries (Public preview)](#support-for-adx-cross-resource-queries-public-preview)
 - [Watchlists are in general availability](#watchlists-are-in-general-availability)
 - [Support for data residency in more geos](#support-for-data-residency-in-more-geos)
 - [Bidirectional sync in Azure Defender connector (Public preview)](#bidirectional-sync-in-azure-defender-connector-public-preview)
+
+
+### Microsoft Threat Intelligence Matching Analytics (Public preview)
+
+Azure Sentinel now provides the built-in **Microsoft Threat Intelligence Matching Analytics** rule, which matches Microsoft-generated threat intelligence data with your logs. This rule generates high-fidelity alerts and incidents, with appropriate severities based on the context of the logs detected. After a match is detected, the indicator is also published to your Azure Sentinel threat intelligence repository.
+
+The **Microsoft Threat Intelligence Matching Analytics** rule currently matches domain indicators against the following log sources:
+
+- [CEF](connect-common-event-format.md)
+- [DNS](connect-dns.md)
+- [Syslog](connect-syslog.md)
+
+For more information, see [Detect threats using matching analytics (Public preview)](work-with-threat-indicators.md#detect-threats-using-matching-analytics-public-preview).
 
 ### Use Azure AD data with Azure Sentinel's IdentityInfo table (Public preview)
 
@@ -61,6 +155,7 @@ The hunting experience in Azure Sentinel now supports [ADX cross-resource querie
 Although Log Analytics remains the primary data storage location for performing analysis with Azure Sentinel, there are cases where ADX is required to store data due to cost, retention periods, or other factors. This capability enables customers to hunt over a wider set of data and view the results in the [Azure Sentinel hunting experiences](hunting.md), including hunting queries, [livestream](livestream.md), and the Log Analytics search page.
 
 To query data stored in ADX clusters, use the adx() function to specify the ADX cluster, database name, and desired table. You can then query the output as you would any other table. See more information in the pages linked above.
+
 
 
 
@@ -408,179 +503,6 @@ Azure Policy-based connectors are now available for the following Azure services
 
 Customers will still be able to send the logs manually for specific instances and don’t have to use the policy engine.
 
-## February 2021
-
-- [Cybersecurity Maturity Model Certification (CMMC) workbook](#cybersecurity-maturity-model-certification-cmmc-workbook)
-- [Third-party data connectors](#third-party-data-connectors)
-- [UEBA insights in the entity page (Public preview)](#ueba-insights-in-the-entity-page-public-preview)
-- [Improved incident search (Public preview)](#improved-incident-search-public-preview)
-
-### Cybersecurity Maturity Model Certification (CMMC) workbook
-
-The Azure Sentinel CMMC Workbook provides a mechanism for viewing log queries aligned to CMMC controls across the Microsoft portfolio, including Microsoft security offerings, Office 365, Teams, Intune, Windows Virtual Desktop and many more.
-
-The CMMC workbook enables security architects, engineers, security operations analysts, managers, and IT professionals to gain situational awareness visibility for the security posture of cloud workloads. There are also recommendations for selecting, designing, deploying, and configuring Microsoft offerings for alignment with respective CMMC requirements and practices.
-
-Even if you aren’t required to comply with CMMC, the CMMC workbook is helpful in building Security Operations Centers, developing alerts, visualizing threats, and providing situational awareness of workloads.
-
-Access the CMMC workbook in the Azure Sentinel **Workbooks** area. Select **Template**, and then search for **CMMC**.
-
-:::image type="content" source="media/whats-new/cmmc-guide-toggle.gif" alt-text="Toggle the CMMC workbook guide on and off" lightbox="media/whats-new/cmmc-guide-toggle.gif":::
-
-
-For more information, see:
-
-- [Azure Sentinel Cybersecurity Maturity Model Certification (CMMC) Workbook](https://techcommunity.microsoft.com/t5/public-sector-blog/azure-sentinel-cybersecurity-maturity-model-certification-cmmc/ba-p/2110524)
-- [Visualize and monitor your data](tutorial-monitor-your-data.md)
-
-
-### Third-party data connectors
-
-Our collection of third-party integrations continues to grow, with thirty connectors being added in the last two months. Here's a list:
-
-- [Agari Phishing Defense and Brand Protection](connect-agari-phishing-defense.md)
-- [Akamai Security Events](connect-akamai-security-events.md)
-- [Alsid for Active Directory](connect-alsid-active-directory.md)
-- [Apache HTTP Server](connect-apache-http-server.md)
-- [Aruba ClearPass](connect-aruba-clearpass.md)
-- [Blackberry CylancePROTECT](connect-data-sources.md)
-- [Broadcom Symantec DLP](connect-broadcom-symantec-dlp.md)
-- [Cisco Firepower eStreamer](connect-data-sources.md)
-- [Cisco Meraki](connect-cisco-meraki.md)
-- [Cisco Umbrella](connect-cisco-umbrella.md)
-- [Cisco Unified Computing System (UCS)](connect-cisco-ucs.md)
-- [ESET Enterprise Inspector](connect-data-sources.md)
-- [ESET Security Management Center](connect-data-sources.md)
-- [Google Workspace (formerly G Suite)](connect-google-workspace.md)
-- [Imperva WAF Gateway](connect-imperva-waf-gateway.md)
-- [Juniper SRX](connect-juniper-srx.md)
-- [Netskope](connect-data-sources.md)
-- [NXLog DNS Logs](connect-nxlog-dns.md)
-- [NXLog Linux Audit](connect-nxlog-linuxaudit.md)
-- [Onapsis Platform](connect-data-sources.md)
-- [Proofpoint On Demand Email Security (POD)](connect-proofpoint-pod.md)
-- [Qualys Vulnerability Management Knowledge Base](connect-data-sources.md)
-- [Salesforce Service Cloud](connect-salesforce-service-cloud.md)
-- [SonicWall Firewall](connect-data-sources.md)
-- [Sophos Cloud Optix](connect-sophos-cloud-optix.md)
-- [Squid Proxy](connect-squid-proxy.md)
-- [Symantec Endpoint Protection](connect-data-sources.md)
-- [Thycotic Secret Server](connect-thycotic-secret-server.md)
-- [Trend Micro XDR](connect-data-sources.md)
-- [VMware ESXi](connect-vmware-esxi.md)
-
-### UEBA insights in the entity page (Public preview)
-
-The Azure Sentinel entity details pages provide an [Insights pane](identify-threats-with-entity-behavior-analytics.md#entity-insights), which displays behavioral insights on the entity and help to quickly identify anomalies and security threats.
-
-If you have [UEBA enabled](ueba-enrichments.md), and have selected a timeframe of at least four days, this Insights pane will now also include the following new sections for UEBA insights:
-
-|Section  |Description  |
-|---------|---------|
-|**UEBA Insights**     | Summarizes anomalous user activities: <br>- Across geographical locations, devices, and environments<br>- Across time and frequency horizons, compared to user's own history <br>- Compared to peers' behavior <br>- Compared to the organization's behavior     |
-|**User Peers Based on Security Group Membership**     |   Lists the user's peers based on Azure AD Security Groups membership, providing security operations teams with a list of other users who share similar permissions.  |
-|**User Access Permissions to Azure Subscription**     |     Shows the user's access permissions to the Azure subscriptions accessible directly, or via Azure AD groups / service principals.   |
-|**Threat Indicators Related to The User**     |  Lists a collection of known threats relating to IP addresses represented in the user’s activities. Threats are listed by threat type and family, and are enriched by Microsoft’s threat intelligence service.       |
-|     |         |
-
-### Improved incident search (Public preview)
-
-We've improved the Azure Sentinel incident searching experience, enabling you to navigate faster through incidents as you investigate a specific threat.
-
-When searching for incidents in Azure Sentinel, you're now able to search by the following incident details:
-
-- ID
-- Title
-- Product
-- Owner
-- Tag
-
-## January 2021
-
-- [Analytics rule wizard: Improved query editing experience (Public preview)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
-- [Az.SecurityInsights PowerShell module (Public preview)](#azsecurityinsights-powershell-module-public-preview)
-- [SQL database connector](#sql-database-connector)
-- [Dynamics 365 connector (Public preview)](#dynamics-365-connector-public-preview)
-- [Improved incident comments](#improved-incident-comments)
-- [Dedicated Log Analytics clusters](#dedicated-log-analytics-clusters)
-- [Logic apps managed identities](#logic-apps-managed-identities)
-- [Improved rule tuning with the analytics rule preview graphs](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
-
-
-### Analytics rule wizard: Improved query editing experience (Public preview)
-
-The Azure Sentinel Scheduled analytics rule wizard now provides the following enhancements for writing and editing queries:
-
--	An expandable editing window, providing you with more screen space to view your query.
--	Key word highlighting in your query code.
--	Expanded autocomplete support.
--	Real-time query validations. Errors in your query now show as a red block in the scroll bar, and as a red dot in the **Set rule logic** tab name. Additionally, a query with errors cannot be saved.
-
-For more information, see [Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
-### Az.SecurityInsights PowerShell module (Public preview)
-
-Azure Sentinel now supports the new [Az.SecurityInsights](https://www.powershellgallery.com/packages/Az.SecurityInsights/) PowerShell module.
-
-The **Az.SecurityInsights** module supports common Azure Sentinel use cases, like interacting with incidents to change statues, severity, owner, and so on, adding comments and labels to incidents, and creating bookmarks.
-
-Although we recommend using [Azure Resource Manager (ARM)](../azure-resource-manager/templates/index.yml) templates for your CI/CD pipeline, the **Az.SecurityInsights** module is useful for post-deployment tasks, and is targeted for SOC automation.  For example, your SOC automation might include steps to configure data connectors, create analytics rules, or add automation actions to analytics rules.
-
-For more information, including a full list and description of the available cmdlets, parameter descriptions, and examples, see the [Az.SecurityInsights PowerShell documentation](/powershell/module/az.securityinsights/).
-
-### SQL database connector
-
-Azure Sentinel now provides an Azure SQL database connector, which you to stream your databases' auditing and diagnostic logs into Azure Sentinel and continuously monitor activity in all your instances.
-
-Azure SQL is a fully managed, Platform-as-a-Service (PaaS) database engine that handles most database management functions, such as upgrading, patching, backups, and monitoring, without user involvement.
-
-For more information, see [Connect Azure SQL database diagnostics and auditing logs](connect-azure-sql-logs.md).
-
-### Dynamics 365 connector (Public preview)
-
-Azure Sentinel now provides a connector for Microsoft Dynamics 365, which lets you collect your Dynamics 365 applications' user, admin, and support activity logs into Azure Sentinel. You can use this data to help you audit the entirety of data processing actions taking place and analyze it for possible security breaches.
-
-For more information, see [Connect Dynamics 365 activity logs to Azure Sentinel](connect-dynamics-365.md).
-
-### Improved incident comments
-
-Analysts use incident comments to collaborate on incidents, documenting processes and steps manually or as part of a playbook. 
-
-Our improved incident commenting experience enables you to format your comments and edit or delete existing comments.
-
-For more information, see [Automatically create incidents from Microsoft security alerts](create-incidents-from-alerts.md).
-### Dedicated Log Analytics clusters
-
-Azure Sentinel now supports dedicated Log Analytics clusters as a deployment option. We recommend considering a dedicated cluster if you:
-
-- **Ingest over 1 Tb per day** into your Azure Sentinel workspace
-- **Have multiple Azure Sentinel workspaces** in your Azure enrollment
-
-Dedicated clusters enable you to use features like customer-managed keys, lockbox, double encryption, and faster cross-workspace queries when you have multiple workspaces on the same cluster.
-
-For more information, see [Azure Monitor logs dedicated clusters](../azure-monitor/logs/logs-dedicated-clusters.md).
-
-### Logic apps managed identities
-
-Azure Sentinel now supports managed identities for the Azure Sentinel Logic Apps connector, enabling you to grant permissions directly to a specific playbook to operate on Azure Sentinel instead of creating extra identities.
-
-- **Without a managed identity**, the Logic Apps connector requires a separate identity with an Azure Sentinel RBAC role in order to run on Azure Sentinel. The separate identity can be an Azure AD user or a Service Principal, such as an Azure AD registered application.
-
-- **Turning on managed identity support in your Logic App** registers the Logic App with Azure AD and provides an object ID. Use the object ID in Azure Sentinel to assign the Logic App with an Azure RBAC role in your Azure Sentinel workspace. 
-
-For more information, see:
-
-- [Authenticating with Managed Identity in Azure Logic Apps](../logic-apps/create-managed-service-identity.md)
-- [Azure Sentinel Logic Apps connector documentation](/connectors/azuresentinel) 
-
-### Improved rule tuning with the analytics rule preview graphs (Public preview)
-
-Azure Sentinel now helps you better tune your analytics rules, helping you to increase their accuracy and decrease noise.
-
-After editing an analytics rule on the **Set rule logic** tab, find the **Results simulation** area on the right. 
-
-Select **Test with current data** to have Azure Sentinel run a simulation of the last 50 runs of your analytics rule. A graph is generated to show the average number of alerts that the rule would have generated, based on the raw event data evaluated. 
-
-For more information, see [Define the rule query logic and configure settings](tutorial-detect-threats-custom.md#define-the-rule-query-logic-and-configure-settings).
 
 ## Next steps
 

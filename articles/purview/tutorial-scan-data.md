@@ -192,7 +192,7 @@ A Managed Identity with the same name as your Azure Purview account is automatic
 
 1. In the [Azure portal](https://portal.azure.com), search for and select the name of the Azure Purview instance that you created as a prerequisite, and then select *Open Purview Studio*. You're automatically taken to your Purview Studio's home page.
 
-1. Select **Sources** on your catalog's webpage, and select **Register**. Then, select **Azure Blob Storage** and **Continue**.
+1. Select **Data Map** on the left navigation, and select **Register**. Then, select **Azure Blob Storage** and **Continue**.
 
    :::image type="content" source="media/tutorial-scan-data/add-blob-storage.png" alt-text="Register blob storage resource":::
 

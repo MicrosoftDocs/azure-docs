@@ -79,5 +79,5 @@ The same active-active configuration can also apply to Azure VNet-to-VNet connec
 This ensures there are always a pair of tunnels between the two virtual networks for any planned maintenance events, providing even better availability. Even though the same topology for cross-premises connectivity requires two connections, the VNet-to-VNet topology shown above will need only one connection for each gateway. Additionally, BGP is optional unless transit routing over the VNet-to-VNet connection is required.
 
 ## Next steps
-See [Configuring Active-Active VPN Gateways for Cross-Premises and VNet-to-VNet Connections](vpn-gateway-activeactive-rm-powershell.md) for steps to configure active-active cross-premises and VNet-to-VNet connections.
+See [Configure active-active gateways](active-active-portal.md) using the [Azure Portal](active-active-portal.md) or [PowerShell](vpn-gateway-activeactive-rm-powershell.md).
 

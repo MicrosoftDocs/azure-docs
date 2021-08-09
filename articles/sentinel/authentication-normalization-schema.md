@@ -184,6 +184,7 @@ An **Actor**, running an *Acting Application* (**ActingApp**) on a *Source Devic
 For more information, see:
 
 - [Normalization in Azure Sentinel](normalization.md)
-- [Azure Sentinel network normalization schema reference](normalization-schema.md)
 - [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
-- [Azure Sentinel Authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
+- [Azure Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
+- [Azure Sentinel network normalization schema reference](normalization-schema.md)
+- [Azure Sentinel process event normalization schema reference (Public preview)](process-events-normalization-schema.md)

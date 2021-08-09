@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
-ms.date: 07/16/2021
+ms.date: 07/27/2021
 ms.topic: how-to
 ms.custom: subject-rbac-steps
 ---
@@ -28,6 +28,11 @@ In this tutorial, you accomplish the following tasks:
 > * Configure Azure Machine Learning studio to work behind a VNet. The studio provides a __web interface for Azure Machine Learning__.
 > * Create an Azure Machine Learning compute cluster. A compute cluster is used when __training machine learning models in the cloud__. In configurations where Azure Container Registry is behind the VNet, it is also used to build Docker images.
 > * Connect to the jump box and use the Azure Machine Learning studio.
+
+If your environment meets the prerequisites and you're familiar with using ARM templates, the first five steps in this tutorial can also be completed by selecting the 'Deploy to Azure button'. You can continue reading from [Connect to the workspace](#connect-to-the-workspace).
+
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-advanced%2Fazuredeploy.json)
+[![Deploy To Azure US Gov](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.svg?sanitize=true)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-advanced%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -340,7 +345,7 @@ Use the following steps to create a Data Science Virtual Machine for use as a ju
 
 ### Connect to the jump box
 
-1. Once the workspace has been created, select __Go to resource__.
+1. Once the virtual machine has been created, select __Go to resource__.
 1. From the top of the page, select __Connect__ and then __Bastion__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/virtual-machine-connect.png" alt-text="Image of the connect/bastion UI":::
@@ -381,11 +386,11 @@ A compute cluster is used by your training jobs. A compute instance provides a J
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-compute-instance.png" alt-text="Screenshot of new compute instance workflow":::
 
-1. From the __Virtual Machine__ dialog, select __Next__ to accept the default virtual machine configuration.
+1. From the __Virtual Machine__ dialog, enter a unique __Computer name__ and select __Next: Advanced Settings__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-compute-instance-vm.png" alt-text="Screenshot of compute instance vm settings":::
 
-1. From the __Configure Settings__ dialog, enter a unique __Computer name__, set the __Subnet__ to __Training__, and then select __Create__.
+1. From the __Advanced Settings__ dialog, , set the __Subnet__ to __Training__, and then select __Create__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-compute-instance-settings.png" alt-text="Screenshot of compute instance settings":::
 

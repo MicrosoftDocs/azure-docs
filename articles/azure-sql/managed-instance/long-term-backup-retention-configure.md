@@ -7,9 +7,9 @@ ms.subservice: backup-restore
 ms.custom: devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
-author: rothja
-ms.author: jroth
-ms.reviewer: mathoma, sstein
+author: SQLSourabh
+ms.author: sourabha
+ms.reviewer: mathoma
 ms.date: 07/13/2021
 ---
 # Manage Azure SQL Managed Instance long-term backup retention

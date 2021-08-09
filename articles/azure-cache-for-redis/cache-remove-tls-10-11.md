@@ -20,7 +20,7 @@ As a part of this effort, we'll be making the following changes to Azure Cache f
 * **Phase 2:** We'll stop supporting TLS 1.1 and TLS 1.0. After this change, your application must use TLS 1.2 or later to communicate with your cache. The Azure Cache for Redis service is expected to be available while we migrate it to support only TLS 1.2 or later.
 
   > [!NOTE]
-  > Phase 2 is tentatively planned to begin not earlier than December 31, 2020. However, we strongly recommend that you begin planning for this change now and proactively update clients to support TLS 1.2 or later. 
+  > Phase 2 is postponed because of COVID-19. We strongly recommend that you begin planning for this change now and proactively update clients to support TLS 1.2 or later. 
   >
 
 As part of this change, we'll also remove support for older cypher suites that aren't secure. Our supported cypher suites are restricted to the following suites when the cache is configured with a minimum of TLS 1.2:
@@ -40,7 +40,7 @@ The dates when these changes take effect are:
 | Azure China 21Vianet |  March 13, 2020    | Postponed because of COVID-19  |
 
 > [!NOTE]
-> Phase 2 is tentatively planned to begin not earlier than December 31, 2020. This article will be updated when specific dates are set.
+> Phase 2 is postponed because of COVID-19. This article will be updated when specific dates are set.
 >
 
 ## Check whether your application is already compliant

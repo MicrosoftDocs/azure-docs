@@ -242,7 +242,7 @@ Choose **Selected** and selects the users you want to add to the local administr
 
 ### Require multi-factor authentication (MFA) to join devices
 
-Select **“Yes** if you require users to perform MFA while joining devices to Azure AD. For the users joining devices to Azure AD using MFA, the device itself becomes a 2nd factor.
+Select **“Yes** if you require users to perform MFA while joining devices to Azure AD.
 
 ![Require multi-factor Auth to join devices](./media/azureadjoin-plan/03.png)
 

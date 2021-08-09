@@ -165,8 +165,10 @@
         href: ../../backup/manage-afs-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
       - name: REST API
         href: ../../backup/manage-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Monitor Azure Files
-    href: storage-files-monitoring.md
+  - name: Monitor
+    items:
+    - name: Monitor Azure Files
+      href: storage-files-monitoring.md
   - name: Migrate
     items:
     - name: Migrate to Azure file shares
@@ -259,7 +261,7 @@
       href: ../../backup/troubleshoot-azure-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
 - name: Reference
   items:
-  - name: Azure Files reference
+  - name: Azure Files API reference
     href: ../files/reference.md
   - name: Monitoring Azure Files reference
     href: storage-files-monitoring-reference.md
