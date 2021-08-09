@@ -5,6 +5,7 @@ description: Learn how to copy data from QuickBooks Online to supported sink dat
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 01/15/2021
