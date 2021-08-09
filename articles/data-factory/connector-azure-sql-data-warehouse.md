@@ -578,7 +578,7 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
 >- If your staging Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). 
 
 >[!IMPORTANT]
->If your staging Azure Storage is configured with Managed Private Endpoint and has the storage firewall enabled, you must use managed identity authentication and grant Storage Blob Data Reader permissions to the Synapse SQL Server to ensure it can access the staged files during the PolyBase load.
+>If your staging Azure Storage is configured with Managed Private Endpoint and has the storage firewall enabled, you must use managed identity authentication and grant Storage Blob Data Reader permissions to the Synapse SQL Server to ensure it can access the staged files during the COPY statement load.
 
 ```json
 "activities":[
@@ -605,7 +605,7 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
                 "type": "SqlDWSink",
                 "allowPolyBase": true
             },
-            "enableStaging": true,
+            "allowCopyCommand": true,
             "stagingSettings": {
                 "linkedServiceName": {
                     "referenceName": "MyStagingStorage",
