@@ -1,5 +1,5 @@
 ---
-title: Configure your security solution to connect CEF data to Azure Sentinel Preview| Microsoft Docs
+title: Configure your security solution to connect CEF data to Azure Sentinel | Microsoft Docs
 description: Learn how to configure your security solution to connect CEF data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -27,6 +27,8 @@ If your security solution already has an existing connector, use the connector-s
 
 - [AI Vectra Detect](connect-ai-vectra-detect.md)
 - [Akamai Security Events](connect-akamai-security-events.md)
+- [Aruba ClearPass](connect-aruba-clearpass.md)
+- [Broadcom Symantec DLP](connect-broadcom-symantec-dlp.md)
 - [Check Point](connect-checkpoint.md)
 - [Cisco ASA](connect-cisco.md)
 - [Citrix WAF](connect-citrix-waf.md)
@@ -74,5 +76,7 @@ If a connector does not exist for your specific security solution, use the follo
 ## Next steps
 
 In this document, you learned how to connect CEF appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+
+- Learn about [CEF and CommonSecurityLog field mapping](cef-name-mapping.md).
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).

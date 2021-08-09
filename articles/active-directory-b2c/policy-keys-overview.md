@@ -8,12 +8,23 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 04/19/2021
 ms.author: mimart
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
 ---
 
 # Overview of policy keys in Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 Azure Active Directory B2C (Azure AD B2C) stores secrets and certificates in the form of policy keys to establish trust with the services it integrates with. These trusts consist of:
 
@@ -24,7 +35,7 @@ Azure Active Directory B2C (Azure AD B2C) stores secrets and certificates in the
  This article discusses what you need to know about the policy keys that are used by Azure AD B2C.
 
 > [!NOTE]
-> Currently, configuration of policy keys is limited to [custom policies](./custom-policy-get-started.md) only.
+> Currently, configuration of policy keys is limited to [custom policies](./user-flow-overview.md) only.
 
 You can configure secrets and certificates for establishing trust between services in the Azure portal under the **Policy keys** menu. Keys can be symmetric or asymmetric. *Symmetric* cryptography, or private key cryptography, is where a shared secret is used to both encrypt and decrypt the data. *Asymmetric* cryptography, or public key cryptography, is a cryptographic system that uses pairs of keys, consisting of public keys that are shared with the relying party application and private keys that are known only to Azure AD B2C.
 
@@ -85,3 +96,5 @@ The keys in a keyset are not replaceable or removable. If you need to change an 
 ## Next steps
 
 - Learn how to use Microsoft Graph to automate a [keyset](microsoft-graph-operations.md#trust-framework-policy-keyset) and [policy keys](microsoft-graph-operations.md#trust-framework-policy-key) deployment.
+
+::: zone-end

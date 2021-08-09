@@ -12,7 +12,7 @@ f1_keywords:
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 05/26/2020
+ms.date: 06/21/2021
 ---
 # Get started with Azure SQL Managed Instance auditing
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -21,6 +21,9 @@ ms.date: 05/26/2020
 
 - Helps you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
 - Enables and facilitates adherence to compliance standards, although it doesn't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), where you can find the most current list of compliance certifications.
+
+> [!IMPORTANT]
+> Auditing for Azure SQL Database, Azure Synapse and Azure SQL Managed Instance is optimized for availability and performance. During very high activity, or high network load, Azure SQL Database, Azure Synapse and Azure SQL Managed Instance allow operations to proceed and may not record some audited events.
 
 ## Set up auditing for your server to Azure Storage
 
@@ -138,7 +141,10 @@ The following section describes the configuration of auditing on your managed in
 
      1. Click **OK** in the **Create Audit** dialog.
      
-     1. <a id="createspec"></a>After you configure the blob container as target for the audit logs, create and enable a server audit specification or database audit specification as you would for SQL Server:
+        > [!NOTE]
+        > When using SQL Server Management Studio UI to create audit, a credential to the container with SAS key will be automatically created. 
+     
+     1.  <a id="createspec"></a>After you configure the blob container as target for the audit logs, create and enable a server audit specification or database audit specification as you would for SQL Server:
 
    - [Create server audit specification T-SQL guide](/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Create database audit specification T-SQL guide](/sql/t-sql/statements/create-database-audit-specification-transact-sql)
@@ -217,7 +223,7 @@ To consume audit logs data from Event Hubs, you will need to set up a stream to 
 
 If audit logs are written to Azure Monitor logs, they are available in the Log Analytics workspace, where you can run advanced searches on the audit data. As a starting point, navigate to the Log Analytics workspace. Under the **General** section, click **Logs** and enter a simple query, such as: `search "SQLSecurityAuditEvents"` to view the audit logs.  
 
-Azure Monitor logs gives you real-time operational insights using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers. For additional useful information about Azure Monitor logs search language and commands, see [Azure Monitor logs search reference](../../azure-monitor/log-query/log-query-overview.md).
+Azure Monitor logs gives you real-time operational insights using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers. For additional useful information about Azure Monitor logs search language and commands, see [Azure Monitor logs search reference](../../azure-monitor/logs/log-query-overview.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 

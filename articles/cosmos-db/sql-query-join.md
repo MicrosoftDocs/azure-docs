@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 08/06/2021
 ms.author: tisande
 
 ---
@@ -13,6 +13,9 @@ ms.author: tisande
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In a relational database, joins across tables are the logical corollary to designing normalized schemas. In contrast, the SQL API uses the denormalized data model of schema-free items, which is the logical equivalent of a *self-join*.
+
+> [!NOTE]
+> In Azure Cosmos DB, joins are scoped to a single item. Cross-item and cross-container joins are not supported. In NoSQL databases like Azure Cosmos DB, good [data modeling](modeling-data.md) can help avoid the need for cross-item and cross-container joins.
 
 Joins result in a complete cross product of the sets participating in the join. The result of an N-way join is a set of N-element tuples, where each value in the tuple is associated with the aliased set participating in the join and can be accessed by referencing that alias in other clauses.
 
@@ -71,11 +74,9 @@ Let's look at the following FROM clause: `<from_source1> JOIN <from_source2> JOI
   
 **Example 3** - 3 sources  
   
-- Let <from_source1> be container-scoped and represent set {A, B, C}.  
-  
 - Let `<from_source1>` be container-scoped and represent set {A, B, C}.  
   
-- Let <from_source2> be document-scoped referencing input_alias1 and represent sets:  
+- Let `<from_source2>` be document-scoped referencing `input_alias1` and represent sets:  
   
     {1, 2} for `input_alias1 = A,`  
   

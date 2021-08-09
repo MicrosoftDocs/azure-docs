@@ -1,33 +1,21 @@
 ---
-title: Use Azure Image Builder for Linux VMs allowing access to an existing Azure VNET (preview)
+title: Use Azure Image Builder for Linux VMs allowing access to an existing Azure VNET
 description: Create Linux VM images with Azure Image Builder allowing access to an existing Azure VNET
-author: danielsollondon
-ms.author: danis
-ms.date: 08/10/2020
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.service: virtual-machines-linux
-ms.subservice: imaging
-ms.reviewer: danis
+ms.service: virtual-machines
+ms.subservice: image-builder
+
 ---
 
 # Use Azure Image Builder for Linux VMs allowing access to an existing Azure VNET
 
 This article shows you how you can use the Azure Image Builder to create a basic customized Linux image that has access to existing resources on a VNET. The build VM you create is deployed to a new or existing VNET you specify in your subscription. When you use an existing Azure VNET, the Azure Image Builder service does not require public network connectivity.
 
-> [!IMPORTANT]
-> Azure Image Builder is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
-
-## Register the features
-
-First, you must register for the Azure Image Builder Service. Registration grants the service permission to create, manage, and delete a staging resource group. The service also has rights to add resources the group that are required for the image build.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
 
 ## Set variables and permissions 
 
@@ -135,9 +123,9 @@ For more information on Image Builder networking, see [Azure Image Builder Servi
 ```bash
 # download the example and configure it with your vars
 
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1a_Creating_a_Custom_Linux_Image_on_Existing_VNET/existingVNETLinux.json -o existingVNETLinux.json
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json -o aibRoleNetworking.json
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
+curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/1a_Creating_a_Custom_Linux_Image_on_Existing_VNET/existingVNETLinux.json -o existingVNETLinux.json
+curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json -o aibRoleNetworking.json
+curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
 
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" existingVNETLinux.json
 sed -i -e "s/<rgName>/$imageResourceGroup/g" existingVNETLinux.json

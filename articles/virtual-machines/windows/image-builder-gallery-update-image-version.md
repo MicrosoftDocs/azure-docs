@@ -1,35 +1,24 @@
 ---
-title: Create a new image version from an existing image version using Azure Image Builder (preview)
-description: Create a new VM image version from an existing image version using Azure Image Builder in Windows.
-author: cynthn
-ms.author: cynthn
-ms.date: 05/05/2020
+title: Create a new Windows image version from an existing image version using Azure Image Builder 
+description: Create a new Windows VM image version from an existing image version using Azure Image Builder.
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subervice: image-builder
+ms.collection: windows
 ---
-# Preview: Create a new VM image version from an existing image version using Azure Image Builder in Windows
+# Create a new Windows VM image version from an existing image version using Azure Image Builder
 
 This article shows you how to take an existing image version in a [Shared Image Gallery](../shared-image-galleries.md), update it, and publish it as a new image version to the gallery.
 
-We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateforSIGfromWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). 
+We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateforSIGfromWinSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). 
 
-> [!IMPORTANT]
-> Azure Image Builder is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Register the features
-To use Azure Image Builder during the preview, you need to register the new feature.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
-
-Check the status of the feature registration.
-
-```azurecli-interactive
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
-```
+To use Azure Image Builder, you need to register the feature.
 
 Check your registration.
 
@@ -38,6 +27,7 @@ az provider show -n Microsoft.VirtualMachineImages | grep registrationState
 az provider show -n Microsoft.KeyVault | grep registrationState
 az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
+az provider show -n Microsoft.Network | grep registrationState
 ```
 
 If they do not say registered, run the following:
@@ -47,6 +37,7 @@ az provider register -n Microsoft.VirtualMachineImages
 az provider register -n Microsoft.Compute
 az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
+az provider register -n Microsoft.Network
 ```
 
 
@@ -54,7 +45,7 @@ az provider register -n Microsoft.Storage
 
 If you used [Create an image and distribute to a Shared Image Gallery](image-builder-gallery.md) to create your Shared Image Gallery, you've already created the variables we need. If not, please setup some variables to be used for this example.
 
-For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image. Update the resource group name in this example to be the same resource group as your source managed image.
+Image builder will only support creating custom images in the same Resource Group as the source managed image. Update the resource group name in this example to be the same resource group as your source managed image.
 
 ```azurecli-interactive
 # Resource group name - we are using ibsigRG in this example
@@ -102,13 +93,13 @@ If you already have your own Shared Image Gallery, and did not follow the previo
 
 
 ## Modify helloImage example
-You can review the example we are about to use by opening the .json file here: [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) along with the [Image Builder template reference](../linux/image-builder-json.md). 
+You can review the example we are about to use by opening the .json file here: [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) along with the [Image Builder template reference](../linux/image-builder-json.md). 
 
 
 Download the .json example and configure it with your variables. 
 
 ```azurecli-interactive
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json -o helloImageTemplateforSIGfromWinSIG.json
+curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json -o helloImageTemplateforSIGfromWinSIG.json
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateforSIGfromWinSIG.json
 sed -i -e "s/<rgName>/$sigResourceGroup/g" helloImageTemplateforSIGfromWinSIG.json
 sed -i -e "s/<imageDefName>/$imageDefName/g" helloImageTemplateforSIGfromWinSIG.json
@@ -127,6 +118,7 @@ Submit the image configuration to the VM Image Builder Service.
 ```azurecli-interactive
 az resource create \
     --resource-group $sigResourceGroup \
+    --location $location \
     --properties @helloImageTemplateforSIGfromWinSIG.json \
     --is-full-object \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \

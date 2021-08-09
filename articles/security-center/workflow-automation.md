@@ -1,12 +1,11 @@
 ---
 title: Workflow automation in Azure Security Center | Microsoft Docs
 description: "Learn how to create and automate workflows in Azure Security Center"
-services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/04/2021
+ms.date: 05/03/2021
 ms.author: memildin
 ---
 
@@ -25,7 +24,7 @@ This article describes the workflow automation feature of Azure Security Center.
 |Release state:|General Availability (GA)|
 |Pricing:|Free|
 |Required roles and permissions:|**Security admin role** or **Owner** on the resource group<br>Must also have write permissions for the target resource<br><br>To work with Azure Logic Apps workflows, you must also have the following Logic Apps roles/permissions:<br> - [Logic App Operator](../role-based-access-control/built-in-roles.md#logic-app-operator) permissions are required or Logic App read/trigger access (this role can't create or edit logic apps; only *run* existing ones)<br> - [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor) permissions are required for Logic App creation and modification<br>If you want to use Logic App connectors, you may need additional credentials to sign in to their respective services (for example, your Outlook/Teams/Slack instances)|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (US Gov, Azure China)|
 |||
 
 
@@ -34,7 +33,7 @@ This article describes the workflow automation feature of Azure Security Center.
 
 1. From Security Center's sidebar, select **Workflow automation**.
 
-    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="List of workflow automations":::
+    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="List of workflow automations.":::
 
     From this page you can create new automation rules, as well as enable, disable, or delete existing ones.
 
@@ -49,13 +48,13 @@ This article describes the workflow automation feature of Azure Security Center.
 
     1. The Logic App that will run when your trigger conditions are met. 
 
-        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Add workflow automations pane":::
+        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Add workflow automations pane.":::
 
 1. From the Actions section, click **Create a new one** to begin the Logic App creation process.
 
     You'll be taken to Azure Logic Apps.
 
-    [![Creating a new Logic App](media/workflow-automation/logic-apps-create-new.png)](media/workflow-automation/logic-apps-create-new.png#lightbox)
+    [![Creating a new Logic App.](media/workflow-automation/logic-apps-create-new.png)](media/workflow-automation/logic-apps-create-new.png#lightbox)
 
 1. Enter a name, resource group, and location, and click **Create**.
 
@@ -75,11 +74,11 @@ This article describes the workflow automation feature of Azure Security Center.
     > [!NOTE]
     > If you are using the legacy trigger "When a response to an Azure Security Center alert is triggered", your logic apps will not be launched by the Workflow Automation feature. Instead, use either of the triggers mentioned above. 
 
-    [![Sample logic app](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
+    [![Sample logic app.](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
 
 1. After you've defined your logic app, return to the workflow automation definition pane ("Add workflow automation"). Click **Refresh** to ensure your new Logic App is available for selection.
 
-    ![Refresh](media/workflow-automation/refresh-the-list-of-logic-apps.png)
+    ![Refresh.](media/workflow-automation/refresh-the-list-of-logic-apps.png)
 
 1. Select your logic app and save the automation. Note that the Logic App dropdown only shows Logic Apps with supporting Security Center connectors mentioned above.
 
@@ -90,7 +89,7 @@ You can also run Logic Apps manually when viewing any security alert or recommen
 
 To manually run a Logic App, open an alert or a recommendation and click **Trigger Logic App**:
 
-[![Manually trigger a Logic App](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
+[![Manually trigger a Logic App.](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
 
 ## Configure workflow automation at scale using the supplied policies
@@ -107,18 +106,19 @@ To implement these policies:
 
     |Goal  |Policy  |Policy ID  |
     |---------|---------|---------|
-    |Workflow automation for security alerts|[Deploy Workflow Automation for Azure Security Center alerts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
-    |Workflow automation for security recommendations|[Deploy Workflow Automation for Azure Security Center recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
+    |Workflow automation for security alerts              |[Deploy Workflow Automation for Azure Security Center alerts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
+    |Workflow automation for security recommendations     |[Deploy Workflow Automation for Azure Security Center recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
+    |Workflow automation for regulatory compliance changes|[Deploy Workflow Automation for Azure Security Center regulatory compliance](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f509122b9-ddd9-47ba-a5f1-d0dac20be63c)|509122b9-ddd9-47ba-a5f1-d0dac20be63c|
     ||||
 
     > [!TIP]
     > You can also find these by searching Azure Policy:
     > 1. Open Azure Policy.
-    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Accessing Azure Policy":::
+    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Accessing Azure Policy.":::
     > 2. From the Azure Policy menu, select **Definitions** and search for them by name. 
 
 1. From the relevant Azure Policy page, select **Assign**.
-    :::image type="content" source="./media/workflow-automation/export-policy-assign.png" alt-text="Assigning the Azure Policy":::
+    :::image type="content" source="./media/workflow-automation/export-policy-assign.png" alt-text="Assigning the Azure Policy.":::
 
 1. Open each tab and set the parameters as desired:
     1. In the **Basics** tab, set the scope for the policy. To use centralized management, assign the policy to the Management Group containing the subscriptions that will use the workflow automation configuration. 
@@ -127,7 +127,7 @@ To implement these policies:
         > Each parameter has a tooltip explaining the options available to you.
         >
         > Azure Policy's parameters tab (1) provides access to similar configuration options as Security Center's workflow automation page (2).
-        > :::image type="content" source="./media/workflow-automation/azure-policy-next-to-workflow-automation.png" alt-text="Comparing the parameters in workflow automation with Azure Policy" lightbox="./media/workflow-automation/azure-policy-next-to-workflow-automation.png":::
+        > :::image type="content" source="./media/workflow-automation/azure-policy-next-to-workflow-automation.png" alt-text="Comparing the parameters in workflow automation with Azure Policy." lightbox="./media/workflow-automation/azure-policy-next-to-workflow-automation.png":::
 
     1. Optionally, to apply this assignment to existing subscriptions, open the **Remediation** tab and select the option to create a remediation task.
 
@@ -139,7 +139,7 @@ To implement these policies:
 To view the raw event schemas of the security alerts or recommendations events passed to the Logic App instance, visit the [Workflow automation data types schemas](https://aka.ms/ASCAutomationSchemas). This can be useful in cases where you are not using Security Center's built-in Logic App connectors mentioned above, but instead are using Logic App's generic HTTP connector - you could use the event JSON schema to manually parse it as you see fit.
 
 
-## FAQ for workflow automation
+## FAQ - Workflow automation
 
 ### Does workflow automation support any business continuity or disaster recovery (BCDR) scenarios?
 
@@ -151,7 +151,7 @@ Learn more about [Business continuity and disaster recovery for Azure Logic Apps
 
 ## Next steps
 
-In this article, you learned about creating Logic Apps, automating their execution in Security Center, and running them manually. 
+In this article, you learned about creating Logic Apps, automating their execution in Security Center, and running them manually.
 
 For related material, see: 
 

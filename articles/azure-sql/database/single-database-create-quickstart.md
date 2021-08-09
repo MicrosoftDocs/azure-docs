@@ -3,24 +3,24 @@ title: Create a single database
 description: Create a single database in Azure SQL Database using the Azure portal, PowerShell, or the Azure CLI.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
-ms.custom: contperf-fy21q1, devx-track-azurecli
+ms.subservice: deployment-configuration
+ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang:
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: 
-ms.date: 09/03/2020
+ms.date: 01/27/2021
 ---
 # Quickstart: Create an Azure SQL Database single database
 
 In this quickstart, you create a [single database](single-database-overview.md) in Azure SQL Database using either the Azure portal, a PowerShell script, or an Azure CLI script. You then query the database using **Query editor** in the Azure portal.
 
 
-
 ## Prerequisite
 
 - An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+- You may also need the latest version of either [Azure PowerShell](/powershell/azure/install-az-ps) or the [Azure CLI](/cli/azure/install-azure-cli-windows), depending on the creation method you choose. 
 
 ## Create a single database
 
@@ -64,6 +64,8 @@ To create a single database in the Azure portal this quickstart starts at the Az
   
 
 1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**. This creates an AdventureWorksLT sample database so there's some tables and data to query and experiment with, as opposed to an empty blank database.
+1. Optionally, enable [Azure Defender for SQL](../database/azure-defender-for-sql.md).
+1. Optionally, set the [maintenance window](../database/maintenance-window.md) so planned maintenance is performed at the best time for your database.
 1. Select **Review + create** at the bottom of the page:
 
    ![Additional settings tab](./media/single-database-create-quickstart/additional-settings.png)

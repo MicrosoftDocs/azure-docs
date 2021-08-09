@@ -36,6 +36,9 @@ Ensure that the following prerequisites are in place:
 
     >[!NOTE]
     >Azure AD Connect versions 1.1.557.0, 1.1.558.0, 1.1.561.0, and 1.1.614.0 have a problem related to password hash synchronization. If you _don't_ intend to use password hash synchronization in conjunction with Pass-through Authentication, read the [Azure AD Connect release notes](./reference-connect-version-history.md) to learn more.
+    
+    >[!NOTE]
+    >If you have an outgoing HTTP proxy,  make sure this URL, autologon.microsoftazuread-sso.com, is on the allowed list. You should specify this URL explicitly since wildcard may not be accepted. 
 
 * **Use a supported Azure AD Connect topology**: Ensure that you are using one of Azure AD Connect's supported topologies described [here](plan-connect-topologies.md).
 
@@ -194,13 +197,15 @@ If you have overridden the [AuthNegotiateDelegateWhitelist](https://www.chromium
 
 #### Google Chrome (macOS and other non-Windows platforms)
 
-For Google Chrome on macOS and other non-Windows platforms, refer to [The Chromium Project Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) for information on how to control the allow list for the Azure AD URL for integrated authentication.
+For Google Chrome on macOS and other non-Windows platforms, refer to [The Chromium Project Policy List](https://chromeenterprise.google/policies/) for information on how to control the allow list for the Azure AD URL for integrated authentication.
 
 The use of third-party Active Directory Group Policy extensions to roll out the Azure AD URL to Firefox and Google Chrome on Mac users is outside the scope of this article.
 
 #### Known browser limitations
 
-Seamless SSO doesn't work in private browsing mode on Firefox and Microsoft Edge browsers. It also doesn't work on Internet Explorer if the browser is running in Enhanced Protected mode. For the next version of Microsoft Edge based on Chromium, it will not work in InPrivate and Guest mode by design.
+Seamless SSO doesn't work in private browsing mode on Firefox. It also doesn't work on Internet Explorer if the browser is running in Enhanced Protected mode. Microsoft Edge (legacy) is no longer supported. Seamless SSO supports the next version of Microsoft Edge based on Chromium and it works in InPrivate and Guest mode by design. Seamless SSO may require additional configuration to work in InPrivate and Guest mode with versions of Microsoft Edge Chromium and Google Chrome browsers: 
+
+**AmbientAuthenticationInPrivateModesEnabled** – may need to be configured for InPrivate and / or guest users based on the corresponding documentations: [Microsoft Edge Chromium](/DeployEdge/microsoft-edge-policies#ambientauthenticationinprivatemodesenabled); [Google Chrome](https://chromeenterprise.google/policies/?policy=AmbientAuthenticationInPrivateModesEnabled).
 
 ## Step 4: Test the feature
 
@@ -211,10 +216,10 @@ To test the feature for a specific user, ensure that all the following condition
   - You have [rolled out the feature](#step-3-roll-out-the-feature) to this user through Group Policy.
 
 To test the scenario where the user enters only the username, but not the password:
-   - Sign in to `https://myapps.microsoft.com/` in a new private browser session.
+   - Sign in to `https://myapps.microsoft.com/. Be sure to either clear the browser cache or use a new private browser session with any of the supported browsers in private mode.
 
 To test the scenario where the user doesn't have to enter the username or the password, use one of these steps: 
-   - Sign in to `https://myapps.microsoft.com/contoso.onmicrosoft.com` in a new private browser session. Replace *contoso* with your tenant's name.
+   - Sign in to `https://myapps.microsoft.com/contoso.onmicrosoft.com` Be sure to either clear the browser cache or use a new private browser session with any of the supported browsers in private mode. Replace *contoso* with your tenant's name.
    - Sign in to `https://myapps.microsoft.com/contoso.com` in a new private browser session. Replace *contoso.com* with a verified domain (not a federated domain) on your tenant.
 
 ## Step 5: Roll over keys
@@ -224,7 +229,7 @@ In Step 2, Azure AD Connect creates computer accounts (representing Azure AD) in
 >[!IMPORTANT]
 >The Kerberos decryption key on a computer account, if leaked, can be used to generate Kerberos tickets for any user in its AD forest. Malicious actors can then impersonate Azure AD sign-ins for compromised users. We highly recommend that you periodically roll over these Kerberos decryption keys - at least once every 30 days.
 
-For instructions on how to roll over keys, see [Azure Active Directory Seamless Single Sign-On: Frequently asked questions](how-to-connect-sso-faq.md). We are working on a capability to introduce automated roll over of keys.
+For instructions on how to roll over keys, see [Azure Active Directory Seamless Single Sign-On: Frequently asked questions](how-to-connect-sso-faq.yml).
 
 >[!IMPORTANT]
 >You don't need to do this step _immediately_ after you have enabled the feature. Roll over the Kerberos decryption keys at least once every 30 days.
@@ -232,6 +237,6 @@ For instructions on how to roll over keys, see [Azure Active Directory Seamless 
 ## Next steps
 
 - [Technical deep dive](how-to-connect-sso-how-it-works.md): Understand how the Seamless Single Sign-On feature works.
-- [Frequently asked questions](how-to-connect-sso-faq.md): Get answers to frequently asked questions about Seamless Single Sign-On.
+- [Frequently asked questions](how-to-connect-sso-faq.yml): Get answers to frequently asked questions about Seamless Single Sign-On.
 - [Troubleshoot](tshoot-connect-sso.md): Learn how to resolve common problems with the Seamless Single Sign-On feature.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use the Azure Active Directory Forum to file new feature requests.

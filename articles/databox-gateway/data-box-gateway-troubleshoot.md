@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: troubleshooting
-ms.date: 03/20/2019
+ms.date: 06/09/2021
 ms.author: alkohli
 ---
 # Troubleshoot your Azure Data Box Gateway issues

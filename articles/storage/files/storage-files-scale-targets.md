@@ -4,7 +4,7 @@ description: Learn about the scalability and performance targets for Azure Files
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 05/28/2021
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -13,6 +13,13 @@ ms.subservice: files
 [Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the SMB and NFS file system protocols. This article discusses the scalability and performance targets for Azure Files and Azure File Sync.
 
 The scalability and performance targets listed here are high-end targets, but may be affected by other variables in your deployment. For example, the throughput for a file may also be limited by your available network bandwidth, not just the servers hosting your Azure file shares. We strongly recommend testing your usage pattern to determine whether the scalability and performance of Azure Files meet your requirements. We are also committed to increasing these limits over time. 
+
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## Azure Files scale targets
 Azure file shares are deployed into storage accounts, which are top-level objects that represent a shared pool of storage. This pool of storage can be used to deploy multiple file shares. There are therefore three categories to consider: storage accounts, Azure file shares, and files.
@@ -26,11 +33,12 @@ Azure supports multiple types of storage accounts for different storage scenario
 
 | Attribute | GPv2 storage accounts (standard) | FileStorage storage accounts (premium) |
 |-|-|-|
+| Number of storage accounts per region per subscription | 250 | 250 |
 | Maximum storage account capacity | 5 PiB<sup>1</sup> | 100 TiB (provisioned) |
-| Maximum number of file shares | Unlimited | Unlimited, but total provisioned size of all shares must be less than max than the max storage account capacity |
+| Maximum number of file shares | Unlimited | Unlimited, total provisioned size of all shares must be less than max than the max storage account capacity |
 | Maximum concurrent request rate | 20,000 IOPS<sup>1</sup> | 100,000 IOPS |
-| Maximum ingress | <ul><li>US/Europe: 1.16 GiB/sec<sup>1</sup></li><li>Other regions (LRS/ZRS): 1.16 GiB/sec<sup>1</sup></li><li>Other regions (GRS): 0.58 GiB/sec<sup>1</sup></li></ul> | 4,136 MiB/sec |
-| Maximum egress | 5.82 GiB/sec<sup>1</sup> | 6,204 MiB/sec |
+| Maximum ingress | <ul><li>US/Europe: 9,536 MiB/sec<sup>1</sup></li><li>Other regions (LRS/ZRS): 9,536 MiB/sec<sup>1</sup></li><li>Other regions (GRS): 4,768 MiB/sec<sup>1</sup></li></ul> | 4,136 MiB/sec |
+| Maximum egress | 47,683 MiB/sec<sup>1</sup> | 6,204 MiB/sec |
 | Maximum number of virtual network rules | 200 | 200 |
 | Maximum number of IP address rules | 200 | 200 |
 | Management read operations | 800 per 5 minutes | 800 per 5 minutes |
@@ -46,7 +54,7 @@ Azure supports multiple types of storage accounts for different storage scenario
 | Provisioned size increase/decrease unit | N/A | 1 GiB |
 | Maximum size of a file share | <ul><li>100 TiB, with large file share feature enabled<sup>2</sup></li><li>5 TiB, default</li></ul> | 100 TiB |
 | Maximum number of files in a file share | No limit | No limit |
-| Maximum request rate | Storage account limit | <ul><li>Baseline IOPS: 400 + 1 IOPS per GiB, up to 100,000</li><li>IOPS bursting: Max (4000,3x IOPS per GiB), up to 100,000</li></ul> |
+| Maximum request rate (Max IOPS) | <ul><li>20,000, with large file share feature enabled<sup>2</sup></li><li>1,000 or 100 requests per 100 ms, default</li></ul> | <ul><li>Baseline IOPS: 400 + 1 IOPS per GiB, up to 100,000</li><li>IOPS bursting: Max (4000,3x IOPS per GiB), up to 100,000</li></ul> |
 | Maximum ingress for a single file share | <ul><li>Up to 300 MiB/sec, with large file share feature enabled<sup>2</sup></li><li>Up to 60 MiB/sec, default</li></ul> | 40 MiB/s + 0.04 * provisioned GiB |
 | Maximum egress for a single file share | <ul><li>Up to 300 MiB/sec, with large file share feature enabled<sup>2</sup></li><li>Up to 60 MiB/sec, default</li></ul> | 60 MiB/s + 0.06 * provisioned GiB |
 | Maximum number of share snapshots | 200 snapshots | 200 snapshots |
@@ -58,7 +66,7 @@ Azure supports multiple types of storage accounts for different storage scenario
 
 <sup>1</sup> The limits for standard file shares apply to all three of the tiers available for standard file shares: transaction optimized, hot, and cool.
 
-<sup>2</sup> Default on standard file shares is 5 TiB, see [Enable and create large file shares](./storage-files-how-to-create-large-file-share.md) for the details on how to increase the standard file shares scale up to 100 TiB.
+<sup>2</sup> Default on standard file shares is 5 TiB, see [Create an Azure file share](./storage-how-to-create-file-share.md) for the details on how to create file shares with 100 TiB size and increase existing standard file shares up to 100 TiB.
 
 ### File scale targets
 | Attribute | Files in standard file shares  | Files in premium file shares  |
@@ -69,9 +77,8 @@ Azure supports multiple types of storage accounts for different storage scenario
 | Maximum egress for a file | 60 MiB/sec | 300 MiB/sec (Up to 1 GiB/s with SMB Multichannel preview)<sup>2</sup> |
 | Maximum concurrent handles | 2,000 handles | 2,000 handles  |
 
-<sup>1</sup> Applies to read and write IOs (typically smaller IO sizes less than or equal to 64 KiB). Metadata operations, other than reads and writes, may be lower.
-
-<sup>2</sup> Subject to machine network limits, available bandwidth, IO sizes, queue depth, and other factors. For details see [SMB Multichannel performance](./storage-files-smb-multichannel-performance.md).
+<sup>1 Applies to read and write IOs (typically smaller IO sizes less than or equal to 64 KiB). Metadata operations, other than reads and writes, may be lower.</sup>
+<sup>2 Subject to machine network limits, available bandwidth, IO sizes, queue depth, and other factors. For details see [SMB Multichannel performance](./storage-files-smb-multichannel-performance.md).</sup>
 
 ## Azure File Sync scale targets
 The following table indicates the boundaries of Microsoft's testing and also indicates which targets are hard limits:
@@ -85,7 +92,7 @@ The following table indicates the boundaries of Microsoft's testing and also ind
 | Server endpoints per sync group | 100 server endpoints | Yes |
 | Server endpoints per server | 30 server endpoints | Yes |
 | File system objects (directories and files) per sync group | 100 million objects | No |
-| Maximum number of file system objects (directories and files) in a directory | 5 million objects | Yes |
+| Maximum number of file system objects (directories and files) in a directory **(not recursive)** | 5 million objects | Yes |
 | Maximum object (directories and files) security descriptor size | 64 KiB | Yes |
 | File size | 100 GiB | No |
 | Minimum file size for a file to be tiered | V9 and newer: Based on file system cluster size (double file system cluster size). For example, if the file system cluster size is 4 KiB, the minimum file size will be 8 KiB.<br> V8 and older: 64 KiB  | Yes |
@@ -98,7 +105,7 @@ Since the Azure File Sync agent runs on a Windows Server machine that connects t
 
 For Azure File Sync, performance is critical in two stages:
 
-1. **Initial one-time provisioning**: To optimize performance on initial provisioning, refer to [Onboarding with Azure File Sync](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) for the optimal deployment details.
+1. **Initial one-time provisioning**: To optimize performance on initial provisioning, refer to [Onboarding with Azure File Sync](../file-sync/file-sync-deployment-guide.md#onboarding-with-azure-file-sync) for the optimal deployment details.
 2. **Ongoing sync**: After the data is initially seeded in the Azure file shares, Azure File Sync keeps multiple endpoints in sync.
 
 To help you plan your deployment for each of the stages, below are the results observed during the internal testing on a system with a config
@@ -121,10 +128,21 @@ To help you plan your deployment for each of the stages, below are the results o
 | Namespace Download Throughput | 400 objects per second |
 
 ### Initial one-time provisioning
+
 **Initial cloud change enumeration**: When a new sync group is created, initial cloud change enumeration is the first step that will execute. In this process, the system will enumerate all the items in the Azure File Share. During this process, there will be no sync activity i.e. no items will be downloaded from cloud endpoint to server endpoint and no items will be uploaded from server endpoint to cloud endpoint. Sync activity will resume once initial cloud change enumeration completes.
 The rate of performance is 20 objects per second. Customers can estimate the time it will take to complete initial cloud change enumeration by determining the number of items in the cloud share and using the following formulae to get the time in days. 
 
    **Time (in days) for initial cloud enumeration = (Number of objects in cloud endpoint)/(20 * 60 * 60 * 24)**
+
+**Initial sync of data from Windows Server to Azure File share**:Many Azure File Sync deployments start with an empty Azure file share because all the data is on the Windows Server. In these cases, the initial cloud change enumeration is fast and the majority of time will be spent syncing changes from the Windows Server into the Azure file share(s). 
+
+While sync uploads data to the Azure file share, there is no downtime on the local file server, and administrators can [setup network limits](../file-sync/file-sync-server-registration.md#set-azure-file-sync-network-limits) to restrict the amount of bandwidth used for background data upload.
+
+Initial sync is typically limited by the initial upload rate of 20 files per second per sync group. Customers can estimate the time to upload all their data to Azure using the following formulae to get time in days:  
+
+   **Time (in days) for uploading files to a sync group = (Number of objects in server endpoint)/(20 * 60 * 60 * 24)**
+
+Splitting your data into multiple server endpoints and sync groups can speed up this initial data upload, because the upload can be done in parallel for multiple sync groups at a rate of 20 items per second each. So, two sync groups would be running at a combined rate of 40 items per second. The total time to complete would be the time estimate for the sync group with the most files to sync.
 
 **Namespace download throughput** When a new server endpoint is added to an existing sync group, the Azure File Sync agent does not download any of the file content from the cloud endpoint. It first syncs the full namespace and then triggers background recall to download the files, either in their entirety or, if cloud tiering is enabled, to the cloud tiering policy set on the server endpoint.
 
@@ -148,4 +166,4 @@ As a general guide for your deployment, you should keep a few things in mind:
 
 ## See also
 - [Planning for an Azure Files deployment](storage-files-planning.md)
-- [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
+- [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md)

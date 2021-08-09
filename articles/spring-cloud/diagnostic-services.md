@@ -1,11 +1,11 @@
 ---
 title: Analyze logs and metrics in Azure Spring Cloud | Microsoft Docs
 description: Learn how to analyze diagnostics data in Azure Spring Cloud
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 ---
 
@@ -22,7 +22,7 @@ Using the diagnostics functionality of Azure Spring Cloud, you can analyze logs 
 Choose the log category and metric category you want to monitor.
 
 > [!TIP]
-> Just want to stream your logs? Check out this [Azure CLI command](/cli/azure/ext/spring-cloud/spring-cloud/app?preserve-view=true&view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)!
+> Just want to stream your logs? Check out this [Azure CLI command](/cli/azure/spring-cloud/app#az_spring_cloud_app_logs)!
 
 ## Logs
 
@@ -33,9 +33,9 @@ Choose the log category and metric category you want to monitor.
 
 ## Metrics
 
-For a complete list of metrics, see [Spring Cloud Metrics](./spring-cloud-concept-metrics.md#user-metrics-options).
+For a complete list of metrics, see [Spring Cloud Metrics](./concept-metrics.md#user-metrics-options).
 
-To get started, enable one of these services to receive the data. To learn about configuring Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
+To get started, enable one of these services to receive the data. To learn about configuring Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
 
 ## Configure diagnostics settings
 
@@ -105,7 +105,7 @@ There are various methods to view logs and metrics as described under the follow
 > [!NOTE]
 > `==` is case sensitive, but `=~` is not.
 
-To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/).
+To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](/azure/data-explorer/query-monitor-data).
 
 ### Use your storage account
 
@@ -126,11 +126,11 @@ To learn more about sending diagnostics information to a storage account, see [S
 1. To review application logs, search for an event hub called **insights-logs-applicationconsole**.
 1. To review application metrics, search for an event hub called **insights-metrics-pt1m**.
 
-To learn more about sending diagnostics information to an event hub, see [Streaming Azure Diagnostics data in the hot path by using Event Hubs](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md).
+To learn more about sending diagnostics information to an event hub, see [Streaming Azure Diagnostics data in the hot path by using Event Hubs](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md).
 
 ## Analyze the logs
 
-Azure Log Analytics is running with a Kusto engine so you can query your logs for analysis. For a quick introduction to querying logs by using Kusto, review the [Log Analytics tutorial](../azure-monitor/log-query/log-analytics-tutorial.md).
+Azure Log Analytics is running with a Kusto engine so you can query your logs for analysis. For a quick introduction to querying logs by using Kusto, review the [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md).
 
 Application logs provide critical information and verbose logs about your application's health, performance, and more. In the next sections are some simple queries to help you understand your application's current and past states.
 
@@ -171,7 +171,7 @@ AppPlatformLogsforSpring
 
 ### Learn more about querying application logs
 
-Azure Monitor provides extensive support for querying application logs by using Log Analytics. To learn more about this service, see [Get started with log queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md). For more information about building queries to analyze your application logs, see [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Azure Monitor provides extensive support for querying application logs by using Log Analytics. To learn more about this service, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md). For more information about building queries to analyze your application logs, see [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## Frequently asked questions (FAQ)
 
@@ -203,4 +203,4 @@ You may be able to use the same strategy for other Java log libraries.
 
 ## Next steps
 
-* [Quickstart: Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md)
+* [Quickstart: Deploy your first Azure Spring Cloud application](./quickstart.md)

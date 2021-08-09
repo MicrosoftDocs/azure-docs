@@ -2,12 +2,12 @@
 title: Oracle solutions on Azure virtual machines | Microsoft Docs
 description: Learn about supported configurations and limitations of Oracle virtual machine images on Microsoft Azure.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: kegorman
-ms.reviewer: cynthn
 
 ---
 # Oracle VM images and their deployment on Microsoft Azure
@@ -101,7 +101,7 @@ These capabilities are possible because Azure NetApp Files is based on NetApp® 
 
 ## Licensing Oracle Database & software on Azure
 
-Microsoft Azure is an authorized cloud environment for running Oracle Database. The Oracle Core Factor table is not applicable when licensing Oracle databases in the cloud. Instead, when using VMs with Hyper-Threading Technology enabled for Enterprise Edition databases, count two vCPUs as equivalent to one Oracle Processor license if hyperthreading is enabled (as stated in the policy document). The policy details can be found [here](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
+Microsoft Azure is an authorized cloud environment for running Oracle Database. The Oracle Core Factor table is not applicable when licensing Oracle databases in the cloud. Instead, when using VMs with Hyper-Threading Technology enabled for Enterprise Edition databases, count two vCPUs as equivalent to one Oracle Processor license if hyperthreading is enabled (as stated in the policy document). The policy details can be found at [Licensing Oracle Software in the Cloud Computing Environment](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
 Oracle databases generally require higher memory and IO. For this reason, [Memory Optimized VMs](../../sizes-memory.md) are recommended for these workloads. To optimize your workloads further, [Constrained Core vCPUs](../../constrained-vcpu.md) are recommended for Oracle Database workloads that require high memory, storage, and I/O bandwidth, but not a high core count.
 
 When migrating Oracle software and workloads from on-premises to Microsoft Azure, Oracle provides license mobility as stated in the [Oracle on Azure FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
@@ -156,7 +156,7 @@ For related information, see KB article **860340.1** at <https://support.oracle.
 - **Dynamic clustering and load balancing limitations.** Suppose you want to use a dynamic cluster in Oracle WebLogic Server and expose it through a single, public load-balanced endpoint in Azure. This can be done as long as you use a fixed port number for each of the managed servers (not dynamically assigned from a range) and do not start more managed servers than there are machines the administrator is tracking. That is, there is no more than one managed server per virtual machine). If your configuration results in more Oracle WebLogic Servers being started than there are virtual machines (that is, where multiple Oracle WebLogic Server instances share the same virtual machine), then it is not possible for more than one of those instances of Oracle WebLogic Servers to bind to a given port number. The others on that virtual machine fail.
 
    If you configure the admin server to automatically assign unique port numbers to its managed servers, then load balancing is not possible because Azure does not support mapping from a single public port to multiple private ports, as would be required for this configuration.
-- **Multiple instances of Oracle WebLogic Server on a virtual machine.** Depending on your deployment’s requirements, you might consider running multiple instances of Oracle WebLogic Server on the same virtual machine, if the virtual machine is large enough. For example, on a medium size virtual machine, which contains two cores, you could choose to run two instances of Oracle WebLogic Server. However, we still recommend that you avoid introducing single points of failure into your architecture, which would be the case if you used just one virtual machine that is running multiple instances of Oracle WebLogic Server. Using at least two virtual machines could be a better approach, and each virtual machine could then run multiple instances of Oracle WebLogic Server. Each instance of Oracle WebLogic Server could still be part of the same cluster. However, it is currently not possible to use Azure to load-balance endpoints that are exposed by such Oracle WebLogic Server deployments within the same virtual machine, because Azure load balancer requires the load-balanced servers to be distributed among unique virtual machines.
+- **Multiple instances of Oracle WebLogic Server on a virtual machine.** Depending on your deployment’s requirements, you might consider running multiple instances of Oracle WebLogic Server on the same virtual machine, if the virtual machine is large enough. For example, on a midsize virtual machine, which contains two cores, you could choose to run two instances of Oracle WebLogic Server. However, we still recommend that you avoid introducing single points of failure into your architecture, which would be the case if you used just one virtual machine that is running multiple instances of Oracle WebLogic Server. Using at least two virtual machines could be a better approach, and each virtual machine could then run multiple instances of Oracle WebLogic Server. Each instance of Oracle WebLogic Server could still be part of the same cluster. However, it is currently not possible to use Azure to load-balance endpoints that are exposed by such Oracle WebLogic Server deployments within the same virtual machine, because Azure load balancer requires the load-balanced servers to be distributed among unique virtual machines.
 
 ## Oracle JDK virtual machine images
 

@@ -1,13 +1,13 @@
 ---
 title: 'Tutorial: Use Azure Virtual WAN to Create Site-to-Site connections'
-description: In this tutorial, learn how to use Azure Virtual WAN to create a Site-to-Site VPN connection to Azure.
+description: Learn how to use Azure Virtual WAN to create a Site-to-Site VPN connection to Azure.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 07/15/2021
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
+# Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
 # Tutorial: Create a Site-to-Site connection using Azure Virtual WAN
 
@@ -18,6 +18,7 @@ In this tutorial you learn how to:
 > [!div class="checklist"]
 > * Create a virtual WAN
 > * Create a hub
+> * Create a Site-to-Site VPN gateway
 > * Create a site
 > * Connect a site to a hub
 > * Connect a VPN site to a hub
@@ -29,7 +30,7 @@ In this tutorial you learn how to:
 > If you have many sites, you typically would use a [Virtual WAN partner](https://aka.ms/virtualwan) to create this configuration. However, you can create this configuration yourself if you are comfortable with networking and proficient at configuring your own VPN device.
 >
 
-![Virtual WAN diagram](./media/virtual-wan-about/virtualwan.png)
+:::image type="content" source="./media/virtual-wan-about/virtualwan.png" alt-text="Screenshot shows a networking diagram for Virtual WAN.":::
 
 ## Prerequisites
 
@@ -43,9 +44,13 @@ Verify that you have met the following criteria before beginning your configurat
 
 ## <a name="hub"></a>Create a hub
 
-A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. Once the hub is created, you'll be charged for the hub, even if you don't attach any sites. It takes 30 minutes to create the site-to-site VPN gateway in the virtual hub.
+A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. Once the hub is created, you'll be charged for the hub, even if you don't attach any sites.
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
+
+## <a name="gateway"></a>Create a site-to-site VPN gateway
+
+[!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
 
 ## <a name="site"></a>Create a site
 
@@ -60,6 +65,8 @@ In this step, you connect your VPN site to the hub.
 [!INCLUDE [Connect VPN sites](../../includes/virtual-wan-tutorial-s2s-connect-vpn-site-include.md)]
 
 ## <a name="vnet"></a>Connect the VNet to the hub
+
+In this section, you create a connection between your hub and VNet.
 
 [!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
@@ -226,17 +233,15 @@ On the **Edit VPN Gateway** page, you can see the following settings:
 * VPN Gateway Public IP address (assigned by Azure)
 * VPN Gateway Private IP address (assigned by Azure)
 * VPN Gateway Default BGP IP address (assigned by Azure)
-* Configuration option for Custom BGP IP Address: This field is reserved for APIPA (Automatic Private IP Addressing). Azure supports BGP IP in the ranges 169.254.21.* and 169.254.22.* . Azure accepts BGP connections in these ranges but will dial connection with the default BGP IP.
+* Configuration option for Custom BGP IP Address: This field is reserved for APIPA (Automatic Private IP Addressing). Azure supports BGP IP in the ranges 169.254.21.* and 169.254.22.*. Azure accepts BGP connections in these ranges but will dial connection with the default BGP IP.
 
-   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="View configuration" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
+   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Screenshot shows the Edit VPN Gateway page with the Edit button highlighted." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
 ## <a name="cleanup"></a>Clean up resources
 
-When you no longer need these resources, you can use [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) to remove the resource group and all of the resources it contains. Replace "myResourceGroup" with the name of your resource group and run the following PowerShell command:
+When you no longer need the resources that you created, delete them. Some of the Virtual WAN resources must be deleted in a certain order due to dependencies. Deleting can take about 30 minutes to complete.
 
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -Force
-```
+[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
 
 ## Next steps
 

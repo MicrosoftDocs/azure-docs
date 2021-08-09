@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Sign in users and call Microsoft Graph in a Universal Windows Platform desktop app | Azure"
+title: "Quickstart: Sign in users and call Microsoft Graph in a Windows desktop app | Azure"
 description: In this quickstart, learn how a Windows desktop .NET (XAML) application can get an access token and call an API protected by the Microsoft identity platform.
 services: active-directory
 author: jmprieur
@@ -51,12 +51,12 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > 1. Select **Register** to create the application.
 > 1. Under **Manage**, select **Authentication**.
 > 1. Select **Add a platform** > **Mobile and desktop applications**.
-> 1. In the **Redirect URIs** section, select `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+> 1. In the **Redirect URIs** section, select `https://login.microsoftonline.com/common/oauth2/nativeclient` and in **Custom redirect URIs** add `ms-appx-web://microsoft.aad.brokerplugin/{client_id}` where `{client_id}` is the application (client) ID of your application (the same GUID that appears in the `msal{client_id}://auth` checkbox).
 > 1. Select **Configure**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in Azure portal
-> For the code sample in this quickstart to work, add a **Redirect URI** of `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+> For the code sample in this quickstart to work, add a **Redirect URI** of `https://login.microsoftonline.com/common/oauth2/nativeclient` and `ms-appx-web://microsoft.aad.brokerplugin/{client_id}`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >
@@ -72,6 +72,8 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > Run the project using Visual Studio 2019.
 > [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
+
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
@@ -94,13 +96,15 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >
 > Where:
 > - `Enter_the_Application_Id_here` - is the **Application (client) ID** for the application you registered.
+>    
+>    To find the value of **Application (client) ID**, go to the app's **Overview** page in the Azure portal.
 > - `Enter_the_Tenant_Info_Here` - is set to one of the following options:
 >   - If your application supports **Accounts in this organizational directory**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
 >   - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
->   - If your application supports **Accounts in any organizational directory and personal Microsoft accounts**, replace this value with `common`
+>   - If your application supports **Accounts in any organizational directory and personal Microsoft accounts**, replace this value with `common`.
 >
-> > [!TIP]
-> > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
+>     To find the values of **Directory (tenant) ID** and **Supported account types**, go to the app's **Overview** page in the Azure portal.
+>
 
 ## More information
 
@@ -125,16 +129,15 @@ using Microsoft.Identity.Client;
 Then, initialize MSAL using the following code:
 
 ```csharp
-public static IPublicClientApplication PublicClientApp;
-PublicClientApplicationBuilder.Create(ClientId)
+IPublicClientApplication publicClientApp = PublicClientApplicationBuilder.Create(ClientId)
                 .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
                 .WithAuthority(AzureCloudInstance.AzurePublic, Tenant)
                 .Build();
 ```
 
-> |Where: | Description |
-> |---------|---------|
-> | `ClientId` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
+|Where: | Description |
+|---------|---------|
+| `ClientId` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
 
 ### Requesting tokens
 
@@ -154,9 +157,9 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
                                       .ExecuteAsync();
 ```
 
-> |Where:| Description |
-> |---------|---------|
-> | `_scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs. |
+|Where:| Description |
+|---------|---------|
+| `_scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs. |
 
 #### Get a user token silently
 
@@ -169,10 +172,10 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Where: | Description |
-> |---------|---------|
-> | `scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs. |
-> | `firstAccount` | Specifies the first user in the cache (MSAL support multiple users in a single app). |
+|Where: | Description |
+|---------|---------|
+| `scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs. |
+| `firstAccount` | Specifies the first user in the cache (MSAL support multiple users in a single app). |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

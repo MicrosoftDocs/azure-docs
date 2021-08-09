@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 08/06/2021
 ms.author: curtand                   
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -23,9 +23,9 @@ To enforce consistent naming conventions for Microsoft 365 groups created or edi
 > [!IMPORTANT]
 > Using Azure AD naming policy for Microsoft 365 groups requires that you possess but not necessarily assign an Azure Active Directory Premium P1 license or Azure AD Basic EDU license for each unique user that is a member of one or more Microsoft 365 groups.
 
-The naming policy is applied to creating or editing groups created across workloads (for example, Outlook, Microsoft Teams, SharePoint, Exchange, or Planner). It is applied to both the group name and group alias. If you set up your naming policy in Azure AD and you have an existing Exchange group naming policy, the Azure AD naming policy is enforced in your organization.
+The naming policy is applied to creating or editing groups created across workloads (for example, Outlook, Microsoft Teams, SharePoint, Exchange, or Planner), even if no editing changes are made. It is applied to both the group name and group alias. If you set up your naming policy in Azure AD and you have an existing Exchange group naming policy, the Azure AD naming policy is enforced in your organization.
 
-When group naming policy is configured, the policy will be applied to new Microsoft 365 groups created by end users. Naming policy does not apply to certain directory roles, such as Global Administrator or User Administrator (please see below for the complete list of roles exempted from group naming policy). For existing Microsoft 365 groups, the policy will not immediately apply at the time of configuration. Once group owner edits the group name for these groups, naming policy will be enforced.
+When group naming policy is configured, the policy will be applied to new Microsoft 365 groups created by end users. Naming policy does not apply to certain directory roles, such as Global Administrator or User Administrator (please see below for the complete list of roles exempted from group naming policy). For existing Microsoft 365 groups, the policy will not immediately apply at the time of configuration. Once group owner edits the group name for these groups, naming policy will be enforced, even if no changes are made.
 
 ## Naming policy features
 
@@ -37,9 +37,9 @@ You can enforce naming policy for groups in two different ways:
 
 ### Prefix-suffix naming policy
 
-The general structure of the naming convention is ‘Prefix[GroupName]Suffix’. While you can define multiple prefixes and suffixes, you can only have one instance of the [GroupName] in the setting. The prefixes or suffixes can be either fixed strings or user attributes such as \[Department\] that are substituted based on the user who is creating the group. The total allowable number of characters for your prefix and suffix strings including group name is 53 characters. 
+The general structure of the naming convention is ‘Prefix[GroupName]Suffix’. While you can define multiple prefixes and suffixes, you can only have one instance of the [GroupName] in the setting. The prefixes or suffixes can be either fixed strings or user attributes such as \[Department\] that are substituted based on the user who is creating the group. The total allowable number of characters for your prefix and suffix strings including group name is 53 characters.
 
-Prefixes and suffixes can contain special characters that are supported in group name and group alias. Any characters in the prefix or suffix that are not supported in the group alias are still applied in the group name, but removed from the group alias. Because of this restriction, the prefixes and suffixes applied to the group name might be different from the ones applied to the group alias. 
+Prefixes and suffixes can contain special characters that are supported in group name and group alias. Any characters in the prefix or suffix that are not supported in the group alias are still applied in the group name, but removed from the group alias. Because of this restriction, the prefixes and suffixes applied to the group name might be different from the ones applied to the group alias.
 
 #### Fixed strings
 
@@ -65,21 +65,19 @@ Blocked word list rules:
 ### Roles and permissions
 
 To configure naming policy, one of the following roles is required:
-- Global administrator
-- Group administrator
-- Directory writer
 
+- Global Administrator
+- Group Administrator
+- Directory Writer
 
-Selected administrators can be exempted from these policies, across all group workloads and endpoints, so that they can create groups using blocked words and with their own naming conventions. The following are the list of administrator roles exempted from the group naming policy.
+Some administrator roles are exempted from these policies, across all group workloads and endpoints, so that they can create groups using blocked words and with their own naming conventions. The following administrator roles are exempted from the group naming policy:
 
-- Global administrator
-- Partner Tier 1 Support
-- Partner Tier 2 Support
-- User administrator
+- Global Administrator
+- User Administrator
 
 ## Configure naming policy in Azure portal
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Group administrator account.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Group Administrator account.
 1. Select **Groups**, then select **Naming policy** to open the Naming policy page.
 
     ![open the Naming policy page in the admin center](./media/groups-naming-policy/policy.png)
@@ -97,7 +95,7 @@ Selected administrators can be exempted from these policies, across all group wo
 
     ![edit and upload blocked words list for naming policy](./media/groups-naming-policy/blockedwords.png)
 
-1. View or edit the current list of custom blocked words by selecting **Download**.
+1. View or edit the current list of custom blocked words by selecting **Download**. New entries must be added to the existing entries.
 1. Upload the new list of custom blocked words by selecting the file icon.
 1. Save your changes for the new policy to go into effect by selecting **Save**.
 
@@ -245,7 +243,7 @@ Planner | Planner is compliant with the naming policy. Planner shows the naming 
 Dynamics 365 for Customer Engagement | Dynamics 365 for Customer Engagement is compliant with the naming policy. Dynamics 365 shows the naming policy enforced name when the user types a group name or group email alias. When the user enters a custom blocked word, an error message is shown with the blocked word so the user can remove it.
 School Data Sync (SDS) | Groups created through SDS comply with naming policy, but the naming policy isn't applied automatically. SDS administrators have to append the prefixes and suffixes to class names for which groups need to be created and then uploaded to SDS. Group create or edit would fail otherwise.
 Classroom app | Groups created in Classroom app comply with the naming policy, but the naming policy isn't applied automatically, and the naming policy preview isn't shown to the users while entering a classroom group name. Users must enter the enforced classroom group name with prefixes and suffixes. If not, the classroom group create or edit operation fails with errors.
-Power BI | Power BI workspaces are compliant with the naming policy.    
+Power BI | Power BI workspaces are compliant with the naming policy.
 Yammer | When a user signed in to Yammer with their Azure Active Directory account creates a group or edits a group name, the group name will comply with naming policy. This applies both to Microsoft 365 connected groups and all other Yammer groups.<br>If a Microsoft 365 connected group was created before the naming policy is in place, the group name will not automatically follow the naming policies. When a user edits the group name, they will be prompted to add the prefix and suffix.
 StaffHub  | StaffHub teams do not follow the naming policy, but the underlying Microsoft 365 group does. StaffHub team name does not apply the prefixes and suffixes and does not check for custom blocked words. But StaffHub does apply the prefixes and suffixes and removes blocked words from the underlying Microsoft 365 group.
 Exchange PowerShell | Exchange PowerShell cmdlets are compliant with the naming policy. Users receive appropriate error messages with suggested prefixes and suffixes and for custom blocked words if they don't follow the naming policy in the group name and group alias (mailNickname).

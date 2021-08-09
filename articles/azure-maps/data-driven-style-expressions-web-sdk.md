@@ -23,7 +23,7 @@ This video provides an overview of data-driven styling in the Azure Maps Web SDK
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player?format=ny]
 
-Expressions are represented as JSON arrays. The first element of an expression in the array is a string that specifies the name of the expression operator. For example, "+" or "case". The next elements (if any) are the arguments to the expression. Each argument is either a literal value (a string, number, boolean, or `null`), or another expression array. The following pseudocode defines the basic structure of an expression. 
+Expressions are represented as JSON arrays. The first element of an expression in the array is a string that specifies the name of the expression operator. For example, "+" or "case". The next elements (if any) are the arguments to the expression. Each argument is either a literal value (a string, number, boolean, or `null`), or another expression array. The following pseudocode defines the basic structure of an expression.
 
 ```javascript
 [ 
@@ -51,16 +51,16 @@ The Azure Maps Web SDK supports many types of expressions. Expressions can be us
 | [Variable binding expressions](#variable-binding-expressions) | Variable binding expressions store the results of a calculation in a variable and referenced elsewhere in an expression multiple times without having to recalculate the stored value. |
 | [Zoom expression](#zoom-expression) | Retrieves the current zoom level of the map at render time. |
 
-All examples in this document use the following feature to demonstrate different ways in which the different types of expressions can be used. 
+All examples in this document use the following feature to demonstrate different ways in which the different types of expressions can be used.
 
 ```json
 {
-	"type": "Feature",
-	"geometry": {
-		"type": "Point",
-		"coordinates": [-122.13284, 47.63699]
-	},
-	"properties": {	
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [-122.13284, 47.63699]
+    },
+    "properties": {
         "id": 123,
         "entityType": "restaurant",
         "revenue": 12345,
@@ -73,13 +73,13 @@ All examples in this document use the following feature to demonstrate different
         "_style": {
             "fillColor": "red"
         }
-	}
+    }
 }
 ```
 
 ## Data expressions
 
-Data expressions provide access to the property data in a feature. 
+Data expressions provide access to the property data in a feature.
 
 | Expression | Return type | Description |
 |------------|-------------|-------------|
@@ -98,7 +98,7 @@ Data expressions provide access to the property data in a feature.
 
 **Examples**
 
-Properties of a feature can be accessed directly in an expression by using a `get` expression. This example uses the `zoneColor` value of the feature to specify the color property of a bubble layer. 
+Properties of a feature can be accessed directly in an expression by using a `get` expression. This example uses the `zoneColor` value of the feature to specify the color property of a bubble layer.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -129,7 +129,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-The following example allows both `Point` and `MultiPoint` features to be rendered. 
+The following example allows both `Point` and `MultiPoint` features to be rendered.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -205,7 +205,7 @@ Math expressions provide mathematical operators to perform data-driven calculati
 
 ## Aggregate expression
 
-An aggregate expression defines a calculation that's processed over a set of data and can be used with the `clusterProperties` option of a `DataSource`. The output of these expressions must be a number or a boolean. 
+An aggregate expression defines a calculation that's processed over a set of data and can be used with the `clusterProperties` option of a `DataSource`. The output of these expressions must be a number or a boolean.
 
 An aggregate expression takes in three values: an operator value, and initial value, and an expression to retrieve a property from each feature in a data to apply the aggregate operation on. This expression has the following format:
 
@@ -213,9 +213,9 @@ An aggregate expression takes in three values: an operator value, and initial va
 [operator: string, initialValue: boolean | number, mapExpression: Expression]
 ```
 
-- operator: An expression function that's then applied to against all values calculated by the `mapExpression` for each point in the cluster. Supported operators: 
-    - For numbers: `+`, `*`, `max`, `min`
-    - For Booleans: `all`, `any`
+- operator: An expression function that's then applied to against all values calculated by the `mapExpression` for each point in the cluster. Supported operators:
+  - For numbers: `+`, `*`, `max`, `min`
+  - For Booleans: `all`, `any`
 - initialValue: An initial value in which the first calculated value is aggregated against.
 - mapExpression: An expression that's applied against each point in the data set.
 
@@ -237,7 +237,7 @@ The `accumulated` expression  gets the value of a cluster property accumulated s
 
 Boolean expressions provide a set of boolean operators expressions for evaluating boolean comparisons.
 
-When comparing values, the comparison is strictly typed. Values of different types are always considered unequal. Cases where the types are known to be different at parse time are considered invalid and will produce a parse error. 
+When comparing values, the comparison is strictly typed. Values of different types are always considered unequal. Cases where the types are known to be different at parse time are considered invalid and will produce a parse error.
 
 | Expression | Return type | Description |
 |------------|-------------|-------------|
@@ -256,29 +256,29 @@ When comparing values, the comparison is strictly typed. Values of different typ
 
 Conditional expressions provide logic operations that are like if-statements.
 
-The following expressions perform conditional logic operations on the input data. For example, the `case` expression provides "if/then/else" logic while the `match` expression is like a "switch-statement". 
+The following expressions perform conditional logic operations on the input data. For example, the `case` expression provides "if/then/else" logic while the `match` expression is like a "switch-statement".
 
 ### Case expression
 
 A `case` expression is a type of conditional expression that provides "if/then/else" logic. This type of expression steps through a list of boolean conditions. It returns the output value of the first boolean condition to evaluate to true.
 
-The following pseudocode defines the structure of the `case` expression. 
+The following pseudocode defines the structure of the `case` expression.
 
 ```javascript
 [
     'case',
-	condition1: boolean, 
-	output1: value,
-	condition2: boolean, 
-	output2: value,
-	...,
-	fallback: value
+    condition1: boolean, 
+    output1: value,
+    condition2: boolean, 
+    output2: value,
+    ...,
+    fallback: value
 ]
 ```
 
 **Example**
 
-The following example steps through different boolean conditions until it finds one that evaluates to `true`, and then returns that associated value. If no boolean condition evaluates to `true`, a fallback value will be returned. 
+The following example steps through different boolean conditions until it finds one that evaluates to `true`, and then returns that associated value. If no boolean condition evaluates to `true`, a fallback value will be returned.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -303,7 +303,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 A `match` expression is a type of conditional expression that provides switch-statement like logic. The input can be any expression such as `['get', 'entityType']` that returns a string or a number. Each label must be either a single literal value or an array of literal values, whose values must be all strings or all numbers. The input matches if any of the values in the array match. Each label must be unique. If the input type doesn't match the type of the labels, the result will be the fallback value.
 
-The following pseudocode defines the structure of the `match` expression. 
+The following pseudocode defines the structure of the `match` expression.
 
 ```javascript
 [
@@ -363,9 +363,9 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 ### Coalesce expression
 
-A `coalesce` expression steps through a set of expressions until the first non-null value is obtained and returns that value. 
+A `coalesce` expression steps through a set of expressions until the first non-null value is obtained and returns that value.
 
-The following pseudocode defines the structure of the `coalesce` expression. 
+The following pseudocode defines the structure of the `coalesce` expression.
 
 ```javascript
 [
@@ -378,7 +378,7 @@ The following pseudocode defines the structure of the `coalesce` expression.
 
 **Example**
 
-The following example uses a `coalesce` expression to set the `textField` option of a symbol layer. If the `title` property is missing from the feature or set to `null`, the expression will then try looking for the `subTitle` property, if its missing or `null`, it will then fall back to an empty string. 
+The following example uses a `coalesce` expression to set the `textField` option of a symbol layer. If the `title` property is missing from the feature or set to `null`, the expression will then try looking for the `subTitle` property, if its missing or `null`, it will then fall back to an empty string.
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -518,9 +518,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 The above expression renders a pin on the map with the text "64°F" overlaid on top of it as shown in the image below.
 
-<center>
-
-![String operator expression example](media/how-to-expressions/string-operator-expression.png) </center>
+![String operator expression example](media/how-to-expressions/string-operator-expression.png)
 
 ## Interpolate and Step expressions
 
@@ -531,29 +529,29 @@ Interpolate and step expressions can be used to calculate values along an interp
 An `interpolate` expression can be used to calculate a continuous, smooth set of values by interpolating between stop values. An `interpolate` expression that returns color values produces a color gradient in which result values are selected from.
 
 There are three types of interpolation methods that can be used in an `interpolate` expression:
- 
-* `['linear']` -  Interpolates linearly between the pair of stops.
-* `['exponential', base]` - Interpolates exponentially between the stops. The `base` value controls the rate at which the output increases. Higher values make the output increase more towards the high end of the range. A `base` value close to 1 produces an output that increases more linearly.
-* `['cubic-bezier', x1, y1, x2, y2]` - Interpolates using a [cubic Bezier curve](https://developer.mozilla.org/docs/Web/CSS/timing-function) defined by the given control points.
 
-Here is an example of what these different types of interpolations look like. 
+- `['linear']` -  Interpolates linearly between the pair of stops.
+- `['exponential', base]` - Interpolates exponentially between the stops. The `base` value controls the rate at which the output increases. Higher values make the output increase more towards the high end of the range. A `base` value close to 1 produces an output that increases more linearly.
+- `['cubic-bezier', x1, y1, x2, y2]` - Interpolates using a [cubic Bezier curve](https://developer.mozilla.org/docs/Web/CSS/timing-function) defined by the given control points.
+
+Here is an example of what these different types of interpolations look like.
 
 | Linear  | Exponential | Cubic Bezier |
 |---------|-------------|--------------|
 | ![Linear interpolation graph](media/how-to-expressions/linear-interpolation.png) | ![Exponential interpolation graph](media/how-to-expressions/exponential-interpolation.png) | ![Cubic Bezier interpolation graph](media/how-to-expressions/bezier-curve-interpolation.png) |
 
-The following pseudocode defines the structure of the `interpolate` expression. 
+The following pseudocode defines the structure of the `interpolate` expression.
 
 ```javascript
 [
-	'interpolate',
-	interpolation: ['linear'] | ['exponential', base] | ['cubic-bezier', x1, y1, x2, y2],
-	input: number,
-	stopInput1: number, 
-	stopOutput1: value1,
-	stopInput2: number, 
-	stopOutput2: value2, 
-	...
+    'interpolate',
+    interpolation: ['linear'] | ['exponential', base] | ['cubic-bezier', x1, y1, x2, y2],
+    input: number,
+    stopInput1: number, 
+    stopOutput1: value1,
+    stopInput2: number, 
+    stopOutput2: value2, 
+    ...
 ]
 ```
 
@@ -577,30 +575,28 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 The following image demonstrates how the colors are chosen for the above expression.
  
-<center>
-
-![Interpolate expression example](media/how-to-expressions/interpolate-expression-example.png) </center>
+![Interpolate expression example](media/how-to-expressions/interpolate-expression-example.png)
 
 ### Step expression
 
-A `step` expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function](http://mathworld.wolfram.com/PiecewiseConstantFunction.html) defined by stops. 
+A `step` expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function](http://mathworld.wolfram.com/PiecewiseConstantFunction.html) defined by stops.
 
-The following pseudocode defines the structure of the `step` expression. 
+The following pseudocode defines the structure of the `step` expression.
 
 ```javascript
 [
-	'step',
-	input: number,
-	output0: value0,
-	stop1: number, 
-	output1: value1,
-	stop2: number, 
-	output2: value2, 
-	...
+    'step',
+    input: number,
+    output0: value0,
+    stop1: number, 
+    output1: value1,
+    stop2: number, 
+    output2: value2, 
+    ...
 ]
 ```
 
-Step expressions return the output value of the stop just before the input value, or the first input value if the input is less than the first stop. 
+Step expressions return the output value of the stop just before the input value, or the first input value if the input is less than the first stop.
 
 **Example**
 
@@ -620,11 +616,8 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 ```
 
 The following image demonstrates how the colors are chosen for the above expression.
- 
-<center>
 
 ![Step expression example](media/how-to-expressions/step-expression-example.png)
-</center>
 
 ## Layer-specific expressions
 
@@ -639,9 +632,9 @@ A heat map density expression retrieves the heat map density value for each pixe
 
 **Example**
 
-This example uses a liner interpolation expression to create a smooth color gradient for rendering the heat map. 
+This example uses a liner interpolation expression to create a smooth color gradient for rendering the heat map.
 
-```javascript 
+```javascript
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
     color: [
         'interpolate',
@@ -657,7 +650,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 In addition to using a smooth gradient to colorize a heat map, colors can be specified within a set of ranges by using a `step` expression. Using a `step` expression for colorizing the heat map visually breaks up the density into ranges that resembles a contour or radar style map.  
 
-```javascript 
+```javascript
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
     color: [
         'step',
@@ -676,7 +669,7 @@ For more information, see the [Add a heat map layer](map-add-heat-map-layer.md) 
 
 ### Line progress expression
 
-A line progress expression retrieves the progress along a gradient line in a line layer and is defined as `['line-progress']`. This value is a number between 0 and 1. It's used in combination with an `interpolation` or `step` expression. This expression can only be used with the [strokeGradient option]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions#strokegradient) of the line layer. 
+A line progress expression retrieves the progress along a gradient line in a line layer and is defined as `['line-progress']`. This value is a number between 0 and 1. It's used in combination with an `interpolation` or `step` expression. This expression can only be used with the [strokeGradient option](/javascript/api/azure-maps-control/atlas.linelayeroptions#strokegradient) of the line layer.
 
 > [!NOTE]
 > The `strokeGradient` option of the line layer requires the `lineMetrics` option of the data source to be set to `true`.
@@ -707,10 +700,10 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 
 The text field format expression can be used with the `textField` option of the symbol layers `textOptions` property to provide mixed text formatting. This expression allows a set of input strings and formatting options to be specified. The following options can be specified for each input string in this expression.
 
- * `'font-scale'` - Specifies the scaling factor for the font size. If specified, this value will override the `size` property of the `textOptions` for the individual string.
- * `'text-font'` - Specifies one or more font families that should be used for this string. If specified, this value will override the `font` property of the `textOptions` for the individual string.
+- `'font-scale'` - Specifies the scaling factor for the font size. If specified, this value will override the `size` property of the `textOptions` for the individual string.
+- `'text-font'` - Specifies one or more font families that should be used for this string. If specified, this value will override the `font` property of the `textOptions` for the individual string.
 
-The following pseudocode defines the structure of the text field format expression. 
+The following pseudocode defines the structure of the text field format expression.
 
 ```javascript
 [
@@ -759,32 +752,30 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 ```
 
 This layer will render the point feature as shown in the image below:
- 
-<center>
 
-![Image of Point feature with formatted text field](media/how-to-expressions/text-field-format-expression.png) </center>
+![Image of Point feature with formatted text field](media/how-to-expressions/text-field-format-expression.png)
 
 ### Number format expression
 
 The `number-format` expression can only be used with the `textField` option of a symbol layer. This expression converts the provided number into a formatted string. This expression wraps JavaScript's [Number.toLocalString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) function and supports the following set of options.
 
- * `locale` - Specify this option for converting numbers to strings in a way that aligns with the specified language. Pass a [BCP 47 language tag](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) into this option.
- * `currency` - To convert the number into a string representing a currency. Possible values are the [ISO 4217 currency codes](https://en.wikipedia.org/wiki/ISO_4217), such as "USD" for the US dollar, "EUR" for the euro, or "CNY" for the Chinese RMB.
- * `'min-fraction-digits'` - Specifies the minimum number of decimal places to include in the string version of the number.
- * `'max-fraction-digits'` - Specifies the maximum number of decimal places to include in the string version of the number.
+- `locale` - Specify this option for converting numbers to strings in a way that aligns with the specified language. Pass a [BCP 47 language tag](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) into this option.
+- `currency` - To convert the number into a string representing a currency. Possible values are the [ISO 4217 currency codes](https://en.wikipedia.org/wiki/ISO_4217), such as "USD" for the US dollar, "EUR" for the euro, or "CNY" for the Chinese RMB.
+- `'min-fraction-digits'` - Specifies the minimum number of decimal places to include in the string version of the number.
+- `'max-fraction-digits'` - Specifies the maximum number of decimal places to include in the string version of the number.
 
-The following pseudocode defines the structure of the text field format expression. 
+The following pseudocode defines the structure of the text field format expression.
 
 ```javascript
 [
-	'number-format', 
-	input: number, 
-	options: {
-		locale: string, 
-		currency: string, 
-		'min-fraction-digits': number, 
-		'max-fraction-digits': number
-	}
+    'number-format', 
+    input: number, 
+    options: {
+        locale: string, 
+        currency: string, 
+        'min-fraction-digits': number, 
+        'max-fraction-digits': number
+    }
 ]
 ```
 
@@ -808,9 +799,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 This layer will render the point feature as shown in the image below:
 
-<center>
-
-![Number format expression example](media/how-to-expressions/number-format-expression.png) </center>
+![Number format expression example](media/how-to-expressions/number-format-expression.png)
 
 ### Image expression
 
@@ -818,37 +807,35 @@ An image expression can be used with the `image` and `textField` options of a sy
 
 **Example**
 
-The following example uses an `image` expression to add an icon inline with text in a symbol layer. 
+The following example uses an `image` expression to add an icon inline with text in a symbol layer.
 
 ```javascript
  //Load the custom image icon into the map resources.
 map.imageSprite.add('wifi-icon', 'wifi.png').then(function () {
 
-	//Create a data source and add it to the map.
-	datasource = new atlas.source.DataSource();
-	map.sources.add(datasource);
-
-	//Create a point feature and add it to the data source.
-	datasource.add(new atlas.data.Point(map.getCamera().center));
-
-	//Add a layer for rendering point data as symbols.
-	map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
-		iconOptions: {
-			image: 'none'
-		},
-		textOptions: {
-			//Create a formatted text string that has an icon in it.
-			textField: ["format", 'Ricky\'s ', ["image", "wifi-icon"], ' Palace']
-		}
-	}));
+    //Create a data source and add it to the map.
+    datasource = new atlas.source.DataSource();
+    map.sources.add(datasource);
+    
+    //Create a point feature and add it to the data source.
+    datasource.add(new atlas.data.Point(map.getCamera().center));
+    
+    //Add a layer for rendering point data as symbols.
+    map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
+        iconOptions: {
+            image: 'none'
+        },
+        textOptions: {
+            //Create a formatted text string that has an icon in it.
+            textField: ["format", 'Ricky\'s ', ["image", "wifi-icon"], ' Palace']
+        }
+    }));
 });
 ```
 
 This layer will render the text field in the symbol layer as shown in the image below:
 
-<center>
-
-![Image expression example](media/how-to-expressions/image-expression.png) </center>
+![Image expression example](media/how-to-expressions/image-expression.png)
 
 ## Zoom expression
 
@@ -917,10 +904,10 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 See the following articles for more code samples that implement expressions:
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Add a symbol layer](map-add-pin.md)
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Add a bubble layer](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
@@ -929,22 +916,22 @@ See the following articles for more code samples that implement expressions:
 > [!div class="nextstepaction"]
 > [Add a polygon layer](map-add-shape.md)
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Add a heat map layer](map-add-heat-map-layer.md)
 
 Learn more about the layer options that support expressions:
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [HeatMapLayerOptions](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions)
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions)

@@ -4,16 +4,15 @@ description: Create a SQL managed instance using Kubernetes tools
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: vin-yu
-ms.author: vinsonyu
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 02/11/2021
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
 # Create Azure SQL managed instance using Kubernetes tools
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Prerequisites
 
@@ -25,7 +24,7 @@ To create a SQL managed instance using Kubernetes tools, you will need to have t
 
 ## Overview
 
-To create a SQL managed instance, you need to create a Kubernetes secret to store your system administrator login and password securely and a SQL managed instance custom resource based on the sqlmanagedinstance custom resource definition.
+To create a SQL managed instance, you need to create a Kubernetes secret to store your system administrator login and password securely and a SQL managed instance custom resource based on the SqlManagedInstance custom resource definition.
 
 ## Create a yaml file
 
@@ -37,32 +36,52 @@ This is an example yaml file:
 apiVersion: v1
 data:
   password: <your base64 encoded password>
-  username: <your base64 encoded user name. 'sa' is not allowed>
+  username: <your base64 encoded username>
 kind: Secret
 metadata:
   name: sql1-login-secret
 type: Opaque
 ---
-apiVersion: sql.arcdata.microsoft.com/v1alpha1
-kind: sqlmanagedinstance
+apiVersion: sql.arcdata.microsoft.com/v1
+kind: SqlManagedInstance
 metadata:
   name: sql1
+  annotations:
+    exampleannotation1: exampleannotationvalue1
+    exampleannotation2: exampleannotationvalue2
+  labels:
+    examplelabel1: examplelabelvalue1
+    examplelabel2: examplelabelvalue2
 spec:
-  limits:
-    memory: 4Gi
-    vcores: "4"
-  requests:
-    memory: 2Gi
-    vcores: "1"
-  service:
-    type: LoadBalancer
+  scheduling:
+    default:
+      resources:
+        limits:
+          cpu: "2"
+          memory: 4Gi
+        requests:
+          cpu: "1"
+          memory: 2Gi
+  services:
+    primary:
+      type: LoadBalancer
   storage:
+    backups:
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
     data:
-      className: default
-      size: 5Gi
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
+    datalogs:
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
     logs:
-      className: default
-      size: 1Gi
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
 ```
 
 ### Customizing the login and password
@@ -82,16 +101,15 @@ PowerShell
 
 #Example
 #[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes('example'))
-
 ```
 
 Linux/macOS
 
 ```console
-echo '<your string to encode here>' | base64
+echo -n '<your string to encode here>' | base64
 
 #Example
-# echo 'example' | base64
+# echo -n 'example' | base64
 ```
 
 ### Customizing the name
@@ -109,7 +127,7 @@ Requirements for resource limits and requests:
 - The cores limit value is **required** for billing purposes.
 - The rest of the resource requests and limits are optional.
 - The cores limit and request must be a positive integer value, if specified.
-- The minimum of 2 cores is required for the cores request, if specified.
+- The minimum of 1 cores is required for the cores request, if specified.
 - The memory value format follows the Kubernetes notation.  
 - A minimum of 2Gi is required for memory request, if specified.
 - As a general guideline, you should have 4GB of RAM for each 1 core for production use cases.
@@ -133,7 +151,6 @@ kubectl create -n <your target namespace> -f <path to your yaml file>
 #kubectl create -n arc -f C:\arc-data-services\sqlmi.yaml
 ```
 
-
 ## Monitoring the creation status
 
 Creating the SQL managed instance will take a few minutes to complete. You can monitor the progress in another terminal window with the following commands:
@@ -152,10 +169,10 @@ kubectl get pods --namespace arc
 You can also check on the creation status of any particular pod by running a command like below.  This is especially useful for troubleshooting any issues.
 
 ```console
-kubectl describe po/<pod name> --namespace arc
+kubectl describe pod/<pod name> --namespace arc
 
 #Example:
-#kubectl describe po/sql1-0 --namespace arc
+#kubectl describe pod/sql1-0 --namespace arc
 ```
 
 ## Troubleshooting creation problems
@@ -164,4 +181,4 @@ If you encounter any troubles with creation, please see the [troubleshooting gui
 
 ## Next steps
 
-[Connect to Azure Arc enabled SQL Managed Instance](connect-managed-instance.md)
+[Connect to Azure Arc-enabled SQL Managed Instance](connect-managed-instance.md)

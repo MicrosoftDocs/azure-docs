@@ -2,8 +2,8 @@
 title: 'Quickstart: Create a Windows Data Science Virtual Machine'
 titleSuffix: Azure Data Science Virtual Machine 
 description: Configure and create a Data Science Virtual Machine on Azure for analytics and machine learning.
-ms.service: machine-learning
-ms.subservice: data-science-vm
+services: machine-learning
+ms.service: data-science-vm
 
 author: gvashishtha
 ms.author: gopalv
@@ -64,5 +64,5 @@ You're ready to start using the tools that are installed and configured on the V
 ## Next steps
 
 * Explore the tools on the DSVM by opening the **Start** menu.
-* Learn about the Azure Machine Learning by reading [What is Azure Machine Learning?](../overview-what-is-azure-ml.md) and trying out [tutorials](../index.yml).
+* Learn about the Azure Machine Learning by reading [What is Azure Machine Learning?](../overview-what-is-azure-machine-learning.md) and trying out [tutorials](../index.yml).
 * Read the article [Data Science with a Windows Data Science Virtual Machine in Azure](./vm-do-ten-things.md)

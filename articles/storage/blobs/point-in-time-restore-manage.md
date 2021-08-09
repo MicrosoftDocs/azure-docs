@@ -9,7 +9,8 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 01/29/2021
 ms.author: tamram
-ms.subservice: blobs
+ms.subservice: blobs 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Perform a point-in-time restore on block blob data
@@ -19,7 +20,7 @@ You can use point-in-time restore to restore one or more sets of block blobs to 
 To learn more about point-in-time restore, see [Point-in-time restore for block blobs](point-in-time-restore-overview.md).
 
 > [!CAUTION]
-> Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored. If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation, that container cannot be restored with a restore operation. Rather than deleting an entire container, delete individual blobs if you may want to restore them later. Also, Microsoft recommends enabling soft delete for containers and blobs to protect against accidental deletion. For more information, see [Soft delete for containers (preview)](soft-delete-container-overview.md) and [Soft delete for blobs](soft-delete-blob-overview.md).
+> Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored. If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation, that container cannot be restored with a restore operation. Rather than deleting an entire container, delete individual blobs if you may want to restore them later. Also, Microsoft recommends enabling soft delete for containers and blobs to protect against accidental deletion. For more information, see [Soft delete for containers](soft-delete-container-overview.md) and [Soft delete for blobs](soft-delete-blob-overview.md).
 
 ## Enable and configure point-in-time restore
 
@@ -82,7 +83,7 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 # [Azure CLI](#tab/azure-cli)
 
-To configure point-in-time restore with Azure CLI, first install the Azure CLI version 2.2.0 or later. Then call the [az storage account blob-service-properties update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) command to enable point-in-time restore and the other required data protection settings for the storage account.
+To configure point-in-time restore with Azure CLI, first install the Azure CLI version 2.2.0 or later. Then call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) command to enable point-in-time restore and the other required data protection settings for the storage account.
 
 The following example enables soft delete and sets the soft-delete retention period to 14 days, enables change feed and versioning, and enables point-in-time restore with a restore period of 7 days. When running the example, remember to replace the values in angle brackets with your own values:
 

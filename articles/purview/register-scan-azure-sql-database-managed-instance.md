@@ -6,7 +6,7 @@ ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 12/01/2020
+ms.date: 05/08/2021
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.
 ---
 
@@ -21,10 +21,6 @@ The Azure SQL Database Managed Instance data source supports the following funct
 - **Full and incremental scans** to capture metadata and classification in Azure SQL Database Managed Instance.
 
 - **Lineage** between data assets for ADF copy and dataflow activities.
-
-### Known limitations
-
-Azure Purview doesn't support scanning of [views](/sql/relational-databases/views/views?view=azuresqldb-mi-current&preserve-view=true) in Azure SQL Managed Instance.
 
 ## Prerequisites
 
@@ -83,7 +79,7 @@ To use a service principal, you can use an existing one or create a new one.
 The service principal or managed identity must have permission to get metadata for the database, schemas and tables. It must also be able to query the tables to sample for classification.
 - [Configure and manage Azure AD authentication with Azure SQL](../azure-sql/database/authentication-aad-configure.md)
 - Create an Azure AD user in Azure SQL Database Managed Instance by following the prerequisites and tutorial on [Create contained users mapped to Azure AD identities](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
-- Assign `db_owner` (**recommended**) permission to the identity
+- Assign `db_datareader` permission to the identity
 
 ##### Add service principal to key vault and Purview's credential
 
@@ -103,25 +99,53 @@ It is required to get the service principal's application ID and secret:
 
 ## Register an Azure SQL Database Managed Instance data source
 
-1. Navigate to your Purview account
+1. Navigate to your Purview account.
 
-1. Select **Sources** on the left navigation
+1. Select **Data Map** on the left navigation.
 
 1. Select **Register**
 
-1. Select **Azure SQL Database Managed Instance** and then **Continue**
+1. Select **Azure SQL Database Managed Instance** and then **Continue**.
 
     :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/set-up-the-sql-data-source.png" alt-text="Set up the SQL data source":::
 
-1. Select **Enter manually**
+1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop-down box and the appropriate server from the **Server name** drop-down box.
 
-1. Provide the **public endpoint fully qualified domain name** and **port number**. Then select **Finish** to register the data source.
+1. Provide the **public endpoint fully qualified domain name** and **port number**. Then select **Register** to register the data source.
 
     :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/add-azure-sql-database-managed-instance.png" alt-text="Add Azure SQL Database Managed Instance":::
 
     E.g. `foobar.public.123.database.windows.net,3342`
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+## Creating and running a scan
+
+To create and run a new scan, do the following:
+
+1. Select the **Data Map** tab on the left pane in the Purview Studio.
+
+1. Select the Azure SQL Database Managed Instance source that you registered.
+
+1. Select **New scan**
+
+1. Select the credential to connect to your data source.
+
+   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/set-up-scan-sql-mi.png" alt-text="Set up scan":::
+
+1. You can scope your scan to specific tables by choosing the appropriate items in the list.
+
+   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/scope-your-scan.png" alt-text="Scope your scan":::
+
+1. Then select a scan rule set. You can choose between the system default, existing custom rule sets, or create a new rule set inline.
+
+   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/scan-rule-set.png" alt-text="Scan rule set":::
+
+1. Choose your scan trigger. You can set up a schedule or run the scan once.
+
+   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/trigger-scan.png" alt-text="trigger":::
+
+1. Review your scan and select **Save and run**.
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 > [!NOTE]
 > Deleting your scan does not delete your assets from previous Azure SQL Database Managed Instance scans.

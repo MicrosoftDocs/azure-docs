@@ -1,13 +1,13 @@
 ---
 title: 'Scenario: Isolating VNets'
 titleSuffix: Azure Virtual WAN
-description: Scenarios for routing - Isolating VNets
+description: Learn about Virtual WAN routing scenarios to prevent VNets from being able to reach each other, known as isolating VNets.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 05/26/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 

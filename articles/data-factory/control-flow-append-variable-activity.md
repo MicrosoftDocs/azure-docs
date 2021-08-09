@@ -1,11 +1,14 @@
 ---
 title: Append Variable Activity in Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to set the Append Variable activity to add a value to an existing array variable defined in a Data Factory pipeline
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-author: dcstwh
-ms.author: weetok
-ms.reviewer: maghan
+author: chez-charlie
+ms.author: chez
+ms.reviewer: jburchel
 ms.date: 10/09/2018
 ---
 

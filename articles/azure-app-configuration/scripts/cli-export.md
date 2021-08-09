@@ -40,7 +40,7 @@ This script uses the following commands to export from an App Configuration stor
 
 | Command | Notes |
 |---|---|
-| [az appconfig kv export](/cli/azure/appconfig/kv#az-appconfig-kv-export) | Exports from an App Configuration store resource. |
+| [az appconfig kv export](/cli/azure/appconfig/kv#az_appconfig_kv_export) | Exports from an App Configuration store resource. |
 
 ## Next steps
 

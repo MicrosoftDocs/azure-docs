@@ -2,11 +2,14 @@
 title: Back up VMware VMs with Azure Backup Server
 description: In this article, learn how to use Azure Backup Server to back up VMware VMs running on a VMware vCenter/ESXi server.
 ms.topic: conceptual
-ms.date: 05/24/2020
+ms.date: 07/27/2021
 ---
 # Back up VMware VMs with Azure Backup Server
 
 This article explains how to back up VMware VMs running on VMware ESXi hosts/vCenter Server to Azure using Azure Backup Server (MABS).
+
+>[!Note]
+>With MABS v3 Update Rollup 2 release, you can now back up VMware 7.0 VMs as well.
 
 This article explains how to:
 
@@ -27,6 +30,13 @@ MABS provides the following features when backing up VMware virtual machines:
 - MABS protects VMs stored on a local disk, network file system (NFS), or cluster storage.
 - MABS protects VMs migrated for load balancing: As VMs are migrated for load balancing, MABS automatically detects and continues VM protection.
 - MABS can recover files/folders from a Windows VM without recovering the entire VM, which helps recover necessary files faster.
+
+## Support matrix
+
+| MABS versions | Supported VMware VM versions for backup |
+| --- | --- |
+| MABS v3 UR2 | VMware server 7.0, 6.7, 6.5, or 6.0 (Licensed Version) |
+| MABS v3 UR1 | VMware server 6.7, 6.5, 6.0, or 5.5 (Licensed Version) |
 
 ## Prerequisites and limitations
 
@@ -154,7 +164,7 @@ The Azure Backup Server needs a user account with permissions to access v-Center
 
 The following table captures the privileges that you need to assign to the user account that you create:
 
-| Privileges for vCenter 6.5 user account                          | Privileges for vCenter 6.7 user account                            |
+| Privileges for vCenter 6.5 user account                          | Privileges for vCenter 6.7 (and later) user account                            |
 |----------------------------------------------------------------------------|----------------------------------------------------------------------------|
 | Datastore cluster.Configure a datastore cluster                           | Datastore cluster.Configure a datastore cluster                           |
 | Datastore.AllocateSpace                                                    | Datastore.AllocateSpace                                                    |
@@ -302,7 +312,7 @@ Add the vCenter Server to Azure Backup Server.
 
 6. Select **Add** to add the VMware server to the servers list. Then select **Next**.
 
-    ![Add VMWare server and credential](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
+    ![Add VMware server and credential](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
 7. In the **Summary** page, select **Add** to add the VMware server to Azure Backup Server. The new server is added immediately, no agent is needed on the VMware server.
 
@@ -395,26 +405,26 @@ Add VMware VMs for backup. Protection groups gather multiple VMs and apply the s
 ## VMware parallel backups
 
 >[!NOTE]
-> This feature is applicable for MABS V3 UR1.
+> This feature is applicable for MABS V3 UR1 (and later).
 
-With earlier versions of MABS, parallel backups were performed only across protection groups. With MABS V3 UR1, all your VMWare VMs backups within a single protection group are parallel, leading to faster VM backups. All VMWare delta replication jobs run in parallel. By default, the number of jobs to run in parallel is set to 8.
+With earlier versions of MABS, parallel backups were performed only across protection groups. With MABS V3 UR1 (and later), all your VMware VMs backups within a single protection group are parallel, leading to faster VM backups. All VMware delta replication jobs run in parallel. By default, the number of jobs to run in parallel is set to 8.
 
 You can modify the number of jobs by using the registry key as shown below (not present by default, you need to add it):
 
-**Key Path**: `Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs\VMWare`<BR>
+**Key Path**: `Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs\VMware`<BR>
 **Key Type**: DWORD (32-bit) value.
 
 > [!NOTE]
-> You can modify the number of jobs to a higher value. If you set the jobs number to 1, replication jobs run serially. To increase the number to a higher value, you must consider the VMWare performance. Consider the number of resources in use and additional usage required on VMWare vSphere Server, and determine the number of delta replication jobs to run in parallel. Also, this change will affect only the newly created protection groups. For existing protection groups you must temporarily add another VM to the protection group. This should update the protection group configuration accordingly. You can remove this VM from the protection group after the procedure is completed.
+> You can modify the number of jobs to a higher value. If you set the jobs number to 1, replication jobs run serially. To increase the number to a higher value, you must consider the VMware performance. Consider the number of resources in use and additional usage required on VMWare vSphere Server, and determine the number of delta replication jobs to run in parallel. Also, this change will affect only the newly created protection groups. For existing protection groups you must temporarily add another VM to the protection group. This should update the protection group configuration accordingly. You can remove this VM from the protection group after the procedure is completed.
 
-## VMWare vSphere 6.7
+## VMware vSphere 6.7 and 7.0
 
-To back up vSphere 6.7, do the following:
+To back up vSphere 6.7 and 7.0, do the following:
 
 - Enable TLS 1.2 on the MABS Server
 
 >[!NOTE]
->VMWare 6.7 onwards had TLS enabled as communication protocol.
+>VMware 6.7 onwards had TLS enabled as communication protocol.
 
 - Set the registry keys as follows:
 
@@ -441,13 +451,13 @@ Windows Registry Editor Version 5.00
 ## Exclude disk from VMware VM backup
 
 > [!NOTE]
-> This feature is applicable for MABS V3 UR1.
+> This feature is applicable for MABS V3 UR1 (and later).
 
-With MABS V3 UR1, you can exclude the specific disk from VMware VM backup. The configuration script **ExcludeDisk.ps1** is located in the `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin folder`.
+With MABS V3 UR1 (and later), you can exclude the specific disk from VMware VM backup. The configuration script **ExcludeDisk.ps1** is located in the `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin folder`.
 
 To configure the disk exclusion, follow the steps below:
 
-### Identify the VMWare VM and disk details to be excluded
+### Identify the VMware VM and disk details to be excluded
 
   1. On the VMware console, go to VM settings for which you want to exclude the disk.
   2. Select the disk that you want to exclude and note the path for that disk.

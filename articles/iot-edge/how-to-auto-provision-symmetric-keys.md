@@ -5,20 +5,27 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: mrohera
-ms.date: 4/3/2020
+ms.date: 07/21/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---
 # Create and provision an IoT Edge device using symmetric key attestation
 
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+
 Azure IoT Edge devices can be auto-provisioned using the [Device Provisioning Service](../iot-dps/index.yml) just like devices that are not edge-enabled. If you're unfamiliar with the process of auto-provisioning, review the [provisioning](../iot-dps/about-iot-dps.md#provisioning-process) overview before continuing.
 
-This article shows you how to create a Device Provisioning Service individual enrollment using symmetric key attestation on an IoT Edge device with the following steps:
+This article shows you how to create a Device Provisioning Service individual or group enrollment using symmetric key attestation on an IoT Edge device with the following steps:
 
 * Create an instance of IoT Hub Device Provisioning Service (DPS).
-* Create an individual enrollment for the device.
+* Create an individual or group enrollment.
 * Install the IoT Edge runtime and connect to the IoT Hub.
+
+:::moniker range=">=iotedge-2020-11"
+>[!TIP]
+>For a simplified experience, try the [Azure IoT Edge configuration tool](https://github.com/azure/iot-edge-config). This command-line tool, currently in public preview, installs IoT Edge on your device and provisions it using DPS and symmetric key attestation.
+:::moniker-end
 
 Symmetric key attestation is a simple approach to authenticating a device with a Device Provisioning Service instance. This attestation method represents a "Hello world" experience for developers who are new to device provisioning, or do not have strict security requirements. Device attestation using a [TPM](../iot-dps/concepts-tpm-attestation.md) or [X.509 certificates](../iot-dps/concepts-x509-attestation.md) is more secure, and should be used for more stringent security requirements.
 
@@ -33,22 +40,18 @@ Create a new instance of the IoT Hub Device Provisioning Service in Azure, and l
 
 After you have the Device Provisioning Service running, copy the value of **ID Scope** from the overview page. You use this value when you configure the IoT Edge runtime.
 
-## Choose a unique registration ID for the device
+## Choose a unique device registration ID
 
-A unique registration ID must be defined to identify each device. You can use the MAC address, serial number, or any unique information from the device.
+A unique registration ID must be defined to identify each device. You can use the MAC address, serial number, or any unique information from the device. For example, you could use a combination of a MAC address and serial number forming the following string for a registration ID: `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6`. Valid characters are lowercase alphanumeric and dash (`-`).
 
-In this example, we use a combination of a MAC address and serial number forming the following string for a registration ID: `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6`.
+## Option 1: Create a DPS individual enrollment
 
-Create a unique registration ID for your device. Valid characters are lowercase alphanumeric and dash ('-').
-
-## Create a DPS enrollment
-
-Use your device's registration ID to create an individual enrollment in DPS.
+Create an individual enrollment to provision a single device through DPS.
 
 When you create an enrollment in DPS, you have the opportunity to declare an **Initial Device Twin State**. In the device twin, you can set tags to group devices by any metric you need in your solution, like region, environment, location, or device type. These tags are used to create [automatic deployments](how-to-deploy-at-scale.md).
 
 > [!TIP]
-> Group enrollments are also possible when using symmetric key attestation and involve the same decisions as individual enrollments.
+> The steps in this article are for the Azure portal, but you can also make create individual enrollments using the Azure CLI. For more information, see [az iot dps enrollment](/cli/azure/iot/dps/enrollment). As part of the CLI command, use the **edge-enabled** flag to specify that the enrollment is for an IoT Edge device.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your instance of IoT Hub Device Provisioning Service.
 
@@ -58,24 +61,13 @@ When you create an enrollment in DPS, you have the opportunity to declare an **I
 
    1. For **Mechanism**, select **Symmetric Key**.
 
-   1. Select the **Auto-generate keys** check box.
+   1. Provide a unique **Registration ID** for your device.
 
-   1. Provide the **Registration ID** that you created for your device.
+   1. Optionally, provide an **IoT Hub Device ID** for your device. You can use device IDs to target an individual device for module deployment. If you don't provide a device ID, the registration ID is used.
 
-   1. Provide an **IoT Hub Device ID** for your device if you'd like. You can use device IDs to target an individual device for module deployment. If you don't provide a device ID, the registration ID is used.
+   1. Select **True** to declare that the enrollment is for an IoT Edge device.
 
-   1. Select **True** to declare that the enrollment is for an IoT Edge device. For a group enrollment, all devices must be IoT Edge devices or none of them can be.
-
-   > [!TIP]
-   > In the Azure CLI, you can create an [enrollment](/cli/azure/ext/azure-iot/iot/dps/enrollment) or an [enrollment group](/cli/azure/ext/azure-iot/iot/dps/enrollment-group) and use the **edge-enabled** flag to specify that a device, or group of devices, is an IoT Edge device.
-
-   1. Accept the default value from the Device Provisioning Service's allocation policy for **how you want to assign devices to hubs** or choose a different value that is specific to this enrollment.
-
-   1. Choose the linked **IoT Hub** that you want to connect your device to. You can choose multiple hubs, and the device will be assigned to one of them according to the selected allocation policy.
-
-   1. Choose **how you want device data to be handled on re-provisioning** when devices request provisioning after the first time.
-
-   1. Add a tag value to the **Initial Device Twin State** if you'd like. You can use tags to target groups of devices for module deployment. For example:
+   1. Optionally, add a tag value to the **Initial Device Twin State**. You can use tags to target groups of devices for module deployment. For example:
 
       ```json
       {
@@ -88,32 +80,71 @@ When you create an enrollment in DPS, you have the opportunity to declare an **I
       }
       ```
 
-   1. Ensure **Enable entry** is set to **Enable**.
+   1. Select **Save**.
+
+1. Copy the individual enrollment's **Primary Key** value to use when installing the IoT Edge runtime.
+
+Now that an enrollment exists for this device, the IoT Edge runtime can automatically provision the device during installation.
+
+## Option 2: Create a DPS enrollment group
+
+Use your device's registration ID to create an individual enrollment in DPS.
+
+When you create an enrollment in DPS, you have the opportunity to declare an **Initial Device Twin State**. In the device twin, you can set tags to group devices by any metric you need in your solution, like region, environment, location, or device type. These tags are used to create [automatic deployments](how-to-deploy-at-scale.md).
+
+> [!TIP]
+> The steps in this article are for the Azure portal, but you can also make create individual enrollments using the Azure CLI. For more information, see [az iot dps enrollment-group](/cli/azure/iot/dps/enrollment-group). As part of the CLI command, use the **edge-enabled** flag to specify that the enrollment is for IoT Edge devices. For a group enrollment, all devices must be IoT Edge devices or none of them can be.
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your instance of IoT Hub Device Provisioning Service.
+
+1. Under **Settings**, select **Manage enrollments**.
+
+1. Select **Add individual enrollment** then complete the following steps to configure the enrollment:  
+
+   1. Provide a **Group name**.
+
+   1. Select **Symmetric Key** as the attestation type.
+
+   1. Select **True** to declare that the enrollment is for an IoT Edge device. For a group enrollment, all devices must be IoT Edge devices or none of them can be.
+
+   1. Optionally, add a tag value to the **Initial Device Twin State**. You can use tags to target groups of devices for module deployment. For example:
+
+      ```json
+      {
+         "tags": {
+            "environment": "test"
+         },
+         "properties": {
+            "desired": {}
+         }
+      }
+      ```
 
    1. Select **Save**.
 
-Now that an enrollment exists for this device, the IoT Edge runtime can automatically provision the device during installation. Be sure to copy your enrollment's **Primary Key** value to use when installing the IoT Edge runtime, or if you're going to be creating device keys for use with a group enrollment.
+1. Copy your enrollment group's **Primary Key** value to use when creating device keys for use with a group enrollment.
 
-## Derive a device key
+Now that an enrollment group exists, the IoT Edge runtime can automatically provision  devices during installation.
 
-> [!NOTE]
-> This section is required only if using a group enrollment.
+### Derive a device key
 
-Each device uses its derived device key with your unique registration ID to perform symmetric key attestation with the enrollment during provisioning. To generate the device key, use the key you copied from your DPS enrollment to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the unique registration ID for the device and convert the result into Base64 format.
+Each device that is provisioned as part of a group enrollment needs a derived device key to perform symmetric key attestation with the enrollment during provisioning.
+
+To generate a device key, use the key that you copied from your DPS enrollment group to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the unique registration ID for the device and convert the result into Base64 format.
 
 Do not include your enrollment's primary or secondary key in your device code.
 
-### Linux workstations
+#### Derive a key on Linux
 
-If you are using a Linux workstation, you can use openssl to generate your derived device key as shown in the following example.
+On Linux, you can use openssl to generate your derived device key as shown in the following example.
 
 Replace the value of **KEY** with the **Primary Key** you noted earlier.
 
 Replace the value of **REG_ID** with your device's registration ID.
 
 ```bash
-KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
-REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+KEY=PASTE_YOUR_ENROLLMENT_KEY_HERE
+REG_ID=PASTE_YOUR_REGISTRATION_ID_HERE
 
 keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
 echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
@@ -123,17 +154,17 @@ echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | ba
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 
-### Windows-based workstations
+#### Derive a key on Windows
 
-If you are using a Windows-based workstation, you can use PowerShell to generate your derived device key as shown in the following example.
+On Windows, you can use PowerShell to generate your derived device key as shown in the following example.
 
 Replace the value of **KEY** with the **Primary Key** you noted earlier.
 
 Replace the value of **REG_ID** with your device's registration ID.
 
 ```powershell
-$KEY='8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw=='
-$REG_ID='sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6'
+$KEY='PASTE_YOUR_ENROLLMENT_KEY_HERE'
+$REG_ID='PASTE_YOUR_REGISTRATION_ID_HERE'
 
 $hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
 $hmacsha256.key = [Convert]::FromBase64String($KEY)
@@ -150,7 +181,28 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 The IoT Edge runtime is deployed on all IoT Edge devices. Its components run in containers, and allow you to deploy additional containers to the device so that you can run code at the edge.
 
+<!-- 1.1 -->
+:::moniker range="=iotedge-2018-06"
+
+Follow the appropriate steps to install Azure IoT Edge based on your operating system:
+
+* [Install IoT Edge for Linux](how-to-install-iot-edge.md)
+* [Install IoT Edge for Linux on Windows devices](how-to-install-iot-edge-on-windows.md)
+  * This scenario is the recommended way to run IoT Edge on Windows devices.
+* [Install IoT Edge with Windows containers](how-to-install-iot-edge-windows-on-windows.md)
+
+Once IoT Edge is installed on your device, return to this article to provision the device.
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
 Follow the steps in [Install the Azure IoT Edge runtime](how-to-install-iot-edge.md), then return to this article to provision the device.
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ## Configure the device with provisioning information
 
@@ -160,12 +212,12 @@ Have the following information ready:
 
 * The DPS **ID Scope** value
 * The device **Registration ID** you created
-* The **Primary Key** you copied from the DPS enrollment
+* Either the **Primary Key** from an individual enrollment, or a [derived key](#derive-a-device-key) for devices using a group enrollment.
 
-> [!TIP]
-> For group enrollments, you need each device's [derived key](#derive-a-device-key) rather than the DPS enrollment key.
+# [Linux](#tab/linux)
 
-### Linux device
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
 1. Open the configuration file on the IoT Edge device.
 
@@ -182,18 +234,18 @@ Have the following information ready:
    provisioning:
      source: "dps"
      global_endpoint: "https://global.azure-devices-provisioning.net"
-     scope_id: "<SCOPE_ID>"
+     scope_id: "PASTE_YOUR_SCOPE_ID_HERE"
      attestation:
        method: "symmetric_key"
-       registration_id: "<REGISTRATION_ID>"
-       symmetric_key: "<SYMMETRIC_KEY>"
+       registration_id: "PASTE_YOUR_REGISTRATION_ID_HERE"
+       symmetric_key: "PASTE_YOUR_PRIMARY_KEY_OR_DERIVED_KEY_HERE"
    #  always_reprovision_on_startup: true
    #  dynamic_reprovisioning: false
    ```
 
-   Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge will restart and reprovision if a reprovisioning event is detected. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
-
 1. Update the values of `scope_id`, `registration_id`, and `symmetric_key` with your DPS and device information.
+
+1. Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge will restart and reprovision if a reprovisioning event is detected. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
 1. Restart the IoT Edge runtime so that it picks up all the configuration changes that you made on the device.
 
@@ -201,7 +253,104 @@ Have the following information ready:
    sudo systemctl restart iotedge
    ```
 
-### Windows device
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. Create a configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
+
+   ```bash
+   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   ```
+
+1. Open the configuration file on the IoT Edge device.
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
+   ```
+
+1. Find the **Provisioning** section of the file. Uncomment the lines for DPS provisioning with symmetric key, and make sure any other provisioning lines are commented out.
+
+   ```toml
+   # DPS provisioning with symmetric key
+   [provisioning]
+   source = "dps"
+   global_endpoint = "https://global.azure-devices-provisioning.net"
+   id_scope = "PASTE_YOUR_SCOPE_ID_HERE"
+   
+   [provisioning.attestation]
+   method = "symmetric_key"
+   registration_id = "PASTE_YOUR_REGISTRATION_ID_HERE"
+
+   symmetric_key = "PASTE_YOUR_PRIMARY_KEY_OR_DERIVED_KEY_HERE"
+   ```
+
+1. Update the values of `id_scope`, `registration_id`, and `symmetric_key` with your DPS and device information.
+
+   The symmetric key parameter can accept a value of an inline key, a file URI, or a PKCS#11 URI. Uncomment just one symmetric key line, based on which format you're using.
+
+   If you use any PKCS#11 URIs, find the **PKCS#11** section in the config file and provide information about your PKCS#11 configuration.
+
+1. Save and close the config.toml file.
+
+1. Apply the configuration changes that you made to IoT Edge.
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
+
+# [Linux on Windows](#tab/eflow)
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+You can use either PowerShell or Windows Admin Center to provision your IoT Edge device.
+
+### PowerShell
+
+For PowerShell, run the following command with the placeholder values updated with your own values:
+
+```powershell
+Provision-EflowVm -provisioningType DpsSymmetricKey -​scopeId PASTE_YOUR_ID_SCOPE_HERE -registrationId PASTE_YOUR_REGISTRATION_ID_HERE -symmKey PASTE_YOUR_PRIMARY_KEY_OR_DERIVED_KEY_HERE
+```
+
+### Windows Admin Center
+
+For Windows Admin Center, use the following steps:
+
+1. On the **Azure IoT Edge device provisioning** pane, select **Symmetric Key (DPS)** from the provisioning method dropdown.
+
+1. In the [Azure portal](https://ms.portal.azure.com/), navigate to your DPS instance.
+
+1. Provide your DPS scope ID, device registration ID, and enrollment primary key or derived key in the Windows Admin Center fields.
+
+1. Choose **Provisioning with the selected method**.
+
+   ![Choose provisioning with the selected method after filling in the required fields for symmetric key provisioning](./media/how-to-install-iot-edge-on-windows/provisioning-with-selected-method-symmetric-key.png)
+
+1. Once the provisioning is complete, select **Finish**. You will be taken back to the main dashboard. Now, you should see a new device listed, whose type is `IoT Edge Devices`. You can select the IoT Edge device to connect to it. Once on its **Overview** page, you can view the **IoT Edge Module List** and **IoT Edge Status** of your device.
+
+:::moniker-end
+<!-- end 1.1. -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>Currently, there is not support for IoT Edge version 1.2 running on IoT Edge for Linux for Windows.
+
+:::moniker-end
+<!-- end 1.2 -->
+
+# [Windows](#tab/windows)
+
+<!-- 1.1 -->
+:::moniker range="=iotedge-2018-06"
 
 1. Open a PowerShell window in administrator mode. Be sure to use an AMD64 session of PowerShell when installing IoT Edge, not PowerShell (x86).
 
@@ -216,11 +365,32 @@ Have the following information ready:
    Initialize-IoTEdge -DpsSymmetricKey -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
    ```
 
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>Currently, there is not support for IoT Edge version 1.2 running on Windows.
+
+:::moniker-end
+<!-- end 1.2 -->
+
+---
+
 ## Verify successful installation
 
-If the runtime started successfully, you can go into your IoT Hub and start deploying IoT Edge modules to your device. Use the following commands on your device to verify that the runtime installed and started successfully.
+If the runtime started successfully, you can go into your IoT Hub and start deploying IoT Edge modules to your device.
 
-### Linux device
+You can verify that the individual enrollment that you created in Device Provisioning Service was used. Navigate to your Device Provisioning Service instance in the Azure portal. Open the enrollment details for the individual enrollment that you created. Notice that the status of the enrollment is **assigned** and the device ID is listed.
+
+Use the following commands on your device to verify that the IoT Edge installed and started successfully.
+
+# [Linux](#tab/linux)
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
 Check the status of the IoT Edge service.
 
@@ -240,7 +410,75 @@ List running modules.
 iotedge list
 ```
 
-### Windows device
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+Check the status of the IoT Edge service.
+
+```cmd/sh
+sudo iotedge system status
+```
+
+Examine service logs.
+
+```cmd/sh
+sudo iotedge system logs
+```
+
+List running modules.
+
+```cmd/sh
+sudo iotedge list
+```
+
+:::moniker-end
+
+# [Linux on Windows](#tab/eflow)
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+Connect to the IoT Edge for Linux on Windows virtual machine.
+
+```powershell
+Connect-EflowVM
+```
+
+Check the status of the IoT Edge service.
+
+```cmd/sh
+sudo systemctl status iotedge
+```
+
+Examine service logs.
+
+```cmd/sh
+sudo journalctl -u iotedge --no-pager --no-full
+```
+
+List running modules.
+
+```cmd/sh
+sudo iotedge list
+```
+
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>Currently, there is not support for IoT Edge version 1.2 running on IoT Edge for Linux for Windows.
+
+:::moniker-end
+<!-- end 1.2 -->
+
+# [Windows](#tab/windows)
+
+<!-- 1.1 -->
+:::moniker range="=iotedge-2018-06"
 
 Check the status of the IoT Edge service.
 
@@ -260,7 +498,18 @@ List running modules.
 iotedge list
 ```
 
-You can verify that the individual enrollment that you created in Device Provisioning Service was used. Navigate to your Device Provisioning Service instance in the Azure portal. Open the enrollment details for the individual enrollment that you created. Notice that the status of the enrollment is **assigned** and the device ID is listed.
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>Currently, there is not support for IoT Edge version 1.2 running on Windows.
+
+:::moniker-end
+<!-- end 1.2 -->
+
+---
 
 ## Next steps
 

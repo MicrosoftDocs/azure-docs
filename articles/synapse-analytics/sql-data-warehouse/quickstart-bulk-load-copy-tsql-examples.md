@@ -2,13 +2,14 @@
 title: Authentication mechanisms with the COPY statement
 description: Outlines the authentication mechanisms to bulk load data
 services: synapse-analytics
-author: kevinvngo
+author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 07/10/2020
-ms.author: kevin
+ms.author: jrasnick
 ms.reviewer: jrasnick
+ms.custom: subject-rbac-steps
 ---
 
 # Securely load data using Synapse SQL
@@ -100,7 +101,20 @@ Managed Identity authentication is required when your storage account is attache
    > - If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](../../storage/common/storage-account-upgrade.md).
    > - For known issues with Azure Data Lake Storage Gen2, please refer to this [guide](../../storage/blobs/data-lake-storage-known-issues.md).
 
-1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Contributor** Azure role to the server or workspace hosting your dedicated SQL pool which you've registered with Azure Active Directory (AAD).
+1. Under your storage account, select **Access control (IAM)**.
+
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
+
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | Storage Blob Data Contributor |
+    | Assign access to | SERVICEPRINCIPAL |
+    | Members | server or workspace hosting your dedicated SQL pool which you've registered with Azure Active Directory (AAD)  |
+
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+
 
    > [!NOTE]
    > Only members with Owner privilege can perform this step. For various Azure built-in roles, refer to this [guide](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
@@ -124,16 +138,28 @@ Managed Identity authentication is required when your storage account is attache
 ## D. Azure Active Directory Authentication
 #### Steps
 
-1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Owner, Contributor, or Reader** Azure role to your Azure AD user. 
+1. Under your storage account, select **Access control (IAM)**.
+
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
+
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | Storage Blob Data Owner, Contributor, or Reader |
+    | Assign access to | USER |
+    | Members | Azure AD user |
+
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
     > [!IMPORTANT]
     > Specify the **Storage** **Blob Data** Owner, Contributor, or Reader Azure role. These roles are different than the Azure built-in roles of Owner, Contributor, and Reader.
 
     ![Granting Azure RBAC permission to load](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
-2. Configure Azure AD authentication by going through the following [documentation](../../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell). 
+1. Configure Azure AD authentication by going through the following [documentation](../../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell). 
 
-3. Connect to your SQL pool using Active Directory where you can now run the COPY statement without specifying any credentials:
+1. Connect to your SQL pool using Active Directory where you can now run the COPY statement without specifying any credentials:
 
 	```sql
 	COPY INTO dbo.target_table

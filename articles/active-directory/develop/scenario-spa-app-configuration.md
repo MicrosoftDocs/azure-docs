@@ -3,7 +3,7 @@ title: Configure single-page app | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to build a single-page application (app's code configuration)
 services: active-directory
-author: navyasric
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/11/2020
-ms.author: nacanuma
+ms.author: marsma
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---
@@ -20,21 +20,33 @@ ms.custom: aaddev
 
 Learn how to configure the code for your single-page application (SPA).
 
-## MSAL libraries for SPAs and supported authentication flows
+## Microsoft libraries supporting single-page apps
 
-The Microsoft identity platform provides the following Microsoft Authentication Library for JavaScript (MSAL.js) to support implicit flow and authorization code flow with PKCE by using industry-recommended security practices:
+The following Microsoft libraries support single-page apps:
 
-| MSAL library | Flow | Description |
-|--------------|------|-------------|
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js (2.x)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) | Authorization code flow (PKCE) | Plain JavaScript library for use in any client-side web app that's built through JavaScript or SPA frameworks such as Angular, Vue.js, and React.js. |
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js (1.x)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core) | Implicit flow | Plain JavaScript library for use in any client-side web app that's built through JavaScript or SPA frameworks such as Angular, Vue.js, and React.js. |
-| ![MSAL Angular](media/sample-v2-code/logo_angular.png) <br/> [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Implicit flow | Wrapper of the core MSAL.js library to simplify use in single-page apps that are built through the Angular framework. |
+[!INCLUDE [active-directory-develop-libraries-spa](../../../includes/active-directory-develop-libraries-spa.md)]
 
 ## Application code configuration
 
 In an MSAL library, the application registration information is passed as configuration during the library initialization.
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (MSAL.js v2)](#tab/javascript2)
+
+```javascript
+// Configuration object constructed.
+const config = {
+    auth: {
+        clientId: 'your_client_id'
+    }
+};
+
+// create PublicClientApplication instance
+const publicClientApplication = new PublicClientApplication(config);
+```
+
+For more information on the configurable options, see [Initializing application with MSAL.js](msal-js-initializing-client-applications.md).
+
+# [JavaScript (MSAL.js v1)](#tab/javascript1)
 
 ```javascript
 // Configuration object constructed.
@@ -50,12 +62,30 @@ const userAgentApplication = new UserAgentApplication(config);
 
 For more information on the configurable options, see [Initializing application with MSAL.js](msal-js-initializing-client-applications.md).
 
-# [Angular](#tab/angular)
+# [Angular (MSAL.js v2)](#tab/angular2)
+
+```javascript
+// In app.module.ts
+import { MsalModule } from '@azure/msal-angular';
+import { PublicClientApplication } from '@azure/msal-browser';
+
+@NgModule({
+    imports: [
+        MsalModule.forRoot( new PublicClientApplication({
+            auth: {
+                clientId: 'Enter_the_Application_Id_Here',
+            }
+        }), null, null)
+    ]
+})
+export class AppModule { }
+```
+
+# [Angular (MSAL.js v1)](#tab/angular1)
 
 ```javascript
 // App.module.ts
 import { MsalModule } from '@azure/msal-angular';
-
 @NgModule({
     imports: [
         MsalModule.forRoot({
@@ -65,8 +95,34 @@ import { MsalModule } from '@azure/msal-angular';
         })
     ]
 })
-
 export class AppModule { }
+```
+
+# [React](#tab/react)
+
+```javascript
+import { PublicClientApplication } from "@azure/msal-browser";
+import { MsalProvider } from "@azure/msal-react";
+
+// Configuration object constructed.
+const config = {
+    auth: {
+        clientId: 'your_client_id'
+    }
+};
+
+// create PublicClientApplication instance
+const publicClientApplication = new PublicClientApplication(config);
+
+// Wrap your app component tree in the MsalProvider component
+ReactDOM.render(
+    <React.StrictMode>
+        <MsalProvider instance={publicClientApplication}>
+            <App />
+        </ MsalProvider>
+    </React.StrictMode>,
+    document.getElementById('root')
+);
 ```
 
 ---

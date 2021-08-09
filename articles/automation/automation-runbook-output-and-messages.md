@@ -4,8 +4,10 @@ description: This article tells how to implement error handling logic and descri
 services: automation
 ms.subservice: process-automation
 ms.date: 11/03/2020
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
+
 # Configure runbook output and message streams
 
 Most Azure Automation runbooks have some form of output. This output can be an error message to the user or a complex object intended to be used with another runbook. Windows PowerShell provides [multiple streams](/powershell/module/microsoft.powershell.core/about/about_redirection) to send output from a script or workflow. Azure Automation works with each of these streams differently. You should follow best practices for using the streams when you're creating a runbook.
@@ -31,7 +33,7 @@ Have your runbook write data to the output stream using [Write-Output](/powershe
 
 ```powershell
 #The following lines both write an object to the output stream.
-Write-Output –InputObject $object
+Write-Output -InputObject $object
 $object
 ```
 
@@ -94,14 +96,14 @@ Workflow Test-Runbook
   $output = "This is some string output."
   Write-Output $output
 }
- ```
+```
 
 #### Declare output data type in a graphical runbook
 
 To declare an output type in a graphical or graphical PowerShell Workflow runbook, you can select the **Input and Output** menu option and enter the output type. It's recommended to use the full .NET class name to make the type easily identifiable when a parent runbook references it. Using the full name exposes all the properties of the class to the databus in the runbook and increases flexibility when the properties are used for conditional logic, logging, and referencing as values for other runbook activities.<br> ![Runbook Input and Output option](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
 
->[!NOTE]
->After you enter a value in the **Output Type** field in the Input and Output properties pane, be sure to click outside the control so that it recognizes your entry.
+> [!NOTE]
+> After you enter a value in the **Output Type** field in the Input and Output properties pane, be sure to click outside the control so that it recognizes your entry.
 
 The following example shows two graphical runbooks to demonstrate the Input and Output feature. Applying the modular runbook design model, you have one runbook as the Authenticate Runbook template managing authentication with Azure using the Run As account. The second runbook, which normally performs core logic to automate a given scenario, in this case executes the Authenticate Runbook template. It displays the results to your Test output pane. Under normal circumstances, you would have this runbook do something against a resource leveraging the output from the child runbook.
 
@@ -133,8 +135,8 @@ Create a warning or error message using the [Write-Warning](/powershell/module/m
 #The following lines create a warning message and then an error message that will suspend the runbook.
 
 $ErrorActionPreference = "Stop"
-Write-Warning –Message "This is a warning message."
-Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
+Write-Warning -Message "This is a warning message."
+Write-Error -Message "This is an error message that will stop the runbook because of the preference variable."
 ```
 
 ### Write output to debug stream
@@ -192,7 +194,7 @@ The following code creates a verbose message using the [Write-Verbose](/powershe
 ```powershell
 #The following line creates a verbose message.
 
-Write-Verbose –Message "This is a verbose message."
+Write-Verbose -Message "This is a verbose message."
 ```
 
 ## Handle progress records
@@ -201,8 +203,8 @@ You can use the **Configure** tab of the Azure portal to configure a runbook to 
 
 If you enable progress record logging, your runbook writes a record to job history before and after each activity runs. Testing a runbook does not display progress messages even if the runbook is configured to log progress records.
 
->[!NOTE]
->The [Write-Progress](/powershell/module/microsoft.powershell.utility/write-progress) cmdlet is not valid in a runbook, since this cmdlet is intended for use with an interactive user.
+> [!NOTE]
+> The [Write-Progress](/powershell/module/microsoft.powershell.utility/write-progress) cmdlet is not valid in a runbook, since this cmdlet is intended for use with an interactive user.
 
 ## Work with preference variables
 
@@ -236,33 +238,33 @@ The following example starts a sample runbook and then waits for it to complete.
 
 ```powershell
 $job = Start-AzAutomationRunbook -ResourceGroupName "ResourceGroup01" `
-  –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+  -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook"
 
 $doLoop = $true
 While ($doLoop) {
   $job = Get-AzAutomationJob -ResourceGroupName "ResourceGroup01" `
-    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
+    -AutomationAccountName "MyAutomationAccount" -Id $job.JobId
   $status = $job.Status
   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
 }
 
 Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
+  -AutomationAccountName "MyAutomationAccount" -Id $job.JobId -Stream Output
 
 # For more detailed job output, pipe the output of Get-AzAutomationJobOutput to Get-AzAutomationJobOutputRecord
 Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzAutomationJobOutputRecord
+  -AutomationAccountName "MyAutomationAccount" -Id $job.JobId -Stream Any | Get-AzAutomationJobOutputRecord
 ```
 
 ### Retrieve runbook output and messages in graphical runbooks
 
-For graphical runbooks, extra logging of output and messages is available in the form of activity-level tracing. There are two levels of tracing: Basic and Detailed. Basic tracing displays the start and end time for each activity in the runbook, plus information related to any activity retries. Some examples are the number of attempts and the start time of the activity. Detailed tracing includes basic tracing features plus logging of input and output data for each activity. 
+For graphical runbooks, extra logging of output and messages is available in the form of activity-level tracing. There are two levels of tracing: Basic and Detailed. Basic tracing displays the start and end time for each activity in the runbook, plus information related to any activity retries. Some examples are the number of attempts and the start time of the activity. Detailed tracing includes basic tracing features plus logging of input and output data for each activity.
 
 Currently activity-level tracing writes records using the verbose stream. Therefore you must enable verbose logging when you enable tracing. For graphical runbooks with tracing enabled, there's no need to log progress records. Basic tracing serves the same purpose and is more informative.
 
 ![Graphical authoring job streams view](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
 
-You can see from the image that enabling verbose logging and tracing for graphical runbooks makes much more information available in the production **Job Streams** view. This extra information can be essential for troubleshooting production problems with a runbook. 
+You can see from the image that enabling verbose logging and tracing for graphical runbooks makes much more information available in the production **Job Streams** view. This extra information can be essential for troubleshooting production problems with a runbook.
 
 However, unless you require this information to track the progress of a runbook for troubleshooting, you might want to keep tracing turned off as a general practice. The trace records can be especially numerous. With graphical runbook tracing, you can get two to four records per activity, depending on your configuration of Basic or Detailed tracing.
 

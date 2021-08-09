@@ -4,8 +4,8 @@ description: Learn how to discover, use, and create performance counters in Clou
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: 
 ---
@@ -119,7 +119,7 @@ The Azure Diagnostics extension for Cloud Services allows you specify what perfo
 
 The performance counters you want to collect are defined in the **diagnostics.wadcfgx** file. Open this file (it is defined per role) in Visual Studio and find the **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters** element. Add a new **PerformanceCounterConfiguration** element as a child. This element has two attributes: `counterSpecifier` and `sampleRate`. The `counterSpecifier` attribute defines which system performance counter set (outlined in the previous section) to collect. The `sampleRate` value indicates how often that value is polled. As a whole, all performance counters are transferred to Azure according to the parent `PerformanceCounters` element's `scheduledTransferPeriod` attribute value.
 
-For more information about the `PerformanceCounters` schema element, see the [Azure Diagnostics Schema](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element).
+For more information about the `PerformanceCounters` schema element, see the [Azure Diagnostics Schema](../azure-monitor/agents/diagnostics-extension-schema-windows.md#performancecounters-element).
 
 The period defined by the `sampleRate` attribute uses the XML duration data type to indicate how often the performance counter is polled. In the example below, the rate is set to `PT3M`, which means `[P]eriod[T]ime[3][M]inutes`: every three minutes.
 
@@ -289,4 +289,4 @@ As previously stated, the performance counters you want to collect are defined i
 - [Application Insights for Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters)
 - [System performance counters in Application Insights](../azure-monitor/app/performance-counters.md)
 - [Specifying a Counter Path](/windows/win32/perfctrs/specifying-a-counter-path)
-- [Azure Diagnostics Schema - Performance Counters](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element)
+- [Azure Diagnostics Schema - Performance Counters](../azure-monitor/agents/diagnostics-extension-schema-windows.md#performancecounters-element)

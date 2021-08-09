@@ -49,7 +49,9 @@
     href: manage-stale-devices.md
   - name: Enable enterprise state roaming
     href: enterprise-state-roaming-enable.md
-  - name: Windows Azure VMs and Azure AD
+  - name: Azure Linux VMs and Azure AD
+    href: howto-vm-sign-in-azure-ad-linux.md
+  - name: Azure Windows VMs and Azure AD
     href: howto-vm-sign-in-azure-ad-windows.md
   - name: Virtual desktop infrastructure
     href: howto-device-identity-virtual-desktop-infrastructure.md
@@ -66,9 +68,9 @@
   - name: Frequently asked questions
     items:
     - name: FAQs
-      href: faq.md
+      href: faq.yml
     - name: Enable enterprise state FAQs
-      href: enterprise-state-roaming-faqs.md
+      href: enterprise-state-roaming-faqs.yml
 - name: Reference
   items:
   - name: Enforce TLS 1.2
@@ -80,7 +82,7 @@
   - name: Graph APIs
     items: 
     - name: Device identity API
-      href: /graph/api/resources/device?view=graph-rest-1.0
+      href: /graph/api/resources/device
 - name: Resources
   items:
   - name: Azure feedback forum
@@ -88,7 +90,7 @@
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-active-directory.html
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/active-directory/
+    href: https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing
   - name: Service updates
     href: ../fundamentals/whats-new.md
   - name: Stack Overflow

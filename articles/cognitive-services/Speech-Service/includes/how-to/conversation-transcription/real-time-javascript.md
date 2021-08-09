@@ -8,15 +8,17 @@ ms.author: trbye
 
 ## Install the Speech SDK
 
-Before you can do anything, you'll need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Depending on your platform, use the following instructions:
+Before you can do anything, you'll need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript </a>. Depending on your platform, use the following instructions:
 
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
+- <a href="/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
 class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Web Browser <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Web Browser </a>
 
 ## Create voice signatures
 
-The first step is to create voice signatures for the conversation participants so that they can be identified as unique speakers. The input `.wav` audio file for creating voice signatures should be 16-bit, 16 kHz sample rate, and single channel (mono) format. The recommended length for each audio sample is between thirty seconds and two minutes. The `.wav` file should be a sample of **one person's** voice so that a unique voice profile is created.
+(You can skip this step if you do not want to use pre-enrolled user profiles to identify specific participants.)
+
+If you want to enroll user profiles, the first step is to create voice signatures for the conversation participants so that they can be identified as unique speakers. The input `.wav` audio file for creating voice signatures must be 16-bit, 16 kHz sample rate, in single channel (mono) format. The recommended length for each audio sample is between thirty seconds and two minutes. An audio sample that is too short will result in reduced accuracy when recognizing the speaker. The `.wav` file should be a sample of **one person's** voice so that a unique voice profile is created.
 
 The following example shows how to create a voice signature by [using the REST API](https://aka.ms/cts/signaturegenservice) in JavaScript. Note that you need to substitute real information for your `subscriptionKey`, `region`, and the path to a sample `.wav` file.
 
@@ -57,6 +59,11 @@ Running this script returns a voice signature string in the variable `voiceSigna
 ## Transcribe conversations
 
 The following sample code demonstrates how to transcribe conversations in real time for two speakers. It assumes you've already created voice signature strings for each speaker as shown above. Substitute real information for `subscriptionKey`, `region`, and the path `filepath` for the audio you want to transcribe.
+
+If you do not use pre-enrolled user profiles, it will take a few more seconds to complete the first recognition of unknown users as speaker1, speaker2, etc.
+
+> [!NOTE]
+> Make sure the same `subscriptionKey` is used across your application for signature creation, or you will encounter errors. 
 
 This sample code does the following:
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/19/2020
+ms.date: 07/26/2021
 ms.author: curtand
 ms.custom: user-help
 ---
@@ -25,7 +25,7 @@ Collections are different app views you see in the **My Apps** portal. Apps can 
 
 ## Access apps using collections
 
-The list of collections in the **My Apps** portal defaults to show one named **All Apps**, which has every app you have access to:
+The list of collections in the **My Apps** portal defaults to show one named **Apps**:
 
 ![All apps page in the My Apps portal](media/my-applications-portal-workspaces/my-apps-all-apps.png)
 

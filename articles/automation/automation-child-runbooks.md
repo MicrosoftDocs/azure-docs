@@ -4,7 +4,8 @@ description: This article tells how to create a runbook that is called by anothe
 services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 # Create modular runbooks
 
@@ -50,15 +51,15 @@ When your runbook calls a graphical or PowerShell Workflow child runbook using i
 The following example starts a test child runbook that accepts a complex object, an integer value, and a boolean value. The output of the child runbook is assigned to a variable. In this case, the child runbook is a PowerShell Workflow runbook.
 
 ```azurepowershell-interactive
-$vm = Get-AzVM –ResourceGroupName "LabRG" –Name "MyVM"
-$output = PSWF-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
+$vm = Get-AzVM -ResourceGroupName "LabRG" -Name "MyVM"
+$output = PSWF-ChildRunbook -VM $vm -RepeatCount 2 -Restart $true
 ```
 
 Here is the same example using a PowerShell runbook as the child.
 
 ```azurepowershell-interactive
-$vm = Get-AzVM –ResourceGroupName "LabRG" –Name "MyVM"
-$output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
+$vm = Get-AzVM -ResourceGroupName "LabRG" -Name "MyVM"
+$output = .\PS-ChildRunbook.ps1 -VM $vm -RepeatCount 2 -Restart $true
 ```
 
 ## Start a child runbook using a cmdlet
@@ -78,7 +79,7 @@ Parameters for a child runbook started with a cmdlet are provided as a hashtable
 
 The subscription context might be lost when starting child runbooks as separate jobs. For the child runbook to execute Az module cmdlets against a specific Azure subscription, the child must authenticate to this subscription independently of the parent runbook.
 
-If jobs within the same Automation account work with more than one subscription, selecting a subscription in one job can change the currently selected subscription context for other jobs. To avoid this situation, use `Disable-AzContextAutosave –Scope Process` at the beginning of each runbook. This action only saves the context to that runbook execution.
+If jobs within the same Automation account work with more than one subscription, selecting a subscription in one job can change the currently selected subscription context for other jobs. To avoid this situation, use `Disable-AzContextAutosave -Scope Process` at the beginning of each runbook. This action only saves the context to that runbook execution.
 
 ### Example
 
@@ -86,10 +87,10 @@ The following example starts a child runbook with parameters and then waits for 
 
 ```azurepowershell-interactive
 # Ensure that the runbook does not inherit an AzContext
-Disable-AzContextAutosave –Scope Process
+Disable-AzContextAutosave -Scope Process
 
 # Connect to Azure with Run As account
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+$ServicePrincipalConnection = Get-AzAutomationConnection -Name 'AzureRunAsConnection'
 
 Connect-AzAccount `
     -ServicePrincipal `
@@ -102,11 +103,11 @@ $AzureContext = Set-AzContext -SubscriptionId $ServicePrincipalConnection.Subscr
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
 
 Start-AzAutomationRunbook `
-    –AutomationAccountName 'MyAutomationAccount' `
-    –Name 'Test-ChildRunbook' `
+    -AutomationAccountName 'MyAutomationAccount' `
+    -Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
     -AzContext $AzureContext `
-    –Parameters $params –Wait
+    -Parameters $params -Wait
 ```
 
 ## Next steps

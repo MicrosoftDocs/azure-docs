@@ -1,10 +1,12 @@
 ---
 title: Use the Azure portal to create Service Bus topics and subscriptions
-description: 'Quickstart: In this quickstart, you learn how to create a Service Bus topic and subscriptions to that topic by using the Azure portal.' 
+description: 'Quickstart: In this quickstart, you learn how to create a Service Bus topic and subscriptions to that topic by using the Azure portal.'
 author: spelluru
-ms.topic: quickstart
-ms.date: 06/23/2020
 ms.author: spelluru
+ms.date: 06/23/2020
+ms.topic: quickstart
+ms.custom:
+  - mode-portal
 # Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 ---
 
@@ -22,9 +24,9 @@ register multiple subscriptions to a topic. When a message is sent to a topic, i
 
 Service Bus topics and subscriptions enable you to scale to process a large number of messages across a large number of users and applications.
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+[!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
 
-[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](./includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
 > [!NOTE]
 > You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
@@ -37,4 +39,3 @@ In this article, you created a Service Bus namespace, a topic in the namespace, 
 - [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 - [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 - [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
-- [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)

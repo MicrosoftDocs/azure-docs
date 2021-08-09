@@ -97,17 +97,17 @@ The [usage](#usage) section explains `myQueueItem`, which is named by the `name`
 
 The following Java example shows a storage queue trigger function, which logs the triggered message placed into queue `myqueuename`.
 
- ```java
- @FunctionName("queueprocessor")
- public void run(
+```java
+@FunctionName("queueprocessor")
+public void run(
     @QueueTrigger(name = "msg",
-                   queueName = "myqueuename",
-                   connection = "myconnvarname") String message,
-     final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
+                queueName = "myqueuename",
+                connection = "myconnvarname") String message,
+    final ExecutionContext context
+) {
+    context.getLogger().info(message);
+}
+```
 
 # [JavaScript](#tab/javascript)
 
@@ -162,32 +162,32 @@ A Storage queue trigger is defined in *function.json* file where `type` is set t
 
 ```json
 {
-  "bindings": [
-    {
-      "name": "QueueItem",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "messages",
-      "connection": "MyStorageConnectionAppSetting"
-    }
-  ]
+  "bindings": [
+    {
+      "name": "QueueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "messages",
+      "connection": "MyStorageConnectionAppSetting"
+    }
+  ]
 }
 ```
 
 The code in the *Run.ps1* file declares a parameter as `$QueueItem`, which allows you to read the queue message in your function.
 
 ```powershell
-# Input bindings are passed in via param block.
-param([string] $QueueItem, $TriggerMetadata)
+# Input bindings are passed in via param block.
+param([string] $QueueItem, $TriggerMetadata)
 
-# Write out the queue message and metadata to the information log.
-Write-Host "PowerShell queue trigger function processed work item: $QueueItem"
-Write-Host "Queue item expiration time: $($TriggerMetadata.ExpirationTime)"
-Write-Host "Queue item insertion time: $($TriggerMetadata.InsertionTime)"
-Write-Host "Queue item next visible time: $($TriggerMetadata.NextVisibleTime)"
-Write-Host "ID: $($TriggerMetadata.Id)"
-Write-Host "Pop receipt: $($TriggerMetadata.PopReceipt)"
-Write-Host "Dequeue count: $($TriggerMetadata.DequeueCount)"
+# Write out the queue message and metadata to the information log.
+Write-Host "PowerShell queue trigger function processed work item: $QueueItem"
+Write-Host "Queue item expiration time: $($TriggerMetadata.ExpirationTime)"
+Write-Host "Queue item insertion time: $($TriggerMetadata.InsertionTime)"
+Write-Host "Queue item next visible time: $($TriggerMetadata.NextVisibleTime)"
+Write-Host "ID: $($TriggerMetadata.Id)"
+Write-Host "Pop receipt: $($TriggerMetadata.PopReceipt)"
+Write-Host "Dequeue count: $($TriggerMetadata.DequeueCount)"
 ```
 
 # [Python](#tab/python)
@@ -377,7 +377,7 @@ If you try to bind to `CloudQueueMessage` and get an error message, make sure th
 Apps using the [5.0.0 or higher version of the Storage extension](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) may also use types from the [Azure SDK for .NET](/dotnet/api/overview/azure/storage.queues-readme). This version drops support for the legacy `CloudQueueMessage` type in favor of the following types:
 
 - [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
- 
+
 For examples using these types, see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
 # [C# Script](#tab/csharp-script)
@@ -386,7 +386,7 @@ For examples using these types, see [the GitHub repository for the extension](ht
 
 Access the message data by using a method parameter such as `string paramName`. The `paramName` is the value specified in the `name` property of *function.json*. You can bind to any of the following types:
 
-* Object - The Functions runtime deserializes a JSON payload into an instance of an arbitrary class defined in your code. 
+* Object - The Functions runtime deserializes a JSON payload into an instance of an arbitrary class defined in your code.
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -403,7 +403,7 @@ For examples using these types, see [the GitHub repository for the extension](ht
 
 # [Java](#tab/java)
 
-The [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable&preserve-view=true) annotation gives you access to the queue message that triggered the function.
+The [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger) annotation gives you access to the queue message that triggered the function.
 
 # [JavaScript](#tab/javascript)
 
@@ -415,7 +415,7 @@ Access the queue message via string parameter that matches the name designated b
 
 # [Python](#tab/python)
 
-Access the queue message via the parameter typed as [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python&preserve-view=true).
+Access the queue message via the parameter typed as [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage).
 
 ---
 
@@ -435,9 +435,21 @@ The queue trigger provides several [metadata properties](./functions-bindings-ex
 
 ## Poison messages
 
-When a queue trigger function fails, Azure Functions retries the function up to five times for a given queue message, including the first try. If all five attempts fail, the functions runtime adds a message to a queue named *&lt;originalqueuename>-poison*. You can write a function to process messages from the poison queue by logging them or sending a  notification that manual attention is needed.
+When a queue trigger function fails, Azure Functions retries the function up to five times for a given queue message, including the first try. If all five attempts fail, the functions runtime adds a message to a queue named *&lt;originalqueuename&gt;-poison*. You can write a function to process messages from the poison queue by logging them or sending a  notification that manual attention is needed.
 
 To handle poison messages manually, check the [dequeueCount](#message-metadata) of the queue message.
+
+
+## Peek lock
+The peek-lock pattern happens automatically for queue triggers. As messages are dequeued, they are marked as invisible and associated with a timeout managed by the Storage service.
+
+When the function starts, it starts processing a message under the following conditions.
+
+- If the function is successful, then the function execution completes and the message is deleted.
+- If the function fails, then the message visibility is reset. After being reset, the message is reprocessed the next time the function requests a new message.
+- If the function never completes due to a crash, the message visibility expires and the message re-appears in the queue.
+
+All of the visibility mechanics are handled by the Storage service, not the Functions runtime.
 
 ## Polling algorithm
 
@@ -445,8 +457,8 @@ The queue trigger implements a random exponential back-off algorithm to reduce t
 
 The algorithm uses the following logic:
 
-- When a message is found, the runtime waits two seconds and then checks for another message
-- When no message is found, it waits about four seconds before trying again.
+- When a message is found, the runtime waits 100 milliseconds and then checks for another message
+- When no message is found, it waits about 200 milliseconds before trying again.
 - After subsequent failed attempts to get a queue message, the wait time continues to increase until it reaches the maximum wait time, which defaults to one minute.
 - The maximum wait time is configurable via the `maxPollingInterval` property in the [host.json file](functions-host-json-v1.md#queues).
 
@@ -458,7 +470,7 @@ In regard to billing, time spent polling by the runtime is "free" and not counte
 
 When there are multiple queue messages waiting, the queue trigger retrieves a batch of messages and invokes function instances concurrently to process them. By default, the batch size is 16. When the number being processed gets down to 8, the runtime gets another batch and starts processing those messages. So the maximum number of concurrent messages being processed per function on one virtual machine (VM) is 24. This limit applies separately to each queue-triggered function on each VM. If your function app scales out to multiple VMs, each VM will wait for triggers and attempt to run functions. For example, if a function app scales out to 3 VMs, the default maximum number of concurrent instances of one queue-triggered function is 72.
 
-The batch size and the threshold for getting a new batch are configurable in the [host.json file](functions-host-json.md#queues). If you want to minimize parallel execution for queue-triggered functions in a function app, you can set the batch size to 1. This setting eliminates concurrency only so long as your function app runs on a single virtual machine (VM). 
+The batch size and the threshold for getting a new batch are configurable in the [host.json file](functions-host-json.md#queues). If you want to minimize parallel execution for queue-triggered functions in a function app, you can set the batch size to 1. This setting eliminates concurrency only so long as your function app runs on a single virtual machine (VM).
 
 The queue trigger automatically prevents a function from processing a queue message multiple times simultaneously.
 

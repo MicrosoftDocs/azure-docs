@@ -3,13 +3,13 @@ title: "Speech CLI quickstart - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Get started with the Azure Speech CLI. You can interact with Speech services like speech to text, text to speech, and speech translation without writing code. 
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 01/13/2021
-ms.author: trbye
+ms.date: 04/28/2021
+ms.author: nitinme
 ---
 
 # Get started with the Azure Speech CLI
@@ -81,7 +81,7 @@ spx synthesize --text "Testing synthesis using the Speech CLI" --speakers
 You can also save the synthesized output to file. In this example, we'll create a file named `my-sample.wav` in the directory that the command is run.
 
 ```console
-spx synthesize --text "We hope that you enjoy using the Speech CLI." --audio output my-sample.wav
+spx synthesize --text "Enjoy using the Speech CLI." --audio output my-sample.wav
 ```
 
 These examples presume that you're testing in English. However, we support speech synthesis in many languages. You can pull down a full list of voices with this command, or by visiting the [language support page](./language-support.md).
@@ -133,5 +133,6 @@ spx help translate
 
 ## Next steps
 
+* [Install GStreamer to use Speech CLI with MP3 and other formats](./how-to-use-codec-compressed-audio-input-streams.md)
 * [Speech CLI configuration options](./spx-data-store-configuration.md)
 * [Batch operations with the Speech CLI](./spx-batch-operations.md)

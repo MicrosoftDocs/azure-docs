@@ -1,11 +1,13 @@
 ---
-title: Get started with Live Video Analytics on IoT Edge - Azure
-description: This quickstart shows how to get started with Live Video Analytics on IoT Edge. Learn how to detect motion in a live video stream.
+title: Get started with Azure Live Video Analytics on IoT Edge
+description: This quickstart shows how to get started with Azure Live Video Analytics on IoT Edge. Learn how to detect motion in a live video stream.
 ms.topic: quickstart
 ms.date: 04/27/2020
 
 ---
-# Quickstart: Get started - Live Video Analytics on IoT Edge
+# Quickstart: Get started with Live Video Analytics on IoT Edge
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 This quickstart walks you through the steps to get started with Live Video Analytics on IoT Edge. It uses an Azure VM as an IoT Edge device. It also uses a simulated live video stream. 
 
@@ -64,10 +66,10 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
     1. **Network interface** - This enables an Azure Virtual Machine to communicate with internet, Azure, and other resources.
     1. **Bastion connection** - This lets you connect to your virtual machine using your browser and the Azure portal.
     1. **Public IP address** - This enables Azure resources to communicate to Internet and public-facing Azure services
-    1. **Virtual network** - This enables many types of Azure resources, such as your virtual machine, to securely communicate with each other, the internet, and on-premises networks. Learn more about [Virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+    1. **Virtual network** - This enables many types of Azure resources, such as your virtual machine, to securely communicate with each other, the internet, and on-premises networks. Learn more about [Virtual networks](../../virtual-network/virtual-networks-overview.md).
     1. **IoT Hub** - This acts as a central message hub for bi-directional communication between your IoT application, IoT Edge modules and the devices it manages.
     1. **Media service account** - This helps with managing and streaming media content in Azure.
-    1. **Storage account** - You must have one Primary storage account and you can have any number of Secondary storage accounts associated with your Media Services account. For more information, see [Azure Storage accounts with Azure Media Services accounts](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
+    1. **Storage account** - You must have one Primary storage account and you can have any number of Secondary storage accounts associated with your Media Services account. For more information, see [Azure Storage accounts with Azure Media Services accounts](../latest/storage-account-concept.md).
     1. **Container registry** - This helps in storing and managing your private Docker container images and related artifacts.
 
 In the script output, a table of resources lists the IoT hub name. Look for the resource type **`Microsoft.Devices/IotHubs`**, and note down the name. You'll need this name in the next step.  

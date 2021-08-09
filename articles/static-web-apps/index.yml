@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
 title: Azure Static Web Apps documentation
-summary: Azure Static Web Apps allows you to build modern web applications that automatically publish from changes made in GitHub.
+summary: Azure Static Web Apps allows you to build modern web applications that automatically publish to the web as your code changes.
 
 metadata:
   title: Azure Static Web Apps documentation
-  description: Azure Static Web Apps allows you to build modern web applications that automatically publish from changes made in GitHub.
+  description: Azure Static Web Apps allows you to build modern web applications that automatically publish to the web as your code changes.
   ms.topic: landing-page
   ms.service: static-web-apps
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 12/08/2020
+  ms.date: 05/07/2021
 
 landingContent:
   - title: About Static Web Apps
@@ -19,22 +19,18 @@ landingContent:
         links:
           - text: What is Azure Static Web Apps?
             url: overview.md
-      # - linkListType: video
-      #   links:
-      #     - text:  Intro to Static Web Apps?
-      #       url: https://azure.microsoft.com/resources/videos/
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Create your first app with no framework
+            url: ./getting-started.md?tabs=vanilla-javascript
           - text: Create your first Angular app
             url: ./getting-started.md?tabs=angular
           - text: Create your first React app
             url: ./getting-started.md?tabs=react
           - text: Create your first Vue app
             url: ./getting-started.md?tabs=vue
-          - text: Create your first app (no framework)
-            url: ./getting-started.md?tabs=vanilla-javascript
       - linkListType: learn
         links:
           - text: Publish an Angular, React, Svelte, or Vue JavaScript app
@@ -63,6 +59,10 @@ landingContent:
             url: deploy-nextjs.md
           - text: Deploy from Nuxt.js
             url: deploy-nuxtjs.md
+          - text: Deploy with Azure DevOps
+            url: publish-devops.md
+          - text: Deploy with an ARM template
+            url: publish-azure-resource-manager.md
       - linkListType: learn
         links:
           - text: Publish a static web app with Gatsby
@@ -73,11 +73,11 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Routes
-            url: routes.md
+          - text: Application configuration
+            url: configuration.md
           - text: Public APIs
             url: apis.md
-          - text: Staging
+          - text: Staging environments
             url: review-publish-pull-requests.md
           - text: Restrict access
             url: authentication-authorization.md

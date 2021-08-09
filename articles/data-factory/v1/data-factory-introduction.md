@@ -3,7 +3,7 @@ title: Introduction to Data Factory, a data integration service
 description: 'Learn what Azure Data Factory is: A cloud data integration service that orchestrates and automates movement and transformation of data.'
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: overview
 ms.date: 01/22/2018
@@ -78,12 +78,12 @@ A pipeline can have one or more activities. Activities define the actions to per
 ### Data movement activities
 Copy Activity in Data Factory copies data from a source data store to a sink data store. Data from any source can be written to any sink. Select a data store to learn how to copy data to and from that store. Data Factory supports the following data stores:
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 For more information, see [Move data by using Copy Activity](data-factory-data-movement-activities.md).
 
 ### Data transformation activities
-[!INCLUDE [data-factory-transformation-activities](../../../includes/data-factory-transformation-activities.md)]
+[!INCLUDE [data-factory-transformation-activities](includes/data-factory-transformation-activities.md)]
 
 For more information, see [Move data by using Copy Activity](data-factory-data-transformation-activities.md).
 

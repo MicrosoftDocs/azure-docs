@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 06/18/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -16,7 +16,7 @@ ms.custom: fasttrack-edit
 
 # OAuth 2.0 authorization code flow in Azure Active Directory B2C
 
-You can use the OAuth 2.0 authorization code grant in apps installed on a device to gain access to protected resources, such as web APIs. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OAuth 2.0, you can add sign-up, sign-in, and other identity management tasks to your single-page, mobile, and desktop apps. This article is language-independent. In the article, we describe how to send and receive HTTP messages without using any open-source libraries. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL).Take a look at the [sample apps that use MSAL](code-samples.md).
+You can use the OAuth 2.0 authorization code grant in apps installed on a device to gain access to protected resources, such as web APIs. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OAuth 2.0, you can add sign-up, sign-in, and other identity management tasks to your single-page, mobile, and desktop apps. This article is language-independent. In the article, we describe how to send and receive HTTP messages without using any open-source libraries. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL).Take a look at the [sample apps that use MSAL](integrate-with-app-code-samples.md).
 
 The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). You can use it for authentication and authorization in most [application types](application-types.md), including web applications, single-page applications, and natively installed applications. You can use the OAuth 2.0 authorization code flow to securely acquire access tokens and refresh tokens for your applications, which can be used to access resources that are secured by an [authorization server](protocols-overview.md).  The refresh token allows the client to acquire new access (and refresh) tokens once the access token expires, typically after one hour.
 
@@ -62,12 +62,15 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | client_id |Required |The application ID assigned to your app in the [Azure portal](https://portal.azure.com). |
 | response_type |Required |The response type, which must include `code` for the authorization code flow. |
 | redirect_uri |Required |The redirect URI of your app, where authentication responses are sent and received by your app. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL-encoded. |
-| scope |Required |A space-separated list of scopes. A single scope value indicates to Azure Active Directory (Azure AD) both of the permissions that are being requested. Using the client ID as the scope indicates that your app needs an access token that can be used against your own service or web API, represented by the same client ID.  The `offline_access` scope indicates that your app needs a refresh token for long-lived access to resources. You also can use the `openid` scope to request an ID token from Azure AD B2C. |
+| scope |Required |A space-separated list of scopes. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of ID tokens. The `offline_access` scope is optional for web applications. It indicates that your application will need a *refresh token* for extended access to resources. The `https://{tenant-name}/{app-id-uri}/{scope}` indicates a permission to protected resources, such as a web API. For more information, see [Request an access token](access-tokens.md#scopes). |
 | response_mode |Recommended |The method that you use to send the resulting authorization code back to your app. It can be `query`, `form_post`, or `fragment`. |
 | state |Recommended |A value included in the request that can be a string of any content that you want to use. Usually, a randomly generated unique value is  used, to prevent cross-site request forgery attacks. The state also is used to encode information about the user's state in the app before the authentication request occurred. For example, the page the user was on, or the user flow that was being executed. |
 | prompt |Optional |The type of user interaction that is required. Currently, the only valid value is `login`, which forces the user to enter their credentials on that request. Single sign-on will not take effect. |
 | code_challenge  | recommended / required | Used to secure authorization code grants via Proof Key for Code Exchange (PKCE). Required if `code_challenge_method` is included. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). This is now recommended for all application types - native apps, SPAs, and confidential clients like web apps. | 
 | `code_challenge_method` | recommended / required | The method used to encode the `code_verifier` for the `code_challenge` parameter. This *SHOULD* be `S256`, but the spec allows the use of `plain` if for some reason the client cannot support SHA256. <br/><br/>If excluded, `code_challenge` is assumed to be plaintext if `code_challenge` is included. Microsoft identity platform supports both `plain` and `S256`. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). This is required for [single page apps using the authorization code flow](tutorial-register-spa.md).|
+| login_hint | No| Can be used to pre-fill the sign-in name field of the sign-in page. For more information, see [Prepopulate the sign-in name](direct-signin.md#prepopulate-the-sign-in-name).  |
+| domain_hint | No| Provides a hint to Azure AD B2C about the social identity provider that should be used for sign-in. If a valid value is included, the user goes directly to the identity provider sign-in page.  For more information, see [Redirect sign-in to a social provider](direct-signin.md#redirect-sign-in-to-a-social-provider). |
+| Custom parameters | No| Custom parameters that can be used with [custom policies](custom-policy-overview.md). For example, [dynamic custom page content URI](customize-ui-with-html.md?pivots=b2c-custom-policy#configure-dynamic-custom-page-content-uri), or [key-value claim resolvers](claim-resolver-overview.md#oauth2-key-value-parameters). |
 
 At this point, the user is asked to complete the user flow's workflow. This might involve the user entering their username and password, signing in with a social identity, signing up for the directory, or any other number of steps. User actions depend on how the user flow is defined.
 
@@ -121,7 +124,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | client_id |Required |The application ID assigned to your app in the [Azure portal](https://portal.azure.com).|
 | client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets cannot be securely stored, and therefore are not used in this call. If you use a client secret, please change it on a periodic basis. |
 | grant_type |Required |The type of grant. For the authorization code flow, the grant type must be `authorization_code`. |
-| scope |Recommended |A space-separated list of scopes. A single scope value indicates to Azure AD both of the permissions that are being requested. Using the client ID as the scope indicates that your app needs an access token that can be used against your own service or web API, represented by the same client ID.  The `offline_access` scope indicates that your app needs a refresh token for long-lived access to resources.  You also can use the `openid` scope to request an ID token from Azure AD B2C. |
+| scope |Required |A space-separated list of scopes. A single scope value indicates to Azure AD both of the permissions that are being requested. Using the client ID as the scope indicates that your app needs an access token that can be used against your own service or web API, represented by the same client ID.  The `offline_access` scope indicates that your app needs a refresh token for long-lived access to resources.  You also can use the `openid` scope to request an ID token from Azure AD B2C. |
 | code |Required |The authorization code that you acquired in the first leg of the flow. |
 | redirect_uri |Required |The redirect URI of the application where you received the authorization code. |
 | code_verifier | recommended | The same code_verifier that was used to obtain the authorization_code. Required if PKCE was used in the authorization code grant request. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
@@ -138,6 +141,7 @@ A successful token response looks like this:
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
+
 | Parameter | Description |
 | --- | --- |
 | not_before |The time at which the token is considered valid, in epoch time. |

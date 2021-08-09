@@ -7,7 +7,8 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.topic: sample
 ms.date: 02/09/2021
-ms.author: cherylmc
+ms.author: cherylmc 
+ms.custom: devx-track-azurepowershell
 
 ---
 

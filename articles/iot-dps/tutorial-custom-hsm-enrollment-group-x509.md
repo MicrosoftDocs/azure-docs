@@ -3,7 +3,7 @@ title: Tutorial - Provision X.509 devices to Azure IoT Hub using a custom Hardwa
 description: This tutorial uses enrollment groups. In this tutorial, you learn how to provision X.509 devices using a custom Hardware Security Module (HSM) and the C device SDK for Azure IoT Hub Device Provisioning Service (DPS).
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/28/2021
+ms.date: 05/24/2021
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps 
@@ -118,6 +118,10 @@ In this section you, will generate an X.509 certificate chain of three certifica
 
 To create the root and intermediate portions of the certificate chain:
 
+> [!IMPORTANT]
+> Only use the Bash shell approach with this article. Using PowerShell is possible but, it is not covered in this article.
+
+
 1. Open a Git Bash command prompt. Complete steps 1 and 2 using the Bash shell instructions that are located in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md#managing-test-ca-certificates-for-samples-and-tutorials).
 
     This creates a working directory for the certificate scripts, and generates the example root and intermediate certificate for the certificate chain using openssl. 
@@ -230,7 +234,7 @@ To create the device certificates signed by the intermediate certificate in the 
     >
     > However, the device must also have access to the private key for the device certificate. This is necessary because the device must perform verification using that key at runtime when attempting provisioning. The sensitivity of this key is one of the main reasons it is recommended to use hardware-based storage in a real HSM to help secure private keys.
 
-4. Repeat steps 1-3 for a second device with device ID `custom-hsm-device-02`. Use the following values for that device:
+4. Delete *./certs/new-device.cert.pem*, and repeat steps 1-3 for a second device with device ID `custom-hsm-device-02`. You must delete *./certs/new-device.cert.pem* or certificate generation will fail for the second device. Only the full chain certificate files will be used by this article. Use the following values for the second device:
 
     |   Description                 |  Value  |
     | :---------------------------- | :--------- |
@@ -240,6 +244,10 @@ To create the device certificates signed by the intermediate certificate in the 
     
 
 ## Verify ownership of the root certificate
+
+> [!NOTE]
+> As of July 1st, 2021, you can perform automatic verification of certificate via [automatic verification](how-to-verify-certificates.md#automatic-verification-of-intermediate-or-root-ca-through-self-attestation)
+>
 
 1. Using the directions from [Register the public part of an X.509 certificate and get a verification code](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code), upload the root certificate (`./certs/azure-iot-test-only.root.ca.cert.pem`) and get a verification code from DPS.
 
@@ -287,7 +295,7 @@ To add the signing certificates to the certificate store in Windows-based device
     winpty openssl pkcs12 -inkey ../private/azure-iot-test-only.intermediate.key.pem -in ./azure-iot-test-only.intermediate.cert.pem -export -out ./intermediate.pfx
     ```
 
-2. Right-click the Windows **Start** button. Then left-click **Run**. Enter *certmgr.mcs* and click **Ok** to start certificate manager MMC snap-in.
+2. Right-click the Windows **Start** button. Then left-click **Run**. Enter *certmgr.msc* and click **Ok** to start certificate manager MMC snap-in.
 
 3. In certificate manager, under **Certificates - Current User**, click **Trusted Root Certification Authorities**. Then on the menu, click **Action** > **All Tasks** > **Import** to import `root.pfx`.
 
@@ -321,7 +329,7 @@ Your signing certificates are now trusted on the Windows-based device and the fu
     | **Attestation Type** | Select **Certificate** |
     | **IoT Edge device** | Select **False** |
     | **Certificate Type** | Select **Intermediate Certificate** |
-    | **Primary certificate .pem or .cer file** | Navigate to the intermediate you created earlier (*./certs/azure-iot-test-only.intermediate.cert.pem*) |
+    | **Primary certificate .pem or .cer file** | Navigate to the intermediate you created earlier (*./certs/azure-iot-test-only.intermediate.cert.pem*). This intermediate certificate is signed by the root certificate that you already uploaded and verified. DPS trusts that root once it is verified. DPS can verify the intermediate provided with this enrollment group is truly signed by the trusted root. DPS will trust each intermediate truly signed by that root certificate, and therefore be able to verify and trust leaf certificates signed by the intermediate.  |
 
 
 ## Configure the provisioning device code

@@ -16,7 +16,7 @@ Audit logging of database activities in Azure Database for PostgreSQL - Single S
 > pgAudit is in preview on Azure Database for PostgreSQL.
 > The extension can be enabled on General Purpose and Memory Optimized servers only.
 
-If you want Azure resource-level logs for operations like compute and storage scaling, see the [Azure Activity Log](../azure-monitor/platform/platform-logs-overview.md).
+If you want Azure resource-level logs for operations like compute and storage scaling, see the [Azure Activity Log](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## Usage considerations
 By default, pgAudit log statements are emitted along with your regular log statements by using Postgres's standard logging facility. In Azure Database for PostgreSQL, these .log files can be downloaded through the Azure portal or the CLI. The maximum storage for the collection of files is 1 GB, and each file is available for a maximum of seven days (the default is three days). This service is a short-term storage option.
@@ -32,7 +32,7 @@ To learn how to set up logging to Azure Storage, Event Hubs, or Azure Monitor lo
 
 ## Installing pgAudit
 
-To install pgAudit, you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a server restart to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [REST API](/rest/api/postgresql/configurations/createorupdate).
+To install pgAudit, you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a server restart to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [REST API](/rest/api/postgresql/singleserver/configurations/createorupdate).
 
 Using the [Azure portal](https://portal.azure.com):
 
@@ -55,7 +55,7 @@ Using the [Azure portal](https://portal.azure.com):
 pgAudit allows you to configure session or object audit logging. [Session audit logging](https://github.com/pgaudit/pgaudit/blob/master/README.md#session-audit-logging) emits detailed logs of executed statements. [Object audit logging](https://github.com/pgaudit/pgaudit/blob/master/README.md#object-audit-logging) is audit scoped to specific relations. You can choose to set up one or both types of logging. 
 
 > [!NOTE]
-> pgAudit settings are specified gloabally and cannot be specified at a database or role level.
+> pgAudit settings are specified globally and cannot be specified at a database or role level.
 
 Once you have [installed pgAudit](#installing-pgaudit), you can configure its parameters to start logging. The [pgAudit documentation](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) provides the definition of each parameter. Test the parameters first and confirm that you are getting the expected behavior.
 
@@ -83,9 +83,9 @@ To quickly get started, set `pgaudit.log` to `WRITE`, and open your logs to revi
 ## Viewing audit logs
 If you are using .log files, your audit logs will be included in the same file as your PostgreSQL error logs. You can download log files from the Azure [portal](howto-configure-server-logs-in-portal.md) or [CLI](howto-configure-server-logs-using-cli.md). 
 
-If you are using Azure resource logging, the way you access the logs depends on which endpoint you choose. For Azure Storage, see the [logs storage account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) article. For Event Hubs, see the [stream Azure logs](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) article.
+If you are using Azure resource logging, the way you access the logs depends on which endpoint you choose. For Azure Storage, see the [logs storage account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) article. For Event Hubs, see the [stream Azure logs](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) article.
 
-For Azure Monitor Logs, logs are sent to the workspace you selected. The Postgres logs use the **AzureDiagnostics** collection mode, so they can be queried from the AzureDiagnostics table. The fields in the table are described below. Learn more about querying and alerting in the [Azure Monitor Logs query](../azure-monitor/log-query/log-query-overview.md) overview.
+For Azure Monitor Logs, logs are sent to the workspace you selected. The Postgres logs use the **AzureDiagnostics** collection mode, so they can be queried from the AzureDiagnostics table. The fields in the table are described below. Learn more about querying and alerting in the [Azure Monitor Logs query](../azure-monitor/logs/log-query-overview.md) overview.
 
 You can use this query to get started. You can configure alerts based on queries.
 
@@ -99,4 +99,4 @@ AzureDiagnostics
 
 ## Next steps
 - [Learn about logging in Azure Database for PostgreSQL](concepts-server-logs.md)
-- Learn how to set parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [REST API](/rest/api/postgresql/configurations/createorupdate).
+- Learn how to set parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [REST API](/rest/api/postgresql/singleserver/configurations/createorupdate).

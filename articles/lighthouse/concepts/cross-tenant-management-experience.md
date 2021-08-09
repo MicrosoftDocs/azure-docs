@@ -1,16 +1,16 @@
 ---
 title: Cross-tenant management experiences
-description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 02/08/2021
+description: Azure Lighthouse enables and enhances cross-tenant experiences in many Azure services.
+ms.date: 07/20/2021
 ms.topic: conceptual
 ---
 
 # Cross-tenant management experiences
 
-As a service provider, you can use [Azure Lighthouse](../overview.md) to manage resources for multiple customers from within your own Azure Active Directory (Azure AD) tenant. Many tasks and services can be performed across managed tenants by using [Azure delegated resource management](../concepts/azure-delegated-resource-management.md).
+As a service provider, you can use [Azure Lighthouse](../overview.md) to manage resources for multiple customers from within your own Azure Active Directory (Azure AD) tenant. Many tasks and services can be performed across managed tenants by using [Azure delegated resource management](../concepts/architecture.md).
 
 > [!TIP]
-> Azure delegated resource management can also be used [within an enterprise which has multiple Azure AD tenants of its own](enterprise.md) to simplify cross-tenant administration.
+> Azure Lighthouse can also be used [within an enterprise which has multiple Azure AD tenants of its own](enterprise.md) to simplify cross-tenant administration.
 
 ## Understanding tenants and delegation
 
@@ -28,9 +28,9 @@ Azure Lighthouse allows greater flexibility to manage resources for multiple cus
 
 You can perform management tasks on delegated resources either directly in the portal or by using APIs and management tools (such as Azure CLI and Azure PowerShell). All existing APIs can be used when working with delegated resources, as long as the functionality is supported for cross-tenant management and the user has the appropriate permissions.
 
-The Azure PowerShell [Get-AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSubscription) shows the `HomeTenantId` and `ManagedByTenantIds` attributes for each subscription, allowing you to identify whether a returned subscription belongs to a managed tenant or to your managing tenant.
+The Azure PowerShell [Get-AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSubscription) will show the `TenantId` for the managing tenant by default. You can use the `HomeTenantId` and `ManagedByTenantIds` attributes for each subscription, allowing you to identify whether a returned subscription belongs to a managed tenant or to your managing tenant.
 
-Similarly, Azure CLI commands such as [az account list](/cli/azure/account#az-account-list) show the `homeTenantId` and `managedByTenants` attributes. If you don't see these values when using Azure CLI, try clearing your cache by running `az account clear` followed by `az login --identity`.
+Similarly, Azure CLI commands such as [az account list](/cli/azure/account#az_account_list) show the `homeTenantId` and `managedByTenants` attributes. If you don't see these values when using Azure CLI, try clearing your cache by running `az account clear` followed by `az login --identity`.
 
 In the Azure REST API, the [Subscriptions - Get](/rest/api/resources/subscriptions/get) and [Subscriptions - List](/rest/api/resources/subscriptions/list) commands include `ManagedByTenant`.
 
@@ -51,8 +51,8 @@ Most tasks and services can be performed on delegated resources across managed t
   - Ensure the same set of policies are applied across customers' hybrid environments
   - Use Azure Security Center to monitor compliance across customers' hybrid environments
 - Manage hybrid Kubernetes clusters at scale - [Azure Arc enabled Kubernetes (preview)](../../azure-arc/kubernetes/overview.md):
-  - [Manage Kubernetes clusters that are connected](../../azure-arc/kubernetes/connect-cluster.md) to delegated subscriptions and/or resource groups in Azure
-  - [Use GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) for connected clusters
+  - [Manage Kubernetes clusters that are connected](../../azure-arc/kubernetes/quickstart-connect-cluster.md) to delegated subscriptions and/or resource groups in Azure
+  - [Use GitOps](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) for connected clusters
   - Enforce policies across connected clusters
 
 [Azure Automation](../../automation/index.yml):
@@ -62,6 +62,7 @@ Most tasks and services can be performed on delegated resources across managed t
 [Azure Backup](../../backup/index.yml):
 
 - Back up and restore customer data [from on-premises workloads, Azure VMs, Azure file shares, and more](../..//backup/backup-overview.md#what-can-i-back-up)
+- View data for all delegated customer resources in [Backup Center](../../backup/backup-center-overview.md)
 - Use the [Backup Explorer](../../backup/monitor-azure-backup-with-backup-explorer.md) to help view operational information of backup items (including Azure resources not yet configured for backup) and monitoring information (jobs and alerts) for delegated subscriptions. The Backup Explorer is currently available only for Azure VM data.
 - Use [Backup Reports](../../backup/configure-reports.md) across delegated subscriptions to track historical trends, analyze backup storage consumption, and audit backups and restores.
 
@@ -71,7 +72,7 @@ Most tasks and services can be performed on delegated resources across managed t
 
 [Azure Cost Management + Billing](../../cost-management-billing/index.yml):
 
-- From the managing tenant, CSP partners can view, manage, and analyze pre-tax consumption costs (not inclusive of purchases) for customers who are under the Azure plan. The cost will be based on retail rates and the Azure role-based access control (Azure RBAC) access that the partner has for the customer's subscription.
+- From the managing tenant, CSP partners can view, manage, and analyze pre-tax consumption costs (not inclusive of purchases) for customers who are under the Azure plan. The cost will be based on retail rates and the Azure role-based access control (Azure RBAC) access that the partner has for the customer's subscription. Currently, you can view consumption costs at retail rates for each individual customer subscription based on Azure RBAC access.
 
 [Azure Key Vault](../../key-vault/general/index.yml):
 
@@ -82,7 +83,7 @@ Most tasks and services can be performed on delegated resources across managed t
 
 - Manage hosted Kubernetes environments and deploy and manage containerized applications within customer tenants
 - Deploy and manage clusters in customer tenants
--	Use Azure Monitor for containers to monitor performance across customer tenants
+- Use Azure Monitor for containers to monitor performance across customer tenants
 
 [Azure Migrate](../../migrate/index.yml):
 
@@ -92,13 +93,13 @@ Most tasks and services can be performed on delegated resources across managed t
 
 - View alerts for delegated subscriptions, with the ability to view and refresh alerts across all subscriptions
 - View activity log details for delegated subscriptions
-- [Log analytics](../../azure-monitor/platform/service-providers.md): Query data from remote workspaces in multiple tenants (note that automation accounts used to access data from workspaces in customer tenants must be created in the same tenant)
-- [Create, view, and manage activity log alerts](../../azure-monitor/platform/alerts-activity-log.md) in customer tenants
+- [Log analytics](../../azure-monitor/logs/service-providers.md): Query data from remote workspaces in multiple tenants (note that automation accounts used to access data from workspaces in customer tenants must be created in the same tenant)
+- Create, view, and manage [metric alerts](../../azure-monitor/alerts/alerts-metric.md), [log alerts](../../azure-monitor/alerts/alerts-log.md), and [activity log alerts](../../azure-monitor/alerts/alerts-activity-log.md) in customer tenants
 - Create alerts in customer tenants that trigger automation, such as Azure Automation runbooks or Azure Functions, in the managing tenant through webhooks
-- Create [diagnostic settings](../..//azure-monitor/platform/diagnostic-settings.md) in customer tenants to send resource logs to workspaces in the managing tenant
+- Create [diagnostic settings](../..//azure-monitor/essentials/diagnostic-settings.md) in customer tenants to send resource logs to workspaces in the managing tenant
 - For SAP workloads, [monitor SAP Solutions metrics with an aggregated view across customer tenants](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
-[Azure Networking](../../networking/networking-overview.md):
+[Azure Networking](../../networking/fundamentals/networking-overview.md):
 
 - Deploy and manage [Azure Virtual Network](../../virtual-network/index.yml) and virtual network interface cards (vNICs) within managed tenants
 - Deploy and configure [Azure Firewall](../../firewall/overview.md) to protect customers’ Virtual Network resources
@@ -108,9 +109,11 @@ Most tasks and services can be performed on delegated resources across managed t
 [Azure Policy](../../governance/policy/index.yml):
 
 - Create and edit policy definitions within delegated subscriptions
+- Deploy policy definitions and policy assignments across multiple tenants
 - Assign customer-defined policy definitions within delegated subscriptions
 - Customers see policies authored by the service provider alongside any policies they've authored themselves
 - Can [remediate deployIfNotExists or modify assignments within the managed tenant](../how-to/deploy-policy-remediation.md)
+- Note that viewing compliance details for non-compliant resources in customer tenants is not currently supported
 
 [Azure Resource Graph](../../governance/resource-graph/index.yml):
 
@@ -167,7 +170,7 @@ Support requests:
 With all scenarios, please be aware of the following current limitations:
 
 - Requests handled by Azure Resource Manager can be performed using Azure Lighthouse. The operation URIs for these requests start with `https://management.azure.com`. However, requests that are handled by an instance of a resource type (such as Key Vault secrets access or storage data access) aren't supported with Azure Lighthouse. The operation URIs for these requests typically start with an address that is unique to your instance, such as `https://myaccount.blob.core.windows.net` or `https://mykeyvault.vault.azure.net/`. The latter also are typically data operations rather than management operations.
-- Role assignments must use [Azure built-in roles](../../role-based-access-control/built-in-roles.md). All built-in roles are currently supported with Azure delegated resource management except for Owner or any built-in roles with [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permission. The User Access Administrator role is supported only for limited use in [assigning roles to managed identities](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Custom roles and [classic subscription administrator roles](../../role-based-access-control/classic-administrators.md) are not supported.
+- Role assignments must use [Azure built-in roles](../../role-based-access-control/built-in-roles.md). All built-in roles are currently supported with Azure Lighthouse, except for Owner or any built-in roles with [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permission. The User Access Administrator role is supported only for limited use in [assigning roles to managed identities](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Custom roles and [classic subscription administrator roles](../../role-based-access-control/classic-administrators.md) are not supported.
 - While you can onboard subscriptions that use Azure Databricks, users in the managing tenant can't launch Azure Databricks workspaces on a delegated subscription at this time.
 - While you can onboard subscriptions and resource groups that have resource locks, those locks will not prevent actions from being performed by users in the managing tenant. [Deny assignments](../../role-based-access-control/deny-assignments.md) that protect system-managed resources, such as those created by Azure managed applications or Azure Blueprints (system-assigned deny assignments), do prevent users in the managing tenant from acting on those resources; however, at this time users in the customer tenant can't create their own deny assignments (user-assigned deny assignments).
 - Delegation of subscriptions across a [national cloud](../../active-directory/develop/authentication-national-cloud.md) and the Azure public cloud, or across two separate national clouds, is not supported.

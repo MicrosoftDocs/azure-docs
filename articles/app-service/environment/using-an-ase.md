@@ -5,11 +5,14 @@ author: ccompy
 
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 5/10/2020
+ms.date: 9/22/2020
 ms.author: ccompy
 ms.custom: seodec18
 ---
 # Use an App Service Environment
+> [!NOTE]
+> This article is about the App Service Environment v2 which is used with Isolated App Service plans
+> 
 
 An App Service Environment (ASE) is a deployment of Azure App Service into a subnet in a customer's Azure Virtual Network instance. An ASE consists of:
 
@@ -83,9 +86,9 @@ In an ASE, you can scale an App Service plan up to 100 instances. An ASE can hav
 
 ## IP addresses
 
-App Service can allocate a dedicated IP address to an app. This capability is available after you configure IP-based SSL, as described in [Bind an existing custom TLS/SSL certificate to Azure App Service][ConfigureSSL]. In an ILB ASE, you can't add more IP addresses to be used for IP-based SSL.
+App Service can allocate a dedicated IP address to an app. This capability is available after you configure a IP-based TLS/SSL binding, as described in [Bind an existing custom TLS/SSL certificate to Azure App Service][ConfigureSSL]. In an ILB ASE, you can't add more IP addresses to be used for the IP-based TLS/SSL binding.
 
-With an External ASE, you can configure IP-based SSL for your app in the same way as in the multitenant App Service. There's always one spare address in the ASE, up to 30 IP addresses. Each time you use one, another is added so that an address is always readily available. A time delay is required to allocate another IP address. That delay prevents adding IP addresses in quick succession.
+With an External ASE, you can configure a IP-based TLS/SSL binding for your app in the same way as in the multitenant App Service. There's always one spare address in the ASE, up to 30 IP addresses. Each time you use one, another is added so that an address is always readily available. A time delay is required to allocate another IP address. That delay prevents adding IP addresses in quick succession.
 
 ## Front-end scaling
 
@@ -136,7 +139,7 @@ To configure DNS in Azure DNS Private zones:
 
 The DNS settings for your ASE default domain suffix do not restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an ILB ASE. If you then want to create a zone named *contoso.net*, you could do so and point it to the ILB IP address. The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*. 
 
-The zone named *.&lt;asename&gt;.appserviceenvironment.net* is globally unique. Before May 2019, customers were able to specify the domain suffix of the ILB ASE. If you wanted to use *.contoso.com* for the domain suffix, you were able do so and that would include the scm site. There were challenges with that model including; managing the default SSL certificate, lack of single sign-on with the scm site, and the requirement to use a wildcard certificate. The ILB ASE default certificate upgrade process was also disruptive and caused application restarts. To solve these problems, the ILB ASE behavior was changed to use a domain suffix based on the name of the ASE and with a Microsoft owned suffix. The change to the ILB ASE behavior only affects ILB ASEs made after May 2019. Pre-existing ILB ASEs must still manage the default certificate of the ASE and their DNS configuration.
+The zone named *.&lt;asename&gt;.appserviceenvironment.net* is globally unique. Before May 2019, customers were able to specify the domain suffix of the ILB ASE. If you wanted to use *.contoso.com* for the domain suffix, you were able do so and that would include the scm site. There were challenges with that model including; managing the default TLS/SSL certificate, lack of single sign-on with the scm site, and the requirement to use a wildcard certificate. The ILB ASE default certificate upgrade process was also disruptive and caused application restarts. To solve these problems, the ILB ASE behavior was changed to use a domain suffix based on the name of the ASE and with a Microsoft owned suffix. The change to the ILB ASE behavior only affects ILB ASEs made after May 2019. Pre-existing ILB ASEs must still manage the default certificate of the ASE and their DNS configuration.
 
 ## Publishing
 
@@ -191,7 +194,7 @@ If you integrate with Log Analytics, you can see the logs by selecting **Logs** 
 
 **Creating an alert**
 
-To create an alert against your logs, follow the instructions in [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/platform/alerts-log.md). In brief:
+To create an alert against your logs, follow the instructions in [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/alerts/alerts-log.md). In brief:
 
 * Open the Alerts page in your ASE portal
 * Select **New alert rule**
@@ -298,4 +301,4 @@ For more specific examples, use: az find "az appservice ase"
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[logalerts]: ../../azure-monitor/platform/alerts-log.md
+[logalerts]: ../../azure-monitor/alerts/alerts-log.md

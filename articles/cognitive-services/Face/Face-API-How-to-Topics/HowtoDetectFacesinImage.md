@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 02/23/2021
 ms.author: sbowles
 ms.custom: devx-track-csharp
 ---
@@ -74,11 +74,11 @@ To learn more about each of the attributes, see the [Face detection and attribut
 
 ## Next steps
 
-In this guide, you learned how to use the various functionalities of face detection. Next, integrate these features into your app by following an in-depth tutorial.
+In this guide, you learned how to use the various functionalities of face detection and analysis. Next, integrate these features into an app to add face data from users.
 
-- [Tutorial: Create a WPF app to display face data in an image](../Tutorials/FaceAPIinCSharpTutorial.md)
+- [Tutorial: Add users to a Face service](../enrollment-overview.md)
 
 ## Related topics
 
 - [Reference documentation (REST)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
-- [Reference documentation (.NET SDK)](/dotnet/api/overview/azure/cognitiveservices/client/faceapi)
+- [Reference documentation (.NET SDK)](/dotnet/api/overview/azure/cognitiveservices/face-readme)

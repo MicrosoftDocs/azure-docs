@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2020
+ms.date: 06/03/2021
 ms.author: yelevin
 
 ---
@@ -21,9 +21,7 @@ ms.author: yelevin
 
 The [Dynamics 365](/office365/servicedescriptions/microsoft-dynamics-365-online-service-description) Common Data Service (CDS) activities connector provides insight into admin, user, and support activities, as well as Microsoft Social Engagement logging events. By connecting Dynamics 365 CRM logs into Azure Sentinel, you can view this data in workbooks, use it to create custom alerts, and leverage it to improve your investigation process. This new Azure Sentinel connector collects the Dynamics CDS data from the Office Management API. To learn more about the Dynamics CDS activities audited in Power Platform, visit [Enable and Use Activity Logging](/power-platform/admin/enable-use-comprehensive-auditing).
 
-> [!IMPORTANT]
->
-> The Dynamics 365 Common Data Service (CDS) activities connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## Prerequisites
 
@@ -41,7 +39,7 @@ The [Dynamics 365](/office365/servicedescriptions/microsoft-dynamics-365-online-
 
 1. From the Azure Sentinel navigation menu, select **Data connectors**.
 
-1. From the **Data connectors** gallery, select **Dynamics 365 (Preview)**, and then select **Open connector page** on the preview pane.
+1. From the **Data connectors** gallery, select **Dynamics 365**, and then select **Open connector page** on the preview pane.
 
 1. On the **Instructions** tab, under **Configuration**, click **Connect**. 
 

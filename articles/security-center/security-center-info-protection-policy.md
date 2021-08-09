@@ -27,9 +27,9 @@ The classification mechanism is based on the following two elements:
 The information protection policy options within Security Center provide a predefined set of labels and information types which serve as the defaults for the classification engine. You can customize the policy, according to your organization's needs, as described below.
 
 > [!IMPORTANT]
-> To customize the information protection policy for your Azure tenant, you'll need administrative privileges on the tenant's root management group. Learn more in [Gain tenant-wide visibility for Azure Security Center](security-center-management-groups.md).
+> To customize the information protection policy for your Azure tenant, you'll need administrative privileges on the tenant's root management group. Learn more in [Grant and request tenant-wide visibility](tenant-wide-permissions-management.md).
 
-:::image type="content" source="./media/security-center-info-protection-policy/sql-information-protection-policy-page.png" alt-text="The page showing your SQL information protection policy":::
+:::image type="content" source="./media/security-center-info-protection-policy/sql-information-protection-policy-page.png" alt-text="The page showing your SQL information protection policy.":::
  
 
 
@@ -53,9 +53,9 @@ Each of these is shown in the relevant tab below.
 From Security Center's **pricing and settings** page, select **SQL information protection**.
 
 > [!NOTE]
-> This option only appears for users with tenant-level permissions. [Grant tenant-wide permissions to yourself](https://docs.microsoft.com/azure/security-center/security-center-management-groups#grant-tenant-wide-permissions-to-yourself).
+> This option only appears for users with tenant-level permissions. [Grant tenant-wide permissions to yourself](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself).
 
-:::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Accessing the SQL Information Protection policy from the pricing and settings page of Azure Security Center":::
+:::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Accessing the SQL Information Protection policy from the pricing and settings page of Azure Security Center.":::
 
 
 
@@ -67,7 +67,7 @@ Use Security Center's recommendation, "Sensitive data in your SQL databases shou
 
 1. From Security Center's **Recommendations** page, search for the recommendation **Sensitive data in your SQL databases should be classified**.
 
-    :::image type="content" source="./media/security-center-info-protection-policy/sql-sensitive-data-recommendation.png" alt-text="Finding the recommendation that provides access to the SQL information protection policies":::
+    :::image type="content" source="./media/security-center-info-protection-policy/sql-sensitive-data-recommendation.png" alt-text="Finding the recommendation that provides access to the SQL information protection policies.":::
 
 1. From the recommendation details page, select a database from the **healthy** or **unhealthy** tabs.
 
@@ -83,13 +83,13 @@ Use Security Center's recommendation, "Sensitive data in your SQL databases shou
 
 1. From the Azure portal, open Azure SQL.
 
-    :::image type="content" source="./media/security-center-info-protection-policy/open-azure-sql.png" alt-text="Opening Azure SQL from the Azure portal":::
+    :::image type="content" source="./media/security-center-info-protection-policy/open-azure-sql.png" alt-text="Opening Azure SQL from the Azure portal.":::
 
 1. Select any database.
 
 1. From the **Security** area of the menu, open the **Data Discovery & Classification** page (1) and select **Configure** (2).
 
-    :::image type="content" source="./media/security-center-info-protection-policy/access-policy-from-azure-sql.png" alt-text="Opening the SQL information protection policy from Azure SQL":::
+    :::image type="content" source="./media/security-center-info-protection-policy/access-policy-from-azure-sql.png" alt-text="Opening the SQL information protection policy from Azure SQL.":::
 
 --- 
 
@@ -100,11 +100,11 @@ To manage and customize information types:
 
 1. Select **Manage information types**.
 
-    :::image type="content" source="./media/security-center-info-protection-policy/manage-types.png" alt-text="Manage information types for your information protection policy":::
+    :::image type="content" source="./media/security-center-info-protection-policy/manage-types.png" alt-text="Manage information types for your information protection policy.":::
 
 1. To add a new type, select **Create information type**. You can configure a name, description, and search pattern strings for the information type. Search pattern strings can optionally use keywords with wildcard characters (using the character '%'), which the automated discovery engine uses to identify sensitive data in your databases, based on the columns' metadata.
  
-    :::image type="content" source="./media/security-center-info-protection-policy/configure-new-type.png" alt-text="Configure a new information type for your information protection policy":::
+    :::image type="content" source="./media/security-center-info-protection-policy/configure-new-type.png" alt-text="Configure a new information type for your information protection policy.":::
 
 1. You can also modify the built-in types by adding additional search pattern strings, disabling some of the existing strings, or by changing the description. 
 
@@ -124,7 +124,7 @@ To manage and customize information types:
 
 You can download a JSON file with your defined labels and information types, edit the file in the editor of your choice, and then import the updated file. 
 
-:::image type="content" source="./media/security-center-info-protection-policy/export-import.png" alt-text="Exporting and importing your information protection policy":::
+:::image type="content" source="./media/security-center-info-protection-policy/export-import.png" alt-text="Exporting and importing your information protection policy.":::
 
 > [!NOTE]
 > You'll need tenant level permissions to import a policy file. 

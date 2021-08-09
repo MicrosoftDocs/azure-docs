@@ -1,12 +1,14 @@
 ---
 title: Copy data from and to Salesforce Service Cloud
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Salesforce Service Cloud to supported sink data stores or from supported source data stores to Salesforce Service Cloud by using a copy activity in a data factory pipeline.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 02/02/2021
+ms.custom: synapse
+ms.date: 03/17/2021
 ---
 
 # Copy data from and to Salesforce Service Cloud by using Azure Data Factory
@@ -46,7 +48,7 @@ You might also receive the "REQUEST_LIMIT_EXCEEDED" error message in both scenar
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to the Salesforce Service Cloud connector.
 
@@ -226,6 +228,7 @@ To copy data to Salesforce Service Cloud, the following properties are supported
 | externalIdFieldName | The name of the external ID field for the upsert operation. The specified field must be defined as "External ID Field" in the Salesforce Service Cloud object. It can't have NULL values in the corresponding input data. | Yes for "Upsert" |
 | writeBatchSize | The row count of data written to Salesforce Service Cloud in each batch. | No (default is 5,000) |
 | ignoreNullValues | Indicates whether to ignore NULL values from input data during a write operation.<br/>Allowed values are **true** and **false**.<br>- **True**: Leave the data in the destination object unchanged when you do an upsert or update operation. Insert a defined default value when you do an insert operation.<br/>- **False**: Update the data in the destination object to NULL when you do an upsert or update operation. Insert a NULL value when you do an insert operation. | No (default is false) |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 **Example:**
 

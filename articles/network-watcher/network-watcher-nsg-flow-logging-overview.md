@@ -63,7 +63,7 @@ Flow logs are the source of truth for all network activity in your cloud environ
 - - NSG Deny rules are terminating. The NSG denying the traffic will log it in Flow logs and processing in this case would stop after any NSG denies traffic. 
 - - NSG Allow rules are non-terminating, which means even if one NSG allows it, processing will continue to the next NSG. The last NSG allowing traffic will log the traffic to Flow logs.
 - NSG Flow Logs are written to storage accounts from where they can be accessed.
-- You can export, process, analyze, and visualize Flow Logs using tools like TA, Splunk, Grafana, Stealthwatch, etc.
+- You can export, process, analyze, and visualize Flow Logs using tools like Traffic Analytics, Splunk, Grafana, Stealthwatch, etc.
 
 ## Log format
 
@@ -90,10 +90,10 @@ Flow logs include the following properties:
 					* **Traffic Flow** - The direction of the traffic flow. Valid values are **I** for inbound and **O** for outbound.
 					* **Traffic Decision** - Whether traffic was allowed or denied. Valid values are **A** for allowed and **D** for denied.
                     * **Flow State - Version 2 Only** - Captures the state of the flow. Possible states are **B**: Begin, when a flow is created. Statistics aren't provided. **C**: Continuing for an ongoing flow. Statistics are provided at 5-minute intervals. **E**: End, when a flow is terminated. Statistics are provided.
-                    * **Packets - Source to destination - Version 2 Only** The total number of TCP or UDP packets sent from source to destination since last update.
-                    * **Bytes sent - Source to destination - Version 2 Only** The total number of TCP or UDP packet bytes sent from source to destination since last update. Packet bytes include the packet header and payload.
-                    * **Packets - Destination to source - Version 2 Only** The total number of TCP or UDP packets sent from destination to source since last update.
-                    * **Bytes sent - Destination to source - Version 2 Only** The total number of TCP and UDP packet bytes sent from destination to source since last update. Packet bytes include packet header and payload.
+                    * **Packets - Source to destination - Version 2 Only** The total number of TCP packets sent from source to destination since last update.
+                    * **Bytes sent - Source to destination - Version 2 Only** The total number of TCP packet bytes sent from source to destination since last update. Packet bytes include the packet header and payload.
+                    * **Packets - Destination to source - Version 2 Only** The total number of TCP packets sent from destination to source since last update.
+                    * **Bytes sent - Destination to source - Version 2 Only** The total number of TCP packet bytes sent from destination to source since last update. Packet bytes include packet header and payload.
 
 
 **NSG flow logs Version 2 (vs Version 1)** 
@@ -338,7 +338,7 @@ While flow logs target NSGs, they are not displayed the same as the other logs. 
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-*Visualize flow Logs*
+*Visualize flow logs*
 
 - [Azure Traffic analytics](./traffic-analytics.md) is an Azure native service to process flow logs, extracts insights and visualize flow logs. 
 - [[Tutorial] Visualize NSG Flow logs with Power BI](./network-watcher-visualize-nsg-flow-logs-power-bi.md)
@@ -346,6 +346,18 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 - [[Tutorial] Manage and analyze NSG Flow logs using Grafana](./network-watcher-nsg-grafana.md)
 - [[Tutorial] Manage and analyze NSG Flow logs using Graylog](./network-watcher-analyze-nsg-flow-logs-graylog.md)
 
+*Disable flow logs*
+
+When the flow log is disabled, the flow logging for associated NSG is stopped. But the flow log as a resource continues to exist with all its settings and associations. It can be enabled anytime to begin flow logging on the configured NSG. Steps to disable/enable a flow logs can be found in [this how to guide](./network-watcher-nsg-flow-logging-powershell.md).  
+
+*Delete flow logs*
+
+When the flow log is deleted, not only the flow logging for the associated NSG is stopped but also the flow log resource is deleted with its settings and associations. To begin flow logging again, a new flow log resource must be created for that NSG. A flow log can be deleted using [PowerShell](/powershell/module/az.network/remove-aznetworkwatcherflowlog), [CLI](/cli/azure/network/watcher/flow-log#az_network_watcher_flow_log_delete) or [REST API](/rest/api/network-watcher/flowlogs/delete). The support for deleting flow logs from Azure portal is in pipeline.    
+
+Also, when a NSG is deleted, by default the associated flow log resource is deleted.
+
+> [!NOTE]
+> To move a NSG to a different resource group or subscription, the associated flow logs must be deleted, just disabling the flow logs won't work. After migration of NSG, the flow logs must be recreated to enable flow logging on it.  
 
 ## NSG flow logging considerations
 
@@ -355,16 +367,18 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 - Performance Tier: Currently, only standard tier storage accounts are supported.
 - Self-manage key rotation: If you change/rotate the access keys to your storage account, NSG Flow Logs will stop working. To fix this issue, you must disable and then re-enable NSG Flow Logs.
 
-**Flow Logging Costs**: NSG flow logging is billed on the volume of logs produced. High traffic volume can result in large flow log volume and the associated costs. NSG Flow log pricing does not include the underlying costs of storage. Using the retention policy feature with NSG Flow Logging means incurring separate storage costs for extended periods of time. If you do not require the retention policy feature, we recommend that you set this value to 0. For more information, see [Network Watcher Pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for additional details.
+**Flow Logging Costs**: NSG flow logging is billed on the volume of logs produced. High traffic volume can result in large flow log volume and the associated costs. NSG Flow log pricing does not include the underlying costs of storage. Using the retention policy feature with NSG Flow Logging means incurring separate storage costs for extended periods of time. If you want to retain data forever and do not want to apply any retention policy, set retention (days) to 0. For more information, see [Network Watcher Pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for additional details.
 
-**Issues with User-defined Inbound TCP rules**: [Network Security Groups (NSGs)](../virtual-network/network-security-groups-overview.md) are implemented as a [Stateful firewall](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). However, due to current platform limitations, user-defined rules that affect inbound TCP flows are implemented in a stateless fashion. Due to this, flows affected by user-defined inbound rules become non-terminating. Additionally byte and packet counts are not recorded for these flows. Consequently the number of bytes and packets reported in NSG Flow Logs (and Traffic Analytics) could be different from actual numbers. An opt-in flag that fixes these issues is scheduled to be available by March 2021 latest. In the interim, customers facing severe issues due to this behavior can request opting-in via Support, please raise a support request under Network Watcher > NSG Flow Logs.  
+**Issues with User-defined Inbound TCP rules**: [Network Security Groups (NSGs)](../virtual-network/network-security-groups-overview.md) are implemented as a [Stateful firewall](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). However, due to current platform limitations, user-defined rules that affect inbound TCP flows are implemented in a stateless fashion. Due to this, flows affected by user-defined inbound rules become non-terminating. Additionally byte and packet counts are not recorded for these flows. Consequently the number of bytes and packets reported in NSG Flow Logs (and Traffic Analytics) could be different from actual numbers. An opt-in flag that fixes these issues is scheduled to be available by June 2021 latest. In the interim, customers facing severe issues due to this behavior can request opting-in via Support, please raise a support request under Network Watcher -> NSG Flow Logs.  
 
 **Inbound flows logged from internet IPs to VMs without public IPs**: VMs that don't have a public IP address assigned via a public IP address associated with the NIC as an instance-level public IP, or that are part of a basic load balancer back-end pool, use [default SNAT](../load-balancer/load-balancer-outbound-connections.md) and have an IP address assigned by Azure to facilitate outbound connectivity. As a result, you might see flow log entries for flows from internet IP addresses, if the flow is destined to a port in the range of ports assigned for SNAT. While Azure won't allow these flows to the VM, the attempt is logged and appears in Network Watcher's NSG flow log by design. We recommend that unwanted inbound internet traffic be explicitly blocked with NSG.
+
+**NSG on ExpressRoute gateway subnet** – It is not recommended to log flows on ExpressRoute gateway subnet because traffic can bypass the express route gateway (example: [FastPath](../expressroute/about-fastpath.md)). Thus, if an NSG is linked to an ExpressRoute Gateway subnet and NSG flow logs are enabled, then outbound flows to virtual machines may not get captured. Such flows must be captured at the subnet or NIC of the VM. 
 
 **Issue with Application Gateway V2 Subnet NSG**: Flow logging on the application gateway V2 subnet NSG is [not supported](../application-gateway/application-gateway-faq.yml#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) currently. This issue does not affect Application Gateway V1.
 
 **Incompatible Services**: Due to current platform limitations, a small set of Azure services are not supported by NSG Flow Logs. The current list of incompatible services is
-- [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/)
+- [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances/)
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
 
 ## Best practices
@@ -376,6 +390,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 Few common scenarios:
 1. **Multiple NICs at a VM**: In case multiple NICs are attached to a virtual machine, flow logging must be enabled on all of them
 1. **Having NSG at both NIC and Subnet Level**: In case NSG is configured at the NIC as well as the Subnet level, then flow logging must be enabled at both the NSGs. 
+1. **AKS Cluster Subnet**: AKS adds a default NSG at the cluster subnet. As explained in the above point, flow logging must be enabled on this default NSG.
 
 **Storage provisioning**: Storage should be provisioned in tune with expected Flow Log volume.
 

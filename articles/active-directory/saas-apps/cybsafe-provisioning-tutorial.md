@@ -3,8 +3,8 @@ title: 'Tutorial: Configure CybSafe for automatic user provisioning with Azure A
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to CybSafe.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 7255fe44-1662-4ae4-9ff3-9492911b7ce0
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure CybSafe for automatic user provisioning
@@ -117,6 +117,10 @@ This section guides you through the steps to configure the Azure AD provisioning
    |locale|String|
    |timezone|String|
    |userType|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
+   
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to CybSafe**.
 
@@ -149,6 +153,10 @@ Once you've configured provisioning, use the following resources to monitor your
 1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## Change log
+
+* 02/15/2021 - User enterprise extension attribute **department**, **division** and **organization** have been added.
 
 ## Additional resources
 

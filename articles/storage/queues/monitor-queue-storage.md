@@ -9,7 +9,7 @@ ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
-ms.custom: "monitoring, devx-track-csharp, devx-track-azurecli"
+ms.custom: "monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
 ---
 
 # Monitoring Azure Queue Storage
@@ -27,7 +27,7 @@ The **Overview** page in the Azure portal for each Queue Storage resource includ
 
 Azure Queue Storage creates monitoring data by using [Azure Monitor](../../azure-monitor/overview.md), which is a full stack monitoring service in Azure. Azure Monitor provides a complete set of features to monitor your Azure resources as well as resources in other clouds and on-premises.
 
-Start with [Monitor Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) which describes the following:
+Start with [Monitor Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) which describes the following:
 
 - What is Azure Monitor?
 - Costs associated with monitoring
@@ -39,7 +39,7 @@ The following sections build on this article by describing the specific data gat
 
 ## Monitoring data
 
-Azure Queue Storage collects the same kinds of monitoring data as other Azure resources, which are described in [Monitoring data from Azure resources](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data).
+Azure Queue Storage collects the same kinds of monitoring data as other Azure resources, which are described in [Monitoring data from Azure resources](../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data).
 
 See [Azure Queue Storage monitoring data reference](monitor-queue-storage-reference.md) for detailed information on the metrics and logs metrics created by Azure Queue Storage.
 
@@ -61,9 +61,9 @@ To collect resource logs, you must create a diagnostic setting. When you create 
 
 ## Creating a diagnostic setting
 
-You can create a diagnostic setting by using the Azure portal, PowerShell, the Azure CLI, or an Azure Resource Manager template.
+You can create a diagnostic setting by using the Azure portal, PowerShell, the Azure CLI, an Azure Resource Manager template, or Azure Policy.
 
-For general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md).
+For general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 > [!NOTE]
 > Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues, and tables. This feature is available for all storage accounts that are created with the Azure Resource Manager deployment model. See [Storage account overview](../common/storage-account-overview.md).
@@ -104,8 +104,10 @@ If you choose to archive your logs to a storage account, you'll pay for the volu
 
 2. In the **Storage account** drop-down list, select the storage account that you want to archive your logs to, click the **OK** button, and then select the **Save** button.
 
+   [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
+
    > [!NOTE]
-   > Before you choose a storage account as the export destination, see [Archive Azure resource logs](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) to understand prerequisites on the storage account.
+   > Before you choose a storage account as the export destination, see [Archive Azure resource logs](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) to understand prerequisites on the storage account.
 
 #### Stream logs to Azure Event Hubs
 
@@ -148,18 +150,20 @@ If you choose to archive your logs to a storage account, you'll pay for the volu
 Enable logs by using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet along with the `StorageAccountId` parameter.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log>
 ```
 
 Replace the `<storage-service-resource--id>` placeholder in this snippet with the resource ID of the queue. You can find the resource ID in the Azure portal by opening the **Properties** page of your storage account.
 
 You can use `StorageRead`, `StorageWrite`, and `StorageDelete` for the value of the **Category** parameter.
 
+[!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
+
 Here's an example:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/queueServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
 
-For a description of each parameter, see [Archive Azure resource logs via Azure PowerShell](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
+For a description of each parameter, see [Archive Azure resource logs via Azure PowerShell](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
 
 #### Stream logs to an event hub
 
@@ -175,7 +179,7 @@ Here's an example:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/queueServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
 
-For a description of each parameter, see [Stream data to Event Hubs via PowerShell cmdlets](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
+For a description of each parameter, see [Stream data to Event Hubs via PowerShell cmdlets](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs).
 
 #### Send logs to Log Analytics
 
@@ -189,7 +193,7 @@ Here's an example:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/queueServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
 
-For more information, see [Stream Azure resource logs to Log Analytics workspace in Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+For more information, see [Stream Azure resource logs to Log Analytics workspace in Azure Monitor](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -207,27 +211,29 @@ For more information, see [Stream Azure resource logs to Log Analytics workspace
 
 If you choose to archive your logs to a storage account, you'll pay for the volume of logs that are sent to the storage account. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
 
-Enable logs by using the [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
+Enable logs by using the [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command.
 
 ```azurecli-interactive
-az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true}]'
 ```
 
 Replace the `<storage-service-resource--id>` placeholder in this snippet with the resource ID of the queue. You can find the resource ID in the Azure portal by opening the **Properties** page of your storage account.
 
 You can use `StorageRead`, `StorageWrite`, and `StorageDelete` for the value of the `category` parameter.
 
+[!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
+
 Here's an example:
 
-`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
+`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true}]'`
 
-For a description of each parameter, see [Archive resource logs via the Azure CLI](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
+For a description of each parameter, see [Archive resource logs via the Azure CLI](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
 
 #### Stream logs to an event hub
 
 If you choose to stream your logs to an event hub, you'll pay for the volume of logs that are sent to the event hub. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
 
-Enable logs by using the [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
+Enable logs by using the [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
@@ -237,11 +243,11 @@ Here's an example:
 
 `az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
 
-For a description of each parameter, see [Stream data to Event Hubs via Azure CLI](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
+For a description of each parameter, see [Stream data to Event Hubs via Azure CLI](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs).
 
 #### Send logs to Log Analytics
 
-Enable logs by using the [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
+Enable logs by using the [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
@@ -251,17 +257,21 @@ Here's an example:
 
 `az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
 
- For more information, see [Stream Azure resource logs to Log Analytics workspace in Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+ For more information, see [Stream Azure resource logs to Log Analytics workspace in Azure Monitor](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
 
 # [Template](#tab/template)
 
-To view an Azure Resource Manager template that creates a diagnostic setting, see [Diagnostic setting for Azure Storage](../../azure-monitor/samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
+To view an Azure Resource Manager template that creates a diagnostic setting, see [Diagnostic setting for Azure Storage](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
+
+### [Azure Policy](#tab/policy)
+
+You can create a diagnostic setting by using a policy definition. That way, you can make sure that a diagnostic setting is created for every account that is created or updated. See [Azure Policy built-in definitions for Azure Storage](../common/policy-reference.md).
 
 ---
 
 ## Analyzing metrics
 
-You can analyze metrics for Azure Storage with metrics from other Azure services by using Azure Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+You can analyze metrics for Azure Storage with metrics from other Azure services by using Azure Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md).
 
 This example shows how to view **Transactions** at the account level.
 
@@ -278,7 +288,7 @@ Metrics for Azure Queue Storage are in these namespaces:
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/queueServices
 
-For a list of all Azure Monitor support metrics, which includes Azure Queue Storage, see [Azure Monitor supported metrics](../../azure-monitor/platform/metrics-supported.md).
+For a list of all Azure Monitor support metrics, which includes Azure Queue Storage, see [Azure Monitor supported metrics](../../azure-monitor/essentials/metrics-supported.md).
 
 ### Accessing metrics
 
@@ -311,7 +321,7 @@ You can read account-level metric values of your storage account or the Queue St
 
 #### List the account-level metric definition
 
-You can list the metric definition of your storage account or the Queue Storage service. Use the [`az monitor metrics list-definitions`](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) command.
+You can list the metric definition of your storage account or the Queue Storage service. Use the [`az monitor metrics list-definitions`](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions) command.
 
 In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the queue. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
 
@@ -321,13 +331,13 @@ In this example, replace the `<resource-ID>` placeholder with the resource ID of
 
 #### Read account-level metric values
 
-You can read the metric values of your storage account or the Queue Storage service. Use the [`az monitor metrics list`](/cli/azure/monitor/metrics#az-monitor-metrics-list) command.
+You can read the metric values of your storage account or the Queue Storage service. Use the [`az monitor metrics list`](/cli/azure/monitor/metrics#az_monitor_metrics_list) command.
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
 
-### [.NET](#tab/azure-portal)
+### [.NET SDK](#tab/azure-portal)
 
 Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/microsoft.azure.management.monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or a later version for storage metrics.
 
@@ -470,6 +480,10 @@ The following example shows how to read metric data on the metric supporting mul
 
 N/A.
 
+### [Azure Policy](#tab/policy)
+
+N/A.
+
 ---
 
 ## Analyzing logs
@@ -521,28 +535,28 @@ Logs sent to an event hub aren't stored as a file, but you can verify that the e
 
 ![Audit logs](media/monitor-queue-storage/event-hub-log.png)
 
-You can access and read log data that's sent to your event hub by using security information and event management and monitoring tools. For more information, see [What can I do with the monitoring data being sent to my event hub?](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
+You can access and read log data that's sent to your event hub by using security information and event management and monitoring tools. For more information, see [What can I do with the monitoring data being sent to my event hub?](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
 
 ### Accessing logs in a Log Analytics workspace
 
 You can access logs sent to a Log Analytics workspace by using Azure Monitor log queries.
 
-For more information, see [Get started with Log Analytics in Azure Monitor](../../azure-monitor/log-query/log-analytics-tutorial.md).
+For more information, see [Get started with Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-tutorial.md).
 
 Data is stored in the `StorageQueueLogs` table.
 
 #### Sample Kusto queries
 
-Here are some queries that you can enter in the **Log search** bar to help you monitor your queues. These queries work with the [new language](../../azure-monitor/log-query/log-query-overview.md).
+Here are some queries that you can enter in the **Log search** bar to help you monitor your queues. These queries work with the [new language](../../azure-monitor/logs/log-query-overview.md).
 
 > [!IMPORTANT]
-> When you select **Logs** from the storage account resource group menu, Log Analytics is opened with the query scope set to the current resource group. This means that log queries will only include data from that resource group. If you want to run a query that includes data from other resources or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../../azure-monitor/log-query/scope.md) for details.
+> When you select **Logs** from the storage account resource group menu, Log Analytics is opened with the query scope set to the current resource group. This means that log queries will only include data from that resource group. If you want to run a query that includes data from other resources or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../../azure-monitor/logs/scope.md) for details.
 
 Use these queries to help you monitor your Azure Storage accounts:
 
 - To list the 10 most common errors over the last three days.
 
-    ```Kusto
+    ```kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d) and StatusText !contains "Success"
     | summarize count() by StatusText
@@ -551,7 +565,7 @@ Use these queries to help you monitor your Azure Storage accounts:
 
 - To list the top 10 operations that caused the most errors over the last three days.
 
-    ```Kusto
+    ```kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d) and StatusText !contains "Success"
     | summarize count() by OperationName
@@ -560,7 +574,7 @@ Use these queries to help you monitor your Azure Storage accounts:
 
 - To list the top 10 operations with the longest end-to-end latency over the last three days.
 
-    ```Kusto
+    ```kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d)
     | top 10 by DurationMs desc
@@ -569,7 +583,7 @@ Use these queries to help you monitor your Azure Storage accounts:
 
 - To list all operations that caused server-side throttling errors over the last three days.
 
-    ```Kusto
+    ```kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d) and StatusText contains "ServerBusy"
     | project TimeGenerated, OperationName, StatusCode, StatusText
@@ -577,7 +591,7 @@ Use these queries to help you monitor your Azure Storage accounts:
 
 - To list all requests with anonymous access over the last three days.
 
-    ```Kusto
+    ```kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d) and AuthenticationType == "Anonymous"
     | project TimeGenerated, OperationName, AuthenticationType, Uri
@@ -585,7 +599,7 @@ Use these queries to help you monitor your Azure Storage accounts:
 
 - To create a pie chart of operations used over the last three days.
 
-    ```Kusto
+    ```kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d)
     | summarize count() by OperationName
@@ -602,5 +616,5 @@ No. Compute instances support the metrics on disks. For more information, see [P
 ## Next steps
 
 - For a reference of the logs and metrics created by Azure Queue Storage, see [Azure Queue Storage monitoring data reference](monitor-queue-storage-reference.md).
-- For details on monitoring Azure resources, see [Monitor Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
+- For details on monitoring Azure resources, see [Monitor Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md).
 - For more information on metrics migration, see [Azure Storage metrics migration](../common/storage-metrics-migration.md).

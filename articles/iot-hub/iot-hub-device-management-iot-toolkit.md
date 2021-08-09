@@ -13,7 +13,7 @@ ms.author: junhan
 
 ![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/2.png)
 
-[Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) is a useful Visual Studio Code extension that makes IoT Hub management and IoT application development easier. It comes with management options that you can use to perform various tasks.
+In this article, you learn how to use Azure IoT Tools for Visual Studio Code with various management options on your development machine. [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) is a useful Visual Studio Code extension that makes IoT Hub management and IoT application development easier. It comes with management options that you can use to perform various tasks.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -30,15 +30,7 @@ Device twins are JSON documents that store device state information (metadata, c
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## What you learn
-
-You learn using Azure IoT Tools for Visual Studio Code with various management options on your development machine.
-
-## What you do
-
-Run Azure IoT Tools for Visual Studio Code with various management options.
-
-## What you need
+## Prerequisites
 
 * An active Azure subscription.
 * An Azure IoT hub under your subscription.

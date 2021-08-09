@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Use the sample datasets - Azure'
 description: Descriptions of the datasets used in sample models included in Machine Learning Studio (classic). You can use these sample datasets for your experiments.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: sample
 
 author: likebupt
@@ -11,14 +11,14 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
 ---
-# Use the sample datasets in Azure Machine Learning Studio (classic)
+# Use the sample datasets in Machine Learning Studio (classic)
 
 **APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 [top]: #machine-learning-sample-datasets
 
-When you create a new workspace in Azure Machine Learning Studio (classic), a number of sample datasets and experiments are included by default. Many of these sample datasets are used by the sample models in the [Azure AI Gallery](https://gallery.azure.ai/). Others are included as examples of various types of data typically used in machine learning.
+When you create a new workspace in Machine Learning Studio (classic), a number of sample datasets and experiments are included by default. Many of these sample datasets are used by the sample models in the [Azure AI Gallery](https://gallery.azure.ai/). Others are included as examples of various types of data typically used in machine learning.
 
 Some of these datasets are available in Azure Blob storage. For these datasets, the following table provides a direct link. You can use these datasets in your experiments by using the [Import Data][import-data] module.
 
@@ -172,7 +172,7 @@ A collection of simulated energy profiles, based on 12 different building shapes
   <td>
 Passenger flight on-time performance data taken from the TranStats data collection of the U.S. Department of Transportation (<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">On-Time</a>).
 <p></p>
-The dataset covers the time period April-October 2013. Before uploading to Azure Machine Learning Studio (classic), the dataset was processed as follows:
+The dataset covers the time period April-October 2013. Before uploading to Machine Learning Studio (classic), the dataset was processed as follows:
 <ul>
   <li>The dataset was filtered to cover only the 70 busiest airports in the continental US</li>
   <li>Canceled flights were labeled as delayed by more than 15 minutes</li>
@@ -336,7 +336,7 @@ Also, note that the number of background events (h, for hadronic showers) is und
   <td>
 Hourly land-based weather observations from NOAA (<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">merged data from 201304 to 201310</a>).
 <p></p>
-The weather data covers observations made from airport weather stations, covering the time period April-October 2013. Before uploading to Azure Machine Learning Studio (classic), the dataset was processed as follows:
+The weather data covers observations made from airport weather stations, covering the time period April-October 2013. Before uploading to Machine Learning Studio (classic), the dataset was processed as follows:
 <ul>
   <li>Weather station IDs were mapped to corresponding airport IDs</li>
   <li>Weather stations not associated with the 70 busiest airports were filtered out</li>
@@ -351,7 +351,7 @@ The weather data covers observations made from airport weather stations, coverin
   <td>
 Data is derived from Wikipedia (<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>) based on articles of each S&P 500 company, stored as XML data.
 <p></p>
-Before uploading to Azure Machine Learning Studio (classic), the dataset was processed as follows:
+Before uploading to Machine Learning Studio (classic), the dataset was processed as follows:
 <ul>
   <li>Extract text content for each specific company</li>
   <li>Remove wiki formatting</li>

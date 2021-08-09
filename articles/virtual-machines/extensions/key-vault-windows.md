@@ -1,14 +1,16 @@
 ---
 title: Azure Key Vault VM Extension for Windows 
 description: Deploy an agent performing automatic refresh of Key Vault secrets on virtual machines using a virtual machine extension.
-services: virtual-machines-windows
+services: virtual-machines
 author: msmbaldwin
 tags: keyvault
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: windows
 ms.topic: article
 ms.date: 12/02/2019
-ms.author: mbaldwin
+ms.author: mbaldwin 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Key Vault virtual machine extension for Windows
@@ -75,7 +77,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
       "autoUpgradeMinorVersion": true,
       "settings": {
         "secretsManagementSettings": {
-          "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
+          "pollingIntervalInS": <string specifying polling interval in seconds, e.g: "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
           "linkOnRenewal": <Only Windows. This feature ensures s-channel binding when certificate renews, without necessitating a re-deployment.  e.g.: false>,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
@@ -114,7 +116,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 | linkOnRenewal | false | boolean |
 | certificateStoreLocation  | LocalMachine or CurrentUser (case sensitive) | string |
 | requireInitialSync | true | boolean |
-| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate","https://myvault.vault.azure.net/secrets/mycertificate2"] | string array
+| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"] | string array
 | msiEndpoint | http://169.254.169.254/metadata/identity | string |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
 
@@ -145,7 +147,7 @@ The JSON configuration for a virtual machine extension must be nested inside the
       "autoUpgradeMinorVersion": true,
       "settings": {
         "secretsManagementSettings": {
-          "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
+          "pollingIntervalInS": <string specifying polling interval in seconds, e.g: "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"]>
@@ -170,9 +172,21 @@ To turn this on set the following:
 > Using this feature is not compatible with an ARM template that creates a system assigned identity and updates a Key Vault access policy with that identity. Doing so will result in a deadlock as the vault access policy cannot be updated until all extensions have started. You should instead use a *single user assigned MSI identity* and pre-ACL your vaults with that identity before deploying.
 
 ## Azure PowerShell deployment
-> [!WARNING]
-> PowerShell clients often add `\` to `"` in the settings.json which will cause akvvm_service fails with error: `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
 
+> [!WARNING]
+> PowerShell clients often add `\` to `"` in the settings.json, which causes akvvm_service to fail with the error `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
+> The extra `\` and `"` characters will be visible in the portal, in **Extensions** under **Settings**. To avoid this, initialize `$settings` as a PowerShell `HashTable`:
+> 
+> ```powershell
+> $settings = @{
+>     "secretsManagementSettings" = @{ 
+>         "pollingIntervalInS"       = "<pollingInterval>"; 
+>         "certificateStoreName"     = "<certStoreName>"; 
+>         "certificateStoreLocation" = "<certStoreLoc>"; 
+>         "observedCertificates"     = @("<observedCert1>", "<observedCert2>") } }
+> ```
+>
+  
 The Azure PowerShell can be used to deploy the Key Vault VM extension to an existing virtual machine or virtual machine scale set. 
 
 * To deploy the extension on a VM:
@@ -225,9 +239,9 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
     
     ```azurecli
        # Start the deployment
-         az vm extension set -name "KeyVaultForWindows" `
+         az vm extension set --name "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
-         -resource-group "<resourcegroup>" `
+         --resource-group "<resourcegroup>" `
          --vm-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
@@ -236,9 +250,9 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
 
    ```azurecli
         # Start the deployment
-        az vmss extension set -name "KeyVaultForWindows" `
+        az vmss extension set --name "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
-         -resource-group "<resourcegroup>" `
+         --resource-group "<resourcegroup>" `
          --vmss-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
@@ -270,10 +284,16 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 ```
 
 #### Logs and configuration
+The Key Vault VM extension logs only exist locally on the VM and are most informative when it comes to troubleshooting
 
-```
-%windrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\<version>\akvvm_service_<date>.log
-```
+|Location|Description|
+|--|--|
+| C:\WindowsAzure\Logs\WaAppAgent.log | Shows when an update to the extension occurred. |
+| C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows<most recent version>\ | Shows the status of certificate download. The download location will always be the Windows computer's MY store (certlm.msc). |
+| C:\Packages\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows<most recent version>\RuntimeSettings\ |	The Key Vault VM Extension service logs show the status of the akvvm_service service. |
+| C:\Packages\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows<most recent version>\Status\	| The configuration and binaries for Key Vault VM Extension service. |
+|||  
+
 
 ### Support
 

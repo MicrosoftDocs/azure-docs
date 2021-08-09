@@ -5,8 +5,8 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-
 ---
+
 # Azure Functions networking options
 
 This article describes the networking features available across the hosting options for Azure Functions. All the following networking options give you some ability to access resources without using internet-routable addresses or to restrict internet access to a function app.
@@ -76,34 +76,15 @@ To learn how to set up virtual network integration, see [Integrate a function ap
 
 ## Connect to service endpoint secured resources
 
-To provide a higher level of security, you can restrict a number of Azure services to a virtual network by using service endpoints. You must then integrate your function app with that virtual network to access the resource. This configuration is supported on all plans that support virtual network integration.
+To provide a higher level of security, you can restrict a number of Azure services to a virtual network by using service endpoints. You must then integrate your function app with that virtual network to access the resource. This configuration is supported on all [plans](functions-scale.md#networking-features) that support virtual network integration.
 
 To learn more, see [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## Restrict your storage account to a virtual network 
 
-When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage.  You can replace this storage account with one that is secured with service endpoints or private endpoint.  This feature currently only works with Windows Premium plans.  To set up a function with a storage account restricted to a private network:
+When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can replace this storage account with one that is secured with service endpoints or private endpoint. 
 
-1. Create a function with a storage account that does not have service endpoints enabled.
-1. Configure the function to connect to your virtual network.
-1. Create or configure a different storage account.  This will be the storage account we secure with service endpoints and connect our function.
-1. [Create a file share](../storage/files/storage-how-to-create-file-share.md#create-file-share) in the secured storage account.
-1. Enable service endpoints or private endpoint for the storage account.  
-    * If using private endpoint connections, the storage account will need a private endpoint for the `file` and `blob` subresources.  If using certain capabilities like Durable Functions, you will also need `queue` and `table` accessible through a private endpoint connection.
-    * If using service endpoints, enable the subnet dedicated to your function apps for storage accounts.
-1. (Optional) Copy the file and blob content from the function app storage account to the secured storage account and file share.
-1. Copy the connection string for this storage account.
-1. Update the **Application Settings** under **Configuration** for the function app to the following:
-    - `AzureWebJobsStorage` to the connection string for the secured storage account.
-    - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` to the connection string for the secured storage account.
-    - `WEBSITE_CONTENTSHARE` to the name of the file share created in the secured storage account.
-    - Create a new setting with the name `WEBSITE_CONTENTOVERVNET` and value of `1`.
-    - If the storage account is using private endpoint connections, verify or add the following settings
-        - `WEBSITE_VNET_ROUTE_ALL` with a value of `1`.
-        - `WEBSITE_DNS_SERVER` with a value of `168.63.129.16` 
-1. Save the application settings.  
-
-The function app will restart and will now be connected to a secured storage account.
+This feature is supported for all Windows virtual network-supported SKUs in the Dedicated (App Service) plan and for the Premium plans. It is also supported with private DNS for Linux virtual network-supported SKUs. The Consumption plan and custom DNS on Linux plans aren't supported. To learn how to set up a function with a storage account restricted to a private network, see [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
 
 ## Use Key Vault references
 
@@ -169,11 +150,13 @@ Outbound IP restrictions are available in a Premium plan, App Service plan, or A
 
 When you integrate a function app in a Premium plan or an App Service plan with a virtual network, the app can still make outbound calls to the internet by default. By adding the application setting `WEBSITE_VNET_ROUTE_ALL=1`, you force all outbound traffic to be sent into your virtual network, where network security group rules can be used to restrict traffic.
 
+To learn how to control the outbound IP using a virtual network, see [Tutorial: Control Azure Functions outbound IP with an Azure virtual network NAT gateway](functions-how-to-use-nat-gateway.md). 
+
 ## Automation
 The following APIs let you programmatically manage regional virtual network integrations:
 
 + **Azure CLI**: Use the [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) commands to add, list, or remove a regional virtual network integration.  
-+ **ARM templates**: Regional virtual network integration can be enabled by using an Azure Resource Manager template. For a full example, see [this Functions quickstart template](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
++ **ARM templates**: Regional virtual network integration can be enabled by using an Azure Resource Manager template. For a full example, see [this Functions quickstart template](https://azure.microsoft.com/resources/templates/function-premium-vnet-integration/).
 
 ## Troubleshooting
 
@@ -184,7 +167,7 @@ The following APIs let you programmatically manage regional virtual network inte
 To learn more about networking and Azure Functions:
 
 * [Follow the tutorial about getting started with virtual network integration](./functions-create-vnet.md)
-* [Read the Functions networking FAQ](./functions-networking-faq.md)
+* [Read the Functions networking FAQ](./functions-networking-faq.yml)
 * [Learn more about virtual network integration with App Service/Functions](../app-service/web-sites-integrate-with-vnet.md)
 * [Learn more about virtual networks in Azure](../virtual-network/virtual-networks-overview.md)
 * [Enable more networking features and control with App Service Environments](../app-service/environment/intro.md)

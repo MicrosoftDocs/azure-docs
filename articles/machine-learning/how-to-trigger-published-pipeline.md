@@ -8,8 +8,8 @@ ms.subservice: core
 ms.author: laobri
 author: lobrien
 ms.date: 01/29/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.topic: how-to
+ms.custom: devx-track-python
 
 # Customer intent: As a Python coding data scientist, I want to improve my operational efficiency by scheduling my training pipeline of my model using the latest data. 
 ---
@@ -20,7 +20,7 @@ In this article, you'll learn how to programmatically schedule a pipeline to run
 
 ## Prerequisites
 
-* An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
+* An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
 * A Python environment in which the Azure Machine Learning SDK for Python is installed. For more information, see [Create and manage reusable environments for training and deployment with Azure Machine Learning.](how-to-use-environments.md)
 
@@ -63,7 +63,7 @@ from azureml.pipeline.core.schedule import ScheduleRecurrence, Schedule
 
 ### Create a time-based schedule
 
-The `ScheduleRecurrence` constructor has a required `frequency` argument that must be one of the following strings: "Minute", "Hour", "Day", "Week", or "Month". It also requires an integer `interval` argument specifying how many of the `frequency` units should elapse between schedule starts. Optional arguments allow you to be more specific about starting times, as detailed in the [ScheduleRecurrence SDK docs](/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?preserve-view=true&view=azure-ml-py).
+The `ScheduleRecurrence` constructor has a required `frequency` argument that must be one of the following strings: "Minute", "Hour", "Day", "Week", or "Month". It also requires an integer `interval` argument specifying how many of the `frequency` units should elapse between schedule starts. Optional arguments allow you to be more specific about starting times, as detailed in the [ScheduleRecurrence SDK docs](/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence).
 
 Create a `Schedule` that begins a run every 15 minutes:
 
@@ -80,11 +80,11 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 
 Pipelines that are triggered by file changes may be more efficient than time-based schedules. When you want to do something before a file is changed, or when a new file is added to a data directory, you can preprocess that file. You can monitor any changes to a datastore or changes within a specific directory within the datastore. If you monitor a specific directory, changes within subdirectories of that directory will _not_ trigger a run.
 
-To create a file-reactive `Schedule`, you must set the `datastore` parameter in the call to [Schedule.create](/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). To monitor a folder, set the `path_on_datastore` argument.
+To create a file-reactive `Schedule`, you must set the `datastore` parameter in the call to [Schedule.create](/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). To monitor a folder, set the `path_on_datastore` argument.
 
 The `polling_interval` argument allows you to specify, in minutes, the frequency at which the datastore is checked for changes.
 
-If the pipeline was constructed with a [DataPath](/python/api/azureml-core/azureml.data.datapath.datapath?preserve-view=true&view=azure-ml-py) [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?preserve-view=true&view=azure-ml-py), you can set that variable to the name of the changed file by setting the `data_path_parameter_name` argument.
+If the pipeline was constructed with a [DataPath](/python/api/azureml-core/azureml.data.datapath.datapath) [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter), you can set that variable to the name of the changed file by setting the `data_path_parameter_name` argument.
 
 ```python
 datastore = Datastore(workspace=ws, name="workspaceblobstore")

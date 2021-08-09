@@ -32,7 +32,7 @@ For developers building apps for Azure AD, this article shows how you can use Co
 Knowledge of [single](quickstart-register-app.md) and [multi-tenant](howto-convert-app-to-be-multi-tenant.md) apps and [common authentication patterns](./authentication-vs-authorization.md) is assumed.
 
 > [!NOTE]
-> Using this feature requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
+> Using this feature requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 > Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features.
 
 ## How does Conditional Access impact an app?
@@ -68,10 +68,10 @@ Specifically, all Microsoft Graph scopes represent some dataset that can individ
 For example, if an app requests the following Microsoft Graph scopes,
 
 ```
-scopes="Bookings.Read.All Mail.Read"
+scopes="ChannelMessages.Read.All Mail.Read"
 ```
 
-An app can expect their users to fulfill all policies set on Bookings and Exchange. Some scopes may map to multiple datasets if it grants access.
+An app can expect their users to fulfill all policies set on Teams and Exchange. Some scopes may map to multiple datasets if it grants access.
 
 ### Complying with a Conditional Access policy
 
@@ -148,15 +148,14 @@ If the app is using the MSAL library, a failure to acquire the token is always r
 
 ## Scenario: Single-page app (SPA) using MSAL.js
 
-In this scenario, we walk through the case when we have a single-page app (SPA), using MSAL.js to call a Conditional Access protected web API. This is a simple architecture but has some nuances that need to be taken into account when developing around Conditional Access.
+In this scenario, we walk through the case when we have a single-page app (SPA) calling a Conditional Access protected web API using MSAL.js. This is a simple architecture but has some nuances that need to be taken into account when developing around Conditional Access.
 
-In MSAL.js, there are a few functions that obtain tokens: `loginPopup()`, `acquireTokenSilent(...)`, `acquireTokenPopup(…)`, and `acquireTokenRedirect(…)`.
+In MSAL.js, there are a few functions that obtain tokens: `acquireTokenSilent()`, `acquireTokenPopup()`, and `acquireTokenRedirect()`.
 
-* `loginPopup()` obtains an ID token through an interactive sign-in request but does not obtain access tokens for any service (including a Conditional Access protected web API).
-* `acquireTokenSilent(…)` can then be used to silently obtain an access token meaning it does not show UI in any circumstance.
-* `acquireTokenPopup(…)` and `acquireTokenRedirect(…)` are both used to interactively request a token for a resource meaning they always show sign-in UI.
+* `acquireTokenSilent()` can be used to silently obtain an access token meaning it does not show UI in any circumstance.
+* `acquireTokenPopup()` and `acquireTokenRedirect()` are both used to interactively request a token for a resource meaning they always show sign-in UI.
 
-When an app needs an access token to call a web API, it attempts an `acquireTokenSilent(…)`. If the token session is expired or we need to comply with a Conditional Access policy, then the *acquireToken* function fails and the app uses `acquireTokenPopup()` or `acquireTokenRedirect()`.
+When an app needs an access token to call a web API, it attempts an `acquireTokenSilent()`. If the token is expired or we need to comply with a Conditional Access policy, then the *acquireToken* function fails and the app uses `acquireTokenPopup()` or `acquireTokenRedirect()`.
 
 ![Single-page app using MSAL flow diagram](./media/v2-conditional-access-dev-guide/spa-using-msal-scenario.png)
 
@@ -172,7 +171,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 Our app needs to catch the `error=interaction_required`. The application can then use either `acquireTokenPopup()` or `acquireTokenRedirect()` on the same resource. The user is forced to do a multi-factor authentication. After the user completes the multi-factor authentication, the app is issued a fresh access token for the requested resource.
 
-To try out this scenario, see our [JS SPA On-behalf-of code sample](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/a2b257381b410c765ee01ecb611aa6f98c099eb1/2.%20Web%20API%20now%20calls%20Microsoft%20Graph/README.md). This code sample uses the Conditional Access policy and web API you registered earlier with a JS SPA to demonstrate this scenario. It shows how to properly handle the claims challenge and get an access token that can be used for your web API. Alternatively, checkout the general [Angular.js code sample](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) for guidance on an Angular SPA
+To try out this scenario, see our [JavaScript SPA calling Node.js web API using on-behalf-of flow](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/tree/main/4-AdvancedGrants/2-call-api-api-ca) code sample. This code sample uses the Conditional Access policy and web API you registered earlier with a JavaScript SPA to demonstrate this scenario. It shows how to properly handle the claims challenge and get an access token that can be used for your web API.
 
 ## See also
 

@@ -5,8 +5,8 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
-ms.custom: subject-armqs
-ms.date: 08/28/2020
+ms.custom: subject-armqs, devx-track-azurepowershell
+ms.date: 05/10/2021
 ms.author: victorh
 ---
 
@@ -26,7 +26,7 @@ For more information about Azure Firewall, see [Deploy and configure Azure Firew
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-with-zones-sandbox%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-with-zones-sandbox%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -36,9 +36,9 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 This template creates an Azure Firewall with Availability Zones, along with the necessary resources to support the Azure Firewall.
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azurefirewall-with-zones-sandbox).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azurefirewall-with-zones-sandbox).
 
-:::code language="json" source="~/quickstart-templates/101-azurefirewall-with-zones-sandbox/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/azurefirewall-with-zones-sandbox/azuredeploy.json":::
 
 Multiple Azure resources are defined in the template:
 
@@ -57,10 +57,10 @@ Deploy the ARM template to Azure:
 
 1. Select **Deploy to Azure** to sign in to Azure and open the template. The template creates an Azure Firewall, the network infrastructure, and two virtual machines.
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-with-zones-sandbox%2Fazuredeploy.json)
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-with-zones-sandbox%2Fazuredeploy.json)
 
 2. In the portal, on the **Create a sandbox setup of Azure Firewall with Zones** page, type or select the following values:
-   - **Resource group**: Select **Create new**, type a name for the resource group, and select **OK**. 
+   - **Resource group**: Select **Create new**, type a name for the resource group, and select **OK**.
    - **Virtual Network Name**: Type a name for the new VNet.
    - **Admin Username**: Type a username for the administrator user account.
    - **Admin Password**: Type an administrator password.
@@ -81,7 +81,7 @@ When you no longer need them, you can remove the resource group, firewall, and a
 Remove-AzResourceGroup -Name MyResourceGroup
 ```
 
-Don't remove the resource group and firewall if you plan to continue on to the firewall monitoring tutorial. 
+Don't remove the resource group and firewall if you plan to continue on to the firewall monitoring tutorial.
 
 ## Next steps
 

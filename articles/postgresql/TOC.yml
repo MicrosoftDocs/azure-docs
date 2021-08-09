@@ -27,9 +27,13 @@
       - name: Minimal-downtime migration with DMS
         href: howto-migrate-online.md
         displayName: dms, data migration service
+      - name: Migrate from Oracle
+        href: howto-migrate-from-oracle.md
   - name: Versioning policy
     href: concepts-version-policy.md
     displayName: version, postgresql
+  - name: Major version upgrades
+    href: how-to-upgrade-using-dump-and-restore.md
   - name: Known issues & limitations
     href: concepts-known-issues-limitations.md
     displayName: issues, limitations, postgresql 
@@ -91,6 +95,9 @@
       - name: Go
         href: connect-go.md
         displayName: connect with go
+      - name: Rust
+        href: connect-rust.md
+        displayName: connect with rust
   - name: Tutorials
     items:
     - name: Design a database
@@ -113,6 +120,9 @@
     items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
   - name: Concepts
     items:
     - name: Servers
@@ -121,14 +131,14 @@
       href: concepts-supported-versions.md
     - name: PostgreSQL extensions
       href: concepts-extensions.md
+    - name: Limits
+      href: concepts-limits.md
     - name: Understand pricing tiers
       items:
       - name: Pricing tiers
         href: concepts-pricing-tiers.md
       - name: Prepay for reserved capacity
         href: concept-reserved-pricing.md
-      - name: Limits
-        href: concepts-limits.md
     - name: Security
       items:
       - name: Security overview
@@ -140,8 +150,8 @@
       - name: Connectivity architecture
         href: concepts-connectivity-architecture.md
         displayName: security, architecture
-      - name: Advanced threat protection
-        href: concepts-data-access-and-security-threat-protection.md
+      - name: Threat protection with Azure Defender
+        href: ../security-center/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
         displayName: security, advanced threat protection
       - name: Azure AD authentication
         href: concepts-aad-authentication.md
@@ -156,7 +166,7 @@
         displayName: regulatory, compliance, standards, domains
         href: ./security-controls-policy.md
       - name: Security baseline
-        href: security-baseline.md
+        href: /security/benchmark/azure/baselines/postgresql-security-baseline?toc=/azure/postgresql/TOC.json?toc=/azure/postgresql/TOC.json
     - name: Networking
       items:
       - name: Firewall rules
@@ -207,6 +217,8 @@
       - name: Performance recommendations
         href: concepts-performance-recommendations.md
         displayName: query store, performance, optimize, recommendations
+      - name: Azure Advisor recommendations
+        href: concepts-azure-advisor-recommendations.md
     - name: App Development
       items:
       - name: Best practices
@@ -341,11 +353,6 @@
       - name: Troubleshoot data encryption
         href: howto-data-encryption-troubleshoot.md
         displayName: debug, security, encryption
-    - name: Advanced threat protection
-      items:
-      - name: Azure portal
-        href: howto-database-threat-protection-portal.md
-        displayName: advanced thread, security
     - name: Virtual network
       items:
       - name: Azure portal
@@ -398,8 +405,6 @@
       items:
       - name: Azure portal
         href: howto-move-regions-portal.md
-    - name: Major version upgrades
-      href: how-to-upgrade-using-dump-and-restore.md
 - name: Flexible Server (Preview)
   expanded: true
   items:
@@ -407,6 +412,10 @@
     href: flexible-server/index.yml
   - name: Overview
     href: flexible-server/overview.md
+  - name: Release notes
+    href: flexible-server/release-notes.md   
+  - name: Compare Single Server and Flexible Server
+    href: flexible-server/concepts-compare-single-server-flexible-server.md   
   - name: Quickstarts
     expanded: true
     items:
@@ -421,6 +430,8 @@
         href: flexible-server/quickstart-create-server-arm-template.md
     - name: Connect and query
       items:
+        - name: Azure CLI
+          href: flexible-server/connect-azure-cli.md
         - name: Python
           href: flexible-server/connect-python.md
         - name: Java
@@ -450,12 +461,20 @@
     - name: Networking
       href: flexible-server/concepts-networking.md
       displayName: virtual networks, vnet, IP address, public access
+    - name: Firewall rules
+      href: flexible-server/concepts-firewall-rules.md
+    - name: Security
+      href: flexible-server/concepts-security.md
     - name: Limits
       href: flexible-server/concepts-limits.md
     - name: Extensions
       href: flexible-server/concepts-extensions.md
     - name: Scheduled maintenance
       href: flexible-server/concepts-maintenance.md
+    - name: Connection pooling (PgBouncer)
+      href: flexible-server/concepts-pgbouncer.md   
+    - name: Server parameters
+      href: flexible-server/concepts-server-parameters.md      
     - name: Business continuity
       items:
       - name: Business continuity overview
@@ -474,6 +493,16 @@
         displayName: monitor, server logs
       - name: Audit logs
         href: flexible-server/concepts-audit.md
+      - name: Intelligent Performance
+        items:
+        - name: Query Store overview
+          href: flexible-server/concepts-query-store.md
+          displayName: performance, optimize, query store
+        - name: Query Store usage scenarios
+          href: flexible-server/concepts-query-store-scenarios.md
+          displayName: query store, performance, optimize
+        - name: Query Store best practices
+          href: flexible-server/concepts-query-store-best-practices.md
     - name: Replication
       href: flexible-server/concepts-logical.md
       displayName: logical decoding
@@ -505,10 +534,12 @@
           href: flexible-server/how-to-manage-firewall-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-manage-firewall-cli.md
-      - name: TLS/SSL
+      - name: TLS/SSL/SCRAM
         items:
         - name: Connect using TLS/SSL
           href: flexible-server/how-to-connect-tls-ssl.md
+        - name: Connect using SCRAM
+          href: flexible-server/how-to-connect-scram.md          
     - name: Configure server parameters
       items:
       - name: Azure portal
@@ -525,21 +556,29 @@
       items:
       - name: Azure portal
         href: flexible-server/how-to-restart-server-portal.md
+      - name: Azure CLI
+        href: flexible-server/how-to-restart-server-cli.md        
     - name: Restore a server
       items:
       - name: Azure portal
         href: flexible-server/how-to-restore-server-portal.md
+      - name: Azure CLI
+        href: flexible-server/how-to-restore-server-cli.md
     - name: Stop/start a server
       items:
       - name: Azure portal
         href: flexible-server/how-to-stop-start-server-portal.md
+      - name: Azure CLI
+        href: flexible-server/how-to-stop-start-server-cli.md
     - name: Manage high availability
       items:
       - name: Azure portal
         href: flexible-server/how-to-manage-high-availability-portal.md
+      - name: Azure CLI
+        href: flexible-server/how-to-configure-high-availability-cli.md        
     - name: Monitor
       items:
-      - name: Create alerts on metrics
+      - name: Create alerts on metrics using portal
         href: flexible-server/howto-alert-on-metrics.md
       - name: Configure and access logs
         href: flexible-server/howto-configure-and-access-logs.md
@@ -551,11 +590,15 @@
     items:
     - name: What is Hyperscale (Citus)?
       href: hyperscale-overview.md
+    - name: Features in preview
+      href: hyperscale-preview-features.md
   - name: Quickstart
     items:
     - name: Create server group
       items:
-      - name: Azure portal
+      - name: Basic tier (preview)
+        href: quickstart-create-hyperscale-basic-tier.md
+      - name: Standard tier
         href: quickstart-create-hyperscale-portal.md
         displayName: portal, create hyperscale
   - name: Tutorials
@@ -572,16 +615,10 @@
       - name: Design a real-time dashboard
         href: tutorial-design-database-hyperscale-realtime.md
         displayName: hyperscale, tutorial, real-time
-  - name: Samples
-    items:
-    - name: Azure CLI
-      href: sample-scripts-azure-cli.md
-      displayName: samples, azure cli
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./policy-reference.md
   - name: Concepts
     items:
+    - name: Basic tier
+      href: concepts-hyperscale-tiers.md
     - name: Distributed data
       items:
       - name: Nodes and tables
@@ -602,7 +639,9 @@
         href: concepts-hyperscale-ssl-connection-security.md
         displayName: hyperscale, ssl
       - name: Security baseline
-        href: postgresql-hyperscale-security-baseline.md
+        href: /security/benchmark/azure/baselines/postgresql-hyperscale-security-baseline?toc=/azure/postgresql/TOC.json?toc=/azure/postgresql/TOC.json
+    - name: Scheduled maintenance
+      href: concepts-hyperscale-maintenance.md
     - name: Business continuity
       items:
       - name: Backup and restore
@@ -610,26 +649,28 @@
         displayName: backup, restore, outage, hyperscale
       - name: High availability
         href: concepts-hyperscale-high-availability.md
+    - name: Replication
+      href: concepts-hyperscale-read-replicas.md
+    - name: Connection pooling
+      href: concepts-hyperscale-connection-pool.md
     - name: Monitor and tune
       items:
       - name: Monitor and tune
         href: concepts-hyperscale-monitoring.md
       - name: Audit logs
         href: concepts-hyperscale-audit.md
+    - name: Columnar storage
+      href: concepts-hyperscale-columnar.md
     - name: Configuration options
       href: concepts-hyperscale-configuration-options.md
+    - name: Limits and limitations
+      href: concepts-hyperscale-limits.md
     - name: Prepay for reserved capacity
       href: concepts-hyperscale-reserved-pricing.md
+    - name: PostgreSQL versions
+      href: concepts-hyperscale-versions.md
     - name: PostgreSQL extensions
       href: concepts-hyperscale-extensions.md
-  - name: API Reference
-    items:
-      - name: SQL API functions
-        href: reference-hyperscale-functions.md
-      - name: Server parameters
-        href: reference-hyperscale-parameters.md
-      - name: System tables
-        href: reference-hyperscale-metadata.md
   - name: How-to guides
     items:
     - name: Server group size
@@ -655,6 +696,17 @@
         href: howto-hyperscale-modify-distributed-tables.md
     - name: High availability
       href: howto-hyperscale-high-availability.md
+    - name: Replication
+      items:
+      - name: Azure portal
+        href: howto-hyperscale-read-replicas-portal.md
+        displayName: replication, read replica
+    - name: Scheduled maintenance
+      items:
+      - name: Azure portal
+        href: howto-hyperscale-maintenance.md
+    - name: Restart server group
+      href: howto-hyperscale-restart.md
     - name: Monitor
       items:
       - name: Create alerts on metrics
@@ -663,13 +715,30 @@
       - name: Access database logs
         href: howto-hyperscale-logging.md
         displayName: log, hyperscale
+    - name: Restore server group
+      items:
+      - name: Azure portal
+        href: howto-hyperscale-restore-portal.md
+    - name: Major version upgrades
+      href: howto-hyperscale-upgrade.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot connection errors
         href: howto-hyperscale-troubleshoot-common-connection-issues.md
         displayName: connection errors, hyperscale
+      - name: Troubleshoot read-only access
+        href: howto-hyperscale-troubleshoot-read-only.md
+        displayName: read-only, hyperscale
       - name: Useful diagnostic queries
         href: howto-hyperscale-useful-diagnostic-queries.md
+  - name: API Reference
+    items:
+      - name: SQL API functions
+        href: reference-hyperscale-functions.md
+      - name: Server parameters
+        href: reference-hyperscale-parameters.md
+      - name: System tables
+        href: reference-hyperscale-metadata.md
 - name: Reference
   items:
    - name: Azure CLI

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/09/2020
+ms.date: 05/03/2021
 ms.author: jeedes
 ---
 
@@ -20,8 +20,6 @@ In this tutorial, you'll learn how to integrate BlueJeans for Azure AD with Azur
 * Control in Azure AD who has access to BlueJeans for Azure AD.
 * Enable your users to be automatically signed-in to BlueJeans for Azure AD with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -37,30 +35,29 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* BlueJeans for Azure AD supports **SP** initiated SSO
+* BlueJeans for Azure AD supports **SP** initiated SSO.
 
-* BlueJeans for Azure AD supports [**Automated** user provisioning](bluejeans-provisioning-tutorial.md)
+* BlueJeans for Azure AD supports [**Automated** user provisioning](bluejeans-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-## Adding BlueJeans for Azure AD from the gallery
+## Add BlueJeans for Azure AD from the gallery
 
 To configure the integration of BlueJeans for Azure AD into Azure AD, you need to add BlueJeans for Azure AD from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **BlueJeans for Azure AD** in the search box.
 1. Select **BlueJeans for Azure AD** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
-## Configure and test Azure AD single sign-on for BlueJeans for Azure AD
+## Configure and test Azure AD SSO for BlueJeans for Azure AD
 
 Configure and test Azure AD SSO with BlueJeans for Azure AD using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in BlueJeans for Azure AD.
 
-To configure and test Azure AD SSO with BlueJeans for Azure AD, complete the following building blocks:
+To configure and test Azure AD SSO with BlueJeans for Azure AD, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
@@ -73,9 +70,9 @@ To configure and test Azure AD SSO with BlueJeans for Azure AD, complete the fol
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **BlueJeans for Azure AD** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **BlueJeans for Azure AD** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -84,10 +81,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<companyname>.bluejeans.com`
 
-    a. In the **Identifier (Entity ID)** text box, type a URL:
+    a. In the **Identifier (Entity ID)** text box, type the URL:
     `http://samlsp.bluejeans.com`
 
-    a. In the **Reply URL** text box, type a URL:
+    a. In the **Reply URL** text box, type the URL:
     `https://bluejeans.com/sso/saml2/`
 
 	> [!NOTE]
@@ -131,15 +128,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **BlueJeans for Azure AD**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-	![The Add User link](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure BlueJeans for Azure AD SSO
@@ -148,11 +139,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Go to **ADMIN \> GROUP SETTINGS \> SECURITY**.
 
-	![Screenshot shows part of a browser window with the Admin tab selected, with Group Setting and Security selected.](./media/bluejeans-tutorial/ic785868.png "Admin")
+	![Screenshot shows part of a browser window with the Admin tab selected, with Group Setting and Security selected.](./media/bluejeans-tutorial/admin.png "Admin")
 
 3. In the **SECURITY** section, perform the following steps:
 
-	![SAML Single Sign On](./media/bluejeans-tutorial/ic785869.png "SAML Single Sign On")
+	![SAML Single Sign On](./media/bluejeans-tutorial/security.png "SAML Single Sign On")
 
 	a. Select **SAML Single Sign On**.
 
@@ -160,7 +151,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. Move on with the following steps:
 
-	![Certificate Path](./media/bluejeans-tutorial/ic785870.png "Certificate Path")
+	![Certificate Path](./media/bluejeans-tutorial/certificate.png "Certificate Path")
 
 	a. Click **Choose File**, to upload the base-64 encoded certificate that you have downloaded from the Azure portal.
 
@@ -172,7 +163,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 5. Move on with the following steps:
 
-	![Save Changes](./media/bluejeans-tutorial/ic785874.png "Save Changes")
+	![Save Changes](./media/bluejeans-tutorial/changes.png "Save Changes")
 
 	a. In the **User Id** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
@@ -190,14 +181,14 @@ The objective of this section is to create a user called B.Simon in BlueJeans fo
 
 2. Go to **ADMIN \> MANAGE USERS \> ADD USER**.
 
-	![Screenshot shows part of a browser window with the Admin tab selected, with Manage Users and Add Users selected.](./media/bluejeans-tutorial/ic785877.png "Admin")
+	![Screenshot shows part of a browser window with the Admin tab selected, with Manage Users and Add Users selected.](./media/bluejeans-tutorial/add-user.png "Admin")
 
 	> [!IMPORTANT]
 	> The **ADD USER** tab is only available if, in the **SECUTIRY tab**, **Enable automatic provisioning** is unchecked.
 
 3. In the **ADD USER** section, perform the following steps:
 
-	![Screenshot shows the Add user section where you enter the information described in this step.](./media/bluejeans-tutorial/ic785886.png "Add User")
+	![Screenshot shows the Add user section where you enter the information described in this step.](./media/bluejeans-tutorial/new-user.png "Add User")
 
 	a. In **First Name** text box, enter the first name of user like **B**.
 
@@ -209,7 +200,7 @@ The objective of this section is to create a user called B.Simon in BlueJeans fo
 
 	e. In **Company** text box, enter your Company.
 
-	f. In **Email Address** text box, enter the email of user like `b.simon\@contoso.com`.
+	f. In **Email Address** text box, enter the email of user like `b.simon@contoso.com`.
 
 	g. In **Create a BlueJeans for Azure AD Meeting I.D** text box, enter your meeting ID.
 
@@ -217,7 +208,7 @@ The objective of this section is to create a user called B.Simon in BlueJeans fo
 
 	i. Click **CONTINUE**.
 
-	![Screenshot shows the Add user section where you can view settings and features, with the Add User button selected.](./media/bluejeans-tutorial/ic785887.png "Add User")
+	![Screenshot shows the Add user section where you can view settings and features, with the Add User button selected.](./media/bluejeans-tutorial/settings.png "Add User")
 
 	J. Click **ADD USER**.
 
@@ -226,16 +217,14 @@ The objective of this section is to create a user called B.Simon in BlueJeans fo
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you click the BlueJeans for Azure AD tile in the Access Panel, you should be automatically signed in to the BlueJeans for Azure AD for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* Click on **Test this application** in Azure portal. This will redirect to BlueJeans for Azure AD Sign-on URL where you can initiate the login flow. 
 
-## Additional resources
+* Go to BlueJeans for Azure AD Sign-on URL directly and initiate the login flow from there.
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+* You can use Microsoft My Apps. When you click the BlueJeans for Azure AD tile in the My Apps, this will redirect to BlueJeans for Azure AD Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+## Next steps
 
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try BlueJeans for Azure AD with Azure AD](https://aad.portal.azure.com/)
+Once you configure BlueJeans for Azure AD you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

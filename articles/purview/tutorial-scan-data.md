@@ -50,7 +50,7 @@ In this section, you run the starter kit scripts to create a simulated data esta
 
 Follow these steps to set up the starter kit client software on your Windows machine:
 
-1. [Download the starter kit](https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip), and extract its contents to the location of your choice.
+1. [Download the starter kit](https://github.com/Azure/Purview-Samples/blob/master/PurviewStarterKitV4.zip), and extract its contents to the location of your choice.
 
 
 1. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, right-click **Windows PowerShell**, and then select **Run as administrator**.
@@ -143,6 +143,9 @@ After the catalog configuration is complete, run the following scripts in the Po
 
    When you run the command, a pop-up window may appear for you to sign in using your Azure Active Directory credentials.
 
+    > [!TIP]
+    > If MFA is enabled across your tenant, you may encounter an MFA error at this step. If you do, briefly disable MFA for the account running this script. Then run again.
+
 
 1. Use the following command to run the starter kit. Replace the `CatalogName`, `TenantID`, `SubscriptionID`, `NewResourceGroupName`, and `CatalogResourceGroupName` placeholders. For `NewResourceGroupName`, use a unique name (with lowercase alphanumeric characters only) for the resource group that will contain the data estate.
 
@@ -187,9 +190,9 @@ A Managed Identity with the same name as your Azure Purview account is automatic
 
 ### Scan your data sources
 
-1. Navigate to your Azure Purview resource in the [Azure portal](https://portal.azure.com) and select *Open Purview Studio*. You're automatically taken to your Purview Studio's home page.
+1. In the [Azure portal](https://portal.azure.com), search for and select the name of the Azure Purview instance that you created as a prerequisite, and then select *Open Purview Studio*. You're automatically taken to your Purview Studio's home page.
 
-1. Select **Sources** on your catalog's webpage, and select **Register**. Then, select **Azure Blob Storage** and **Continue**.
+1. Select **Data Map** on the left navigation, and select **Register**. Then, select **Azure Blob Storage** and **Continue**.
 
    :::image type="content" source="media/tutorial-scan-data/add-blob-storage.png" alt-text="Register blob storage resource":::
 

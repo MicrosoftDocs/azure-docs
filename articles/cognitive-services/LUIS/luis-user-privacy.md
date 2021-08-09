@@ -9,7 +9,7 @@ ms.custom: seodec18, references_regions
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/10/2020
+ms.date: 04/08/2020
 
 ---
 
@@ -27,7 +27,7 @@ Customer content is stored encrypted in Microsoft regional Azure storage and inc
 - User account content collected at registration
 - Training data required to build the models
 - Logged user queries used by [active learning](luis-concept-review-endpoint-utterances.md) to help improve the model
-  - Users can turn off query logging by appending `&log=false` to the request, details [here](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
+  - Users can turn off query logging by appending `&log=false` to the request, details [here](./troubleshooting.yml#how-can-i-disable-the-logging-of-utterances-)
 
 ## Deleting customer data
 LUIS users have full control to delete any user content, either through the LUIS web portal or the LUIS Authoring (also known as Programmatic) APIs. The following table displays links assisting with both:
@@ -82,7 +82,15 @@ United States Authoring (also known as Programmatic APIs) resources are hosted i
 
 * Azure geographies not supported by the Europe or Australia authoring regions
 
-When deploying to these Azure geographies, the utterances received by the endpoint from end users of your app will be stored in Azure's United States geography for active learning. 
+When deploying to these Azure geographies, the utterances received by the endpoint from end users of your app will be stored in Azure's United States geography for active learning.
+
+### Switzerland North
+
+Switzerland North Authoring (also known as Programmatic APIs) resources are hosted in Azure's Switzerland geography, and support deployment of endpoints to the following Azure geographies:
+
+* Switzerland 
+
+When deploying to these Azure geographies, the utterances received by the endpoint from end users of your app will be stored in Azure's Switzerland geography for active learning.
 
 ## Disable active learning
 

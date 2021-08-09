@@ -4,8 +4,9 @@ description: Describes the roles and permissions required to create Data Factori
 ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
-author: dcstwh
-ms.author: weetok
+ms.subservice: security
+author: nabhishek
+ms.author: abnarain
 ---
 
 # Roles and permissions for Azure Data Factory

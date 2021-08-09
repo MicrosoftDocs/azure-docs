@@ -13,13 +13,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 08/03/2021
 ms.author: phjensen
 ---
 
-# Install Azure Application Consistent Snapshot tool (preview)
+# Install Azure Application Consistent Snapshot tool
 
-This article provides a guide for installation of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
+This article provides a guide for installation of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files or Azure Large Instance.
+
+> [!IMPORTANT]
+> Distributed installations are the only option for **Azure Large Instance** systems as they are deployed in a private network.  Therefore AzAcSnap installations must be done on each system to ensure connectivity.
 
 ## Introduction
 
@@ -40,8 +43,13 @@ tools.
     set up SSH with a private/public key pair, and provide the public key for each node where the
     snapshot tools are planned to be executed to Microsoft Operations for setup on the storage
     back-end.
-   1. **For Azure NetApp Files (refer separate section for details)**: Customer must generate the
-      service principal authentication file.
+   1. **For Azure NetApp Files (refer separate section for details)**: Customer must generate the service principal authentication file.
+      
+      > [!IMPORTANT]
+      > When validating communication with Azure NetApp Files, communication might fail or time-out. Check to ensure firewall rules are not blocking outbound traffic from the system running AzAcSnap to the following addresses and TCP/IP ports:
+      > - (https://)management.azure.com:443
+      > - (https://)login.microsoftonline.com:443
+      
    1. **For Azure Large Instance (refer separate section for details)**: Customer must set up SSH with a
       private/public key pair, and provide the public key for each node where the snapshot tools are
       planned to be executed to Microsoft Operations for setup on the storage back-end.
@@ -66,9 +74,13 @@ tools.
 
 ## Enable communication with storage
 
-This section explains how to enable communication with storage.
+This section explains how to enable communication with storage.  
 
-### Azure NetApp Files
+Follow the instructions to configure storage for your configuration, either:
+1. [Azure NetApp Files (with Virtual Machine)](#azure-netapp-files-with-virtual-machine) 
+1. [Azure Large Instance (Bare Metal)](#azure-large-instance-bare-metal)
+
+### Azure NetApp Files (with Virtual Machine)
 
 Create RBAC Service Principal
 
@@ -115,7 +127,7 @@ Create RBAC Service Principal
 1. Cut and Paste the output content into a file called `azureauth.json` stored on the same system as the `azacsnap`
    command and secure the file with appropriate system permissions.
 
-### Azure Large Instance
+### Azure Large Instance (Bare Metal)
 
 Communication with the storage back-end executes over an encrypted SSH channel. The following
 example steps are to provide guidance on setup of SSH for this communication.
@@ -259,74 +271,6 @@ database, change the IP address, usernames, and passwords as appropriate:
     USER: AZACSNAP
     ```
 
-### Additional instructions for using the log trimmer (SAP HANA 2.0 and later)
-
-If using the log trimmer, then the following example commands set up a user (AZACSNAP) in the
-TENANT database(s) on an SAP HANA 2.0 database system. Remember to change the IP address,
-usernames, and passwords as appropriate:
-
-1. Connect to the TENANT database to create the user, tenant-specific details are `<IP_address_of_host>` and `<SYSTEM_USER_PASSWORD>`.  Also, note the port (`30015`) required to communicate with the TENANT database.
-
-    ```bash
-    hdbsql -n <IP_address_of_host>:30015 - i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD>
-    ```
-
-    ```output  
-    Welcome to the SAP HANA Database interactive terminal.
-
-    Type: \h for help with commands
-    \q to quit
-
-    hdbsql TENANTDB=>
-    ```
-
-1. Create the user
-
-    This example creates the AZACSNAP user in the SYSTEMDB.
-
-    ```sql
-    hdbsql TENANTDB=> CREATE USER AZACSNAP PASSWORD <AZACSNAP_PASSWORD_CHANGE_ME> NO FORCE_FIRST_PASSWORD_CHANGE;
-    ```
-
-1. Grant the user permissions
-
-    This example sets the permission for the AZACSNAP user to allow for performing a database
-    consistent storage snapshot.
-
-    ```sql
-    hdbsql TENANTDB=> GRANT BACKUP ADMIN, CATALOG READ, MONITORING TO AZACSNAP;
-    ```
-
-1. *OPTIONAL* - Prevent user's password from expiring
-
-    > [!NOTE]
-    > Check with corporate policy before making this change.
-
-   This example disables the password expiration for the AZACSNAP user, without this change the user's password will expire preventing snapshots to be taken correctly.  
-
-   ```sql
-   hdbsql TENANTDB=> ALTER USER AZACSNAP DISABLE PASSWORD LIFETIME;
-   ```
-
-> [!NOTE]  
-> Repeat these steps for all the tenant databases. It's possible to get the connection details for all the tenants using the following SQL query against the SYSTEMDB.
-
-```sql
-SELECT HOST, SQL_PORT, DATABASE_NAME FROM SYS_DATABASES.M_SERVICES WHERE SQL_PORT LIKE '3%'
-```
-
-See the following example query and output.
-
-```bash
-hdbsql -jaxC -n 10.90.0.31:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> " SELECT HOST,SQL_PORT, DATABASE_NAME FROM SYS_DATABASES.M_SERVICES WHERE SQL_PORT LIKE '3%' "
-```
-
-```output
-sapprdhdb80,30013,SYSTEMDB
-sapprdhdb80,30015,H81
-sapprdhdb80,30041,H82
-```
-
 ### Using SSL for communication with SAP HANA
 
 The `azacsnap` tool utilizes SAP HANA's `hdbsql` command to communicate with SAP HANA. This
@@ -338,7 +282,7 @@ The following are always used when using the `azacsnap --ssl` option:
 - `-e` - Enables TLS encryptionTLS/SSL encryption. The server chooses the highest available.
 - `-ssltrustcert` - Specifies whether to validate the server's certificate.
 - `-sslhostnameincert "*"` - Specifies the host name used to verify server’s identity. By
-    specifying `"*"` as the host name, then the server's host name is not validated.
+    specifying `"*"` as the host name, then the server's host name is not validated.
 
 SSL communication also requires Key Store and Trust Store files.  While it is possible for
 these files to be stored in default locations on a Linux installation, to ensure the

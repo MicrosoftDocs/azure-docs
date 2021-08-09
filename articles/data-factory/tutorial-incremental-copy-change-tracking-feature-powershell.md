@@ -4,14 +4,15 @@ description: In this tutorial, you create an Azure Data Factory pipeline that co
 ms.author: yexu
 author: dearandyxu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
-ms.date: 01/22/2018
+ms.custom: devx-track-azurepowershell
+ms.date: 02/18/2021
 ---
 
 # Incrementally load data from Azure SQL Database to Azure Blob Storage using change tracking information using PowerShell
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data based on **change tracking** information in the source database in Azure SQL Database to an Azure blob storage.  
 

@@ -2,21 +2,21 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 07/25/2021
 ms.author: memildin
 ms.custom: generated
 ---
 
+- [Enable if required] Azure Cosmos DB accounts should use customer-managed keys to encrypt data at rest
+- [Enable if required] Azure Machine Learning workspaces should be encrypted with a customer-managed key (CMK)
+- [Enable if required] Cognitive Services accounts should enable data encryption with a customer-managed key (CMK)
+- [Enable if required] Container registries should be encrypted with a customer-managed key (CMK)
 - Access to storage accounts with firewall and virtual network configurations should be restricted
 - Automation account variables should be encrypted
 - Azure Cache for Redis should reside within a virtual network
-- Azure Cosmos DB accounts should use customer-managed keys to encrypt data at rest
-- Azure Machine Learning workspaces should be encrypted with a customer-managed key (CMK)
 - Azure Spring Cloud should use network injection
-- Cognitive Services accounts should enable data encryption with a customer-managed key (CMK)
 - Container CPU and memory limits should be enforced
 - Container images should be deployed from trusted registries only
-- Container registries should be encrypted with a customer-managed key (CMK)
 - Container with privilege escalation should be avoided
 - Containers sharing sensitive host namespaces should be avoided
 - Containers should listen on allowed ports only

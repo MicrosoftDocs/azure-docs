@@ -16,6 +16,10 @@ Your billing account for Microsoft Customer Agreement provides you flexibility t
 
 This article describes how you can use the Azure portal to organize your costs. It applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
+Watch the [Organize costs by customizing your Microsoft Customer Agreement billing account](https://www.youtube.com/watch?v=7RxTfShGHwU) video to learn how to organize costs for your billing account.
+
+>[!VIDEO https://www.youtube.com/embed/7RxTfShGHwU]
+
 ## Structure your account with billing profiles and invoice sections
 
 In the billing account for a Microsoft Customer Agreement, you use billing profiles and invoice sections to organize your costs.
@@ -116,7 +120,7 @@ To create a billing profile, you need to be a **billing account owner** or a **b
     |---------|---------|
     |Name     | A display name that helps you easily identify the billing profile in the Azure portal.  |
     |PO number    | An optional purchase order number. The PO number will be displayed on the invoices generated for the billing profile. |
-    |Billing address   | The billing address will be displayed on the invoices generated for the billing profile. |
+    |Bill to  | The bill to will be displayed on the invoices generated for the billing profile. |
     |Email invoice   | Check the email invoice box to receive the invoices for this billing profile by email. If you don't opt in, you can view and download the invoices in the Azure portal.|
 
 5. Select **Create**.
@@ -153,10 +157,6 @@ Once you have customized your billing account based on your needs, you can link 
 
 If you have existing Azure subscriptions or other products such as Azure Marketplace and App source resources, you can move them from their existing invoice section to another invoice section to reorganize your costs.
 
-> [!IMPORTANT]
->
-> Subscriptions and other products can only be moved between invoice sections that belong to the same billing profile. Moving subscriptions and products across invoice sections in different billing profiles is not supported.
-
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search for **Cost Management + Billing**.
@@ -165,11 +165,11 @@ If you have existing Azure subscriptions or other products such as Azure Marketp
 
 3. To link a subscription to a new invoice section, select **Azure subscriptions** from the left-side of the screen. For other products such as Azure Marketplace and App source resources, select **Recurring charges**.
 
-   [![Screenshot that shows the option to change invoice section](./media/mca-section-invoice/mca-select-change-invoice-section.png)](./media/mca-section-invoice/mca-select-change-invoice-section.png#lightbox)
+   [![Screenshot that shows the option to change invoice section](./media/mca-section-invoice/mca-select-change-invoice-section.png)](./media/mca-section-invoice/mca-select-change-invoice-section-zoomed-in.png#lightbox)
 
 4. In the page, click on ellipsis (three dots) for the subscription or product that you want to link to a new invoice section. Select **Change invoice section**.
 
-5. Select the new invoice section from the dropdown. The dropdown will only show invoice sections that are associated with the same billing profile as the existing invoice section.
+5. Select the new billing profile and the invoice section from the dropdown.
 
     [![Screenshot that shows selecting a new invoice section](./media/mca-section-invoice/mca-select-new-invoice-section.png)](./media/mca-section-invoice/mca-select-new-invoice-section-zoomed-in.png#lightbox)
 

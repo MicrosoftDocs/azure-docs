@@ -2,7 +2,8 @@
 title: Back up and recover Azure VMs with PowerShell
 description: Describes how to back up and recover Azure VMs using Azure Backup with PowerShell
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 09/11/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Back up and restore Azure VMs with PowerShell
@@ -394,12 +395,23 @@ $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -Workl
 Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID
 ````
 
+### Resume backup
+
+If the protection is stopped and the backup data is retained, you can resume the protection once more. You have to assign a policy for the renewed protection. The cmdlet is same as that of [change policy of backup items](#change-policy-for-backup-items).
+
+````powershell
+$TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName> -VaultId $targetVault.ID
+$anotherBkpItem = Get-AzRecoveryServicesBackupItem -WorkloadType AzureVM -BackupManagementType AzureVM -Name "<BackupItemName>" -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Item $anotherBkpItem -Policy $TargetPol1 -VaultId $targetVault.ID
+````
+
 #### Delete backup data
 
 To completely remove the stored backup data in the vault,  add the '-RemoveRecoveryPoints' flag/switch to the ['disable' protection command](#retain-data).
 
 ````powershell
 Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID -RemoveRecoveryPoints
+
 ````
 
 ## Restore an Azure VM
@@ -618,7 +630,7 @@ The template isn't directly accessible since it's under a customer's storage acc
 3. Deploy the template to create a new VM as explained [here](../azure-resource-manager/templates/deploy-powershell.md).
 
     ```powershell
-    New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobFullURI -storageAccountType Standard_GRS
+    New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobFullURI
     ```
 
 ### Create a VM using the config file

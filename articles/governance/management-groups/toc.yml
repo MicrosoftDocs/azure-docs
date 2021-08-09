@@ -61,13 +61,13 @@
   - name: Azure SDK for Python
     href: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
   - name: REST
-    href: /rest/api/resources/managementgroups
+    href: /rest/api/managementgroups
   - name: Resource Manager templates
     href: /azure/templates/microsoft.management/managementgroups
 - name: Resources
   items:
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice

@@ -3,12 +3,12 @@ title: Tutorial to order Azure Data Box | Microsoft Docs
 description: In this tutorial, learn about Azure Data Box, a hybrid solution that allows you to import on-premises data into Azure, and how to order Azure Data Box.
 services: databox
 author: v-dalc
-
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/13/2021
-ms.author: alkohli
+ms.date: 07/22/2021
+ms.author: alkohli 
+ms.custom: devx-track-azurepowershell
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Order Azure Data Box
@@ -23,6 +23,9 @@ This tutorial describes how you can order an Azure Data Box. In this tutorial, y
 > * Order a Data Box
 > * Track the order
 > * Cancel the order
+
+> [!NOTE]
+> To get answers to frequently asked questions about Data Box orders and shipments, see [Data Box FAQ](data-box-faq.yml).
 
 ## Prerequisites
 
@@ -55,7 +58,7 @@ Before you begin, make sure that:
 
 **Sign in to Azure**
 
-Open up a Windows PowerShell command window and sign in to Azure with the [az login](/cli/azure/reference-index#az-login) command:
+Open up a Windows PowerShell command window and sign in to Azure with the [az login](/cli/azure/reference-index#az_login) command:
 
 ```azurecli
 PS C:\Windows> az login
@@ -160,7 +163,7 @@ You will see the following output:
     WSManStackVersion              3.0
 ```
 
-If your version is lower than 6.2.4, you need to upgrade your version of Windows PowerShell. To install the latest version of Windows PowerShell, see [Install Azure PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7&preserve-view=true).
+If your version is lower than 6.2.4, you need to upgrade your version of Windows PowerShell. To install the latest version of Windows PowerShell, see [Install Azure PowerShell](/powershell/scripting/install/installing-powershell).
 
 **Install Azure PowerShell and Data Box modules**
 
@@ -351,22 +354,34 @@ Do the following steps in the Azure portal to order a device.
     ![Expanded Bring your own password options for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
 
    - To use your own password for your new device, by **Set preference for the device password**, select **Use your own password**, and type a password that meets the security requirements.
+     
+     The password must be alphanumeric and contain from 12 to 15 characters, with at least one uppercase letter, one lowercase letter, one special character, and one number. 
+
+     - Allowed special characters: @ # - $ % ^ ! + = ; : _ ( )
+     - Characters not allowed: I i L o O 0
    
      ![Options for using your own device password on the Security screen for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
  - To use your own passwords for shares:
 
-   - By **Set preference for share passwords**, select **Use your own passwords** and then **Select passwords for the shares**.
+   1. By **Set preference for share passwords**, select **Use your own passwords** and then **Select passwords for the shares**.
      
-        ![Options for using your own share passwords on the Security screen for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+       ![Options for using your own share passwords on the Security screen for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
 
-    - Type a password for each storage account in the order. The password will be used on all shares for the storage account.
-     
-        To use the same password for all of the storage accounts, select **Copy to all**. When you finish, select **Save**.
-     
-        ![Screen for entering share passwords for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+    1. Type a password for each storage account in the order. The password will be used on all shares for the storage account.
+    
+       The password must be alphanumeric and contain from 12 to 64 characters, with at least one uppercase letter, one lowercase letter, one special character, and one number.
 
-       On the **Security** screen, you can use **View or change passwords** to change the passwords.
+       - Allowed special characters: @ # - $ % ^ ! + = ; : _ ( )
+       - Characters not allowed: I i L o O 0
+     
+    1. To use the same password for all of the storage accounts, select **Copy to all**. 
+
+    1. When you finish, select **Save**.
+     
+       ![Screen for entering share passwords for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+
+    On the **Security** screen, you can use **View or change passwords** to change the passwords.
 
 16. In **Security**, if you want to enable software-based double encryption, expand **Double-encryption (for highly secure environments)**, and select **Enable double encryption for the order**.
 
@@ -433,7 +448,7 @@ Do the following steps using Azure CLI to order a device:
    |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query <string>|
    |verbose| Include verbose logging. | --verbose |
 
-2. In your command-prompt of choice or terminal, run [az data box job create](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create&preserve-view=true) to create your Azure Data Box order.
+2. In your command-prompt of choice or terminal, run [az data box job create](/cli/azure/databox/job#az_databox_job_create) to create your Azure Data Box order.
 
    ```azurecli
    az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
@@ -601,7 +616,7 @@ Microsoft then prepares and dispatches your device via a regional carrier. You r
 
 ### Track a single order
 
-To get tracking information about a single, existing Azure Data Box order, run [`az databox job show`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true). The command displays information about the order such as, but not limited to: name, resource group, tracking information, subscription ID, contact information, shipment type, and device sku.
+To get tracking information about a single, existing Azure Data Box order, run [`az databox job show`](/cli/azure/databox/job#az_databox_job_show). The command displays information about the order such as, but not limited to: name, resource group, tracking information, subscription ID, contact information, shipment type, and device sku.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -642,7 +657,7 @@ To get tracking information about a single, existing Azure Data Box order, run [
 
 ### List all orders
 
-If you have ordered multiple devices, you can run [`az databox job list`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) to view all your Azure Data Box orders. The command lists all orders that belong to a specific resource group. Also displayed in the output: order name, shipping status, Azure region, delivery type, order status. Canceled orders are also included in the list.
+If you have ordered multiple devices, you can run [`az databox job list`](/cli/azure/databox/job#az_databox_job_list) to view all your Azure Data Box orders. The command lists all orders that belong to a specific resource group. Also displayed in the output: order name, shipping status, Azure region, delivery type, order status. Canceled orders are also included in the list.
 The command also displays time stamps of each order.
 
 ```azurecli
@@ -761,7 +776,7 @@ To delete a canceled order, go to **Overview** and select **Delete** from the co
 
 ### Cancel an order
 
-To cancel an Azure Data Box order, run [`az databox job cancel`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true). You are required to specify your reason for canceling the order.
+To cancel an Azure Data Box order, run [`az databox job cancel`](/cli/azure/databox/job#az_databox_job_cancel). You are required to specify your reason for canceling the order.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -774,7 +789,7 @@ To cancel an Azure Data Box order, run [`az databox job cancel`](/cli/azure/ext/
    |resource-group [Required]| The name of the resource group associated with the order to be deleted. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
    |name [Required]| The name of the order to be deleted. | "mydataboxorder"|
    |reason [Required]| The reason for canceling the order. | "I entered erroneous information and needed to cancel the order." |
-   |yes| Do not prompt for confirmation. | --yes (-y)| --yes -y |
+   |yes| Do not prompt for confirmation. | --yes (-y)| 
    |debug| Include debugging information to verbose logging | --debug |
    |help| Display help information for this command. | --help -h |
    |only-show-errors| Only show errors, suppressing warnings. | --only-show-errors |
@@ -798,7 +813,7 @@ To cancel an Azure Data Box order, run [`az databox job cancel`](/cli/azure/ext/
 
 ### Delete an order
 
-If you have canceled an Azure Data Box order, you can run [`az databox job delete`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) to delete the order.
+If you have canceled an Azure Data Box order, you can run [`az databox job delete`](/cli/azure/databox/job#az_databox_job_delete) to delete the order.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
@@ -811,7 +826,7 @@ If you have canceled an Azure Data Box order, you can run [`az databox job delet
    |resource-group [Required]| The name of the resource group associated with the order to be deleted. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
    |name [Required]| The name of the order to be deleted. | "mydataboxorder"|
    |subscription| The name or ID (GUID) of your Azure subscription. | "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" |
-   |yes| Do not prompt for confirmation. | --yes (-y)| --yes -y |
+   |yes| Do not prompt for confirmation. | --yes (-y)|
    |debug| Include debugging information to verbose logging | --debug |
    |help| Display help information for this command. | --help -h |
    |only-show-errors| Only show errors, suppressing warnings. | --only-show-errors |

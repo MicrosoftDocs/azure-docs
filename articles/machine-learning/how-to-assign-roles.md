@@ -5,11 +5,11 @@ description: Learn how to access to an Azure Machine Learning workspace using Az
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
-ms.date: 01/20/2020
+ms.date: 03/26/2021
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
 
 ---
@@ -24,7 +24,7 @@ In this article, you learn how to manage access (authorization) to an Azure Mach
 >
 > * [Control access to Azure Kubernetes cluster resources](../aks/azure-ad-rbac.md)
 > * [Use Azure RBAC for Kubernetes authorization](../aks/manage-azure-rbac.md)
-> * [Use Azure RBAC for access to blob data](../storage/common/storage-auth-aad-rbac-portal.md)
+> * [Use Azure RBAC for access to blob data](../storage/blobs/assign-azure-role-data-access.md)
 
 > [!WARNING]
 > Applying some roles may limit UI functionality in Azure Machine Learning studio for other users. For example, if a user's role does not have the ability to create a compute instance, the option to create a compute instance will not be available in studio. This behavior is expected, and prevents the user from attempting operations that would return an access denied error.
@@ -118,7 +118,7 @@ az role definition create --role-definition data_scientist_role.json
 After deployment, this role becomes available in the specified workspace. Now you can add and assign this role in the Azure portal. Or, you can assign this role to a user by using the `az ml workspace share` CLI command:
 
 ```azurecli-interactive
-az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
+az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist Custom" --user jdoe@contoson.com
 ```
 
 For more information on custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md). 
@@ -160,7 +160,7 @@ You need to have permissions on the entire scope of your new role definition. Fo
 
 ## Use Azure Resource Manager templates for repeatability
 
-If you anticipate that you will need to recreate complex role assignments, an Azure Resource Manager template can be a big help. The [201-machine-learning-dependencies-role-assignment template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-dependencies-role-assignment) shows how role assignments can be specified in source code for reuse. 
+If you anticipate that you will need to recreate complex role assignments, an Azure Resource Manager template can be a big help. The [machine-learning-dependencies-role-assignment template](https://github.com/Azure/azure-quickstart-templates/tree/master//quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment) shows how role assignments can be specified in source code for reuse. 
 
 ## Common scenarios
 
@@ -179,7 +179,7 @@ The following table is a summary of Azure Machine Learning activities and the pe
 | Publishing pipelines and endpoints | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | Deploying a registered model on an AKS/ACI resource | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | Scoring against a deployed AKS endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (when you are not using Azure Active Directory auth) OR `"/workspaces/read"` (when you are using token auth) |
-| Accessing storage using interactive notebooks | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
+| Accessing storage using interactive notebooks | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listStorageAccountKeys/action"` |
 | Create new custom role | Owner, contributor, or custom role allowing `Microsoft.Authorization/roleDefinitions/write` | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
 
 > [!TIP]
@@ -200,8 +200,8 @@ To perform MLflow operations with your Azure Machine Learning workspace, use the
 | Delete an experiment | `Microsoft.MachineLearningServices/workspaces/experiments/delete` |
 | Get a run and related data and metadata, get a list of all values for the specified metric for a given run, list artifacts for a run | `Microsoft.MachineLearningServices/workspaces/experiments/runs/read` |
 | Create a new run within an experiment, delete runs, restore deleted runs, log metrics under the current run, set tags on a run, delete tags on a run, log params (key-value pair) used for a run, log a batch of metrics, params, and tags for a run, update run status | `Microsoft.MachineLearningServices/workspaces/experiments/runs/write` |
-| Get registered model by name, fetch a list of all registered models in the registry, search for registered models, latest version models for each requests stage, get a registered model’s version, search model versions, get URI where a model version’s artifacts are stored, search for runs by experiment ids | `Microsoft.MachineLearningServices/workspaces/models/read` |
-| Create a new registered model, update a registered model’s name/description, rename existing registered model, create new version of the model, update a model version’s description, transition a registered model to one of the stages | `Microsoft.MachineLearningServices/workspaces/models/write` |
+| Get registered model by name, fetch a list of all registered models in the registry, search for registered models, latest version models for each requests stage, get a registered model's version, search model versions, get URI where a model version's artifacts are stored, search for runs by experiment ids | `Microsoft.MachineLearningServices/workspaces/models/read` |
+| Create a new registered model, update a registered model's name/description, rename existing registered model, create new version of the model, update a model version's description, transition a registered model to one of the stages | `Microsoft.MachineLearningServices/workspaces/models/write` |
 | Delete a registered model along with all its version, delete specific versions of a registered model | `Microsoft.MachineLearningServices/workspaces/models/delete` |
 
 <a id="customroles"></a>
@@ -450,6 +450,42 @@ Allows you to define a role scoped only to labeling data:
 }
 ```
 
+### Labeling Team Lead
+
+Allows you to review and reject the labeled dataset and view labeling insights. In addition to it, this role also allows you to perform the role of a labeler.
+
+`labeling_team_lead_custom_role.json` :
+```json
+{
+    "properties": {
+        "roleName": "Labeling Team Lead",
+        "description": "Team lead for Labeling Projects",
+        "assignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.MachineLearningServices/workspaces/read",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/write",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
+                ],
+                "notActions": [
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/write",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/delete",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/export/action"
+                ],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
 ## Troubleshooting
 
 Here are a few things to be aware of while you use Azure role-based access control (Azure RBAC):
@@ -461,12 +497,13 @@ Here are a few things to be aware of while you use Azure role-based access contr
 - When there are two role assignments to the same Azure Active Directory user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take effect if they are also listed as Actions in another role. To learn more about how Azure parses role assignments, read [How Azure RBAC determines if a user has access to a resource](../role-based-access-control/overview.md#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
 
 - To deploy your compute resources inside a VNet, you need to explicitly have permissions for the following actions:
-    - `Microsoft.Network/virtualNetworks/join/action` on the VNet resource.
-    - `Microsoft.Network/virtualNetworks/subnet/join/action` on the subnet resource.
+    - `Microsoft.Network/virtualNetworks/*/read` on the VNet resources.
+    - `Microsoft.Network/virtualNetworks/subnets/join/action` on the subnet resource.
     
     For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking).
 
 - It can sometimes take up to 1 hour for your new role assignments to take effect over cached permissions across the stack.
+- [Conditional access](../role-based-access-control/conditional-access-azure-management.md) is currently not supported with Azure Machine Learning.
 
 ## Next steps
 

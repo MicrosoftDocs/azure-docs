@@ -3,7 +3,7 @@ title: Create a VM from a specialized image version using the Azure CLI
 description: Create a VM using a specialized image version in a Shared Image Gallery using the Azure CLI.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/23/2020
@@ -18,7 +18,7 @@ Create a VM from a [specialized image version](./shared-image-galleries.md#gener
 
 Replace resource names as needed in this example. 
 
-List the image definitions in a gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list) to see the name and ID of the definitions.
+List the image definitions in a gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list) to see the name and ID of the definitions.
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -30,7 +30,7 @@ az sig image-definition list \
    --output tsv
 ```
 
-Create the VM using [az vm create](/cli/azure/vm#az-vm-create) using the --specialized parameter to indicate the the image is a specialized image. 
+Create the VM using [az vm create](/cli/azure/vm#az_vm_create) using the --specialized parameter to indicate the the image is a specialized image. 
 
 Use the image definition ID for `--image` to create the VM from the latest version of the image that is available. You can also create the VM from a specific version by supplying the image version ID for `--image`. 
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location eastus
 az vm create --resource-group myResourceGroup \
     --name myVM \
     --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
-	--specialized
+    --specialized
 ```
 
 
@@ -50,7 +50,6 @@ az vm create --resource-group myResourceGroup \
 
 You can also create Shared Image Gallery resource using templates. There are several Azure Quickstart Templates available: 
 
-- [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-create/)
-- [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
-- [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [Create a VM from Image Version](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
+- [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)

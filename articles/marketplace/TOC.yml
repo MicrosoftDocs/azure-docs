@@ -3,22 +3,44 @@
   items:
 - name: About the commercial marketplace
   href: overview.md
+- name: What's new
+  href: what-is-new.md  
 - name: Account management
   items:
-  - name: Create a new Partner Center account
-    href: partner-center-portal/create-account.md
-  - name: Manage your account
-    href: partner-center-portal/manage-account.md
-  - name: Find or create a company work account
-    href: partner-center-portal/company-work-accounts.md  
-  - name: Account migration from CPP to Partner Center
-    href: partner-center-portal/account-migration-from-cpp-to-pc.md 
+  - name: General account management
+    items:
+    - name: Create a new Partner Center account
+      href: create-account.md
+    - name: Add new publishers
+      href: add-publishers.md  
+    - name: Manage your account
+      href: manage-account.md
+    - name: Switch accounts
+      href: switch-accounts.md
+    - name: Manage tenants
+      href: manage-tenants.md    
+    - name: Find or create a company work account
+      href: company-work-accounts.md
+    - name: Notifying Microsoft
+      href: submit-legal-notice.md
+  - name: Manage users
+    items:
+    - name: Add and manage users
+      href: add-manage-users.md
+    - name: Assign user roles
+      href: user-roles.md  
+    - name: Manage groups
+      href: manage-groups.md
+    - name: Add and manage Azure AD applications
+      href: manage-aad-apps.md  
 - name: Concepts
   items: 
   - name: Listing options
     href: determine-your-listing-type.md
   - name: Transacting in the commercial marketplace
     href: marketplace-commercial-transaction-capabilities-and-considerations.md
+  - name: License management
+    href: isv-app-license.md
   - name: Private offers
     href: private-offers.md
   - name: Plans and pricing
@@ -47,24 +69,28 @@
     items:
     - name: Your marketplace benefits
       href: gtm-your-marketplace-benefits.md 
-    - name: Co-sell partner engagement
-      href: marketplace-co-sell.md 
-    - name: Co-sell option in Partner Center
-      href: commercial-marketplace-co-sell.md 
+    - name: Co-sell with Microsoft overview
+      href: co-sell-overview.md
+    - name: Configure co-sell
+      href: co-sell-configure.md
+    - name: Co-sell requirements
+      href: co-sell-requirements.md
+    - name: Verify co-sell status
+      href: co-sell-status.md
     - name: Migrate co-sell solutions from OCP GTM
       href: co-sell-solution-migration.md 
     - name: Resell through CSP Partners
       href: cloud-solution-providers.md  
     - name: Connect Program onboarding guide  
       href: business-applications-isv-program.md
-    - name: Azure consumption commitment benefit
-      href: azure-consumption-commitment-benefit.md
+    - name: Azure consumption commitment enrollment
+      href: azure-consumption-commitment-enrollment.md
     - name: Preferred solutions
-      href: preferred-solutions.md
+      href: preferred-solution.md
     - name: Integrated solutions
       href: integrated-solutions-for-publishers.md
   - name: Activate marketplace rewards
-    href: partner-center-portal/marketplace-rewards.md
+    href: marketplace-rewards.md
   - name: Getting paid
     items:
     - name: Getting paid
@@ -85,145 +111,237 @@
   items:
   - name: Publishing guide by offer type
     href: publisher-guide-by-offer-type.md 
-  - name: Azure application offers
+  - name: Azure application offer
     items:
-    - name: Plan Azure application offers
+    - name: Plan the offer
       items:
-      - name: Plan an Azure application offer
+      - name: Plan the offer
         href: plan-azure-application-offer.md
       - name: Plan a solution template
         href: plan-azure-app-solution-template.md
       - name: Plan a managed application
         href: plan-azure-app-managed-app.md
-    - name: Create and publish an Azure application offer
+    - name: Create the offer
       items:
-      - name: Create an Azure application offer
-        href: create-new-azure-apps-offer.md
-      - name: Configure Azure application offer properties
-        href: create-new-azure-apps-offer-properties.md
-      - name: Configure Azure application offer listing
-        href: create-new-azure-apps-offer-listing.md
-      - name: Add a preview audience
-        href: create-new-azure-apps-offer-preview.md
-      - name: Add technical details
-        href: create-new-azure-apps-offer-technical.md
-      - name: Create plans
-        href: create-new-azure-apps-offer-plans.md
-      - name: Create solution template plan
-        href: create-new-azure-apps-offer-solution.md
-      - name: Create managed application plan
-        href: create-new-azure-apps-offer-managed.md
-      - name: Test and publish an Azure application offer
-        href: create-new-azure-apps-offer-test-publish.md
-    - name: Market your Azure application offer
-      href: create-new-azure-apps-offer-marketing.md
-    - name: Azure application metered billing
-      href: partner-center-portal/azure-app-metered-billing.md
+      - name: Create the offer
+        href: azure-app-offer-setup.md
+      - name: Properties
+        href: azure-app-properties.md
+      - name: Offer listing
+        href: azure-app-offer-listing.md
+      - name: Preview audience
+        href: azure-app-preview.md
+      - name: Technical details
+        href: azure-app-technical-configuration.md
+      - name: Plans
+        items:
+        - name: Create a plan
+          href: azure-app-plans.md
+        - name: Solution template plan
+          href: azure-app-solution.md
+        - name: Managed application plan
+          href: azure-app-managed.md
+    - name: Test and publish
+      href: azure-app-test-publish.md
+    - name: Market your offer
+      href: azure-app-marketing.md
+    - name: Metered billing
+      href: marketplace-metering-service-apis.md
     - name: Handling review feedback
-      href: partner-center-portal/azure-apps-review-feedback.md
-    - name: Azure application APIs
-      href: partner-center-portal/azure-app-apis.md
-  - name: Azure Container offers
+      href: azure-app-review-feedback.md
+    - name: Application APIs
+      href: azure-app-apis.md
+  - name: Azure Container offer
     items: 
-    - name: Plan an Azure Container offer
-      href: marketplace-containers.md
-    - name: Prepare technical assets
-      href: create-azure-container-technical-assets.md
-    - name: Create and publish an Azure Container offer
+    - name: Plan the offer
       items:
-      - name: Create an Azure Container offer
-        href: create-azure-container-offer.md
+      - name: Plan the offer
+        href: marketplace-containers.md
+      - name: Prepare technical assets
+        href: azure-container-technical-assets.md
+    - name: Create the offer
+      items:
+      - name: Create the offer
+        href: azure-container-offer-setup.md
+      - name: Properties
+        href: azure-container-properties.md
+      - name: Offer listing
+        href: azure-container-offer-listing.md
+      - name: Preview audience
+        href: azure-container-preview-audience.md
+      - name: Plans
+        items: 
+        - name: Plan overview
+          href: azure-container-plan-overview.md
+        - name: Plan setup
+          href: azure-container-plan-setup.md
+        - name: Plan listing
+          href: azure-container-plan-listing.md
+        - name: Plan availability
+          href: azure-container-plan-availability.md
+        - name: Plan technical configuration
+          href: azure-container-plan-technical-configuration.md
   - name: Azure virtual machine offers
     items:
-    - name: Plan a VM offer
+    - name: Plan the offer
       href: marketplace-virtual-machines.md
-    - name: Create and publish a VM offer
+    - name: Create the offer
       items:
-      - name: Create a VM offer
+      - name: Create the offer
         href: azure-vm-create.md
-      - name: Configure VM offer properties
+      - name: Properties
         href: azure-vm-create-properties.md
-      - name: Configure VM offer listing
+      - name: Offer listing
         href: azure-vm-create-listing.md
-      - name: Add a preview audience
+      - name: Preview audience
         href: azure-vm-create-preview.md
-      - name: Create VM plans
+      - name: Plans
         href: azure-vm-create-plans.md
-      - name: Resell through CSPs
-        href: azure-vm-create-resell-csp.md
-      - name: Create VM technical assets
-        items:
-        - name: Create VM from an approved base
-          href: azure-vm-create-using-approved-base.md
-        - name: Create VM using your own image
-          href: azure-vm-create-using-own-image.md
-        - name: Test a VM image
-          href: azure-vm-image-test.md
-        - name: Get SAS URI
-          href: azure-vm-get-sas-uri.md
-        - name: SAS failure messages
-          href: azure-vm-sas-failure-messages.md
-        - name: VM creation FAQ
-          href: azure-vm-create-faq.md
-        - name: VM certification troubleshooting
-          href: azure-vm-create-certification-faq.md
-  - name: Consulting services
+    - name: Resell through CSPs
+      href: azure-vm-create-resell-csp.md
+    - name: Create technical assets
+      items:
+      - name: Create VM from an approved base
+        href: azure-vm-create-using-approved-base.md
+      - name: Create VM using your own image
+        href: azure-vm-create-using-own-image.md
+      - name: Test a VM image
+        href: azure-vm-image-test.md
+      - name: Get SAS URI
+        href: azure-vm-get-sas-uri.md
+      - name: SAS failure messages
+        href: azure-vm-sas-failure-messages.md
+      - name: VM creation FAQ
+        href: azure-vm-create-faq.yml
+      - name: VM certification troubleshooting
+        href: azure-vm-create-certification-faq.yml
+  - name: Consulting services offer
     items: 
-    - name: Plan a consulting service offer
+    - name: Plan the offer
       href: plan-consulting-service-offer.md
-    - name: Create a consulting service offer
+    - name: Create the offer
       href: create-consulting-service-offer.md
-    - name: Configure consulting service properties
+    - name: Properties
       href: create-consulting-service-offer-properties.md
-    - name: Configure consulting service listing
+    - name: Offer listing
       href: create-consulting-service-offer-listing.md
-    - name: Configure pricing and availability
+    - name: Pricing and availability
       href: create-consulting-service-pricing-availability.md
   - name: Dynamics 365 offers
     items: 
-    - name: Plan a Dynamics 365 offer
-      href: appsource-offer-publishing-guide.md
-    - name: Create and publish a Dynamics 365 offer
-      items:
-      - name: Create a Dynamics 365 Customer Engagement & Power Apps offer
-        href: partner-center-portal/create-new-customer-engagement-offer.md
-      - name: Create a Dynamics 365 for Operations offer
-        items: 
-        - name: Create a Dynamics 365 for Operations offer
-          href: partner-center-portal/create-new-operations-offer.md
-        - name: Functional validation
-          href: dynamics-365-finance-operations-functional-validation.md
-      - name: Create a Dynamics 365 Business Central offer
-        href: partner-center-portal/create-new-business-central-offer.md
-  - name: IoT Edge module offers
-    items:
-    - name: Plan an IoT Edge module offer
-      href: iot-edge-module.md
-    - name: Create an IoT Edge module offer
-      href: partner-center-portal/azure-iot-edge-module-creation.md
-    - name: Prepare IoT Edge module technical assets
-      href: partner-center-portal/create-iot-edge-module-asset.md
+    - name: Plan your offer
+      href: marketplace-dynamics-365.md
+    - name: Create a Customer Engagement & Power Apps offer
+      items: 
+      - name: Create the offer
+        href: dynamics-365-customer-engage-offer-setup.md
+      - name: Properties
+        href: dynamics-365-customer-engage-properties.md
+      - name: Offer listing
+        href: dynamics-365-customer-engage-offer-listing.md
+      - name: Availability
+        href: dynamics-365-customer-engage-availability.md
+      - name: Plans
+        href: dynamics-365-customer-engage-plans.md  
+      - name: Technical configuration
+        href: dynamics-365-customer-engage-technical-configuration.md
+      - name: Supplemental content
+        href: dynamics-365-customer-engage-supplemental-content.md
+    - name: Create an Operations offer
+      items: 
+      - name: Create the offer
+        href: dynamics-365-operations-offer-setup.md
+      - name: Properties
+        href: dynamics-365-operations-properties.md
+      - name: Offer listing
+        href: dynamics-365-operations-offer-listing.md
+      - name: Availability
+        href: dynamics-365-operations-availability.md
+      - name: Technical configuration
+        href: dynamics-365-operations-technical-configuration.md
+      - name: Supplemental content
+        href: dynamics-365-operations-supplemental-content.md
+      - name: Functional validation
+        href: dynamics-365-operations-validation.md
+    - name: Create a Business Central offer
+      items: 
+      - name: Create the offer
+        href: dynamics-365-business-central-offer-setup.md
+      - name: Properties
+        href: dynamics-365-business-central-properties.md
+      - name: Offer listing
+        href: dynamics-365-business-central-offer-listing.md
+      - name: Availability
+        href: dynamics-365-business-central-availability.md
+      - name: Technical configuration
+        href: dynamics-365-business-central-technical-configuration.md
+      - name: Supplemental content
+        href: dynamics-365-business-central-supplemental-content.md
+    - name: Review and publish
+      href: dynamics-365-review-publish.md
+  - name: IoT Edge Module offer
+    items: 
+    - name: Plan the offer
+      items: 
+      - name: Plan the offer
+        href: marketplace-iot-edge.md
+      - name: Prepare technical assets
+        href: iot-edge-technical-asset.md
+    - name: Create the offer
+      items: 
+      - name: Create the offer
+        href: iot-edge-offer-setup.md
+      - name: Properties
+        href: iot-edge-properties.md
+      - name: Offer listing
+        href: iot-edge-offer-listing.md
+      - name: Preview audience
+        href: iot-edge-preview-audience.md
+      - name: Create plans
+        items:
+        - name: Plan overview
+          href: iot-edge-plan-overview.md
+        - name: Plan setup
+          href: iot-edge-plan-setup.md
+        - name: Plan listing
+          href: iot-edge-plan-listing.md
+        - name: Plan availability
+          href: iot-edge-plan-availability.md
+        - name: Plan technical configuration
+          href: iot-edge-plan-technical-configuration.md
   - name: Managed Service offers
     items:
-    - name: Plan a Managed Service offer
+    - name: Plan the offer
       href: plan-managed-service-offer.md
-    - name: Create a Managed Service offer
+    - name: Create the offer
       href: create-managed-service-offer.md
-    - name: Configure Managed Service listing
+    - name: Properties
+      href: create-managed-service-offer-properties.md
+    - name: Offer listing
       href: create-managed-service-offer-listing.md
-    - name: Add a preview audience
+    - name: Preview audience
       href: create-managed-service-offer-preview.md
     - name: Create plans
       href: create-managed-service-offer-plans.md
   - name: Power BI app offers
     items:
-    - name: Plan a Power BI app offer
-      href: partner-center-portal/create-power-bi-app-overview.md
-    - name: Create a Power BI app offer
-      href: partner-center-portal/create-power-bi-app-offer.md
+    - name: Plan the offer
+      href: marketplace-power-bi.md
+    - name: Create the offer
+      items:
+      - name: Offer setup
+        href: power-bi-app-offer-setup.md
+      - name: Properties
+        href: power-bi-app-properties.md
+      - name: Offer listing
+        href: power-bi-app-offer-listing.md
+      - name: Technical configuration
+        href: power-bi-app-technical-configuration.md
+      - name: Supplemental content
+        href: power-bi-app-supplemental-content.md
   - name: SaaS offers
     items:
-    - name: Plan a SaaS offer
+    - name: Plan the offer
       href: plan-saas-offer.md
     - name: Azure AD auth for SaaS
       items:
@@ -235,28 +353,30 @@
           href: azure-ad-free-or-trial-landing-page.md
     - name: SaaS metered billing
       href: partner-center-portal/saas-metered-billing.md  
-    - name: Create and publish a SaaS offer
+    - name: Create the offer
       items:
-      - name: Create a SaaS offer 
+      - name: Create the offer 
         href: create-new-saas-offer.md
-      - name: Configure SaaS offer properties
+      - name: Properties
         href: create-new-saas-offer-properties.md  
-      - name: Configure SaaS offer listing
+      - name: Offer listing
         href: create-new-saas-offer-listing.md
-      - name: Add a preview audience
+      - name: Preview audience
         href: create-new-saas-offer-preview.md
-      - name: Add technical details
+      - name: Technical details
         href: create-new-saas-offer-technical.md  
-      - name: Create plans
-        href: create-new-saas-offer-plans.md        
-      - name: Test and publish a SaaS offer
+      - name: Plans
+        href: create-new-saas-offer-plans.md
+      - name: Create a test SaaS offer
+        href: create-saas-dev-test-offer.md          
+      - name: Test and publish
         href: test-publish-saas-offer.md
-    - name: Market your SaaS offer
+    - name: Market your offer
       href: create-new-saas-offer-marketing.md 
   - name: Review and publish offers
     href: review-publish-offer.md
   - name: Update existing offers
-    href: partner-center-portal/update-existing-offer.md   
+    href: update-existing-offer.md   
 - name: Sell and market your offers
   items: 
   - name: Marketing best practices
@@ -280,11 +400,11 @@
     - name: Salesforce
       href: partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md  
     - name: Lead management FAQ 
-      href: lead-management-faq.md
+      href: lead-management-faq.yml
 - name: Data and analytics
   items:
   - name: Commercial marketplace analytics 
-    href: partner-center-portal/analytics.md
+    href: analytics.md
   - name: Summary dashboard
     href: summary-dashboard.md
   - name: Orders dashboard
@@ -295,14 +415,58 @@
     href: customer-dashboard.md
   - name: Marketplace Insights dashboard
     href: insights-dashboard.md
+  - name: License dashboard
+    href: license-dashboard.md
   - name: Downloads dashboard
-    href: partner-center-portal/downloads-dashboard.md
+    href: downloads-dashboard.md
   - name: Ratings and reviews dashboard
-    href: partner-center-portal/ratings-reviews.md
-  - name: Anomaly detection for metered billing 
-    href: anomaly-detection.md    
-  - name: Analytics common questions 
-    href: analytics-faq.md 
+    href: ratings-reviews.md
+  - name: Programmatic access to analytics
+    items:
+    - name: Get started
+      href: analytics-get-started.md
+    - name: Prerequisites for programmatic analytics
+      href: analytics-prerequisites.md
+    - name: Programmatic access paradigm
+      href: analytics-programmatic-access.md
+    - name: Make your first API call
+      href: analytics-make-your-first-api-call.md
+    - name: List of system queries
+      href: analytics-system-queries.md
+    - name: Sample queries
+      href: analytics-sample-queries.md
+    - name: Sample application
+      href: analytics-sample-application.md
+    - name: Frequently asked questions
+      href: analytics-programmatic-faq.md
+    - name: Custom query specification
+      href: analytics-custom-query-specification.md
+    - name: Analytics APIs
+      items:
+      - name: Available APIs
+        href: analytics-available-apis.md
+      - name: Get all datasets
+        href: analytics-api-get-all-datasets.md
+      - name: Get report queries
+        href: analytics-api-get-report-queries.md
+      - name: Delete report queries
+        href: analytics-api-delete-report-queries.md
+      - name: Try report queries
+        href: analytics-api-try-report-queries.md
+      - name: Get report
+        href: analytics-api-get-report.md
+      - name: Update report
+        href: analytics-api-update-report.md
+      - name: Delete report
+        href: analytics-api-delete-report.md
+      - name: Pause report executions
+        href: analytics-api-pause-report-executions.md
+      - name: Resume report executions
+        href: analytics-api-resume-report-executions.md
+  - name: Manage metered billing anomalies
+    href: anomaly-detection.md
+  - name: Analytics common questions
+    href: analytics-faq.yml
 - name: Policies and terms
   items:    
   - name: About our policies and terms
@@ -313,8 +477,14 @@
     href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
   - name: Azure Marketplace terms
     href: /legal/marketplace/terms?context=/azure/marketplace/context/context
+  - name: Microsoft Publisher Agreement
+    href: /legal/marketplace/msft-publisher-agreement
+  - name: Change history for Microsoft Publisher Agreement
+    href: /legal/marketplace/mpa-change-history
 - name: Reference
   items:
+  - name: Guide to Marketplace APIs
+    href: marketplace-apis-guide.md
   - name: CPP API reference
     items:
     - name: CPP API overview
@@ -350,11 +520,11 @@
     - name: Anomaly detection service
       href: partner-center-portal/anomaly-detection-service-for-metered-billing.md
     - name: Authentication strategies
-      href: partner-center-portal/marketplace-metering-service-authentication.md
+      href: marketplace-metering-service-authentication.md
     - name: Marketplace metering service APIs
-      href: partner-center-portal/marketplace-metering-service-apis.md   
+      href: marketplace-metering-service-apis.md   
     - name: Marketplace metering service APIs - FAQ
-      href: partner-center-portal/marketplace-metering-service-apis-faq.md
+      href: marketplace-metering-service-apis-faq.yml
   - name: SaaS Fulfillment APIs
     items:
     - name: SaaS Fulfillment API overview
@@ -366,13 +536,13 @@
     - name: SaaS Fulfillment APIs v1 (deprecated)
       href: partner-center-portal/pc-saas-fulfillment-api-v1.md
     - name: SaaS fulfillment APIs - FAQ
-      href: partner-center-portal/saas-fulfillment-apis-faq.md 
+      href: partner-center-portal/saas-fulfillment-apis-faq.yml
 - name: Resources
   items:
   - name: Commercial marketplace FAQ
-    href: marketplace-faq-publisher-guide.md
+    href: marketplace-faq-publisher-guide.yml
   - name: Cloud Partner Portal migration FAQ
-    href: cloud-partner-portal-migration-faq.md 
+    href: cloud-partner-portal-migration-faq.yml
   - name: Business opportunity office hours
     href: https://aka.ms/marketplaceofficehours
   - name: Technical and publishing office hours
@@ -399,3 +569,5 @@
     href: categories.md  
   - name: Supported HTML tags
     href: supported-html-tags.md
+  - name: Reference architecture diagram
+    href: reference-architecture-diagram.md

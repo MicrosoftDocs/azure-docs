@@ -4,6 +4,7 @@ description: Technical deep dive on platform-supported migration of resources fr
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
+ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 12/17/2020
@@ -185,4 +186,4 @@ As part of migrating your resources from the classic deployment model to the Res
 * [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](../expressroute/expressroute-migration-classic-resource-manager.md)
 * [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-community-tools.md)
 * [Review most common migration errors](migration-classic-resource-manager-errors.md)
-* [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.md)
+* [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.yml)

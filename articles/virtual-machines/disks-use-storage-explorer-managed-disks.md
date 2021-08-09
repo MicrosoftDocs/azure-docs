@@ -5,7 +5,7 @@ author: roygara
 ms.author: rogarana
 ms.date: 09/25/2019
 ms.topic: how-to
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ---
 

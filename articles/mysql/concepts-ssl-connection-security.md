@@ -10,6 +10,8 @@ ms.date: 07/09/2020
 
 # SSL/TLS connectivity in Azure Database for MySQL
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 Azure Database for MySQL supports connecting your database server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
 
 > [!NOTE]
@@ -58,7 +60,7 @@ For example, setting the value of minimum TLS setting version to TLS 1.0 means y
 >
 > Once you enforce a minimum TLS version, you cannot later disable minimum version enforcement.
 
-To learn how to set the TLS setting for your Azure Database for MySQL, refer to [How to configure TLS setting](howto-tls-configurations.md).
+The minimum TLS version setting doesnt require any restart of the server can be set while the server is online. To learn how to set the TLS setting for your Azure Database for MySQL, refer to [How to configure TLS setting](howto-tls-configurations.md).
 
 ## Cipher support by Azure Database for MySQL Single server
 

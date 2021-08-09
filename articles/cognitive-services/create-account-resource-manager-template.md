@@ -7,9 +7,9 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 06/04/2021
 ms.author: aahi
-ms.custom: subject-armqs, devx-track-azurecli
+ms.custom: subject-armqs
 ---
 
 # Quickstart: Create a Cognitive Services resource using an ARM template
@@ -22,12 +22,13 @@ Create a resource using an Azure Resource Manager template (ARM template). This 
 
 * Access multiple Azure Cognitive Services with a single key and endpoint.
 * Consolidate billing from the services you use.
+* [!INCLUDE [terms-azure-portal](./includes/quickstarts/terms-azure-portal.md)]
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy your cognitive service to Azure](../media/template-deployments/deploy-to-azure.svg "Deploy your cognitive service to Azure")](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cognitive-services-universalkey%2Fazuredeploy.json)
+[![Deploy your cognitive service to Azure](../media/template-deployments/deploy-to-azure.svg "Deploy your cognitive service to Azure")](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.cognitiveservices%2Fcognitive-services-universalkey%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -35,9 +36,9 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-cognitive-services-universalkey/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/cognitive-services-universalkey/).
 
-:::code language="json" source="~/quickstart-templates/101-cognitive-services-universalkey/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.cognitiveservices/cognitive-services-universalkey/azuredeploy.json":::
 
 One Azure resource is defined in the template:
 * [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts): creates a Cognitive Services resource.
@@ -48,7 +49,7 @@ One Azure resource is defined in the template:
 
 1. Click the **Deploy to Azure** button.
 
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cognitive-services-universalkey%2Fazuredeploy.json)
+    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.cognitiveservices%2Fcognitive-services-universalkey%2Fazuredeploy.json)
 
 2. Enter the following values.
 
@@ -76,7 +77,7 @@ Run the following script using the Azure Command Line Interface (CLI) [On your l
 ```azurecli-interactive
 read -p "Enter a name for your new resource group:" resourceGroupName &&
 read -p "Enter the location (i.e. centralus):" location &&
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cognitive-services-universalkey/azuredeploy.json" &&
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.cognitiveservices/cognitive-services-universalkey/azuredeploy.json" &&
 az group create --name $resourceGroupName --location "$location" &&
 az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri &&
 echo "Press [ENTER] to continue ..." &&
@@ -86,7 +87,6 @@ read
 ---
 
 [!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
-
 
 ## Review deployed resources
 
@@ -132,9 +132,12 @@ az group delete --name $resourceGroupName
 
 ---
 
-## Next steps
+If you need to recover a deleted resource, see [Recover deleted Cognitive Services resources](manage-resources.md).
 
-* [Authenticate requests to Azure Cognitive Services](authentication.md)
-* [What is Azure Cognitive Services?](./what-are-cognitive-services.md)
-* [Natural language support](language-support.md)
-* [Docker container support](cognitive-services-container-support.md)
+## See also
+
+* See **[Authenticate requests to Azure Cognitive Services](authentication.md)** on how to securely work with Cognitive Services.
+* See **[What are Azure Cognitive Services?](./what-are-cognitive-services.md)** to get a list of different categories within Cognitive Services.
+* See **[Natural language support](language-support.md)** to see the list of natural languages that Cognitive Services supports.
+* See **[Use Cognitive Services as containers](cognitive-services-container-support.md)** to understand how to use Cognitive Services on-prem.
+* See **[Plan and manage costs for Cognitive Services](plan-manage-costs.md)** to estimate cost of using Cognitive Services.

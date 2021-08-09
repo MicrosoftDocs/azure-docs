@@ -38,9 +38,9 @@ landingContent:
         links:
           - text: Configure your external collaboration settings
             url: delegate-invitations.md
-          - text: Set up direct federation (preview)
+          - text: Set up SAML/WS-Fed IdP federation (preview)
             url: direct-federation.md
-          - text: Set up One-time passcodes (preview)
+          - text: Set up One-time passcodes
             url: one-time-passcode.md
           - text: Add and invite guest users
             url: add-users-administrator.md
@@ -66,7 +66,7 @@ landingContent:
         links:
           - text: Create user flows in Azure AD B2C
             url: ../../active-directory-b2c/tutorial-create-user-flows.md
-  - title: Self-service sign-up flows for B2B guest users (preview)
+  - title: Self-service sign-up flows for B2B guest users
     linkLists:
       - linkListType: overview
         links:

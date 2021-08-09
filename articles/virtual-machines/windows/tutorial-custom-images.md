@@ -2,13 +2,13 @@
 title: Tutorial - Create custom VM images with Azure PowerShell 
 description: In this tutorial, you learn how to use Azure PowerShell to create a Windows custom virtual machine image stored in an Azure Shared Image Gallery.
 author: cynthn
-ms.service: virtual-machines-windows
-ms.subservice: imaging
+ms.service: virtual-machines
+ms.subservice: shared-image-gallery
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 
 #Customer intent: As an IT administrator, I want to learn about how to create custom VM images to minimize the number of post-deployment configuration tasks.
 ---
@@ -90,7 +90,7 @@ $gallery = New-AzGallery `
 
 Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](../shared-image-galleries.md#image-definitions).
 
-Create the image definition using [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). In this example, the gallery image is named *myGalleryImage* and is created for a specialized image. 
+Create the image definition using [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimagedefinition). In this example, the gallery image is named *myGalleryImage* and is created for a specialized image. 
 
 ```azurepowershell-interactive
 $galleryImage = New-AzGalleryImageDefinition `

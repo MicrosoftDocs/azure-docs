@@ -15,13 +15,13 @@ This tutorial shows you how to use Azure IoT Central to create a connected waste
 Specifically, you learn how to: 
 
 > [!div class="checklist"]
-> Use the Azure IoT Central *Connected waste management* template to create your app.
-> Explore and customize the operator dashboard. 
-> Explore the connected waste bin device template.
-> Explore simulated devices.
-> Explore and configure rules.
-> Configure jobs.
-> Customize your application branding.
+> * Use the Azure IoT Central *Connected waste management* template to create your app.
+> * Explore and customize the dashboard. 
+> * Explore the connected waste bin device template.
+> * Explore simulated devices.
+> * Explore and configure rules.
+> * Configure jobs.
+> * Customize your application branding.
 
 ## Prerequisites
 
@@ -42,14 +42,12 @@ In this section, you use the Connected waste management template to create your 
     ![Screenshot of Azure IoT Central Build page.](./media/tutorial-connectedwastemanagement/iotcentral-government-tab-overview.png)
 
 1. Select the **Connected waste management** application template. 
-This template includes a sample connected waste bin device template, a simulated device, an operator dashboard, and preconfigured monitoring rules.    
+This template includes a sample connected waste bin device template, a simulated device, an dashboard, and preconfigured monitoring rules.    
 
 1. Select **Create app**, which opens the **New application** dialog box. Fill in the information for the following fields:
     * **Application name**. By default, the application uses **Connected waste management**, followed by a unique ID string that Azure IoT Central generates. Optionally, you can choose a friendly application name. You can change the application name later, too.
     * **URL**. Optionally, you can choose your desired URL. You can change the URL later. 
     * **Pricing plan**. If you have an Azure subscription, enter your directory, Azure subscription, and region in the appropriate fields of the **Billing info** dialog box. If you don't have a subscription, select **Free** to enable 7-day trial subscription, and complete the required contact information.  
-
-    For more information about directories and subscriptions, see [Quickstart - Create an Azure IoT Central application](../core/quick-deploy-iot-central.md).
 
 1. At the bottom of the page, select **Create**. 
 
@@ -59,7 +57,7 @@ This template includes a sample connected waste bin device template, a simulated
 
  
 Your newly created application comes with preconfigured:
-* Sample operator dashboards.
+* Sample dashboards.
 * Sample predefined connected waste bin device templates.
 * Simulated connected waste bin devices.
 * Rules and jobs.
@@ -67,7 +65,7 @@ Your newly created application comes with preconfigured:
 
 It's your application, and you can modify it anytime. Let's now explore the application and make some customizations.  
 
-## Explore and customize the operator dashboard 
+## Explore and customize the dashboard 
 
 Take a look at the **Wide World waste management dashboard**, which you see after creating your app.
 
@@ -86,7 +84,7 @@ The dashboard consists of different tiles:
 
 * **Fill level KPI tile**: This tile displays a value reported by a *fill level* sensor in a waste bin. Fill level and other sensors, like *odor meter* or *weight* in a waste bin, can be remotely monitored. An operator can take action, like dispatching a trash collection truck. 
 
-* **Waste monitoring area map**: This tile uses Azure Maps, which you can configure directly in Azure IoT Central. The map tile displays device location. Try to hover over the map and try the controls over the map, like zoom-in, zoom-out, or expand.
+* **Waste monitoring area map**: This tile uses Azure Maps, which you can configure directly in Azure IoT Central. The map tile displays device [location](../core/howto-use-location-data.md). Try to hover over the map and try the controls over the map, like zoom-in, zoom-out, or expand.
 
      ![Screenshot of Connected Waste Management Template Dashboard map.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
 

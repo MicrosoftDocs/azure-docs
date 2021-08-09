@@ -3,7 +3,7 @@ author: baanders
 description: include file for Azure Digital Twins limits
 ms.service: digital-twins
 ms.topic: include
-ms.date: 6/9/2020
+ms.date: 4/8/2021
 ms.author: baanders
 ---
 
@@ -12,7 +12,7 @@ ms.author: baanders
 The following table lists the functional limits of Azure Digital Twins. 
 
 > [!TIP]
-> For modeling recommendations to operate within these functional limits, see [Best practices for designing models](../articles/digital-twins/concepts-models.md#best-practices-for-designing-models).
+> For modeling recommendations to operate within these functional limits, see [Modeling best practices](../articles/digital-twins/concepts-models.md#modeling-best-practices).
 
 | Area | Capability | Default limit | Adjustable? |
 | --- | --- | --- | --- |
@@ -41,7 +41,8 @@ The following table reflects the rate limits of different APIs.
 | API | Capability | Default limit | Adjustable? |
 | --- | --- | --- | --- |
 | Models API | Number of requests per second | 100 | Yes |
-| Digital Twins API | Number of requests per second | 2,000 | Yes |
+| Digital Twins API | Number of read requests per second | 1,000 | Yes |
+| Digital Twins API | Number of patch requests per second | 1,000 | Yes |
 | Digital Twins API | Number of create/delete operations per second across **all twins and relationships** | 50 | Yes |
 | Digital Twins API | Number of create/update/delete operations per second on a **single twin** or its relationships | 10 | No |
 | Query API | Number of requests per second | 500 | Yes |
@@ -50,6 +51,6 @@ The following table reflects the rate limits of different APIs.
 
 ### Other limits
 
-Limits on data types and fields within DTDL documents for Azure Digital Twins models can be found within its spec documentation in GitHub: [*Digital Twins Definition Language (DTDL) - version 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+Limits on data types and fields within DTDL documents for Azure Digital Twins models can be found within its spec documentation in GitHub: [Digital Twins Definition Language (DTDL) - version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
  
-Query latency details and other query limitations can be found in [*How-to: Query the twin graph*](../articles/digital-twins/how-to-query-graph.md).
+Query latency details are described in [Query language](../articles/digital-twins/concepts-query-language.md#considerations-for-querying). Limitations of particular query language features can be found in the [query reference documentation](../articles/digital-twins/concepts-query-language.md#reference-documentation).

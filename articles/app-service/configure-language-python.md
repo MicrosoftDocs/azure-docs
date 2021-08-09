@@ -2,7 +2,7 @@
 title: Configure Linux Python apps
 description: Learn how to configure the Python container in which web apps are run, using both the Azure portal and the Azure CLI. 
 ms.topic: quickstart
-ms.date: 02/01/2021
+ms.date: 06/11/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
 ---
@@ -11,7 +11,7 @@ ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
 
 This article describes how [Azure App Service](overview.md) runs Python apps, how you can migrate existing apps to Azure, and how you can customize the behavior of App Service when needed. Python apps must be deployed with all the required [pip](https://pypi.org/project/pip/) modules.
 
-The App Service deployment engine automatically activates a virtual environment and runs `pip install -r requirements.txt` for you when you deploy a [Git repository](deploy-local-git.md), or a [zip package](deploy-zip.md).
+The App Service deployment engine automatically activates a virtual environment and runs `pip install -r requirements.txt` for you when you deploy a [Git repository](deploy-local-git.md), or a [zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation).
 
 This guide provides key concepts and instructions for Python developers who use a built-in Linux container in App Service. If you've never used Azure App Service, first follow the [Python quickstart](quickstart-python.md) and [Python with PostgreSQL tutorial](tutorial-python-postgresql-app.md).
 
@@ -22,7 +22,7 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
 - **Azure CLI**: you have two options.
 
     - Run commands in the [Azure Cloud Shell](../cloud-shell/overview.md).
-    - Run commands locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az-login).
+    - Run commands locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az_login).
     
 > [!NOTE]
 > Linux is currently the recommended option for running Python apps in App Service. For information on the Windows option, see [Python on the Windows flavor of App Service](/visualstudio/python/managing-python-on-azure-app-service).
@@ -60,7 +60,7 @@ You can run an unsupported version of Python by building your own container imag
 
 ## Customize build automation
 
-App Service's build system, called Oryx, performs the following steps when you deploy your app using Git or zip packages:
+App Service's build system, called Oryx, performs the following steps when you deploy your app if the app setting `SCM_DO_BUILD_DURING_DEPLOYMENT` is set to `1`:
 
 1. Run a custom pre-build script if specified by the `PRE_BUILD_COMMAND` setting. (The script can itself run other Python and Node.js scripts, pip and npm commands, and Node-based tools like yarn, for example, `yarn install` and `yarn build`.)
 
@@ -99,7 +99,7 @@ Existing web applications can be redeployed to Azure as follows:
 1. **Source repository**: Maintain your source code in a suitable repository like GitHub, which enables you to set up continuous deployment later in this process.
     1. Your *requirements.txt* file must be at the root of your repository for App Service to automatically install the necessary packages.    
 
-1. **Database**: If you app depends on a database, provision the necessary resources on Azure as well. See [Tutorial: Deploy a Django web app with PostgreSQL - create a database](tutorial-python-postgresql-app.md#3-create-postgres-database-in-azure) for an example.
+1. **Database**: If your app depends on a database, provision the necessary resources on Azure as well. See [Tutorial: Deploy a Django web app with PostgreSQL - create a database](tutorial-python-postgresql-app.md#3-create-postgres-database-in-azure) for an example.
 
 1. **App service resources**: Create a resource group, App Service Plan, and App Service web app to host your application. You can most easily do this by doing an initial deployment of your code through the Azure CLI command `az webapp up`, as shown on [Tutorial: Deploy a Django web app with PostgreSQL - deploy the code](tutorial-python-postgresql-app.md#4-deploy-the-code-to-azure-app-service). Replace the names of the resource group, App Service Plan, and the web app to be more suitable for your application.
 
@@ -109,7 +109,7 @@ Existing web applications can be redeployed to Azure as follows:
 
 1. **App startup**: Review the section, [Container startup process](#container-startup-process) later in this article to understand how App Service attempts to run your app. App Service uses the Gunicorn web server by default, which must be able to find your app object or *wsgi.py* folder. If needed, you can [Customize the startup command](#customize-startup-command).
 
-1. **Continuous deployment**: Set up continuous deployment, as described on [Continuous deployment to Azure App Service](deploy-continuous-deployment.md) if using Azure Pipelines or Kudu deployment, or [Deploy to App Service using GitHub Actions](deploy-github-actions.md) if using GitHub actions.
+1. **Continuous deployment**: Set up continuous deployment, as described on [Continuous deployment to Azure App Service](deploy-continuous-deployment.md) if using Azure Pipelines or Kudu deployment, or [Deploy to App Service using GitHub Actions](./deploy-continuous-deployment.md) if using GitHub actions.
 
 1. **Custom actions**: To perform actions within the App Service container that hosts your app, such as Django database migrations, you can [connect to the container through SSH](configure-linux-open-ssh-session.md). For an example of running Django database migrations, see [Tutorial: Deploy a Django web app with PostgreSQL - run database migrations](tutorial-python-postgresql-app.md#43-run-django-database-migrations).
     - When using continuous deployment, you can perform those actions using post-build commands as described earlier under [Customize build automation](#customize-build-automation).
@@ -124,7 +124,7 @@ The following table describes the production settings that are relevant to Azure
 
 | Django setting | Instructions for Azure |
 | --- | --- |
-| `SECRET_KEY` | Store the value in an App Service setting as described on [Access app settings as environment variables](#access-app-settings-as-environment-variables). You can alternately [store the value as a "secrete" in Azure Key Vault](../key-vault/secrets/quick-create-python.md). |
+| `SECRET_KEY` | Store the value in an App Service setting as described on [Access app settings as environment variables](#access-app-settings-as-environment-variables). You can alternately [store the value as a "secret" in Azure Key Vault](../key-vault/secrets/quick-create-python.md). |
 | `DEBUG` | Create a `DEBUG` setting on App Service with the value 0 (false), then load the value as an environment variable. In your development environment, create a `DEBUG` environment variable with the value 1 (true). |
 | `ALLOWED_HOSTS` | In production, Django requires that you include app's URL in the `ALLOWED_HOSTS` array of *settings.py*. You can retrieve this URL at runtime with the code, `os.environ['WEBSITE_HOSTNAME']`. App Service automatically sets the `WEBSITE_HOSTNAME` environment variable to the app's URL. |
 | `DATABASES` | Define settings in App Service for the database connection and load them as environment variables to populate the [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) dictionary. You can alternately store the values (especially the username and password) as [Azure Key Vault secrets](../key-vault/secrets/quick-create-python.md). |
@@ -164,8 +164,10 @@ For App Service, you then make the following modifications:
 1. Also modify the `MIDDLEWARE` and `INSTALLED_APPS` lists to include Whitenoise:
 
     ```python
-    MIDDLEWARE = [
-        "whitenoise.middleware.WhiteNoiseMiddleware",
+    MIDDLEWARE = [                                                                   
+        'django.middleware.security.SecurityMiddleware',
+        # Add whitenoise middleware after the security middleware                             
+        'whitenoise.middleware.WhiteNoiseMiddleware',
         # Other values follow
     ]
 
@@ -319,7 +321,7 @@ db_server = os.environ['DATABASE_SERVER']
 
 ## Detect HTTPS session
 
-In App Service, [SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) (wikipedia.org) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
+In App Service, [TLS/SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) (wikipedia.org) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
 
 ```python
 if 'X-Forwarded-Proto' in request.headers and request.headers['X-Forwarded-Proto'] == 'https':
@@ -367,6 +369,8 @@ The following sections provide additional guidance for specific issues.
 - [App doesn't appear - default app shows](#app-doesnt-appear)
 - [App doesn't appear - "service unavailable" message](#service-unavailable)
 - [Could not find setup.py or requirements.txt](#could-not-find-setuppy-or-requirementstxt)
+- [ModuleNotFoundError on startup](#modulenotfounderror-when-app-starts)
+- [Database is locked](#database-is-locked)
 - [Passwords don't appear in SSH session when typed](#other-issues)
 - [Commands in the SSH session appear to be cut off](#other-issues)
 - [Static assets don't appear in a Django app](#other-issues)
@@ -400,6 +404,18 @@ The following sections provide additional guidance for specific issues.
 
     - Connect to the web app's container via [SSH](#open-ssh-session-in-browser) and verify that *requirements.txt* is named correctly and exists directly under *site/wwwroot*. If it doesn't exist, make site the file exists in your repository and is included in your deployment. If it exists in a separate folder, move it to the root.
 
+#### ModuleNotFoundError when app starts
+
+If you see an error like `ModuleNotFoundError: No module named 'example'`, this means that Python could not find one or more of your modules when the application started. This most often occurs if you deploy your virtual environment with your code. Virtual environments are not portable, so a virtual environment should not be deployed with your application code. Instead, let Oryx create a virtual environment and install your packages on the web app by creating an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, and setting it to `1`. This will force Oryx to install your packages whenever you deploy to App Service. For more information, please see [this article on virtual environment portability](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html).
+
+### Database is locked
+
+When attempting to run database migrations with a Django app, you may see "sqlite3. OperationalError: database is locked." The error indicates that your application is using a SQLite database for which Django is configured by default, rather than using a cloud database such as PostgreSQL for Azure.
+
+Check the `DATABASES` variable in the app's *settings.py* file to ensure that your app is using a cloud database instead of SQLite.
+
+If you're encountering this error with the sample in [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app.md), check that you completed the steps in [Configure environment variables to connect the database](tutorial-python-postgresql-app.md#42-configure-environment-variables-to-connect-the-database).
+
 #### Other issues
 
 - **Passwords don't appear in the SSH session when typed**: For security reasons, the SSH session keeps your password hidden as you type. The characters are being recorded, however, so type your password as usual and press **Enter** when done.
@@ -410,13 +426,9 @@ The following sections provide additional guidance for specific issues.
 
 - **You see the message, "Fatal SSL Connection is Required"**: Check any usernames and passwords used to access resources (such as databases) from within the app.
 
-## Next steps
+## More resources:
 
-> [!div class="nextstepaction"]
-> [Tutorial: Python app with PostgreSQL](tutorial-python-postgresql-app.md)
-
-> [!div class="nextstepaction"]
-> [Tutorial: Deploy from private container repository](tutorial-custom-container.md?pivots=container-linux)
-
-> [!div class="nextstepaction"]
-> [App Service Linux FAQ](faq-app-service-linux.md)
+- [Tutorial: Python app with PostgreSQL](tutorial-python-postgresql-app.md)
+- [Tutorial: Deploy from private container repository](tutorial-custom-container.md?pivots=container-linux)
+- [App Service Linux FAQ](faq-app-service-linux.yml)
+- [Environment variables and app settings reference](reference-app-settings.md)

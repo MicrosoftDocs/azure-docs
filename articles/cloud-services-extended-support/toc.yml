@@ -1,4 +1,4 @@
-- name: Cloud Services (extended support) documentation
+- name: Azure Cloud Services (extended support) documentation
   href: index.yml
 - name: Overview
   items:
@@ -10,16 +10,16 @@
     href: cloud-services-model-and-package.md
 - name: Tutorials
   items: 
-  - name: Deploy a Cloud Service - Portal
+  - name: Deploy a cloud service - Portal
     href: deploy-portal.md
-  - name: Deploy a Cloud Service - PowerShell
+  - name: Deploy a cloud service - PowerShell
     href: deploy-powershell.md
-  - name: Deploy a Cloud Service - Template
+  - name: Deploy a cloud service - Template
     href: deploy-template.md
-  - name: Deploy a Cloud Service - SDK
+  - name: Deploy a cloud service - SDK
     href: deploy-sdk.md
-  - name: Deploy a Cloud Service - Visual Studio
-    href: https://docs.microsoft.com/visualstudio/azure/cloud-services-extended-support?context=/azure/cloud-services-extended-support/context/context
+  - name: Deploy a cloud service - Visual Studio
+    href: /visualstudio/azure/cloud-services-extended-support?context=%2fazure%2fcloud-services-extended-support%2fcontext%2fcontext
   expanded: true
 - name: Concepts
   items: 
@@ -51,46 +51,76 @@
       href: schema-cscfg-role.md
     - name: NetworkConfiguration schema
       href: schema-cscfg-networkconfiguration.md
-  - name: Frequently Asked Questions
-    href: faq.md
 - name: How To
   items:
-  - name: Apply Remote Desktop extension
-    href: enable-rdp.md
-  - name: Apply WAD extension
-    href: enable-wad.md
+  - name: Migrate to Azure Cloud Services (extended support)
+    items:
+    - name: Migration overview
+      href: in-place-migration-overview.md
+    - name: Migration technical details
+      href: in-place-migration-technical-details.md
+    - name: Migrate using the Azure portal
+      href: in-place-migration-portal.md
+    - name: Migrate using PowerShell
+      href: in-place-migration-powershell.md
+    - name: Post migration changes
+      href: post-migration-changes.md
+    - name: Common errors and known issues
+      href: in-place-migration-common-errors.md
+  - name: Apply extensions
+    items:
+    - name: Apply Remote Desktop extension
+      href: enable-rdp.md
+    - name: Apply WAD extension
+      href: enable-wad.md
+    - name: Apply the Key Vault extension
+      href: enable-key-vault-virtual-machine.md
   - name: Enable alerts
     href: enable-alerts.md
   - name: Configure scaling
     href: configure-scaling.md
   - name: Certificates
     href: certificates-and-key-vault.md
+  - name: Generate ARM template using the portal
+    href: generate-template-portal.md
+  - name: Swap cloud service deployments
+    href: swap-cloud-service.md
+  - name: Override SKU details
+    href: override-sku.md
+  - name: Troubleshoot
+    items:
+    - name: Role startup failure
+      href: role-startup-failure.md
+    - name: Frequently asked questions
+      href: faq.yml
 - name: Samples
   items: 
-  - name: Sample Templates
+  - name: Sample templates
     href: https://github.com/Azure-Samples/cloud-services-extended-support
-  - name: Create a new Cloud Service
+  - name: Create a new cloud service
     href: sample-create-cloud-service.md
-  - name: Get Cloud Service details
+  - name: Get cloud service details
     href: sample-get-cloud-service.md
-  - name: Reset a Cloud Service
+  - name: Reset a cloud service
     href: sample-reset-cloud-service.md
 - name: Reference
   items:
-  - name: Sample Deployment files
+  - name: Sample deployment files
     href: https://github.com/Azure-Samples/cloud-services-extended-support
-  - name: Az.CloudService Module
+  - name: Az.CloudService module
     href: https://www.powershellgallery.com/packages/Az.CloudService/0.1.0
   - name: PowerShell cmdlets
-    href: https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice
-  - name: ARM Template Reference
-    href: https://docs.microsoft.com/azure/templates/microsoft.compute/cloudservices
+    href: /powershell/module/az.cloudservice/#cloudservice
+  - name: ARM template reference
+    href: /azure/templates/microsoft.compute/cloudservices
   - name: REST
-    href: https://docs.microsoft.com/rest/api/compute/cloudservices
+    href: /rest/api/compute/cloudservices
   - name: .NET
-    href: https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet-preview
+    href: /dotnet/api/overview/azure/virtualmachines/management
   - name: SDK
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview
+  - name: CLI
+    href: /cli/azure/cloud-service?view=azure-cli-latest
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -98,10 +128,12 @@
   - name: Learning path
     href: /learn/paths/azure-fundamentals/
   - name: Microsoft Q&A
-    href: https://docs.microsoft.com/answers/topics/azure-cloud-services.html
+    href: /answers/topics/azure-cloud-services.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cloud-services/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=
+- name: Support and troubleshooting
+  href: support-help.md

@@ -17,16 +17,16 @@ This article describes how to keep Automanage enabled on a virtual machine (VM) 
 
 ## Prerequisites
 * Ensure that your target region is [supported by Automanage](./automanage-virtual-machines.md#prerequisites).
-* Ensure that your Log Analytics workspace region, Automation account region, and your target region are all regions supported by the region mappings [here](https://docs.microsoft.com/azure/automation/how-to/region-mappings).
+* Ensure that your Log Analytics workspace region, Automation account region, and your target region are all regions supported by the region mappings [here](../automation/how-to/region-mappings.md).
 
 ## Prepare your Automanaged VMs for moving
 Disable Automanage on your Automanaged VMs. You can do this by selecting your VMs in the Automanage blade and clicking **Disable automanagement** in the Automanage blade.
 
 ## Move your Automanaged VMs and re-enable Automanage
-For details on how to move your VMs, see this [article](https://docs.microsoft.com/azure/resource-mover/tutorial-move-region-virtual-machines).
+For details on how to move your VMs, see this [article](../resource-mover/tutorial-move-region-virtual-machines.md).
 
 Once you have moved your VMs across regions, you may re-enable Automanage on them again. Details are available [here](./automanage-virtual-machines.md#enabling-automanage-for-vms-in-azure-portal).
 
 ## Next steps
 * [Learn more about Azure Automanage](./automanage-virtual-machines.md)
-* [View frequently asked questions about Azure Automanage](./faq.md)
+* [View frequently asked questions about Azure Automanage](./faq.yml)

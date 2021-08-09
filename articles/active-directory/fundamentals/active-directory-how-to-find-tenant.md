@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 10/30/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
-ms.custom: "it-pro, devx-track-azurecli"
+ms.custom: "it-pro, devx-track-azurepowershell"
 ms.collection: M365-identity-device-management
 ---
 
@@ -55,7 +55,7 @@ az account list
 az account tenant list
 ```
 
-For more information, see [az login](/cli/azure/reference-index#az_login) command reference, [az account](/cli/azure/ext/account/account) command reference, or [az account tenant](/cli/azure/ext/account/account/tenant) command reference.
+For more information, see [az login](/cli/azure/reference-index#az_login) command reference, [az account](/cli/azure/account) command reference, or [az account tenant](/cli/azure/account/tenant) command reference.
 
 
 For Microsoft 365 CLI, use the cmdlet **tenant id** as shown in the following example:

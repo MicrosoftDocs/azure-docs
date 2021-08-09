@@ -3,8 +3,7 @@ title: Azure Active Directory Reports FAQ | Microsoft Docs
 description: Frequently asked questions around Azure Active Directory reports.
 services: active-directory
 documentationcenter: ''
-author: cawrites
-manager: MarkusVi
+author: MarkusVi
 
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
@@ -13,9 +12,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
-ms.date: 05/12/2020
+ms.date: 07/28/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
 ---
@@ -26,6 +25,18 @@ This article includes answers to frequently asked questions about Azure Active D
 
 ## Getting started 
 
+**Q: How does licensing for reporting work?**
+
+**A:** All Azure AD licenses allow you to see activity logs in the Azure Portal. 
+
+If your tenant has:
+
+- An Azure AD free license, you can see up to seven days of activity logs data in the Portal. 
+- An Azure AD Premium license, you can see up to 30 days of data in the Azure Portal. 
+
+You can also export that log data to Azure Monitor, Azure Event Hubs, and Azure Storage, or query your activity data through the Microsoft Graph API. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. It will take a couple of days for the data to show up in the logs after you upgrade to a premium license with no data activities before the upgrade.
+
+
 **Q: I currently use the `https://graph.windows.net/<tenant-name>/reports/` endpoint APIs to pull Azure AD audit and integrated application usage reports into our reporting systems programmatically. What should I switch to?**
 
 **A:** Look up the [API reference](https://developer.microsoft.com/graph/) to see how you can [use the APIs to access activity reports](concept-reporting-api.md). This endpoint has two reports (**Audit** and **Sign-ins**) which provide all the data you got in the old API endpoint. This new endpoint also has a sign-ins report with the Azure AD Premium license that you can use to get app usage, device usage, and user sign-in information.
@@ -34,7 +45,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: I currently use the `https://graph.windows.net/<tenant-name>/reports/` endpoint APIs to pull Azure AD security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?**
 
-**A:** You can use the [Identity Protection risk detections API](../identity-protection/howto-identity-protection-graph-api.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data, with advanced filtering, field selection, and more, and standardizes risk detections into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta), which is the Microsoft standard for such APIs as Microsoft 365 or Azure AD. So the work required can either extend your current Microsoft Graph investments or help you begin your transition to this new standard platform.
+**A:** You can use the [Identity Protection risk detections API](../identity-protection/howto-identity-protection-graph-api.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data, with advanced filtering, field selection, and more, and standardizes risk detections into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta&preserve-view=true), which is the Microsoft standard for such APIs as Microsoft 365 or Azure AD. So the work required can either extend your current Microsoft Graph investments or help you begin your transition to this new standard platform.
 
 ---
 

@@ -1,12 +1,14 @@
 ---
 title: Azure Image Builder Service networking options
 description: Understand the networking options when deploying Azure VM Image Builder Service
-author: danielsollondon
-ms.author: danis
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+
 ---
 
 # Azure Image Builder Service networking options

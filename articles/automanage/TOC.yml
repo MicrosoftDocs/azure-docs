@@ -1,4 +1,4 @@
-- name: Azure Automanage
+- name: Azure Automanage (preview)
   href: automanage-virtual-machines.md
 - name: Quickstarts
   expanded: true
@@ -8,10 +8,19 @@
 - name: Concepts
   expanded: true
   items:
-  - name: Virtual machines
-    href: automanage-virtual-machines.md
-  - name: Best Practices for VMs
-    href: virtual-machines-best-practices.md
+  - name: Automanage for Linux
+    href: automanage-linux.md
+  - name: Automanage for Windows Server
+    href: automanage-windows-server.md
+    items:
+      - name: Automanage for Windows Server Services (preview)
+        href: automanage-windows-server-services-overview.md
+      - name: Hotpatch for new virtual machines
+        href: automanage-hotpatch.md
+  - name: Automanage for Arc enabled servers
+    href: automanage-arc.md
+  - name: Automanage account
+    href: automanage-account.md
 - name: How to
   expanded: true
   items:
@@ -19,6 +28,8 @@
     href: virtual-machines-custom-preferences.md
   - name: Enable on VMs through Azure Policy
     href: virtual-machines-policy-enable.md
+  - name: Enable on VMs through an ARM template
+    href: arm-deploy.md
   - name: Troubleshoot onboarding errors
     href: common-errors.md
   - name: Repair a broken Automanage account
@@ -29,6 +40,6 @@
   expanded: true
   items:
   - name: FAQ
-    href: faq.md
+    href: faq.yml
   - name: Cloud Adoption Framework
     href: https://docs.microsoft.com/azure/cloud-adoption-framework/manage/azure-server-management

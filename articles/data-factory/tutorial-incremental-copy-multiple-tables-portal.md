@@ -4,14 +4,14 @@ description: In this tutorial, you create an Azure data factory with a pipeline 
 ms.author: yexu
 author: dearandyxu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 11/09/2020
+ms.date: 07/05/2021
 ---
 
 # Incrementally load data from multiple tables in SQL Server to a database in Azure SQL Database using the Azure portal
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in a SQL Server database to a database in Azure SQL Database.    
 
@@ -249,13 +249,14 @@ END
 8. Click **Create**.      
 9. After the creation is complete, you see the **Data Factory** page as shown in the image.
    
-   ![Data factory home page](./media/doc-common-process/data-factory-home-page.png)
-10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
+
+10. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
 
 ## Create self-hosted integration runtime
 As you are moving data from a data store in a private network (on-premises) to an Azure data store, install a self-hosted integration runtime (IR) in your on-premises environment. The self-hosted IR moves data between your private network and Azure. 
 
-1. On the **Let's get started** page of Azure Data Factory UI, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
+1. On the home page of Azure Data Factory UI, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
 
    ![The home page Manage button](media/doc-common-process/get-started-page-manage-button.png)
 
@@ -287,7 +288,7 @@ In this step, you link your SQL Server database to the data factory.
 
 1. In the **Connections** window, switch from **Integration Runtimes** tab to the **Linked Services** tab, and click **+ New**.
 
-   ![New linked service](./media/doc-common-process/new-linked-service.png)
+    :::image type="content" source="./media/doc-common-process/new-linked-service.png" alt-text="New linked service.":::
 1. In the **New Linked Service** window, select **SQL Server**, and click **Continue**. 
 
 1. In the **New Linked Service** window, do the following steps:

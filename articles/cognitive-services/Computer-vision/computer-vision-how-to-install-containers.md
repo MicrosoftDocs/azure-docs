@@ -8,26 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/23/2020
+ms.date: 04/27/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: on-premises, OCR, Docker, container
 ---
 
-# Install Read OCR Docker containers (Preview) 
+# Install Read OCR Docker containers
 
 [!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 
 Containers enable you to run the Computer Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run Computer Vision containers.
 
-The *Read* OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API documentation](concept-recognizing-text.md#read-api).
+The *Read* OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API how-to guide](Vision-API-How-to-Topics/call-read-api.md).
 
-## Read 3.2-preview container
+## Read 3.2 container
 
-> [!NOTE]
-> The Read 3.0-preview container has been deprecated. 
-
-The Read 3.2-preview OCR container provides:
+The Read 3.2 OCR container provides:
 * New models for enhanced accuracy.
 * Support for multiple languages within the same document.
 * Support for a total of 73 languages. See the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr).
@@ -36,7 +33,7 @@ The Read 3.2-preview OCR container provides:
 * Confidence scores.
 * Support for documents with both print and handwritten text.
 * Ability to extract text from only selected page(s) in a document.
-* Choose text line output order from default to a more natural reading order.
+* Choose text line output order from default to a more natural reading order for Latin languages only.
 * Text line classification as handwritten style or not for Latin languages only.
 
 If you're using Read 2.0 containers today, see the [migration guide](read-container-migration-guide.md) to learn about changes in the new versions.
@@ -57,7 +54,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Fill out and submit the [request form](https://aka.ms/csgate) to request approval to run the container. 
 
-[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to run the container](../../../includes/cognitive-services-containers-request-access.md)]
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -87,16 +84,16 @@ Container images for Read are available.
 | Container | Container Registry / Repository / Image Name |
 |-----------|------------|
 | Read 2.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
-| Read 3.2-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2` |
+| Read 3.2 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2` |
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
 
-### Docker pull for the Read container
+### Docker pull for the Read OCR container
 
-# [Version 3.2-preview](#tab/version-3-2)
+# [Version 3.2](#tab/version-3-2)
 
 ```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2
 ```
 
 # [Version 2.0-preview](#tab/version-2)
@@ -122,11 +119,11 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 [Examples](computer-vision-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
 
-# [Version 3.2-preview](#tab/version-3-2)
+# [Version 3.2](#tab/version-3-2)
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -134,10 +131,20 @@ ApiKey={API_KEY}
 
 This command:
 
-* Runs the Read container from the container image.
+* Runs the Read OCR container from the container image.
 * Allocates 8 CPU core and 18 gigabytes (GB) of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
+
+You can alternatively run the container using environment variables:
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+--env Eula=accept \
+--env Billing={ENDPOINT_URI} \
+--env ApiKey={API_KEY} \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2
+```
 
 # [Version 2.0-preview](#tab/version-2)
 
@@ -151,11 +158,20 @@ ApiKey={API_KEY}
 
 This command:
 
-* Runs the Read container from the container image.
+* Runs the Read OCR container from the container image.
 * Allocates 8 CPU core and 16 gigabytes (GB) of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
+You can alternatively run the container using environment variables:
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+--env Eula=accept \
+--env Billing={ENDPOINT_URI} \
+--env ApiKey={API_KEY} \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview
+```
 ---
 
 
@@ -184,9 +200,9 @@ To find your connection string:
 
 The container provides REST-based query prediction endpoint APIs. 
 
-# [Version 3.2-preview](#tab/version-3-2)
+# [Version 3.2](#tab/version-3-2)
 
-Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at: `http://localhost:5000/swagger/vision-v3.2-preview-read/swagger.json`.
+Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at: `http://localhost:5000/swagger/vision-v3.2-read/swagger.json`.
 
 # [Version 2.0-preview](#tab/version-2)
 
@@ -197,7 +213,7 @@ Use the host, `http://localhost:5000`, for container APIs. You can view the Swag
 ### Asynchronous read
 
 
-# [Version 3.2-preview](#tab/version-3-2)
+# [Version 3.2](#tab/version-3-2)
 
 You can use the `POST /vision/v3.2/read/analyze` and `GET /vision/v3.2/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to the HTTP GET request.
 
@@ -387,13 +403,13 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
 ---
 
 > [!IMPORTANT]
-> If you deploy multiple Read containers behind a load balancer, for example, under Docker Compose or Kubernetes, you must have an external cache. Because the processing container and the GET request container might not be the same, an external cache stores the results and shares them across containers. For details about cache settings, see [Configure Computer Vision Docker containers](./computer-vision-resource-container-config.md).
+> If you deploy multiple Read OCR containers behind a load balancer, for example, under Docker Compose or Kubernetes, you must have an external cache. Because the processing container and the GET request container might not be the same, an external cache stores the results and shares them across containers. For details about cache settings, see [Configure Computer Vision Docker containers](./computer-vision-resource-container-config.md).
 
 ### Synchronous read
 
 You can use the following operation to synchronously read an image. 
 
-# [Version 3.2-preview](#tab/version-3-2)
+# [Version 3.2](#tab/version-3-2)
 
 `POST /vision/v3.2/read/syncAnalyze` 
 
@@ -413,7 +429,7 @@ When the image is read in its entirety, then and only then does the API return a
 
 The JSON response object has the same object graph as the asynchronous version. If you're a JavaScript user and want type safety, consider using TypeScript to cast the JSON response.
 
-For an example use-case, see the <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">TypeScript sandbox here <span class="docon docon-navigate-external x-hidden-focus"></span></a> and select **Run** to visualize its ease-of-use.
+For an example use-case, see the <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">TypeScript sandbox here </a> and select **Run** to visualize its ease-of-use.
 
 ## Stop the container
 
@@ -431,16 +447,16 @@ The Cognitive Services containers send billing information to Azure, using the c
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-For more information about these options, see [Configure containers](./computer-vision-resource-container-config.md).
+For more information about these options, see [Configure containers](./computer-vision-resource-container-config.md). 
 
 ## Summary
 
 In this article, you learned concepts and workflow for downloading, installing, and running Computer Vision containers. In summary:
 
 * Computer Vision provides a Linux container for Docker, encapsulating Read.
-* Container images are downloaded from the "Container Preview" container registry in Azure.
+* The read container image requires an application to run it. 
 * Container images run in Docker.
-* You can use either the REST API or SDK to call operations in Read containers by specifying the host URI of the container.
+* You can use either the REST API or SDK to call operations in Read OCR containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]
@@ -449,7 +465,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
 ## Next steps
 
 * Review [Configure containers](computer-vision-resource-container-config.md) for configuration settings
-* Review [Computer Vision overview](overview.md) to learn more about recognizing printed and handwritten text
-* Refer to the [Computer Vision API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) for details about the methods supported by the container.
-* Refer to [Frequently asked questions (FAQ)](FAQ.md) to resolve issues related to Computer Vision functionality.
+* Review the [OCR overview](overview-ocr.md) to learn more about recognizing printed and handwritten text
+* Refer to the [Read API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) for details about the methods supported by the container.
+* Refer to [Frequently asked questions (FAQ)](FAQ.yml) to resolve issues related to Computer Vision functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)

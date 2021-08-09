@@ -16,7 +16,7 @@ ms.date: 01/08/2020
 
 # Tutorial: Migrate SQL Server to an Azure SQL Managed Instance offline using DMS
 
-You can use Azure Database Migration Service to migrate the databases from a SQL Server instance to an [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md). For additional methods that may require some manual effort, see the article [SQL Server instance migration to SQL Managed Instance](../azure-sql/managed-instance/migrate-to-instance-from-sql-server.md).
+You can use Azure Database Migration Service to migrate the databases from a SQL Server instance to an [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md). For additional methods that may require some manual effort, see the article [SQL Server to Azure SQL Managed Instance](../azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
 
 In this tutorial, you migrate the **Adventureworks2012** database from an on-premises instance of SQL Server to a SQL Managed Instance by using Azure Database Migration Service.
 
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 > - Download a migration report.
 
 > [!IMPORTANT]
-> For offline migrations from SQL Server to SQL Managed Instance, Azure Database Migration Service can create the backup files for you. Alternately, you can provide the latest full database backup in the SMB network share that the service will use to migrate your databases. Do not append multiple backups into a single backup media; take each backup on a separate backup file. Note that you can use compressed backups as well, to reduce the likelihood of experiencing potential issues with migrating large backups.
+> For offline migrations from SQL Server to SQL Managed Instance, Azure Database Migration Service can create the backup files for you. Alternately, you can provide the latest full database backup in the SMB network share that the service will use to migrate your databases. Each backup can be written to either a separate backup file or multiple backup files. However, appending multiple backups into a single backup media is not supported. Note that you can use compressed backups as well, to reduce the likelihood of experiencing potential issues with migrating large backups.
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
@@ -50,7 +50,7 @@ To complete this tutorial, you need to:
     >
     > This configuration is necessary because Azure Database Migration Service lacks internet connectivity.
 
-- Ensure that your virtual network Network Security Group rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+- Ensure that your virtual network Network Security Group rules don't block the outbound port 443 of ServiceTag for ServiceBus, Storage and AzureMonitor. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 - Configure your [Windows Firewall for source database engine access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Open your Windows Firewall to allow Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433. If your default instance is listening on some other port, add that to the firewall.
 - If you're running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that Azure Database Migration Service can connect to a named instance on your source server.
@@ -74,19 +74,7 @@ To complete this tutorial, you need to:
     > [!NOTE]
     > Azure Database Migration Service does not support using an account level SAS token when configuring the Storage Account settings during the [Configure Migration Settings](#configure-migration-settings) step.
     
-## Register the Microsoft.DataMigration resource provider
-
-1. Sign in to the Azure portal, select **All services**, and then select **Subscriptions**.
-
-    ![Show portal subscriptions](media/tutorial-sql-server-to-managed-instance/portal-select-subscriptions.png)
-
-2. Select the subscription in which you want to create the instance of Azure Database Migration Service, and then select **Resource providers**.
-
-    ![Show resource providers](media/tutorial-sql-server-to-managed-instance/portal-select-resource-provider.png)
-
-3. Search for migration, and then to the right of **Microsoft.DataMigration**, select **Register**.
-
-    ![Register resource provider](media/tutorial-sql-server-to-managed-instance/portal-register-resource-provider.png)
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
 
 ## Create an Azure Database Migration Service instance
 
@@ -193,7 +181,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 1. On the **Configure migration settings** screen, provide the following detail:
 
-    | | |
+    | Parameter | Description |
     |--------|---------|
     |**Choose source backup option** | Choose the option **I will provide latest backup files** when you already have full backup files available for DMS to use for database migration. Choose the option **I will let Azure Database Migration Service create backup files** when you want DMS to take the source database full backup at first and use it for migration. |
     |**Network location share** | The local SMB network share that Azure Database Migration Service can take the source database backups to. The service account running source SQL Server instance must have write privileges on this network share. Provide an FQDN or IP addresses of the server in the network share, for example, '\\\servername.domainname.com\backupfolder' or '\\\IP address\backupfolder'.|

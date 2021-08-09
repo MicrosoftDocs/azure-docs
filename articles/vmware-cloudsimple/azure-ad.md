@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Use Azure AD as identity source on Private Cloud 
 description: Describes how to add Azure AD as an identity provider on your CloudSimple Private Cloud to authenticate users accessing CloudSimple from Azure
-author: Ajayan1008 
-ms.author: v-hborys 
+author: shortpatti 
+ms.author: v-patsho
 ms.date: 08/15/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

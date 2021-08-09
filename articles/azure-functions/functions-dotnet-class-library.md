@@ -1,44 +1,50 @@
 ---
-title: Azure Functions C# developer reference
-description: Understand how to develop Azure Functions using C#.
+title: Develop C# class library functions using Azure Functions
+description: Understand how to use C# to develop and publish code as class libraries that runs in-process with the Azure Functions runtime.
 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
 
 ---
-# Azure Functions C# developer reference
+# Develop C# class library functions using Azure Functions
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 
 This article is an introduction to developing Azure Functions by using C# in .NET class libraries.
 
+>[!IMPORTANT]
+>This article supports .NET class library functions that run in-process with the runtime. Functions also supports .NET 5.x by running your C# functions out-of-process and isolated from the runtime. To learn more, see [.NET isolated process functions](dotnet-isolated-process-guide.md).
+
 As a C# developer, you may also be interested in one of the following articles:
 
 | Getting started | Concepts| Guided learning/samples |
-| -- | -- | -- | 
+|--| -- |--| 
 | <ul><li>[Using Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Using Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Using command line tools](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li><li>[Visual Studio development](functions-develop-vs.md)</li><li>[Dependency injection](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Create serverless applications](/learn/paths/create-serverless-applications/)</li><li>[C# samples](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
 
 Azure Functions supports C# and C# script programming languages. If you're looking for guidance on [using C# in the Azure portal](functions-create-function-app-portal.md), see [C# script (.csx) developer reference](functions-reference-csharp.md).
 
-## Supported versions
+[!INCLUDE [functions-dotnet-supported-versions](../../includes/functions-dotnet-supported-versions.md)]
 
-Versions of the Functions runtime work with specific versions of .NET. The following table shows the highest level of .NET Core and .NET Framework and .NET Core that can be used with a specific version of Functions in your project. 
+### Functions v2.x considerations
 
-| Functions runtime version | Max .NET version |
-| ---- | ---- |
-| Functions 3.x | .NET Core 3.1 |
-| Functions 2.x | .NET Core 2.2 |
-| Functions 1.x | .NET Framework 4.7 |
+Function apps that target the latest 2.x version (`~2`) are automatically upgraded to run on .NET Core 3.1. Because of breaking changes between .NET Core versions, not all apps developed and compiled against .NET Core 2.2 can be safely upgraded to .NET Core 3.1. You can opt out of this upgrade by pinning your function app to `~2.0`. Functions also detects incompatible APIs and may pin your app to `~2.0` to prevent incorrect execution on .NET Core 3.1. 
 
-To learn more, see [Azure Functions runtime versions overview](functions-versions.md)
+>[!NOTE]
+>If your function app is pinned to `~2.0` and you change this version target to `~2`, your function app may break. If you deploy using ARM templates, check the version in your templates. If this occurs, change your version back to target `~2.0` and fix compatibility issues. 
+
+Function apps that target `~2.0` continue to run on .NET Core 2.2. This version of .NET Core no longer receives security and other maintenance updates. To learn more, see [this announcement page](https://github.com/Azure/app-service-announcements/issues/266). 
+
+You should work to make your functions compatible with .NET Core 3.1 as soon as possible. After you've resolved these issues, change your version back to `~2` or upgrade to `~3`. To learn more about targeting versions of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md).
+
+When running on Linux in a Premium or dedicated (App Service) plan, you pin your version by instead targeting a specific image by setting the `linuxFxVersion` site config setting to `DOCKER|mcr.microsoft.com/azure-functions/dotnet:2.0.14786-appservice` To learn how to set `linuxFxVersion`, see [Manual version updates on Linux](set-runtime-version.md#manual-version-updates-on-linux).
 
 ## Functions class library project
 
 In Visual Studio, the **Azure Functions** project template creates a C# class library project that contains the following files:
 
 * [host.json](functions-host-json.md) - stores configuration settings that affect all functions in the project when running locally or in Azure.
-* [local.settings.json](functions-run-local.md#local-settings-file) - stores app settings and connection strings that are used when running locally. This file contains secrets and isn't published to your function app in Azure. Instead, [add app settings to your function app](functions-develop-vs.md#function-app-settings).
+* [local.settings.json](functions-develop-local.md#local-settings-file) - stores app settings and connection strings that are used when running locally. This file contains secrets and isn't published to your function app in Azure. Instead, [add app settings to your function app](functions-develop-vs.md#function-app-settings).
 
 When you build the project, a folder structure that looks like the following example is generated in the build output directory:
 
@@ -81,18 +87,20 @@ The trigger attribute specifies the trigger type and binds input data to a metho
 
 ## Method signature parameters
 
-The method signature may contain parameters other than the one used with the trigger attribute. Here are some of the additional parameters that you can include:
+The method signature may contain parameters other than the one used with the trigger attribute. Here are some of the other parameters that you can include:
 
 * [Input and output bindings](functions-triggers-bindings.md) marked as such by decorating them with attributes.  
 * An `ILogger` or `TraceWriter` ([version 1.x-only](functions-versions.md#creating-1x-apps)) parameter for [logging](#logging).
 * A `CancellationToken` parameter for [graceful shutdown](#cancellation-tokens).
 * [Binding expressions](./functions-bindings-expressions-patterns.md) parameters to get trigger metadata.
 
-The order of parameters in the function signature does not matter. For example, you can put trigger parameters before or after other bindings, and you can put the logger parameter before or after trigger or binding parameters.
+The order of parameters in the function signature doesn't matter. For example, you can put trigger parameters before or after other bindings, and you can put the logger parameter before or after trigger or binding parameters.
 
-### Output binding example
+### Output bindings
 
-The following example modifies the preceding one by adding an output queue binding. The function writes the queue message that triggers the function to a new queue message in a different queue.
+A function can have zero or one output bindings defined by using output parameters. 
+
+The following example modifies the preceding one by adding an output queue binding named `myQueueItemCopy`. The function writes the contents of the message that triggers the function to a new message in a different queue.
 
 ```csharp
 public static class SimpleExampleWithOutput
@@ -108,6 +116,8 @@ public static class SimpleExampleWithOutput
     }
 }
 ```
+
+Values assigned to output bindings are written when the function exits. You can use more than one output binding in a function by simply assigning values to multiple output parameters. 
 
 The binding reference articles ([Storage queues](functions-bindings-storage-queue.md), for example) explain which parameter types you can use with trigger, input, or output binding attributes.
 
@@ -134,7 +144,7 @@ public static class BindingExpressionsExample
 
 The build process creates a *function.json* file in a function folder in the build folder. As noted earlier, this file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. 
 
-The purpose of this file is to provide information to the scale controller to use for [scaling decisions on the Consumption plan](event-driven-scaling.md). For this reason, the file only has trigger info, not input or output bindings.
+The purpose of this file is to provide information to the scale controller to use for [scaling decisions on the Consumption plan](event-driven-scaling.md). For this reason, the file only has trigger info, not input/output bindings.
 
 The generated *function.json* file includes a `configurationSource` property that tells the runtime to use .NET attributes for bindings, rather than *function.json* configuration. Here's an example:
 
@@ -159,7 +169,7 @@ The generated *function.json* file includes a `configurationSource` property tha
 
 The *function.json* file generation is performed by the NuGet package [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
-The same package is used for both version 1.x and 2.x of the Functions runtime. The target framework is what differentiates a 1.x project from a 2.x project. Here are the relevant parts of *.csproj* files, showing different target frameworks and the same `Sdk` package:
+The same package is used for both version 1.x and 2.x of the Functions runtime. The target framework is what differentiates a 1.x project from a 2.x project. Here are the relevant parts of *.csproj* files, showing different target frameworks with the same `Sdk` package:
 
 # [v2.x+](#tab/v2)
 
@@ -192,11 +202,11 @@ The `Sdk` package also depends on [Newtonsoft.Json](https://www.nuget.org/packag
 
 The source code for `Microsoft.NET.Sdk.Functions` is available in the GitHub repo [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-## Runtime version
+## Local runtime version
 
-Visual Studio uses the [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to run Functions projects. The Core Tools is a command-line interface for the Functions runtime.
+Visual Studio uses the [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to run Functions projects on your local computer. The Core Tools is a command-line interface for the Functions runtime.
 
-If you install the Core Tools by using npm, that doesn't affect the Core Tools version used by Visual Studio. For the Functions runtime version 1.x, Visual Studio stores Core Tools versions in *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* and uses the latest version stored there. For Functions 2.x, the Core Tools are included in the **Azure Functions and Web Jobs Tools** extension. For both 1.x and 2.x, you can see what version is being used in the console output when you run a Functions project:
+If you install the Core Tools using the Windows installer (MSI) package or by using npm, that doesn't affect the Core Tools version used by Visual Studio. For the Functions runtime version 1.x, Visual Studio stores Core Tools versions in *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* and uses the latest version stored there. For Functions 2.x, the Core Tools are included in the **Azure Functions and Web Jobs Tools** extension. For both 1.x and 2.x, you can see what version is being used in the console output when you run a Functions project:
 
 ```terminal
 [3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
@@ -357,7 +367,7 @@ Here's a sample JSON representation of `customDimensions` data:
 }
 ```
 
-## Log custom telemetry in C# functions
+### <a name="log-custom-telemetry-in-c-functions"></a>Log custom telemetry
 
 There is a Functions-specific version of the Application Insights SDK that you can use to send custom telemetry data from your functions to Application Insights: [Microsoft.Azure.WebJobs.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights). Use the following command from the command prompt to install this package:
 
@@ -451,7 +461,7 @@ namespace functionapp0915
 
 In this example, the custom metric data gets aggregated by the host before being sent to the customMetrics table. To learn more, see the [GetMetric](../azure-monitor/app/api-custom-events-metrics.md#getmetric) documentation in Application Insights. 
 
-When running locally, you must add the `APPINSIGHTS_INSTRUMENTATIONKEY` setting, with the Application Insights key, to the [local.settings.json](functions-run-local.md#local-settings-file) file.
+When running locally, you must add the `APPINSIGHTS_INSTRUMENTATIONKEY` setting, with the Application Insights key, to the [local.settings.json](functions-develop-local.md#local-settings-file) file.
 
 
 # [v1.x](#tab/v1)
@@ -616,7 +626,7 @@ public static class IBinderExample
 defines the [Storage blob](functions-bindings-storage-blob.md) input or output binding, and
 [TextWriter](/dotnet/api/system.io.textwriter) is a supported output binding type.
 
-### Multiple attribute example
+### Multiple attributes example
 
 The preceding example gets the app setting for the function app's main Storage account connection string (which is `AzureWebJobsStorage`). You can specify a custom app setting to use for the Storage account by adding the
 [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)

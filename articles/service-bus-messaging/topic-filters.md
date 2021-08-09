@@ -2,12 +2,12 @@
 title: Azure Service Bus topic filters | Microsoft Docs
 description: This article explains how subscribers can define which messages they want to receive from a topic by specifying filters. 
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 07/19/2021
 ---
 
 # Topic filters and actions
 
-Subscribers can define which messages they want to receive from a topic. These messages are specified in the form of one or more named subscription rules. Each rule consists of a **filter** condition that selects particular messages, and **optionally** contain an **action** that annotates the selected message. 
+Subscribers can define which messages they want to receive from a topic. These messages are specified in the form of one or more named subscription rules. Each rule consists of a **filter condition** that selects particular messages, and **optionally** contain an **action** that annotates the selected message. 
 
 All rules **without actions** are combined using an `OR` condition and result in a **single message** on the subscription even if you have multiple matching rules. 
 
@@ -27,9 +27,7 @@ Each newly created topic subscription has an initial default subscription rule. 
 Service Bus supports three filter conditions:
 
 -   *SQL Filters* - A **SqlFilter** holds a SQL-like conditional expression that is evaluated in the broker against the arriving messages' user-defined properties and system properties. All system properties must be prefixed with `sys.` in the conditional expression. The [SQL-language subset for filter conditions](service-bus-messaging-sql-filter.md) tests for the existence of properties (`EXISTS`), null-values (`IS NULL`), logical NOT/AND/OR, relational operators, simple numeric arithmetic, and simple text pattern matching with `LIKE`.
-
 -   *Boolean filters* - The **TrueFilter** and **FalseFilter** either cause all arriving messages (**true**) or none of the arriving messages (**false**) to be selected for the subscription. These two filters derive from the SQL filter. 
-
 -   *Correlation Filters* - A **CorrelationFilter** holds a set of conditions that are matched against one or more of an arriving message's user and system properties. A common use is to match against the **CorrelationId** property, but the application can also choose to match against the following properties:
 
     - **ContentType**
@@ -49,7 +47,7 @@ Complex filter rules require processing capacity. In particular, the use of SQL 
 
 ## Actions
 
-With SQL filter conditions, you can define an action that can annotate the message by adding, removing, or replacing properties and their values. The action [uses a SQL-like expression](service-bus-messaging-sql-filter.md) that loosely leans on the SQL UPDATE statement syntax. The action is done on the message after it has been matched and before the message is selected into the subscription. The changes to the message properties are private to the message copied into the subscription.
+With SQL filter conditions, you can define an action that can annotate the message by adding, removing, or replacing properties and their values. The action [uses a SQL-like expression](service-bus-messaging-sql-rule-action.md) that loosely leans on the SQL UPDATE statement syntax. The action is done on the message after it has been matched and before the message is selected into the subscription. The changes to the message properties are private to the message copied into the subscription.
 
 ## Usage patterns
 
@@ -61,7 +59,8 @@ Partitioning uses filters to distribute messages across several existing topic s
 
 Routing uses filters to distribute messages across topic subscriptions in a predictable fashion, but not necessarily exclusive. In conjunction with the [auto forwarding](service-bus-auto-forwarding.md) feature, topic filters can be used to create complex routing graphs within a Service Bus namespace for message distribution within an Azure region. With Azure Functions or Azure Logic Apps acting as a bridge between Azure Service Bus namespaces, you can create complex global topologies with direct integration into line-of-business applications.
 
-[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
+## Examples
+For examples, see [Service Bus filter examples](service-bus-filter-examples.md).
 
 
 

@@ -1,16 +1,16 @@
 ---
-title: Resize a Windows VM in Azure 
+title: Resize a virtual machine using the Azure portal or PowerShell 
 description: Change the VM size used for an Azure virtual machine.
 author: cynthn
-ms.service: virtual-machines-windows
-ms.subservice: sizes
+ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/13/2020
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurepowershell
 
 ---
-# Resize a Windows VM
+# Resize a virtual machine using the Azure portal or PowerShell
 
 This article shows you how to move a VM to a different [VM size](../sizes.md).
 
@@ -114,4 +114,4 @@ $virtualMachines | Start-AzVM
 
 ## Next steps
 
-For additional scalability, run multiple VM instances and scale out. For more information, see [Automatically scale Windows machines in a Virtual Machine Scale Set](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).
+For additional scalability, run multiple VM instances and scale out. For more information, see [Automatically scale machines in a Virtual Machine Scale Set](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).

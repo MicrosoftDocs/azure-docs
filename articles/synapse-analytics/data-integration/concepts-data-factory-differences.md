@@ -3,7 +3,8 @@ title: Differences from Azure Data Factory
 description: Learn how the data integration capabilities of Azure Synapse Analytics differ from those of Azure Data Factory
 services: synapse-analytics 
 author: kromerm
-ms.service: synapse-analytics 
+ms.service: synapse-analytics
+ms.subservice: pipeline 
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: makromer
@@ -26,11 +27,12 @@ Check below table for features availability:
 |                          | Integration Runtime Sharing | ✓<br><small>*Can be shared across different data factories* | ✗ |
 |                          | Time to Live | ✓ | ✗ |
 | **Pipelines Activities** | SSIS Package Activity | ✓ | ✗ |
-|                          | Support for Power Query Activity | ✓ | ✓ |
-| **Template Gallery and Knowledge Center** | Solution Templates | ✓<br><small>*Azure Data Factory Template Gallery* | ✓<br><small>*Synapse Workspace Knowledge Center* |
+|                          | Support for Power Query Activity | ✓ | ✗ |
+| **Template Gallery and Knowledge center** | Solution Templates | ✓<br><small>*Azure Data Factory Template Gallery* | ✓<br><small>*Synapse Workspace Knowledge center* |
 | **GIT Repository Integration** | GIT Integration | ✓ | ✓ |
 | **Monitoring**           | Monitoring of Spark Jobs for Data Flow | ✗ | ✓<br><small>*Leverage the Synapse Spark pools* |
 |                          | Integration with Azure Monitor | ✓ | ✗ |
+| **Lineage** | Supports publishing Pipeline lineage data to Purview  | ✓ | ✗ |  
 
 > [!Note]
 > **Time to Live** is an Azure Integration Runtime setting that enables the Spark cluster to *stay warm* for a period of time after an execution of data flow.

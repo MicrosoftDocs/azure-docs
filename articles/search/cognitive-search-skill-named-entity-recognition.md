@@ -3,9 +3,8 @@ title: Named Entity Recognition cognitive skill
 titleSuffix: Azure Cognitive Search
 description: Extract named entities for person, location and organization from text in an AI enrichment pipeline in Azure Cognitive Search.
 
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
@@ -146,8 +145,8 @@ Parameters are case-sensitive.
 ```
 
 
-## Error cases
-If the language code for the document is unsupported, an error is returned and no entities are extracted.
+## Warning cases
+If the language code for the document is unsupported, a warning is returned and no entities are extracted.
 
 ## See also
 

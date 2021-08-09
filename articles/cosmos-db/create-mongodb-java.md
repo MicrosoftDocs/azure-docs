@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Build a web app using the Azure Cosmos DB API for Mongo DB and Java SDK'
 description: Learn to build a Java code sample you can use to connect to and query using Azure Cosmos DB's API for MongoDB.
-author: markjbrown
-ms.author: mjbrown
+author: gahl-levy
+ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: java
@@ -18,7 +18,6 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 > * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
-> * [Python](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-go.md)
 >  
@@ -33,13 +32,13 @@ In this quickstart, you create and manage an Azure Cosmos DB for MongoDB API acc
 
 ## Create a database account
 
-[!INCLUDE [mongodb-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
+[!INCLUDE [mongodb-create-dbaccount](includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 ## Add a collection
 
 Name your new database **db**, and your new collection **coll**.
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-mongodb-create-collection.md)] 
+[!INCLUDE [cosmos-db-create-collection](includes/cosmos-db-mongodb-create-collection.md)] 
 
 ## Clone the sample application
 
@@ -121,11 +120,11 @@ You can now use [Robomongo](mongodb-robomongo.md) / [Studio 3T](mongodb-mongoche
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 

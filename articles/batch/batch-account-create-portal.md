@@ -1,9 +1,9 @@
 ---
 title: Create an account in the Azure portal
-description: Learn how to create an Azure Batch account in the Azure portal to run large-scale parallel workloads in the cloud
+description: Learn how to create an Azure Batch account in the Azure portal to run large-scale parallel workloads in the cloud.
 ms.topic: how-to
-ms.date: 01/26/2021
-ms.custom: H1Hack27Feb2017
+ms.date: 07/01/2021
+ms.custom: subject-rbac-steps
 
 ---
 
@@ -64,6 +64,9 @@ To view the [resource quotas](batch-quota-limit.md) that apply to the Batch acco
 
 If you choose to create a Batch account in user subscription mode, perform the following additional steps before creating the account.
 
+> [!IMPORTANT]
+> The user creating the Batch account in user subscription mode needs to have Contributor or Owner role assignment for the subscription in which the Batch account will be created.
+
 ### Allow Azure Batch to access the subscription (one-time operation)
 
 When creating your first Batch account in user subscription mode, you need to register your subscription with Batch. (If you already did this, skip to the next section.)
@@ -76,13 +79,11 @@ When creating your first Batch account in user subscription mode, you need to re
 
     :::image type="content" source="media/batch-account-create-portal/register_provider.png" alt-text="Screenshot showing the Microsoft.Batch resource provider.":::
 
-1. Return to the **Subscription** page, then select **Access control (IAM)** > **Role assignments** > **Add** > **Add role assignment**.
+1. Return to the **Subscription** page, then select **Access control (IAM)**.
 
-    :::image type="content" source="media/batch-account-create-portal/subscription_iam.png" alt-text="Screenshot of the Role assignments page for a subscription.":::
+1. Assign the **Contributor** or **Owner** role to the Batch API. You can find this account by searching for **Microsoft Azure Batch** or **MicrosoftAzureBatch**. (The Object ID for the Batch API is **f520d84c-3fd3-4cc8-88d4-2ed25b00d27a**, and the Application ID is **ddbf3205-c6bd-46ae-8127-60eb93363864**.)
 
-1. On the **Add role assignment** page, select the **Contributor** or **Owner** role, then search for the Batch API. Search for **Microsoft Azure Batch** or **MicrosoftAzureBatch** to find the API. (**ddbf3205-c6bd-46ae-8127-60eb93363864** is the Application ID for the Batch API.)
-
-1. Once you find the Batch API, select it and select **Save**.
+   For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ### Create a Key Vault
 
@@ -94,7 +95,7 @@ In user subscription mode, an [Azure Key Vault](../key-vault/general/overview.md
 
 When creating the Batch account in user subscription mode, specify **User subscription** as the pool allocation mode, select the Key Vault you created, and check the box to grant Azure Batch access to the Key Vault.
 
-If you prefer to grant access to the Key Vault manually, go to the **Access policies** section of the Key Vault and select **Add Access Policy**. Select the link next to **Select principal** and search for **Microsoft Azure Batch** (Application ID **ddbf3205-c6bd-46ae-8127-60eb93363864**). Select that principal, then configure the **Secret permissions** using the drop-down menu. Azure Batch must be given a minimum of **Get**, **List**, **Set**, and **Delete** permissions.
+If you prefer to grant access to the Key Vault manually, go to the **Access policies** section of the Key Vault and select **Add Access Policy**. Select the link next to **Select principal** and search for **Microsoft Azure Batch** (Application ID **ddbf3205-c6bd-46ae-8127-60eb93363864**). Select that principal, then configure the **Secret permissions** using the drop-down menu. Azure Batch must be given a minimum of **Get**, **List**, **Set**, and **Delete** permissions. For [Key Vaults with soft-delete enabled](../key-vault/general/soft-delete-overview.md), Azure Batch must also be given **Recover** permission.
 
 :::image type="content" source="media/batch-account-create-portal/secret-permissions.png" alt-text="Screenshot of the Secret permissions selections for Azure Batch":::
 

@@ -207,7 +207,7 @@ Azure deals with expiring or expired App Service domains as follows:
 * If automatic renewal is disabled: 90 days before domain expiration, a renewal notification email is sent to you and the **Renew domain** button is activated in the portal.
 * If automatic renewal is enabled: On the day after your domain expiration date, Azure attempts to bill you for the domain name renewal.
 * If an error occurs during automatic renewal (for example, your card on file is expired), or if automatic renewal is disabled and you allow the domain to expire, Azure notifies you of the domain expiration and parks your domain name. You can [manually renew](#renew-the-domain) your domain.
-* On the 4th and 12th days day after expiration, Azure sends you additional notification emails. You can [manually renew](#renew-the-domain) your domain.
+* On the 4th and 12th days day after expiration, Azure sends you additional notification emails. You can [manually renew](#renew-the-domain) your domain. On the 5th day after expiration, DNS resolution stops for the expired domain.
 * On the 19th day after expiration, your domain remains on hold but becomes subject to a redemption fee. You can call customer support to renew your domain name, subject to any applicable renewal and redemption fees.
 * On the 25th day after expiration, Azure puts your domain up for auction with a domain name industry auction service. You can call customer support to renew your domain name, subject to any applicable renewal and redemption fees.
 * On the 30th day after expiration, you're no longer able to redeem your domain.
@@ -240,13 +240,11 @@ After you purchase the App Service Domain, you have five days to cancel your pur
 
 1. In the **App Service Domains** section, select the domain you want to configure.
 
-1. In the domain's left navigation, select **Hostname bindings**. The hostname bindings from all Azure services are listed here.
+1. In the domain's left navigation, select **Locks**. 
 
-    ![Screenshot that shows the Hostname bindings page.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
+    A delete lock has been created for your domain. As long as a delete lock exists, you can't delete the App Service domain.
 
-1. Delete each hostname binding by selecting **...** > **Delete**. After all the bindings are deleted, select **Save**.
-
-    <!-- ![Screenshot that shows where to delete the hostname bindings.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png) -->
+1. Click **Delete** to remove the lock.
 
 1. In the domain's left navigation, select **Overview**. 
 

@@ -8,8 +8,7 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: 'SAP, Azure, ANF, HANA, Azure NetApp Files, snapshot'
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -134,7 +133,7 @@ The same applies for the volume you use write full HANA database backups to.
  
 
 ## Backup
-Besides streaming backups and Azure Back service backing up SAP HANA databases as described in the article [Backup guide for SAP HANA on Azure Virtual Machines](./sap-hana-backup-guide.md), Azure NetApp Files opens the possibility to perform storage-based snapshot backups. 
+Besides streaming backups and Azure Back service backing up SAP HANA databases as described in the article [Backup guide for SAP HANA on Azure Virtual Machines](../../../backup/sap-hana-db-about.md), Azure NetApp Files opens the possibility to perform storage-based snapshot backups. 
 
 SAP HANA supports:
 

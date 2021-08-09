@@ -230,12 +230,12 @@ Visual Studio will publish the project and automatically open a browser to the p
 1. Add the same URL in the list of values of the **Authentication** > **Redirect URIs** menu. If you have multiple redirect URLs, make sure that there's a new entry that uses the app service's URI for each redirect URL.
 
 ## Clean up resources
-When no longer needed, delete the app object that you created in the [Register your application](#register-your-application) step.  To remove the application, follow the instructions in [Remove an application authored by you or your organization](quickstart-remove-app.md#remove-an-application-authored-by-you-or-your-organization).
+When no longer needed, delete the app object that you created in the [Register your application](#register-your-application) step.  To remove the application, follow the instructions in [Remove an application authored by you or your organization](./howto-remove-app.md#remove-an-application-authored-by-you-or-your-organization).
 
 ## Get help
 
-Use [Microsoft Q&A](https://docs.microsoft.com/answers/products/) to get support from the community.
-Ask your questions on [Microsoft Q&A](https://docs.microsoft.com/answers/products/) first, and browse existing issues to see if someone has asked your question before.
+Use [Microsoft Q&A](/answers/products/) to get support from the community.
+Ask your questions on [Microsoft Q&A](/answers/products/) first, and browse existing issues to see if someone has asked your question before.
 Make sure that your questions or comments are tagged with "azure-ad-adal-deprecation," "azure-ad-msal," and "dotnet-standard."
 
 If you find a bug in the sample, please raise the issue on [GitHub Issues](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/issues).

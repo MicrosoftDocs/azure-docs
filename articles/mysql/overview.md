@@ -11,6 +11,8 @@ ms.date: 3/18/2020
 
 # What is Azure Database for MySQL?
 
+[!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
+
 Azure Database for MySQL is a relational database service in the Microsoft cloud based on the [MySQL Community Edition](https://www.mysql.com/products/community/) (available under the GPLv2 license) database engine, versions 5.6, 5.7, and 8.0. Azure Database for MySQL delivers:
 
 - Built-in high availability.
@@ -45,7 +47,7 @@ For detailed overview of single server deployment mode, refer [single server ove
 
 ### Azure Database for MySQL - Flexible Server (Preview)
 
-Azure Database for MySQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and customizations based on the user requirements. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible servers provides better cost optimization controls with the ability to stop/start server and burstable compute tier, ideal for workloads that do not need full compute capacity continuously. The service currently supports community version of MySQL 5.7 with plans to add newer versions soon. The service is currently in public preview, available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
+Azure Database for MySQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and customizations based on the user requirements. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible servers provides better cost optimization controls with the ability to stop/start server and burstable compute tier, ideal for workloads that do not need full compute capacity continuously. The service supports community version of MySQL 5.7 and 8.0. The service is currently in public preview, available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
 
 Flexible servers are best suited for 
 - Application developments requiring better control and customizations.

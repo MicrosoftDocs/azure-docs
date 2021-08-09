@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 07/08/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Within a Conditional Access policy, an administrator can make use of signals from conditions like risk, device platform, or location to enhance their policy decisions. 
 
-[ ![Define a Conditional Access policy and specify conditions](./media/concept-conditional-access-conditions/conditional-access-conditions.png)](./media/concept-conditional-access-conditions/conditional-access-conditions.png#lightbox)
+[![Define a Conditional Access policy and specify conditions](./media/concept-conditional-access-conditions/conditional-access-conditions.png)](./media/concept-conditional-access-conditions/conditional-access-conditions.png#lightbox)
 
 Multiple conditions can be combined to create fine-grained and specific Conditional Access policies.
 
@@ -79,9 +79,9 @@ The **Configure** toggle when set to **Yes** applies to checked items, when set 
       -  This option includes applications like the Office desktop and phone applications.
 - Legacy authentication clients
    - Exchange ActiveSync clients
-      - This includes all use of the Exchange ActiveSync (EAS) protocol.
+      - This selection includes all use of the Exchange ActiveSync (EAS) protocol.
       - When policy blocks the use of Exchange ActiveSync the affected user will receive a single quarantine email. This email with provide information on why they are blocked and include remediation instructions if able.
-      - Administrators can apply policy only to supported platforms (such as iOS, Android, and Windows) through the Conditional Access MS Graph API.
+      - Administrators can apply policy only to supported platforms (such as iOS, Android, and Windows) through the Conditional Access Microsoft Graph API.
    - Other clients
       - This option includes clients that use basic/legacy authentication protocols that do not support modern authentication.
          - Authenticated SMTP - Used by POP and IMAP client's to send email messages.
@@ -114,10 +114,13 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 | Windows Server 2016 | Internet Explorer |
 | Windows Server 2012 R2 | Internet Explorer |
 | Windows Server 2008 R2 | Internet Explorer |
-| macOS | Chrome, Safari |
+| macOS | Microsoft Edge, Chrome, Safari |
+
+These browsers support device authentication, allowing the device to be identified and validated against a policy. The device check fails if the browser is running in private mode or if cookies are disabled.
 
 > [!NOTE]
 > Edge 85+ requires the user to be signed in to the browser to properly pass device identity. Otherwise, it behaves like Chrome without the accounts extension. This sign-in might not occur automatically in a Hybrid Azure AD Join scenario. 
+> Safari is supported for device-based Conditional Access, but it can not satisfy the **Require approved client app** or **Require app protection policy** conditions. A managed browser like Microsoft Edge will satisfy approved client app and app protection policy requirements.
 
 #### Why do I see a certificate prompt in the browser
 
@@ -141,8 +144,6 @@ For Chrome support in **Windows 8.1 and 7**, create the following registry key:
 - Type REG_SZ (String)
 - Data {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}
 
-These browsers support device authentication, allowing the device to be identified and validated against a policy. The device check fails if the browser is running in private mode.
-
 ### Supported mobile applications and desktop clients
 
 Organizations can select **Mobile apps and desktop clients** as client app.
@@ -154,7 +155,7 @@ This setting has an impact on access attempts made from the following mobile app
 | Dynamics CRM app | Dynamics CRM | Windows 10, Windows 8.1, iOS, and Android |
 | Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern authentication)| Exchange Online | Windows 10 |
 | MFA and location policy for apps. Device-based policies are not supported.| Any My Apps app service | Android and iOS |
-| Microsoft Teams Services - this controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, iOS, Android, WP, and web client | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android, and macOS |
+| Microsoft Teams Services - this client app controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, iOS, Android, WP, and web client | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android, and macOS |
 | Office 2016 apps, Office 2013 (with modern authentication), [OneDrive sync client](/onedrive/enable-conditional-access) | SharePoint | Windows 8.1, Windows 7 |
 | Office 2016 apps, Universal Office apps, Office 2013 (with modern authentication), [OneDrive sync client](/onedrive/enable-conditional-access) | SharePoint Online | Windows 10 |
 | Office 2016 (Word, Excel, PowerPoint, OneNote only). | SharePoint | macOS |
@@ -171,11 +172,11 @@ This setting has an impact on access attempts made from the following mobile app
 
 ### Exchange ActiveSync clients
 
-- Organizations can only select Exchange ActiveSync clients when assigning policy to users or groups. Selecting **All users**, **All guest and external users**, or **Directory roles** will cause all users to become blocked.
+- Organizations can only select Exchange ActiveSync clients when assigning policy to users or groups. Selecting **All users**, **All guest and external users**, or **Directory roles** will cause all users to be subject of the policy.
 - When creating a policy assigned to Exchange ActiveSync clients, **Exchange Online** should be the only cloud application assigned to the policy. 
 - Organizations can narrow the scope of this policy to specific platforms using the **Device platforms** condition.
 
-If the access control assigned to the policy uses **Require approved client app**, the user is directed to install and use the Outlook mobile client. In the case that **Multi-factor authentication** is required, affected users are blocked, because basic authentication does not support multi-factor authentication.
+If the access control assigned to the policy uses **Require approved client app**, the user is directed to install and use the Outlook mobile client. In the case that **Multi-factor authentication**, **Terms of use**, or **custom controls** are required, affected users are blocked, because basic authentication does not support these controls.
 
 For more information, see the following articles:
 
@@ -192,6 +193,13 @@ The device state condition can be used to exclude devices that are hybrid Azure 
 
 For example, *All users* accessing the *Microsoft Azure Management* cloud app including **All device state** excluding **Device Hybrid Azure AD joined** and **Device marked as compliant** and for *Access controls*, **Block**. 
    - This example would create a policy that only allows access to Microsoft Azure Management from devices that are either hybrid Azure AD joined or devices marked as compliant.
+
+> [!IMPORTANT]
+> Device state and filters for devices cannot be used together in Conditional Access policy. Filters for devices provides more granular targeting including support for targeting device state information through the `trustType` and `isCompliant` property.
+
+## Filters for devices (preview)
+
+There is a new optional condition in Conditional Access called filters for devices. When configuring filters for devices as a condition, organizations can choose to include or exclude devices based on filters using a rule expression on device properties. The rule expression for filters for devices can be authored using rule builder or rule syntax. This experience is similar to the one used for dynamic membership rules for groups. For more information see the article, [Conditional Access: Filters for devices (preview)](concept-condition-filters-for-devices.md).
 
 ## Next steps
 

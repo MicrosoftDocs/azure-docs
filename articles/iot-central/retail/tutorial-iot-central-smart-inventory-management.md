@@ -16,8 +16,8 @@ This tutorial shows you how to get started by deploying an IoT Central **smart i
 In this tutorial, you learn how to,
 
 > [!div class="checklist"]
-> create smart inventory management application 
-> walk through the application 
+> * create smart inventory management application 
+> * walk through the application 
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ This dashboard is pre-configured to showcase the critical smart inventory manage
 The dashboard is logically divided between two different gateway device management operations, 
    * The warehouse is deployed with a fixed BLE gateway & BLE tags on pallets to track & trace inventory at a larger facility
    * Retail store is implemented with a fixed RFID gateway & RFID tags at individual an item level to track and trace the stock in a store outlet
-   * View the gateway location, status & related details 
+   * View the gateway [location](../core/howto-use-location-data.md), status & related details 
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot showing the top half of the smart inventory managementdashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard1.png)

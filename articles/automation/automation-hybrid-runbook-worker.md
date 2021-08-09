@@ -3,9 +3,11 @@ title: Azure Automation Hybrid Runbook Worker overview
 description: This article provides an overview of the Hybrid Runbook Worker, which you can use to run runbooks on machines in your local datacenter or cloud provider.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/22/2021
-ms.topic: conceptual
+ms.date: 07/22/2021
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
+
 # Hybrid Runbook Worker overview
 
 Runbooks in Azure Automation might not have access to resources in other clouds or in your on-premises environment because they run on the Azure cloud platform. You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the machine that's hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned machines.
@@ -19,9 +21,18 @@ There are two types of Runbook Workers - system and user. The following table de
 |**System** |Supports a set of hidden runbooks used by the Update Management feature that are designed to install user-specified updates on Windows and Linux machines.<br> This type of Hybrid Runbook Worker is not a member of a Hybrid Runbook Worker group, and therefore doesn't run runbooks that target a Runbook Worker group. |
 |**User** |Supports user-defined runbooks intended to run directly on the Windows and Linux machine that are members of one or more Runbook Worker groups. |
 
-A Hybrid Runbook Worker can run on either the Windows or the Linux operating system, and this role relies on the [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md) reporting to an Azure Monitor [Log Analytics workspace](../azure-monitor/platform/design-logs-deployment.md). The workspace is not only to monitor the machine for the supported operating system, but also to download the components required to install the Hybrid Runbook Worker.
+A Hybrid Runbook Worker can run on either the Windows or the Linux operating system, and this role relies on the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) reporting to an Azure Monitor [Log Analytics workspace](../azure-monitor/logs/design-logs-deployment.md). The workspace is not only to monitor the machine for the supported operating system, but also to download the components required to install the Hybrid Runbook Worker.
 
 When Azure Automation [Update Management](./update-management/overview.md) is enabled, any machine connected to your Log Analytics workspace is automatically configured as a system Hybrid Runbook Worker. To configure it as a user Windows Hybrid Runbook Worker, see [Deploy a Windows Hybrid Runbook Worker](automation-windows-hrw-install.md) and for Linux, see [Deploy a Linux Hybrid Runbook Worker](automation-linux-hrw-install.md).
+
+## Runbook Worker limits
+
+The following table shows the maximum number of system and user hybrid runbook workers in an Automation account. If you have more than 4,000 machines to manage, we recommend creating another Automation account.
+
+|Worker type| Maximum number supported per Automation Account.|
+|---|---|
+|System|4000|
+|User |4000|
 
 ## How does it work?
 
@@ -56,7 +67,7 @@ If you use a proxy server for communication between Azure Automation and machine
 
 ### Firewall use
 
-If you use a firewall to restrict access to the Internet, you must configure the firewall to permit access. If using the Log Analytics gateway as a proxy, ensure that it is configured for Hybrid Runbook Workers. See [Configure the Log Analytics gateway for Automation Hybrid Runbook Workers](../azure-monitor/platform/gateway.md).
+If you use a firewall to restrict access to the Internet, you must configure the firewall to permit access. If using the Log Analytics gateway as a proxy, ensure that it is configured for Hybrid Runbook Workers. See [Configure the Log Analytics gateway for Automation Hybrid Runbook Workers](../azure-monitor/agents/gateway.md).
 
 ### Service tags
 
@@ -83,15 +94,11 @@ Azure Automation Hybrid Runbook Worker can be used in Azure Government to suppor
 
 ### Update Management addresses for Hybrid Runbook Worker
 
-In addition to the standard addresses and ports required for the Hybrid Runbook Worker, Update Management has other network configuration requirements described under the [network planning](./update-management/overview.md#ports) section.
+In addition to the standard addresses and ports required for the Hybrid Runbook Worker, Update Management has other network configuration requirements described under the [network planning](./update-management/plan-deployment.md#ports) section.
 
 ## Azure Automation State Configuration on a Hybrid Runbook Worker
 
 You can run [Azure Automation State Configuration](automation-dsc-overview.md) on a Hybrid Runbook Worker. To manage the configuration of servers that support the Hybrid Runbook Worker, you must add the servers as DSC nodes. See [Enable machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md).
-
-## Runbook Worker limits
-
-The maximum number of Hybrid Worker groups per Automation Account is 4000, and is applicable for both system & user hybrid workers. If you have more than 4,000 machines to manage, we recommend creating another Automation account.
 
 ## Runbooks on a Hybrid Runbook Worker
 

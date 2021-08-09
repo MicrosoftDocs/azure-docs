@@ -1,16 +1,17 @@
 ---
-title: 'Azure Virtual WAN default IPsec policies | Microsoft Docs'
-description: Learn about Azure Virtual WAN IPsec connectivity policies, including default initiator and responder policies and custom policy combinations.
+title: 'Virtual WAN Site-to-site IPsec policies'
+titleSuffix: Azure Virtual WAN
+description: Learn about Azure Virtual WAN IPsec connectivity policies, including default initiator and responder policies, and custom policy combinations.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/24/2021
 ms.author: cherylmc
 #Customer intent: As a Virtual WAN software-defined connectivity provider, I want to know the IPsec policies
 ---
 
-# Virtual WAN default policies for IPsec connectivity
+# Site-to-site IPsec policies
 
 This article shows the supported IPsec policy combinations.
 
@@ -25,4 +26,5 @@ This article shows the supported IPsec policy combinations.
 ## Next steps
 
 For steps to configure a custom IPsec policy, see [Configure a custom IPsec policy for Virtual WAN](virtual-wan-custom-ipsec-portal.md).
+
 For more information about Virtual WAN, see [About Azure Virtual WAN](virtual-wan-about.md) and the [Azure Virtual WAN FAQ](virtual-wan-faq.md).

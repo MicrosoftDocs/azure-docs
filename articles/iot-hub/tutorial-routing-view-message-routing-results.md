@@ -8,7 +8,7 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
-ms.custom: "mvc, devx-track-csharp"
+ms.custom: "mvc, devx-track-csharp, devx-track-azurepowershell"
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message.
 ---
 # Tutorial: Part 2 - View the routed messages
@@ -277,7 +277,7 @@ Sign in to your [Power BI](https://powerbi.microsoft.com/) account. Go to your w
 
 ### Use the Azure CLI to clean up resources
 
-To remove the resource group, use the [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) command. `$resourceGroup` was set to **ContosoResources** back at the beginning of this tutorial.
+To remove the resource group, use the [az group delete](/cli/azure/group#az_group_delete) command. `$resourceGroup` was set to **ContosoResources** back at the beginning of this tutorial.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

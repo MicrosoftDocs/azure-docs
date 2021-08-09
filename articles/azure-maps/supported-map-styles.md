@@ -3,7 +3,7 @@ title: Supported built-in Azure Maps map styles
 description: Learn about the built-in map styles that Azure Maps supports, such as road, blank_accessible, satellite, satellite_road_labels, road_shaded_relief, and night.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/24/2020
+ms.date: 04/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -13,6 +13,9 @@ manager: philmea
 # Azure Maps supported built-in map styles
 
 Azure Maps supports several different built-in map styles as described below.
+
+>[!important]
+>The procedure in this section requires an Azure Maps account in Gen 1 or Gen 2 pricing tier. For more information on pricing tiers, see [Choose the right pricing tier in Azure Maps](choose-pricing-tier.md).
 
 ## road
 
@@ -82,7 +85,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **grayscale light** is a light version of the road map style.
 
-![grayscale light map style](./media/supported-map-styles/grayscale-light.png)
+![grayscale light map style](./media/supported-map-styles/grayscale-light.jpg)
 
 **Applicable APIs:**
 * Web SDK map control
@@ -123,10 +126,42 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 **Applicable APIs:**
 
 * Web SDK map control
+* Android map control
 * Power BI visual
+
+## high_contrast_light
+
+**high_contrast_light** is a light map style with a higher contrast than the other styles.
+
+![high contrast light map style](./media/supported-map-styles/high-contrast-light.jpg)
+
+**Applicable APIs:**
+
+* Web SDK map control
+* Android map control
+* Power BI visual
+
+## Map style accessibility
+
+The interactive Azure Maps map controls use vector tiles in the map styles to power the screen reader to describe the area the map is displaying. Several map styles are also designed to be fully accessible when it comes to color contrast. The following table provides details on the accessibility features supported by each map style.
+
+| Map style  | Color contrast | Screen reader | Notes |
+|------------|----------------|---------------|-------|
+| `blank` | N/A | No | A blank canvas useful for developers who want to use their own tiles as the base map, or want to view their data without any background. The screen reader will not rely on the vector tiles for descriptions.  |
+| `blank_accessible` | N/A  | Yes | Under the hood this map style continues to load the vector tiles used to render the map, but makes that data transparent. This way the data will still be loaded, and can be used to power the screen reader. |
+| `grayscale_dark` | Partial | Yes | This map style is primarily designed for business intelligence scenarios but useful for overlaying colorful layers such as weather radar imagery. |
+| `grayscale_light` | Partial | Yes | This map style is primarily designed for business intelligence scenarios. |
+| `high_contrast_dark` | Yes | Yes | Fully accessible map style for users in high contrast mode with a dark setting. When the map loads, high contrast settings will automatically be detected. |
+| `high_contrast_light` | Yes | Yes | Fully accessible map style for users in high contrast mode with a light setting. When the map loads, high contrast settings will automatically be detected. |
+| `night` | Partial | Yes | This style is designed for when the user is in low light conditions and you don’t want to overwhelm their senses with a bright map. |
+| `road` | Partial | Yes | This is the main colorful road map style in Azure Maps. Due to the number of different colors and possible overlapping color combinations, it's nearly impossible to make it 100% accessible. That said, this map style goes through regular accessibility testing and is improved as needed to make labels clearer to read. |
+| `road_shaded_relief` | Partial | Yes | This is nearly the same style the main road map style, but has an added tile layer in the background that adds shaded relief of mountains and land cover coloring when zoomed out at higher levels. |
+| `satellite` | N/A | Yes | Purely satellite and aerial imagery, no labels, or road lines. The vector tiles are loaded behind the scenes to power the screen reader and to make for a smoother transition when switching to `satellite_with_roads`. |
+| `satellite_with_roads` | No | Yes | Satellite and aerial imagery, with labels and road lines overlaid. On a global scale, there is an unlimited number of color combinations that may occur between the overlaid data and the imagery. A focus on making labels readable in most common scenarios, however, in some places the color contrast with the background imagery may make labels difficult to read. |
 
 ## Next steps
 
 Learn about how to set a map style in Azure Maps:
 
-[Choose a map style](./choose-map-style.md)
+> [!div class="nextstepaction"]
+> [Choose a map style](./choose-map-style.md)

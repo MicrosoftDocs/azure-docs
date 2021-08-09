@@ -45,7 +45,7 @@ This example is run as a Jupyter notebook on [MyBinder](https://mybinder.org). T
 2. Declare the Bing Web Search API endpoint. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
    ```python
-   search_url = "https://api.cognitive.microsoft.com/bing/v7.0/search"
+   search_url = "https://api.bing.microsoft.com/v7.0/search"
    ```
 
 3. Optionally, customize the search query by replacing the value for `search_term`.

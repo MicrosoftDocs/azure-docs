@@ -15,6 +15,7 @@ ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ---
+
 # Logging in MSAL.NET
 
 [!INCLUDE [MSAL logging introduction](../../../includes/active-directory-develop-error-logging-introduction.md)]
@@ -30,7 +31,7 @@ In MSAL 3.x, logging is set per application at app creation using the `.WithLogg
 
 ```csharp
 class Program
- {
+{
   private static void Log(LogLevel level, string message, bool containsPii)
   {
      if (containsPii)
@@ -52,8 +53,8 @@ class Program
     AuthenticationResult result = application.AcquireTokenInteractive(scopes)
                                              .ExecuteAsync().Result;
   }
- }
- ```
+}
+```
 
 > [!TIP]
  > See the [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) for samples of MSAL.NET logging and more.

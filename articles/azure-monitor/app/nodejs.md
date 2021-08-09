@@ -37,7 +37,7 @@ Before you begin, make sure that you have an Azure subscription, or [get a new o
 Include the SDK in your app, so it can gather data.
 
 > [!IMPORTANT]
-> New Azure regions **require** the use of connection strings instead of instrumentation keys. [Connection string](./sdk-connection-string.md?tabs=nodejs) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
+> [Connection Strings](./sdk-connection-string.md?tabs=nodejs) are recommended over instrumentation keys. New Azure regions **require** the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
 
 1. Copy your resource's instrumentation Key (also called an *ikey*) from your newly created resource. Application Insights uses the ikey to map data to your Azure resource. Before the SDK can use your ikey, you must specify the ikey in an environment variable or in your code.  
 
@@ -420,9 +420,9 @@ These properties are client specific, so you can configure `appInsights.defaultC
 ## Next steps
 
 * [Monitor your telemetry in the portal](./overview-dashboard.md)
-* [Write Analytics queries over your telemetry](../log-query/log-analytics-tutorial.md)
+* [Write Analytics queries over your telemetry](../logs/log-analytics-tutorial.md)
 
 <!--references-->
 
 [portal]: https://portal.azure.com/
-[FAQ]: ../faq.md
+[FAQ]: ../faq.yml

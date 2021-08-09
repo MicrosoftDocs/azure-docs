@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure Security Center
 description: Lists Azure Policy built-in policy definitions for Azure Security Center. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 02/09/2021
+ms.date: 07/16/2021
 ms.topic: reference
 author: memildin
 ms.author: memildin
@@ -11,15 +11,20 @@ ms.custom: subject-policy-reference
 # Azure Policy built-in definitions for Azure Security Center
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
-definitions related to Azure Security Center. The following groupings of policy definitions
-are available:
+definitions related to Azure Security Center. The following groupings of policy definitions are
+available:
 
 - The [initiatives](#azure-security-center-initiatives) group lists the Azure Policy initiative
-  definitions in the 'Security Center' category.
+  definitions in the "Security Center" category.
 - The [default initiative](#azure-security-center-initiatives) group lists all the Azure Policy
-  definitions that are part of Security Center's default initiative, [Azure Security Benchmark](../security/benchmarks/introduction.md). This Microsoft-authored, widely respected benchmark builds on controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
+  definitions that are part of Security Center's default initiative,
+  [Azure Security Benchmark](/security/benchmark/azure/introduction). This Microsoft-authored,
+  widely respected benchmark builds on controls from the
+  [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the
+  [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on
+  cloud-centric security.
 - The [category](#azure-security-center-category) group lists all the Azure Policy definitions in
-  the 'Security Center' category.
+  the "Security Center" category.
 
 For more information about security policies, see
 [Working with security policies](./tutorial-security-policy.md). For additional Azure Policy
@@ -36,7 +41,7 @@ To learn about the built-in initiatives that are monitored by Security Center, s
 
 [!INCLUDE [azure-policy-reference-policyset-security-center](../../includes/policy/reference/bycat/policysets-security-center.md)]
 
-## Azure Security Center default initiative
+## Security Center's default initiative (Azure Security Benchmark)
 
 To learn about the built-in policies that are monitored by Security Center, see the following table:
 
@@ -49,13 +54,4 @@ To learn about the built-in policies that are monitored by Security Center, see 
 ## Next steps
 
 In this article, you learned about Azure Policy security policy definitions in Security Center. To
-learn more, see the following articles.
-
-- See the built-ins on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
-- Review the [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md).
-- Review [Understanding policy effects](../governance/policy/concepts/effects.md).
-- [Azure Security Center planning and operations guide](./security-center-planning-and-operations-guide.md): Learn how to plan and understand design considerations in Azure Security Center.
-- [Security health monitoring in Azure Security Center](./security-center-monitoring.md): Learn how to monitor the health of your Azure resources.
-- [Manage and respond to security alerts in Azure Security Center](./security-center-managing-and-responding-alerts.md): Learn how to manage and respond to security alerts.
-- [Monitor partner solutions with Azure Security Center](./security-center-partner-integration.md): Learn how to monitor the health status of your partner solutions.
-- [Azure Policy](../governance/policy/overview.md): Learn to audit and govern your Azure resources.
+learn more about initiatives, policies, and how they relate to Security Center's recommendations, see [What are security policies, initiatives, and recommendations?](security-policy-concept.md).

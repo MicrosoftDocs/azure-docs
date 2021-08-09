@@ -8,7 +8,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/29/2021
+ms.date: 06/11/2021
 ms.custom: devx-track-python
 ---
 
@@ -267,9 +267,9 @@ To load documents, create a documents collection, using an [index action](/pytho
 
 ## 3 - Search an index
 
-This step shows you how to query an index using the [Search Documents (REST)](/rest/api/searchservice/search-documents).
+This step shows you how to query an index using the **search** method of the [search.client class](/python/api/azure-search-documents/azure.search.documents.searchclient).
 
-1. For this operation, use search_client. This query executes an empty search (`search=*`), returning an unranked list (search score = 1.0) of arbitrary documents. Because there are no criteria, all documents are included in results. This query prints just two of the fields in each document. It also adds `include_total_count=True` to get a count of all documents (4) in the results.
+1. The following step executes an empty search (`search=*`), returning an unranked list (search score = 1.0) of arbitrary documents. Because there are no criteria, all documents are included in results. This query prints just two of the fields in each document. It also adds `include_total_count=True` to get a count of all documents (4) in the results.
 
     ```python
     results =  search_client.search(search_text="*", include_total_count=True)
@@ -352,7 +352,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-As a simplification, this quickstart uses an abbreviated version of the Hotels index. You can create the full version to try out more interesting queries. To get the full version and all 50 documents, run the **Import data** wizard, selecting *hotels-sample* from the built-in sample data sources.
+In this JavaScript quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. To continue learning, try the following tutorial.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create an index in the Azure portal](search-get-started-portal.md)
+> [Tutorial: Add search to web apps](tutorial-python-overview.md)

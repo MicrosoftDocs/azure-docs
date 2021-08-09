@@ -1,17 +1,11 @@
 ---
 title: Configure email notifications for Azure Security Center alerts
 description: Learn how to fine-tune the types of emails sent out by Azure Security Center for security alerts. 
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90
 ms.service: security-center
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/09/2021
+ms.date: 04/07/2021
 ms.author: memildin
 
 ---
@@ -39,7 +33,7 @@ To avoid alert fatigue, Security Center limits the volume of outgoing mails. For
 |Release state:|General Availability (GA)|
 |Pricing:|Free|
 |Required roles and permissions:|**Security Admin**<br>**Subscription Owner** |
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (US Gov, Azure China)|
 |||
 
 
@@ -56,9 +50,11 @@ You can send email notifications to individuals or to all users with specific Az
 1. To apply the security contact information to your subscription, select **Save**.
 
 ## Customize the alerts email notifications through the API
-You can also manage your email notifications through the supplied REST API. For full details see the [SecurityContacts API documentation](https://docs.microsoft.com/rest/api/securitycenter/securitycontacts).
+You can also manage your email notifications through the supplied REST API. For full details see the [SecurityContacts API documentation](/rest/api/securitycenter/securitycontacts).
 
 This is an example request body for the PUT request when creating a security contact configuration:
+
+URI: https://management.azure.com/subscriptions/<SubscriptionId>/providers/Microsoft.Security/securityContacts/default?api-version=2020-01-01-preview
 
 ```json
 {
@@ -70,7 +66,7 @@ This is an example request body for the PUT request when creating a security con
         },
         "alertNotifications": {
             "state": "On",
-            "minimalSeverity": "High"
+            "minimalSeverity": "Medium"
         },
         "phone": ""
     }

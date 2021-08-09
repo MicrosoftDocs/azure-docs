@@ -103,7 +103,7 @@ The ASE supports changing the cipher suite from the default. The default set of 
 > If incorrect values are set for the cipher suite that SChannel cannot understand, all TLS communication to your server might stop functioning. In such a case, you will need to remove the *FrontEndSSLCipherSuiteOrder* entry from **clusterSettings** and submit the updated Resource Manager template to revert back to the default cipher suite settings.  Please use this functionality with caution.
 
 ## Get started
-The Azure Quickstart Resource Manager template site includes a template with the base definition for [creating an App Service Environment](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
+The Azure Quickstart Resource Manager template site includes a template with the base definition for [creating an App Service Environment](https://azure.microsoft.com/resources/templates/web-app-ase-create/).
 
 <!-- LINKS -->
 

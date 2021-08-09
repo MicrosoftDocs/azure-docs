@@ -1,7 +1,7 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Service Fabric
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Service Fabric. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 02/09/2021
+ms.date: 07/16/2021
 ms.topic: sample
 author: erikadoyle
 ms.author: edoyle

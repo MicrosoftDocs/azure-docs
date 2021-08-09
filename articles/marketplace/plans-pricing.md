@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
-ms.date: 09/02/2020
+ms.date: 07/05/2021
 ---
 
 # Plans and pricing for commercial marketplace offers
@@ -63,7 +63,7 @@ The plan name and description appear on the offer listing page in the commercial
 Once you create your plans, the **Plan overview** page shows a list of your plans’ name, ID, other details, current publishing status, and any available actions. The available actions will depend on the status of your plan and might include:
 
 - If the plan status is **Draft** – Delete draft.
-- If the plan status is **Live** – Stop selling plan or Sync private audience.
+- If the plan status is **Live** – Stop distribution of the plan or Sync private audience.
 
 The following screenshot shows two draft offers.
 
@@ -95,7 +95,7 @@ If you have already set prices for your plan in United States Dollars (USD) and 
 > [!IMPORTANT]
 > After your offer is published, the pricing model choice cannot be changed.
 
-Flat-rate SaaS offers and managed application offers support metered billing using the marketplace metering service. This is a usage-based billing model that lets you define non-standard units, such as bandwidth or emails, that your customers will pay on a consumption basis. See related documentation to learn more about metered billing for [managed applications](./partner-center-portal/azure-app-metered-billing.md) and [SaaS apps](./partner-center-portal/saas-metered-billing.md).
+Flat-rate SaaS offers and managed application offers support metered billing using the marketplace metering service. This is a usage-based billing model that lets you define non-standard units, such as bandwidth or emails, that your customers will pay on a consumption basis. See related documentation to learn more about metered billing for [managed applications](marketplace-metering-service-apis.md) and [SaaS apps](./partner-center-portal/saas-metered-billing.md).
 
 ## Custom prices
 
@@ -161,5 +161,5 @@ To obtain information on customer subscriptions currently participating in a fre
 
 ## Next steps
 
-- To learn how to add or update plans on an existing offer, see [Update an existing offer in the commercial marketplace](./partner-center-portal/update-existing-offer.md).
+- To learn how to add or update plans on an existing offer, see [Update an existing offer in the commercial marketplace](./update-existing-offer.md).
 - To learn more about transaction options and associated pricing models, see [Commercial marketplace transact capabilities](./marketplace-commercial-transaction-capabilities-and-considerations.md).

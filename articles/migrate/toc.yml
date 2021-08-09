@@ -16,6 +16,10 @@
       href: common-questions-discovery-assessment.md
     - name: Server Migration tool
       href: common-questions-server-migration.md
+- name: Quickstarts
+  items:
+  - name: Create a project - ARM template
+    href: quickstart-create-migrate-project.md
 - name: Tutorials
   items:
   - name: Discover
@@ -36,6 +40,8 @@
       items:
       - name: Assess VMware VMs for migration to Azure VMs
         href: tutorial-assess-vmware-azure-vm.md
+      - name: Assess SQL instances for migration to Azure SQL
+        href: tutorial-assess-sql.md
       - name: Assess VMware VMs for migration to AVS
         href: tutorial-assess-vmware-azure-vmware-solution.md
     - name: Assess Hyper-V VMs for migration to Azure
@@ -68,6 +74,16 @@
       href: tutorial-migrate-aws-virtual-machines.md
     - name: Migrate GCP instances
       href: tutorial-migrate-gcp-virtual-machines.md
+  - name: Containerize
+    items:
+    - name: Containerize ASP.NET apps and migrate to AKS
+      href: tutorial-app-containerization-aspnet-kubernetes.md
+    - name: Containerize Java web apps and migrate to AKS
+      href: tutorial-app-containerization-java-kubernetes.md
+    - name: Containerize ASP.NET apps and migrate to App Service
+      href: tutorial-app-containerization-aspnet-app-service.md
+    - name: Containerize Java web apps and migrate to App Service
+      href: tutorial-app-containerization-java-app-service.md
 - name: Concepts
   items:
   - name: General
@@ -77,7 +93,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/migrate-security-baseline?context=/azure/migrate/context/migrate-context
   - name: Discover
     items:
     - name: VMware discovery support
@@ -96,6 +112,8 @@
     items:
     - name: Assessments overview (migrate to Azure VMs)
       href: concepts-assessment-calculation.md
+    - name: Assessments overview (migrate to Azure SQL)
+      href: concepts-azure-sql-assessment-calculation.md
     - name: Assessments overview (migrate to AVS)
       href: concepts-azure-vmware-solution-assessment-calculation.md
     - name: Assessment best practices
@@ -112,6 +130,11 @@
       href: migrate-support-matrix-physical-migration.md
     - name: Replication appliance requirements
       href: migrate-replication-appliance.md
+    - name: VMware agentless migration architecture
+      href: concepts-vmware-agentless-migration.md
+      items:
+        - name: Prepare for VMware agentless migration
+          href: prepare-for-agentless-migration.md
     - name: Hyper-V migration architecture
       href: hyper-v-migration-architecture.md
     - name: VMware agent-based migration architecture
@@ -120,6 +143,11 @@
   items:
   - name: Create and manage Azure Migrate projects
     href: create-manage-projects.md
+  - name: Use Azure Migrate with private endpoints
+    href: how-to-use-azure-migrate-with-private-endpoints.md
+    items:
+      - name: Troubleshoot network connectivity
+        href: troubleshoot-network-connectivity.md
   - name: Prepare to work with ISV tools/Movere
     href: prepare-isv-movere.md
   - name: Discover
@@ -138,8 +166,12 @@
         href: deploy-appliance-script-government.md
     - name: Limit discovery scope for VMware VMs
       href: set-discovery-scope.md
+    - name: How to add server credentials
+      href: add-server-credentials.md
     - name: Discover applications/roles/features
       href: how-to-discover-applications.md
+    - name: Discover SQL instances in an existing project
+      href: how-to-discover-sql-existing-project.md
     - name: Analyze machine dependencies (agent-based)
       href: how-to-create-group-machine-dependencies.md
     - name: Analyze machine dependencies (agentless)
@@ -152,6 +184,8 @@
       href: how-to-create-a-group.md
     - name: Create an Azure VM assessment
       href: how-to-create-assessment.md
+    - name: Create an Azure SQL assessment
+      href: how-to-create-azure-sql-assessment.md
     - name: Create an AVS assessment
       href: how-to-create-azure-vmware-solution-assessment.md
     - name: Assess a SQL Server database
@@ -170,6 +204,8 @@
     items:
     - name: Add migration tools
       href: how-to-migrate.md
+    - name: Replicate using ExpressRoute
+      href: replicate-using-expressroute.md
     - name: Prepare machines for migration
       href: prepare-for-migration.md
     - name: Prepare Windows 2003 servers for migration
@@ -180,6 +216,8 @@
         href: how-to-migrate-vmware-vms-with-cmk-disks.md
     - name: Scale migration
       items:
+      - name: How to migrate VMware VMs at scale using the agentless replication method
+        href: how-to-scale-out-for-migration.md
       - name: Automate migration of large number of VMs
         href: how-to-migrate-at-scale.md
       - name: How to automate VMware migration
@@ -190,6 +228,8 @@
       href: how-to-delete-project.md
     - name: Work with previous version of Azure Migrate
       href: migrate-v1.md
+    - name: Onboard on-premises servers in VMware virtual environment to Azure Arc
+      href: onboard-to-azure-arc-with-azure-migrate.md
     - name: Manage migration projects with Azure Lighthouse
       href: ../lighthouse/how-to/migration-at-scale.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
 - name: Troubleshoot
@@ -202,11 +242,15 @@
       href: troubleshoot-project.md
   - name: Discover
     items:
-    - name: Troubleshoot Azure Migrate appliance/discovery
-      href: troubleshoot-appliance-discovery.md
+    - name: Troubleshoot Azure Migrate appliance
+      href: troubleshoot-appliance.md
+    - name: Troubleshoot discovery
+      href: troubleshoot-discovery.md
+    - name: Troubleshoot dependency visualization
+      href: troubleshoot-dependencies.md
   - name: Assess
     items:
-    - name: Troubleshoot assessment/dependency visualization
+    - name: Troubleshoot assessment
       href: troubleshoot-assessment.md
   - name: Migrate
     items:
@@ -214,8 +258,13 @@
       href: troubleshoot-changed-block-tracking-replication.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/offazure
   - name: Azure PowerShell
     href: /powershell/module/az.migrate/
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Migration in the Cloud Adoption Framework

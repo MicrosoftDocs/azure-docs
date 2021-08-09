@@ -1,18 +1,21 @@
 ---
-title: ForEach activity in Azure Data Factory 
-description: The For Each Activity defines a repeating control flow in your pipeline. It is used for iterating over a collection and execute specified activities.
-author: dcstwh
-ms.author: weetok
-ms.reviewer: maghan
+title: ForEach activity
+titleSuffix: Azure Data Factory & Azure Synapse
+description: The For Each Activity defines a repeating control flow in an Azure Data Factory or Azure Synapse Analytics pipeline. The For Each Activity is used for iterating over a collection to execute actions on each item in the collection individually.
+author: chez-charlie
+ms.author: chez
+ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 01/23/2019
 ---
 
-# ForEach activity in Azure Data Factory
+# ForEach activity in Azure Data Factory and Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-The ForEach Activity defines a repeating control flow in your pipeline. This activity is used to iterate over a collection and executes specified activities in a loop. The loop implementation of this activity is similar to Foreach looping structure in programming languages.
+The ForEach Activity defines a repeating control flow in an Azure Data Factory or Synapse pipeline. This activity is used to iterate over a collection and executes specified activities in a loop. The loop implementation of this activity is similar to Foreach looping structure in programming languages.
 
 ## Syntax
 The properties are described later in this article. The items property is the collection and each item in the collection is referred to by using the `@item()` as shown in the following syntax:  
@@ -65,16 +68,16 @@ Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
 name | Name of the for-each activity. | String | Yes
 type | Must be set to **ForEach** | String | Yes
-isSequential | Specifies whether the loop should be executed sequentially or in parallel.  Maximum of 20 loop iterations can be executed at once in parallel). For example, if you have a ForEach activity iterating over a copy activity with 10 different source and sink datasets with **isSequential** set to False, all copies are executed at once. Default is False. <br/><br/> If "isSequential" is set to False, ensure that there is a correct configuration to run multiple executables. Otherwise, this property should be used with caution to avoid incurring write conflicts. For more information, see [Parallel execution](#parallel-execution) section. | Boolean | No. Default is False.
+isSequential | Specifies whether the loop should be executed sequentially or in parallel.  Maximum of 50 loop iterations can be executed at once in parallel). For example, if you have a ForEach activity iterating over a copy activity with 10 different source and sink datasets with **isSequential** set to False, all copies are executed at once. Default is False. <br/><br/> If "isSequential" is set to False, ensure that there is a correct configuration to run multiple executables. Otherwise, this property should be used with caution to avoid incurring write conflicts. For more information, see [Parallel execution](#parallel-execution) section. | Boolean | No. Default is False.
 batchCount | Batch count to be used for controlling the number of parallel execution (when isSequential is set to false). This is the upper concurrency limit, but the for-each activity will not always execute at this number | Integer (maximum 50) | No. Default is 20.
 Items | An expression that returns a JSON Array to be iterated over. | Expression (which returns a JSON Array) | Yes
 Activities | The activities to be executed. | List of Activities | Yes
 
 ## Parallel execution
-If **isSequential** is set to false, the activity iterates in parallel with a maximum of 20 concurrent iterations. This setting should be used with caution. If the concurrent iterations are writing to the same folder but to different files, this approach is fine. If the concurrent iterations are writing concurrently to the exact same file, this approach most likely causes an error. 
+If **isSequential** is set to false, the activity iterates in parallel with a maximum of 50 concurrent iterations. This setting should be used with caution. If the concurrent iterations are writing to the same folder but to different files, this approach is fine. If the concurrent iterations are writing concurrently to the exact same file, this approach most likely causes an error. 
 
 ## Iteration expression language
-In the ForEach activity, provide an array to be iterated over for the property **items**." Use `@item()` to iterate over a single enumeration in ForEach activity. For example, if **items** is an array: [1, 2, 3], `@item()` returns 1 in the first iteration, 2 in the second iteration, and 3 in the third iteration.
+In the ForEach activity, provide an array to be iterated over for the property **items**." Use `@item()` to iterate over a single enumeration in ForEach activity. For example, if **items** is an array: [1, 2, 3], `@item()` returns 1 in the first iteration, 2 in the second iteration, and 3 in the third iteration. You can also use `@range(0,10)` like expression to iterate ten times starting with 0 ending with 9.
 
 ## Iterating over a single activity
 **Scenario:** Copy from the same source file in Azure Blob to multiple destination files in Azure Blob.
@@ -478,10 +481,11 @@ Here are some limitations of the ForEach activity and suggested workarounds.
 |---|---|
 | You can't nest a ForEach loop inside another ForEach loop (or an Until loop). | Design a two-level pipeline where the outer pipeline with the outer ForEach loop iterates over an inner pipeline with the nested loop. |
 | The ForEach activity has a maximum `batchCount` of 50 for parallel processing, and a maximum of 100,000 items. | Design a two-level pipeline where the outer pipeline with the ForEach activity iterates over an inner pipeline. |
+| SetVariable can't be used inside a ForEach activity that runs in parallel as the variables are global to the whole pipeline, they are not scoped to a ForEach or any other activity. | Consider using sequential ForEach or use Execute Pipeline inside ForEach (Variable/Parameter handled in child Pipeline).|
 | | |
 
 ## Next steps
-See other control flow activities supported by Data Factory: 
+See other supported control flow activities: 
 
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)
 - [Get Metadata Activity](control-flow-get-metadata-activity.md)

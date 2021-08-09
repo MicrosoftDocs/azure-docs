@@ -8,8 +8,8 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 09/22/2020
-# As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
+ms.date: 07/27/2021
+#Customer intent: As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
 ---
 
 
@@ -50,8 +50,7 @@ You can interact with your workspace in the following ways:
 + On the web:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
     + [Azure Machine Learning designer](concept-designer.md) 
-+ In any Python environment with the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
-+ In any R environment with the [Azure Machine Learning SDK for R (preview)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
++ In any Python environment with the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
 + On the command line using the Azure Machine Learning [CLI extension](./reference-azure-machine-learning-cli.md)
 + [Azure Machine Learning VS Code Extension](how-to-manage-resources-vscode.md#workspaces)
 
@@ -72,7 +71,7 @@ Machine learning tasks read and/or write artifacts to your workspace.
 
 You can also perform the following workspace management tasks:
 
-| Workspace management task   | Portal              | Studio | Python SDK / R SDK       | CLI        | VS Code
+| Workspace management task   | Portal              | Studio | Python SDK      | Azure CLI        | VS Code
 |---------------------------|---------|---------|------------|------------|------------|
 | Create a workspace        | **&check;**     | | **&check;** | **&check;** | **&check;** |
 | Manage workspace access    | **&check;**   || |  **&check;**    ||
@@ -94,6 +93,15 @@ There are multiple ways to create a workspace:
 > [!NOTE]
 > The workspace name is case-insensitive.
 
+## <a name="sub-resources"></a> Sub resources
+
+These sub resources are the main resources that are made in the AML workspace.
+
+* VMs: provide computing power for your AML workspace and are an integral part in deploying and training models.
+* Load Balancer: a network load balancer is created for each compute instance and compute cluster to manage traffic even while the compute instance/cluster is stopped.
+* Virtual Network: these help Azure resources communicate with one another, the internet, and other on-premises networks.
+* Bandwidth: encapsulates all outbound data transfers across regions.
+
 ## <a name="resources"></a> Associated resources
 
 When you create a new workspace, it automatically creates several Azure resources that are used by the workspace:
@@ -104,7 +112,7 @@ When you create a new workspace, it automatically creates several Azure resource
   > By default, the storage account is a general-purpose v1 account. You can [upgrade this to general-purpose v2](../storage/common/storage-account-upgrade.md) after the workspace has been created. 
   > Do not enable hierarchical namespace on the storage account after upgrading to general-purpose v2.
 
-  To use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
+  To use an existing Azure Storage account, it cannot be of type BlobStorage or a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
   
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registers docker containers that you use during training and when you deploy a model. To minimize costs, ACR is **lazy-loaded** until deployment images are created.
 
@@ -113,7 +121,7 @@ When you create a new workspace, it automatically creates several Azure resource
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Stores secrets that are used by compute targets and other sensitive information that's needed by the workspace.
 
 > [!NOTE]
-> You can instead use existing Azure resource instances when you create the workspace with the [Python SDK](how-to-manage-workspace.md?tabs=python#create-a-workspace), [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/create_workspace.html), or the Azure Machine Learning CLI [using an ARM template](how-to-create-workspace-template.md).
+> You can instead use existing Azure resource instances when you create the workspace with the [Python SDK](how-to-manage-workspace.md?tabs=python#create-a-workspace) or the Azure Machine Learning CLI [using an ARM template](how-to-create-workspace-template.md).
 
 <a name="wheres-enterprise"></a>
 
@@ -128,11 +136,12 @@ In either editions, customers are responsible for the costs of Azure resources c
 
 ## Next steps
 
+To learn more about planning a workspace for your organization's requirements, see [Organize and set up Azure Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization).
+
 To get started with Azure Machine Learning, see:
 
-+ [Azure Machine Learning overview](overview-what-is-azure-ml.md)
++ [What is Azure Machine Learning?](overview-what-is-azure-machine-learning.md)
 + [Create and manage a workspace](how-to-manage-workspace.md)
-+ [Tutorial: Get started with Azure Machine Learning in your development environment](tutorial-1st-experiment-sdk-setup-local.md)
-+ [Tutorial: Get started creating your first ML experiment on a compute instance](tutorial-1st-experiment-sdk-setup.md)
++ [Tutorial: Get started with Azure Machine Learning](quickstart-create-resources.md)
 + [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md) 
 + [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)

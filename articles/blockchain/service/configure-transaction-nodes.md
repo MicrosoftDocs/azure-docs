@@ -1,7 +1,7 @@
 ---
 title: Configure Azure Blockchain Service transaction nodes
 description: How to configure Azure Blockchain Service transaction nodes
-ms.date: 11/20/2019
+ms.date: 05/11/2021
 ms.topic: how-to
 ms.reviewer: janders
 #Customer intent: As a network operator, I want to use the Azure portal to create and configure transaction nodes.
@@ -10,6 +10,8 @@ ms.reviewer: janders
 # Configure Azure Blockchain Service transaction nodes
 
 Transaction nodes are used to send blockchain transactions to Azure Blockchain Service through a public endpoint. The default transaction node contains the private key of the Ethereum account registered on the blockchain, and as such cannot be deleted.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 To view the default transaction node details:
 
@@ -71,7 +73,7 @@ To grant Azure AD access control to your endpoint:
 
 1. Select **Save** to add the role assignment.
 
-For more information on Azure AD access control, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+For more information on Azure AD access control, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
 
 For details on how to connect using Azure AD authentication, see [connect to your node using AAD authentication](configure-aad.md).
 
@@ -95,7 +97,7 @@ You can view a transaction node's access key details and copy endpoint addresses
 
 ### Firewall rules
 
-Firewall rules enable you to limit the IP addresses that can attempt to authenticate to your transaction node.  If no firewall rules are configured for your transaction node, it cannot be accessed by any party.  
+Firewall rules enable you to limit the IP addresses that can attempt to authenticate to your transaction node.  If no firewall rules are configured for your transaction node, it cannot be accessed by any party.
 
 To view a transaction node's firewall rules, navigate to one of your Azure Blockchain Service member transaction nodes and select **Firewall rules** in settings.
 

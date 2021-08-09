@@ -9,8 +9,7 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: peterlu
 ms.date: 09/28/2020
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
 
 #Customer intent: As a Python Keras developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
 ---
@@ -34,12 +33,12 @@ Run this code on either of these environments:
 
 - Azure Machine Learning compute instance - no downloads or installation necessary
 
-     - Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+     - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
     - In the samples folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > keras > train-hyperparameter-tune-deploy-with-keras** folder.
 
  - Your own Jupyter Notebook server
 
-    - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.15.0).
+    - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install) (>= 1.15.0).
     - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
     - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras) `keras_mnist.py` and `utils.py`
 
@@ -65,7 +64,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### Initialize a workspace
 
-The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) object.
+The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) object.
 
 Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites).
 
@@ -193,7 +192,7 @@ For more information on configuring jobs with ScriptRunConfig, see [Configure an
 
 ### Submit your run
 
-The [Run object](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) provides the interface to the run history while the job is running and after it has completed.
+The [Run object](/python/api/azureml-core/azureml.core.run%28class%29) provides the interface to the run history while the job is running and after it has completed.
 
 ```Python
 run = Experiment(workspace=ws, name='Tutorial-Keras-Minst').submit(src)
@@ -241,7 +240,7 @@ for f in run.get_file_names():
 In this article, you trained and registered a Keras model on Azure Machine Learning. To learn how to deploy a model, continue on to our model deployment article.
 
 * [How and where to deploy models](how-to-deploy-and-where.md)
-* [Track run metrics during training](how-to-track-experiments.md)
+* [Track run metrics during training](how-to-log-view-metrics.md)
 * [Tune hyperparameters](how-to-tune-hyperparameters.md)
 * [Deploy a trained model](how-to-deploy-and-where.md)
 * [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/20/2020
+ms.date: 07/30/2021
 ms.author: curtand
 ms.reviewer: sumitp
 
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 ---
 # Managing custom domain names in your Azure Active Directory
 
-A domain name is an important part of the identifier for many Azure Active Directory (Azure AD) resources: it's part of a user name or email address for a user, part of the address for a group, and is sometimes part of the app ID URI for an application. A resource in Azure AD can include a domain name that's owned by the organization that contains the resource. Only a Global Administrator can manage domains in Azure AD.
+A domain name is an important part of the identifier for many Azure Active Directory (Azure AD) resources: it's part of a user name or email address for a user, part of the address for a group, and is sometimes part of the app ID URI for an application. A resource in Azure AD can include a domain name that's owned by the Azure AD organization (sometimes called a tenant) that contains the resource. Only a Global Administrator can manage domains in Azure AD.
 
 ## Set the primary domain name for your Azure AD organization
 
@@ -40,7 +40,7 @@ You can change the primary domain name for your organization to be any verified 
 
 ## Add custom domain names to your Azure AD organization
 
-You can add up to 900 managed domain names. If you're configuring all your domains for federation with on-premises Active Directory, you can add up to 450 domain names in each organization.
+You can add up to 5000 managed domain names. If you're configuring all your domains for federation with on-premises Active Directory, you can add up to 2500 domain names in each organization.
 
 ## Add subdomains of a custom domain
 
@@ -48,15 +48,13 @@ If you want to add a subdomain name such as ‘europe.contoso.com’ to your org
 
 If you have already added a contoso.com domain to one Azure AD organization, you can also verify the subdomain europe.contoso.com in a different Azure AD organization. When adding the subdomain, you are prompted to add a TXT record in the DNS hosting provider.
 
-
-
 ## What to do if you change the DNS registrar for your custom domain name
 
 If you change the DNS registrars, there are no additional configuration tasks in Azure AD. You can continue using the domain name with Azure AD without interruption. If you use your custom domain name with Microsoft 365, Intune, or other services that rely on custom domain names in Azure AD, see the documentation for those services.
 
 ## Delete a custom domain name
 
-You can delete a custom domain name from your Azure AD if your organization no longer uses that domain name, or if you need to use that domain name with another Azure AD.
+You can delete a custom domain name from your Azure AD if your organization no longer uses that domain name, or if you need to use that domain name with another Azure AD organization.
 
 To delete a custom domain name, you must first ensure that no resources in your organization rely on the domain name. You can't delete a domain name from your organization if:
 
@@ -64,13 +62,16 @@ To delete a custom domain name, you must first ensure that no resources in your 
 * Any group has an email address or proxy address that includes the domain name.
 * Any application in your Azure AD has an app ID URI that includes the domain name.
 
-You must change or delete any such resource in your Azure AD organization before you can delete the custom domain name.
+You must change or delete any such resource in your Azure AD organization before you can delete the custom domain name. 
+
+> [!Note]
+> To delete the custom domain, use a Global Administrator account that is based on either the default domain (onmicrosoft.com) or a different custom domain (mydomainname.com).
 
 ### ForceDelete option
 
 You can **ForceDelete** a domain name in the [Azure AD Admin Center](https://aad.portal.azure.com) or using [Microsoft Graph API](/graph/api/domain-forcedelete?view=graph-rest-beta&preserve-view=true). These options use an asynchronous operation and update all references from the custom domain name like “user@contoso.com” to the initial default domain name such as “user@contoso.onmicrosoft.com.”
 
-To call **ForceDelete** in the Azure portal, you must ensure that there are fewer than 1000 references to the domain name, and any references where Exchange is the provisioning service must be updated or removed in the [Exchange Admin Center](https://outlook.office365.com/ecp/). This includes Exchange Mail-Enabled Security Groups and distributed lists; for more information, see [Removing mail-enabled security groups](/Exchange/recipients/mail-enabled-security-groups#Remove%20mail-enabled%20security%20groups&preserve-view=true). Also, the **ForceDelete** operation won't succeed if either of the following is true:
+To call **ForceDelete** in the Azure portal, you must ensure that there are fewer than 1000 references to the domain name, and any references where Exchange is the provisioning service must be updated or removed in the [Exchange Admin Center](https://outlook.office365.com/ecp/). This includes Exchange Mail-Enabled Security Groups and distributed lists. For more information, see [Removing mail-enabled security groups](/Exchange/recipients/mail-enabled-security-groups#Remove%20mail-enabled%20security%20groups&preserve-view=true). Also, the **ForceDelete** operation won't succeed if either of the following is true:
 
 * You purchased a domain via Microsoft 365 domain subscription services
 * You are a partner administering on behalf of another customer organization
@@ -108,7 +109,7 @@ If you find that any of the conditions haven’t been met, manually clean up the
 Most management tasks for domain names in Azure Active Directory can also be completed using Microsoft PowerShell, or programmatically using the Microsoft Graph API.
 
 * [Using PowerShell to manage domain names in Azure AD](/powershell/module/azuread/#domains&preserve-view=true)
-* [Domain resource type](/graph/api/resources/domain?view=graph-rest-1.0&preserve-view=true)
+* [Domain resource type](/graph/api/resources/domain)
 
 ## Next steps
 

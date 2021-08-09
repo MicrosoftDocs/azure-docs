@@ -3,11 +3,12 @@ title: Create shared Azure Linux VM images using the portal
 description: Learn how to use Azure portal to create and share Linux virtual machine images.
 author: cynthn
 tags: azure-resource-manager
-ms.service: virtual-machines-linux
-ms.subservice: imaging
+ms.service: virtual-machines
+ms.subservice: shared-image-gallery
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 05/04/2020
+ms.date: 06/21/2021
 ms.author: cynthn
 ms.reviewer: akjosh
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
@@ -27,9 +28,6 @@ The Shared Image Gallery feature has multiple resource types. We will be using o
 [!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
 
 <br>
-
-
-
 
 
 ## Before you begin
@@ -55,6 +53,7 @@ Now you can create one or more new VMs. This example creates a VM named *myVMfro
 1. For **Size**, choose a VM size from the list of available sizes and then choose **Select**.
 1. Under **Administrator account**, if the source VM was generalized, enter your **Username** and **SSH public key**. If the source VM was specialized, these options will be greyed out because the information from the source VM is used.
 1. If you want to allow remote access to the VM, under **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** from the drop-down. If you don't want to allow remote access to the VM, leave **None** selected for **Public inbound ports**.
+1. Select **Other** under Licensing, unless your image is based on RedHat or SLES.
 1. When you are finished, select the **Review + create** button at the bottom of the page.
 1. After the VM passes validation, select **Create** at the bottom of the page to start the deployment.
 
@@ -69,9 +68,8 @@ If you want to delete individual resources, you need to delete them in reverse o
 
 You can also create Shared Image Gallery resource using templates. There are several Azure Quickstart Templates available: 
 
-- [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-create/)
-- [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
-- [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [Create a VM from Image Version](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
+- [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
 
 For more information about Shared Image Galleries, see the [Overview](../shared-image-galleries.md). If you run into issues, see [Troubleshooting shared image galleries](../troubleshooting-shared-images.md).

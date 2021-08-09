@@ -1,12 +1,12 @@
 ---
 title: Configure IP firewall rules 
 description: An article that teaches you to configure IP firewall rules in Azure Synapse Analytics 
-author: RonyMSFT 
+author: ashinMSFT 
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: security 
 ms.date: 04/15/2020 
-ms.author: ronytho 
+ms.author: seshin 
 ms.reviewer: jrasnick
 ---
 
@@ -37,10 +37,6 @@ You can connect to your Synapse workspace using Synapse Studio. You can also use
 Make sure that the firewall on your network and local computer allows outgoing communication on TCP ports 80, 443 and 1443 for Synapse Studio.
 
 Also, you need to allow outgoing communication on UDP port 53 for Synapse Studio. To connect using tools such as SSMS and Power BI, you must allow outgoing communication on TCP port 1433.
-
-The SQL connection policy is set to *default* for the workspace. You can learn more about the IP addresses and ports that clients should allow outbound communication to [here](../../azure-sql/database/connectivity-architecture.md#connection-policy).
-
-
 
 
 ## Next steps

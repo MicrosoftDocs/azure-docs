@@ -3,12 +3,13 @@ title: 'Quickstart: Create an Android app with Azure Maps | Microsoft Azure '
 description: 'Quickstart: Learn how to create an Android app using the Azure Maps Android SDK.'
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/10/2020
+ms.date: 04/26/2021
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: mvc
+zone_pivot_groups: azure-maps-android
 ---
 
 # Quickstart: Create an Android app with Azure Maps
@@ -43,7 +44,7 @@ Create a new Azure Maps account with the following steps:
     * Read the *License* and *Privacy Statement*, and check the checkbox to accept the terms.
     * Click the **Create** button.
 
-    ![Create Maps account in portal](media/quick-android-map/create-account.png)
+    :::image type="content" source="./media/quick-demo-map-app/create-account.png" alt-text="Create Maps account in portal":::
 
 ## Get the primary key for your account
 
@@ -85,7 +86,7 @@ The next step in building your application is to install the Azure Maps Android 
 
 1. Open the top-level **build.gradle** file and add the following code to the **all projects**, **repositories** block section:
 
-    ```java
+    ```gradle
     maven {
         url "https://atlas.microsoft.com/sdk/android"
     }
@@ -97,7 +98,7 @@ The next step in building your application is to install the Azure Maps Android 
 
     2. Add the following code to the Android section:
 
-        ```java
+        ```gradle
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_8
             targetCompatibility JavaVersion.VERSION_1_8
@@ -106,8 +107,8 @@ The next step in building your application is to install the Azure Maps Android 
 
     3. Update your dependencies block and add a new implementation dependency line for the latest Azure Maps Android SDK:
 
-        ```java
-        implementation "com.microsoft.azure.maps:mapcontrol:0.6"
+        ```gradle
+        implementation "com.azure.android:azure-maps-control:1.0.0"
         ```
 
         > [!Note]
@@ -116,22 +117,15 @@ The next step in building your application is to install the Azure Maps Android 
     4. Go to **File** in the toolbar and then click on **Sync Project with Gradle Files**.
 3. Add a map fragment to the main activity (res \> layout \> activity\_main.xml):
 
-    ```XML
-    <?xml version="1.0" encoding="utf-8"?>
-    <FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    ```xml
+    <com.azure.android.maps.control.MapControl
+        android:id="@+id/mapcontrol"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
-
-        <com.microsoft.azure.maps.mapcontrol.MapControl
-            android:id="@+id/mapcontrol"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
-    </FrameLayout>
+        />
     ```
+
+::: zone pivot="programming-language-java-android"
 
 4. In the **MainActivity.java** file you'll need to:
 
@@ -144,26 +138,25 @@ The next step in building your application is to install the Azure Maps Android 
     The map control contains its own lifecycle methods for managing Android's OpenGL lifecycle. These lifecycle methods must be called directly from the containing Activity. For your app to correctly call the map control's lifecycle methods, you must override the following lifecycle methods in the Activity that contains the map control. And, you must call the respective map control method.
 
     * `onCreate(Bundle)`
-    * `onStart()`
-    * `onResume()`
-    * `onPause()`
-    * `onStop()`
     * `onDestroy()`
-    * `onSaveInstanceState(Bundle)`
     * `onLowMemory()`
+    * `onPause()`
+    * `onResume()`
+    * `onSaveInstanceState(Bundle)`
+    * `onStart()`
+    * `onStop()`
 
     Edit the **MainActivity.java** file as follows:
 
-    ```Java
+    ```java
     package com.example.myapplication;
     
-    //For older versions use: import android.support.v7.app.AppCompatActivity; 
     import androidx.appcompat.app.AppCompatActivity;
-    import com.microsoft.azure.maps.mapcontrol.AzureMaps;
-    import com.microsoft.azure.maps.mapcontrol.MapControl;
-    import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
-    import com.microsoft.azure.maps.mapcontrol.options.MapStyle;
-    import com.microsoft.azure.maps.mapcontrol.source.DataSource;
+    import com.azure.android.maps.control.AzureMaps;
+    import com.azure.android.maps.control.MapControl;
+    import com.azure.android.maps.control.layer.SymbolLayer;
+    import com.azure.android.maps.control.options.MapStyle;
+    import com.azure.android.maps.control.source.DataSource;
     
     public class MainActivity extends AppCompatActivity {
         
@@ -236,8 +229,111 @@ The next step in building your application is to install the Azure Maps Android 
     ```
 
     > [!NOTE]
-    > After you complete the preceding steps, you'll probably get warnings from Android Studio about some of the code. To resolve these warnings, import the classes referenced in `MainActivity.java`.
+    > After you complete the preceding steps, you may get warnings from Android Studio about some of the code. To resolve these warnings, import the classes referenced in `MainActivity.java`.
     > You can automatically import these classes by selecting `Alt` + `Enter` (`Option` + `Return` on a Mac).
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+4. In the **MainActivity.kt** file you'll need to:
+
+    * add imports for the Azure Maps SDK
+    * set your Azure Maps authentication information
+    * get the map control instance in the **onCreate** method
+
+    Setting the authentication information on the `AzureMaps` class globally using the `setSubscriptionKey` or `setAadProperties` methods makes it so you won't have to add your authentication information on every view.
+
+    The map control contains its own lifecycle methods for managing Android's OpenGL lifecycle. These lifecycle methods must be called directly from the containing Activity. For your app to correctly call the map control's lifecycle methods, you must override the following lifecycle methods in the Activity that contains the map control. And, you must call the respective map control method.
+
+    * `onCreate(Bundle)`
+    * `onDestroy()`
+    * `onLowMemory()`
+    * `onPause()`
+    * `onResume()`
+    * `onSaveInstanceState(Bundle)`
+    * `onStart()`
+    * `onStop()`
+
+    Edit the **MainActivity.kt** file as follows:
+
+    ```kotlin
+    package com.example.myapplication;
+
+    import androidx.appcompat.app.AppCompatActivity
+    import android.os.Bundle
+    import com.azure.android.maps.control.AzureMap
+    import com.azure.android.maps.control.AzureMaps
+    import com.azure.android.maps.control.MapControl
+    import com.azure.android.maps.control.events.OnReady
+    
+    class MainActivity : AppCompatActivity() {
+    
+        companion object {
+            init {
+                AzureMaps.setSubscriptionKey("<Your Azure Maps subscription key>");
+    
+                //Alternatively use Azure Active Directory authenticate.
+                //AzureMaps.setAadProperties("<Your aad clientId>", "<Your aad AppId>", "<Your aad Tenant>");
+            }
+        }
+    
+        var mapControl: MapControl? = null
+    
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_main)
+    
+            mapControl = findViewById(R.id.mapcontrol)
+    
+            mapControl?.onCreate(savedInstanceState)
+    
+            //Wait until the map resources are ready.
+            mapControl?.onReady(OnReady { map: AzureMap -> })
+        }
+    
+        public override fun onStart() {
+            super.onStart()
+            mapControl?.onStart()
+        }
+    
+        public override fun onResume() {
+            super.onResume()
+            mapControl?.onResume()
+        }
+    
+        public override fun onPause() {
+            mapControl?.onPause()
+            super.onPause()
+        }
+    
+        public override fun onStop() {
+            mapControl?.onStop()
+            super.onStop()
+        }
+    
+        override fun onLowMemory() {
+            mapControl?.onLowMemory()
+            super.onLowMemory()
+        }
+    
+        override fun onDestroy() {
+            mapControl?.onDestroy()
+            super.onDestroy()
+        }
+    
+        override fun onSaveInstanceState(outState: Bundle) {
+            super.onSaveInstanceState(outState)
+            mapControl?.onSaveInstanceState(outState)
+        }
+    }
+    ```
+
+    > [!NOTE]
+    > After you complete the preceding steps, you may get warnings from Android Studio about some of the code. To resolve these warnings, import the classes referenced in `MainActivity.kt`.
+    > You can automatically import these classes by selecting `Alt` + `Enter` (`Option` + `Return` on a Mac).
+
+::: zone-end
 
 5. Select the run button, as shown in the following graphic (or press `Control` + `R` on a Mac), to build your application.
 

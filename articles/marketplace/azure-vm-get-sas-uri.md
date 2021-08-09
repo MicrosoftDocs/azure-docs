@@ -1,24 +1,90 @@
 ---
-title: Generate a SAS URI for a VM image - Azure Marketplace
+title: Generate a SAS URI for a VM image
 description: Generate a shared access signature (SAS) URI for a virtual hard disks (VHD) in Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
-ms.date: 1/5/2021
+ms.date: 06/23/2021
+
 ---
 
-# How to generate a SAS URI for a VM image
+# Generate a SAS URI for a VM image
 
-During the publishing process, you must provide a SAS (Shared Access Signature) URI for each VHD associated with your plans (previously called SKUs). Microsoft needs access to these VHDs during the certification process. You’ll enter this URI on the **Plans** tab in Partner Center.
+> [!NOTE]
+> You don't need a SAS URI to publish your VM. You can simply share an image in Parter Center. Refer to [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md) or [Create a virtual machine using your own image](azure-vm-create-using-own-image.md) instructions.
 
 Generating SAS URIs for your VHDs has these requirements:
 
-- They only support unmanaged VHDs.
-- Only List and Read permissions are required. Don’t provide Write or Delete access.
+- Only List and Read permissions are required. Don't provide Write or Delete access.
 - The duration for access (expiry date) should be a minimum of three weeks from when the SAS URI is created.
 - To protect against UTC time changes, set the start date to one day before the current date. For example, if the current date is June 16, 2020, select 6/15/2020.
+
+## Extract vhd from a VM
+
+> [!NOTE]
+> You can skip this step if you already have a vhd uploaded in a Storage Account.
+
+To extract the vhd from your VM, you need to take a snapshot of your VM disk and extract vhd from the snapshot.
+
+Start by taking a snapshot of the VM disk:
+
+1. Sign in to the Azure portal.
+2. Starting at the upper-left, select Create a resource, then search for and select Snapshot.
+3. In the Snapshot blade, select Create.
+4. Enter a Name for the snapshot.
+5. Select an existing resource group or enter the name for a new one.
+6. For Source disk, select the managed disk to snapshot.
+7. Select the Account type to use to store the snapshot. Use Standard HDD unless you need it stored on a high performing SSD.
+8. Select Create.
+
+### Extract the VHD
+
+Use the following script to export the snapshot into a VHD in your storage account.
+
+```azurecli
+#Provide the subscription Id where the snapshot is created
+$subscriptionId=yourSubscriptionId
+
+#Provide the name of your resource group where the snapshot is created
+$resourceGroupName=myResourceGroupName
+
+#Provide the snapshot name
+$snapshotName=mySnapshot
+
+#Provide Shared Access Signature (SAS) expiry duration in seconds (such as 3600)
+#Know more about SAS here: https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1
+$sasExpiryDuration=3600
+
+#Provide storage account name where you want to copy the underlying VHD file. Currently, only general purpose v1 storage is supported.
+$storageAccountName=mystorageaccountname
+
+#Name of the storage container where the downloaded VHD will be stored.
+$storageContainerName=mystoragecontainername
+
+#Provide the key of the storage account where you want to copy the VHD 
+$storageAccountKey=mystorageaccountkey
+
+#Give a name to the destination VHD file to which the VHD will be copied.
+$destinationVHDFileName=myvhdfilename.vhd
+
+az account set --subscription $subscriptionId
+
+$sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $snapshotName --duration-in-seconds $sasExpiryDuration --query [accessSas] -o tsv)
+
+az storage blob copy start --destination-blob $destinationVHDFileName --destination-container $storageContainerName --account-name $storageAccountName --account-key $storageAccountKey --source-uri $sas
+```
+
+### Script explanation
+This script uses following commands to generate the SAS URI for a snapshot and copies the underlying VHD to a storage account using the SAS URI. Each command in the table links to command specific documentation.
+
+
+|Command  |Notes  |
+|---------|---------|
+| az disk grant-access    |     Generates read-only SAS that is used to copy the underlying VHD file to a storage account or download it to on-premises    |
+|  az storage blob copy start   |    Copies a blob asynchronously from one storage account to another. Use az storage blob show to check the status of the new blob.     |
+|
 
 ## Generate the SAS address
 
@@ -58,7 +124,7 @@ There are two common tools used to create a SAS address (URL):
 2. Create a PowerShell file (.ps1 file extension), copy in the following code, then save it locally.
 
     ```azurecli-interactive
-    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net’ --name <container-name> --permissions rl --start ‘<start-date>’ --expiry ‘<expiry-date>’
+    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <container-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
     ```
 
 3. Edit the file to use the following parameter values. Provide dates in UTC datetime format, such as 2020-04-01T00:00:00Z.
@@ -71,7 +137,7 @@ There are two common tools used to create a SAS address (URL):
     Here's an example of proper parameter values (at the time of this writing):
 
     ```azurecli-interactive
-    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ON c+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net’ --name <container-name> -- permissions rl --start ‘2020-04-01T00:00:00Z’ --expiry ‘2021-04-01T00:00:00Z’
+    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ON c+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name <container-name> -- permissions rl --start '2020-04-01T00:00:00Z' --expiry '2021-04-01T00:00:00Z'
     ```
 
 1. Save the changes.
@@ -103,6 +169,6 @@ Check the SAS URI before publishing it on Partner Center to avoid any issues rel
 
 ## Next steps
 
-- If you run into issues, see [VM SAS failure messages](azure-vm-sas-failure-messages.md).
-- [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)
+- If you run into issues, see [VM SAS failure messages](azure-vm-sas-failure-messages.md)
+- [Sign in to Partner Center](https://go.microsoft.com/fwlink/?linkid=2165935)
 - [Create a virtual machine offer on Azure Marketplace](azure-vm-create.md)

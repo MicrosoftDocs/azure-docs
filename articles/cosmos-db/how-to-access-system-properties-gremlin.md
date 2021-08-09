@@ -5,8 +5,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/10/2019
-author: SnehaGunda
-ms.author: sngun
+author: manishmsfte
+ms.author: mansha
 ---
 
 # System document properties
@@ -37,5 +37,5 @@ g.addV('vertex-one').property('ttl', 123)
 ```
 
 ## Next steps
-* [Cosmos DB Optimistic Concurrency](faq.md#how-does-the-sql-api-provide-concurrency)
+* [Cosmos DB Optimistic Concurrency](faq.yml#how-does-the-sql-api-provide-concurrency-)
 * [Time to Live (TTL)](time-to-live.md) in Azure Cosmos DB

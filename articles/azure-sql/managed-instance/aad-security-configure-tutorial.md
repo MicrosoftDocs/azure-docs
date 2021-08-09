@@ -100,7 +100,7 @@ See the following articles for examples of connecting to SQL Managed Instance:
 
     ![Screenshot of the Results tab in the S S M S Object Explorer showing the name, principal_id, sid, type, and type_desc of the newly added login.](./media/aad-security-configure-tutorial/native-login.png)
 
-For more information, see [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+For more information, see [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 ## Grant permissions to create logins
 
@@ -176,7 +176,7 @@ Once the Azure AD server principal (login) has been created, and provided with `
     GO
     ```
 
-1. Create a database in the managed instance using the [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current) syntax. This database will be used to test user logins in the next section.
+1. Create a database in the managed instance using the [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true) syntax. This database will be used to test user logins in the next section.
     1. In **Object Explorer**, right-click the server and choose **New Query**.
     1. In the query window, use the following syntax to create a database named **MyMITestDB**.
 
@@ -258,7 +258,7 @@ For more information on granting database permissions, see [Getting Started with
     > [!IMPORTANT]
     > When creating a **USER** from an Azure AD server principal (login), specify the user_name as the same login_name from **LOGIN**.
 
-    For more information, see [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current).
+    For more information, see [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 1. In a new query window, create a test table using the following T-SQL command:
 

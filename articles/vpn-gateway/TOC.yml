@@ -39,6 +39,8 @@
       href: work-remotely-support.md
     - name: NVA configurations and remote work
       href: nva-work-remotely-support.md
+  - name: VPN Gateway FAQ
+    href: vpn-gateway-vpn-faq.md
   - name: About VPN Gateway design
     href: design.md
   - name: About VPN Gateway settings
@@ -55,12 +57,14 @@
     href: point-to-site-about.md
   - name: About Point-to-Site VPN routing
     href: vpn-gateway-about-point-to-site-routing.md
+  - name: About NAT and VPN Gateway
+    href: nat-overview.md
   - name: About zone-redundant gateways for Availability Zones
     href: about-zone-redundant-vnet-gateways.md
   - name: Security
     items:
       - name: Security baseline
-        href: security-baseline.md
+        href: /security/benchmark/azure/baselines/vpn-gateway-security-baseline?toc=/azure/vpn-gateway/TOC.json
   - name: Backend Connectivity Interoperability
     items:
     - name: Preface and Test Setup
@@ -85,7 +89,7 @@
         href: create-routebased-vpn-gateway-cli.md
     - name: Verify a VPN gateway connection
       href: vpn-gateway-verify-connection-resource-manager.md
-    - name: Reset a VPN gateway
+    - name: Reset a VPN gateway or connection
       href: reset-gateway.md
     - name: Delete a VPN gateway
       items:
@@ -172,11 +176,19 @@
       - name: Configure Multi-Factor Authentication (MFA)
         href: openvpn-azure-ad-mfa.md
       - name: Configure a VPN client
-        href: openvpn-azure-ad-client.md
+        items:
+        - name: Windows
+          href: openvpn-azure-ad-client.md
+        - name: macOS
+          href: openvpn-azure-ad-client-mac.md
       - name: Work with VPN client profile files
         href: about-vpn-profile-download.md 
       - name: Intune - Deploy VPN client profile
-        href: vpn-profile-intune.md       
+        href: vpn-profile-intune.md
+    - name: Multiple authentication types
+      items:
+      - name: Azure portal
+        href: howto-point-to-site-multi-auth.md          
     - name: OpenVPN
       items:
       - name: Configure OpenVPN tunnel type
@@ -205,6 +217,8 @@
         href: vpn-gateway-bgp-resource-manager-ps.md
       - name: Azure CLI
         href: bgp-how-to-cli.md
+    - name: BGP diagnostics
+      href: bgp-diagnostics.md
     - name: Configure forced tunneling
       items:
       - name: Azure PowerShell
@@ -213,6 +227,8 @@
         href: vpn-gateway-about-forced-tunneling.md
     - name: Configure gateway transit for VNet peering
       href: vpn-gateway-peering-gateway-transit.md
+  - name: Configure NAT for VPN Gateway
+    href: nat-howto.md
   - name: Modify a local network gateway
     items:
     - name: Azure portal
@@ -229,33 +245,35 @@
       href: vpn-gateway-download-vpndevicescript.md
     - name: 'Sample: Cisco ASA device (IKEv2/no BGP)'
       href: vpn-gateway-3rdparty-device-config-cisco-asa.md
-  - name: Monitoring and alerts
-    items:
-    - name: View VPN Gateway metrics
-      href: vpn-gateway-howto-view-virtual-network-gateway-metrics.md
-    - name: Set up alerts based on metrics
-      href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
-    - name: Set up alerts based on resource logs
-      href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
-  - name: Configure packet captures 
-    href: packet-capture.md
-  - name: Zone redundant gateways
-    items:
-    - name: Create a zone-redundant gateway
-      href: create-zone-redundant-vnet-gateway.md
   - name: Configure IPsec/IKE policies on connections
     items:
     - name: Azure portal
       href: ipsec-ike-policy-howto.md 
     - name: PowerShell
       href: vpn-gateway-ipsecikepolicy-rm-powershell.md
-  - name: Configure active-active connections
-    items: 
+  - name: Configure active-active gateways
+    items:
+    - name: Azure portal
+      href: active-active-portal.md 
     - name: PowerShell
       href: vpn-gateway-activeactive-rm-powershell.md
+  - name: Configure zone redundant gateways
+    href: create-zone-redundant-vnet-gateway.md
+  - name: Configure packet captures 
+    href: packet-capture.md
+  - name: Health monitoring
+    items:
+    - name: Monitoring VPN Gateway
+      href: monitor-vpn-gateway.md
+    - name: Set up alerts based on metrics
+      href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
+    - name: Set up alerts based on resource logs
+      href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
   - name: Troubleshoot
     href: vpn-gateway-troubleshoot.md
     items:
+    - name: Troubleshoot Azure VPN Gateway using diagnostic logs
+      href: troubleshoot-vpn-with-azure-diagnostics.md
     - name: Community-suggested VPN or firewall device settings
       href: vpn-gateway-third-party-settings.md
     - name: Configure and validate VNet or VPN connections
@@ -299,7 +317,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.network#vpn
   - name: Azure PowerShell (classic)
-    href: /powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0#azure
+    href: /powershell/module/servicemanagement/azure.service/#azure
   - name: REST
     href: /rest/api/network/virtualnetworkgateways
   - name: REST (classic)
@@ -308,8 +326,6 @@
     href: /cli/azure/network/vnet-gateway
 - name: Resources
   items:
-  - name: VPN Gateway FAQ
-    href: vpn-gateway-vpn-faq.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Blog

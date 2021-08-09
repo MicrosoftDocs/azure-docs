@@ -1,41 +1,39 @@
 ---
-title: Troubleshooting issues caused by applications that don’t support TLS 1.2 | Microsoft Docs
-description: Troubleshooting issues caused by applications that don’t support TLS 1.2
+title: Troubleshooting issues caused by applications that don't support TLS 1.2 | Microsoft Docs
+description: Troubleshooting issues caused by applications that don't support TLS 1.2
 services: cloud-services
-documentationcenter: ''
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 tags: top-support-issue
-ms.assetid: 
 ms.service: cloud-services
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 03/16/2020
-ms.author: tagore
 ---
 
-# Troubleshooting applications that don’t support TLS 1.2
+# Troubleshooting applications that don't support TLS 1.2
 
 > [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 
-This article describes how to enable the older TLS protocols (TLS 1.0 and 1.1) as well as applying legacy cipher suites to support the additional protocols on the Windows Server 2019 cloud service web and worker roles. 
+This article describes how to enable the older TLS protocols (TLS 1.0 and 1.1) as well as applying legacy cipher suites to support the additional protocols on the Windows Server 2019 cloud service web and worker roles.
 
-We understand that while we are taking steps to deprecate TLS 1.0 and TLS 1.1, our customers may need to support the older protocols and cipher suites until they can plan for their deprecation.  While we don't recommend re-enabling these legacy values, we are providing guidance to help customers. We encourage customers to evaluate the risk of regression before implementing the changes outlined in this article. 
+We understand that while we are taking steps to deprecate TLS 1.0 and TLS 1.1, our customers may need to support the older protocols and cipher suites until they can plan for their deprecation.  While we don't recommend re-enabling these legacy values, we are providing guidance to help customers. We encourage customers to evaluate the risk of regression before implementing the changes outlined in this article.
 
 > [!NOTE]
 > Guest OS Family 6 release enforces TLS 1.2 by explicitly disabling TLS 1.0 and 1.1 and defining a specific set of cipher suites.For more information on Guest OS families see [Guest OS release news](./cloud-services-guestos-update-matrix.md#family-6-releases)
 
+## Dropping support for TLS 1.0, TLS 1.1 and older cipher suites
 
-## Dropping support for TLS 1.0, TLS 1.1 and older cipher suites 
-In support of our commitment to use best-in-class encryption, Microsoft announced plans to start migration away from TLS 1.0 and 1.1 in June of 2017.   Since that initial announcement, Microsoft announced our intent to disable Transport Layer Security (TLS) 1.0 and 1.1 by default in supported versions of Microsoft Edge and Internet Explorer 11 in the first half of 2020.  Similar announcements from Apple, Google, and Mozilla indicate the direction in which the industry is headed.   
+In support of our commitment to use best-in-class encryption, Microsoft announced plans to start migration away from TLS 1.0 and 1.1 in June of 2017.   Since that initial announcement, Microsoft announced our intent to disable Transport Layer Security (TLS) 1.0 and 1.1 by default in supported versions of Microsoft Edge and Internet Explorer 11 in the first half of 2020.  Similar announcements from Apple, Google, and Mozilla indicate the direction in which the industry is headed.
 
 For more information, see [Preparing for TLS 1.2 in Microsoft Azure](https://azure.microsoft.com/updates/azuretls12/)
 
-## TLS configuration  
-The Windows Server 2019 cloud server image is configured with TLS 1.0 and TLS 1.1 disabled at the registry level. This means applications deployed to this version of Windows AND using the Windows stack for TLS negotiation will not allow TLS 1.0 and TLS 1.1 communication.   
+## TLS configuration
 
-The server also comes with a limited set of cipher suites: 
+The Windows Server 2019 cloud server image is configured with TLS 1.0 and TLS 1.1 disabled at the registry level. This means applications deployed to this version of Windows AND using the Windows stack for TLS negotiation will not allow TLS 1.0 and TLS 1.1 communication.
+
+The server also comes with a limited set of cipher suites:
 
 ```
     TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 
@@ -48,12 +46,11 @@ The server also comes with a limited set of cipher suites:
     TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 
 ```
 
-## Step 1: Create the PowerShell script to enable TLS 1.0 and TLS 1.1 
+## Step 1: Create the PowerShell script to enable TLS 1.0 and TLS 1.1
 
-Use the following code as an example to create a script that enables the older protocols and cipher suites. For the purposes of this documentation, this script will be named: **TLSsettings.ps1**. Store this script on your local desktop for easy access in later steps. 
+Use the following code as an example to create a script that enables the older protocols and cipher suites. For the purposes of this documentation, this script will be named: **TLSsettings.ps1**. Store this script on your local desktop for easy access in later steps.
 
-
-```Powershell
+```powershell
 # You can use the -SetCipherOrder (or -sco) option to also set the TLS cipher 
 # suite order. Change the cipherorder variable below to the order you want to set on the 
 # server. Setting this requires a reboot to take effect.
@@ -270,9 +267,9 @@ If ($reboot) {
 }
 ```
 
-## Step 2: Create a command file 
+## Step 2: Create a command file
 
-Create a CMD file named **RunTLSSettings.cmd** using the below. Store this script on your local desktop for easy access in later steps. 
+Create a CMD file named **RunTLSSettings.cmd** using the below. Store this script on your local desktop for easy access in later steps.
 
 ```cmd
 SET LOG_FILE="%TEMP%\StartupLog.txt"
@@ -284,22 +281,21 @@ IF "%ComputeEmulatorRunning%" == "" (
 
 IF "%ComputeEmulatorRunning%" == "false" (
        SET EXECUTE_PS1=1
-) 
+)
 
 IF %EXECUTE_PS1% EQU 1 (
        echo "Invoking TLSsettings.ps1 on Azure service at %TIME% on %DATE%" >> %LOG_FILE% 2>&1       
        PowerShell -ExecutionPolicy Unrestricted %~dp0TLSsettings.ps1 -sco  >> %LOG_FILE% 2>&1
 ) ELSE (
        echo "Skipping TLSsettings.ps1 invocation on emulated environment" >> %LOG_FILE% 2>&1       
-)    
+)
 
 EXIT /B %ERRORLEVEL%
-
 ```
 
-## Step 3: Add the startup task to the role’s service definition (csdef) 
+## Step 3: Add the startup task to the role's service definition (csdef)
 
-Add the following snippet to your existing service definition file. 
+Add the following snippet to your existing service definition file.
 
 ```
 	<Startup> 
@@ -308,16 +304,16 @@ Add the following snippet to your existing service definition file.
 	</Startup> 
 ```
 
-Here is an example that shows both the worker role and web role. 
+Here is an example that shows both the worker role and web role.
 
 ```
-<?xmlversion="1.0"encoding="utf-8"?> 
-<ServiceDefinitionname="CloudServiceName"xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition"schemaVersion="2015-04.2.6"> 
-	<WebRolename="WebRole1"vmsize="Standard_D1_v2"> 
+<?xmlversion="1.0" encoding="utf-8"?> 
+<ServiceDefinitionname="CloudServiceName" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6"> 
+	<WebRolename="WebRole1" vmsize="Standard_D1_v2"> 
 		<Sites> 
 			<Sitename="Web"> 
 				<Bindings> 
-					<Bindingname="Endpoint1"endpointName="Endpoint1"/> 
+					<Bindingname="Endpoint1" endpointName="Endpoint1"/> 
 				</Bindings> 
 			</Site> 
 		</Sites> 
@@ -326,10 +322,10 @@ Here is an example that shows both the worker role and web role.
 			</Task> 
 		</Startup> 
 		<Endpoints> 
-			<InputEndpointname="Endpoint1"protocol="http"port="80"/> 
+			<InputEndpointname="Endpoint1" protocol="http" port="80"/> 
 		</Endpoints> 
 	</WebRole> 
-<WorkerRolename="WorkerRole1"vmsize="Standard_D1_v2"> 
+<WorkerRolename="WorkerRole1" vmsize="Standard_D1_v2"> 
 	<Startup> 
 		<Task executionContext="elevated" taskType="simple" commandLine="RunTLSSettings.cmd"> 
 		</Task> 
@@ -338,7 +334,7 @@ Here is an example that shows both the worker role and web role.
 </ServiceDefinition> 
 ```
 
-## Step 4: Add the scripts to your Cloud Service 
+## Step 4: Add the scripts to your Cloud Service
 
 1) In Visual Studio, right-click on your WebRole or WorkerRole
 2) Select **Add**
@@ -357,7 +353,6 @@ To ensure the scripts are uploaded with every update pushed from Visual Studio, 
 
 ## Step 6: Publish & Validate
 
-Now that the above steps have been complete, publish the update to your existing Cloud Service. 
+Now that the above steps have been complete, publish the update to your existing Cloud Service.
 
-You can use [SSLLabs](https://www.ssllabs.com/) to validate the TLS status of your endpoints 
-
+You can use [SSLLabs](https://www.ssllabs.com/) to validate the TLS status of your endpoints

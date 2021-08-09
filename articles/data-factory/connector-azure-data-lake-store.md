@@ -1,15 +1,17 @@
 ---
 title: Copy data to or from Azure Data Lake Storage Gen1
-description: Learn how to copy data from supported source data stores to Azure Data Lake Store, or from Data Lake Store to supported sink stores, by using Data Factory.
-ms.author: jingwang
-author: linda33wj
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to copy data from supported source data stores to Azure Data Lake Store, or from Data Lake Store to supported sink stores, using Azure Data Factory or Azure Synapse Analytics pipelines.
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 08/31/2020
+ms.custom: synapse
+ms.date: 07/19/2021
 ---
 
-# Copy data to or from Azure Data Lake Storage Gen1 using Azure Data Factory
+# Copy data to or from Azure Data Lake Storage Gen1 using Azure Data Factory or Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Select the version of Azure Data Factory that you're using:"]
 >
@@ -18,7 +20,7 @@ ms.date: 08/31/2020
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to copy data to and from Azure Data Lake Storage Gen1. To learn about Azure Data Factory, read the [introductory article](introduction.md).
+This article outlines how to copy data to and from Azure Data Lake Storage Gen1. To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## Supported capabilities
 
@@ -44,9 +46,9 @@ Specifically, with this connector you can:
 > [!TIP]
 > For a walk-through of how to use the Azure Data Lake Store connector, see [Load data into Azure Data Lake Store](load-azure-data-lake-store.md).
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide information about properties that are used to define Data Factory entities specific to Azure Data Lake Store.
+The following sections provide information about properties that are used to define entities specific to Azure Data Lake Store.
 
 ## Linked service properties
 
@@ -80,9 +82,9 @@ The following properties are supported:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | servicePrincipalId | Specify the application's client ID. | Yes |
-| servicePrincipalKey | Specify the application's key. Mark this field as a `SecureString` to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| servicePrincipalKey | Specify the application's key. Mark this field as a `SecureString` to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | tenant | Specify the tenant information, such as domain name or tenant ID, under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes |
-| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Azure Active Directory application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Azure Active Directory application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the the service's cloud environment is used. | No |
 
 **Example:**
 
@@ -110,20 +112,20 @@ The following properties are supported:
 }
 ```
 
-### <a name="managed-identity"></a> Use managed identities for Azure resources authentication
+### <a name="managed-identity"></a> Use system-assigned managed identity authentication
 
-A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md), which represents this specific data factory. You can directly use this managed identity for Data Lake Store authentication, similar to using your own service principal. It allows this designated factory to access and copy data to or from Data Lake Store.
+A data factory or Synapse workspace can be associated with a [system-assigned managed identity](data-factory-service-identity.md), which represents the service for authentication. You can directly use this system-assigned managed identity for Data Lake Store authentication, similar to using your own service principal. It allows this designated resource to access and copy data to or from Data Lake Store.
 
-To use managed identities for Azure resources authentication, follow these steps.
+To use system-assigned managed identity authentication, follow these steps.
 
-1. [Retrieve the data factory managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the "Service Identity Application ID" generated along with your factory.
+1. [Retrieve the system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the "Service Identity Application ID" generated along with your factory or Synapse workspace.
 
-2. Grant the managed identity access to Data Lake Store. See examples on how permission works in Data Lake Storage Gen1 from [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions).
+2. Grant the system-assigned managed identity access to Data Lake Store. See examples on how permission works in Data Lake Storage Gen1 from [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions).
 
     - **As source**: In **Data explorer** > **Access**, grant at least **Execute** permission for ALL upstream folders including the root, along with **Read** permission for the files to copy. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**. There's no requirement on account-level access control (IAM).
     - **As sink**: In **Data explorer** > **Access**, grant at least **Execute** permission for ALL upstream folders including the root, along with **Write** permission for the sink folder. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**.
 
-In Azure Data Factory, you don't need to specify any properties besides the general Data Lake Store information in the linked service.
+You don't need to specify any properties other than the general Data Lake Store information in the linked service.
 
 **Example:**
 
@@ -145,11 +147,53 @@ In Azure Data Factory, you don't need to specify any properties besides the gene
 }
 ```
 
+### Use user-assigned managed identity authentication
+
+A data factory can be assigned with one or multiple [user-assigned managed identities](data-factory-service-identity.md). You can use this user-assigned managed identity for Blob storage authentication, which allows to access and copy data from or to Data Lake Store. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
+
+To use user-assigned managed identity authentication, follow these steps:
+
+1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant access to Azure Data Lake. See examples on how permission works in Data Lake Storage Gen1 from [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions).
+
+    - **As source**: In **Data explorer** > **Access**, grant at least **Execute** permission for ALL upstream folders including the root, along with **Read** permission for the files to copy. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**. There's no requirement on account-level access control (IAM).
+    - **As sink**: In **Data explorer** > **Access**, grant at least **Execute** permission for ALL upstream folders including the root, along with **Write** permission for the sink folder. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**.
+    
+2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](data-factory-service-identity.md#credentials) for each user-assigned managed identity. 
+
+The following property is supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| credentials | Specify the user-assigned managed identity as the credential object. | Yes |
+
+**Example:**
+
+```json
+{
+    "name": "AzureDataLakeStoreLinkedService",
+    "properties": {
+        "type": "AzureDataLakeStore",
+        "typeProperties": {
+            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+            "subscriptionId": "<subscription of ADLS>",
+            "resourceGroupName": "<resource group of ADLS>",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
 ## Dataset properties
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for Azure Data Lake Store Gen1 under `location` settings in the format-based dataset:
 
@@ -191,7 +235,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### Azure Data Lake Store as source
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for Azure Data Lake Store Gen1 under `storeSettings` settings in the format-based copy source:
 
@@ -200,8 +244,8 @@ The following properties are supported for Azure Data Lake Store Gen1 under `sto
 | type                     | The type property under `storeSettings` must be set to **AzureDataLakeStoreReadSettings**. | Yes                                          |
 | ***Locate the files to copy:*** |  |  |
 | OPTION 1: static path<br> | Copy from the given folder/file path specified in the dataset. If you want to copy all files from a folder, additionally specify `wildcardFileName` as `*`. |  |
-| OPTION 2: name range<br>- listAfter | Retrieve the folders/files whose name is after this value alphabetically (exclusive). It utilizes the service-side filter for ADLS Gen1, which provides better performance than a wildcard filter. <br/>Data factory applies this filter to the path defined in dataset, and only one entity level is supported. See more examples in [Name range filter examples](#name-range-filter-examples). | No |
-| OPTION 2: name range<br/>- listBefore | Retrieve the folders/files whose name is before this value alphabetically (inclusive). It utilizes the service-side filter for ADLS Gen1, which provides better performance than a wildcard filter.<br>Data factory applies this filter to the path defined in dataset, and only one entity level is supported. See more examples in [Name range filter examples](#name-range-filter-examples). | No |
+| OPTION 2: name range<br>- listAfter | Retrieve the folders/files whose name is after this value alphabetically (exclusive). It utilizes the service-side filter for ADLS Gen1, which provides better performance than a wildcard filter. <br/>The service applies this filter to the path defined in dataset, and only one entity level is supported. See more examples in [Name range filter examples](#name-range-filter-examples). | No |
+| OPTION 2: name range<br/>- listBefore | Retrieve the folders/files whose name is before this value alphabetically (inclusive). It utilizes the service-side filter for ADLS Gen1, which provides better performance than a wildcard filter.<br>The service applies this filter to the path defined in dataset, and only one entity level is supported. See more examples in [Name range filter examples](#name-range-filter-examples). | No |
 | OPTION 3: wildcard<br>- wildcardFolderPath | The folder path with wildcard characters to filter source folders. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside. <br>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No                                            |
 | OPTION 3: wildcard<br>- wildcardFileName | The file name with wildcard characters under the given folderPath/wildcardFolderPath to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual file name has wildcard or this escape char inside.  See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | Yes |
 | OPTION 4: a list of files<br>- fileListPath | Indicates to copy a given file set. Point to a text file that includes a list of files you want to copy, one file per line, which is the relative path to the path configured in the dataset.<br/>When using this option, do not specify file name in dataset. See more examples in [File list examples](#file-list-examples). |No |
@@ -212,7 +256,7 @@ The following properties are supported for Azure Data Lake Store Gen1 under `sto
 | modifiedDatetimeEnd      | Same as above.                                               | No                                           |
 | enablePartitionDiscovery | For files that are partitioned, specify whether to parse the partitions from the file path and add them as additional source columns.<br/>Allowed values are **false** (default) and **true**. | No                                            |
 | partitionRootPath | When partition discovery is enabled, specify the absolute root path in order to read partitioned folders as data columns.<br/><br/>If it is not specified, by default,<br/>- When you use file path in dataset or list of files on source, partition root path is the path configured in dataset.<br/>- When you use wildcard folder filter, partition root path is the sub-path before the first wildcard.<br/><br/>For example, assuming you configure the path in dataset as "root/folder/year=2020/month=08/day=27":<br/>- If you specify partition root path as "root/folder/year=2020", copy activity will generate two more columns `month` and `day` with value "08" and "27" respectively, in addition to the columns inside the files.<br/>- If partition root path is not specified, no extra column will be generated. | No                                            |
-| maxConcurrentConnections | The number of connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No                                           |
+| maxConcurrentConnections | The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No                                           |
 
 **Example:**
 
@@ -257,7 +301,7 @@ The following properties are supported for Azure Data Lake Store Gen1 under `sto
 
 ### Azure Data Lake Store as sink
 
-[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)]
+[!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)]
 
 The following properties are supported for Azure Data Lake Store Gen1 under `storeSettings` settings in the format-based copy sink:
 
@@ -266,7 +310,7 @@ The following properties are supported for Azure Data Lake Store Gen1 under `sto
 | type                     | The type property under `storeSettings` must be set to **AzureDataLakeStoreWriteSettings**. | Yes      |
 | copyBehavior             | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: Preserves the file hierarchy in the target folder. The relative path of the source file to the source folder is identical to the relative path of the target file to the target folder.<br/><b>- FlattenHierarchy</b>: All files from the source folder are in the first level of the target folder. The target files have autogenerated names. <br/><b>- MergeFiles</b>: Merges all files from the source folder to one file. If the file name is specified, the merged file name is the specified name. Otherwise, it's an autogenerated file name. | No       |
 | expiryDateTime | Specifies the expiry time of the written files. The time is applied to the UTC time in the format of "2020-03-01T08:00:00Z". By default it is NULL, which means the written files are never expired. | No |
-| maxConcurrentConnections | The number of connections to connect to the data store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No       |
 
 **Example:**
 
@@ -306,7 +350,7 @@ The following properties are supported for Azure Data Lake Store Gen1 under `sto
 
 This section describes the resulting behavior of name range filters.
 
-| Sample source structure | ADF configuration | Result |
+| Sample source structure | Configuration | Result |
 |:--- |:--- |:--- |
 |root<br/>&nbsp;&nbsp;&nbsp;&nbsp;a<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;ax<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file2.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;ax.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;b<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;bx.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;c<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file4.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;cx.csv| **In dataset:**<br>- Folder path: `root`<br><br>**In copy activity source:**<br>- List after: `a`<br>- List before: `b`| Then the following files will be copied:<br><br>root<br/>&nbsp;&nbsp;&nbsp;&nbsp;ax<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file2.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;ax.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;b<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file3.csv |
 
@@ -327,7 +371,7 @@ This section describes the resulting behavior of using file list path in copy ac
 
 Assuming you have the following source folder structure and want to copy the files in bold:
 
-| Sample source structure                                      | Content in FileListToCopy.txt                             | ADF configuration                                            |
+| Sample source structure                                      | Content in FileListToCopy.txt                             | Configuration |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | root<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadata<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **In dataset:**<br>- Folder path: `root/FolderA`<br><br>**In copy activity source:**<br>- File list path: `root/Metadata/FileListToCopy.txt` <br><br>The file list path points to a text file in the same data store that includes a list of files you want to copy, one file per line with the relative path to the path configured in the dataset. |
 
@@ -347,7 +391,7 @@ This section describes the resulting behavior of the copy operation for differen
 ## Preserve ACLs to Data Lake Storage Gen2
 
 >[!TIP]
->To copy data from Azure Data Lake Storage Gen1 into Gen2 in general, see [Copy data from Azure Data Lake Storage Gen1 to Gen2 with Azure Data Factory](load-azure-data-lake-storage-gen2-from-gen1.md) for a walk-through and best practices.
+>To copy data from Azure Data Lake Storage Gen1 into Gen2 in general, see [Copy data from Azure Data Lake Storage Gen1 to Gen2](load-azure-data-lake-storage-gen2-from-gen1.md) for a walk-through and best practices.
 
 If you want to replicate the access control lists (ACLs) along with data files when you upgrade from Data Lake Storage Gen1 to Data Lake Storage Gen2, see [Preserve ACLs from Data Lake Storage Gen1](copy-activity-preserve-metadata.md#preserve-acls).
 
@@ -368,7 +412,7 @@ In the source transformation, you can read from a container, folder, or individu
 
 ![Source options](media/data-flow/sourceOptions1.png "Source options")
 
-**Wildcard path:** Using a wildcard pattern will instruct ADF to loop through each matching folder and file in a single Source transformation. This is an effective way to process multiple files within a single flow. Add multiple wildcard matching patterns with the + sign that appears when hovering over your existing wildcard pattern.
+**Wildcard path:** Using a wildcard pattern will instruct the service to loop through each matching folder and file in a single Source transformation. This is an effective way to process multiple files within a single flow. Add multiple wildcard matching patterns with the + sign that appears when hovering over your existing wildcard pattern.
 
 From your source container, choose a series of files that match a pattern. Only container can be specified in the dataset. Your wildcard path must therefore also include your folder path from the root folder.
 
@@ -390,7 +434,7 @@ First, set a wildcard to include all paths that are the partitioned folders plus
 
 ![Partition source file settings](media/data-flow/partfile2.png "Partition file setting")
 
-Use the Partition Root Path setting to define what the top level of the folder structure is. When you view the contents of your data via a data preview, you'll see that ADF will add the resolved partitions found in each of your folder levels.
+Use the Partition Root Path setting to define what the top level of the folder structure is. When you view the contents of your data via a data preview, you'll see that the service will add the resolved partitions found in each of your folder levels.
 
 ![Partition root path](media/data-flow/partfile1.png "Partition root path preview")
 
@@ -453,7 +497,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 ## Legacy models
 
 >[!NOTE]
->The following models are still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above sections going forward, and the ADF authoring UI has switched to generating the new model.
+>The following models are still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above sections going forward, and the authoring UI has switched to generating the new model.
 
 ### Legacy dataset model
 
@@ -506,7 +550,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 |:--- |:--- |:--- |
 | type | The `type` property of the copy activity source must be set to **AzureDataLakeStoreSource**. |Yes |
 | recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. When `recursive` is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. Allowed values are **true** (default) and **false**. | No |
-| maxConcurrentConnections | The number of connections to connect to the data store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 **Example:**
 
@@ -546,7 +590,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 |:--- |:--- |:--- |
 | type | The `type` property of the copy activity sink must be set to **AzureDataLakeStoreSink**. |Yes |
 | copyBehavior | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: Preserves the file hierarchy in the target folder. The relative path of the source file to the source folder is identical to the relative path of the target file to the target folder.<br/><b>- FlattenHierarchy</b>: All files from the source folder are in the first level of the target folder. The target files have autogenerated names. <br/><b>- MergeFiles</b>: Merges all files from the source folder to one file. If the file name is specified, the merged file name is the specified name. Otherwise, the file name is autogenerated. | No |
-| maxConcurrentConnections | The number of connections to connect to the data store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 **Example:**
 
@@ -582,4 +626,4 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 
 ## Next steps
 
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -335,7 +335,7 @@ Check out Spark documentation for more details.
 <!-- LINKS - external -->
 [apache-spark]: https://spark.apache.org/
 [docker-hub]: https://docs.docker.com/docker-hub/
-[java-install]: /azure/developer/java/fundamentals/java-jdk-long-term-support
+[java-install]: /azure/developer/java/fundamentals/java-support-on-azure
 [maven-install]: https://maven.apache.org/install.html
 [sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
 [spark-docs]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
@@ -347,5 +347,5 @@ Check out Spark documentation for more details.
 [acr-aks]: cluster-container-registry-integration.md
 [acr-create]: ../container-registry/container-registry-get-started-azure-cli.md
 [aks-quickstart]: ./index.yml
-[azure-cli]: /cli/azure/?view=azure-cli-latest
+[azure-cli]: /cli/azure/
 [storage-account]: ../storage/blobs/storage-quickstart-blobs-cli.md

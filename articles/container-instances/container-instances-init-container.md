@@ -214,6 +214,6 @@ Azure Container Instances provides other options to modify the behavior of appli
 * [Set the command line in a container instance to override the default command line operation](container-instances-start-command.md)
 
 
-[az-group-create]: /cli/azure/group#az-group-create
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
-[az-container-logs]: /cli/azure/container#az-container-logs
+[az-group-create]: /cli/azure/group#az_group_create
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-container-logs]: /cli/azure/container#az_container_logs

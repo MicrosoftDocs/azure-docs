@@ -39,10 +39,10 @@ Seamless SSO is enabled using Azure AD Connect as shown [here](how-to-connect-ss
 - The computer account's Kerberos decryption key is shared securely with Azure AD. If there are multiple AD forests, each computer account will have its own unique Kerberos decryption key.
 
 >[!IMPORTANT]
-> The `AZUREADSSOACC` computer account needs to be strongly protected for security reasons. Only Domain Admins should be able to manage the computer account. Ensure that Kerberos delegation on the computer account is disabled, and that no other account in Active Directory has delegation permissions on the `AZUREADSSOACC` computer account.. Store the computer account in an Organization Unit (OU) where they are safe from accidental deletions and where only Domain Admins have access. The Kerberos decryption key on the computer account should also be treated as sensitive. We highly recommend that you [roll over the Kerberos decryption key](how-to-connect-sso-faq.md) of the `AZUREADSSOACC` computer account at least every 30 days.
+> The `AZUREADSSOACC` computer account needs to be strongly protected for security reasons. Only Domain Admins should be able to manage the computer account. Ensure that Kerberos delegation on the computer account is disabled, and that no other account in Active Directory has delegation permissions on the `AZUREADSSOACC` computer account.. Store the computer account in an Organization Unit (OU) where they are safe from accidental deletions and where only Domain Admins have access. The Kerberos decryption key on the computer account should also be treated as sensitive. We highly recommend that you [roll over the Kerberos decryption key](how-to-connect-sso-faq.yml) of the `AZUREADSSOACC` computer account at least every 30 days.
 
 >[!IMPORTANT]
-> Seamless SSO supports the AES256_HMAC_SHA1, AES128_HMAC_SHA1 and RC4_HMAC_MD5 encryption types for Kerberos. It is recommended that the encryption type for the AzureADSSOAcc$ account is set to AES256_HMAC_SHA1, or one of the AES types vs. RC4 for added security. The encryption type is stored on the msDS-SupportedEncryptionTypes attribute of the account in your Active Directory.  If the AzureADSSOAcc$ account encryption type is set to RC4_HMAC_MD5, and you want to change it to one of the AES encryption types, please make sure that you first roll over the Kerberos decryption key of the AzureADSSOAcc$ account as explained in the [FAQ document](how-to-connect-sso-faq.md) under the relevant question, otherwise Seamless SSO will not happen.
+> Seamless SSO supports the `AES256_HMAC_SHA1`, `AES128_HMAC_SHA1` and `RC4_HMAC_MD5` encryption types for Kerberos. It is recommended that the encryption type for the `AzureADSSOAcc$` account is set to `AES256_HMAC_SHA1`, or one of the AES types vs. RC4 for added security. The encryption type is stored on the `msDS-SupportedEncryptionTypes` attribute of the account in your Active Directory.  If the `AzureADSSOAcc$` account encryption type is set to `RC4_HMAC_MD5`, and you want to change it to one of the AES encryption types, please make sure that you first roll over the Kerberos decryption key of the `AzureADSSOAcc$` account as explained in the [FAQ document](how-to-connect-sso-faq.yml) under the relevant question, otherwise Seamless SSO will not happen.
 
 Once the set-up is complete, Seamless SSO works the same way as any other sign-in that uses Integrated Windows Authentication (IWA).
 
@@ -55,17 +55,13 @@ The sign-in flow on a web browser is as follows:
 3. The user types in their user name into the Azure AD sign-in page.
 
    >[!NOTE]
-   >For [certain applications](./how-to-connect-sso-faq.md), steps 2 & 3 are skipped.
+   >For [certain applications](./how-to-connect-sso-faq.yml), steps 2 & 3 are skipped.
 
 4. Using JavaScript in the background, Azure AD challenges the browser, via a 401 Unauthorized response, to provide a Kerberos ticket.
 5. The browser, in turn, requests a ticket from Active Directory for the `AZUREADSSOACC` computer account (which represents Azure AD).
 6. Active Directory locates the computer account and returns a Kerberos ticket to the browser encrypted with the computer account's secret.
 7. The browser forwards the Kerberos ticket it acquired from Active Directory to Azure AD.
 8. Azure AD decrypts the Kerberos ticket, which includes the identity of the user signed into the corporate device, using the previously shared key.
-
-   >[!NOTE]
-   >Azure AD will attempt to match user's UPN from the Kerberos ticket to an Azure AD user object that has a corresponding value in the userPrincipalName attribute. If this is not successful, Azure AD will fall back to matching the samAccountName from the Kerberos ticket to an Azure AD user object that has a corresponding value in the onPremisesSamAccountName attribute.
-   
 9. After evaluation, Azure AD either returns a token back to the application or asks the user to perform additional proofs, such as Multi-Factor Authentication.
 10. If the user sign-in is successful, the user is able to access the application.
 
@@ -98,6 +94,6 @@ The following diagram illustrates all the components and the steps involved.
 ## Next steps
 
 - [**Quick Start**](how-to-connect-sso-quick-start.md) - Get up and running Azure AD Seamless SSO.
-- [**Frequently Asked Questions**](how-to-connect-sso-faq.md) - Answers to frequently asked questions.
+- [**Frequently Asked Questions**](how-to-connect-sso-faq.yml) - Answers to frequently asked questions.
 - [**Troubleshoot**](tshoot-connect-sso.md) - Learn how to resolve common issues with the feature.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.

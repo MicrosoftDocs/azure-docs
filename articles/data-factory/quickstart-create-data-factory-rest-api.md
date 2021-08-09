@@ -3,10 +3,12 @@ title: Create an Azure data factory using REST API
 description: Create an Azure data factory pipeline to copy data from one location in Azure Blob storage to another location.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: data-movement
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 01/18/2021
-ms.author: jingwang
+ms.date: 05/31/2021
+ms.author: jingwang 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Create an Azure data factory and pipeline by using the REST API
@@ -32,7 +34,10 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 * Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. You can use tools such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to Azure Blob storage, create a blob container, upload input file, and verify the output file.
 * Install **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps). This quickstart uses PowerShell to invoke REST API calls.
 * **Create an application in Azure Active Directory** following [this instruction](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Make note of the following values that you use in later steps: **application ID**, **clientSecrets**, and **tenant ID**. Assign application to "**Contributor**" role.
-
+>[!NOTE]
+>	For Sovereign clouds, you must use the appropriate cloud-specific endpoints for ActiveDirectoryAuthority and ResourceManagerUrl (BaseUri). 
+>	 You can use Powershell to easily get the endpoint Urls for various clouds by executing “Get-AzEnvironment | Format-List”, which will return a list of endpoints for each cloud environment.  
+>	 
 ## Set global variables
 
 1. Launch **PowerShell**. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run the commands again.
@@ -295,7 +300,7 @@ Here is the sample output:
 In this example, this pipeline contains one Copy activity. The Copy activity refers to the "InputDataset" and the "OutputDataset" created in the previous step as input and output.
 
 ```powershell
-$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelines/Adfv2QuickStartPipeline?api-version=${apiVersion}"
+$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelines/Adfv2QuickStartPipeline?api-version=${apiVersion}"
 $body = @"
 {
     "name": "Adfv2QuickStartPipeline",
@@ -399,7 +404,7 @@ Here is the sample output:
         $response = Invoke-RestMethod -Method GET -Uri $request -Header $authHeader
         Write-Host  "Pipeline run status: " $response.Status -foregroundcolor "Yellow"
 
-        if ($response.Status -eq "InProgress") {
+        if ( ($response.Status -eq "InProgress") -or ($response.Status -eq "Queued") ) {
             Start-Sleep -Seconds 15
         }
         else {

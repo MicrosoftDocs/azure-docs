@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 author: saachigopal
 ms.author:  sagopal
-ms.date: 12/3/2020
+ms.date: 07/27/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-python
 ---
@@ -17,9 +17,9 @@ Learn how to troubleshoot issues with Docker environment image builds and packag
 
 ## Prerequisites
 
-* An Azure subscription. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
-* The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
-* The [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* An Azure subscription. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+* The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
+* The [Azure CLI](/cli/azure/install-azure-cli).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * To debug locally, you must have a working Docker installation on your local system.
 
@@ -141,6 +141,25 @@ Pip installation can be stuck in an infinite loop if there are unresolvable conf
 If you're working locally, downgrade the pip version to < 20.3. 
 In a conda environment created from a YAML file, you'll see this issue only if conda-forge is the highest-priority channel. To mitigate the issue, explicitly specify pip < 20.3 (!=20.3 or =20.2.4 pin to other version) as a conda dependency in the conda specification file.
 
+### ModuleNotFoundError: No module named 'distutils.dir_util'
+
+When setting up your environment, sometimes you'll run into the issue **ModuleNotFoundError: No module named 'distutils.dir_util'**. To fix it, run the following command:
+
+```bash
+apt-get install -y --no-install-recommends python3 python3-distutils && \
+ln -sf /usr/bin/python3 /usr/bin/python
+```
+
+When working with a Dockerfile, run it as part of a RUN command.
+
+```dockerfile
+RUN apt-get update && \
+  apt-get install -y --no-install-recommends python3 python3-distutils && \
+  ln -sf /usr/bin/python3 /usr/bin/python
+```
+
+Running this command installs the correct module dependencies to configure your environment. 
+
 ## Service-side failures
 
 See the following scenarios to troubleshoot possible service-side failures.
@@ -149,12 +168,12 @@ See the following scenarios to troubleshoot possible service-side failures.
 
 Possible issues:
 - The path name to the container registry might not be resolving correctly. Check that image names use double slashes and the direction of slashes on Linux versus Windows hosts is correct.
-- If a container registry behind a virtual network is using a private endpoint in [an unsupported region](/azure/private-link/private-link-overview#availability), configure the container registry by using the service endpoint (public access) from the portal and retry.
-- After you put the container registry behind a virtual network, run the [Azure Resource Manager template](/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry) so the workspace can communicate with the container registry instance.
+- If a container registry behind a virtual network is using a private endpoint in [an unsupported region](../private-link/private-link-overview.md#availability), configure the container registry by using the service endpoint (public access) from the portal and retry.
+- After you put the container registry behind a virtual network, run the [Azure Resource Manager template](./how-to-network-security-overview.md) so the workspace can communicate with the container registry instance.
 
 ### You get a 401 error from a workspace container registry
 
-Resynchronize storage keys by using [ws.sync_keys()](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#sync-keys--).
+Resynchronize storage keys by using [ws.sync_keys()](/python/api/azureml-core/azureml.core.workspace.workspace#sync-keys--).
 
 ### The environment keeps throwing a "Waiting for other conda operations to finish…" error
 
@@ -162,7 +181,7 @@ When an image build is ongoing, conda is locked by the SDK client. If the proces
 
 ### Your custom Docker image isn't in the registry
 
-Check if the [correct tag](/azure/machine-learning/how-to-use-environments#create-an-environment) is used and that `user_managed_dependencies = True`. `Environment.python.user_managed_dependencies = True` disables conda and uses the user's installed packages.
+Check if the [correct tag](./how-to-use-environments.md#create-an-environment) is used and that `user_managed_dependencies = True`. `Environment.python.user_managed_dependencies = True` disables conda and uses the user's installed packages.
 
 ### You get one of the following common virtual network issues
 
@@ -180,9 +199,9 @@ Check if the [correct tag](/azure/machine-learning/how-to-use-environments#creat
 
 ### You can't run experiments when storage has network security enabled
 
-If you're using default Docker images and enabling user-managed dependencies, use the MicrosoftContainerRegistry and AzureFrontDoor.FirstParty [service tags](/azure/machine-learning/how-to-enable-virtual-network) to allowlist Azure Container Registry and its dependencies.
+If you're using default Docker images and enabling user-managed dependencies, use the MicrosoftContainerRegistry and AzureFrontDoor.FirstParty [service tags](./how-to-network-security-overview.md) to allowlist Azure Container Registry and its dependencies.
 
- For more information, see [Enabling virtual networks](/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry).
+ For more information, see [Enabling virtual networks](./how-to-network-security-overview.md).
 
 ### You need to create an ICM
 

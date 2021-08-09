@@ -2,10 +2,10 @@
 title: 'Quickstart: Create a Synapse workspace using Azure PowerShell'
 description: Create an Azure Synapse workspace using Azure PowerShell by following the steps in this guide.
 services: synapse-analytics
-author: alehall
+author: lenadroid
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: overview
+ms.subservice: workspace
 ms.date: 10/19/2020
 ms.author: alehall
 ms.reviewer: jrasnick
@@ -24,7 +24,7 @@ before you begin.
 
 ## Prerequisites
 
-- [Azure Data Lake Storage Gen2 storage account](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Azure Data Lake Storage Gen2 storage account](../storage/common/storage-account-create.md)
 
     > [!IMPORTANT]
     > The Azure Synapse workspace needs to be able to read and write to the selected ADLS Gen2
@@ -100,8 +100,8 @@ Install-Module -Name Az.Synapse
 1. Get Web and Dev URL for Azure Synapse Workspace:
 
    ```azurepowershell-interactive
-   $WorkspaceWeb = (Get-AzSynapseWorkspace -Name $SynapseWorkspaceName -ResourceGroupName $StorageAccountResourceGroup).ConnectivityEndpoints.Web
-   $WorkspaceDev = (Get-AzSynapseWorkspace -Name $SynapseWorkspaceName -ResourceGroupName $StorageAccountResourceGroup).ConnectivityEndpoints.Dev
+   $WorkspaceWeb = (Get-AzSynapseWorkspace -Name $SynapseWorkspaceName -ResourceGroupName $StorageAccountResourceGroup).ConnectivityEndpoints.web
+   $WorkspaceDev = (Get-AzSynapseWorkspace -Name $SynapseWorkspaceName -ResourceGroupName $StorageAccountResourceGroup).ConnectivityEndpoints.dev
    ```
 
 1. Create a Firewall Rule to allow your access to Azure Synapse Workspace from your machine:

@@ -6,7 +6,7 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 05/25/2021
 ms.author: banders
 ---
 
@@ -92,7 +92,7 @@ Learn more about [recommendations](reserved-instance-purchase-recommendations.md
 
 ## Recommendations in the Cost Management Power BI app
 
-Enterprise Agreement and Microsoft Customer Agreement customers can use the VM RI Coverage reports for VMs and purchase recommendations. The coverage reports show you total usage and the usage that's covered by reserved instances.
+Enterprise Agreement customers can use the VM RI Coverage reports for VMs and purchase recommendations. The coverage reports show you total usage and the usage that's covered by reserved instances.
 
 1. Get the [Cost Management App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp).
 2. Go to the VM RI Coverage report – Shared or Single scope, depending on which scope you want to purchase at.

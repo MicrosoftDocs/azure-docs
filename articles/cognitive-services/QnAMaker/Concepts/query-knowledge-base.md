@@ -34,7 +34,7 @@ The process is explained in the following table.
 
 Features used include but aren't limited to word-level semantics, term-level importance in a corpus, and deep learned semantic models to determine similarity and relevance between two text strings.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 The trained and [published](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) QnA Maker knowledge base receives a user query, from a bot or other client application, at the [GenerateAnswer API](../how-to/metadata-generateanswer-usage.md). The following diagram illustrates the process when the user query is received.
 
@@ -79,10 +79,9 @@ A user query is the question that the end user asks of the knowledge base, such 
     "userId": "sd53lsY="
 }
 ```
+You control the response by setting properties such as [scoreThreshold](./confidence-score.md#choose-a-score-threshold), [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers), and [strictFilters](../how-to/query-knowledge-base-with-metadata.md).
 
-You control the response by setting properties such as [scoreThreshold](./confidence-score.md#choose-a-score-threshold), [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers), and [strictFilters](../how-to/metadata-generateanswer-usage.md#filter-results-with-strictfilters-for-metadata-tags).
-
-Use [conversation context](../how-to/metadata-generateanswer-usage.md#use-question-and-answer-results-to-keep-conversation-context) with [multi-turn functionality](../how-to/multiturn-conversation.md) to keep the conversation going to refine the questions and answers, to find the correct and final answer.
+Use [conversation context](../how-to/query-knowledge-base-with-metadata.md) with [multi-turn functionality](../how-to/multiturn-conversation.md) to keep the conversation going to refine the questions and answers, to find the correct and final answer.
 
 ### The response from a call to generate an answer
 

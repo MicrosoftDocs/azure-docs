@@ -2,14 +2,13 @@
 title: Create a snapshot of a virtual hard drive using the portal or PowerShell
 description: Learn how to create a copy of an Azure VM to use as a back up or for troubleshooting issues using the portal or PowerShell.
 author: roygara
+ms.author: rogarana
 manager: twooley
-ms.service: virtual-machines-windows
+ms.service: storage
+ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/08/2018
-ms.author: rogarana
-ms.subservice: disks
-
 ---
 # Create a snapshot using the portal or PowerShell
 

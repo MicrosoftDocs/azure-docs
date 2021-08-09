@@ -179,7 +179,7 @@ with all dependencies as a single template. Learn
 how to [automate logic app deployment](logic-apps-azure-resource-manager-templates-overview.md).
 
 For an example deployment template with an Azure function, 
-check the [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
+check the [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json).
 
 ## Next steps
 

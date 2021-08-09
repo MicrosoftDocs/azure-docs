@@ -4,13 +4,13 @@ titleSuffix: Azure SQL Managed Instance
 description: Restore a database on Azure SQL Managed Instance to a previous point in time.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
-ms.custom: 
+ms.subservice: backup-restore
+ms.custom: devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein, mathoma
+author: Misliplavo
+ms.author: mlazic
+ms.reviewer: mathoma
 ms.date: 08/25/2019
 ---
 # Restore a database in Azure SQL Managed Instance to a previous point in time
@@ -104,7 +104,7 @@ For details, see [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/resto
 
 # [Azure CLI](#tab/azure-cli)
 
-If you don't already have the Azure CLI installed, see [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you don't already have the Azure CLI installed, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 To restore the database by using the Azure CLI, specify your values for the parameters in the following command. Then, run the command:
 
@@ -122,7 +122,7 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
        --dest-mi mytargetinstancename
 ```
 
-For a detailed explanation of the available parameters, see the [CLI documentation for restoring a database in a SQL Managed Instance](/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
+For a detailed explanation of the available parameters, see the [CLI documentation for restoring a database in a SQL Managed Instance](/cli/azure/sql/midb#az_sql_midb_restore).
 
 ---
 

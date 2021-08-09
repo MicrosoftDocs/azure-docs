@@ -2,15 +2,10 @@
 title: Overview of Azure Disk Backup
 description: Learn about the Azure Disk backup solution.
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 05/27/2021
 ---
 
-# Overview of Azure Disk Backup (in preview)
-
->[!IMPORTANT]
->Azure Disk Backup is in preview without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For region availability, see the [support matrix](disk-backup-support-matrix.md).
->
->[Fill out this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) to sign-up for the preview.
+# Overview of Azure Disk Backup
 
 Azure Disk Backup is a native, cloud-based backup solution that protects your data in managed disks. It's a simple, secure, and cost-effective solution that enables you to configure protection for managed disks in a few steps. It assures that you can recover your data in a disaster scenario.
 
@@ -31,30 +26,30 @@ Azure Disk backup is an agentless and crash consistent solution that uses [incre
 
 Azure Disk backup solution is useful in the following scenarios:
 
-- Need for frequent backups per day without application being quiescent
-- Apps running in a  cluster scenario: both Windows Server Failover Cluster and Linux clusters are writing to shared disks
-- Specific need for agentless backup because of security or performance concerns on the application
+- Need for frequent backups per day without application being quiescent.
+- Apps running in a  cluster scenario: both Windows Server Failover Cluster and Linux clusters are writing to shared disks.
+- Specific need for agentless backup because of security or performance concerns on the application.
 - Application consistent backup of VM isn't feasible since line-of-business apps don't support Volume Shadow Copy Service (VSS).
 
 Consider Azure Disk Backup in scenarios where:
 
-- a mission-critical application is running on an Azure Virtual machine that demands multiple backups per day to meet the recovery point objective, but without impacting the production environment or application performance
-- your organization or industry regulation restricts installing agents because of security concerns
-- executing custom pre or post scripts and invoking freeze and thaw on Linux virtual machines to get application-consistent backup puts undue overhead on production workload availability
-- containerized applications running on Azure Kubernetes Service (AKS cluster) are using managed disks as persistent storage. Today you have to back up the managed disk via automation scripts that are hard to manage.
-- a managed disk is holding critical business data, used as a file-share, or contains database backup files, and you want to optimize backup cost by not investing in Azure VM backup
-- You have many Linux and Windows single-disk virtual machines (that is, a virtual machine with just an OS disk and no data disks attached) that host webserver or state-less machines or serves as a staging environment with application configuration settings and     you need a cost efficient backup solution to protect the OS disk. For example, to trigger a quick on-demand backup before upgrading or patching the virtual machine
-- a virtual machine is running an OS configuration that is unsupported by Azure VM backup solution (for example, Windows 2008 32-bit Server)
+- A mission-critical application is running on an Azure Virtual machine that demands multiple backups per day to meet the recovery point objective, but without impacting the production environment or application performance.
+- Your organization or industry regulation restricts installing agents because of security concerns.
+- Executing custom pre or post scripts and invoking freeze and thaw on Linux virtual machines to get application-consistent backup puts undue overhead on production workload availability.
+- Containerized applications running on Azure Kubernetes Service (AKS cluster) are using managed disks as persistent storage. Today, you must back up the managed disk via automation scripts that are hard to manage.
+- A managed disk is holding critical business data, used as a file-share, or contains database backup files, and you want to optimize backup cost by not investing in Azure VM backup.
+- You have many Linux and Windows single-disk virtual machines (that is, a virtual machine with just an OS disk and no data disks attached) that host web server, state-less machines, or serves as a staging environment with application configuration settings, and you need a cost efficient backup solution to protect the OS disk. For example, to trigger a quick on-demand backup before upgrading or patching the virtual machine.
+- A virtual machine is running an OS configuration that is unsupported by Azure VM backup solution (for example, Windows 2008 32-bit Server).
 
 ## How the backup and restore process works
 
-- The first step in configuring backup for Azure managed disks is creating a [Backup vault](backup-vault-overview.md). The vault gives you a consolidated view of the backups configured across different workloads.
+- The first step in configuring backup for Azure Managed Disks is creating a [Backup vault](backup-vault-overview.md). The vault gives you a consolidated view of the backups configured across different workloads. Azure Disk backup supports only Operational Tier backup. Copying of backups to the vault storage tier is not supported. So, the Backup vault storage redundancy setting (LRS/GRS) doesn't apply to the backups stored in Operational Tier.
 
 - Then create a Backup policy that allows you to configure backup frequency and retention duration.
 
 - To configure backup, go to the Backup vault, assign a backup policy, select the managed disk that needs to be backed up and provide a resource group where the snapshots are to be stored and managed. Azure Backup automatically triggers scheduled backup jobs that create an incremental snapshot of the disk according to the backup frequency. Older snapshots are deleted according to the retention duration specified by the backup policy.
 
-- Azure Backup uses [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md#restrictions) of the managed disk. Incremental snapshots are a cost-effective, point-in-time backup of managed disks that are billed for the delta changes to the disk since the last snapshot. They're always stored on the most cost-effective storage, standard HDD storage regardless of the storage type of the parent disks. The first snapshot of the disk will occupy the used size of the disk, and consecutive incremental snapshots store delta changes to the disk since the last snapshot.
+- Azure Backup uses [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md#restrictions) of the managed disk. Incremental snapshots are a cost-effective, point-in-time backup of managed disks that are billed for the delta changes to the disk since the last snapshot. These are always stored on the most cost-effective storage, standard HDD storage regardless of the storage type of the parent disks. The first snapshot of the disk will occupy the used size of the disk, and consecutive incremental snapshots store delta changes to the disk since the last snapshot. Azure Backup automatically assigns tag to the snapshots it creates to uniquely identify them. 
 
 - Once you configure the backup of a managed disk, a backup instance will be created within the backup vault. Using the backup instance, you can find health of backup operations, trigger on-demand backups, and perform restore operations. You can also view health of backups across multiple vaults and backup instances using Backup Center, which provides a single pane of glass view.
 
@@ -62,12 +57,24 @@ Consider Azure Disk Backup in scenarios where:
 
 - Backup Vault uses Managed Identity to access other Azure resources. To configure backup of a managed disk and to restore from past backup, Backup Vault’s managed identity requires a set of permissions on the source disk, the snapshot resource group where snapshots are created and managed, and the target resource group where you want to restore the backup. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
 
-- Currently Azure Disk Backup supports operational backup of managed disks and doesn't copy the backups to Backup Vault storage. Refer to the [support matrix](disk-backup-support-matrix.md)for a detailed list of supported and unsupported scenarios, and region availability.
+- Currently Azure Disk Backup supports operational backup of managed disks and doesn't copy the backups to Backup Vault storage. Refer to the [support matrix](disk-backup-support-matrix.md) for a detailed list of supported and unsupported scenarios, and region availability.
 
 ## Pricing
 
-Azure Backup offers a snapshot lifecycle management solution for protecting Azure Disks. The disk snapshots created by Azure Backup are stored in the resource group within your Azure subscription and incur **Snapshot Storage** charges. You can visit [Managed Disk Pricing](https://azure.microsoft.com/pricing/details/managed-disks/) for more details about the snapshot pricing. Because the snapshots aren't copied to the Backup Vault, Azure Backup doesn't charge a **Protected Instance** fee and **Backup Storage** cost doesn't apply. Additionally, incremental snapshots occupy delta changes since the last snapshot and are always stored on standard storage regardless of the storage type of the parent-managed disks and are charged according to the pricing of standard storage. This makes Azure Disk Backup a cost-effective solution.
+Azure Backup uses [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md) of the managed disk. Incremental snapshots are charged per GiB of the storage occupied by the delta changes since the last snapshot. For example, if you're using a managed disk with a provisioned size of 128 GiB, with 100 GiB used, the first incremental snapshot is billed only for the used size of 100 GiB. 20 GiB of data is added on the disk before you create the second snapshot. Now, the second incremental snapshot is billed for only 20 GiB. 
+
+Incremental snapshots are always stored on standard storage, irrespective of the storage type of parent-managed disks, and are charged based on  the pricing of standard storage. For example, incremental snapshots of a Premium SSD-Managed Disk are stored on standard storage. By default, they are stored on ZRS  in regions that support ZRS. Otherwise, they are stored on locally redundant storage (LRS). The per GiB pricing of both the options, LRS and ZRS, is the same. 
+
+The snapshots created by Azure Backup are stored in the resource group within your Azure subscription and incur Snapshot Storage charges. ForTo more details about the snapshot pricing, see [Managed Disk Pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Because the snapshots aren't copied to the Backup Vault, Azure Backup doesn't charge a Protected Instance fee and Backup Storage cost doesn't apply. 
+
+During a backup operation, the Azure Backup service creates a Storage Account in the Snapshot Resource Group, where the snapshots are stored. Managed disk’s incremental snapshots are ARM resources created on Resource group and not in Storage Account. 
+
+Storage Account is used to store metadata for each recovery point. Azure Backup service creates a Blob container per disk backup instance. For each recovery point, a block blob is created to store metadata information describing the recovery point, such as subscription, disk ID, disk attributes, and so on, that occupies a small space (in a few KiBs). 
+
+The storage account is created as RA GZRS if the region supports zonal redundancy. If the region doesn’t support Zonal redundancy, the storage account is created as RAGRS. If your existing policy stops creation of storage accounts on the subscription or resource group with GRS redundancy, the Storage account is created as LRS. The storage account created is General Purpose v2 with block blobs stored on Hot tier in the blob container. You’re charged for the Storage Account according to the storage account's redundancy. These charges are for the size of the block blobs. However, this will be a minimal amount as it stores metadata only, which are few KiBs per recovery point. 
+
+The number of recovery points is determined by the Backup policy used to configure backups of the disk backup instances. Older block blobs are deleted according to the garbage collection process as the corresponding older recovery points are pruned.
 
 ## Next steps
 
-- [Azure Disk Backup support matrix](disk-backup-support-matrix.md)
+[Azure Disk Backup support matrix](disk-backup-support-matrix.md)

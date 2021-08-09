@@ -24,23 +24,21 @@
   - name: Develop custom code modules
     items:
     - name: C
-      items:
-      - name: C modules for Linux devices
-        href: tutorial-c-module.md
-      - name: C modules for Windows devices
-        href: tutorial-c-module-windows.md
+      href: tutorial-c-module.md
     - name: C#
-      items: 
-      - name: C# modules for Linux devices
-        href: tutorial-csharp-module.md
-      - name: C# modules for Windows devices
-        href: tutorial-csharp-module-windows.md
+      href: tutorial-csharp-module.md
     - name: Java
       href: tutorial-java-module.md
     - name: Node.js
       href: tutorial-node-module.md
     - name: Python
       href: tutorial-python-module.md
+    - name: Use Windows containers
+      items:
+      - name: C
+        href: tutorial-c-module-windows.md
+      - name: C#
+        href: tutorial-csharp-module-windows.md
   - name: Deploy Azure services as modules
     items: 
     - name: Filter data with Azure Functions
@@ -115,8 +113,6 @@
     href: support.md
   - name: Production deployment checklist
     href: production-checklist.md
-  - name: IoT Edge glossary
-    href: iot-edge-glossary.md
 - name: How-to guides
   items:
   - name: Create an IoT Edge device
@@ -127,12 +123,18 @@
       items:
       - name: Install IoT Edge for Linux
         href: how-to-install-iot-edge.md
-      - name: Run IoT Edge for Linux on Windows
+      - name: Install IoT Edge for Linux on Windows
         href: how-to-install-iot-edge-on-windows.md
-    - name: Update runtime
+    - name: Update IoT Edge
       href: how-to-update-iot-edge.md
     - name: Manage device certificates
       href: how-to-manage-device-certificates.md
+    - name: Configure nested virtualization for Windows VMs
+      href: nested-virtualization.md
+    - name: Create virtual switch for Linux on Windows
+      href: how-to-create-virtual-switch.md
+    - name: Configure GPU acceleration for Linux on Windows
+      href: gpu-acceleration.md
   - name: Alternative device scenarios
     items:
     - name: Run IoT Edge with Windows containers
@@ -147,6 +149,8 @@
       items:
       - name: Linux
         href: how-to-auto-provision-simulated-device-linux.md
+      - name: Linux containers on Windows
+        href: how-to-auto-provision-tpm-linux-on-windows.md
       - name: Windows
         href: how-to-auto-provision-simulated-device-windows.md
     - name: X.509 certificate attestation
@@ -183,18 +187,30 @@
         href: how-to-deploy-cli-at-scale.md
       - name: Visual Studio Code
         href: how-to-deploy-vscode-at-scale.md
-  - name: Monitor and diagnose deployments
+  - name: Monitor and diagnose
     items:
       - name: Monitor IoT Edge deployments
         href: how-to-monitor-iot-edge-deployments.md
       - name: Monitor module twins
-        href: how-to-monitor-module-twins.md  
-      - name: EdgeAgent direct methods
+        href: how-to-monitor-module-twins.md
+      - name: Use edgeAgent direct methods
         href: how-to-edgeagent-direct-method.md
-      - name: Retrieve IoT Edge logs
+      - name: Retrieve logs with direct methods
         href: how-to-retrieve-iot-edge-logs.md
       - name: Access built-in metrics
         href: how-to-access-built-in-metrics.md
+      - name: Azure Monitor integration
+        items:
+        - name: Collect and transport metrics
+          href: how-to-collect-and-transport-metrics.md
+        - name: Explore curated visualizations
+          href: how-to-explore-curated-visualizations.md
+        - name: Create alert rules
+          href: how-to-create-alerts.md
+        - name: Add custom metrics
+          href: how-to-add-custom-metrics.md
+        - name: FAQ and troubleshooting
+          href: how-to-troubleshoot-monitoring-and-faq.md
   - name: Use IoT Edge devices as gateways
     items:
     - name: Gateways for IoT devices
@@ -241,22 +257,30 @@
         href: how-to-continuous-integration-continuous-deployment-classic.md
   - name: Troubleshoot
     items:
-    - name: Standard diagnostic steps
+    - name: Diagnose IoT Edge devices
       href: troubleshoot.md
-    - name: Common error resolutions
+    - name: Troubleshoot in the Azure portal
+      href: troubleshoot-in-portal.md
+    - name: Resolve common errors
       href: troubleshoot-common-errors.md
 - name: Reference
   items:
+  - name: PowerShell functions
+    items:
+    - name: IoT Edge for Linux on Windows
+      href: reference-iot-edge-for-linux-on-windows-functions.md
+    - name: IoT Edge for Windows
+      href: reference-windows-scripts.md
   - name: Create test certificates
     href: how-to-create-test-certificates.md
-  - name: Windows device management scripts
-    href: reference-windows-scripts.md
   - name: Azure CLI
     href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resources
   items:
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md
+    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
+  - name: IoT Glossary
+    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
   - name: Azure IoT services
     items:
     - name: IoT Hub
@@ -270,7 +294,7 @@
     - name: IoT solution accelerators
       href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
-      href: ../iot-pnp/index.yml
+      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
     - name: Time Series Insights
@@ -294,7 +318,7 @@
     - name: iOS Platform
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
   - name: Azure Certified for IoT device catalog
-    href: https://catalog.azureiotsolutions.com/
+    href: https://devicecatalog.azure.com/
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
   - name: Azure Roadmap

@@ -52,7 +52,7 @@ The operating system check verifies whether the Hybrid Runbook Worker is running
 
 ### .NET 4.6.2
 
-The .NET Framework check verifies that the system has [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) or later installed.
+The .NET Framework check verifies that the system has [.NET Framework 4.6.2](https://dotnet.microsoft.com/download/dotnet-framework/net462) or later installed.
 
 ### WMF 5.1
 
@@ -82,7 +82,7 @@ Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to 
 
 This check determines if the Log Analytics agent for Windows (`healthservice`) is running on the machine. To learn more about troubleshooting the service, see [The Log Analytics agent for Windows isn't running](hybrid-runbook-worker.md#mma-not-running).
 
-To reinstall the Log Analytics agent for Windows, see [Install the agent for Windows](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+To reinstall the Log Analytics agent for Windows, see [Install the agent for Windows](../../azure-monitor/agents/agent-windows.md).
 
 ### Monitoring agent service events
 

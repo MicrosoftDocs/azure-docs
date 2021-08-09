@@ -2,7 +2,7 @@
 title: Network security for Azure Event Hubs 
 description: This article describes how to configure access from private endpoints
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 05/04/2021
 ---
 
 # Network security for Azure Event Hubs 
@@ -41,7 +41,7 @@ Once configured to bound to at least one virtual network subnet service endpoint
 The result is a private and isolated relationship between the workloads bound to the subnet and the respective Event Hubs namespace, in spite of the observable network address of the messaging service endpoint being in a public IP range. There is an exception to this behavior. Enabling a service endpoint, by default, enables the `denyall` rule in the [IP firewall](event-hubs-ip-filtering.md) associated with the virtual network. You can add specific IP addresses in the IP firewall to enable access to the Event Hub public endpoint. 
 
 > [!IMPORTANT]
-> Virtual networks are supported in **standard** and **dedicated** tiers of Event Hubs. It's not supported in the **basic** tier.
+> Virtual networks aren't supported in the **basic** and **premium** tiers.
 
 ### Advanced security scenarios enabled by VNet integration 
 
@@ -68,7 +68,8 @@ For more information, see [How to configure virtual network service endpoints fo
 A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
 > [!IMPORTANT]
-> This feature is supported for both **standard** and **dedicated** tiers. It's not supported in the **basic** tier.
+> This feature isn't supported in the **basic** and **premium** tiers. 
+
 
 For more information, see [How to configure private endpoints for an event hub](private-link-service.md)
 

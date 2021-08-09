@@ -3,12 +3,13 @@ title: Copy an image from another gallery using PowerShell
 description: Copy an image from another gallery using Azure PowerShell.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
-ms.reviewer: akjosh
+ms.reviewer: akjosh 
+ms.custom: devx-track-azurepowershell
 #SIG to SIG
 ---
 
@@ -56,7 +57,7 @@ $sourceImgVer = Get-AzGalleryImageVersion `
 
 ## Create the image definition 
 
-You need to create a new image definition that matches the image definition of your source. You can see all of the information you need to recreate the image definition using [Get-AzGalleryImageDefinition](/powershell/module/az.compute/get-azgalleryimagedefinition).
+You need to create a new image definition that matches the operating system, operating system state, and Hyper-V generation of the image definition containing your source image version. You can see all of the information you need to recreate the image definition using [Get-AzGalleryImageDefinition](/powershell/module/az.compute/get-azgalleryimagedefinition).
 
 ```azurepowershell-interactive
 Get-AzGalleryImageDefinition `
@@ -116,10 +117,14 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
    -Sku 'mySKU'
 ```
 
+> [!NOTE]
+> For image definitions that will contain images descended from third-party images, the plan information must match exactly the plan information from the third-party image. Include the plan information in the image definition by adding `-PurchasePlanName`, `-PurchasePlanProduct`, and `-PurchasePlanPublisher` when you create the image definition.
+>
+
 
 ## Create the image version
 
-Create an image version using [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). You will need to pass in the ID of the source image in the `--managed-image` parameter for creating the image version in your destination gallery. 
+Create an image version using [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). You will need to pass in the ID of the source image in the `-SourceImageId` parameter for creating the image version in your destination gallery. 
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
@@ -138,7 +143,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -ResourceGroupName myDestinationRG `
    -Location WestUS `
    -TargetRegion $targetRegions  `
-   -Source $sourceImgVer.Id.ToString() `
+   -SourceImageId $sourceImgVer.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-12-01' `
    -asJob 
 ```

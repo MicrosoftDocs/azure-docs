@@ -2,11 +2,12 @@
 title: Overview of templates
 description:  Learn how to use a pre-defined template to get started quickly with Azure Data Factory.
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
-ms.author: daperlov
-author: djpmsft
+ms.author: susabat
+author: ssabat
 ms.custom: seo-lt-2019
-ms.date: 01/04/2019
+ms.date: 06/04/2021
 ---
 
 # Templates
@@ -19,9 +20,9 @@ Templates are predefined Azure Data Factory pipelines that allow you to get star
 
 You can get started creating a Data Factory pipeline from a template in the following two ways:
 
-1.  Select **Create pipeline from template** on the Overview page to open the template gallery.
+1.  Select **Pipeline templates** in the **Discover more** section of the Data Factory home page to open the template gallery.
 
-    ![Open the template gallery from the Overview page](media/solution-templates-introduction/templates-intro-image1.png)
+    ![Open the template gallery from the Overview page](media/doc-common-process/home-page-pipeline-templates-tile.png)
 
 1.  On the Author tab in Resource Explorer, select **+**, then **Pipeline from template** to open the template gallery.
 
@@ -38,7 +39,7 @@ Data Factory uses Azure Resource Manager templates for saving data factory pipel
 -   Copy templates:
 
     -   [Bulk copy from Database](solution-template-bulk-copy-with-control-table.md)
-	
+    
     -   [Copy new files by LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
     -   [Copy multiple file containers between file-based stores](solution-template-copy-files-multiple-containers.md)

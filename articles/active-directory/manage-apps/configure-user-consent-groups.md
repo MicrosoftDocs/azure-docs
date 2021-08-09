@@ -2,14 +2,14 @@
 title: Configure group owner consent to apps accessing group data using Azure AD
 description: Learn manage whether group and team owners can consent to applications that will have access to the group or team's data.
 services: active-directory
-author: kenwith
-manager: daveba
+author: davidmu1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.author: kenwith
+ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
 ---
@@ -39,7 +39,7 @@ In this example, all group owners are allowed to consent to apps accessing their
 
 You can use the Azure AD PowerShell Preview module, [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview), to enable or disable group owners' ability to consent to applications accessing your organization's data for the groups they own.
 
-1. Make sure you're using the [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) module. This step is important if you have installed both the [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) module and the [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) module).
+1. Make sure you're using the [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) module. This step is important if you have installed both the [AzureAD](/powershell/module/azuread/) module and the [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) module).
 
     ```powershell
     Remove-Module AzureAD
@@ -108,6 +108,9 @@ You can use the Azure AD PowerShell Preview module, [AzureADPreview](/powershell
 
 ---
 
+> [!NOTE]
+> "User can consent to apps accessing company data on their behalf" setting, when turned off, does not disable the "Users can consent to apps accessing company data for groups they own" option
+
 ## Next steps
 
 To learn more:
@@ -119,4 +122,5 @@ To learn more:
 * [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
 
 To get help or find answers to your questions:
-* [Azure AD on Microsoft Q&A ](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+
+* [Azure AD on Microsoft Q&A](/answers/topics/azure-active-directory.html)

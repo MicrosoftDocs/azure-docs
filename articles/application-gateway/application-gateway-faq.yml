@@ -6,7 +6,7 @@ metadata:
   author: vhorne
   ms.service: application-gateway
   ms.topic: article
-  ms.date: 01/08/2021
+  ms.date: 06/08/2021
   ms.author: victorh
   ms.custom: references_regions
     
@@ -166,6 +166,31 @@ sections:
           
       - question: Can I deploy anything else in the application gateway subnet?
         answer: No. But you can deploy other application gateways in the subnet.
+        
+      - question: Can I change the virtual network or subnet for an existing Application Gateway?
+        answer: |
+          You can move an Application Gateway across subnets within the same virtual network only. It is supported with V1 with public and private frontend, and V2 with public frontend only. It is also important to note that the Application Gateway should be in a *Stopped* state to perform this action. Keep in mind that stopping/starting V1 will change the public IP. This operation can only be done using Azure PowerShell and Azure CLI by running the following commands:
+          
+          **Azure PowerShell**
+
+          ```azurepowershell-interactive
+          $VNet = Get-AzVirtualNetwork -Name "<VNetName>" -ResourceGroupName "<ResourceGroup>"
+          $Subnet = Get-AzVirtualNetworkSubnetConfig -Name "<NewSubnetName>" -VirtualNetwork $VNet
+          $AppGw = Get-AzApplicationGateway -Name "<ApplicationGatewayName>" -ResourceGroupName "<ResourceGroup>"
+          Stop-AzApplicationGateway -ApplicationGateway $AppGw
+          $AppGw = Set-AzApplicationGatewayIPConfiguration -ApplicationGateway $AppGw -Name $AppGw.GatewayIPConfigurations.Name -Subnet $Subnet
+          #If you have a private frontend IP configuration, uncomment and run the next line:
+          #$AppGw = Set-AzApplicationGatewayFrontendIPConfig -Name $AppGw.FrontendIPConfigurations.Name[1] -Subnet $Subnet -ApplicationGateway $AppGw
+          Set-AzApplicationGateway -ApplicationGateway $AppGw
+          ```
+          For more information, see [Set-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/Set-AzApplicationGatewayIPConfiguration).
+         
+          **Azure CLI**
+          
+          ```azurecli-interactive
+          az network application-gateway stop -g <ResourceGroup> -n <ApplicationGatewayName>
+          az network application-gateway update -g <ResourceGroup> -n <ApplicationGatewayName> --set gatewayIpConfigurations[0].subnet.id=<subnetID>
+          ``` 
 
       - question: Are network security groups supported on the application gateway subnet?
         answer: |
@@ -398,8 +423,19 @@ sections:
           Please see the differences between AGIC deployed through Helm versus deployed as an AKS add-on [here](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on), especially the tables documenting which scenario(s) are supported by AGIC deployed through Helm as opposed to an AKS add-on. In general, deploying through Helm will allow you to test out beta features and release candidates before an official release. 
           
       - question: Can I control which version of AGIC will be deployed with the add-on?
-        answer: No, AGIC add-on is a managed service which means Microsoft will automatically update the add-on to the latest stable version. 
+        answer: No, AGIC add-on is a managed service which means Microsoft will automatically update the add-on to the latest stable version.
 
+  - name: Configuration - mutual authentication
+    questions:
+      - question: What is mutual authentication?
+        answer: |
+          Mutual authentication is two-way authentication between a client and a server. Mutual authentication with Application Gateway currently allows the gateway to verify the client sending the request, which is client authentication. Typically, the client is the only one that authenticates the Application Gateway. Because Application Gateway can now also authenticate the client, it becomes mutual authentication where Application Gateway and the client are mutually authenticating each other.
+
+      - question: Is mutual authentication available between Application Gateway and its backend pools?
+        answer: |
+          No, mutual authentication is currently only between the frontend client and the Application Gateway. Backend mutual authentication is currently not supported.      
+
+  
   - name: Diagnostics and logging
     questions:
       - question: What types of logs does Application Gateway provide?
@@ -425,13 +461,13 @@ sections:
 
       - question: Can I set alerts with Application Gateway?
         answer: |
-          Yes. In Application Gateway, alerts are configured on metrics. For more information, see [Application Gateway metrics](./application-gateway-metrics.md) and [Receive alert notifications](../azure-monitor/platform/alerts-overview.md).
+          Yes. In Application Gateway, alerts are configured on metrics. For more information, see [Application Gateway metrics](./application-gateway-metrics.md) and [Receive alert notifications](../azure-monitor/alerts/alerts-overview.md).
           
       - question: How do I analyze traffic statistics for Application Gateway?
         answer: |
           You can view and analyze access logs in several ways. Use Azure Monitor logs, Excel, Power BI, and so on.
           
-          You can also use a Resource Manager template that installs and runs the popular [GoAccess](https://goaccess.io/) log analyzer for Application Gateway access logs. GoAccess provides valuable HTTP traffic statistics such as unique visitors, requested files, hosts, operating systems, browsers, and HTTP status codes. For more information, in GitHub, see the [Readme file in the Resource Manager template folder](https://aka.ms/appgwgoaccessreadme).
+          You can also use a Resource Manager template that installs and runs the popular [GoAccess](https://goaccess.io/) log analyzer for Application Gateway access logs. GoAccess provides valuable HTTP traffic statistics such as unique visitors, requested files, hosts, operating systems, browsers, and HTTP status codes. For more information, in GitHub, see the [Readme file in the Resource Manager template folder](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/application-gateway-logviewer-goaccess).
           
       - question: What could cause backend health to return an unknown status?
         answer: |
@@ -440,8 +476,8 @@ sections:
       - question: Are NSG flow logs supported on NSGs associated to Application Gateway v2 subnet?
         answer: Due to current platform limitations, if you have an NSG on the Application Gateway v2 (Standard_v2, WAF_v2) subnet and if you have enabled NSG flow logs on it, you will see nondeterministic behavior and this scenario is currently not supported.
 
-      - question: Does Application Gateway store customer data?
-        answer: No, Application Gateway does not store customer data.
+      - question: Where does Application Gateway store customer data?
+        answer: Application Gateway does not move or store customer data out of the region it's deployed in.
 
 additionalContent: |
     ## Next steps

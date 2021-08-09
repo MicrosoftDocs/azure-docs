@@ -137,7 +137,7 @@ In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integr
 
 ### Part 4 - Configure the Azure AD B2C policy
 
-Refer to this [document](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) for instructions on how to set up your Azure AD B2C tenant and configure policies.
+Refer to this [document](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) for instructions on how to set up your Azure AD B2C tenant and configure policies.
 
 >[!NOTE]
 > As a best practice, we recommend that customers add consent notification in the attribute collection page. Notify users that information will be send to third-party services for Identity verification.
@@ -166,4 +166,4 @@ For additional information, review the following articles:
 
 - [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

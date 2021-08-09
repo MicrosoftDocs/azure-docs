@@ -58,7 +58,7 @@ You can migrate your existing applications to App Service by using the [online m
 
 As an Infrastructure as a Service (IaaS) provider, Azure lets you deploy to or migrate your application to either Windows or Linux VMs. Together with Azure Virtual Network, Azure Virtual Machines supports the deployment of Windows or Linux VMs to Azure. With VMs, you have total control over the configuration of the machine. When using VMs, you're responsible for all server software installation, configuration, maintenance, and operating system patches.
 
-Because of the level of control that you have with VMs, you can run a wide range of server workloads on Azure that don't fit into a PaaS model. These workloads include database servers, Windows Server Active Directory, and Microsoft SharePoint. For more information, see the Virtual Machines documentation for either [Linux](../../virtual-machines/linux/index.yml) or [Windows](../../virtual-machines/windows/index.yml).
+Because of the level of control that you have with VMs, you can run a wide range of server workloads on Azure that don't fit into a PaaS model. These workloads include database servers, Windows Server Active Directory, and Microsoft SharePoint. For more information, see the Virtual Machines documentation for either [Linux](../../virtual-machines/index.yml) or [Windows](../../virtual-machines/index.yml).
 
 > **When to use**: Use Virtual Machines when you want full control over your application infrastructure or to migrate on-premises application workloads to Azure without having to make changes.
 >
@@ -81,7 +81,7 @@ Azure Service Fabric is a distributed systems platform. This platform makes it e
 * Provisioning
 * Deploying
 * Monitoring
-* Upgrading/patching
+* Upgrading/Patching
 * Deleting
 
 Apps, which run on a shared pool of machines, can start small and scale to hundreds or thousands of machines as needed.
@@ -98,13 +98,13 @@ Azure Spring Cloud is a serverless microservices platform that enables you to bu
 
 * Leverage managed versions of Spring Cloud Service Discovery and Config Server, while we ensure those critical components are running in optimum conditions.
 * Focus on building your business logic and we will take care of your service runtime with security patches, compliance standards and high availability.
-* Manage application lifecycle (e.g.: deploy, start, stop, scale) on top of Azure Kubernetes Service.
+* Manage application lifecycle (for example, deploy, start, stop, scale) on top of Azure Kubernetes Service.
 * Easily bind connections between your apps and Azure services such as Azure Database for MySQL and Azure Cache for Redis.
 * Monitor and troubleshoot microservices and applications using enterprise-grade unified monitoring tools that offer deep insights on application dependencies and operational telemetry.
 
 > **When to use:** As a fully managed service Azure Spring Cloud is a good choice when you're minimizing operational cost running Spring Boot/Spring Cloud based microservices on Azure. 
 >
-> **Get started:** [Deploy your first Azure Spring Cloud application](../../spring-cloud/spring-cloud-quickstart.md).
+> **Get started:** [Deploy your first Azure Spring Cloud application](../../spring-cloud/quickstart.md).
 
 
 ### Enhance your applications with Azure services
@@ -125,7 +125,7 @@ Most applications must store data, so however you decide to host your applicatio
 
   > **When to use**: When your app stores nonrelational data, such as key-value pairs (tables), blobs, files shares, or messages (queues).
   >
-  > **Get started**: Choose from one of these types storage: [blobs](../../storage/blobs/storage-quickstart-blobs-dotnet.md), [tables](../../cosmos-db/tutorial-develop-table-dotnet.md), [queues](../../storage/queues/storage-dotnet-how-to-use-queues.md), or [files](../../storage/files/storage-dotnet-how-to-use-files.md).
+  > **Get started**: Choose from one of these types of storage: [blobs](../../storage/blobs/storage-quickstart-blobs-dotnet.md), [tables](../../cosmos-db/tutorial-develop-table-dotnet.md), [queues](../../storage/queues/storage-dotnet-how-to-use-queues.md), or [files](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 * **Azure SQL Database**: An Azure-based version of the Microsoft SQL Server engine for storing relational tabular data in the cloud. SQL Database provides predictable performance, scalability with no downtime, business continuity, and data protection.
 
@@ -241,7 +241,9 @@ The [Azure portal](https://portal.azure.com) is a web-based application. You can
 
 * A configurable dashboard
 * Azure resource management tools
-* Access to subscription settings and billing information. For more information, see the [Azure portal overview](https://azure.microsoft.com/features/azure-portal/).
+* Access to subscription settings and billing information
+
+For more information, see the [Azure portal overview](https://azure.microsoft.com/features/azure-portal/).
 
 ### REST APIs
 
@@ -272,7 +274,7 @@ You develop these deployments by using an Azure Resource Manager template, which
 
 > **When to use**: Use Resource Manager templates when you want a template-based deployment for your app that you can manage programmatically by using REST APIs, the Azure CLI, and Azure PowerShell.
 >
-> **Get started**: To get started using templates, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md).
+> **Get started**: To get started using templates, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
 
 ## Understanding accounts, subscriptions, and billing
 
@@ -304,7 +306,7 @@ When you allow access to Azure resources, it's always a best practice to provide
 
   > **When to use**: When you need fine-grained access management for users and groups or when you need to make a user an owner of a subscription.
   >
-  > **Get started**: To learn more, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+  > **Get started**: To learn more, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 - **Service principal objects**: Along with providing access to user principals and groups, you can grant the same access to a service principal.
 
@@ -336,4 +338,4 @@ Azure provides a set of Billing REST APIs that give access to resource consumpti
 
 Although it's challenging to estimate costs ahead of time, Azure has tools that can help. It has a [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help estimate the cost of deployed resources. You can also use the Billing resources in the portal and the Billing REST APIs to estimate future costs, based on current consumption.
 
->**Get started**: See [Azure consumption API overview](../../cost-management-billing/manage/consumption-api-overview.md).
+>**Get started**: To learn more, see [Azure consumption API overview](../../cost-management-billing/manage/consumption-api-overview.md).

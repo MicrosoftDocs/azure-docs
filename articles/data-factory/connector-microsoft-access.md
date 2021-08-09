@@ -1,12 +1,14 @@
 ---
 title: Copy data from and to Microsoft Access
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from and to Microsoft Access by using a copy activity in an Azure Data Factory pipeline.
-ms.author: jingwang
-author: linda33wj
+ms.author: chez
+author: chez-charlie
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 06/28/2020
+ms.custom: synapse
+ms.date: 03/17/2021
 ---
 
 # Copy data from and to Microsoft Access using Azure Data Factory
@@ -35,7 +37,7 @@ To use this Microsoft Access connector, you need to:
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Microsoft Access connector.
 
@@ -161,6 +163,7 @@ To copy data to Microsoft Access, the following properties are supported in the 
 | writeBatchTimeout |Wait time for the batch insert operation to complete before it times out.<br/>Allowed values are: timespan. Example: “00:30:00” (30 minutes). |No |
 | writeBatchSize |Inserts data into the SQL table when the buffer size reaches writeBatchSize.<br/>Allowed values are: integer (number of rows). |No (default is 0 - auto detected) |
 | preCopyScript |Specify a SQL query for Copy Activity to execute before writing data into data store in each run. You can use this property to clean up the pre-loaded data. |No |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run.Specify a value only when you want to limit concurrent connections.| No |
 
 **Example:**
 

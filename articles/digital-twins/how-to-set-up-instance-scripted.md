@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: contperf-fy21q3
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -21,20 +22,22 @@ ms.service: digital-twins
 
 This article covers the steps to **set up a new Azure Digital Twins instance**, including creating the instance and setting up authentication. After completing this article, you will have an Azure Digital Twins instance ready to start programming against.
 
-This version of this article completes these steps by running an [**automated deployment script** sample](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) that streamlines the process. 
-* To view the manual CLI steps that the script runs through behind the scenes, see the CLI version of this article: [*How-to: Set up an instance and authentication (CLI)*](how-to-set-up-instance-cli.md).
-* To view the manual steps according to the Azure portal, see the portal version of this article: [*How-to: Set up an instance and authentication (portal)*](how-to-set-up-instance-portal.md).
+This version of this article completes these steps by running an [automated deployment script sample](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) that streamlines the process. 
+* To view the manual CLI steps that the script runs through behind the scenes, see the CLI version of this article in [Set up an instance and authentication (CLI)](how-to-set-up-instance-cli.md).
+* To view the manual steps according to the Azure portal, see the portal version of this article in [Set up an instance and authentication (portal)](how-to-set-up-instance-portal.md).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
+
+## Prerequisites: Permission requirements
 [!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
 
 ## Prerequisites: Download the script
 
-The sample script is written in PowerShell. It is part of the [**Azure Digital Twins end-to-end samples**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), which you can download to your machine by navigating to that sample link and selecting the *Browse code* button underneath the title. This will take you to the GitHub repo for the samples, which you can download as a *.ZIP* by selecting the *Code* button and *Download ZIP*.
+The sample script is written in PowerShell. It is part of the [Azure Digital Twins end-to-end samples](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), which you can download to your machine by navigating to that sample link and selecting the *Browse code* button underneath the title. This will take you to the GitHub repo for the samples, which you can download as a .zip by selecting the *Code* button and *Download ZIP*.
 
-:::image type="content" source="media/includes/download-repo-zip.png" alt-text="View of the digital-twins-samples repo on GitHub. The Code button is selected, producing a small dialog box where the Download ZIP button is highlighted." lightbox="media/includes/download-repo-zip.png":::
+:::image type="content" source="media/includes/download-repo-zip.png" alt-text="Screenshot of the digital-twins-samples repo on GitHub, highlighting the steps for downloading it as a zip." lightbox="media/includes/download-repo-zip.png":::
 
-This will download a *.ZIP* folder to your machine as **digital-twins-samples-master.zip**. Navigate to the folder on your machine and unzip it to extract the files.
+This will download a .zip folder to your machine as **digital-twins-samples-master.zip**. Navigate to the folder on your machine and unzip it to extract the files.
 
 In the unzipped folder, the deployment script is located at _digital-twins-samples-master > scripts > **deploy.ps1**_.
 
@@ -53,13 +56,13 @@ Here are the steps to run the deployment script in Cloud Shell.
  
 2. In the Cloud Shell icon bar, make sure your Cloud Shell is set to run the PowerShell version.
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Cloud Shell window showing selection of the PowerShell version":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Screenshot of the Cloud Shell window in the Azure portal showing selection of the PowerShell version.":::
 
 1. Select the "Upload/Download files" icon and choose "Upload".
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell window showing selection of the Upload icon":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Screenshot of the Cloud Shell window in the Azure portal showing selection of the Upload icon.":::
 
-    Navigate to the _**deploy.ps1**_ file on your machine (in _digital-twins-samples-master > scripts > **deploy.ps1**_) and hit "Open." This will upload the file to Cloud Shell so that you can run it in the Cloud Shell window.
+    Navigate to the _**deploy.ps1**_ file on your machine (in _digital-twins-samples-master > scripts > **deploy.ps1**_) and select "Open." This will upload the file to Cloud Shell so that you can run it in the Cloud Shell window.
 
 4. Run the script by sending the `./deploy.ps1` command in the Cloud Shell window. You can copy the command below (recall that to paste into Cloud Shell, you can use **Ctrl+Shift+V** on Windows and Linux, or **Cmd+Shift+V** on macOS. You can also use the right-click menu).
 
@@ -71,26 +74,26 @@ Here are the steps to run the deployment script in Cloud Shell.
 
     As the script runs through the automated setup steps, you will be asked to pass in the following values:
     * For the instance: the *subscription ID* of your Azure subscription to use
-    * For the instance: a *location* where you'd like to deploy the instance. To see what regions support Azure Digital Twins, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+    * For the instance: a *location* where you want to deploy the instance. To see what regions support Azure Digital Twins, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
     * For the instance: a *resource group* name. You can use an existing resource group, or enter a new name of one to create.
     * For the instance: a *name* for your Azure Digital Twins instance. If your subscription has another Azure Digital Twins instance in the region that's
   already using the specified name, you'll be asked to pick a different name.
 
 Here is an excerpt of the output log from the script:
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Cloud Shell window showing log of input and output through the run of the deploy script" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Screenshot of the Cloud Shell window in the Azure portal showing a log of input and output through the run of the deploy script." lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
 
 If the script completes successfully, the final printout will say `Deployment completed successfully`. Otherwise, address the error message, and re-run the script. It will bypass the steps that you've already completed and start requesting input again at the point where you left off.
 
 > [!NOTE]
-> The script currently assigns the required management role within Azure Digital Twins (*Azure Digital Twins Data Owner*) to the same user that runs the script from Cloud Shell. If you need to assign this role to someone else who will be managing the instance, you can do this now via the Azure portal ([instructions](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) or CLI ([instructions](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
+> The script currently assigns the required management role within Azure Digital Twins (*Azure Digital Twins Data Owner*) to the same user that runs the script from Cloud Shell. If you need to assign this role to someone else who will be managing the instance, you can do this now via the [Azure portal instructions](how-to-set-up-instance-portal.md#set-up-user-access-permissions) or the [CLI instructions](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 
 >[!NOTE]
 >There is currently a **known issue** with scripted setup, in which some users (especially users on personal [Microsoft accounts (MSAs)](https://account.microsoft.com/account)) may find the **role assignment to _Azure Digital Twins Data Owner_ was not created**.
 >
->You can verify the role assignment with the [*Verify user role assignment*](#verify-user-role-assignment) section later in this article, and—if needed—set up the role assignment manually using the [Azure portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) or [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
+>You can verify the role assignment with the [Verify user role assignment](#verify-user-role-assignment) section later in this article, and—if needed—set up the role assignment manually using the [Azure portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) or [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 >
->For more detail on this issue, see [*Troubleshooting: Known issues in Azure Digital Twins*](troubleshoot-known-issues.md#missing-role-assignment-after-scripted-setup).
+>For more detail on this issue, see [Troubleshooting: Known issues in Azure Digital Twins](troubleshoot-known-issues.md#missing-role-assignment-after-scripted-setup).
 
 ## Verify success and collect important values
 
@@ -110,7 +113,7 @@ If verification was unsuccessful, you can retry creating an instance using the [
 
 Select the name of your instance from the [Azure Digital Twins page](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) to open up the instance's *Overview* page. Note its *Name*, *Resource group*, and *Host name*. You may need these later to identify and connect to your instance.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Highlighting the important values from the instance's Overview page":::
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Screenshot of the Azure portal highlighting the important values from the Azure Digital Twins instance's Overview page.":::
 
 ### Verify user role assignment
 
@@ -124,8 +127,8 @@ If verification was unsuccessful, you can also redo your own role assignment usi
 ## Next steps
 
 Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
-* [az dt reference](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
-* [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)
+* [az dt reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
+* [Azure Digital Twins CLI command set](concepts-cli.md)
 
 Or, see how to connect a client application to your instance with authentication code:
-* [*How-to: Write app authentication code*](how-to-authenticate-client.md)
+* [Write app authentication code](how-to-authenticate-client.md)

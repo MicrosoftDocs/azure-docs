@@ -3,8 +3,8 @@ title: How to monitor the server-side latency for operations in Azure Cosmos DB
 description: Learn how to monitor server latency for operations in Azure Cosmos DB account or a container. Owners of an Azure Cosmos DB account can understand the server-side latency issues with your Azure Cosmos accounts.
 ms.service:  cosmos-db
 ms.topic: how-to
-author: kanshiG  
-ms.author: govindk
+ms.author: esarroyo
+author: StefArroyo 
 ms.date: 04/07/2020
 ---
 
@@ -19,21 +19,21 @@ You can monitor server-side latency if you see unusually high latency for point 
 * A read or write operation or
 * A query
 
-You can look up the diagnostic log to see the size of the data returned. If you see a sustained high latency for query operations, you should look up the diagnostic log for higher [throughput or RU/s](cosmosdb-monitor-resource-logs.md#diagnostic-queries) used. Server side latency shows the amount of time spent on the backend infrastructure before the data was returned to the client. It is important to look at this metric to rule out any backend latency issues.
+You can look up the diagnostic log to see the size of the data returned. If you see a sustained high latency for query operations, you should look up the diagnostic log for higher [throughput or RU/s](cosmosdb-monitor-logs-basic-queries.md) used. Server side latency shows the amount of time spent on the backend infrastructure before the data was returned to the client. It is important to look at this metric to rule out any backend latency issues.
 
 ## View the server-side latency metric
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Select **Monitor** from the left-hand navigation bar and select **Metrics**.
+   
+2. Select **Monitor** from the left-hand navigation bar and select **Metrics**.
 
    :::image type="content" source="./media/monitor-server-side-latency/monitor-metrics-blade.png" alt-text="Metrics pane in Azure Monitor":::
 
-1. From the **Metrics** pane > **Select a resource** > choose the required **subscription**, and **resource group**. For the **Resource type**, select **Azure Cosmos DB accounts**, choose one of your existing Azure Cosmos accounts, and select **Apply**.
+3. From the **Metrics** pane > **Select a resource** > choose the required **subscription**, and **resource group**. For the **Resource type**, select **Azure Cosmos DB accounts**, choose one of your existing Azure Cosmos accounts, and select **Apply**.
    
    :::image type="content" source="./media/monitor-server-side-latency/select-cosmos-db-account.png" alt-text="Choose the Azure Cosmos DB account to view metrics":::
 
-1. Next select the **Server Side Latency**  metric from the list of available metrics. To learn in detail about all the available metrics in this list, see the [Metrics by category](monitor-cosmos-db-reference.md) article. In this example, let's select **Server Side Latency** and **Avg** as the aggregation value. In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the server-side latency per minute for the selected period.  
+4. Next select the **Server Side Latency**  metric from the list of available metrics. To learn in detail about all the available metrics in this list, see the [Metrics by category](monitor-cosmos-db-reference.md) article. In this example, let's select **Server Side Latency** and **Avg** as the aggregation value. In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the server-side latency per minute for the selected period.  
 
    :::image type="content" source="./media/monitor-server-side-latency/server-side-latency-metric.png" alt-text="Choose the Server-Side Latency metric from the Azure portal":::
 

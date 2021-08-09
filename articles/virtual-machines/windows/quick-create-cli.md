@@ -2,7 +2,8 @@
 title: Quickstart - Create a Windows VM using the Azure CLI 
 description: In this quickstart, you learn how to use the Azure CLI to create a Windows virtual machine
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 07/02/2019
@@ -34,7 +35,7 @@ az group create --name myResourceGroup --location eastus
 
 Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM named *myVM*. This example uses *azureuser* for an administrative user name. 
 
-You will need to supply a password that meets the [password requirements for Azure VMs](./faq.md#what-are-the-password-requirements-when-creating-a-vm
+You will need to supply a password that meets the [password requirements for Azure VMs](./faq.yml#what-are-the-password-requirements-when-creating-a-vm-
 ). Using the example below, you will be prompted to enter a password at the command line. You could also add the the `--admin-password` parameter with a value for your password. The user name and password will be used later, when you connect to the VM.
 
 ```azurecli-interactive
@@ -61,6 +62,8 @@ It takes a few minutes to create the VM and supporting resources. The following 
 ```
 
 Note your own `publicIpAddress` in the output from your VM. This address is used to access the VM in the next steps.
+
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## Open port 80 for web traffic
 

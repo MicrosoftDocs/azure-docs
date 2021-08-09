@@ -1,16 +1,19 @@
 ---
-title: Copy data from SharePoint Online List by using Azure Data Factory 
-description: Learn how to copy data from SharePoint Online List to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-author: linda33wj
+title: Copy data from SharePoint Online List
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to copy data from SharePoint Online List to supported sink data stores by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.author: jingwang
+ms.author: jianleishen
 ---
-# Copy data from SharePoint Online List by using Azure Data Factory
+# Copy data from SharePoint Online List by using Azure Data Factory or Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from SharePoint Online List. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
+This article outlines how to use Copy Activity in Azure Data Factory and Azure Synapse pipelines to copy data from SharePoint Online List. The article builds on [Copy Activity](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
 ## Supported capabilities
 
@@ -60,9 +63,9 @@ The SharePoint List Online connector uses service principal authentication to co
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties you can use to define Data Factory entities that are specific to SharePoint Online List connector.
+The following sections provide details about properties you can use to define entities that are specific to SharePoint Online List connector.
 
 ## Linked service properties
 
@@ -73,7 +76,7 @@ The following properties are supported for an SharePoint Online List linked serv
 | type                | The type property must be set to: **SharePointOnlineList**.  | Yes          |
 | siteUrl             | The SharePoint Online site url, e.g. `https://contoso.sharepoint.com/sites/siteName`. | Yes          |
 | servicePrincipalId  | The Application (client) ID of the application registered in Azure Active Directory. | Yes          |
-| servicePrincipalKey | The application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes          |
+| servicePrincipalKey | The application's key. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes          |
 | tenantId            | The tenant ID under which your application resides.          | Yes          |
 | connectVia          | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites), earlier in this article. If not specified, the default Azure Integration Runtime is used. | No           |
 
@@ -173,13 +176,13 @@ To copy data from SharePoint Online List, the following properties are supported
 ```
 
 > [!NOTE]
-> In Azure Data Factory, you can't select more than one *choice* data type for a SharePoint Online List source.
+> It isn't possible to select more than one *choice* data type for a SharePoint Online List source.
 
 ## Data type mapping for SharePoint Online List
 
-When you copy data from SharePoint Online List, the following mappings are used between SharePoint Online List data types and Azure Data Factory interim data types. 
+When you copy data from SharePoint Online List, the following mappings are used between SharePoint Online List data types and interim data types used by the service internally.
 
-| **SharePoint Online data type**                 | **OData data type**                                  | **Azure Data Factory interim data type** |
+| **SharePoint Online data type**                 | **OData data type**                                  | **Interim data type** |
 | ----------------------------------------------- | ---------------------------------------------------- | ---------------------------------------- |
 | Single line of text                             | Edm.String                                           | String                                   |
 | Multiple lines of text                          | Edm.String                                           | String                                   |
@@ -211,7 +214,7 @@ You can copy file from SharePoint Online by using **Web activity** to authentica
     - **Method**: POST
     - **Headers**:
         - Content-Type: application/x-www-form-urlencoded
-    - **Body**:  `grant_type=client_credentials&client_id=[Client-ID]@[Tenant-ID]&client_secret=[Client-Secret]&resource=00000003-0000-0ff1-ce00-000000000000/[Tenant-Name].sharepoint.com@[Tenant-ID]`. Replace the client ID, client secret, tenant ID and tenant name.
+    - **Body**:  `grant_type=client_credentials&client_id=[Client-ID]@[Tenant-ID]&client_secret=[Client-Secret]&resource=00000003-0000-0ff1-ce00-000000000000/[Tenant-Name].sharepoint.com@[Tenant-ID]`. Replace the client ID (application ID), client secret (application key), tenant ID, and tenant name (of the SharePoint tenant).
 
     > [!CAUTION]
     > Set the Secure Output option to true in Web activity to prevent the token value from being logged in plain text. Any further activities that consume this value should have their Secure Input option set to true.
@@ -227,10 +230,13 @@ You can copy file from SharePoint Online by using **Web activity** to authentica
         - **Additional header**: use the following expression`@{concat('Authorization: Bearer ', activity('<Web-activity-name>').output.access_token)}`, which uses the Bearer token generated by the upstream Web activity as authorization header. Replace the Web activity name.
     - Configure the copy activity sink as usual.
 
+> [!NOTE]
+> Even if an Azure AD application has `FullControl` permissions on SharePoint Online, you can't copy files from document libraries with IRM enabled.
+
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 
-For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

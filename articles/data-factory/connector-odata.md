@@ -1,11 +1,14 @@
 ---
 title: Copy data from OData sources by using Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from OData sources to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.author: jingwang
+ms.date: 03/30/2021
+ms.author: jianleishen
 ---
 # Copy data from an OData source by using Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -32,11 +35,11 @@ Specifically, this OData connector supports:
 
 ## Prerequisites
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties you can use to define Data Factory entities that are specific to an OData connector.
 
@@ -320,6 +323,48 @@ When you copy data from OData, the following mappings are used between OData dat
 
 > [!NOTE]
 > OData complex data types (such as **Object**) aren't supported.
+
+## Copy data from Project Online
+
+To copy data from Project Online, you can use the OData connector and an access token obtained from tools like Postman.
+
+> [!CAUTION]
+> The access token expires in 1 hour by default, you need to get a new access token when it expires.
+
+1. Use **Postman** to get the access token:
+
+   1. Navigate to **Authorization** tab on the Postman Website.
+   1. In the **Type** box, select **OAuth 2.0**, and in the **Add authorization data to** box, select **Request Headers**.
+   1. Fill the following information in the **Configure New Token** page to get a new access token: 
+      - **Grant type**: Select **Authorization Code**.
+      - **Callback URL**: Enter `https://www.localhost.com/`. 
+      - **Auth URL**: Enter `https://login.microsoftonline.com/common/oauth2/authorize?resource=https://<your tenant name>.sharepoint.com`. Replace `<your tenant name>` with your own tenant name. 
+      - **Access Token URL**: Enter `https://login.microsoftonline.com/common/oauth2/token`.
+      - **Client ID**: Enter your AAD service principal ID.
+      - **Client Secret**: Enter your service principal secret.
+      - **Client Authentication**: Select **Send as Basic Auth header**.
+     
+   1. You will be asked to login with your username and password.
+   1. Once you get your access token, please copy and save it for the next step.
+   
+    [![Use Postman to get the access token](./media/connector-odata/odata-project-online-postman-access-token-inline.png)](./media/connector-odata/odata-project-online-postman-access-token-expanded.png#lightbox)
+
+1. Create the OData linked service:
+    - **Service URL**: Enter `https://<your tenant name>.sharepoint.com/sites/pwa/_api/Projectdata`. Replace `<your tenant name>` with your own tenant name. 
+    - **Authentication type**: Select **Anonymous**.
+    - **Auth headers**:
+        - **Property name**: Choose **Authorization**.
+        - **Value**: Enter the **access token** copied from step 1.
+    - Test the linked service.
+
+    ![Create OData linked service](./media/connector-odata/odata-project-online-linked-service.png)
+
+1. Create the OData dataset:
+    1. Create the dataset with the OData linked service created in step 2.
+    1. Preview data.
+ 
+    ![Preview data](./media/connector-odata/odata-project-online-preview-data.png)
+ 
 
 
 ## Lookup activity properties

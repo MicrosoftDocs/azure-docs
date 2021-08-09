@@ -2,7 +2,8 @@
 title: Deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 04/27/2021 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Tenant deployments with ARM templates
@@ -12,12 +13,6 @@ As your organization matures, you may need to define and assign [policies](../..
 ## Supported resources
 
 Not all resource types can be deployed to the tenant level. This section lists which resource types are supported.
-
-For Azure Policies, use:
-
-* [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
-* [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
-* [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 
 For Azure role-based access control (Azure RBAC), use:
 
@@ -44,6 +39,8 @@ For managing costs, use:
 For configuring the portal, use:
 
 * [tenantConfigurations](/azure/templates/microsoft.portal/tenantconfigurations)
+
+Built-in policy definitions are tenant-level resources, but you can't deploy custom policy definitions at the tenant. For an example of assigning a built-in policy definition to a resource, see [tenantResourceId example](./template-functions-resource.md#tenantresourceid-example).
 
 ## Schema
 
@@ -93,7 +90,7 @@ The commands for tenant deployments are different than the commands for resource
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
+For Azure CLI, use [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create):
 
 ```azurecli-interactive
 az deployment tenant create \

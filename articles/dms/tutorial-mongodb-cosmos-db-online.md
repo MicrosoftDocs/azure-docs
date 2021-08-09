@@ -11,10 +11,21 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-nov-2020"
 ms.topic: tutorial
-ms.date: 02/03/2021
+ms.date: 05/19/2021
 ---
 
 # Tutorial: Migrate MongoDB to Azure Cosmos DB's API for MongoDB online using DMS
+[!INCLUDE[appliesto-mongodb-api](../cosmos-db/includes/appliesto-mongodb-api.md)]
+
+> [!IMPORTANT]  
+> Please read this entire guide before carrying out your migration steps.
+>
+
+This MongoDB migration guide is part of series on MongoDB migration. The critical MongoDB migration steps are [pre-migration](../cosmos-db/mongodb-pre-migration.md), migration, and [post-migration](../cosmos-db/mongodb-post-migration.md), as shown below.
+
+![Diagram of migration steps.](../cosmos-db/media/mongodb-pre-migration/overall-migration-steps.png)
+
+## Overview of online data migration from MongoDB to Azure Cosmos DB using DMS
 
 You can use Azure Database Migration Service to perform an online (minimal downtime) migration of databases from an on-premises or cloud instance of MongoDB to Azure Cosmos DB's API for MongoDB.
 
@@ -31,7 +42,7 @@ This tutorial demonstrates the steps associated with using Azure Database Migrat
 > * Verify data in Azure Cosmos DB. 
 > * Complete the migration when you are ready. 
 
-In this tutorial, you migrate a dataset in MongoDB hosted in an Azure Virtual Machine to Azure Cosmos DB's API for MongoDB with minimal downtime by using Azure Database Migration Service. If you don't have a MongoDB source set up already, see the article [Install and configure MongoDB on a Windows VM in Azure](../virtual-machines/windows/install-mongodb.md).
+In this tutorial, you migrate a dataset in MongoDB hosted in an Azure Virtual Machine to Azure Cosmos DB's API for MongoDB with minimal downtime by using Azure Database Migration Service. If you don't have a MongoDB source set up already, see the article [Install and configure MongoDB on a Windows VM in Azure](/previous-versions/azure/virtual-machines/windows/install-mongodb).
 
 > [!NOTE]
 > Using Azure Database Migration Service to perform an online migration requires creating an instance based on the Premium pricing tier.
@@ -76,19 +87,7 @@ And if it is *Disabled*, then we recommend you enable it as shown below
 
 ![Screenshot of MongoDB Server-Side Retry enable.](media/tutorial-mongodb-to-cosmosdb-online/mongo-server-side-retry-enable.png)
 
-## Register the Microsoft.DataMigration resource provider
-
-1. Sign in to the Azure portal, select **All services**, and then select **Subscriptions**.
-
-   ![Show portal subscriptions](media/tutorial-mongodb-to-cosmosdb-online/portal-select-subscription1.png)
-
-2. Select the subscription in which you want to create the instance of Azure Database Migration Service, and then select **Resource providers**.
-
-    ![Show resource providers](media/tutorial-mongodb-to-cosmosdb-online/portal-select-resource-provider.png)
-
-3. Search for migration, and then to the right of **Microsoft.DataMigration**, select **Register**.
-
-    ![Register resource provider](media/tutorial-mongodb-to-cosmosdb-online/portal-register-resource-provider.png)    
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)] 
 
 ## Create an instance
 

@@ -6,14 +6,14 @@ documentationcenter:
 author: barclayn
 manager: daveba
 editor: 
-
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/23/2020
+ms.date: 05/24/2021
 ms.author: barclayn
 
 ms.collection: M365-identity-device-management
@@ -72,21 +72,12 @@ Files require blob storage so you need to create a blob container in which to st
 
 ## Grant your VM access to an Azure Storage container 
 
-You can use the VM's managed identity to retrieve the data in the Azure storage blob.
+You can use the VM's managed identity to retrieve the data in the Azure storage blob. Managed identities for Azure resources, can be used to authenticate to resources that support Azure AD authentication.  Grant access by assigning the [storage-blob-data-reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role to the managed-identity at the scope of the resource group that contains your storage account.
+ 
+For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 >[!NOTE]
 > For more information on the various roles that you can use to grant permissions to storage review [Authorize access to blobs and queues using Azure Active Directory](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)
-
-1. Navigate back to your newly created storage account.  
-2. Click the **Access control (IAM)** link in the left panel.  
-3. Click **+ Add role assignment** on top of the page to add a new role assignment for your VM.
-4. Under **Role**, from the dropdown, select **Storage Blob Data Reader**. 
-5. In the next dropdown, under **Assign access to**, choose **Virtual Machine**.  
-6. Next, ensure the proper subscription is listed in **Subscription** dropdown and then set **Resource Group** to **All resource groups**.  
-7. Under **Select**, choose your VM and then click **Save**.
-
-    ![Assign permissions](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
-
 ## Get an access token and use it to call Azure Storage
 
 Azure Storage natively supports Azure AD authentication, so it can directly accept access tokens obtained using a Managed Identity. This is part of Azure Storage's integration with Azure AD, and is different from supplying credentials on the connection string.

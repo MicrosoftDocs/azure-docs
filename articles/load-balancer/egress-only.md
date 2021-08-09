@@ -273,7 +273,7 @@ Create the backend address pool **myPublicBackendPool**:
     | Frontend IP address | Select **LoadBalancerFrontEnd**.|
     | Idle timeout (minutes) | Move slider to **15 minutes**.|
     | TCP Reset | Select **Enabled**.|
-    | Backend pool | Select **myPublicBackendPool**.| |
+    | Backend pool | Select **myPublicBackendPool**.|
     | Port allocation -> Port allocation | Select **Use the default number of outbound ports** |
 
 4. Select **Add**.
@@ -310,5 +310,5 @@ This configuration allows you to load balance incoming internal traffic to your 
 
 - Learn about [Azure Load Balancer](load-balancer-overview.md).
 - Learn about [outbound connections in Azure](load-balancer-outbound-connections.md).
-- Load balancer [FAQs](load-balancer-faqs.md).
+- Load balancer [FAQs](load-balancer-faqs.yml).
 - Learn about [Azure Bastion](../bastion/bastion-overview.md)

@@ -2,8 +2,9 @@
 title: Oracle Database in Azure Virtual Machines backup strategies
 description:  Options to back up Oracle Databases in an Azure Linux VM environment.
 author: cro27
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
@@ -99,7 +100,7 @@ Azure File shares can also be protected through Azure Backup to Recovery service
 
 #### Azure Files NFS v4.1 (Preview)
 
-Azure file shares can be mounted in Linux distributions using the Network File System (NFS) v4.1 protocol. While in Preview there are a number of limitations to supported features, which are documented [here](../../../storage/files/storage-files-how-to-mount-nfs-shares.md). 
+Azure file shares can be mounted in Linux distributions using the Network File System (NFS) v4.1 protocol. While in Preview there are a number of limitations to supported features. For more information, see [Mount an Azure NFS file share (preview)](../../../storage/files/storage-files-how-to-mount-nfs-shares.md). 
 
 While in preview Azure Files NFS v4.1 is also restricted to the following [regions](../../../storage/files/storage-files-how-to-mount-nfs-shares.md):
 - East US (LRS and ZRS)
@@ -116,7 +117,7 @@ Azure file shares can be mounted in Linux distributions using the SMB kernel cli
 
 Azure Files SMB is generally available in all Azure regions, and shows the same performance characteristics as NFS v3.0 and v4.1 protocols, and so is currently the recommended method to provide backup storage media to Azure Linux VMs.  
 
-There are two supported versions of SMB available, SMB 2.1 and SMB 3.0, with the latter recommended as it supports encryption in transit. However, different Linux kernels versions have differing support for SMB 2.1 and 3.0 and you should check the table [here](../../../storage/files/storage-how-to-use-files-linux.md) to ensure your application supports SMB 3.0. 
+There are two supported versions of SMB available, SMB 2.1 and SMB 3.0, with the latter recommended as it supports encryption in transit. However, different Linux kernels versions have differing support for SMB 2.1 and 3.0. For more information, see [Mount SMB Azure file share on Linux](../../../storage/files/storage-how-to-use-files-linux.md) to ensure your application supports SMB 3.0. 
 
 Because Azure Files is designed to be a multi-user file share service, there are certain characteristics you should tune to make it more suitable as a backup storage media. Turning off caching and setting the user and group IDs for files created are recommended.
 
@@ -149,5 +150,3 @@ Azure Backup is now providing an [enhanced pre-script and post-script framework]
 - [Create Oracle Database quickstart](oracle-database-quick-create.md)
 - [Back up Oracle Database to Azure Files](oracle-database-backup-azure-storage.md)
 - [Back up Oracle Database using Azure Backup service](oracle-database-backup-azure-backup.md)
-
-

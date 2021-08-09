@@ -10,6 +10,8 @@ ms.date: 1/28/2021
 
 # Best practices for optimal performance of your Azure Database for MySQL - Single server
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 Learn how to get best performance while working with your Azure Database for MySQL - Single server. As we add new capabilities to the platform, we will continue refining our recommendations in this section.
 
 ## Physical Proximity
@@ -60,7 +62,7 @@ We recommend testing and monitor the restart time to ensure the start-up/restart
 To save the state of the buffer pool at server shutdown, set server parameter `innodb_buffer_pool_dump_at_shutdown` to `ON`. Similarly, set server parameter `innodb_buffer_pool_load_at_startup` to `ON` to restore the buffer pool state at server startup. You can control the impact on start-up/restart time by lowering and fine-tuning the value of server parameter `innodb_buffer_pool_dump_pct`. By default, this parameter is set to `25`.
 
 > [!Note]
-> InnoDB buffer pool warmup parameters are only supported in general purpose storage servers with up to 16-TB storage. Learn more about [Azure Database for MySQL storage options here](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage).
+> InnoDB buffer pool warmup parameters are only supported in general purpose storage servers with up to 16-TB storage. Learn more about [Azure Database for MySQL storage options here](./concepts-pricing-tiers.md#storage).
 
 ## Next steps
 

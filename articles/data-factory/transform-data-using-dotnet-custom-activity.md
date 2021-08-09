@@ -1,27 +1,29 @@
 ---
 title: Use custom activities in a pipeline
-description: Learn how to create custom activities by using .NET, and then use the activities in an Azure Data Factory pipeline.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to create custom activities by using .NET, and then use the activities in an Azure Data Factory or Azure Synapse Analytics pipeline.
 ms.service: data-factory
+ms.subservice: tutorials
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: devx-track-azurepowershell, synapse
 ms.date: 11/26/2018
 ---
 
-# Use custom activities in an Azure Data Factory pipeline
+# Use custom activities in an Azure Data Factory or Azure Synapse Analytics pipeline
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-use-custom-activities.md)
 > * [Current version](transform-data-using-dotnet-custom-activity.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-There are two types of activities that you can use in an Azure Data Factory pipeline.
+There are two types of activities that you can use in an Azure Data Factory or Synapse pipeline.
 
 - [Data movement activities](copy-activity-overview.md) to move data between [supported source and sink data stores](copy-activity-overview.md#supported-data-stores-and-formats).
 - [Data transformation activities](transform-data.md) to transform data using compute services such as Azure HDInsight, Azure Batch, and Azure Machine Learning.
 
-To move data to/from a data store that Data Factory does not support, or to transform/process data in a way that isn't supported by Data Factory, you can create a **Custom activity** with your own data movement or transformation logic and use the activity in a pipeline. The custom activity runs your customized code logic on an **Azure Batch** pool of virtual machines.
+To move data to/from a data store that the service does not support, or to transform/process data in a way that isn't supported by the service, you can create a **Custom activity** with your own data movement or transformation logic and use the activity in a pipeline. The custom activity runs your customized code logic on an **Azure Batch** pool of virtual machines.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -31,9 +33,12 @@ See following articles if you are new to Azure Batch service:
 * [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet to create an Azure Batch account (or) [Azure portal](../batch/batch-account-create-portal.md) to create the Azure Batch account using Azure portal. See [Using PowerShell to manage Azure Batch Account](/archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account) article for detailed instructions on using the cmdlet.
 * [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet to create an Azure Batch pool.
 
+> [!IMPORTANT]
+> When creating a new Azure Batch pool, ‘VirtualMachineConfiguration’ must be used and NOT ‘CloudServiceConfiguration'. For more details refer [Azure Batch Pool migration guidance](../batch/batch-pool-cloud-service-to-virtual-machine-configuration.md). 
+
 ## Azure Batch linked service
 
-The following JSON defines a sample Azure Batch linked service. For details, see [Compute environments supported by Azure Data Factory](compute-linked-services.md)
+The following JSON defines a sample Azure Batch linked service. For details, see [Supported compute environments](compute-linked-services.md)
 
 ```json
 {
@@ -101,7 +106,7 @@ The following table describes names and descriptions of properties that are spec
 | command               | Command of the custom application to be executed. If the application is already available on the Azure Batch Pool Node, the resourceLinkedService and folderPath can be skipped. For example, you can specify the command to be `cmd /c dir`, which is natively supported by the Windows Batch Pool node. | Yes      |
 | resourceLinkedService | Azure Storage Linked Service to the Storage account where the custom application is stored | No &#42;       |
 | folderPath            | Path to the folder of the custom application and all its dependencies<br/><br/>If you have dependencies stored in subfolders - that is, in a hierarchical folder structure under *folderPath* - the folder structure is currently flattened when the files are copied to Azure Batch. That is, all files are copied into a single folder with no subfolders. To work around this behavior, consider compressing the files, copying the compressed file, and then unzipping it with custom code in the desired location. | No &#42;       |
-| referenceObjects      | An array of existing Linked Services and Datasets. The referenced Linked Services and Datasets are passed to the custom application in JSON format so your custom code can reference resources of the Data Factory | No       |
+| referenceObjects      | An array of existing Linked Services and Datasets. The referenced Linked Services and Datasets are passed to the custom application in JSON format so your custom code can reference resources of the service | No       |
 | extendedProperties    | User-defined properties that can be passed to the custom application in JSON format so your custom code can reference additional properties | No       |
 | retentionTimeInDays | The retention time for the files submitted for custom activity. Default value is 30 days. | No |
 
@@ -140,7 +145,7 @@ You can directly execute a command using Custom Activity. The following example 
 
 ## Passing objects and properties
 
-This sample shows how you can use the referenceObjects and extendedProperties to pass Data Factory objects and user-defined properties to your custom application.
+This sample shows how you can use the referenceObjects and extendedProperties to pass objects and user-defined properties from the service to your custom application.
 
 ```json
 {
@@ -293,16 +298,16 @@ Activity Error section:
 If you would like to consume the content of stdout.txt in downstream activities, you can get the path to the stdout.txt file in expression "\@activity('MyCustomActivity').output.outputs[0]".
 
 > [!IMPORTANT]
-> - The activity.json, linkedServices.json, and datasets.json are stored in the runtime folder of the Batch task. For this example, the activity.json, linkedServices.json, and datasets.json are stored in `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"` path. If needed, you need to clean them up separately.
+> - The activity.json, linkedServices.json, and datasets.json are stored in the runtime folder of the Batch task. For this example, the activity.json, linkedServices.json, and datasets.json are stored in `https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/` path. If needed, you need to clean them up separately.
 > - For Linked Services that use the Self-Hosted Integration Runtime, the sensitive information like keys or passwords are encrypted by the Self-Hosted Integration Runtime to ensure credential stays in customer defined private network environment. Some sensitive fields could be missing when referenced by your custom application code in this way. Use SecureString in extendedProperties instead of using Linked Service reference if needed.
 
 ## Pass outputs to another activity
 
-You can send custom values from your code in a Custom Activity back to Azure Data Factory. You can do so by writing them into `outputs.json` from your application. Data Factory copies the content of `outputs.json` and appends it into the Activity Output as the value of the `customOutput` property. (The size limit is 2MB.) If you want to consume the content of `outputs.json` in downstream activities, you can get the value by using the expression `@activity('<MyCustomActivity>').output.customOutput`.
+You can send custom values from your code in a Custom Activity back to the service. You can do so by writing them into `outputs.json` from your application. The service copies the content of `outputs.json` and appends it into the Activity Output as the value of the `customOutput` property. (The size limit is 2MB.) If you want to consume the content of `outputs.json` in downstream activities, you can get the value by using the expression `@activity('<MyCustomActivity>').output.customOutput`.
 
 ## Retrieve SecureString outputs
 
-Sensitive property values designated as type *SecureString*, as shown in some of the examples in this article, are masked out in the Monitoring tab in the Data Factory user interface.  In actual pipeline execution, however, a *SecureString* property is serialized as JSON within the `activity.json` file as plain text. For example:
+Sensitive property values designated as type *SecureString*, as shown in some of the examples in this article, are masked out in the Monitoring tab in the user interface.  In actual pipeline execution, however, a *SecureString* property is serialized as JSON within the `activity.json` file as plain text. For example:
 
 ```json
 "extendedProperties": {
@@ -313,7 +318,7 @@ Sensitive property values designated as type *SecureString*, as shown in some of
 }
 ```
 
-This serialization is not truly secure, and is not intended to be secure. The intent is to hint to Data Factory to mask the value in the Monitoring tab.
+This serialization is not truly secure, and is not intended to be secure. The intent is a hint to the service to mask the value in the Monitoring tab.
 
 To access properties of type *SecureString* from a custom activity, read the `activity.json` file, which is placed in the same folder as your .EXE, deserialize the JSON, and then access the JSON property (extendedProperties => [propertyName] => value).
 
@@ -321,13 +326,13 @@ To access properties of type *SecureString* from a custom activity, read the `ac
 
 In Azure Data Factory version 1, you implement a (Custom) DotNet Activity by creating a .NET Class Library project with a class that implements the `Execute` method of the `IDotNetActivity` interface. The Linked Services, Datasets, and Extended Properties in the JSON payload of a (Custom) DotNet Activity are passed to the execution method as strongly-typed objects. For details about the version 1 behavior, see [(Custom) DotNet in version 1](v1/data-factory-use-custom-activities.md). Because of this implementation, your version 1 DotNet Activity code has to target .NET Framework 4.5.2. The version 1 DotNet Activity also has to be executed on Windows-based Azure Batch Pool nodes.
 
-In the Azure Data Factory V2 Custom Activity, you are not required to implement a .NET interface. You can now directly run commands, scripts, and your own custom code, compiled as an executable. To configure this implementation, you specify the `Command` property together with the `folderPath` property. The Custom Activity uploads the executable and its dependencies to `folderpath` and executes the command for you.
+In the Azure Data Factory V2 and Synapse pipelines Custom Activity, you are not required to implement a .NET interface. You can now directly run commands, scripts, and your own custom code, compiled as an executable. To configure this implementation, you specify the `Command` property together with the `folderPath` property. The Custom Activity uploads the executable and its dependencies to `folderpath` and executes the command for you.
 
-The Linked Services, Datasets (defined in referenceObjects), and Extended Properties defined in the JSON payload of a Data Factory v2 Custom Activity can be accessed by your executable as JSON files. You can access the required properties using a JSON serializer as shown in the preceding SampleApp.exe code sample.
+The Linked Services, Datasets (defined in referenceObjects), and Extended Properties defined in the JSON payload of a Data Factory v2 or Synapse pipeline Custom Activity can be accessed by your executable as JSON files. You can access the required properties using a JSON serializer as shown in the preceding SampleApp.exe code sample.
 
-With the changes introduced in the Data Factory V2 Custom Activity, you can write your custom code logic in your preferred language and execute it on Windows and Linux Operation Systems supported by Azure Batch.
+With the changes introduced in the Data Factory V2 and Synapse pipeline Custom Activity, you can write your custom code logic in your preferred language and execute it on Windows and Linux Operation Systems supported by Azure Batch.
 
-The following table describes the differences between the Data Factory V2 Custom Activity and the Data Factory version 1 (Custom) DotNet Activity:
+The following table describes the differences between the Data Factory V2 and Synapse pipeline Custom Activity and the Data Factory version 1 (Custom) DotNet Activity:
 
 |Differences      | Custom Activity      | version 1 (Custom) DotNet Activity      |
 | ---- | ---- | ---- |
@@ -348,11 +353,11 @@ If you have existing .NET code written for a version 1 (Custom) DotNet Activity,
   - The Microsoft.Azure.Management.DataFactories NuGet package is no longer required.
   - Compile your code, upload the executable and its dependencies to Azure Storage, and define the path in the `folderPath` property.
 
-For a complete sample of how the end-to-end DLL and pipeline sample described in the Data Factory version 1 article [Use custom activities in an Azure Data Factory pipeline](./v1/data-factory-use-custom-activities.md) can be rewritten as a Data Factory Custom Activity, see [Data Factory Custom Activity sample](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
+For a complete sample of how the end-to-end DLL and pipeline sample described in the Data Factory version 1 article [Use custom activities in an Azure Data Factory pipeline](./v1/data-factory-use-custom-activities.md) can be rewritten as a Custom Activity for Data Factory v2 and Synapse pipelines, see [Custom Activity sample](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
 
 ## Auto-scaling of Azure Batch
 
-You can also create an Azure Batch pool with **autoscale** feature. For example, you could create an azure batch pool with 0 dedicated VMs and an autoscale formula based on the number of pending tasks.
+You can also create an Azure Batch pool with **autoscale** feature. For example, you could create an Azure batch pool with 0 dedicated VMs and an autoscale formula based on the number of pending tasks.
 
 The sample formula here achieves the following behavior: When the pool is initially created, it starts with 1 VM. $PendingTasks metric defines the number of tasks in running + active (queued) state. The formula finds the average number of pending tasks in the last 180 seconds and sets TargetDedicated accordingly. It ensures that TargetDedicated never goes beyond 25 VMs. So, as new tasks are submitted, pool automatically grows and as tasks complete, VMs become free one by one and the autoscaling shrinks those VMs. startingNumberOfVMs and maxNumberofVMs can be adjusted to your needs.
 

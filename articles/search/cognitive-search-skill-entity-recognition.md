@@ -3,9 +3,8 @@ title: Entity Recognition cognitive skill
 titleSuffix: Azure Cognitive Search
 description: Extract different types of entities from text in an enrichment pipeline in Azure Cognitive Search.
 
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
@@ -185,8 +184,8 @@ Parameters are case-sensitive and are all optional.
 
 Note that the offsets returned for entities in the output of this skill are directly returned from the [Text Analytics API](../cognitive-services/text-analytics/overview.md), which means if you are using them to index into the original string, you should use the [StringInfo](/dotnet/api/system.globalization.stringinfo) class in .NET in order to extract the correct content.  [More details can be found here.](../cognitive-services/text-analytics/concepts/text-offsets.md)
 
-## Error cases
-If the language code for the document is unsupported, an error is returned and no entities are extracted.
+## Warning cases
+If the language code for the document is unsupported, a warning is returned and no entities are extracted.
 
 ## See also
 

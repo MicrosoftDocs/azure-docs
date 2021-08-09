@@ -1,11 +1,13 @@
 ---
-title: Deploy Live Video Analytics on Azure Stack Edge
-description: This article lists the steps that will help you deploy Live Video Analytics on your Azure Stack Edge.
+title: Deploy Azure Live Video Analytics on Azure Stack Edge
+description: This article lists the steps that will help you deploy Azure Live Video Analytics on your Azure Stack Edge.
 ms.topic: how-to
 ms.date: 09/09/2020
 
 ---
-# Deploy Live Video Analytics on Azure Stack Edge
+# Deploy Azure Live Video Analytics on Azure Stack Edge
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 This article lists the steps that will help you deploy Live Video Analytics on your Azure Stack Edge. After the device has been setup and activated, it is then ready for Live Video Analytics deployment. 
 
@@ -32,12 +34,18 @@ For Live Video Analytics, we will deploy via IoT Hub, but the Azure Stack Edge r
 
 ## Configuring Azure Stack Edge for using Live Video Analytics
 
-Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge computing device with network data transfer capabilities. Read more about [Azure Stack Edge and detailed setup instructions](../../databox-online/azure-stack-edge-deploy-prep.md). To get started, follow the instructions in the links below:
+Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge computing device with network data transfer capabilities. Read more about [Azure Stack Edge and detailed setup instructions](../../databox-online/azure-stack-edge-gpu-deploy-prep.md). To get started, follow the instructions in the links below:
 
-* [Azure Stack Edge / Data Box Gateway Resource Creation](../../databox-online/azure-stack-edge-deploy-prep.md)
-* [Install and Setup](../../databox-online/azure-stack-edge-deploy-install.md)
-* [Connection and Activation](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md)
-* [Attach an IoT Hub to Azure Stack Edge](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-configure-compute#configure-compute)
+* [Azure Stack Edge / Data Box Gateway Resource Creation](../../databox-online/azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource)
+* [Install and Setup](../../databox-online/azure-stack-edge-gpu-deploy-install.md)
+* Connection and Activation
+
+    1. [Connect](../../databox-online/azure-stack-edge-gpu-deploy-connect.md)
+    2. [Configure network](../../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)
+    3. [Configure device](../../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md)
+    4. [Configure certificates](../../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md)
+    5. [Activate](../../databox-online/azure-stack-edge-gpu-deploy-activate.md)
+* [Attach an IoT Hub to Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-configure-compute.md#configure-compute)
 ### Enable Compute Prerequisites on the Azure Stack Edge Local UI
 
 Before you continue, make sure that:
@@ -45,7 +53,14 @@ Before you continue, make sure that:
 * You've activated your Azure Stack Edge resource.
 * You have access to a Windows client system running PowerShell 5.0 or later to access the Azure Stack Edge resource.
 * To deploy a Kubernetes cluster, you need to configure your Azure Stack Edge resource via its [local web UI](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md#connect-to-the-local-web-ui-setup). 
+
+    * Connect and configure:
     
+        1. [Connect](../../databox-online/azure-stack-edge-gpu-deploy-connect.md)
+        2. [Configure network](../../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)
+        3. [Configure device](../../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md)
+        4. [Configure certificates](../../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md)
+        5. [Activate](../../databox-online/azure-stack-edge-gpu-deploy-activate.md)
     * To enable the compute, in the local web UI of your device, go to the Compute page.
     
         * Select a network interface that you want to enable for compute. Select Enable. Enabling compute results in the creation of a virtual switch on your device on that network interface.
@@ -53,7 +68,7 @@ Before you continue, make sure that:
         * Select Apply - This operation should take about 2 minutes.
         
         > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-commercial.png" alt-text=" Compute Prerequisites on the Azure Stack Edge Local UI":::
+        > :::image type="content" source="../../databox-online/media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png" alt-text=" Compute Prerequisites on the Azure Stack Edge Local UI":::
 
         * If DNS is not configured for the Kubernetes API and Azure Stack Edge resource, you can update your Window's host file.
         
@@ -229,17 +244,21 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
     
 ## Troubleshooting
 
-* Kubernetes API Access (kubectl).
+* **Kubernetes API Access (kubectl)**
 
-    * Follow the documentation to configure your machine for [access to the Kubernetes cluster](https://review.docs.microsoft.com/azure/databox-online/azure-stack-edge-j-series-create-kubernetes-cluster?toc=%2Fazure%2Fdatabox-online%2Fazure-stack-edge-gpu%2Ftoc.json&bc=%2Fazure%2Fdatabox-online%2Fazure-stack-edge-gpu%2Fbreadcrumb%2Ftoc.json&branch=release-tzl#debug-kubernetes-issues).
-    * All deployed IoT Edge modules use the `iotedge` namespace. Make sure to include that when using kubectl.
-* Module Logs
+    * Follow the documentation to configure your machine for [access to the Kubernetes cluster](../../databox-online/azure-stack-edge-gpu-create-kubernetes-cluster.md).
+    * All deployed IoT Edge modules use the `iotedge` namespace. Make sure to include that when using kubectl.  
 
-    The `iotedge` tool is not accessible to obtain logs. You must use [kubectl logs](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs)  to view the logs or pipe to a file. Example: <br/>  `kubectl logs deployments/mediaedge -n iotedge --all-containers`
-* Pod and Node Metrics
+* **Module Logs**
 
-    Use [kubectl top](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#top)  to see pod and node metrics. (This functionality will be available in the next Azure Stack Edge release. >v2007)<br/>`kubectl top pods -n iotedge`
-* Module Networking
+    The `iotedge` tool is not accessible to obtain logs. You must use [kubectl logs](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs)  to view the logs or pipe to a file. Example: <br/>  `kubectl logs deployments/mediaedge -n iotedge --all-containers`  
+
+* **Pod and Node Metrics**
+
+    Use [kubectl top](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#top)  to see pod and node metrics.
+    <br/>`kubectl top pods -n iotedge` 
+
+* **Module Networking**   
 For Module discovery on Azure Stack Edge it is required that the module have the host port binding in createOptions. The module will then be addressable over `moduleName:hostport`.
     
     ```json
@@ -252,10 +271,11 @@ For Module discovery on Azure Stack Edge it is required that the module have the
     }
     ```
     
-* Volume Mounting
+* **Volume Mounting**
 
     A module will fail to start if the container is trying mount a volume to an existing and non-empty directory.
-* Shared Memory
+
+* **Shared Memory when using gRPC**
 
     Shared memory on Azure Stack Edge resources is supported across pods in any namespace by using Host IPC.
     Configuring shared memory on an edge module for deployment via IoT Hub.
@@ -268,7 +288,7 @@ For Module discovery on Azure Stack Edge it is required that the module have the
         }
     ...
         
-    (Advanced) Configuring shared memory on a K8s Pod or Deployment manifest for deployment via K8s API.
+    //(Advanced) Configuring shared memory on a K8s Pod or Deployment manifest for deployment via K8s API
     spec:
         ...
         template:
@@ -277,14 +297,14 @@ For Module discovery on Azure Stack Edge it is required that the module have the
         ...
     ```
     
-* (Advanced) Pod Co-location
+* **(Advanced) Pod Co-location**
 
     When using K8s to deploy custom inference solutions that communicate with Live Video Analytics via gRPC, you need to ensure the pods are deployed on the same nodes as Live Video Analytics modules.
 
-    * Option 1 - Use Node Affinity and built in Node labels for co-location.
+    * **Option 1** - Use Node Affinity and built in Node labels for co-location.
 
     Currently NodeSelector custom configuration does not appear to be an option as the users do not have access to set labels on the Nodes. However depending on the customer's topology and naming conventions they might be able to use [built-in node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#built-in-node-labels). A nodeAffinity section referencing Azure Stack Edge resources with Live Video Analytics can be added to the inference pod manifest to achieve co-location.
-    * Option 2 - Use Pod Affinity for co-location (recommended).
+    * **Option 2** - Use Pod Affinity for co-location (recommended).
 Kubernetes has support for [Pod Affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity)  which can schedule pods on the same node. A podAffinity section referencing the Live Video Analytics module can be added to the inference pod manifest to achieve co-location.
 
     ```json   
@@ -306,6 +326,31 @@ Kubernetes has support for [Pod Affinity](https://kubernetes.io/docs/concepts/sc
                 values:
                 - mediaedge
             topologyKey: "kubernetes.io/hostname"
+    ```
+* **404 error code when using `rtspsim` module**  
+The container will read videos from exactly one folder within the container. If you map/bind an external folder into the one which already exists within the container image, docker will hide the files present in the container image.  
+ 
+    For example, with no bindings the container may have these files:  
+    ```
+    root@rtspsim# ls /live/mediaServer/media  
+    /live/mediaServer/media/camera-300s.mkv  
+    /live/mediaServer/media/win10.mkv  
+    ```
+     
+    And your host may have these files:
+    ```    
+    C:\MyTestVideos> dir
+    Test1.mkv
+    Test2.mkv
+    ```
+     
+    But when the following binding is added in the deployment manifest file, docker will overwrite the contents of /live/mediaServer/media to match what is on the host.
+    `C:\MyTestVideos:/live/mediaServer/media`
+    
+    ```
+    root@rtspsim# ls /live/mediaServer/media
+    /live/mediaServer/media/Test1.mkv
+    /live/mediaServer/media/Test2.mkv
     ```
 
 ## Next steps

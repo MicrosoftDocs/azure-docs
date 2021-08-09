@@ -5,7 +5,7 @@ author: martinekuan
 manager: martinekuan
 ms.service: multiple
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 06/21/2021
 ms.author: martinek
 ms.custom: references_regions
 ---
@@ -24,7 +24,7 @@ A regional pair consists of two regions within the same geography. Azure seriali
 
 Some Azure services take further advantage of paired regions to ensure business continuity and to protect against data loss.  Azure provides several [storage solutions](./storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) that take advantage of paired regions to ensure data availability. For example, [Azure Geo-redundant Storage](./storage/common/storage-redundancy.md#geo-redundant-storage) (GRS) replicates data to a secondary region automatically, ensuring that data is durable even in the event that the primary region isn't recoverable. 
 
-Note that not all Azure services automatically replicate data, nor do all Azure services automatically fall-back from a failed region to its pair.  In such cases, recovery and replication must be configured by the customer.
+Note that not all Azure services automatically replicate data, nor do all Azure services automatically fallback from a failed region to its pair.  In such cases, recovery and replication must be configured by the customer.
 
 ## Can I select my regional pairs?
 
@@ -38,7 +38,7 @@ No. While a given Azure service may rely upon a regional pair, you can host your
 
 ## Must I use Azure regional pairs?
 
-No. Customers can leverage Azure services to architect a resilient service without relying on Azure's regional pairs.  However, we recommend that you configure business continuity disaster recovery (BCDR) across regional pairs to benefit from [isolation](./security/fundamentals/isolation-choices.md) and improve [availability](./availability-zones/az-overview.md). For applications that support multiple active regions, we recommend using both regions in a region pair where possible. This ensures optimal availability for applications and minimized recovery time in the event of a disaster. Whenever possible, design your application for [maximum resiliency](/azure/architecture/framework/resiliency/overview) and ease of [disaster recovery](/azure/architecture/framework/resiliency/backup-and-recovery).
+No. Customers can leverage Azure services to architect a resilient service without relying on Azure's regional pairs.  However, we recommend that you configure business continuity disaster recovery (BCDR) across regional pairs to benefit from [isolation](./security/fundamentals/isolation-choices.md) and improve [availability](./availability-zones/az-overview.md). For applications that support multiple active regions, we recommend using both regions in a region pair where possible. This ensures optimal availability for applications and minimized recovery time in the event of a disaster. Whenever possible, design your application for [maximum resiliency](/azure/architecture/framework/resiliency/app-design) and ease of [disaster recovery](/azure/architecture/framework/resiliency/backup-and-recovery).
 
 ## Azure Regional Pairs
 
@@ -46,14 +46,15 @@ No. Customers can leverage Azure services to architect a resilient service witho
 |:--- |:--- |:--- |
 | Asia-Pacific |East Asia (Hong Kong) | Southeast Asia (Singapore) |
 | Australia |Australia East |Australia Southeast |
-| Australia |Australia Central |Australia Central 2 |
+| Australia |Australia Central |Australia Central 2* |
 | Brazil |Brazil South |South Central US |
+| Brazil |Brazil Southeast* |Brazil South |
 | Canada |Canada Central |Canada East |
 | China |China North |China East|
 | China |China North 2 |China East 2|
 | Europe |North Europe (Ireland) |West Europe (Netherlands) |
-| France |France Central|France South|
-| Germany |Germany Central |Germany Northeast |
+| France |France Central|France South*|
+| Germany |Germany West Central |Germany North* |
 | India |Central India |South India |
 | India |West India |South India |
 | Japan |Japan East |Japan West |
@@ -62,15 +63,18 @@ No. Customers can leverage Azure services to architect a resilient service witho
 | North America |East US 2 |Central US |
 | North America |North Central US |South Central US |
 | North America |West US 2 |West Central US |
-| Norway | Norway East | Norway West |
-| South Africa | South Africa North |South Africa West |
-| Switzerland | Switzerland North |Switzerland West |
+| North America |West US 3 |East US |
+| Norway | Norway East | Norway West* |
+| South Africa | South Africa North |South Africa West* |
+| Switzerland | Switzerland North |Switzerland West* |
 | UK |UK West |UK South |
-| United Arab Emirates | UAE North | UAE Central
-| US Department of Defense |US DoD East |US DoD Central |
-| US Government |US Gov Arizona |US Gov Texas |
-| US Government |US Gov Iowa |US Gov Virginia |
-| US Government |US Gov Virginia |US Gov Texas |
+| United Arab Emirates | UAE North | UAE Central* |
+| US Department of Defense |US DoD East* |US DoD Central* |
+| US Government |US Gov Arizona* |US Gov Texas* |
+| US Government |US Gov Iowa* |US Gov Virginia* |
+| US Government |US Gov Virginia* |US Gov Texas* |
+
+(*) Certain regions are access restricted to support specific customer scenarios, for example in-country disaster recovery. These regions are available only upon request by [creating a new support request in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 > [!Important]
 > - West India is paired in one direction only. West India's secondary region is South India, but South India's secondary region is Central India.

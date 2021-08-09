@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Arc Publishing - SSO | Microsoft Docs'
+title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Arc Publishing - SSO | Microsoft Docs"
 description: Learn how to configure single sign-on between Azure Active Directory and Arc Publishing - SSO.
 services: active-directory
 author: jeevansd
@@ -17,24 +17,23 @@ ms.author: jeedes
 
 In this tutorial, you'll learn how to integrate Arc Publishing - SSO with Azure Active Directory (Azure AD). When you integrate Arc Publishing - SSO with Azure AD, you can:
 
-* Control in Azure AD who has access to Arc Publishing - SSO.
-* Enable your users to be automatically signed-in to Arc Publishing - SSO with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+- Control in Azure AD who has access to Arc Publishing - SSO.
+- Enable your users to be automatically signed-in to Arc Publishing - SSO with their Azure AD accounts.
+- Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Arc Publishing - SSO single sign-on (SSO) enabled subscription.
+- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+- Arc Publishing - SSO single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Arc Publishing - SSO supports **SP and IDP** initiated SSO
-* Arc Publishing - SSO supports **Just In Time** user provisioning
-
+- Arc Publishing - SSO supports **SP and IDP** initiated SSO
+- Arc Publishing - SSO supports **Just In Time** user provisioning
 
 ## Adding Arc Publishing - SSO from the gallery
 
@@ -47,7 +46,6 @@ To configure the integration of Arc Publishing - SSO into Azure AD, you need to 
 1. In the **Add from the gallery** section, type **Arc Publishing - SSO** in the search box.
 1. Select **Arc Publishing - SSO** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
 ## Configure and test Azure AD SSO for Arc Publishing - SSO
 
 Configure and test Azure AD SSO with Arc Publishing - SSO using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Arc Publishing - SSO.
@@ -55,10 +53,10 @@ Configure and test Azure AD SSO with Arc Publishing - SSO using a test user call
 To configure and test Azure AD SSO with Arc Publishing - SSO, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+   1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+   1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Arc Publishing - SSO SSO](#configure-arc-publishing---sso-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Arc Publishing - SSO test user](#create-arc-publishing---sso-test-user)** - to have a counterpart of B.Simon in Arc Publishing - SSO that is linked to the Azure AD representation of user.
+   1. **[Create Arc Publishing - SSO test user](#create-arc-publishing---sso-test-user)** - to have a counterpart of B.Simon in Arc Publishing - SSO that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -73,44 +71,43 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://www.okta.com/saml2/service-provider/<Unique ID>`
+   a. In the **Identifier** text box, type a URL using the following pattern:
+   `https://www.okta.com/saml2/service-provider/<Unique ID>`
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://arcpublishing-<Customer>.okta.com/sso/saml2/<Unique ID>`
+   b. In the **Reply URL** text box, type a URL using the following pattern:
+   `https://arcpublishing-<Customer>.okta.com/sso/saml2/<Unique ID>`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://arcpublishing-<Customer>.okta.com/sso/saml2/<Unique ID>`
+   In the **Sign-on URL** text box, type a URL using the following pattern:
+   `https://arcpublishing-<Customer>.okta.com/sso/saml2/<Unique ID>`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Arc Publishing - SSO Client support team](mailto:inf@washpost.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+   > [!NOTE]
+   > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Arc Publishing - SSO Client support team](mailto:inf@washpost.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Arc Publishing - SSO application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/edit-attribute.png)
+   ![image](common/edit-attribute.png)
 
-1. In addition to above,  Arc Publishing - SSO application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement.
+1. In addition to above, Arc Publishing - SSO application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement.
 
+   | Name      | Source Attribute   |
+   | --------- | ------------------ |
+   | firstName | user.givenname     |
+   | lastName  | user.surname       |
+   | email     | user.mail          |
+   | groups    | user.assignedroles |
 
-	| Name | Source Attribute|
-	| ---------------| --------------- |    
-	| firstName | user.givenname |
-	| lastName | user.surname |
-	| email | user.mail |
-	| groups | user.assignedroles |
+   > [!NOTE]
+   > Here the **groups** attribute is mapped with **user.assignedroles**. These are custom roles created in Azure AD to map the group names back in application. You can find more guidance [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) on how to create custom roles in Azure AD.
 
-	> [!NOTE]
-	> Here the **groups** attribute is mapped with **user.assignedroles**. These are custom roles created in Azure AD to map the group names back in application. You can find more guidance [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview) on how to create custom roles in Azure AD.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
-
-	![The Certificate download link](common/certificatebase64.png)
+   ![The Certificate download link](common/certificatebase64.png)
 
 1. On the **Set up Arc Publishing - SSO** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+   ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -119,7 +116,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **Name** field, enter `B.Simon`.
    1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
@@ -147,22 +144,21 @@ In this section, a user called Britta Simon is created in Arc Publishing - SSO. 
 > [!Note]
 > If you need to create a user manually, contact [Arc Publishing - SSO support team](mailto:inf@washpost.com).
 
-## Test SSO 
+## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Azure AD single sign-on configuration with following options.
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Arc Publishing - SSO Sign on URL where you can initiate the login flow.  
+- Click on **Test this application** in Azure portal. This will redirect to Arc Publishing - SSO Sign on URL where you can initiate the login flow.
 
-* Go to Arc Publishing - SSO Sign-on URL directly and initiate the login flow from there.
+- Go to Arc Publishing - SSO Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Arc Publishing - SSO for which you set up the SSO 
+- Click on **Test this application** in Azure portal and you should be automatically signed in to the Arc Publishing - SSO for which you set up the SSO
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Arc Publishing - SSO tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Arc Publishing - SSO for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
-
 
 ## Next steps
 

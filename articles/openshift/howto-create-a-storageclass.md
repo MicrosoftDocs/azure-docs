@@ -1,7 +1,7 @@
 ---
 title: Create an Azure Files StorageClass on Azure Red Hat OpenShift 4
 description: Learn how to create an Azure Files StorageClass on Azure Red Hat OpenShift
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 10/16/2020
 author: grantomation
@@ -19,7 +19,7 @@ In this article, you’ll create a StorageClass for Azure Red Hat OpenShift 4 th
 > * Setup the prerequisites and install the necessary tools
 > * Create an Azure Red Hat OpenShift 4 StorageClass with the Azure File provisioner
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Before you begin
 
@@ -64,7 +64,7 @@ The OpenShift persistent volume binder service account will require the ability 
 ```bash
 ARO_API_SERVER=$(az aro list --query "[?contains(name,'$CLUSTER')].[apiserverProfile.url]" -o tsv)
 
-oc login -u kubeadmin -p $(az aro list-credentials -g $ARO_RESOURCE_GROUP -n $CLUSTER --query=kubeadminPassword -o tsv) $APISERVER
+oc login -u kubeadmin -p $(az aro list-credentials -g $ARO_RESOURCE_GROUP -n $CLUSTER --query=kubeadminPassword -o tsv) $ARO_API_SERVER
 
 oc create clusterrole azure-secret-reader \
 	--verb=create,get \
@@ -113,18 +113,21 @@ oc patch storageclass azure-file -p '{"metadata": {"annotations":{"storageclass.
 
 Create a new application and assign storage to it.
 
+> [!NOTE]
+> To use the `httpd-example` template, you must deploy your ARO cluster with the pull secret enabled. For more information, see [Get a Red Hat pull secret](tutorial-create-cluster.md#get-a-red-hat-pull-secret-optional).
+
 ```bash
 oc new-project azfiletest
-oc new-app -template httpd-example
+oc new-app httpd-example
 
 #Wait for the pod to become Ready
 curl $(oc get route httpd-example -n azfiletest -o jsonpath={.spec.host})
 
-oc set volume dc/httpd-example --add --name=v1 -t pvc --claim-size=1G -m /data
+#If you have set the storage class by default, you can omit the --claim-class parameter
+oc set volume dc/httpd-example --add --name=v1 -t pvc --claim-size=1G -m /data --claim-class='azure-file'
 
 #Wait for the new deployment to rollout
 export POD=$(oc get pods --field-selector=status.phase==Running -o jsonpath={.items[].metadata.name})
-oc exec $POD -- bash -c "mkdir ./data"
 oc exec $POD -- bash -c "echo 'azure file storage' >> /data/test.txt"
 
 oc exec $POD -- bash -c "cat /data/test.txt"

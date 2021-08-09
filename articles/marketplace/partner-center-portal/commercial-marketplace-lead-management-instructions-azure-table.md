@@ -198,3 +198,7 @@ To make sure you have successfully connected to a lead destination, select the *
 >You must finish configuring the rest of the offer and publish it before you can receive leads for the offer.
 
 When leads are generated, Microsoft sends leads to the Azure table. If you configured a flow, an email will also be sent to the email address you configured.
+
+## Next steps
+
+- [Lead management FAQ and troubleshooting](../lead-management-faq.yml)

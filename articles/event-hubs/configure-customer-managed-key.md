@@ -2,14 +2,14 @@
 title: Configure your own key for encrypting Azure Event Hubs data at rest 
 description: This article provides information on how to configure your own key for encrypting Azure Event Hubs data rest. 
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 05/04/2021
 ---
 
 # Configure customer-managed keys for encrypting Azure Event Hubs data at rest by using the Azure portal
 Azure Event Hubs provides encryption of data at rest with Azure Storage Service Encryption (Azure SSE). The Event Hubs service uses Azure Storage to store the data. All the data that's stored with Azure Storage is encrypted using Microsoft-managed keys. If you use your own key (also referred to as Bring Your Own Key (BYOK) or customer-managed key), the data is still encrypted using the Microsoft-managed key, but in addition the Microsoft-managed key will be encrypted using the customer-managed key. This feature enables you to create, rotate, disable, and revoke access to customer-managed keys that are used for encrypting Microsoft-managed keys. Enabling the BYOK feature is a one time setup process on your namespace.
 
-> [!NOTE]
-> - The BYOK capability is supported by [Event Hubs dedicated single-tenant](event-hubs-dedicated-overview.md) clusters. It can't be enabled for standard Event Hubs namespaces.
+> [!IMPORTANT]
+> - The BYOK capability is supported by **premium** and **dedicated** tiers of Event Hubs.
 > - The encryption can be enabled only for new or empty namespaces. If the namespace contains event hubs, the encryption operation will fail.
 
 You can use Azure Key Vault to manage your keys and audit your key usage. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md)
@@ -20,9 +20,8 @@ This article shows how to configure a key vault with customer-managed keys by us
 > Using customer-managed keys with Azure Event Hubs requires that the key vault have two required properties configured. They are:  **Soft Delete** and **Do Not Purge**. These properties are enabled by default when you create a new key vault in the Azure portal. However, if you need to enable these properties on an existing key vault, you must use either PowerShell or Azure CLI.
 
 ## Enable customer-managed keys
-To enable customer-managed keys in the Azure portal, follow these steps:
+To enable customer-managed keys in the Azure portal, follow these steps. If you are using the dedicated tier, navigate to your Event Hubs Dedicated cluster first.
 
-1. Navigate to your Event Hubs Dedicated cluster.
 1. Select the namespace on which you want to enable BYOK.
 1. On the **Settings** page of your Event Hubs namespace, select **Encryption**. 
 1. Select the **Customer-managed key encryption at rest** as shown in the following image. 
@@ -33,12 +32,12 @@ To enable customer-managed keys in the Azure portal, follow these steps:
 After you enable customer-managed keys, you need to associate the customer managed key with your Azure Event Hubs namespace. Event Hubs supports only Azure Key Vault. If you enable the **Encryption with customer-managed key** option in the previous section, you need to have the key imported into Azure Key Vault. Also, the keys must have **Soft Delete** and **Do Not Purge** configured for the key. These settings can be configured using [PowerShell](../key-vault/general/key-vault-recovery.md) or [CLI](../key-vault/general/key-vault-recovery.md).
 
 1. To create a new key vault, follow the Azure Key Vault [Quickstart](../key-vault/general/overview.md). For more information about importing existing keys, see [About keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md).
-1. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
+1. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault#az_keyvault_create) command.
 
     ```azurecli-interactive
     az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
     ```    
-1. To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command.
+1. To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault#az_keyvault_update) command.
 
     ```azurecli-interactive
     az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
@@ -60,12 +59,12 @@ After you enable customer-managed keys, you need to associate the customer manag
 You can rotate your key in the key vault by using the Azure Key Vaults rotation mechanism. Activation and expiration dates can also be set to automate key rotation. The Event Hubs service will detect new key versions and start using them automatically.
 
 ## Revoke access to keys
-Revoking access to the encryption keys won't purge the data from Event Hubs. However, the data can't be accessed from the Event Hubs namespace. You can revoke the encryption key through access policy or by deleting the key. Learn more about access policies and securing your key vault from [Secure access to a key vault](../key-vault/general/secure-your-key-vault.md).
+Revoking access to the encryption keys won't purge the data from Event Hubs. However, the data can't be accessed from the Event Hubs namespace. You can revoke the encryption key through access policy or by deleting the key. Learn more about access policies and securing your key vault from [Secure access to a key vault](../key-vault/general/security-features.md).
 
 Once the encryption key is revoked, the Event Hubs service on the encrypted namespace will become inoperable. If the access to the key is enabled or the delete key is restored, Event Hubs service will pick the key so you can access the data from the encrypted Event Hubs namespace.
 
 ## Set up diagnostic logs 
-Setting diagnostic logs for BYOK enabled namespaces gives you the required information about the operations. These logs can be enabled and later stream to an event hub or analyzed through log analytics or streamed to storage to perform customized analytics. To learn more about diagnostic logs, see [Overview of Azure Diagnostic logs](../azure-monitor/platform/platform-logs-overview.md).
+Setting diagnostic logs for BYOK enabled namespaces gives you the required information about the operations. These logs can be enabled and later stream to an event hub or analyzed through log analytics or streamed to storage to perform customized analytics. To learn more about diagnostic logs, see [Overview of Azure Diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## Enable user logs
 Follow these steps to enable logs for customer-managed keys.
@@ -333,7 +332,7 @@ In this step, you will update the Event Hubs namespace with key vault informatio
                 "maximumThroughputUnits":0,
                 "clusterArmId":"[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]",
                 "encryption":{
-                   "keySource":"Microsoft.KeyVault",
+                   "keySource":"Microsoft.KeyVault",                   
                    "keyVaultProperties":[
                       {
                          "keyName":"[parameters('keyName')]",
@@ -385,6 +384,31 @@ In this step, you will update the Event Hubs namespace with key vault informatio
     ```powershell
     New-AzResourceGroupDeployment -Name UpdateEventHubNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateEventHubClusterAndNamespace.json -TemplateParameterFile ./UpdateEventHubClusterAndNamespaceParams.json 
     ```
+
+#### Enable infrastructure encryption for double encryption of data in Event Hubs namespace
+If you require a higher level of assurance that your data is secure, you can enable infrastructure level encryption which is also known as Double Encryption. 
+
+When infrastructure encryption is enabled, data in the Event Hubs namespace account is encrypted twice, once at the service level and once at the infrastructure level, using two different encryption algorithms and two different keys. Hence, infrastructure encryption of Event Hubs data protects against a scenario where one of the encryption algorithms or keys may be compromised.
+
+You can enable infrastructure encryption by updating the ARM template with `requireInfrastructureEncryption` property in the above **CreateEventHubClusterAndNamespace.json** as shown below. 
+
+```json
+"properties":{
+   "isAutoInflateEnabled":false,
+   "maximumThroughputUnits":0,
+   "clusterArmId":"[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]",
+   "encryption":{
+      "keySource":"Microsoft.KeyVault",
+      "requireInfrastructureEncryption":true,
+      "keyVaultProperties":[
+         {
+            "keyName":"[parameters('keyName')]",
+            "keyVaultUri":"[parameters('keyVaultUri')]"
+         }
+      ]
+   }
+}
+```
 
 ## Troubleshoot
 As a best practice, always enable logs like shown in the previous section. It helps in tracking the activities when BYOK encryption is enabled. It also helps in scoping down the problems.

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/09/2020
+ms.date: 07/20/2021
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
@@ -45,7 +45,7 @@ To edit the NameID (name identifier value):
 
 If the SAML request contains the element NameIDPolicy with a specific format, then the Microsoft identity platform will honor the format in the request.
 
-If the SAML request doesn't contain an element for NameIDPolicy, then the Microsoft identity platform will issue the NameID with the  format you specify. If no format is specified, the Microsoft identity platform will use the default source format associated with the claim source selected.
+If the SAML request doesn't contain an element for NameIDPolicy, then the Microsoft identity platform will issue the NameID with the  format you specify. If no format is specified, the Microsoft identity platform will use the default source format associated with the claim source selected. If a transformation results in a null or illegal value, Azure AD will send a persisistent pairwise identifier in the nameIdentifier. 
 
 From the **Choose name identifier format** dropdown, you can select one of the following options.
 
@@ -66,13 +66,13 @@ Select the desired source for the `NameIdentifier` (or NameID) claim. You can se
 |------|-------------|
 | Email | Email address of the user |
 | userprincipalName | User principal name (UPN) of the user |
-| onpremisessamaccount | SAM account name that has been synced from on-premises Azure AD |
+| onpremisessamaccountname | SAM account name that has been synced from on-premises Azure AD |
 | objectid | Objectid of the user in Azure AD |
 | employeeid | Employee ID of the user |
 | Directory extensions | Directory extensions [synced from on-premises Active Directory using Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Extension Attributes 1-15 | On-premises extension attributes used to extend the Azure AD schema |
 
-For more info, see [Table 3: Valid ID values per source](active-directory-claims-mapping.md#table-3-valid-id-values-per-source).
+For more info, see [Table 3: Valid ID values per source](reference-claims-mapping-policy-type.md#table-3-valid-id-values-per-source).
 
 You can also assign any constant (static) value to any claims which you define in Azure AD. Please follow the below steps to assign a constant value:
 
@@ -93,7 +93,6 @@ You can also use the claims transformations functions.
 | Function | Description |
 |----------|-------------|
 | **ExtractMailPrefix()** | Removes the domain suffix from either the email address or the user principal name. This extracts only the first part of the user name being passed through (for example, "joe_smith" instead of joe_smith@contoso.com). |
-| **Join()** | Joins an attribute with a verified domain. If the selected user identifier value has a domain, it will extract the username to append the selected verified domain. For example, if you select the email (joe_smith@contoso.com) as the user identifier value and select contoso.onmicrosoft.com as the verified domain, this will result in joe_smith@contoso.onmicrosoft.com. |
 | **ToLower()** | Converts the characters of the selected attribute into lowercase characters. |
 | **ToUpper()** | Converts the characters of the selected attribute into uppercase characters. |
 
@@ -120,7 +119,7 @@ You can use the following functions to transform claims.
 | Function | Description |
 |----------|-------------|
 | **ExtractMailPrefix()** | Removes the domain suffix from either the email address or the user principal name. This extracts only the first part of the user name being passed through (for example, "joe_smith" instead of joe_smith@contoso.com). |
-| **Join()** | Creates a new value by joining two attributes. Optionally, you can use a separator between the two attributes. For NameID claim transformation, the join is restricted to a verified domain. If the selected user identifier value has a domain, it will extract the username to append the selected verified domain. For example, if you select the email (joe_smith@contoso.com) as the user identifier value and select contoso.onmicrosoft.com as the verified domain, this will result in joe_smith@contoso.onmicrosoft.com. |
+| **Join()** | Creates a new value by joining two attributes. Optionally, you can use a separator between the two attributes. |
 | **ToLowercase()** | Converts the characters of the selected attribute into lowercase characters. |
 | **ToUppercase()** | Converts the characters of the selected attribute into uppercase characters. |
 | **Contains()** | Outputs an attribute or constant if the input matches the specified value. Otherwise, you can specify another output if there’s no match.<br/>For example, if you want to emit a claim where the value is the user’s email address if it contains the domain “@contoso.com”, otherwise you want to output the user principal name. To do this, you would configure the following values:<br/>*Parameter 1(input)*: user.email<br/>*Value*: "@contoso.com"<br/>Parameter 2 (output): user.email<br/>Parameter 3 (output if there's no match): user.userprincipalname |
@@ -137,6 +136,13 @@ You can use the following functions to transform claims.
 | **IfNotEmpty()** | Outputs an attribute or constant if the input is not null or empty.<br/>For example, if you want to output an attribute stored in an extensionattribute if the employee ID for a given user is not empty. To do this, you would configure the following values:<br/>Parameter 1(input): user.employeeid<br/>Parameter 2 (output): user.extensionattribute1 |
 
 If you need additional transformations, submit your idea in the [feedback forum in Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599) under the *SaaS application* category.
+
+## Add the UPN claim to SAML tokens
+
+The `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn` claim is part of the [SAML restricted claim set](reference-claims-mapping-policy-type.md#table-2-saml-restricted-claim-set), so you can not add it in the **User Attributes & Claims** section.  As a workaround, you can add it as an [optional claim](active-directory-optional-claims.md) through **App registrations** in the Azure portal. 
+
+Open the app in **App registrations** and select **Token configuration** and then **Add optional claim**. Select the **SAML** token type, choose **upn** from the list, and click **Add** to get the claim in the token.
+
 
 ## Emitting claims based on conditions
 

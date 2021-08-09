@@ -127,7 +127,7 @@ There's also an "exec_time_count" and "exec_time_sum" metric for each "exec_time
 The metrics can be scraped through Azure Monitor for Containers or through Prometheus.
 
 ### Setup for Azure Monitor
-The first step is to enable Azure Monitor for containers for your Kubernetes cluster. Steps can be found in [Azure Monitor for containers Overview](../azure-monitor/insights/container-insights-overview.md). Once you have Azure Monitor for containers enabled, configure the [Azure Monitor for containers ConfigMap](https://aka.ms/container-azm-ms-agentconfig) to enable NPM integration and collection of Prometheus NPM metrics. Azure monitor for containers ConfigMap has an ```integrations``` section with settings to collect NPM metrics. These settings are disabled by default in the ConfigMap. Enabling the basic setting ```collect_basic_metrics = true```, will collect basic NPM metrics. Enabling advanced setting ```collect_advanced_metrics = true``` will collect advanced metrics in addition to basic metrics. 
+The first step is to enable Azure Monitor for containers for your Kubernetes cluster. Steps can be found in [Azure Monitor for containers Overview](../azure-monitor/containers/container-insights-overview.md). Once you have Azure Monitor for containers enabled, configure the [Azure Monitor for containers ConfigMap](https://aka.ms/container-azm-ms-agentconfig) to enable NPM integration and collection of Prometheus NPM metrics. Azure monitor for containers ConfigMap has an ```integrations``` section with settings to collect NPM metrics. These settings are disabled by default in the ConfigMap. Enabling the basic setting ```collect_basic_metrics = true```, will collect basic NPM metrics. Enabling advanced setting ```collect_advanced_metrics = true``` will collect advanced metrics in addition to basic metrics. 
 
 After editing the ConfigMap, save it locally and apply the ConfigMap to your cluster as follows.
 
@@ -141,7 +141,7 @@ integrations: |-
 ```
 Advanced metrics are optional, and turning them on will automatically turn on basic metrics collection. Advanced metrics currently include only `npm_ipset_counts`
 
-Learn more about [Azure monitor for containers collection settings in config map](../azure-monitor/insights/container-insights-agent-config.md)
+Learn more about [Azure monitor for containers collection settings in config map](../azure-monitor/containers/container-insights-agent-config.md)
 
 ### Visualization Options for Azure Monitor
 Once NPM metrics collection is enabled, you can view the metrics in the Azure portal using Container Insights or in Grafana.
@@ -153,7 +153,7 @@ Besides viewing the workbook (pictures below), you can also directly query the P
 | where TimeGenerated > ago(5h)
 | where Name contains "npm_"
 
-You can also query Log Analytics directly for the metrics. Learn more about it with [Getting Started with Log Analytics Queries](../azure-monitor/insights/container-insights-log-search.md) 
+You can also query Log Analytics directly for the metrics. Learn more about it with [Getting Started with Log Analytics Queries](../azure-monitor/containers/container-insights-log-query.md) 
 
 #### Viewing in Grafana Dashboard
 Set up your Grafana Server and configure a Log Analytics Data Source as described [here](https://grafana.com/grafana/plugins/grafana-azure-monitor-datasource). Then, import [Grafana Dashboard with a Log Analytics backend](https://grafana.com/grafana/dashboards/10956) into your Grafana Labs.

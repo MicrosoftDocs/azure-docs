@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 11/12/2020
+ms.date: 03/24/2021
 ---
 # Tutorial: Share data using Azure Data Share  
 
@@ -36,23 +36,10 @@ In this tutorial, you'll learn how to:
 Below is the list of prerequisites for sharing data from SQL source. 
 
 #### Prerequisites for sharing from Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW)
-You can follow the [step by step demo](https://youtu.be/hIE-TjJD8Dc) to configure prerequisites.
 
 * An Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW) with tables and views that you want to share.
 * Permission to write to the databases on SQL server, which is present in *Microsoft.Sql/servers/databases/write*. This permission exists in the **Contributor** role.
-* Permission for the Data Share resource's managed identity to access the database. This can be done through the following steps: 
-    1. In Azure portal, navigate to the SQL server and set yourself as the **Azure Active Directory Admin**.
-    1. Connect to the Azure SQL Database/Data Warehouse using [Query Editor](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) or SQL Server Management Studio with Azure Active Directory authentication. 
-    1. Execute the following script to add the Data Share resource Managed Identity as a db_datareader. You must connect using Active Directory and not SQL Server authentication. 
-    
-        ```sql
-        create user "<share_acct_name>" from external provider;     
-        exec sp_addrolemember db_datareader, "<share_acct_name>"; 
-        ```                   
-       Note that the *<share_acc_name>* is the name of your Data Share resource. If you have not created a Data Share resource as yet, you can come back to this pre-requisite later.  
-
-* An Azure SQL Database User with **'db_datareader'** access to navigate and select the tables and/or views you wish to share. 
-
+* **Azure Active Directory Admin** of the SQL server
 * SQL Server Firewall access. This can be done through the following steps: 
     1. In Azure portal, navigate to SQL server. Select *Firewalls and virtual networks* from left navigation.
     1. Click **Yes** for *Allow Azure services and resources to access this server*.
@@ -84,7 +71,6 @@ You can follow the [step by step demo](https://youtu.be/hIE-TjJD8Dc) to configur
 ### Share from Azure Data Explorer
 * An Azure Data Explorer cluster with databases you want to share.
 * Permission to write to Azure Data Explorer cluster, which is present in *Microsoft.Kusto/clusters/write*. This permission exists in the **Contributor** role.
-* Permission to add role assignment to the Azure Data Explorer cluster, which is present in *Microsoft.Authorization/role assignments/write*. This permission exists in the **Owner** role.
 
 ## Sign in to the Azure portal
 
@@ -144,13 +130,13 @@ Use these commands to create the resource:
    az group create --name testresourcegroup --location "East US 2"
    ```
 
-1. Run the [az datashare account create](/cli/azure/ext/datashare/datashare/account#ext_datashare_az_datashare_account_create) command to create a Data Share account:
+1. Run the [az datashare account create](/cli/azure/datashare/account#az_datashare_account_create) command to create a Data Share account:
 
    ```azurecli
    az datashare account create --resource-group testresourcegroup --name datashareaccount --location "East US 2" 
    ```
 
-   Run the [az datashare account list](/cli/azure/ext/datashare/datashare/account#ext_datashare_az_datashare_account_list) command to see your Data Share accounts:
+   Run the [az datashare account list](/cli/azure/datashare/account#az_datashare_account_list) command to see your Data Share accounts:
 
    ```azurecli
    az datashare account list --resource-group testresourcegroup
@@ -180,7 +166,7 @@ Use these commands to create the resource:
 
     ![Add Datasets to your share](./media/datasets.png "Datasets")
 
-1. Select the dataset type that you would like to add. You will see a different list of dataset types depending on the share type (snapshot or in-place) you have selected in the previous step. If sharing from an Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), you will be prompted for SQL credentials to list tables.
+1. Select the dataset type that you would like to add. You will see a different list of dataset types depending on the share type (snapshot or in-place) you have selected in the previous step. If sharing from an Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), you will be prompted for authentication method to list tables. Select AAD authentication, and check the checkbox **Allow Data Share to run the above 'create user' script on my behalf**. 
 
     ![AddDatasets](./media/add-datasets.png "Add Datasets")    
 
@@ -218,7 +204,7 @@ Use these commands to create the resource:
    az storage container create --name ContosoMarketplaceContainer --account-name ContosoMarketplaceAccount
    ```
 
-1. Run the [az datashare create](/cli/azure/ext/datashare/datashare#ext_datashare_az_datashare_create) command to create your Data Share:
+1. Run the [az datashare create](/cli/azure/datashare#az_datashare_create) command to create your Data Share:
 
    ```azurecli
    az datashare create --resource-group testresourcegroup \
@@ -226,7 +212,7 @@ Use these commands to create the resource:
      --description "Data Share" --share-kind "CopyBased" --terms "Confidential"
    ```
 
-1. Use the [az datashare invitation create](/cli/azure/ext/datashare/datashare/invitation#ext_datashare_az_datashare_invitation_create) command to create the invitation for the specified address:
+1. Use the [az datashare invitation create](/cli/azure/datashare/invitation#az_datashare_invitation_create) command to create the invitation for the specified address:
 
    ```azurecli
    az datashare invitation create --resource-group testresourcegroup \

@@ -2,10 +2,9 @@
 title: Troubleshoot Azure Automation runbook issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation runbooks.
 services: automation
-ms.subservice:
-ms.date: 11/03/2020
+ms.date: 07/27/2021
 ms.topic: troubleshooting
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, devx-track-azurepowershell
 ---
 
 # Troubleshoot runbook issues
@@ -35,7 +34,7 @@ When you receive errors during runbook execution in Azure Automation, you can us
 1. If your runbook is suspended or unexpectedly fails:
 
     * [Renew the certificate](../manage-runas-account.md#cert-renewal) if the Run As account has expired.
-    * [Renew the webhook](../automation-webhooks.md#renew-a-webhook) if you're trying to use an expired webhook to start the runbook.
+    * [Renew the webhook](../automation-webhooks.md#update-a-webhook) if you're trying to use an expired webhook to start the runbook.
     * [Check job statuses](../automation-runbook-execution.md#job-statuses) to determine current runbook statuses and some possible causes of the issue.
     * [Add additional output](../automation-runbook-output-and-messages.md#working-with-message-streams) to the runbook to identify what happens before the runbook is suspended.
     * [Handle any exceptions](../automation-runbook-execution.md#exceptions) that are thrown by your job.
@@ -43,6 +42,22 @@ When you receive errors during runbook execution in Azure Automation, you can us
 1. Do this step if the runbook job or the environment on Hybrid Runbook Worker doesn't respond.
 
     If you're running your runbooks on a Hybrid Runbook Worker instead of in Azure Automation, you might need to [troubleshoot the hybrid worker itself](hybrid-runbook-worker.md).
+
+## Scenario: Access blocked to Azure Storage, or Azure Key Vault, or Azure SQL
+
+This scenario uses [Azure Storage](../../storage/common/storage-network-security.md) as an example; however, the information is equally applicable to [Azure Key Vault](../../key-vault/general/network-security.md) and [Azure SQL](../../azure-sql/database/firewall-configure.md).
+
+### Issue
+
+Attempting to access Azure Storage from a Runbook results in an error similar to the following message: `The remote server returned an error: (403) Forbidden. HTTP Status Code: 403 - HTTP Error Message: This request is not authorized to perform this operation.`
+
+### Cause
+
+The Azure Firewall on Azure Storage is enabled.
+
+### Resolution
+
+Enabling the Azure Firewall on [Azure Storage](../../storage/common/storage-network-security.md), [Azure Key Vault](../../key-vault/general/network-security.md), or [Azure SQL](../../azure-sql/database/firewall-configure.md) blocks access from Azure Automation runbooks for those services. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation is not a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="runbook-fails-no-permission"></a>Scenario: Runbook fails with a No permission or Forbidden 403 error
 
@@ -86,9 +101,9 @@ To determine what's wrong, follow these steps:
    ```powershell
    $Cred = Get-Credential
    #Using Azure Service Management
-   Add-AzureAccount –Credential $Cred
+   Add-AzureAccount -Credential $Cred
    #Using Azure Resource Manager
-   Connect-AzAccount –Credential $Cred
+   Connect-AzAccount -Credential $Cred
    ```
 
 1. If your authentication fails locally, you haven't set up your Azure Active Directory (Azure AD) credentials properly. To get the Azure AD account set up correctly, see the article [Authenticate to Azure using Azure Active Directory](../automation-use-azure-ad.md).
@@ -156,7 +171,7 @@ If you're trying to access resources in another subscription, follow these steps
 
 1. Copy the name of the subscription.
 
-1. You can now use the following runbook code to test the permissions from your Automation account to the other subscription. Replace `"\<CertificateThumbprint\>"` with the value copied in step 1. Replace `"\<SubscriptionName\>"` with the value copied in step 4.
+1. You can now use the following runbook code to test the permissions from your Automation account to the other subscription. Replace `<CertificateThumbprint>` with the value copied in step 1. Replace `"<SubscriptionName>"` with the value copied in step 4.
 
     ```powershell
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
@@ -197,11 +212,11 @@ Follow these steps to determine if you've authenticated to Azure and have access
 
 1. To make sure that your script works standalone, test it outside of Azure Automation.
 1. Make sure that your script runs the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet before running the `Select-*` cmdlet.
-1. Add `Disable-AzContextAutosave –Scope Process` to the beginning of your runbook. This cmdlet ensures that any credentials apply only to the execution of the current runbook.
+1. Add `Disable-AzContextAutosave -Scope Process` to the beginning of your runbook. This cmdlet ensures that any credentials apply only to the execution of the current runbook.
 1. If you still see the error message, modify your code by adding the `AzContext` parameter for `Connect-AzAccount`, and then execute the code.
 
    ```powershell
-   Disable-AzContextAutosave –Scope Process
+   Disable-AzContextAutosave -Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
@@ -219,37 +234,46 @@ When executing runbooks, the runbook fails to manage Azure resources.
 
 ### Cause
 
-The runbook isn't using the correct context when running.
+The runbook isn't using the correct context when running. This may be because the runbook is accidentally trying to access the incorrect subscription.
+
+You may see errors like this one:
+
+```error
+Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automation-runas-account-guid>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
+   ErrorCode: AuthorizationFailed
+   StatusCode: 403
+   ReasonPhrase: Forbidden Operation
+   ID : <AGuidRepresentingTheOperation> At line:51 char:7 + $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $UNBV... +
+```
 
 ### Resolution
 
-The subscription context might be lost when a runbook invokes multiple runbooks. To ensure that the subscription context is passed to the runbooks, have the client runbook pass the context to the `Start-AzureRmAutomationRunbook` cmdlet in the `AzureRmContext` parameter. Use the `Disable-AzureRmContextAutosave` cmdlet with the `Scope` parameter set to `Process` to ensure that the specified credentials are only used for the current runbook. For more information, see [Subscriptions](../automation-runbook-execution.md#subscriptions).
+The subscription context might be lost when a runbook invokes multiple runbooks. To avoid accidentally trying to access the incorrect subscription you should follow the guidance below.
 
-```azurepowershell-interactive
-# Ensures that any credentials apply only to the execution of this runbook
-Disable-AzContextAutosave –Scope Process
+* To avoid referencing the wrong subscription, disable context saving in your Automation runbooks by using the following code at the start of each runbook.
 
-# Connect to Azure with Run As account
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+   ```azurepowershell-interactive
+   Disable-AzContextAutosave -Scope Process
+   ```
 
-Connect-AzAccount `
-    -ServicePrincipal `
-    -Tenant $ServicePrincipalConnection.TenantId `
-    -ApplicationId $ServicePrincipalConnection.ApplicationId `
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+* The Azure PowerShell cmdlets support the `-DefaultProfile` parameter. This was added to all Az and AzureRm cmdlets to support running multiple PowerShell scripts in the same process, allowing you to specify the context and which subscription to use for each cmdlet. With your runbooks, you should save the context object in your runbook when the runbook is created (that is, when an account signs in) and every time it's changed, and reference the context when you specify an Az cmdlet.
 
-$AzContext = Select-AzSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+   > [!NOTE]
+   > You should pass in a context object even when manipulating the context directly using cmdlets such as [Set-AzContext](/powershell/module/az.accounts/Set-AzContext) or [Select-AzSubscription](/powershell/module/servicemanagement/azure.service/set-azuresubscription).
 
-$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
-
-Start-AzAutomationRunbook `
-    –AutomationAccountName 'MyAutomationAccount' `
-    –Name 'Test-ChildRunbook' `
-    -ResourceGroupName 'LabRG' `
-    -AzContext $AzContext `
-    –Parameters $params –wait
-```
-
+   ```azurepowershell-interactive
+   $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName 
+   $context = Add-AzAccount `
+             -ServicePrincipal `
+             -TenantId $servicePrincipalConnection.TenantId `
+             -ApplicationId $servicePrincipalConnection.ApplicationId `
+             -Subscription 'cd4dxxxx-xxxx-xxxx-xxxx-xxxxxxxx9749' `
+             -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+   $context = Set-AzContext -SubscriptionName $subscription `
+       -DefaultProfile $context
+   Get-AzVm -DefaultProfile $context
+   ```
+  
 ## <a name="auth-failed-mfa"></a>Scenario: Authentication to Azure fails because multifactor authentication is enabled
 
 ### Issue
@@ -457,7 +481,7 @@ The webhook that you're trying to call is either disabled or is expired.
 
 ### Resolution
 
-If the webhook is disabled, you can re-enable it through the Azure portal. If the webhook has expired, you must delete and then re-create it. You can only [renew a webhook](../automation-webhooks.md#renew-a-webhook) if it hasn't already expired. 
+If the webhook is disabled, you can re-enable it through the Azure portal. If the webhook has expired, you must delete and then re-create it. You can only [renew a webhook](../automation-webhooks.md#update-a-webhook) if it hasn't already expired. 
 
 ## <a name="429"></a>Scenario: 429: The request rate is currently too large
 

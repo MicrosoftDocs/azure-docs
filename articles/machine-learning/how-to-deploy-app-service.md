@@ -1,5 +1,5 @@
 ---
-title: Deploy ml models to Azure App Service (preview)
+title: Deploy ML models to Azure App Service (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to use Azure Machine Learning to deploy a trained ML model to a Web App using Azure App Service.
 services: machine-learning
@@ -9,8 +9,8 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
+ms.topic: how-to
+ms.custom: devx-track-python, deploy, devx-track-azurecli
 
 ---
 
@@ -25,7 +25,7 @@ Learn how to deploy a model from Azure Machine Learning as a web app in Azure Ap
 With Azure Machine Learning, you can create Docker images from trained machine learning models. This image contains a web service that receives data, submits it to the model, and then returns the response. Azure App Service can be used to deploy the image, and provides the following features:
 
 * Advanced [authentication](../app-service/configure-authentication-provider-aad.md) for enhanced security. Authentication methods include both Azure Active Directory and multi-factor auth.
-* [Autoscale](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json) without having to redeploy.
+* [Autoscale](../azure-monitor/autoscale/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json) without having to redeploy.
 * [TLS support](../app-service/configure-ssl-certificate-in-code.md) for secure communications between clients and the service.
 
 For more information on features provided by Azure App Service, see the [App Service overview](../app-service/overview.md).
@@ -36,7 +36,7 @@ For more information on features provided by Azure App Service, see the [App Ser
 ## Prerequisites
 
 * An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
-* The [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* The [Azure CLI](/cli/azure/install-azure-cli).
 * A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](tutorial-train-models-with-aml.md) to train and register one.
 
     > [!IMPORTANT]
@@ -71,7 +71,7 @@ Before deploying, you must define what is needed to run the model as a web servi
 These entities are encapsulated into an __inference configuration__. The inference configuration references the entry script and other dependencies.
 
 > [!IMPORTANT]
-> When creating an inference configuration for use with Azure App Service, you must use an [Environment](/python/api/azureml-core/azureml.core.environment(class)?preserve-view=true&view=azure-ml-py) object. Please note that if you are defining a custom environment, you must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service. The following example demonstrates creating an environment object and using it with an inference configuration:
+> When creating an inference configuration for use with Azure App Service, you must use an [Environment](/python/api/azureml-core/azureml.core.environment(class)) object. Please note that if you are defining a custom environment, you must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service. The following example demonstrates creating an environment object and using it with an inference configuration:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -97,7 +97,7 @@ For more information on inference configuration, see [Deploy models with Azure M
 
 ## Create the image
 
-To create the Docker image that is deployed to Azure App Service, use [Model.package](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py). The following code snippet demonstrates how to build a new image from the model and inference configuration:
+To create the Docker image that is deployed to Azure App Service, use [Model.package](/python/api/azureml-core/azureml.core.model.model). The following code snippet demonstrates how to build a new image from the model and inference configuration:
 
 > [!NOTE]
 > The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
@@ -267,7 +267,7 @@ print(response.json())
 ## Next steps
 
 * Learn to configure your Web App in the [App Service on Linux](/azure/app-service/containers/) documentation.
-* Learn more about scaling in [Get started with Autoscale in Azure](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json).
+* Learn more about scaling in [Get started with Autoscale in Azure](../azure-monitor/autoscale/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json).
 * [Use a TLS/SSL certificate in your Azure App Service](../app-service/configure-ssl-certificate-in-code.md).
 * [Configure your App Service app to use Azure Active Directory sign-in](../app-service/configure-authentication-provider-aad.md).
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)

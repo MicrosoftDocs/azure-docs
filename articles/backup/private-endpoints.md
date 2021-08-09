@@ -2,7 +2,8 @@
 title: Private Endpoints
 description: Understand the process of creating private endpoints for Azure Backup and the scenarios where using private endpoints helps maintain the security of your resources. 
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 07/06/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Private Endpoints for Azure Backup
@@ -18,8 +19,8 @@ This article will help you understand the process of creating private endpoints 
 - Once a private endpoint is created for a vault, the vault will be locked down. It won't be accessible (for backups and restores) from networks apart from ones that contain a private endpoint for the vault. If all private endpoints for the vault are removed, the vault will be accessible from all networks.
 - A private endpoint connection for Backup uses a total of 11 private IPs in your subnet, including those used by Azure Backup for storage. This number may be higher (up to 25) for certain Azure regions. So we suggest that you have enough private IPs available when you attempt to create private endpoints for Backup.
 - While a Recovery Services vault is used by (both) Azure Backup and Azure Site Recovery, this article discusses use of private endpoints for Azure Backup only.
-- Azure Active Directory doesn't currently support private endpoints. So IPs and FQDNs required for Azure Active Directory to work in a region will need to be allowed outbound access from the secured network when performing backup of databases in Azure VMs and backup using the MARS agent. You can also use NSG tags and Azure Firewall tags for allowing access to Azure AD, as applicable.
-- Virtual networks with Network Policies aren't supported for Private Endpoints. You'll need to disable Network Polices before continuing.
+- Private endpoints for Backup don’t include access to Azure Active Directory (Azure AD) and the same needs to be ensured separately. So, IPs and FQDNs required for Azure AD to work in a region will need outbound access to be allowed from the secured network when performing backup of databases in Azure VMs and backup using the MARS agent. You can also use NSG tags and Azure Firewall tags for allowing access to Azure AD, as applicable.
+- Virtual networks with Network Policies aren't supported for Private Endpoints. You'll need to [disable Network Polices](../private-link/disable-private-endpoint-network-policy.md) before continuing.
 - You need to re-register the Recovery Services resource provider with the subscription if you registered it before May 1 2020. To re-register the provider, go to your subscription in the Azure portal, navigate to **Resource provider** on the left navigation bar, then select **Microsoft.RecoveryServices** and select **Re-register**.
 - [Cross-region restore](backup-create-rs-vault.md#set-cross-region-restore) for SQL and SAP HANA database backups aren't supported if the vault has private endpoints enabled.
 - When you move a Recovery Services vault already using private endpoints to a new tenant, you'll need to update the Recovery Services vault to recreate and reconfigure the vault’s managed identity and create new private endpoints as needed (which should be in the new tenant). If this isn't done, the backup and restore operations will start failing. Also, any role-based access control (RBAC) permissions set up within the subscription will need to be reconfigured.
@@ -28,10 +29,13 @@ This article will help you understand the process of creating private endpoints 
 
 While private endpoints are enabled for the vault, they're used for backup and restore of SQL and SAP HANA workloads in an Azure VM and MARS agent backup only. You can use the vault for backup of other workloads as well (they won't require private endpoints though). In addition to backup of SQL and SAP HANA workloads and backup using the MARS agent, private endpoints are also used to perform file recovery for Azure VM backup. For more information, see the following table:
 
-| Backup of workloads in Azure VM (SQL, SAP HANA), Backup using MARS Agent | Use of private endpoints is recommended to allow backup and restore without needing to add to an allow list any IPs/FQDNs for Azure Backup or Azure Storage from your virtual networks. In that scenario, ensure that VMs that host SQL databases can reach Azure AD IPs or FQDNs. |
+| Backup of workloads in Azure VM (SQL, SAP HANA), Backup using MARS Agent | Use of private endpoints is recommended to allow backup and restore without needing to add to an allowlist any IPs/FQDNs for Azure Backup or Azure Storage from your virtual networks. In that scenario, ensure that VMs that host SQL databases can reach Azure AD IPs or FQDNs. |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Azure  VM backup**                                         | VM backup doesn't require you to allow access to any IPs or FQDNs. So it doesn't require private endpoints for backup and restore  of disks.  <br><br>   However, file recovery from a vault containing private endpoints would be restricted to virtual networks that contain a private endpoint for the vault. <br><br>    When using ACL’ed unmanaged disks, ensure the  storage account containing the disks allows access to **trusted Microsoft services** if it's ACL’ed. |
 | **Azure  Files backup**                                      | Azure Files backups are stored in the local  storage account. So it doesn't require private endpoints for backup and  restore. |
+
+>[!Note]
+>Private endpoints aren't supported with DPM and MABS servers. 
 
 ## Get started with creating private endpoints for Backup
 
@@ -165,9 +169,9 @@ If you're using your custom DNS servers, you'll need to create the required DNS 
     > In the above text, `<geo>` refers to the region code (for example *eus* and *ne* for East US and North Europe respectively). Refer to the following lists for regions codes:
     >
     > - [All public clouds](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
-    > - [China](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
-    > - [Germany](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
-    > - [US Gov](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
+    > - [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+    > - [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
+    > - [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 1. Next, we need to add the required DNS records. To view the records that need to be added to the Backup DNS zone, navigate to the private endpoint you created above, and go to the **DNS configuration** option under the left navigation bar.
 
@@ -291,6 +295,10 @@ When using SQL Availability Groups (AG), you'll need to provision conditional fo
 When using the MARS Agent to back up your on-premises resources, make sure your on-premises network (containing your resources to be backed up) is peered with the Azure VNet that contains a private endpoint for the vault, so you can use it. You can then continue to install the MARS agent and configure backup as detailed here. However, you must ensure all communication for backup happens through the peered network only.
 
 But if you remove private endpoints for the vault after a MARS agent has been registered to it, you'll need to re-register the container with the vault. You don't need to stop protection for them.
+
+## Deleting Private EndPoints
+
+See [this section](/rest/api/virtualnetwork/privateendpoints/delete) to learn how to delete Private EndPoints.
 
 ## Additional topics
 
@@ -530,27 +538,34 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
 ## Frequently asked questions
 
-Q. Can I create a private endpoint for an existing Backup vault?<br>
-A. No, private endpoints can be created for new Backup vaults only. So the vault must not have ever had any items protected to it. In fact, no attempts to protect any items to the vault can be made before creating private endpoints.
+### Can I create a private endpoint for an existing Backup vault?<br>
 
-Q. I tried to protect an item to my vault, but it failed and the vault still doesn't contain any items protected to it. Can I create private endpoints for this vault?<br>
-A. No, the vault must not have had any attempts to protect any items to it in the past.
+No, private endpoints can be created for new Backup vaults only. So the vault must not have ever had any items protected to it. In fact, no attempts to protect any items to the vault can be made before creating private endpoints.
 
-Q. I have a vault that's using private endpoints for backup and restore. Can I later add or remove private endpoints for this vault even if I have backup items protected to it?<br>
-A. Yes. If you already created private endpoints for a vault and protected backup items to it, you can later add or remove private endpoints as required.
+### I tried to protect an item to my vault, but it failed and the vault still doesn't contain any items protected to it. Can I create private endpoints for this vault?<br>
 
-Q. Can the private endpoint for Azure Backup also be used for Azure Site Recovery?<br>
-A. No, the private endpoint for Backup can only be used for Azure Backup. You'll need to create a new private endpoint for Azure Site Recovery, if it's supported by the service.
+No, the vault must not have had any attempts to protect any items to it in the past.
 
-Q. I missed one of the steps in this article and went on to protect my data source. Can I still use private endpoints?<br>
-A. Not following the steps in the article and continuing to protect items may lead to the vault not being able to use private endpoints. It's therefore recommended you refer to this checklist before proceeding to protect items.
+### I have a vault that's using private endpoints for backup and restore. Can I later add or remove private endpoints for this vault even if I have backup items protected to it?<br>
 
-Q. Can I use my own DNS server instead of using the Azure private DNS zone or an integrated private DNS zone?<br>
-A. Yes, you can use your own DNS servers. However, make sure all required DNS records are added as suggested in this section.
+Yes. If you already created private endpoints for a vault and protected backup items to it, you can later add or remove private endpoints as required.
 
-Q. Do I need to perform any additional steps on my server after I've followed the process in this article?<br>
-A. After following the process detailed in this article, you don't need to do additional work to use private endpoints for backup and restore.
+### Can the private endpoint for Azure Backup also be used for Azure Site Recovery?<br>
+
+No, the private endpoint for Backup can only be used for Azure Backup. You'll need to create a new private endpoint for Azure Site Recovery, if it's supported by the service.
+
+### I missed one of the steps in this article and went on to protect my data source. Can I still use private endpoints?<br>
+
+Not following the steps in the article and continuing to protect items may lead to the vault not being able to use private endpoints. It's therefore recommended you refer to this checklist before proceeding to protect items.
+
+### Can I use my own DNS server instead of using the Azure private DNS zone or an integrated private DNS zone?<br>
+
+Yes, you can use your own DNS servers. However, make sure all required DNS records are added as suggested in this section.
+
+### Do I need to perform any additional steps on my server after I've followed the process in this article?<br>
+
+After following the process detailed in this article, you don't need to do additional work to use private endpoints for backup and restore.
 
 ## Next steps
 
-- Read about all the [security features in Azure Backup](security-overview.md)
+- Read about all the [security features in Azure Backup](security-overview.md).

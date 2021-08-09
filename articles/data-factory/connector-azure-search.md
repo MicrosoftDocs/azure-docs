@@ -1,12 +1,14 @@
 ---
 title: Copy data to Search index
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to push or copy data to an Azure search index by using the Copy Activity in an Azure Data Factory pipeline.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 09/13/2019
+ms.custom: synapse
+ms.date: 03/17/2021
 ---
 
 # Copy data to an Azure Cognitive Search index using Azure Data Factory
@@ -25,7 +27,7 @@ You can copy data from any supported source data store into search index. For a 
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure Cognitive Search connector.
 
@@ -108,6 +110,7 @@ To copy data into Azure Cognitive Search, set the source type in the copy activi
 | type | The type property of the copy activity source must be set to: **AzureSearchIndexSink** | Yes |
 | writeBehavior | Specifies whether to merge or replace when a document already exists in the index. See the [WriteBehavior property](#writebehavior-property).<br/><br/>Allowed values are: **Merge** (default), and **Upload**. | No |
 | writeBatchSize | Uploads data into the search index when the buffer size reaches writeBatchSize. See the [WriteBatchSize property](#writebatchsize-property) for details.<br/><br/>Allowed values are: integer 1 to 1,000; default is 1000. | No |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 ### WriteBehavior property
 

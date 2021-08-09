@@ -21,9 +21,9 @@ Security alerts are triggered when anomalies in activity occur. These  alerts ar
 |Aspect|Details|
 |----|:----|
 |Release state:|General Availability (GA)|
-|Pricing:|**Azure Defender for Storage** is billed as shown on [the pricing page](security-center-pricing.md)|
+|Pricing:|**Azure Defender for Storage** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
 |Protected storage types:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/)<br>[Azure Files](../storage/files/storage-files-introduction.md)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: US Gov<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China|
 |||
 
 
@@ -35,7 +35,7 @@ Azure Defender for Storage provides:
 - **Rich detection suite** - Powered by Microsoft Threat Intelligence, the detections in Defender for Storage cover the top storage threats such as anonymous access, compromised credentials, social engineering, privilege abuse, and malicious content.
 - **Response at scale** - Security Center's automation tools make it easier to prevent and respond to identified threats. Learn more in [Automate responses to Security Center triggers](workflow-automation.md).
 
-:::image type="content" source="media/defender-for-storage-introduction/defender-for-storage-high-level-overview.png" alt-text="High-level overview of the features of Azure Defender for Storage":::
+:::image type="content" source="media/defender-for-storage-introduction/defender-for-storage-high-level-overview.png" alt-text="High-level overview of the features of Azure Defender for Storage.":::
 
 
 ## What kind of alerts does Azure Defender for Storage provide?
@@ -70,7 +70,7 @@ To test the security alerts from Azure Defender for Storage in your environment,
 1. Open a storage account with Azure Defender for Storage enabled.
 1. From the sidebar, select “Containers” and open an existing container or create a new one.
 
-    :::image type="content" source="media/defender-for-storage-introduction/opening-storage-container.png" alt-text="Opening a blob container from an Azure Storage account" lightbox="media/defender-for-storage-introduction/opening-storage-container.png":::
+    :::image type="content" source="media/defender-for-storage-introduction/opening-storage-container.png" alt-text="Opening a blob container from an Azure Storage account." lightbox="media/defender-for-storage-introduction/opening-storage-container.png":::
 
 1. Upload a file to that container.
 
@@ -79,7 +79,7 @@ To test the security alerts from Azure Defender for Storage in your environment,
 
 1. Use the context menu on the uploaded file to select “Generate SAS”.
 
-    :::image type="content" source="media/defender-for-storage-introduction/generate-sas.png" alt-text="The generate SAS option for a file in a blob container":::
+    :::image type="content" source="media/defender-for-storage-introduction/generate-sas.png" alt-text="The generate SAS option for a file in a blob container.":::
 
 1. Leave the default options and select **Generate SAS token and URL**.
 
@@ -96,7 +96,7 @@ To test the security alerts from Azure Defender for Storage in your environment,
 
     Within two hours you'll get the following security alert from Security Center:
 
-    :::image type="content" source="media/defender-for-storage-introduction/tor-access-alert-storage.png" alt-text="Security alert regarding access from a Tor exit node":::
+    :::image type="content" source="media/defender-for-storage-introduction/tor-access-alert-storage.png" alt-text="Security alert regarding access from a Tor exit node.":::
 
 ## Next steps
 

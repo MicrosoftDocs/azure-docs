@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Blueprint sample to new environment"
 description: In this tutorial, you use a blueprint sample to create a blueprint definition that sets up two resource groups and configures a role assignment for each.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: tutorial
 ---
 # Tutorial: Create an environment from a blueprint sample
@@ -163,8 +163,8 @@ resources directly.
    _Assignment-two-rgs-with-role-assignments_ blueprint assignment and then select it.
 
    From this page, we can see the assignment succeeded and the list of created resources along with
-   their blueprint lock state. If the assignment is updated, the **Assignment operation** drop-down
-   shows details about the deployment of each definition version. Each listed resource that was
+   their blueprint lock state. If the assignment is updated, the **Assignment operation** dropdown
+   list shows details about the deployment of each definition version. Each listed resource that was
    created can be selected and opens that resources property page.
 
 1. Select the **ProductionRG** resource group.
@@ -190,10 +190,11 @@ resources directly.
 
 1. Select the **Deny assignments** tab.
 
-   The blueprint assignment created a [deny assignment](../../../role-based-access-control/deny-assignments.md)
-   on the deployed resource group to enforce the _Read Only_ blueprint lock mode. The deny
-   assignment prevents someone with appropriate rights on the _Role assignments_ tab from taking
-   specific actions. The deny assignment affects _All principals_.
+   The blueprint assignment created a
+   [deny assignment](../../../role-based-access-control/deny-assignments.md) on the deployed
+   resource group to enforce the _Read Only_ blueprint lock mode. The deny assignment prevents
+   someone with appropriate rights on the _Role assignments_ tab from taking specific actions. The
+   deny assignment affects _All principals_.
 
 1. Select the deny assignment, then select the **Denied Permissions** page on the left.
 

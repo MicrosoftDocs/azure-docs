@@ -2,10 +2,12 @@
 title: Monitor integration runtime in Azure Data Factory 
 description: Learn how to monitor different types of integration runtime in Azure Data Factory.  
 ms.service: data-factory
+ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 08/11/2020
-author: dcstwh
-ms.author: weetok
+author: minhe-msft
+ms.author: hemin 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Monitor an integration runtime in Azure Data Factory
@@ -219,7 +221,17 @@ To monitor your Azure-SSIS IR in Azure portal, go to the **Integration runtimes*
 
 ![Monitor all integration runtimes](media/monitor-integration-runtime/monitor-integration-runtimes.png)
 
-Next, select the name of your Azure-SSIS IR to open its monitoring page, where you can see its overall/node-specific properties and statuses. On this page, depending on how you configure the general, deployment, and advanced settings of your Azure-SSIS IR, you'll find various informational/functional tiles.  The **TYPE** and **REGION** informational tiles show the type and region of your Azure-SSIS IR, respectively. The **NODE SIZE** informational tile shows the SKU (SSIS edition_VM tier_VM series), number of CPU cores, and size of RAM per node for your Azure-SSIS IR. The **RUNNING / REQUESTED NODE(S)** informational tile compares the number of nodes currently running to the total number of nodes previously requested for your Azure-SSIS IR. The functional tiles are described in more details below.
+Next, select the name of your Azure-SSIS IR to open its monitoring page, where you can see its overall/node-specific properties and statuses. On this page, depending on how you configure the general, deployment, and advanced settings of your Azure-SSIS IR, you'll find various informational/functional tiles.
+
+The **TYPE** and **REGION** informational tiles show the type and region of your Azure-SSIS IR, respectively.
+
+The **NODE SIZE** informational tile shows the SKU (SSIS edition_VM tier_VM series), number of CPU cores, and size of RAM per node for your Azure-SSIS IR. 
+
+The **RUNNING / REQUESTED NODE(S)** informational tile compares the number of nodes currently running to the total number of nodes previously requested for your Azure-SSIS IR.
+
+The **DUAL STANDBY PAIR / ROLE** informational tile shows the name of your dual standby Azure-SSIS IR pair that works in sync with Azure SQL Database/Managed Instance failover group for business continuity and disaster recovery (BCDR) and the current primary/secondary role of your Azure-SSIS IR. When SSISDB failover occurs, your primary and secondary Azure-SSIS IRs will swap roles (see [Configuring your Azure-SSIS IR for BCDR](./configure-bcdr-azure-ssis-integration-runtime.md)).
+
+The functional tiles are described in more details below.
 
 ![Monitor your Azure-SSIS IR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime.png)
 
@@ -249,13 +261,13 @@ If you join your Azure-SSIS IR to a VNet, you'll see the **VALIDATE VNET / SUBNE
 
 On the **DIAGNOSE CONNECTIVITY** tile of your Azure-SSIS IR monitoring page, you can select the **Test connection** link to pop up a window, where you can check the connections between your Azure-SSIS IR and relevant package/configuration/data stores, as well as management services, via their fully qualified domain name (FQDN)/IP address and designated port (see [Testing connections from your Azure-SSIS IR](./ssis-integration-runtime-diagnose-connectivity-faq.md)).
 
-![Screenshot that shows where you can test the connections between your Azure-SSIS IR and relevant package/configuration/data stores.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+![Monitor your Azure-SSIS IR - DIAGNOSE tile](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
 #### STATIC PUBLIC IP ADDRESSES tile
 
 If you bring your own static public IP addresses for Azure-SSIS IR, you'll see the **STATIC PUBLIC IP ADDRESSES** tile on your Azure-SSIS IR monitoring page (see [Bringing your own static public IP addresses for Azure-SSIS IR](./join-azure-ssis-integration-runtime-virtual-network.md#publicIP)). On this tile, you can select links designating your first/second static public IP addresses for Azure-SSIS IR to pop up a window, where you can copy their resource ID (`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress`) from a text box. On the pop-up window, you can also select the **See your first/second static public IP address settings** link to manage your first/second static public IP address in Azure portal.
 
-![Screenshot that shows where you can designate your first/second static public IP addresses.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+![Monitor your Azure-SSIS IR - STATIC tile](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
 
 #### PACKAGE STORES tile
 
@@ -267,7 +279,7 @@ If you use Package Deployment Model where packages are stored in file system/Azu
 
 If there are issues with the starting/stopping/maintenance/upgrade of your Azure-SSIS IR, you'll see an additional **ERROR(S)** tile on your Azure-SSIS IR monitoring page. On this tile, you can select a link designating the number of errors generated by your Azure-SSIS IR to pop up a window, where you can see those errors in more details and copy them to find the recommended solutions in our troubleshooting guide (see [Troubleshooting your Azure-SSIS IR](./ssis-integration-runtime-management-troubleshoot.md)).
 
-![Monitor your Azure-SSIS IR - DIAGNOSE tile](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
+![Monitor your Azure-SSIS IR - ERROR tile](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
 
 ### Monitor the Azure-SSIS integration runtime with Azure Monitor
 

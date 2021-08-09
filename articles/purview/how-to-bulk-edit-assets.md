@@ -1,17 +1,17 @@
 ---
-title: How to tag multiple glossary terms to a list of selected assets 
+title: How to bulk edit assets to tag classifications, glossary terms and modify contacts
 description: Learn bulk edit assets in Azure Purview.
 author: nayenama
 ms.author: nayenama
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
 ---
 
-# How to bulk edit assets to tag glossary terms
+# How to bulk edit assets to annotate classifications, glossary terms and modify contacts
 
-This article describes how to tag multiple glossary terms to a list of selected assets in a single action.
+This article describes how to tag multiple glossary terms, classifications, owners and experts to a list of selected assets in a single action.
 
 ### Add Assets to View selected list using search
 
@@ -58,11 +58,15 @@ This article describes how to tag multiple glossary terms to a list of selected 
    
     :::image type="content" source="media/how-to-bulk-edit-assets/replace-list.png" alt-text="Screenshot of the remove terms.":::
 
-7. Once complete close the bulk edit blade by selecting **Close** or **Remove all and close**. Close will not remove the selected assets whereas remove all and close will remove all the selected assets.
+7. Repeat the above for classifications, owners and experts.
+
+    :::image type="content" source="media/how-to-bulk-edit-assets/all-list.png" alt-text="Screenshot of the classifications and contacts.":::
+
+8. Once complete close the bulk edit blade by selecting **Close** or **Remove all and close**. Close will not remove the selected assets whereas remove all and close will remove all the selected assets.
     :::image type="content" source="media/how-to-bulk-edit-assets/close-list.png" alt-text="Screenshot of the close.":::
 
    > [!Important]
-   > The recommended number of assets for bulk edit are 15. Selecting more than 15 might cause performance issues.
+   > The recommended number of assets for bulk edit are 25. Selecting more than 25 might cause performance issues.
    > The **View Selected** box will be visible only if there is at least one asset selected.
 
 

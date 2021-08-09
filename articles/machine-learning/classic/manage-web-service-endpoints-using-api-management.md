@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Manage web services using API Management - Azure'
 description: A guide showing how to manage AzureML web services using API Management. Manage your REST API endpoints by defining user access, usage throttling, and dashboard monitoring.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt
@@ -11,13 +11,13 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
 ---
-# Manage Azure Machine Learning Studio (classic) web services using API Management
+# Manage Machine Learning Studio (classic) web services using API Management
 
 **APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 ## Overview
-This guide shows you how to quickly get started using API Management to manage your Azure Machine Learning Studio (classic) web services.
+This guide shows you how to quickly get started using API Management to manage your Machine Learning Studio (classic) web services.
 
 ## What is Azure API Management?
 Azure API Management is an Azure service that lets you manage your REST API endpoints by defining user access, usage throttling, and dashboard monitoring. See the [Azure API management site](https://azure.microsoft.com/services/api-management/) for more details. To get started with Azure API Management, see [the import and publish guide](../../api-management/import-and-publish.md). This other guide, which this guide is based on, covers more topics, including notification configurations, tier pricing, response handling, user authentication, creating products, developer subscriptions, and usage dashboarding.
@@ -31,7 +31,7 @@ To complete this guide, you need:
 
 ## Create an API Management instance
 
-You can manage your Azure Machine Learning web service with an API Management instance.
+You can manage your Machine Learning web service with an API Management instance.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **+ Create a resource**.

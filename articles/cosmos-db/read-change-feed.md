@@ -6,7 +6,7 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 06/30/2021
 ms.reviewer: sngun
 ---
 
@@ -64,14 +64,11 @@ You can parallelize the processing of changes across multiple clients, just as y
 
 There is no built-in "at-least-once" delivery guarantee with the pull model. The pull model gives you low level control to decide how you would like to handle errors.
 
-> [!NOTE]
-> The change feed pull model is currently in [preview in the Azure Cosmos DB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.15.0-preview) only. The preview is not yet available for other SDK versions.
-
 ## Change feed in APIs for Cassandra and MongoDB
 
 Change feed functionality is surfaced as change streams in MongoDB API and Query with predicate in Cassandra API. To learn more about the implementation details for MongoDB API, see the [Change streams in the Azure Cosmos DB API for MongoDB](mongodb-change-streams.md).
 
-Native Apache Cassandra provides change data capture (CDC), a mechanism to flag specific tables for archival as well as rejecting writes to those tables once a configurable size-on-disk for the CDC log is reached. The change feed feature in Azure Cosmos DB API for Cassandra enhances the ability to query the changes with predicate via CQL. To learn more about the implementation details, see [Change feed in the Azure Cosmos DB API for Cassandra](cassandra-change-feed.md).
+Native Apache Cassandra provides change data capture (CDC), a mechanism to flag specific tables for archival as well as rejecting writes to those tables once a configurable size-on-disk for the CDC log is reached. The change feed feature in Azure Cosmos DB API for Cassandra enhances the ability to query the changes with predicate via CQL. To learn more about the implementation details, see [Change feed in the Azure Cosmos DB API for Cassandra](cassandra/cassandra-change-feed.md).
 
 ## Next steps
 

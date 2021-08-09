@@ -79,8 +79,6 @@ landingContent:
             url: service-bus-python-how-to-use-queues.md
           - text: PHP
             url: service-bus-php-how-to-use-queues.md
-          - text: Ruby
-            url: service-bus-ruby-how-to-use-queues.md
   # Card
   - title: Publish and subscribe for messages
     linkLists:
@@ -96,8 +94,6 @@ landingContent:
             url: service-bus-python-how-to-use-topics-subscriptions.md
           - text: PHP
             url: service-bus-php-how-to-use-topics-subscriptions.md
-          - text: Ruby
-            url: service-bus-ruby-how-to-use-topics-subscriptions.md                                    
 
   # Card
   - title: Monitor and manage
@@ -107,9 +103,7 @@ landingContent:
           - text: Use PowerShell to provision entities
             url: service-bus-manage-with-ps.md        
           - text: Monitor Service Bus using Azure Monitor
-            url: service-bus-metrics-azure-monitor.md
-          - text: Set up diagnostic logs
-            url: service-bus-diagnostic-logs.md
+            url: monitor-service-bus-reference.md
           - text: Suspend and reactivate messaging entities
             url: entity-suspend.md
           - text: Use Azure Resource Manager templates

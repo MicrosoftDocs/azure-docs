@@ -7,12 +7,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 07/13/2021
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: elisol
 
 ms.collection: M365-identity-device-management
 ---
@@ -24,24 +23,25 @@ This article describes the ways guest users can access your resources and the co
 When you add a guest user to your directory, the guest user account has a consent status (viewable in PowerShell) that’s initially set to **PendingAcceptance**. This setting remains until the guest accepts your invitation and agrees to your privacy policy and terms of use. After that, the consent status changes to **Accepted**, and the consent pages are no longer presented to the guest.
 
    > [!IMPORTANT]
-   > - **Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
-   > - **Starting March 31, 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md). We welcome your feedback on this public preview feature and are excited to create even more ways to collaborate.
+   >
+   > - **Starting July 12, 2021**,  if Azure AD B2B customers set up new Google integrations for use with self-service sign-up for their custom or line-of-business applications, authentication with Google identities won’t work until authentications are moved to system web-views. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+   > - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+   > - **Starting October 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md), which is now generally available.
 
-## Redemption through the invitation email
+## Redemption and sign-in through a common endpoint
 
-When you add a guest user to your directory by [using the Azure portal](./b2b-quickstart-add-guest-users-portal.md), an invitation email is sent to the guest in the process. You can also choose to send invitation emails when you’re [using PowerShell](./b2b-quickstart-invite-powershell.md) to add guest users to your directory. Here’s a description of the guest’s experience when they redeem the link in the email.
+Guest users can now sign in to your multi-tenant or Microsoft first-party apps through a common endpoint (URL), for example `https://myapps.microsoft.com`. Previously, a common URL would redirect a guest user to their home tenant instead of your resource tenant for authentication, so a tenant-specific link was required (for example `https://myapps.microsoft.com/?tenantid=<tenant id>`). Now the guest user can go to the application's common URL, choose **Sign-in options**, and then select **Sign in to an organization**. The user then types the name of your organization.
 
-1. The guest receives an [invitation email](./invitation-email-elements.md) that's sent from **Microsoft Invitations**.
-2. The guest selects **Accept invitation** in the email.
-3. The guest will use their own credentials to sign in to your directory. If the guest does not have an account that can be federated to your directory and the [email one-time passcode (OTP)](./one-time-passcode.md) feature is not enabled; the guest is prompted to create a personal [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) or an [Azure AD self-service account](../enterprise-users/directory-self-service-signup.md). Refer to the [invitation redemption flow](#invitation-redemption-flow) for details.
-4. The guest is guided through the [consent experience](#consent-experience-for-the-guest) described below.
+![Common endpoint sign-in](media/redemption-experience/common-endpoint-flow-small.png)
+
+The user is then redirected to your tenanted endpoint, where they can either sign in with their email address or select an identity provider you've configured.
 
 ## Redemption through a direct link
 
-As an alternative to the invitation email, you can give a guest a direct link to your app or portal. You first need to add the guest user to your directory via the [Azure portal](./b2b-quickstart-add-guest-users-portal.md) or [PowerShell](./b2b-quickstart-invite-powershell.md). Then you can use any of the [customizable ways to deploy applications to users](../manage-apps/end-user-experiences.md), including direct sign-on links. When a guest uses a direct link instead of the invitation email, they’ll still be guided through the first-time consent experience.
+As an alternative to the invitation email or an application's common URL, you can give a guest a direct link to your app or portal. You first need to add the guest user to your directory via the [Azure portal](./b2b-quickstart-add-guest-users-portal.md) or [PowerShell](./b2b-quickstart-invite-powershell.md). Then you can use any of the [customizable ways to deploy applications to users](../manage-apps/end-user-experiences.md), including direct sign-on links. When a guest uses a direct link instead of the invitation email, they’ll still be guided through the first-time consent experience.
 
-> [!IMPORTANT]
-> The direct link must be tenant-specific. In other words, it must include a tenant ID or verified domain so the guest can be authenticated in your tenant, where the shared app is located. A common URL like https://myapps.microsoft.com won’t work for a guest because it will redirect to their home tenant for authentication. Here are some examples of direct links with tenant context:
+> [!NOTE]
+> A direct link is tenant-specific. In other words, it includes a tenant ID or verified domain so the guest can be authenticated in your tenant, where the shared app is located. Here are some examples of direct links with tenant context:
  > - Apps access panel: `https://myapps.microsoft.com/?tenantid=<tenant id>`
  > - Apps access panel for a verified domain: `https://myapps.microsoft.com/<;verified domain>`
  > - Azure portal: `https://portal.azure.com/<tenant id>`
@@ -52,21 +52,43 @@ There are some cases where the invitation email is recommended over a direct lin
  - Sometimes the invited user object may not have an email address because of a conflict with a contact object (for example, an Outlook contact object). In this case, the user must click the redemption URL in the invitation email.
  - The user may sign in with an alias of the email address that was invited. (An alias is an additional email address associated with an email account.) In this case, the user must click the redemption URL in the invitation email.
 
+## Redemption through the invitation email
+
+When you add a guest user to your directory by [using the Azure portal](./b2b-quickstart-add-guest-users-portal.md), an invitation email is sent to the guest in the process. You can also choose to send invitation emails when you’re [using PowerShell](./b2b-quickstart-invite-powershell.md) to add guest users to your directory. Here’s a description of the guest’s experience when they redeem the link in the email.
+
+1. The guest receives an [invitation email](./invitation-email-elements.md) that's sent from **Microsoft Invitations**.
+2. The guest selects **Accept invitation** in the email.
+3. The guest will use their own credentials to sign in to your directory. If the guest does not have an account that can be federated to your directory and the [email one-time passcode (OTP)](./one-time-passcode.md) feature is not enabled; the guest is prompted to create a personal [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) or an [Azure AD self-service account](../enterprise-users/directory-self-service-signup.md). Refer to the [invitation redemption flow](#invitation-redemption-flow) for details.
+4. The guest is guided through the [consent experience](#consent-experience-for-the-guest) described below.
+
+## Redemption limitation with conflicting Contact object
+Sometimes the invited external guest user's email may conflict with an existing [Contact object](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true), resulting in the guest user being created without a proxyAddress. This is a known limitation that prevents guest users from: 
+- Redeeming an invitation through a direct link using [SAML/WS-Fed IdP](./direct-federation.md), [Microsoft Accounts](./microsoft-account.md), [Google Federation](./google-federation.md), or [Email One-Time Passcode](./one-time-passcode.md) accounts. 
+- Redeeming an invitation through an invitation email redemption link using [SAML/WS-Fed IdP](./direct-federation.md) and [Email One-Time Passcode](./one-time-passcode.md) accounts.
+- Signing back into an application after redemption using [SAML/WS-Fed IdP](./direct-federation.md) and [Google Federation](./google-federation.md) accounts.
+
+To unblock users who can't redeem an invitation due to a conflicting [Contact object](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true), follow these steps:
+1. Delete the conflicting Contact object.
+2. Delete the guest user in the Azure portal (the user's "Invitation accepted" property should be in a pending state).
+3. Re-invite the guest user.
+4. Wait for the user to redeem invitation.
+5. Add the user's Contact email back into Exchange and any DLs they should be a part of.
+
 ## Invitation redemption flow
 
 When a user clicks the **Accept invitation** link in an [invitation email](invitation-email-elements.md), Azure AD automatically redeems the invitation based on the redemption flow as shown below:
 
 ![Screenshot showing the redemption flow diagram](media/redemption-experience/invitation-redemption-flow.png)
 
-**If the user’s User principle name (UPN) matches with both an existing Azure AD and personal MSA account, the user will be prompted to choose which account they want to redeem with.*
+**If the user’s User Principal Name (UPN) matches with both an existing Azure AD and personal MSA account, the user will be prompted to choose which account they want to redeem with.*
 
 1. Azure AD performs user-based discovery to determine if the user exists in an [existing Azure AD tenant](./what-is-b2b.md#easily-invite-guest-users-from-the-azure-ad-portal).
 
-2. If an admin has enabled [direct federation](./direct-federation.md), Azure AD checks if the user’s domain suffix matches the domain of a configured SAML/WS-Fed identity provider and redirects the user to the pre-configured identity provider.
+2. If an admin has enabled [SAML/WS-Fed IdP federation](./direct-federation.md), Azure AD checks if the user’s domain suffix matches the domain of a configured SAML/WS-Fed identity provider and redirects the user to the pre-configured identity provider.
 
 3. If an admin has enabled [Google federation](./google-federation.md), Azure AD checks if the user’s domain suffix is gmail.com or googlemail.com and redirects the user to Google.
 
-4. The redemption process checks if the user has an existing personal [Microsoft account (MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create).
+4. The redemption process checks if the user has an existing personal [Microsoft account (MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) for just-in-time (JIT) redemptions, but not for invitation email link redemption. If the user already has an existing MSA, they'll sign in with their existing MSA.
 
 5. Once the user’s **home directory** is identified, the user is sent to the corresponding identity provider to sign in.  
 
@@ -105,7 +127,13 @@ When a guest signs in to access resources in a partner organization for the firs
 
    ![Screenshot showing the Apps access panel](media/redemption-experience/myapps.png) 
 
+> [!NOTE]
+> The consent experience appears only after the user signs in, and not before. There are some scenarios where the consent experience will not be displayed to the user, for example:
+> - The user already accepted the consent experience
+> - The admin [grants tenant-wide admin consent to an application](/azure/active-directory/manage-apps/grant-admin-consent)
+
 In your directory, the guest's **Invitation accepted** value changes to **Yes**. If an MSA was created, the guest’s **Source** shows **Microsoft Account**. For more information about guest user account properties, see [Properties of an Azure AD B2B collaboration user](user-properties.md). 
+If you see an error that requires admin consent while accessing an application, see [how to grant admin consent to apps](../develop/v2-admin-consent.md).
 
 ## Next steps
 

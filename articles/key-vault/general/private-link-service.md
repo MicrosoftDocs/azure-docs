@@ -1,9 +1,9 @@
 ---
 title: Integrate with Azure Private Link Service
 description: Learn how to integrate Azure Key Vault with Azure Private Link Service
-author: ShaneBala-keyvault
-ms.author: sudbalas
-ms.date: 11/17/2020
+author: msmbaldwin
+ms.author: mbaldwin
+ms.date: 03/31/2021
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
@@ -78,9 +78,6 @@ If you already have a key vault, you can create a private link connection by fol
 
 You can choose to create a private endpoint for any Azure resource in using this blade. You can either use the dropdown menus to select a resource type and select a resource in your directory, or you can connect to any Azure resource using a resource ID. Leave the "integrate with the private zone DNS" option unchanged.  
 
-![Screenshot that shows adding a private endpoint using the current blade.](../media/private-link-service-3.png)
-![Screenshot that shows an example of the 'Create a private endpoint (Preview) page.](../media/private-link-service-4.png)
-
 When you create a private endpoint, the connection must be approved. If the resource for which you are creating a private endpoint is in your directory, you will be able to approve the connection request provided you have sufficient permissions; if you are connecting to an Azure resource in another directory, you must wait for the owner of that resource to approve your connection request.
 
 There are four provisioning states:
@@ -132,26 +129,14 @@ az network private-dns link vnet create --resource-group {RG} --virtual-network 
 
 ```
 
-### Add Private DNS Records
-```azurecli
-# https://docs.microsoft.com/en-us/azure/dns/private-dns-getstarted-cli#create-an-additional-dns-record
-az network private-dns zone list -g $rg_name
-az network private-dns record-set a add-record -g $rg_name -z "privatelink.vaultcore.azure.net" -n $vault_name -a $kv_network_interface_private_ip
-az network private-dns record-set list -g $rg_name -z "privatelink.vaultcore.azure.net"
-
-# From home/public network, you wil get a public IP. If inside a vnet with private zone, nslookup will resolve to the private ip.
-nslookup $vault_name.vault.azure.net
-nslookup $vault_name.privatelink.vaultcore.azure.net
-```
-
 ### Create a Private Endpoint (Automatically Approve) 
 ```azurecli
-az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/ {KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION}
+az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/{KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION}
 ```
 
 ### Create a Private Endpoint (Manually Request Approval) 
 ```azurecli
-az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/ {KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION} --manual-request
+az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/{KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION} --manual-request
 ```
 
 ### Manage Private Link Connections
@@ -168,6 +153,22 @@ az keyvault private-endpoint-connection reject --rejection-description {"OPTIONA
 
 # Delete a Private Link Connection Request
 az keyvault private-endpoint-connection delete --resource-group {RG} --vault-name {KEY VAULT NAME} --name {PRIVATE LINK CONNECTION NAME}
+```
+
+### Add Private DNS Records
+```azurecli
+# Determine the Private Endpoint IP address
+az network private-endpoint show -g {RG} -n {PE NAME}      # look for the property networkInterfaces then id; the value must be placed on {PE NIC} below.
+az network nic show --ids {PE NIC}                         # look for the property ipConfigurations then privateIpAddress; the value must be placed on {NIC IP} below.
+
+# https://docs.microsoft.com/en-us/azure/dns/private-dns-getstarted-cli#create-an-additional-dns-record
+az network private-dns zone list -g {RG}
+az network private-dns record-set a add-record -g {RG} -z "privatelink.vaultcore.azure.net" -n {KEY VAULT NAME} -a {NIC IP}
+az network private-dns record-set list -g {RG} -z "privatelink.vaultcore.azure.net"
+
+# From home/public network, you wil get a public IP. If inside a vnet with private zone, nslookup will resolve to the private ip.
+nslookup {KEY VAULT NAME}.vault.azure.net
+nslookup {KEY VAULT NAME}.privatelink.vaultcore.azure.net
 ```
 
 ---
@@ -226,7 +227,7 @@ Aliases:  <your-key-vault-name>.vault.azure.net
     1. You must have a Private DNS Zone resource with the exact name: privatelink.vaultcore.azure.net. 
     2. To learn how to set this up please see the following link. [Private DNS Zones](../../dns/private-dns-privatednszone.md)
     
-* Check to make sure the Private DNS Zone is not linked to the Virtual Network. This may be the issue if you are still getting the public IP address returned. 
+* Check to make sure the Private DNS Zone is linked to the Virtual Network. This may be the issue if you are still getting the public IP address returned. 
     1. If the Private Zone DNS is not linked to the virtual network, the DNS query originating from the virtual network will return the public IP address of the key vault. 
     2. Navigate to the Private DNS Zone resource in the Azure portal and click the virtual network links option. 
     4. The virtual network that will perform calls to the key vault must be listed. 
@@ -236,7 +237,7 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 * Check to make sure the Private DNS Zone is not missing an A record for the key vault. 
     1. Navigate to the Private DNS Zone page. 
     2. Click Overview and check if there is an A record with the simple name of your key vault (i.e. fabrikam). Do not specify any suffix.
-    3. Make sure you check the spelling, and either create or fix the A record. You can use a TTL of 3600 (1 hour). 
+    3. Make sure you check the spelling, and either create or fix the A record. You can use a TTL of 600 (10 mins).
     4. Make sure you specify the correct private IP address. 
     
 * Check to make sure the A record has the correct IP Address. 

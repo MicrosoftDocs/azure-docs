@@ -1,13 +1,13 @@
 ---
 title: Understand Azure IoT Hub message routing | Microsoft Docs
 description: Developer guide - how to use message routing to send device-to-cloud messages. Includes information about sending both telemetry and non-telemetry data.
-author: ash2017
-manager: briz
+author: nehsin
+manager: mehmet.kucukgoz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/15/2019
-ms.author: asrastog
+ms.date: 05/14/2021
+ms.author: nehsin
 ms.custom: ['Role: Cloud Development', devx-track-csharp]
 ---
 
@@ -17,7 +17,7 @@ ms.custom: ['Role: Cloud Development', devx-track-csharp]
 
 Message routing enables you to send messages from your devices to cloud services in an automated, scalable, and reliable manner. Message routing can be used for: 
 
-* **Sending device telemetry messages as well as events** namely, device lifecycle events, and device twin change events to the built-in-endpoint and custom endpoints. Learn about [routing endpoints](#routing-endpoints).
+* **Sending device telemetry messages as well as events** namely, device lifecycle events, device twin change events, digital twin change events, and device connection state events to the built-in-endpoint and custom endpoints. Learn about [routing endpoints](#routing-endpoints). To learn more about the events sent from IoT Plug and Play devices, see [Understand IoT Plug and Play digital twins](../iot-develop/concepts-digital-twin.md).
 
 * **Filtering data before routing it to various endpoints** by applying rich queries. Message routing allows you to query on the message properties and message body as well as device twin tags and device twin properties. Learn more about using [queries in message routing](iot-hub-devguide-routing-query-syntax.md).
 
@@ -31,7 +31,7 @@ An IoT hub has a default built-in-endpoint (**messages/events**) that is compati
 
 Each message is routed to all endpoints whose routing queries it matches. In other words, a message can be routed to multiple endpoints.
 
-If your custom endpoint has firewall configurations, consider using the Microsoft trusted first party exception, to give your IoT Hub access to the specific endpoint - [Azure Storage](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing), [Azure Event Hubs](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) and [Azure Service Bus](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing). This is available in select regions for IoT Hubs with [managed service identity](./virtual-network-support.md).
+If your custom endpoint has firewall configurations, consider using the [Microsoft trusted first party exception](./virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources)
 
 IoT Hub currently supports the following endpoints:
 
@@ -52,7 +52,7 @@ IoT Hub supports writing data to Azure Storage in the [Apache Avro](https://avro
 
 The encoding format can be only set when the blob storage endpoint is configured; it can't be edited for an existing endpoint. To switch encoding formats for an existing endpoint, you'll need to delete and re-create the custom endpoint with the format you want. One helpful strategy might be to create a new custom endpoint with your desired encoding format and add a parallel route to that endpoint. In this way you can verify your data before deleting the existing endpoint.
 
-You can select the encoding format using the IoT Hub Create or Update REST API, specifically the [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), the Azure portal, [Azure CLI](/cli/azure/iot/hub/routing-endpoint), or the [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). The following image shows how to select the encoding format in the Azure portal.
+You can select the encoding format using the IoT Hub Create or Update REST API, specifically the [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), the [Azure portal](https://portal.azure.com), [Azure CLI](/cli/azure/iot/hub/routing-endpoint), or [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). The following image shows how to select the encoding format in the Azure portal.
 
 ![Blob storage endpoint encoding](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -64,7 +64,7 @@ IoT Hub batches messages and writes data to storage whenever the batch reaches a
 
 You may use any file naming convention, however you must use all listed tokens. IoT Hub will write to an empty blob if there is no data to write.
 
-We recommend listing the blobs or files and then iterating over them, to ensure all blobs or files are read without making any assumptions of partition. The partition range could potentially change during a [Microsoft-initiated failover](iot-hub-ha-dr.md#microsoft-initiated-failover) or IoT Hub [manual failover](iot-hub-ha-dr.md#manual-failover). You can use the [List Blobs API](/rest/api/storageservices/list-blobs) to enumerate the list of blobs or [List ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/list) for the list of files. Please see the following sample as guidance.
+We recommend listing the blobs or files and then iterating over them, to ensure all blobs or files are read without making any assumptions of partition. The partition range could potentially change during a [Microsoft-initiated failover](iot-hub-ha-dr.md#microsoft-initiated-failover) or IoT Hub [manual failover](iot-hub-ha-dr.md#manual-failover). You can use the [List Blobs API](/rest/api/storageservices/list-blobs) to enumerate the list of blobs or [List ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path) for the list of files. Please see the following sample as guidance.
 
 ```csharp
 public void ListBlobsInContainer(string containerName, string iothub)
@@ -98,9 +98,9 @@ Apart from the built-in-Event Hubs compatible endpoint, you can also route data 
 
 You can configure a route by following this [tutorial](tutorial-routing.md).
 
-Use the following tutorials to learn how to read message from an endpoint.
+Use the following tutorials to learn how to read messages from an endpoint.
 
-* Reading from [Built-in-endpoint](quickstart-send-telemetry-node.md)
+* Reading from [Built-in-endpoint](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
 
 * Reading from [Blob storage](../storage/blobs/storage-blob-event-quickstart.md)
 
@@ -113,15 +113,24 @@ Use the following tutorials to learn how to read message from an endpoint.
 
 ## Fallback route
 
-The fallback route sends all the messages that don't satisfy query conditions on any of the existing routes to the built-in-Event Hubs (**messages/events**), that is compatible with [Event Hubs](../event-hubs/index.yml). If message routing is turned on, you can enable the fallback route capability. Once a route is created, data stops flowing to the built-in-endpoint, unless a route is created to that endpoint. If there are no routes to the built-in-endpoint and a fallback route is enabled, only messages that don't match any query conditions on routes will be sent to the built-in-endpoint. Also, if all existing routes are deleted, fallback route must be enabled to receive all data at the built-in-endpoint.
+The fallback route sends all the messages that don't satisfy query conditions on any of the existing routes to the built-in-Event Hubs (**messages/events**), that is compatible with [Event Hubs](../event-hubs/index.yml). If message routing is turned on, you can enable the fallback route capability. Once a route is created, data stops flowing to the built-in-endpoint, unless a route is created to that endpoint. If there are no routes to the built-in-endpoint and a fallback route is enabled, only messages that don't match any query conditions on routes will be sent to the built-in-endpoint. Also, if all existing routes are deleted, fallback route must be enabled to receive all data at the built-in-endpoint. 
 
 You can enable/disable the fallback route in the Azure portal->Message Routing blade. You can also use Azure Resource Manager for [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) to use a custom endpoint for fallback route.
 
 ## Non-telemetry events
 
-In addition to device telemetry, message routing also enables sending device twin change events, device lifecycle events, and digital twin change events. For example, if a route is created with data source set to **device twin change events**, IoT Hub sends messages to the endpoint that contain the change in the device twin. Similarly, if a route is created with data source set to **device lifecycle events**, IoT Hub sends a message indicating whether the device was deleted or created. Finally, as part of the [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md), a developer can create routes with data source set to **digital twin change events** and IoT Hub sends messages whenever a digital twin [property](../iot-pnp/iot-plug-and-play-glossary.md) is set or changed, a [digital twin](../iot-pnp/iot-plug-and-play-glossary.md) is replaced, or when a change event happens for the underlying device twin.
+In addition to device telemetry, message routing also enables sending device twin change events, device lifecycle events, digital twin change events and device connection state events. For example, if a route is created with data source set to **device twin change events**, IoT Hub sends messages to the endpoint that contain the change in the device twin. Similarly, if a route is created with data source set to **device lifecycle events**, IoT Hub sends a message indicating whether the device was deleted or created. As part of [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md), a developer can create routes with data source set to **digital twin change events** and IoT Hub sends messages whenever a digital twin property is set or changed, a digital twin is replaced, or when a change event happens for the underlying device twin. Finally, if a route is created with data source set to **device connection state events**, IoT Hub sends a message indicating whether the device was connected or disconnected.
+
 
 [IoT Hub also integrates with Azure Event Grid](iot-hub-event-grid.md) to publish device events to support real-time integrations and automation of workflows based on these events. See key [differences between message routing and Event Grid](iot-hub-event-grid-routing-comparison.md) to learn which works best for your scenario.
+
+## Limitations for device connection state events
+
+To receive device connection state events, a device must call either the *device-to-cloud send telemetry* or a *cloud-to-device receive message* operation with IoT Hub. However, if a device uses AMQP protocol to connect with IoT Hub, we recommend the device to call *cloud-to-device receive message* operation, otherwise their connection state notifications may be delayed by few minutes. If your device connects with MQTT protocol, IoT Hub keeps the cloud-to-device link open. To open the cloud-to-device link for AMQP, call the [Receive Async API](/rest/api/iothub/device/receivedeviceboundnotification).
+
+The device-to-cloud link stays open as long as the device sends telemetry.
+
+If the device connection flickers, meaning if device connects and disconnects frequently, IoT Hub doesn't send every single connection state, but publishes the current connection state taken at a periodic snapshot of 60sec until the flickering stops. Receiving either the same connection state event with different sequence numbers or different connection state events both mean that there was a change in the device connection state.
 
 ## Testing routes
 
@@ -151,6 +160,6 @@ Use the [troubleshooting guide for routing](troubleshoot-message-routing.md) for
 
 * To learn how to create Message Routes, see [Process IoT Hub device-to-cloud messages using routes](tutorial-routing.md).
 
-* [How to send device-to-cloud messages](quickstart-send-telemetry-node.md)
+* [How to send device-to-cloud messages](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
 
 * For information about the SDKs you can use to send device-to-cloud messages, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).

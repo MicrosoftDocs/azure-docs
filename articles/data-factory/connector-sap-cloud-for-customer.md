@@ -1,12 +1,14 @@
 ---
 title: Copy data from/to SAP Cloud for Customer
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from SAP Cloud for Customer to supported sink data stores (or) from supported source data stores to SAP Cloud for Customer by using Data Factory.
-ms.author: jingwang
 author: linda33wj
+ms.author: jingwang
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 02/02/2021
+ms.custom: synapse
+ms.date: 03/17/2021
 ---
 
 # Copy data from SAP Cloud for Customer (C4C) using Azure Data Factory
@@ -31,7 +33,7 @@ Specifically, this connector enables Azure Data Factory to copy data from/to SAP
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to SAP Cloud for Customer connector.
 
@@ -158,6 +160,7 @@ To copy data to SAP Cloud for Customer, set the sink type in the copy activity t
 | type | The type property must be set to: **SapCloudForCustomerSink**  | Yes |
 | writeBehavior | The write behavior of the operation. Could be “Insert”, “Update”. | No. Default “Insert”. |
 | writeBatchSize | The batch size of write operation. The batch size to get best performance may be different for different table or server. | No. Default 10. |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 **Example:**
 

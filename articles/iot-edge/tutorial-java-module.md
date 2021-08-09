@@ -12,9 +12,11 @@ ms.service: iot-edge
 ms.custom: [mvc, mqtt, devx-track-java]
 ---
 
-# Tutorial: Develop a Java IoT Edge module for Linux devices
+# Tutorial: Develop a Java IoT Edge module using Linux containers
 
-You can use Azure IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. You'll use the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device in [Linux](quickstart-linux.md) quickstart. In this tutorial, you learn how to:
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
+You can use Azure IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. You'll use the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device in the quickstart articles. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
@@ -29,7 +31,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 ## Prerequisites
 
-This tutorial demonstrates how to develop a module in **Java** using **Visual Studio Code**, and how to deploy it to a **Linux device**. IoT Edge does not support Java modules for Windows devices.
+This tutorial demonstrates how to develop a module in **Java** using **Visual Studio Code**, and how to deploy it to an IoT Edge device. IoT Edge does not support Java modules built as Windows containers.
 
 Use the following table to understand your options for developing and deploying Java modules:
 
@@ -41,15 +43,15 @@ Use the following table to understand your options for developing and deploying 
 Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Linux container development: [Develop IoT Edge modules for Linux devices](tutorial-develop-for-linux.md). By completing either of those tutorials, you should have the following prerequisites in place:
 
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-* A [Linux device running Azure IoT Edge](quickstart-linux.md)
+* A device running Azure IoT Edge with Linux containers. You can use the quickstarts to set up a [Linux device](quickstart-linux.md) or [Windows device](quickstart.md).
 * A container registry, like [Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configured to run Linux containers.
 
-To develop an IoT Edge module in Java, install the following additional prerequisites on your development machine: 
+To develop an IoT Edge module in Java, install the following additional prerequisites on your development machine:
 
 * [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) for Visual Studio Code.
-* [Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support), and [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
+* [Java SE Development Kit 11](/azure/developer/java/fundamentals/java-support-on-azure), and [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
 * [Maven](https://maven.apache.org/)
 
    >[!TIP]
@@ -97,6 +99,9 @@ The IoT Edge extension tries to pull your container registry credentials from Az
 1. In the VS Code explorer, open the .env file.
 2. Update the fields with the **username** and **password** values that you copied from your Azure container registry.
 3. Save this file.
+
+>[!NOTE]
+>This tutorial uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
 
 ### Select your target architecture
 

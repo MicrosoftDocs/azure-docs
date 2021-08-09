@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro device access, power, and connectivity mode | Microsoft Docs 
-description: Describes how to manage access, power, and connectivity mode for the Azure Stack Edge Pro device that helps transfer data to Azure
+title: Azure Stack Edge Pro FPGA device access, power, and connectivity mode 
+description: Describes how to manage access, power, and connectivity mode for the Azure Stack Edge Pro FPGA device that helps transfer data to Azure
 services: databox
 author: alkohli
 
@@ -8,12 +8,13 @@ ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
-ms.author: alkohli
+ms.author: alkohli 
+ms.custom: devx-track-azurepowershell
 ---
 
-# Manage access, power, and connectivity mode for your Azure Stack Edge Pro
+# Manage access, power, and connectivity mode for your Azure Stack Edge Pro FPGA
 
-This article describes how to manage the access, power, and connectivity mode for your Azure Stack Edge Pro. These operations are performed via the local web UI or the Azure portal.
+This article describes how to manage the access, power, and connectivity mode for your Azure Stack Edge Pro FPGA. These operations are performed via the local web UI or the Azure portal.
 
 In this article, you learn how to:
 
@@ -25,7 +26,7 @@ In this article, you learn how to:
 
 ## Manage device access
 
-The access to your Azure Stack Edge Pro device is controlled by the use of a device password. You can change the password via the local web UI. You can also reset the device password in the Azure portal.
+The access to your Azure Stack Edge Pro FPGA device is controlled by the use of a device password. You can change the password via the local web UI. You can also reset the device password in the Azure portal.
 
 ### Change device password
 
@@ -57,12 +58,12 @@ To create your Azure Stack Edge / Data Box Gateway, IoT Hub, and Azure Storage r
 
 ### Manage Microsoft Graph API permissions
 
-When generating the activation key for the Azure Stack Edge Pro device, or performing any operations that require credentials, you need permissions to Azure Active Directory Graph API. The operations that need credentials could be:
+When generating the activation key for the Azure Stack Edge Pro FPGA device, or performing any operations that require credentials, you need permissions to Azure Active Directory Graph API. The operations that need credentials could be:
 
 -  Creating a share with an associated storage account.
 -  Creating a user who can access the shares on the device.
 
-You should have a `User` access on Active Directory tenant as you need to be able to `Read all directory objects`. You can't be a Guest user as they don't have permissions to `Read all directory objects`. If you're a guest, then the operations such as generation of an activation key, creation of a share on your Azure Stack Edge Pro device, creation of a user, configuration of Edge compute role, reset device password will all fail.
+You should have a `User` access on Active Directory tenant as you need to be able to `Read all directory objects`. You can't be a Guest user as they don't have permissions to `Read all directory objects`. If you're a guest, then the operations such as generation of an activation key, creation of a share on your Azure Stack Edge Pro FPGA device, creation of a user, configuration of Edge compute role, reset device password will all fail.
 
 For more information on how to provide access to users to Microsoft Graph API, see [Microsoft Graph permissions reference](/graph/permissions-reference).
 
@@ -85,7 +86,7 @@ To get a list of registered resource providers in the current subscription, run 
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-For Azure Stack Edge Pro device, `Microsoft.DataBoxEdge` should be registered. To register `Microsoft.DataBoxEdge`, subscription admin should run the following command:
+For Azure Stack Edge Pro FPGA device, `Microsoft.DataBoxEdge` should be registered. To register `Microsoft.DataBoxEdge`, subscription admin should run the following command:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
@@ -99,7 +100,7 @@ Apart from the default fully connected mode, your device can also run in partial
 
 - **Fully connected** - This is the normal default mode in which the device operates. Both the cloud upload and download of data is enabled in this mode. You can use the Azure portal or the local web UI to manage the device.
 
-- **Partially disconnected** – In this mode, the device cannot upload or download any share data however can be managed via the Azure portal.
+- **Partially connected** – In this mode, the device cannot upload or download any share data however can be managed via the Azure portal.
 
     This mode is typically used when on a metered satellite network and the goal is to minimize network bandwidth consumption. Minimal network consumption may still occur for device monitoring operations.
 

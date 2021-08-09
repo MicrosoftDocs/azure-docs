@@ -1,12 +1,12 @@
 ---
 title: Connect a Data Factory to Azure Purview
 description: Learn about how to connect a Data Factory to Azure Purview
-
-ms.author: lle
-author: lrtoyou1223
+ms.author: jingwang
+author: linda33wj
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: [seo-lt-2019, references_regions]
+ms.custom: seo-lt-2019, references_regions
 ms.date: 12/3/2020
 ---
 
@@ -35,10 +35,10 @@ If you see warning in Azure Data Factory portal after you register Azure Purview
 
 :::image type="content" source="./media/data-factory-purview/register-purview-account-tag.png" alt-text="Screenshot for tags of registering a Purview account.":::
 
-2. Check if the permission is granted for registering an Azure Purview account to Data Factory. See [How to connect Azure Data Factory and Azure Purview](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory#create-new-data-factory-connection)
+2. Check if the permission is granted for registering an Azure Purview account to Data Factory. See [How to connect Azure Data Factory and Azure Purview](../purview/how-to-link-azure-data-factory.md#create-new-data-factory-connection)
 
 ### Register Data Factory in Azure Purview
-For how to register Data Factory in Azure Purview, see [How to connect Azure Data Factory and Azure Purview](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory). 
+For how to register Data Factory in Azure Purview, see [How to connect Azure Data Factory and Azure Purview](../purview/how-to-link-azure-data-factory.md). 
 
 ## Report Lineage data to Azure Purview
 When customers run Copy, Data flow or Execute SSIS package activity in Azure Data Factory, customers could get the dependency relationship and have a high-level overview of whole workflow process among data sources and destination.

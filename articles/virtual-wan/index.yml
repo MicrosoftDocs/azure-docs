@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Virtual WAN documentation
-summary: Learn how to configure, create, and manage an Azure Virtual WAN. Build secure global scale branch connectivity.
+summary: Learn how to configure, create, and manage an Azure Virtual WAN. Azure Virtual WAN is a networking service that brings many networking, security, and routing functionalities together to provide a single operational interface.
 
 metadata:
   title: Virtual WAN documentation 
@@ -11,7 +11,8 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 01/15/2020
+  ms.date: 06/29/2021
+  ms.custom: e2e-hybrid
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -33,6 +34,17 @@ landingContent:
             url: virtual-wan-locations-partners.md
           - text: FAQ
             url: virtual-wan-faq.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Virtual WAN
+            url: /learn/modules/introduction-azure-virtual-wan/
+      - linkListType: video
+        links:
+          - text: Remote user connectivity with Azure Virtual WAN
+            url: https://www.youtube.com/watch?v=nP5XntjA7OQ
+          - text: Architect hybrid networking with Azure Virtual WAN and SD-WAN 
+            url: https://www.youtube.com/watch?v=2g-_empU0GU&list=PLLasX02E8BPA5V-waZPcelhg9l3IkeUQo&index=6
+
   # Card
   - title: Get started
     linkLists:
@@ -95,13 +107,11 @@ landingContent:
   # Card
   - title: Monitoring
     linkLists:
-      - linkListType: concept
-        links:
-          - text: Monitor using Azure Monitor Insights
-            url: azure-monitor-insights.md
       - linkListType: how-to-guide
         links:
-          - text: Configure Azure Monitor logs and metrics
+          - text: Monitoring Virtual WAN with Azure Monitor
+            url: monitor-virtual-wan.md
+          - text: Monitor using Azure Monitor Insights
             url: azure-monitor-insights.md
  # Card
   - title: Reference
@@ -109,7 +119,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI
-            url: /cli/azure/ext/virtual-wan/network
+            url: /cli/azure/
           - text: Azure PowerShell
             url: /powershell/module/az.network#networking
           - text: REST

@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/14/2020
+ms.date: 07/07/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -52,104 +52,116 @@ The user info UserJourney specifies:
 1. Add the following claims provider:
 
     ```xml
-    <ClaimsProvider>
-      <DisplayName>Token Issuer</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="UserInfoIssuer">
-          <DisplayName>JSON Issuer</DisplayName>
-          <Protocol Name="None" />
-          <OutputTokenFormat>JSON</OutputTokenFormat>
-          <CryptographicKeys>
-            <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
-          </CryptographicKeys>
-          <!-- The Below claims are what will be returned on the UserInfo Endpoint if in the Claims Bag-->
-          <InputClaims>
-            <InputClaim ClaimTypeReferenceId="objectId"/>
-            <InputClaim ClaimTypeReferenceId="givenName"/>
-            <InputClaim ClaimTypeReferenceId="surname"/>
-            <InputClaim ClaimTypeReferenceId="displayName"/>
-            <InputClaim ClaimTypeReferenceId="signInNames.emailAddress"/>
-          </InputClaims>
-          <OutputClaims />
-        </TechnicalProfile>
-        <TechnicalProfile Id="UserInfoAuthorization">
-          <DisplayName>UserInfo authorization</DisplayName>
-          <Protocol Name="None" />
-          <InputTokenFormat>JWT</InputTokenFormat>
-          <Metadata>
-            <!-- Update the Issuer and Audience below -->
-            <!-- Audience is optional, Issuer is required-->
-            <Item Key="issuer">https://yourtenant.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/</Item>
-            <Item Key="audience">[ "22222222-2222-2222-2222-222222222222", "33333333-3333-3333-3333-333333333333" ]</Item>
-            <Item Key="client_assertion_type">urn:ietf:params:oauth:client-assertion-type:jwt-bearer</Item>
-          </Metadata>
-          <CryptographicKeys>
-            <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
-          </CryptographicKeys>
-          <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-            <!-- Optional claims to read from the access token  -->
-            <!-- <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name"/>
+    <!-- 
+    <ClaimsProviders> -->
+      <ClaimsProvider>
+        <DisplayName>Token Issuer</DisplayName>
+        <TechnicalProfiles>
+          <TechnicalProfile Id="UserInfoIssuer">
+            <DisplayName>JSON Issuer</DisplayName>
+            <Protocol Name="None" />
+            <OutputTokenFormat>JSON</OutputTokenFormat>
+            <CryptographicKeys>
+              <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
+            </CryptographicKeys>
+            <!-- The Below claims are what will be returned on the UserInfo Endpoint if in the Claims Bag-->
+            <InputClaims>
+              <InputClaim ClaimTypeReferenceId="objectId"/>
+              <InputClaim ClaimTypeReferenceId="givenName"/>
+              <InputClaim ClaimTypeReferenceId="surname"/>
+              <InputClaim ClaimTypeReferenceId="displayName"/>
+              <InputClaim ClaimTypeReferenceId="signInNames.emailAddress"/>
+            </InputClaims>
+          </TechnicalProfile>
+          <TechnicalProfile Id="UserInfoAuthorization">
+            <DisplayName>UserInfo authorization</DisplayName>
+            <Protocol Name="None" />
+            <InputTokenFormat>JWT</InputTokenFormat>
+            <Metadata>
+              <!-- Update the Issuer and Audience below -->
+              <!-- Audience is optional, Issuer is required-->
+              <Item Key="issuer">https://yourtenant.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/</Item>
+              <Item Key="audience">[ "22222222-2222-2222-2222-222222222222", "33333333-3333-3333-3333-333333333333" ]</Item>
+              <Item Key="client_assertion_type">urn:ietf:params:oauth:client-assertion-type:jwt-bearer</Item>
+            </Metadata>
+            <CryptographicKeys>
+              <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
+            </CryptographicKeys>
+            <OutputClaims>
+              <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+              <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" PartnerClaimType="email"/>
+              <!-- Optional claims to read from the access token. -->
+              <!-- <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name"/>
                  <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
                  <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name"/> -->
-          </OutputClaims>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
+            </OutputClaims>
+          </TechnicalProfile>
+        </TechnicalProfiles>
+      </ClaimsProvider>
+    <!-- 
+    </ClaimsProviders> -->
     ``` 
 
-1. The outputClaims section within the UserInfoIssuer technical profile specifies the attributes you want to return. The UserInfoIssuer technical profile is called at the end of the user journey. 
-1. The UserInfoAuthorization technical profile validates the signature, issuer name, and token audience, and extracts the claim from the inbound token. Change following metadata to reflect your environment:
+1. The InputClaims section within the **UserInfoIssuer** technical profile specifies the attributes you want to return. The UserInfoIssuer technical profile is called at the end of the user journey. 
+1. The **UserInfoAuthorization** technical profile validates the signature, issuer name, and token audience, and extracts the claim from the inbound token. Change following metadata to reflect your environment:
     1. **issuer** - This value must be identical to the `iss` claim within the access token claim. Tokens issued by Azure AD B2C use an issuer in the format `https://yourtenant.b2clogin.com/your-tenant-id/v2.0/`. Learn more about [token customization](configure-tokens.md).
     1. **IdTokenAudience** - Must be identical to the `aud` claim within the access token claim. In Azure AD B2C the `aud` claim is the ID of your relying party application. This value is a collection and supports multiple values using a comma delimiter.
 
-In the following access token, the `iss` claim value is `https://contoso.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/`. The `aud` claim value is `22222222-2222-2222-2222-222222222222`.
+        In the following access token, the `iss` claim value is `https://contoso.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/`. The `aud` claim value is `22222222-2222-2222-2222-222222222222`.
 
-```json
-{
-  "exp": 1605549468,
-  "nbf": 1605545868,
-  "ver": "1.0",
-  "iss": "https://contoso.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/",
-  "sub": "44444444-4444-4444-4444-444444444444",
-  "aud": "22222222-2222-2222-2222-222222222222",
-  "acr": "b2c_1a_signup_signin",
-  "nonce": "defaultNonce",
-  "iat": 1605545868,
-  "auth_time": 1605545868,
-  "name": "John Smith",
-  "given_name": "John",
-  "family_name": "Smith",
-  "tid": "11111111-1111-1111-1111-111111111111"
-}
-```
+        ```json
+        {
+          "exp": 1605549468,
+          "nbf": 1605545868,
+          "ver": "1.0",
+          "iss": "https://contoso.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/",
+          "sub": "44444444-4444-4444-4444-444444444444",
+          "aud": "22222222-2222-2222-2222-222222222222",
+          "acr": "b2c_1a_signup_signin",
+          "nonce": "defaultNonce",
+          "iat": 1605545868,
+          "auth_time": 1605545868,
+          "name": "John Smith",
+          "given_name": "John",
+          "family_name": "Smith",
+          "tid": "11111111-1111-1111-1111-111111111111"
+        }
+        ```
+    
+1.  The OutputClaims element of the **UserInfoAuthorization** technical profile specifies the attributes you want to read from the access token. The **ClaimTypeReferenceId** is the reference to a claim type. The optional **PartnerClaimType** is the name of the claim defined in the access token.
+
+
 
 ### 2. Add the UserJourney element 
 
 The [UserJourney](userjourneys.md) element defines the path that the user takes when interacting with your application. Add the **UserJourneys** element if it doesn't exist with the **UserJourney** identified as `UserInfoJourney`:
 
 ```xml
-<UserJourney Id="UserInfoJourney" DefaultCpimIssuerTechnicalProfileReferenceId="UserInfoIssuer">
-  <Authorization>
-    <AuthorizationTechnicalProfiles>
-      <AuthorizationTechnicalProfile ReferenceId="UserInfoAuthorization" />
-    </AuthorizationTechnicalProfiles>
-  </Authorization>
-  <OrchestrationSteps >
-    <OrchestrationStep Order="1" Type="ClaimsExchange">
-      <Preconditions>
-        <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
-          <Value>objectId</Value>
-          <Action>SkipThisOrchestrationStep</Action>
-        </Precondition>
-      </Preconditions>
-      <ClaimsExchanges UserIdentity="false">
-        <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
-      </ClaimsExchanges>
-    </OrchestrationStep>
-    <OrchestrationStep Order="2" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="UserInfoIssuer" />
-  </OrchestrationSteps>
-</UserJourney>
+<!-- 
+<UserJourneys> -->
+  <UserJourney Id="UserInfoJourney" DefaultCpimIssuerTechnicalProfileReferenceId="UserInfoIssuer">
+    <Authorization>
+      <AuthorizationTechnicalProfiles>
+        <AuthorizationTechnicalProfile ReferenceId="UserInfoAuthorization" />
+      </AuthorizationTechnicalProfiles>
+    </Authorization>
+    <OrchestrationSteps >
+      <OrchestrationStep Order="1" Type="ClaimsExchange">
+        <Preconditions>
+          <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+            <Value>objectId</Value>
+            <Action>SkipThisOrchestrationStep</Action>
+          </Precondition>
+        </Preconditions>
+        <ClaimsExchanges UserIdentity="false">
+          <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
+        </ClaimsExchanges>
+      </OrchestrationStep>
+      <OrchestrationStep Order="2" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="UserInfoIssuer" />
+    </OrchestrationSteps>
+  </UserJourney>
+<!-- 
+</UserJourneys> -->
 ```
 
 ### 3. Include the endpoint to the relying party policy
@@ -157,9 +169,13 @@ The [UserJourney](userjourneys.md) element defines the path that the user takes 
 To include the UserInfo endpoint in the relying party application, add an [Endpoint](relyingparty.md#endpoints) element to the *SocialAndLocalAccounts/SignUpOrSignIn.xml* file. 
 
 ```xml
-<Endpoints>
-  <Endpoint Id="UserInfo" UserJourneyReferenceId="UserInfoJourney" />
-</Endpoints>
+<!--
+<RelyingParty> -->
+  <Endpoints>
+    <Endpoint Id="UserInfo" UserJourneyReferenceId="UserInfoJourney" />
+  </Endpoints>
+<!-- 
+</RelyingParty> -->
 ```
 
 The completed relying party element will be as follows:
@@ -232,7 +248,7 @@ https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/policy-name/v2.0/.wel
 ```http
 GET /yourtenant.onmicrosoft.com/b2c_1a_signup_signin/openid/v2.0/userinfo
 Host: b2cninja.b2clogin.com
-Authorization: Bearer <your ID token>
+Authorization: Bearer <your access token>
 ```
 
 A successful response would look like:
@@ -246,6 +262,43 @@ A successful response would look like:
     "signInNames.emailAddress": "john.s@contoso.com"
 }
 ```
+
+## Provide optional claims
+
+To provide more claims to your app, follow these steps:
+
+1. [Add user attributes and customize user input](configure-user-input.md).
+1. Modify the [Relying party policy technical profile](relyingparty.md#technicalprofile) OutputClaims element with the claims you want to provide. Use the `DefaultValue` attribute to set a default value. You can also set the default value to a [claim resolver](claim-resolver-overview.md), such as `{Context:CorrelationId}`. To force the use of the default value, set the `AlwaysUseDefaultValue` attribute to `true`. The following example adds the city claim with a default value.
+    
+    ```xml
+    <RelyingParty>
+      ...
+      <TechnicalProfile Id="PolicyProfile">
+        ...
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="city" DefaultValue="Berlin" />
+        </OutputClaims>
+        ...
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
+  
+1. Modify the UserInfoIssuer technical profile  InputClaims element with the claims you want to provide. Use the `PartnerClaimType` attribute to change the name of the claim return to your app. The following example adds the city claim and change the name of some of the claims.
+
+    ```xml
+    <TechnicalProfile Id="UserInfoIssuer">
+      ...
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="objectId" />
+        <InputClaim ClaimTypeReferenceId="city" />
+        <InputClaim ClaimTypeReferenceId="givenName" />
+        <InputClaim ClaimTypeReferenceId="surname" PartnerClaimType="familyName" />
+        <InputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+        <InputClaim ClaimTypeReferenceId="signInNames.emailAddress" PartnerClaimType="email" />
+      </InputClaims>
+      ...
+    </TechnicalProfile>
+    ```
 
 ## Next Steps
 

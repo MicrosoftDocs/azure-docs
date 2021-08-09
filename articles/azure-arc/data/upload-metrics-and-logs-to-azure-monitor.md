@@ -1,37 +1,32 @@
 ---
-title: Upload usage data, metrics, and logs to Azure Monitor
-description: Upload resource inventory, usage data, metrics, and logs to Azure Monitor
+title: Upload usage data, metrics, and logs to Azure
+description: Upload resource inventory, usage data, metrics, and logs to Azure
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 ---
 
-# Upload usage data, metrics, and logs to Azure Monitor
+# Upload usage data, metrics, and logs to Azure
 
 Periodically, you can export out usage information for billing purposes, monitoring metrics, and logs and then upload it to Azure. The export and upload of any of these three types of data will also create and update the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
-
-> [!NOTE] 
-> During the preview period, there is no cost for using Azure Arc enabled data services.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 Before you can upload usage data, metrics, or logs you need to:
 
 * Install tools 
-* [Register the `Microsoft.AzureData` resource provider](#register-the-resource-provider) 
+* [Register the `Microsoft.AzureArcData` resource provider](#register-the-resource-provider) 
 * [Create the service principal](#create-service-principal)
 
 ## Install tools
 
 The required tools include: 
 * Azure CLI (az) 
-* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] 
+* `arcdata` extension 
 
 See [Install tools](./install-client-tools.md).
 
@@ -60,11 +55,11 @@ Follow these commands to create your metrics upload service principal:
 > [!NOTE]
 > Creating a service principal requires [certain permissions in Azure](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
-To create a service principal, update the following example. Replace `<ServicePrincipalName>` with the name of your service principal and run the command:
+To create a service principal, update the following example. Replace `<ServicePrincipalName>`, `SubscriptionId` and `resourcegroup` with your values and run the command:
 
 ```azurecli
-az ad sp create-for-rbac --name <ServicePrincipalName>
-``` 
+az ad sp create-for-rbac --name <ServicePrincipalName> --role Contributor --scopes /subscriptions/<SubscriptionId>/resourceGroups/<resourcegroup>
+```
 
 If you created the service principal earlier, and just need to get the current credentials, run the following command to reset the credential.
 
@@ -74,8 +69,8 @@ az ad sp credential reset --name <ServicePrincipalName>
 
 For example, to create a service principal named `azure-arc-metrics`, run the following command
 
-```
-az ad sp create-for-rbac --name azure-arc-metrics
+```azurecli
+az ad sp create-for-rbac --name azure-arc-metrics --role Contributor --scopes /subscriptions/a345c178a-845a-6a5g-56a9-ff1b456123z2/resourceGroups/myresourcegroup
 ```
 
 Example output:
@@ -132,16 +127,15 @@ Run this command to assign the service principal to the `Monitoring Metrics Publ
 > You need to use double quotes for role names when running from a Windows environment.
 
 ```azurecli
-az role assignment create --assignee <appId> --role "Monitoring Metrics Publisher" --scope subscriptions/<Subscription ID>
-az role assignment create --assignee <appId> --role "Contributor" --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role "Monitoring Metrics Publisher" --scope subscriptions/<SubscriptionID>/resourceGroups/<resourcegroup>
+
 ```
 ::: zone-end
 
 ::: zone pivot="client-operating-system-macos-and-linux"
 
 ```azurecli
-az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<Subscription ID>
-az role assignment create --assignee <appId> --role 'Contributor' --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<SubscriptionID>/resourceGroups/<resourcegroup>
 ```
 
 ::: zone-end
@@ -149,8 +143,7 @@ az role assignment create --assignee <appId> --role 'Contributor' --scope subscr
 ::: zone pivot="client-operating-system-powershell"
 
 ```powershell
-az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<Subscription ID>
-az role assignment create --assignee <appId> --role 'Contributor' --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<SubscriptionID>/resourceGroups/<resourcegroup>
 ```
 
 ::: zone-end
@@ -170,25 +163,33 @@ Example output:
 }
 ```
 
+## Verify service principal role
+
+```azurecli
+az role assignment list -o table
+```
+
 With the service principal assigned to the appropriate role, you can proceed to upload metrics, or user data. 
 
-## Upload logs, metrics, or user data
 
-The specific steps for uploading logs, metrics, or user data vary depending about the type of information you are uploading. 
+
+## Upload logs, metrics, or usage data
+
+The specific steps for uploading logs, metrics, or usage data vary depending about the type of information you are uploading. 
 
 [Upload logs to Azure Monitor](upload-logs.md)
 
 [Upload metrics to Azure Monitor](upload-metrics.md)
 
-[Upload usage data to Azure Monitor](upload-usage-data.md)
+[Upload usage data to Azure](upload-usage-data.md)
 
-## General guidance on exporting and uploading usage, metrics
+## General guidance on exporting and uploading usage, and metrics
 
-Create, read, update, and delete (CRUD) operations on Azure Arc enabled data services are logged for billing and monitoring purposes. There are background services that monitor for these CRUD operations and calculate the consumption appropriately. The actual calculation of usage or consumption happens on a scheduled basis and is done in the background. 
+Create, read, update, and delete (CRUD) operations on Azure Arc-enabled data services are logged for billing and monitoring purposes. There are background services that monitor for these CRUD operations and calculate the consumption appropriately. The actual calculation of usage or consumption happens on a scheduled basis and is done in the background. 
 
-During preview, this process happens nightly. The general guidance is to upload the usage only once per day. When usage information is exported and uploaded multiple times within the same 24 hour period, only the resource inventory is updated in Azure portal but not the resource usage.
+Upload the usage only once per day. When usage information is exported and uploaded multiple times within the same 24 hour period, only the resource inventory is updated in Azure portal but not the resource usage.
 
-For uploading metrics, Azure monitor only accepts the last 30 minutes of data ([Learn more](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)). The guidance for uploading metrics is to upload the metrics immediately after creating the export file so you can view the entire data set in Azure portal. For instance, if you exported the metrics at 2:00 PM and ran the upload command at 2:50 PM. Since Azure Monitor only accepts data for the last 30 minutes, you may not see any data in the portal. 
+For uploading metrics, Azure monitor only accepts the last 30 minutes of data ([Learn more](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting)). The guidance for uploading metrics is to upload the metrics immediately after creating the export file so you can view the entire data set in Azure portal. For instance, if you exported the metrics at 2:00 PM and ran the upload command at 2:50 PM. Since Azure Monitor only accepts data for the last 30 minutes, you may not see any data in the portal. 
 
 ## Next steps
 

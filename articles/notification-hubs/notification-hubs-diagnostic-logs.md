@@ -136,8 +136,7 @@ The new settings take effect in about 10 minutes. The logs are displayed in the 
 ## Next steps
 
 To learn more about configuring diagnostics settings, see:
-* [Overview of Azure diagnostics logs](../azure-monitor/platform/platform-logs-overview.md).
+* [Overview of Azure diagnostics logs](../azure-monitor/essentials/platform-logs-overview.md).
 
 To learn more about Azure Notification Hubs, see:
 * [What is Azure Notification Hubs?](notification-hubs-push-notification-overview.md)
-

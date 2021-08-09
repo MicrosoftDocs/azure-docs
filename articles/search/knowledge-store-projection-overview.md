@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Search
 description: Save and shape your enriched data from the AI enrichment indexing pipeline into a knowledge store for use in scenarios other than full text search.
 
 manager: nitinme
-author: vkurpad
-ms.author: vikurpad
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
@@ -17,7 +17,7 @@ Azure Cognitive Search enables content enrichment through built-in cognitive ski
 
 Projections, a component of [knowledge store](knowledge-store-concept-intro.md), are views of enriched documents that can be saved to physical storage for knowledge mining purposes. A projection lets you "project" your data into a shape that aligns with your needs, preserving relationships so that tools like Power BI can read the data with no additional effort.
 
-Projections can be tabular, with data stored in rows and columns in Azure Table storage, or JSON objects stored in Azure Blob storage. You can define multiple projections of your data as it is being enriched. Multiple projections are useful when you want the same data shaped differently for individual use cases.
+Projections can be tabular, with data stored in rows and columns in Azure Table Storage, or JSON objects stored in Azure Blob Storage. You can define multiple projections of your data as it is being enriched. Multiple projections are useful when you want the same data shaped differently for individual use cases.
 
 The knowledge store supports three types of projections:
 
@@ -192,9 +192,9 @@ Your projections have a lifecycle that is tied to the source data in your data s
 
 After the indexer is run, you can read the projected data in the containers or tables you specified through projections.
 
-For analytics, exploration in Power BI is as simple as setting Azure Table storage as the data source. You can easily create a set of visualizations on your data using the relationships within.
+For analytics, exploration in Power BI is as simple as setting Azure Table Storage as the data source. You can easily create a set of visualizations on your data using the relationships within.
 
-Alternatively, if you need to use the enriched data in a data science pipeline, you could [load the data from blobs into a Pandas DataFrame](../machine-learning/team-data-science-process/explore-data-blob.md).
+Alternatively, if you need to use the enriched data in a data science pipeline, you could [load the data from blobs into a Pandas DataFrame](/azure/architecture/data-science-process/explore-data-blob).
 
 Finally, if you need to export your data from the knowledge store, Azure Data Factory has connectors to export the data and land it in the database of your choice. 
 

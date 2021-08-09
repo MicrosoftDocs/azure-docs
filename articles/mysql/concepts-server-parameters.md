@@ -9,6 +9,8 @@ ms.date: 1/26/2021
 ---
 # Server parameters in Azure Database for MySQL
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 This article provides considerations and guidelines for configuring server parameters in Azure Database for MySQL.
 
 ## What are server parameters? 
@@ -59,7 +61,7 @@ The binary logging format is always **ROW** and all connections to the server **
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size) to learn more about this parameter.
 
-#### Servers supporting up to 4 TB storage
+#### Servers on [general purpose storage v1 (supporting up to 4-TB)](concepts-pricing-tiers.md#general-purpose-storage-v1-supports-up-to-4-tb)
 
 |**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
 |---|---|---|---|---|
@@ -77,7 +79,7 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-
 |Memory Optimized|16|65498251264|134217728|65498251264|
 |Memory Optimized|32|132070244352|134217728|132070244352|
 
-#### Servers support up to 16 TB storage
+#### Servers on [general purpose storage v1 (supporting up to 16-TB)](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage)
 
 |**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
 |---|---|---|---|---|
@@ -98,11 +100,11 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-
 ### innodb_file_per_table
 
 > [!NOTE]
-> `innodb_file_per_table` can only be updated in the General Purpose and Memory Optimized pricing tiers.
+> `innodb_file_per_table` can only be updated in the General Purpose and Memory Optimized pricing tiers on [general purpose storage v2](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage).
 
 MySQL stores the InnoDB table in different tablespaces based on the configuration you provided during the table creation. The [system tablespace](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) is the storage area for the InnoDB data dictionary. A [file-per-table tablespace](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) contains data and indexes for a single InnoDB table, and is stored in the file system in its own data file. This behavior is controlled by the `innodb_file_per_table` server parameter. Setting `innodb_file_per_table` to `OFF` causes InnoDB to create tables in the system tablespace. Otherwise, InnoDB creates tables in file-per-table tablespaces.
 
-Azure Database for MySQL supports at largest, **4 TB**, in a single data file. If your database size is larger than 4 TB, you should create the table in [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) tablespace. If you have a single table size larger than 4 TB, you should use the partition table.
+Azure Database for MySQL supports at largest, **4-TB**,  in a single data file on [general purpose storage v2](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage). If your database size is larger than 4 TB, you should create the table in [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) tablespace. If you have a single table size larger than 4-TB, you should use the partition table.
 
 ### join_buffer_size
 
@@ -266,7 +268,7 @@ It is also important to note that improved performance comes at the expense of l
 To save the state of the buffer pool at server shutdown set server parameter `innodb_buffer_pool_dump_at_shutdown` to `ON`. Similarly, set server parameter `innodb_buffer_pool_load_at_startup` to `ON` to restore the buffer pool state at server startup. You can control the impact on start-up/restart by lowering and fine tuning the value of server parameter `innodb_buffer_pool_dump_pct`, By default, this parameter is set to `25`.
 
 > [!Note]
-> InnoDB buffer pool warmup parameters are only supported in general purpose storage servers with up to 16-TB storage. Learn more about [Azure Database for MySQL storage options here](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage).
+> InnoDB buffer pool warmup parameters are only supported in general purpose storage servers with up to 16-TB storage. Learn more about [Azure Database for MySQL storage options here](./concepts-pricing-tiers.md#storage).
 
 ### time_zone
 

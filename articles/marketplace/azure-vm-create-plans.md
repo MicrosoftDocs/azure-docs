@@ -1,19 +1,19 @@
 ---
 title: Create plans for a virtual machine offer on Azure Marketplace
-description: Learn how to create plans for a virtual machine offer on Azure Marketplace.
+description: Create plans for a virtual machine offer on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: mingshen-ms
-ms.author: mingshen
-ms.date: 10/19/2020
+author: iqshahmicrosoft
+ms.author: iqshah
+ms.date: 07/26/2021
 ---
 
-# How to create plans for a virtual machine offer
+# Create plans for a virtual machine offer
 
 On the **Plan overview** page (select from the left-nav menu in Partner Center) you can provide a variety of plan options within the same offer. An offer requires at least one plan (formerly called a SKU), which can vary by monetization audience, Azure region, features, or VM images.
 
-You can create up to 100 plans for each offer: up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](private-offers.md).
+You can create up to 100 plans for each offer; up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](private-offers.md).
 
 After you create your plans, select the **Plan overview** tab to display:
 
@@ -23,10 +23,10 @@ After you create your plans, select the **Plan overview** tab to display:
 - Current publishing status
 - Available actions
 
-The actions available on the **Plan overview** pane vary depending on the current status of your plan.
+The actions available on this pane vary depending on the current status of your plan.
 
 - If the plan status is a draft, select **Delete draft**.
-- If the plan status is published live, select **Stop sell plan** or **Sync private audience**.
+- If the plan status is published live, select **Deprecate plan** or **Sync private audience**.
 
 ## Create a new plan
 
@@ -44,13 +44,6 @@ Select **Create**. This opens the **Plan setup** page.
 ## Plan setup
 
 Set the high-level configuration for the type of plan, specify whether it reuses a technical configuration from another plan, and identify the Azure regions where the plan should be available. Your selections here determine which fields are displayed on other panes for the same plan.
-
-### Reuse technical configuration
-
-If you have more than one plan of the same type, and the packages are identical between them, you can select **This plan reuses technical configuration from another plan**. This option lets you select one of the other plans of the same type for this offer and lets you reuse its technical configuration.
-
-> [!NOTE]
-> When you reuse the technical configuration from another plan, the entire **Technical configuration** tab disappears from this plan. The technical configuration details from the other plan, including any updates you make in the future, will be used for this plan as well. This setting can't be changed after the plan is published.
 
 ### Azure regions
 
@@ -149,7 +142,9 @@ Private offers are not supported with Azure subscriptions established through a 
 
 If your virtual machine is meant to be used only indirectly when it's referenced through another solution template or managed application, select this check box to publish the virtual machine but hide it from customers who might be searching or browsing for it directly.
 
-Hidden plans don't support preview links.
+Any Azure customer can deploy the offer using either PowerShell or CLI.  If you wish to make this offer available to a limited set of customers, then set the plan to **Private**. 
+
+Hidden plans do not generate preview links. However, you can test you them by [following these steps](azure-vm-create-faq.yml#how-do-i-test-a-hidden-preview-image-). 
 
 Select **Save draft** before continuing to the next tab in the left-nav Plan menu, **Technical configuration**.
 
@@ -157,8 +152,9 @@ Select **Save draft** before continuing to the next tab in the left-nav Plan men
 
 Provide the images and other technical properties associated with this plan.
 
-> [!NOTE]
-> This tab doesn't display if you configured this plan to reuse packages from another on the **Plan setup** tab.
+### Reuse technical configuration
+
+If you have more than one plan of the same type, and the packages are identical between them, select **This plan reuses the technical configuration from another plan**. This option lets you select one of the other plans of the same type for this offer and reuse its technical configuration.
 
 ### Operating system
 
@@ -178,7 +174,23 @@ Add open public or private ports on a deployed virtual machine.
 
 ### Properties
 
-Select if your VM **Supports Accelerated Networking**. For details, see [Accelerated Networking](https://go.microsoft.com/fwlink/?linkid=2124513).
+Here is a list of properties that can be selected for your VM.
+
+- **Supports backup**: Enable this property if your images support Azure VM backup. Learn more about [Azure VM backup](https://go.microsoft.com/fwlink/?linkid=2155616).
+
+- **Supports accelerated networking**: Enable this property if the VM images for this plan support single root I/O virtualization (SR-IOV) to a VM, enabling low latency and high throughput on the network interface. Learn more about [accelerated networking](https://go.microsoft.com/fwlink/?linkid=2124513).
+
+- **Supports cloud-init configuration**: Enable this property if the images in this plan support cloud-init post deployment scripts. Learn more about [cloud-init configuration](https://go.microsoft.com/fwlink/?linkid=2128218).
+
+- **Supports hotpatch**: Windows Server Azure Editions supports Hot Patch. Learn more about [Hot Patch](https://go.microsoft.com/fwlink/?linkid=2155371).
+
+- **Supports extensions**: Enable this property if the images in this plan support extensions. Extensions are small applications that provide post-deployment configuration and automation on Azure VMs. Learn more about [Azure virtual machine extensions](https://go.microsoft.com/fwlink/?linkid=2155372).
+
+- **Is a network virtual appliance**: Enable this property if this product is a Network Virtual Appliance. A network virtual appliance is a product that performs one or more network functions, such as a Load Balancer, VPN Gateway, Firewall or Application Gateway. Learn more about [network virtual appliances](https://go.microsoft.com/fwlink/?linkid=2155373).
+
+- **Remote desktop or SSH disabled**: Enable this property if virtual Machines deployed with these images do not allow customers to access it using Remote Desktop or SSH. Learn more about [locked VM images](https://go.microsoft.com/fwlink/?linkid=2155374).
+
+- **Requires custom ARM template for deployment**: Enable this property if the images in this plan can only be deployed using a custom ARM template. To learn more see the [Custom templates section of Troubleshoot virtual machine certification](https://go.microsoft.com/fwlink/?linkid=2155274).
 
 ### Generations
 
@@ -209,13 +221,18 @@ Provide a disk version and the shared access signature (SAS) URI for the virtual
 These two required fields are shown in the prior image above:
 
 - **Disk version**: The version of the image you are providing.
-- **OS VHD link**: The location in your Azure storage account for the operating system VHD. To learn how to get a SAS URI, see [Get shared access signature URI for your VM image](azure-vm-get-sas-uri.md).
+- **OS VHD link**: The image stored in Azure shared image gallery. Learn how to capture your image in a [shared image gallery](azure-vm-create-using-approved-base.md#capture-image).
 
 Data disks (select **Add data disk (maximum 16)**) are also VHD shared access signature URIs that are stored in their Azure storage accounts. Add only one image per submission in a plan.
 
 Regardless of which operating system you use, add only the minimum number of data disks that the solution requires. During deployment, customers can't remove disks that are part of an image, but they can always add disks during or after deployment.
 
+> [!NOTE]
+> If you provide your images using SAS and have data disks, you also need to provide them as SAS URI. If you are using shared image, they are captured as part of your image in shared image gallery. Once your offer is published to Azure Marketplace, you can delete the image from your Azure storage or shared image gallery.
+
 Select **Save draft**, then select **← Plan overview** at the top left to see the plan you just created.
+
+Once your VM image has published, you can delete the image from your Azure storage.
 
 ## Next steps
 

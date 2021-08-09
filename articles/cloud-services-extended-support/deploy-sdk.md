@@ -1,6 +1,6 @@
 ---
-title: Deploy a Cloud Service (extended support) - SDK
-description: Deploy a Cloud Service (extended support) using the Azure SDK
+title: Deploy Cloud Services (extended support) - SDK
+description: Deploy Cloud Services (extended support) by using the Azure SDK
 ms.topic: tutorial
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -10,19 +10,16 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
 
-# Deploy a Cloud Services (extended support) using SDK
+# Deploy Cloud Services (extended support) by using the Azure SDK
 
-This article shows how to use the [Azure SDK](https://azure.microsoft.com/downloads/) to deploy Cloud Services (extended support) that has multiple roles (WebRole and WorkerRole) and the remote desktop extension. 
-
-> [!IMPORTANT]
-> Cloud Services (extended support) is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This article shows how to use the [Azure SDK](https://azure.microsoft.com/downloads/) to deploy a Cloud Services (extended support) instance that has multiple roles (web role and worker role) and the remote desktop extension. Cloud Services (extended support) is a deployment model of Azure Cloud Services that's based on Azure Resource Manager.
 
 ## Before you begin
 
 Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create associated resources.
 
-## Deploy a Cloud Services (extended support)
-1. Install the [Azure Compute SDK NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview) and initialize the client using a standard authentication mechanism.
+## Deploy Cloud Services (extended support)
+1. Install the [Azure Compute SDK NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview) and initialize the client by using a standard authentication mechanism.
 
     ```csharp
         public class CustomLoginCredentials : ServiceClientCredentials
@@ -68,7 +65,7 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
     resourceGroup = await resourceGroups.CreateOrUpdateAsync(resourceGroupName, resourceGroup);
     ```
 
-3. Create a storage account and container which will be used to store the Cloud Service package (.cspkg) and Service Configuration (.cscfg) files. Install the [Azure Storage NuGet package](https://www.nuget.org/packages/Azure.Storage.Common/). This step is optional if using an existing storage account. The storage account name must be unique.
+3. Create a storage account and container where you'll store the service package (.cspkg) and service configuration (.cscfg) files. Install the [Azure Storage NuGet package](https://www.nuget.org/packages/Azure.Storage.Common/). This step is optional if you're using an existing storage account. The storage account name must be unique.
 
     ```csharp
     string storageAccountName = “ContosoSAS”
@@ -104,7 +101,7 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
     sasConstraints.Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Write;
     ```
 
-4. Upload the Cloud Service package (.cspkg) file to the storage account. The package URL can be a Shared Access Signature (SAS) URI from any storage account.
+4. Upload the service package (.cspkg) file to the storage account. The package URL can be a shared access signature (SAS) URI from any storage account.
 
     ```csharp
     CloudBlockBlob cspkgblockBlob = container.GetBlockBlobReference(“ContosoApp.cspkg”);
@@ -117,7 +114,7 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
     string cspkgSASUrl = cspkgblockBlob.Uri + cspkgsasContainerToken;
     ```
 
-5. Upload your cloud service configuration (.cscfg) to the storage account. Service Configuration can be specified either as string XML or URL format.
+5. Upload your service configuration (.cscfg) file to the storage account. Specify service configuration as either string XML or URL format.
 
     ```csharp
     CloudBlockBlob cscfgblockBlob = container.GetBlockBlobReference(“ContosoApp.cscfg”);
@@ -130,7 +127,7 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
     string cscfgSASUrl = cscfgblockBlob.Uri + sasCscfgContainerToken;
     ```
 
-6. Create a virtual network and subnet. Install the [Azure Network NuGet package](https://www.nuget.org/packages/Azure.ResourceManager.Network/). This step is optional if using an existing network and subnet.
+6. Create a virtual network and subnet. Install the [Azure Network NuGet package](https://www.nuget.org/packages/Azure.ResourceManager.Network/). This step is optional if you're using an existing network and subnet.
 
     ```csharp
     VirtualNetwork vnet = new VirtualNetwork(name: vnetName) 
@@ -151,7 +148,8 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
     m_NrpClient.VirtualNetworks.CreateOrUpdate(resourceGroupName, “ContosoVNet”, vnet);
     ```
 
-7. Create a public IP address and (optionally) set the DNS label property of the public IP address. If you are using a static IP, it needs to referenced as a Reserved IP in Service Configuration file.
+7. Create a public IP address and set the DNS label property of the public IP address. Cloud Services (extended support) only supports [Basic](/azure/virtual-network/public-ip-addresses#basic) SKU Public IP addresses. Standard SKU Public IPs do not work with Cloud Services.
+If you are using a Static IP you need to reference it as a Reserved IP in Service Configuration (.cscfg) file
 
     ```csharp
     PublicIPAddress publicIPAddressParams = new PublicIPAddress(name: “ContosIp”) 
@@ -166,7 +164,7 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
     PublicIPAddress publicIpAddress = m_NrpClient.PublicIPAddresses.CreateOrUpdate(resourceGroupName, publicIPAddressName, publicIPAddressParams);
     ```
 
-8. Create Network Profile Object and associate public IP address to the frontend of the platform created load balancer.
+8. Create a Network Profile Object and associate the public IP address to the frontend of the load balancer. The Azure platform automatically creates a 'Classic' SKU load balancer resource in the same subscription as the cloud service resource. The load balancer resource is a read-only resource in ARM. Any updates to the resource are supported only via the cloud service deployment files (.cscfg & .csdef)
 
     ```csharp
     LoadBalancerFrontendIPConfiguration feipConfiguration = new LoadBalancerFrontendIPConfiguration() 
@@ -201,32 +199,32 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
     
     ```
 
-9. Create a Key Vault. This Key Vault will be used to store certificates that are associated with the Cloud Service (extended support) roles. The Key Vault must be located in the same region and subscription as cloud service and have a unique name. For more information, see [Use certificates with Azure Cloud Services (extended support)](certificates-and-key-vault.md).
+9. Create a key vault. This key vault will be used to store certificates that are associated with the Cloud Services (extended support) roles. The key vault must be located in the same region and subscription as the  Cloud Services (extended support) instance and have a unique name. For more information, see [Use certificates with Azure Cloud Services (extended support)](certificates-and-key-vault.md).
 
     ```powershell
     New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosoOrg” -Location “East US”
     ```
 
-10. Update the Key Vault access policy and grant certificate permissions to your user account.
+10. Update the key vault's access policy and grant certificate permissions to your user account.
 
     ```powershell
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosoOrg' 		-UserPrincipalName 'user@domain.com' -PermissionsToCertificates create,get,list,delete
     ```
 
-    Alternatively, set access policy via ObjectId (which can be obtained by running Get-	AzADUser)
+    Alternatively, set the access policy via object ID (which you can get by running `Get-AzADUser`).
 
     ```powershell
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -		ObjectId 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' -PermissionsToCertificates 			create,get,list,delete
     ```
 
-11. In this example we will add a self-signed certificate to a Key Vault. The certificate thumbprint needs to be added in Cloud Service Configuration (.cscfg) file for deployment on cloud service roles.
+11. In this example, we'll add a self-signed certificate to a key vault. The certificate thumbprint needs to be added in the service configuration (.cscfg) file for deployment on Cloud Services (extended support) roles.
 
     ```powershell
     $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -		SubjectName "CN=contoso.com" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal 
     Add-AzKeyVaultCertificate -VaultName "ContosKeyVault" -Name "ContosCert" -		CertificatePolicy $Policy
     ```
 
-12. Create an OS Profile object. OS Profile specifies the certificates, which are associated to cloud service roles. This will be the same certificate created in the previous step.
+12. Create an OS profile object. The OS profile specifies the certificates that are associated with Cloud Services (extended support) roles. Here, it's the same certificate that we created in the previous step.
 
     ```csharp
     CloudServiceOsProfile cloudServiceOsProfile = 
@@ -242,7 +240,9 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
            };
     ```
 
-13. Create a Role Profile object. Role profile defines a role sku specific properties such as name, capacity and tier. In this example, we have defined two roles: frontendRole and backendRole. Role profile information should match the role configuration defined in configuration (cscfg) file and service definition (csdef) file.
+13. Create a role profile object. A role profile defines role-specific properties for a SKU, such as name, capacity, and tier. 
+
+    In this example, we define two roles: ContosoFrontend and ContosoBackend. Role profile information should match the role configuration defined in the service configuration (.cscfg) file and the service definition (.csdef) file.
 
     ```csharp
     CloudServiceRoleProfile cloudServiceRoleProfile = new CloudServiceRoleProfile()
@@ -276,7 +276,7 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
                     }
     ```
 
-14. (Optional) Create an Extension Profile object that you want to add to your cloud service. In this example we will add RDP extension.
+14. (Optional) Create an extension profile object that you want to add to your Cloud Services (extended support) instance. In this example, we add an RDP extension.
 
     ```csharp
     string rdpExtensionPublicConfig = "<PublicConfig>" +
@@ -308,7 +308,7 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
         };
     ```
 
-15. Create Cloud Service deployment.
+15. Create the deployment of the Cloud Services (extended support) instance.
 
     ```csharp
     CloudService cloudService = new CloudService
@@ -317,7 +317,7 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
                 {
                     RoleProfile = cloudServiceRoleProfile
                     Configuration = < Add Cscfg xml content here>,
-                    // ConfigurationUrl = <Add you configuration URL here>,
+                    // ConfigurationUrl = <Add your configuration URL here>,
                     PackageUrl = <Add cspkg SAS url here>,
                     ExtensionProfile = cloudServiceExtensionProfile,
                     OsProfile= cloudServiceOsProfile,
@@ -331,6 +331,6 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
     ```
 
 ## Next steps
-- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
-- Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).
-- Visit the [Cloud Services (extended support) samples repository](https://github.com/Azure-Samples/cloud-services-extended-support)
+- Review [frequently asked questions](faq.yml) for Cloud Services (extended support).
+- Deploy Cloud Services (extended support) by using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), a [template](deploy-template.md), or [Visual Studio](deploy-visual-studio.md).
+- Visit the [Samples repository for Cloud Services (extended support)](https://github.com/Azure-Samples/cloud-services-extended-support)

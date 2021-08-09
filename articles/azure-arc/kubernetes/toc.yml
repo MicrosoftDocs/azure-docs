@@ -1,31 +1,77 @@
-- name: Azure Arc enabled Kubernetes Documentation
+- name: Azure Arc-enabled Kubernetes
   href: index.yml
 - name: Overview
   items:
-  - name: About Arc enabled Kubernetes
+  - name: About Azure Arc-enabled Kubernetes
     href: overview.md
+  - name: Azure Arc validated partners
+    href: validation-program.md
+- name: Quickstarts
+  items:
+  - name: Connect a cluster to Azure Arc
+    href: quickstart-connect-cluster.md
+- name: Tutorials
+  items:
+  - name: Deploy configurations using GitOps
+    href: tutorial-use-gitops-connected-cluster.md
+  - name: Implement CI/CD with GitOps
+    href: tutorial-gitops-ci-cd.md
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
+- name: Concepts
+  items:
+  - name: Agent architecture
+    href: conceptual-agent-architecture.md
+  - name: Configurations and GitOps
+    href: conceptual-configurations.md
+  - name: Cluster extensions
+    href: conceptual-extensions.md
+  - name: Cluster connect
+    href: conceptual-cluster-connect.md
+  - name: Custom locations
+    href: conceptual-custom-locations.md
+  - name: Azure RBAC
+    href: conceptual-azure-rbac.md
+  - name: Frequently Asked Questions
+    href: faq.md
+  - name: CI/CD workflow using GitOps
+    href: conceptual-gitops-ci-cd.md
+  - name: Inner loop developer experience
+    href: conceptual-inner-loop-gitops.md  
 - name: How-to guides
   items:
-  - name: Connect to Azure Arc
+  - name: Connect cluster using service principal
+    href: create-onboarding-service-principal.md
+  - name: Upgrade agents
+    href: agent-upgrade.md
+  - name: Scenarios
     items:
-    - name: Connect cluster
-      href: connect-cluster.md
-    - name: Onboarding service principal
-      href: create-onboarding-service-principal.md
-  - name: Manage
-    items:
-    - name: Deploy configurations using GitOps
-      href: use-gitops-connected-cluster.md
     - name: Deploy Helm charts using GitOps
       href: use-gitops-with-helm.md
     - name: Enforce GitOps using Azure Policy
       href: use-azure-policy.md
+    - name: Deploy and manage cluster extensions
+      href: extensions.md
     - name: Monitor using Azure Monitor for containers
-      href: ../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.yml
+      href: ../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json
+    - name: Enforce threat protection using Azure Defender
+      href: ../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json
     - name: Admission control policies using Azure Policy
-      href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.yml
+      href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
+    - name: Deploy Arc enabled Open Service Mesh
+      href: tutorial-arc-enabled-open-service-mesh.md
+    - name: Securely connect to cluster from anywhere
+      href: cluster-connect.md
+    - name: Use Azure AD RBAC for authorization checks
+      href: azure-rbac.md
+    - name: Create custom locations
+      href: custom-locations.md
     - name: Deploy IoT workloads
       href: deploy-azure-iot-edge-workloads.md
+    - name: Arc enabled Machine Learning
+      href: ../../machine-learning/how-to-attach-arc-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
   - name: Troubleshooting
     href: Troubleshooting.md
 - name: Reference
@@ -37,5 +83,7 @@
     href: /powershell/module/Az.ConnectedKubernetes/
 - name: Resources
   items:
+    - name: Plan for deployment
+      href: plan-at-scale-deployment.md
     - name: Azure Arc jumpstart
       href: https://azurearcjumpstart.io

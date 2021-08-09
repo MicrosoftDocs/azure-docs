@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 04/06/2021
 ms.author: jeedes
 ---
 
@@ -45,7 +45,6 @@ To configure the integration of EasySSO for BitBucket into Azure AD, you need to
 1. To add a new application, select **New application**.
 1. In the **Add from the gallery** section, type **EasySSO for BitBucket** in the search box.
 1. Select **EasySSO for BitBucket** from the results, and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for EasySSO for BitBucket
 
@@ -127,9 +126,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the Azure portal, select **Enterprise Applications** > **All applications**.
 1. In the applications list, select **EasySSO for BitBucket**.
 1. In the app's overview page, find the **Manage** section, and select **Users and groups**.
-
 1. Select **Add user**. In the **Add Assignment** dialog box, select **Users and groups**.
-
 1. In the **Users and groups** dialog box, select **B.Simon** from the **Users** list, and then choose **Select** at the bottom of the screen.
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog box, select **Assign**.

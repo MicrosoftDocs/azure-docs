@@ -3,7 +3,6 @@ title: Azure Key Vault Keys, Secrets, and Certificates Overview
 description: Overview of Azure Key Vault REST interface and developer details for keys, secrets and certificates.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -40,7 +39,7 @@ Software-protected keys|/keys|Supported|Not supported
 **Other object types**||
 Secrets|/secrets|Supported|Not supported
 Certificates|/certificates|Supported|Not supported
-Storage account keys|/storageaccount|Supported|Not supported
+Storage account keys|/storage|Supported|Not supported
 |||
 - **Cryptographic keys**: Supports multiple key types and algorithms, and enables the use of software-protected and HSM-protected keys. For more information, see [About keys](../keys/about-keys.md).
 - **Secrets**: Provides secure storage of secrets, such as passwords and database connection strings. For more information, see [About secrets](../secrets/about-secrets.md).

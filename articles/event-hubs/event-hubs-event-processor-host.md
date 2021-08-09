@@ -2,7 +2,7 @@
 title: Receive events using Event Processor Host - Azure Event Hubs | Microsoft Docs
 description: This article describes the Event Processor Host in Azure Event Hubs, which simplifies the management of checkpointing, leasing, and reading events ion parallel. 
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 08/04/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -79,6 +79,9 @@ Next, instantiate an [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.
 - **consumerGroupName:** Event Hubs uses **$Default** as the name of the default consumer group, but it is a good practice to create a consumer group for your specific aspect of processing.
 - **eventHubConnectionString:** The connection string to the event hub, which can be retrieved from the Azure portal. This connection string should have **Listen** permissions on the event hub.
 - **storageConnectionString:** The storage account used for internal resource management.
+
+> [!IMPORTANT]
+> Don't enable the soft delete feature on the storage account that's used as a checkpoint store. 
 
 Finally, consumers register the [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) instance with the Event Hubs service. Registering an event processor class with an instance of EventProcessorHost starts event processing. Registering instructs the Event Hubs service to expect that the consumer app consumes events from some of its partitions, and to invoke the [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementation code whenever it pushes events to consume. 
 
@@ -194,5 +197,5 @@ Now that you're familiar with the Event Processor Host, see the following articl
     - [JavaScript](event-hubs-node-get-started-send.md)
 * [Event Hubs programming guide](event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
+* [Event Hubs FAQ](event-hubs-faq.yml)
 * [Event Hubs samples on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)

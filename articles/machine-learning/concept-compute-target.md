@@ -8,8 +8,8 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 09/29/2020
-# As a data scientist, I want to understand what a compute target is and why I need it.
+ms.date: 07/27/2021
+#Customer intent: As a data scientist, I want to understand what a compute target is and why I need it.
 ---
 
 # What are compute targets in Azure Machine Learning?
@@ -34,23 +34,9 @@ Learn more about how to [submit a training run to a compute target](how-to-set-u
 
 ## <a name="deploy"></a> Compute targets for inference
 
-The following compute resources can be used to host your model deployment.
+When performing inference, Azure Machine Learning creates a Docker container that hosts the model and associated resources needed to use it. This container is then used in a compute target.
 
-[!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
-
-When performing inference, Azure Machine Learning creates a Docker container that hosts the model and associated resources needed to use it. This container is then used in one of the following deployment scenarios:
-
-* As a *web service* that's used for real-time inference. Web service deployments use one of the following compute targets:
-
-    * [Local computer](how-to-attach-compute-targets.md#local)
-    * [Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md)
-    * [Azure Container Instances](how-to-attach-compute-targets.md#aci)
-    * [Azure Kubernetes Service](how-to-create-attach-kubernetes.md)
-    * Azure Functions (preview). Deployment to Functions only relies on Azure Machine Learning to build the Docker container. From there, it's deployed by using Functions. For more information, see [Deploy a machine learning model to Azure Functions (preview)](how-to-deploy-functions.md).
-
-* As a _batch inference_ endpoint that's used to periodically process batches of data. Batch inferences use [Azure Machine Learning compute clusters](how-to-create-attach-compute-cluster.md).
-
-* To an _IoT device_ (preview). Deployment to an IoT device only relies on Azure Machine Learning to build the Docker container. From there, it's deployed by using Azure IoT Edge. For more information, see [Deploy as an IoT Edge module (preview)](../iot-edge/tutorial-deploy-machine-learning.md).
+[!INCLUDE [aml-deploy-target](../../includes/aml-compute-target-deploy.md)]
 
 Learn [where and how to deploy your model to a compute target](how-to-deploy-and-where.md).
 
@@ -62,11 +48,10 @@ A managed compute resource is created and managed by Azure Machine Learning. Thi
 You can create Azure Machine Learning compute instances or compute clusters from:
 
 * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md).
-* The Python SDK and CLI:
+* The Python SDK and the Azure CLI:
     * [Compute instance](how-to-create-manage-compute-instance.md).
     * [Compute cluster](how-to-create-attach-compute-cluster.md).
-* The [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (preview).
-* An Azure Resource Manager template. For an example template, see [Create an Azure Machine Learning compute cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
+* An Azure Resource Manager template. For an example template, see [Create an Azure Machine Learning compute cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-amlcompute).
 * A machine learning [extension for the Azure CLI](reference-azure-machine-learning-cli.md#resource-management).
 
 When created, these compute resources are automatically part of your workspace, unlike other kinds of compute targets.
@@ -74,7 +59,7 @@ When created, these compute resources are automatically part of your workspace, 
 
 |Capability  |Compute cluster  |Compute instance  |
 |---------|---------|---------|
-|Single- or multi-node cluster     |    **&check;**       |         |
+|Single- or multi-node cluster     |    **&check;**       |    Single node cluster     |
 |Autoscales each time you submit a run     |     **&check;**      |         |
 |Automatic cluster management and job scheduling     |   **&check;**        |     **&check;**      |
 |Support for both CPU and GPU resources     |  **&check;**         |    **&check;**       |
@@ -94,24 +79,31 @@ There are a few exceptions and limitations to choosing a VM size:
 
 See the following table to learn more about supported series and restrictions.
 
-| **Supported VM series**  | **Restrictions** |
-|------------|------------|
-| D | None. |
-| Dv2 | None. |  
-| Dv3 | None.|
-| DSv2 | None. | 
-| DSv3 | None.|
-| FSv2 | None. | 
-| HBv2 | Requires approval. |  
-| HCS | Requires approval. |  
-| M | Requires approval. |
-| NC | None. |    
-| NCsv2 | Requires approval. |
-| NCsv3 | Requires approval. |  
-| NDs | Requires approval. |
-| NDv2 | Requires approval. |
-| NV | None. |
-| NVv3 | Requires approval. | 
+| **Supported VM series**  | **Restrictions** | **Category** | **Supported by** |
+|------------|------------|------------|------------|
+| [DDSv4](../virtual-machines/ddv4-ddsv4-series.md#ddsv4-series) | None. | General purpose | Compute clusters and instance |
+| [Dv2](../virtual-machines/dv2-dsv2-series.md#dv2-series) | None. | General purpose | Compute clusters and instance |
+| [Dv3](../virtual-machines/dv3-dsv3-series.md#dv3-series) | None.| General purpose | Compute clusters and instance |
+| [DSv2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) | None. | General purpose | Compute clusters and instance |
+| [DSv3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) | None.| General purpose | Compute clusters and instance |
+| [EAv4](../virtual-machines/eav4-easv4-series.md) | None. | Memory optimized | Compute clusters and instance |
+| [Ev3](../virtual-machines/ev3-esv3-series.md) | None. | Memory optimized | Compute clusters and instance |
+| [FSv2](../virtual-machines/fsv2-series.md) | None. | Compute optimized | Compute clusters and instance |
+| [H](../virtual-machines/h-series.md) | None. | High performance compute | Compute clusters and instance |
+| [HB](../virtual-machines/hb-series.md) | Requires approval. | High performance compute | Compute clusters and instance |
+| [HBv2](../virtual-machines/hbv2-series.md) | Requires approval. |  High performance compute | Compute clusters and instance |
+| [HC](../virtual-machines/hc-series.md) | Requires approval. |  High performance compute | Compute clusters and instance |
+| [M](../virtual-machines/m-series.md) | Requires approval. | Memory optimized | Compute clusters and instance |
+| [NC](../virtual-machines/nc-series.md) | None. |  GPU | Compute clusters and instance |
+| [NC Promo](../virtual-machines/nc-series.md) | None. | GPU | Compute clusters and instance |
+| [NCv2](../virtual-machines/ncv2-series.md) | Requires approval. | GPU | Compute clusters and instance |
+| [NCv3](../virtual-machines/ncv3-series.md) | Requires approval. | GPU | Compute clusters and instance |
+| [ND](../virtual-machines/nd-series.md) | Requires approval. | GPU | Compute clusters and instance |
+| [NDv2](../virtual-machines/ndv2-series.md) | Requires approval. | GPU | Compute clusters and instance |
+| [NV](../virtual-machines/nv-series.md) | None. | GPU | Compute clusters and instance |
+| [NVv3](../virtual-machines/nvv3-series.md) | Requires approval. | GPU | Compute clusters and instance |
+| [NCasT4_v3](../virtual-machines/nct4-v3-series.md) | Requires approval. | GPU | Compute clusters and instance |
+| [NDasrA100_v4](../virtual-machines/nda100-v4-series.md) | Requires approval. | GPU | Compute clusters and instance |
 
 
 While Azure Machine Learning supports these VM series, they might not be available in all Azure regions. To check whether VM series are available, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
@@ -119,8 +111,24 @@ While Azure Machine Learning supports these VM series, they might not be availab
 > [!NOTE]
 > Azure Machine Learning doesn't support all VM sizes that Azure Compute supports. To list the available VM sizes, use one of the following methods:
 > * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
-> * [Python SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py.md#supported-vmsizes-workspace--location-none-)
+> * [Python SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#supported-vmsizes-workspace--location-none-)
 >
+
+If using the GPU-enabled compute targets, it is important to ensure that the correct CUDA drivers are installed in the training environment. Use the following table to determine the correct CUDA version to use:
+
+| **GPU Architecture**  | **Azure VM Series** | **Supported CUDA versions** |
+|------------|------------|------------|
+| Ampere | NDA100_v4 | 11.0+ |
+| Turing | NCT4_v3 | 10.0+ |
+| Volta | NCv3, NDv2 | 9.0+ |
+| Pascal | NCv2, ND | 9.0+ |
+| Maxwell | NV, NVv3 | 9.0+ |
+| Kepler | NC, NC Promo| 9.0+ |
+
+In addition to ensuring the CUDA version and hardware are compatible, also ensure that the CUDA version is compatible with the version of the machine learning framework you are using: 
+
+- For PyTorch, you can check the compatibility [here](https://pytorch.org/get-started/previous-versions/). 
+- For Tensorflow, you can check the compatibility [here](https://www.tensorflow.org/install/source#gpu).
 
 ### Compute isolation
 
@@ -139,7 +147,20 @@ To learn more about isolation, see [Isolation in the Azure public cloud](../secu
 
 ## Unmanaged compute
 
-An unmanaged compute target is *not* managed by Azure Machine Learning. You create this type of compute target outside Azure Machine Learning and then attach it to your workspace. Unmanaged compute resources can require additional steps for you to maintain or to improve performance for machine learning workloads.
+An unmanaged compute target is *not* managed by Azure Machine Learning. You create this type of compute target outside Azure Machine Learning and then attach it to your workspace. Unmanaged compute resources can require additional steps for you to maintain or to improve performance for machine learning workloads. 
+
+Azure Machine Learning supports the following unmanaged compute types:
+
+* Your local computer
+* Remote virtual machines
+* Azure HDInsight
+* Azure Batch
+* Azure Databricks
+* Azure Data Lake Analytics
+* Azure Container Instance
+* Azure Kubernetes Service & Azure Arc enabled Kubernetes (preview)
+
+For more information, see [set up compute targets for model training and deployment](how-to-attach-compute-targets.md)
 
 ## Next steps
 

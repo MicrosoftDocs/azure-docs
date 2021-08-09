@@ -4,7 +4,7 @@ description: This article lists Azure Security Center's security recommendations
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 02/09/2021
+ms.date: 07/25/2021
 ms.author: memildin
 ms.custom: generated
 ---
@@ -36,9 +36,17 @@ impact on your secure score.
 > protection solution should be installed..."). The underlying recommendation _does_ have a policy.
 > Limiting the policies to only the foundational recommendation simplifies policy management.
 
+## <a name='recs-appservices'></a>AppServices recommendations
+
+[!INCLUDE [asc-recs-appservices](../../includes/asc-recs-appservices.md)]
+
 ## <a name='recs-compute'></a>Compute recommendations
 
 [!INCLUDE [asc-recs-compute](../../includes/asc-recs-compute.md)]
+
+## <a name='recs-container'></a>Container recommendations
+
+[!INCLUDE [asc-recs-container](../../includes/asc-recs-container.md)]
 
 ## <a name='recs-data'></a>Data recommendations
 
@@ -48,22 +56,29 @@ impact on your secure score.
 
 [!INCLUDE [asc-recs-identityandaccess](../../includes/asc-recs-identityandaccess.md)]
 
+## <a name='recs-iot'></a>IoT recommendations
+
+[!INCLUDE [asc-recs-iot](../../includes/asc-recs-iot.md)]
+
 ## <a name='recs-networking'></a>Networking recommendations
 
 [!INCLUDE [asc-recs-networking](../../includes/asc-recs-networking.md)]
 
 ## Deprecated recommendations
 
-|Recommendation|Description & related policy|Severity|Quick fix enabled?([Learn more](security-center-remediate-recommendations.md#quick-fix-remediation))|Resource type|
-|----|----|----|----|----|
-|**Access to App Services should be restricted**|Restrict access to your App Services by changing the networking configuration, to deny inbound traffic from ranges that are too broad.<br>(Related policy: [Preview]: Access to App Services should be restricted)|High|N|App service|
-|**The rules for web applications on IaaS NSGs should be hardened**|Harden the network security group (NSG) of your virtual machines that are running web applications, with NSG rules that are overly permissive with regards to web application ports.<br>(Related policy: The NSGs rules for web applications on IaaS should be hardened)|High|N|Virtual machine|
-|**Pod Security Policies should be defined to reduce the attack vector by removing unnecessary application privileges (Preview)**|Define Pod Security Policies to reduce the attack vector by removing unnecessary application privileges. It is recommended to configure pod security policies so pods can only access resources which they are allowed to access.<br>(Related policy: [Preview]: Pod Security Policies should be defined on Kubernetes Services)|Medium|N|Compute resources (Containers)|
-|**Install Azure Security Center for IoT security module to get more visibility into your IoT devices**|Install Azure Security Center for IoT security module to get more visibility into your IoT devices.|Low|N|IoT device|
+|Recommendation|Description & related policy|Severity|
+|----|----|----|
+|Access to App Services should be restricted|Restrict access to your App Services by changing the networking configuration, to deny inbound traffic from ranges that are too broad.<br>(Related policy: [Preview]: Access to App Services should be restricted)|High|
+|The rules for web applications on IaaS NSGs should be hardened|Harden the network security group (NSG) of your virtual machines that are running web applications, with NSG rules that are overly permissive with regard to web application ports.<br>(Related policy: The NSGs rules for web applications on IaaS should be hardened)|High|
+|Pod Security Policies should be defined to reduce the attack vector by removing unnecessary application privileges (Preview)|Define Pod Security Policies to reduce the attack vector by removing unnecessary application privileges. It is recommended to configure pod security policies so pods can only access resources which they are allowed to access.<br>(Related policy: [Preview]: Pod Security Policies should be defined on Kubernetes Services)|Medium|
+|Install Azure Security Center for IoT security module to get more visibility into your IoT devices|Install Azure Security Center for IoT security module to get more visibility into your IoT devices.|Low|
+|Your machines should be restarted to apply system updates|Restart your machines to apply the system updates and secure the machine from vulnerabilities. (Related policy: System updates should be installed on your machines)|Medium|
+|Monitoring agent should be installed on your machines|This action installs a monitoring agent on the selected virtual machines. Select a workspace for the agent to report to. (No related policy)|High|
+||||
 
 ## Next steps
 
 To learn more about recommendations, see the following:
 
-- [Security recommendations in Azure Security Center](security-center-recommendations.md)
-- [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
+- [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
+- [Review your security recommendations](security-center-recommendations.md)

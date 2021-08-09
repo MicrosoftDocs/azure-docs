@@ -1,18 +1,18 @@
 ---
-title: Manage and find Azure Blob data with blob index tags (preview)
+title: Manage and find Azure Blob data with blob index tags
 description: Learn how to use blob index tags to categorize, manage, and query for blob objects.
-author: mhopkins-msft
+author: normesta
 
-ms.author: mhopkins
-ms.date: 10/19/2020
+ms.author: normesta
+ms.date: 06/14/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
-# Manage and find Azure Blob data with blob index tags (preview)
+# Manage and find Azure Blob data with blob index tags
 
 As datasets get larger, finding a specific object in a sea of data can be difficult. Blob index tags provide data management and discovery capabilities by using key-value index tag attributes. You can categorize and find objects within a single container or across all containers in your storage account. As data requirements change, objects can be dynamically categorized by updating their index tags. Objects can remain in-place with their current container organization.
 
@@ -38,7 +38,6 @@ Consider the following five blobs in your storage account:
 - *photos/bannerphoto.png*
 - *archives/completed/2019review.pdf*
 - *logs/2020/01/01/logfile.txt*
-
 
 These blobs are separated using a prefix of *container/virtual folder/blob name*. You can set an index tag attribute of `Project = Contoso` on these five blobs to categorize them together while maintaining their current prefix organization. Adding index tags eliminates the need to move data by exposing the ability to filter and find data using the index.
 
@@ -108,6 +107,7 @@ The following criteria applies to blob index filtering:
 - Filters are applied with lexicographic sorting on strings
 - Same sided range operations on the same key are invalid (for example, `"Rank" > '10' AND "Rank" >= '15'`)
 - When using REST to create a filter expression, characters should be URI encoded
+- Tag queries are optimized for equality match using a single tag (e.g. StoreID = "100").  Range queries using a single tag involving >, >=, <, <= are also efficient. Any query using AND with more than one tag will not be as efficient.  For example, Cost > "01" AND Cost <= "100" is efficient. Cost > "01 AND StoreID = "2" is not as efficient.
 
 The below table shows all the valid operators for `Find Blobs by Tags`:
 
@@ -215,7 +215,7 @@ The following sample lifecycle management rule applies to block blobs in a conta
 
 You can authorize access to blob index tags using one of the following approaches:
 
-- Using Azure role-based access control (Azure RBAC) to grant permissions to an Azure Active Directory (Azure AD) security principal. Use Azure AD for superior security and ease of use. For more information about using Azure AD with blob operations, see [Authorize access to blobs and queues using Azure Active Directory](../common/storage-auth-aad.md).
+- Using Azure role-based access control (Azure RBAC) to grant permissions to an Azure Active Directory (Azure AD) security principal. Use Azure AD for superior security and ease of use. For more information about using Azure AD with blob operations, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
 - Using a shared access signature (SAS) to delegate access to blob index. For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md).
 - Using the account access keys to authorize operations with Shared Key. For more information, see [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key).
 
@@ -223,7 +223,7 @@ Blob index tags are a subresource to the blob data. A user with permissions or a
 
 ### Role-based access control
 
-Callers using an [Azure AD identity](../common/storage-auth-aad.md) may be granted the following permissions to operate on blob index tags.
+Callers using an [Azure AD identity](../common/authorize-data-access.md) may be granted the following permissions to operate on blob index tags.
 
 | Blob index tag operations                                          | Azure RBAC action                                                             |
 |--------------------------------------------------------------------|-------------------------------------------------------------------------------|
@@ -275,60 +275,33 @@ The following table summarizes the differences between metadata and blob index t
 
 ## Pricing
 
-Blob index pricing is in public preview and subject to change for general availability. You're charged for the monthly average number of index tags within a storage account. There's no cost for the indexing engine. Requests to `Set Blob Tags`, `Get Blob Tags`, and `Find Blobs by Tags` are charged in accordance to their respective operation types. See [Block Blob pricing to learn more](https://azure.microsoft.com/pricing/details/storage/blobs/).
+You're charged for the monthly average number of index tags within a storage account. There's no cost for the indexing engine. Requests to Set Blog Tags, Get Blob Tags, and Find Blob Tags are charged at the current respective transaction rates. Note that the number of list transactions consumed when doing a Find Blobs by Tag transaction is equal to the number of clauses in the request. For example, the query (StoreID = 100) is one list transaction.  The query (StoreID = 100 AND SKU = 10010) is two list transactions. See [Block Blob pricing to learn more](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## Regional availability and storage account support
 
-Blob index tags are only available on General Purpose v2 (GPv2) accounts with hierarchical namespace (HNS) disabled. General Purpose (GPV1) accounts aren't supported but you can upgrade any GPv1 account to a GPv2 account.
+Blob index tags are only available on general-purpose v2 accounts with hierarchical namespace (HNS) disabled. General-purpose v1 accounts aren't supported, but you can upgrade any general-purpose v1 account to a general-purpose v2 account.
 
 Index tags aren't supported on Premium storage accounts. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
 
-In public preview, blob index tags are only available in the following regions:
-
-- Canada Central
-- Canada East
-- France Central
-- France South
+Blob index tags are currently available in all public regions.
 
 To get started, see [Use blob index tags to manage and find data](storage-blob-index-how-to.md).
 
 > [!IMPORTANT]
-> You must register your subscription before you can use the blob index preview on your storage accounts. See the [Conditions and known issues](#conditions-and-known-issues) section of this article.
-
-### Register your subscription (preview)
-
-Because the blob index tags are only in public preview, you'll need to register your subscription before you can use the feature. To submit a request, run the following PowerShell or CLI commands.
-
-#### Register by using PowerShell
-
-```powershell
-Register-AzProviderFeature -FeatureName BlobIndex -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-#### Register by using Azure CLI
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name BlobIndex
-az provider register --namespace 'Microsoft.Storage'
-```
+> You must register your subscription before you can use the blob index on your storage accounts. See the [Conditions and known issues](#conditions-and-known-issues) section of this article.
 
 ## Conditions and known issues
 
-This section describes known issues and conditions in the public preview of blob index tags. This feature shouldn't be used for production workloads until it reaches general availability (GA) as behavior may change.
+This section describes known issues and conditions.
 
-- For preview, you must first register your subscription before you can use blob index for your storage account in the preview regions.
-- Only GPv2 accounts are supported in preview. Blob, BlockBlobStorage, and HNS enabled DataLake Gen2 accounts aren't supported. GPv1 accounts won't be supported.
+- Only general-purpose v2 accounts are supported. Premium block blob, legacy blob, and accounts with a hierarchical namespace enabled aren't supported. General-purpose v1 accounts won't be supported.
 - Uploading page blobs with index tags doesn't persist the tags. Set the tags after uploading a page blob.
 - When filtering is scoped to a single container, the `@container` can only be passed if all the index tags in the filter expression are equality checks (key=value).
 - When using the range operator with the `AND` condition, you can only specify the same index tag key name (`"Age" > '013' AND "Age" < '100'`).
-- Versioning and blob index aren't supported. Blob index tags are preserved for versions but aren't passed to the blob index engine.
+- If Versioning is enabled, you can still use index tags on the current version. For previous versions, index tags are preserved for versions but aren't passed to the blob index engine. You cannot query index tags to retrieve previous versions.
 - There is no API to determine if index tags are indexed.
-- Account failover isn't supported. The blob index may not update properly after failover.
 - Lifecycle management only supports equality checks with blob index match.
 - `Copy Blob` doesn't copy blob index tags from the source blob to the new destination blob. You can specify the tags you want applied to the destination blob during the copy operation.
-- `Copy Blob` (Async copy) from another storage account with applied tags on the destination blob causes the blob index engine to not return the blob and its tags in the filter set. Use `Copy Blob` from URL (Sync copy).
-- Tags are persisted on snapshot creation. However, promoting a snapshot isn't supported and may result in an empty tag set.
 
 ## FAQ
 

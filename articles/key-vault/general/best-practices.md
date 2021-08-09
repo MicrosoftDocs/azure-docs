@@ -20,7 +20,7 @@ Our recommendation is to use a vault per application per environment (Developmen
 
 ## Control Access to your vault
 
-Azure Key Vault is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords. Because this data is sensitive and business critical, you need to secure access to your key vaults by allowing only authorized applications and users. This [article](secure-your-key-vault.md) provides an overview of the Key Vault access model. It explains authentication and authorization, and describes how to secure access to your key vaults.
+Azure Key Vault is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords. Because this data is sensitive and business critical, you need to secure access to your key vaults by allowing only authorized applications and users. This [article](security-features.md) provides an overview of the Key Vault access model. It explains authentication and authorization, and describes how to secure access to your key vaults.
 
 Suggestions while controlling access to your vault are as follows:
 1. Lock down access to your subscription, resource group and Key Vaults (Azure RBAC)
@@ -40,9 +40,9 @@ Make sure you take regular back ups of your vault on update/delete/create of obj
 
 ### Azure CLI Backup Commands
 
-* [Backup Certificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-backup)
-* [Backup Key](/cli/azure/keyvault/key#az-keyvault-key-backup)
-* [Backup Secret](/cli/azure/keyvault/secret#az-keyvault-secret-backup)
+* [Backup Certificate](/cli/azure/keyvault/certificate#az_keyvault_certificate_backup)
+* [Backup Key](/cli/azure/keyvault/key#az_keyvault_key_backup)
+* [Backup Secret](/cli/azure/keyvault/secret#az_keyvault_secret_backup)
 
 
 ## Turn on Logging

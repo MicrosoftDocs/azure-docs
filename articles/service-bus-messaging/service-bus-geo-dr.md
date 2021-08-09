@@ -2,7 +2,7 @@
 title: Azure Service Bus Geo-disaster recovery | Microsoft Docs
 description: How to use geographical regions to fail over and disaster recovery in Azure Service Bus
 ms.topic: article
-ms.date: 02/10/2021
+ms.date: 07/28/2021
 ---
 
 # Azure Service Bus Geo-disaster recovery
@@ -18,7 +18,8 @@ The Service Bus Geo-disaster recovery feature is designed to make it easier to r
 The Geo-Disaster recovery feature ensures that the entire configuration of a namespace (Queues, Topics, Subscriptions, Filters) is continuously replicated from a primary namespace to a secondary namespace when paired, and it allows you to initiate a once-only failover move from the primary to the secondary at any time. The failover move will repoint the chosen alias name for the namespace to the secondary namespace and then break the pairing. The failover is nearly instantaneous once initiated. 
 
 > [!IMPORTANT]
-> The feature enables instant continuity of operations with the same configuration, but **doesn't replicate the messages held in queues or topic subscriptions or dead-letter queues**. To preserve queue semantics, such a replication will require not only the replication of message data, but of every state change in the broker. For most Service Bus namespaces, the required replication traffic would far exceed the application traffic and with high-throughput queues, most messages would still replicate to the secondary while they are already being deleted from the primary, causing excessively wasteful traffic. For high-latency replication routes, which applies to many pairings you would choose for Geo-disaster recovery, it might also be impossible for the replication traffic to sustainably keep up with the application traffic due to latency-induced throttling effects.
+> - The feature enables instant continuity of operations with the same configuration, but **doesn't replicate the messages held in queues or topic subscriptions or dead-letter queues**. To preserve queue semantics, such a replication will require not only the replication of message data, but of every state change in the broker. For most Service Bus namespaces, the required replication traffic would far exceed the application traffic and with high-throughput queues, most messages would still replicate to the secondary while they are already being deleted from the primary, causing excessively wasteful traffic. For high-latency replication routes, which applies to many pairings you would choose for Geo-disaster recovery, it might also be impossible for the replication traffic to sustainably keep up with the application traffic due to latency-induced throttling effects.
+> - Azure Active Directory (Azure AD) role-based access control (RBAC) assignments to Service Bus entities in the primary namespace aren't replicated to the secondary namespace. Create role assignments manually in the secondary namespace to secure access to them. 
  
 > [!TIP]
 > For replicating the contents of queues and topic subscriptions and operating corresponding namespaces in active/active configurations to cope with outages and disasters, don't lean on this Geo-disaster recovery feature set, but follow the [replication guidance](service-bus-federation-overview.md).  
@@ -42,11 +43,7 @@ The following terms are used in this article:
 -  *Alias*: The name for a disaster recovery configuration that you set up. The alias provides a single stable Fully Qualified Domain Name (FQDN) connection string. Applications use this alias connection string to connect to a namespace. Using an alias ensures that the connection string is unchanged when the failover is triggered.
 
 -  *Primary/secondary namespace*: The namespaces that correspond to the alias. The primary namespace is "active" and receives messages (this can be an existing or new namespace). The secondary namespace is "passive" and doesn't receive messages. The metadata between both is in sync, so both can seamlessly accept messages without any application code or connection string changes. To ensure that only the active namespace receives messages, you must use the alias. 
-
-    > [!IMPORTANT]
-    > The geo-disaster recovery feature requires the subscription and the resource group to be the same for primary and secondary namespaces.
 -  *Metadata*: Entities such as queues, topics, and subscriptions; and their properties of the service that are associated with the namespace. Only entities and their settings are replicated automatically. Messages aren't replicated.
-
 -  *Failover*: The process of activating the secondary namespace.
 
 ## Setup
@@ -58,13 +55,13 @@ The following section is an overview to set up pairing between the namespaces.
 You first create or use an existing primary namespace, and a new secondary namespace, then pair the two. This pairing gives you an alias that you can use to connect. Because you use an alias, you don't have to change connection strings. Only new namespaces can be added to your failover pairing. 
 
 1. Create the primary namespace.
-1. Create the secondary namespace in the subscription and the resource group that has the primary namespace, but in a different region. This step is optional. You can create the secondary namespace while creating the pairing in the next step. 
+1. Create the secondary namespace in a different region. This step is optional. You can create the secondary namespace while creating the pairing in the next step. 
 1. In the Azure portal, navigate to your primary namespace.
 1. Select **Geo-recovery** on the left menu, and select **Initiate pairing** on the toolbar. 
 
     :::image type="content" source="./media/service-bus-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Initiate pairing from the primary namespace":::    
 1. On the **Initiate pairing** page, follow these steps:
-    1. Select an existing secondary namespace or create one in the subscription and the resource group that has the primary namespace. In this example, an existing namespace is used as the secondary namespace.  
+    1. Select an existing secondary namespace or create one in a different region. In this example, an existing namespace is used as the secondary namespace.  
     1. For **Alias**, enter an alias for the geo-dr pairing. 
     1. Then, select **Create**. 
 
@@ -155,7 +152,7 @@ Note the following considerations to keep in mind with this release:
 
 4. Synchronizing entities can take some time, approximately 50-100 entities per minute. Subscriptions and rules also count as entities.
 
-### Availability Zones
+## Availability Zones
 
 The Service Bus Premium SKU supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within the same Azure region. Service Bus manages three copies of messaging store (1 primary and 2 secondary). Service Bus keeps all the three copies in sync for data and management operations. If the primary copy fails, one of the secondary copies is promoted to primary with no perceived downtime. If the applications see transient disconnects from Service Bus, the retry logic in the SDK will automatically reconnect to Service Bus. 
 
@@ -204,6 +201,10 @@ Advantage of this approach is that failover can happen at the application layer 
 
 > [!NOTE]
 > For guidance on geo-disaster recovery of a virtual network, see [Virtual Network - Business Continuity](../virtual-network/virtual-network-disaster-recovery-guidance.md).
+
+## Role-based access control
+Azure Active Directory (Azure AD) role-based access control (RBAC) assignments to Service Bus entities in the primary namespace aren't replicated to the secondary namespace. Create role assignments manually in the secondary namespace to secure access to them. 
+
 
 ## Next steps
 

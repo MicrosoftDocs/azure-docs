@@ -4,8 +4,8 @@ description: Learn about the HBv2-series VM size in Azure.
 services: virtual-machines 
 author: vermagit 
 tags: azure-resource-manager 
-ms.service: virtual-machines 
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: hpc
 ms.workload: infrastructure-services 
 ms.topic: article 
 ms.date: 09/28/2020 
@@ -49,14 +49,16 @@ Process pinning will work on HBv2-series VMs because we expose the underlying si
 |-----------------------------|-----------------------------------------------------------|
 | Max MPI Job Size            | 36000 cores (300 VMs in a single virtual machine scale set with singlePlacementGroup=true) |
 | MPI Support                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, Platform MPI  |
-| Additional Frameworks       | Unified Communication X, libfabric, PGAS                  |
-| Azure Storage Support       | Standard and Premium Disks (maximum 8 disks)              |
-| OS Support for SRIOV RDMA   | CentOS/RHEL 7.6+, SLES 12 SP4+, WinServer 2016+           |
-| Orchestrator Support        | CycleCloud, Batch                                         | 
+| Additional Frameworks       | UCX, libfabric, PGAS |
+| Azure Storage Support       | Standard and Premium Disks (maximum 8 disks) |
+| OS Support for SRIOV RDMA   | CentOS/RHEL 7.6+, Ubuntu 16.04+, SLES 12 SP4+, WinServer 2016+  |
+| Orchestrator Support        | CycleCloud, Batch, AKS; [cluster configuration options](../../sizes-hpc.md#cluster-configuration-options)  |
 
+> [!NOTE] 
+> Windows Server 2012 R2 is not supported on HBv2 and other VMs with more than 64 (virtual or physical) cores. See [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) for more details.
 
 ## Next steps
 
 - Learn more about [AMD EPYC architecture](https://bit.ly/2Epv3kC) and [multi-chip architectures](https://bit.ly/2GpQIMb). For more detailed information, see the [HPC Tuning Guide for AMD EPYC Processors](https://bit.ly/2T3AWZ9).
-- Read about the latest announcements and some HPC examples in the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).

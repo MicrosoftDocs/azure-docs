@@ -1,7 +1,7 @@
 ---
 title: Use parameters to creating dynamic blueprints
 description: Learn about static and dynamic parameters and how to use them to create secure and dynamic blueprints.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: conceptual
 ---
 # Creating dynamic blueprints through parameters
@@ -98,8 +98,8 @@ you define as required vs what can be changed during assignment.
 
 1. The **Edit Artifact** page displays value options appropriate to the artifact selected. Each
    parameter on the artifact has a title, a value box, and a checkbox. Set the box to unchecked to
-   make it a **static parameter**. In the example below, only _Location_ is a **static parameter**
-   as it's unchecked and _Resource Group Name_ is checked.
+   make it a **static parameter**. In the following example, only _Location_ is a **static
+   parameter** as it's unchecked and _Resource Group Name_ is checked.
 
    :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Screenshot of static parameters on a blueprint artifact." border="false":::
 
@@ -224,8 +224,8 @@ different name for every assignment of the blueprint. For a list of blueprint fu
 
 1. On the **Assign blueprint** page, find the **Artifact parameters** section. Each artifact with at
    least one **dynamic parameter** displays the artifact and the configuration options. Provide
-   required values to the parameters before assigning the blueprint. In the example below, _Name_ is
-   a **dynamic parameter** that must be defined to complete blueprint assignment.
+   required values to the parameters before assigning the blueprint. In the following example,
+   _Name_ is a **dynamic parameter** that must be defined to complete blueprint assignment.
 
    :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Screenshot of setting dynamic parameters during blueprint assignment." border="false":::
 

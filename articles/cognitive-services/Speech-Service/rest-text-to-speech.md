@@ -3,13 +3,13 @@ title: Text-to-speech API reference (REST) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the text-to-speech REST API. In this article, you'll learn about authorization options, query options, how to structure a request and receive a response.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/08/2021
-ms.author: trbye
+ms.date: 07/01/2021
+ms.author: nitinme
 ms.custom: references_regions
 ---
 
@@ -102,20 +102,7 @@ This response has been truncated to illustrate the structure of a response.
 
 ```json
 [
-  {
-    "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
-    "DisplayName": "Hoda",
-    "LocalName": "هدى",
-    "ShortName": "ar-EG-Hoda",
-    "Gender": "Female",
-    "Locale": "ar-EG",
-    "SampleRateHertz": "16000",
-    "VoiceType": "Standard",
-    "Status": "GA"
-  },
 
-...
-      
     {
     "Name": "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)",
     "DisplayName": "Aria",
@@ -135,10 +122,39 @@ This response has been truncated to illustrate the structure of a response.
     "VoiceType": "Neural",
     "Status": "GA"
   },
-  
+
+    ...
+
+     {
+    "Name": "Microsoft Server Speech Text to Speech Voice (en-US, JennyMultilingualNeural)",
+    "ShortName": "en-US-JennyMultilingualNeural",
+    "DisplayName": "Jenny Multilingual",
+    "LocalName": "Jenny Multilingual",
+    "Gender": "Female",
+    "Locale": "en-US",
+    "SampleRateHertz": "24000",
+    "VoiceType": "Neural",
+    "SecondaryLocaleList": [
+        "de-DE",
+        "en-AU",
+        "en-CA",
+        "en-GB",
+        "es-ES",
+        "es-MX",
+        "fr-CA",
+        "fr-FR",
+        "it-IT",
+        "ja-JP",
+        "ko-KR",
+        "pt-BR",
+        "zh-CN"
+      ],
+    "Status": "Preview"
+    },
+    
   ...
     
-     {
+    {
     "Name": "Microsoft Server Speech Text to Speech Voice (ga-IE, OrlaNeural)",
     "DisplayName": "Orla",
     "LocalName": "Orla",
@@ -149,9 +165,9 @@ This response has been truncated to illustrate the structure of a response.
     "VoiceType": "Neural",
     "Status": "Preview"
   },
-  
+
   ...
-    
+
    {
     "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, YunxiNeural)",
     "DisplayName": "Yunxi",
@@ -176,6 +192,21 @@ This response has been truncated to illustrate the structure of a response.
   },
 
     ...
+
+   {
+    "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
+    "DisplayName": "Hoda",
+    "LocalName": "هدى",
+    "ShortName": "ar-EG-Hoda",
+    "Gender": "Female",
+    "Locale": "ar-EG",
+    "SampleRateHertz": "16000",
+    "VoiceType": "Standard",
+    "Status": "GA"
+  },
+
+...
+
 ]
 ```
 
@@ -218,17 +249,23 @@ This table lists required and optional headers for text-to-speech requests.
 This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each incorporates a bitrate and encoding type. The Speech service supports 24 kHz, 16 kHz, and 8 kHz audio outputs.
 
 ```output
-raw-16khz-16bit-mono-pcm            raw-8khz-8bit-mono-mulaw
-riff-8khz-8bit-mono-alaw            riff-8khz-8bit-mono-mulaw
-riff-16khz-16bit-mono-pcm           audio-16khz-128kbitrate-mono-mp3
-audio-16khz-64kbitrate-mono-mp3     audio-16khz-32kbitrate-mono-mp3
+raw-16khz-16bit-mono-pcm            riff-16khz-16bit-mono-pcm
 raw-24khz-16bit-mono-pcm            riff-24khz-16bit-mono-pcm
-audio-24khz-160kbitrate-mono-mp3    audio-24khz-96kbitrate-mono-mp3
-audio-24khz-48kbitrate-mono-mp3     ogg-24khz-16bit-mono-opus
+raw-48khz-16bit-mono-pcm            riff-48khz-16bit-mono-pcm
+raw-8khz-8bit-mono-mulaw            riff-8khz-8bit-mono-mulaw
+raw-8khz-8bit-mono-alaw             riff-8khz-8bit-mono-alaw
+audio-16khz-32kbitrate-mono-mp3     audio-16khz-64kbitrate-mono-mp3
+audio-16khz-128kbitrate-mono-mp3    audio-24khz-48kbitrate-mono-mp3
+audio-24khz-96kbitrate-mono-mp3     audio-24khz-160kbitrate-mono-mp3
+audio-48khz-96kbitrate-mono-mp3     audio-48khz-192kbitrate-mono-mp3
+raw-16khz-16bit-mono-truesilk       raw-24khz-16bit-mono-truesilk
+webm-16khz-16bit-mono-opus          webm-24khz-16bit-mono-opus
+ogg-16khz-16bit-mono-opus           ogg-24khz-16bit-mono-opus
+ogg-48khz-16bit-mono-opus
 ```
 
 > [!NOTE]
-> If your selected voice and output format have different bit rates, the audio is resampled as necessary. 
+> If your selected voice and output format have different bit rates, the audio is resampled as necessary.
 > ogg-24khz-16bit-mono-opus can be decoded with [opus codec](https://opus-codec.org/downloads/)
 
 ### Request body
@@ -275,5 +312,5 @@ If the HTTP status is `200 OK`, the body of the response contains an audio file 
 ## Next steps
 
 - [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
-- [Asynchronous synthesis for long-form audio](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
-- [Get started with Custom Voice](how-to-custom-voice.md)
+- [Asynchronous synthesis for long-form audio](./long-audio-api.md)
+- [Get started with Custom Neural Voice](how-to-custom-voice.md)

@@ -2,7 +2,7 @@
 title: Geo-disaster recovery - Azure Event Hubs| Microsoft Docs
 description: How to use geographical regions to fail over and perform disaster recovery in Azure Event Hubs
 ms.topic: article
-ms.date: 02/10/2021
+ms.date: 06/21/2021
 ---
 
 # Azure Event Hubs - Geo-disaster recovery 
@@ -18,7 +18,8 @@ The Event Hubs Geo-disaster recovery feature is designed to make it easier to re
 The Geo-Disaster recovery feature ensures that the entire configuration of a namespace (Event Hubs, Consumer Groups and settings) is continuously replicated from a primary namespace to a secondary namespace when paired, and it allows you to initiate a once-only failover move from the primary to the secondary at any time. The failover move will re-point the chosen alias name for the namespace to the secondary namespace and then break the pairing. The failover is nearly instantaneous once initiated. 
 
 > [!IMPORTANT]
-> The feature enables instantaneous continuity of operations with the same configuration, but **does not replicate the event data**. Unless the disaster caused the loss of all zones, the event data that is preserved in the primary Event Hub after failover will be recoverable and the historic events can be obtained from there once access is restored. For replicating event data and operating corresponding namespaces in active/active configurations to cope with outages and disasters, don't lean on this Geo-disaster recovery feature set, but follow the [replication guidance](event-hubs-federation-overview.md).  
+> - The feature enables instantaneous continuity of operations with the same configuration, but **does not replicate the event data**. Unless the disaster caused the loss of all zones, the event data that is preserved in the primary Event Hub after failover will be recoverable and the historic events can be obtained from there once access is restored. For replicating event data and operating corresponding namespaces in active/active configurations to cope with outages and disasters, don't lean on this Geo-disaster recovery feature set, but follow the [replication guidance](event-hubs-federation-overview.md).  
+> - Azure Active Directory (Azure AD) role-based access control (RBAC) assignments to entities in the primary namespace aren't replicated to the secondary namespace. Create role assignments manually in the secondary namespace to secure access to them. 
 
 ## Outages and disasters
 
@@ -32,29 +33,24 @@ The Geo-disaster recovery feature of Azure Event Hubs is a disaster recovery sol
 
 The disaster recovery feature implements metadata disaster recovery, and relies on primary and secondary disaster recovery namespaces. 
 
-The Geo-disaster recovery feature is available for the [standard and dedicated SKUs](https://azure.microsoft.com/pricing/details/event-hubs/) only. You don't need to make any connection string changes, as the connection is made via an alias.
+The Geo-disaster recovery feature is available for the [standard, premium, and dedicated SKUs](https://azure.microsoft.com/pricing/details/event-hubs/) only. You don't need to make any connection string changes, as the connection is made via an alias.
 
 The following terms are used in this article:
 
 -  *Alias*: The name for a disaster recovery configuration that you set up. The alias provides a single stable Fully Qualified Domain Name (FQDN) connection string. Applications use this alias connection string to connect to a namespace. 
 
 -  *Primary/secondary namespace*: The namespaces that correspond to the alias. The primary namespace is "active" and receives messages (can be an existing or new namespace). The secondary namespace is "passive" and doesn't receive messages. The metadata between both is in sync, so both can seamlessly accept messages without any application code or connection string changes. To ensure that only the active namespace receives messages, you must use the alias.
-
-    > [!IMPORTANT]
-    > The geo-disaster recovery feature requires the subscription and the resource group to be the same for primary and secondary namespaces. 
 -  *Metadata*: Entities such as event hubs and consumer groups; and their properties of the service that are associated with the namespace. Only entities and their settings are replicated automatically. Messages and events aren't replicated. 
-
 -  *Failover*: The process of activating the secondary namespace.
 
 ## Supported namespace pairs
 The following combinations of primary and secondary namespaces are supported:  
 
-| Primary namespace | Secondary namespace | Supported | 
-| ----------------- | -------------------- | ---------- |
-| Standard | Standard | Yes | 
-| Standard | Dedicated | Yes | 
-| Dedicated | Dedicated | Yes | 
-| Dedicated | Standard | No | 
+| Primary namespace tier | Allowed secondary namespace tier |
+| ----------------- | -------------------- |
+| Standard | Standard, Dedicated | 
+| Premium | Premium | 
+| Dedicated | Dedicated | 
 
 > [!NOTE]
 > You can't pair namespaces that are in the same dedicated cluster. You can pair namespaces that are in separate clusters. 
@@ -63,20 +59,21 @@ The following combinations of primary and secondary namespaces are supported:
 
 The following section is an overview of the failover process, and explains how to set up the initial failover. 
 
-![1][]
+:::image type="content" source="./media/event-hubs-geo-dr/geo1.png" alt-text="Image showing the overview of failover process ":::
+
 
 ### Setup
 
 You first create or use an existing primary namespace, and a new secondary namespace, then pair the two. This pairing gives you an alias that you can use to connect. Because you use an alias, you don't have to change connection strings. Only new namespaces can be added to your failover pairing. 
 
 1. Create the primary namespace.
-1. Create the secondary namespace in the subscription and the resource group that has the primary namespace, but in a different region. This step is optional. You can create the secondary namespace while creating the pairing in the next step. 
+1. Create the secondary namespace in a different region. This step is optional. You can create the secondary namespace while creating the pairing in the next step. 
 1. In the Azure portal, navigate to your primary namespace.
 1. Select **Geo-recovery** on the left menu, and select **Initiate pairing** on the toolbar. 
 
     :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Initiate pairing from the primary namespace":::    
 1. On the **Initiate pairing** page, follow these steps:
-    1. Select an existing secondary namespace or create one in the subscription and the resource group that has the primary namespace. In this example, an existing namespace is selected.  
+    1. Select an existing secondary namespace or create one in a different region. In this example, an existing namespace is selected.  
     1. For **Alias**, enter an alias for the geo-dr pairing. 
     1. Then, select **Create**. 
 
@@ -111,19 +108,11 @@ If you initiate the failover, two steps are required:
 > [!NOTE]
 > Only fail forward semantics are supported. In this scenario, you fail over and then re-pair with a new namespace. Failing back is not supported; for example, in a SQL cluster. 
 
-![2][]
+:::image type="content" source="./media/event-hubs-geo-dr/geo2.png" alt-text="Image showing the failover flow":::
 
 ## Management
 
 If you made a mistake; for example, you paired the wrong regions during the initial setup, you can break the pairing of the two namespaces at any time. If you want to use the paired namespaces as regular namespaces, delete the alias.
-
-## Samples
-
-The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) shows how to set up and initiate a failover. This sample demonstrates the following concepts:
-
-- Settings required in Azure Active Directory to use Azure Resource Manager with Event Hubs. 
-- Steps required to execute the sample code. 
-- Send and receive from the current primary namespace. 
 
 ## Considerations
 
@@ -144,17 +133,11 @@ Note the following considerations to keep in mind:
 5. Synchronizing entities can take some time, approximately 50-100 entities per minute.
 
 ## Availability Zones 
+Event Hubs supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within an Azure region. The Availability Zones support is only available in [Azure regions with availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones). Both metadata and data (events) are replicated across data centers in the availability zone. 
 
-The Event Hubs Standard SKU supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within an Azure region. 
+When creating a namespace, you see the following highlighted message when you select a region that has availability zones. 
 
-> [!NOTE]
-> The Availability Zones support for Azure Event Hubs Standard is only available in [Azure regions](../availability-zones/az-region.md) where availability zones are present.
-
-You can enable Availability Zones on new namespaces only, using the Azure portal. Event Hubs doesn't support migration of existing namespaces. You can't disable zone redundancy after enabling it on your namespace.
-
-When you use availability zones, both metadata and data (events) are replicated across data centers in the availability zone. 
-
-![3][]
+:::image type="content" source="./media/event-hubs-geo-dr/eh-az.png" alt-text="Image showing the Create Namespace page with region that has availability zones":::
 
 ## Private endpoints
 This section provides more considerations when using Geo-disaster recovery with namespaces that use private endpoints. To learn about using private endpoints with Event Hubs in general, see [Configure private endpoints](private-link-service.md).
@@ -191,22 +174,21 @@ Advantage of this approach is that failover can happen at the application layer 
 
 > [!NOTE]
 > For guidance on geo-disaster recovery of a virtual network, see [Virtual Network - Business Continuity](../virtual-network/virtual-network-disaster-recovery-guidance.md).
+
+## Role-based access control
+Azure Active Directory (Azure AD) role-based access control (RBAC) assignments to entities in the primary namespace aren't replicated to the secondary namespace. Create role assignments manually in the secondary namespace to secure access to them.
  
 ## Next steps
+Review the following samples or reference documentation. 
+- [.NET GeoDR sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/DotNet/GeoDRClient) 
+- [Java GeoDR sample](https://github.com/Azure-Samples/eventhub-java-manage-event-hub-geo-disaster-recovery)
+- [.NET - Azure.Messaging.EventHubs samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)
+- [.NET - Microsoft.Azure.EventHubs samples](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet)
+- [Java - azure-messaging-eventhubs samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
+- [Java - azure-eventhubs samples](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java)
+- [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples)
+- [JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/event-hubs/samples/v5/javascript)
+- [TypeScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/event-hubs/samples/v5/typescript)
+- [REST API reference](/rest/api/eventhub/)
 
-* The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) walks through a simple workflow that creates a geo-pairing and initiates a failover for a disaster recovery scenario.
-* The [REST API reference](/rest/api/eventhub/) describes APIs for performing the Geo-disaster recovery configuration.
-
-For more information about Event Hubs, visit the following links:
-
-- Get started with Event Hubs
-    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
-    - [Java](event-hubs-java-get-started-send.md)
-    - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
-* [Sample applications that use Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
-
-[1]: ./media/event-hubs-geo-dr/geo1.png
 [2]: ./media/event-hubs-geo-dr/geo2.png
-[3]: ./media/event-hubs-geo-dr/eh-az.png

@@ -3,21 +3,24 @@ title: Azure Automation Start/Stop VMs during off-hours overview
 description: This article describes the Start/Stop VMs during off-hours feature, which starts or stops VMs on a schedule and proactively monitor them from Azure Monitor Logs.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/04/2020
-ms.topic: conceptual
+ms.date: 05/25/2021
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Start/Stop VMs during off-hours overview
 
-The Start/Stop VMs during off-hours feature start or stops enabled Azure VMs. It starts or stops machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/platform/action-groups.md). The feature can be enabled on both Azure Resource Manager and classic VMs for most scenarios.
+The Start/Stop VMs during off-hours feature start or stops enabled Azure VMs. It starts or stops machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/alerts/action-groups.md). The feature can be enabled on both Azure Resource Manager and classic VMs for most scenarios.
+
+> [!NOTE]
+> Before you install this version (v1), we would like you to know about the [next version](../azure-functions/start-stop-vms/overview.md), which is in preview right now. This new version (v2) offers all the same functionality as this one, but is designed to take advantage of newer technology in Azure. It adds some of the commonly requested features from customers, such as multi-subscription support from a single Start/Stop instance. 
+>
+> Start/Stop VMs during off-hours (v1) will deprecate on 5/21/2022. 
 
 This feature uses [Start-AzVm](/powershell/module/az.compute/start-azvm) cmdlet to start VMs. It uses [Stop-AzVM](/powershell/module/az.compute/stop-azvm) for stopping VMs.
 
 > [!NOTE]
-> While the runbooks have been updated to use the new Azure Az module cmdlets, they use the AzureRM prefix alias.
-
-> [!NOTE]
-> Start/Stop VMs during off-hours has been updated to support the newest versions of the Azure modules that are available. The updated version of this feature, available in the Marketplace, doesn’t support AzureRM modules because we have migrated from AzureRM to Az modules.
+> Start/Stop VMs during off-hours has been updated to support the newest versions of the Azure modules that are available. The updated version of this feature, available in the Marketplace, doesn’t support AzureRM modules because we have migrated from AzureRM to Az modules. While the runbooks have been updated to use the new Azure Az module cmdlets, they use the AzureRM prefix alias.
 
 The feature provides a decentralized low-cost automation option for users who want to optimize their VM costs. You can use the feature to:
 
@@ -34,7 +37,7 @@ The following are limitations with the current feature:
 
 - The runbooks for the Start/Stop VMs during off hours feature work with an [Azure Run As account](./automation-security-overview.md#run-as-accounts). The Run As account is the preferred authentication method because it uses certificate authentication instead of a password that might expire or change frequently.
 
-- An [Azure Monitor Log Analytics workspace](../azure-monitor/platform/design-logs-deployment.md) that stores the runbook job logs and job stream results in a workspace to query and analyze. The Automation account can be linked to a new or existing Log Analytics workspace, and both resources need to be in the same resource group.
+- An [Azure Monitor Log Analytics workspace](../azure-monitor/logs/design-logs-deployment.md) that stores the runbook job logs and job stream results in a workspace to query and analyze. The Automation account and Log Analytics workspace need to be in the same subscription and supported region. The workspace needs to already exist, you cannot create a new workspace during deployment of this feature.
 
 We recommend that you use a separate Automation account for working with VMs enabled for the Start/Stop VMs during off-hours feature. Azure module versions are frequently upgraded, and their parameters might change. The feature isn't upgraded on the same cadence and it might not work with newer versions of the cmdlets that it uses. Before importing the updated modules into your production Automation account(s), we recommend you import them into a test Automation account to verify there aren't any compatibility issues.
 
@@ -71,7 +74,7 @@ To enable VMs for the Start/Stop VMs during off-hours feature using an existing 
 
 ### Permissions for new Automation account and new Log Analytics workspace
 
-You can enable VMs for the Start/Stop VMs during off-hours feature using a new Automation account and Log Analytics workspace. In this case, you need the permissions defined in the preceding section as well as the permissions defined in this section. You also require the following roles:
+You can enable VMs for the Start/Stop VMs during off-hours feature using a new Automation account and Log Analytics workspace. In this case, you need the permissions defined in the previous section and the permissions defined in this section. You also require the following roles:
 
 - Co-Administrator on subscription. This role is required to create the Classic Run As account if you are going to manage classic VMs. [Classic Run As accounts](automation-create-standalone-account.md#create-a-classic-run-as-account) are no longer created by default.
 - Membership in the [Azure AD](../active-directory/roles/permissions-reference.md) Application Developer role. For more information on configuring Run As Accounts, see [Permissions to configure Run As accounts](automation-security-overview.md#permissions).
@@ -83,14 +86,15 @@ You can enable VMs for the Start/Stop VMs during off-hours feature using a new A
 | Microsoft.Authorization/permissions/read |Subscription|
 | Microsoft.Authorization/roleAssignments/read | Subscription |
 | Microsoft.Authorization/roleAssignments/write | Subscription |
-| Microsoft.Authorization/roleAssignments/delete | Subscription || Microsoft.Automation/automationAccounts/connections/read | Resource Group |
+| Microsoft.Authorization/roleAssignments/delete | Subscription |
+| Microsoft.Automation/automationAccounts/connections/read | Resource Group |
 | Microsoft.Automation/automationAccounts/certificates/read | Resource Group |
 | Microsoft.Automation/automationAccounts/write | Resource Group |
 | Microsoft.OperationalInsights/workspaces/write | Resource Group |
 
 ## Components
 
-The Start/Stop VMs during off-hours feature include preconfigured runbooks, schedules, and integration with Azure Monitor logs. You can use these elements to tailor the startup and shutdown of your VMs to suit your business needs.
+The Start/Stop VMs during off-hours feature include preconfigured runbooks, schedules, and integration with Azure Monitor Logs. You can use these elements to tailor the startup and shutdown of your VMs to suit your business needs.
 
 ### Runbooks
 
@@ -159,7 +163,7 @@ Don't enable all schedules, because doing so might create overlapping schedule a
 |Scheduled_StopVM | User-defined, daily | Runs the **ScheduledStopStart_Parent** runbook with a parameter of `Stop` every day at the specified time. Automatically stops all VMs that meet the rules defined by variable assets. Enable the related schedule **Scheduled-StartVM**.|
 |Scheduled_StartVM | User-defined, daily | Runs the **ScheduledStopStart_Parent** runbook with a parameter value of `Start` every day at the specified time. Automatically starts all VMs that meet the rules defined by variable assets. Enable the related schedule **Scheduled-StopVM**.|
 |Sequenced-StopVM | 1:00 AM (UTC), every Friday | Runs the **Sequenced_StopStop_Parent** runbook with a parameter value of `Stop` every Friday at the specified time. Sequentially (ascending) stops all VMs with a tag of **SequenceStop** defined by the appropriate variables. For more information on tag values and asset variables, see [Runbooks](#runbooks). Enable the related schedule, **Sequenced-StartVM**.|
-|Sequenced-StartVM | 1:00 PM (UTC), every Monday | Runs the **SequencedStopStart_Parent** runbook with a parameter value of `Start` every Monday at the specified time. Sequentially (descending) starts all VMs with a tag of **SequenceStart** defined by the appropriate variables. For more information on tag values and variable assets, see [Runbooks](#runbooks). Enable the related schedule, **Sequenced-StopVM**.
+|Sequenced-StartVM | 1:00 PM (UTC), every Monday | Runs the **SequencedStopStart_Parent** runbook with a parameter value of `Start` every Monday at the specified time. Sequentially (descending) starts all VMs with a tag of **SequenceStart** defined by the appropriate variables. For more information on tag values and variable assets, see [Runbooks](#runbooks). Enable the related schedule, **Sequenced-StopVM**.|
 
 ## Use the feature with classic VMs
 

@@ -1,7 +1,7 @@
 ---
 title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
-ms.date: 01/29/2021
+ms.date: 04/14/2021
 ms.topic: conceptual
 ---
 # Azure Policy assignment structure
@@ -22,7 +22,8 @@ You use JSON to create a policy assignment. The policy assignment contains eleme
 - non-compliance messages
 - parameters
 
-For example, the following JSON shows a policy assignment in _DoNotEnforce_ mode with dynamic parameters:
+For example, the following JSON shows a policy assignment in _DoNotEnforce_ mode with dynamic
+parameters:
 
 ```json
 {
@@ -60,11 +61,45 @@ You use **displayName** and **description** to identify the policy assignment an
 for its use with the specific set of resources. **displayName** has a maximum length of _128_
 characters and **description** a maximum length of _512_ characters.
 
+## Metadata
+
+The optional `metadata` property stores information about the policy assignment. Customers can
+define any properties and values useful to their organization in `metadata`. However, there are some
+_common_ properties used by Azure Policy. Each `metadata` property has a limit of 1024 characters.
+
+### Common metadata properties
+
+- `assignedBy` (string): The friendly name of the security principal that created the assignment.
+- `createdBy` (string): The GUID of the security principal that created the assignment.
+- `createdOn` (string): The Universal ISO 8601 DateTime format of the assignment creation time.
+- `parameterScopes` (object): A collection of key-value pairs where the key matches a
+  [strongType](./definition-structure.md#strongtype) configured parameter name and the value defines
+  the resource scope used in Portal to provide the list of available resources by matching
+  _strongType_. Portal sets this value if the scope is different than the assignment scope. If set,
+  an edit of the policy assignment in Portal automatically sets the scope for the parameter to this
+  value. However, the scope isn't locked to the value and it can be changed to another scope.
+
+  The following example of `parameterScopes` is for a _strongType_ parameter named
+  **backupPolicyId** that sets a scope for resource selection when the assignment is edited in the
+  Portal.
+
+  ```json
+  "metadata": {
+      "parameterScopes": {
+          "backupPolicyId": "/subscriptions/{SubscriptionID}/resourcegroups/{ResourceGroupName}"
+      }
+  }
+  ```
+
+- `updatedBy` (string): The friendly name of the security principal that updated the assignment, if
+  any.
+- `updatedOn` (string): The Universal ISO 8601 DateTime format of the assignment update time, if any.
+
 ## Enforcement Mode
 
 The **enforcementMode** property provides customers the ability to test the outcome of a policy on
 existing resources without initiating the policy effect or triggering entries in the
-[Azure Activity log](../../../azure-monitor/platform/platform-logs-overview.md). This scenario is
+[Azure Activity log](../../../azure-monitor/essentials/platform-logs-overview.md). This scenario is
 commonly referred to as "What If" and aligns to safe deployment practices. **enforcementMode** is
 different from the [Disabled](./effects.md#disabled) effect, as that effect prevents resource
 evaluation from happening at all.
@@ -101,10 +136,14 @@ often assigned together, to use an [initiative](./initiative-definition-structur
 
 ## Non-compliance messages
 
-To set a custom message that describe why a resource is non-compliant with the policy or initiative
+To set a custom message that describes why a resource is non-compliant with the policy or initiative
 definition, set `nonComplianceMessages` in the assignment definition. This node is an array of
 `message` entries. This custom message is in addition to the default error message for
 non-compliance and is optional.
+
+> [!IMPORTANT]
+> Custom messages for non-compliance are only supported on definitions or initiatives with
+> [Resource Manager modes](./definition-structure.md#resource-manager-modes) definitions.
 
 ```json
 "nonComplianceMessages": [
@@ -117,7 +156,7 @@ non-compliance and is optional.
 If the assignment is for an initiative, different messages can be configured for each policy
 definition in the initiative. The messages use the `policyDefinitionReferenceId` value configured in
 the initiative definition. For details, see
-[property definitions properties](./initiative-definition-structure.md#policy-definition-properties).
+[policy definitions properties](./initiative-definition-structure.md#policy-definition-properties).
 
 ```json
 "nonComplianceMessages": [

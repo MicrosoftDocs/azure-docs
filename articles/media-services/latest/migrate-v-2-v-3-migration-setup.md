@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2021
+ms.date: 03/25/2021
 ms.author: inhenkel
 ---
 
@@ -39,15 +39,15 @@ Customers previously using the 2015-10-01 version of the ARM management API to m
 
 ## Create a new media services account for testing
 
-Follow the quickstart steps for [setting up your environment](how-to-set-azure-subscription.md?tabs=portal) using the Azure portal. Select API access and service principal authentication to generate a new Azure AD application ID and secrets for use with this test account.
+Follow the quickstart steps for [setting up your environment](setup-azure-subscription-how-to.md?tabs=portal) using the Azure portal. Select API access and service principal authentication to generate a new Azure AD application ID and secrets for use with this test account.
 
-[Create a media services account](create-account-howto.md?tabs=portal).
+[Create a media services account](account-create-how-to.md?tabs=portal).
 [Get credentials to access Media Services API](access-api-howto.md?tabs=portal).
 
 ## Download client SDK of your choice and set up your environment
 
-- SDKs available for [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet&preserve-view=true), .NET Core, [Node.js](https://docs.microsoft.com/javascript/api/overview/azure/mediaservices/management?view=azure-node-latest&preserve-view=true), [Python](https://docs.microsoft.com/python/api/overview/azure/mediaservices/management?view=azure-python&preserve-view=true), [Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices/management?view=azure-java-stable&preserve-view=true), [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media), and [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md).
-- [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest&preserve-view=true) integration for simple scripting support.
+- SDKs available for [.NET](/dotnet/api/overview/azure/mediaservices/management), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](/python/api/overview/azure/mediaservices/management), [Java](/java/api/overview/azure/mediaservices/management), [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media), and [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md).
+- [Azure CLI](/cli/azure/ams) integration for simple scripting support.
 
 > [!NOTE]
 > A community PHP SDK is no longer available for Azure Media Services on V3. If you're using PHP on V2, you should migrate to the REST API directly in your code.
@@ -62,8 +62,8 @@ Follow the quickstart steps for [setting up your environment](how-to-set-azure-s
 
 ## [REST](#tab/rest)
 
-Use [Postman](https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman) for Media Services v3 REST API calls.
-Read the [REST API reference pages](https://docs.microsoft.com/rest/api/media/).
+Use [Postman](./setup-postman-rest-how-to.md) for Media Services v3 REST API calls.
+Read the [REST API reference pages](/rest/api/media/).
 
 You should use the 2020-05-01 version string in the Postman collection.
 
@@ -139,7 +139,3 @@ Read the article [Connect to Azure Media Services v3 API - Node.js](configure-co
 Download the [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media) SDK.
 
 ---
-
-## Next steps
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

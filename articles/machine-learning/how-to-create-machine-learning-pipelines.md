@@ -8,25 +8,25 @@ ms.subservice: core
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
-ms.date: 12/10/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.date: 03/02/2021
+ms.topic: how-to
+ms.custom: devx-track-python,contperf-fy21q1
 
 ---
 
 # Create and run machine learning pipelines with Azure Machine Learning SDK
 
-In this article, you learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Use **ML pipelines** to create a workflow that stitches together various ML phases. Then, publish that pipeline for later access or sharing with others. Track ML pipelines to see how your model is performing in the real world and to detect data drift. ML pipelines are ideal for batch scoring scenarios, using various computes, reusing steps instead of rerunning them, as well as sharing ML workflows with others.
+In this article, you learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro). Use **ML pipelines** to create a workflow that stitches together various ML phases. Then, publish that pipeline for later access or sharing with others. Track ML pipelines to see how your model is performing in the real world and to detect data drift. ML pipelines are ideal for batch scoring scenarios, using various computes, reusing steps instead of rerunning them, and sharing ML workflows with others.
 
-This article is not a tutorial. For guidance on creating your first pipeline, see [Tutorial: Build an Azure Machine Learning pipeline for batch scoring](tutorial-pipeline-batch-scoring-classification.md) or [Use automated ML in an Azure Machine Learning pipeline in Python](how-to-use-automlstep-in-pipelines.md). 
+This article isn't a tutorial. For guidance on creating your first pipeline, see [Tutorial: Build an Azure Machine Learning pipeline for batch scoring](tutorial-pipeline-batch-scoring-classification.md) or [Use automated ML in an Azure Machine Learning pipeline in Python](how-to-use-automlstep-in-pipelines.md). 
 
-While you can use a different kind of pipeline called an [Azure Pipeline](/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2fmachine-learning%2fservice%2fcontext%2fml-context&preserve-view=true&tabs=yaml&view=azure-devops) for CI/CD automation of ML tasks, that type of pipeline is not stored in your workspace. [Compare these different pipelines](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
+While you can use a different kind of pipeline called an [Azure Pipeline](/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2fmachine-learning%2fservice%2fcontext%2fml-context&tabs=yaml) for CI/CD automation of ML tasks, that type of pipeline isn't stored in your workspace. [Compare these different pipelines](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
 
 The ML pipelines you create are visible to the members of your Azure Machine Learning [workspace](how-to-manage-workspace.md). 
 
 ML pipelines execute on compute targets (see [What are compute targets in Azure Machine Learning](./concept-compute-target.md)). Pipelines can read and write data to and from supported [Azure Storage](../storage/index.yml) locations.
 
-If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
 ## Prerequisites
 
@@ -49,16 +49,13 @@ Create the resources required to run an ML pipeline:
 
 * Set up a datastore used to access the data needed in the pipeline steps.
 
-* Configure a `Dataset` object to point to persistent data that lives in, or is accessible in, a datastore. Configure a `PipelineData` object for temporary data passed between pipeline steps. 
-
-    > [!TIP]
-    > An improved experience for passing temporary data between pipeline steps is available in the public preview class,  [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py).  This class is an [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#&preserve-view=truestable-vs-experimental) preview feature, and may change at any time.
+* Configure a `Dataset` object to point to persistent data that lives in, or is accessible in, a datastore. Configure an `OutputFileDatasetConfig` object for temporary data passed between pipeline steps. 
 
 * Set up the [compute targets](concept-azure-machine-learning-architecture.md#compute-targets) on which your pipeline steps will run.
 
 ### Set up a datastore
 
-A datastore stores the data for the pipeline to access. Each workspace has a default datastore. You can register additional datastores. 
+A datastore stores the data for the pipeline to access. Each workspace has a default datastore. You can register more datastores. 
 
 When you create your workspace, [Azure Files](../storage/files/storage-files-introduction.md) and [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md) are attached to the workspace. A default datastore is registered to connect to the Azure Blob storage. To learn more, see [Deciding when to use Azure Files, Azure Blobs, or Azure Disks](../storage/common/storage-introduction.md). 
 
@@ -76,32 +73,34 @@ def_file_store = Datastore(ws, "workspacefilestore")
 
 Steps generally consume data and produce output data. A step can create data such as a model, a directory with model and dependent files, or temporary data. This data is then available for other steps later in the pipeline. To learn more about connecting your pipeline to your data, see the articles [How to Access Data](how-to-access-data.md) and [How to Register Datasets](how-to-create-register-datasets.md). 
 
-### Configure data with `Dataset` and `PipelineData` objects
+### Configure data with `Dataset` and `OutputFileDatasetConfig` objects
 
-The preferred way to provide data to a pipeline is a [Dataset](/python/api/azureml-core/azureml.core.dataset.Dataset) object. The `Dataset` object points to data that lives in or is accessible from a datastore or at a Web URL. The `Dataset` class is abstract, so you will create an instance of either a `FileDataset` (referring to one or more files) or a `TabularDataset` that's created by from one or more files with delimited columns of data.
+The preferred way to provide data to a pipeline is a [Dataset](/python/api/azureml-core/azureml.core.dataset.Dataset) object. The `Dataset` object points to data that lives in or is accessible from a datastore or at a Web URL. The `Dataset` class is abstract, so you'll create an instance of either a `FileDataset` (referring to one or more files) or a `TabularDataset` that's created by from one or more files with delimited columns of data.
 
-
-You create a `Dataset` using methods like [from_files](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?preserve-view=true&view=azure-ml-py#&preserve-view=truefrom-files-path--validate-true-) or [from_delimited_files](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?preserve-view=true&view=azure-ml-py#&preserve-view=truefrom-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-).
+You create a `Dataset` using methods like [from_files](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#from-files-path--validate-true-) or [from_delimited_files](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-).
 
 ```python
 from azureml.core import Dataset
 
 my_dataset = Dataset.File.from_files([(def_blob_store, 'train-images/')])
 ```
-Intermediate data (or output of a step) is represented by a [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) object. `output_data1` is produced as the output of a step, and used as the input of one or more future steps. `PipelineData` introduces a data dependency between steps, and creates an implicit execution order in the pipeline. This object will be used later when creating pipeline steps.
+
+Intermediate data (or output of a step) is represented by an [OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig) object. `output_data1` is produced as the output of a step. Optionally, this data can be registered as a dataset by calling `register_on_complete`. If you create an `OutputFileDatasetConfig` in one step and use it as an input to another step, that data dependency between steps creates an implicit execution order in the pipeline.
+
+`OutputFileDatasetConfig` objects return a directory, and by default writes output to the default datastore of the workspace.
 
 ```python
-from azureml.pipeline.core import PipelineData
+from azureml.data import OutputFileDatasetConfig
 
-output_data1 = PipelineData(
-    "output_data1",
-    datastore=def_blob_store,
-    output_name="output_data1")
+output_data1 = OutputFileDatasetConfig(destination = (datastore, 'outputdataset/{run-id}'))
+output_data_dataset = output_data1.register_on_complete(name = 'prepared_output_data')
 
 ```
 
-> [!TIP]
-> Persisting intermediate data between pipeline steps is also possible with the public preview class, [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). For a code example using the `OutputFileDatasetConfig` class, see how to [build a two step ML pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
+> [!IMPORTANT]
+> Intermediate data stored using `OutputFileDatasetConfig` isn't automatically deleted by Azure.
+> You should either programmatically delete intermediate data at the end of a pipeline run, use a
+> datastore with a short data-retention policy, or regularly do manual clean up.
 
 > [!TIP]
 > Only upload files relevant to the job at hand. Any change in files within the data directory will be seen as reason to rerun the step the next time the pipeline is run even if reuse is specified. 
@@ -109,14 +108,14 @@ output_data1 = PipelineData(
 ## Set up a compute target
 
 
-In Azure Machine Learning, the term __compute__ (or __compute target__) refers to the machines or clusters that perform the computational steps in your machine learning pipeline.   See [compute targets for model training](concept-compute-target.md#train) for a full list of compute targets and [Create compute targets](how-to-create-attach-compute-studio.md) for how to create and attach them to your workspace.   The process for creating and or attaching a compute target is the same whether you are training a model or running a pipeline step. After you create and attach your compute target, use the `ComputeTarget` object in your [pipeline step](#steps).
+In Azure Machine Learning, the term __compute__ (or __compute target__) refers to the machines or clusters that do the computational steps in your machine learning pipeline.   See [compute targets for model training](concept-compute-target.md#train) for a full list of compute targets and [Create compute targets](how-to-create-attach-compute-studio.md) for how to create and attach them to your workspace.   The process for creating and or attaching a compute target is the same whether you're training a model or running a pipeline step. After you create and attach your compute target, use the `ComputeTarget` object in your [pipeline step](#steps).
 
 > [!IMPORTANT]
-> Performing management operations on compute targets is not supported from inside remote jobs. Since machine learning pipelines are submitted as a remote job, do not use management operations on compute targets from inside the pipeline.
+> Performing management operations on compute targets isn't supported from inside remote jobs. Since machine learning pipelines are submitted as a remote job, do not use management operations on compute targets from inside the pipeline.
 
 ### Azure Machine Learning compute
 
-You can create an Azure Machine Learning compute for running your steps. The code for other compute targets is very similar, with slightly different parameters, depending on the type. 
+You can create an Azure Machine Learning compute for running your steps. The code for other compute targets is similar, with slightly different parameters, depending on the type. 
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -172,13 +171,13 @@ else:
         pin_sdk_version=False)
 ```
 
-The code above shows two options for handling dependencies. As presented, with `USE_CURATED_ENV = True`, the configuration is based on a curated environment. Curated environments are "prebaked" with common inter-dependent libraries and can be significantly faster to bring online. Curated environments have prebuilt Docker images in the [Microsoft Container Registry](https://hub.docker.com/publishers/microsoftowner). For more information, see [Azure Machine Learning curated environments](resource-curated-environments.md).
+The code above shows two options for handling dependencies. As presented, with `USE_CURATED_ENV = True`, the configuration is based on a curated environment. Curated environments are "prebaked" with common inter-dependent libraries and can be faster to bring online. Curated environments have prebuilt Docker images in the [Microsoft Container Registry](https://hub.docker.com/publishers/microsoftowner). For more information, see [Azure Machine Learning curated environments](resource-curated-environments.md).
 
 The path taken if you change `USE_CURATED_ENV` to `False` shows the pattern for explicitly setting your dependencies. In that scenario, a new custom Docker image will be created and registered in an Azure Container Registry within your resource group (see [Introduction to private Docker container registries in Azure](../container-registry/container-registry-intro.md)). Building and registering this image can take quite a few minutes.
 
 ## <a id="steps"></a>Construct your pipeline steps
 
-Once you have the compute resource and environment created, you are ready to define your pipeline's steps. There are many built-in steps available via the Azure Machine Learning SDK, as you can see on the [reference documentation for the `azureml.pipeline.steps` package](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py). The most flexible class is [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?preserve-view=true&view=azure-ml-py), which runs a Python script.
+Once you have the compute resource and environment created, you're ready to define your pipeline's steps. There are many built-in steps available via the Azure Machine Learning SDK, as you can see on the [reference documentation for the `azureml.pipeline.steps` package](/python/api/azureml-pipeline-steps/azureml.pipeline.steps). The most flexible class is [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep), which runs a Python script.
 
 ```python
 from azureml.pipeline.steps import PythonScriptStep
@@ -192,8 +191,6 @@ data_prep_step = PythonScriptStep(
     script_name=entry_point,
     source_directory=dataprep_source_dir,
     arguments=["--input", ds_input.as_download(), "--output", output_data1],
-    inputs=[ds_input],
-    outputs=[output_data1],
     compute_target=compute_target,
     runconfig=aml_run_config,
     allow_reuse=True
@@ -202,8 +199,7 @@ data_prep_step = PythonScriptStep(
 
 The above code shows a typical initial pipeline step. Your data preparation code is in a subdirectory (in this example, `"prepare.py"` in the directory `"./dataprep.src"`). As part of the pipeline creation process, this directory is zipped and uploaded to the `compute_target` and the step runs the script specified as the value for `script_name`.
 
-The `arguments`, `inputs`, and `outputs` values specify the inputs and outputs of the step. In the example above, the baseline data is the `my_dataset` dataset. The corresponding data will be downloaded to the compute resource since the code specifies it as `as_download()`. The script `prepare.py` does whatever data-transformation tasks are appropriate to the task at hand and outputs the data to `output_data1`, of type `PipelineData`. For more information, see [Moving data into and between ML pipeline steps (Python)](how-to-move-data-in-out-of-pipelines.md). 
-
+The `arguments` values specify the inputs and outputs of the step. In the example above, the baseline data is the `my_dataset` dataset. The corresponding data will be downloaded to the compute resource since the code specifies it as `as_download()`. The script `prepare.py` does whatever data-transformation tasks are appropriate to the task at hand and outputs the data to `output_data1`, of type `OutputFileDatasetConfig`. For more information, see [Moving data into and between ML pipeline steps (Python)](how-to-move-data-in-out-of-pipelines.md). 
 The step will run on the machine defined by `compute_target`, using the configuration `aml_run_config`. 
 
 Reuse of previous results (`allow_reuse`) is key when using pipelines in a collaborative environment since eliminating unnecessary reruns offers agility. Reuse is the default behavior when the script_name, inputs, and the parameters of a step remain the same. When reuse is allowed, results from the previous run are immediately sent to the next step. If `allow_reuse` is set to `False`, a new run will always be generated for this step during pipeline execution.
@@ -214,9 +210,8 @@ It's possible to create a pipeline with a single step, but almost always you'll 
 train_source_dir = "./train_src"
 train_entry_point = "train.py"
 
-training_results = PipelineData(name = "training_results", 
-                                datastore=def_blob_store,
-                                output_name="training_results")
+training_results = OutputFileDatasetConfig(name = "training_results",
+    destination = def_blob_store)
 
     
 train_step = PythonScriptStep(
@@ -229,16 +224,14 @@ train_step = PythonScriptStep(
 )
 ```
 
-The above code is very similar to that for the data preparation step. The training code is in a directory separate from that of the data preparation code. The `PipelineData` output of the data preparation step, `output_data1` is used as the _input_ to the training step. A new `PipelineData` object, `training_results` is created to hold the results for a subsequent comparison or deployment step. 
+The above code is similar to the code in the data preparation step. The training code is in a directory separate from that of the data preparation code. The `OutputFileDatasetConfig` output of the data preparation step, `output_data1` is used as the _input_ to the training step. A new `OutputFileDatasetConfig` object, `training_results` is created to hold the results for a later comparison or deployment step. 
 
-
-> [!TIP]
-> For an improved experience, and the ability to write intermediate data back to your datastores at the end of your pipeline run, use the public preview class, [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). For code examples, see how to [build a two step ML pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb) and [how to write data back to datastores upon run completion](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/scriptrun-with-data-input-output/how-to-use-scriptrun.ipynb).
+For other code examples, see how to [build a two step ML pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb) and [how to write data back to datastores upon run completion](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/scriptrun-with-data-input-output/how-to-use-scriptrun.ipynb).
 
 After you define your steps, you build the pipeline by using some or all of those steps.
 
 > [!NOTE]
-> No file or data is uploaded to Azure Machine Learning when you define the steps or build the pipeline. The files are uploaded when you call [Experiment.submit()](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py#&preserve-view=truesubmit-config--tags-none----kwargs-).
+> No file or data is uploaded to Azure Machine Learning when you define the steps or build the pipeline. The files are uploaded when you call [Experiment.submit()](/python/api/azureml-core/azureml.core.experiment.experiment#submit-config--tags-none----kwargs-).
 
 ```python
 # list of steps to run (`compare_step` definition not shown)
@@ -250,26 +243,12 @@ from azureml.pipeline.core import Pipeline
 pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 ```
 
-### How Python environments work with pipeline parameters
-
-As discussed previously in [Configure the training run's environment](#configure-the-training-runs-environment), environment state and Python library dependencies are specified using an `Environment` object. Generally, you can specify an existing `Environment` by referring to its name and, optionally, a version:
-
-```python
-aml_run_config = RunConfiguration()
-aml_run_config.environment.name = 'MyEnvironment'
-aml_run_config.environment.version = '1.0'
-```
-
-However, if you choose to use `PipelineParameter` objects to dynamically set variables at runtime for your pipeline steps, you cannot use this technique of referring to an existing `Environment`. Instead, if you want to use `PipelineParameter` objects, you must set the `environment` field of the `RunConfiguration` to an `Environment` object. It is your responsibility to ensure that such an `Environment` has its dependencies on external Python packages properly set.
-
 ### Use a dataset 
 
-Datasets created from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1,  Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL can be used as input to any pipeline step. You can write output to a [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?preserve-view=true&view=azure-ml-py), [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?preserve-view=true&view=azure-ml-py), or if you want to write data to a specific datastore use [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py). 
+Datasets created from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1,  Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL can be used as input to any pipeline step. You can write output to a [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep), [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep), or if you want to write data to a specific datastore use [OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.outputfiledatasetconfig). 
 
 > [!IMPORTANT]
-> Writing output data back to a datastore using PipelineData is only supported for Azure Blob and Azure File share datastores. 
->
-> To write output data back to Azure Blob, Azure File share, ADLS Gen 1 and ADLS Gen 2 datastores use the public preview class, [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py).
+> Writing output data back to a datastore using `OutputFileDatasetConfig` is only supported for Azure Blob, Azure File share, ADLS Gen 1 and Gen 2 datastores. 
 
 ```python
 dataset_consuming_step = PythonScriptStep(
@@ -280,7 +259,7 @@ dataset_consuming_step = PythonScriptStep(
 )
 ```
 
-You then retrieve the dataset in your pipeline by using the [Run.input_datasets](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=trueinput-datasets) dictionary.
+You then retrieve the dataset in your pipeline by using the [Run.input_datasets](/python/api/azureml-core/azureml.core.run.run#input-datasets) dictionary.
 
 ```python
 # iris_train.py
@@ -303,11 +282,11 @@ For more detail, including alternate ways to pass and access data, see [Moving d
 
 ## Caching & reuse  
 
-In order to optimize and customize the behavior of your pipelines, you can do a few things around caching and reuse. For example, you can choose to:
-+ **Turn off the default reuse of the step run output** by setting `allow_reuse=False` during [step definition](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py). Reuse is key when using pipelines in a collaborative environment since eliminating unnecessary runs offers agility. However, you can opt out of reuse.
-+ **Force output regeneration for all steps in a run** with `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
+To optimize and customize the behavior of your pipelines, you can do a few things around caching and reuse. For example, you can choose to:
++ **Turn off the default reuse of the step run output** by setting `allow_reuse=False` during [step definition](/python/api/azureml-pipeline-steps/). Reuse is key when using pipelines in a collaborative environment since eliminating unnecessary runs offers agility. However, you can opt out of reuse.
++ **Force output regeneration for all steps in a run** with `pipeline_run = exp.submit(pipeline, regenerate_outputs=True)`
 
-By default, `allow_reuse` for steps is enabled and the `source_directory` specified in the step definition is hashed. So, if the script for a given step remains the same (`script_name`, inputs, and the parameters), and nothing else in the` source_directory` has changed, the output of a previous step run is reused, the job is not submitted to the compute, and the results from the previous run are immediately available to the next step instead.
+By default, `allow_reuse` for steps is enabled and the `source_directory` specified in the step definition is hashed. So, if the script for a given step remains the same (`script_name`, inputs, and the parameters), and nothing else in the` source_directory` has changed, the output of a previous step run is reused, the job isn't submitted to the compute, and the results from the previous run are immediately available to the next step instead.
 
 ```python
 step = PythonScriptStep(name="Hello World",
@@ -317,6 +296,9 @@ step = PythonScriptStep(name="Hello World",
                         allow_reuse=False,
                         hash_paths=['hello_world.ipynb'])
 ```
+
+> [!Note]
+> If the names of the data inputs change, the step will rerun, _even if_ the underlying data does not change. You must explicitly set the `name` field of input data (`data.as_input(name=...)`). If you do not explicitly set this value, the `name` field will be set to a random guid and the step's results will not be reused.
 
 ## Submit the pipeline
 
@@ -340,16 +322,41 @@ When you first run a pipeline, Azure Machine Learning:
 * Downloads the project snapshot to the compute target from the Blob storage associated with the workspace.
 * Builds a Docker image corresponding to each step in the pipeline.
 * Downloads the Docker image for each step to the compute target from the container registry.
-* Configures access to `Dataset` and `PipelineData` objects. For as `as_mount()` access mode, FUSE is used to provide virtual access. If mount is not supported or if the user specified access as `as_download()`, the data is instead copied to the compute target.
+* Configures access to `Dataset` and `OutputFileDatasetConfig` objects. For `as_mount()` access mode, FUSE is used to provide virtual access. If mount isn't supported or if the user specified access as `as_upload()`, the data is instead copied to the compute target.
 
 * Runs the step in the compute target specified in the step definition. 
 * Creates artifacts, such as logs, stdout and stderr, metrics, and output specified by the step. These artifacts are then uploaded and kept in the user's default datastore.
 
 ![Diagram of running an experiment as a pipeline](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
-For more information, see the [Experiment class](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) reference.
+For more information, see the [Experiment class](/python/api/azureml-core/azureml.core.experiment.experiment) reference.
 
 ## Use pipeline parameters for arguments that change at inference time
+
+Sometimes, the arguments to individual steps within a pipeline relate to the development and training period: things like training rates and momentum, or paths to data or configuration files. When a model is deployed, though, you'll want to dynamically pass the arguments upon which you're inferencing (that is, the query you built the model to answer!). You should make these types of arguments pipeline parameters. To do this in Python, use the `azureml.pipeline.core.PipelineParameter` class, as shown in the following code snippet:
+
+```python
+from azureml.pipeline.core import PipelineParameter
+
+pipeline_param = PipelineParameter(name="pipeline_arg", default_value="default_val")
+train_step = PythonScriptStep(script_name="train.py",
+                            arguments=["--param1", pipeline_param],
+                            target=compute_target,
+                            source_directory=project_folder)
+```
+
+### How Python environments work with pipeline parameters
+
+As discussed previously in [Configure the training run's environment](#configure-the-training-runs-environment), environment state, and Python library dependencies are specified using an `Environment` object. Generally, you can specify an existing `Environment` by referring to its name and, optionally, a version:
+
+```python
+aml_run_config = RunConfiguration()
+aml_run_config.environment.name = 'MyEnvironment'
+aml_run_config.environment.version = '1.0'
+```
+
+However, if you choose to use `PipelineParameter` objects to dynamically set variables at runtime for your pipeline steps, you can't use this technique of referring to an existing `Environment`. Instead, if you want to use `PipelineParameter` objects, you must set the `environment` field of the `RunConfiguration` to an `Environment` object. It is your responsibility to ensure that such an `Environment` has its dependencies on external Python packages properly set.
+
 
 ## View results of a pipeline
 
@@ -372,6 +379,6 @@ When you start a training run where the source directory is a local Git reposito
 
 - To share your pipeline with colleagues or customers, see [Publish machine learning pipelines](how-to-deploy-pipelines.md)
 - Use [these Jupyter notebooks on GitHub](https://aka.ms/aml-pipeline-readme) to explore machine learning pipelines further
-- See the SDK reference help for the [azureml-pipelines-core](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) package and the [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py) package
+- See the SDK reference help for the [azureml-pipelines-core](/python/api/azureml-pipeline-core/) package and the [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/) package
 - See the [how-to](how-to-debug-pipelines.md) for tips on debugging and troubleshooting pipelines=
 - Learn how to run notebooks by following the article [Use Jupyter notebooks to explore this service](samples-notebooks.md).

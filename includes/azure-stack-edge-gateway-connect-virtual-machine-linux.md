@@ -2,67 +2,57 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 08/03/2020
+ms.date: 06/24/2021
 ms.author: alkohli
 ---
 
 Connect to the VM by using the private IP that you passed during the VM creation.
 
-Open an SSH session to connect with the IP address.
+1. Open an SSH session to connect with the IP address.
 
-`ssh -l <username> <ip address>`
+    ```powershell
+    ssh -l <username> <ip address>
+    ```
 
-When prompted, provide the password that you used when creating the VM.
+1. At the prompt, provide the password that you used when you created the VM.
 
-If you need to provide the SSH key, use this command.
+   If you need to provide the SSH key, use this command.
 
-`ssh -i c:/users/Administrator/.ssh/id_rsa Administrator@5.5.41.236`
+   `ssh -i c:/users/Administrator/.ssh/id_rsa Administrator@5.5.41.236`
 
-Here is a sample output when connecting to VM:
+   Here's an example output when you connect to the VM:
 
-```powershell
-PS C:\07-30-2020\linux> ssh -l Administrator 10.126.68.186
-Administrator@10.126.68.186's password:
-Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.0.0-1027-azure x86_64)
-
- * Documentation:  https://help.ubuntu.com
- * Management:     https://landscape.canonical.com
- * Support:        https://ubuntu.com/advantage
-
-  System information as of Thu Jul 30 22:56:11 UTC 2020
-
-  System load:  0.0               Processes:           105
-  Usage of /:   5.6% of 28.90GB   Users logged in:     0
-  Memory usage: 12%               IP address for eth0: 10.126.68.186
-  Swap usage:   0%
-
- * Are you ready for Kubernetes 1.19? It's nearly here! Try RC3 with
-   sudo snap install microk8s --channel=1.19/candidate --classic
-
-   https://www.microk8s.io/ has docs and details.
-
-68 packages can be updated.
-0 updates are security updates.
-
-
-*** System restart required ***
-
-The programs included with the Ubuntu system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
-
-Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
-applicable law.
-
-To run a command as administrator (user "root"), use "sudo <command>".
-See "man sudo_root" for details.
-
-Administrator@mylinuxvm:
-```
-
-If you used a public IP address during VM creation, you can use that IP to connect to the VM. To get the public IP: 
-
-```powershell
-$publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
-```
-The public IP in this case will be the same as the private IP that you passed during the creation of the virtual network interface.
+    ```output
+    PS C:\WINDOWS\system32> ssh -l myazuser "10.126.76.60"
+    The authenticity of host '10.126.76.60 (10.126.76.60)' can't be established.
+    ECDSA key fingerprint is SHA256:V649Zbo58zAYMKreeP7M6w7Na0Yf9QPg4SM7JZVV0E4.
+    Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+    Warning: Permanently added '10.126.76.60' (ECDSA) to the list of known hosts.
+    myazuser@10.126.76.60's password:
+    Welcome to Ubuntu 18.04.2 LTS (GNU/Linux 4.18.0-1013-azure x86_64)
+    
+     * Documentation:  https://help.ubuntu.com
+     * Management:     https://landscape.canonical.com
+     * Support:        https://ubuntu.com/advantage
+    
+     System information disabled due to load higher than 1.0
+    
+      Get cloud support with Ubuntu Advantage Cloud Guest:
+        http://www.ubuntu.com/business/services/cloud
+    
+    284 packages can be updated.
+    192 updates are security updates. 
+       
+    The programs included with the Ubuntu system are free software;
+    the exact distribution terms for each program are described in the
+    individual files in /usr/share/doc/*/copyright.
+    
+    Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+    applicable law.
+    
+    To run a command as administrator (user "root"), use "sudo <command>".
+    See "man sudo_root" for details.
+    
+    myazuser@myazvmfriendlyname:~$ client_loop: send disconnect: Connection reset
+    PS C:\WINDOWS\system32>
+    ```

@@ -1,20 +1,23 @@
 ---
-title: JSON format in Azure Data Factory 
-description: 'This topic describes how to deal with JSON format in Azure Data Factory.'
-author: linda33wj
+title: JSON format
+titleSuffix: Azure Data Factory & Azure Synapse
+description: This topic describes how to deal with JSON format in Azure Data Factory and Azure Synapse Analytics pipelines.
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.author: jingwang
+ms.author: jianleishen
 ---
 
-# JSON format in Azure Data Factory
+# JSON format in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Follow this article when you want to **parse the JSON files or write the data into JSON format**. 
 
-JSON format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).
+JSON format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md).
 
 ## Dataset properties
 
@@ -77,8 +80,8 @@ Supported **JSON read settings** under `formatSettings`:
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | The type of formatSettings must be set to **JsonReadSettings**. | Yes      |
 | compressionProperties | A group of properties on how to decompress data for a given compression codec. | No       |
-| preserveZipFileNameAsFolder<br>(*under `compressionProperties`->`type` as `ZipDeflateReadSettings`*)  | Applies when input dataset is configured with **ZipDeflate** compression. Indicates whether to preserve the source zip file name as folder structure during copy.<br>- When set to **true (default)**, Data Factory writes unzipped files to `<path specified in dataset>/<folder named as source zip file>/`.<br>- When set to **false**, Data Factory writes unzipped files directly to `<path specified in dataset>`. Make sure you don't have duplicated file names in different source zip files to avoid racing or unexpected behavior.  | No |
-| preserveCompressionFileNameAsFolder<br>(*under `compressionProperties`->`type` as `TarGZipReadSettings` or `TarReadSettings`*) | Applies when input dataset is configured with **TarGzip**/**Tar** compression. Indicates whether to preserve the source compressed file name as folder structure during copy.<br>- When set to **true (default)**, Data Factory writes decompressed files to `<path specified in dataset>/<folder named as source compressed file>/`. <br>- When set to **false**, Data Factory writes decompressed files directly to `<path specified in dataset>`. Make sure you don't have duplicated file names in different source files to avoid racing or unexpected behavior. | No |
+| preserveZipFileNameAsFolder<br>(*under `compressionProperties`->`type` as `ZipDeflateReadSettings`*)  | Applies when input dataset is configured with **ZipDeflate** compression. Indicates whether to preserve the source zip file name as folder structure during copy.<br>- When set to **true (default)**, the service writes unzipped files to `<path specified in dataset>/<folder named as source zip file>/`.<br>- When set to **false**, the service writes unzipped files directly to `<path specified in dataset>`. Make sure you don't have duplicated file names in different source zip files to avoid racing or unexpected behavior.  | No |
+| preserveCompressionFileNameAsFolder<br>(*under `compressionProperties`->`type` as `TarGZipReadSettings` or `TarReadSettings`*) | Applies when input dataset is configured with **TarGzip**/**Tar** compression. Indicates whether to preserve the source compressed file name as folder structure during copy.<br>- When set to **true (default)**, the service writes decompressed files to `<path specified in dataset>/<folder named as source compressed file>/`. <br>- When set to **false**, the service writes decompressed files directly to `<path specified in dataset>`. Make sure you don't have duplicated file names in different source files to avoid racing or unexpected behavior. | No |
 
 ### JSON as sink
 
@@ -213,7 +216,7 @@ The below table lists the properties supported by a json source. You can edit th
 
 ### Source format options
 
-Using a JSON dataset as a source in your data flow allows you to set five additional settings. These settings can be found under the **JSON settings** accordion in the **Source Options** tab.  
+Using a JSON dataset as a source in your data flow allows you to set five additional settings. These settings can be found under the **JSON settings** accordion in the **Source Options** tab. For **Document Form** setting, you can select one of **Single document**, **Document per line**  and **Array of documents** types.
 
 ![JSON Settings](media/data-flow/json-settings.png "JSON Settings")
 
@@ -244,6 +247,52 @@ File3.json
 {
     "json": "record 3"
 }
+```
+If **Document per line** is selected, mapping data flows read one JSON document from each line in a file. 
+
+``` json
+File1.json
+{"json": "record 1 }
+
+File2.json
+ {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
+ {"time":"2015-04-29T07:13:21.0220000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789037573","switch1":"US","switch2":"UK"}
+
+File3.json
+ {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
+ {"time":"2015-04-29T07:13:21.0220000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789037573","switch1":"US","switch2":"UK"}
+ {"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
+```
+If **Array of documents** is selected, mapping data flows read one array of document from a file. 
+
+``` json
+File.json
+[
+        {
+            "time": "2015-04-29T07:12:20.9100000Z",
+            "callingimsi": "466920403025604",
+            "callingnum1": "678948008",
+            "callingnum2": "567834760",
+            "switch1": "China",
+            "switch2": "Germany"
+        },
+        {
+            "time": "2015-04-29T07:13:21.0220000Z",
+            "callingimsi": "466922202613463",
+            "callingnum1": "123436380",
+            "callingnum2": "789037573",
+            "switch1": "US",
+            "switch2": "UK"
+        },
+        {
+            "time": "2015-04-29T07:13:21.4370000Z",
+            "callingimsi": "466923101048691",
+            "callingnum1": "678901578",
+            "callingnum2": "345626404",
+            "switch1": "Germany",
+            "switch2": "UK"
+        }
+    ]
 ```
 > [!NOTE]
 > If data flows throw an error stating "corrupt_record" when previewing your JSON data, it is likely that your data contains contains a single document in your JSON file. Setting "single document" should clear that error.

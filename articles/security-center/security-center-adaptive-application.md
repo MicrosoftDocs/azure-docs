@@ -1,18 +1,11 @@
 ---
 title: Adaptive application controls in Azure Security Center
 description: This document helps you use adaptive application control in Azure Security Center to allow list applications running in Azure machines.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-
-ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/07/2021
+ms.date: 04/21/2021
 ms.author: memildin
 
 ---
@@ -48,9 +41,9 @@ No enforcement options are currently available. Adaptive application controls ar
 |----|:----|
 |Release state:|General Availability (GA)|
 |Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
-|Supported machines:|![Yes](./media/icons/yes-icon.png) Azure and non-Azure machines running Windows and Linux<br>![Yes](./media/icons/yes-icon.png) [Azure Arc](../azure-arc/index.yml) machines|
+|Supported machines:|:::image type="icon" source="./media/icons/yes-icon.png"::: Azure and non-Azure machines running Windows and Linux<br>:::image type="icon" source="./media/icons/yes-icon.png"::: [Azure Arc](../azure-arc/index.yml) machines|
 |Required roles and permissions:|**Security Reader** and **Reader** roles can both view groups and the lists of known-safe applications<br>**Contributor** and **Security Admin** roles can both edit groups and the lists of known-safe applications|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (US Gov, Azure China)|
 |||
 
 
@@ -63,7 +56,7 @@ Select the recommendation, or open the adaptive application controls page to vie
 
 1. Open the Azure Defender dashboard and from the advanced protection area, select **Adaptive application controls**.
 
-    :::image type="content" source="./media/security-center-adaptive-application/opening-adaptive-application-control.png" alt-text="Opening adaptive application controls from the Azure Dashboard" lightbox="./media/security-center-adaptive-application/opening-adaptive-application-control.png":::
+    :::image type="content" source="./media/security-center-adaptive-application/opening-adaptive-application-control.png" alt-text="Opening adaptive application controls from the Azure Dashboard." lightbox="./media/security-center-adaptive-application/opening-adaptive-application-control.png":::
 
     The **Adaptive application controls** page opens with your VMs grouped into the following tabs:
 
@@ -89,13 +82,13 @@ Select the recommendation, or open the adaptive application controls page to vie
 
 1. Open the **Recommended** tab. The groups of machines with recommended allow lists appears.
 
-   ![Recommended tab](./media/security-center-adaptive-application/adaptive-application-recommended-tab.png)
+   ![Recommended tab.](./media/security-center-adaptive-application/adaptive-application-recommended-tab.png)
 
 1. Select a group. 
 
 1. To configure your new rule, review the various sections of this **Configure application control rules** page and the contents, which will be unique to this specific group of machines:
 
-   ![Configure a new rule](./media/security-center-adaptive-application/adaptive-application-create-rule.png)
+   ![Configure a new rule.](./media/security-center-adaptive-application/adaptive-application-create-rule.png)
 
    1. **Select machines** - By default, all machines in the identified group are selected. Unselect any to removed them from this rule.
    
@@ -129,7 +122,7 @@ To edit the rules for a group of machines:
 
    1. Select **Add rule**.
 
-      ![Add a custom rule](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
+      ![Add a custom rule.](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
 
    1. If you're defining a known safe path, change the **Rule type** to 'Path' and enter a single path. You can include wildcards in the path.
    
@@ -152,7 +145,7 @@ To edit the rules for a group of machines:
 
     This pane shows the name of the group (which can be modified), the OS type, the location, and other relevant details.
 
-    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="The group settings page for adaptive application controls" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="The group settings page for adaptive application controls." lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
 
 1. Optionally, modify the group's name or file type protection modes.
 
@@ -185,10 +178,16 @@ To remediate the issues:
 
 1. To investigate further, select a group.
 
-   ![Recent alerts](./media/security-center-adaptive-application/recent-alerts.png)
+   ![Recent alerts.](./media/security-center-adaptive-application/recent-alerts.png)
 
 1. For further details, and the list of affected machines, select an alert.
 
+    The alerts page shows the more details of the alerts and provides a **Take action** link with recommendations of how to mitigate the threat.
+
+    :::image type="content" source="media/security-center-adaptive-application/adaptive-application-alerts-start-time.png" alt-text="The start time of adaptive application controls alerts is the .":::
+
+    > [!NOTE]
+    > Adaptive application controls calculates events once every twelve hours. The "activity start time" shown in the alerts page is the time that adaptive application controls created the alert, **not** the time that the suspicious process was active.
 
 
 ## Move a machine from one group to another
@@ -213,9 +212,9 @@ When you move a machine from one group to another, the application control polic
 
 ## Manage application controls via the REST API 
 
-To manage your adaptive application controls programatically, use our REST API. 
+To manage your adaptive application controls programmatically, use our REST API. 
 
-The full API documentation is [here](/rest/api/securitycenter/adaptiveapplicationcontrols).
+The relevant API documentation is available in [the Adaptive Application Controls section of Security Center's API docs](/rest/api/securitycenter/adaptiveapplicationcontrols).
 
 Some of the functions that are available from the REST API:
 
@@ -233,10 +232,17 @@ Some of the functions that are available from the REST API:
 
 ## FAQ - Adaptive application controls
 
+- [Are there any options to enforce the application controls?](#are-there-any-options-to-enforce-the-application-controls)
+- [Why do I see a Qualys app in my recommendeded applications?](#why-do-i-see-a-qualys-app-in-my-recommendeded-applications)
+
 ### Are there any options to enforce the application controls?
 No enforcement options are currently available. Adaptive application controls are intended to provide **security alerts** if any application runs other than the ones you've defined as safe. They have a range of benefits ([What are the benefits of adaptive application controls?](#what-are-the-benefits-of-adaptive-application-controls)) and are extremely customizable as shown on this page.
 
- 
+### Why do I see a Qualys app in my recommendeded applications?
+[Azure Defender for servers](defender-for-servers-introduction.md) includes vulnerability scanning for your machines at no extra cost. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Security Center. For details of this scanner and instructions for how to deploy it, see [Defender's integrated vulnerability assessment solution](deploy-vulnerability-assessment-vm.md).
+
+To ensure no alerts are generated when Security Center deploys the scanner, the adaptive application controls recommended allow list includes the scanner for all machines. 
+
 
 ## Next steps
 In this document, you learned how to use adaptive application control in Azure Security Center to define allow lists of applications running on your Azure and non-Azure machines. To learn more about some of Security Center's other cloud workload protection features, see:

@@ -14,7 +14,7 @@ Use the [Azure portal](https://portal.azure.com) to increase your networking quo
 
 To view your current Networking usage and quota in Azure portal, open your subscription, then select **Usages + quotas**. You can also use the following options to view your network usage and limits.
 
-* [Usage CLI](/cli/azure/network#az-network-list-usages)
+* [Usage CLI](/cli/azure/network#az_network_list_usages)
 * [PowerShell](/powershell/module/azurerm.network/get-azurermnetworkusage)
 * [The network usage API](/rest/api/virtualnetwork/virtualnetworks/listusage)
 

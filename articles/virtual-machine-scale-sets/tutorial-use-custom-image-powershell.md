@@ -3,12 +3,12 @@ title: Tutorial - Use a custom VM image in a scale set with Azure PowerShell
 description: Learn how to use Azure PowerShell to create a custom VM image that you can use to deploy a virtual machine scale set
 author: cynthn
 ms.service: virtual-machine-scale-sets
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: tutorial
 ms.date: 05/04/2020
 ms.author: cynthn
-ms.reviewer: akjosh
-ms.custom: akjosh
+ms.reviewer: mimckitt 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Tutorial: Create and use a custom image for virtual machine scale sets with Azure PowerShell

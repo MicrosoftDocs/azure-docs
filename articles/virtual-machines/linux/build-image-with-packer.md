@@ -2,19 +2,20 @@
 title: Create Linux Azure VM Images with Packer 
 description: Learn how to use Packer to create images of Linux virtual machines in Azure
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
+ms.collection: linux
 ---
 
 # How to use Packer to create Linux virtual machine images in Azure
 Each virtual machine (VM) in Azure is created from an image that defines the Linux distribution and OS version. Images can include pre-installed applications and configurations. The Azure Marketplace provides many first and third-party images for most common distributions and application environments, or you can create your own custom images tailored to your needs. This article details how to use the open source tool [Packer](https://www.packer.io/) to define and build custom images in Azure.
 
 > [!NOTE]
-> Azure now has a service, Azure Image Builder (preview), for defining and creating your own custom images. Azure Image Builder is built on Packer, so you can even use your existing Packer shell provisioner scripts with it. To get started with Azure Image Builder, see [Create a Linux VM with Azure Image Builder](image-builder.md).
+> Azure now has a service, Azure Image Builder, for defining and creating your own custom images. Azure Image Builder is built on Packer, so you can even use your existing Packer shell provisioner scripts with it. To get started with Azure Image Builder, see [Create a Linux VM with Azure Image Builder](image-builder.md).
 
 
 ## Create Azure resource group
@@ -203,7 +204,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-If you wish to create VMs in a different resource group or region than your Packer image, specify the image ID rather than image name. You can obtain the image ID with [az image show](/cli/azure/image#az-image-show).
+If you wish to create VMs in a different resource group or region than your Packer image, specify the image ID rather than image name. You can obtain the image ID with [az image show](/cli/azure/image#az_image_show).
 
 It takes a few minutes to create the VM. Once the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. This address is used to access the NGINX site via a web browser.
 
