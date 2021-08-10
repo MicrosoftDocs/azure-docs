@@ -80,17 +80,17 @@ The Azure resources defined in the template:
     |_artifacts Location |Leave as is.<sup>*</sup> URI to artifacts location.|
     |_artifacts Location Sas Token | Leave blank. The sasToken required to access `_artifactsLocation`. When the template is deployed using the accompanying scripts, a `sasToken` will be automatically generated.|
 
-       <sup>*</sup> When you attempt to run the ARM template from PowerShell, CLI, or the Templates feature in the portal, if the `_artifactsLocation` parameter isn't properly set, you'll receive an error message similar to the following:
+    <sup>*</sup> When you attempt to run the ARM template from PowerShell, CLI, or the Templates feature in the portal, if the `_artifactsLocation` parameter isn't properly set, you'll receive an error message similar to the following:
     
-       `"message": "Deployment template validation failed: 'The template resource '_artifactsLocation' at line '96' and column '31' is not valid: The language expression property 'templateLink' doesn't exist, available properties are 'template, templateHash, parameters, mode, debugSetting, provisioningState'.. Please see https://aka.ms/arm-template-expressions for usage details.'."`
+    `"message": "Deployment template validation failed: 'The template resource '_artifactsLocation' at line '96' and column '31' is not valid: The language expression property 'templateLink' doesn't exist, available properties are 'template, templateHash, parameters, mode, debugSetting, provisioningState'.. Please see https://aka.ms/arm-template-expressions for usage details.'."`
     
-       To prevent this error, when running from the Templates feature in the portal, specify the following value for the `_artifactsLocation` parameter - `https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json`.
+    To prevent this error, when running from the Templates feature in the portal, specify the following value for the `_artifactsLocation` parameter - `https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json`.
     
-       When you run from PowerShell, include the parameter and its value `-TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json`.
+    When you run from PowerShell, include the parameter and its value `-TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json`.
     
-       When you run from Azure CLI, include the parameter and its value - `--template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json`.
+    When you run from Azure CLI, include the parameter and its value - `--template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json`.
     
-       For reference about PowerShell/CLI, see the following - [Create Azure Automation account (microsoft.com)](https://azure.microsoft.com/resources/templates/101-automation/) under the **Use the template** section.
+    For reference about PowerShell/CLI, see the following - [Create Azure Automation account (microsoft.com)](https://azure.microsoft.com/resources/templates/101-automation/) under the **Use the template** section.
 
 1. Select **Review + Create** and then **Create**. The deployment can take a few minutes to finish. When completed, the output is similar to the following image:
 
