@@ -30,7 +30,7 @@ Azure AD.
 
 - [Configure Azure AD Connect for authentication](#step-1---configure-azure-ad-connect-for-authentication)
 
-- [Configure staged rollout features](#step-2--configure-staged-rollout-features)
+- [Configure staged rollout features](#step-2---configure-staged-rollout-features)
 
 - [Create Okta app in Azure AD](#step-3---create-okta-app-in-azure-ad)
 
