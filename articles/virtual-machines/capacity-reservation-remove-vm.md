@@ -5,7 +5,7 @@ author: vargupt
 ms.author: vargupt
 ms.service: virtual-machines #Required
 ms.topic: how-to
-ms.date: 07/30/2021
+ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
 ---
@@ -30,7 +30,7 @@ There are two ways to change an association:
 
 The first option is to deallocate the Virtual Machine, change the Capacity Reservation Group property, and optionally restart the VM. 
 
-### [API](#tab/api)
+### [API](#tab/api1)
 
 1. Deallocate the VM
 
@@ -46,13 +46,18 @@ The first option is to deallocate the Virtual Machine, change the Capacity Reser
     In the request body, set the `capacityReservationGroup` property to empty to remove the VM association to the group:
 
     ```json
-    "capacityReservation": { 
-            "capacityReservationGroup": {
-            } 
-    } 
+     {
+    "location": "eastus",
+    "properties": {
+        "capacityReservation": {
+            "capacityReservationGroup": {
+            }
+        }
+    }
+    }
     ```
 
-### [Portal](#tab/portal)
+### [Portal](#tab/portal1)
 
 <!-- no images necessary if steps are straightforward --> 
 
@@ -65,6 +70,32 @@ The first option is to deallocate the Virtual Machine, change the Capacity Reser
 1. Set the **Capacity Reservation Group** value to *None*
     1. The VM is no longer associated with the Capacity Reservation Group 
 
+### [PowerShell](#tab/powershell1)
+
+1. Deallocate the Virtual Machine
+
+    ```powershell-interactive
+    Stop-AzVM
+    -ResourceGroupName "myResourceGroup"
+    -Name "myVM"
+    ```
+
+    Once the status changes to **Stopped (deallocated)**, the virtual machine is deallocated.
+
+1. Update the VM to remove association with the Capacity Reservation Group by setting the `CapacityReservationGroupId` property to empty:
+
+    ```powershell-interactive
+    $VirtualMachine =
+    Get-AzVM
+    -ResourceGroupName "myResourceGroup"
+    -Name "myVM"
+    
+    Update-AzVM
+    -ResourceGroupName "myResourceGroup"
+    -VM $VirtualMachine
+    -CapacityReservationGroupId " "
+    ```
+
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
 
@@ -75,7 +106,7 @@ The second option involves updating the reserved quantity to zero and then chang
 
 This option works well when the virtual machine can’t be deallocated and when a reservation is no longer needed. For example, you may create a capacity reservation to temporarily assure capacity during a large-scale deployment. Once completed, the reservation is no longer needed. 
 
-### [API](#tab/api)
+### [API](#tab/api2)
 
 1. Update the reserved quantity to zero 
 
@@ -86,9 +117,12 @@ This option works well when the virtual machine can’t be deallocated and when 
     In the request body, include the following:
     
     ```json
-    { 
-      "capacity": 0, 
-    } 
+    {
+    "sku":
+        {
+        "capacity": 0
+        }
+    }
     ```
     
     Note that `capacity` property is set to 0 above.
@@ -102,15 +136,18 @@ This option works well when the virtual machine can’t be deallocated and when 
     In the request body, set the `capacityReservationGroup` property to empty to remove the association:
     
     ```json
-    { 
-      "location": "eastus", 
-      "properties": { 
-            "capacityReservationGroup”: “” 
-        } 
+    {
+    "location": "eastus",
+    "properties": {
+        "capacityReservation": {
+            "capacityReservationGroup": {
+            }
+        }
+    }
     } 
     ```
 
-### [Portal](#tab/portal)
+### [Portal](#tab/portal2)
 
 <!-- no images necessary if steps are straightforward --> 
 
@@ -124,6 +161,35 @@ This option works well when the virtual machine can’t be deallocated and when 
 1. Go to your Virtual Machine and select **Configuration**
 1. Set the **Capacity Reservation Group** value to *None*
     1. Note that the VM is no longer associated with the Capacity Reservation Group
+
+### [PowerShell](#tab/powershell2)
+
+1. Update reserved quantity to zero
+
+    ```powershell-interactive
+    New-AzCapacityReservation
+    -ResourceGroupName "myResourceGroup"
+    -Location "eastus"
+    -Zone "1"
+    -ReservationGroupName "myCapacityReservationGroup"
+    -Name "myCapacityReservation"
+    -Sku "Standard_D2s_v3"
+    -CapacityToReserve 0
+    ```
+
+1. Update the VM to remove association with the Capacity Reservation Group by setting the `CapacityReservationGroupId` property to empty:
+
+    ```powershell-interactive
+    $VirtualMachine =
+    Get-AzVM
+    -ResourceGroupName "myResourceGroup"
+    -Name "myVM"
+    
+    Update-AzVM
+    -ResourceGroupName "myResourceGroup"
+    -VM $VirtualMachine
+    -CapacityReservationGroupId " "
+    ```
 
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->

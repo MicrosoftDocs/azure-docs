@@ -5,7 +5,7 @@ author: vargupt
 ms.author: vargupt
 ms.service: virtual-machines #Required
 ms.topic: how-to
-ms.date: 07/30/2021
+ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
 ---
@@ -199,11 +199,6 @@ The `myCapacityReservation` object state will automatically change to reflect th
     } 
 }
 ```
-
-Customers don't have to manage which VMs are in or out of the reserved space. All allocated Standard_D2s_v3 VMs with the `capacityReservationGroup` property set to `myCapacityReservationGroup` count towards the `virtualMachinesAllocated` property of `myCapacityReservation`. Virtual machines can be created and deleted in any order and Azure will manage the Capacity Reservation state automatically. 
-
-There's no support within a reservation for designating a set of VMs that are protected and a set that aren't. To segment VMs in that manner, allocate the less important VMs outside the reservation or to a different reservation group. 
-
 
 ## Next steps
 

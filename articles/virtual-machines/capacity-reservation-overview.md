@@ -5,7 +5,7 @@ author: vargupt
 ms.author: vargupt
 ms.service: virtual-machines #Required
 ms.topic: how-to
-ms.date: 07/30/2021
+ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
 ---
@@ -78,7 +78,7 @@ To consume capacity reservation, specify capacity reservation group as one of th
 
 The quantity reserved for reservation can be adjusted after initial deployment by changing the capacity property. Other changes to capacity reservation, such as VM size or location, aren't permitted. The recommended approach is to delete the existing reservation and create a new one with the new requirements. 
 
-Capacity Reservation doesn’t create limits on VM deployments. Azure supports allocating as many VMs as desired against a reservation. Quota checks are omitted up to the reserved quantity and the capacity SLA is in effect. Allocating more VMs against the reservation is subject to quota checks and Azure fulfilling the extra capacity. Once deployed, these extra VM instances can cause the quantity of VMs allocated against the reservation to exceed the reserved quantity. This state is called overallocating. To learn more, go to [Overallocating Capacity Reservation](capacity-reservation-overallocate.md). 
+Capacity Reservation doesn’t create limits on the number of VM deployments. Azure supports allocating as many VMs as desired against the reservation. As the reservation itself requires quota, the quota checks are omitted for VM deployment up to the reserved quantity. Allocating more VMs against the reservation is subject to quota checks and Azure fulfilling the extra capacity. Once deployed, these extra VM instances can cause the quantity of VMs allocated against the reservation to exceed the reserved quantity. This state is called overallocating. To learn more, go to [Overallocating Capacity Reservation](capacity-reservation-overallocate.md). 
 
 
 ## Capacity Reservation lifecycle
@@ -125,19 +125,11 @@ The status of the Capacity Reservation will now show `capacity` as 2 and length 
 
 ## Usage and billing 
 
-When a Capacity Reservation is empty, VM usage will be reported for the corresponding VM size and the location. [VM Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) can cover some or all of the Capacity Reservation usage even when VMs aren't deployed.  
-
-Capacity Reservations are created and managed using the Capacity Reservation APIs on *Microsoft.Compute* provider. Capacity Reservations are the only way to obtain an availability SLA for VM capacity. Like Virtual Machines, these objects can be created and deleted as needed; no minimum term is required. By default, they'll incur charges equivalent to the VM size reserved. 
-
-VM Reserved Instances are different; they primarily offer the benefit of a commitment-based discount that can be applied for both Virtual Machines and Capacity Reservations. The VM Reserved Instances are created and managed on *Microsoft.Capacity* provider. 
-
-Depending on the configuration choice, VM Reserved Instances can offer *capacity priority* for failed allocations. Priority can be useful when Azure comes across a constrained capacity situation. However, the VM Reserved Instance *capacity priority* option doesn't carry any availability SLA. 
-
-When used with Capacity Reservations, Microsoft recommends using the *Size Flexible* configuration for VM Reserved Instances so that Azure can cover any of the sizes within the VM series for which the Reserved Instances are bought. 
+When a Capacity Reservation is empty, VM usage will be reported for the corresponding VM size and the location. [VM Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) can cover some or all of the Capacity Reservation usage even when VMs aren't deployed. 
 
 ### Example
 
-Continuing with our example, a Capacity Reservation with quantity reserved 2 has been created. The subscription has access to one matching Reserved VM Instance of the same size. The result is two usage streams for the Capacity Reservation, one of which is covered by the Reserved Instance: 
+For example, let's say a Capacity Reservation with quantity reserved 2 has been created. The subscription has access to one matching Reserved VM Instance of the same size. The result is two usage streams for the Capacity Reservation, one of which is covered by the Reserved Instance: 
 
 ![Capacity Reservation image 7.](\media\capacity-reservation-overview\capacity-reservation-7.jpg)
 

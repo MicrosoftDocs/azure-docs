@@ -5,7 +5,7 @@ author: vargupt
 ms.author: vargupt
 ms.service: virtual-machines #Required
 ms.topic: how-to
-ms.date: 07/30/2021
+ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
 ---
@@ -34,7 +34,9 @@ The Capacity Reservation must meet the following rules:
 - For a group that supports zones, each reservation type is defined by the combination of **VM size** and **zone**. For example, one Capacity Reservation for `Standard_D2s_v3` in `Zone 1`, another Capacity Reservation for `Standard_D2s_v3` in `Zone 2`, and `Standard_D2s_v3` in `Zone 3` is supported. 
 
 
-## [API](#tab/api)
+## Create a capacity reservation group 
+
+### [API](#tab/api1)
 
 1. Create a Capacity Reservation Group 
 
@@ -87,10 +89,8 @@ The Capacity Reservation must meet the following rules:
     
     The above request creates a reservation in the East US location for 5 quantities of the D2s_v3 VM size. 
 
---- 
-<!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
 
-## [Portal](#tab/portal)
+### [Portal](#tab/portal1)
 
 <!-- no images necessary if steps are straightforward --> 
 
@@ -114,12 +114,44 @@ The Capacity Reservation must meet the following rules:
 1. Under the *Review + Create* tab, review your capacity reservation group information
 1. Select **Create**
 
---- 
-<!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
 
-## [ARM template](#tab/arm)
+### [PowerShell](#tab/powershell1)
 
-An ARM template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
+1. Before you can create a capacity reservation, create a resource group with `New-AzResourceGroup`. The following example creates a resource group *myResourceGroup* in the East US location.
+
+    ```powershell-interactive
+    New-AzResourceGroup
+    -ResourceGroupName "myResourceGroup"
+    -Location “eastus”
+    ```
+
+1. Now create a Capacity Reservation Group with `New-AzCapacityReservationGroup`. The following example creates a group *myCapacityReservationGroup* in the East US location for all 3 availability zones.
+
+    ```powershell-interactive
+    New-AzCapacityReservationGroup
+    -ResourceGroupName "myResourceGroup"
+    -Location "eastus"
+    -Zone "1","2","3"
+    -Name "myCapacityReservationGroup"
+    ```
+
+1. Once the Capacity Reservation Group is created, create a new Capacity Reservation with `New-AzCapacityReservation`. The following example creates *myCapacityReservation* for 5 quantities of Standard_D2s_v3 VM size in Zone 1 of East US location.
+
+    ```powershell-interactive
+    New-AzCapacityReservation
+    -ResourceGroupName “myResourceGroup”
+    -Location “eastus”
+    -Zone “1”
+    -ReservationGroupName “myCapacityReservationGroup”
+    -Name “myCapacityReservation”
+    -Sku “Standard_D2s_v3”
+    -CapacityToReserve 5
+    ```
+
+
+### [ARM template](#tab/arm1)
+
+An [ARM template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
 
 ARM templates let you deploy groups of related resources. In a single template, you can create capacity reservation group and capacity reservations. You can deploy templates through the Azure portal, Azure CLI, or Azure PowerShell, or from continuous integration / continuous delivery (CI/CD) pipelines. 
 
@@ -135,7 +167,9 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Check on your Capacity Reservation 
 
-Once successfully created, the Capacity Reservation is immediately available for use with VMs: 
+Once successfully created, the Capacity Reservation is immediately available for use with VMs. 
+
+### [API](#tab/api2)
 
 ```rest
 GET  
@@ -162,6 +196,32 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
     } 
 } 
 ```
+
+### [PowerShell](#tab/powershell2)
+
+Check on your Capacity Reservation:
+
+```powershell-interactive
+Get-AzCapacityReservation
+-ResourceGroupName ""
+-ReservationGroupName] <"CapacityReservationGroupName">
+-Name <"CapacityReservationName">
+```
+
+To find VM size and the quantity reserved, use the following: 
+
+```powershell-interactive
+$CapRes =
+Get-AzCapacityReservation
+-ResourceGroupName ""
+-ReservationGroupName] <"CapacityReservationGroupName">
+-Name <"CapacityReservationName">
+
+$CapRes.sku
+```
+
+--- 
+<!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
 
 ## Next steps
 
