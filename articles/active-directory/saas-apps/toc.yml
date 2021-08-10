@@ -483,6 +483,8 @@
         href: coralogix-tutorial.md
       - name: Cornerstone Single Sign-On
         href: cornerstone-ondemand-tutorial.md
+      - name: CorporateExperience
+        href: corporateexperience-tutorial.md  
       - name: CorpTax
         href: corptax-tutorial.md
       - name: Costpoint
