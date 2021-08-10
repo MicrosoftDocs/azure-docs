@@ -60,26 +60,26 @@ The rest of the examples show how the _contoso-search_ service can be configured
 
 Configure the Azure resource that you want the indexer to connect with to allow access only from select networks.
 
-#### Scenario 1: Data source
+- Scenario 1: Data source
 
-Below is an example of how to configure an Azure storage account. If you select this option and leave the set empty, it means that no traffic from virtual networks is allowed.
+    Below is an example of how to configure an Azure storage account. If you select this option and leave the set empty, it means that no traffic from virtual networks is allowed.
 
-![Screenshot of the "Firewalls and virtual networks" pane for Azure storage, showing the option to allow access to selected networks.](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png)
+    ![Screenshot of the "Firewalls and virtual networks" pane for Azure storage, showing the option to allow access to selected networks.](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png)
 
-#### Scenario 2: Azure Key Vault
+    > [!NOTE]
+    > You can use the [trusted Microsoft service approach](../storage/common/storage-network-security.md#trusted-microsoft-services) to bypass virtual network or IP restrictions on a storage account. You can also enable the search service to access data in the storage account. To do so, see [Indexer access to Azure Storage with the trusted service exception](search-indexer-howto-access-trusted-service-exception.md).
+    > 
+    > However, when you use this approach, communication between Azure Cognitive Search and your storage account happens via the public IP address of the storage account, over the secure Microsoft backbone network.
 
-Below is an example of how to configure Azure Key Vault.
+- Scenario 2: Azure Key Vault
+
+    Below is an example of how to configure Azure Key Vault.
  
-![Screenshot of the "Firewalls and virtual networks" pane for Azure Key Vault, showing the option to allow access to selected networks.](media\search-indexer-howto-secure-access\key-vault-firewall-noaccess.png)
+    ![Screenshot of the "Firewalls and virtual networks" pane for Azure Key Vault, showing the option to allow access to selected networks.](media\search-indexer-howto-secure-access\key-vault-firewall-noaccess.png)
     
-#### Scenario 3: Azure Functions
+- Scenario 3: Azure Functions
 
-No network setting changes are needed for Azure Functions. Later in the steps below when you create the shared private endpoint the Function will automatically only allow access through private link after the creation of a shared private endpoint to the Function.
-
-> [!NOTE]
-> You can use the [trusted Microsoft service approach](../storage/common/storage-network-security.md#trusted-microsoft-services) to bypass virtual network or IP restrictions on a storage account. You can also enable the search service to access data in the storage account. To do so, see [Indexer access to Azure Storage with the trusted service exception](search-indexer-howto-access-trusted-service-exception.md).
-> 
-> However, when you use this approach, communication between Azure Cognitive Search and your storage account happens via the public IP address of the storage account, over the secure Microsoft backbone network.
+    No network setting changes are needed for Azure Functions. Later in the steps below when you create the shared private endpoint the Function will automatically only allow access through private link after the creation of a shared private endpoint to the Function.
 
 ### Step 2: Create a shared private link resource to the Azure resource
 
