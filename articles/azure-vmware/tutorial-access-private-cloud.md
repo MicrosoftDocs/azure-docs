@@ -9,7 +9,7 @@ ms.date: 03/13/2021
 
 Azure VMware Solution doesn't allow you to manage your private cloud with your on-premises vCenter. Instead, you'll need to connect to the Azure VMware Solution vCenter instance through a jump box. 
 
-In this tutorial, you'll create a jump box in the resource group you created in the [previous tutorial](tutorial-configure-networking.md) and sign into the Azure VMware Solution vCenter. This jump box is a Windows virtual machine (VM) on the same virtual network you created.  It provides access to both vCenter and the NSX Manager. 
+In this tutorial, you'll create a jump box in the resource group you created in the [previous tutorial](tutorial-configure-networking.md)(should change the order) and sign into the Azure VMware Solution vCenter. This jump box is a Windows virtual machine (VM) on the same virtual network you created.  It provides access to both vCenter and the NSX Manager. 
 
 In this tutorial, you learn how to:
 
