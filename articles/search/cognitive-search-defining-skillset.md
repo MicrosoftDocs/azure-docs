@@ -26,7 +26,7 @@ Some rules for creating a skillset include:
 + A skillset must contain at least one skill.
 + Within a skillset, you can repeat skills for the same type (for example, variants of an image analysis skill).
 
-## Planning and design
+## Skillset design
 
 An initial step is to decide which data to extract from your raw data and how you want to use that data in a search solution.
 
@@ -74,7 +74,8 @@ The following example shows the main sections:
 }
 ```
 
-Providing a description makes the skillset self-documenting (comments aren't allowed in JSON itself).
+> [!TIP]
+> Providing a description makes the skillset self-documenting (comments aren't allowed in JSON itself).
 
 ### Example of a skills array
 
@@ -140,7 +141,7 @@ The skills property specifies the skills used in the skillset. This example show
 ]
 ```
 
-## Add skills
+## Skills array
 
 The next piece in the skillset is an array of skills. You can think of each skill as a primitive of enrichment. Each skill performs a small task in this enrichment pipeline. Each one takes an input (or a set of inputs), and returns some outputs. The next few sections focus on how to specify built-in and custom skills, chaining skills together through input and output references. Inputs can come from source data or from another skill. Outputs can be mapped to a field in a search index or used as an input to a downstream skill.
 
@@ -244,7 +245,7 @@ Notice that the "context" field is set to ```"/document/orgs/*"``` with an aster
 
 Output, in this case a company description, is generated for each organization identified. When referring to the description in a downstream step (for example, in key phrase extraction), you would use the path ```"/document/orgs/*/description"``` to do so. 
 
-## Skill output
+## Skills output
 
 The skillset generates enriched documents that collect the output of each enrichment step. Consider the following example of unstructured text:
 
