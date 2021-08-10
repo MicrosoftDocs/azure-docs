@@ -1,11 +1,13 @@
 ---
 title: Source transformation in mapping data flow
-description: Learn how to set up a source transformation in mapping data flow. 
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to set up a source transformation in a mapping data flow in Azure Data Factory or Azure Synapse Analytics pipelines. 
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 03/10/2021
 ---
 
@@ -52,7 +54,7 @@ Mapping data flow follows an extract, load, and transform (ELT) approach and wor
 
 Settings specific to these connectors are located on the **Source options** tab. Information and data flow script examples on these settings are located in the connector documentation.
 
-Azure Data Factory has access to more than [90 native connectors](connector-overview.md). To include data from those other sources in your data flow, use the Copy Activity to load that data into one of the supported staging areas.
+Azure Data Factory and Synapse pipelines have access to more than [90 native connectors](connector-overview.md). To include data from those other sources in your data flow, use the Copy Activity to load that data into one of the supported staging areas.
 
 ## Source settings
 
@@ -68,11 +70,11 @@ Development values for dataset parameters can be configured in [debug settings](
 
 **Test connection**: Test whether or not the data flow's Spark service can successfully connect to the linked service used in your source dataset. Debug mode must be on for this feature to be enabled.
 
-**Schema drift**: [Schema drift](concepts-data-flow-schema-drift.md) is the ability of Data Factory to natively handle flexible schemas in your data flows without needing to explicitly define column changes.
+**Schema drift**: [Schema drift](concepts-data-flow-schema-drift.md) is the ability of the service to natively handle flexible schemas in your data flows without needing to explicitly define column changes.
 
 * Select the **Allow schema drift** check box if the source columns will change often. This setting allows all incoming source fields to flow through the transformations to the sink.
 
-* Selecting **Infer drifted column types** instructs Data Factory to detect and define data types for each new column discovered. With this feature turned off, all drifted columns will be of type string.
+* Selecting **Infer drifted column types** instructs the service to detect and define data types for each new column discovered. With this feature turned off, all drifted columns will be of type string.
 
 **Validate schema:** If **Validate schema** is selected, the data flow will fail to run if the incoming source data doesn't match the defined schema of the dataset.
 
@@ -95,7 +97,7 @@ Like schemas in datasets, the projection in a source defines the data columns, t
 
 ![Screenshot that shows settings on the Projection tab.](media/data-flow/source3.png "Screenshot that shows settings on the Projection tab.")
 
-If your text file has no defined schema, select **Detect data type** so that Data Factory will sample and infer the data types. Select **Define default format** to autodetect the default data formats.
+If your text file has no defined schema, select **Detect data type** so that the service will sample and infer the data types. Select **Define default format** to autodetect the default data formats.
 
 **Reset schema** resets the projection to what is defined in the referenced dataset.
 
@@ -111,7 +113,7 @@ Importing schema is useful in datasets like Avro and Azure Cosmos DB that suppor
 
 The **Optimize** tab allows for editing of partition information at each transformation step. In most cases, **Use current partitioning** will optimize for the ideal partitioning structure for a source.
 
-If you're reading from an Azure SQL Database source, custom **Source** partitioning will likely read data the fastest. Data Factory will read large queries by making connections to your database in parallel. This source partitioning can be done on a column or by using a query.
+If you're reading from an Azure SQL Database source, custom **Source** partitioning will likely read data the fastest. The service will read large queries by making connections to your database in parallel. This source partitioning can be done on a column or by using a query.
 
 ![Screenshot that shows the Source partition settings.](media/data-flow/sourcepart3.png "Screenshot that shows the Source partition settings.")
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Connect Azure Firewall data to Azure Sentinel
 description: Learn how to connect Azure Firewall data to Azure Sentinel.
 author: yelevin
@@ -36,13 +36,13 @@ Learn more about [monitoring Azure Firewall logs](../firewall/firewall-diagnosti
 
     1. From the **Firewalls** navigation menu, select **Diagnostic settings**.
 
-    1. Select **+ Add diagnostic setting** at the bottom of the list.​
+    1. Select **+ Add diagnostic setting** at the bottom of the list.
 
     1. In the **Diagnostics settings** screen, enter a name in the  **Diagnostic settings name** field.
     
-    1. Mark the **Send to Log Analytics** check box. Two new fields will be displayed below it. Choose the relevant **Subscription** and **Log Analytics Workspace** (where Azure Sentinel resides).​
+    1. Mark the **Send to Log Analytics** check box. Two new fields will be displayed below it. Choose the relevant **Subscription** and **Log Analytics Workspace** (where Azure Sentinel resides).
 
-    1. Mark the check boxes of the rule types whose logs you want to ingest. We recommend **AzureFirewallApplicationRule** and **AzureFirewallNetworkRule**.​
+    1. Mark the check boxes of the rule types whose logs you want to ingest. We recommend **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule**, and **AzureFirewallDNSProxy**.
 
     1. Select **Save** at the top of the screen.
 
@@ -54,5 +54,5 @@ Learn more about [monitoring Azure Firewall logs](../firewall/firewall-diagnosti
 
 ## Next steps
 In this document, you learned how to connect Azure Firewall logs to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).

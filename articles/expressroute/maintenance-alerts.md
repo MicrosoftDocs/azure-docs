@@ -13,6 +13,11 @@ ms.author: mialdrid
 
 ExpressRoute uses Azure Service Health to notify you of planned and upcoming ExpressRoute circuit maintenance. With Service Health, you can view planned and past maintenance in the Azure portal along with configuring alerts and notifications that best suits your needs. To learn more about Azure Service Health refer to [What is Azure Service Health?](../service-health/overview.md)
 
+> [!NOTE]
+> * During a maintenance activity or in case of unplanned events impacting one of the connection, Microsoft will prefer to use AS path prepending to drain traffic over to the healthy connection. You will need to ensure the traffic is able to route over the healthy path when path prepend is configured from Microsoft and required route advertisements are configured appropriately to avoid any service disruption. 
+> * Terminating ExpressRoute BGP connections on stateful devices can cause issues with failover during planned or unplanned maintenances by Microsoft or your ExpressRoute Provider. You should test your set up to ensure your traffic will failover properly, and when possible, terminate BGP sessions on stateless devices.
+>
+
 ## View planned maintenance
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
@@ -27,7 +32,7 @@ ExpressRoute uses Azure Service Health to notify you of planned and upcoming Exp
 
 1. Select **ExpressRoute** from the *Services* drop-down to only view ExpressRoute related maintenance. Then select an issue from the list to view the event summary. Select the **Issues updates** tab for more details about an on-going maintenance.
 
-    :::image type="content" source="./media/maintenance-alerts/summary.png" alt-text="Screenshot of ExpressRoute maintenance summary." lightbox="./media/maintenance-alerts/summary-expanded.png"::: 
+    :::image type="content" source="./media/maintenance-alerts/summary.png" alt-text="Screenshot of ExpressRoute maintenance summary." lightbox="./media/maintenance-alerts/summary-expanded.png":::
 
 ## View past maintenance
 
