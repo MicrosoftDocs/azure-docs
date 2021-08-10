@@ -56000,6 +56000,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sentinel/tutorial-investigate-cases.md",
+      "redirect_url": "articles/sentinel/investigate-cases.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/quickstart-get-visibility.md",
+      "redirect_url": "articles/sentinel/get-visibility.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/tutorial-detect-threats-built-in.md",
+      "redirect_url": "articles/sentinel/detect-threats-built-in.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/tutorial-detect-threats-custom.md",
+      "redirect_url": "articles/sentinel/detect-threats-custom.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/tutorial-monitor-your-data.md",
+      "redirect_url": "articles/sentinel/monitor-your-data.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-desktop/connect-android.md",
       "redirect_url": "/azure/virtual-desktop/user-documentation/connect-android",
       "redirect_document_id": true
