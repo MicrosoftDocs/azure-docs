@@ -155,7 +155,7 @@ items:
     - name: How-to guides
       items:
       - name: Call the Text Summarization API
-        href: text-summarization/call-api.md
+        href: text-summarization/how-to/call-api.md
 - name: Concepts
   items:
   - name: Multilingual and emoji support

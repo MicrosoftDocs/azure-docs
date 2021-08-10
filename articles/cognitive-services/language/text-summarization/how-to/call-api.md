@@ -56,7 +56,7 @@ Each request can include multiple documents.
 
 ### Example request 
 
-The following is an example of content you might submit for summarization, which is extracted using the Microsoft blog article [A holistic representation toward integrative AI](https://www.microsoft.com/research/blog/a-holistic-representation-toward-integrative-ai/). This article is only an example, the API can accept much longer input text. See [Data limits](../Concepts/data-limits.md) for more information.
+The following is an example of content you might submit for summarization, which is extracted using the Microsoft blog article [A holistic representation toward integrative AI](https://www.microsoft.com/research/blog/a-holistic-representation-toward-integrative-ai/). This article is only an example, the API can accept much longer input text. See the [Data limits](#data-limits) section for more information.
  
 *"At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding. As Chief Technology Officer of Azure AI Cognitive Services, I have been working with a team of amazing scientists and engineers to turn this quest into a reality. In my role, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition: monolingual text (X), audio or visual sensory signals, (Y) and multilingual (Z). At the intersection of all three, there’s magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better. We believe XYZ-code will enable us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages. The goal is to have pretrained models that can jointly learn representations to support a broad range of downstream AI tasks, much in the way humans do today. Over the past five years, we have achieved human performance on benchmarks in conversational speech recognition, machine translation, conversational question answering, machine reading comprehension, and image captioning. These five breakthroughs provided us with strong signals toward our more ambitious aspiration to produce a leap in AI capabilities, achieving multisensory and multilingual learning that is closer in line with how humans learn and understand. I believe the joint XYZ-code is a foundational component of this aspiration, if grounded with external knowledge sources in the downstream AI tasks."*
 
@@ -72,6 +72,24 @@ Using the above example, the API might return the following summarized sentences
 
 *"At the intersection of all three, there’s magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better."*
 
+
+# Data limits
+
+This section describes the limits for the size, and rates that you can send data to the Text Summarization API. Note that pricing is not affected by the data limits or rate limits. Pricing is subject to your Language Services resource [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+
+## Data limits
+
+> [!NOTE]
+> * If you need to analyze larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. 
+> * A document is a single string of text characters.  
+
+| Limit | Value |
+|------------------------|---------------|
+| Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
+| Maximum size of a single document (`/analyze` endpoint)  | 125K characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
+| Max Documents Per Request | 25 |
+
+If a document exceeds the limits, the API will reject the entire request and return a `400 bad request` error if any document within it exceeds the maximum size.
 
 ## Summary
 
