@@ -177,8 +177,10 @@ Usage:
     - Set Enable_SSO_On_All_ManagedApps :1 and use BlockAppList to specify the apps that they want to block from getting SSO
   - If MDM admin wants to disable default SSO on safari, but SSO on all managed apps:
     - Add the safari bundle IDs in BlockAppList and set Enable_SSO_On_All_ManagedApps :
-  - If MDM admin wants to enable SSO on all managed apps and few non managed Apps and block few apps:
-    - Use Enable_SSO_On_All_ManagedApps : 1, add additional apps that needs sso but are not managed in AppAllowList and add the apps that needs to be blocked under AppBlockList.
+  - If the MDM admin wants to enable SSO on all managed apps and a few unmanaged apps, but also block SSO for others:
+    - Set Enable_SSO_On_All_ManagedApps : 1
+    - Add unmanaged apps that require SSO to AppAllowList
+    - Add any app that needs SSO disabled to AppBlockList
 
 
 >[!NOTE]
