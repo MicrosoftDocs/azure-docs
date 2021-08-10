@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 08/05/2021
+ms.date: 08/10/2021
 ---
 
 # Testing the FHIR API on Azure API for FHIR
@@ -86,7 +86,7 @@ If you do the GET step above to retrieve a patient again, you will see James Tib
 If you ran into issues during any of these steps, review the documents we have put together on Azure Active Directory and the Azure API for FHIR. 
 
 * [Azure AD and Azure API for FHIR](azure-active-directory-identity-configuration.md) - This document outlines some of the basic principles of Azure Active Directory and how it interacts with the Azure API for FHIR.
-* [Access token validation](azure-ad-hcapi-token-validation.md) - This how-to guide gives more specific details on access token validation and steps to take to resolve access issues.
+* [Access token validation](azure-api-fhir-access-token-validation.md) - This how-to guide gives more specific details on access token validation and steps to take to resolve access issues.
 
 ## Next Steps
 Now that you can successfully connect to your client application, you are ready to write your web application.
