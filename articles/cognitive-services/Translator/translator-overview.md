@@ -15,7 +15,7 @@ keywords: translator, text translation, machine translation, translation service
 ---
 # What is Translator?
 
- Translator is a cloud-based neural machine translation service that is part of the [Azure Cognitive Services](../what-are-cognitive-service.md) family of REST APIs.  Translator can be used with any operating system and powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this overview, you'll learn how Translator can enable you to build intelligent, multi-language solutions for your applications across all [supported languages](./language-support.md).
+ Translator is a cloud-based neural machine translation service that is part of the [Azure Cognitive Services](../what-are-cognitive-services.md) family of REST APIs.  Translator can be used with any operating system and powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this overview, you'll learn how Translator can enable you to build intelligent, multi-language solutions for your applications across all [supported languages](./language-support.md).
 
 Translator documentation contains the following article types:
 
