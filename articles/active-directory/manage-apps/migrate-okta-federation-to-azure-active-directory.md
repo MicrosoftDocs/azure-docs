@@ -28,7 +28,7 @@ Azure AD.
 
 ## High-level migration tasks
 
-- [Configure Azure AD Connect for authentication](#step-1--configure-azure-ad-connect-for-authentication)
+- [Configure Azure AD Connect for authentication](#step-1---configure-azure-ad-connect-for-authentication)
 
 - [Configure staged rollout features](#step-2--configure-staged-rollout-features)
 
