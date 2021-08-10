@@ -72,7 +72,7 @@ The MIC is base64-encoded and is determined from the **MIC Algorithm** property,
 
 For example, the following screenshot shows the MDN properties in the AS2 agreement's **Receive Settings** page:
 
-![MDN acknowledgement settings](./media/logic-apps-enterprise-integration-as2-mdn-acknowledgement/mdn-ack-settings.png)
+![MDN acknowledgement settings](./media/logic-apps-enterprise-integration-as2-mdn-acknowledgment/mdn-ack-settings.png)
 
 ## Next steps
 
