@@ -153,11 +153,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Settings** and then select **SSO**.
 
-	![Screenshot shows SSO selected from the Settings menu.](![settings-sso-dropdown](https://user-images.githubusercontent.com/67015498/128045892-73c4af73-6544-47af-9a33-58e945ec85ff.png))
+	![Screenshot shows SSO selected from the Settings menu.](![settings-sso-dropdown](articles/active-directory/saas-apps/media/knowledgeowl-tutorial/settings-sso-dropdown.png))
 
 1. In the Scroll to **SAML Settings** tab, perform the following steps:
 
-	![Screenshot shows SAML S S O Integration where you can make the changes described here.](![sso-settings-required-fields](https://user-images.githubusercontent.com/67015498/128046545-1f477c92-a79d-4980-8cc2-55d7e1908d67.png))
+	![Screenshot shows SAML S S O Integration where you can make the changes described here.](![sso-settings-required-fields](articles/active-directory/saas-apps/media/knowledgeowl-tutorial/sso-settings-required-fields.png))
 
 	a. Select **Enable SAML SSO**.
 
@@ -175,11 +175,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	
 	h. Click **Save** at the bottom of the page.
 	
-	![Screenshot shows the Save button.](![sso-settings-saml-save](https://user-images.githubusercontent.com/67015498/128047360-c2200838-35df-44b6-8f59-e3195589a267.png))
+	![Screenshot shows the Save button.](![sso-settings-saml-save](articles/active-directory/saas-apps/media/knowledgeowl-tutorial/sso-settings-saml-save.png))
 
 	i. Open the **SAML Attribute Map** tab to map attributes and perform the following steps:
 
-	![Screenshot shows SAML Attribute Map where you can make the changes described here.](![sso-settings-direct-attribute-fields](https://user-images.githubusercontent.com/67015498/128047016-a7ada4ac-4ab6-41b9-852e-f167f4690bab.png))
+	![Screenshot shows SAML Attribute Map where you can make the changes described here.](![sso-settings-direct-attribute-fields](articles/active-directory/saas-apps/media/knowledgeowl-tutorial/sso-settings-direct-attribute-fields.png))
 
 	* Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid` into the **SSO ID** textbox
 	* Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` into the **Username/Email** textbox.
@@ -188,7 +188,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	j. Click **Save** at the bottom of the page.
 
-	![Screenshot shows the Save button.](![sso-settings-direct-attribute-save](https://user-images.githubusercontent.com/67015498/128047193-32f25a40-4eab-45ee-9000-ce796d6710a7.png))
+	![Screenshot shows the Save button.](![sso-settings-direct-attribute-save](articles/active-directory/saas-apps/media/knowledgeowl-tutorial/sso-settings-direct-attribute-save.png))
 
 ### Create KnowledgeOwl test user
 
