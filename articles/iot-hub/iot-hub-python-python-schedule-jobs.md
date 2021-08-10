@@ -76,65 +76,75 @@ In this section, you create a Python console app that responds to a direct metho
 3. Add the following `import` statements and variables at the start of the **simDevice.py** file. Replace `deviceConnectionString` with the connection string of the device you created above:
 
     ```python
+    import time
     from azure.iot.device import IoTHubDeviceClient, MethodResponse
 
     CONNECTION_STRING = "{deviceConnectionString}"
-    client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
     ```
 
-4. Define the following handler function that will be used to respond to the **lockDoor** method:
+4. Define the following function that will instantiate a client and configure it to respond to the **lockDoor** method, as well as receive device twin updates
 
     ```python
-    def method_request_handler(method_request):
-        if method_request.name == "lockDoor":
-            print("Locking Door!")
+    def create_client():
+        # Instantiate the client
+        client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
 
-            resp_status = 200
-            resp_payload = {"Response": "lockDoor called successfully"}
-            method_response = MethodResponse.create_from_method_request(
-                method_request=method_request,
-                status=resp_status,
-                payload=resp_payload
-            )
-            client.send_method_response(method_response)
+        # Define behavior for responding to the lockDoor direct method
+        def method_request_handler(method_request):
+            if method_request.name == "lockDoor":
+                print("Locking Door!")
+
+                resp_status = 200
+                resp_payload = {"Response": "lockDoor called successfully"}
+                method_response = MethodResponse.create_from_method_request(
+                    method_request=method_request,
+                    status=resp_status,
+                    payload=resp_payload
+                )
+                client.send_method_response(method_response)
+
+        # Define behavior for receiving a twin patch
+        def twin_patch_handler(twin_patch):
+            print("")
+            print("Twin desired properties patch received:")
+            print(twin_patch)
+
+        # Set the handlers on the client
+        try:
+            print("Beginning to listen for 'lockDoor' direct method invocations...")
+            client.on_method_request_received = method_request_handler
+            print("Beginning to listen for updates to the Twin desired properties...")
+            client.on_twin_desired_properties_patch_received = twin_patch_handler
+        except:
+            # If something goes wrong while setting the handlers, clean up the client
+            client.shutdown()
+            raise
     ```
 
-5. Add another handler function for receiving device twins updates:
+5. Add the following code to run the sample
 
     ```python
-    def twin_patch_handler(twin_patch):
-        print("")
-        print("Twin desired properties patch received:")
-        print(twin_patch)
-    ```
+    def main():
+        print ("Starting the IoT Hub Python jobs sample...")
+        client = create_client()
 
-6. Add the following code to register the handlers for the **lockDoor** method as well as twin patches. Also include the `main` routine:
-
-    ```python
-    def iothub_jobs_sample_run():
-        print("Beginning to listen for 'lockDoor' direct method invocations...")
-        client.on_method_request_received = method_request_handler
-        print("Beginning to listen for updates to the Twin desired properties...")
-        client.on_twin_desired_properties_patch_received = twin_patch_handler
-
-        client.connect()
-
+        print ("IoTHubDeviceClient waiting for commands, press Ctrl-C to exit")
         try:
             while True:
-                import time
                 time.sleep(100)
         except KeyboardInterrupt:
             print("IoTHubDeviceClient sample stopped!")
+        finally:
+            # Graceful exit
+            print("Shutting down IoT Hub Client")
             client.shutdown()
 
-    if __name__ == '__main__':
-        print ( "Starting the IoT Hub Python jobs sample..." )
-        print ( "IoTHubDeviceClient waiting for commands, press Ctrl-C to exit" )
 
-        iothub_jobs_sample_run()
+    if __name__ == '__main__':
+        main()
     ```
 
-7. Save and close the **simDevice.py** file.
+6. Save and close the **simDevice.py** file.
 
 > [!NOTE]
 > To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
