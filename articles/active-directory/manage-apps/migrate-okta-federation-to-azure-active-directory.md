@@ -288,6 +288,6 @@ maintaining user access to the Okta homepage.
 
 - [Migrate Okta sync provisioning to Azure AD Connect based synchronization](migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization)
 
-- [Migrate Okta sign on policies to Azure AD Conditional Access](migrate-okta-sign-on-policies-to-azure-ad-conditional-access.md)
+- [Migrate Okta sign on policies to Azure AD Conditional Access](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md)
 
 - [Migrate applications from Okta to Azure AD](migrate-applications-from-okta-to-azure-active-directory.md)
