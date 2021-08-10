@@ -163,7 +163,7 @@ The following headers are included with each Document Translator API request:
 
 ### Translate documents using a custom glossary
 
-```http
+```json
 {
     "inputs": [
         {
