@@ -88,7 +88,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. In the **Basic SAML Configuration** section, perform the following steps:
 
 	a. In **Sign on URL**, enter a URL that uses the following pattern:
-    `https://<instance-name>.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>` please copy the sys_id value from step 5.d.iii in **Configure ServiceNow** section.
+    `https://<instance-name>.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
+    
+    > [!NOTE]
+    >  Please copy the sys_id value from step 5.d.iii in **Configure ServiceNow** section.
 
     b. In **Identifier (Entity ID)**, enter a URL that uses the following pattern:
     `https://<instance-name>.service-now.com`
