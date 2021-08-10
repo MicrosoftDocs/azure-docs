@@ -220,7 +220,6 @@
         href: authenticate-using-active-directory.md
       - name: Authenticate using access key or shared access signature
         href: authenticate-using-access-keys-shared-access-signatures.md
-      href: security-authenticate-publishing-clients.md
     - name: Authorize access to Event Grid resources 
       href: security-authorization.md
     - name: Network security

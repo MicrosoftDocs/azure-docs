@@ -6,15 +6,15 @@ ms.date: 08/09/2021
 ---
 
 # Authenticate Azure Event Grid publishing clients using access keys or shared access signatures
-This article provides information on authenticating clients that publish events to Azure Event Grid topics, domains, partner namespaces using **access key** or **Shared Access Signature (SAS)** token. We recommend using SAS token, but key authentication provides simple programming, and is compatible with many existing webhook publishers.  
+This article provides information on authenticating clients that publish events to Azure Event Grid topics, domains, partner namespaces using **access key** or **Shared Access Signature (SAS)** token. 
 
 > [!IMPORTANT]
 > Authenticating and authorizing users or applications using Azure AD identities provides superior security and ease of use over key-based and shared access signatures (SAS) authentication. With Azure AD, there is no need to store secrets used for authentication in your code and risk potential security vulnerabilities. We strongly recommend you use Azure AD with your Azure Event Grid event publishing applications. For more information, see [Authenticate publishing clients using Azure Active Directory](authenticate-using-active-directory.md).
 
 ## Authenticate using access key
-Access key authentication is the simplest form of authentication. You can pass the access key as a HTTP header or a URL query parameter. 
+Access key authentication is the simplest form of authentication. You can pass the access key as an HTTP header or a URL query parameter. 
 
-### Access key in a HTTP header
+### Access key in an HTTP header
 Pass the access key as a value for the HTTP header: `aeg-sas-key`.
 
 ```

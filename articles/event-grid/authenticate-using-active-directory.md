@@ -17,7 +17,7 @@ An advantage that improves your security stance when using Azure AD is that you 
 There are two broad categories of security principals that are applicable when discussing authentication of an Event Grid publishing client: 
 
 1. Managed identities. A managed identity can be system assigned, which you enable on an Azure resource and is associated to only that resource, or user assigned, which you explicitly create and name. User assigned managed identities can be associated to more than one resource.
-2. Application security principal. This is a type of security principal represents an application that is accessing resources protected by Azure AD. 
+2. Application security principal. It's a type of security principal represents an application that is accessing resources protected by Azure AD. 
 
 Regardless of the security principal used, a managed identity or an application security principal, your client uses that identity to authenticate before Azure AD and obtain an [OAuth 2.0 access token](../active-directory/develop/access-tokens.md) that is sent with requests when sending events to Event Grid. That token is cryptographically signed and once Event Grid receives it, the token is validated. For example, the audience (the intended recipient of the token) is confirmed to be Event Grid (https://eventgrid.azure.net), among other things. The token contains information about the client identity. Event Grid takes that identity and validates that the client has the role **EventGrid Data Sender** assigned to it. More precisely, Event Grid validates that the identity has the ``Microsoft.EventGrid/events/send/action`` permission in an RBAC role associated to the identity before allowing the event publishing request to complete. 
  
