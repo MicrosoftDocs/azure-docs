@@ -24,6 +24,6 @@ To build an application with Azure Web PubSub service, you need to create the We
 > [!div class="nextstepaction"]
 > [Try the instance with Azure CLI](./quickstart-cli-try.md)
 
-## Next step
+## Next steps
 
 [!INCLUDE [next step](includes/include-next-step.md)]

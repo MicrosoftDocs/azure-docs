@@ -1,6 +1,6 @@
 ---
-title: A simple Pub/Sub live demo
-description: A quickstart for getting started with Azure Web PubSub service live demo.
+title: Quickstart - Connect to the Azure Web PubSub instance from the browser
+description: A quickstart for getting started with Azure Web PubSub service in-browser live demo.
 author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 04/26/2021
 ---
 
-# Quickstart: Connect to the Web PubSub instance from the browser
+# Quickstart: Connect to the Azure Web PubSub instance from the browser
 
 Previously we talked about how to create the Web PubSub instance [from the portal](./howto-develop-create-instance.md) or [using Azure CLI](./quickstart-cli-create.md). This quickstart shows you how to get started easily with a [Pub/Sub live demo](https://azure.github.io/azure-webpubsub/demos/clientpubsub.html).
 

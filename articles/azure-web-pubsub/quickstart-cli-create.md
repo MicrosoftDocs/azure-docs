@@ -39,6 +39,6 @@ The [Azure command-line interface (Azure CLI)](/cli/azure) is a set of commands 
 
 [!INCLUDE [Clean up resource](includes/cli-delete-resources.md)]
 
-## Next step
+## Next steps
 
 [!INCLUDE [next step](includes/include-next-step.md)]
