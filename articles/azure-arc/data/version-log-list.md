@@ -16,18 +16,6 @@ ms.topic: conceptual
 
 The following table describes the various versions over time as they change:
 
-## July 30, 2021
-
-|Parameter| Value |
-|----|----|
-|Release name|Arc-enabled SQL Managed Instance general purpose and Arc-enabled SQL Server general availability|
-|Container images tag|v1.0.0_2021-07-30|
-|CRDs & versions|`datacontrollers.arcdata.microsoft.com`: v1beta1, v1 <br/>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1 <br/>`monitors.arcdata.microsoft.com`: v1beta1, v1 <br/>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1 <br/>`postgresqls.arcdata.microsoft.com`: v1beta1 <br/>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1 <br/>`dags.sql.arcdata.microsoft.com`: v1beta1 <br/>
-|ARM API version|2021-08-01 (stable)
-|arcdata Azure CLI extension version|1.0
-|Azure Arc-enabled Kubernetes helm chart extension version|1.0.16701001, release train: stable
-|Arc Data extension for Azure Data Studio|0.9.5
-
 ## August 3, 2021
 
 |Parameter| Value |
@@ -39,6 +27,18 @@ The following table describes the various versions over time as they change:
 |arcdata Azure CLI extension version|1.0
 |Azure Arc-enabled Kubernetes helm chart extension version|1.0.16701001, release train: stable
 |Arc Data extension for Azure Data Studio|0.9.6
+
+## July 30, 2021
+
+|Parameter| Value |
+|----|----|
+|Release name|Arc-enabled SQL Managed Instance general purpose and Arc-enabled SQL Server general availability|
+|Container images tag|v1.0.0_2021-07-30|
+|CRDs & versions|`datacontrollers.arcdata.microsoft.com`: v1beta1, v1 <br/>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1 <br/>`monitors.arcdata.microsoft.com`: v1beta1, v1 <br/>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1 <br/>`postgresqls.arcdata.microsoft.com`: v1beta1 <br/>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1 <br/>`dags.sql.arcdata.microsoft.com`: v1beta1 <br/>
+|ARM API version|2021-08-01 (stable)
+|arcdata Azure CLI extension version|1.0
+|Azure Arc-enabled Kubernetes helm chart extension version|1.0.16701001, release train: stable
+|Arc Data extension for Azure Data Studio|0.9.5
 
 
 
