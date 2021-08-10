@@ -12,7 +12,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 08/10/2021
 ms.author: gasinh
-ms.subservice: manage apps
+ms.subservice: manage-apps
 ---
 
 # Tutorial: Migrate your applications from Okta to Azure Active Directory
