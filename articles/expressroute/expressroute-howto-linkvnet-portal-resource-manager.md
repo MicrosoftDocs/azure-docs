@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/15/2020
+ms.date: 08/10/2021
 ms.author: duau
 ms.custom: seodec18
 
@@ -150,6 +150,42 @@ The circuit user needs the resource ID and an authorization key from the circuit
 1. Review the information in the **Summary** page and select **OK**.
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-summary.png" alt-text="Summary page":::
+
+## Configure ExpressRoute FastPath
+
+You can enable [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) if your virtual network gateway is Ultra Performance or ErGw3AZ. FastPath improves data path performance such as packets per second and connections per second between your on-premises network and your virtual network.
+
+**Configure FastPath on a new connection**
+
+When adding a new connection for your ExpressRoute gateway, select the checkbox for **FastPath**.
+
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/enable-fastpath-portal.png" alt-text="Screenshot of FastPath checkbox in add a connection page.":::
+
+> [!NOTE]
+> Enabling FastPath for a new connection is only available through creating a connection from the gateway resource. New connections created from the ExpressRoute circuit or from the Connection resource page is not supported.
+>
+**Configure FastPath on an existing connection**
+
+1. Go to the existing connection resource either from the ExpressRoute gateway, the ExpressRoute circuit, or the Connection resource page.
+
+1.  Select **Configuration** under *Settings* and then select the **FastPath** checkbox. Select **Save** to enable the feature.
+
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/enable-fastpath-connection.png" alt-text="Screenshot of FastPath checkbox on connection configuration page.":::
+
+> [!NOTE]
+> You can use [Connection Monitor](how-to-configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
+>
+
+## Enroll in ExpressRoute FastPath features (preview)
+
+FastPath support for virtual network peering is now in Public preview. Enrollment is only available through Azure PowerShell. See [FastPath preview features](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview), for instructions on how to enroll.
+
+> [!NOTE] 
+> If you already have FathPath configured and want to enroll in the preview feature, you need to do the following:
+> 1. Disable FastPath on the existing connection.
+> 1. Enroll in the FathPath preview feature with the Azure PowerShell command above.
+> 1. Re-enable the FathPath on the connection.
+>
 
 ## Clean up resources
 
