@@ -8,7 +8,7 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 01/06/2020
-ms.author: wiassa 
+ms.author: wiassaf 
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
