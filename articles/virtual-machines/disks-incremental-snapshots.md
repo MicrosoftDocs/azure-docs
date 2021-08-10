@@ -4,7 +4,7 @@ description: Learn about incremental snapshots for managed disks, including how 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/29/2021
+ms.date: 08/10/2021
 ms.author: rogarana
 ms.subservice: disks 
 ms.custom: devx-track-azurepowershell
@@ -37,18 +37,22 @@ yourDiskID=$(az disk show -n $diskName -g $resourceGroupName --query "id" --outp
 az snapshot create -g $resourceGroupName -n $snapshotName --source $yourDiskID --incremental true
 ```
 
-You can identify incremental snapshots from the same disk with the `SourceResourceId` and the `SourceUniqueId` properties of snapshots. `SourceResourceId` is the Azure Resource Manager resource ID of the parent disk. `SourceUniqueId` is the value inherited from the `UniqueId` property of the disk. If you were to delete a disk and then create a new disk with the same name, the value of the `UniqueId` property changes.
+You can identify incremental snapshots from the same disk with the `SourceResourceId` property of snapshots. `SourceResourceId` is the Azure Resource Manager resource ID of the parent disk.
 
-You can use `SourceResourceId` and `SourceUniqueId` to create a list of all snapshots associated with a particular disk. Replace `<yourResourceGroupNameHere>` with your value and then you can use the following example to list your existing incremental snapshots:
+You can use `SourceResourceId` to create a list of all snapshots associated with a particular disk. Replace `yourResourceGroupNameHere` with your value and then you can use the following example to list your existing incremental snapshots:
 
 
 ```azurecli
 # Declare variables and create snapshot list
+subscriptionId="yourSubscriptionId"
 resourceGroupName="yourResourceGroupNameHere"
-snapshots=$(az snapshot list --query "[?incremental=="True"]" -g $resourceGroupName --output table)
+diskName="yourDiskNameHere"
 
-# Rest of iteration code here
+az account set --subscription $subscriptionId
 
+diskId=$(az disk show -n $diskName -g $resourceGroupName --query [id] -o tsv)
+
+az snapshot list --query "[?creationData.sourceResourceId=='$diskId' && incremental]" -g $resourceGroupName --output table
 ```
 
 
