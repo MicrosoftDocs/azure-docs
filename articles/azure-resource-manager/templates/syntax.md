@@ -403,4 +403,4 @@ You can break a string into multiple lines. For example, see the `location` prop
 * For details about the functions you can use from within a template, see [ARM template functions](template-functions.md).
 * To combine several templates during deployment, see [Using linked and nested templates when deploying Azure resources](linked-templates.md).
 * For recommendations about creating templates, see [ARM template best practices](./best-practices.md).
-* For answers to common questions, see [Frequently asked questions about ARM templates](/azure/purview/frequently-asked-questions.yml).
+* For answers to common questions, see [Frequently asked questions about ARM templates](frequently-asked-questions.yml).

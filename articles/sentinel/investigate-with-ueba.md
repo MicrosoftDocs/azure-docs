@@ -17,7 +17,7 @@ ms.date: 07/27/2021
 ms.author: bagol
 
 ---
-# Investigate incidents with UEBA data
+# Tutorial: Investigate incidents with UEBA data
 
 This article describes common methods and sample procedures for using [user entity behavior analytics (UEBA)](identify-threats-with-entity-behavior-analytics.md) in your regular investigation workflows.
 
@@ -26,6 +26,9 @@ This article describes common methods and sample procedures for using [user enti
 > Noted features in this article are currently in  **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+> [!NOTE]
+> This tutorial provides scenario-based procedures for a top customer task: investigating with UEBA data. For more information, see [Investigate incidents with Azure Sentinel](investigate-cases.md).
+>
 ## Prerequisites
 
 Before you can use UEBA data in your investigations, you must [enable User and Entity Behavior Analytics (UEBA) in Azure Sentinel](enable-entity-behavior-analytics.md).
@@ -76,7 +79,7 @@ For example:
 
 [ ![Open an incident's user entity page.](media/ueba/open-entity-pages.png) ](media/ueba/open-entity-pages.png#lightbox)
 
-The user entity page is also linked from the [incident page](tutorial-investigate-cases.md#how-to-investigate-incidents) itself and the [investigation graph](tutorial-investigate-cases.md#use-the-investigation-graph-to-deep-dive).
+The user entity page is also linked from the [incident page](investigate-cases.md#how-to-investigate-incidents) itself and the [investigation graph](investigate-cases.md#use-the-investigation-graph-to-deep-dive).
 
 > [!TIP]
 > After confirming the data on the user entity page for the specific user associated with the incident, go to the Azure Sentinel **Hunting** area to understand whether the user's peers usually connect from the same locations as well. If so, this knowledge would make an even stronger case for a false positive.
@@ -165,5 +168,5 @@ Learn more about UEBA, investigations, and hunting:
 
 - [Identify advanced threats with User and Entity Behavior Analytics (UEBA) in Azure Sentinel](identify-threats-with-entity-behavior-analytics.md)
 - [Azure Sentinel UEBA enrichments reference](ueba-enrichments.md)
-- [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md)
+- [Tutorial: Investigate incidents with Azure Sentinel](investigate-cases.md)
 - [Hunt for threats with Azure Sentinel](hunting.md)
