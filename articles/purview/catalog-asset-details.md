@@ -29,7 +29,7 @@ Once you find the asset you are looking for, you can view all of its details, ed
 
 :::image type="content" source="media/catalog-asset-details/asset-tabs.png" alt-text="Asset details tabs":::
 
-- **Overview** - The overview tab covers the basic details regarding an asset.
+- **Overview** - The overview tab covers an asset's basic details like description, classification, hierarchy, and glossary terms.
 - **Properties** - The properties tab covers both basic and advanced properties regarding an asset.
 - **Schema** - The schema of the asset including column names, data types, column level classifications, terms, and descriptions are represented in the schema tab.
 - **Lineage** - This tab contains lineage graph details for assets where it is available.
