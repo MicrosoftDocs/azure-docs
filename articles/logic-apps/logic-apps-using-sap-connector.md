@@ -297,7 +297,7 @@ Follow these examples to create a logic app that sends an IDoc message to an SAP
 
 1. [Test your logic app.](#test-logic-app)
 
-### Create an HTTP request trigger
+### Create HTTP request trigger
 
 To have your workflow start by receiving IDocs from SAP, you can use the [Request trigger](../connectors/connectors-native-reqres.md), which now supports the SAP plain XML format. So first, create a logic app workflow that has an endpoint in Azure where you can send *HTTP POST* requests. When your logic app workflow receives these HTTP requests, the trigger fires and runs the next step in your workflow.
 
