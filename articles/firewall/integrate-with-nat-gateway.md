@@ -22,8 +22,8 @@ When a NAT gateway resource is associated with an Azure Firewall subnet, all out
 
 There is no double NAT with this architecture. Azure Firewall instances send the traffic to NAT gateway using their private IP address rather than Azure Firewall public IP address.
 
->[!NOTE]
-> Using Azure NAT Gateway is currently imcompatible with Azure Firewall if you have deployed your [Azure Firewall across multiple availability zones](https://docs.microsoft.com/en-us/azure/firewall/deploy-availability-zone-powershell). Learn more about Azure NAT Gateway and availability zones [here](https://docs.microsoft.com/en-us/azure/virtual-network/nat-gateway/nat-gateway-resource#cross-zone-outbound-scenarios-not-supported).
+> [!NOTE]
+> Using Azure NAT Gateway is currently imcompatible with Azure Firewall if you have deployed your [Azure Firewall across multiple availability zones](deploy-availability-zone-powershell.md). Learn more about [Azure NAT Gateway and availability zones](../virtual-network/nat-gateway/nat-gateway-resource.md#cross-zone-outbound-scenarios-not-supported).
 
 ## Associate NAT gateway with Azure Firewall subnet - Azure PowerShell
 
