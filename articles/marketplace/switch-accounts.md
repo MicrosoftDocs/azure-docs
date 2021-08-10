@@ -17,7 +17,7 @@ ms.date: 09/01/2021
 - Owner
 - Manager
 
-You can be part of more than one account. This article describes how you can see if you are part of multiple accounts and how to switch between them.
+You can be part of more than one account. This article describes how to see if you are part of multiple accounts and how to switch between them.
 
 ## View and switch accounts
 
