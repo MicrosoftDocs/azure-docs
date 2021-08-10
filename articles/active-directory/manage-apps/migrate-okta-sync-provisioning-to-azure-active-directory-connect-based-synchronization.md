@@ -55,13 +55,13 @@ Following are the high-level migration tasks:
 
 3. [Install Azure AD Connect in **[Staging Mode]{.underline}**](#step-3---install-azure-ad-connect-in-staging-mode)
 
-4. [Validate ImmutableID matches in the Azure AD Connect metaverse](#step-4---install-azure-ad-cloud-sync-agents- (optional))
+4. [Validate ImmutableID matches in the Azure AD Connect metaverse - (optional)](#step-4---install-azure-ad-cloud-sync-agents)
 
 5. [Disable Okta provisioning to Azure AD](#step-5---disable-okta-provisioning-to-azure-ad)
 
 6. [Disable staging mode in Azure AD Connect or enable cloud provisioning](#step-6---disable-staging-mode-in-azure-ad-connect)
 
-7. [Enable cloud sync agents](#step-7---enable-cloud-sync-agents (optional))
+7. [Enable cloud sync agents - (optional)](#step-7---enable-cloud-sync-agents)
 
 ### Step 1 - Confirm ImmutableID attribute synchronized by Okta
 
