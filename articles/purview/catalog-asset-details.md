@@ -77,7 +77,7 @@ You can navigate to the contact tab of the edit screen to update owners and expe
 
 ### Edit behavior explained
 
-If you make an asset level update i.e., adding a description, asset level classification or glossary term or a contact to an asset, then subsequent scans will update the asset schema (new columns and classifications detected by the scanner in subsequent scan runs).
+If you make an asset level update like adding a description, asset level classification, glossary term, or a contact to an asset, then subsequent scans will update the asset schema (new columns and classifications detected by the scanner in subsequent scan runs).
 
 If you make a column level update i.e., adding a description, column level classification or glossary term, updating the data type or column name, then subsequent scans will **not** update the asset schema (new columns and classifications **will not be detected** by the scanner in subsequent scan runs).
 
