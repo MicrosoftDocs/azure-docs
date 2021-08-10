@@ -61,7 +61,7 @@ This section describes how to create a trial subscription for a sensor.
 :::image type="content" source="media/how-to-manage-subscriptions/evaluation_subscription.png" alt-text="use a trial subscription.":::
 
 1. Confirm your evaluation.
-1. If you have not done so already, onboard a sensor or Set up a sensor.
+1. Onboard a sensor or set up a sensor, if required.
 
 ## Onboard a subscription
 
@@ -73,20 +73,34 @@ This section describes how to onboard a subscription.
 1. Select **Getting Started.**
 1. Select **Onboard subscription**.
 1. In the Pricing page, select **Subscribe**.
-1. In the **Onboard subscription** pane select a subscription and the number of committed devices from the drop-down menu.
+1. In the **Onboard subscription** pane, select a subscription and the number of committed devices from the drop-down menu.
 
    :::image type="content" source="media/how-to-manage-subscriptions/onboard-subscription.png" alt-text="select your  subscription and the number of committed devices.":::
 
 1. Select **Subscribe**.
 1. Confirm your subscription.
-1. If you have not done so already, onboard a sensor or Set up a sensor. 
+1. If you have not done so already, onboard a sensor or Set up a sensor.
 
+## Update committed devices in a subscription
+
+You may need to update your subscription with more committed devices, or more fewer committed devices. More devices may require monitoring if, for example, you are increasing existing site coverage, discovered more devices than expected or there are network changes such as adding switches.
+
+**To update a subscription:**
+1. Navigate to the [ Azure Defender for IoT Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
+1. Select **Onboard subscription**.
+1. Select the subscription, and then select the three dots. (...).
+1. Select **Edit**.
+1. Update the committed devices and select **Save**.
+2. In the confirmation dialog box that opens, select **Confirm.**
+Changes in device commitment will take effect one hour after confirming the change. Billing for these changes will be reflected at the beginning of the month following confirmation of the change.
+
+You will need to upload a new activation file to your on-premises management console. The activation file reflects the new number of committed devices. See[Upload an activation file](how-to-manage-the-on-premises-management-console.md#upload-an-activation-file).
 ## Offboard a subscription
 
 You may need to offboard a subscription,for example if you TBD. Subscription offboarding takes effect one hour after confirming the offboard.
 Your upcoming monthly bill will reflect this change.
 
-Uninstall all sensors that are associated with the subscription prior to offboarding the subscription. For more information on how to delete a sensor, see [Delete a sensor](how-to-manage-sensors-on-the-cloud.md#delete-a-sensor). 
+Remove all sensors that are associated with the subscription prior to offboarding. For more information on how to delete a sensor, see [Delete a sensor](how-to-manage-sensors-on-the-cloud.md#delete-a-sensor). 
 
 **To offboard a subscription:**
 
@@ -100,6 +114,18 @@ Uninstall all sensors that are associated with the subscription prior to offboar
     :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/offboard-popup.png" alt-text="Select the checkbox and select offboard to offboard your sensor.":::
 
 1. Select **Offboard**.
+
+## Apply a new subscription
+
+Business considerations may require that you apply a different subscription to your deployment than the one currently being used. If you change the subscription, you will need to upload a new sensor activation file. The fil contains information subscription expiration dates.
+
+**To apply a new subscription:**
+
+1. Delete the subscription currently being used.
+1. Select a new subscription.
+1. Download an activation file for the sensor associated with the subscription.
+1. Upload the activation file to the sensor.
+
 
 ## Next steps
 
