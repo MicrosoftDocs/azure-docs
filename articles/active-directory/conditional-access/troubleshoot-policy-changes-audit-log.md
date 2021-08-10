@@ -49,6 +49,141 @@ AuditLogs
 | where OperationName == "Update conditional access policy"
 ```
 
+## Reading the values
+
+The old and new values from the audit log and Log Analytics are in JSON format. Compare the two values to see the changes to the policy.
+
+Old policy example
+
+```json
+{
+    "conditions": {
+        "applications": {
+            "applicationFilter": null,
+            "excludeApplications": [
+            ],
+            "includeApplications": [
+                "797f4846-ba00-4fd7-ba43-dac1f8f63013"
+            ],
+            "includeAuthenticationContextClassReferences": [
+            ],
+            "includeUserActions": [
+            ]
+        },
+        "clientAppTypes": [
+            "browser",
+            "mobileAppsAndDesktopClients"
+        ],
+        "servicePrincipalRiskLevels": [
+        ],
+        "signInRiskLevels": [
+        ],
+        "userRiskLevels": [
+        ],
+        "users": {
+            "excludeGroups": [
+                "eedad040-3722-4bcb-bde5-bc7c857f4983"
+            ],
+            "excludeRoles": [
+            ],
+            "excludeUsers": [
+            ],
+            "includeGroups": [
+            ],
+            "includeRoles": [
+            ],
+            "includeUsers": [
+                "All"
+            ]
+        }
+    },
+    "displayName": "Common Policy - Require MFA for Azure management",
+    "grantControls": {
+        "builtInControls": [
+            "mfa"
+        ],
+        "customAuthenticationFactors": [
+        ],
+        "operator": "OR",
+        "termsOfUse": [
+            "a0d3eb5b-6cbe-472b-a960-0baacbd02b51"
+        ]
+    },
+    "id": "334e26e9-9622-4e0a-a424-102ed4b185b3",
+    "modifiedDateTime": "2021-08-09T17:52:40.781994+00:00",
+    "state": "enabled"
+}
+
+```
+
+Updated policy example:
+
+```json
+{
+    "conditions": {
+        "applications": {
+            "applicationFilter": null,
+            "excludeApplications": [
+            ],
+            "includeApplications": [
+                "797f4846-ba00-4fd7-ba43-dac1f8f63013"
+            ],
+            "includeAuthenticationContextClassReferences": [
+            ],
+            "includeUserActions": [
+            ]
+        },
+        "clientAppTypes": [
+            "browser",
+            "mobileAppsAndDesktopClients"
+        ],
+        "servicePrincipalRiskLevels": [
+        ],
+        "signInRiskLevels": [
+        ],
+        "userRiskLevels": [
+        ],
+        "users": {
+            "excludeGroups": [
+                "eedad040-3722-4bcb-bde5-bc7c857f4983"
+            ],
+            "excludeRoles": [
+            ],
+            "excludeUsers": [
+            ],
+            "includeGroups": [
+            ],
+            "includeRoles": [
+            ],
+            "includeUsers": [
+                "All"
+            ]
+        }
+    },
+    "displayName": "Common Policy - Require MFA for Azure management",
+    "grantControls": {
+        "builtInControls": [
+            "mfa"
+        ],
+        "customAuthenticationFactors": [
+        ],
+        "operator": "OR",
+        "termsOfUse": [
+        ]
+    },
+    "id": "334e26e9-9622-4e0a-a424-102ed4b185b3",
+    "modifiedDateTime": "2021-08-09T17:52:54.9739405+00:00",
+    "state": "enabled"
+}
+
+``` 
+
+In the examples above the updated policy doesn't include terms of use in grant controls.
+
+### Restoring Conditional Access policies
+
+For more information about programmatically updating your Conditional Access policies using the Microsoft Graph API, see the article [Conditional Access: Programmatic access](howto-conditional-access-apis.md).
+
 ## Next steps
 
 - [What is Azure Active Directory monitoring?](../reports-monitoring/overview-monitoring.md)
