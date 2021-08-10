@@ -54,9 +54,6 @@ You can verify when your cluster is stopped by using the [az aks show][az-aks-sh
 
 If the `provisioningState` shows `Stopping` that means your cluster hasn't fully stopped yet.
 
-> [!IMPORTANT]
-> If you are using [Pod Disruption Budgets](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) the stop operation can take longer as the drain process will take more time to complete.
-
 ### [Azure PowerShell](#tab/azure-powershell)
 
 You can use the [Stop-AzAksCluster][stop-azakscluster] command to stop a running AKS cluster's nodes and control plane. The following example stops a cluster named *myAKSCluster*:
@@ -76,10 +73,10 @@ KubernetesVersion       : 1.20.7
 
 If the `ProvisioningState` shows `Stopping` that means your cluster hasn't fully stopped yet.
 
+---
+
 > [!IMPORTANT]
 > If you are using [Pod Disruption Budgets](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) the stop operation can take longer as the drain process will take more time to complete.
-
----
 
 ## Start an AKS Cluster
 
@@ -127,6 +124,8 @@ MaxAgentPools           : 100
 KubernetesVersion       : 1.20.7
 ...
 ```
+
+If the `ProvisioningState` shows `Starting` that means your cluster hasn't fully started yet.
 
 ---
 
