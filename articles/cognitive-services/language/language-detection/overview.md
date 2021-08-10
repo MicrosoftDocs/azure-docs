@@ -24,9 +24,17 @@ This documentation contains the following types of articles:
 
 Use Docker containers to deploy the API on-premises. Docker containers enable you to bring the service closer to your data for compliance, security or other operational reasons. 
 
-## Asynchronous operations
+## Typical workflow
 
-Use the API Asynchronously to combine features of [Language Services](../overview.md) in a single call.
+To use the API, you submit data for analysis and handle outputs in your application. Analysis is performed as-is, with no additional customization to the model used on your data.
+
+1. Create an Azure resource for Language Services. Afterwards, get the key and endpoint generated for you to authenticate your requests.
+
+2. Formulate a request using either the REST API or the client library for: C#, Java, JavaScript or Python. You can also call the API asynchronously to combine requests to multiple [Language Services](../overview.md) features in a single call.
+
+3. Send the request containing your data as raw unstructured text. Your key and endpoint will be used for authentication.
+
+4. Stream or store the response locally. The result will be the recognized language of the text you send.  
 
 ## Responsible AI 
 

@@ -33,6 +33,18 @@ Starting in the v3.1 preview, opinion mining is a feature of Sentiment Analysis.
 
 These features are a part of Azure Language services, which is a part [Azure Cognitive Services](../overview.md), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/) and [client library](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/).
 
+## Typical workflow
+
+To use the API, you submit data for analysis and handle outputs in your application. Analysis is performed as-is, with no additional customization to the model used on your data.
+
+1. Create an Azure resource for Language Services. Afterwards, get the key and endpoint generated for you to authenticate your requests.
+
+2. Formulate a request using either the REST API or the client library for: C#, Java, JavaScript or Python. You can also call the API asynchronously to combine requests to multiple [Language Services](../overview.md) features in a single call.
+
+3. Send the request containing your data as raw unstructured text. Your key and endpoint will be used for authentication.
+
+4. Stream or store the response locally. The result will be the recognized sentiments and associated words in the text you send.  
+
 ## Responsible AI 
 
 An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the following articles to learn about responsible AI use and deployment in your systems:

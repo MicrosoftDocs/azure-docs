@@ -23,15 +23,16 @@ This feature is designed to help address the problem with content that users thi
 This feature is a part of Azure Language services, which is a part [Azure Cognitive Services](../overview.md), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the REST API and client library.
 
 ## Typical workflow
-The workflow is simple: you submit data for analysis and handle outputs in your code. Analyzers are consumed as-is, with no additional configuration or customization.
+
+To use the API, you submit data for analysis and handle outputs in your application. Analysis is performed as-is, with no additional customization to the model used on your data.
 
 1. Create an Azure resource for Language Services. Afterwards, get the key and endpoint generated for you to authenticate your requests.
 
-2. Formulate a request containing your data as raw unstructured text, using either the REST API or client library.
+2. Formulate a request using either the REST API or the client library for: C#, Java, JavaScript or Python. You can also call the API asynchronously to combine requests to multiple [Language Services](../overview.md) features in a single call.
 
-3. Send the request to the endpoint established during sign-up.
+3. Send the request containing your data as raw unstructured text. Your key and endpoint will be used for authentication.
 
-4. Stream or store the response locally. The result will be a collection of summarized sentences extracted by your text. 
+4. Stream or store the response locally. The result will be a collection of summarized sentences extracted from your text. 
 
 ## Responsible AI 
 
