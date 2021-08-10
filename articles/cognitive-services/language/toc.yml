@@ -139,7 +139,13 @@ items:
   - name: How-to guides
     items:
     - name: Call Sentiment Analysis and Opinion Mining
-      href: sentiment-opinion-mining/how-to-call.md
+      href: sentiment-opinion-mining/how-to/call-api.md
+    - name: Use containers
+      items:
+      - name: Use Docker Containers
+        href: sentiment-opinion-mining/how-to/use-containers.md
+      - name: Configure containers
+        href: concepts/configure-containers.md
 - name: Concepts
   items:
   - name: Multilingual and emoji support

@@ -57,16 +57,6 @@ This feature is designed to help address the problem with content that users thi
 
 the health feature extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.
 
-## Deploy on premises using Docker containers
-
-Use containers to deploy API features on-premises. These docker containers enable you to bring the service closer to your data for compliance, security or other operational reasons. Text Analytics offers the following containers:
-
-* sentiment analysis
-* key phrase extraction 
-* language detection 
-* Text Analytics for health
-* Custom Language Understanding
-
 ## Responsible AI 
 
 An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the following articles to learn about responsible AI use and deployment in your systems:
