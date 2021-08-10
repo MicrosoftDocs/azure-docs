@@ -102,7 +102,7 @@ These prerequisites apply if your logic app runs in multi-tenant Azure. The mana
 > If you're using a Premium-level ISE, you can use the SAP ISE connector instead of the managed SAP connector. 
 > For more information, review the [ISE prerequisites](#ise-prerequisites).
 
-The managed SAP connector integrates with SAP systems through your [on-premises data gateway](logic-apps/logic-apps-gateway-connection.md). For example, in send message scenarios, when a message is sent from a logic app to an SAP system, the data gateway acts as an RFC client and forwards the requests received from the logic app to SAP. Likewise, in receive message scenarios, the data gateway acts as an RFC server that receives requests from SAP and forwards them to the logic app.
+The managed SAP connector integrates with SAP systems through your [on-premises data gateway](logic-apps-gateway-connection.md). For example, in send message scenarios, when a message is sent from a logic app to an SAP system, the data gateway acts as an RFC client and forwards the requests received from the logic app to SAP. Likewise, in receive message scenarios, the data gateway acts as an RFC server that receives requests from SAP and forwards them to the logic app.
 
 * [Download and install the on-premises data gateway](logic-apps-gateway-install.md) on a host computer or virtual machine that exists in the same virtual network as the SAP system to which you're connecting.
 
@@ -1784,7 +1784,7 @@ For more information about the SAP connector, review the [connector reference](/
 
 ## Next steps
 
-* [Connect to on-premises systems](../logic-apps/logic-apps-gateway-connection.md) from Azure Logic Apps.
+* [Connect to on-premises systems](logic-apps-gateway-connection.md) from Azure Logic Apps.
 
 * Learn how to validate, transform, and use other message operations with the [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).
 
