@@ -183,6 +183,8 @@ items:
       href: how-to-browse-catalog.md
     - name: Search Data Catalog
       href: how-to-search-catalog.md
+    - name: View, edit, and delete Catalog assets
+      href: catalog-asset-details.md
   - name: Lineage 
     items:
     - name: Lineage user guide

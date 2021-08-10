@@ -31,13 +31,13 @@ Remote Data disk storage is billed separately from virtual machines. To use prem
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<sup>1</sup> <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|
-| Standard_E2_v4  | 2 | 16   | Remote Storage Only | 4 | 2|5000  |
+| Standard_E2_v4<sup>1</sup>  | 2 | 16   | Remote Storage Only | 4 | 2|5000  |
 | Standard_E4_v4  | 4 | 32  | Remote Storage Only | 8 | 2|10000  |
 | Standard_E8_v4  | 8 | 64 | Remote Storage Only | 16 | 4|12500 |
 | Standard_E16_v4 | 16 | 128 | Remote Storage Only | 32 | 8|12500 |
@@ -46,7 +46,8 @@ Remote Data disk storage is billed separately from virtual machines. To use prem
 | Standard_E48_v4 | 48 | 384 | Remote Storage Only | 32 | 8|24000 |
 | Standard_E64_v4 | 64 | 504 | Remote Storage Only | 32| 8|30000 |
 
-<sup>1</sup> Virtual Machines with 2 vCPU can enable accelerated networking on only a single NIC. <br>
+<sup>1</sup> Accelerated networking can only be applied to a single NIC. 
+
 
 ## Esv4-series
 
@@ -58,14 +59,14 @@ Esv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<sup>4</sup> <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
 
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> |Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
-| Standard_E2s_v4  | 2 | 16  | Remote Storage Only | 4 | 3200/48 | 4000/200 | 2|5000  |
+| Standard_E2s_v4<sup>4</sup>  | 2 | 16  | Remote Storage Only | 4 | 3200/48 | 4000/200 | 2|5000  |
 | Standard_E4s_v4  | 4 | 32  | Remote Storage Only | 8 | 6400/96 | 8000/200 | 2|10000  |
 | Standard_E8s_v4  | 8 | 64  | Remote Storage Only | 16 | 12800/192 | 16000/400 | 4|12500 |
 | Standard_E16s_v4 | 16 | 128 | Remote Storage Only | 32 | 25600/384 | 32000/800 | 8|12500 |
@@ -78,7 +79,8 @@ Esv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 <sup>1</sup>  Esv4-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
 <sup>2</sup> [Constrained core sizes available)](./constrained-vcpu.md).<br>
 <sup>3</sup> Instance is isolated to hardware dedicated to a single customer.<br>
-<sup>4</sup> Virtual Machines with 2 vCPU can enable accelerated networking on only a single NIC. <br>
+<sup>4</sup> Accelerated networking can only be applied to a single NIC. 
+
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
