@@ -27,7 +27,11 @@ In the [Azure portal](https://portal.azure.com), navigate to the **Identities & 
 
 Choose the scope of the access tokens. You can select none, one, or multiple. Click **Generate**.
 
+![Select the scopes of the identity and access tokens.](../media/quick-create-identity-choose-scopes.png)
+
 You'll see an identity and corresponding user access token generated. You can copy these strings and use them in the [sample apps](../../samples/overview.md) and other testing scenarios.
+
+![The identity and access tokens are generated and show the expiration date.](../media/quick-create-identity-generated.png)
 
 ## Next steps
 
