@@ -59,9 +59,9 @@
   items:
     - name: Automation Account
       items:
-        - name: Create Automation account using Azure portal
+        - name: Create Automation account - Azure portal
           href: automation-create-standalone-account.md
-        - name: Create Automation account with Resource Manager template
+        - name: Create Automation account - Resource Manager template
           href: quickstart-create-automation-account-template.md
         - name: Managed identity
           items:
