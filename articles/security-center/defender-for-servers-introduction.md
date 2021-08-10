@@ -32,7 +32,7 @@ The threat detection and protection capabilities provided with Azure Defender fo
     >
     > We're currently offering the sensor for Linux machines in preview. Learn more in [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md). 
 
-- **Vulnerability assessment scanning for VMs** - The vulnerability scanner included with Azure Security Center is powered by Qualys. 
+- **Vulnerability assessment scanning for VMs** - Azure Defender for servers includes a vulnerability scanner powered by Qualys.
 
     Qualys' scanner is one of the leading tools for real-time identification of vulnerabilities in your Azure and hybrid virtual machines. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Security Center. For more information, see [Azure Defender's integrated vulnerability assessment solution for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md).
 

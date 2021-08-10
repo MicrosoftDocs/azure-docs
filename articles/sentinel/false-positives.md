@@ -11,7 +11,7 @@ ms.date: 05/11/2021
 
 # Handle false positives in Azure Sentinel
 
-[Azure Sentinel analytics rules](tutorial-detect-threats-built-in.md) notify you when something suspicious occurs in your network. No analytics rule is perfect, and you're bound to get some false positives that need handling. This article describes how to handle false positives, either by using automation or by modifying scheduled analytics rules.
+[Azure Sentinel analytics rules](detect-threats-built-in.md) notify you when something suspicious occurs in your network. No analytics rule is perfect, and you're bound to get some false positives that need handling. This article describes how to handle false positives, either by using automation or by modifying scheduled analytics rules.
 
 ## False positive causes and prevention
 
@@ -71,7 +71,7 @@ Another option for implementing exceptions is to modify the analytics rule query
 
 To edit existing analytics rules, select **Automation** from the Azure Sentinel left navigation menu. Select the rule you want to edit, and then select **Edit** at lower right to open the **Analytics Rules Wizard**.
 
-For detailed instructions on using the **Analytics Rules Wizard** to create and edit analytics rules, see [Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
+For detailed instructions on using the **Analytics Rules Wizard** to create and edit analytics rules, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
 
 To implement an exception in a typical rule preamble, you can add a condition like `where IPAddress !in ('<ip addresses>')` near the beginning of the rule query. This line excludes specific IP addresses from the rule.
 
@@ -144,5 +144,5 @@ let subnets = _GetWatchlist('subnetallowlist');
 For more information, see:
 - [Use UEBA data to analyze false positives](investigate-with-ueba.md#use-ueba-data-to-analyze-false-positives)
 - [Automate incident handling in Azure Sentinel with automation rules](automate-incident-handling-with-automation-rules.md)
-- [Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md)
+- [Create custom analytics rules to detect threats](detect-threats-custom.md)
 - [Use Azure Sentinel watchlists](watchlists.md)
