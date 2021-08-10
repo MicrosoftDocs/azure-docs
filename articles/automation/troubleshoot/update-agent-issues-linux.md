@@ -57,7 +57,7 @@ The operating system check verifies if the Hybrid Runbook Worker is running one 
 
 ### Log Analytics agent
 
-This check ensures that the Log Analytics agent for Linux is installed. For instructions on how to install it, see [Install the agent for Linux](../../azure-monitor/vm/quick-collect-linux-computer.md#install-the-agent-for-linux).
+This check ensures that the Log Analytics agent for Linux is installed. For instructions on how to install it, see [Install the agent for Linux](../../azure-monitor/vm/monitor-virtual-machine.md#install-the-agent-for-linux).
 
 ### Log Analytics agent status
 
