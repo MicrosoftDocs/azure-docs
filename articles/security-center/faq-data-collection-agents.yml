@@ -257,7 +257,7 @@ sections:
       - question: |
           How do I disable data collection?
         answer: |
-          Automatic provisioning is highly recommended in order to get security alerts and recommendations about system updates, OS vulnerabilities, and endpoint protection. By default, auto-provisioning is disabled.
+          Automatic provisioning is highly recommended in order to get security alerts and recommendations about system updates, OS vulnerabilities, and endpoint protection. By default, auto provisioning is disabled.
           
           If you've enabled it but now want to disable it:
           
