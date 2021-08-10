@@ -71,7 +71,7 @@ You can edit an asset by clicking on the edit icon on the top-left corner of the
 
 At the asset level you can edit or add a description, classification, or glossary term by staying on the overview tab of the edit screen.
 
-You can navigate to the schema tab of the edit screen to update column name, data type, column level classification, terms or asset description.
+You can navigate to the schema tab on the edit screen to update column name, data type, column level classification, terms, or asset description.
 
 You can navigate to the contact tab of the edit screen to update owners and experts on the asset. You can search by full name, email or alias of the person within your Azure active directory.
 
