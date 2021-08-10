@@ -117,7 +117,7 @@ Remove all sensors that are associated with the subscription prior to offboardin
 
 ## Apply a new subscription
 
-Business considerations may require that you apply a different subscription to your deployment than the one currently being used. If you change the subscription, you will need to upload a new sensor activation file. The fil contains information subscription expiration dates.
+Business considerations may require that you apply a different subscription to your deployment than the one currently being used. If you change the subscription, you will need to upload a new sensor activation file. The file contains information on subscription expiration dates.
 
 **To apply a new subscription:**
 
@@ -125,7 +125,6 @@ Business considerations may require that you apply a different subscription to y
 1. Select a new subscription.
 1. Download an activation file for the sensor associated with the subscription.
 1. Upload the activation file to the sensor.
-
 
 ## Next steps
 
