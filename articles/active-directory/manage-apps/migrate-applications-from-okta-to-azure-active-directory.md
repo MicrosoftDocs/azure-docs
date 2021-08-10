@@ -77,8 +77,8 @@ Now you can print all the applications in your Okta tenant to a JSON format.
 
 ![image to shows list of applications](media/migrate-applications-from-okta-to-azure-active-directory/list-of-applications.png)
 
-It's recommended to copy and convert this JSON list to CSV using a public converter such as <https://konklone.io/json/> or PowerShell using [ConvertFrom-Json](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1)
-and [ConvertTo-CSV.](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/convertto-csv?view=powershell-7.1)
+It's recommended to copy and convert this JSON list to CSV using a public converter such as <https://konklone.io/json/> or PowerShell using [ConvertFrom-Json](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1)
+and [ConvertTo-CSV.](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertto-csv?view=powershell-7.1)
 
 After Downloading the CSV, the applications in your Okta tenant have been recorded successfully for future reference.
 
