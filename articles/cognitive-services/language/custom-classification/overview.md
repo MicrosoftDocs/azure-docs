@@ -29,7 +29,7 @@ Creating automation to triage support tickets is a time and effort consuming tas
 
 Creating a custom classification application typically involves several different steps. 
 
-:::image type="content" source="media/development-lifecycle.png" alt-text="The development lifecycle" lightbox="../media/development-lifecycle.png":::
+:::image type="content" source="media/development-lifecycle.png" alt-text="The development lifecycle" lightbox="media/development-lifecycle.png":::
 
 Follow these steps to get the most out of your model:
 
@@ -49,5 +49,4 @@ Follow these steps to get the most out of your model:
 
 ## Next steps
 
-1. Read the [requirements for using the service](../concepts/service-requirements.md) before you get started.
-2. Use the [quickstart article](quickstart/quickstart-api.md) to start sending requests to the API.  
+Use the [quickstart article](quickstart/using-language-studio.md) to start sending requests to the API.  

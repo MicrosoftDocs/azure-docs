@@ -30,7 +30,7 @@ You can enable identity management either using the Azure portal or from Languag
 2. Select **Identity** in the left navigation menu.
 3. Switch **Status** to **On** and select **Save**.
 
-:::image type="content" source="../media/enable-identity-azure.png" alt-text="ct-assign-roles-azure" lightbox="../media/enable-identity-azure.png":::
+:::image type="content" source="../media/enable-identity-azure.png" alt-text="enable identity management" lightbox="../media/enable-identity-azure.png":::
 
 ### Set contributor roles on storage account
 
@@ -46,7 +46,7 @@ To set proper roles on your storage account,
 2. Select **Access Control (IAM)** in the left navigation menu.
 3. Select **Add** to **Add Role Assignments**, and choose the **Owner** or **Contributor** role. You can search for user names in the **Select** field.
 
-:::image type="content" source="../media/assign-roles-azure.png" alt-text="ct-assign-roles-azure" lightbox="../media/assign-roles-azure.png":::
+:::image type="content" source="../media/assign-roles-azure.png" alt-text="assign roles for access control" lightbox="../media/assign-roles-azure.png":::
 
 ## Sign in to the Language Studio and create a custom classification project
 
