@@ -569,7 +569,7 @@ In this section, you'll create a VM named **myTestVM**.  This VM will be used to
 
 9. Close the Bastion session with **myVM1**.
 
-10. Repeat steps 1 to 6 to install IIS and the updated iisstart.htm file on **myVM2** and **myVM3**.
+10. Repeat steps 1 through 9 to install IIS and the updated iisstart.htm file on **myVM2** and **myVM3**.
 
 ## Test the load balancer
 
