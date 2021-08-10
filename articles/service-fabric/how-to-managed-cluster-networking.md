@@ -329,12 +329,9 @@ TODO:Talk about v4 and v6 ip's on Load Balancers and NSG differences.
 
 <a id="byovnet"></a>
 ## Bring your own virtual network
-This feature allows customers to use an existing virtual network by specifying a dedicated subnet the managed cluster will deploy it's resources into. This can be useful if you already have a configured VNet and subnet with related security policies and traffic routing that you want to use. After you deploy to an existing virtual network, it's easy to use or incorporate other networking features, like Azure ExpressRoute, Azure VPN Gateway, a network security group, and virtual network peering.
+This feature allows customers to use an existing virtual network by specifying a dedicated subnet the managed cluster will deploy it's resources into. This can be useful if you already have a configured VNet and subnet with related security policies and traffic routing that you want to use. After you deploy to an existing virtual network, it's easy to use or incorporate other networking features, like Azure ExpressRoute, Azure VPN Gateway, a network security group, and virtual network peering. Additionally, you can [bring your own Azure Load balancer](#byolb) if needed also.
 
-When you deploy a managed cluster in to an existing virtual network you can also:
-* [Bring your own Load balancer](#byolb)
-
-[!NOTE]
+> [!NOTE]
 > This setting cannot be changed once the cluster is created
 > The managed cluster will assign a NSG to the provided subnet. Do not override the NSG assignment or traffic may break.
 
@@ -397,7 +394,7 @@ New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleD
 When you bring your own VNet the public endpoint is still created and managed by the resource provider. The feature does not allow you to specify the public ip/re-use static ip on the Azure Load Balancer. You can [bring your own Azure Load Balancer](#byolb) in concert with this feature or by itself if you require those or other load balancer scenarios that aren't natively supported.
 
 <a id="byolb"></a>
-## Bring your own Load Balancer
+## Bring your own Azure Load Balancer
 Managed clusters create a Load Balancer and fully qualified domain name with a static public IP for both the primary and secondary node types. This feature allows you to create or re-use an Azure Load Balancer for secondary node types for both inbound and outbound traffic. When you bring your own Azure Load Balancer you can:
 
 * Use a pre-configured Load Balancer static IP address for either private or public traffic
@@ -409,12 +406,11 @@ Managed clusters create a Load Balancer and fully qualified domain name with a s
 > You can not switch from default to custom after deployment, but you can modify what custom load balancer to use in the future
 
 Here are a couple example scenarios customers may leverage this for:
-
-In this example a customer wants to route traffic through an existing Azure Load Balancer configured with a known static public ip address to two node types.
+* In this example a customer wants to route traffic through an existing Azure Load Balancer configured with a known static public ip address to two node types.
 ![Bring your own Load Balancer example 1][sfmc-byolb-example-1]
 
-In this example a customer wants to route traffic through existing Azure Load Balancers to help them manage traffic flow to their applications independently that live on separate node types. When this is configured each node type will be behind it's own NSG that you can manage.
-![Bring your own Load Balancer example 2][sfmc-byolb-example-1]
+* In this example a customer wants to route traffic through existing Azure Load Balancers to help them manage traffic flow to their applications independently that live on separate node types. When this is configured each node type will be behind it's own NSG that you can manage.
+![Bring your own Load Balancer example 2][sfmc-byolb-example-2]
 
 To configure the feature:
 1) In the [provided sample](url to sample json), configure role assignment that allows the resource provider to make required changes, setup the backend pool, and optionally define NAT pools on the existing Azure Load Balancer. You do this by running the following PowerShell command or ARM Template. 
