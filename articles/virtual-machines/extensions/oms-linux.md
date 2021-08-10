@@ -64,7 +64,7 @@ The Log Analytics Agent extension for Linux requires that the target virtual mac
 
 ## Extension schema
 
-The following JSON shows the schema for the Log Analytics Agent extension. The extension requires the workspace ID and workspace key from the target Log Analytics workspace; these values can be [found in your Log Analytics workspace](../../azure-monitor/vm/quick-collect-linux-computer.md#obtain-workspace-id-and-key) in the Azure portal. Because the workspace key should be treated as sensitive data, it should be stored in a protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine. Note that **workspaceId** and **workspaceKey** are case-sensitive.
+The following JSON shows the schema for the Log Analytics Agent extension. The extension requires the workspace ID and workspace key from the target Log Analytics workspace; these values can be [found in your Log Analytics workspace](../../azure-monitor/vm/monitor-virtual-machine.md#obtain-workspace-id-and-key) in the Azure portal. Because the workspace key should be treated as sensitive data, it should be stored in a protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine. Note that **workspaceId** and **workspaceKey** are case-sensitive.
 
 ```json
 {

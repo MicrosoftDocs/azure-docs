@@ -38,13 +38,13 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ### Advanced incident search (Public preview)
 
-By default, incident searches run across the **Incident ID**, **Title**, **Tags**, **Owner**, and **Product name** values only. Azure Sentinel now provides [advanced search options](tutorial-investigate-cases.md#search-for-incidents) to search across more data, including alert details, descriptions, entities, tactics, and more.
+By default, incident searches run across the **Incident ID**, **Title**, **Tags**, **Owner**, and **Product name** values only. Azure Sentinel now provides [advanced search options](/azure/sentinel/articles/sentinel/investigate-cases.md#search-for-incidents) to search across more data, including alert details, descriptions, entities, tactics, and more.
 
 For example:
 
 :::image type="content" source="media/tutorial-investigate-cases/advanced-search.png" alt-text="Screenshot of the Incidents page advanced search options.":::
 
-For more information, see [Search for incidents](tutorial-investigate-cases.md#search-for-incidents).
+For more information, see [Search for incidents](/azure/sentinel/articles/sentinel/investigate-cases.md#search-for-incidents).
 
 ### Fusion detection for Ransomware (Public preview)
 
@@ -58,7 +58,7 @@ Supported data connectors include:
 - [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
 - [Microsoft Defender for Identity](connect-azure-atp.md)
 - [Microsoft Cloud App Security](connect-cloud-app-security.md)
-- [Azure Sentinel scheduled analytics rules](tutorial-detect-threats-built-in.md#scheduled)
+- [Azure Sentinel scheduled analytics rules](/azure/sentinel/articles/sentinel/detect-threats-built-in.md#scheduled)
 
 For more information, see [Multiple alerts possibly related to Ransomware activity detected](fusion.md#multiple-alerts-possibly-related-to-ransomware-activity-detected-public-preview).
 
@@ -294,7 +294,7 @@ For more information, see [Tutorial: Deploy the Azure Sentinel solution for SAP 
 
 ### Threat intelligence integrations (Public preview)
 
-Azure Sentinel gives you a few different ways to [use threat intelligence](import-threat-intelligence.md) feeds to enhance your security analysts' ability to detect and prioritize known threats.
+Azure Sentinel gives you a few different ways to [use threat intelligence](./understand-threat-intelligence.md) feeds to enhance your security analysts' ability to detect and prioritize known threats.
 
 You can now use one of many newly available integrated threat intelligence platform (TIP) products, connect to TAXII servers to take advantage of any STIX-compatible threat intelligence source, and make use of any custom solutions that can communicate directly with the [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator).
 
@@ -366,7 +366,7 @@ We know that compliance isn’t just an annual requirement, and organizations mu
 - Features over 75 control cards, aligned to the TIC 3.0 security capabilities, with selectable GUI buttons for navigation.
 - Is designed to augment staffing through automation, artificial intelligence, machine learning, query/alerting generation, visualizations, tailored recommendations, and respective documentation references.
 
-For more information, see [Visualize and monitor your data](tutorial-monitor-your-data.md).
+For more information, see [Visualize and monitor your data](/azure/sentinel/articles/sentinel/monitor-your-data.md).
 
 ## April 2021
 
@@ -418,11 +418,11 @@ In each workbook or workbook template, select :::image type="icon" source="media
 
     Intervals are also restarted if you manually refresh the workbook by selecting the :::image type="icon" source="media/whats-new/manual-refresh-button.png" border="false"::: **Refresh** button.
 
-For more information, see [Visualize and monitor your data](tutorial-monitor-your-data.md) and the [Azure Monitor documentation](../azure-monitor/visualize/workbooks-overview.md).
+For more information, see [Visualize and monitor your data](/azure/sentinel/articles/sentinel/monitor-your-data.md) and the [Azure Monitor documentation](../azure-monitor/visualize/workbooks-overview.md).
 
 ### New detections for Azure Firewall
 
-Several out-of-the-box detections for Azure Firewall have been added to the [Analytics](import-threat-intelligence.md#analytics-puts-your-threat-indicators-to-work-detecting-potential-threats) area in Azure Sentinel. These new detections allow security teams to get alerts if machines on the internal network attempt to query or connect to internet domain names or IP addresses that are associated with known IOCs, as defined in the detection rule query.
+Several out-of-the-box detections for Azure Firewall have been added to the [Analytics](./understand-threat-intelligence.md#analytics-puts-your-threat-indicators-to-work-detecting-potential-threats) area in Azure Sentinel. These new detections allow security teams to get alerts if machines on the internal network attempt to query or connect to internet domain names or IP addresses that are associated with known IOCs, as defined in the detection rule query.
 
 The new detections include:
 
@@ -472,7 +472,7 @@ In your workbook, select the options menu > :::image type="icon" source="media/w
 
 :::image type="content" source="media/whats-new/print-workbook.png" alt-text="Print your workbook or save as PDF.":::
 
-For more information, see [Visualize and monitor your data](tutorial-monitor-your-data.md).
+For more information, see [Visualize and monitor your data](/azure/sentinel/articles/sentinel/monitor-your-data.md).
 
 ### Incident filters and sort preferences now saved in your session (Public preview)
 

@@ -135,7 +135,7 @@ In Azure Sentinel, the alerts generated from analytics rules also generate secur
 
 ## Detect threats using matching analytics (Public preview)
 
-[Create a rule](tutorial-detect-threats-built-in.md#use-built-in-analytics-rules) using the built-in **Microsoft Threat Intelligence Matching Analytics** analytics rule template to have Azure Sentinel match Microsoft-generated threat intelligence data with the logs you've ingested in to Azure Sentinel.
+[Create a rule](/azure/sentinel/articles/sentinel/detect-threats-built-in.md#use-built-in-analytics-rules) using the built-in **Microsoft Threat Intelligence Matching Analytics** analytics rule template to have Azure Sentinel match Microsoft-generated threat intelligence data with the logs you've ingested in to Azure Sentinel.
 
 Matching threat intelligence data with your logs helps to generate high-fidelity alerts and incidents, with appropriate severities applied. When a match is found, any alerts generated are grouped into incidents.
 
@@ -225,4 +225,3 @@ In this article you learned all the ways you can work with threat intelligence i
 - Connect Azure Sentinel to [STIX/TAXII threat intelligence feeds](./connect-threat-intelligence-taxii.md).
 - [Connect threat intelligence platforms](./connect-threat-intelligence-tip.md) to Azure Sentinel.
 - See which [TIP platforms, TAXII feeds, and enrichments](threat-intelligence-integration.md) can be readily integrated with Azure Sentinel.
-

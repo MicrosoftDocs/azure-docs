@@ -161,7 +161,7 @@ Azure Sentinel provides out-of-the-box a set of hunting queries, exploration que
 For more information, see:
 
 - [Hunt for threats with Azure Sentinel](hunting.md)
-- [Visualize and monitor your data](tutorial-monitor-your-data.md)
+- [Visualize and monitor your data](/azure/sentinel/articles/sentinel/monitor-your-data.md)
 
 As legacy defense tools become obsolete, organizations may have such a vast and porous digital estate that it becomes unmanageable to obtain a comprehensive picture of the risk and posture their environment may be facing. Relying heavily on reactive efforts, such as analytics and rules, enable bad actors to learn how to evade those efforts. This is where UEBA comes to play, by providing risk scoring methodologies and algorithms to figure out what is really happening.
 
