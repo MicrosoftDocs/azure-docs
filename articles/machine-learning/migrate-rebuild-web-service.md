@@ -48,7 +48,7 @@ There are multiple ways to deploy a model in Azure Machine Learning. One of the 
 1. Run your completed training pipeline at least once.
 1. After the run completes, at the top of the canvas, select **Create inference pipeline** > **Real-time inference pipeline**.
 
-    ![create realtime inference pipeline](./media/migrate-rebuild-web-service/create-inference-pipeline.png)
+    ![Create realtime inference pipeline](/media/migrate-rebuild-web-service/create-inference-pipeline.png)
         
     The designer converts the training pipeline into a real-time inference pipeline. A similar conversion also occurs in Studio (classic).
 
