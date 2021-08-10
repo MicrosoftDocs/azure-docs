@@ -33,7 +33,7 @@ Once you find the asset you are looking for, you can view all of it's details, a
 - **Properties** - The properties tab covers both basic and advanced properties regarding an asset.
 - **Schema** - The schema of the asset including column names, data types, column level classifications, terms, and descriptions are represented in the schema tab.
 - **Lineage** - This tab represents the lineage graph details for assets where it is available.
-- **Contacts** - Every asset can have an owner and expert that can be assigned by users.
+- **Contacts** - Every asset can have an assigned owner and expert that can be viewed and managed from the contacts tab.
 - **Related** - This tab lets you navigate to assets that are related to the current asset you are viewing. 
 
 ## Asset overview
