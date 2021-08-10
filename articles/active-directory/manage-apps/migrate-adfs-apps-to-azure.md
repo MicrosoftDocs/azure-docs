@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 03/01/2021
 ms.author: davidmu
-ms.reviewer: baselden
+ms.reviewer: alamaral
 ---
 
 # Moving application authentication from Active Directory Federation Services to Azure Active Directory

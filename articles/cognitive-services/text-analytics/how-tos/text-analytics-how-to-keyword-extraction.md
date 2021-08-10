@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 07/06/2021
+ms.date: 08/04/2021
 ms.author: aahi
 ---
 
@@ -30,7 +30,7 @@ Key phrase extraction works best when you give it bigger amounts of text to work
 
 You must have JSON documents in this format: ID, text, language
 
-Document size must be 5,120 or fewer characters per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following example is an illustration of content you might submit for key phrase extraction. 
+Document size must be 5,120 or fewer characters per document, and you can have up to 10 items (IDs) per collection. The collection is submitted in the body of the request. The following example is an illustration of content you might submit for key phrase extraction. 
 
 See [How to call the Text Analytics API](text-analytics-how-to-call-api.md) for more information on request and response objects.  
 

@@ -30,7 +30,7 @@
     href: tutorial-nsx-t-network-segment.md
   - name: Delete a private cloud
     href: tutorial-delete-private-cloud.md
-  - name: Expand or shrink clusters in a private cloud
+  - name: Scale clusters in a private cloud
     href: tutorial-scale-private-cloud.md
   - name: Network planning checklist
     href: tutorial-network-checklist.md
@@ -43,14 +43,14 @@
   - name: API Management
     href: concepts-api-management.md
   - name: Hub and spoke
-    href: concepts-hub-and-spoke.md    
+    href: concepts-hub-and-spoke.md
   - name: Monitor and protection
     href: concepts-monitor-protection.md
   - name: Networking and interconnectivity
     href: concepts-networking.md
   - name: Private clouds and clusters
     href: concepts-private-clouds-clusters.md
-  - name: Storage 
+  - name: Storage
     href: concepts-storage.md
 - name: How-to guides
   items:
@@ -62,21 +62,21 @@
     href: reserved-instance.md
   - name: Configure networking
     items:
-    - name: Configure DHCP server or relay 
+    - name: Configure DHCP server or relay
       href: configure-dhcp-azure-vmware-solution.md
     - name: Configure DHCP on L2 stretched networks
       href: configure-l2-stretched-vmware-hcx-networks.md
-    - name: Configure DNS forwarder 
+    - name: Configure DNS forwarder
       href: configure-dns-azure-vmware-solution.md
-    - name: Configure port mirroring  
+    - name: Configure port mirroring
       href: configure-port-mirroring-azure-vmware-solution.md
-    - name: Configure GitHub Enterprise Server
-      href: ./configure-github-enterprise-server.md
     - name: Enable public internet access
       href: enable-public-internet-access.md
-    - name: Configure a site-to-site VPN in vWAN 
+    - name: Configure a site-to-site VPN in vWAN
       href: configure-site-to-site-vpn-gateway.md
-  - name: Configure Windows Server Failover Cluster
+    - name: Configure GitHub Enterprise Server
+      href: configure-github-enterprise-server.md
+    - name: Configure Windows Server Failover Cluster
     href: configure-windows-server-failover-cluster.md
   - name: Rotate cloudadmin credentials
     href: rotate-cloudadmin-credentials.md
@@ -100,7 +100,7 @@
       href: protect-azure-vmware-solution-with-application-gateway.md
     - name: Deploy Traffic Manager to balance workloads
       href: deploy-traffic-manager-balance-workloads.md
-    - name: Configure alerts and work with metrics 
+    - name: Configure alerts and work with metrics
       href: configure-alerts-for-azure-vmware-solution.md
     - name: Attach disk pools to Azure VMware Solution hosts
       href: attach-disk-pools-to-azure-vmware-solution-hosts.md
@@ -114,17 +114,17 @@
       items:
       - name: Prepare Azure
         href: ../site-recovery/avs-tutorial-prepare-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-      - name: Prepare Azure VMware Solution 
+      - name: Prepare Azure VMware Solution
         href: ../site-recovery/avs-tutorial-prepare-avs.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Set up replication
         href: ../site-recovery/avs-tutorial-replication.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-      - name: Run a disaster recovery drill 
+      - name: Run a disaster recovery drill
         href: ../site-recovery/avs-tutorial-dr-drill-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-      - name: Fail over to Azure 
+      - name: Fail over to Azure
         href: ../site-recovery/avs-tutorial-failover.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Reprotect VMs
         href: ../site-recovery/avs-tutorial-reprotect.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-      - name: Fail back from Azure 
+      - name: Fail back from Azure
         href: ../site-recovery/avs-tutorial-failback.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
   - name: VMware solutions
     items:
@@ -163,14 +163,14 @@
   - name: FAQ
     items:
     - name: General
-      href: /azure/azure-vmware/faq
+      href: ./faq.yml
     - name: Customer communication
       href: /azure/azure-vmware/faq#customer-communication
-    - name: Configuration and setup 
+    - name: Configuration and setup
       href: /azure/azure-vmware/faq#configuration-and-setup
-    - name: VMware software 
+    - name: VMware software
       href: /azure/azure-vmware/faq#vmware-software
-    - name: Third-party backup solutions 
+    - name: Third-party backup solutions
       href: /azure/azure-vmware/faq#third-party-backup-and-recovery
     - name: Compute
       href: /azure/azure-vmware/faq#compute
@@ -186,7 +186,7 @@
       href: /azure/azure-vmware/faq#csp-and-multi-tenancy
     - name: Billing and support
       href: /azure/azure-vmware/faq#billing-and-support
-  - name: Videos 
+  - name: Videos
     items:
     - name: Playlist
       href: https://youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin

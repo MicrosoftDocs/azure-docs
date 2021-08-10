@@ -119,8 +119,8 @@
       tocHref: /azure/app-service/
       topicHref: /azure/app-service/
     - name: Mobile Apps
-      tocHref: /azure/app-service-mobile/
-      topicHref: /azure/app-service-mobile/
+      tocHref: /azure/developer/mobile-apps/azure-mobile-apps/overview
+      topicHref: /azure/developer/mobile-apps/azure-mobile-apps/overview
   - name: Azure Automanage
     tocHref: https://azure.microsoft.com/services/azure-automanage/
     topicHref: https://azure.microsoft.com/services/azure-automanage/
@@ -494,11 +494,17 @@
     topicHref: /azure/cosmos-db/
     items:
     - name: MongoDB API
-      tocHref: /azure/cosmos-db/mongodb-introduction
-      topicHref: /azure/cosmos-db/mongodb-introduction
+      tocHref: /azure/cosmos-db/mongodb
+      topicHref: /azure/cosmos-db/mongodb
     - name: Table API
-      tocHref: /azure/cosmos-db/table/
-      topicHref: /azure/cosmos-db/table/
+      tocHref: /azure/cosmos-db/table/introduction
+      topicHref: /azure/cosmos-db/table/introduction
+    - name: Cassandra API
+      tocHref: /azure/cosmos-db/cassandra/
+      topicHref: /azure/cosmos-db/cassandra/
+    - name: Gremlin API
+      tocHref: /azure/cosmos-db/graph/
+      topicHref: /azure/cosmos-db/graph/
   - name: Managed Instance for Apache Cassandra
     tocHref: /azure/managed-instance-apache-cassandra/
     topicHref: /azure/managed-instance-apache-cassandra/

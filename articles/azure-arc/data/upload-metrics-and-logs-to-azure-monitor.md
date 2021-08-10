@@ -58,7 +58,7 @@ Follow these commands to create your metrics upload service principal:
 To create a service principal, update the following example. Replace `<ServicePrincipalName>`, `SubscriptionId` and `resourcegroup` with your values and run the command:
 
 ```azurecli
-az ad sp create-for-rbac --name <ServicePrincipalName> --role Contributor --scopes /subscriptions/{SubscriptionId}/resourceGroups/{resourcegroup}
+az ad sp create-for-rbac --name <ServicePrincipalName> --role Contributor --scopes /subscriptions/<SubscriptionId>/resourceGroups/<resourcegroup>
 ```
 
 If you created the service principal earlier, and just need to get the current credentials, run the following command to reset the credential.
@@ -127,7 +127,7 @@ Run this command to assign the service principal to the `Monitoring Metrics Publ
 > You need to use double quotes for role names when running from a Windows environment.
 
 ```azurecli
-az role assignment create --assignee <appId> --role "Monitoring Metrics Publisher" --scope subscriptions/{SubscriptionID}/resourceGroups/{resourcegroup}
+az role assignment create --assignee <appId> --role "Monitoring Metrics Publisher" --scope subscriptions/<SubscriptionID>/resourceGroups/<resourcegroup>
 
 ```
 ::: zone-end
@@ -135,7 +135,7 @@ az role assignment create --assignee <appId> --role "Monitoring Metrics Publishe
 ::: zone pivot="client-operating-system-macos-and-linux"
 
 ```azurecli
-az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/{SubscriptionID}/resourceGroups/{resourcegroup}
+az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<SubscriptionID>/resourceGroups/<resourcegroup>
 ```
 
 ::: zone-end
@@ -143,7 +143,7 @@ az role assignment create --assignee <appId> --role 'Monitoring Metrics Publishe
 ::: zone pivot="client-operating-system-powershell"
 
 ```powershell
-az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/{SubscriptionID}/resourceGroups/{resourcegroup}
+az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<SubscriptionID>/resourceGroups/<resourcegroup>
 ```
 
 ::: zone-end
@@ -163,7 +163,15 @@ Example output:
 }
 ```
 
+## Verify service principal role
+
+```azurecli
+az role assignment list -o table
+```
+
 With the service principal assigned to the appropriate role, you can proceed to upload metrics, or user data. 
+
+
 
 ## Upload logs, metrics, or usage data
 

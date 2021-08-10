@@ -14,7 +14,7 @@ metadata:
   ms.collection: collection
   ms.author: sgilley
   author: sdgilley
-  ms.date: 07/21/21
+  ms.date: 08/02/2021
   ms.custom: jordan-changes
 
 # highlightedContent section 
@@ -24,7 +24,7 @@ highlightedContent:
     # Card
     - title: What is Azure Machine Learning?
       itemType: overview
-      url: overview-what-is-azure-ml.md
+      url: overview-what-is-azure-machine-learning.md
     # Card
     - title: Set up resources
       itemType: get-started
@@ -123,6 +123,6 @@ conceptualContent:
         - url: https://github.com/Azure/azureml-examples/blob/main/cli/README.md
           itemType: sample
           text: v2 CLI code examples (preview)
-        - url: /azure/machine-learning/classic/
+        - url: ./classic/index.yml
           itemType: overview
-          text: ML Studio (classic) documentation  
+          text: ML Studio (classic) documentation

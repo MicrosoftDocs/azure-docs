@@ -1,18 +1,18 @@
 ---
 title: Azure Security Center's features according to OS, machine type, and cloud
-description: Learn about which Azure Security Center features are available according to their OS, type, and cloud deployment.
+description: Learn about the availability of Azure Security Center features according to OS, machine type, and cloud deployment.
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 08/01/2021
+ms.date: 08/05/2021
 ms.custom: references_regions
 ms.author: memildin
 ---
 
 # Feature coverage for machines
 
-The two tabs below show the features of Azure Security Center that are available for Windows and Linux virtual machines and servers.
+The two tabs below show the features of Azure Security Center that are available for Windows and Linux machines.
 
 ## Supported features for virtual machines and servers <a name="vm-server-features"></a>
 
@@ -42,26 +42,26 @@ The two tabs below show the features of Azure Security Center that are available
 
 ### [**Linux machines**](#tab/features-linux)
 
-|**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Azure Arc enabled machines**|**Azure Defender required**
-|----|:----:|:----:|:----:|:----:|
-|[Microsoft Defender for Endpoint integration](security-center-wdatp.md)|-|-|-|-|
-|[Virtual machine behavioral analytics (and security alerts)](./azure-defender.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Yes|
-|[Fileless security alerts](alerts-reference.md#alerts-windows)|-|-|-|Yes|
-|[Network-based security alerts](other-threat-protections.md#network-layer)|✔|✔|-|Yes|
-|[Just-in-time VM access](security-center-just-in-time.md)|✔|-|-|Yes|
-|[Native vulnerability assessment](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|Yes|
-|[File integrity monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Yes|
-|[Adaptive application controls](security-center-adaptive-application.md)|✔|-|✔|Yes|
-|[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Yes|
-|[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Yes|
-|[Regulatory compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Yes|
-|[Docker host hardening](./harden-docker-hosts.md)|✔|✔|✔|Yes|
-|Missing OS patches assessment|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
-|Security misconfigurations assessment|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
-|[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|No|
-|Disk encryption assessment|✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|No|
-|Third-party vulnerability assessment|✔|-|✔|No|
-|[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|No|
+| **Feature**                                                                                                               | **Azure Virtual Machines**                                                                                      | **Azure Virtual Machine Scale Sets** | **Azure Arc enabled machines** | **Azure Defender required**       |
+|---------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------:|:------------------------------------:|:------------------------------:|:---------------------------------:|
+| [Microsoft Defender for Endpoint integration](security-center-wdatp.md)                                                   | ✔                                                                                                               | -                                    | ✔                              | Yes                              |
+| [Virtual machine behavioral analytics (and security alerts)](./azure-defender.md)                                         | ✔</br>(on supported versions)                                                                                  | ✔</br>(on supported versions)        | ✔                             | Yes                               |
+| [Fileless security alerts](alerts-reference.md#alerts-windows)                                                            | -                                                                                                               | -                                    | -                              | Yes                               |
+| [Network-based security alerts](other-threat-protections.md#network-layer)                                                | ✔                                                                                                              | ✔                                    | -                              | Yes                               |
+| [Just-in-time VM access](security-center-just-in-time.md)                                                                 | ✔                                                                                                              | -                                    | -                              | Yes                               |
+| [Native vulnerability assessment](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔                                                                                                              | -                                    | ✔                             | Yes                               |
+| [File integrity monitoring](security-center-file-integrity-monitoring.md)                                                 | ✔                                                                                                              | ✔                                    | ✔                             | Yes                               |
+| [Adaptive application controls](security-center-adaptive-application.md)                                                  | ✔                                                                                                              | -                                    | ✔                             | Yes                               |
+| [Network map](security-center-network-recommendations.md#network-map)                                                     | ✔                                                                                                              | ✔                                    | -                              | Yes                               |
+| [Adaptive network hardening](security-center-adaptive-network-hardening.md)                                               | ✔                                                                                                              | -                                    | -                              | Yes                               |
+| [Regulatory compliance dashboard & reports](security-center-compliance-dashboard.md)                                      | ✔                                                                                                              | ✔                                    | ✔                             | Yes                               |
+| [Docker host hardening](./harden-docker-hosts.md)                                                                         | ✔                                                                                                              | ✔                                    | ✔                             | Yes                               |
+| Missing OS patches assessment                                                                                             | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Arc-enabled: Yes |
+| Security misconfigurations assessment                                                                                     | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Arc-enabled: Yes |
+| [Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)                    | -                                                                                                               | -                                    | -                              | No                                |
+| Disk encryption assessment                                                                                                | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) | ✔                                    | -                              | No                                |
+| Third-party vulnerability assessment                                                                                      | ✔                                                                                                              | -                                    | ✔                             | No                                |
+| [Network security assessment](security-center-network-recommendations.md)                                                 | ✔                                                                                                              | ✔                                    | -                              | No                                |
 ||||||
 
 --- 
@@ -95,7 +95,7 @@ For information about when recommendations are generated for each of these prote
 
 ## Feature support in government and sovereign clouds
 
-| Feature/Service                                                                                                                                                             | Azure          | Azure Government               | Azure China   |
+| Feature/Service                                                                                                                                                             | Azure          | Azure Government               | Azure China 21Vianet   |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|---------------|
 | **Security Center free features**                                                                                                                                           |                |                                |               |
 | - [Continuous export](./continuous-export.md)                                                                                                                               | GA             | GA                             | GA            |
