@@ -722,6 +722,8 @@
         href: fiscalnote-tutorial.md
       - name: Five9 Plus Adapter (CTI, Contact Center Agents)
         href: five9-tutorial.md
+      - name: Fivetran
+        href: fivetran-tutorial.md  
       - name: Flatter Files
         href: flatter-files-tutorial.md
       - name: Float
