@@ -82,7 +82,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 Update an existing AKS cluster with Azure CNI to include pod-managed identity.
 
 ```azurecli-interactive
-az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --network-plugin azure
+az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity
 ```
 ## Using Kubenet network plugin with Azure Active Directory pod-managed identities 
 
