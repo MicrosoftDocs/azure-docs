@@ -90,7 +90,7 @@ A private link resource is the destination target of a given private endpoint. T
 | **Azure Relay** | Microsoft.Relay/namespaces | namespace |
 | **Microsoft Search** | Microsoft.Search/searchServices | search service |
 | **Azure Service Bus** | Microsoft.ServiceBus/namespaces | namespace |
-| **SignalR** | Microsoft.SignalRService/SignalR | signalR |
+| **SignalR** | Microsoft.SignalRService/SignalR | signalr |
 | **SignalR** | Microsoft.SignalRService/webPubSub | signalR |
 | **Azure SQL Database** | Microsoft.Sql/servers | Sql Server (sqlServer) |
 | **Azure Storage** | Microsoft.Storage/storageAccounts | Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary) |
@@ -100,6 +100,7 @@ A private link resource is the destination target of a given private endpoint. T
 | **Azure App Service** | Microsoft.Web/hostingEnvironments | hosting environment |
 | **Azure App Service** | Microsoft.Web/sites | sites |
 | **Azure App Service** | Microsoft.Web/staticSites | staticSite |
+
  
 ## Network security of private endpoints 
 When using private endpoints for Azure services, traffic is secured to a specific private link resource. The platform performs an access control to validate network connections reaching only the specified private link resource. To access more resources within the same Azure service, extra private endpoints are required. 
