@@ -41,7 +41,7 @@ MSAL provides multiple benefits over ADAL, including the following features:
 |Azure Active Directory (Azure AD) accounts|![Azure Active Directory (Azure AD) accounts - MSAL provides the feature][y]|![Azure Active Directory (Azure AD) accounts - ADAL provides the feature][y]|
 | Microsoft account (MSA) |![Microsoft account (MSA) - MSAL provides the feature][y]|![Microsoft account (MSA) - ADAL doesn't provide the feature][n]|
 | Azure AD B2C accounts |![Azure AD B2C accounts - MSAL provides the feature][y]|![Azure AD B2C accounts - ADAL doesn't provide the feature][n]|
-| Best single sign-on experience |![Best single sign-on experience - MSAL provides the feature][y]|![X][n]|
+| Best single sign-on experience |![Best single sign-on experience - MSAL provides the feature][y]|![Best single sign-on experience - ADAL doesn't provide the feature][n]|
 |**Resilience**|||
 |Azure AD Back-up System|![Azure AD Back-up System - MSAL provides the feature][y]|Partially supported|
 | Proactive token renewal |![Proactive token renewal - MSAL provides the feature][y]|![Proactive token renewal - ADAL doesn't provide the feature][n]|
