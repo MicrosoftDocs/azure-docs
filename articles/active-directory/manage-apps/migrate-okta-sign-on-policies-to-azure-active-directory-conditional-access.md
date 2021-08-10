@@ -49,19 +49,19 @@ The following are the high-level migration tasks:
 
 To complete a successful transition to CA, the existing Okta sign on policies should be evaluated to determine use cases and requirements that will be transitioned to Azure AD.
 
-1. Check the global sign on policies by navigating to **Security**, selecting **Authentication**, and then **Sign On**.
+1. Check the global sign-on policies by navigating to **Security**, selecting **Authentication**, and then **Sign On**.
 
 ![image shows global sign on policies](media/migrate-okta-sign-on-policies-to-azure-ad-conditional-access/global-sign-on-policies.png)
 
-In this example, our global sign on policy is enforcing MFA on all sessions outside of our configured network zones.
+In this example, our global sign-on policy is enforcing MFA on all sessions outside of our configured network zones.
 
 ![image shows global sign on policies enforcing mfa](media/migrate-okta-sign-on-policies-to-azure-ad-conditional-access/global-sign-on-policies-enforcing-mfa.png)
 
-2. Next, navigate to **Applications**, and check the application-level sign on policies. Select **Applications** from the sub-menu, and then select your Office 365 connected instance from the **Active apps list**.
+2. Next, navigate to **Applications**, and check the application-level sign-on policies. Select **Applications** from the submenu, and then select your Office 365 connected instance from the **Active apps list**.
 
 3. Finally, select **Sign On** and scroll to the bottom of the page.
 
-In the following example, our Office 365 application sign on policy has four separate rules.
+In the following example, our Office 365 application sign-on policy has four separate rules.
 
 - **Enforce MFA for mobile sessions** - Requires MFA from every modern authentication or browser session on iOS or Android.
 
@@ -83,7 +83,7 @@ In some scenarios, you may need additional setup before you configure the CA pol
 
 - **Okta device trust to device-based CA** - CA offers two possible options when evaluating a user's device.
 
-  - [Hybrid Azure AD join](#hybrid-azure-ad-join-configuration) - A feature enabled within Azure AD Connect server that synchronizes Windows current devices such as Windows 10, Server 2016 and 2019, to Azure AD.
+  - [Hybrid Azure AD join](#hybrid-azure-ad-join-configuration) - A feature enabled within the Azure AD Connect server that synchronizes Windows current devices such as Windows 10, Server 2016 and 2019, to Azure AD.
 
   - [Enroll the device into Microsoft Endpoint Manager](#configure-device-compliance) and assign a compliance policy.
 
@@ -159,7 +159,7 @@ After you configured the pre-requisites, and established the base settings its t
 2. Configuration of CA policies should keep in mind [best
 practices for deploying and designing CA](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/plan-conditional-access#understand-conditional-access-policy-components).
 
-3. To mimic global sign on MFA policy from Okta, [create a policy](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa).
+3. To mimic global sign-on MFA policy from Okta, [create a policy](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa).
 
 4. Create a [device trust based CA rule](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices).
 
@@ -170,10 +170,9 @@ practices for deploying and designing CA](https://docs.microsoft.com/en-us/azure
 ![image shows success in testing user](media/migrate-okta-sign-on-policies-to-azure-ad-conditional-access/success-testing-user.png)
 
 6. After you configured the location-based policy, and device
-trust policy, its time to configure the equivalent **[Block legacy authentication](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-policy-block-legacy)** policy.
+trust policy, its time to configure the equivalent **[Block legacy authentication](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-block-legacy)** policy.
 
-With these three CA policies, the original Okta sign on
-policies experience have been replicated in Azure AD. Next steps involves enrolling the user to Azure MFA and testing the policies.
+With these three CA policies, the original Okta sign on policies experience has been replicated in Azure AD. Next steps involve enrolling the user to Azure MFA and testing the policies.
 
 ### Step 5 - Enroll pilot members in Azure AD MFA 
 
@@ -214,11 +213,11 @@ See the [end-user documentation for MFA enrollment](https://docs.microsoft.com/a
 
 ![image shows mfa verification through okta prompted for CA](media/migrate-okta-sign-on-policies-to-azure-ad-conditional-access/mfa-verification-through-okta-prompted-ca.png)
 
-### Step 7 - Cutover from sign on to CA policies
+### Step 7 - Cutover from sign-on to CA policies
 
 After conducting thorough testing on the pilot members to ensure that CA is in effect as expected, the remaining organization members can be added into CA policies after registration has been completed.
 
-To avoid double-prompting between Azure MFA and Okta MFA, you should opt out from Okta MFA by modifying sign on policies.
+To avoid double-prompting between Azure MFA and Okta MFA, you should opt out from Okta MFA by modifying sign-on policies.
 
 The final migration step to CA can be done in a staged or cut-over fashion.
 
@@ -230,7 +229,7 @@ The final migration step to CA can be done in a staged or cut-over fashion.
 
 ![image shows mfa policy to inactive](media/migrate-okta-sign-on-policies-to-azure-ad-conditional-access/mfa-policy-inactive.png)
 
-3. On the application-level sign on policy, update the policies to inactive by selecting the **Disable Rule** option. You can also assign the policy to a new group that doesn't include the Azure AD users.
+3. On the application-level sign-on policy, update the policies to inactive by selecting the **Disable Rule** option. You can also assign the policy to a new group that doesn't include the Azure AD users.
 
 4. Ensure there is at least one application level sign-on policy that is enabled for the application that allows access without MFA.
 
