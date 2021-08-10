@@ -46,9 +46,9 @@ This article explains how you can access your SAP resources from Azure Logic App
 
   > [!NOTE]
   > If you use the SAP trigger named **When a message is received from SAP** with the **IDOC Format** parameter set to **FlatFile** 
-  > or the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md), you have to use the `early_terminate_optional_fields` 
+  > and the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md), you have to use the `early_terminate_optional_fields` 
   > property in your flat file schema by setting the value to `true`. This requirement is necessary because the flat file IDOC data record 
-  > is padded to the full SDATA field length. However, the data sent by SAP on the tRFC call `IDOC_INBOUND_ASYNCHRONOUS` isn't padded. 
+  > that's sent by SAP on the tRFC call `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. 
   > Azure Logic Apps provides the flat file IDOC original data without padding as received from SAP.
 
 * If you want to use the **When a message is received from SAP** trigger, you must also do the following:
