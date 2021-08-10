@@ -39,7 +39,8 @@ For more information about manual failover and Microsoft-initiated failover with
 
 ## Perform a manual failover
 
-Note that there is a limit of two failovers and two failbacks per day for an IoT hub.
+> [!NOTE]
+> There is a limit of two failovers and two failbacks per day for an IoT hub.
 
 1. Click **Resource groups** and then select your resource group. This tutorial uses **ManlFailRG**. Click on your hub in the list of resources. 
 
@@ -71,7 +72,7 @@ Note that there is a limit of two failovers and two failbacks per day for an IoT
 
    ![Screenshot showing failover is complete](./media/tutorial-manual-failover/trigger-failover-06-finished.png)
 
-   The overview page also shows a banner indicating that the failover complete and the IoT Hub is running in `West Central US`.
+   The overview page also shows a banner indicating that the failover is complete and the IoT Hub is running in `West Central US`.
 
    ![Screenshot showing failover is complete in overview page](./media/tutorial-manual-failover/trigger-failover-06-finished-overview.png)
 
@@ -88,7 +89,7 @@ A failback is performed just like a manual failover. These are the steps:
 
 3. At the top of the Manual failover pane, click **Start failover**. 
 
-4. In the confirmation pane, fill in the name of your IoT hub to confirm it's the one you want to failback. To then initiate the failback, click OK. 
+4. In the confirmation pane, fill in the name of your IoT hub to confirm it's the one you want to failback. To then initiate the failback, click **OK**. 
 
    ![Screenshot of manual failback request](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
