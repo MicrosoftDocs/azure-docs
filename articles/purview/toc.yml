@@ -71,7 +71,7 @@ items:
   - name: Asset normalization
     href: concept-asset-normalization.md
   - name: Frequently asked questions
-    href: frequently-asked-questions.md
+    href: /azure/purview/frequently-asked-questions.yml
 - name: How-to guides
   items:
   - name: Register & scan

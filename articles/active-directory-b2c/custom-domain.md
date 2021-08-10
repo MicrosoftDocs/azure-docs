@@ -67,9 +67,9 @@ Verify each subdomain you plan to use. Verifying just the top-level domain isn't
 > [!TIP]
 > You can manage your custom domain with any publicly available DNS service, such as GoDaddy. If you don't have a DNS server, you can use App Service domains. To use App Service domains:
 >
-> 1. [Buy a custom domain name](/azure/app-service/manage-custom-dns-buy-domain). 
+> 1. [Buy a custom domain name](../app-service/manage-custom-dns-buy-domain.md). 
 > 1. [Add your custom domain in Azure AD](../active-directory/fundamentals/add-custom-domain.md). 
-> 1. Validate the domain name by [managing custom DNS records](/azure/app-service/manage-custom-dns-buy-domain#manage-custom-dns-records).
+> 1. Validate the domain name by [managing custom DNS records](../app-service/manage-custom-dns-buy-domain.md#manage-custom-dns-records).
     
 ## Step 2. Create a new Azure Front Door instance
 

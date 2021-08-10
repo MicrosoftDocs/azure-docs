@@ -23,10 +23,10 @@ Within Azure Security Center, you can access the built-in workbooks to track you
 
 | Aspect                          | Details                                                                                                                                      |
 |---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
-| Release state:                  | General Availability (GA)                                                                                                                    |
+| Release state:                  | General availability (GA)                                                                                                                    |
 | Pricing:                        | Free                                                                                                                                         |
 | Required roles and permissions: | To save workbooks, you must have at least [Workbook Contributor](../role-based-access-control/built-in-roles.md#workbook-contributor) permissions on the target resource group |
-| Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (US Gov, Azure China 21Vianet) |
+| Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet) |
 |                                 |                                                                                                                                              |
 
 ## Workbooks gallery in Azure Security Center

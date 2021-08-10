@@ -4,7 +4,7 @@ metadata:
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: troubleshooting
   ms.custom: contperf-fy21q4
-  ms.date:  06/16/2021
+  ms.date:  08/09/2021
     
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
@@ -113,9 +113,10 @@ sections:
           [!INCLUDE [vmware-software-update-frequency](includes/vmware-software-update-frequency.md)]
 
       - question: Do private clouds use VMware NSX? If so, which version is supported?
-        answer: Yes, NSX-T 2.5 is used for the software-defined networking in Azure VMware Solution private clouds.
-          |
-          NSX-T is the only supported version of NSX.
+        answer: |
+          Yes, NSX-T is the only supported version of NSX.   
+          
+          NSX-T [!INCLUDE [nsxt-version](includes/nsxt-version.md)] is used for the software-defined networking in Azure VMware Solution private clouds.
 
       - question: Is NSX required in on-premises environments or networks that connect to a private cloud?
         answer: No, you aren't required to use NSX on-premises.
