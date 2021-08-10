@@ -4,6 +4,7 @@ description: Learn to automate pause and resume for a dedicated SQL pool with Sy
 author: julieMSFT
 ms.author: jrasnick
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: how-to 
 ms.date: 02/05/2021
 ms.custom: template-how-to 
