@@ -1,7 +1,7 @@
 ---
 title: Create Bicep files - Visual Studio Code
 description: Use Visual Studio Code and the Bicep extension to Bicep files for deploy Azure resources
-ms.date: 06/25/2021
+ms.date: 07/30/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 
@@ -59,7 +59,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
 }
 ```
 
-This snippet contains all of the value you need to define the virtual network. However, you can modify this code to meet your requirements. For example, `name` isn't a great name for the virtual network. Change the `name` property to `examplevnet`.
+This snippet contains all of the values you need to define a virtual network. However, you can modify this code to meet your requirements. For example, `name` isn't a great name for the virtual network. Change the `name` property to `examplevnet`.
 
 ```bicep
 name: 'examplevnet'
@@ -116,13 +116,13 @@ Okay, your parameter is ready to use.
 
 Instead of using a snippet to define the storage account, we'll use intellisense to set the values. Intellisense makes this step much easier than having to manually type the values.
 
-You define a resource with the `resource` keyword.  Below your virtual network, type **resource exampleStorage**:
+To define a resource, use the `resource` keyword.  Below your virtual network, type **resource exampleStorage**:
 
 ```bicep
 resource exampleStorage
 ```
 
-**exampleStorage** is a symbolic name for the resource you're deploying. It makes it easy to reference the resource in other parts of your Bicep file.
+**exampleStorage** is a symbolic name for the resource you're deploying. You can use this name to reference the resource in other parts of your Bicep file.
 
 When you add a space after the symbolic name, a list of resource types is displayed. Continue typing **storage** until you can select it from the available options.
 
@@ -152,7 +152,7 @@ resource exampleStorage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 
 You're almost done. Just provide values for those properties.
 
-Again, intellisense helps you. For `name`, provide the parameter that contains a name for the storage account. For `location`, set it to `eastus`. When adding SKU name and kind, intellisense presents the valid options.
+Again, intellisense helps you. Set `name` to `storageName`, which is the parameter that contains a name for the storage account. For `location`, set it to `eastus`. When adding SKU name and kind, intellisense presents the valid options.
 
 When you've finished, you have:
 
@@ -232,7 +232,7 @@ New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.
 ---
 
 > [!NOTE]
-> Replace **{your-unique-name}** including the curly brackets with a unique storage account name.
+> Replace **{your-unique-name}**, including the curly braces, with a unique storage account name.
 
 When the deployment finishes, you should see a message indicating the deployment succeeded. If you get an error message indicating the storage account is already taken, the storage name you provided is in use. Provide a name that is more likely to be unique.
 

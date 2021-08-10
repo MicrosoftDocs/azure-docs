@@ -6,6 +6,7 @@ documentationcenter: ''
 author: MashaMSFT
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: service-overview
 
 ms.topic: overview
 ms.workload: iaas-sql-server

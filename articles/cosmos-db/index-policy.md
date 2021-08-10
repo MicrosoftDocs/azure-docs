@@ -17,7 +17,7 @@ In Azure Cosmos DB, every container has an indexing policy that dictates how the
 In some situations, you may want to override this automatic behavior to better suit your requirements. You can customize a container's indexing policy by setting its *indexing mode*, and include or exclude *property paths*.
 
 > [!NOTE]
-> The method of updating indexing policies described in this article only applies to Azure Cosmos DB's SQL (Core) API. Learn about indexing in [Azure Cosmos DB's API for MongoDB](mongodb-indexing.md)
+> The method of updating indexing policies described in this article only applies to Azure Cosmos DB's SQL (Core) API. Learn about indexing in [Azure Cosmos DB's API for MongoDB](mongodb/mongodb-indexing.md)
 
 ## Indexing mode
 
@@ -324,7 +324,7 @@ The following considerations apply when creating composite indexes to optimize a
 | ```(name ASC, age ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John" AND c.age = 25``` | `Yes` |
 | ```(age ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John" AND c.age > 25``` | `No` |
 
-## <index-transformation>Modifying the indexing policy
+## <a id=index-transformation></a>Modifying the indexing policy
 
 A container's indexing policy can be updated at any time [by using the Azure portal or one of the supported SDKs](how-to-manage-indexing-policy.md). An update to the indexing policy triggers a transformation from the old index to the new one, which is performed online and in-place (so no additional storage space is consumed during the operation). The old indexing policy is efficiently transformed to the new policy without affecting the write availability, read availability, or the throughput provisioned on the container. Index transformation is an asynchronous operation, and the time it takes to complete depends on the provisioned throughput, the number of items and their size.
 

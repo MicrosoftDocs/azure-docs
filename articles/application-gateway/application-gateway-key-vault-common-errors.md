@@ -95,8 +95,7 @@ On the other hand, if a certificate object is permanently deleted, you will need
 **Resolution:** You will encounter this issue upon enabling Key Vault Firewall for restricted access. You can still configure your Application Gateway in a restricted network of Key Vault in the following manner.
 1. Under Key Vault’s Networking blade
 2. Choose Private endpoint and selected networks in "Firewall and Virtual Networks" tab
-3. Then using Virtual Networks, add your Application Gateway’s virtual network and Subnet. During the process also configure ‘Microsoft.KeyVault' service endpoint by selecting its checkbox.
-4. Finally, select “Yes” to allow Trusted Services to bypass Key Vault’s firewall.
+3. Finally, select “Yes” to allow Trusted Services to bypass Key Vault’s firewall.
 
 :::image type="content" source="./media/application-gateway-key-vault-common-errors/key-vault-restricted-access.png" alt-text="Key Vault Has Restricted Access.":::
 </br></br>

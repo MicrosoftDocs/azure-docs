@@ -1,10 +1,13 @@
 ---
 title: Troubleshoot security and access control issues
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot security and access control issues in Azure Data Factory. 
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
+ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 05/31/2021
+ms.date: 07/28/2021
 ms.author: lle
 ---
 
@@ -184,6 +187,40 @@ ADF may still use Managed VNet IR, but you could encounter such error because th
 - Having private endpoint enabled on the source and also the sink side when using the Managed VNet IR.
 - If you still want to use the public endpoint, you can switch to public IR only instead of using the Managed VNet IR for the source and the sink. Even if you switch back to public IR, ADF may still use the Managed VNet IR if the Managed VNet IR is still there.
 
+### Internal error while trying to Delete ADF with Customer Managed Key (CMK) and User Assigned Managed Identity (UA-MI)
+
+#### Symptoms
+`{\"error\":{\"code\":\"InternalError\",\"message\":\"Internal error has occurred.\"}}`
+
+#### Cause
+
+If you  are doing any operation related to CMK, you should do all ADF related operations first, and then external operations (like Managed Identities or Key Vault operations). For example, if you  want to delete all resources, you  need to delete the factory first, and then delete the key vault, if you  do it in a different order, ADF call will fail as it  can't read related  objects anymore, and it won't be able to validate if deletion is possible or not. 
+
+#### Solution
+
+There are three possible ways to solve the issue. They are as follows:
+
+* You revoked ADF's access to Key vault where the CMK key was stored. 
+You  can reassign access to data factory following permissions: **Get, Unwrap Key, and Wrap Key**. These permissions are required to enable customer-managed keys in Data Factory. Please refer to [Grant access to ADF](enable-customer-managed-key.md#grant-data-factory-access-to-azure-key-vault)
+ Once the permission is provided, you  should be able to delete ADF
+ 
+* Customer deleted Key Vault / CMK before deleting ADF. 
+ CMK in ADF should have "Soft Delete" enabled and "Purge Protect" enabled which has default retention policy of 90 days. You can restore the deleted key.  
+Please review [Recover deleted Key](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates) and [Deleted Key Value](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault)
+
+* User Assigned Managed Identity (UA-MI) was deleted before ADF. 
+You can recover from this by using REST API calls, you can do this in an http client of your choice in any programming language. If you have not anything already set up for REST API calls with Azure authentication, the easiest way to do this would be by using POSTMAN/Fiddler. Please follow following steps.
+
+   1.  Make a GET call to the factory using Method: GET Url like   `https://management.azure.com/subscriptions/YourSubscription/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourFactoryName?api-version=2018-06-01`
+
+   2. You need to create a new User Managed Identity with a different Name (same name may work, but just to be sure, it's safer to use a different name than the one in the GET response)
+
+   3. Modify the encryption.identity property and identity.userassignedidentities to point to the newly created managed identity. Remove the clientId and principalId from the userAssignedIdentity object. 
+
+   4.  Make a PUT call to the same factory url passing the new body. It is very important that you are  passing whatever you got in the GET response, and only modify the identity. Otherwise they would override other settings unintentionally. 
+
+   5.  After the call succeeds, you  will be able to see the entities again and retry deleting. 
+
 ## Sharing Self-hosted Integration Runtime
 
 ### Sharing a self-hosted IR from a different tenant is not supported 
@@ -195,6 +232,7 @@ You might notice other data factories (on different tenants) as you're attemptin
 #### Cause
 
 The self-hosted IR can't be shared across tenants.
+
 
 ## Next steps
 
