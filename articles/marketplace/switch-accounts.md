@@ -23,13 +23,9 @@ You can be part of more than one account. This article describes how to see if y
 
 #### [Workspaces view](#tab/Workspaces-view)
 
-You can check to see if you are part of multiple accounts by the presence of the *account picker*.
+You can check to see if you are part of multiple accounts by the presence of the *account picker*. In the top-right, select the your account icon as seen highlighted in the following screenshot.
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-
-1. On the Home page, in the top-right, select the your account icon as seen highlighted in the following screenshot.
-
-    [ ![Illustrates the account picker in Partner Center.](./media/manage-accounts/account-picker-workspaces.png) ](./media/manage-accounts/account-picker-workspaces.png#lightbox)
+[ ![Illustrates the account picker in Partner Center.](./media/manage-accounts/account-picker-workspaces.png) ](./media/manage-accounts/account-picker-workspaces.png#lightbox)
 
 If you don't see the *account picker*, you are part of one account only. You can find the details of this account on the **Account settings** > **Organization profile** > **Legal** > **Developer** tab in Partner Center.
 
