@@ -123,11 +123,6 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/healthcare-apis/fhir-paas-arm-template-quickstart.md",
-        "redirect_url": "/azure/healthcare-apis/fhir/fhir-paas-arm-template-quickstart",
-        "redirect_document_id": true
-    },
-    {
         "source_path_from_root": "/articles/healthcare-apis/fhir-paas-cli-quickstart.md",
         "redirect_url": "/azure/healthcare-apis/fhir/fhir-paas-cli-quickstart",
         "redirect_document_id": true
