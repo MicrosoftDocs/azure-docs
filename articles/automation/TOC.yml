@@ -31,6 +31,8 @@
       href: learn/automation-tutorial-runbook-textual-python2.md
     - name: Create a Python 3 runbook
       href: learn/automation-tutorial-runbook-textual-python-3.md
+    - name: Use managed identity with PowerShell runbook
+      href: learn/powershell-runbook-managed-identity.md 
 - name: Concepts
   items:
     - name: Automation account authentication overview
@@ -76,8 +78,6 @@
               href: disable-managed-identity-for-automation.md
             - name: Remove user-assigned managed identity
               href: remove-user-assigned-identity.md
-            - name: Using with PowerShell Runbook  
-              href: learn/powershell-runbook-managed-identity.md  
             - name: Troubleshoot managed identity
               href: troubleshoot/managed-identity.md
         - name: Run As account
