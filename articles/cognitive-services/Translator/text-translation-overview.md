@@ -52,13 +52,14 @@ Text translation documentation contains the following article types:
 Add Text Translation to your projects and applications using the following resources:
 
 * Access the cloud-based Translator service via the [**REST API***](reference/rest-api-guide.md), available in Azure.
-* Use the REST API [translate request](containers/translator-container-supported-parameters.md) on-premises using the [**Text translation Docker container**](containers/translator-how-to-install-container.md).
+
+* Use the REST API [translate request](containers/translator-container-supported-parameters.md) with the [**Text translation Docker container**](containers/translator-how-to-install-container.md).
 
     > [!IMPORTANT]
     >
     > * The Translator container is in gated preview. To use it, you must complete and submit the [**Azure Cognitive Services Application for Gated Services**](https://aka.ms/csgate-translator) online request form and have it approved to acquire access to the container.
     >
-    > * The Translator container supports limited features compared to the cloud offerings.
+    > * The [**Translator container image**](https://hub.docker.com/_/microsoft-azure-cognitive-services-translator-text-translation) supports limited features compared to cloud offerings.
     >
 
 ## Get started with Text Translation
