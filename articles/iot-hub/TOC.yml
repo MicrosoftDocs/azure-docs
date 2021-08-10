@@ -7,7 +7,6 @@
     - name: IoT concepts
       href: iot-concepts.md 
 - name: Quickstarts
-  expanded: true
   items:
     - name: Codeless quickstart using CLI
       href: quickstart-send-telemetry-cli.md
@@ -65,96 +64,102 @@
         - name: Testing authentication
           href: tutorial-x509-test-certificate.md
 - name: Concepts
+  expanded: true
   items:
-    - name: TLS support
-      href: iot-hub-tls-support.md
-    - name: Virtual networks support
-      href: virtual-network-support.md
-    - name: Message enrichments overview
-      href: iot-hub-message-enrichments-overview.md
-    - name: Overview of device management
-      href: iot-hub-device-management-overview.md
+    - name: Device-to-cloud feature guide
+      href: iot-hub-devguide-d2c-guidance.md
+    - name: Cloud-to-device feature guide
+      href: iot-hub-devguide-c2d-guidance.md
+    - name: Understand device twins
+      href: iot-hub-devguide-device-twins.md
+    - name: Understand module twins
+      href: iot-hub-devguide-module-twins.md
+    - name: Invoke direct methods on a device
+      href: iot-hub-devguide-direct-methods.md
+    - name: Schedule jobs on multiple devices
+      href: iot-hub-devguide-jobs.md
+    - name: IoT Hub endpoints
+      href: iot-hub-devguide-endpoints.md
+    - name: Query language
+      href: iot-hub-devguide-query-language.md
+    - name: Quotas and throttling
+      href: iot-hub-devguide-quotas-throttling.md
+    - name: Pricing examples
+      href: iot-hub-devguide-pricing.md
     - name: Compare IoT Hub and Event Hubs
       href: iot-hub-compare-event-hubs.md
-    - name: Choose the right tier
-      href: iot-hub-scaling.md
-    - name: High availability and disaster recovery
-      href: iot-hub-ha-dr.md
-    - name: How to clone an IoT Hub to another region
-      href: iot-hub-how-to-clone.md
-    - name: Understanding IoT hub IP address
-      href: iot-hub-understand-ip-address.md
-    - name: Supporting additional protocols
-      href: iot-hub-protocol-gateway.md
-    - name: Compare message and event routing
-      href: iot-hub-event-grid-routing-comparison.md
-    - name: Device configuration best practices
-      href: iot-hub-configuration-best-practices.md
-    - name: Overview of IoT Hub device streams (preview)
-      href: iot-hub-device-streams-overview.md
-    - name: Developer guide
-      href: iot-hub-devguide.md
+    - name: React to IoT Hub events with Event Grid
+      href: iot-hub-event-grid.md
+    - name: Upload files from a device
+      href: iot-hub-devguide-file-upload.md
+    - name: Messaging
       items:
-        - name: Device-to-cloud feature guide
-          href: iot-hub-devguide-d2c-guidance.md
-        - name: Cloud-to-device feature guide
-          href: iot-hub-devguide-c2d-guidance.md
-        - name: Send and receive messages
-          href: iot-hub-devguide-messaging.md
-          items:
-            - name: Create and read IoT Hub messages
-              href: iot-hub-devguide-messages-construct.md
-            - name: Choose a device communication protocol
-              href: iot-hub-devguide-protocols.md
-            - name: Read device-to-cloud messages from the built-in endpoint
-              href: iot-hub-devguide-messages-read-builtin.md
-            - name: Use message routing to send device-to-cloud messages
-              href: iot-hub-devguide-messages-d2c.md
-              items:
-                - name: Use custom endpoints and routing rules for device-to-cloud messages
-                  href: iot-hub-devguide-messages-read-custom.md
-                - name: Add queries to message routes
-                  href: iot-hub-devguide-routing-query-syntax.md
-            - name: Send cloud-to-device messages from IoT Hub
-              href: iot-hub-devguide-messages-c2d.md
-        - name: React to IoT Hub events with Event Grid
-          href: iot-hub-event-grid.md
-        - name: Upload files from a device
-          href: iot-hub-devguide-file-upload.md
-        - name: Manage device identities
-          href: iot-hub-devguide-identity-registry.md
-        - name: Control access to IoT Hub
-          items:
-            - name: Overview
-              href: iot-hub-devguide-security.md
-            - name: Control access with Azure AD
-              href: iot-hub-dev-guide-azure-ad-rbac.md
-            - name: Control access with SAS
-              href: iot-hub-dev-guide-sas.md
-        - name: Understand device twins
-          href: iot-hub-devguide-device-twins.md
-        - name: Understand module twins
-          href: iot-hub-devguide-module-twins.md
-        - name: Invoke direct methods on a device
-          href: iot-hub-devguide-direct-methods.md
-        - name: Schedule jobs on multiple devices
-          href: iot-hub-devguide-jobs.md
-        - name: IoT Hub endpoints
-          href: iot-hub-devguide-endpoints.md
-        - name: Query language
-          href: iot-hub-devguide-query-language.md
-        - name: Quotas and throttling
-          href: iot-hub-devguide-quotas-throttling.md
-        - name: Pricing examples
-          href: iot-hub-devguide-pricing.md
-        - name: IoT Hub SDKs
-          items:
-            - name: SDK overview
-              href: iot-hub-devguide-sdks.md
-            - name: Develop without the SDK
-              href: iot-hub-devguide-no-sdk.md   
-            - name: Manage connectivity and reliable messaging
-              href: iot-hub-reliability-features-in-sdks.md
+      - name: Send and receive messages
+        href: iot-hub-devguide-messaging.md
+      - name: Create and read IoT Hub messages
+        href: iot-hub-devguide-messages-construct.md
+      - name: Choose a device communication protocol
+        href: iot-hub-devguide-protocols.md
+      - name: Read device-to-cloud messages from the built-in endpoint
+        href: iot-hub-devguide-messages-read-builtin.md
+      - name: Message enrichments overview
+        href: iot-hub-message-enrichments-overview.md    
+    - name: Message routing
+      items:
+      - name: Use message routing to send device-to-cloud messages
+        href: iot-hub-devguide-messages-d2c.md
+      - name: Use custom endpoints and routing rules for device-to-cloud messages
+        href: iot-hub-devguide-messages-read-custom.md
+      - name: Add queries to message routes
+        href: iot-hub-devguide-routing-query-syntax.md
+      - name: Send cloud-to-device messages from IoT Hub
+        href: iot-hub-devguide-messages-c2d.md
+      - name: Compare message and event routing
+        href: iot-hub-event-grid-routing-comparison.md
+    - name: Device management
+      items:
+      - name: Overview of device management
+        href: iot-hub-device-management-overview.md
+      - name: Manage device identities
+        href: iot-hub-devguide-identity-registry.md
+      - name: Device configuration best practices
+        href: iot-hub-configuration-best-practices.md
+    - name: Connectivity
+      items:
+      - name: TLS support
+        href: iot-hub-tls-support.md
+      - name: Virtual networks support
+        href: virtual-network-support.md
+      - name: Understanding IoT hub IP address
+        href: iot-hub-understand-ip-address.md
+      - name: Supporting additional protocols
+        href: iot-hub-protocol-gateway.md
+    - name: Manage IoT Hub
+      items:
+      - name: High availability and disaster recovery
+        href: iot-hub-ha-dr.md
+      - name: How to clone an IoT Hub to another region
+        href: iot-hub-how-to-clone.md
+      - name: Choose the right tier
+        href: iot-hub-scaling.md
+    - name: Control access to IoT Hub
+      items:
+        - name: Overview
+          href: iot-hub-devguide-security.md
+        - name: Control access with Azure AD
+          href: iot-hub-dev-guide-azure-ad-rbac.md
+        - name: Control access with SAS
+          href: iot-hub-dev-guide-sas.md
+    - name: IoT Hub SDKs
+      items:
+        - name: SDK overview
+          href: iot-hub-devguide-sdks.md
+        - name: Develop without the SDK
+          href: iot-hub-devguide-no-sdk.md   
+        - name: Manage connectivity and reliable messaging
+          href: iot-hub-reliability-features-in-sdks.md
+    - name: Protocol support
+      items:
         - name: MQTT support
           href: iot-hub-mqtt-support.md
         - name: MQTT 5 support (preview)
@@ -188,6 +193,8 @@
           href: iot-hub-x509ca-overview.md
         - name: X.509 CA certificate security concepts
           href: iot-hub-x509ca-concept.md
+    - name: Overview of IoT Hub device streams (preview)
+      href: iot-hub-device-streams-overview.md
 - name: How-to guides
   items:
     - name: Develop
