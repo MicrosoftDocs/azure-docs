@@ -93,7 +93,7 @@ Follow these steps to enable Seamless SSO:
 
 ![image shows reconfigure device options](media/migrate-okta-federation-to-azure-active-directory/reconfigure-device-options.png)
 
-### Step 2- Configure staged rollout features
+### Step 2 - Configure staged rollout features
 
 [Staged rollout of cloud authentication](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) is a feature of Azure AD that can be used to test de-federating users before de-federating an entire
 domain. Before the deployment review the [pre-requisites](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout#prerequisites).
