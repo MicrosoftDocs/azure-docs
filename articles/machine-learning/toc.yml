@@ -532,6 +532,8 @@
             items:
             - name: Batch scoring with batch endpoints
               href: how-to-use-batch-endpoint.md
+            - name: Batch endpoints in studio
+              href: how-to-use-batch-endpoints-studio.md
             - name: Troubleshoot batch endpoints
               href: how-to-troubleshoot-batch-endpoints.md
       - name: Deployment targets
