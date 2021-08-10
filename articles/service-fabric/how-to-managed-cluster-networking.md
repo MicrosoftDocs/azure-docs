@@ -332,13 +332,28 @@ TODO:Talk about v4 and v6 ip's on Load Balancers and NSG differences.
 This feature allows customers to use an existing virtual network by specifying a dedicated subnet the managed cluster will deploy it's resources into. This can be useful if you already have a configured VNet and subnet with related security policies and traffic routing that you want to use. After you deploy to an existing virtual network, it's easy to use or incorporate other networking features, like Azure ExpressRoute, Azure VPN Gateway, a network security group, and virtual network peering. Additionally, you can [bring your own Azure Load balancer](#byolb) if needed also.
 
 > [!NOTE]
-> This setting cannot be changed once the cluster is created
-> The managed cluster will assign a NSG to the provided subnet. Do not override the NSG assignment or traffic may break.
+> This setting cannot be changed once the cluster is created and the managed cluster will assign a NSG to the provided subnet. Do not override the NSG assignment or traffic may break.
 
-In the following example, we start with an existing virtual network named ExistingRG-vnet, in the ExistingRG resource group. The subnet is named default. These default resources are created when you use the Azure portal to create a standard virtual machine (VM). You could create the virtual network and subnet without creating the VM, but the main goal of adding a cluster to an existing virtual network is to provide network connectivity to other VMs. Creating the VM gives a good example of how an existing virtual network typically is used. 
+In the following example, we start with an existing virtual network named ExistingRG-vnet, in the ExistingRG resource group. The subnet is named default.
 
 To configure the feature:
-1) In the [provided sample](url to sample json), configure role assignment that allows the resource provider to make required changes, setup the backend pool, and optionally define NAT pools on the existing Azure Load Balancer. You do this by running the following PowerShell command or ARM Template. 
+1) Obtain the the required scope url and subnet name info from the existing VNet.
+
+```powershell
+Login-AzAccount
+Select-AzSubscription -SubscriptionId <SubId>
+Get-AzVirtualNetwork -ResourceGroupName ExistingRG
+```
+Note the following `Id` property that is returned you'll use for later steps.
+
+```JSON
+Subnets                : [
+                           {
+                             ...
+                             "Id": "/subscriptions/<subscriptionId>/resourceGroups/Existing-RG/providers/Microsoft.Network/virtualNetworks/ExistingRG-vnet/subnets/default"
+```
+
+2) In the [provided sample](url to sample json), configure role assignment that allows the resource provider to make required change. You do this by running the following PowerShell command or ARM Template. 
 
 Add a role assignment to the Service Fabric Resource Provider application. This is a one time action.
 
@@ -391,7 +406,16 @@ or created via PowerShell using the principal ID, role definition name, and assi
 New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Network Contributor" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>"
 ```
 
+3) In the [provided sample](url to sample json), configure the vnetName and subnetName for the cluster deployment. This values are defined in the following section in the template:
+
+```JSON
+
+
+```
+
+
 When you bring your own VNet the public endpoint is still created and managed by the resource provider. The feature does not allow you to specify the public ip/re-use static ip on the Azure Load Balancer. You can [bring your own Azure Load Balancer](#byolb) in concert with this feature or by itself if you require those or other load balancer scenarios that aren't natively supported.
+
 
 <a id="byolb"></a>
 ## Bring your own Azure Load Balancer
