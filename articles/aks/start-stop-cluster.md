@@ -65,7 +65,7 @@ You can use the [Stop-AzAksCluster][stop-azakscluster] command to stop a running
 Stop-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
 ```
 
-You can verify when your cluster is stopped by using the [Get-AzAksCluster][get-azakscluster] cmdlet and confirming the `ProvisioningState` shows as `Stopped` as on the below output:
+You can verify your cluster is stopped using the [Get-AzAksCluster][get-azakscluster] cmdlet and confirming the `ProvisioningState` shows as `Stopped` as shown in the following output:
 
 ```Output
 ProvisioningState       : Stopped
@@ -92,7 +92,7 @@ The following example starts a cluster named *myAKSCluster*:
 az aks start --name myAKSCluster --resource-group myResourceGroup
 ```
 
-You can verify when your cluster has started by using the [az aks show][az-aks-show] command and confirming the `powerState` shows `Running` as on the below output:
+You can verify when your cluster has started using the [az aks show][az-aks-show] command and confirming the `powerState` shows `Running` as on the below output:
 
 ```json
 {
@@ -119,7 +119,7 @@ The following example starts a cluster named *myAKSCluster*:
 Start-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
 ```
 
-You can verify when your cluster has started by using the [Get-AzAksCluster][get-azakscluster] cmdlet and confirming the `ProvisioningState` shows `Succeeded` as on the below output:
+You can verify when your cluster has started using the [Get-AzAksCluster][get-azakscluster] cmdlet and confirming the `ProvisioningState` shows `Succeeded` as shown in the following output:
 
 ```Output
 ProvisioningState       : Succeeded
