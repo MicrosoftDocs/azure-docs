@@ -7,7 +7,7 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 08/09/2021
+ms.date: 08/11/2021
 ms.author: helohr
 ---
 # Deploy Azure AD joined virtual machines in Azure Virtual Desktop
@@ -17,7 +17,7 @@ ms.author: helohr
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article will walk you through the process of deploying and accessing Azure Active Directory joined virtual machines in Azure Virtual Desktop. This removes the need to have line-of-sight from the VM to an on-premise or virtualized Active Directory Domain Controller (DC) or to deploy Azure AD Domain services (Azure AD DS). In some cases, it can remove the need for a DC entirely, simplifying the deployment and management of the environment. These VMs can also be automatically enrolled in Intune for ease of management.
+This article will walk you through the process of deploying and accessing Azure Active Directory joined virtual machines in Azure Virtual Desktop. Azure AD-joined VMs remove the need to have line-of-sight from the VM to an on-premise or virtualized Active Directory Domain Controller (DC) or to deploy Azure AD Domain services (Azure AD DS). In some cases, it can remove the need for a DC entirely, simplifying the deployment and management of the environment. These VMs can also be automatically enrolled in Intune for ease of management.
 
 > [!NOTE]
 > Azure Virtual Desktop (Classic) doesn't support this feature.
@@ -75,7 +75,7 @@ To access Azure AD-joined VMs using the web, Android, macOS and iOS clients, you
 
 ### Enabling MFA for Azure AD joined VMs
 
-You can enable [multifactor authentication](set-up-mfa.md) for Azure AD joined VMs by setting a Conditional Access (CA) policy on the "Azure Virtual Desktop" app. For connections to succeed, [disable the legacy per-user MFA](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#using-conditional-access). Unless you want to restrict sign in to strong authentication methods like Windows Hello for Business, you also need to [exclude the "Azure Windows VM Sign-In" app](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required) from your CA policy.
+You can enable [multifactor authentication](set-up-mfa.md) for Azure AD joined VMs by setting a Conditional Access policy on the Azure Virtual Desktop app. For connections to succeed, [disable the legacy per-user multifactor authentication](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#using-conditional-access). If you don't want to restrict signing in to strong authentication methods like Windows Hello for Business, you'll also need to [exclude the Azure Windows VM Sign-In app](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required) from your Conditional Access policy.
 
 ## User profiles
 
