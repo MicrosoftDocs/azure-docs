@@ -63,7 +63,7 @@ For more information, see [View delegation changes in the Azure portal](monitor-
 You can work directly in the context of a delegated subscription within the Azure portal, without switching the directory you're signed in to. To do so:
 
 1. Select the **Directory + subscriptions** or **Settings** icon near the top of the Azure portal.
-1. In the [Directories + subscriptions settings page](../../azure-portal/set-preferences.md#directories--subscriptions), ensure that the **Advanced filters** toggle is turned off.
+1. In the [Directories + subscriptions settings page](../../azure-portal/set-preferences.md#directories--subscriptions), ensure that the **Advanced filters** toggle is [turned off](../../azure-portal/set-preferences.md#subscription-filters).
 1. In the **Default subscription filter** section, select the appropriate directory and subscription.
 
 :::image type="content" source="../media/subscription-filter-delegated.png" alt-text="Screenshot of a filter showing one delegated subscription.":::
