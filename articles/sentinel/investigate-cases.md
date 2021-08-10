@@ -1,6 +1,6 @@
 ---
 title: Investigate incidents with Azure Sentinel| Microsoft Docs
-description: In this tutorial, learn how to use Azure Sentinel to create advanced alert rules that generate incidents you can assign and investigate.
+description: In this article, learn how to use Azure Sentinel to create advanced alert rules that generate incidents you can assign and investigate.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -10,20 +10,20 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2021
 ms.author: yelevin
 
 ---
-# Tutorial: Investigate incidents with Azure Sentinel
+# Investigate incidents with Azure Sentinel
 
 > [!IMPORTANT]
 > Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-This tutorial helps you investigate incidents with Azure Sentinel. After you connected your data sources to Azure Sentinel, you want to be notified when something suspicious happens. To enable you to do this, Azure Sentinel lets you create advanced alert rules, that generate incidents that you can assign and investigate.
+This article helps you investigate incidents with Azure Sentinel. After you connected your data sources to Azure Sentinel, you want to be notified when something suspicious happens. To enable you to do this, Azure Sentinel lets you create advanced alert rules, that generate incidents that you can assign and investigate.
 
 This article covers:
 > [!div class="checklist"]
@@ -143,7 +143,7 @@ To modify the search parameters, select the **Search** button and then select th
 
 For example:
 
-:::image type="content" source="media/tutorial-investigate-cases/advanced-search.png" alt-text="Enter text and select the search button to the right of the search box to select basic and/or advanced search options.":::
+:::image type="content" source="media/tutorial-investigate-cases/advanced-search.png" alt-text="Screenshot of the incident search box and button to select basic and/or advanced search options.":::
 
 By default, incident searches run across the **Incident ID**, **Title**, **Tags**, **Owner**, and **Product name** values only. In the search pane, scroll down the list to select one or more other parameters to search, and select **Apply** to update the search parameters. Select **Set to default** reset the selected parameters to the default option.
 
@@ -174,8 +174,7 @@ Using advanced search options changes the search behavior as follows:
 
 
 ## Next steps
+In this article, you learned how to get started investigating incidents using Azure Sentinel. For more information, see:
 
-In this article, you learned how to get started investigating incidents using Azure Sentinel. Continue to the tutorial for [how to respond to threats using automated playbooks](tutorial-respond-threats-playbook.md).
-> [!div class="nextstepaction"]
-> [Respond to threats](tutorial-respond-threats-playbook.md) to automate your responses to threats.
-
+- [Tutorial: Use playbooks with automation rules in Azure Sentinel](tutorial-respond-threats-playbook.md)
+- [Investigate incidents with UEBA data](investigate-with-ueba.md)

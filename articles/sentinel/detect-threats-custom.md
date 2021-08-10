@@ -227,7 +227,7 @@ In the **Alert grouping** section, if you want a single incident to be generated
   
 - You can find your newly created custom rule (of type "Scheduled") in the table under the **Active rules** tab on the main **Analytics** screen. From this list you can enable, disable, or delete each rule.
 
-- To view the results of the alert rules you create, go to the **Incidents** page, where you can triage, [investigate incidents](tutorial-investigate-cases.md), and remediate the threats.
+- To view the results of the alert rules you create, go to the **Incidents** page, where you can triage, [investigate incidents](investigate-cases.md), and remediate the threats.
 
 - You can update the rule query to exclude false positives. For more information, see [Handle false positives in Azure Sentinel](false-positives.md).
 
@@ -294,7 +294,7 @@ For more information, see:
 
 For more information, see:
 
-- [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md)
+- [Tutorial: Investigate incidents with Azure Sentinel](investigate-cases.md)
 - [Classify and analyze data using entities in Azure Sentinel](entities-in-azure-sentinel.md)
 - [Tutorial: Use playbooks with automation rules in Azure Sentinel](tutorial-respond-threats-playbook.md)
 

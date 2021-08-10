@@ -69,7 +69,7 @@ This procedure describes how to use built-in analytics rules templates.
 
 1. Selecting **Create rule** opens the rule creation wizard based on the selected template. All the details are autofilled, and with the **Scheduled** or **Microsoft security** templates, you can customize the logic and other rule settings to better suit your specific needs. You can repeat this process to create additional rules based on the built-in template. After following the steps in the rule creation wizard to the end, you will have finished creating a rule based on the template. The new rules will appear in the **Active rules** tab.
 
-    For more details on how to customize your rules in the rule creation wizard, see [Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
+    For more details on how to customize your rules in the rule creation wizard, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
 
 > [!TIP]
 > - Make sure that you **enable all rules associated with your connected data sources** in order to ensure full security coverage for your environment. The most efficient way to enable analytics rules is directly from the data connector page, which lists any related rules. For more information, see [Connect data sources](connect-data-sources.md).
@@ -84,6 +84,6 @@ You can easily [export your rule to an Azure Resource Manager (ARM) template](im
 
 ## Next steps
 
-- To create custom rules, use existing rules as templates or references. Using existing rules as a baseline helps by building out most of the logic before you make any changes needed. For more information, see [Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
+- To create custom rules, use existing rules as templates or references. Using existing rules as a baseline helps by building out most of the logic before you make any changes needed. For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
 
 - To learn how to automate your responses to threats, [Set up automated threat responses in Azure Sentinel](tutorial-respond-threats-playbook.md).
