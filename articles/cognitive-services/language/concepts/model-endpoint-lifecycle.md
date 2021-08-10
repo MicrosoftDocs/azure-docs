@@ -1,5 +1,5 @@
 ---
-title: Model and endpoint lifecycle for Language Services  
+title: Lifecycle for Language Services models and endpoints   
 titleSuffix: Azure Cognitive Services
 description: Use this article to learn about the lifecycle for models and endpoints used in Language Services.
 services: cognitive-services
@@ -13,6 +13,6 @@ ms.date: 08/10/2021
 ms.author: aahi
 ---
 
-# Model and endpoint lifecycle
+# Model and endpoint lifecycle for Language Services
 
 TBD
