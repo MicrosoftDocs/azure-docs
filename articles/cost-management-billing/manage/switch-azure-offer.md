@@ -6,8 +6,8 @@ ms.reviewer: amberb
 tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 01/20/2021
+ms.topic: how-to
+ms.date: 08/10/2021
 ms.author: banders
 ---
 
@@ -15,9 +15,11 @@ ms.author: banders
 
 As a customer with a [pay-as-you-go subscription](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription, you can switch your Azure subscription to another offer in the Azure portal. For example, you can use this feature to take advantage of the [monthly credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
+If you have an expired Visual Studio subscription, you can switch to a [pay-as-you-go subscription](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription.
+
 **Just want to upgrade from Free Trial?** See [upgrade your subscription](upgrade-azure-subscription.md).
 
-## What's supported:
+## What's supported
 
 You can switch from a pay-as-you-go subscription to:
 
@@ -28,23 +30,48 @@ You can switch from a pay-as-you-go subscription to:
 - [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)
 - [Visual Studio Enterprise (Bizspark)](https://azure.microsoft.com/offers/ms-azr-0064p/)
 
+You can also switch from an expired [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) subscription to a [pay-as-you-go subscription](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. 
+
 > [!NOTE]
 > For other offer changes, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## Switch subscription offer
+## Switch from a pay-as-you-subscription
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to **Subscriptions** and then select your pay-as-you-go subscription.
 1. At the top of the page, select **Switch Offer**. The option is only available if you have a pay-as-you-go subscription and have completed your first billing period.  
-    :::image type="content" source="./media/switch-azure-offer/switch-offer.png" alt-text="ALTImage showing subscription details with the Switch Offer optionTEXT" lightbox="./media/switch-azure-offer/switch-offer.png" :::
+    :::image type="content" source="./media/switch-azure-offer/switch-offer.png" alt-text="Screenshot showing subscription details with the Switch Offer option." lightbox="./media/switch-azure-offer/switch-offer.png" :::
 1. Select the offer that you want from the list of offers your subscription can be switched to. This list varies based on the memberships that your account is associated with. If nothing is available, check the [list of available offers you can switch to](#whats-supported) and make sure you have the right memberships. Then select **Next**.
-    :::image type="content" source="./media/switch-azure-offer/select-offer.png" alt-text="Select an offer that you want to switch to" lightbox="./media/switch-azure-offer/select-offer.png" :::
-    Depending on the offer you’re switching to, you may see a note about the impact of switching. Go through the list carefully and follow the instructions before you continue. You might also need to verify your phone number.
+    :::image type="content" source="./media/switch-azure-offer/select-offer.png" alt-text="Screenshot showing where to select an offer that you want to switch to." lightbox="./media/switch-azure-offer/select-offer.png" :::
+    Depending on the offer you’re switching to, you may see a note about the consequence of switching. Go through the list carefully and follow the instructions before you continue. You might also need to verify your phone number.
 1. After reviewing any notes or verifying your phone number, select **Switch Offer**.
 1. Your subscription is now switched to the new offer.
 
-## Frequently asked questions
-The following sections answer commonly asked questions.
+## Convert a Visual Studio Enterprise subscription
+
+When your Visual Studio Enterprise subscription expires, it gets disabled. To continue using Azure services with the subscription, you must convert it to a pay-as-you-subscription.
+
+>[!NOTE]
+> - When you upgrade to a pay-as-you-go subscription, you stop receiving monthly credits and your payment method starts getting charged on a monthly basis based on your monthly usage.
+> - When you switch to pay-as-you-go subscription, you lose your usage and billing information. We recommend that you [save any past invoices and usage data](download-azure-invoice-daily-usage-date.md) before switching the offer.
+
+To convert your subscription:
+
+1. Navigate to **Subscriptions** and then select your Visual Studio Enterprise subscription.
+1. You'll see a banner at the top of the page stating `Your Visual Studio subscription is expired and has been disabled. To continue using this subscription, please click here to convert to a pay-as-you-go subscription`. Select the banner.  
+    :::image type="content" source="./media/switch-azure-offer/visual-studio-expired-banner.png" alt-text="Screenshot showing an expired subscription with the banner to convert the subscription." lightbox="./media/switch-azure-offer/visual-studio-expired-banner.png" :::
+1. On the Switch Offer page, Select an offer tab, select the pay-as-you-go option, and then select **Next**.  
+    :::image type="content" source="./media/switch-azure-offer/select-offer-pay-as-you-go.png" alt-text="Screenshot showing the Switch Offer option." lightbox="./media/switch-azure-offer/select-offer-pay-as-you-go.png" :::
+1. On the Select payment method tab, select **Select a payment method**, enter your payment method information, and then select **Next**.  
+1. On the Review + convert page, you can optionally change the subscription name. Review the agreement information, select the **I agree** option, and then at the bottom of the page, select **Switch Offer**.  
+    :::image type="content" source="./media/switch-azure-offer/switch-offer-visual-studio-agreement.png" alt-text="Screenshot showing the Review + convert tab with subscription name and agreement acknowledgement." lightbox="./media/switch-azure-offer/switch-offer-visual-studio-agreement.png" :::
+
+View your new converted subscription by navigating to **Subscriptions**.
+
+
+## Frequently asked questions for pay-as-you-go subscriptions
+
+The following sections answer commonly asked questions about switching from a pay-as-you-go subscription.
 
 ### What is an Azure offer?
 
@@ -52,7 +79,7 @@ An Azure offer is the *type* of the Azure subscription you have. For example, [a
 
 :::image type="content" source="./media/switch-azure-offer/subscription-details.png" alt-text="Subscription details page showing the offer type" lightbox="./media/switch-azure-offer/subscription-details.png" :::
 
-### Why don't I see the button?
+### Why don't I see Switch Offer option?
 
 You might not see the **Switch Offer** option if:
 
@@ -72,7 +99,7 @@ Here are the details of what happens when you switch Azure offers.
 
 #### No service downtime
 
-There is no service downtime for any users associated with the subscription. However, the offer you switch to may have restrictions. For instance, some offers prohibit production use, so you would need to move production resources to another subscription.
+There's no service downtime for any users associated with the subscription. However, the offer you switch to may have restrictions. For instance, some offers prohibit production use, so you would need to move production resources to another subscription.
 
 #### Quota increases are reset
 
@@ -97,4 +124,5 @@ On the day you switch, an invoice is generated for all outstanding charges. Then
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
+
 - [Start analyzing costs](../costs/quick-acm-cost-analysis.md)
