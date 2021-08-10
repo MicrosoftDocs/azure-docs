@@ -1,5 +1,5 @@
 ---
-title: What is the Text Summarization API
+title: What is the Text Summarization API?
 titleSuffix: Azure Cognitive Services
 description: Learn about summarizing text with Language Services.
 services: cognitive-services
