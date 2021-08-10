@@ -406,22 +406,22 @@ The data disks array contains a list of data disks attached to the VM. Each data
 Data | Description | Version introduced |
 |------|-----------|--------------------|
 | `bytesPerSecondThrottle`* | Disk read/write quota in bytes | 2021-05-01
-| `caching` | Caching requirements
-| `createOption` | Information about how the VM was created
-| `diffDiskSettings` | Ephemeral disk settings
+| `caching` | Caching requirements | 2019-06-01
+| `createOption` | Information about how the VM was created | 2019-06-01
+| `diffDiskSettings` | Ephemeral disk settings | 2019-06-01
 | `diskCapacityBytes`* | Size of disk in bytes | 2021-05-01
-| `diskSizeGB` | Size of the disk in GB
-| `encryptionSettings` | Encryption settings for the disk
-| `image` | Source user image virtual hard disk
+| `diskSizeGB` | Size of the disk in GB | 2019-06-01
+| `encryptionSettings` | Encryption settings for the disk | 2019-06-01
+| `image` | Source user image virtual hard disk | 2019-06-01
 | `isSharedDisk`* | Identifies if the disk is shared between resources | 2021-05-01
 | `isUltraDisk` | Identifies if the data disk is an Ultra Disk | 2021-05-01
-| `lun`     | Logical unit number of the disk
-| `managedDisk` | Managed disk parameters
-| `name` | Disk name
+| `lun`     | Logical unit number of the disk | 2019-06-01
+| `managedDisk` | Managed disk parameters | 2019-06-01
+| `name` | Disk name | 2019-06-01
 | `opsPerSecondThrottle`* | Disk read/write quota in IOPS | 2021-05-01
-| `osType` | Type of OS included in the disk
-| `vhd` | Virtual hard disk
-| `writeAcceleratorEnabled` | Whether or not writeAccelerator is enabled on the disk
+| `osType` | Type of OS included in the disk | 2019-06-01
+| `vhd` | Virtual hard disk | 2019-06-01
+| `writeAcceleratorEnabled` | Whether or not writeAccelerator is enabled on the disk | 2019-06-01
 
 \* These fields are only populated for Ultra Disks; they will be empty strings from non-Ultra Disks.
 
@@ -682,20 +682,25 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "sku": "2019-Datacenter",
     "storageProfile": {
         "dataDisks": [{
+            "bytesPerSecondThrottle": "979202048",
             "caching": "None",
             "createOption": "Empty",
+            "diskCapacityBytes": "274877906944",
             "diskSizeGB": "1024",
             "image": {
-                "uri": ""
+              "uri": ""
             },
+            "isSharedDisk": "false",
+            "isUltraDisk": "true",
             "lun": "0",
             "managedDisk": {
-                "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-                "storageAccountType": "Standard_LRS"
+              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/MicrosoftCompute/disks/exampledatadiskname",
+              "storageAccountType": "Standard_LRS"
             },
             "name": "exampledatadiskname",
+            "opsPerSecondThrottle": "65280",
             "vhd": {
-                "uri": ""
+              "uri": ""
             },
             "writeAcceleratorEnabled": "false"
         }],
@@ -786,20 +791,25 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "sku": "18.04-LTS",
     "storageProfile": {
         "dataDisks": [{
+            "bytesPerSecondThrottle": "979202048",
             "caching": "None",
             "createOption": "Empty",
+            "diskCapacityBytes": "274877906944",
             "diskSizeGB": "1024",
             "image": {
-                "uri": ""
+              "uri": ""
             },
+            "isSharedDisk": "false",
+            "isUltraDisk": "true",
             "lun": "0",
             "managedDisk": {
-                "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-                "storageAccountType": "Standard_LRS"
+              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+              "storageAccountType": "Standard_LRS"
             },
             "name": "exampledatadiskname",
+            "opsPerSecondThrottle": "65280",
             "vhd": {
-                "uri": ""
+              "uri": ""
             },
             "writeAcceleratorEnabled": "false"
         }],
