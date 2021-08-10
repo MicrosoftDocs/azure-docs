@@ -17,7 +17,7 @@ ms.author: alkohli
 
 ## Overview
 
-The Azure datacenters operate in multiple geographies around the world to meet customers' demands of performance, requirements, and preferences regarding data location. An Azure geography is a defined area of the world that contains at least one Azure region. An Azure region is an area within a geography, containing one or more datacenters.
+The Azure datacenters operate in multiple geographic regions around the world to meet customers' demands of performance, requirements, and preferences regarding data location. An Azure geography is a defined area of the world that contains at least one Azure region. An Azure region is an area within a geography, containing one or more datacenters.
 
 Choosing an Azure region is very important, and the choice of region is influenced by factors such as data residency and sovereignty, service availability, performance, cost, and redundancy. For more information on how to choose a region, go to [Which Azure region is right for me?](https://azure.microsoft.com/overview/datacenters/how-to-choose/).
 
@@ -33,13 +33,11 @@ This article describes the region availability for the Azure Stack Edge service 
 
 The Azure Stack Edge service is currently supported in the US East, West Europe, and SE Asia public regions. **These three regions support geographic locations worldwide.**
 
-The management resource uses the Azure Stack Edge service to activate, deploy, and return an Azure Stack Edge device.
+The region of the service is the country or region assigned to the Azure Stack Edge management resource. The management resource uses the Azure Stack Edge service to activate, deploy, and return an Azure Stack Edge device.
 
 The Azure Stack Edge service also monitors the health of the device (issues, errors, alerts, and whether the device is "alive") and usage and consumption meters for billing - that is, the control plane information on the device.
 
-The device must connect to the Azure Stack Edge service to activate. If you don't want any further interaction with the service, you can switch the device to disconnected mode.
-
-The service region is the region that you assign when you create the management resource. 
+The device must connect to the Azure Stack Edge service to activate. If you don't want any further interaction with the service, you can switch the device to disconnected mode. 
 
 Data doesn't flow through the Azure Stack Edge service. Data flows between the device and the storage account deployed in the customer's region of data origin. 
 
