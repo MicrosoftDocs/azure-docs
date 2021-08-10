@@ -8,7 +8,7 @@ ms.date: 08/06/2021
 
 Here are some important terms used by the service:
 
-- **Connection**: A connection, also known as a client or a client connection, represents an individual WebSocket connection connected to the Web PubSub service. When successfully connected, an unique connection ID is assigned to this connection by the Web PubSub service.
+- **Connection**: A connection, also known as a client or a client connection, represents an individual WebSocket connection connected to the Web PubSub service. When successfully connected, a unique connection ID is assigned to this connection by the Web PubSub service.
 
 - **Hub**: Hub is a logical concept for a set of client connections. Usually you use one hub for one purpose, for example, a *chat* hub, or a *notification* hub. When a client connection connects, it connects to a hub, and during its lifetime, it belongs to that hub. Different applications can share one Azure Web PubSub service by using different hub names.
 

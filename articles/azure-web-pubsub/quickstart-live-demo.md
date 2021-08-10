@@ -12,10 +12,10 @@ ms.date: 04/26/2021
 
 Previously we talked about how to create the Web PubSub instance [from the portal](./howto-develop-create-instance.md) or [using Azure CLI](./quickstart-cli-create.md). This quickstart shows you how to get started easily with a [Pub/Sub live demo](https://azure.github.io/azure-webpubsub/demos/clientpubsub.html).
 
-[!INCLUDE [try a simple live demo](includes/try-live-demo.md)]
+[!INCLUDE [try a live demo](includes/try-live-demo.md)]
 
 ## Next steps
 
-This quickstart provides you a basic idea of the Web PubSub service. In this quickstart, we leverage the *Client URL Generator* to generate a temporarily available client URL to connect to the service. 
+ In this quickstart, we use the *Client URL Generator* to generate a temporarily available client URL to connect to the service, and provide you some basic ideas of the Web PubSub service.
 
 [!INCLUDE [next step](includes/include-next-step.md)]
