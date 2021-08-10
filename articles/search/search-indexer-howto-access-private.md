@@ -64,13 +64,13 @@ Configure the Azure resource that you want the indexer to connect with to allow 
 
 Below is an example of how to configure an Azure storage account. If you select this option and leave the set empty, it means that no traffic from virtual networks is allowed.
 
-![Screenshot of the "Firewalls and virtual networks" pane, showing the option to allow access to selected networks.](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png)
+![Screenshot of the "Firewalls and virtual networks" pane for Azure storage, showing the option to allow access to selected networks.](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png)
 
 #### Scenario 2: Azure Key Vault
 
 Below is an example of how to configure Azure Key Vault.
  
-![Screenshot of the "Firewalls and virtual networks" pane, showing the option to allow access to selected networks.](media\search-indexer-howto-secure-access\key-vault-firewall-noaccess.png)
+![Screenshot of the "Firewalls and virtual networks" pane for Azure Key Vault, showing the option to allow access to selected networks.](media\search-indexer-howto-secure-access\key-vault-firewall-noaccess.png)
     
 #### Scenario 3: Azure Functions
 
