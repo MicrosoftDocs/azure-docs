@@ -69,7 +69,7 @@ You can edit an asset by clicking on the edit icon on the top-left corner of the
 
 :::image type="content" source="media/catalog-asset-details/asset-edit-delete.png" alt-text="Asset edit and delete buttons":::
 
-At the asset level, you can edit or add a description, classification or glossary term by staying on the overview tab of the edit screen.
+At the asset level you can edit or add a description, classification, or glossary term by staying on the overview tab of the edit screen.
 
 You can navigate to the schema tab of the edit screen to update column name, data type, column level classification, terms or asset description.
 
