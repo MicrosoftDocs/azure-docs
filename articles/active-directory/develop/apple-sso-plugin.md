@@ -173,7 +173,7 @@ Try this configuration only for applications that have unexpected sign-in failur
 |AppCookieSSOAllowList| String : Comma-delimited list of application bundle ID prefixes for the applications that are allowed to participate in the SSO. Used when SSO doesnt work due to special network settings for some apps. Applications enabled for the SSO by using this setup need to be added to both AppCookieSSOAllowList and AppPrefixAllowList|
 
 Usage:
-  - If MDM admin doesn’t want to enable SSO on all managed apps, but some :
+  - If the MDM admin wants to enable SSO on all managed apps *except* for a specific app or set of apps.
     - Set Enable_SSO_On_All_ManagedApps :1 and use BlockAppList to specify the apps that they want to block from getting SSO
   - If MDM admin wants to disable default SSO on safari, but SSO on all managed apps:
     - Add the safari bundle IDs in BlockAppList and set Enable_SSO_On_All_ManagedApps :
