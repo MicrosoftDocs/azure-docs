@@ -83,7 +83,7 @@ For four of the simulated sensor devices, use the **Manage device** view to set 
 1. Name your device group *Contoso devices*. You can also add a description. A device group can only contain devices from a single device template and organization. Choose the **Sensor Controller** device template to use for this group.
 
     > [!TIP]
-    > If your application [uses organizations](howto-create-organizations.md), select the organization that your devices belong to.
+    > If your application [uses organizations](howto-create-organizations.md), select the organization that your devices belong to. Only devices from the selected organization are visible. Also, only users associated with the organization or an organization higher in the hierarchy can see the device group.
 
 1. To customize the device group to include only the devices belonging to **Contoso**, select **+ Filter**. Select the **Customer Name** property, the **Equals** comparison operator, and **Contoso** as the value. You can add multiple filters and devices that meet **all** the filter criteria are placed in the device group. The device group you create is accessible to anyone who has access to the application, so anyone can view, modify, or delete the device group.
 
