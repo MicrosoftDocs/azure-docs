@@ -6,7 +6,7 @@ author: vladvino
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 08/06/2021
+ms.date: 08/10/2021
 ms.author: apimpm
 ms.custom: references_regions, devx-track-azurepowershell
 ---
@@ -17,6 +17,9 @@ Azure API Management can be deployed inside an Azure virtual network (VNET) to a
 This article explains how to set up VNET connectivity for your API Management instance in the *external* mode, where the developer portal, API gateway, and other API Management endpoints are accessible from the public internet. For configurations specific to the *internal* mode, where the endpoints are accessible only within the VNET, see [Connect to an internal virtual network using Azure API Management](./api-management-using-with-internal-vnet.md).
 
 :::image type="content" source="media/api-management-using-with-vnet/api-management-vnet-external.png" alt-text="Connect to external VNET":::
+
+> [!NOTE]
+> To import an API to API Management from an [OpenAPI specification](import-and-publish.md), the specification URL must be hosted at a publicly accessible internet address.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -52,15 +55,11 @@ Some prerequisites differ depending on the version (v1 or v2) of the [hosting in
 ### Enable VNET connectivity using the Azure portal (v2 hosting infrastructure)
 
 1. Go to the [Azure portal](https://portal.azure.com) to find your API management instance. Search for and select **API Management services**.
-
 1. Choose your API Management instance.
 
 1. Select **Virtual network**.
-1. Configure the API Management instance to be deployed inside a VNET.
-
-    :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Select VNET in Azure portal.":::
-
 1. Select the **External** access type.
+    :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Select VNET in Azure portal.":::
 
 1. In the list of locations (regions) where your API Management service is provisioned: 
     1. Choose a **Location**.
@@ -76,13 +75,6 @@ Some prerequisites differ depending on the version (v1 or v2) of the [hosting in
 7. In the top navigation bar, select **Save**, then select **Apply network configuration**.
 
     It can take 15 to 45 minutes to update the API Management instance.
-
-> [!NOTE]
-> The VIP address of the API Management instance will change when:
-> * The VNET is enabled or disabled. 
-> * API Management is moved from **External** to **Internal** virtual network, or vice versa.
-> * [Zone redundancy](zone-redundancy.md) settings are enabled, updated, or disabled in a location for your instance (Premium SKU only).
-
 
 ### Enable connectivity using a Resource Manager template
 
@@ -109,31 +101,36 @@ Once you've connected your API Management service to the VNET, you can access ba
 :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-add-api.png" alt-text="Add API from VNET":::
 
 ## Network configuration
-Common misconfiguration issues that can occur while deploying API Management service into a VNET include:
+Review the following sections for common network configuration settings. 
+
+These settings address common misconfiguration issues that can occur while deploying API Management service into a VNET.
 
 ### Custom DNS server setup 
 The API Management service depends on several Azure services. When API Management is hosted in a VNET with a custom DNS server, it needs to resolve the hostnames of those Azure services.  
 * For guidance on custom DNS setup, see [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).  
-* For reference, see the [ports table](#required-ports) and network requirements.
+* For reference, see the [required ports](#required-ports) and network requirements.
 
     > [!IMPORTANT]
     > If you plan to use a Custom DNS server(s) for the VNET, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS Server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/2020-12-01/api-management-service/apply-network-configuration-updates).
 
 ### Required ports  
 
-You can control inbound and outbound traffic into the subnet in which API Management is deployed by using [network security groups][NetworkSecurityGroups]. If any of the following ports are unavailable, API Management may not operate properly and may become inaccessible. Blocked ports are another common misconfiguration issue when using API Management with a VNET.
+You can control inbound and outbound traffic into the subnet in which API Management is deployed by using [network security groups][NetworkSecurityGroups]. If any of the following ports are unavailable, API Management may not operate properly and may become inaccessible. 
 
 When an API Management service instance is hosted in a VNET, the ports in the following table are used.
+
+>[!IMPORTANT]
+> Bold items in the *Purpose* column are required for API Management service to be deployed successfully. Blocking the other ports, however, will cause **degradation** in the ability to use and **monitor the running service and provide the committed SLA**.
 
 | Source / Destination Port(s) | Direction          | Transport protocol |   [Service Tags](../virtual-network/network-security-groups-overview.md#service-tags) <br> Source / Destination   | Purpose (\*)                                                 | VNET type |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / [80], 443                  | Inbound            | TCP                | INTERNET / VIRTUAL_NETWORK            | Client communication to API Management                      | External             |
 | * / 3443                     | Inbound            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Management endpoint for Azure portal and PowerShell         | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | **Dependency on Azure Storage**                             | External & Internal  |
-| * / 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) and Azure KeyVault (v3 hosting) dependency                  | External & Internal  |
+| * / 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) and Azure Key Vault dependency                  | External & Internal  |
 | * / 1433                     | Outbound           | TCP                | VIRTUAL_NETWORK / SQL                 | **Access to Azure SQL endpoints**                           | External & Internal  |
-| * / 443                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureKeyVault  (v2 hosting)               | **Access to Azure KeyVault**                           | External & Internal  |
-| * / 5671, 5672, 443          | Outbound           | TCP                | VIRTUAL_NETWORK / EventHub            | Dependency for [Log to Event Hub policy](api-management-howto-log-event-hubs.md) and monitoring agent | External & Internal  |
+| * / 443                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureKeyVault  (v2 platform only)               | **Access to Azure Key Vault**                           | External & Internal  |
+| * / 5671, 5672, 443          | Outbound           | TCP                | VIRTUAL_NETWORK / Event Hub            | Dependency for [Log to Event Hub policy](api-management-howto-log-event-hubs.md) and monitoring agent | External & Internal  |
 | * / 445                      | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | Dependency on Azure File Share for [GIT](api-management-configuration-repository-git.md)                      | External & Internal  |
 | * / 443, 12000                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Health and Monitoring Extension         | External & Internal  |
 | * / 1886, 443                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publish [Diagnostics Logs and Metrics](api-management-howto-use-azure-monitor.md), [Resource Health](../service-health/resource-health-overview.md), and [Application Insights](api-management-howto-app-insights.md)                   | External & Internal  |
@@ -142,8 +139,6 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | * / 4290              | Inbound & Outbound | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Sync Counters for [Rate Limit](api-management-access-restriction-policies.md#LimitCallRateByKey) policies between machines         | External & Internal  |
 | * / * (v1 hosting)<br/>*/6390 (v2 hosting)                        | Inbound            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure Infrastructure Load Balancer                          | External & Internal  |
 
->[!IMPORTANT]
-> Bold items in the *Purpose* column are required for API Management service to be deployed successfully. Blocking the other ports, however, will cause **degradation** in the ability to use and **monitor the running service and provide the committed SLA**.
 
 ### TLS functionality  
   To enable TLS/SSL certificate chain building and validation, the API Management service needs outbound network connectivity to `ocsp.msocsp.com`, `mscrl.microsoft.com`, and `crl.microsoft.com`. This dependency is not required if any certificate you upload to API Management contains the full chain to the CA root.
@@ -169,13 +164,14 @@ NSG rules allowing outbound connectivity to Storage, SQL, and Event Hubs service
 > Enable publishing the [developer portal](api-management-howto-developer-portal.md) for an API Management instance in a VNET by allowing outbound connectivity to blob storage in the West US region. For example, use the **Storage.WestUS** service tag in an NSG rule. Currently, connectivity to blob storage in the West US region is required to publish the developer portal for any API Management instance.
 
 ### SMTP relay  
-  Outbound network connectivity for the SMTP Relay, which resolves under the host `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` and `ies.global.microsoft.com`
+  
+Allow outbound network connectivity for the SMTP Relay, which resolves under the host `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com`, and `ies.global.microsoft.com`
 
 > [!NOTE]
 > Only the SMTP relay provided in API Management may be used to send email from your instance.
 
 ### Developer portal CAPTCHA 
-  Outbound network connectivity for the developer portal's CAPTCHA, which resolves under the hosts `client.hip.live.com` and `partner.hip.live.com`.
+Allow outbound network connectivity for the developer portal's CAPTCHA, which resolves under the hosts `client.hip.live.com` and `partner.hip.live.com`.
 
 ### Azure portal diagnostics  
   When using the API Management extension from inside a VNET, outbound access to `dc.services.visualstudio.com` on `port 443` is required to enable the flow of diagnostic logs from Azure portal. This access helps in troubleshooting issues you might face when using extension.
@@ -190,12 +186,12 @@ NSG rules allowing outbound connectivity to Storage, SQL, and Event Hubs service
   Commonly, you configure and define your own default route (0.0.0.0/0), forcing all traffic from the API Management-delegated subnet to flow through an on-premises firewall or to a network virtual appliance. This traffic flow breaks connectivity with Azure API Management, since outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses no longer working with various Azure endpoints. You can solve this issue via a couple of methods: 
 
   * Enable [service endpoints][ServiceEndpoints] on the subnet in which the API Management service is deployed for:
-      * Azure Sql
+      * Azure SQL
       * Azure Storage
       * Azure Event Hub
-      * Azure Key Vault (v2 hosting infrastructure). 
+      * Azure Key Vault (v2 platform) 
   
-     By enabling endpoints directly from API Management-delegated subnet to these services, you can use the Microsoft Azure backbone network, providing optimal routing for service traffic. If you use service endpoints with a force tunneled API Management, the above Azure services traffic isn't force tunneled. The other API Management service dependency traffic is force tunneled and can't be lost. If lost, the API Management service would not function properly.
+     By enabling endpoints directly from API Management subnet to these services, you can use the Microsoft Azure backbone network, providing optimal routing for service traffic. If you use service endpoints with a force tunneled API Management, the above Azure services traffic isn't force tunneled. The other API Management service dependency traffic is force tunneled and can't be lost. If lost, the API Management service would not function properly.
 
   * All the control plane traffic from the internet to the management endpoint of your API Management service is routed through a specific set of inbound IPs, hosted by API Management. When the traffic is force tunneled, the responses will not symmetrically map back to these inbound source IPs. To overcome the limitation, set the destination of the following user-defined routes ([UDRs][UDRs]) to the "Internet", to steer traffic back to Azure. Find the set of inbound IPs for control plane traffic documented in [Control Plane IP Addresses](#control-plane-ip-addresses).
 
@@ -208,14 +204,14 @@ NSG rules allowing outbound connectivity to Storage, SQL, and Event Hubs service
 ## Troubleshooting
 * **Unsuccessful initial deployment of API Management service into a subnet** 
   * Deploy a virtual machine into the same subnet. 
-  * Remote desktop into the virtual machine and validate connectivity to one of each of the following resources in your Azure subscription:
+  * Connect to the virtual machine and validate connectivity to one of each of the following resources in your Azure subscription:
     * Azure Storage blob
     * Azure SQL Database
     * Azure Storage Table
-    * Azure Key Vault (for an API Management instance hosted on [v2 infrastructure](hosting-infrastructure.md))
+    * Azure Key Vault (for an API Management instance hosted on the [v2 platform](hosting-infrastructure.md))
 
   > [!IMPORTANT]
-  > After validating the connectivity, remove all the resources in the subnet before deploying API Management into the subnet.
+  > After validating the connectivity, remove all the resources in the subnet before deploying API Management into the subnet (required when API Management is hosted on the v1 platform).
 
 * **Verify network connectivity status**  
   * After deploying API Management into the subnet, use the portal to check the connectivity of your instance to dependencies, such as Azure Storage. 
@@ -225,7 +221,7 @@ NSG rules allowing outbound connectivity to Storage, SQL, and Event Hubs service
 
   | Filter | Description |
   | ----- | ----- |
-  | **Required** | Select to review the required Azure services connectivity for API Management. Failure indicates that the instance is unable to perform core operations to manage APIs |
+  | **Required** | Select to review the required Azure services connectivity for API Management. Failure indicates that the instance is unable to perform core operations to manage APIs. |
   | **Optional** | Select to review the optional services connectivity. Failure indicates only that the specific functionality will not work (for example, SMTP). Failure may lead to degradation in using and monitoring the API Management instance and providing the committed SLA. |
 
   To address connectivity issues, review [network configuration settings](#network-configuration) and fix required network settings.
@@ -233,13 +229,25 @@ NSG rules allowing outbound connectivity to Storage, SQL, and Event Hubs service
 * **Incremental updates**  
   When making changes to your network, refer to [NetworkStatus API](/rest/api/apimanagement/2020-12-01/network-status) to verify that the API Management service has not lost access to critical resources. The connectivity status should be updated every 15 minutes.
 
-* **Resource navigation links (v1 hosting infrastructure)**  
+* **Resource navigation links (v1 hosting platform)**  
   When deploying into a Resource Manager VNET subnet, API Management reserves the subnet by creating a resource navigation link. If the subnet already contains a resource from a different provider, deployment will **fail**. Similarly, when you delete an API Management service, or move it to a different subnet, the resource navigation link will be removed.
 
+## Routing
+
+
++ A load-balanced public IP address (VIP) is reserved to provide access to all service endpoints and resources outside the VNET.
+  + Load balanced public IP addresses can be found on the **Overview/Essentials** blade in the Azure portal.
++ An IP address from a subnet IP range (DIP) is used to access resources within the VNET.
+
+> [!NOTE]
+> The VIP address(es) of the API Management instance will change when:
+> * The VNET is enabled or disabled. 
+> * API Management is moved from **External** to **Internal** virtual network mode, or vice versa.
+> * [Zone redundancy](zone-redundancy.md) settings are enabled, updated, or disabled in a location for your instance (Premium SKU only).
 
 ## Control plane IP addresses
 
-The IP addresses are divided by **Azure Environment**. When allowing inbound requests, IP addresses marked with **Global** must be permitted, along with the **Region**-specific IP address.
+The following IP addresses are divided by **Azure Environment**. When allowing inbound requests, IP addresses marked with **Global** must be permitted, along with the **Region**-specific IP address.
 
 | **Azure Environment**|   **Region**|  **IP address**|
 |-----------------|-------------------------|---------------|
@@ -306,11 +314,14 @@ The IP addresses are divided by **Azure Environment**. When allowing inbound req
 | Azure Government| USDoD Central| 52.182.32.132|
 | Azure Government| USDoD East| 52.181.32.192|
 
-## <a name="related-content"> </a>Related content
-* [Connecting a Virtual Network to backend using Vpn Gateway](../vpn-gateway/design.md#s2smulti)
-* [Connecting a Virtual Network from different deployment models](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
-* [How to use the API Inspector to trace calls in Azure API Management](api-management-howto-api-inspector.md)
-* [Virtual Network Frequently asked Questions](../virtual-network/virtual-networks-faq.md)
+## Next steps
+
+Learn more about:
+
+* [Connecting a virtual network to backend using VPN Gateway](../vpn-gateway/design.md#s2smulti)
+* [Connecting a virtual network from different deployment models](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
+* [Debug your APIs using request tracing](api-management-howto-api-inspector.md)
+* [Virtual Network frequently asked questions](../virtual-network/virtual-networks-faq.md)
 * [Service tags](../virtual-network/network-security-groups-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png

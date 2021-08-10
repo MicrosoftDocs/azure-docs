@@ -5,16 +5,16 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 08/05/2021
+ms.date: 08/10/2021
 ms.author: danlep
 ms.custom: 
 ---
 # Using a virtual network with Azure API Management
 With Azure Virtual Networks (VNETs), you can place your Azure resources in a non-internet-routable network to which you control access. You can then connect VNETs to your on-premises networks using various VPN technologies. To learn more about Azure VNETs, start with the information in the [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
 
-Azure API Management can be deployed inside the VNET to access backend services within the network. You can use the Azure portal, Azure CLI, Azure Resource Manager templates, or other tools for the deployment. You control inbound and outbound traffic into the subnet in which API Management is deployed by using [network security groups][NetworkSecurityGroups].
+This article explains VNET connectivity options, requirements, and considerations for your API Management instance. You can use the Azure portal, Azure CLI, Azure Resource Manager templates, or other tools for the deployment. You control inbound and outbound traffic into the subnet in which API Management is deployed by using [network security groups][NetworkSecurityGroups].
 
-This article explains VNET connectivity options, requirements, and considerations for your API Management instance. For detailed deployment steps and network configuration, see:
+For detailed deployment steps and network configuration, see:
 
 * [Connect to an external virtual network using Azure API Management](./api-management-using-with-vnet.md).
 * [Connect to an internal virtual network using Azure API Management](./api-management-using-with-internal-vnet.md).
@@ -29,15 +29,22 @@ By default, an API Management instance must be accessible from the internet. Usi
 
     :::image type="content" source="media/virtual-network-concepts/api-management-vnet-external.png" alt-text="Connect to external VNET":::
 
+    Use API Management in external mode to access backend services deployed in the virtual network.
+
 * **Internal** - The API Management endpoints are accessible only from within the VNET via an internal load balancer. The gateway can access resources within the VNET.
 
-    :::image type="content" source="media/virtual-network-concepts/api-management-vnet-internal.png" alt-text="Connect to internal VNET":::]
+    :::image type="content" source="media/virtual-network-concepts/api-management-vnet-internal.png" alt-text="Connect to internal VNET":::
 
-> [!NOTE]
-> To import an API to API Management from an [OpenAPI specification](import-and-publish.md), the specification URL must be hosted at a publicly accessible internet address.
+    Use API Management in internal mode to:
+
+    * Make APIs hosted in your private datacenter securely accessible by third parties by using Azure VPN connections or Azure ExpressRoute.
+    * Enable hybrid cloud scenarios by exposing your cloud-based APIs and on-premises APIs through a common gateway.
+    * Manage your APIs hosted in multiple geographic locations, using a single gateway endpoint.
+
 
 ## Network resource requirements
-The following are virtual network resource requirements for API Management. Some requirements differ depending on the version (v1 or v2) of the [hosting infrastructure](hosting-infrastructure.md) for your API Management instance.
+
+The following are virtual network resource requirements for API Management. Some requirements differ depending on the version (v1 or v2) of the [hosting platform](hosting-infrastructure.md) used for your API Management instance.
 
 ### [v1](#tab/v1)
 
@@ -68,17 +75,9 @@ The minimum size of the subnet in which API Management can be deployed is /29, w
 
 * Each instance reserves an extra IP address for the external load balancer. When deploying into an [internal VNET](./api-management-using-with-internal-vnet.md), the instance requires an extra IP address for the internal load balancer.
 
-
 ## Routing
-+ A load-balanced public IP address (VIP) is reserved to provide access to all service endpoints and resources outside the VNET.
-  + Load balanced public IP addresses can be found on the **Overview/Essentials** blade in the Azure portal.
-+ An IP address from a subnet IP range (DIP) is used to access resources within the VNET.
 
-> [!NOTE]
-> The VIP address of the API Management instance will change when:
-> * The VNET is enabled or disabled. 
-> * API Management is moved from **External** to **Internal** virtual network, or vice versa.
-> * [Zone redundancy](zone-redundancy.md) settings are enabled, updated, or disabled in a location for your instance (Premium SKU only).
+See the Routing guidance when deploying your API Management instance into an [external VNET](./api-management-using-with-external-vnet.md#routing)) or [internal VNET](./api-management-using-with-internal-vnet.md#routing).
 
 ## DNS
 
