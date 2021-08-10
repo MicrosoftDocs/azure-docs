@@ -23,7 +23,7 @@ For organizations considering upgrading from Okta to Azure Active Directory (Azu
 
 - [Migrate Okta sync provisioning to Azure AD Connect based synchronization](migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization.md)
 
-- [Migrate pplications from Okta to Azure AD](migrate-applications-from-okta-to-azure-active-directory.md)
+- [Migrate applications from Okta to Azure AD](migrate-applications-from-okta-to-azure-active-directory.md)
 
 - [Switch Okta federation to AD Connect managed authentication](migrate-okta-federation-to-azure-active-directory.md)
 
