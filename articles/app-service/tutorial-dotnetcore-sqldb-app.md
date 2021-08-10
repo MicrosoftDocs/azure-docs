@@ -70,7 +70,7 @@ In this step, you set up the local .NET Core project.
     ```
     
     > [!TIP]
-    > The branch name change isn't required by App Service. However, since many repositories are changing their default branch to `main`, this tutorial also shows you how to deploy a repository from `main`.
+    > The branch name change isn't required by App Service. However, since many repositories are changing their default branch to `main` (see [Change deployment branch](deploy-local-git.md#change-deployment-branch)), this tutorial also shows you how to deploy a repository from `main`.
 
 ### Run the application
 

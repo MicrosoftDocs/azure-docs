@@ -26,12 +26,21 @@ ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 
 ## Download the sample
 
-In a terminal window, run the following commands. This will clone the sample application to your local machine, and navigate to the directory containing the sample code. 
+1. In a terminal window, clone the sample application to your local machine, and navigate to the directory containing the sample code. 
 
-```bash
-git clone https://github.com/Azure-Samples/ruby-docs-hello-world
-cd ruby-docs-hello-world
-```
+    ```bash
+    git clone https://github.com/Azure-Samples/ruby-docs-hello-world
+    cd ruby-docs-hello-world
+    ```
+
+1. Make sure the default branch is `main`.
+
+    ```bash
+    git branch -m main
+    ```
+    
+    > [!TIP]
+    > The branch name change isn't required by App Service. However, since many repositories are changing their default branch to `main`, this tutorial also shows you how to deploy a repository from `main`. For more information, see [Change deployment branch](deploy-local-git.md#change-deployment-branch).
 
 ## Run the application locally
 
@@ -104,12 +113,6 @@ cd ruby-docs-hello-world
     ![Splash page](./media/quickstart-ruby/splash-page.png)
 
 ## Deploy your application
-
-1. Since your Git repository is in `main` branch, you need to set the default deployment branch for your App Service app to `main`. In the Cloud Shell, set the `DEPLOYMENT_BRANCH` app setting with the [`az webapp config appsettings set`](/cli/azure/webapp/appsettings#az_webapp_config_appsettings_set) command. 
-
-    ```azurecli-interactive
-    az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DEPLOYMENT_BRANCH='main'
-    ```
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure-no-h.md)] 
 
