@@ -30,7 +30,7 @@ Before including the Azure Spatial Anchors SDK in your Unity project, be sure to
 [!INCLUDE [Import Unity Packages](../../../includes/spatial-anchors-unity-import-packages.md)]
 
 ### HoloLens only: Configure your Unity project XR settings
-When developing MixedReality apps on HoloLens, you need to set the XR configuration in Unity. Please refer to [Setting up your XR configuration - Mixed Reality | Microsoft Docs](https://docs.microsoft.com/en-us/windows/mixed-reality/develop/unity/xr-project-setup?tabs=openxr)     and [Choosing a Unity version and XR plugin - Mixed Reality | Microsoft Docs](https://docs.microsoft.com/en-us/windows/mixed-reality/develop/unity/choosing-unity-version) for more details.
+When developing MixedReality apps on HoloLens, you need to set the XR configuration in Unity. Please refer to [Setting up your XR configuration - Mixed Reality | Microsoft Docs](https://docs.microsoft.com/windows/mixed-reality/develop/unity/xr-project-setup?tabs=openxr)     and [Choosing a Unity version and XR plugin - Mixed Reality | Microsoft Docs](https://docs.microsoft.com/windows/mixed-reality/develop/unity/choosing-unity-version) for more details.
 
 Azure Spatial Anchors SDK 2.9 or older only support Windows XR plugin (com.unity.xr.windowsmr), and hence Azure Spatial Anchor HoloLens Unity package has an explicit dependency on com.unity.xr.windowsmr package.
 
