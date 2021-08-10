@@ -13,10 +13,11 @@ ms.date: 03/08/2021
 
 # Migrate to Azure Machine Learning 
 
-In this article, you learn how to migrate Machine Learning Studio (classic) assets to [Azure Machine Learning](../index.yml). At this time, to migrate resources, you must manually rebuild your experiments.
+Learn how to migrate from Studio (classic) to [Azure Machine Learning](../overview-what-is-azure-ml.md). Azure Machine Learning provides a modernized data science platform that combines no-code and code-first approaches.
 
-Azure Machine Learning provides a modernized data science platform that combines no-code and code-first approaches. To learn more about the differences between Studio (classic) and Azure Machine Learning, see the [Assess Azure Machine Learning](#step-1-assess-azure-machine-learning) section.
+This is a guide for a basic 'lift and shift' migration. If you want to optimize an existing machine learning workflow, or modernize an ml platform, see the [Azure Machine Learning adoption framework](https://github.com/solliancenet/microsoft-ml-kinetic/blob/main/aml-adoption-framework.md) for additional resources including digital survey tools, worksheets, and planning templates.
 
+![Azure ML adoption framework](./media/migrate-overview/aml-adoption-framework.png)
 
 ## Recommended approach
 
@@ -24,10 +25,11 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 
 > [!div class="checklist"]
 > * Step 1: Assess Azure Machine Learning
-> * Step 2: Create a migration plan
+> * Step 2: Define a strategy and plan
 > * Step 3: Rebuild experiments and web services
 > * Step 4: Integrate client apps
-> * Step 5: Clean up ML Studio (classic) assets
+> * Step 5: Clean up Studio (classic) assets
+> * Step 6: Review and expand scenarios
 
 
 ## Step 1: Assess Azure Machine Learning
@@ -44,22 +46,24 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 
 4. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md?tabs=azure-portal).
 
-## Step 2: Create a migration plan
+## Step 2: Define a strategy and plan
 
-1. Identify the Studio (classic) **data sets**, **models**, and **web services** that you want to migrate.
+1. Define business justifications and expected outcomes.
+1. Align an actionable Azure Machine Learning adoption plan to business outcomes.
+1. Prepare people, processes, and environments for change.
 
-1. Determine the impact that a migration will have on your business.
+See the [Azure Machine Learning Adoption Framework](https://github.com/solliancenet/microsoft-ml-kinetic/blob/main/aml-adoption-framework.md) for planning resources including the [planning doc template](https://github.com/solliancenet/microsoft-ml-kinetic/blob/main/aml-adoption-framework.docx). 
 
-1. Create a migration plan.
+## Step 3: Rebuild your first model
 
-## Step 3: Rebuild experiments and web services
+After you've defined a strategy, migrate your first model.
 
 1. [Migrate datasets to Azure Machine Learning](migrate-register-dataset.md).
 1. Use the designer to [rebuild experiments](migrate-rebuild-experiment.md).
 1. Use the designer to [redeploy web services](migrate-rebuild-web-service.md).
 
     >[!NOTE]
-    > Azure Machine Learning also supports code-first workflows for [datasets](../how-to-create-register-datasets.md), [training](../how-to-set-up-training-targets.md), and [deployment](../how-to-deploy-and-where.md).
+    > Azure Machine Learning also supports code-first workflows for migrating [datasets](../how-to-create-register-datasets.md), [training](../how-to-set-up-training-targets.md), and [deployment](../how-to-deploy-and-where.md).
 
 ## Step 4: Integrate client apps
 
@@ -68,6 +72,12 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 ## Step 5: Cleanup Studio (classic) assets
 
 1. [Clean up Studio (classic) assets](export-delete-personal-data-dsr.md) to avoid extra charges. You may want to retain assets for fallback until you have validated Azure Machine Learning workloads.
+
+## Step 6: Review and expand scenarios
+
+1. Review the model migration for best practices and validate workloads.
+1. Expand scenarios and migrate additional workloads to Azure Machine Learning.
+
 
 ## Studio (classic) and designer module-mapping
 
@@ -156,3 +166,5 @@ In this article, you learned the high-level requirements for migrating to Azure 
 1. [Rebuild a Studio (classic) web service](migrate-rebuild-web-service.md).
 1. [Integrate an Azure Machine Learning web service with client apps](migrate-rebuild-integrate-with-client-app.md).
 1. [Migrate Execute R Script](migrate-execute-r-script.md).
+
+See the [Azure Machine Learning Adoption Framework](https://github.com/solliancenet/microsoft-ml-kinetic/blob/main/aml-adoption-framework.md) for additional migration resources.
