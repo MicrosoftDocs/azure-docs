@@ -63,7 +63,7 @@ When deploying GPU resources, set CPU and memory resources appropriate for the w
   * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
 
   > [!NOTE]
-  > To improve reliability when using a public container image from Docker Hub, import and manage the image in a private Azure container registry, and update your Dockerfile to use your privately managed base image. [Learn more about working with public images](../articles/container-registry/buffer-gate-public-content.md).
+  > To improve reliability when using a public container image from Docker Hub, import and manage the image in a private Azure container registry, and update your Dockerfile to use your privately managed base image. [Learn more about working with public images](../container-registry/buffer-gate-public-content.md).
     
 ## YAML example
 
