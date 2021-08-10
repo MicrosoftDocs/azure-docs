@@ -41,7 +41,7 @@ The overview section of the asset details gives you a summarized view of an asse
 
 ### Asset hierarchy
 
-You can view the full asset hierarchy within the overview tab. An example of this is if you navigated to a SQL table, then you can see the schema, database and the server the table belongs to.
+You can view the full asset hierarchy within the overview tab. As an example: if you navigate to a SQL table, then you can see the schema, database, and the server the table belongs to.
 
 :::image type="content" source="media/catalog-asset-details/asset-hierarchy.png" alt-text="Asset hierarchy":::
 
