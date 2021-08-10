@@ -9,7 +9,7 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 07/22/2021
 ms.author: aahi
 keywords: on-premises, Docker, container
 ---
@@ -32,13 +32,28 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To run the LUIS container, note the following prerequisites:
 
-|Required|Purpose|
-|--|--|
-|Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
-|Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.|
-|Azure `Cognitive Services` resource and LUIS [packaged app](luis-how-to-start-new-app.md) file |In order to use the container, you must have:<br><br>* A _Cognitive Services_ Azure resource and the associated billing key the billing endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container. <br>* A trained or published app packaged as a mounted input to the container with its associated App ID. You can get the packaged file from the LUIS portal or the Authoring APIs. If you are getting LUIS packaged app from the [authoring APIs](#authoring-apis-for-package-file), you will also need your _Authoring Key_.<br><br>These requirements are used to pass command-line arguments to the following variables:<br><br>**{AUTHORING_KEY}**: This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. The format is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APP_ID}**: This ID is used to select the App. The format is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{API_KEY}**: This key is used to start the container. You can find the endpoint key in two places. The first is the Azure portal within the _Cognitive Services_ resource's keys list. The endpoint key is also available in the LUIS portal on the Keys and Endpoint settings page. Do not use the starter key.<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the Overview page.<br><br>The [authoring key and endpoint key](luis-limits.md#key-limits) have different purposes. Do not use them interchangeably. |
+* [Docker](https://docs.docker.com/) installed on a host computer. Docker must be configured to allow the containers to connect with and send billing data to Azure. 
+    * On Windows, Docker must also be configured to support Linux containers.
+    * You should have a basic understanding of [Docker concepts](https://docs.docker.com/get-started/overview/). 
+* A <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne"  title="Create a LUIS resource"  target="_blank">LUIS resource </a> with the free (F0) or standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/).
+* A trained or published app packaged as a mounted input to the container with its associated App ID. You can get the packaged file from the LUIS portal or the Authoring APIs. If you are getting LUIS packaged app from the [authoring APIs](#authoring-apis-for-package-file), you will also need your _Authoring Key_.
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
+
+### App ID `{APP_ID}`
+
+This ID is used to select the app. You can find the app ID in the [LUIS portal](https://www.luis.ai/) by clicking **Manage** at the top of the screen for your app, and then **Settings**.
+
+:::image type="content" source="./media/luis-container-how-to/app-identification.png" alt-text="The screen for finding your app ID." lightbox="./media/luis-container-how-to/app-identification.png":::
+
+### Authoring key `{AUTHORING_KEY}`
+
+This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. You will need your authoring key if you [export your app using the REST API](#export-published-apps-package-from-api), described later in the article. 
+
+You can get your authoring key from the [LUIS portal](https://www.luis.ai/) by clicking **Manage** at the top of the screen for your app, and then **Azure Resources**.
+
+:::image type="content" source="./media/luis-container-how-to/authoring-resource.png" alt-text="The screen for finding your authoring resource key." lightbox="./media/luis-container-how-to/authoring-resource.png":::
+
 
 ### Authoring APIs for package file
 
@@ -386,7 +401,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
 
 * Review [Configure containers](luis-container-configuration.md) for configuration settings.
 * See [LUIS container limitations](luis-container-limitations.md) for known capability restrictions.
-* Refer to [Troubleshooting](troubleshooting.md) to resolve issues related to LUIS functionality.
+* Refer to [Troubleshooting](troubleshooting.yml) to resolve issues related to LUIS functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
 
 <!-- Links - external -->

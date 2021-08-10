@@ -126,10 +126,10 @@ Connect-AzAccount
 Set-AzContext -Subscription '{AZURE SUBSCRIPTION ID}'
 
 ## Back up a certificate in Key Vault
-Backup-AzKeyVaultCertificate -VaultName '{Certificate Name}' -Name '{Key Vault Name}'
+Backup-AzKeyVaultCertificate -VaultName '{Key Vault Name}' -Name '{Certificate Name}'
 
 ## Back up a key in Key Vault
-Backup-AzKeyVaultKey -VaultName '{Key Name}' -Name '{Key Vault Name}'
+Backup-AzKeyVaultKey -VaultName '{Key Vault Name}' -Name '{Key Name}'
 
 ## Back up a secret in Key Vault
 Backup-AzKeyVaultSecret -VaultName '{Key Vault Name}' -Name '{Secret Name}'

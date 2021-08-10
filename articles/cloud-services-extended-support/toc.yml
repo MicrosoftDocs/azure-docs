@@ -63,6 +63,8 @@
       href: in-place-migration-portal.md
     - name: Migrate using PowerShell
       href: in-place-migration-powershell.md
+    - name: Post migration changes
+      href: post-migration-changes.md
     - name: Common errors and known issues
       href: in-place-migration-common-errors.md
   - name: Apply extensions
@@ -90,7 +92,7 @@
     - name: Role startup failure
       href: role-startup-failure.md
     - name: Frequently asked questions
-      href: faq.md
+      href: faq.yml
 - name: Samples
   items: 
   - name: Sample templates
@@ -118,7 +120,7 @@
   - name: SDK
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview
   - name: CLI
-    href: https://docs.microsoft.com/cli/azure/cloud-service?view=azure-cli-latest
+    href: /cli/azure/cloud-service?view=azure-cli-latest
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -134,4 +136,4 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=
 - name: Support and troubleshooting
-  href: cses-support-help.md
+  href: support-help.md

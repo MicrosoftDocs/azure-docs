@@ -53,9 +53,9 @@ Before configuring device identities in Azure AD for your VDI environment, famil
 |   | Managed<sup>4</sup> | Windows current and Windows down-level | Persistent | Yes |
 |   |   | Windows current | Non-Persistent | No |
 |   |   | Windows down-level | Non-Persistent | Yes<sup>6</sup> |
-| Azure AD joined | Federated | Windows current | Persistent | No |
+| Azure AD joined | Federated | Windows current | Persistent | Limited<sup>7</sup> |
 |   |   |   | Non-Persistent | No |
-|   | Managed | Windows current | Persistent | No |
+|   | Managed | Windows current | Persistent | Limited<sup>7</sup> |
 |   |   |   | Non-Persistent | No |
 | Azure AD registered | Federated/Managed | Windows current/Windows down-level | Persistent/Non-Persistent | Not Applicable |
 
@@ -70,6 +70,7 @@ Before configuring device identities in Azure AD for your VDI environment, famil
 
 <sup>6</sup> **Non-Persistence support for Windows down-level** requires additional consideration as documented below in guidance section.
 
+<sup>7</sup> **Azure AD join support** is only available with Azure Virtual Desktop and Windows 365
 
 ## Microsoft’s guidance
 
@@ -95,7 +96,7 @@ When deploying non-persistent VDI, Microsoft recommends that IT administrators i
    - For non-persistent VDI deployments on Windows current and down-level, you should delete devices that have **ApproximateLastLogonTimestamp** of older than 15 days.
 
 > [!NOTE]
-> When using non-persistent VDI, if you want to prevent a device join state ensure the following registry key is set:  
+> When using non-persistent VDI, if you want to prevent adding a work or school account ensure the following registry key is set:  
 > `HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin"=dword:00000001`    
 >
 > Ensure you are running Windows 10, version 1803 or higher.  
@@ -108,7 +109,9 @@ When deploying non-persistent VDI, Microsoft recommends that IT administrators i
 > * `%localappdata%\Microsoft\TokenBroker`
 > * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\IdentityCRL`
 > * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AAD`
+> * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WorkplaceJoin`
 >
+> Romaing of the work account's device certificate is not supported. The certificate, issued by "MS-Organization-Access", is stored in the Personal (MY) certificate store of the current user.
 
 
 ### Persistent VDI

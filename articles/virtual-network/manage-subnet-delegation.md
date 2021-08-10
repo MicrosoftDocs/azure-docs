@@ -55,16 +55,14 @@ The built-in [Network Contributor](../role-based-access-control/built-in-roles.m
 In this section, you delegate the subnet that you created in the preceding section to an Azure service.
 
 1. In the portal's search bar, enter *myVirtualNetwork*. When **myVirtualNetwork** appears in the search results, select it.
-2. In the search results, select *myVirtualNetwork*.
-3. Select **Subnets**, under **SETTINGS**, and then select **mySubnet**.
-4. On the *mySubnet* page, for the **Subnet delegation** list, select from the services listed under **Delegate subnet to a service** (for example, **Microsoft.DBforPostgreSQL/serversv2**).  
+2. Select **Subnets**, under **SETTINGS**, and then select **mySubnet**.
+3. On the *mySubnet* page, for the **Subnet delegation** list, select from the services listed under **Delegate subnet to a service** (for example, **Microsoft.DBforPostgreSQL/serversv2**).  
 
 ### Remove subnet delegation from an Azure service
 
 1. In the portal's search bar, enter *myVirtualNetwork*. When **myVirtualNetwork** appears in the search results, select it.
-2. In the search results, select *myVirtualNetwork*.
-3. Select **Subnets**, under **SETTINGS**, and then select **mySubnet**.
-4. In *mySubnet* page, for the **Subnet delegation** list, select **None** from the services listed under **Delegate subnet to a service**. 
+2. Select **Subnets**, under **SETTINGS**, and then select **mySubnet**.
+3. In *mySubnet* page, for the **Subnet delegation** list, select **None** from the services listed under **Delegate subnet to a service**. 
 
 ## Azure CLI
 

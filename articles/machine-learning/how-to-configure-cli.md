@@ -11,17 +11,18 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 05/25/2021
 ms.reviewer: laobri
+ms.custom: devx-track-azurecli, devplatv2
 ---
 
 # Install, set up, and use the 2.0 CLI (preview)
 
-The `ml` extension (preview) to the [Azure CLI](/cli/azure/) is the next-generation interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle.
+The `ml` extension (preview) to the [Azure CLI](/cli/azure/) is the enhanced interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
-- To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+- To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 - To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](/cli/azure/install-azure-cli).
 
     > [!TIP]
@@ -35,15 +36,15 @@ The new Machine Learning extension **requires Azure CLI version `>=2.15.0`**. En
 az version
 ```
 
-If it is not, [upgrade your Azure CLI](/cli/azure/update-azure-cli).
+If it isn't, [upgrade your Azure CLI](/cli/azure/update-azure-cli).
 
-Check the Azure CLI extensions you have installed:
+Check the Azure CLI extensions you've installed:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="az_extension_list":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_list":::
 
 Ensure no conflicting extension using the `ml` namespace is installed, including the `azure-cli-ml` extension:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="az_extension_remove":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_remove":::
 
 Now, install the `ml` extension:
 
@@ -51,11 +52,19 @@ Now, install the `ml` extension:
 
 Run the help command to verify your installation and see available subcommands:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="az_ml_verify":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_ml_verify":::
 
 You can upgrade the extension to the latest version:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="az_ml_update":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_ml_update":::
+
+### Installation on Linux
+
+If you're using Linux, the fastest way to install the necessary CLI version and the Machine Learning extension is:
+
+:::code language="bash" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_install_linux":::
+
+For more, see [Install the Azure CLI for Linux](/cli/azure/install-azure-cli-linux).
 
 ## Set up
 
@@ -67,7 +76,7 @@ az login
 
 If you have access to multiple Azure subscriptions, you can set your active subscription:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="az_account_set":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_account_set":::
 
 If it doesn't already exist, you can create the Azure resource group:
 
@@ -102,7 +111,7 @@ To run hello world locally via Python, see the example in the `jobs` subdirector
 
 Submit the job, streaming the logs to the console output, and opening the run in the Azure Machine Learning studio:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="hello_world":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/hello-world.sh" id="hello_world":::
 
 > [!IMPORTANT]
 > This may take a few minutes to run the first time, as the Docker image is pulled locally and the Azure ML job is run. Subsequent runs will have the image cached locally and complete quicker.

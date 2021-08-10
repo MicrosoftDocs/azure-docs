@@ -14,7 +14,7 @@ ms.date: 05/27/2021
 # Return a semantic answer in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Semantic search  is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. These features are billable. For more information about, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. These features are billable. For more information about, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 When invoking [semantic ranking and captions](semantic-how-to-query-request.md), you can optionally extract content from the top-matching documents that "answers" the query directly. One or more answers can be included in the response, which you can then render on a search page to improve the user experience of your app.
 
@@ -108,7 +108,10 @@ Given the query "how do clouds form", the following answer is returned in the re
                 "North America",
                 "Vancouver"
             ]
+    ]
         }
+}
+
 ```
 
 ## Tips for producing high-quality answers

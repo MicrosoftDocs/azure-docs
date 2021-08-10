@@ -10,6 +10,8 @@ ms.custom: devx-track-azurepowershell
 ---
 # Auto grow storage in Azure Database for MySQL server using PowerShell
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 This article describes how you can configure an Azure Database for MySQL server storage to grow
 without impacting the workload.
 

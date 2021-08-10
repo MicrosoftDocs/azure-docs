@@ -49,7 +49,6 @@ data:
         rewrite name substring <domain to be rewritten>.com default.svc.cluster.local
         kubernetes cluster.local in-addr.arpa ip6.arpa {
           pods insecure
-          upstream
           fallthrough in-addr.arpa ip6.arpa
         }
         forward .  /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10, but that server must be able to resolve the rewritten domain name
@@ -176,8 +175,10 @@ metadata:
   namespace: kube-system
 data:
     test.override: | # you may select any name here, but it must end with the .override file extension
-          hosts example.hosts example.org { # example.hosts must be a file
-              10.0.0.1 example.org
+          hosts { 
+              10.0.0.1 example1.org
+              10.0.0.2 example2.org
+              10.0.0.3 example3.org
               fallthrough
           }
 ```

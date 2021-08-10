@@ -3,7 +3,8 @@ title: Troubleshoot pipeline orchestration and triggers in Azure Data Factory
 description: Use different methods to troubleshoot pipeline trigger issues in Azure Data Factory. 
 author: ssabat
 ms.service: data-factory
-ms.date: 04/01/2021
+ms.subservice: troubleshooting
+ms.date: 07/09/2021
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
@@ -90,7 +91,7 @@ Operation on target Cancel failed: {“error”:{“code”:”AuthorizationFail
 
 **Cause**
 
-Pipelines may use the Web activity to call ADF REST API methods if and only if the Azure Data Factory member is assigned the Contributor role. You must first configure add the Azure Data Factory managed identity to the Contributor security role. 
+Pipelines may use the Web activity to call ADF REST API methods if and only if the Azure Data Factory member is assigned the Contributor role. You must first configure and  add the Azure Data Factory managed identity to the Contributor security role. 
 
 **Resolution**
 
@@ -149,9 +150,9 @@ Known Facts about *ForEach*
  
  **Resolution**
  
-* Concurrency Limit:  If your pipeline has a concurrency policy, verify that there are no old pipeline runs in progress. The maximum pipeline concurrency allowed in Azure Data Factory is 10 pipelines . 
-* Monitoring limits: Go to the ADF authoring canvas, select your pipeline, and determine if it has a concurrency property  assigned to it. If it does, go to the Monitoring view, and make sure there's nothing in the past 45 days that's in progress. If there is something in progress, you can cancel it and the new pipeline run should  start.
-* Transient  Issues: It is possible that your run was impacted by a transient network issue, credential failures, services outages etc.  If this happens, Azure Data Factory has an internal recovery process that monitors all the runs and starts them when it notices something went wrong. This process happens every one  hour, so if your run is stuck for more than an hour, create a support case.
+* **Concurrency Limit:**  If your pipeline has a concurrency policy, verify that there are no old pipeline runs in progress. 
+* **Monitoring limits**: Go to the ADF authoring canvas, select your pipeline, and determine if it has a concurrency property  assigned to it. If it does, go to the Monitoring view, and make sure there's nothing in the past 45 days that's in progress. If there is something in progress, you can cancel it and the new pipeline run should  start.
+* **Transient  Issues:** It is possible that your run was impacted by a transient network issue, credential failures, services outages etc.  If this happens, Azure Data Factory has an internal recovery process that monitors all the runs and starts them when it notices something went wrong. This process happens every one  hour, so if your run is stuck for more than an hour, create a support case.
  
 ### Longer start up times for activities in ADF Copy and Data Flow
 
@@ -162,9 +163,9 @@ This can happen if you have not implemented time to live feature for Data Flow o
 **Resolution**
 
 * If each copy activity is taking up to 2 minutes to start, and the problem occurs primarily on a VNet join (vs. Azure IR), this can be a copy performance issue. To review troubleshooting steps, go to [Copy Performance Improvement.](./copy-activity-performance-troubleshooting.md)
-* You can use time to live feature to decrease cluster start up time for data flow activities. Please review [Data Flow Integration Runtime.](./control-flow-execute-data-flow-activity.md#data-flow-integration-runtime)
+* You can use time to live feature to decrease cluster start-up time for data flow activities. Please review [Data Flow Integration Runtime.](./control-flow-execute-data-flow-activity.md#data-flow-integration-runtime)
 
- ### Hitting capacity issues in SHIR(Self Hosted Integration Runtime)
+ ### Hitting capacity issues in SHIR(Self-Hosted Integration Runtime)
  
  **Cause**
  
@@ -178,24 +179,79 @@ This can happen if you have not scaled up SHIR as per your workload.
 
 **Cause**
 
-Long queue related error messages can appear for various reasons. 
+Long queue-related error messages can appear for various reasons. 
 
 **Resolution**
 * If you receive an error message from any source or destination via connectors, which can generate a long queue, go to [Connector Troubleshooting Guide.](./connector-troubleshoot-guide.md)
 * If you receive an error message about Mapping Data Flow, which can generate a long queue, go to [Data Flows Troubleshooting Guide.](./data-flow-troubleshoot-guide.md)
 * If you receive an error message about other activities, such as Databricks, custom activities, or HDI, which can generate a long queue, go to [Activity Troubleshooting Guide.](./data-factory-troubleshoot-guide.md)
-* If you receive an error message about running SSIS packages, which can generate a long queue, go to the [Azure-SSIS Package Execution Troubleshooting Guide](./ssis-integration-runtime-ssis-activity-faq.md) and [Integration Runtime Management Troubleshooting Guide.](./ssis-integration-runtime-management-troubleshoot.md)
+* If you receive an error message about running SSIS packages, which can generate a long queue, go to the [Azure-SSIS Package Execution Troubleshooting Guide](./ssis-integration-runtime-ssis-activity-faq.yml) and [Integration Runtime Management Troubleshooting Guide.](./ssis-integration-runtime-management-troubleshoot.md)
 
 ### Error message - "code":"BadRequest", "message":"null"
 
 **Cause**
 
-It is an user error because JSON payload that hits management.azure.com is corrupt. No logs will be stored because user call did not reach ADF service layer.
+It is a user error because JSON payload that hits management.azure.com is corrupt. No logs will be stored because user call did not reach ADF service layer.
 
 **Resolution**
 
-Perform network tracing of your API call from ADF portal using Edge/Chrome browser **Developer tools**. You will see offending JSON payload, which could be due to a special characters, spaces and other types of user input. Once you fix the string expression, you will proceed with rest of  ADF usage calls in the browser.
+Perform network tracing of your API call from ADF portal using Edge/Chrome browser **Developer tools**. You will see offending JSON payload, which could be due to a special character(for example $), spaces and other types of user input. Once you fix the string expression, you will proceed with rest of  ADF usage calls in the browser.
 
+### ForEach activities do not run in parallel mode
+
+**Cause**
+
+You are running ADF in debug mode.
+
+**Resolution**
+
+Execute the pipeline in trigger mode.
+
+### Cannot publish because account is locked
+
+**Cause**
+
+You made changes in collaboration branch to remove storage event trigger. You are trying to publish and encounter `Trigger deactivation error` message.
+
+**Resolution**
+
+This is due to the storage account, used for the event trigger, is being locked. Unlock the account.
+
+### Expression builder fails to load
+
+**Cause**
+
+The expression builder can fail to load due to network or cache problems with the web browser.  
+
+**Resolution**
+
+
+Upgrade the web browser to the latest version of a supported browser, clear cookies for the site, and refresh the page.
+
+### "Code":"BadRequest","message":"ErrorCode=FlowRunSizeLimitExceeded
+
+**Cause**
+
+You have chained many activities.
+
+**Resolution**
+
+You can split your pipelines into sub pipelines, and stich them together with **ExecutePipeline** activity. 
+
+###  How to optimize pipeline with mapping data flows to avoid internal server errors, concurrency errors etc. during execution
+
+**Cause**
+
+You have not optimized mapping data flow.
+
+**Resolution**
+
+* Use memory optimized compute when dealing with large amount of data and transformations.
+* Reduce the batch size in case of a for each activity.
+* Scale up your databases and warehouses to match the performance of your ADF. 
+* Use a separate IR(integration runtime) for activities running in parallel.
+* Adjust the partitions at the source and sink accordingly. 
+* Review  [Data Flow Optimizations](concepts-data-flow-performance.md)
 
 ## Next steps
 

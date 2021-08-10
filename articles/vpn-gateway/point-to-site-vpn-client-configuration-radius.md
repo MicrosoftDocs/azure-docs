@@ -1,6 +1,6 @@
 ---
 title: 'Azure VPN Gateway: Create & install VPN client config files - P2S RADIUS connections'
-description: Create Windows, OS X, and Linux VPN client configuration files for connections that use RADIUS authentication.
+description: Create Windows, macOS, and Linux VPN client configuration files for connections that use RADIUS authentication.
 services: vpn-gateway
 author: cherylmc
 
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 ---
 # Create and install VPN client configuration files for P2S RADIUS authentication
 
-To connect to a virtual network over point-to-site (P2S), you need to configure the client device that you'll connect from. You can create P2S VPN connections from Windows, OS X, and Linux client devices. 
+To connect to a virtual network over point-to-site (P2S), you need to configure the client device that you'll connect from. You can create P2S VPN connections from Windows, macOS, and Linux client devices. 
 
 When you're using RADIUS authentication, there are multiple authentication options: username/password authentication, certificate authentication, and other authentication types. The VPN client configuration is different for each type of authentication. To configure the VPN client, you use client configuration files that contain the required settings. This article helps you create and install the VPN client configuration for the RADIUS authentication type that you want to use.
 
@@ -33,7 +33,7 @@ The configuration workflow for P2S RADIUS authentication is as follows:
 >
 >
 
-To use the sections in this article, first decide which type of authentication you want to use: username/password, certificate, or other types of authentication. Each section has steps for Windows, OS X, and Linux (limited steps available at this time).
+To use the sections in this article, first decide which type of authentication you want to use: username/password, certificate, or other types of authentication. Each section has steps for Windows, macOS, and Linux (limited steps available at this time).
 
 
 ## <a name="adeap"></a>Username/password authentication
@@ -82,7 +82,7 @@ Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 You can configure the following VPN clients:
 
 * [Windows](#adwincli)
-* [Mac (OS X)](#admaccli)
+* [Mac (macOS)](#admaccli)
 * [Linux using strongSwan](#adlinuxcli)
  
 #### <a name="adwincli"></a>Windows VPN client setup
@@ -95,7 +95,7 @@ Use the following steps to configure the native Windows VPN client for certifica
 2. To install the package, double-click it. If you see a SmartScreen pop-up, select **More info** > **Run anyway**.
 3. On the client computer, browse to **Network Settings** and select **VPN**. The VPN connection shows the name of the virtual network that it connects to. 
 
-#### <a name="admaccli"></a>Mac (OS X) VPN client setup
+#### <a name="admaccli"></a>Mac (macOS) VPN client setup
 
 1. Select the **VpnClientSetup mobileconfig** file and send it to each of the users. You can use email or another method.
 
@@ -213,7 +213,7 @@ Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 You can configure the following VPN clients:
 
 * [Windows](#certwincli)
-* [Mac (OS X)](#certmaccli)
+* [Mac (macOS)](#certmaccli)
 * Linux (supported, no article steps yet)
 
 #### <a name="certwincli"></a>Windows VPN client setup
@@ -222,7 +222,7 @@ You can configure the following VPN clients:
 2. Each client requires a client certificate for authentication. Install the client certificate. For information about client certificates, see [Client certificates for point-to-site](vpn-gateway-certificates-point-to-site.md). To install a certificate that was generated, see [Install a certificate on Windows clients](point-to-site-how-to-vpn-client-install-azure-cert.md).
 3. On the client computer, browse to **Network Settings** and select **VPN**. The VPN connection shows the name of the virtual network that it connects to.
 
-#### <a name="certmaccli"></a>Mac (OS X) VPN client setup
+#### <a name="certmaccli"></a>Mac (macOS) VPN client setup
 
 You must create a separate profile for every Mac device that connects to the Azure virtual network. This is because these devices require the user certificate for authentication to be specified in the profile. The **Generic** folder has all the information that's required to create a profile:
 

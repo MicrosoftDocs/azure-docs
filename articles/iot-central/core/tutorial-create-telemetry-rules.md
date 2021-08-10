@@ -26,11 +26,50 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you begin, complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) and [Add a simulated device to your IoT Central application](./quick-create-simulated-device.md) quickstarts to create the **Sensor Controller** device template to work with.
+To complete the steps in this tutorial, you need:
+
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
+
+## Add and customize a device template
+
+Add a device template from the device catalog. This tutorial uses the **ESP32-Azure IoT Kit** device template:
+
+1. To add a new device template, select **+ New** on the **Device templates** page.
+
+1. On the **Select type** page, scroll down until you find the **ESP32-Azure IoT Kit** tile in the **Use a pre-configured device template** section.
+
+1. Select the **ESP32-Azure IoT Kit** tile, and then select **Next: Review**.
+
+1. On the **Review** page, select **Create**.
+
+The name of the template you created is **Sensor Controller**. The model includes components such as **Sensor Controller**, **SensorTemp**, and **Device Information interface**. Components define the capabilities of an ESP32 device. Capabilities include the telemetry, properties, and commands.
+
+Add two cloud properties to the **Sensor Controller** device template:
+
+1. Select **Cloud Properties** and then **+ Add cloud property**. Use the information in the following table to add two cloud properties to your device template:
+
+    | Display Name      | Semantic Type | Schema |
+    | ----------------- | ------------- | ------ |
+    | Last Service Date | None          | Date   |
+    | Customer Name     | None          | String |
+
+1. Select **Save** to save your changes.
+
+Add a new form to the device template to manage the device:
+
+1. Select the **Views** node, and then select the **Editing device and cloud data** tile to add a new view.
+
+1. Change the form name to **Manage device**.
+
+1. Select the **Customer Name** and **Last Service Date** cloud properties, and the **Target Temperature** property. Then select **Add section**.
+
+1. Select **Save** to save your new form.
+
+Now publish the device template.
 
 ## Create a rule
 
-To create a telemetry rule, the device template must include at least one telemetry value. This tutorial uses a simulated **Sensor Controller** device that sends temperature and humidity telemetry. You added this device template and created a simulated device in the [Add a simulated device to your IoT Central application](./quick-create-simulated-device.md) quickstart. The rule monitors the temperature reported by the device and sends an email when it goes above 70 degrees.
+To create a telemetry rule, the device template must include at least one telemetry value. This tutorial uses a simulated **Sensor Controller** device that sends temperature and humidity telemetry. The rule monitors the temperature reported by the device and sends an email when it goes above 70 degrees.
 
 > [!NOTE]
 > There is a limit of 50 rules per application.
@@ -115,4 +154,4 @@ In this tutorial, you learned how to:
 Now that you've defined a threshold-based rule the suggested next step is to learn how to:
 
 > [!div class="nextstepaction"]
-> [Create webhooks on rules](./howto-create-webhooks.md).
+> [Configure rules](howto-configure-rules.md)

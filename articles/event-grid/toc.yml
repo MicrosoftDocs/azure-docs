@@ -116,6 +116,8 @@
       href: system-topics.md
     - name: Event sources (publishers)
       items:
+      - name: Azure API Management
+        href: event-schema-api-management.md
       - name: Azure App Configuration
         href: event-schema-app-configuration.md
       - name: Azure App Service
@@ -128,6 +130,8 @@
         href: event-schema-container-registry.md
       - name: Azure Event Hubs
         href: event-schema-event-hubs.md
+      - name: Azure FarmBeats
+        href: event-schema-farmbeats.md
       - name: Azure IoT Hub
         href: event-schema-iot-hub.md
       - name: Azure Key Vault
@@ -150,6 +154,8 @@
         href: event-schema-subscriptions.md
       - name: Azure Cache for Redis
         href: event-schema-azure-cache.md
+      - name: Azure Kubernetes Service (Preview)
+        href: event-schema-aks.md
   - name: Partner Events
     items:
     - name: Overview of Partner Events
@@ -284,6 +290,8 @@
         href: add-identity-roles.md
       - name: Create an event subscription that uses the managed identity
         href: managed-service-identity.md
+    - name: Enforce security controls with custom Azure policies
+      href: custom-azure-policies-for-security-control.md
     - name: Deliver events securely over a private link
       href: consume-private-endpoints.md      
     - name: Configure IP firewall

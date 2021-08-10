@@ -1,6 +1,6 @@
 ---
 title: Manage hybrid infrastructure at scale with Azure Arc
-description: Learn how to effectively manage your customers' machines and Kubernetes clusters outside of Azure.
+description: Azure Lighthouse helps you effectively manage customers' machines and Kubernetes clusters outside of Azure.
 ms.date: 03/12/2021
 ms.topic: how-to
 ---

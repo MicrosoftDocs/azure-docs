@@ -168,6 +168,9 @@ sections:
           
           7. Run an on-demand backup. After the backup finishes successfully using the new location, you can remove the original cache folder.
           
+          >[!NOTE]
+          >If you are using any offline seeding solution, don't change the cache location during initial replication process.
+          
       - question: |
           Where should the cache folder be located?
         answer: |

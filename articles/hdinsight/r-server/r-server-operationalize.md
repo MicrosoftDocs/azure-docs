@@ -2,12 +2,14 @@
 title: Operationalize ML Services on HDInsight - Azure 
 description: Learn how to operationalize your data model to make predictions with ML Services in Azure HDInsight.
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/27/2018
+ROBOTS: NOINDEX
 ---
 
 # Operationalize ML Services cluster on Azure HDInsight
+
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
 
 After you have used ML Services cluster in HDInsight to complete your data modeling, you can operationalize the model to make predictions. This article provides instructions on how to perform this task.
 
@@ -159,7 +161,7 @@ Follow these steps to decommission worker nodes:
 * Unselect the worker nodes and select the head nodes.
 * Select **Actions** > **Selected Hosts** > "**Hosts** > **Restart All Components**.
 
-###	Step 2: Configure compute nodes on each decommissioned worker node(s)
+###    Step 2: Configure compute nodes on each decommissioned worker node(s)
 
 1. SSH into each decommissioned worker node.
 

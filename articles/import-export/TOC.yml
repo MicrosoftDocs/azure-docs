@@ -10,7 +10,7 @@
   - name: Review requirements
     href: storage-import-export-requirements.md
   - name: FAQ
-    href: storage-import-export-service-faq.md
+    href: storage-import-export-service-faq.yml
 - name: How to
   expanded: true
   items:

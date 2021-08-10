@@ -6,7 +6,7 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 06/22/2021
 ms.custom: devx-track-csharp
 
 ---
@@ -123,7 +123,7 @@ User user = await database.CreateUserAsync("User 1");
 
 ### Permissions<a id="permissions"></a>
 
-A permission resource is associated with a user and assigned at the container as well as partition key level. Each user may contain zero or more permissions. A permission resource provides access to a security token that the user needs when trying to access a specific container or data in a specific partition key. There are two available access levels that may be provided by a permission resource:
+A permission resource is associated with a user and assigned to a specific resource. Each user may contain zero or more permissions. A permission resource provides access to a security token that the user needs when trying to access a specific container or data in a specific partition key. There are two available access levels that may be provided by a permission resource:
 
 - All: The user has full permission on the resource.
 - Read: The user can only read the contents of the resource but cannot perform write, update, or delete operations on the resource.
@@ -148,7 +148,7 @@ user.CreatePermissionAsync(
     new PermissionProperties(
         id: "permissionUser1Orders",
         permissionMode: PermissionMode.All,
-        container: benchmark.container,
+        container: container,
         resourcePartitionKey: new PartitionKey("012345")));
 ```
 

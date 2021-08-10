@@ -1,11 +1,13 @@
 ---
 title: Copy data from ServiceNow
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from ServiceNow to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 08/01/2019
 ---
 
@@ -160,7 +162,7 @@ If you have a filter in your query, use "Actual" schema which has better copy pe
 
 ### Index
 
-ServiceNow table index can help improve query performance, refer to [Create a table index](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/table_administration/task/t_CreateCustomIndex.html).
+ServiceNow table index can help improve query performance, refer to [Create a table index](https://docs.servicenow.com/bundle/quebec-platform-administration/page/administer/table-administration/task/t_CreateCustomIndex.html).
 
 ## Lookup activity properties
 

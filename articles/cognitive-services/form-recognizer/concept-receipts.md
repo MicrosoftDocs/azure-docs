@@ -6,10 +6,10 @@ services: cognitive-services
 author: laujan
 manager: nitinme
 
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/30/2021
+ms.date: 07/01/2021
 ms.author: lajanuar
 ---
 
@@ -44,7 +44,7 @@ The Receipt API also powers the [AI Builder Receipt Processing feature](/ai-buil
 To try out the Form Recognizer receipt service, go to the online Sample UI Tool:
 
 > [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://aka.ms/fott-2.1-ga)
+> [Try Prebuilt Models](https://aka.ms/fott-2.1-ga "Start with  prebuilt model to extract data from receipts.")
 
 ## What does the Receipt service do?
 
@@ -86,23 +86,22 @@ The Receipt API also returns the following information:
 
 ## Supported locales
 
-* **Pre-built receipt v2.0** supports sales receipts in the **en-us** locale
-* **Pre-built receipt v2.1** adds additional support for the following English receipt locales: **en-au**, **en-ca**, **en-gb**, **en-in**
+* **Pre-built receipt v2.1** supports sales receipts in the **en-au**, **en-ca**, **en-gb**, **en-in**, and **en-us** English locales
 
   > [!NOTE]
   > Language input
   >
   > Prebuilt Receipt v2.1 has an optional request parameter to specify a receipt locale from additional English markets. For sales receipts in English from Australia (en-au), Canada (en-ca), Great Britain (en-gb), and India (en-in), you can specify the locale to get improved results. If no locale is specified in v2.1, the model will automatically detect the locale.
 
-## The Analyze Receipt operation
+## Analyze Receipt
 
 The [Analyze Receipt](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync) takes an image or PDF of a receipt as the input and extracts the values of interest and text. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
 
 |Response header| Result URL |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/analyzeResults/56a36454-fc4d-4354-aa07-880cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1/prebuilt/receipt/analyzeResults/56a36454-fc4d-4354-aa07-880cfbf0064f` |
 
-## The Get Analyze Receipt Result operation
+## Get Analyze Receipt Result
 
 The second step is to call the [Get Analyze Receipt Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeReceiptResult) operation. This operation takes as input the Result ID that was created by the Analyze Receipt operation. It returns a JSON response that contains a **status** field with the following possible values. You call this operation iteratively until it returns with the **succeeded** value. Use an interval of 3 to 5 seconds to avoid exceeding the requests per second (RPS) rate.
 

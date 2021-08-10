@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 author: StefArroyo
 ms.author: esarroyo
-ms.date: 05/25/2021
+ms.date: 06/04/2021
 ---
 
 # Run the emulator on Docker for Linux (Preview)
@@ -32,11 +32,11 @@ Since the Azure Cosmos DB Emulator provides an emulated environment that runs on
 
 - The Linux emulator is not a scalable service and it doesn't support a large number of containers. When using the Azure Cosmos DB Emulator, by default, you can create up to 10 fixed size containers at 400 RU/s (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers. For more information on how to change this value, see [Set the PartitionCount value](emulator-command-line-parameters.md#set-partitioncount) article.
 
-- While [consistency levels](consistency-levels.md) like the cloud service does. can be adjusted using command-line arguments for testing scenarios only (default setting is Session), a user might not expect the same behavior as in the cloud service. For instance, Strong and Bounded staleness consistency has no effect on the emulator, other than signaling to the Cosmos DB SDK the default consistency of the account.
+- While [consistency levels](consistency-levels.md) can be adjusted using command-line arguments for testing scenarios only (default setting is Session), a user might not expect the same behavior as in the cloud service. For instance, Strong and Bounded staleness consistency has no effect on the emulator, other than signaling to the Cosmos DB SDK the default consistency of the account.
 
 - The Linux emulator does not offer [multi-region replication](distribute-data-globally.md).
 
-- Because the copy of your Azure Cosmos DB Linux Emulator might not always be up to date with the most recent changes in the Azure Cosmos DB service, you should always refer to the [Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) to accurately estimate the throughput (RUs) needs of your application. <add link>
+- Because the copy of your Azure Cosmos DB Linux Emulator might not always be up to date with the most recent changes in the Azure Cosmos DB service, you should always refer to the [Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) to accurately estimate the throughput (RUs) needs of your application.
 
 - The Linux emulator supports a maximum ID property size of 254 characters.
 
@@ -62,27 +62,13 @@ To get started, visit the Docker Hub and install [Docker Desktop for macOS](http
     ```bash
     curl -k https://$ipaddr:8081/_explorer/emulator.pem > emulatorcert.crt
     ```
-    Alternatively, the endpoint above which downloads the self-signed emulator certificate, can also be used for signaling when the emulator endpoint is ready to receive requests from another application.
 
-1. Copy the CRT file to the folder that contains custom certificates in your Linux distribution. Commonly on Debian distributions, it is located on `/usr/local/share/ca-certificates/`.
-
-   ```bash
-   cp YourCTR.crt /usr/local/share/ca-certificates/
-   ```
-
-1. Update the TLS/SSL certificates, which will update the `/etc/ssl/certs/` folder.
-
-   ```bash
-   update-ca-certificates
-   ```
-
-For Java-based applications, the certificate must be imported in the [Java trusted store.](local-emulator-export-ssl-certificates.md)
 
 ## <a id="consume-endpoint-ui"></a>Consume the endpoint via UI
 
 The emulator is using a self-signed certificate to secure the connectivity to its endpoint and needs to be manually trusted. Use the following steps to consume the endpoint via the UI using your desired web browser:
 
-1. Make sure to download the emulator self-signed certificate
+1. Make sure you've downloaded the emulator self-signed certificate
 
    ```bash
    curl -k https://$ipaddr:8081/_explorer/emulator.pem > emulatorcert.crt
@@ -95,6 +81,8 @@ The emulator is using a self-signed certificate to secure the connectivity to it
 1. After the *emulatorcert.crt* is loaded into KeyChain, double-click on the **localhost** name and change the trust settings to **Always Trust**.
 
 1. You can now browse to `https://localhost:8081/_explorer/index.html` or `https://{your_local_ip}:8081/_explorer/index.html` and retrieve the connection string to the emulator.
+
+Optionally, you can disable SSL validation on your application. This is only recommended for development purposes and should not be done when running in a production environment.
 
 ## <a id="run-on-linux"></a>Run the Linux Emulator on Linux OS
 
@@ -184,9 +172,23 @@ This section provides tips to troubleshoot errors when using the Linux emulator.
 
 - Make sure that the emulator self-signed certificate has been properly added to [KeyChain](#consume-endpoint-ui).
 
-- Ensure that the emulator self-signed certificate has been properly imported into the expected location:
-  - .NET: See the [certificates section](#run-on-linux)
-  - Java: See the [Java Certificates Store section](#run-on-linux)
+- For Java applications, make sure you imported the certificate to the [Java Certificates Store section](#run-on-linux).
+
+- For .NET applications you can disable SSL validation:
+
+# [.NET Standard 2.1+](#tab/ssl-netstd21)
+
+For any application running in a framework compatible with .NET Standard 2.1 or later, we can leverage the `CosmosClientOptions.HttpClientFactory`:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard21)]
+
+# [.NET Standard 2.0](#tab/ssl-netstd20)
+
+For any application running in a framework compatible with .NET Standard 2.0, we can leverage the `CosmosClientOptions.HttpClientFactory`:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard20)]
+
+---
 
 #### My Node.js app is reporting a self-signed certificate error
 

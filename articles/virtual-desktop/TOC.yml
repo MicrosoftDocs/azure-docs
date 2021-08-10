@@ -1,13 +1,19 @@
-- name: Windows Virtual Desktop
+- name: Azure Virtual Desktop
   href: index.yml
 - name: Overview
   items:
-  - name: What is Windows Virtual Desktop?
+  - name: What is Azure Virtual Desktop?
     href: overview.md
   - name: What's new?
     href: whats-new.md
-  - name: Windows Virtual Desktop (classic) documentation
+  - name: What's new for Azure Monitor
+    href: whats-new-azure-monitor.md
+  - name: Azure Virtual Desktop (classic) documentation
     href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
+- name: Quickstarts
+  items:
+  - name: Getting started with Azure Virtual Desktop
+    href: getting-started-feature.md
 - name: Tutorials
   items:
   - name: 1. Create a host pool with the Azure portal
@@ -22,22 +28,22 @@
   items:
   - name: Migrate manually
     href: manual-migration.md
-  - name: Connect to Windows Virtual Desktop resources
+  - name: Connect to Azure Virtual Desktop resources
     items:
       - name: Connect with the Windows Desktop client
-        href: connect-windows-7-10.md
+        href: ./user-documentation/connect-windows-7-10.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
       - name: Connect with the web client
-        href: connect-web.md
+        href: ./user-documentation/connect-web.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
       - name: Connect with the Android client
-        href: connect-android.md
+        href: ./user-documentation/connect-android.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
       - name: Connect with the macOS client
-        href: connect-macos.md
+        href: ./user-documentation/connect-macos.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
       - name: Connect with the iOS client
-        href: connect-ios.md
+        href: ./user-documentation/connect-ios.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
       - name: Connect with the Microsoft Store client
-        href: connect-microsoft-store.md
+        href: ./user-documentation/connect-microsoft-store.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
       - name: Connect with thin clients
-        href: linux-overview.md
+        href: ./user-documentation/linux-overview.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: Configure device redirections
     href: configure-device-redirections.md
   - name: Set up the PowerShell module
@@ -46,6 +52,8 @@
     items:
       - name: PowerShell
         href: create-host-pools-powershell.md
+      - name: Deploy an Azure AD joined session host
+        href: deploy-azure-ad-joined-vm.md
       - name: Deploy a Windows 7 virtual machine
         href: deploy-windows-7-virtual-machine.md
       - name: Deploy a GPU-based session host
@@ -76,7 +84,7 @@
         href: configure-host-pool-load-balancing.md
       - name: Personal desktop assignment type
         href: configure-host-pool-personal-desktop-assignment-type.md
-  - name: Use Windows Virtual Desktop license
+  - name: Use Azure Virtual Desktop license
     href: apply-windows-license.md
   - name: Customize session host image
     items:
@@ -109,8 +117,8 @@
         - name: Set up the MSIXMGR tool
           href: app-attach-msixmgr.md
   - name: Use Microsoft Teams
-    href: teams-on-wvd.md
-  - name: Set up Azure AD Multi-Factor Authentication
+    href: teams-on-avd.md
+  - name: Set up Azure AD multifactor authentication
     href: set-up-mfa.md
   - name: Configure AD FS single sign-on
     href: configure-adfs-sso.md
@@ -122,7 +130,7 @@
     href: azure-advisor.md
   - name: Resolve recommendations
     href: azure-advisor-recommendations.md
-  - name: Use Azure Monitor for Windows Virtual Desktop
+  - name: Use Azure Monitor for Azure Virtual Desktop
     href: azure-monitor.md
   - name: Set up a disaster recovery plan
     href: disaster-recovery.md
@@ -138,13 +146,15 @@
     href: drain-mode.md
 - name: Concepts
   items:
+  - name: Management recommendations
+    href: management.md
   - name: Built-in roles
     href: rbac.md
   - name: Authentication
     href: authentication.md
-  - name: Windows Virtual Desktop environment
+  - name: Azure Virtual Desktop environment
     href: environment-setup.md
-  - name: Windows Virtual Desktop Agent
+  - name: Azure Virtual Desktop Agent
     href: agent-overview.md
   - name: Network connectivity
     items:
@@ -162,7 +172,7 @@
         href: proxy-server-support.md
       - name: Determine user connection latency
         href: connection-latency.md
-  - name: Delegated access in Windows Virtual Desktop
+  - name: Delegated access in Azure Virtual Desktop
     href: delegated-access-virtual-desktop.md
   - name: Host pool load-balancing methods
     href: host-pool-load-balancing.md
@@ -170,8 +180,8 @@
     href: fslogix-containers-azure-files.md
   - name: Storage options for FSLogix profile containers
     href: store-fslogix-profile.md
-  - name: Windows Virtual Desktop FAQ
-    href: faq.md
+  - name: Azure Virtual Desktop FAQ
+    href: faq.yml
   - name: Windows 10 Enterprise multi-session FAQ
     href: windows-10-multisession-faq.yml
   - name: MSIX app attach
@@ -181,7 +191,7 @@
       - name: Glossary
         href: app-attach-glossary.md
       - name: FAQ
-        href: app-attach-faq.md
+        href: app-attach-faq.yml
   - name: Azure Monitor glossary
     href: azure-monitor-glossary.md
   - name: Data locations
@@ -196,28 +206,32 @@
     href: troubleshoot-set-up-overview.md
   - name: Identify and diagnose issues
     href: diagnostics-role-service.md
+  - name: Getting started feature 
+    href: troubleshoot-getting-started.md
   - name: Host pool creation
     href: troubleshoot-set-up-issues.md
   - name: Session host virtual machine configuration
     href: troubleshoot-vm-configuration.md
+  - name: Management issues
+    href: troubleshoot-management-issues.md
+  - name: Azure Virtual Desktop PowerShell
+    href: troubleshoot-powershell.md
+  - name: Azure Virtual Desktop Agent
+    href: troubleshoot-agent.md
   - name: Remote Desktop service connections
     href: troubleshoot-service-connection.md
-  - name: Windows Virtual Desktop Agent
-    href: troubleshoot-agent.md
   - name: Remote Desktop client issues
     href: troubleshoot-client.md
-  - name: Windows Virtual Desktop PowerShell
-    href: troubleshoot-powershell.md
   - name: Diagnosing graphics performance issues
     href: remotefx-graphics-performance-counters.md
+  - name: Connections to Azure AD-joined VMs
+    href: troubleshoot-azure-ad-connections.md
   - name: Azure Monitor
     href: troubleshoot-azure-monitor.md
 - name: Reference
   items:
   - name: Security best practices
     href: security-guide.md
-  - name: Linux support
-    href: linux-overview.md
   - name: Azure CLI
     href: /cli/azure/desktopvirtualization
   - name: Estimate Azure Monitor costs

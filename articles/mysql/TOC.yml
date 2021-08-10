@@ -1,4 +1,4 @@
-- name: Azure Database for MySQL Documentation
+- name: Azure Database for MySQL documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -7,6 +7,10 @@
     href: overview.md
   - name: Which MySQL option should I choose?
     href: select-right-deployment-type.md
+  - name: What's new in Single Server?
+    href: single-server-whats-new.md
+  - name: What's new in Flexible Server?
+    href: flexible-server/whats-new.md
   - name: Version support policy
     href: concepts-version-policy.md
     displayName: version policy
@@ -21,8 +25,6 @@
       href: single-server-overview.md
     - name: Supported versions
       href: concepts-supported-versions.md
-    - name: What's new in Single Server?
-      href: single-server-whats-new.md
     - name: Pricing Tiers
       items:
       - name: Pricing tiers
@@ -144,10 +146,8 @@
         items:
         - name: Configuring SSL
           href: concepts-ssl-connection-security.md
-      - name: Advanced Threat Protection
-        items:
-          - name: Threat protection with Azure Defender
-            href: ../security-center/defender-for-databases-introduction.md    
+      - name: Threat protection with Azure Defender
+        href: ../security-center/defender-for-databases-usage.md?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
       - name: Encryption at rest
         items:
         - name: Data Encryption
@@ -285,9 +285,6 @@
       - name: Deny Public Network Access
         href: howto-deny-public-network-access.md
         displayName: security, public access
-      - name: Configuring Azure Defender using Azure portal
-        href: howto-database-threat-protection-portal.md
-        displayName: atp, advanced thread, security
       - name: Configuring encryption with customer managed keys using Azure portal
         href: howto-data-encryption-portal.md
         displayName: encryption, security
@@ -414,7 +411,7 @@
             displayName: Resource Manager
             href: flexible-server/quickstart-create-arm-template.md
       - name: Connect and query
-        items:
+        items:          
           - name: Azure CLI
             href: flexible-server/connect-azure-cli.md
           - name: PHP
@@ -427,6 +424,8 @@
             href: flexible-server/connect-java.md
           - name: .NET
             href: flexible-server/connect-csharp.md
+          - name: Connect to server in VNET 
+            href: flexible-server/quickstart-create-connect-server-vnet.md
       - name: Connect using TLS/SSL
         href: flexible-server/how-to-connect-tls-ssl.md
       - name: Configure server parameters
@@ -457,6 +456,12 @@
       - name: Networking concepts 
         href: flexible-server/concepts-networking.md
         displayName: virtual network, IP address, public access
+      - name: Private Access 
+        href: flexible-server/concepts-networking-vnet.md
+        displayName: virtual network
+      - name: Public Access 
+        href: flexible-server/concepts-networking-public.md
+        displayName: Public access,
     - name: Service Maintenance
       items:
       - name: Scheduled Maintenance
@@ -480,9 +485,6 @@
       - name: Data-in replication
         href: flexible-server/concepts-data-in-replication.md
         displayName: replication, read replica
-      - name: Configure data-in replication
-        href: flexible-server/how-to-data-in-replication.md
-        displayName: data-in replication, replica, failover
       - name: Read replicas
         href: flexible-server/concepts-read-replicas.md
     - name: Backup & Restore
@@ -561,6 +563,9 @@
           href: flexible-server/how-to-configure-audit-log-cli.md
     - name: Replication
       items:
+      - name: Configure data-in replication
+        href: flexible-server/how-to-data-in-replication.md
+        displayName: data-in replication, replica, failover
       - name: Create read replicas
         items:
         - name: Azure portal
@@ -581,9 +586,14 @@
         href: flexible-server/how-to-troubleshoot-common-connection-issues.md
 - name: Migration
   items:
+  - name: Migrate data from MySQL on-premises to Azure Database for MySQL >
+    href: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
   - name: Migrate data with mysqldump or phpmyadmin
     href: concepts-migrate-dump-restore.md
     displayName: migrate, mysqldump
+  - name: Migrate large databases to Azure Database for MySQL using mydumper/myloader
+    href: concepts-migrate-mydumper-myloader.md
+    displayName: migrate, mydumper/myloader
   - name: Migrate data with dbForge Studio for MySQL
     href: concepts-migrate-dbforge-studio-for-mysql.md
     displayName: migrate, dbforge
@@ -593,6 +603,9 @@
   - name: Migrate RDS MySQL data with MySQL Workbench
     href: how-to-migrate-rds-mysql-workbench.md
     displayName: import , migrate, export
+  - name: Migrate Azure DB for MySQL – Single Server to Azure DB for MySQL – Flexible Server
+    href: howto-migrate-single-flexible-minimum-downtime.md
+    displayName: migrate, Single to Flexible
   - name: Minimal downtime migration with DMS
     href: howto-migrate-online.md
     displayName: migrate, dms, database migration service

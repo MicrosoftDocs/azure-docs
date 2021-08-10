@@ -195,4 +195,4 @@ If you want to add an outbound rule to your load balancer, go to your load balan
 In this article, you learned about the different terms and settings in the Azure portal for Azure Load Balancer.
 
 * [Learn](./load-balancer-overview.md) more about Azure Load Balancer.
-* [FAQs](./load-balancer-faqs.md) for Azure Load Balancer.
+* [FAQs](./load-balancer-faqs.yml) for Azure Load Balancer.

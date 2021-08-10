@@ -5,9 +5,9 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/11/2018
+ms.date: 06/07/2021
 ---
 
 # Branching and chaining activities in an Azure Data Factory pipeline using the Azure portal
@@ -162,9 +162,9 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
 - Connecting one activity with another activity (on success and failure)
 - Using output from an activity as an input to the subsequent activity
 
-1. In the **get started** page of Data Factory UI, click the **Create pipeline** tile.  
+1. In the home page of Data Factory UI, click the **Orchestrate** tile.  
 
-   ![Get started page](./media/tutorial-control-flow-portal/get-started-page.png)
+   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
 3. In the properties window for the pipeline, switch to the **Parameters** tab, and use the **New** button to add the following three parameters of type String: sourceBlobContainer, sinkBlobContainer, and receiver.
 
     - **sourceBlobContainer** - parameter in the pipeline consumed by the source blob dataset.

@@ -28,8 +28,6 @@ landingContent:
         links:
           - text: What's new? 
             url: ../database/doc-changes-updates-release-notes.md?tabs=managed-instance
-          - text: Feedback? Take the survey! 
-            url: https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456 
       - linkListType: quickstart
         links:
           - text: Create SQL Managed Instance
@@ -49,7 +47,7 @@ landingContent:
           - text: Transactional replication 
             url: replication-transactional-overview.md 
           - text: Migrate from SQL Server
-            url: migrate-to-instance-from-sql-server.md
+            url: ../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
           - text: T-SQL differences with SQL Server
             url: transact-sql-tsql-differences-sql-server.md
 
@@ -121,7 +119,7 @@ landingContent:
           - text: Transact-SQL (T-SQL)
             url: /sql/t-sql/language-reference
           - text: Azure CLI
-            url: /cli/azure/sql
+            url: /cli/azure/azure-cli-reference-for-sql#sql-managed-instance-references
           - text: PowerShell
             url: /powershell/module/az.sql
           - text: REST API

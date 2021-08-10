@@ -1,72 +1,100 @@
 ---
-title: Get storage account type and SKU name with .NET
+title: Get storage account configuration information
 titleSuffix: Azure Storage
-description: Learn how to get Azure Storage account type and SKU name using the .NET client library.
+description: Use the Azure portal, PowerShell, or Azure CLI to retrieve storage account configuration properties, including the Azure Resource Manager resource ID, account location, account type, or replication SKU.
 services: storage
-author: normesta
+author: tamram
 
-ms.author: normesta
-ms.date: 11/12/2020
+ms.author: tamram
+ms.date: 06/23/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.custom: devx-track-csharp
 ---
 
-# Get storage account type and SKU name with .NET
+# Get storage account configuration information
 
-This article shows how to get the Azure Storage account type and SKU name for a blob by using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
+This article shows how to get configuration information and properties for an Azure Storage account by using the Azure portal, PowerShell, or Azure CLI.
 
-## About account type and SKU name
+## Get the resource ID for a storage account
 
-**Account type**: Valid account types include `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage`, and `StorageV2`. [Azure storage account overview](storage-account-overview.md) has more information, including descriptions of the various storage accounts.
+Every Azure Resource Manager resource has an associated resource ID that uniquely identifies it. Certain operations require that you provide the resource ID. You can get the resource ID for a storage account by using the Azure portal, PowerShell, or Azure CLI.
 
-**SKU name**: Valid SKU names include `Premium_LRS`, `Premium_ZRS`, `Standard_GRS`, `Standard_GZRS`, `Standard_LRS`, `Standard_RAGRS`, `Standard_RAGZRS`, and `Standard_ZRS`. SKU names are case-sensitive and are string fields in the [SkuName Class](/dotnet/api/microsoft.azure.management.storage.models.skuname).
+# [Azure portal](#tab/portal)
 
-## Retrieve account information
+To display the Azure Resource Manager resource ID for a storage account in the Azure portal, follow these steps:
 
-The following code example retrieves and displays the read-only account properties.
+1. Navigate to your storage account in the Azure portal.
+1. On the **Overview** page, in the **Essentials** section, select the **JSON View** link.
+1. The resource ID for the storage account is displayed at the top of the page.
 
-# [.NET v12 SDK](#tab/dotnet)
+    :::image type="content" source="media/storage-account-get-info/resource-id-portal.png" alt-text="Screenshot showing how to copy the resource ID for the storage account from the portal":::
 
-To get the storage account type and SKU name associated with a blob, call the [GetAccountInfo](/dotnet/api/azure.storage.blobs.blobserviceclient.getaccountinfo) or [GetAccountInfoAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.getaccountinfoasync) method.
+# [PowerShell](#tab/powershell)
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Account.cs" id="Snippet_GetAccountInfo":::
+To return the Azure Resource Manager resource ID for a storage account with PowerShell, make sure you have installed the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module. Next, call the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command to return the storage account and get its resource ID:
 
-# [.NET v11 SDK](#tab/dotnet11)
+```azurepowershell
+(Get-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account>).Id
+```
 
-To get the storage account type and SKU name associated with a blob, call the [GetAccountProperties](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountproperties) or [GetAccountPropertiesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountpropertiesasync) method.
+# [Azure CLI](#tab/azure-cli)
 
-```csharp
-private static async Task GetAccountInfoAsync(CloudBlob blob)
-{
-    try
-    {
-        // Get the blob's storage account properties.
-        AccountProperties acctProps = await blob.GetAccountPropertiesAsync();
+To return the Azure Resource Manager resource ID for a storage account with Azure CLI, call the [az storage account show](/cli/azure/storage/account#az_storage_account_show) command and query the resource ID:
 
-        // Display the properties.
-        Console.WriteLine("Account properties");
-        Console.WriteLine("  AccountKind: {0}", acctProps.AccountKind);
-        Console.WriteLine("      SkuName: {0}", acctProps.SkuName);
-    }
-    catch (StorageException e)
-    {
-        Console.WriteLine("HTTP error code {0}: {1}",
-                            e.RequestInformation.HttpStatusCode,
-                            e.RequestInformation.ErrorCode);
-        Console.WriteLine(e.Message);
-        Console.ReadLine();
-    }
-}
+```azurecli
+az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --query id \
+    --output tsv
 ```
 
 ---
 
-[!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
+You can also get the resource ID for a storage account by calling the [Storage Accounts - Get Properties](/rest/api/storagerp/storage-accounts/get-properties) operation in the REST API.
+
+For more information about types of resources managed by Azure Resource Manager, see [Resource providers and resource types](../../azure-resource-manager/management/resource-providers-and-types.md).
+
+## Get the account type, location, or replication SKU for a storage account
+
+The account type, location, and replication SKU are some of the properties available on a storage account. You can use the Azure portal, PowerShell, or Azure CLI to view these values.
+
+# [Azure portal](#tab/portal)
+
+To view the account type, location, or replication SKU for a storage account in the Azure portal, follow these steps:
+
+1. Navigate to your storage account in the Azure portal.
+1. Locate these properties on the **Overview** page, in the **Essentials** section
+
+    :::image type="content" source="media/storage-account-get-info/account-configuration-portal.png" alt-text="Screenshot showing account configuration in the portal":::
+
+# [PowerShell](#tab/powershell)
+
+To view the account type, location, or replication SKU for a storage account with PowerShell, call the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command to return the storage account, then check the properties:
+
+```azurepowershell
+$account = Get-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account>
+$account.Location
+$account.Sku
+$account.Kind
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To view the account type, location, or replication SKU for a storage account with PowerShell, call the [az storage account show](/cli/azure/storage/account#az_storage_account_show) command and query the properties:
+
+```azurecli
+az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --query '[location,sku,kind]' \
+    --output tsv
+```
+
+---
 
 ## Next steps
 
-Learn about other operations you can perform on a storage account through the [Azure portal](https://portal.azure.com) and the Azure REST API.
-
-- [Get Account Information operation (REST)](/rest/api/storageservices/get-account-information)
+- [Storage account overview](storage-account-overview.md)
+- [Create a storage account](storage-account-create.md)

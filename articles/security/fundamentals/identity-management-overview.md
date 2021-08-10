@@ -69,8 +69,8 @@ Learn more:
 
 * [Enabling Azure AD Application Proxy](../../active-directory/app-proxy/application-proxy-add-on-premises-application.md)
 * [Publish applications using Azure AD Application Proxy](../../active-directory/app-proxy/application-proxy-add-on-premises-application.md)
-* [Single sign-on with Application Proxy](../../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
-* [Working with Conditional Access](../../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
+* [Single sign-on with Application Proxy](../../active-directory/app-proxy/application-proxy-configure-single-sign-on-with-kcd.md)
+* [Working with Conditional Access](../../active-directory/app-proxy/application-proxy-integrate-with-sharepoint-server.md)
 
 ## Multi-Factor Authentication
 

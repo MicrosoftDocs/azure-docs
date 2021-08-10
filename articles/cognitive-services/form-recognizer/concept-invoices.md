@@ -6,10 +6,10 @@ services: cognitive-services
 author: laujan
 manager: nitinme
 
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/30/2021
+ms.date: 07/01/2021
 ms.author: lajanuar
 ---
 
@@ -28,7 +28,7 @@ The Invoice API extracts key fields and line items from invoices and returns the
 To try out the Form Recognizer Invoice Service, go to the online Sample UI Tool:
 
 > [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://aka.ms/fott-2.1-ga)
+> [Try Prebuilt Models](https://aka.ms/fott-2.1-ga "Start with a prebuilt model to extract data from invoices.")
 
 You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Invoice service.
 
@@ -42,7 +42,7 @@ You will need an Azure subscription ([create one for free](https://azure.microso
 
 **Pre-built invoice v2.1** supports invoices in the **en-us** locale.
 
-## The Analyze Invoice operation
+## Analyze Invoice
 
 The [Analyze Invoice](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291) operation takes an image or PDF of an invoice as the input and extracts the values of interest. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
 
@@ -50,7 +50,7 @@ The [Analyze Invoice](https://westus.dev.cognitive.microsoft.com/docs/services/f
 |:-----|:----|
 |Operation-Location | `https://cognitiveservice/formrecognizer/v2.1/prebuilt/invoice/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
-## The Get Analyze Invoice Result operation
+## Get Analyze Invoice Result
 
 The second step is to call the [Get Analyze Invoice Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9acb78c40a2533aee83) operation. This operation takes as input the Result ID that was created by the Analyze Invoice operation. It returns a JSON response that contains a **status** field with the following possible values. You call this operation iteratively until it returns with the **succeeded** value. Use an interval of 3 to 5 seconds to avoid exceeding the requests per second (RPS) rate.
 

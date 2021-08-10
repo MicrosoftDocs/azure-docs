@@ -35,7 +35,7 @@ If you want to import an update into Device Update for IoT Hub, be sure you've r
 
 | Name | Type | Description | Restrictions |
 | --------- | --------- | --------- | --------- |
-| Filename | string | Name of file | Must be unique within an update |
+| Filename | string | Name of file | Must be no more than 255 characters. Must be unique within an update |
 | SizeInBytes | Int64 | Size of file in bytes. | Maximum of 800 MB per individual file, or 800 MB collectively per update |
 | Hashes | `Hashes` object | JSON object containing hash(es) of the file |
 
@@ -54,7 +54,7 @@ If you want to import an update into Device Update for IoT Hub, be sure you've r
 
 ## Example import request body
 
-If you are using the sample import manifest output from the [How to add a new update](./import-update.md#review-the-generated-import-manifest) page, and want to call the Device Update [REST API](https://docs.microsoft.com/rest/api/deviceupdate/updates) directly to perform the import, the corresponding request body should look like this:
+If you are using the sample import manifest output from the [How to add a new update](./import-update.md#review-the-generated-import-manifest) page, and want to call the Device Update [REST API](/rest/api/deviceupdate/updates) directly to perform the import, the corresponding request body should look like this:
 
 ```json
 {

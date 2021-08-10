@@ -1,7 +1,7 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Logic Apps
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Logic Apps. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 05/14/2021
+ms.date: 07/16/2021
 ms.topic: sample
 author: ecfan
 ms.author: estfan

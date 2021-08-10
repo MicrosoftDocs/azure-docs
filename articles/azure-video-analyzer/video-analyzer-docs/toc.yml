@@ -73,12 +73,12 @@
   items:
   - name: Pipeline
     href: pipeline.md
+  - name: Pipeline extension
+    href: pipeline-extension.md
   - name: Video recording
     href: video-recording.md
   - name: Scenarios 
     items:
-    - name: Pipeline extension
-      href: pipeline-extension.md
     - name: Event-based video recording
       href: event-based-video-recording-concept.md 
     - name: Continuous video recording
@@ -101,6 +101,8 @@
       href: deploy-iot-edge-device.md
     - name: Deploy to an IoT Edge for Linux on Windows
       href: deploy-iot-edge-linux-on-windows.md
+    - name: Deploy on Azure Stack Edge
+      href: deploy-on-stack-edge.md
   - name: Playback
     items:      
     - name: Playback a recording
@@ -127,6 +129,10 @@
     items:
     - name: Monitor and logging
       href: monitor-log-edge.md 
+  - name: Visualize
+    items:
+    - name: Embed player widget in Power BI
+      href: embed-player-in-power-bi.md
   - name: Troubleshoot
     href: troubleshoot.md
 - name: Reference 
@@ -157,7 +163,9 @@
     href: https://azure.microsoft.com/updates/?category=media
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/video-analyzer/
+  - name: Available regions
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=video-analyzer&regions=all
   - name: FAQs
-    href: faq-edge.md 
+    href: faq-edge.yml 
   - name: Quotas and limitations
     href: quotas-limitations.md

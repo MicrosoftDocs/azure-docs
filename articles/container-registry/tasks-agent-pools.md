@@ -51,10 +51,10 @@ Agent pool tiers provide the following resources per instance in the pool.
 
 ### Set default registry (optional)
 
-To simplify Azure CLI commands that follow, set the default registry by running the [az configure][az-configure] command:
+To simplify Azure CLI commands that follow, set the default registry by running the [az config][az-config] command:
 
 ```azurecli
-az configure --defaults acr=<registryName>
+az config set defaults.acr=<registryName>
 ```
 
 The following examples assume that you've set the default registry. If not, pass a `--registry <registryName>` parameter in each `az acr` command.
@@ -180,7 +180,7 @@ For more examples of container image builds and maintenance in the cloud, check 
 [azure-cli]:           /cli/azure/install-azure-cli
 [open-support-ticket]: https://aka.ms/acr/support/create-ticket
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
-[az-configure]: /cli/azure#az_configure
+[az-config]: /cli/azure#az_config
 [az-acr-agentpool-create]: /cli/azure/acr/agentpool#az_acr_agentpool_create
 [az-acr-agentpool-update]: /cli/azure/acr/agentpool#az_acr_agentpool_update
 [az-acr-agentpool-show]: /cli/azure/acr/agentpool#az_acr_agentpool_show

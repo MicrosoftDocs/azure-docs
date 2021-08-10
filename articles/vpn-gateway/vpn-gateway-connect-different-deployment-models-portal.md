@@ -220,7 +220,7 @@ In these steps, you configure the connection from the classic VNet to the Resour
 
 ### 1. Connect to your Azure account
 
-Open the PowerShell console with elevated rights and log in to your Azure account. After logging in, your account settings are downloaded so that they are available to Azure PowerShell. The following cmdlet prompts you for the login credentials for your Azure Account for the Resource Manager deployment model:
+Open the PowerShell console with elevated rights and log in to your Azure account. After logging in, your account settings are downloaded so that they are available to Azure PowerShell. The following cmdlet prompts you for the login credentials for your Azure Account for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md):
 
 ```powershell
 Connect-AzAccount

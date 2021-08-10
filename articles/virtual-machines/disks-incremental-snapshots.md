@@ -2,9 +2,9 @@
 title: Create an incremental snapshot
 description: Learn about incremental snapshots for managed disks, including how to create them using the Azure portal, Azure PowerShell module, and Azure Resource Manager.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks 
 ms.custom: devx-track-azurepowershell

@@ -13,7 +13,7 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.custom: custom-portals-hub
-  ms.date: 05/05/2021
+  ms.date: 06/11/2021
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -36,6 +36,10 @@ productDirectory:
   #title:  # < 60 chars (optional)
   #summary:  # < 160 chars (optional)
   items:
+    - title: Azure Bot Service
+      imageSrc: ./media/bot-services.svg
+      summary: Create bots and connect them across channels
+      url: /composer/
     # Card
     - title: Azure Form Recognizer
       # imageSrc should be square in ratio with no whitespace
@@ -43,27 +47,25 @@ productDirectory:
       summary: Turn documents into usable data at a fraction of the time and cost
       url: ../cognitive-services/form-recognizer/index.yml
     # Card
-    - title: Azure Immersive Reader
-      imageSrc: ./media/immersive-reader.svg
-      summary: Help users read and comprehend text
-      url: ../cognitive-services/immersive-reader/index.yml
-    # Card
-    - title: Azure Metrics Advisor
-      imageSrc: ./media/metrics-advisor.svg
-      summary: Proactively monitor metrics and diagnose issues
-      url: ../cognitive-services/metrics-advisor/index.yml
     - title: Azure Cognitive Search
       imageSrc: ./media/cognitive-search.svg
       summary: Bring AI-powered cloud search to your mobile and web apps
       url: ../search/index.yml
+    # Card
+    - title: Azure Metrics Advisor
+      imageSrc: ./media/metrics-advisor.svg
+      summary: Proactively monitor metrics and diagnose issues
+      url: ./metrics-advisor/index.yml
+    # Card
     - title: Azure Video Analyzer
       imageSrc: ./media/video-analytics.svg
       summary: Extract actionable insights from your videos
-      url: https://aka.ms/video-analyzer-hub
-    - title: Azure Bot Service
-      imageSrc: ./media/bot-services.svg
-      summary: Create bots and connect them across channels
-      url: https://docs.microsoft.com/composer/
+      url: ../azure-video-analyzer/index.yml
+     # Card
+    - title: Azure Immersive Reader
+      imageSrc: ./media/immersive-reader.svg
+      summary: Help users read and comprehend text
+      url: ../cognitive-services/immersive-reader/index.yml
 
 additionalContent:
   sections:
@@ -74,7 +76,7 @@ additionalContent:
             - text: Submit feedback on UserVoice
               url: https://aka.ms/AppliedAIUserVoice
             - text: Ask questions on Microsoft Q&A
-              url: https://aka.ms/AppliedAIMSFTQandA
+              url: /answers/topics/azure-applied-ai-services.html
             # Card
             - text: Troubleshoot on StackOverflow
               url: https://aka.ms/AppliedAIStackOverflow
@@ -83,21 +85,21 @@ additionalContent:
           - text: Azure Form Recognizer
             url: ../cognitive-services/form-recognizer/quickstarts/get-started-with-form-recognizer.md
           - text: Azure Metrics Advisor
-            url: ../cognitive-services/metrics-advisor/quickstarts/web-portal.md
+            url: ./metrics-advisor/quickstarts/web-portal.md
           - text: Azure Immersive Reader
             url: ../cognitive-services/immersive-reader/quickstarts/client-libraries.md
           - text: Azure Cognitive Search
             url: ../search/search-get-started-portal.md
           - text: Azure Video Analyzer
-            url: https://aka.ms/video-analytics-qs
+            url: ../azure-video-analyzer/video-analyzer-docs/detect-motion-emit-events-quickstart.md
           - text: Azure Bot Service
-            url: https://docs.microsoft.com/composer/quickstart-create-bot
+            url: /composer/quickstart-create-bot
             
           - text: Start For free
             url: https://azure.microsoft.com/free/ai
         - title: Explore other Azure AI Services
           links:
             - text: Azure Cognitive Services
-              url: https://docs.microsoft.com/en-us/azure/cognitive-services/
+              url: ../cognitive-services/index.yml
             - text: Azure Machine Learning
-              url: https://docs.microsoft.com/en-us/azure/machine-learning/
+              url: ../machine-learning/index.yml

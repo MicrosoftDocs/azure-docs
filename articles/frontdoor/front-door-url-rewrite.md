@@ -44,6 +44,10 @@ For example, if we read across the second row, it's saying that for incoming req
 | www\.contoso.com/foo/        | /foo/\*                  | /          | /fwd/          | /foo/          | /foo/bar/          |
 | www\.contoso.com/foo/**bar** | /foo/\*                  | /**bar**   | /fwd/**bar**   | /foo/**bar**   | /foo/bar/**bar**   |
 
+> [!NOTE]
+> Azure Front Door only supports URL rewrite from a static path to another static path. Preserve unmatched path is supported with Azure Front Door Standard/Premium SKU. See [preserve unmatched path](standard-premium/concept-rule-set-url-redirect-and-rewrite.md#preserve-unmatched-path) for more details.
+> 
+
 ## Optional settings
 There are additional optional settings you can also specify for any given routing rule settings:
 

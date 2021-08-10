@@ -70,7 +70,7 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](h
 - [Smart Lockout](../authentication/howto-password-smart-lockout.md) - Configure Smart Lockout capability on your tenant to protect user accounts.
 - [Current limitations](how-to-connect-pta-current-limitations.md) - Learn which scenarios are supported and which ones are not.
 - [Technical Deep Dive](how-to-connect-pta-how-it-works.md) - Understand how this feature works.
-- [Frequently Asked Questions](how-to-connect-pta-faq.md) - Answers to frequently asked questions.
+- [Frequently Asked Questions](how-to-connect-pta-faq.yml) - Answers to frequently asked questions.
 - [Troubleshoot](tshoot-connect-pass-through-authentication.md) - Learn how to resolve common issues with the feature.
 - [Security Deep Dive](how-to-connect-pta-security-deep-dive.md) - Additional deep technical information on the feature.
 - [Azure AD Seamless SSO](how-to-connect-sso.md) - Learn more about this complementary feature.

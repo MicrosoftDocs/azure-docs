@@ -29,6 +29,8 @@ MSAL gives you many ways to get tokens, with a consistent API for a number of pl
 * Helps you set up your application from configuration files.
 * Helps you troubleshoot your app by exposing actionable exceptions, logging, and telemetry.
 
+> [!VIDEO https://www.youtube.com/embed/zufQ0QRUHUk]
+
 ## Application types and scenarios
 Using MSAL, a token can be acquired from a number of application types: web applications, web APIs, single-page apps (JavaScript), mobile and native applications, and daemons and server-side applications.
 

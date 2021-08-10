@@ -1,8 +1,8 @@
 ---
 title:  Stream Azure Spring Cloud app logs in real-time
 description: How to use log streaming to view application logs instantly 
-author:  MikeDodaro
-ms.author: barbkess
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
@@ -27,8 +27,8 @@ Azure Spring Cloud enables log streaming in Azure CLI to get real-time applicati
 
 To avoid repeatedly specifying your resource group and service instance name, set your default resource group name and cluster name.
 ```azurecli
-az configure --defaults group=<service group name>
-az configure --defaults spring-cloud=<service instance name>
+az config set defaults.group=<service group name>
+az config set defaults.spring-cloud=<service instance name>
 ```
 In following examples, the resource group and service name will be omitted in the commands.
 

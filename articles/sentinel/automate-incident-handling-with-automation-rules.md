@@ -37,7 +37,7 @@ Automation rules are made up of several components:
 
 Automation rules are triggered by the creation of an incident. 
 
-To review – incidents are created from alerts by analytics rules, of which there are four types, as explained in the tutorial [Detect threats with built-in analytics rules in Azure Sentinel](tutorial-detect-threats-built-in.md).
+To review – incidents are created from alerts by analytics rules, of which there are several types, as explained in the tutorial [Detect threats with built-in analytics rules in Azure Sentinel](tutorial-detect-threats-built-in.md).
 
 ### Conditions
 
@@ -57,7 +57,7 @@ Actions can be defined to run when the conditions (see above) are met. You can d
 
 - Adding a tag to an incident – this is useful for classifying incidents by subject, by attacker, or by any other common denominator.
 
-Also, you can define an action to run a [playbook](tutorial-respond-threats-playbook.md), in order to take more complex response actions, including any that involve external systems. Only playbooks activated by the [incident trigger](automate-responses-with-playbooks.md#azure-logic-apps-basic-concepts) are available to be used in automation rules. You can define an action to include multiple playbooks, or combinations of playbooks and other actions, and the order in which they will run.
+Also, you can define an action to [**run a playbook**](tutorial-respond-threats-playbook.md), in order to take more complex response actions, including any that involve external systems. **Only** playbooks activated by the [**incident trigger**](automate-responses-with-playbooks.md#azure-logic-apps-basic-concepts) are available to be used in automation rules. You can define an action to include multiple playbooks, or combinations of playbooks and other actions, and the order in which they will run.
 
 ### Expiration date
 
@@ -127,12 +127,27 @@ In order for an automation rule to run a playbook, this account must be granted 
 
 When you're configuring an automation rule and adding a **run playbook** action, a drop-down list of playbooks will appear. Playbooks to which Azure Sentinel does not have permissions will show as unavailable ("grayed out"). You can grant Azure Sentinel permission to the playbooks' resource groups on the spot by selecting the **Manage playbook permissions** link.
 
-> [!NOTE]
-> **Permissions in a multi-tenant architecture**
->
-> Automation rules fully support cross-workspace and multi-tenant deployments (in the case of multi-tenant, using [Azure Lighthouse](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse)).
->
-> Therefore, if your Azure Sentinel deployment uses a multi-tenant architecture (If you're an MSSP, for example), you can have an automation rule in one tenant run a playbook that lives in a different tenant, but permissions for Sentinel to run the playbooks must be defined in the tenant where the playbooks reside, not in the tenant where the automation rules are defined.
+#### Permissions in a multi-tenant architecture
+
+Automation rules fully support cross-workspace and [multi-tenant deployments](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse) (in the case of multi-tenant, using [Azure Lighthouse](../lighthouse/index.yml)).
+
+Therefore, if your Azure Sentinel deployment uses a multi-tenant architecture, you can have an automation rule in one tenant run a playbook that lives in a different tenant, but permissions for Sentinel to run the playbooks must be defined in the tenant where the playbooks reside, not in the tenant where the automation rules are defined.
+
+In the specific case of a Managed Security Service Provider (MSSP), where a service provider tenant manages an Azure Sentinel workspace in a customer tenant, there are two particular scenarios that warrant your attention:
+
+- **An automation rule created in the customer tenant is configured to run a playbook located in the service provider tenant.** 
+
+    This approach is normally used to protect intellectual property in the playbook. Nothing special is required for this scenario to work. When defining a playbook action in your automation rule, and you get to the stage where you grant Azure Sentinel permissions on the relevant resource group where the playbook is located (using the **Manage playbook permissions** panel), you'll see the resource groups belonging to the service provider tenant among those you can choose from. [See the whole process outlined here](tutorial-respond-threats-playbook.md#respond-to-incidents).
+
+- **An automation rule created in the customer workspace (while signed into the service provider tenant) is configured to run a playbook located in the customer tenant**.
+
+    This configuration is used when there is no need to protect intellectual property. For this scenario to work, permissions to execute the playbook need to be granted to Azure Sentinel in ***both tenants***. In the customer tenant, you grant them in the **Manage playbook permissions** panel, just like in the scenario above. To grant the relevant permissions in the service provider tenant, you need to add an additional Azure Lighthouse delegation that grants access rights to the **Azure Security Insights** app, with the **Azure Sentinel Automation Contributor** role, on the resource group where the playbook resides.
+
+    The scenario looks like this:
+
+    :::image type="content" source="./media/automate-incident-handling-with-automation-rules/automation-rule-multi-tenant.png" alt-text="Multi-tenant automation rule architecture":::
+
+    See [our instructions](tutorial-respond-threats-playbook.md#permissions-to-run-playbooks) for setting this up.
 
 ## Creating and managing automation rules
 

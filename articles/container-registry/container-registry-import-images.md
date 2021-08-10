@@ -27,9 +27,7 @@ Image import into an Azure container registry has the following benefits over us
 
 To import container images, this article requires that you run the Azure CLI in Azure Cloud Shell or locally (version 2.0.55 or later recommended). Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
-> [!NOTE]
-> If you need to distribute identical container images across multiple Azure regions, Azure Container Registry also supports [geo-replication](container-registry-geo-replication.md). By geo-replicating a registry (Premium service tier required), you can serve multiple regions with identical image and tag names from a single registry.
->
+[!INCLUDE [container-registry-geo-replication-include](../../includes/container-registry-geo-replication-include.md)]
 
 > [!IMPORTANT]
 > Changes to image import between two Azure container registries have been introduced as of January 2021:
@@ -204,7 +202,13 @@ az acr import \
 
 ## Next steps
 
-In this article, you learned about importing container images to an Azure container registry from a public registry or another private registry. For additional image import options, see the [az acr import][az-acr-import] command reference. 
+In this article, you learned about importing container images to an Azure container registry from a public registry or another private registry. 
+
+* For additional image import options, see the [az acr import][az-acr-import] command reference. 
+
+* Image import can help you move content to a container registry in a different Azure region, subscription, or Azure AD tenant. For more information, see [Manually move a container registry to another region](manual-regional-move.md).
+
+* Learn how to [disable artifact export](data-loss-prevention.md) from a network-restricted container registry.
 
 
 <!-- LINKS - Internal -->

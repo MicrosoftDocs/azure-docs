@@ -2,8 +2,8 @@
 title: Detect motion and emit events from the edge - Azure
 description: This quickstart shows you how to use Azure Video Analyzer to detect motion and emit events, by programmatically calling direct methods.
 ms.topic: quickstart
-ms.date: 03/17/2021
-zone_pivot_groups: ams-lva-edge-programming-languages
+ms.date: 06/01/2021
+zone_pivot_groups: video-analyzer-programming-languages
 ---
 
 # Quickstart: Detect motion and emit events
@@ -122,4 +122,4 @@ If you intend to try the other quickstarts, then you should keep the resources y
 - Review additional challenges for advanced users:
 
   - Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that supports RTSP instead of using the RTSP simulator. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products/) page. Look for devices that conform with profiles G, S, or T.
-  - Use an AMD64 or x64 Linux device rather than using a Linux VM in Azure. This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true). Then follow the instructions in [Deploy your first IoT Edge module to a virtual Linux device](/azure/iot-edge/quickstart-linux?view=iotedge-2020-11&preserve-view=true) register the device with Azure IoT Hub.
+  - Use an AMD64 or x64 Linux device rather than using a Linux VM in Azure. This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge.md?preserve-view=true&view=iotedge-2020-11). Then follow the instructions in [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md?preserve-view=true&view=iotedge-2020-11) register the device with Azure IoT Hub.

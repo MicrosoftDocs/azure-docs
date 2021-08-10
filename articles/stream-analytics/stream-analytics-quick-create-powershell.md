@@ -74,19 +74,19 @@ The following Azure CLI code block does many commands to prepare the input data 
     az account set --subscription "<your subscription>"
     ```
 
-2. Create an IoT Hub using the [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub) command. This example creates an IoT Hub called **MyASAIoTHub**. Because IoT Hub names are unique, you need to come up with your own IoT Hub name. Set the SKU to F1 to use the free tier if it is available with your subscription. If not, choose the next lowest tier.
+2. Create an IoT Hub using the [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command. This example creates an IoT Hub called **MyASAIoTHub**. Because IoT Hub names are unique, you need to come up with your own IoT Hub name. Set the SKU to F1 to use the free tier if it is available with your subscription. If not, choose the next lowest tier.
 
     ```azurecli
     az iot hub create --name "<your IoT Hub name>" --resource-group $resourceGroup --sku S1
     ```
 
-    Once the IoT hub has been created, get the IoT Hub connection string using the [az iot hub show-connection-string](/cli/azure/iot/hub) command. Copy the entire connection string and save it for when you add the IoT Hub as input to your Stream Analytics job.
+    Once the IoT hub has been created, get the IoT Hub connection string using the [az iot hub show-connection-string](/cli/azure/iot/hub#az_iot_hub_show_connection_string) command. Copy the entire connection string and save it for when you add the IoT Hub as input to your Stream Analytics job.
 
     ```azurecli
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
     ```
 
-3. Add a device to IoT Hub using the [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device) command. This example creates a device called **MyASAIoTDevice**.
+3. Add a device to IoT Hub using the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) command. This example creates a device called **MyASAIoTDevice**.
 
     ```azurecli
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"

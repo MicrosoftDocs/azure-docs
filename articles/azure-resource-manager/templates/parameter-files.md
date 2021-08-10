@@ -229,5 +229,5 @@ If your template includes a parameter with the same name as one of the parameter
 
 ## Next steps
 
-- For more information about how to define parameters in a template, see [Parameters in ARM templates](template-parameters.md).
+- For more information about how to define parameters in a template, see [Parameters in ARM templates](./parameters.md).
 - For more information about using values from a key vault, see [Use Azure Key Vault to pass secure parameter value during deployment](key-vault-parameter.md).

@@ -36,7 +36,7 @@ You create and administer your Apache Spark pools in an Azure Synapse Analytics 
 Once your Azure Machine Learning workspace and your Azure Synapse Analytics workspaces are linked, you can attach an Apache Spark pool via 
 * [Azure Machine Learning studio](how-to-link-synapse-ml-workspaces.md#attach-a-pool-via-the-studio)
 * Python SDK ([as elaborated below](#attach-your-apache-spark-pool-as-a-compute-target-for-azure-machine-learning))
-* Azure Resource Manager (ARM) template (see this [Example ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)). 
+* Azure Resource Manager (ARM) template (see this [Example ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-linkedservice-create/azuredeploy.json)). 
     * You can use the command line to follow the ARM template, add the linked service, and attach the Apache Spark pool with the following code:
     ```azurecli
     az deployment group create --name --resource-group <rg_name> --template-file "azuredeploy.json" --parameters @"azuredeploy.parameters.json"

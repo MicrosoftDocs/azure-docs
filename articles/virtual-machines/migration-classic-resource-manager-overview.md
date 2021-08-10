@@ -18,9 +18,9 @@ ms.author: tagore
 
 
 
-This article provides overview on platform-supported migration tool, how to migrate resources from the Azure Service Manager (ASM) aka Classic to Resource Manager (ARM) deployment models and details how to connect resources from the two deployment models that coexist in your subscription by using virtual network site-to-site gateways. You can read more about [Azure Resource Manager features and benefits](../azure-resource-manager/management/overview.md). 
+This article provides overview on platform-supported migration tool, how to migrate resources from the Azure Service Manager (ASM) also known as Classic to Resource Manager (ARM) deployment models and details how to connect resources from the two deployment models that coexist in your subscription by using virtual network site-to-site gateways. You can read more about [Azure Resource Manager features and benefits](../azure-resource-manager/management/overview.md). 
 
-ASM supports two different compute products, Azure Virtual Machines (classic) aka IaaS VMs & [Azure Cloud Services (classic)](../cloud-services/index.yml) aka PaaS VMs or Web/Worker Roles. This document only talks about migrating Azure Virtual Machines (classic).
+ASM supports two different compute products, Azure Virtual Machines (classic) also known as IaaS VMs & [Azure Cloud Services (classic)](../cloud-services/index.yml) also known as PaaS VMs or Web/Worker Roles. This document only talks about migrating Azure Virtual Machines (classic).
 
 ## Goal for migration
 Resource Manager enables deploying complex applications through templates, configures virtual machines by using VM extensions, and incorporates access management and tagging. Azure Resource Manager includes scalable, parallel deployment for virtual machines into availability sets. The new deployment model also provides lifecycle management of compute, network, and storage independently. Finally, there’s a focus on enabling security by default with the enforcement of virtual machines in a virtual network.
@@ -30,7 +30,8 @@ Almost all the features from the classic deployment model are supported for comp
 ## Supported resources & configurations for migration
 
 ### Supported resources for migration
-* Virtual Machines
+* Virtual Machines (Cloud Service with VMs)
+* [Cloud Services (with Web/Worker Roles)](../cloud-services-extended-support/in-place-migration-overview.md)
 * Availability Sets
 * Storage Accounts
 * Virtual Networks
@@ -88,7 +89,7 @@ If your storage account does not have any associated disks or Virtual Machines d
 The following screenshots show how to upgrade a Classic storage account to an Azure Resource Manager storage account using Azure portal:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to your storage account.
-3. In the **Settings** section, click **Migrate to ARM**.
+3. In the **Settings** section, click **Migrate to Azure Resource Manager**.
 4. Click on **Validate** to determine migration feasibility.
 5. If validation passes, click on **Prepare** to create a migrated storage account.
 6. Type **yes** to confirm migration and click **Commit** to finish the migration.
@@ -131,10 +132,9 @@ The following configurations are not currently supported.
 | Compute |Virtual machines that have alerts, Autoscale policies |The migration goes through and these settings are dropped. It is highly recommended that you evaluate your environment before you do the migration. Alternatively, you can reconfigure the alert settings after migration is complete. |
 | Compute |XML VM extensions (BGInfo 1.*, Visual Studio Debugger, Web Deploy, and Remote Debugging) |This is not supported. It is recommended that you remove these extensions from the virtual machine to continue migration or they will be dropped automatically during the migration process. |
 | Compute |Boot diagnostics with Premium storage |Disable Boot Diagnostics feature for the VMs before continuing with migration. You can re-enable boot diagnostics in the Resource Manager stack after the migration is complete. Additionally, blobs that are being used for screenshot and serial logs should be deleted so you are no longer charged for those blobs. |
-| Compute | Cloud services that contain web/worker roles | This is currently not supported. |
 | Compute | Cloud services that contain more than one availability set or multiple availability sets. |This is currently not supported. Please move the Virtual Machines to the same availability set before migrating. |
 | Compute | VM with Azure Security Center extension | Azure Security Center automatically installs extensions on your Virtual Machines to monitor their security and raise alerts. These extensions usually get installed automatically if the Azure Security Center policy is enabled on the subscription. To migrate the Virtual Machines, disable the security center policy on the subscription, which will remove the Security Center monitoring extension from the Virtual Machines. |
-| Compute | VM with backup or snapshot extension | These extensions are installed on a Virtual Machine configured with the Azure Backup service. While the migration of these VMs is not supported, follow the guidance [here](./migration-classic-resource-manager-faq.md#i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault) to keep backups that were taken prior to migration.  |
+| Compute | VM with backup or snapshot extension | These extensions are installed on a Virtual Machine configured with the Azure Backup service. While the migration of these VMs is not supported, follow the guidance in [Frequently asked questions about classic to Azure Resource Manager migration](/azure/virtual-machines/migration-classic-resource-manager-faq#i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault) to keep backups that were taken prior to migration.  |
 | Compute | VM with Azure Site Recovery extension | These extensions are installed on a Virtual Machine configured with the Azure Site Recovery service. While the migration of storage used with Site Recovery will work, current replication will be impacted. You need to disable and enable VM replication after storage migration. |
 | Network |Virtual networks that contain virtual machines and web/worker roles |This is currently not supported. Please move the Web/Worker roles to their own Virtual Network before migrating. Once the classic Virtual Network is migrated, the migrated Azure Resource Manager Virtual Network can be peered with the classic Virtual Network to achieve similar configuration as before.|
 | Network | Classic Express Route circuits |This is currently not supported. These circuits need to be migrated to Azure Resource Manager before beginning IaaS migration. To learn more, see [Moving ExpressRoute circuits from the classic to the Resource Manager deployment model](../expressroute/expressroute-move.md).|
@@ -151,4 +151,4 @@ The following configurations are not currently supported.
 * [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-cli.md)
 * [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-community-tools.md)
 * [Review most common migration errors](migration-classic-resource-manager-errors.md)
-* [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.md)
+* [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.yml)

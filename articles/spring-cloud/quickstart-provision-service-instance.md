@@ -1,8 +1,8 @@
 ---
 title:  "Quickstart - Provision Azure Spring Cloud service"
 description: Describes creation of Azure Spring Cloud service instance for app deployment.
-author:  MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
@@ -73,11 +73,11 @@ az extension add --name spring-cloud
 1. Set your default resource group name and service instance name so you don't have to repeatedly specify these values in subsequent commands.
 
    ```azurecli
-   az configure --defaults group=<resource group name>
+   az config set defaults.group=<resource group name>
    ```
 
    ```azurecli
-   az configure --defaults spring-cloud=<service instance name>
+   az config set defaults.spring-cloud=<service instance name>
    ```
 ::: zone-end
 
@@ -155,7 +155,7 @@ The following procedure uses the Azure CLI extension to provision an instance of
 1. Set your default resource group name and Spring Cloud service name using the following command:
 
     ```azurecli
-    az configure --defaults group=<resource group name> spring-cloud=<service name>
+    az config set defaults.group=<resource group name> defaults.spring-cloud=<service name>
     ```
 ---
 ::: zone-end

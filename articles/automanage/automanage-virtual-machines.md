@@ -28,6 +28,11 @@ After onboarding your virtual machines to Azure Automanage, each best practice s
 
 Azure Automanage also automatically monitors for drift and corrects for it when detected. What this means is if your virtual machine is onboarded to Azure Automanage, we'll not only configure it per Azure best practices, but we'll monitor your machine to ensure that it continues to comply with those best practices across its entire lifecycle. If your virtual machine does drift or deviate from those practices (for example, if a service is offboarded), we will correct it and pull your machine back into the desired state.
 
+Automanage doesn't store/process customer data outside the geography your VMs are located. In the SoutheastAsia region, Automanage does not store/process data outside of SoutheastAsia.
+
+> [!NOTE]
+> Automanage can be enabled on Azure virtual machines as well as Arc enabled servers. Automanage is not available in US Government Cloud at this time.
+
 ## Prerequisites
 
 There are several prerequisites to consider before trying to enable Azure Automanage on your virtual machines.
@@ -36,6 +41,7 @@ There are several prerequisites to consider before trying to enable Azure Automa
 - VMs must be in a supported region (see below)
 - User must have correct permissions (see below)
 - Automanage does not support Sandbox subscriptions at this time
+- Automanage does not support Windows 10 at this time
 
 ### Supported regions
 Automanage only supports VMs located in the following regions:

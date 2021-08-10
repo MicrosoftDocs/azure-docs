@@ -141,4 +141,4 @@ For an example of using a SAS token with linked templates, see [Using linked tem
 
 ## Next steps
 * For an introduction to deploying templates, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
-* To define parameters in template, see [Authoring templates](template-syntax.md#parameters).
+* To define parameters in template, see [Authoring templates](./syntax.md#parameters).

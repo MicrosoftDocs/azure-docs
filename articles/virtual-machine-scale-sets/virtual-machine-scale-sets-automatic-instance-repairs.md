@@ -33,7 +33,7 @@ For instances marked as "Unhealthy", automatic repairs are triggered by the scal
 
 **Maximum number of instances in the scale set**
 
-This feature is currently available only for scale sets that have a maximum of 500 instances. The scale set can be deployed as either a single placement group or a multi-placement group, however the instance count cannot be above 200 if automatic instance repairs is enabled for the scale set.
+This feature is currently available only for scale sets that have a maximum of 500 instances. The scale set can be deployed as either a single placement group or a multi-placement group, however the instance count cannot be above 500 if automatic instance repairs is enabled for the scale set.
 
 **API version**
 

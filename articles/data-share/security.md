@@ -24,8 +24,7 @@ Access controls to Azure Data Share can be set on the Data Share resource level 
 Once a share is created or received, users with proper permission to the Data Share resource can make changes. When a user who creates or receives a share leaves the organization, it does not terminate the share or stop flow of data. Other users with proper permission to the Data Share resource can continue to manage the share.
 
 ## Share data from or to data stores with firewall enabled
-To share data from or to storage accounts with firewall turned on, you need to enable **Allow trusted Microsoft services** in your storage account. See [Configure Azure Storage firewalls and virtual networks](
-https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services) for details.
+To share data from or to storage accounts with firewall turned on, you need to enable **Allow trusted Microsoft services** in your storage account. See [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md#trusted-microsoft-services) for details.
 
 
 ## Next steps

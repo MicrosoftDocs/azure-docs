@@ -19,7 +19,7 @@ This tutorial shows how to add a custom domain to an Azure Content Delivery Netw
 
 The endpoint name in your CDN profile is a subdomain of azureedge.net. By default when delivering content, the CDN profile domain is included within the URL.
 
-For example, **https://contoso.azureedge.net/photo.png**.
+For example, `https://contoso.azureedge.net/photo.png`.
 
 Azure CDN provides the option of associating a custom domain with a CDN endpoint. This option delivers content with a custom domain in your URL instead of the default domain.
 

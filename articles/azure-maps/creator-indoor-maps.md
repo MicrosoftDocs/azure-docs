@@ -54,7 +54,7 @@ Creator services create, store, and use various data types that are defined and 
 
 Creator collects indoor map data by converting an uploaded Drawing package. The Drawing package represents a constructed or remodeled facility. For information about Drawing package requirements, see [Drawing package requirements](drawing-requirements.md).
 
-Use the [Azure Maps Data Upload API](/rest/api/maps/data%20v2/uploadpreview) to upload a Drawing package. After the Drawing packing is uploaded, the Data Upload API returns a user data identifier (`udid`). The `udid` can then be used to convert the uploaded package into indoor map data.
+Use the [Azure Maps Data Upload API](/rest/api/maps/data-v2/update-preview) to upload a Drawing package. After the Drawing packing is uploaded, the Data Upload API returns a user data identifier (`udid`). The `udid` can then be used to convert the uploaded package into indoor map data.
 
 ## Convert a Drawing package
 
@@ -68,24 +68,24 @@ For more information, see [Drawing package warnings and errors](drawing-conversi
 
 Azure Maps Creator provides the following services that support map creation:
 
-- [Dataset service](/rest/api/maps/v2/dataset/createpreview).
-- [Tileset service](/rest/api/maps/v2/tileset/createpreview).
+- [Dataset service](/rest/api/maps/v2/dataset).
+- [Tileset service](/rest/api/maps/v2/tileset).
 Use the Tileset service to create a vector-based representation of a dataset. Applications can use a tileset to present a visual tile-based view of the dataset.
-- [Feature State service](/rest/api/maps/v2/featurestate). Use the Feature State service to support dynamic map styling. Applications can use dynamic map styling to reflect real-time events on spaces provided by the IoT system.
+- [Feature State service](/rest/api/maps/v2/feature-state). Use the Feature State service to support dynamic map styling. Applications can use dynamic map styling to reflect real-time events on spaces provided by the IoT system.
 
 ### Datasets
 
-A dataset is a collection of indoor map features. The indoor map features represent facilities that are defined in a converted Drawing package. After you create a dataset with the [Dataset service](/rest/api/maps/v2/dataset/createpreview), you can create any number of [tilesets](#tilesets) or [feature statesets](#feature-statesets).
+A dataset is a collection of indoor map features. The indoor map features represent facilities that are defined in a converted Drawing package. After you create a dataset with the [Dataset service](/rest/api/maps/v2/dataset), you can create any number of [tilesets](#tilesets) or [feature statesets](#feature-statesets).
 
-At any time, developers can use the [Dataset service](/rest/api/maps/v2/dataset/createpreview) to add or remove facilities to an existing dataset. For more information about how to update an existing dataset using the API, see the append options in [Dataset service](/rest/api/maps/v2/dataset/createpreview). For an example of how to update a dataset, see [Data maintenance](#data-maintenance).
+At any time, developers can use the [Dataset service](/rest/api/maps/v2/dataset) to add or remove facilities to an existing dataset. For more information about how to update an existing dataset using the API, see the append options in [Dataset service](/rest/api/maps/v2/dataset). For an example of how to update a dataset, see [Data maintenance](#data-maintenance).
 
 ### Tilesets
 
-A tileset is a collection of vector data that represents a set of uniform grid tiles. Developers can use the [Tileset service](/rest/api/maps/v2/tileset/createpreview) to create tilesets from a dataset.
+A tileset is a collection of vector data that represents a set of uniform grid tiles. Developers can use the [Tileset service](/rest/api/maps/v2/tileset) to create tilesets from a dataset.
 
 To reflect different content stages, you can create multiple tilesets from the same dataset. For example, you can make one tileset with furniture and equipment, and another tileset without furniture and equipment. You might choose to generate one tileset with the most recent data updates, and another tileset without the most recent data updates.
 
-In addition to the vector data, the tileset provides metadata for map rendering optimization. For example, tileset metadata contains a minimum and maximum zoom level for the tileset. The metadata also provides a bounding box that defines the geographic extent of the tileset. An application can use a bounding box to programmatically set the correct center point. For more information about tileset metadata, see [Tileset List API](/rest/api/maps/v2/tileset/listpreview).
+In addition to the vector data, the tileset provides metadata for map rendering optimization. For example, tileset metadata contains a minimum and maximum zoom level for the tileset. The metadata also provides a bounding box that defines the geographic extent of the tileset. An application can use a bounding box to programmatically set the correct center point. For more information about tileset metadata, see [Tileset List API](/rest/api/maps/v2/tileset/list).
 
 After a tileset is created, it can be retrieved by the [Render V2 service](#render-v2-get-map-tile-api).
 
@@ -100,9 +100,9 @@ If a tileset becomes outdated and is no longer useful, you can delete the tilese
 
 Feature statesets are collections of dynamic properties (*states*) that are assigned to dataset features, such as rooms or equipment. An example of a *state* can be temperature or occupancy. Each *state* is a key/value pair that contains the name of the property, the value, and the timestamp of the last update.
 
-You can use the [Feature State service](/rest/api/maps/v2/featurestate/createstatesetpreview) to create and manage a feature stateset for a dataset. The stateset is defined by one or more *states*. Each feature, such as a room, can have one *state* attached to it.
+You can use the [Feature State service](/rest/api/maps/v2/feature-state/create-stateset) to create and manage a feature stateset for a dataset. The stateset is defined by one or more *states*. Each feature, such as a room, can have one *state* attached to it.
 
-The value of each *state* in a stateset can be updated or retrieved by IoT devices or other applications.  For example, using the [Feature State Update API](/rest/api/maps/v2/featurestate/updatestatespreview), devices measuring space occupancy can systematically post the state change of a room.
+The value of each *state* in a stateset can be updated or retrieved by IoT devices or other applications.  For example, using the [Feature State Update API](/rest/api/maps/v2/feature-state/update-states), devices measuring space occupancy can systematically post the state change of a room.
 
 An application can use a feature stateset to dynamically render features in a facility according to their current state and respective map style. For more information about using feature statesets to style features in a rendering map, see [Indoor Maps module](#indoor-maps-module).
 
@@ -113,7 +113,7 @@ An application can use a feature stateset to dynamically render features in a fa
 
 ### Render V2-Get Map Tile API
 
-The Azure Maps [Render V2-Get Map Tile API](/rest/api/maps/renderv2/getmaptilepreview) has been extended to support Creator tilesets.
+The Azure Maps [Render V2-Get Map Tile API](/rest/api/maps/render-v2/get-map-tile) has been extended to support Creator tilesets.
 
 Applications can use the Render V2-Get Map Tile API to request tilesets. The tilesets can then be integrated into a map control or SDK. For an example of a map control that uses the Render V2 service, see [Indoor Maps Module](#indoor-maps-module).
 
@@ -142,15 +142,15 @@ As you begin to develop solutions for indoor maps, you can discover ways to inte
  You can use the Azure Maps Creator List, Update, and Delete API to list, update, and delete your datasets, tilesets, and feature statesets.
 
 >[!NOTE]
->When you review a list of items to determine whether to delete them, consider the impact of that deletion on all dependent API or applications. For example, if you delete a tileset that's being used by an application by means of the [Render V2-Get Map Tile API](/rest/api/maps/renderv2/getmaptilepreview), the application fails to render that tileset.
+>When you review a list of items to determine whether to delete them, consider the impact of that deletion on all dependent API or applications. For example, if you delete a tileset that's being used by an application by means of the [Render V2-Get Map Tile API](/rest/api/maps/render-v2/get-map-tile), the application fails to render that tileset.
 
 ### Example: Updating a dataset
 
 The following example shows how to update a dataset, create a new tileset, and delete an old tileset:
 
 1. Follow steps in the [Upload a Drawing package](#upload-a-drawing-package) and [Convert a Drawing package](#convert-a-drawing-package) sections to upload and convert the new Drawing package.
-2. Use the [Dataset Create API](/rest/api/maps/v2/dataset/createpreview) to append the converted data to the existing dataset.
-3. Use the [Tileset Create API](/rest/api/maps/v2/tileset/createpreview) to generate a new tileset out of the updated dataset.
+2. Use the [Dataset Create API](/rest/api/maps/v2/dataset/create) to append the converted data to the existing dataset.
+3. Use the [Tileset Create API](/rest/api/maps/v2/tileset/create) to generate a new tileset out of the updated dataset.
 4. Save the new **tilesetId** for the next step.
 5. To enable the visualization of the updated campus dataset, update the tileset identifier in your application. If the old tileset is no longer used, you can delete it.
 

@@ -39,6 +39,8 @@
       href: premium-portal.md
     - name: Azure Firewall Premium certificates
       href: premium-certificates.md
+    - name: Azure Firewall web categories
+      href: web-categories.md   
     - name: FQDN tags
       href: fqdn-tags.md
     - name: Infrastructure FQDNs
@@ -139,7 +141,7 @@
   - name: FAQ
     href: firewall-faq.yml
   - name: Author templates
-    href: ../azure-resource-manager/templates/template-syntax.md
+    href: ../azure-resource-manager/templates/syntax.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Community templates

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/17/2020
+ms.date: 08/04/2021
 ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: "it-pro, seodec18, contperf-fy21q1"
@@ -39,7 +39,9 @@ Policies | <ul><li>Read all properties of policies<li>Manage all properties of o
 
 ## Restrict member users default permissions 
 
-Default permissions for member users can be restricted in the following ways:
+It is possible to add restrictions to users' default permissions. Some organizations may have a need to restrict users' access to the portal. This feature is to be used if you don’t want all users in the directory to have access to the Azure AD admin portal/directory. 
+
+For example, a university will have many users within their directory, and the admin may not want all of the students in the directory to be able to see the full directory and violate other students' privacy. The use of this feature is optional, and at the discretion of the Azure AD administrator. Default permissions for member users can be restricted in the following ways:
 
 Permission | Setting explanation
 ---------- | ------------
@@ -47,8 +49,11 @@ Users can register application | Setting this option to No prevents users from c
 Allow users to connect work or school account with LinkedIn | Setting this option to No prevents users from connecting their work or school account with their LinkedIn account. For more information, see [LinkedIn account connections data sharing and consent](../enterprise-users/linkedin-user-consent.md).
 Ability to create security groups | Setting this option to No prevents users from creating security groups. Global administrators and User administrators can still create security groups. See [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md) to learn how.
 Ability to create Microsoft 365 groups | Setting this option to No prevents users from creating Microsoft 365 groups. Setting this option to Some allows a select set of users to create Microsoft 365 groups. Global administrators and User administrators will still be able to create Microsoft 365 groups. See [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md) to learn how.
-Restrict access to Azure AD administration portal | Setting this option to No lets non-administrators use the Azure AD administration portal to read and manage Azure AD resources. Yes restricts all non-administrators from accessing any Azure AD data in the administration portal.<p>**Note**: this setting does not restrict access to Azure AD data using PowerShell or other clients such as Visual Studio.When set to Yes, to grant a specific non-admin user the ability to use the Azure AD administration portal assign any administrative role such as the Directory Readers role.<p>This role allows reading basic directory information, which member users have by default (guests and service principals do not).
+Restrict access to Azure AD administration portal | <p>Setting this option to No lets non-administrators use the Azure AD administration portal to read and manage Azure AD resources. Yes restricts all non-administrators from accessing any Azure AD data in the administration portal.</p><p>**Note**: this setting does not restrict access to Azure AD data using PowerShell or other clients such as Visual Studio.When set to Yes, to grant a specific non-admin user the ability to use the Azure AD administration portal assign any administrative role such as the Directory Readers role.</p><p>**Note**: this settings will block non-admin users who are owners of groups or applications from using the Azure portal to manage their owned resources.</p><p>This role allows reading basic directory information, which member users have by default (guests and service principals do not).</p>
 Ability to read other users | This setting is available in PowerShell only. Setting this flag to $false prevents all non-admins from reading user information from the directory. This flag does not prevent reading user information in other Microsoft services like Exchange Online. This setting is meant for special circumstances, and setting this flag to $false is not recommended.
+
+>![NOTE]
+>It’s assumed the average user would only use the portal to access Azure AD, and not use PowerShell or CLI to access their resources. Currently, restricting access to users' default permissions only occurs when the user tries to access the directory within the Azure portal.
 
 ## Restrict guest users default permissions
 

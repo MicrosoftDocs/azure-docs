@@ -16,7 +16,7 @@ The IoT Central REST API lets you develop client applications that integrate wit
 
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
 
-For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](https://docs.microsoft.com/rest/api/iotcentral/).
+For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
 ## Manage roles
 
@@ -179,6 +179,8 @@ The response to this request looks like the following example. The role value id
 }
 ```
 
+You can also add a service principal user which is useful if you need to use service principal authentication for REST API calls. To learn more, see [Add or update a service principal user](/rest/api/iotcentral/1.0/users/create#add-or-update-a-service-principal-user).
+
 ### Change the role of a user
 
 Use the following request to change the role assigned to user. This example uses the ID of the builder role you retrieved previously:
@@ -224,4 +226,4 @@ DELETE https://{your app subdomain}.azureiotcentral.com/api/users/user-001?api-v
 
 ## Next steps
 
-Now that you've learned how to manage users and roles with the REST API, a suggested next step is to [Manage IoT Central applications with the REST API](/learn/modules/manage-iot-central-apps-with-rest-api/).
+Now that you've learned how to manage users and roles with the REST API, a suggested next step is to [How to use the IoT Central REST API to control devices](howto-control-devices-with-rest-api.md).

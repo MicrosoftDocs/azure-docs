@@ -232,6 +232,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-functions-python-worker-extension",
+      "url": "https://github.com/Azure-Samples/python-worker-extension-timer",
+      "branch": "main",
+      "branch_mapping": {}
+    },    
+    {
       "path_to_root": "functions-openapi-turbine-repair",
       "url": "https://github.com/Azure-Samples/functions-openapi-turbine-repair",
       "branch": "main",
@@ -382,6 +388,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "media-services-v3-python",
+      "url": "https://github.com/Azure-Samples/media-services-v3-python",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "remote-monitoring-webui",
       "url": "https://github.com/Azure/pcs-remote-monitoring-webui.git",
       "branch": "master",
@@ -498,31 +510,31 @@
     {
       "path_to_root": "azure-sdk-for-java-event-hubs",
       "url": "https://github.com/Azure/azure-sdk-for-java/",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "azure-sdk-for-java-cosmos-db",
       "url": "https://github.com/Azure/azure-sdk-for-java/",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "azure-sdk-for-java-script-event-hubs",
       "url": "https://github.com/Azure/azure-sdk-for-js/",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "azure-sdk-for-net-event-hubs",
       "url": "https://github.com/Azure/azure-sdk-for-net/",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "azure-sdk-for-python-event-hubs",
       "url": "https://github.com/Azure/azure-sdk-for-python/",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -600,7 +612,7 @@
     {
       "path_to_root": "cosmosdb-python-sdk",
       "url": "https://github.com/Azure/azure-sdk-for-python/",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -619,6 +631,18 @@
       "path_to_root": "azure-cosmos-db-python-getting-started",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-python-getting-started",
       "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "active-directory-aspnetcore-webapp-openidconnect-v2",
+      "url": "https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "sample-active-directory-aspnetcore-webapp-openidconnect-v2",
+      "url": "https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2",
+      "branch": "aspnetcore3-1",
       "branch_mapping": {}
     },
     {
@@ -726,7 +750,7 @@
     {
       "path_to_root": "azure-sdk-for-net",
       "url": "https://github.com/Azure/azure-sdk-for-net/",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -744,6 +768,18 @@
     {
       "path_to_root": "azure-spring-cloud-reference-architecture",
       "url": "https://github.com/Azure/azure-spring-cloud-reference-architecture",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+    "path_to_root": "digital-twins-docs-samples-getting-started",
+    "url": "https://github.com/Azure-Samples/azure-digital-twins-getting-started",
+    "branch": "main",
+    "branch_mapping": {}
+    },
+    {
+      "path_to_root": "dotnet-samples",
+      "url": "https://github.com/dotnet/samples",
       "branch": "main",
       "branch_mapping": {}
     }
@@ -769,8 +805,28 @@
   },
   "redirection_files": [
     ".openpublishing.redirection.json",
+    ".openpublishing.redirection.data-factory.json",
+    ".openpublishing.redirection.defender-for-iot.json",
     ".openpublishing.redirection.healthcare-apis.json",
+    ".openpublishing.redirection.media-services.json",
     ".openpublishing.redirection.security-benchmark.json",
-    ".openpublishing.redirection.media-services.json"
+    ".openpublishing.redirection.key-vault.json",
+    ".openpublishing.redirection.iot-hub.json",
+    "articles/azure-relay/.openpublishing.redirection.relay.json",
+    "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json",
+    "articles/cost-management-billing/.openpublishing.redirection.cost-management-billing.json",
+    "articles/data-catalog/.openpublishing.redirection.data-catalog.json",
+    "articles/data-lake-analytics/.openpublishing.redirection.data-lake-analytics.json",
+    "articles/digital-twins/.openpublishing.redirection.digital-twins.json",
+    "articles/event-grid/.openpublishing.redirection.event-grid.json",
+    "articles/event-hubs/.openpublishing.redirection.event-hubs.json",
+    "articles/hdinsight/.openpublishing.redirection.hdinsight.json",
+    "articles/iot-central/.openpublishing.redirection.iot-central.json",
+    "articles/iot-develop/.openpublishing.redirection.iot-develop.json",
+    "articles/marketplace/.openpublishing.redirection.marketplace.json",
+    "articles/purview/.openpublishing.redirection.purview.json",
+    "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json",
+    "articles/service-bus-messaging/.openpublishing.redirection.service-bus-messaging.json",
+    "articles/stream-analytics/.openpublishing.redirection.stream-analytics.json"
   ]
 }

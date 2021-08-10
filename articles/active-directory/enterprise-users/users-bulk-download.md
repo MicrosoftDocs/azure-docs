@@ -32,8 +32,9 @@ To download the list of users from the Azure AD admin center, you must be signed
 4. On the **Download users** page, select **Start** to receive a CSV file listing user profile properties. If there are errors, you can download and view the results file on the Bulk operation results page. The file contains the reason for each error.
 
    ![Select where you want the list the users you want to download](./media/users-bulk-download/bulk-download.png)
-
-   The download file will contain the filtered list of users.
+   
+>[!NOTE]
+>The download file will contain the filtered list of users based on the scope of the filters applied.
 
    The following user attributes are included:
 
