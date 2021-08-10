@@ -74,7 +74,7 @@ Below is an example of how to configure Azure Key Vault.
     
 #### Scenario 3: Azure Functions
 
-No Network setting changes are needed for Azure Functions. Later in the steps below when you create the shared private endpoint the Function will automatically only allow access through private link.
+No network setting changes are needed for Azure Functions. Later in the steps below when you create the shared private endpoint the Function will automatically only allow access through private link after the creation of a shared private endpoint to the Function.
 
 > [!NOTE]
 > You can use the [trusted Microsoft service approach](../storage/common/storage-network-security.md#trusted-microsoft-services) to bypass virtual network or IP restrictions on a storage account. You can also enable the search service to access data in the storage account. To do so, see [Indexer access to Azure Storage with the trusted service exception](search-indexer-howto-access-trusted-service-exception.md).
@@ -88,7 +88,7 @@ The following section describes how to create a shared private link resource eit
 #### Option 1: Portal
 
 > [!NOTE]
-> The Portal only supports creating a shared private endpoint using group ID values that are GA.
+> The Portal only supports creating a shared private endpoint using group ID values that are GA. For MySQL and Azure Functions, use the Azure CLI steps described in option 2 below.
 
 To request Azure Cognitive Search to create an outbound private endpoint connection, via the Shared Private Access blade, click on "Add Shared Private Access". On the dialog that opens on the right, you can choose to "Connect to an Azure resource in my directory" or "Connect to an Azure resource by resource ID or alias".
 
