@@ -34,22 +34,24 @@ MSAL provides multiple benefits over ADAL, including the following features:
 |Features|MSAL|ADAL|
 |---------|---------|---------|
 |**Security**|||
-|Security fixes beyond June 30, 2022|![Y][y]|![X][n]|
-| Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support [Continuous Access Evaluation (CAE)](app-resilience-continuous-access-evaluation.md).|![Y][y]|![X][n]|
-| Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) |![Y][y]|![X][n]|
+|Security fixes beyond June 30, 2022|![Security fixes beyond June 30, 2022 - MSAL provides the feature][y]|![Security fixes beyond June 30, 2022 - ADAL doesn't provide the feature][n]|
+| Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support [Continuous Access Evaluation (CAE)](app-resilience-continuous-access-evaluation.md).|![Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support Continuous Access Evaluation (CAE) - MSAL provides the feature][y]|![Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support Continuous Access Evaluation (CAE) - ADAL doesn't provide the feature][n]|
+| Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) |![Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) - MSAL provides the feature][y]|![Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) - ADAL doesn't provide the feature][n]|
 |**User accounts and experiences**|||
-|Azure Active Directory (Azure AD) accounts|![Y][y]|![Y][y]|
-| Microsoft account (MSA) |![Y][y]|![X][n]|
-| Azure AD B2C accounts |![Y][y]|![X][n]|
-| Best single sign-on experience |![Y][y]|![X][n]|
+|Azure Active Directory (Azure AD) accounts|![Azure Active Directory (Azure AD) accounts - MSAL provides the feature][y]|![Azure Active Directory (Azure AD) accounts - ADAL provides the feature][y]|
+| Microsoft account (MSA) |![Microsoft account (MSA) - MSAL provides the feature][y]|![Microsoft account (MSA) - ADAL doesn't provide the feature][n]|
+| Azure AD B2C accounts |![Azure AD B2C accounts - MSAL provides the feature][y]|![Azure AD B2C accounts - ADAL doesn't provide the feature][n]|
+| Best single sign-on experience |![Best single sign-on experience - MSAL provides the feature][y]|![X][n]|
 |**Resilience**|||
-|Azure AD Back-up System|![Y][y]|Partially supported|
-| Proactive token renewal |![Y][y]|![X][n]|
-| Throttling |![Y][y]|![X][n]|
+|Azure AD Back-up System|![Azure AD Back-up System - MSAL provides the feature][y]|Partially supported|
+| Proactive token renewal |![Proactive token renewal - MSAL provides the feature][y]|![Proactive token renewal - ADAL doesn't provide the feature][n]|
+| Throttling |![Throttling - MSAL provides the feature][y]|![Throttling - ADAL doesn't provide the feature][n]|
 
 ## AD FS support in MSAL.NET
 
-You can use MSAL.NET, MSAL Java, and MSAL Python to get tokens from Active Directory Federation Services (AD FS) 2019 or later. Earlier versions of AD FS, including AD FS 2016, are unsupported by MSAL. If you need to continue using AD FS, you should upgrade to AD FS 2019 or later before you update your applications that use ADAL.
+You can use MSAL.NET, MSAL Java, and MSAL Python to get tokens from Active Directory Federation Services (AD FS) 2019 or later. Earlier versions of AD FS, including AD FS 2016, are unsupported by MSAL.
+
+If you need to continue using AD FS, you should upgrade to AD FS 2019 or later before you update your applications from ADAL to MSAL.
 
 ## How to migrate to MSAL
 
@@ -62,7 +64,10 @@ After identifying your apps that use ADAL, migrate them to MSAL depending on you
 
 ## Migration help
 
-If you have questions about migration to MSAL, you can post on [Microsoft Q&A](/answers/topics/azure-ad-adal-deprecation.html) with the tag `[azure-ad-adal-deprecation]` or open an issue in library's GitHub repository. See the [Languages and frameworks](msal-overview.md#languages-and-frameworks) section of the MSAL overview article for links to each library's repo.
+If you have questions about migrating your app from ADAL to MSAL, here are some options:
+
+- Post your question on [Microsoft Q&A](/answers/topics/azure-ad-adal-deprecation.html) and tag it with `[azure-ad-adal-deprecation]`.
+- Open an issue in the library's GitHub repository. See the [Languages and frameworks](msal-overview.md#languages-and-frameworks) section of the MSAL overview article for links to each library's repo.
 
 If you partnered with an Independent Software Vendor (ISV) in the development of your application, we recommend that you contact them directly to understand their migration journey to MSAL.
 
