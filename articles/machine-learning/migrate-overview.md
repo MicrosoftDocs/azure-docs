@@ -8,12 +8,12 @@ ms.topic: how-to
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 03/08/2021
+ms.date: 08/23/2021
 ---
 
 # Migrate to Azure Machine Learning 
 
-Learn how to migrate from Studio (classic) to [Azure Machine Learning](../overview-what-is-azure-ml.md). Azure Machine Learning provides a modernized data science platform that combines no-code and code-first approaches.
+Learn how to migrate from Studio (classic) to Azure Machine Learning. Azure Machine Learning provides a modernized data science platform that combines no-code and code-first approaches.
 
 This is a guide for a basic 'lift and shift' migration. If you want to optimize an existing machine learning workflow, or modernize an ml platform, see the [Azure Machine Learning adoption framework](https://github.com/solliancenet/microsoft-ml-kinetic/blob/main/aml-adoption-framework.md) for additional resources including digital survey tools, worksheets, and planning templates.
 
@@ -33,18 +33,18 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 
 
 ## Step 1: Assess Azure Machine Learning
-1. Learn about [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/); it's benefits, costs, and architecture.
+1. Learn about [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/); its benefits, costs, and architecture.
 
 1. Compare the capabilities of Azure Machine Learning and Studio (classic).
 
     >[!NOTE]
-    > The **designer** feature in Azure Machine Learning provides a similar drag-and-drop experience to Studio (classic). However, Azure Machine Learning also provides robust [code-first workflows](../concept-model-management-and-deployment.md) as an alternative. This migration series focuses on the designer, since it's most similar to the Studio (classic) experience.
+    > The **designer** feature in Azure Machine Learning provides a similar drag-and-drop experience to Studio (classic). However, Azure Machine Learning also provides robust [code-first workflows](concept-model-management-and-deployment.md) as an alternative. This migration series focuses on the designer, since it's most similar to the Studio (classic) experience.
 
-    [!INCLUDE [aml-compare-classic](../../../includes/machine-learning-compare-classic-aml.md)]
+    [!INCLUDE [aml-compare-classic](../../includes/machine-learning-compare-classic-aml.md)]
 
 3. Verify that your critical Studio (classic) modules are supported in Azure Machine Learning designer. For more information, see the [Studio (classic) and designer module-mapping](#studio-classic-and-designer-module-mapping) table below.
 
-4. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md?tabs=azure-portal).
+4. [Create an Azure Machine Learning workspace](how-to-manage-workspace.md?tabs=azure-portal).
 
 ## Step 2: Define a strategy and plan
 
@@ -63,7 +63,7 @@ After you've defined a strategy, migrate your first model.
 1. Use the designer to [redeploy web services](migrate-rebuild-web-service.md).
 
     >[!NOTE]
-    > Azure Machine Learning also supports code-first workflows for migrating [datasets](../how-to-create-register-datasets.md), [training](../how-to-set-up-training-targets.md), and [deployment](../how-to-deploy-and-where.md).
+    > Azure Machine Learning also supports code-first workflows for migrating [datasets](how-to-create-register-datasets.md), [training](how-to-set-up-training-targets.md), and [deployment](how-to-deploy-and-where.md).
 
 ## Step 4: Integrate client apps
 
@@ -114,7 +114,7 @@ Consult the following table to see which modules to use while rebuilding Studio 
 | Web Service | - Input </br> -   Output | - Input </br>  - Output|
 | Computer Vision| | - Apply Image Transformation </br> - Convert to Image Directory </br> - Init Image Transformation </br> - Split Image Directory  </br> - DenseNet Image Classification   </br>- ResNet Image Classification |
 
-For more information on how to use individual designer modules, see the [designer module reference](../algorithm-module-reference/module-reference.md).
+For more information on how to use individual designer modules, see the [designer module reference](algorithm-module-reference/module-reference.md).
 
 ### What if a designer module is missing?
 
@@ -132,7 +132,7 @@ In Studio (classic), **datasets** were saved in your workspace and could only be
 
 ![automobile-price-classic-dataset](./media/migrate-overview/studio-classic-dataset.png)
 
-In Azure Machine Learning, **datasets** are registered to the workspace and can be used across all of Azure Machine Learning. For more information on the benefits of Azure Machine Learning datasets, see [Secure data access](../concept-data.md#reference-data-in-storage-with-datasets).
+In Azure Machine Learning, **datasets** are registered to the workspace and can be used across all of Azure Machine Learning. For more information on the benefits of Azure Machine Learning datasets, see [Secure data access](concept-data.md#reference-data-in-storage-with-datasets).
 
 ![automobile-price-aml-dataset](./media/migrate-overview/aml-dataset.png)
 
