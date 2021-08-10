@@ -157,7 +157,7 @@ After you configured the pre-requisites, and established the base settings its t
 1. To configure CA policies in Azure AD, navigate to the [Azure portal](https://portal.azure.com). Select **View** on Manage Azure Active Directory.
 
 2. Configuration of CA policies should keep in mind [best
-practices for deploying and designing CA](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/plan-conditional-access#understand-conditional-access-policy-components).
+practices for deploying and designing CA](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access#understand-conditional-access-policy-components).
 
 3. To mimic global sign-on MFA policy from Okta, [create a policy](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa).
 
