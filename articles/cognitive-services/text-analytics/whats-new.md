@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/05/2021
+ms.date: 08/09/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -20,6 +20,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 ## August 2021
 
 * Version `3.2-preview.1` which includes a public preview for [extractive summarization](how-tos/extractive-summarization.md).
+* [Asynchronous operation](how-tos/text-analytics-how-to-call-api.md?tabs=asynchronous) is now available in the Azure Government and Azure China regions.
 * New preview versions of the client library, with support for extractive summarization. See the following samples:
     * [.NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample8_ExtractSummary.md)
     * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/AnalyzeExtractiveSummarization.java)
