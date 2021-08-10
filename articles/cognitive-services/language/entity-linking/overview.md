@@ -27,6 +27,18 @@ Entity linking is the ability to identify and disambiguate the identity of an en
 
 This feature is a part of Azure Language services, which is a part [Azure Cognitive Services](../overview.md), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the REST API and client library.
 
+## Typical workflow
+
+To use the API, you submit data for analysis and handle outputs in your application. Analysis is performed as-is, with no additional customization to the model used on your data.
+
+1. Create an Azure resource for Language Services. Afterwards, get the key and endpoint generated for you to authenticate your requests.
+
+2. Formulate a request using either the REST API or the client library for: C#, Java, JavaScript or Python. You can also call the API asynchronously to combine requests to multiple [Language Services](../overview.md) features in a single call.
+
+3. Send the request containing your data as raw unstructured text. Your key and endpoint will be used for authentication.
+
+4. Stream or store the response locally. The result will be a collection of recognized entities in your text, URLs to an online knowledge base. 
+
 ## Responsible AI 
 
 An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the following articles to learn about responsible AI use and deployment in your systems:
