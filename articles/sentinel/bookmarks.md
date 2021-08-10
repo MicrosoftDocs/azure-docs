@@ -25,7 +25,7 @@ You can revisit your bookmarked data at any time on the **Bookmarks** tab of the
 
 Viewing bookmarks from the table enables you to filter, summarize, and join bookmarked data with other data sources, making it easy to look for corroborating evidence.
 
-Currently in preview, if you find something that urgently needs to be addressed while hunting in your logs, in a couple of clicks, you can create a bookmark and promote it to an incident, or add the bookmark to an existing incident. For more information about incidents, see [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md). 
+Currently in preview, if you find something that urgently needs to be addressed while hunting in your logs, in a couple of clicks, you can create a bookmark and promote it to an incident, or add the bookmark to an existing incident. For more information about incidents, see [Tutorial: Investigate incidents with Azure Sentinel](investigate-cases.md). 
 
 Also in preview, you can visualize your bookmarked data, by clicking **Investigate** from the bookmark details. This launches the investigation experience in which you can view, investigate, and visually communicate your findings using an interactive entity-graph diagram and timeline.
 
@@ -89,7 +89,7 @@ Also in preview, you can visualize your bookmarked data, by clicking **Investiga
 
 3. Click **Investigate** to view the bookmark in the investigation graph.
 
-For instructions to use the investigation graph, see [Use the investigation graph to deep dive](tutorial-investigate-cases.md#use-the-investigation-graph-to-deep-dive).
+For instructions to use the investigation graph, see [Use the investigation graph to deep dive](investigate-cases.md#use-the-investigation-graph-to-deep-dive).
 
 ## Add bookmarks to a new or existing incident
 
