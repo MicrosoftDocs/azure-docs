@@ -8,6 +8,7 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/10/2021
 ms.author: duau
+ms.custom: references_regions
 
 ---
 # About ExpressRoute FastPath
