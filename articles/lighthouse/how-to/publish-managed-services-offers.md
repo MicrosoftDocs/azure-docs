@@ -60,7 +60,7 @@ After a customer adds your offer, they'll be able to [delegate one or more speci
 Once the customer delegates a subscription (or one or more resource groups within a subscription), the **Microsoft.ManagedServices** resource provider will be registered for that subscription, and users in your tenant will be able to access the delegated resources according to the authorizations in your offer.
 
 > [!NOTE]
-> A customer can delegate additional subscriptions or resource groups to the same offer at a later time. If they do so, they'll have to [manually register the **Microsoft.ManagedServices** resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) on each subscription.
+> To delegate additional subscriptions or resource groups to the same offer at a later time, the customer will need to [manually register the **Microsoft.ManagedServices** resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) on each subscription before delegating.
 
 If you publish an updated version of your offer, the customer can [review the changes in the Azure portal and accept the new version](view-manage-service-providers.md#update-service-provider-offers).
 
