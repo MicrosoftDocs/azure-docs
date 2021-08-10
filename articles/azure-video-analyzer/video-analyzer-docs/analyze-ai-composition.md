@@ -11,7 +11,7 @@ ms.date: 04/01/2021
 
 Certain customer scenarios require that video be analyzed with multiple AI models. Such models can be either [augmenting each other](ai-composition-overview.md#sequential-ai-composition) or [working independently in parallel](ai-composition-overview.md#parallel-ai-composition) on the [same video stream or a combination](ai-composition-overview.md#combined-ai-composition) of such augmented and independently parallel models can be acting on the same video stream to derive actionable insights.
 
-Azure Video Analyzer supports such scenarios via a feature called [AI Composition](ai-composition-overview.md). This guide shows you how you can apply multiple models in an augmented fashion on the same video stream. It uses a Tiny(Light) Yolo and a regular Yolo  model in parallel, to detect an object of interest. The Tiny Yolo model is computationally lighter but less accurate than the YOLO model and is called first. If the object detected passes a specific confidence threshold, then the sequentially staged regular Yolo model is not invoked, thus utilizing the underlying resources efficiently.
+Azure Video Analyzer supports such scenarios via a feature called [AI Composition](ai-composition-overview.md). This guide shows you how you can apply multiple models in an augmented fashion on the same video stream. It uses a Tiny(Light) YOLO and a regular YOLO  model in parallel, to detect an object of interest. The Tiny YOLO model is computationally lighter but less accurate than the YOLO model and is called first. If the object detected passes a specific confidence threshold, then the sequentially staged regular YOLO model is not invoked, thus utilizing the underlying resources efficiently.
 
 After completing the steps in this guide, you'll be able to run a simulated live video stream through a pipeline with AI composability and extend it to your specific scenarios. The following diagram graphically represents that pipeline.
 
@@ -49,7 +49,7 @@ Similar to the steps in the quickstart that you completed in the prerequisites, 
 
 Edit the *operations.json* file:
 
-* Change the link to the graph topology:
+* Change the link to the pipeline topology:
    `"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/ai-composition/topology.json"`
 * Under `livePipelineSet`,  
    1. ensure : `"topologyName" : "AIComposition"` and 
