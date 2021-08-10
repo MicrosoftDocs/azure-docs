@@ -156,6 +156,6 @@ When you don't need your project anymore, you can delete your project using [Lan
 ## Next steps
 
 * [View recommended practices](../concepts/recommended-practices.md)
-* [View your model's evaluation and confusion matrix](../concepts/how-to/view-model-evaluation.md).
+* [View your model's evaluation and confusion matrix](../how-to/view-model-evaluation.md).
 * [Learn about the evaluation metrics](../concepts/evaluation.md)
 * [Improve your model's performance](../how-to/improve-model.md).
