@@ -73,11 +73,9 @@ Using the above example, the API might return the following summarized sentences
 *"At the intersection of all three, there’s magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better."*
 
 
-# Data limits
+## Data limits
 
 This section describes the limits for the size, and rates that you can send data to the Text Summarization API. Note that pricing is not affected by the data limits or rate limits. Pricing is subject to your Language Services resource [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
-
-## Data limits
 
 > [!NOTE]
 > * If you need to analyze larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. 
