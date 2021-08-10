@@ -342,18 +342,18 @@ To configure the feature:
 ```powershell
 Login-AzAccount
 Select-AzSubscription -SubscriptionId <SubId>
-Get-AzVirtualNetwork -ResourceGroupName ExistingRG
+Get-AzVirtualNetwork -Name ExistingRG-vnet -ResourceGroupName ExistingRG
 ```
-Note the following `Id` property that is returned you'll use for later steps.
+Note the following `Id` property that is returned you'll use in later steps.
 
 ```JSON
-Subnets                : [
-                           {
-                             ...
-                             "Id": "/subscriptions/<subscriptionId>/resourceGroups/Existing-RG/providers/Microsoft.Network/virtualNetworks/ExistingRG-vnet/subnets/default"
+Subnets:[
+        {
+        ...
+        "Id": "/subscriptions/<subscriptionId>/resourceGroups/Existing-RG/providers/Microsoft.Network/virtualNetworks/ExistingRG-vnet/subnets/default"
 ```
 
-2) In the [provided sample](url to sample json), configure role assignment that allows the resource provider to make required change. You do this by running the following PowerShell command or ARM Template. 
+2)<p> In the [provided sample](url to sample json), configure role assignment that allows the resource provider to make required change. You do this by running the following PowerShell command or ARM Template. 
 
 Add a role assignment to the Service Fabric Resource Provider application. This is a one time action.
 
@@ -405,6 +405,7 @@ or created via PowerShell using the principal ID, role definition name, and assi
 ```powershell
 New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Network Contributor" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>"
 ```
+</p>
 
 3) In the [provided sample](url to sample json), configure the vnetName and subnetName for the cluster deployment. This values are defined in the following section in the template:
 
