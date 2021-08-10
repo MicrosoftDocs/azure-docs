@@ -353,11 +353,9 @@ Subnets:[
         "Id": "/subscriptions/<subscriptionId>/resourceGroups/Existing-RG/providers/Microsoft.Network/virtualNetworks/ExistingRG-vnet/subnets/default"
 ```
 
-2)<p> In the [provided sample](url to sample json), configure role assignment that allows the resource provider to make required change. You do this by running the following PowerShell command or ARM Template. 
+2) Add a role assignment to the Service Fabric Resource Provider application. You do this by running the following PowerShell command or ARM Template. This is a one time action.
 
-Add a role assignment to the Service Fabric Resource Provider application. This is a one time action.
-
-Get service principal for Service Fabric Resource Provider application:
+* Get service principal for Service Fabric Resource Provider application:
 
 ```powershell
 Login-AzAccount
@@ -376,13 +374,13 @@ DisplayName           : Azure Service Fabric Resource Provider
 Id                    : 00000000-0000-0000-0000-000000000000
 ```
 
-Use the **Id** of the previous output as **principalId** and the role definition ID bellow as **roleDefinitionId** where applicable on the template or PowerShell command:
+* Use the **Id** of the previous output as **principalId** and the role definition ID bellow as **roleDefinitionId** where applicable on the template or PowerShell command:
 
 |Role definition name|Role definition ID|
 |----|-------------------------------------|
 |Network Contributor|4d97b98b-1d4f-4787-a291-c67834d212e7|
 
-This role assignment can be defined in the resources section template using the Principal ID and role definition ID:
+* This role assignment can be defined in the resources section template using the Principal ID and role definition ID:
 
 ```JSON
       "type": "Microsoft.Authorization/roleAssignments",
@@ -400,17 +398,16 @@ This role assignment can be defined in the resources section template using the 
 > [!NOTE]
 > vnetRoleAssignmentID should be a valid GUID. If you deploy again the same template including this role assignment, make sure the GUID is the same as the one originally used or remove this resource as it just needs to be created once.
 
-or created via PowerShell using the principal ID, role definition name, and assignment scope:
+* Or created via PowerShell using the principal ID, role definition name, and assignment scope:
 
 ```powershell
 New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Network Contributor" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>"
 ```
-</p>
 
 3) In the [provided sample](url to sample json), configure the vnetName and subnetName for the cluster deployment. This values are defined in the following section in the template:
 
 ```JSON
-
+INSERT JSON TO SETUP BYOVNET
 
 ```
 
@@ -491,7 +488,7 @@ or created via PowerShell using the principal ID, role definition name, and assi
 New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Network Contributor" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<LoadBalancerName>"
 ```
 
-2) Configure required outbound connectivity
+2) Configure required outbound connectivity. All nodes must be able to route outbound on port 443 to ServiceFabric resource provider. You can use the `ServiceFabric` service tag in your NSG to restrict traffic destination. 
 
 3) Optionally configure an inbound application port and related probe. 
 
