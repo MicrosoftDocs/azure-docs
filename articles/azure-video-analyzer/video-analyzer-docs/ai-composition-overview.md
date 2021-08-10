@@ -23,7 +23,7 @@ AI nodes can be sequentially composed. This allows a downstream node to augment 
  
 ### Key aspects
 
-* Graph extensions act as media passthrough nodes and can be configured such that external AI servers receive frames at different rates, formats and resolutions. Additionally, configuration can be specified such that external AI servers can receive all frames or only frames, which already contain inferences.
+* Pipeline extensions act as media passthrough nodes and can be configured such that external AI servers receive frames at different rates, formats and resolutions. Additionally, configuration can be specified such that external AI servers can receive all frames or only frames, which already contain inferences.
 * Inferences are added to the frames as they go through the different extension nodes, an unlimited number of such nodes can be added in sequence.
 * Other scenarios such as continous video recording or event based video recording can be combined with sequential AI composition.
 
@@ -41,7 +41,7 @@ AI nodes can also be composed in parallel instead of in sequence. This allows in
     
     * RTSP source
     * Motion Detector
-    * Graph extension
+    * Pipeline extension
 
 ## Combined AI composition
 
