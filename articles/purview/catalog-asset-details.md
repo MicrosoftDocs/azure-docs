@@ -87,7 +87,7 @@ You can delete an asset by clicking on the delete icon under the name of the ass
 
 ### Delete behavior explained
 
-Any asset you delete using the delete button is permanently deleted. However, if you run a **full scan** on the source from which the asset was ingested into the catalog, then the asset does get re-ingested and you caa discover it using the Purview catalog.
+Any asset you delete using the delete button is permanently deleted. However, if you run a **full scan** on the source from which the asset was ingested into the catalog, then the asset is reingested and you can discover it using the Purview catalog.
 
 If you have a scheduled scan (weekly or monthly) on the source, unless the asset you deleted is modified by an end user (e.g. new column added to SQL table by a user) since the previous run of the scan, the **asset will not get re-ingested** into the catalog. If the asset is modified in the source system (e.g. adding a new column to a SQL table) since the previous run of the scan and after the asset was deleted in the catalog, the asset will be re-scanned and ingested into the catalog.
 
