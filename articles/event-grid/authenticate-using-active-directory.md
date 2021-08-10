@@ -6,14 +6,16 @@ ms.date: 08/10/2021
 ---
 
 # Authentication and authorization with Azure Active Directory (Preview)
+This article describes how to authenticate Azure Event Grid publishing clients using Azure Active Directory (Azure AD).
 
-The [Microsoft Identity](../active-directory/develop/v2-overview.md) platform provides an integrated authentication and access control management for resources and applications that use Azure Active Directory (Azure AD) as their identity provider. Use the Microsoft Identity platform to provide authentication and authorization support in your applications. It's based on open standards such as OAuth 2.0 and OpenID Connect and offers tools and open-source libraries that support many authentication scenarios. Once you start using Azure AD for your authentication needs, extra features that are released with the platform can be used by all your solutions in a standard way. It provides advanced features such as [Conditional Access](../active-directory/conditional-access/overview.md) that allows you to set policies that require multifactor authentication or allow access from specific locations, for example.
+## Overview
+The [Microsoft Identity](../active-directory/develop/v2-overview.md) platform provides an integrated authentication and access control management for resources and applications that use Azure Active Directory (Azure AD) as their identity provider. Use the Microsoft Identity platform to provide authentication and authorization support in your applications. It's based on open standards such as OAuth 2.0 and OpenID Connect and offers tools and open-source libraries that support many authentication scenarios. It provides advanced features such as [Conditional Access](../active-directory/conditional-access/overview.md) that allows you to set policies that require multifactor authentication or allow access from specific locations, for example.
 
-An advantage that improves your security stance when using Azure AD is that you don't need to store credentials, such as authentication keys, in the code or repositories. Instead, you rely on the acquisition of OAuth 2.0 access tokens from the Microsoft Identity platform that your application presents when authenticating to a protected resource. You can register your event publishing application with Azure AD and obtain a service principal associated with your app that you manage and use. Alternatively, you can use [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md), either system assigned or user assigned, for an even simpler identity management model as some aspects of the identity lifecycle are managed for you. 
+An advantage that improves your security stance when using Azure AD is that you don't need to store credentials, such as authentication keys, in the code or repositories. Instead, you rely on the acquisition of OAuth 2.0 access tokens from the Microsoft Identity platform that your application presents when authenticating to a protected resource. You can register your event publishing application with Azure AD and obtain a service principal associated with your app that you manage and use. Instead, you can use [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md), either system assigned or user assigned, for an even simpler identity management model as some aspects of the identity lifecycle are managed for you. 
 
 [Role-based access control](../active-directory/develop/custom-rbac-for-developers.md) (RBAC) allows you to configure authorization in a way that certain security principals (identities for users, groups, or apps) have specific permissions to execute operations over Azure resources. This way, the security principal used by a client application that sends events to Event Grid must have the RBAC role **EventGrid Data Sender** associated with it. 
 
-## Security principals
+### Security principals
 There are two broad categories of security principals that are applicable when discussing authentication of an Event Grid publishing client: 
 
 - **Managed identities**. A managed identity can be system assigned, which you enable on an Azure resource and is associated to only that resource, or user assigned, which you explicitly create and name. User assigned managed identities can be associated to more than one resource.
@@ -23,10 +25,10 @@ Regardless of the security principal used, a managed identity or an application 
  
 If you're using the Event Grid SDK, you don't need to worry about the details on how to implement the acquisition of access tokens and how to include it with every request to Event Grid because the [Event Grid data plane SDKs](#publish-events-using-event-grids-client-sdks) do that for you. 
 
-## high-level steps
+### high-level steps
 Perform the following steps to ready your client to use Azure AD authentication when sending events to a topic, domain, or partner namespace.
 
-1. Create or use a security principal you want to use to authenticate. You can use a [managed identity](#authenticate-using-managed-identities) or an [application security principal](#authenticate-using-a-security-principal-associated-to-a-client-application).
+1. Create or use a security principal you want to use to authenticate. You can use a [managed identity](#authenticate-using-a-managed-identity) or an [application security principal](#authenticate-using-a-security-principal-of-a-client-application).
 2. [Grant permission to a security principal to publish events](#assign-permission-to-a-security-principal-to-publish-events) by assigning the **EventGrid Data Sender** role to the security principal.
 3. Use the Event Grid SDK to publish events to an Event Grid.
 
@@ -90,7 +92,7 @@ To send events to a topic, domain or partner namespace, you can build the client
                 .credential(credential)
                 .buildCloudEventPublisherClient();
 ```
-If you're using a security principal associated with a client publishing application, you have to configure environmental variables like in [Java](/java/api/overview/azure/identity-readme#environment-variables). The `DefaultCredentialBuilder` reads those environment variables to use the right identity. For more information, see [Java API overview](/java/api/overview/azure/identity-readme#defaultazurecredential).
+If you're using a security principal associated with a client publishing application, you have to configure environmental variables as shown in the [Java SDK readme article](/java/api/overview/azure/identity-readme#environment-variables). The `DefaultCredentialBuilder` reads those environment variables to use the right identity. For more information, see [Java API overview](/java/api/overview/azure/identity-readme#defaultazurecredential).
 
 
 For more information, see the following articles:
@@ -102,14 +104,14 @@ For more information, see the following articles:
 
 ## Disable key and shared access signature authentication
 
-Azure AD authentication provides a superior authentication support than that offered by key or Shared Access Signature (SAS) token authentication. With Azure AD authentication, the identity is validated against Azure AD identity provider. As a developer, you won't have to handle keys in your code if you use Azure AD authentication. you'll also benefit from all security features built into the Microsoft Identity platform, such as [Conditional Access](../active-directory/conditional-access/overview.md), that can help you improve your application's security stance. 
+Azure AD authentication provides a superior authentication support than that's offered by access key or Shared Access Signature (SAS) token authentication. With Azure AD authentication, the identity is validated against Azure AD identity provider. As a developer, you won't have to handle keys in your code if you use Azure AD authentication. you'll also benefit from all security features built into the Microsoft Identity platform, such as [Conditional Access](../active-directory/conditional-access/overview.md), that can help you improve your application's security stance. 
 
 Once you decide to use Azure AD authentication, you can disable authentication based on access keys or SAS tokens. 
 
 > [!NOTE]
-> Acess keys or SAS token authentication is a form of local authentication. you'll hear sometimes referring to "local auth" when discussing this category of authentication mechanisms that don't rely on Azure AD. The API parameter used to disable local authentication is called, appropriately so, ``disableLocalAuth``.
+> Acess keys or SAS token authentication is a form of **local authentication**. you'll hear sometimes referring to "local auth" when discussing this category of authentication mechanisms that don't rely on Azure AD. The API parameter used to disable local authentication is called, appropriately so, ``disableLocalAuth``.
 
-The following CLI command shows the way to create a custom topic with local authentication disabled. Disable local auth is currently available as a preview and you need to use API version ``2021-06-01-preview``.
+The following CLI command shows the way to create a custom topic with local authentication disabled. The disable local auth feature is currently available as a preview and you need to use API version ``2021-06-01-preview``.
 
 ```cli
 az resource create --subscription <subscriptionId> --resource-group <resourceGroup> --resource-type Microsoft.EventGrid/topics --api-version 2021-06-01-preview --name <topicName> --location <location> --properties "{ \"disableLocalAuth\": true}"
@@ -123,7 +125,7 @@ For your reference, the following are the resource type values that you can use 
 | Partner Namespace | Microsoft.EventGrid/partnerNamespaces|
 | Custom Topic      | Microsoft.EventGrid/topics           |
 
-If using PowerShell, you can use the following cmdlets to create a custom topic with local authentication disabled. 
+If you're using PowerShell, use the following cmdlets to create a custom topic with local authentication disabled. 
 
 ```PowerShell
 
@@ -133,10 +135,8 @@ New-AzResource -ResourceGroupName <ResourceGroupName> -ResourceType Microsoft.Ev
 ```
 
 > [!NOTE]
-> To learn about using the access key or shared access signature authentication, see [Authenticate publishing clients with keys or SAS tokens](security-authenticate-publishing-clients.md)
-
-> [!NOTE]
-> This article deals with authentication when publishing events to Event Grid (event ingress). Authenticating Event Grid when delivering events (event egress) is the subject of article [Authenticate event delivery to event handlers](security-authentication.md). 
+> - To learn about using the access key or shared access signature authentication, see [Authenticate publishing clients with keys or SAS tokens](security-authenticate-publishing-clients.md)
+> - This article deals with authentication when publishing events to Event Grid (event ingress). Authenticating Event Grid when delivering events (event egress) is the subject of article [Authenticate event delivery to event handlers](security-authentication.md). 
 
 ## Resources
 - Data plane SDKs
