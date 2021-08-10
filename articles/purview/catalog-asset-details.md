@@ -47,7 +47,7 @@ You can view the full asset hierarchy within the overview tab. As an example: if
 
 ### Asset classifications
 
-The overview tab reflects both asset level classifications and column level classifications, which you can also view as part of the schema.
+Asset classifications identify the kind of data being represented, and are applied manually or during a scan. For example: a National ID or passport number are supported classifications. (For a full list of classifications, see the [supported classifications page](supported-classifications.md).) The overview tab reflects both asset level classifications and column level classifications that have been applied, which you can also view as part of the schema.
 
 :::image type="content" source="media/catalog-asset-details/asset-classifications.png" alt-text="Asset classifications":::
 
