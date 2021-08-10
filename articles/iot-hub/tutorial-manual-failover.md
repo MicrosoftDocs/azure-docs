@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 08/10/2021
 ms.author: robinsh
 ms.custom: [mvc, mqtt]
 #Customer intent: As an IT Pro, I want to be able to perform a manual failover of my IoT hub to a different region, and then return it to the original region.
@@ -116,7 +116,7 @@ In this tutorial, you learned how to configure and perform a manual failover, an
 > * Perform a failback to return the IoT hub's operations to the primary location. 
 > * Confirm the hub is running correctly in the right location.
 
-Advance to the next tutorial to learn how to manage the state of an IoT device. 
+Advance to the next tutorial to learn how to configure ypur device from a back-end service. 
 
 > [!div class="nextstepaction"]
-> [Manage the state of an IoT device](tutorial-device-twins.md)
+> [Configure your devices](tutorial-device-twins.md)
