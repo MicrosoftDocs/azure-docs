@@ -198,6 +198,8 @@
               href: restore-adventureworks-sample-db.md
 - name: Reference
   items:
+  - name: Release version log original
+    href: version-log-original.md
   - name: Release version log
     href: version-log.md
   - name: Release version log list
