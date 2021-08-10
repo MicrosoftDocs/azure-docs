@@ -103,7 +103,6 @@ You can attach an existing managed disk to a VM as a data disk.
 ```azurepowershell-interactive
 $rgName = "myResourceGroup"
 $vmName = "myVM"
-$location = "East US"
 $dataDiskName = "myDisk"
 $disk = Get-AzDisk -ResourceGroupName $rgName -DiskName $dataDiskName
 
