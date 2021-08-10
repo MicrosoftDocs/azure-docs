@@ -375,7 +375,7 @@ label_fcst, data_trans = fitted_model.forecast_quantiles(
     test_data, label_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
-Often the figure of interest is not just the point prediction, but the prediction at some quantile of the distribution. This arises when the forecast is used to control some kind of inventory, for example of grocery items or virtual machines for a cloud service. In such case, the control point is usually something like "we want the item to be in stock and not run out 99% of the time". The following demonstrates how to specify which quantiles you'd like to see for your predictions, such as 50th and 95th percentile. If you don't specify a quantile, like in the aforementioned code example, than only the 50th percentile predictions are generated. 
+Often customers want to understand the predictions at a specific quantile of the distribution. For example, when the forecast is used to control inventory like grocery items or virtual machines for a cloud service. In such cases, the control point is usually something like "we want the item to be in stock and not run out 99% of the time". The following demonstrates how to specify which quantiles you'd like to see for your predictions, such as 50th or 95th percentile. If you don't specify a quantile, like in the aforementioned code example, then only the 50th percentile predictions are generated. 
 
 ```python
 # specify which quantiles you would like 
