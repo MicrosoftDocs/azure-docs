@@ -503,11 +503,11 @@
           displayName: query store, performance, optimize
         - name: Query Store best practices
           href: flexible-server/concepts-query-store-best-practices.md
+        - name: Intelligent tuning
+          href: flexible-server/concepts-intelligent-tuning.md
     - name: Replication
       href: flexible-server/concepts-logical.md
       displayName: logical decoding
-    - name: Intelligent tuning
-      href: flexible-server/concepts-intelligent-tuning.md
   - name: How-to guides
     items:
     - name: Manage a server
