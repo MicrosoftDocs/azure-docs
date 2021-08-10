@@ -1415,7 +1415,7 @@ Optionally, you can download or store the generated schemas in repositories, suc
 
 1. After a successful run, go to the integration account, and check that the generated schemas exist.
 
-## Enable Secure Network Communications
+## Enable secure network communications
 
 Before you start, make sure that you met the previously listed [prerequisites](#prerequisites), which apply only when you use the data gateway and your logic apps run in multi-tenant Azure:
 
