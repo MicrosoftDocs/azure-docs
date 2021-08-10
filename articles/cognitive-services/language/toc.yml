@@ -100,10 +100,6 @@ items:
         href: language-detection/how-to/use-containers.md
       - name: Configure containers
         href: concepts/configure-containers.md
-  - name: Concepts
-    items:
-    - name: Recognized entity categories 
-      href: health/concepts/health-entity-categories.md
 - name: Key phrase extraction
   items:
   - name: Overview
