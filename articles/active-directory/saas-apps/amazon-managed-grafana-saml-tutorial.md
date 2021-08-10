@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/06/2021
+ms.date: 08/10/2021
 ms.author: jeedes
 
 ---
@@ -126,7 +126,47 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Amazon Managed Grafana SAML2.0 SSO
 
-To configure single sign-on on **Amazon Managed Grafana SAML2.0** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Amazon Managed Grafana SAML2.0 support team](https://aws.amazon.com/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Log in to your Amazon Managed Grafana Console as an administrator.
+
+1. Click **Create workspace**. 
+
+	![Screenshot shows creating workspace.](./media/amazon-managed-grafana-saml-tutorial/console.png "Workspace")
+
+1. In the **Specify workspace details** page, type a unique **Workspace name** and click **Next**.
+
+	![Screenshot shows workspace details.](./media/amazon-managed-grafana-saml-tutorial/details.png "Specify details")
+
+1. In the **Configure settings** page, select **Security Assertion Markup Language(SAML)** checkbox and enable **Service managed** as permission type and click **Next**.
+
+	![Screenshot shows workspace settings.](./media/amazon-managed-grafana-saml-tutorial/security.png "Settings")
+
+1. In the **Service managed permission settings**, select **Current account** and click **Next**.
+
+	![Screenshot shows permission settings.](./media/amazon-managed-grafana-saml-tutorial/setting.png "permissions")
+
+1. In the **Review and create** page, verify all the workspace details and click **Create workspace**.
+
+	![Screenshot shows review and create page.](./media/amazon-managed-grafana-saml-tutorial/review-workspace.png " Create Workspace")
+
+1. After creating workspace, click **Complete setup** to complete the SAML configuration.
+
+	![Screenshot shows SAML configuration.](./media/amazon-managed-grafana-saml-tutorial/setup.png "SAML Configuration")
+
+1. In the **Security Assertion Markup Language(SAML)** page, perform the following steps.
+
+	![Screenshot shows SAML Setup.](./media/amazon-managed-grafana-saml-tutorial/configuration.png "SAML Setup")
+
+	1. Copy **Service provider identifier(Entity ID)** value, paste this value into the **Identifier** text box in the **Basic SAML Configuration** section in the Azure portal.
+
+	1. Copy **Service provider reply URL(Assertion consumer service URL)** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+
+	1. Copy **Service provider login URL** value, paste this value into the **Sign on URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+
+	1. Open the downloaded **Federation Metadata XML** from the Azure portal into Notepad and upload the XML file by clicking **Choose file** option.
+
+	1. In the **Assertion mapping** section, fill the required values according to your requirement.
+
+	1. Click **Save SAML configuration**.
 
 ### Create Amazon Managed Grafana SAML2.0 test user
 
