@@ -12,7 +12,7 @@ Service Fabric managed clusters are created with a default networking configurat
 - [Manage RDP access](#rdp)
 - [Manage Load Balancer config](#lbconfig)
 - [Enable IPv6](#ipv6)
-- [Bring your own virtual network](#existingvnet)
+- [Bring your own virtual network](#byovnet)
 - [Bring your own load balancer](#byolb)
 
 <a id="nsgrules"></a>
@@ -408,6 +408,14 @@ Managed clusters create a Load Balancer and fully qualified domain name with a s
 > [!NOTE]
 > You can not switch from default to custom after deployment, but you can modify what custom load balancer to use in the future
 
+Here are a couple example scenarios customers may leverage this for:
+
+In this example a customer wants to route traffic through an existing Azure Load Balancer configured with a known static public ip address to two node types.
+![Bring your own Load Balancer example 1][sfmc-byolb-example-1]
+
+In this example a customer wants to route traffic through existing Azure Load Balancers to help them manage traffic flow to their applications independently that live on separate node types. When this is configured each node type will be behind it's own NSG that you can manage.
+![Bring your own Load Balancer example 2][sfmc-byolb-example-1]
+
 To configure the feature:
 1) In the [provided sample](url to sample json), configure role assignment that allows the resource provider to make required changes, setup the backend pool, and optionally define NAT pools on the existing Azure Load Balancer. You do this by running the following PowerShell command or ARM Template. 
 
@@ -482,4 +490,6 @@ After deployment, you can see that the secondary node type is configured to use 
 <!--Image references-->
 [Inbound-NAT-Rules]: ./media/how-to-managed-cluster-networking/inbound-nat-rules.png
 [sfmc-rdp-connect]: ./media/how-to-managed-cluster-networking/sfmc-rdp-connect.png
+[sfmc-byolb-example-1]: ./media/how-to-managed-cluster-networking/sfmc-byolb-example-1.PNG
+[sfmc-byolb-example-2]: ./media/how-to-managed-cluster-networking/sfmc-byolb-example-2.PNG
 
