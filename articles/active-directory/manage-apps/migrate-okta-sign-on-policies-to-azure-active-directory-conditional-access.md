@@ -243,4 +243,4 @@ The final migration step to CA can be done in a staged or cut-over fashion.
 
 - [Migrate Okta federation to Azure AD](migrate-okta-federation-to-azure-active-directory.md)
 
-- [Migrate Okta sync provisioning to Azure AD Connect based synchronization](migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization)
+- [Migrate Okta sync provisioning to Azure AD Connect based synchronization](migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization.md)
