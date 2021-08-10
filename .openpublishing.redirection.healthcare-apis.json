@@ -423,11 +423,6 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/azure-ad-hcapi-token-validation.md",
-        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/azure-api-fhir-access-token-validation",
-        "redirect_document_id": false
-    },
-    {
         "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/cms-tutorial-introduction.md",
         "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/centers-for-medicare-tutorial-introduction",
         "redirect_document_id": false
@@ -449,13 +444,8 @@
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/fhir/azure-ad-hcapi-token-validation.md",
-        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/fhir-service-access-token-validation",
+        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/azure-api-fhir-access-token-validation",
         "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/articles/healthcare-apis/fhir/fhir-arm-template-quickstart.md",
-        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/fhir-service-resource-manager-template",
-        "redirect_document_id": false
-    },
+    }
   ]
 }
