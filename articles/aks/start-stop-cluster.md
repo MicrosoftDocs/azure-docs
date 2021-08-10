@@ -56,7 +56,7 @@ If the `provisioningState` shows `Stopping` that means your cluster hasn't fully
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-You can use the [Stop-AzAksCluster][stop-azakscluster] command to stop a running AKS cluster's nodes and control plane. The following example stops a cluster named *myAKSCluster*:
+You can use the [Stop-AzAksCluster][stop-azakscluster] cmdlet to stop a running AKS cluster's nodes and control plane. The following example stops a cluster named *myAKSCluster*:
 
 ```azurepowershell-interactive
 Stop-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
@@ -109,7 +109,7 @@ If the `provisioningState` shows `Starting` that means your cluster hasn't fully
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-You can use the [Start-AzAksCluster][start-azakscluster] command to start a stopped AKS cluster's nodes and control plane. The cluster is restarted with the previous control plane state and number of agent nodes.
+You can use the [Start-AzAksCluster][start-azakscluster] cmdlet to start a stopped AKS cluster's nodes and control plane. The cluster is restarted with the previous control plane state and number of agent nodes.
 The following example starts a cluster named *myAKSCluster*:
 
 ```azurepowershell-interactive
