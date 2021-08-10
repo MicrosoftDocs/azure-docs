@@ -40,7 +40,11 @@ To configure service alerts:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **Service Health.**
-3. Follow the instructions in [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications-portal.md?toc=%2fazure%2fservice-health%2ftoc.json) to set up your alerts and notifications. Note, Azure Virtual Desktop is listed as Windows Virtual Desktop within the Services drop down box when creating an alert rule.
+3. Follow the instructions in [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications-portal.md?toc=%2fazure%2fservice-health%2ftoc.json) to set up your alerts and notifications. 
+
+   >[!NOTE]
+   >Azure Virtual Desktop is listed as "Windows Virtual Desktop" in the drop-down menu under **Services** when creating an alert rule.
+   
 
 ## Next steps
 
