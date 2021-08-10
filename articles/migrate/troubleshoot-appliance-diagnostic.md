@@ -64,4 +64,4 @@ If you are getting any issues with the appliance during its configuration or see
 1. You can follow the remediation steps on the report to solve an issue. If you are unable to resolve the issue, it is recommended that you attach the diagnostics report while creating a Microsoft support case so that it helps expedite the resolution.
 
 ## Next steps
-If you are getting issues not covered under **Diagnose and solve**, you can go to [troubleshoot  the Azure Migrate appliance](/azure/migrate/troubleshoot-appliance.md) to find the remediation steps.
+If you are getting issues not covered under **Diagnose and solve**, you can go to [troubleshoot  the Azure Migrate appliance](./troubleshoot-appliance.md) to find the remediation steps.
