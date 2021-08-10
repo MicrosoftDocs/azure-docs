@@ -1,5 +1,5 @@
 ---
-title: 'How to view, edit and delete assets'
+title: 'How to view, edit, and delete assets'
 description: This how to guide describes how you can view and edit asset details. 
 author: viseshag
 ms.author: viseshag
