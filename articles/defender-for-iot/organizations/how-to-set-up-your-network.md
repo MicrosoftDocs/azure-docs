@@ -83,7 +83,7 @@ The following browsers are supported for the sensors and on-premises management 
 
 - Firefox (latest version)
 
-For more information on supported browsers, see [Recommended browsers](../../azure-portal/azure-portal-supported-browsers-devices.md#recommended-browsers).
+For more information on supported browsers, see [recommended browsers](../../azure-portal/azure-portal-supported-browsers-devices.md#recommended-browsers).
 
 ### Network access requirements
 
@@ -93,36 +93,36 @@ Verify that your organizational security policy allows access to the following:
 
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|--|
-| HTTPS | TCP | IN/OUT | 443 | Sensor and On-Premises Management Console Web Console | Access to Web console | Client | Sensor and on-premises management console |
-| SSH | TCP | IN/OUT | 22 | CLI | Access to the CLI | Client | Sensor and on-premises management console |
+| HTTPS | TCP | IN/OUT | 443 | Sensor and On-Premises Management Console Web Console. | Access to Web console | Client. | Sensor and on-premises management console. |
+| SSH | TCP | IN/OUT | 22 | CLI | Access to the CLI | Client | Sensor and on-premises management console. |
 
-#### Sensor access to the Azure Portal (cloud connected sensors)
+#### Sensor access to the Azure portal (cloud connected sensors)
 
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|--|
-| NTP | UDP | IN/OUT | 123 | Time Sync | Sensor connected to external NTP server, when there is no on-premises management console installed | sensor | NTP |
-| HTTPS | TCP | IN/OUT | 443 | To connect to the Azure portal | Allows communication between the on-prem sensor and the Azure Defender for IoT instance. | sensor | "*.azure.com </br>*.azure.net </br>*.windows.net </br>*.azurecomcdn.net </br>*.azureedge.net </br>*.msecnd.net </br>login.microsoftonline.com </br>login.live.com" |
+| NTP | UDP | IN/OUT | 123 | Time Sync | Sensor connected to external NTP server, when there is no on-premises management console installed. | sensor | NTP |
+| HTTPS | TCP | IN/OUT | 443 | To connect to the Azure portal. | Allows communication between the on-prem sensor and the Azure Defender for IoT instance. | sensor | `*.azure.com` </br>`*.azure.net` </br> `*.windows.net` </br> `*.azurecomcdn.net` </br> `*.azureedge.net` </br> `*.msecnd.net` </br> `login.microsoftonline.com` </br>`login.live.com` |
 
 #### Sensor access to the on-premises management console
 
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|--|
-| SSL | TCP | IN/OUT | 443 | Sensor and on-premises management console | Connection between sensor and the Central Management | sensor | On-premises management console |
-| NTP | UDP | IN | 123 | Time Sync | On-premises management console use as NTP to sensor | sensor | on-premises management console |
-| Tunneling | TCP | IN | 9000 </br></br> on top of port 443 </br></br> From end user to the on-premises management console. </br></br> Port 22 from sensor to the on-premises management console | monitoring | Tunneling | Sensor | On-premises management console |
+| SSL | TCP | IN/OUT | 443 | Sensor and on-premises management console | The connection between sensor and the Central Management. | sensor | On-premises management console |
+| NTP | UDP | IN | 123 | Time Sync | On-premises management console use as NTP to sensor. | sensor | on-premises management console |
+| Tunneling | TCP | IN | 9000 </br></br> on top of port 443 </br></br> From end user to the on-premises management console. </br></br> Port 22 from sensor to the on-premises management console. | monitoring | Tunneling | Sensor | On-premises management console |
 
-#### (Optional) Defender for IoT additional services
+#### (Optional) Defender for IoT extra services
 
-Access additional capabilities by opening these additional ports.
+Access extra capabilities by opening these other ports.
 
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|--|
-| Syslog | UDP | OUT | 514 | LEEF/CEF | Logs that send from the on-premises management console to Syslog server | On-premises management console and Sensor | Syslog server |
-| DNS | UDP/TCP | IN/OUT | 53 | DNS | DNS Server Port | On-premises management console and Sensor | DNS server |
-| LDAP | TCP | IN/OUT | 389 | Active Directory | Active Directory management of users that have access to login to the system. | On-premises management console and Sensor | LDAP server |
-| LDAPS | TCP | IN/OUT | 636 | Active Directory | Active Directory management of users that have access to login to the system. | On-premises management console and Sensor | LDAPS server |
-| SNMP | UDP | OUT | 161 | MIB | Sensor health monitoring | On-premises management console and Sensor | SNMP server |
-| SMTP | TCP | OUT | 25 | Email | To open the to the customers mail server to send emails for alerts, and events. | Sensor and On-premises management console | Email server |
+| Syslog | UDP | OUT | 514 | LEEF/CEF | Logs that send from the on-premises management console to Syslog server. | On-premises management console and sensor. | Syslog server |
+| DNS | UDP/TCP | IN/OUT | 53 | DNS | DNS Server Port | On-premises management console and sensor. | DNS server |
+| LDAP | TCP | IN/OUT | 389 | Active Directory | Active Directory management of users that have access to log in to the system. | On-premises management console and sensor. | LDAP server |
+| LDAPS | TCP | IN/OUT | 636 | Active Directory | Active Directory management of users that have access to log in to the system. | On-premises management console and Sensor | LDAPS server |
+| SNMP | UDP | OUT | 161 | MIB | Sensor health monitoring. | On-premises management console and sensor. | SNMP server |
+| SMTP | TCP | OUT | 25 | Email | To open the to the customers mail server to send emails for alerts, and events. | Sensor and on-premises management console. | Email server |
 
 ### Planning rack installation
 
@@ -374,7 +374,7 @@ An active or passive aggregation TAP is installed inline to the network cable. I
 
 The terminal access point (TAP) is a hardware device that allows network traffic to flow from port A to port B, and from port B to port A, without interruption. It creates an exact copy of both sides of the traffic flow, continuously, without compromising network integrity. Some TAPs aggregate transmit and receive traffic by using switch settings if desired. If aggregation is not supported, each TAP uses two sensor ports to monitor send and receive traffic.
 
-TAPs are advantageous for various reasons. They're hardware-based and can't be compromised. They pass all traffic, even damaged messages, which switches often drop. They're not processor sensitive, so packet timing is exact where switches handle the mirror function as a low-priority task that can affect the timing of the mirrored packets. For forensic purposes, a TAP is the best device.
+TAPs are advantageous for various reasons. They're hardware-based and can't be compromised. They pass all traffic, even damaged messages, which the switches often drop. They're not processor sensitive, so packet timing is exact where switches handle the mirror function as a low-priority task that can affect the timing of the mirrored packets. For forensic purposes, a TAP is the best device.
 
 TAP aggregators can also be used for port monitoring. These devices are processor-based and are not as intrinsically secure as hardware TAPs. They might not reflect exact packet timing.
 
@@ -568,7 +568,7 @@ Review this list before site deployment:
 | 13 | Rack and cable the appliances. | ☐ |  |
 | 14 | Allocate site resources to support deployment. | ☐ |  |
 | 15 | Create Active Directory groups or local users. | ☐ |  |
-| 16 | Set-up training (self-learning). | ☐ |  |
+| 16 | Set up training (self-learning). | ☐ |  |
 | 17 | Go or no-go. | ☐ |  |
 | 18 | Schedule the deployment date. | ☐ |  |
 
