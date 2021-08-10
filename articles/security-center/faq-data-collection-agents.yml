@@ -206,7 +206,6 @@ sections:
           
           - Automatic agent installation by Security Center applies to the entire subscription. You cannot apply automatic installation to a subset of VMs. If there are critical VMs that cannot be installed with the Log Analytics agent, then you should opt out of automatic provisioning.
           - Installation of the Log Analytics agent extension updates the agent's version. This applies to a direct agent and a System Center Operations Manager agent (in the latter, the Operations Manager and Log Analytics agent share common runtime libraries - which will be updated in the process). If the installed Operations Manager agent is version 2012 and is upgraded, manageability capabilities can be lost when the Operations Manager server is also version 2012. Consider opting out of automatic provisioning if the installed Operations Manager agent is version 2012.
-          - If you have a custom workspace external to the subscription (a centralized workspace), then you should opt out of automatic provisioning. You can manually install the Log Analytics agent extension and connect it your workspace without Security Center overriding the connection.
           - If you want to avoid creation of multiple workspaces per subscription and you have your own custom workspace within the subscription, then you have two options:
           
              - You can opt out of automatic provisioning. After migration, set the default workspace settings as described in [How can I use my existing Log Analytics workspace?](#how-can-i-use-my-existing-log-analytics-workspace-)
@@ -257,7 +256,7 @@ sections:
       - question: |
           How do I disable data collection?
         answer: |
-          Automatic provisioning is highly recommended in order to get security alerts and recommendations about system updates, OS vulnerabilities, and endpoint protection. By default, auto-provisioning is disabled.
+          Automatic provisioning is highly recommended in order to get security alerts and recommendations about system updates, OS vulnerabilities, and endpoint protection. By default, auto provisioning is disabled.
           
           If you've enabled it but now want to disable it:
           
