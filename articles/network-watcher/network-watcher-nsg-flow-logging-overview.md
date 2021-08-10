@@ -416,7 +416,7 @@ Sometimes you will not see logs because your VMs are not active or there are ups
 
 **I want to automate NSG Flow Logs**
 
-Support for automation via ARM templates is currently not available for NSG Flow Logs. Read the [feature announcement](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/) for more information.
+Support for automation via ARM templates is now available for NSG Flow Logs. Read the [feature announcement](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/) & the [Quick Start from ARM template document](./network-watcher/quickstart-configure-network-security-group-flow-logs-from-arm-template.md) for more information.
 
 ## FAQ
 
