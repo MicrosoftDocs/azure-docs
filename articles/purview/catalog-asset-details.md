@@ -23,7 +23,7 @@ You can discover your assets in Purview by either:
 - [Browsing the Azure Purview Data catalog](how-to-browse-catalog.md)
 - [Searching the Azure Purview Data Catalog](how-to-search-catalog.md)
 
-Once you find the asset you are looking for, you can view all of it's details, along with editing and deleting them as described in following sections.
+Once you find the asset you are looking for, you can view all of its details, edit, or delete them as described in following sections.
 
 ## Asset details tabs explained
 
