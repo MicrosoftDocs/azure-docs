@@ -1,7 +1,7 @@
 ---
 title: Manage subscriptions
 description: Subscriptions consist of managed committed devices and can be onboarded or offboarded as needed. 
-ms.date: 3/30/2021
+ms.date: 08/10/2021
 ms.topic: how-to
 ---
 
@@ -20,7 +20,7 @@ You are billed based on the number of committed devices associated with each sub
 
 The billing cycle for Azure Defender for IoT follows a calendar month. Changes you make to committed devices during the  month are implemented one hour after confirming your update, and are reflected in your monthly bill. Subscription *offboarding* also takes effect one hour after confirming the offboard.
 
-Your organization may have more than one paying entity. If this is the case you can onboard more than one subscription.
+Your enterprise may have more than one paying entity. If this is the case you can onboard more than one subscription.
 
 Before you subscribe, you should have a sense of how many devices you would like your subscriptions to cover.
 
@@ -97,7 +97,7 @@ Changes in device commitment will take effect one hour after confirming the chan
 You will need to upload a new activation file to your on-premises management console. The activation file reflects the new number of committed devices. See[Upload an activation file](how-to-manage-the-on-premises-management-console.md#upload-an-activation-file).
 ## Offboard a subscription
 
-You may need to offboard a subscription,for example if you TBD. Subscription offboarding takes effect one hour after confirming the offboard.
+You may need to offboard a subscription, for example if you TBD. Subscription offboarding takes effect one hour after confirming the offboard.
 Your upcoming monthly bill will reflect this change.
 
 Remove all sensors that are associated with the subscription prior to offboarding. For more information on how to delete a sensor, see [Delete a sensor](how-to-manage-sensors-on-the-cloud.md#delete-a-sensor). 
