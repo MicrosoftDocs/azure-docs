@@ -1,17 +1,17 @@
 ---
 title: Compliance using Azure Policy
-description: Assign built-in policies in Azure Policy to audit compliance of your Azure container registries
+description: Assign built-in policy definitions in Azure Policy to audit compliance of your Azure container registries
 ms.topic: article
-ms.date: 03/01/2021
+ms.date: 08/10/2021
 ---
 
 # Audit compliance of Azure container registries using Azure Policy
 
-[Azure Policy](../governance/policy/overview.md) is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements.
+[Azure Policy](../governance/policy/overview.md) is a service in Azure that you use to create, assign, and manage policy definitions. These policy definitions enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements.
 
-This article introduces built-in policies for Azure Container Registry. Use these policies to audit new and existing registries for compliance.
+This article introduces built-in policy definitions for Azure Container Registry. Use these definitions to audit new and existing registries for compliance.
 
-There are no charges for using Azure Policy.
+There are currently no charges for using Azure Policy.
 
 ## Built-in policy definitions
 
@@ -19,14 +19,14 @@ The following built-in policy definitions are specific to Azure Container Regist
 
 [!INCLUDE [azure-policy-reference-rp-containerreg](../../includes/policy/reference/byrp/microsoft.containerregistry.md)]
 
-## Assign policies
+## Create policy assignments
 
-* Assign policies using the [Azure portal](../governance/policy/assign-policy-portal.md), [Azure CLI](../governance/policy/assign-policy-azurecli.md), a [Resource Manager template](../governance/policy/assign-policy-template.md), or the Azure Policy SDKs.
+* Create policy assignments using the [Azure portal](../governance/policy/assign-policy-portal.md), [Azure CLI](../governance/policy/assign-policy-azurecli.md), a [Resource Manager template](../governance/policy/assign-policy-template.md), or the Azure Policy SDKs.
 * Scope a policy assignment to a resource group, a subscription, or an [Azure management group](../governance/management-groups/overview.md). Container registry policy assignments apply to existing and new container registries within the scope.
 * Enable or disable [policy enforcement](../governance/policy/concepts/assignment-structure.md#enforcement-mode) at any time.
 
 > [!NOTE]
-> After you assign or update a policy, it takes some time for the assignment to be applied to resources in the defined scope. See information about [policy evaluation triggers](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
+> After you create or update a policy assignment, it takes some time for the assignment to be applied to resources in the defined scope. See information about [policy evaluation triggers](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
 ## Review policy compliance
 
