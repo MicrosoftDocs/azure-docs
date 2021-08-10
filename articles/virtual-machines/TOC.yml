@@ -166,6 +166,8 @@
       - name: Overview
         displayName: General purpose, sizes, size, vm size
         href: sizes-general.md
+      - name: Av1-series retirement
+        href: av1-series-retirement.md    
       - name: Av2-series
         href: av2-series.md
       - name: B-series burstable
@@ -599,7 +601,7 @@
       href: ./extensions/update-linux-agent.md
     - name: Export extensions
       href: ./extensions/export-templates.md
-    - name: Troubleshoot
+    - name: General troubleshooting steps
       href: ./extensions/troubleshoot.md
     - name: Issues with Python 3-enabled Linux systems
       href: ./extensions/issues-using-vm-extensions-python-3.md

@@ -63,7 +63,7 @@ You can leverage the scale, capacity, and efficiency of Azure DDoS Protection St
 
 ![Protecting on-prem resources](./media/reference-architectures/ddos-on-prem.png)
 
-If you have a web application that receives traffic from the Internet, you can host the web application behind Application Gateway, then protect it with WAF against Layer 7 web attacks such as SQL injection and Slowloris. The backend origins of your application will be in your on-premises environment, which is connected over the VPN. 
+If you have a web application that receives traffic from the Internet, you can host the web application behind Application Gateway, then protect it with WAF against Layer 7 web attacks such as SQL injection. The backend origins of your application will be in your on-premises environment, which is connected over the VPN. 
 
 The backend resources in the on-premises environment will not be exposed to the public internet. Only the AppGW/WAF public IP is exposed to the internet and the DNS name of your application maps to that public IP address. 
 

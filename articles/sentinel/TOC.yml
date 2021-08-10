@@ -13,12 +13,10 @@
     href: quickstart-onboard.md
 - name: Tutorials
   items:
-  - name: Investigate incidents
-    href: tutorial-investigate-cases.md
+  - name: Investigate with UEBA
+    href: investigate-with-ueba.md
   - name: Use automation to respond to threats
     href: tutorial-respond-threats-playbook.md
-  - name: Integrate with Microsoft 365 Defender
-    href: microsoft-365-defender-sentinel-integration.md
   - name: Create KQL queries for Azure Sentinel (Learn module)
     href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
   - name: Create a Power BI report from Azure Sentinel
@@ -83,6 +81,8 @@
       href: automate-responses-with-playbooks.md
     - name: Bring your own machine learning
       href: bring-your-own-ml.md
+  - name: Microsoft 365 Defender integration
+    href: microsoft-365-defender-sentinel-integration.md
 - name: How-tos
   items:
   - name: Design your workspace architecture
@@ -310,17 +310,17 @@
   - name: Monitor and visualize data
     items:
     - name: Visualize collected data
-      href: quickstart-get-visibility.md
+      href: get-visibility.md
     - name: Use Azure Monitor workbooks
       href: tutorial-monitor-your-data.md
   - name: Detect threats and analyze data
     items:
     - name: Use built-in rules
-      href: tutorial-detect-threats-built-in.md
+      href: detect-threats-built-in.md
     - name: Create custom rules
       items:
       - name: Create a rule
-        href: tutorial-detect-threats-custom.md
+        href: detect-threats-custom.md
       - name: Map data fields to entities
         href: map-data-fields-to-entities.md
       - name: Surface custom details in alerts
@@ -351,10 +351,10 @@
       href: livestream.md
   - name: Investigate and respond
     items:
+    - name: Investigate incidents
+      href: investigate-cases.md
     - name: Create custom entity activities
       href: customize-entity-activities.md
-    - name: Common UEBA investigation methods
-      href: investigate-with-ueba.md
     - name: Collaborate in Microsoft Teams
       href: collaborate-in-microsoft-teams.md
     - name: Authenticate playbooks to Azure Sentinel
@@ -423,6 +423,8 @@
         href: authentication-normalization-schema.md
       - name: DNS normalization schema
         href: dns-normalization-schema.md
+      - name: File event normalization schema
+        href: file-event-normalization-schema.md
       - name: Network normalization schema
         href: normalization-schema.md
       - name: Process event normalization schema
@@ -437,6 +439,8 @@
       href: entities-reference.md
     - name: UEBA enrichments
       href: ueba-enrichments.md
+    - name: Watchlist template schemas
+      href: watchlist-schemas.md
     - name: Kusto Query Language
       items:
       - name: Kusto query overview

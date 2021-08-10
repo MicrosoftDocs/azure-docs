@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/11/2017
 ms.author: davidmu
-ms.reviewer: japere,asteen
+ms.reviewer: lenalepa
 ---
 
 # How to use self-service application access
