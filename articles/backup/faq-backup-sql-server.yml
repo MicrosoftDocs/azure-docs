@@ -4,7 +4,7 @@ metadata:
   description: Find answers to common questions about backing up SQL Server databases on Azure VMs with Azure Backup.
   ms.reviewer: vijayts
   ms.topic: conceptual
-  ms.date: 05/07/2021
+  ms.date: 08/11/2021
     
 title: FAQ about SQL Server databases that are running on an Azure VM backup
 summary: |
@@ -59,21 +59,6 @@ sections:
           > [!NOTE]
           > In the UX you can still go ahead and schedule as many backups at any given time. However they'll be processed in a sliding window of say, 5, according to the above example.
           
-      - question: |
-          Can I run a full backup from a secondary replica?
-        answer: |
-          According to SQL limitations, you can run Copy Only Full backup on Secondary Replica. However, Full backup isn't allowed.
-
-      - question: |
-          Can I protect availability groups on-premises?
-        answer: |
-          No. Azure Backup protects SQL Server databases running in Azure. If an availability group (AG) is spread between Azure and on-premises machines, the AG can be protected only if the primary replica is running in Azure. Also, Azure Backup protects only the nodes that run in the same Azure region as the Recovery Services vault.
-
-      - question: |
-          Can I protect availability groups across regions?
-        answer: |
-          The Azure Backup Recovery Services vault can detect and protect all nodes that are in the same region as the vault. If your SQL Server Always On availability group spans multiple Azure regions, set up the backup from the region that has the primary node. Azure Backup can detect and protect all databases in the availability group according to your backup preference. When your backup preference isn't met, backups fail and you get the failure alert.
-
       - question: |
           Do successful backup jobs create alerts?
         answer: |

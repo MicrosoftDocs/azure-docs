@@ -2,7 +2,7 @@
 title: Back up multiple SQL Server VMs from the vault
 description: In this article, learn how to back up SQL Server databases on Azure virtual machines with Azure Backup from the Recovery Services vault
 ms.topic: conceptual
-ms.date: 05/28/2021
+ms.date: 08/11/2021
 ---
 # Back up multiple SQL Server VMs from the Recovery Services vault
 
@@ -90,18 +90,22 @@ When you back up a SQL Server database on an Azure VM, the backup extension on t
 
 ### Database naming guidelines for Azure Backup
 
-Avoid using the following elements in database names:
+- Avoid using the following elements in database names:
 
-* Trailing and leading spaces
-* Trailing exclamation marks (!)
-* Closing square brackets (])
-* Semicolon ';'
-* Forward slash '/'
+  - Trailing and leading spaces
+  - Trailing exclamation marks (!)
+  - Closing square brackets (])
+  - Semicolon (;)
+  - Forward slash (/)
 
-Aliasing is available for unsupported characters, but we recommend avoiding them. For more information, see [Understanding the Table Service Data Model](/rest/api/storageservices/understanding-the-table-service-data-model).
+- Aliasing is available for unsupported characters, but we recommend avoiding them. For more information, see [Understanding the Table Service Data Model](/rest/api/storageservices/understanding-the-table-service-data-model).
+
+- Multiple databases on the same SQL instance with casing difference aren't supported.
+
+-	Changing the casing of a SQL database isn't supported after configuring protection.
 
 >[!NOTE]
->The **Configure Protection** operation for databases with special characters like "+" or "&" in their name isn't supported. You can either change the database name or enable **Auto Protection**, which can successfully protect these databases.
+>The **Configure Protection** operation for databases with special characters, such as '+' or '&', in their name isn't supported. You can change the database name or enable **Auto Protection**, which can successfully protect these databases.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

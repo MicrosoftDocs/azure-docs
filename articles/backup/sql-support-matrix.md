@@ -2,7 +2,7 @@
 title: Azure Backup support matrix for SQL Server Backup in Azure VMs 
 description: Provides a summary of support settings and limitations when backing up SQL Server in Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 06/07/2021
+ms.date: 08/10/2021
 ms.custom: references_regions 
 ---
 
@@ -19,6 +19,7 @@ You can use Azure Backup to back up SQL Server databases in Azure VMs hosted on 
 **Supported operating systems** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Linux isn't currently supported.
 **Supported SQL Server versions** | SQL Server 2019, SQL Server 2017 as detailed on the [Search product lifecycle page](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 and SPs as detailed on the [Search product lifecycle page](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express.<br><br>Express Local DB versions aren't supported.
 **Supported .NET versions** | .NET Framework 4.5.2 or later installed on the VM
+**Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server that is manually installed) VMs are supported. Support for standalone instances are always on [availability groups](backup-sql-on-availability-groups.md).
 
 ## Feature considerations and limitations
 
@@ -38,55 +39,6 @@ _*The database size limit depends on the data transfer rate that we support and 
 * TDE - enabled database backup is supported. To restore a TDE-encrypted database to another SQL Server, you need to first [restore the certificate to the destination server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). Backup compression for TDE-enabled databases for SQL Server 2016 and newer versions is available, but at lower transfer size as explained [here](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
 * Backup and restore operations for mirror databases and database snapshots aren't supported.
 * SQL Server **Failover Cluster Instance (FCI)** isn't supported.
-* Using more than one backup solutions to back up your standalone SQL Server instance or SQL Always on availability group may lead to backup failure. Refrain from doing so. Backing up two nodes of an availability group individually with same or different solutions, may also lead to backup failure.
-* When availability groups are configured, backups are taken from the different nodes based on a few factors. The backup behavior for an availability group is summarized below.
-
-### Back up behavior with Always on availability groups
-
-We recommend that the backup is configured on only one node of an availability group (AG). Always configure backup in the same region as the primary node. In other words, you always need the primary node to be present in the region where you're configuring the backup. If all the nodes of the AG are in the same region where the backup is configured, there isn't any concern.
-
-#### For cross-region AG
-
-* Regardless of the backup preference, backups will only run from the nodes that are in the same region where the backup is configured. This is because cross-region backups aren't supported. If you have only two nodes and the secondary node is in the other region, the backups will continue to run from the primary node (unless your backup preference is 'secondary only').
-* If a node fails over  to a region different than the one where the backup is configured, backups will fail on the nodes in the failed-over region.
-
-Depending on the backup preference and backups types (full/differential/log/copy-only full), backups are taken from a particular node (primary/secondary).
-
-#### Backup preference: Primary
-
-**Backup Type** | **Node**
---- | ---
-Full | Primary
-Differential | Primary
-Log |  Primary
-Copy-Only Full |  Primary
-
-#### Backup preference: Secondary Only
-
-**Backup Type** | **Node**
---- | ---
-Full | Primary
-Differential | Primary
-Log |  Secondary
-Copy-Only Full |  Secondary
-
-#### Backup preference: Secondary
-
-**Backup Type** | **Node**
---- | ---
-Full | Primary
-Differential | Primary
-Log |  Secondary
-Copy-Only Full |  Secondary
-
-#### No Backup preference
-
-**Backup Type** | **Node**
---- | ---
-Full | Primary
-Differential | Primary
-Log |  Secondary
-Copy-Only Full |  Secondary
 
 ## Backup throughput performance
 
