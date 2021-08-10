@@ -61,22 +61,21 @@ These endpoint differences must be taken into account when you connect to storag
 2. Copy/paste the storage account connection string.
 
 #### C# 
-1. Open up Visual Studio and create a new project. Add a reference to the [Azure.Data.Tables NuGet package](https://www.nuget.org/packages/Azure.Data.Tables/). This NuGet package contains classes we will need to connect to your storage account.
+1. Open up Visual Studio and create a new project. Add a reference to the [Azure Data Tables SDK for C#](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables/Azure.Data.Tables). This package contains classes we will need to connect to your storage table account.
 
 2. Add these two lines of C# code to connect:
     ```cs
     var credentials = new TableSharedKeyCredential(storageAccountName, storageAccountKey);
-    var storageTableUri = '#your storage table uri';
-    var storageAccount = new TableServiceClient(new Uri(storageTableUri), credentials);   
+    var storageTableUri = "#your storage table uri";
+    var tableServiceClient = new TableServiceClient(new Uri(storageTableUri), credentials);   
     ```
 
 3. At this point, we can interact with storage as we normally would. For example, if we want to retrieve a specific entity from our table storage we could do it like this:
 
    ```cs
-    var tableClient = storageAccount.GetTableClient("Contacts");
-
-    var retrieveResult = tableClient.GetEntity<TableEntity>("gov-partition1", "0fb52a6c-3784-4dc5-aa6d-ecda4426dbda");
-    Console.WriteLine($"Contact: {retrieveResult.GetString("FirstName")} {retrieveResult.GetString("LastName")}");
+    var tableClient = tableServiceClient.GetTableClient("Contacts");
+    ContactEntity contact = tableClient.GetEntity<ContactEntity>("gov-partition1", "0fb52a6c-3784-4dc5-aa6d-ecda4426dbda");
+    Console.WriteLine($"Contact: {contact.FirstName} {contact.LastName}");
     ```
 
 #### Java
