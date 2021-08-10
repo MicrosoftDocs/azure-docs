@@ -25,7 +25,7 @@ AI nodes can be sequentially composed. This allows a downstream node to augment 
 
 * Pipeline extensions act as media passthrough nodes and can be configured such that external AI servers receive frames at different rates, formats and resolutions. Additionally, configuration can be specified such that external AI servers can receive all frames or only frames, which already contain inferences.
 * Inferences are added to the frames as they go through the different extension nodes, an unlimited number of such nodes can be added in sequence.
-* Other scenarios such as continous video recording or event based video recording can be combined with sequential AI composition.
+* Other scenarios such as continuous video recording or event-based video recording can be combined with sequential AI composition.
 
     
 ## Parallel AI composition

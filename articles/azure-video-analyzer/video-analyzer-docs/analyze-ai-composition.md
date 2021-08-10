@@ -39,7 +39,7 @@ Since you have already completed the quickstart specified in the prerequisite se
 
 wget https://lvamedia.blob.core.windows.net/public/co-final.mkv
 
-Additonally if you like, on your machine that has [VLC media player](https://www.videolan.org/vlc/), select Ctrl+N and then paste a link to [sample video (.mkv)](https://lvamedia.blob.core.windows.net/public/co-final.mkv) to start playback. You see the footage of cars on freeway.
+Additionally, if you like, on your machine that has [VLC media player](https://www.videolan.org/vlc/), select Ctrl+N and then paste a link to [sample video (.mkv)](https://lvamedia.blob.core.windows.net/public/co-final.mkv) to start playback. You see the footage of cars on a freeway.
 
 ## Create and deploy the pipeline
 
@@ -71,4 +71,3 @@ If you're not going to continue to use this application, delete the resources yo
 ## Next steps
 
 Learn more about [diagnostic messages](monitor-log-edge.md).
-
