@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/04/2021
+ms.date: 08/09/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
@@ -22,15 +22,23 @@ When an event occurs, Azure Event Grid sends the event to an event handler via a
 
 During the blob rehydration operation, you can call the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation to check its status. However, rehydration of an archived blob may take up to 15 hours, and repeatedly polling **Get Blob Properties** to determine whether rehydration is complete is inefficient. Using Azure Event Grid to capture the event that fires when rehydration is complete offers better performance and cost optimization.
 
-This article shows how to create and test an Azure Function in the Azure portal, but you can build Azure Functions from a variety of local development environments. For more information, see [Code and test Azure Functions locally](../../azure-functions/functions-develop-local.md).
+This article shows how to create and test an Azure Function with .NET from Visual Studio. You can build Azure Functions from a variety of local development environments and using a variety of different programming languages. For more information about supported languages for Azure Functions, see [Supported languages in Azure Functions](../../azure-functions/supported-languages.md). For more information about development options, see [Code and test Azure Functions locally](../../azure-functions/functions-develop-local.md).
 
 For more information about rehydrating blobs from the archive tier, see [Rehydrate blob data from the archive tier](archive-rehydrate-overview.md).
+
+## Prerequisites
+
+This article shows how to use [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) to develop an Azure Function with .NET. You can install Visual Studio Community for free. Make sure that you [configure Visual Studio for Azure Development with .NET](/dotnet/azure/configure-visual-studio).
+
+To debug the Azure Function remotely, you must also install the [Remote Tools for Visual Studio 2019](https://visualstudio.microsoft.com/downloads/#remote-tools-for-visual-studio-2019).
+
+To debug the Azure Function locally, you will need to use a tool that can send an HTTP request, such as Postman.
+
+An [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing) is required. If you don't already have an account [create a free one](https://azure.microsoft.com/free/dotnet/) before you begin.
 
 ## Create an Azure Function app
 
 A function app is an Azure resource that serves as a container for your functions. You can use a new or existing function app to complete the steps in this article.
-
-This article shows how to create a .NET function. You can choose to use a different language for your function. For more information about supported languages for Azure Functions, see [Supported languages in Azure Functions](../../azure-functions/supported-languages.md).
 
 To create a new function app in the Azure portal, follow these steps:
 
@@ -56,83 +64,123 @@ To learn more about configuring your function app, see [Manage your function app
 
 ## Create an Azure Function as an Event Grid trigger
 
-Next, create an Azure Function that will run when a blob is rehydrated. Follow these steps to create an Azure Function in the Azure portal with C# and .NET Core:
+Next, create an Azure Function that will run when a blob is rehydrated. Follow these steps to create an Azure Function in Visual Studio with C# and .NET Core:
 
-1. In the Azure portal, navigate to your new function app.
-1. Select the Functions setting in the left navigation pane.
-1. Select **Create** to create a new function.
-1. In the **Create function** dialog, make sure that the **Development environment** dropdown is set to *Develop in Portal*.
-1. in the **Select a template** section, choose *Azure Event Grid trigger* from the list of templates. For more information on why an Event Grid trigger is the recommended type of trigger for handling a Blob Storage event with an Azure Function, see [Use a function as an event handler for Event Grid events](../../event-grid/handler-functions.md).
-1. Provide a name for your new function.
-1. Select the **Create** button to create the new function.
+1. Launch Visual Studio 2019, and create a new Azure Functions project. For details, follow the instructions described in [Create a function app project](../../azure-functions/functions-create-your-first-function-visual-studio.md#create-a-function-app-project).
+1. On the **Create a new Azure Functions application** step, select the following values:
+    1. By default, the Azure Functions runtime is set to **Azure Functions v3 (.NET Core)**. Microsoft recommends using this version of the Azure Functions runtime.
+    1. From the list of possible triggers, select **Event Grid Trigger**. For more information on why an Event Grid trigger is the recommended type of trigger for handling a Blob Storage event with an Azure Function, see [Use a function as an event handler for Event Grid events](../../event-grid/handler-functions.md).
+    1. The **Storage Account** setting indicates where your Azure Function will be stored. You can select an existing storage account or create a new one.
+1. Select **Create** to create the new project in Visual Studio.
+1. Next, rename the function for your scenario, as described in [Rename the function](../../azure-functions/functions-create-your-first-function-visual-studio.md#rename-the-function).
+1. In Visual Studio, select **Tools** | **NuGet Package Manager** | **Package Manager Console**, and then install the following packages from the console:
 
-    :::image type="content" source="media/archive-rehydrate-handle-event/create-function-event-grid-trigger-portal.png" alt-text="Screenshot showing how to configure an Azure Function to handle an Event Grid event":::
+    ```powershell
+    Install-Package Azure.Identity
+    Install-Package Azure.Storage.Blobs
+    Install-Package Microsoft.ApplicationInsights.WorkerService
+    Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights
+    ```
 
-## Add code to the function to process the event
+1. In the class file for your Azure Function, paste in the following using statements:
 
-After you have created the function, you can add code to respond to the blob rehydration event. Navigate to the **Code + Test** page for the new function. The function code consists of a **Run** method. This function is an Event Grid trigger, which means that it runs when the appropriate Event Grid event fires. The **Run** method includes a single line that outputs information about the event to the Azure portal log streaming service.
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Text;
+    using Microsoft.Azure.WebJobs;
+    using Microsoft.Azure.EventGrid.Models;
+    using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+    using Microsoft.Extensions.Logging;
+    using Azure;
+    using Azure.Identity;
+    using Azure.Storage.Blobs;
+    using Azure.Storage.Blobs.Models;
+    ```
 
-```csharp
-#r "Microsoft.Azure.EventGrid"
-using Microsoft.Azure.EventGrid.Models;
+1. Locate the **Run** method in the class file. This is the method that runs when an event occurs. Paste the following code into the body of the **Run** method:
 
-public static void Run(EventGridEvent eventGridEvent, ILogger log)
-{
-    log.LogInformation(eventGridEvent.Data.ToString());
-}
-```
-
-The log streaming service provides helpful compilation information while you are developing your Azure Function. To view the log, expand the **Logs** section at the bottom of the screen.
-
-:::image type="content" source="media/archive-rehydrate-handle-event/view-log-streaming-service-portal.png" alt-text="Screenshot showing how to expand the log streaming service in the Azure portal":::
-
-Next, replace the function code with the following sample code. This code parses the event data that is passed in to the Run method to extract some values, including the type of event that occurred.
-
-```csharp
-#r "Microsoft.Azure.EventGrid"
-using Microsoft.Azure.EventGrid.Models;
-
-public static void Run(EventGridEvent eventGridEvent, ILogger log)
-{
+    ```csharp
+    // When Microsoft.Storage.BlobCreated or Microsoft.Storage.BlobTierChanged event
+    // occurs, write event details to a log blob.
+    
+    const string logBlobName = "function-log.txt";
+    
+    // Get data from the event.
     dynamic data = eventGridEvent.Data;
-    dynamic api = data.api;
-    dynamic url = data.url;
-
-    // Write information about the event to the log.
-    if (eventGridEvent.EventType == "Microsoft.Storage.BlobCreated" && (string)api == "CopyBlob")
-    { 
-        log.LogInformation("CopyBlob operation occurred. Destination blob is {0}.", (string)url);
-    }
-    else if (eventGridEvent.EventType == "Microsoft.Storage.BlobTierChanged" && (string)api == "SetBlobTier")
-    {   
-        log.LogInformation("SetBlobTier operation occurred on blob {0}.", (string)url);
-    }
-    else
+    string eventBlobUrl = Convert.ToString(data.url);
+    string eventApi = Convert.ToString(data.api);
+    
+    // Create log blob in same account and container.
+    BlobUriBuilder blobLogUriBuilder = new BlobUriBuilder(new Uri(eventBlobUrl))
     {
-        log.LogInformation("{0} operation occurred. Blob URL: {1}", (string)api, (string)url);
+        BlobName = logBlobName
+    };
+    
+    // Build string containing log information.
+    StringBuilder eventInfo = new StringBuilder();
+    eventInfo.AppendLine(string.Format("{0} operation occurred. Blob URL: {1}", 
+                        eventApi, 
+                        eventBlobUrl));
+    eventInfo.AppendLine();
+    eventInfo.AppendLine($@"Additional event details:
+                            Id=[{eventGridEvent.Id}] 
+                            EventType=[{eventGridEvent.EventType}] 
+                            EventTime=[{eventGridEvent.EventTime}] 
+                            Subject=[{eventGridEvent.Subject}] 
+                            Topic=[{eventGridEvent.Topic}]");
+    
+    // Write the value to the console window.
+    // This line will execute when running in local debugger.
+    Console.WriteLine(eventInfo.ToString());
+    
+    // Create the log blob and write log info to it.
+    BlobClient logBlobClient = new BlobClient(blobLogUriBuilder.ToUri(),
+                                                new DefaultAzureCredential());
+    
+    byte[] byteArray = Encoding.ASCII.GetBytes(eventInfo.ToString());
+    
+    try
+    {
+        // Write the log info to the blob.
+        // Overwrite if the blob already exists.
+        using (MemoryStream memoryStream = new MemoryStream(byteArray))
+        {
+            BlobContentInfo blobContentInfo = 
+                logBlobClient.Upload(memoryStream, overwrite: true);
+        }
     }
-
-    // Log additional information about the event.
-    log.LogInformation($@"Event details:
-                        Id=[{eventGridEvent.Id}] 
-                        EventType=[{eventGridEvent.EventType}] 
-                        EventTime=[{eventGridEvent.EventTime}] 
-                        Subject=[{eventGridEvent.Subject}] 
-                        Topic=[{eventGridEvent.Topic}]");
-}
-```
-
-When you save the function, the log indicates that the function was changed and whether or not it compiled successfully after the change.
-
-:::image type="content" source="media/archive-rehydrate-handle-event/view-compilation-status-log.png" alt-text="Screenshot showing compilation status in the Azure portal log streaming service":::
+    catch (RequestFailedException e)
+    {
+        Console.WriteLine(e.Message);
+        throw;
+    }
+    ```
 
 For more information on developing Azure Functions, see [Guidance for developing Azure Functions](../../azure-functions/functions-reference.md).
 
 To learn more about the information that is included when a Blob Storage event is published to an event handler, see [Azure Blob Storage as Event Grid source](../../event-grid/event-schema-blob-storage.md).
 
+## Publish the Azure Function
+
+The next step is to publish the Azure Function to the Azure Function App that you created previously. The function must be published so that you can configure Azure Event Grid to send events to the function endpoint.
+
+Follow these steps to publish the function:
+
+1. In Solution Explorer, right-click your Azure Functions project and choose **Publish**.
+1. In the **Publish** window, select **Azure** as the target, then choose **Next**.
+1. Select **Azure Function App (Windows)** as the specific target, then choose **Next**.
+1. On the **Functions instance** tab, select your subscription from the dropdown menu, then locate your Azure Function App in the list of available function apps.
+1. Make sure that the **Run from package file** checkbox is selected.
+1. Select **Finish** to prepare to publish the function.
+1. On the **Publish** page, verify that the configuration is correct. If you see a warning that the service dependency to Application Insights is not configured, you can configure it from this page.
+1. Select the **Publish** button to begin publishing the Azure Function to the Azure Function App that you created previously.
+
+    :::image type="content" source="media/archive-rehydrate-handle-event/visual-studio-publish-azure-function.png" alt-text="Screenshot showing page to publish Azure Function from Visual Studio":::
+
 ## Subscribe to blob rehydration events from a storage account
 
-You now have a function app that contains an Azure Function that will run in response to a blob rehydration event. The next step is to create an event subscription from your storage account. The event subscription configures the storage account to publish an event through Azure Event Grid in response to an operation on a blob in your storage account. Event Grid then sends the event to the event handler endpoint that you've specified. In this case, the event handler is the Azure Function that you created in the previous section.
+You now have a function app that contains an Azure Function that can run in response to an event. The next step is to create an event subscription from your storage account. The event subscription configures the storage account to publish an event through Azure Event Grid in response to an operation on a blob in your storage account. Event Grid then sends the event to the event handler endpoint that you've specified. In this case, the event handler is the Azure Function that you created in the previous section.
 
 When you create the event subscription, you can filter which events are sent to the event handler. The events to capture when rehydrating a blob from the archive tier are **Microsoft.Storage.BlobTierChanged**, corresponding to a [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation, and **Microsoft.Storage.BlobCreated** events, corresponding to a [Copy Blob](/rest/api/storageservices/copy-blob) or [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) operation. Depending on your scenario, you may want to handle only one of these events.
 
@@ -157,12 +205,28 @@ To create the event subscription, follow these steps:
 
 To learn more about event subscriptions, see [Azure Event Grid concepts](../../event-grid/concepts.md#event-subscriptions).
 
-## Test the Azure Function event handler
+## Debug and test the Azure Function event handler
 
 To test the Azure Function, you can trigger an event in the storage account that contains the event subscription. The event subscription is filtering on two events, **Microsoft.Storage.BlobCreated** and **Microsoft.Storage.BlobTierChanged**. For more information on how to filter events by type, see [How to filter events for Azure Event Grid](../../event-grid/how-to-filter-events.md).
 
 > [!TIP]
 > Although the goal of this how-to is to handle these events in the context of blob rehydration, for testing purposes it may helpful to observe these events in response to uploading a blob or changing its tier, because the event fires immediately.
+
+### Debug and test the Azure Function locally by simulating a request
+
+
+
+
+### Debug and test the Azure Function remotely
+
+
+1. From Visual Studio, choose **View** | **Cloud Explorer** to display the **Cloud Explorer** window in the development environment.
+1. Sign in to Azure if necessary, and locate and expand your subscription. Under **App Services**, select 
+
+
+
+
+
 
 This section describes different options for testing the Azure Function by triggering an event. To perform the tests, set up your environment as follows:
 
