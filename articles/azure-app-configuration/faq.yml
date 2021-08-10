@@ -129,9 +129,9 @@ sections:
         answer: |
           When a standard tier App Configuration store is deleted the name is reserved for seven days after deletion. It is possible to recreate a store with the same name before the reservation period has elapsed but it must be in the same subscription, resource group, and region as the original store. If the resource group that contained the store was deleted it will need to be recreated in the same subscription first before recreating the store inside of it.
 
-          The App Configuration store cannot be created in a different subscription/resource group until the retention period has elapsed. However, the resource can be recreated in the original subscription/resource group and then moved to a new subscription/resource group by following [these instructions](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-the-portal).
+          The App Configuration store cannot be created in a different subscription/resource group until the retention period has elapsed. However, the resource can be recreated in the original subscription/resource group and then moved to a new subscription/resource group by following [these instructions](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-the-portal).
 
-          Recreating an App Configuration store during the retention period is currently only supported by the Azure CLI using the `az appconfig create` command detailed [here](https://docs.microsoft.com/en-us/cli/azure/appconfig?view=azure-cli-latest#az_appconfig_create).
+          Recreating an App Configuration store during the retention period is currently only supported by the Azure CLI using the `az appconfig create` command detailed [here](/cli/azure/appconfig?view=azure-cli-latest#az_appconfig_create).
 
       - question: How can I restore an App Configuration store that I deleted mistakenly?
         answer: |
