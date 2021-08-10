@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/15/2020
+ms.date: 08/10/2021
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
@@ -130,7 +130,7 @@ When this flag is on (its value is set to `1`), all MDM-managed apps not in the 
 - **Example**: `com.contoso.workapp, com.contoso.travelapp`
 
 >[!NOTE]
-> Safari and Safari View Service are allowed to participate in SSO by default. Can be configured to not to participate in SSO by adding the bundle IDs of Safari and Safari View Service in AppBlockList
+> Safari and Safari View Service are allowed to participate in SSO by default. Can be configured not to participate in SSO by adding the bundle IDs of Safari and Safari View Service in AppBlockList
 
 #### To provide a list of prefixes, use these parameters:
 - **Key**: `AppPrefixAllowList`
@@ -166,7 +166,6 @@ Try this configuration only for applications that have unexpected sign-in failur
 | Flag      | Comments |
 | ----------- | ----------- |
 | Enable_SSO_On_All_ManagedApps| Integer :  1-> if enabled for all managed apps, 0 ->if not enabled for all managed apps|
-| DefaultAppList| safari, mobilesafari, safariViewService|
 | AppAllowList| String: Comma-delimited list of application bundle IDs for the applications that are allowed to participate in SSO|
 | AppBlockList| String: Comma-delimited list of application bundle IDs for the applications that are not allowed to participate in SSO|
 |AppPrefixAllowList| String : Comma-delimited list of application bundle ID prefixes for the applications that are allowed to participate in SSO |
@@ -174,9 +173,11 @@ Try this configuration only for applications that have unexpected sign-in failur
 
 Usage:
   - If the MDM admin wants to enable SSO on all managed apps *except* for a specific app or set of apps.
-    - Set Enable_SSO_On_All_ManagedApps :1 and use BlockAppList to specify the apps that they want to block from getting SSO
+    - Set Enable_SSO_On_All_ManagedApps : 1
+    - Add apps that should have SSO disabled to AppBlockList
   - If MDM admin wants to disable default SSO on safari, but SSO on all managed apps:
-    - Add the safari bundle IDs in BlockAppList and set Enable_SSO_On_All_ManagedApps :
+    - Add the Safari bundle IDs in AppBlockList
+    - Set Enable_SSO_On_All_ManagedApps : 1
   - If the MDM admin wants to enable SSO on all managed apps and a few unmanaged apps, but also block SSO for others:
     - Set Enable_SSO_On_All_ManagedApps : 1
     - Add unmanaged apps that require SSO to AppAllowList
