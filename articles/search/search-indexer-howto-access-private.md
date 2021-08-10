@@ -88,7 +88,7 @@ The following section describes how to create a shared private link resource eit
 #### Option 1: Portal
 
 > [!NOTE]
-> The Portal only supports creating a shared private endpoint using group ID values that are GA. For MySQL and Azure Functions, use the Azure CLI steps described in option 2 below.
+> The portal only supports creating a shared private endpoint using group ID values that are GA. For MySQL and Azure Functions, use the Azure CLI steps described in option 2 below.
 
 To request Azure Cognitive Search to create an outbound private endpoint connection, via the Shared Private Access blade, click on "Add Shared Private Access". On the dialog that opens on the right, you can choose to "Connect to an Azure resource in my directory" or "Connect to an Azure resource by resource ID or alias".
 
@@ -143,7 +143,7 @@ In this step you'll confirm that the provisioning state of the resource changes 
 #### Option 1: Portal
 
 > [!NOTE]
-> The provisioning state will be visible in the Portal for both GA and preview group IDs.
+> The provisioning state will be visible in the portal for both GA and preview group IDs.
 
 The portal will show you the state of the shared private endpoint. In the below example the status is "Updating".
 
