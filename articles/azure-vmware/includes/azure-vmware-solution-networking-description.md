@@ -16,7 +16,7 @@ When deploying a private cloud, private networks for management, provisioning, a
 
 [!INCLUDE [expressroute-global-reach](expressroute-global-reach.md)]
 
-Virtual machines deployed on the private cloud are accessible to the internet through the [Azure Virtual WAN public IP](../enable-public-internet-access.md) functionality. For new private clouds, internet access is disabled y default. 
+Virtual machines deployed on the private cloud are accessible to the internet through the [Azure Virtual WAN public IP](../enable-public-internet-access.md) functionality. For new private clouds, internet access is disabled by default. 
 
 
 
