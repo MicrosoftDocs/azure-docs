@@ -25,7 +25,7 @@ If you haven’t already done so, read [Plan a SaaS offer](plan-saas-offer.md). 
 
 #### [Workspaces view](#tab/workspaces-view)
 
-1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
 1. On the Home page, select the **Marketplace offers** tile.
 
