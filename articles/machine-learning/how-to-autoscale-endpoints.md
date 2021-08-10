@@ -18,9 +18,9 @@ ms.date: 08/30/2021
 
 Autoscale automatically runs the right amount of resources to handle the load on your application. [Managed endpoints](concept-endpoints.md) supports autoscaling through integration with the Azure monitor autoscale feature. 
 
-Azure monitor autoscaling supports a rich set of rules through which you can configure metrics based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination. For more, see [Overview of autoscale in Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md).
+Azure monitor autoscaling supports a rich set of rules. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination. For more, see [Overview of autoscale in Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md).
 
-Today, you can manage autoscaling using either the Azure CLI, REST, ARM, or the browser-based Azure Portal. Other Azure ML SDKs, such as the Python SDK, will add support over time.
+Today, you can manage autoscaling using either the Azure CLI, REST, ARM, or the browser-based Azure portal. Other Azure ML SDKs, such as the Python SDK, will add support over time.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -36,7 +36,7 @@ Today, you can manage autoscaling using either the Azure CLI, REST, ARM, or the 
 
 ## Define an autoscale profile
 
-To enable autoscale on a scale set, you first define an autoscale profile. This profile defines the default, minimum, and maximum scale set capacity. The following example sets the default and minimum capacity as 2 VM instances, and the maximum capacity as 6:
+To enable autoscale on a scale set, you first define an autoscale profile. This profile defines the default, minimum, and maximum scale set capacity. The following example sets the default and minimum capacity as two VM instances, and the maximum capacity as six:
 
 ```azurecli
 RESOURCE_ID=$(az ml endpoint show -n $ENDPOINT_NAME -o tsv --query "id")
@@ -56,7 +56,7 @@ For more, see the [reference page for autoscale](../../cli/azure/monitor/autosca
 
 ## Create a rule to scale out
 
-A common scaling out rule is one that increases the number of VM instances when the average CPU load is high. Such a rule might look like the following:
+A common scaling out rule is one that increases the number of VM instances when the average CPU load is high. Such a rule might look like the following example:
 
 ```azurecli
 az monitor autoscale rule create \
@@ -69,7 +69,7 @@ The rule is part of the `my-scale-settings` profile (`autoscale-name` matches th
 
 ## Create a rule to scale in
 
-When load is light, a scaling in rule can reduce the number of VM instances. The following shows such a rule:
+When load is light, a scaling in rule can reduce the number of VM instances. The following command shows such a rule:
 
 ```azurecli
 az monitor autoscale rule create \
