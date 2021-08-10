@@ -39,9 +39,9 @@
   - name: Enterprise readiness
     items:
       - name: Set up Virtual Networks
-        href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/immersive-reader/context/context
+        href: ../../cognitive-services/cognitive-services-virtual-networks.md?context=/azure/applied-ai-services/immersive-reader/context/context
       - name: Use Azure AD authentication
-        href: ../authentication.md?context=/azure/cognitive-services/immersive-reader/context/context
+        href: ../../cognitive-services/authentication.md?context=/azure/applied-ai-services/immersive-reader/context/context
 - name: Reference
   items:
   - name: JavaScript SDK
@@ -55,6 +55,6 @@
       - name: Compliance and certification
         href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support and help options
-    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/immersive-reader/context/context
+    href: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/applied-ai-services/immersive-reader/context/context
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?product=cognitive-services
