@@ -76,5 +76,5 @@ Dsv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 | Standard_D48s_v4 | 48 | 192 | Remote Storage Only | 32 | 76800/1152 | 80000/2000 |8|24000 |
 | Standard_D64s_v4 | 64 | 256 | Remote Storage Only | 32 | 80000/1200 | 80000/2000 |8|30000 |
 
-<sup>1</sup>  Dsv4-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+<sup>1</sup>  Dsv4-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
 <sup>2</sup> Accelerated networking can only be applied to a single NIC. 
