@@ -42,37 +42,38 @@ This topic provides a brief overview about the AS2 MDN ACK, including the proper
 
 ## Properties to generate an MDN
 
-The AS2 Decode action generates an MDN using a trading partner's AS2 agreement properties if the **Use agreement settings for validation and MDN instead of message header** property is selected on the one-way agreement tab in the **Agreement Properties** dialog box. In this instance, the AS2-From property in the message header will be used in generating the MDN, but other properties will be taken from the party's AS2 agreement settings.
+The AS2 Decode action generates an MDN based on a trading partner's AS2 agreement properties when the agreement's **Receive Settings** has the **Send MDN** option selected. In this instance, the **AS2-From** property in the message header is used for generating the MDN, but other properties and their values are taken from the partner's AS2 agreement settings.
 
-If the option to override AS2 property is not selected, or the party’s AS2 agreement is available, the receive action will generate the MDN using the AS2 header tags in the incoming message.  
+By default, the incoming AS2 message headers are used for validation and generating the MDN. To use the agreement's validation and MDN settings instead, in the agreement's **Receive Settings**, select **Override message properties**. Otherwise, if this option remains unselected or an agreement is unavailable, the AS2 Decode action uses the incoming message headers instead.
 
-## MDN Headers
+## MDN headers
 
-An MDN contains the following headers:
+To correlate an MDN to the AS2 message as the response, the `AS2-From` header, `AS2-To` header, and `MessageID` context property are used. In the MDN, the `Original-Message-ID` header comes from the `Message-ID` header in the AS2 message for which the MDN is the response. An MDN contains the following headers:
 
 | Headers | Description |
 |---------|-------------|
-| HTTP/AS2 | For more information, review [AS2 message settings](logic-apps-enterprise-integration-as2-message-settings.md).
+| HTTP and AS2 | For more information, review [AS2 message settings](logic-apps-enterprise-integration-as2-message-settings.md).
 | Transfer layer | This header includes the `Content-Type` header that includes the signed multipart message, the algorithm for the MIC, the signature formatting protocol, and the outermost multipart boundary sub-headers. |
-| First part | The first part of the multipart signed message is the embedded MDN. This part is human readable. |
-| Second part | The second part of the multipart signed message contains the digital signature, a reference to the original message, the disposition type and status, and the MIC value. This part is machine readable. |
+| First part | The first part of the signed multipart message is the embedded MDN. This part is human readable. |
+| Second part | The second part of the signed multipart message contains the digital signature, a reference to the original message, the disposition type and status, and the MIC value. This part is machine readable. |
 |||
-
-
-The `AS2-From` header, `AS2-To` header, and MessageID context property are used to correlate an MDN to the AS2 message that it is responding to. The `Original-Message-ID` header in an MDN comes from the Message-ID header of the AS2 message that the MDN is responding to.
 
 ## MIC
 
-The Message Integrity Check (MIC), or MIC digest, verifies that an MDN correlates to the payload in the originally sent message. This MIC digest is included in the second part of the multipart signed MDN message in the `Received-Content-MIC` extension field.
+The Message Integrity Check (MIC), or MIC digest, verifies that an MDN correlates to the payload in the originally sent message. This MIC digest is included in the second part of the signed multipart MDN message in the `Received-Content-MIC` extension field.
 
-The MIC is base64 encoded. It is determined from the **MIC Algorithm** drop-down (enabled if **Send Signed MDN** property is checked) in the **Sender MDN Settings** page of the AS2 receive or send action settings in the **Agreement Properties** dialog box. Users can choose from various hash algorithms for MIC generation. Supported algorithms are:
+The MIC is base64-encoded and is determined from the **MIC Algorithm** property, which is enabled when the **Send MDN** and **Send signed MDN** properties are selected on the AS2 agreement's **Receive Settings** page. For MIC generation, you can choose from the following supported hash algorithms:
 
-- SHA1
-- MD5
-- SHA2-256
-- SHA2-384
-- SHA2-512
+* SHA1
+* MD5
+* SHA2-256
+* SHA2-384
+* SHA2-512
 
-For example, this This snapshot depicts how the MDN properties look like in the AS2 Receive Settings dialog box.
+For example, the following screenshot shows the MDN properties in the AS2 agreement's **Receive Settings** page:
 
-![MDN-Acknowledgement-Settings](./media/logic-apps-enterprise-integration-as2-message-settings/MDN-settings.png)
+![MDN acknowledgement settings](./media/logic-apps-enterprise-integration-as2-mdn-acknowledgement/mdn-ack-settings.png)
+
+## Next steps
+
+* [AS2 message settings](logic-apps-enterprise-integration-as2-message-settings.md)
