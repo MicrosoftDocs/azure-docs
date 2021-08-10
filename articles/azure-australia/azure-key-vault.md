@@ -154,7 +154,7 @@ There are three aspects to storage and keys stored in Key Vault:
 - Azure Storage Service Encryption (SSE) for data at rest
 - Managed disks and Azure Disk Encryption
 
-Key Vault's Azure Storage account key management is an extension to Key Vault's key service that supports synchronization and regeneration (rotation) of storage account keys.  [Azure Storage integration with Azure Active Directory](../storage/common/storage-auth-aad.md) (preview) is recommended when released as it provides superior security and ease of use.
+Key Vault's Azure Storage account key management is an extension to Key Vault's key service that supports synchronization and regeneration (rotation) of storage account keys.  [Azure Storage integration with Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md) (preview) is recommended when released as it provides superior security and ease of use.
 SSE uses two keys to manage encryption of data at rest:
 
 - Key Encryption Keys (KEK)
