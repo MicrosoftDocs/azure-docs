@@ -44,6 +44,13 @@ This article explains how you can access your SAP resources from Azure Logic App
 
 * Message content to send to your SAP server, such as a sample IDoc file. This content must be in XML format and include the namespace of the [SAP action](#actions) you want to use. You can [send IDocs with a flat file schema by wrapping them in an XML envelope](#send-flat-file-idocs).
 
+  > [!NOTE]
+  > If you use the SAP trigger named **When a message is received from SAP** with the **IDOC Format** parameter set to **FlatFile** 
+  > or the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md), you have to use the `early_terminate_optional_fields` 
+  > property in your flat file schema by setting the value to `true`. This requirement is necessary because the flat file IDOC data record 
+  > is padded to the full SDATA field length. However, the data sent by SAP on the tRFC call `IDOC_INBOUND_ASYNCHRONOUS` isn't padded. 
+  > Azure Logic Apps provides the flat file IDOC original data without padding as received from SAP.
+
 * If you want to use the **When a message is received from SAP** trigger, you must also do the following:
 
   * Set up your SAP gateway security permissions with this setting: 
@@ -331,9 +338,9 @@ To have your workflow start by receiving IDocs from SAP, you can use the [Reques
 > and set the **IDOC Format** parameter to **SapPlainXml**.
 >
 > To receive IDocs as a flat file, use the same SAP trigger, but set the **IDOC Format** parameter to **FlatFile**. 
-> In this case, also use the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md). However, 
+> In this case, you can use the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md). However, 
 > in your flat file schema, you have to use the `early_terminate_optional_fields` property by setting the value 
-> to `true`. The requirement is necessary because the flat file IDOC data record is padded to the full SDATA 
+> to `true`. This requirement is necessary because the flat file IDOC data record is padded to the full SDATA 
 > field length. However, the data sent by SAP on the tRFC call `IDOC_INBOUND_ASYNCHRONOUS` isn't padded. 
 > Azure Logic Apps provides the flat file IDOC original data without padding as received from SAP.
 
