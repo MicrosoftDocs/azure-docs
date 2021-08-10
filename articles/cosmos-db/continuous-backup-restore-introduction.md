@@ -125,6 +125,8 @@ Currently the point in time restore functionality has the following limitations:
 
 * The restore process restores all the properties of a container including its TTL configuration. As a result, it is possible that the data restored is deleted immediately if you configured that way. In order to prevent this situation, the restore timestamp must be before the TTL properties were added into the container.
 
+* Unique indexes in API for MongoDB can't be added or updated when you create a continuous backup mode account or migrate an account from periodic to continuous mode.
+
 ## Next steps
 
 * Provision continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).

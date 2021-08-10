@@ -67,4 +67,4 @@ When you connect a Microsoft security solution, you can select whether you want 
 ## Next steps
 
 - To get started with Azure Sentinel, you need a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
-- Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md), and [get visibility into your data and potential threats](quickstart-get-visibility.md).
+- Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md), and [get visibility into your data and potential threats](get-visibility.md).
