@@ -59,7 +59,7 @@ Changes can be found under **TargetResources** > **modifiedProperties**.
 
 The old and new values from the audit log and Log Analytics are in JSON format. Compare the two values to see the changes to the policy.
 
-Old policy example
+Old policy example:
 
 ```json
 {
