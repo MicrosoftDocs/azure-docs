@@ -30,7 +30,7 @@ The following features are supported by the Translator service. Use the links in
 
 | Feature | Description | Development options |
 |----------|-------------|--------------------------|
-| [**Text Translation**](text-translation-overview.md) | Execute real-time and/or asynchronous translation of text between supported source and target languages. | <ul><li>[**REST API**](reference/rest-api-guide.md) </li><li>[Text translation Docker container](/containers/translator-how-to-install-container)—currently in gated preview.</li></ul> |
+| [**Text Translation**](text-translation-overview.md) | Execute text translation between supported source and target languages in real time. | <ul><li>[**REST API**](reference/rest-api-guide.md) </li><li>[Text translation Docker container](/containers/translator-how-to-install-container)—currently in gated preview.</li></ul> |
 | [**Document Translation**](document-translation/overview.md) | Translate batch and complex files while preserving the structure and format of the original documents. | <ul><li>[**REST API**](document-translation/reference/rest-api-guide.md)</li><li>[**Client-library SDK**](document-translation/client-sdks.md)</li></ul> |
 | [**Custom Translator**](custom-translator/overview.md) | Build customized models to translate domain- and industry-specific language, terminology, and style. | <ul><li>[**Custom Translator portal**](https://portal.customtranslator.azure.ai/)</li></ul> |
 
