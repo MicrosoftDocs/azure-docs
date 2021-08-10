@@ -121,7 +121,7 @@ Below is an example of how to enable and configure a rule to generate security a
 
     - Generate a security alert if the query results are greater than zero, meaning if any matches are found.
 
-    You can leave the default settings or change any of these to meet your requirements, and you can define incident-generation settings on the **Incident settings** tab. For more information, see [Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md). When you are finished, select the **Automated response** tab.
+    You can leave the default settings or change any of these to meet your requirements, and you can define incident-generation settings on the **Incident settings** tab. For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md). When you are finished, select the **Automated response** tab.
 
 1. Configure any automation you’d like to trigger when a security alert is generated from this analytics rule. Automation in Azure Sentinel is done using combinations of **automation rules** and **playbooks** powered by Azure Logic Apps. To learn more, see this [Tutorial: Use playbooks with automation rules in Azure Sentinel](./tutorial-respond-threats-playbook.md). When finished, select the **Next: Review >** button to continue.
 
@@ -131,7 +131,7 @@ You can find your enabled rules in the **Active rules** tab of the **Analytics**
 
 According to the default settings, each time the rule runs on its schedule, any results found will generate a security alert. Security alerts in Azure Sentinel can be viewed in the **Logs** section of Azure Sentinel, in the **SecurityAlert** table under the **Azure Sentinel** group.
 
-In Azure Sentinel, the alerts generated from analytics rules also generate security incidents which can be found in **Incidents** under **Threat Management** on the Azure Sentinel menu. Incidents are what your security operations teams will triage and investigate to determine the appropriate response actions. You can find detailed information in this [Tutorial: Investigate incidents with Azure Sentinel](./tutorial-investigate-cases.md).
+In Azure Sentinel, the alerts generated from analytics rules also generate security incidents which can be found in **Incidents** under **Threat Management** on the Azure Sentinel menu. Incidents are what your security operations teams will triage and investigate to determine the appropriate response actions. You can find detailed information in this [Tutorial: Investigate incidents with Azure Sentinel](./investigate-cases.md).
 
 ## Detect threats using matching analytics (Public preview)
 

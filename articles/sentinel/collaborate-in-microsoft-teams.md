@@ -86,12 +86,12 @@ Continue the conversation about the investigation in Teams for as long as needed
 > [!TIP]
 > - <a name="more-users"></a>If you need to add individual users to your team, you can do so in Microsoft Teams using the **Add more people** button on the **Posts** tab.
 >
-> - When you [close an incident](tutorial-investigate-cases.md#closing-an-incident), the related incident team you've created in Microsoft Teams is archived. If the incident is ever re-opened, the related incident team is also re-opened in Microsoft Teams so that you can continue your conversation, right where you left off.
+> - When you [close an incident](investigate-cases.md#closing-an-incident), the related incident team you've created in Microsoft Teams is archived. If the incident is ever re-opened, the related incident team is also re-opened in Microsoft Teams so that you can continue your conversation, right where you left off.
 >
 
 ## Next steps
 
 For more information, see:
 
-- [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md)
+- [Tutorial: Investigate incidents with Azure Sentinel](investigate-cases.md)
 - [Overview of teams and channels in Microsoft Teams](/microsoftteams/teams-channels-overview/)
