@@ -161,7 +161,7 @@ sections:
       - question: |
           How many organizations can an application contain?
         answer: |
-          You can have up to 50 organizations, including nested organizations.
+          You can have up to 200 organizations, including nested organizations.
 
       - question: |
           Can a device belong to multiple organizations?

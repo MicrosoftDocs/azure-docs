@@ -29,7 +29,7 @@ Analytics user interface is made of three main components:
 
 ## Query your data
 
-Start by choosing a **device group** and the telemetry that you want to analyze. If your application uses organizations, you can only see the subset of device groups that your administrator granted you access to. Then select **Analyze** to start visualizing your data.
+Start by choosing a **device group** and the telemetry that you want to analyze. If your application uses organizations, you can only see the device groups for the organizations you have access to. Then select **Analyze** to start visualizing your data.
 
 - **Device group:** A [device group](tutorial-use-device-groups.md) is a user-defined group of your devices. For example, all **Refrigerators in Oakland**, or **All version 2.0 wind turbines**.
 

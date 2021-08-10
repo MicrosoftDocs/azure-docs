@@ -106,7 +106,7 @@ landingContent:
             url: core/howto-administer.md
           - text: Manage users and roles
             url: core/howto-manage-users-roles.md 
-          - text: Create organizations
+          - text: Manage organizations
             url: core/howto-create-organizations.md
       - linkListType: sample
         links:

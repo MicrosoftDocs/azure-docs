@@ -1,6 +1,6 @@
 ---
-title: Create IoT Central organizations | Microsoft Docs
-description: This article describes how to create an organization hierarchy to control which users can access which devices in your IoT Central organization. Use organizations to create multi-tenanted IoT Central applications.
+title: Manage IoT Central organizations | Microsoft Docs
+description: This article describes how to create and manage an organization hierarchy to control which users can access which devices in your IoT Central organization. Use organizations to create multi-tenanted IoT Central applications.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
@@ -9,7 +9,7 @@ ms.date: 08/01/2021
 ms.topic: how-to
 ---
 
-# Create IoT Central organizations
+# Manage IoT Central organizations
 
 Organizations let you define a hierarchy that you use to manage which users can see which devices in your IoT Central application. The user's role determines their permissions over the devices they see, and the experiences they can access.
 
@@ -32,9 +32,16 @@ The following screenshot shows an organization hierarchy definition in IoT Centr
 
 ## Create a hierarchy
 
-To start using organizations, you need to define your organization hierarchy. Each organization in the hierarchy acts as a logical container where you place devices, save dashboards and device groups, and invite users. To create your organizations, go to the **Administration** section in your IoT Central application and select the **Organizations** tab. You can create one or many organizations at once by selecting **+Add another organization**.
+To start using organizations, you need to define your organization hierarchy. Each organization in the hierarchy acts as a logical container where you place devices, save dashboards and device groups, and invite users. To create your organizations, go to the **Administration** section in your IoT Central application and select the **Organizations** tab. You can create one or many organizations at once by selecting **+ Add another organization**.
+
+> [!TIP]
+> The initial setup of organizations must be done by a member of the **App Administrator** role.
 
 <!-- TODO add a screenshot here -->
+
+To reassign an organization to a new parent, select **Edit** and choose a new parent.
+
+To delete an organization, you must delete or move to another organization any associated items such as dashboards, devices, users, device groups, and jobs.
 
 ## Assign devices
 
@@ -69,7 +76,7 @@ You assign gateway and leaf devices to organizations. You don't have to assign a
 
 ## Roles
 
-When you create the first organization in your application, IoT Central adds two new roles in your application: **Org Administration** and **Org Operator**. These roles are necessary because an organization user can't access certain application-wide capabilities such as pricing plans, branding and colors, API tokens, and application-wide enrollment group information.
+When you create the first organization in your application, IoT Central adds three new roles in your application: **Org Administrator**, **Org Operator**, and **Org Viewer**. These roles are necessary because an organization user can't access certain application-wide capabilities such as pricing plans, branding and colors, API tokens, and application-wide enrollment group information.
 
 <!-- TODO add a screenshot here -->
 
@@ -77,11 +84,13 @@ You can use these roles when you invite users to an organization in your applica
 
 ### Custom organization roles
 
-To create a custom role for your organization users, create a copy of either the **Org Administration** or **Org Operator** organization roles and then remove any unnecessary permissions.
+To create a custom role for your organization users, create a new role and choose the **Org** role type:
 
 <!-- TODO add a screenshot here -->
 
-Don't add permissions to the **Org Administration** or **Org Operator** organization roles or any role copied from them. If you do, they'll no longer be valid organizational roles.
+Then select the permissions for the role:
+
+<!-- TODO add a screenshot here -->
 
 ## Invite users
 

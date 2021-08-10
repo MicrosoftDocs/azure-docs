@@ -11,17 +11,20 @@ services: iot-central
 
 # Create and manage dashboards
 
-The default *organization dashboard* is the page that loads when you first navigate to your application. As an administrator, you can create up to 10 organization dashboards that are visible to all users who have access to the organization. Only administrators can create, edit, and delete organization dashboards.
+The default *organization dashboard* is the page that loads when you first navigate to your application. As an administrator, you can create additional organization dashboards that are associated with a specific organization. An organization dashboard is only visible to users who have access to the organization the dashboard is associated with. Only users in a role that has [organization dashboard permissions](howto-manage-users-roles.md#customizing-the-app) can create, edit, and delete organization dashboards.
+
+> [!TIP]
+> You can see which organization a dashboard is associated with in the dashboard settings.
 
 All users can create their own *personal dashboards*. Users can switch between organization dashboards and personal dashboards.
 
 ## Create a dashboard
 
-The following screenshot shows the dashboard in an application created from the **Custom Application** template. If you're an administrator, you can customize the default dashboard. To create a new dashboard, select **+ New dashboard** at the top left of the page:
+The following screenshot shows the dashboard in an application created from the **Custom Application** template. If you're in a role with the appropriate permissions, you can customize the default dashboard. To create a new dashboard, select **+ New dashboard** at the top left of the page:
 
 :::image type="content" source="media/howto-manage-dashboards/dashboard-custom-app.png" alt-text="Screenshot of dashboard for applications based on the Custom Application template.":::
 
-In the **Create dashboard** panel, give your dashboard a name, select the dashboard type, and choose the [organization](howto-create-organizations.md) the dashboard is associated with. An organization dashboard and its tiles only show the devices that are visible to the organization.
+In the **Create dashboard** panel, give your dashboard a name and select either **Organization** or **Personal** as the dashboard type If you're creating an organization dashboard, choose the [organization](howto-create-organizations.md) the dashboard is associated with. An organization dashboard and its tiles only show the devices that are visible to the organization.
 
 After you create the dashboard, choose items from the library to add to the dashboard. The library contains the tiles and dashboard primitives you use to customize the dashboard:
 
@@ -40,7 +43,7 @@ You can have several personal dashboards and switch between them or choose from 
 
 :::image type="content" source="media/howto-manage-dashboards/switch-dashboards.png" alt-text="Screenshot that shows how to switch between dashboards.":::
 
-You can edit your personal dashboards and delete any dashboards you no longer need. If you're an administrator, you can edit or delete organization dashboards as well.
+You can edit your personal dashboards and delete any dashboards you no longer need. If you have the correct [permissions]](howto-manage-users-roles.md#customizing-the-app), you can edit or delete organization dashboards as well.
 
 :::image type="content" source="media/howto-manage-dashboards/delete-dashboards.png" alt-text="Screenshot that shows how to delete dashboards.":::
 

@@ -59,7 +59,7 @@ To get a bearer token for a service principal, see [Service principal authentica
 
 ## Get an API token
 
-To get an API token, you can use the IoT Central UI or a REST API call. Only administrators associated with the root organization can create API tokens.
+To get an API token, you can use the IoT Central UI or a REST API call. Administrators associated with the root organization and users assigned to the correct role can create API tokens.
 
 In the IoT Central UI:
 

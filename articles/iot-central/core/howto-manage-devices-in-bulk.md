@@ -184,7 +184,7 @@ To bulk-register devices in your application:
 
     :::image type="content" source="media/howto-manage-devices-in-bulk/bulk-import-1.png" alt-text="Screenshot showing import action settings.":::
 
-1. Select an organization to assign the devices to. All the devices you're importing are assigned to the same organization. To assign devices to different organizations, create multiple import files, one for each organization.
+1. Select an organization to assign the devices to. All the devices you're importing are assigned to the same organization. To assign devices to different organizations, create multiple import files, one for each organization. Alternatively, upload them all to the root organization and then in the UI reassign them to the correct organizations.
 
 1. Select the CSV file that has the list of device IDs to be imported.
 
