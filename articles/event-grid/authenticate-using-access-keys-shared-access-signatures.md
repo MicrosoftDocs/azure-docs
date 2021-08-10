@@ -2,7 +2,7 @@
 title: Authenticate Azure Event Grid publishing clients using access keys or shared access signatures
 description: This article describes how to authenticate Azure Event Grid publishing clients using access keys and shared access signatures. 
 ms.topic: conceptual
-ms.date: 08/09/2021
+ms.date: 08/10/2021
 ---
 
 # Authenticate Azure Event Grid publishing clients using access keys or shared access signatures
@@ -30,7 +30,7 @@ https://<yourtopic>.<region>.eventgrid.azure.net/api/events?aeg-sas-key=XXXXXXXX
 
 For instructions on how to get access keys for a topic or domain, see [Get access keys](get-access-keys.md).
 
-## Authenticate using a SAS token
+## Authenticate using SAS 
 SAS tokens for an Event Grid resource include the resource, expiration time, and a signature. The format of the SAS token is: `r={resource}&e={expiration}&s={signature}`.
 
 The resource is the path for the event grid topic to which you're sending events. For example, a valid resource path is: `https://<yourtopic>.<region>.eventgrid.azure.net/api/events`. To see all the supported API versions, see [Microsoft.EventGrid resource types](/azure/templates/microsoft.eventgrid/allversions). 
