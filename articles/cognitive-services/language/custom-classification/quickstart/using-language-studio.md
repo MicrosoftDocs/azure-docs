@@ -37,12 +37,12 @@ You can enable identity management either using the Azure portal or from Languag
 Ensure the below resource roles are set correctly on the storage account:
 
 * Your resource has the **owner** or **contributor** role on the storage account.
-* Your resource has the **Storage blob data owner** or **Storage blob data contributor** role on the storage account
+* Your resource has the **Storage blob data owner** or **Storage blob data contributor** role on the storage account.
 * Your resource has the **Reader** role on the storage account.
 
-To set proper roles on your storage account, 
+To set proper roles on your storage account:
 
-1. go to your storage account page in the [Azure portal](https://ms.portal.azure.com/)
+1. Go to your storage account page in the [Azure portal](https://ms.portal.azure.com/).
 2. Select **Access Control (IAM)** in the left navigation menu.
 3. Select **Add** to **Add Role Assignments**, and choose the **Owner** or **Contributor** role. You can search for user names in the **Select** field.
 
@@ -80,7 +80,7 @@ To set proper roles on your storage account,
 :::image type="content" source="../media/connect-storage.png" alt-text="Connect your storage account" lightbox="../media/connect-storage.png":::
 -->
 
-5. Select your project type, for this project we will create a multi label classification project. You can learn more about different project types in [definitions](../definitions.md#project-types). Then click **Next**
+5. Select your project type. For this project we will create a multi label classification project. You can learn more about different project types in [definitions](../definitions.md#project-types). Then click **Next**.
 
 <!--
 :::image type="content" source="../media/project-type.png" alt-text="Select a project type" lightbox="../media/project-type.png":::
@@ -107,7 +107,7 @@ To start training your model:
 
 1. Select **Train** from the left side menu.
 
-2. Select the model you want to train from the **Model name** dropdown, if you don’t have models already, type in the name of your model and click on **create new model**.
+2. Select the model you want to train from the **Model name** dropdown. If you don’t have models already, type in the name of your model and click on **create new model**.
 
     :::image type="content" source="../media/train-model-1.png" alt-text="Select the model you want to train" lightbox="../media/train-model-1.png":::
 

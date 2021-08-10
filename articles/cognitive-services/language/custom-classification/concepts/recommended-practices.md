@@ -55,7 +55,7 @@ Include less frequent classes in your data, if the model was not exposed a certa
 
 * Consider where your data comes from. If you are collecting data from one person or department, you are likely missing diversity that will be important for your model to learn about all usage scenarios.
 
-## Data Tagging
+## Data tagging
 
 * As a general rule, more tagged data leads to better results.
 
