@@ -130,7 +130,8 @@ When this flag is on (its value is set to `1`), all MDM-managed apps not in the 
 - **Example**: `com.contoso.workapp, com.contoso.travelapp`
 
 >[!NOTE]
-> Safari and Safari View Service are allowed to participate in SSO by default. Can be configured not to participate in SSO by adding the bundle IDs of Safari and Safari View Service in AppBlockList
+> Safari and Safari View Service are allowed to participate in SSO by default. Can be configured *not* to participate in SSO by adding the bundle IDs of Safari and Safari View Service in AppBlockList. 
+> iOS Bundle IDs : [com.apple.mobilesafari, com.apple.SafariViewService] , macOS BundleID : com.apple.Safari
 
 #### To provide a list of prefixes, use these parameters:
 - **Key**: `AppPrefixAllowList`
@@ -176,7 +177,9 @@ Usage:
     - Set Enable_SSO_On_All_ManagedApps : 1
     - Add apps that should have SSO disabled to AppBlockList
   - If MDM admin wants to disable default SSO on safari, but SSO on all managed apps:
-    - Add the Safari bundle IDs in AppBlockList
+    - Add the Safari bundle IDs in AppBlockList.
+      - iOS : com.apple.mobilesafari, com.apple.SafariViewService 
+      - macOS : com.apple.Safari 
     - Set Enable_SSO_On_All_ManagedApps : 1
   - If the MDM admin wants to enable SSO on all managed apps and a few unmanaged apps, but also block SSO for others:
     - Set Enable_SSO_On_All_ManagedApps : 1
