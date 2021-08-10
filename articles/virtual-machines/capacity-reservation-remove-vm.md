@@ -50,8 +50,7 @@ The first option is to deallocate the Virtual Machine, change the Capacity Reser
     "location": "eastus",
     "properties": {
         "capacityReservation": {
-            "capacityReservationGroup": {
-            }
+            "capacityReservationGroup":""
         }
     }
     }
@@ -140,8 +139,7 @@ This option works well when the virtual machine can’t be deallocated and when 
     "location": "eastus",
     "properties": {
         "capacityReservation": {
-            "capacityReservationGroup": {
-            }
+            "capacityReservationGroup":""
         }
     }
     } 

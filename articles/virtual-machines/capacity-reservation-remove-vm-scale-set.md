@@ -30,6 +30,8 @@ There are two ways to change an association:
 
 The first option is to deallocate the virtual machine scale set, change the Capacity Reservation Group property at the scale set level, and then update the underlying VMs. 
 
+Go to [upgrade policies](#upgrade-policies) for more information about automatic, rolling, and manual upgrades. 
+
 ### [API](#tab/api1)
 
 1. Deallocate the virtual machine scale set
@@ -51,29 +53,12 @@ The first option is to deallocate the virtual machine scale set, change the Capa
    "properties":{
         "virtualMachineProfile":{
             "capacityReservation":{
-                "capacityReservationGroup":{  
-                }
+                "capacityReservationGroup":""
             }
         }
     }
     }
     ```
-
-### [Portal](#tab/portal1)
-
-<!-- no images necessary if steps are straightforward --> 
-
-Currently, Capacity Reservation for Uniform virtual machine scale sets isn't supported in Azure portal. The following steps will only remove the association of the Capacity Reservation Group at the virtual machine scale set level. The underlying VMs may still be associated with the group, depending on the upgrade policy set for the scale set. 
-
-1. Open [Azure portal](https://portal.azure.com)
-1. Go to your virtual machine scale set and select **Overview**
-1. Select **Stop** 
-    1. At this point in the process, the VMs in the scale set are still associated with the Capacity Reservation Group and are reflected in the `virtualMachinesAssociated` property of the Capacity Reservation 
-
-Upgrade policies: 
-- **Automatic Upgrade** – In this mode, VMs are automatically dissociated from the Capacity Reservation Group without any further action from you. With Automatic Upgrade, all the VMs can be brought down and updated at the same time.   
-- **Rolling Upgrade** – In this mode, VMs are dissociated from the Capacity Reservation Group without any further action from you. They're updated in batches with an optional pause time between batches. 
-- **Manual Upgrade** – In this mode, nothing happens to the VM when the virtual machine scale set is updated. You'll need to do individually remove each VM by [upgrading them with the latest Scale Set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md).
 
 ### [PowerShell](#tab/powershell1)
 
@@ -110,6 +95,8 @@ The second option involves updating the reserved quantity to zero and then chang
 
 This option works well when the virtual machine scale set can’t be deallocated and when a reservation is no longer needed. For example, you may create a capacity reservation to temporarily assure capacity during a large-scale deployment. Once completed, the reservation is no longer needed. 
 
+Go to [upgrade policies](#upgrade-policies) for more information about automatic, rolling, and manual upgrades. 
+
 ### [API](#tab/api2)
 
 1. Update the reserved quantity to zero 
@@ -145,33 +132,12 @@ This option works well when the virtual machine scale set can’t be deallocated
    "properties":{
         "virtualMachineProfile":{
             "capacityReservation":{
-                "capacityReservationGroup":{  
-                }
+                "capacityReservationGroup":""
             }
         }
     }
     }
     ```
-
-### [Portal](#tab/portal2)
-
-<!-- no images necessary if steps are straightforward --> 
-
-Currently, Capacity Reservation for Uniform virtual machine scale sets isn't supported in Azure portal. The following steps will only remove the association of the Capacity Reservation Group at the virtual machine scale set level. The underlying VMs may still be associated with the group, depending on the upgrade policy set for the scale set.
-
-1. Open [Azure portal](https://portal.azure.com)
-1. Go to your Capacity Reservation Group and select **Overview**
-1. Select **Reservations** 
-1. Select **Manage Reservation** at the top of the page 
-1. On the *Manage Reservations* blade:
-    1. Enter `0` in the **Instances** field
-    1. Select **Save** 
-1. For a multi-zonal scale sets, update the **Instances** (reserved quantity) to zero for all the member Capacity Reservations
-
-Upgrade policies: 
-- **Automatic Upgrade** – In this mode, VMs are automatically dissociated from the Capacity Reservation Group without any further action from you. With Automatic Upgrade, all the VMs can be brought down and updated at the same time.   
-- **Rolling Upgrade** – In this mode, VMs are dissociated from the Capacity Reservation Group without any further action from you. They're updated in batches with an optional pause time between batches. 
-- **Manual Upgrade** – In this mode, nothing happens to the VM when the virtual machine scale set is updated. You'll need to do individually remove each VM by [upgrading them with the latest Scale Set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md).
 
 ### [PowerShell](#tab/powershell2)
 
@@ -207,6 +173,13 @@ To learn more, go to [Azure PowerShell commands for Capacity Reservation]().
 
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
+
+
+## Upgrade policies
+
+- **Automatic Upgrade** – In this mode, VMs are automatically dissociated from the Capacity Reservation Group without any further action from you. With Automatic Upgrade, all the VMs can be brought down and updated at the same time.   
+- **Rolling Upgrade** – In this mode, VMs are dissociated from the Capacity Reservation Group without any further action from you. They're updated in batches with an optional pause time between batches. 
+- **Manual Upgrade** – In this mode, nothing happens to the VM when the virtual machine scale set is updated. You'll need to do individually remove each VM by [upgrading them with the latest Scale Set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md).
 
 
 ## Next steps
