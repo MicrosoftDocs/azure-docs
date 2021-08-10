@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 08/09/2021
 ms.author: lajanuar
 ---
 
@@ -33,12 +33,12 @@ A custom model is a machine learning program trained to recognize form fields wi
 
 With composed models, you can assign multiple custom models to a composed model called with a single model ID. This is useful when you have trained several models and want to group them to analyze similar form types. For example, your composed model may be comprised of custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
 
-## Try it out
+## Try it
 
 Get started with our Form Recognizer sample labeling tool:
 
 > [!div class="nextstepaction"]
-> [Try Custom](https://aka.ms/fott-2.1-ga "Start with Custom to train a model with labels and find key-value pairs.")
+> [Try a custom model](https://aka.ms/fott-2.1-ga "Start with Custom to train a model with labels and find key-value pairs.")
 
 ## Create your models
 
