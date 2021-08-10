@@ -10,11 +10,11 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 8/10/2021
+ms.date: 08/10/2021
 ms.author: gasinh
 ms.subservice: manage-apps
 
-----
+---
 
 # Tutorial: Migrate Okta sign on policies to Azure Active Directory Conditional Access
 
