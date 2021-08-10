@@ -1773,10 +1773,20 @@ The [Speech language detection][sp-lid] container image can be found on the `mcr
 
 This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/language-detection/tags/list).
 
+# [Latest version](#tab/current)
+
 | Image Tags                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                       |      |
+| `1.3.0-amd64-preview`                       |      |
+
+# [Previous versions](#tab/previous)
+
+| Image Tags                                  | Notes                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
 | `1.1.0-amd64-preview`                       |      |
+
+---
 
 ## Key Phrase Extraction
 
