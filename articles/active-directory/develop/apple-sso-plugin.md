@@ -145,7 +145,7 @@ When this flag is on (its value is set to `1`), all MDM-managed apps not in the 
 - **Value**: Comma-delimited list of application bundle IDs for the applications that are allowed not to participate in SSO.
 - **Example**: `com.contoso.studyapp, com.contoso.travelapp`
 
-[Consented apps](./application-consent-experience.md) that the MDM admin allows to participate in SSO can silently get a token for the end user. So add only trusted applications to the allowlist. 
+Add only applications that you trust to the `AppAllowList`.  An app that's been given [consent](./application-consent-experience.md) and that also appears in the `AppAllowList` can get a user's token silently, without prompting or requiring confirmation from the user.
 
 #### Enable SSO through cookies for a specific application
 
