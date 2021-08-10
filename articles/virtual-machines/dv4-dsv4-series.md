@@ -41,13 +41,16 @@ Remote Data disk storage is billed separately from virtual machines. To use prem
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|
-| Standard_D2_v4 | 2 | 8 | Remote Storage Only | 4 | 2|5000 |
+| Standard_D2_v4<sup>1</sup> | 2 | 8 | Remote Storage Only | 4 | 2|5000 |
 | Standard_D4_v4 | 4 | 16  | Remote Storage Only | 8 | 2|10000 |
 | Standard_D8_v4 | 8 | 32 | Remote Storage Only | 16 | 4|12500 |
 | Standard_D16_v4 | 16 | 64 | Remote Storage Only | 32 | 8|12500 |
 | Standard_D32_v4 | 32 | 128 | Remote Storage Only | 32 | 8|16000 |
 | Standard_D48_v4 | 48 | 192 | Remote Storage Only | 32 | 8|24000 |
 | Standard_D64_v4 | 64 | 256 | Remote Storage Only | 32 | 8|30000 |
+
+<sup>1</sup> Accelerated networking can only be applied to a single NIC. 
+
 
 ## Dsv4-series
 
@@ -65,7 +68,7 @@ Dsv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
-| Standard_D2s_v4 | 2 | 8  | Remote Storage Only | 4 | 3200/48 | 4000/200 |2|5000 |
+| Standard_D2s_v4<sup>2</sup> | 2 | 8  | Remote Storage Only | 4 | 3200/48 | 4000/200 |2|5000 |
 | Standard_D4s_v4 | 4 | 16 | Remote Storage Only | 8 | 6400/96 | 8000/200 |2|10000 |
 | Standard_D8s_v4 | 8 | 32 | Remote Storage Only | 16 | 12800/192 | 16000/400 |4|12500 |
 | Standard_D16s_v4 | 16 | 64  | Remote Storage Only | 32 | 25600/384 | 32000/800 |8|12500 |
@@ -74,3 +77,4 @@ Dsv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 | Standard_D64s_v4 | 64 | 256 | Remote Storage Only | 32 | 80000/1200 | 80000/2000 |8|30000 |
 
 <sup>1</sup>  Dsv4-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+<sup>2</sup> Accelerated networking can only be applied to a single NIC. 
