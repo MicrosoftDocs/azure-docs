@@ -72,7 +72,7 @@ Next, create an Azure Function that will run when a blob is rehydrated. Follow t
     1. From the list of possible triggers, select **Event Grid Trigger**. For more information on why an Event Grid trigger is the recommended type of trigger for handling a Blob Storage event with an Azure Function, see [Use a function as an event handler for Event Grid events](../../event-grid/handler-functions.md).
     1. The **Storage Account** setting indicates where your Azure Function will be stored. You can select an existing storage account or create a new one.
 1. Select **Create** to create the new project in Visual Studio.
-1. Next, rename the function for your scenario, as described in [Rename the function](../../azure-functions/functions-create-your-first-function-visual-studio.md#rename-the-function).
+1. Next, rename the class and Azure Function, as described in [Rename the function](../../azure-functions/functions-create-your-first-function-visual-studio.md#rename-the-function). Choose a name that's appropriate for your scenario.
 1. In Visual Studio, select **Tools** | **NuGet Package Manager** | **Package Manager Console**, and then install the following packages from the console:
 
     ```powershell
@@ -161,9 +161,68 @@ For more information on developing Azure Functions, see [Guidance for developing
 
 To learn more about the information that is included when a Blob Storage event is published to an event handler, see [Azure Blob Storage as Event Grid source](../../event-grid/event-schema-blob-storage.md).
 
+## Run the Azure Function locally in the debugger
+
+To test your Azure Function code locally, you need to manually send an HTTP request that triggers the event. You can post the request using a tool such as Postman. This request is a simulated request. It does not send or receive data from your Azure Storage account.
+
+At the top of the class file for your Azure Function is a URL endpoint that you can use for testing in the local environment. Posting the request with this URL triggers the event in the local environment so that you can debug your code. The URL is in the following format:
+
+```http
+http://localhost:7071/runtime/webhooks/EventGrid?functionName={functionname}
+```
+
+Follow these steps to construct and send a request to this endpoint. This example shows how to send the request with Postman.
+
+1. In Postman, create a new request.
+1. Paste the URL shown above into the field for the request URL, substituting the name of your function for `{functionname}` and removing the curly braces. Make sure that the request verb is set to GET.
+
+    :::image type="content" source="media/archive-rehydrate-handle-event/trigger-azure-function-postman-url.png" alt-text="Screenshot showing how to specify local URL for event trigger in Postman ":::
+
+1. Add the **Content-Type** header and set it to *application/json*.
+1. Add the **aeg-event-type** header and set it to *Notification*.
+
+    :::image type="content" source="media/archive-rehydrate-handle-event/trigger-azure-function-postman-headers.png" alt-text="Screenshot showing header configuration for local request to trigger event":::
+
+1. In Postman, specify the request body, with the body type set to *JSON* and the format to *raw*. The following example simulates a **Put Blob** request. Replace placeholder values in angle brackets with your own values. Note that it is not necessary to change date/time or identifier values, because this is a simulated request:
+
+    ```json
+    [{
+      "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>",
+      "subject": "/blobServices/default/containers/<container-name>/blobs/<blob-name>",
+      "eventType": "Microsoft.Storage.BlobCreated",
+      "id": "2bfb587b-501e-0094-2746-8b2884065d32",
+      "data": {
+        "api": "PutBlob",
+        "clientRequestId": "3d4dedc7-6c27-4816-9405-fdbfa806b00c",
+        "requestId": "2bfb587b-501e-0094-2746-8b2884000000",
+        "eTag": "0x8D9595DCA505BDF",
+        "contentType": "text/plain",
+        "contentLength": 48,
+        "blobType": "BlockBlob",
+        "url": "https://<storage-account>.blob.core.windows.net/<container-name>/<blob-name>",
+        "sequencer": "0000000000000000000000000000201B00000000004092a5",
+        "storageDiagnostics": {
+          "batchId": "8a92736a-6006-0026-0046-8bd7f5000000"
+        }
+      },
+      "dataVersion": "",
+      "metadataVersion": "1",
+      "eventTime": "2021-08-07T04:42:41.0730463Z"
+    }]
+    ```
+
+1. In Visual Studio, place any desired breakpoints in your code, and press F5 to run the debugger.
+1. In Postman, select the **Send** button to send the request.
+
+When you send the request, Event Grid calls your Azure Function, and you can debug it normally. For additional information and examples, see [Manually post the request](../../azure-functions/functions-bindings-event-grid-trigger.md#manually-post-the-request) in the Azure Functions documentation.
+
+The request that triggers the event is simulated, but the code that runs when the event fires writes log information to a blob. You can check the contents of the blob and its last modified time in the Azure portal, as shown in the following image:
+
+:::image type="content" source="media/archive-rehydrate-handle-event/log-blob-contents-portal.png" alt-text="Screenshot showing the contents of the log blob in the Azure portal":::
+
 ## Publish the Azure Function
 
-The next step is to publish the Azure Function to the Azure Function App that you created previously. The function must be published so that you can configure Azure Event Grid to send events to the function endpoint.
+After you have tested your Azure Function locally, the next step is to publish the Azure Function to the Azure Function App that you created previously. The function must be published so that you can configure Azure Event Grid to send events to the function endpoint.
 
 Follow these steps to publish the function:
 
@@ -177,6 +236,8 @@ Follow these steps to publish the function:
 1. Select the **Publish** button to begin publishing the Azure Function to the Azure Function App that you created previously.
 
     :::image type="content" source="media/archive-rehydrate-handle-event/visual-studio-publish-azure-function.png" alt-text="Screenshot showing page to publish Azure Function from Visual Studio":::
+
+Whenever you make changes to the code in your Azure Function, you must publish the updated function to Azure. 
 
 ## Subscribe to blob rehydration events from a storage account
 
@@ -205,19 +266,15 @@ To create the event subscription, follow these steps:
 
 To learn more about event subscriptions, see [Azure Event Grid concepts](../../event-grid/concepts.md#event-subscriptions).
 
-## Debug and test the Azure Function event handler
+## Debug and test the Azure Function remotely
+
+The Remote Tools for Visual Studio 2019 enable you to attach the debugger to the function running in your Azure Function App in the cloud. You must publish the function before you can debug it remotely. To attach the debugger 
 
 To test the Azure Function, you can trigger an event in the storage account that contains the event subscription. The event subscription is filtering on two events, **Microsoft.Storage.BlobCreated** and **Microsoft.Storage.BlobTierChanged**. For more information on how to filter events by type, see [How to filter events for Azure Event Grid](../../event-grid/how-to-filter-events.md).
 
 > [!TIP]
-> Although the goal of this how-to is to handle these events in the context of blob rehydration, for testing purposes it may helpful to observe these events in response to uploading a blob or changing its tier, because the event fires immediately.
+> Although the goal of this how-to is to handle these events in the context of blob rehydration, for testing purposes it may helpful to observe these events in response to uploading a blob or changing an online blob's tier, because the event fires immediately.
 
-### Debug and test the Azure Function locally by simulating a request
-
-
-
-
-### Debug and test the Azure Function remotely
 
 
 1. From Visual Studio, choose **View** | **Cloud Explorer** to display the **Cloud Explorer** window in the development environment.
