@@ -63,6 +63,8 @@
       href: groups-discover-groups.md
   - name: Extend or renew
     items:
+    - name: Azure AD roles
+      href: pim-how-to-renew-extend.md
     - name: Azure roles
       href: pim-resource-roles-renew-extend.md
     - name: Privileged Access groups
