@@ -17,17 +17,17 @@ The following table lists the platform metrics collected for AKS.  Follow each l
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
-| Managed clusters | [Microsoft.ContainerService/managedClusters](/azure/azure-monitor/essentials/metrics-supported#microsoftcontainerservicemanagedclusters)
-| Connected clusters | [microsoft.kubernetes/connectedClusters](/azure/azure-monitor/essentials/metrics-supported#microsoftkubernetesconnectedclusters)
-| Virtual machines| [Microsoft.Compute/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachines) |
-| Virtual machine scale sets | [Microsoft.Compute/virtualMachineScaleSets](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesets)|
-| Virtual machine scale sets virtual machines | [Microsoft.Compute/virtualMachineScaleSets/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesetsvirtualmachines)|
+| Managed clusters | [Microsoft.ContainerService/managedClusters](../azure-monitor/essentials/metrics-supported.md#microsoftcontainerservicemanagedclusters)
+| Connected clusters | [microsoft.kubernetes/connectedClusters](../azure-monitor/essentials/metrics-supported.md#microsoftkubernetesconnectedclusters)
+| Virtual machines| [Microsoft.Compute/virtualMachines](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachines) |
+| Virtual machine scale sets | [Microsoft.Compute/virtualMachineScaleSets](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets)|
+| Virtual machine scale sets virtual machines | [Microsoft.Compute/virtualMachineScaleSets/virtualMachines](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesetsvirtualmachines)|
 
-For more information, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 ## Metric dimensions
 
-The following table lists [dimensions](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics) for AKS metrics. 
+The following table lists [dimensions](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics) for AKS metrics. 
 
 <!-- listed here /azure/azure-monitor/essentials/metrics-supported#microsoftcontainerservicemanagedclusters-->
 
@@ -48,7 +48,7 @@ The following table lists [dimensions](/azure/azure-monitor/platform/data-platfo
 
 The following table lists the resource log categories you can collect for AKS. These are the logs for AKS control plane components. See [Configure monitoring](monitor-aks.md#configure-monitoring) for information on creating a diagnostic setting to collect these logs and recommendations on which to enable. See [How to query logs from Container insights](../azure-monitor/containers/container-insights-log-query.md#resource-logs) for query examples.
 
-For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema). 
+For reference, see a list of [all resource logs category types supported in Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md). 
 
 | Category                | Description |
 |:---|:---|
@@ -87,9 +87,9 @@ The following table lists a few example operations related to AKS that may be cr
 | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | List clusterAdmin credential |
 | Microsoft.ContainerService/managedClusters/agentpools/write | Create or Update Agent Pool |
 
-For a complete list of possible log entries, see [Microsoft.ContainerService Resource Provider options](/azure/role-based-access-control/resource-provider-operations#microsoftcontainerservice).
+For a complete list of possible log entries, see [Microsoft.ContainerService Resource Provider options](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice).
 
-For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
+For more information on the schema of Activity Log entries, see [Activity  Log schema](../azure-monitor/essentials/activity-log-schema.md). 
 
 ## See also
 

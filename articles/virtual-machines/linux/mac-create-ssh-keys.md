@@ -15,7 +15,7 @@ ms.author: cynthn
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
-With a secure shell (SSH) key pair, you can create virtual machines (VMs) in Azure that use SSH keys for authentication. This article shows you how to quickly generate and use an SSH public-private key file pair for Linux VMs. You can complete these steps with the Azure Cloud Shell, a macOS or Linux host. 
+With a secure shell (SSH) key pair, you can create virtual machines (VMs) in Azure that use SSH keys for authentication. This article shows you how to quickly generate and use an SSH public-private key file pair for Linux VMs. You can complete these steps with the Azure Cloud Shell, a macOS, or a Linux host. 
 
 For help with troubleshooting issues with SSH, see [Troubleshoot SSH connections to an Azure Linux VM that fails, errors out, or is refused](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
@@ -89,7 +89,13 @@ With the public key deployed on your Azure VM, and the private key on your local
 ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
-If you specified a passphrase when you created your key pair, enter that passphrase when prompted during the login process. The VM is added to your ~/.ssh/known_hosts file, and you won't be asked to connect again until either the public key on your Azure VM changes or the server name is removed from ~/.ssh/known_hosts.
+If you're connecting to this VM for the first time, you'll be asked to verify the host's fingerprint. It's tempting to simply accept the fingerprint that's presented, but that approach exposes you to a possible person-in-the-middle attack. You should always validate the host's fingerprint. You need to do this only the first time you connect from a client. To obtain the host fingerprint via the portal, use the Run Command feature to execute the command `ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'`.
+
+:::image type="content" source="media/ssh-from-windows/run-command-validate-host-fingerprint.png" alt-text="Screenshot showing using the Run Command to validate the host fingerprint.":::
+
+To run the command using CLI, use [`az vm run-command invoke`](/cli/azure/vm/run-command).
+
+If you specified a passphrase when you created your key pair, enter that passphrase when prompted during the sign-in process. The VM is added to your ~/.ssh/known_hosts file, and you won't be asked to connect again until either the public key on your Azure VM changes or the server name is removed from ~/.ssh/known_hosts.
 
 If the VM is using the just-in-time access policy, you need to request access before you can connect to the VM. For more information about the just-in-time policy, see [Manage virtual machine access using the just in time policy](../../security-center/security-center-just-in-time.md).
 

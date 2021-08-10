@@ -20,7 +20,7 @@ assignment is applied to a resource group, it's applicable to all the resources 
 group.
 
 The policy definition _policyRule_ schema is found here:
-[https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
+[https://schema.management.azure.com/schemas/2020-10-01/policyDefinition.json](https://schema.management.azure.com/schemas/2020-10-01/policyDefinition.json)
 
 You use JSON to create a policy definition. The policy definition contains elements for:
 

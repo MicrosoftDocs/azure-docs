@@ -11,6 +11,9 @@ ms.author: aersoy
 
 # Register a public client application
 
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 In this article, you'll learn how to register a public application in the Azure Active Directory (Azure AD).
 
 Client application registrations are Azure AD representations of applications that can authenticate and ask for API permissions on behalf of a user. Public clients are applications such as mobile applications and single page JavaScript applications that can't keep secrets confidential. The procedure is similar to [registering a confidential client application](dicom-register-confidential-client-application.md), but since public clients can't be trusted to hold an application secret, there's no need to add one.

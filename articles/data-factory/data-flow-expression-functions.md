@@ -1,9 +1,12 @@
 ---
 title: Expression functions in the mapping data flow
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about expression functions in mapping data flow.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 07/04/2021
 ---
@@ -14,7 +17,7 @@ ms.date: 07/04/2021
 
 ## Expression functions
 
-In Data Factory, use the expression language of the mapping data flow feature to configure data transformations.
+In Data Factory and Synapse pipelines, use the expression language of the mapping data flow feature to configure data transformations.
 ___
 ### <code>abs</code>
 <code><b>abs(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>

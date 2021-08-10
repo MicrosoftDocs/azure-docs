@@ -11,7 +11,7 @@ ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 
 ---
-# Create a fully qualified domain name in the Azure portal
+# Create a fully qualified domain name for a VM in the Azure portal
 
 **Applies to:** **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 

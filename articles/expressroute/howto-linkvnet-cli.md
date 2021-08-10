@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/08/2020
+ms.date: 08/10/2021
 ms.author: duau
 
 ---
@@ -166,6 +166,22 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 ```azurecli-interactive
 az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true
 ```
+
+> [!NOTE]
+> You can use [Connection Monitor](how-to-configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
+>
+
+## Enroll in ExpressRoute FastPath features (preview)
+
+FastPath support for virtual network peering is now in Public preview. Enrollment is only available through Azure PowerShell. See [FastPath preview features](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview), for instructions on how to enroll.
+
+> [!NOTE] 
+> If you already have FathPath configured and want to enroll in the preview feature, you need to do the following:
+> 1. Disable FastPath on the existing connection.
+> 1. Enroll in the FathPath preview feature with the Azure PowerShell command above.
+> 1. Re-enable the FathPath on the connection.
+>
+
 ## Clean up resources
 
 If you no longer need the ExpressRoute connection, from the subscription where the gateway is located use the `az network vpn-connection delete` command to remove the link between the gateway and the circuit.
