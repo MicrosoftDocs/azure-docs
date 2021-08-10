@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
-ms.date: 08/04/2021
+ms.date: 08/10/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 manager: carmonm
 ---
 
-# Integrate with Azure Monitor logs
+# Integrate with Azure Monitor Logs
 
-Azure Automation State Configuration retains node status data for 30 days. You can send node status data to your Log Analytics workspace if you prefer to retain this data for a longer period. Compliance status is visible in the Azure portal or with PowerShell, for nodes and for individual DSC resources in node configurations. 
+Azure Automation State Configuration retains node status data for 30 days. You can send node status data to [Azure Monitor Logs](../azure-monitor/logs/data-platform-logs.md) if you prefer to retain this data for a longer period. Compliance status is visible in the Azure portal or with PowerShell, for nodes and for individual DSC resources in node configurations.
 
 Azure Monitor logs provides greater operational visibility to your Automation State Configuration data and can help address incidents more quickly. With Azure Monitor logs you can:
 
@@ -28,17 +28,17 @@ Azure Monitor logs provides greater operational visibility to your Automation St
 
 ## Prerequisites
 
-To start sending your Automation State Configuration reports to Azure Monitor logs, you need:
+To start sending your Automation State Configuration reports to Azure Monitor Logs, you need:
 
 * The PowerShell [Az Module](/powershell/azure/new-azureps-module-az) installed. Ensure you have the latest version. If necessary, run `Update-Module -Name Az`.
 - An Azure Automation account. For more information, see [An introduction to Azure Automation](automation-intro.md).
-- A Log Analytics workspace with an Automation & Control service offering. For more information, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
+- A Log Analytics workspace. For more information, see [Azure Monitor Logs overview](../azure-monitor/logs/data-platform-logs.md).
 - At least one Azure Automation State Configuration node. For more information, see [Onboarding machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md).
 - The [xDscDiagnostics](https://www.powershellgallery.com/packages/xDscDiagnostics/2.7.0.0) module, version 2.7.0.0 or greater. For installation steps, see [Troubleshoot Azure Automation Desired State Configuration](./troubleshoot/desired-state-configuration.md).
 
 ## Set up integration with Azure Monitor logs
 
-To begin importing data from Azure Automation State Configuration into Azure Monitor logs, complete the following steps:
+To begin importing data from Azure Automation State Configuration into Azure Monitor Logs, complete the steps further below. For steps using the Portal, see [Forward Azure Automation job data to Azure Monitor logs](./automation-manage-send-joblogs-log-analytics.md).
 
 1. From your machine, sign in to your Azure subscription with the PowerShell [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet and follow the on-screen directions.
 
@@ -138,7 +138,7 @@ To learn more about constructing log queries to find data, see [Overview of log 
     | where ResultType == "Failed"
     ```
 
-   If you have set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account. Derive the Automation account name from the `Resource` field in the search of the `DscNodeStatusData` records.
+   If you have set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account. Derive the Automation account name from the `Resource` property in the log search results of the `DscNodeStatusData`.
 
 1. Review [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md) to complete the remaining steps.
 
