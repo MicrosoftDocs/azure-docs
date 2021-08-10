@@ -265,49 +265,45 @@ The IoT Edge runtime needs to access the TPM to automatically provision your dev
 
 You can give TPM access to the IoT Edge runtime by overriding the systemd settings so that the `iotedge` service has root privileges. If you don't want to elevate the service privileges, you can also use the following steps to manually provide TPM access.
 
-1. Find the file path to the TPM hardware module on your device and save it as a local variable.
-
-   ```bash
-   tpm=$(sudo find /sys -name dev -print | fgrep tpm | sed 's/.\{4\}$//')
-   ```
-
-2. Create a new rule that will give the IoT Edge runtime access to tpm0.
+1. Create a new rule that will give the IoT Edge runtime access to tpm0 and tpmrm0. 
 
    ```bash
    sudo touch /etc/udev/rules.d/tpmaccess.rules
    ```
 
-3. Open the rules file.
+2. Open the rules file.
 
    ```bash
    sudo nano /etc/udev/rules.d/tpmaccess.rules
    ```
 
-4. Copy the following access information into the rules file.
+3. Copy the following access information into the rules file. The `tpmrm0` may not be present on devices using a kernel earlier than 4.12. Devices that do not have tpmrm0 will safely ignore that rule.
 
    ```input
    # allow iotedge access to tpm0
    KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="iotedge", MODE="0600"
+   KERNEL=="tpmrm0", SUBSYSTEM=="tpmrm", OWNER="iotedge", MODE="0600"
    ```
 
-5. Save and exit the file.
+4. Save and exit the file.
 
-6. Trigger the udev system to evaluate the new rule.
+5. Trigger the udev system to evaluate the new rule.
 
    ```bash
    /bin/udevadm trigger $tpm
    ```
 
-7. Verify that the rule was successfully applied.
+6. Verify that the rule was successfully applied.
 
    ```bash
-   ls -l /dev/tpm0
+   ls -l /dev/tpm*
    ```
 
    Successful output appears as follows:
 
    ```output
-   crw-rw---- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
+   crw------- 1 iotedge root 10, 224 Jul 20 16:27 /dev/tpm0
+   crw------- 1 iotedge root 10, 224 Jul 20 16:27 /dev/tpmrm0
    ```
 
    If you don't see that the correct permissions have been applied, try rebooting your machine to refresh udev.
@@ -320,52 +316,48 @@ The IoT Edge runtime relies on a TPM service that broker's access to a device's 
 
 You can give access to the TPM by overriding the systemd settings so that the `aziottpm` service has root privileges. If you don't want to elevate the service privileges, you can also use the following steps to manually provide TPM access.
 
-1. Find the file path to the TPM hardware module on your device and save it as a local variable.
-
-   ```bash
-   tpm=$(sudo find /sys -name dev -print | fgrep tpm | sed 's/.\{4\}$//')
-   ```
-
-2. Create a new rule that will give the IoT Edge runtime access to tpm0.
+1. Create a new rule that will give the IoT Edge runtime access to tpm0 and tpmrm0. 
 
    ```bash
    sudo touch /etc/udev/rules.d/tpmaccess.rules
    ```
 
-3. Open the rules file.
+2. Open the rules file.
 
    ```bash
    sudo nano /etc/udev/rules.d/tpmaccess.rules
    ```
 
-4. Copy the following access information into the rules file.
+3. Copy the following access information into the rules file. The `tpmrm0` may not be present on devices using a kernel earlier than 4.12. Devices that do not have tpmrm0 will safely ignore that rule.
 
    ```input
-   # allow aziottpm access to tpm0
-   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="aziottpm", MODE="0600"
+   # allow aziottpm access to tpm0 and tpmrm0
+   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="aziottpm", MODE="0660"
+   KERNEL=="tpmrm0", SUBSYSTEM=="tpmrm", OWNER="aziottpm", MODE="0660"
    ```
 
-5. Save and exit the file.
+4. Save and exit the file.
 
-6. Trigger the udev system to evaluate the new rule.
+5. Trigger the udev system to evaluate the new rule.
 
    ```bash
-   /bin/udevadm trigger $tpm
+   /bin/udevadm trigger --subsystem-match=tpm --subsystem-match=tpmrm
    ```
 
-7. Verify that the rule was successfully applied.
+6. Verify that the rule was successfully applied.
 
    ```bash
-   ls -l /dev/tpm0
+   ls -l /dev/tpm*
    ```
 
    Successful output appears as follows:
 
    ```output
    crw-rw---- 1 root aziottpm 10, 224 Jul 20 16:27 /dev/tpm0
+   crw-rw---- 1 root aziottpm 10, 224 Jul 20 16:27 /dev/tpmrm0
    ```
 
-   If you don't see that the correct permissions have been applied, try rebooting your machine to refresh udev.
+   If you don't see that the correct permissions have been applied, try rebooting your machine to refresh udev. 
 :::moniker-end
 <!-- end 1.2 -->
 
