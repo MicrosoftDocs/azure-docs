@@ -32,7 +32,7 @@ If you want to evaluate Azure Stack Hub on your own server, you can use the Azur
 
 ### Install the IoT Edge runtime
 
-To run Stream Analytics on Azure Stack Hub, your device must have the IoT Edge runtime and must have network connectivity to the Azure Stack hub or be a VM running on the Azure Stack hub. The IoT Edge runtime allows Stream Analytics edge jobs to integrate with Azure Storage and Azure Event Hubs that are running on your Azure Stack hub. For more information, see [Azure Stream Analytics on IoT Edge](stream-analytics-edge.md) 
+To run Stream Analytics on Azure Stack Hub, your device must have the IoT Edge runtime and must have network connectivity to the Azure Stack hub or be a VM running on the Azure Stack hub. The IoT Edge runtime allows Stream Analytics edge jobs to integrate with Azure Storage and Azure Event Hubs that are running on your Azure Stack hub. For more information, see [Azure Stream Analytics on IoT Edge](stream-analytics-edge.md). 
 
 In addition to having network access to the Azure Stack Hub resources, the IoT Edge device or VM needs access to IoT Hub in the Azure public cloud to configure the Stream Analytics module. 
 
