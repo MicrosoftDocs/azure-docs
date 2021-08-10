@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* A SendGrid email account. See [How to Send Email Using SendGrid with Azure](../sendgrid-dotnet-how-to-send-email.md) for instructions.
+* A SendGrid email account. See [How to Send Email Using SendGrid with Azure](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-accountcreate-a-twilio-sendgrid-account) for instructions.
 
 * An HDInsight cluster. See [Create Apache Hadoop clusters using the Azure portal](./hdinsight-hadoop-create-linux-clusters-portal.md).
 

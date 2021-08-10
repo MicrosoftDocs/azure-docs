@@ -268,7 +268,7 @@ sections:
       - question: |
           Diagnostic logs
         answer: |
-          Event Hubs supports two types of [diagnostics logs](event-hubs-diagnostic-logs.md) - Capture error logs and operational logs - both of which are represented in json and can be turned on through the Azure portal.
+          Event Hubs supports two types of [diagnostics logs](monitor-event-hubs-reference.md#resource-logs) - Capture error logs and operational logs - both of which are represented in json and can be turned on through the Azure portal.
           
       - question: |
           Support and SLA

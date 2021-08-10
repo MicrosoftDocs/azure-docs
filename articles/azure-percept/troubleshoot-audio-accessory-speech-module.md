@@ -13,36 +13,37 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 Use the guidelines below to troubleshoot voice assistant application issues.
 
-## Understanding Ear SoM LED indicators
-
-You can use LED indicators to understand which state your device is in. It takes around 4-5 minutes for the device to power on and the module to fully initialize. As it goes through initialization steps, you will see:
-
-1. Center white LED on (static): the device is powered on.
-1. Center white LED on (blinking): authentication is in progress.
-1. Center white LED on (static): the device is authenticated but keyword is not configured.​
-1. All three LEDs will change to blue once a demo was deployed and the device is ready to use.
-
-For more reference, see this article about [Azure Percept Audio button and LED behavior](./audio-button-led-behavior.md).
-
-### Troubleshooting LED issues
-- **If the center LED is solid white**, try [using a template to create a voice assistant](./tutorial-no-code-speech.md).
-- **If the center LED is always blinking**, it indicates an authentication issue. Try these troubleshooting steps:
-    - Make sure that your USB-A and micro USB connections are secured 
-    - Check to see if the [speech module is running](./troubleshoot-audio-accessory-speech-module.md#checking-runtime-status-of-the-speech-module)
-    - Restart the device
-    - [Collect logs](./troubleshoot-audio-accessory-speech-module.md#collecting-speech-module-logs) and attach them to a support request
-    - Check to see if your dev kit is running the latest software and apply an update if available.
-
 ## Checking runtime status of the speech module
 
-Check if the runtime status of **azureearspeechclientmodule** shows as **running**. To locate the runtime status of your device modules, open the [Azure portal](https://portal.azure.com/) and navigate to **All resources** -> **[your IoT hub]** -> **IoT Edge** -> **[your device ID]**. Click the **Modules** tab to see the runtime status of all installed modules.
+Check if the runtime status of **azureearspeechclientmodule** shows as **running**. To locate the runtime status of your device modules, open the [Azure portal](https://portal.azure.com/) and navigate to **All resources** -> **[your IoT hub]** -> **IoT Edge** -> **[your device ID]**. Select the **Modules** tab to see the runtime status of all installed modules.
 
 :::image type="content" source="./media/troubleshoot-audio-accessory-speech-module/over-the-air-iot-edge-device-page.png" alt-text="Edge device page in the Azure portal.":::
 
-If the runtime status of **azureearspeechclientmodule** is not listed as **running**, click **Set modules** -> **azureearspeechclientmodule**. On the **Module Settings** page, set **Desired Status** to **running** and click **Update**.
+If the runtime status of **azureearspeechclientmodule** isn't listed as **running**, select **Set modules** -> **azureearspeechclientmodule**. On the **Module Settings** page, set **Desired Status** to **running** and select **Update**.
+
+## Voice assistant application doesn't load
+Try [deploying one of the voice assistant templates](./tutorial-no-code-speech.md). Deploying a template ensures that all the supporting resources needed for voice assistant applications get created.
+
+## Voice assistant template doesn't get created
+Failure of when creating a voice assistant template is usually an issue with one of the supporting resources.
+1. [Delete all previously created voice assistant resources](./delete-voice-assistant-application.md).
+1. Deploy a new [voice assistant template](./tutorial-no-code-speech.md).
+
+## Voice assistant was created but doesn't respond to commands
+Follow the instructions on the [LED behavior and troubleshooting guide](audio-button-led-behavior.md) to troubleshoot this issue.
+
+## Voice assistant doesn't respond to custom keywords created in Speech Studio
+This may occur if the speech module is out of date. Follow these steps to update the speech module to the latest version:
+
+1. Select on **Devices** in the left-hand menu panel of the Azure Percept Studio homepage.
+1. Find and select your device.
+
+    :::image type="content" source="./media/tutorial-no-code-speech/devices.png" alt-text="Screenshot of device list in Azure Percept Studio.":::
+1. In the device window, select the **Speech** tab.
+1. Check the speech module version. If an update is available, you'll see an **Update** button next to the version number.
+1. Select **Update** to deploy the speech module update. The update process generally takes 2-3 minutes to complete.
 
 ## Collecting speech module logs
-
 To run these commands, [SSH into the dev kit](./how-to-ssh-into-percept-dk.md) and enter the commands into the SSH client prompt.
 
 Collect speech module logs:
@@ -81,3 +82,4 @@ scp [remote username]@[IP address]:[remote file path]/[file name].txt [local hos
 - [Azure Percept Audio button and LED behavior](./audio-button-led-behavior.md)
 - [Create a voice assistant with Azure Percept DK and Azure Percept Audio](./tutorial-no-code-speech.md)
 - [Azure Percept DK general troubleshooting guide](./troubleshoot-dev-kit.md)
+- [How to return to a previously crated voice assistant application](return-to-voice-assistant-application-window.md)

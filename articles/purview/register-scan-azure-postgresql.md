@@ -48,9 +48,9 @@ To register a new Azure database for PostgreSQL in your data catalog, do the fol
 
 1. Navigate to your Purview account.
 
-1. Select **Sources** on the left navigation.
+1. Select **Data Map** on the left navigation.
 
-1. Select **Register**.
+1. Select **Register**
 
 1. On **Register sources**, select **Azure Database for PostgreSQL**. Select **Continue**.
 

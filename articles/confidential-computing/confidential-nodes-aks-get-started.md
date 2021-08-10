@@ -56,7 +56,7 @@ az group create --name myResourceGroup --location westus2
 Now create an AKS cluster, with the confidential computing add-on enabled, by using the [az aks create][az-aks-create] command:
 
 ```azurecli-interactive
-az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom
+az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addons confcom
 ```
 
 ### Add a user node pool with confidential computing capabilities to the AKS cluster 

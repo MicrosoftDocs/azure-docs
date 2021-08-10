@@ -1,7 +1,7 @@
 ---
 title: Azure Resource Graph sample queries for Azure Advisor
 description: Sample Azure Resource Graph queries for Azure Advisor showing use of resource types and tables to access Azure Advisor related resources and properties.
-ms.date: 07/21/2021
+ms.date: 08/04/2021
 ms.topic: sample
 ms.custom: subject-resourcegraph-sample
 ---
