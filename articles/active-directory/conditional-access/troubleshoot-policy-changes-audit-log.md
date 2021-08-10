@@ -38,9 +38,13 @@ Find these options in the **Azure portal** > **Azure Active Directory**, **Diagn
    1. **Update conditional access policy** - This activity lists changed policies
    1. **Delete conditional access policy** - This activity lists deleted policies
 
+:::image type="content" source="media/troubleshoot-policy-changes-audit-log/old-and-new-policy-properties.png" alt-text="Audit log entry showing old and new JSON values for Conditional Access policy" lightbox="media/troubleshoot-policy-changes-audit-log/old-and-new-policy-properties.png":::
+
 ## Use Log Analytics
 
 Log Analytics allows organizations to query data using built in queries or custom created Kusto queries, for more information, see [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
+
+:::image type="content" source="media/troubleshoot-policy-changes-audit-log/log-analytics-new-old-value.png" alt-text="Log Analytics query for updates to Conditional Access policies showing new and old value location" lightbox="media/troubleshoot-policy-changes-audit-log/log-analytics-new-old-value.png":::
 
 Once enabled find access to Log Analytics in the **Azure portal** > **Azure AD** > **Log Analytics**. The table of most interest to Conditional Access administrators is **AuditLogs**.
 
@@ -48,6 +52,8 @@ Once enabled find access to Log Analytics in the **Azure portal** > **Azure AD**
 AuditLogs 
 | where OperationName == "Update conditional access policy"
 ```
+
+Changes can be found under **TargetResources** > **modifiedProperties**.
 
 ## Reading the values
 
@@ -178,7 +184,7 @@ Updated policy example:
 
 ``` 
 
-In the examples above the updated policy doesn't include terms of use in grant controls.
+In the example above, the updated policy doesn't include terms of use in grant controls.
 
 ### Restoring Conditional Access policies
 
