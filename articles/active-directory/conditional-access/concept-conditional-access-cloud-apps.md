@@ -37,7 +37,7 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - Azure Event Hubs
 - Azure Service Bus
 - [Azure SQL Database and Azure Synapse Analytics](../../azure-sql/database/conditional-access-configure.md)
-- Dynamics CRM Online
+- Common Data Service
 - Microsoft Application Insights Analytics
 - [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - [Microsoft Azure Management](#microsoft-azure-management)
