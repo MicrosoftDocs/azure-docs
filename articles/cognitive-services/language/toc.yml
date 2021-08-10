@@ -142,16 +142,16 @@ items:
         href: sentiment-opinion-mining/how-to/use-containers.md
       - name: Configure containers
         href: concepts/configure-containers.md
-  - name: Text summarization
+- name: Text summarization
+  items:
+  - name: Overview
+    href: text-summarization/overview.md
+  - name: Language support
+    href: text-summarization/language-support.md
+  - name: How-to guides
     items:
-    - name: Overview
-      href: text-summarization/overview.md
-    - name: Language support
-      href: text-summarization/language-support.md
-    - name: How-to guides
-      items:
-      - name: Call the Text Summarization API
-        href: text-summarization/how-to/call-api.md
+    - name: Call the Text Summarization API
+      href: text-summarization/how-to/call-api.md
 - name: Concepts
   items:
   - name: Multilingual and emoji support
@@ -160,6 +160,8 @@ items:
     href: concepts/specify-model-version.md
   - name: Send batch requests asynchronously
     href: concepts/asynchronous-use.md
+  - name: Model and endpoint lifecycle
+    href: concepts/model-endpoint-lifecycle.md
 - name: Enterprise readiness
   items:
     - name: Region support
