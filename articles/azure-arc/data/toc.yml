@@ -200,6 +200,8 @@
   items:
   - name: Release version log
     href: version-log.md
+  - name: Release version log list
+    href: version-log-list.md
   - name: az arcdata extension
     items:
     - name: Overview
