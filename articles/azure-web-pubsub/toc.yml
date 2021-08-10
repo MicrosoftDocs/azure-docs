@@ -2,18 +2,29 @@
   href: index.yml
 
 - name: Overview
+  expanded: true
   items:
   - name: About Azure Web PubSub service
     href: overview.md
-
+  - name: About Hubs, groups and connections
+    href: key-concepts.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Create instance
-    href: howto-develop-create-instance.md
-  - name: Try a simple Pub/Sub demo
-    href: quickstart-live-demo.md
-  - name: Build a serverless chat
+    expanded: true
+    items:
+    - name: Portal
+      href: howto-develop-create-instance.md
+    - name: CLI
+      href: quickstart-cli-create.md
+  - name: Connect to the instance
+    items:
+    - name: Pub/sub from the browser
+      href: quickstart-live-demo.md
+    - name: Pub/sub from CLI
+      href: quickstart-cli-try.md
+  - name: Build a serverless chat with Azure Function
     href: quickstart-serverless.md
 
 - name: How-to guides
@@ -21,8 +32,6 @@
   items:
   - name: Develop
     items:
-    - name: Create instance
-      href: howto-develop-create-instance.md
     - name: Publish and subscribe messages
       href: https://azure.github.io/azure-webpubsub/getting-started/publish-messages/js-publish-message
     - name: Work with subprotocols
@@ -52,6 +61,9 @@
     href: https://azure.github.io/azure-webpubsub/concepts/service-internals
   - name: Billing model
     href: concept-billing-model.md
+
+- name: Samples
+  href: https://aka.ms/awps/samples
 
 - name: Reference 
   items:
