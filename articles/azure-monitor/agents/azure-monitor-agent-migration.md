@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Migrate from a Log Analytics agent
-This article provides high-level guidance on when and how to migrate to the new Azure Monitor agent and data collection rules. This article will be updated when new migration tooling is available.
+This article provides high-level guidance on when and how to migrate to the new Azure Monitor agent (AMA) and data collection rules. This article will be updated when new migration tooling is available.
 
 
 ## Review
