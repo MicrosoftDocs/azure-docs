@@ -193,7 +193,7 @@ Verify that your updates still include all attributes expected in Azure AD. If m
 
 >[!NOTE] Before you continue to the next step, ensure all user attributes are syncing properly and are showing in the **Pending Export** tab as expected. If they're deleted, make sure their ImmutableID's match and the User is in one of the selected OUs for synchronization.
 
-### Step 4 - Install Azure AD cloud sync agents (optional)
+### Step 4 - Install Azure AD cloud sync agents
 
 Once you've prepared your list of source and destination targets, its time to install Azure AD cloud sync agents. If you've opted to use Azure AD Connect server, skip this section.
 
@@ -239,7 +239,7 @@ After disabling Okta Provisioning, the Azure AD Connect server is ready to begin
 You've now successfully migrated to Azure AD Connect server based provisioning. Updates and expansions to the feature set
 of Azure AD connect can be done by rerunning to the installation wizard.
 
-### Step 7 - Enable Cloud sync agents (optional)
+### Step 7 - Enable Cloud sync agents
 
 After disabling Okta Provisioning, the Azure AD cloud sync agent is ready to begin synchronizing objects, return to the [Azure AD Portal](https://aad.portal.azure.com/).
 
