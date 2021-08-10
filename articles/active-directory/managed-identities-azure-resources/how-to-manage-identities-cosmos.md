@@ -136,9 +136,49 @@ Currently, the Azure portal does not support assigning a user-assigned managed i
 
 # [PowerShell](#tab/azure-powershell)
 
+Create a Windows virtual machine with a user assigned managed identity specified.
+
+```powershell
+New-AzVm `
+    -ResourceGroupName "<Your resource group>" `
+    -Name "<Your VM name>" `
+    -Location "East US" `
+    -VirtualNetworkName "<myVnet>" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -UserAssignedIdentity "/subscriptions/<Your subscription>/resourceGroups/<Your resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<Your user assigned managed identity>" `
+    -OpenPorts 80,3389
+
+```
+
+Create a Linux virtual machine with a user assigned managed identity specified.
+
+```powershell
+New-AzVm `
+    -Name "<Linux VM name>" `
+    -image CentOS
+    -ResourceGroupName "<Your resource group>" `
+    -Location "East US" `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -Linux `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -UserAssignedIdentity "/subscriptions/<Your subscription>/resourceGroups/<Your resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<Your user assigned managed identity>" `
+    -OpenPorts 22
+
+
+```
+
+The user assigned managed identity should be specified using its [resourceID](how-manage-user-assigned-managed-identities.md
+). 
+
 # [Azure CLI](#tab/azure-cli)
 
-[Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-cli-windows-vm.md#user-assigned-managed-identity)
+```azurecli
+az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME>
+```
+
+[Configure managed identities for Azure resources on a VM using the Azure CLI](qs-configure-cli-windows-vm.md#user-assigned-managed-identity)
 
 # [Resource Manager Template](#tab/azure-resource-manager)
 
@@ -159,7 +199,7 @@ Currently, the Azure portal does not support assigning a user-assigned managed i
 
 To assign a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) and [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role assignments. No additional Azure AD directory role assignments are required.
 
-Create a user-assigned managed identity using the [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/new-azuserassignedidentity) cmdlet.  Note the `Id` in the output because you will need this in the next step.
+Create a user-assigned managed identity using the [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/new-azuserassignedidentity) cmdlet.  Write down the `Id` in the output because you will need this information in the next step.
 
 > [!IMPORTANT]
 > Creating user-assigned managed identities only supports alphanumeric, underscore and hyphen (0-9 or a-z or A-Z, \_ or -) characters. Additionally, name should be limited from 3 to 128 character length for the assignment to VM/VMSS to work properly. For more information see [FAQs and known issues](known-issues.md)
