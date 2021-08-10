@@ -9,10 +9,10 @@ author: manishmsfte
 ms.author: mansha
 ---
 # Quickstart: Create, query, and traverse an Azure Cosmos DB graph database using the Gremlin console
-[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
-> * [Gremlin console](create-graph-gremlin-console.md)
+> * [Gremlin console](create-graph-console.md)
 > * [.NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
 > * [Node.js](create-graph-nodejs.md)
@@ -24,7 +24,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 This quickstart demonstrates how to create an Azure Cosmos DB [Gremlin API](graph-introduction.md) account, database, and graph (container) using the Azure portal and then use the [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) from  [Apache TinkerPop](https://tinkerpop.apache.org) to work with Gremlin API data. In this tutorial, you create and query vertices and edges, updating a vertex property, query vertices, traverse the graph, and drop a vertex.
 
-:::image type="content" source="./media/create-graph-gremlin-console/gremlin-console.png" alt-text="Azure Cosmos DB from the Apache Gremlin console":::
+:::image type="content" source="./media/create-graph-console/gremlin-console.png" alt-text="Azure Cosmos DB from the Apache Gremlin console":::
 
 The Gremlin console is Groovy/Java based and runs on Linux, Mac, and Windows. You can download it from the [Apache TinkerPop site](https://tinkerpop.apache.org/downloads.html).
 
@@ -32,17 +32,17 @@ The Gremlin console is Groovy/Java based and runs on Linux, Mac, and Windows. Yo
 
 You need to have an Azure subscription to create an Azure Cosmos DB account for this quickstart.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 You also need to install the [Gremlin Console](https://tinkerpop.apache.org/downloads.html). The **recommended version is v3.4.3** or earlier. (To use Gremlin Console on Windows, you need to install [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html)).
 
 ## Create a database account
 
-[!INCLUDE [cosmos-db-create-dbaccount-graph](includes/cosmos-db-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](../includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## Add a graph
 
-[!INCLUDE [cosmos-db-create-graph](includes/cosmos-db-create-graph.md)]
+[!INCLUDE [cosmos-db-create-graph](../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Connect to your app service/Graph
 
@@ -60,11 +60,11 @@ You also need to install the [Gremlin Console](https://tinkerpop.apache.org/down
 
    For the hosts value, copy the **Gremlin URI** value from the **Overview** page:
 
-   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="View and copy the Gremlin URI value on the Overview page in the Azure portal":::
+   :::image type="content" source="./media/create-graph-console/gremlin-uri.png" alt-text="View and copy the Gremlin URI value on the Overview page in the Azure portal":::
 
    For the password value, copy the **Primary key** from the **Keys** page:
 
-   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="View and copy your primary key in the Azure portal, Keys page":::
+   :::image type="content" source="./media/create-graph-console/keys.png" alt-text="View and copy your primary key in the Azure portal, Keys page":::
 
    Your remote-secure.yaml file should look like this:
 
@@ -308,11 +308,11 @@ Congratulations! You've completed this Azure Cosmos DB: Gremlin API tutorial!
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 

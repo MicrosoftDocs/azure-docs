@@ -11,17 +11,17 @@ ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 ---
 
 # Provision database, container or autoscale throughput on Azure Cosmos DB Gremlin API resources
-[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
 This article explains how to provision throughput in Azure Cosmos DB Gremlin API. You can provision standard(manual) or autoscale throughput on a container, or a database and share it among the containers within the database. You can provision throughput using Azure portal, Azure CLI, or Azure Cosmos DB SDKs.
 
-If you are using a different API, see [SQL API](how-to-provision-container-throughput.md), [Cassandra API](cassandra/how-to-provision-throughput-cassandra.md), [API for MongoDB](mongodb/how-to-provision-throughput-mongodb.md) articles to provision the throughput.
+If you are using a different API, see [SQL API](../how-to-provision-container-throughput.md), [Cassandra API](../cassandra/how-to-provision-throughput-cassandra.md), [API for MongoDB](../mongodb/how-to-provision-throughput-mongodb.md) articles to provision the throughput.
 
 ## <a id="portal-gremlin"></a> Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos account](mongodb/create-mongodb-dotnet.md#create-a-database-account), or select an existing Azure Cosmos account.
+1. [Create a new Azure Cosmos account](../mongodb/create-mongodb-dotnet.md#create-a-database-account), or select an existing Azure Cosmos account.
 
 1. Open the **Data Explorer** pane, and select **New Graph**. Next, provide the following details:
 
@@ -85,18 +85,18 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 ## Azure Resource Manager
 
-Azure Resource Manager templates can be used to provision autoscale throughput on database or container-level resources for all Azure Cosmos DB APIs. See [Azure Resource Manager templates for Azure Cosmos DB](templates-samples-gremlin.md) for samples.
+Azure Resource Manager templates can be used to provision autoscale throughput on database or container-level resources for all Azure Cosmos DB APIs. See [Azure Resource Manager templates for Azure Cosmos DB](resource-manager-template-samples.md) for samples.
 
 ## Azure CLI
 
-Azure CLI can be used to provision autoscale throughput on a database or container-level resources for all Azure Cosmos DB APIs. For samples see [Azure CLI Samples for Azure Cosmos DB](cli-samples-gremlin.md).
+Azure CLI can be used to provision autoscale throughput on a database or container-level resources for all Azure Cosmos DB APIs. For samples see [Azure CLI Samples for Azure Cosmos DB](cli-samples.md).
 
 ## Azure PowerShell
 
-Azure PowerShell can be used to provision autoscale throughput on a database or container-level resources for all Azure Cosmos DB APIs. For samples see [Azure PowerShell samples for Azure Cosmos DB](powershell-samples-gremlin.md).
+Azure PowerShell can be used to provision autoscale throughput on a database or container-level resources for all Azure Cosmos DB APIs. For samples see [Azure PowerShell samples for Azure Cosmos DB](powershell-samples.md).
 
 ## Next steps
 
 See the following articles to learn about throughput provisioning in Azure Cosmos DB:
 
-* [Request units and throughput in Azure Cosmos DB](request-units.md)
+* [Request units and throughput in Azure Cosmos DB](../request-units.md)

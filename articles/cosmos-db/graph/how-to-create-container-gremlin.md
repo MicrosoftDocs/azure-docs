@@ -11,11 +11,11 @@ ms.custom: devx-track-csharp
 ---
 
 # Create a container in Azure Cosmos DB Gremlin API
-[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
 This article explains the different ways to create a container in Azure Cosmos DB Gremlin API. It shows how to create a container using Azure portal, Azure CLI, PowerShell, or supported SDKs. This article demonstrates how to create a container, specify the partition key, and provision throughput.
 
-This article explains the different ways to create a container in Azure Cosmos DB Gremlin API. If you are using a different API, see [API for MongoDB](mongodb/how-to-create-container-mongodb.md), [Cassandra API](cassandra/how-to-create-container-cassandra.md), [Table API](table/how-to-create-container.md), and [SQL API](how-to-create-container.md) articles to create the container.
+This article explains the different ways to create a container in Azure Cosmos DB Gremlin API. If you are using a different API, see [API for MongoDB](../mongodb/how-to-create-container-mongodb.md), [Cassandra API](../cassandra/how-to-create-container-cassandra.md), [Table API](../table/how-to-create-container.md), and [SQL API](../how-to-create-container.md) articles to create the container.
 
 > [!NOTE]
 > When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
@@ -35,7 +35,7 @@ This article explains the different ways to create a container in Azure Cosmos D
    * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Screenshot of Gremlin API, Add Graph dialog box":::
+    :::image type="content" source="../media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Screenshot of Gremlin API, Add Graph dialog box":::
 
 ## <a id="dotnet-sql-graph"></a>Create using .NET SDK
 
@@ -55,15 +55,15 @@ await client.CreateDocumentCollectionAsync(
 
 ## <a id="cli-mongodb"></a>Create using Azure CLI
 
-[Create a Gremlin graph with Azure CLI](./scripts/cli/gremlin/create.md). For a listing of all Azure CLI samples across all Azure Cosmos DB APIs see, [Azure CLI samples for Azure Cosmos DB](cli-samples.md).
+[Create a Gremlin graph with Azure CLI](../scripts/cli/gremlin/create.md). For a listing of all Azure CLI samples across all Azure Cosmos DB APIs see, [Azure CLI samples for Azure Cosmos DB](cli-samples.md).
 
 ## Create using PowerShell
 
-[Create a Gremlin graph with PowerShell](./scripts/powershell/gremlin/create.md). For a listing of all PowerShell samples across all Azure Cosmos DB APIs see, [PowerShell Samples](powershell-samples.md)
+[Create a Gremlin graph with PowerShell](../scripts/powershell/gremlin/create.md). For a listing of all PowerShell samples across all Azure Cosmos DB APIs see, [PowerShell Samples](powershell-samples.md)
 
 ## Next steps
 
-* [Partitioning in Azure Cosmos DB](partitioning-overview.md)
-* [Request Units in Azure Cosmos DB](request-units.md)
-* [Provision throughput on containers and databases](set-throughput.md)
-* [Work with Azure Cosmos account](./account-databases-containers-items.md)
+* [Partitioning in Azure Cosmos DB](../partitioning-overview.md)
+* [Request Units in Azure Cosmos DB](../request-units.md)
+* [Provision throughput on containers and databases](../set-throughput.md)
+* [Work with Azure Cosmos account](../account-databases-containers-items.md)

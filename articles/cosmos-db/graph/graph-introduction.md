@@ -9,9 +9,9 @@ author: manishmsfte
 ms.author: mansha
 ---
 # Introduction to Gremlin API in Azure Cosmos DB
-[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
-[Azure Cosmos DB](introduction.md) is the globally distributed, multi-model database service from Microsoft for mission-critical applications. It is a multi-model database and supports document, key-value, graph, and column-family data models. Azure Cosmos DB provides a graph database service via the Gremlin API on a fully managed database service designed for any scale.  
+[Azure Cosmos DB](../introduction.md) is the globally distributed, multi-model database service from Microsoft for mission-critical applications. It is a multi-model database and supports document, key-value, graph, and column-family data models. Azure Cosmos DB provides a graph database service via the Gremlin API on a fully managed database service designed for any scale.  
 
 :::image type="content" source="./media/graph-introduction/cosmosdb-graph-architecture.png" alt-text="Azure Cosmos DB graph architecture" border="false":::
 
@@ -27,7 +27,7 @@ Azure Cosmos DB's Gremlin API combines the power of graph database algorithms wi
 Azure Cosmos DB is a fully managed graph database that offers global distribution, elastic scaling of storage and throughput, automatic indexing and query, tunable consistency levels, and support for the TinkerPop standard.
 
 > [!NOTE]
-> The [serverless capacity mode](serverless.md) is now available on Azure Cosmos DB's Gremlin API.
+> The [serverless capacity mode](../serverless.md) is now available on Azure Cosmos DB's Gremlin API.
 
 The following are the differentiated features that Azure Cosmos DB Gremlin API offers:
 
@@ -53,7 +53,7 @@ The following are the differentiated features that Azure Cosmos DB Gremlin API o
 
 * **Automatic indexing**
 
-  By default, Azure Cosmos DB automatically indexes all the properties within nodes (also called as vertices) and edges in the graph and doesn't expect or require any schema or creation of secondary indices. Learn more about [indexing in Azure Cosmos DB](./index-overview.md).
+  By default, Azure Cosmos DB automatically indexes all the properties within nodes (also called as vertices) and edges in the graph and doesn't expect or require any schema or creation of secondary indices. Learn more about [indexing in Azure Cosmos DB](../index-overview.md).
 
 * **Compatibility with Apache TinkerPop**
 
@@ -61,7 +61,7 @@ The following are the differentiated features that Azure Cosmos DB Gremlin API o
 
 * **Tunable consistency levels**
 
-  Azure Cosmos DB provides five well-defined consistency levels to achieve the right tradeoff between consistency and performance for your application. For queries and read operations, Azure Cosmos DB offers five distinct consistency levels: strong, bounded-staleness, session, consistent prefix, and eventual. These granular, well-defined consistency levels allow you to make sound tradeoffs among consistency, availability, and latency. Learn more in [Tunable data consistency levels in Azure Cosmos DB](consistency-levels.md).
+  Azure Cosmos DB provides five well-defined consistency levels to achieve the right tradeoff between consistency and performance for your application. For queries and read operations, Azure Cosmos DB offers five distinct consistency levels: strong, bounded-staleness, session, consistent prefix, and eventual. These granular, well-defined consistency levels allow you to make sound tradeoffs among consistency, availability, and latency. Learn more in [Tunable data consistency levels in Azure Cosmos DB](../consistency-levels.md).
 
 ## Scenarios that use Gremlin API
 
@@ -125,7 +125,7 @@ We represent the relationships between these entities via the following *edge* t
 * **Uses**: To represent which device a person uses. For example, Robin uses a Motorola phone with serial number 77
 * **Located**: To represent the location from which the devices are accessed
 
-The Gremlin Console is an interactive terminal offered by the Apache TinkerPop and this terminal is used to interact with the graph data. To learn more, see the quickstart doc on [how to use the Gremlin console](create-graph-gremlin-console.md). You can also perform these operations using Gremlin drivers in the platform of your choice (Java, Node.js, Python, or .NET). The following examples show how to run queries against this graph data using the Gremlin Console.
+The Gremlin Console is an interactive terminal offered by the Apache TinkerPop and this terminal is used to interact with the graph data. To learn more, see the quickstart doc on [how to use the Gremlin console](create-graph-console.md). You can also perform these operations using Gremlin drivers in the platform of your choice (Java, Node.js, Python, or .NET). The following examples show how to run queries against this graph data using the Gremlin Console.
 
 First let's look at CRUD. The following Gremlin statement inserts the "Thomas" vertex into the graph:
 
