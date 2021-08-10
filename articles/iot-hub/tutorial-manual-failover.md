@@ -116,7 +116,7 @@ In this tutorial, you learned how to configure and perform a manual failover, an
 > * Perform a failback to return the IoT hub's operations to the primary location. 
 > * Confirm the hub is running correctly in the right location.
 
-Advance to the next tutorial to learn how to configure ypur device from a back-end service. 
+Advance to the next tutorial to learn how to configure your device from a back-end service. 
 
 > [!div class="nextstepaction"]
 > [Configure your devices](tutorial-device-twins.md)
