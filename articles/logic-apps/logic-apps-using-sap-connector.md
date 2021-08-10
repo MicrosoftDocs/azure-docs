@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
 ms.topic: article
-ms.date: 08/05/2021
+ms.date: 08/10/2021
 tags: connectors
 ---
 
