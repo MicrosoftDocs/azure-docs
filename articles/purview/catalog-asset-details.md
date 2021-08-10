@@ -59,7 +59,7 @@ You can view the description on an asset in the overview section. You can add an
 
 ### Asset glossary terms
 
-You can view the glossary terms on an asset in the overview section. You can add a glossary term on an asset by [editing the asset](#editing-assets)
+Asset glossary terms are a managed vocabulary for business terms that can be used to categorize and relate assets across your environment. For example, terms like 'customer', 'buyer', 'cost center', or any terms that give your data context for your users. For more information, see the [business glossary page](concept-business-glossary.md). You can view the glossary terms for an asset in the overview section, and you can add a glossary term on an asset by [editing the asset](#editing-assets).
 
 :::image type="content" source="media/catalog-asset-details/asset-glossary.png" alt-text="Asset glossary terms":::
 
