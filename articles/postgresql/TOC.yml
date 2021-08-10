@@ -414,6 +414,8 @@
     href: flexible-server/overview.md
   - name: Release notes
     href: flexible-server/release-notes.md   
+  - name: Compare Single Server and Flexible Server
+    href: flexible-server/concepts-compare-single-server-flexible-server.md   
   - name: Quickstarts
     expanded: true
     items:
@@ -428,6 +430,8 @@
         href: flexible-server/quickstart-create-server-arm-template.md
     - name: Connect and query
       items:
+        - name: Connect to a server in VNET 
+          href: flexible-server/quickstart-create-connect-server-vnet.md
         - name: Azure CLI
           href: flexible-server/connect-azure-cli.md
         - name: Python
@@ -459,6 +463,10 @@
     - name: Networking
       href: flexible-server/concepts-networking.md
       displayName: virtual networks, vnet, IP address, public access
+    - name: Firewall rules
+      href: flexible-server/concepts-firewall-rules.md
+    - name: Security
+      href: flexible-server/concepts-security.md
     - name: Limits
       href: flexible-server/concepts-limits.md
     - name: Extensions
@@ -645,6 +653,8 @@
         href: concepts-hyperscale-high-availability.md
     - name: Replication
       href: concepts-hyperscale-read-replicas.md
+    - name: Connection pooling
+      href: concepts-hyperscale-connection-pool.md
     - name: Monitor and tune
       items:
       - name: Monitor and tune

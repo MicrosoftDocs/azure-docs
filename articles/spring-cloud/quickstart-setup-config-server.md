@@ -1,8 +1,8 @@
 ---
 title: "Quickstart - Set up Azure Spring Cloud configuration server"
 description: Describes set up of Azure Spring Cloud config server for app deployment.
-author: brendm
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
@@ -22,7 +22,7 @@ Azure Spring Cloud Config server is a centralized configuration service for dist
 
 ## Azure Spring Cloud config server procedures
 
-Set up your config-server with the location of the git repository for the project by running the following command. Replace `<service instance name>` with the name of the service you created earlier. The default value for service instance name that you set in the preceding quickstart doesn't work with this command.
+Set up your config-server with the location of the git repository for the project by running the following command. Replace *\<service instance name>* with the name of the service you created earlier. The default value for service instance name that you set in the preceding quickstart doesn't work with this command.
 
 ```azurecli
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples --search-paths steeltoe-sample/config

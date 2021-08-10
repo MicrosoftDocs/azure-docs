@@ -16,7 +16,9 @@ ms.subservice: B2C
 
 # Azure Active Directory B2C ISV partners
 
-Our ISV partner network extends our solution capabilities to help you build seamless end-user experiences. With Azure AD B2C, you can integrate with ISV partners to enable multifactor authentication (MFA) methods, do role-based access control, enable identity verification and proofing, improve security with bot detection and fraud protection, and meet Payment Services Directive 2 (PSD2) Secure Customer Authentication (SCA) requirements. Use our detailed sample walkthroughs to learn how to integrate apps with the ISV partners.
+Our ISV partner network extends our solution capabilities to help you build seamless end-user experiences. With Azure AD B2C, you can integrate with ISV partners to enable multifactor authentication (MFA) methods, do role-based access control, enable identity verification and proofing, improve security with bot detection and fraud protection, and meet Payment Services Directive 2 (PSD2) Secure Customer Authentication (SCA) requirements. Use our detailed sample walkthroughs to learn how to integrate apps with the ISV partners. 
+
+To be considered into this sample documentation, submit your application request in the [Microsoft Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx). For any additional questions, send an email to [SaaSApplicationIntegrations@service.microsoft.com](mailto:SaaSApplicationIntegrations@service.microsoft.com).
 
 >[!NOTE]
 >The [Azure Active Directory B2C community site on GitHub](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/) also provides sample custom policies from the community.
@@ -39,10 +41,12 @@ Microsoft partners with the following ISVs for MFA and Passwordless authenticati
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
+| ![Screenshot of a bloksec logo](./media/partner-gallery/bloksec-logo.png) | [BlokSec](./partner-bloksec.md) is a passwordless authentication and tokenless MFA solution, which provides real-time consent-based services and protects customers against identity-centric cyber-attacks such as password stuffing, phishing, and man-in-the-middle attacks. |
 | ![Screenshot of a hypr logo](./media/partner-gallery/hypr-logo.png) | [Hypr](./partner-hypr.md) is a passwordless authentication provider, which replaces passwords with public key encryptions eliminating fraud, phishing, and credential reuse. |
 | ![Screenshot of a itsme logo](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) is an Electronic Identification, Authentication and Trust Services (eiDAS) compliant digital ID solution to allow users to sign in securely without card readers, passwords, two-factor authentication, and multiple PIN codes. |
 |![Screenshot of a Keyless logo.](./media/partner-gallery/keyless-logo.png) | [Keyless](./partner-keyless.md) is a passwordless authentication provider that provides authentication in the form of a facial biometric scan and eliminates fraud, phishing, and credential reuse.
 | ![Screenshot of a nevis logo](./media/partner-gallery/nevis-logo.png) | [Nevis](./partner-nevis.md) enables passwordless authentication and provides a mobile-first, fully branded end-user experience with Nevis Access app for strong customer authentication and to comply with PSD2 transaction requirements. |
+| ![Screenshot of a nok nok logo](./media/partner-gallery/nok-nok-logo.png) | [Nok Nok](./partner-nok-nok.md) provides passwordless authentication and enables FIDO certified multifactor authentication such as FIDO UAF, FIDO U2F, WebAuthn, and FIDO2 for mobile and web applications. Using Nok Nok customers can improve their security posture while balancing user experience.
 | ![Screenshot of a trusona logo](./media/partner-gallery/trusona-logo.png) | [Trusona](./partner-trusona.md) integration helps you sign in securely and enables passwordless authentication, MFA, and digital license scanning. |
 | ![Screenshot of a twilio logo.](./media/partner-gallery/twilio-logo.png) | [Twilio Verify app](./partner-twilio.md) provides multiple solutions to enable MFA through SMS one-time password (OTP), time-based one-time password (TOTP), and push notifications, and to comply with SCA requirements for PSD2. |
 | ![Screenshot of a typingDNA logo](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) enables strong customer authentication by analyzing a user’s typing pattern. It helps companies enable a silent MFA and comply with SCA requirements for PSD2. |
@@ -84,7 +88,8 @@ Microsoft partners with the following ISVs for Web Application Firewall (WAF).
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
-| ![Screenshot of Cloudflare logo](./media/partner-gallery/cloudflare-logo.png) | [Cloudflare](./partner-cloudflare.md) is a WAF provider that helps organizations protect against malicious attacks that aim to exploit vulnerabilities such as SQLi, and XSS. |
+|  ![Screenshot of Akamai logo](./media/partner-gallery/akamai-logo.png) | [Akamai WAF](./partner-akamai.md) allows fine grained manipulation of traffic to protect and secure your identity infrastructure against malicious attacks.  |
+![Screenshot of Cloudflare logo](./media/partner-gallery/cloudflare-logo.png) | [Cloudflare](./partner-cloudflare.md) is a WAF provider that helps organizations protect against malicious attacks that aim to exploit vulnerabilities such as SQLi, and XSS. |
 
 
 ## Additional information

@@ -1,11 +1,11 @@
 ---
 title: Introduction to Azure Spring Cloud
 description: Learn the features and benefits of Azure Spring Cloud to deploy and manage Java Spring applications in Azure.
-author: brendm
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: overview
-ms.date: 12/02/2020
-ms.author: brendm
+ms.date: 03/09/2021
+ms.author: karler
 ms.custom: devx-track-java, contperf-fy21q2
 customer intent: As an Azure Cloud user, I want to deploy, run, and monitor Spring Boot microservices.
 ---
@@ -23,7 +23,7 @@ Deployment of applications to Azure Spring Cloud has many benefits.  You can:
 * Develop and deploy rapidly without containerization dependencies.
 * Monitor production workloads efficiently and effortlessly.
 
-Azure Spring Cloud supports both Java [Spring Boot](https://spring.io/projects/spring-boot) and ASP.NET Core [Steeltoe](https://steeltoe.io/) apps. Steeltoe support is currently offered as a public preview. Public preview offerings let you experiment with new features prior to their official release. Public preview features and services are not meant for production use. For more information, see the [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+Azure Spring Cloud supports both Java [Spring Boot](https://spring.io/projects/spring-boot) and ASP.NET Core [Steeltoe](https://steeltoe.io/) apps. Steeltoe support is currently offered as a public preview. Public preview offerings let you experiment with new features prior to their official release.
 
 ## Service overview
 
@@ -33,7 +33,7 @@ As part of the Azure ecosystem, Azure Spring Cloud allows easy binding to other 
 
 * Azure Spring Cloud is a fully managed service for Spring Boot apps that lets you focus on building and running apps without the hassle of managing infrastructure.
 
-* Simply deploy your JARs or code, and Azure Spring Cloud will automatically wire your apps with Spring service runtime and built-in app lifecycle.
+* Simply deploy your JARs or code for your Spring Boot app or Zip for your Steeltoe app, and Azure Spring Cloud will automatically wire your apps with Spring service runtime and built-in app lifecycle.
 
 * Monitoring is simple. After deployment you can monitor app performance, fix errors, and rapidly improve applications. 
 

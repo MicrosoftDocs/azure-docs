@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
-ms.date: 07/13/2021
+ms.date: 07/16/2021
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -1087,7 +1087,7 @@ And returns this result: `"hello"`
 
 ### binary
 
-Return the binary version for a string.
+Return the base64-encoded binary version of a string.
 
 ```
 binary('<value>')
@@ -1100,20 +1100,12 @@ binary('<value>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*binary-for-input-value*> | String | The binary version for the specified string |
+| <*binary-for-input-value*> | String | The base64-encoded binary version for the specified string |
 ||||
 
 *Example*
 
-This example converts the "hello" string to a binary string:
-
-```
-binary('hello')
-```
-
-And returns this result:
-
-`"0110100001100101011011000110110001101111"`
+For example, you're using an HTTP action that returns an image or video file. You can use `binary()` to convert the value to a base-64 encoded content envelope model. Then, you can reuse the content envelope in other actions, such as `Compose`.
 
 <a name="body"></a>
 

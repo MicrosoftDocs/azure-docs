@@ -48,7 +48,7 @@ The control's output is not displayed to the user. Instead, the result of the op
   For example, an ARM call into `Microsoft.Network/expressRouteCircuits` resource provider:
 
   ```json
-  "path": "<subid>/resourceGroup/<resourceGroupName>/providers/Microsoft.Network/expressRouteCircuits/<routecircuitName>/?api-version=2020-05-01"
+  "path": "subscriptions/<subid>/resourceGroup/<resourceGroupName>/providers/Microsoft.Network/expressRouteCircuits/<routecircuitName>/?api-version=2020-05-01"
   ```
 
 - The `request.body` property is optional. Use it to specify a JSON body that is sent with the request. The body can be static content or constructed dynamically by referring to output values from other controls.

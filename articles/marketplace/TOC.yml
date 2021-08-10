@@ -86,7 +86,7 @@
     - name: Azure consumption commitment enrollment
       href: azure-consumption-commitment-enrollment.md
     - name: Preferred solutions
-      href: /marketplace/appsource-overview#microsoft-preferred-solutions
+      href: preferred-solution.md
     - name: Integrated solutions
       href: integrated-solutions-for-publishers.md
   - name: Activate marketplace rewards

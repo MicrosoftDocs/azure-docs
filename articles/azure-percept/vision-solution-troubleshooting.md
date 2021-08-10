@@ -109,6 +109,8 @@ View your device's RTSP video stream in [Azure Percept Studio](./how-to-view-vid
 
 To open the RTSP stream in VLC media player, go to **Media** > **Open network stream** > **rtsp://[device IP address]:8554/result**.
 
+If your RTSP stream is partially blocked by a gray box, you may be trying to view it over a poor network connection. Check that your connection has sufficient bandwidth for video streams.
+
 ## Next steps
 
 For more information on troubleshooting your Azure Percept DK instance, see the [General troubleshooting guide](./troubleshoot-dev-kit.md).

@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 05/13/2021 
+ms.date: 08/09/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -134,12 +134,12 @@ The possible uses of list* are shown in the following table.
 | ------------- | ------------- |
 | Microsoft.Addons/supportProviders | listsupportplaninfo |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
-| Microsoft.ApiManagement/service/authorizationServers | [listSecrets](/rest/api/apimanagement/2019-12-01/authorizationserver/listsecrets) |
-| Microsoft.ApiManagement/service/gateways | [listKeys](/rest/api/apimanagement/2019-12-01/gateway/listkeys) |
-| Microsoft.ApiManagement/service/identityProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/identityprovider/listsecrets) |
-| Microsoft.ApiManagement/service/namedValues | [listValue](/rest/api/apimanagement/2019-12-01/namedvalue/listvalue) |
-| Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/openidconnectprovider/listsecrets) |
-| Microsoft.ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/2019-12-01/subscription/listsecrets) |
+| Microsoft.ApiManagement/service/authorizationServers | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/authorization-server/list-secrets) |
+| Microsoft.ApiManagement/service/gateways | [listKeys](/rest/api/apimanagement/2020-06-01-preview/gateway/list-keys) |
+| Microsoft.ApiManagement/service/identityProviders | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/identity-provider/list-secrets) |
+| Microsoft.ApiManagement/service/namedValues | [listValue](/rest/api/apimanagement/2020-06-01-preview/named-value/list-value) |
+| Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/openid-connect-provider/list-secrets) |
+| Microsoft.ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/subscription/list-secrets) |
 | Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
 | Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringcloud/services/listtestkeys) |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
@@ -337,7 +337,7 @@ The next example shows a list function that takes a parameter. In this case, the
 
 `pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
 
-Determines whether a resource type supports zones for a region.
+Determines whether a resource type supports zones for the specified location or region.  This function only supports zonal resources, zone redundant services will return an empty array.  For more information see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).  To use the pickZones function with zone redundant services, see the examples below.
 
 ### Parameters
 
@@ -369,12 +369,18 @@ When the `numberOfZones` parameter is set to 3, it returns:
 ]
 ```
 
-When the resource type or region doesn't support zones, an empty array is returned.
+When the resource type or region doesn't support zones an empty array is returned.  An empty array is also returned for zone redundant services.
 
 ```json
 [
 ]
 ```
+
+### Remarks
+
+There are different categories for Azure Availability Zones, zonal and zone-redundant.  The pickZones function can be used to return an availability zone number or numbers for a zonal resource.  For zone redundant services (ZRS), the function will return an empty array.  Zonal resources can typically be identified by the use of a `zones` property on the resource header.  Zone redundant services have different ways for identifying and using availability zones per resource, use the documentation for a specific service to determine the category of support for availability zones.  For more information see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).
+
+To determine if a given Azure region or location supports availability zones, simply call the pickZones() function with a zonal resource type, for example `Microsoft.Storage/storageAccounts`.  If the response is non-empty, the region supports availability zones.
 
 ### pickZones example
 
@@ -419,6 +425,37 @@ You can use the response from pickZones to determine whether to provide null for
 "zones": {
   "value": "[if(not(empty(pickZones('Microsoft.Compute', 'virtualMachines', 'westus2'))), string(add(mod(copyIndex(),3),1)), json('null'))]"
 },
+```
+
+The following example shows how to use the pickZones function to enable zone redundancy for Cosmos DB.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.DocumentDB/databaseAccounts",
+    "apiVersion": "2021-04-15",
+    "name": "[variables('accountName_var')]",
+    "location": "[parameters('location')]",
+    "kind": "GlobalDocumentDB",
+    "properties": {
+      "consistencyPolicy": "[variables('consistencyPolicy')[parameters('defaultConsistencyLevel')]]",
+      "locations": [
+      {
+        "locationName": "[parameters('primaryRegion')]",
+        "failoverPriority": 0,
+        "isZoneRedundant": "[if(empty(pickZones('Microsoft.Storage', 'storageAccounts', parameters('primaryRegion'))), bool('false'), bool('true'))]",
+      },
+      {
+        "locationName": "[parameters('secondaryRegion')]",
+        "failoverPriority": 1,
+        "isZoneRedundant": "[if(empty(pickZones('Microsoft.Storage', 'storageAccounts', parameters('secondaryRegion'))), bool('false'), bool('true'))]",
+      }
+    ],
+      "databaseAccountOfferType": "Standard",
+      "enableAutomaticFailover": "[parameters('automaticFailover')]"
+    }
+  }
+]
 ```
 
 ## reference

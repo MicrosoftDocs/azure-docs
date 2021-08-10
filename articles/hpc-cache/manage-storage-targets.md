@@ -4,7 +4,7 @@ description: How to suspend, remove, force delete, and flush Azure HPC Cache sto
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 07/12/2021
 ms.author: v-erkel
 ---
 
@@ -23,7 +23,7 @@ These options are available:
 * **Flush** - Write all cached changes to the back-end storage
 * **Suspend** - Temporarily stop the storage target from serving requests
 * **Resume** - Put a suspended storage target back into service
-* **Force remove** - Delete a storage target, skipping some usual steps
+* **Force remove** - Delete a storage target, skipping some safety steps (**Force remove can cause data loss**)
 * **Delete** - Permanently remove a storage target
 
 Some storage targets also have a **Refresh DNS** option on this menu, which updates the storage target IP address from a custom DNS server. This configuration is uncommon.
@@ -32,7 +32,7 @@ Read the rest of this article for more detail about these options.
 
 ## Write cached files to the storage target
 
-The **Flush** option tells the cache immediately copy any changed files stored in the cache to the back-end storage system. For example, if your client machines are updating a particular file repeatedly, it is held in the cache for quicker access and not written to the long-term storage system for a period ranging from several minutes to more than an hour.
+The **Flush** option tells the cache to immediately copy any changed files stored in the cache to the back-end storage system. For example, if your client machines are updating a particular file repeatedly, it is held in the cache for quicker access and not written to the long-term storage system for a period ranging from several minutes to more than an hour.
 
 The **Flush** action tells the cache to write all files to the storage system.
 

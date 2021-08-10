@@ -9,6 +9,7 @@ ms.topic: reference
 ms.reviewer: laobri
 ms.author: seramasu
 author: rsethur
+ms.custom: devplatv2
 ms.date: 05/10/2021
 ---
 

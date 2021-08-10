@@ -49,7 +49,6 @@ data:
         rewrite name substring <domain to be rewritten>.com default.svc.cluster.local
         kubernetes cluster.local in-addr.arpa ip6.arpa {
           pods insecure
-          upstream
           fallthrough in-addr.arpa ip6.arpa
         }
         forward .  /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10, but that server must be able to resolve the rewritten domain name
@@ -167,22 +166,6 @@ kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
 ## Hosts plugin
 
 As all built-in plugins are supported this means that the CoreDNS [Hosts][coredns hosts] plugin is available to customize as well:
-
-```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: coredns-custom # this is the name of the configmap you can overwrite with your changes
-  namespace: kube-system
-data:
-    test.override: | # you may select any name here, but it must end with the .override file extension
-          hosts example.hosts example.org { # example.hosts must be a file
-              10.0.0.1 example.org
-              fallthrough
-          }
-```
-
-To specify one or more lines in host table using INLINE:
 
 ```yaml
 apiVersion: v1

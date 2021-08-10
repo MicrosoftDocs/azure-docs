@@ -8,7 +8,7 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
@@ -21,28 +21,13 @@ This article explains how you can retrieve the connection endpoints for your ser
 
 ## Get connection end points:
 
-### From CLI with azdata
-#### 1. Connect to your Arc Data Controller:
-- If you already have a session opened on the host of the Arc Data Controller:
 Run the following command:
-```console
-azdata login
-```
-
-- If you do not have a session opened on the host of the Arc Data Controller:
-run the following command 
-```console
-azdata login --endpoint https://<external IP address of host/data controller>:30080
-```
-
-#### 2. Show the connection endpoints
-Run the following command:
-```console
-azdata arc postgres endpoint list -n <server group name>
+```azurecli
+az postgres arc-server endpoint list -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 For example:
-```console
-azdata arc postgres endpoint list -n postgres01
+```azurecli
+az postgres arc-server endpoint list -n postgres01 --k8s-namespace <namespace> --use-k8s
 ```
 
 It shows the list of endpoints: the PostgreSQL endpoint that you use to connect your application and use the database, Kibana and Grafana endpoints for log analytics and monitoring. For example: 
@@ -76,7 +61,6 @@ postgres=#
 > [!NOTE]
 >
 > - The password of the _postgres_ user indicated in the end point named "_PostgreSQL Instance_" is the password you chose when deploying the server group.
-> - About azdata: the lease associated to your connection lasts about 10 hours. After that you need to reconnect. If your lease has expired, you will get the following error message when you try to execute a command with azdata (other than azdata login):
 > _ERROR: (401)_
 > _Reason: Unauthorized_
 > _HTTP response headers: HTTPHeaderDict({'Date': 'Sun, 06 Sep 2020 16:58:38 GMT', 'Content-Length': '0', 'WWW-Authenticate': '_
@@ -93,7 +77,6 @@ Those commands will produce output like the one below. You can use that informat
 NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
 postgres01   Ready   3/3          123.456.789.4:31066      5d20h
 ``` 
-
 
 ## Form connection strings:
 Use the below table of templates of connections strings for your server group. You can then copy/paste and customize them as further needed:

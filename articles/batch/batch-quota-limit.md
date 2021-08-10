@@ -2,7 +2,7 @@
 title: Service quotas and limits
 description: Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 07/20/2021
 ms.custom: seodec18
 ---
 
@@ -58,7 +58,7 @@ These additional limits are set by the Batch service. Unlike [resource quotas](#
 | **Resource** | **Maximum Limit** |
 | --- | --- |
 | [Concurrent tasks](batch-parallel-node-tasks.md) per compute node | 4 x number of node cores |
-| [Applications](batch-application-packages.md) per Batch account | 20 |
+| [Applications](batch-application-packages.md) per Batch account | 200 |
 | Application packages per application | 40 |
 | Application packages per pool | 10 |
 | Maximum task lifetime | 180 days<sup>1</sup> |

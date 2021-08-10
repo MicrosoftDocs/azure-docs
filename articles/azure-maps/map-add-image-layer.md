@@ -33,7 +33,7 @@ The image layer supports the following image formats:
 
 ## Add an image layer
 
-The following code overlays an image of a [map of Newark, New Jersey, from 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) on the map. An [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer) is created by passing a URL to an image, and coordinates for the four corners in the format `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
+The following code overlays an image of a map of Newark, New Jersey, from 1922 on the map. An [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer) is created by passing a URL to an image, and coordinates for the four corners in the format `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
 
 ```javascript
 //Create an image layer and add it to the map.

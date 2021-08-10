@@ -474,6 +474,7 @@ sections:
           
           * Lack of network connectivity
           * Firewall
+          * Using the portal from a public network for a registry that allows only private access
           * Ad blockers
           * DNS errors
           

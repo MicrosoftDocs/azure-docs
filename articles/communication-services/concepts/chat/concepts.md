@@ -2,7 +2,7 @@
 title: Chat concepts in Azure Communication Services	
 titleSuffix: An Azure Communication Services concept document	
 description: Learn about Communication Services Chat concepts.	
-author: mikben	
+author: knvsl	
 manager: jken	
 services: azure-communication-services	
 ms.author: mikben	
@@ -12,8 +12,6 @@ ms.service: azure-communication-services
 ---	
 
 # Chat concepts	
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-chat.md)]
 
 Azure Communication Services Chat SDKs can be used to add real-time text chat to your applications. This page summarizes key Chat concepts and capabilities.	
 

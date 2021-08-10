@@ -640,7 +640,7 @@ Then, to check if the call is transcribed, inspect the `isTranscriptionActive` p
 let isTranscriptionActive = callTranscriptionFeature.isTranscriptionActive;
 ```
 
-You can also subscribe to recording changes by implementing `TranscriptionFeatureDelegate` delegate on your class with the event `didChangeTranscriptionState`:
+You can also subscribe to transcription changes by implementing `TranscriptionFeatureDelegate` delegate on your class with the event `didChangeTranscriptionState`:
 
 ```swift
 callTranscriptionFeature.delegate = self

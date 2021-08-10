@@ -44,7 +44,7 @@ Previous supported driver version for Windows builds up to 1909 is [20.Q4](https
 
 1. Connect by Remote Desktop to each NVv4-series VM.
 
-2. If you need to uninstall the previous driver version then download the AMD cleanup utility [here](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe) Please do not use the utility that comes with the previous version of the driver.
+2. If you need to uninstall the previous driver version then download the [AMD cleanup utility](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe) Please do not use the utility that comes with the previous version of the driver.
 
 3. Download and install the latest driver.
 

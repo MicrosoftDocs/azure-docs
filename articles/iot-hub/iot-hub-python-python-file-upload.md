@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 07/18/2021
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
 ---
@@ -43,7 +43,11 @@ There is a more advanced version of the file upload app which can be found at [h
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
+## Register a new device in the IoT hub
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
+
+[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-include-associate-storage.md)]
 
 ## Upload a file from a device app
 
@@ -178,7 +182,7 @@ In this section, you create the device app to upload a file to IoT hub.
 
     * **notify_blob_upload_status** notifies IoT Hub of the status of your blob storage operation. You pass it the correlation_id obtained by the **get_storage_info_for_blob** method. It's used by IoT Hub to notify any service that might be listening for a notification on the status of the file upload task.
 
-1. Save and close the **UploadFile.py** file.
+1. Save and close the **FileUpload.py** file.
 
 ## Run the application
 
