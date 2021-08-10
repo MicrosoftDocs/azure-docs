@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 07/22/2021
+ms.date: 08/10/2021
 ms.author: lajanuar
 ---
 
@@ -23,7 +23,7 @@ Text Translation is a cloud-based feature of the Azure Translator service and is
 |[**transliterate**](v3-0-transliterate.md) |  **POST** | Map source language script or alphabet to a target language script or alphabet.
 |[**detect**](v3-0-detect.md) | **POST** | Identify the source language. |
 |[**breakSentence**](v3-0-break-sentence.md) | **POST** | Returns an array of integers representing the length of sentences in a source text. |
-| [**dictionary/lookup**](v3-0-dictionary-lookup.md) | **POST** | Returns alternative translations and lexical categories. |
+| [**dictionary/lookup**](v3-0-dictionary-lookup.md) | **POST** | Returns alternatives for single word translations. |
 | [**dictionary/examples**](v3-0-dictionary-lookup.md) | **POST** | Returns how a term is used in context. |
 
 > [!div class="nextstepaction"]

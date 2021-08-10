@@ -8,20 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: overview
 ms.subservice: translator-text
-ms.date: 08/09/2021
+ms.date: 08/10/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, text translation, machine translation, translation service, custom translator
 ---
 # What is Translator?
 
- Translator is a cloud-based [machine translation](https://www.microsoft.com/translator/business/machine-translation/#howtext) service that is part of the [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) family of REST APIs.  Translator can be used with any operating system and powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this overview, you'll learn how Translator can enable you to build intelligent, multi-language solutions for your applications across all [supported languages](./language-support.md).
+ Translator is a cloud-based neural machine translation service that is part of the [Azure Cognitive Services](../what-are-cognitive-service.md) family of REST APIs.  Translator can be used with any operating system and powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this overview, you'll learn how Translator can enable you to build intelligent, multi-language solutions for your applications across all [supported languages](./language-support.md).
 
 Translator documentation contains the following article types:
 
 * [**Quickstarts**](quickstart-translator.md). Getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](translator-how-to-signup.md). Instructions for accessing and using the service in more specific or customized ways.
-* [**Tutorials**](/ai-builder/flow-text-translation?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json). Longer guides that show you how to use the service as a component in broader business solutions.
 * [**Reference articles**](reference/v3-0-reference.md). REST API documentation and programming language-based content.
 
 ## Translator features and development options

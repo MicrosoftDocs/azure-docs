@@ -22,7 +22,6 @@ Text translation documentation contains the following article types:
 
 * [**Quickstarts**](quickstart-translator.md). Getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](translator-how-to-signup.md). Instructions for accessing and using the service in more specific or customized ways.
-* [**Tutorials**](/ai-builder/flow-text-translation?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json). Longer guides that show you how to use the service as a component in broader business solutions.
 * [**Reference articles**](reference/v3-0-reference.md). REST API documentation and programming language-based content.
 
 ## Text translation features
@@ -51,7 +50,7 @@ Text translation documentation contains the following article types:
 
 Add Text Translation to your projects and applications using the following resources:
 
-* Access the cloud-based Translator service via the [**REST API***](reference/rest-api-guide.md), available in Azure.
+* Access the cloud-based Translator service via the [**REST API**](reference/rest-api-guide.md), available in Azure.
 
 * Use the REST API [translate request](containers/translator-container-supported-parameters.md) with the [**Text translation Docker container**](containers/translator-how-to-install-container.md).
 
