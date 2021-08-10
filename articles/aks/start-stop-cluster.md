@@ -89,7 +89,7 @@ The following example starts a cluster named *myAKSCluster*:
 az aks start --name myAKSCluster --resource-group myResourceGroup
 ```
 
-You can verify when your cluster has started using the [az aks show][az-aks-show] command and confirming the `powerState` shows `Running` as on the below output:
+You can verify when your cluster has started by using the [az aks show][az-aks-show] command and confirming the `powerState` shows `Running` as on the below output:
 
 ```json
 {
