@@ -17,7 +17,7 @@ the Azure Spatial Anchors packages you downloaded into the Unity project using t
 Follow the instructions <a href="https://docs.unity3d.com/Manual/upm-ui-tarball.html" target="_blank">here</a> to import
 the Azure Spatial Anchors packages you downloaded into the Unity project using the Unity Package Manager.
 
-# [Mixed Reality Feature Tool (beta)](#tab/unity-package-mixed-reality-feature-tool)
+# [Mixed Reality Feature Tool](#tab/unity-package-mixed-reality-feature-tool)
 
 This step requires that the <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality Feature Tool</a> is downloaded and available.
 

@@ -44,7 +44,7 @@ npm pack com.microsoft.azure.spatial-anchors-sdk.core@<version_number> --registr
 
 The Azure Spatial Anchors core package will be downloaded to the folder where you ran the command. Repeat this step to download the package for each platform that you plan to support.
 
-# [Install with Mixed Reality Feature Tool (beta)](#tab/unity-package-mixed-reality-feature-tool)
+# [Install with Mixed Reality Feature Tool](#tab/unity-package-mixed-reality-feature-tool)
 
 Continue to the next step. You'll use the <a a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality Feature Tool</a> in a later step.
 
