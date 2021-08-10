@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 08/06/2021
+ms.date: 08/10/2021
 ms.author: duau
 
 ---
@@ -174,6 +174,13 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 ## Enroll in ExpressRoute FastPath features (preview)
 
 FastPath support for virtual network peering is now in Public preview. Enrollment is only available through Azure PowerShell. See [FastPath preview features](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview), for instructions on how to enroll.
+
+> [!NOTE] 
+> If you already have FathPath configured and want to enroll in the preview feature, you need to do the following:
+> 1. Delete the connection that has FastPath enabled.
+> 1. Enroll in the FathPath preview feature with the Azure PowerShell command above.
+> 1. Recreate the connection with FathPath enabled.
+>
 
 ## Clean up resources
 

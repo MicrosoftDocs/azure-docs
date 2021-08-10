@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 08/06/2021
+ms.date: 08/10/2021
 ms.author: duau
 ms.custom: seodec18, devx-track-azurepowershell
 
@@ -212,6 +212,13 @@ To enroll in this preview, run the follow Azure PowerShell command in the target
 ```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName ExpressRouteVnetPeeringGatewayBypass -ProviderNamespace Microsoft.Network
 ```
+
+> [!NOTE] 
+> If you already have FathPath configured and want to enroll in the preview feature, you need to do the following:
+> 1. Delete the connection that has FastPath enabled.
+> 1. Enroll in the FathPath preview feature with the Azure PowerShell command above.
+> 1. Recreate the connection with FathPath enabled.
+>
 
 ## Clean up resources
 
