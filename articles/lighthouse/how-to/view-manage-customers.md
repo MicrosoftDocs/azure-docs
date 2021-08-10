@@ -63,16 +63,12 @@ For more information, see [View delegation changes in the Azure portal](monitor-
 You can work directly in the context of a delegated subscription within the Azure portal, without switching the directory you're signed in to. To do so:
 
 1. Select the **Directory + subscriptions** or **Settings** icon near the top of the Azure portal.
-1. In the **Directories + subscriptions** page, ensure that the **Advanced filters** toggle is turned on.
-1. Under **Advanced filter**, select **Modify advanced filters**.
-1. [Create a filter](../../azure-portal/set-preferences.md#create-a-filter) which includes only that delegated subscription.
-1. Select **Activate** to apply your new filter.
-
-This filter will then show on the [Directories + subscriptions settings page](../../azure-portal/set-preferences.md#directories--subscriptions).
+1. In the [Directories + subscriptions settings page](../../azure-portal/set-preferences.md#directories--subscriptions), ensure that the **Advanced filters** toggle is turned off.
+1. In the **Default subscription filter** section, select the appropriate directory and subscription.
 
 :::image type="content" source="../media/subscription-filter-delegated.png" alt-text="Screenshot of a filter showing one delegated subscription.":::
 
-If you then access a service which supports [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md), the service will default to the context of the delegated subscription that you included in your filter. You can change this at any time by returning to the **Directories + subscriptions** page and activating a different filter.
+If you then access a service which supports [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md), the service will default to the context of the delegated subscription that you included in your filter. You can change this by following the steps above and checking the **Select all** box (or choosing one or more subscriptions to work in instead).
 
 > [!NOTE]
 > If you have been granted access to one or more resource groups, rather than access to an entire subscription, select the subscription to which that resource group belongs. You'll then work in the context of that subscription, but will only be able to access the designated resource group(s).
