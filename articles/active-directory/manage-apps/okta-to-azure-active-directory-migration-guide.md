@@ -19,7 +19,7 @@ ms.subservice: manage-apps
 
 For organizations considering upgrading from Okta to Azure Active Directory (Azure AD) for their Identity and Access Management (IAM), there are multiple workloads or flows to consider.  
 
-- [Migrate Okta sign on policies to Azure AD Conditional Access](migrate-okta-sign-on-policies-to-azure-ad-conditional-access.md)
+- [Migrate Okta sign on policies to Azure AD Conditional Access](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md)
 
 - [Migrate Okta sync provisioning to Azure AD Connect based synchronization](migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization.md)
 
