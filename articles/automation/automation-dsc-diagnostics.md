@@ -1,5 +1,5 @@
 ---
-title: Integrate with Azure Monitor logs
+title: Integrate Azure Automation State Configuration with Azure Monitor Logs
 description: This article tells how to send Desired State Configuration reporting data from Azure Automation State Configuration to Azure Monitor logs.
 services: automation
 ms.service: automation
@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 manager: carmonm
 ---
 
-# Integrate with Azure Monitor Logs
+# Integrate Azure Automation State Configuration with Azure Monitor Logs
 
 Azure Automation State Configuration retains node status data for 30 days. You can send node status data to [Azure Monitor Logs](../azure-monitor/logs/data-platform-logs.md) if you prefer to retain this data for a longer period. Compliance status is visible in the Azure portal or with PowerShell, for nodes and for individual DSC resources in node configurations.
 
