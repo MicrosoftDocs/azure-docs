@@ -28,7 +28,7 @@ This feature helps applications handle scenarios such as:
 
 ### Verification methods
 
-With [Conditional Access](conditional-access-identity-protection-overview.md) users may or may not be challenged for MFA based on configuration decisions that you can make as an administrator. The months of the multi-factor authentication are:
+With [Conditional Access](conditional-access-identity-protection-overview.md) users may or may not be challenged for MFA based on configuration decisions that you can make as an administrator. The methods of the multi-factor authentication are:
 
 - Email
 - SMS
