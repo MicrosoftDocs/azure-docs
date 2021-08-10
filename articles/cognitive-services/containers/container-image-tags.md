@@ -1958,6 +1958,9 @@ This container image has the following tags available. You can also find a full 
 
 # [Latest version](#tab/current)
 
+* Release notes for version `1.3.0`:
+    * Support for standalone language IDs with `SingleLanguage` and contiuous mode.
+
 | Image Tags                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                       |      |
@@ -1967,6 +1970,7 @@ This container image has the following tags available. You can also find a full 
 
 | Image Tags                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
+| `1.2.0-amd64-preview`                       |      |
 | `1.1.0-amd64-preview`                       |      |
 
 ---
