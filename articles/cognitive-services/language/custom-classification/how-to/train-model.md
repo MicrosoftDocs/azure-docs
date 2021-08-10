@@ -21,7 +21,7 @@ Training is the process where the model learns what you have [tagged](tag-data.m
 > * You must have minimum of 10 documents in your project for the evaluation process to be successful. While training may run with less than 10 tagged files there will be no evaluation data for the model. 
 > * While there is specific number of tagged files you need per classification, consider starting with 20 files. Training depends on how distinct the entities in your documents are, and how easily they can be differentiated.
 
-The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. See [data limits](../data-limits.md) for more information. 
+The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. 
 
 ## Data groups
 
@@ -53,8 +53,6 @@ Before starting the training process, files in your dataset are divided into thr
     :::image type="content" source="../media/train-model-1.png" alt-text="Create a new model" lightbox="../media/train-model-1.png":::
 
 4. Select the **Train** button at the bottom of the page. If the model you selected is already trained, a pop-up window will appear to confirm overwriting the last model state.
-
-    :::image type="content" source="../media/train-model-2.png" alt-text="Select the Train button" lightbox="../media/train-model-2.png":::
 
 5. After training is completed, you can [view the model evaluation details](view-model-evaluation.md) and [improve your model](improve-model.md)
 

@@ -23,7 +23,7 @@ Use this article to deploy a custom text classification model. Deploying a [mode
 * Completed [model training](train-model.md) successfully. 
 
 >[!NOTE]
-> * You can only have one deployed model per project so deploying another model will remove the one that was already deployed. See the [data limits](../data-limits.md) article for more information.
+> * You can only have one deployed model per project so deploying another model will remove the one that was already deployed.
 > * Deployment may take few minutes to complete.
 
 # [Using Language Studio](#tab/language-studio)

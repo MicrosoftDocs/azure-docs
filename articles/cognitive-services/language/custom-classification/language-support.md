@@ -12,11 +12,11 @@ ms.date: 07/15/2021
 ms.author: aahi
 ---
 
-# Language support in custom entity extraction
+# Language support
 
-Use this article to learn which natural languages are supported by the custom entity extraction feature of Language Services. 
+Custom text classification gives you the option to leverage data from multiple languages. You can have multiple files in your training dataset in any of the supported languages mentioned below. Also you can train your model in one language and use it to query text in other languages. You can enable this option while [creating your project](how-to/create-project.md).
 
-## Languages supported by custom text classification 
+## Languages supported by custom text classification
 
 Custom text classification supports `.txt` files in the following languages:
 
@@ -30,13 +30,6 @@ Custom text classification supports `.txt` files in the following languages:
 | Portuguese (Portugal) | `pt-PT` |
 | Portuguese (Brazil) | `pt-BR` |
 
-## Multiple language support
-
-In Custom text classification your dataset does not have to be all in the same language. You can have multiple files each with different language from the above supported languages.
-
-> [!NOTE]
-> If your files are in multiple languages, you need to enable this option when [creating your project](how-to/create-project.md).
-
 ## Next steps
 
-[Custom text overview](overview.md)
+[Custom text classification overview](overview.md)

@@ -16,29 +16,7 @@ ms.author: aahi
 
 Use this article to learn more about recommended practices when using custom text classification.
 
-## Development life cycle
-
-Follow the recommended development life cycle for best results:
-
-* **Define schema**: Know your data and identify the classes you want differentiate between, avoid ambiguity.
-
-* **Tag data**: The quality of data tagging is a key factor in determining model performance. Tag all the files you want to include in training. Files that belong to the same class should always have the same class, if you have a file that can fall into two classes use  **Multiple class classification** projects. Avoid class ambiguity, make sure that your classes are clearly separable from each other, especially with Single class classification projects.
-
-* **Train model**: Your model starts learning from your tagged data.
-
-* **View model evaluation details**: View the evaluation details for your model to determine how well it performs when introduced to new data.
-
-* **Improve model**: Work on improving your model performance by examining the incorrect model predictions and examining data distribution.
-
-* **Deploy model**: Deploying a model makes it available for use via the Analyze API.
-
-* **Classify text**: Use your custom modeled for text classification tasks.
-
-:::image type="content" source="../media/development-lifecycle.png" alt-text="The development lifecycle" lightbox="../media/development-lifecycle.png":::
-
-## Recommendations
-
-### Schema design
+## Schema design
 
 The schema defines the classes that you need your model to classify your text into at runtime.
 
@@ -52,7 +30,7 @@ The schema defines the classes that you need your model to classify your text in
     
     For example, if you are classifying food recipes, they are similar to an extent, so to differentiate between *dessert recipe* and *main dish recipe* you will need to add more examples to overcome ambiguity since both files are similar. Avoiding ambiguity saves time, effort, and yields better results.
     
-### Data selection
+## Data selection
 
 The quality of data you train your model with affects model performance greatly.
 
@@ -77,7 +55,7 @@ Include less frequent classes in your data, if the model was not exposed a certa
 
 * Consider where your data comes from. If you are collecting data from one person or department, you are likely missing diversity that will be important for your model to learn about all usage scenarios.
 
-### Data Tagging
+## Data tagging
 
 * As a general rule, more tagged data leads to better results.
 
