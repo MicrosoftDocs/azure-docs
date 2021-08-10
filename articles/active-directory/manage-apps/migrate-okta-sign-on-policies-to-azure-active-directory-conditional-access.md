@@ -12,7 +12,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 08/10/2021
 ms.author: gasinh
-ms.subservice: manage apps
+ms.subservice: manage-apps
 ---
 
 # Tutorial: Migrate Okta sign on policies to Azure Active Directory Conditional Access
@@ -213,7 +213,7 @@ See the [end-user documentation for MFA enrollment](https://docs.microsoft.com/a
 
 ![image shows mfa verification through okta prompted for CA](media/migrate-okta-sign-on-policies-to-azure-ad-conditional-access/mfa-verification-through-okta-prompted-ca.png)
 
-### Step 7 - Cutover from sign-on to CA policies
+### Step 7 - Cutover from sign on to CA policies
 
 After conducting thorough testing on the pilot members to ensure that CA is in effect as expected, the remaining organization members can be added into CA policies after registration has been completed.
 
