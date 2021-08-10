@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 08/09/2021
 ms.author: lajanuar
 ---
 
@@ -27,12 +27,12 @@ The data extracted with the Business Card API can be used to perform various tas
 
 The Business Card API also powers the [AI Builder Business Card Processing feature](/ai-builder/prebuilt-business-card).
 
-## Try it out
+## Try it
 
 To try out the Form Recognizer receipt service, go to the online Sample UI Tool:
 
 > [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://aka.ms/fott-2.1-ga "Start with a prebuilt model to extract data from business card")
+> [Try business card model](https://aka.ms/fott-2.1-ga "Start with a prebuilt model to extract data from business card")
 
 ## What does the Business Card service do?
 
