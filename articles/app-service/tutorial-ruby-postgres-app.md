@@ -396,7 +396,7 @@ For the tasks scenario, you modify the application so that you can mark a task a
     <th><%= model_class.human_attribute_name(:Done) %></th>
     ```
 
-1In the same file, find the line `<td><%= task.Description %></td>` and insert the following code directly below it:
+1. In the same file, find the line `<td><%= task.Description %></td>` and insert the following code directly below it:
 
     ```erb
     <td><%= check_box "task", "Done", {:checked => task.Done, :disabled => true} %></td>

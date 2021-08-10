@@ -135,10 +135,10 @@ The steps you follow for your project depends on whether it's an ASP.NET project
 
 # [ASP.NET Core](#tab/dotnetcore)
 
-    > [!NOTE]
-    > **Microsoft.Azure.Services.AppAuthentication** is no longer recommended to use with new Azure SDK. 
-    > It is replaced with new **Azure Identity client library** available for .NET, Java, TypeScript and Python and should be used for all new development. 
-    > Information about how to migrate to `Azure Identity`can be found here: [AppAuthentication to Azure.Identity Migration Guidance](/dotnet/api/overview/azure/app-auth-migration).
+> [!NOTE]
+> **Microsoft.Azure.Services.AppAuthentication** is no longer recommended to use with new Azure SDK. 
+> It is replaced with new **Azure Identity client library** available for .NET, Java, TypeScript and Python and should be used for all new development. 
+> Information about how to migrate to `Azure Identity`can be found here: [AppAuthentication to Azure.Identity Migration Guidance](/dotnet/api/overview/azure/app-auth-migration).
 
 1. In Visual Studio, open the Package Manager Console and add the NuGet package [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication):
 
@@ -197,7 +197,7 @@ The steps you follow for your project depends on whether it's an ASP.NET project
     > [!NOTE]
     > This demonstration code is synchronous for clarity and simplicity.
     
-    The preceding code uses the `Azure.Identity` library so that it can authenticate and retrieve an access token for the database, no matter where the code is running. If you're running on your local machine, `DefaultAzureCredential()` loops through a number of options to find a valid account that is logged in. You can read more about the [DefaultAzureCredential class](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
+    The preceding code uses the `Azure.Identity` library so that it can authenticate and retrieve an access token for the database, no matter where the code is running. If you're running on your local machine, `DefaultAzureCredential()` loops through a number of options to find a valid account that is logged in. You can read more about the [DefaultAzureCredential class](/dotnet/api/azure.identity.defaultazurecredential).
 
     That's everything you need to connect to SQL Database. When debugging in Visual Studio, your code uses the Azure AD user you configured in [Set up Visual Studio](#set-up-visual-studio). You'll set up SQL Database later to allow connection from the managed identity of your App Service app. The `DefaultAzureCredential` class caches the token in memory and retrieves it from Azure AD just before expiration. You don't need any custom code to refresh the token.
 

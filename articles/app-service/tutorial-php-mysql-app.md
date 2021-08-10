@@ -460,15 +460,15 @@ For more information, see [Change site root](configure-language-php.md#change-si
    &lt; Output has been truncated for readability &gt;
    </pre>
     
-    > [!NOTE]
-    > You may notice that the deployment process installs [Composer](https://getcomposer.org/) packages at the end. App Service does not run these automations during default deployment, so this sample repository has three additional files in its root directory to enable it:
-    >
-    > - `.deployment` - This file tells App Service to run `bash deploy.sh` as the custom deployment script.
-    > - `deploy.sh` - The custom deployment script. If you review the file, you will see that it runs `php composer.phar install` after `npm install`.
-    > - `composer.phar` - The Composer package manager.
-    >
-    > You can use this approach to add any step to your Git-based deployment to App Service. For more information, see [Custom Deployment Script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
-    >
+   > [!NOTE]
+   > You may notice that the deployment process installs [Composer](https://getcomposer.org/) packages at the end. App Service does not run these automations during default deployment, so this sample repository has three additional files in its root directory to enable it:
+   >
+   > - `.deployment` - This file tells App Service to run `bash deploy.sh` as the custom deployment script.
+   > - `deploy.sh` - The custom deployment script. If you review the file, you will see that it runs `php composer.phar install` after `npm install`.
+   > - `composer.phar` - The Composer package manager.
+   >
+   > You can use this approach to add any step to your Git-based deployment to App Service. For more information, see [Custom Deployment Script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
+   >
 
 ::: zone-end
 
