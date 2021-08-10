@@ -165,6 +165,8 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 | IncludeKeyInfo | No | Indicates whether the SAML authentication request contains the public key of the certificate when the binding is set to `HTTP-POST`. Possible values: `true` or `false`. |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 |SingleLogoutEnabled| No| Indicates whether during sign-in the technical profile attempts to sign out from federated identity providers. For more information, see [Azure AD B2C session sign-out](session-behavior.md#sign-out).  Possible values: `true` (default), or `false`.|
+|ForceAuthN| No| Setting this metadata item will force the value of the ForceAuthN attribute within the SAML AuthN Request. By default this value will be set to `False` unless there is a valid session and the initiating request asked to force authentication (for example prompt=login on an OIDC request).  Possible values: `true` or `false`.|
+
 
 ## Cryptographic keys
 
