@@ -187,17 +187,17 @@ items:
       - name: Snapshots
         href: snapshots-overview.md
       - name: Change feed
-        href: storage-blob-change-feed.md        
+        href: storage-blob-change-feed.md
       - name: Immutable storage for blobs
         items:
-        - name: Overview 
+        - name: Overview
           href: immutable-storage-overview.md
         - name: Time-based retention policies
           href: immutable-time-based-retention-policy-overview.md
         - name: Legal holds
-          href: immutable-legal-hold-overview.md  
+          href: immutable-legal-hold-overview.md
     - name: Redundancy and disaster recovery
-      items:    
+      items:
       - name: Data redundancy
         href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Customer-managed failover for disaster recovery
@@ -326,7 +326,7 @@ items:
         href: storage-blob-copy.md
       - name: Use blob index tags
         href: storage-blob-index-how-to.md
-      - name: Enable blob inventory reports 
+      - name: Enable blob inventory reports
         href: blob-inventory-how-to.md
       - name: Calculate blobs count and total size
         href: calculate-blob-count-size.md
@@ -447,7 +447,7 @@ items:
       - name: Create snapshots (.NET)
         href: snapshots-manage-dotnet.md
       - name: Process change feed logs
-        href: storage-blob-change-feed-how-to.md        
+        href: storage-blob-change-feed-how-to.md
       - name: Configure an immutability policy
         items:
         - name: Configure version-level immutability policies
@@ -522,8 +522,6 @@ items:
         href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Develop with blobs
       items:
-      - name: C++
-        href: storage-c-plus-plus-how-to-use-blobs.md
       - name: iOS
         href: storage-ios-how-to-use-blob-storage.md
       - name: Java
@@ -777,7 +775,7 @@ items:
     - name: Migrate accounts and data stores
       items:
       - name: Migrate from Data Lake Storage Gen1
-        items: 
+        items:
         - name: Migrate from Gen1
           href: data-lake-storage-migrate-gen1-to-gen2.md
         - name: Migrate by using Azure portal

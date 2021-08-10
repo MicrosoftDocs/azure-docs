@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/storage/blobs/storage-c-plus-plus-how-to-use-blobs.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/storage-c-plus-plus-how-to-use-blobs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "active-directory/authentication/concept-mfa-plan.md",
       "redirect_url": "active-directory/authentication/howto-mfa-getstarted",
       "redirect_document_id": false
