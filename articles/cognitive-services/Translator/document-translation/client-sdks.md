@@ -106,7 +106,7 @@ using System;
 using System.Threading;
 ```
 
-In the application's **Program** class, create variable for your subscription key and custom endpoint. For details, *see* [Get your custom domain name and subscription key](get-started-with-document-translation.md#get-your-custom-domain-name-and-subscription-key)
+In the application's **Program** class, create variable for your subscription key and custom endpoint. For details, *see* [Custom domain name and subscription key](get-started-with-document-translation.md#custom-domain-name-and-subscription-key)
 
 ```csharp
 private static readonly string endpoint = "<your custom endpoint>";
@@ -205,7 +205,7 @@ Create a new Python application in your preferred editor or IDE. Then import the
 ```
 
 Create variables for your resource subscription key, custom endpoint, sourceUrl, and targetUrl. For
-more information, *see*  [Get your custom domain name and subscription key](get-started-with-document-translation.md#get-your-custom-domain-name-and-subscription-key)
+more information, *see*  [Custom domain name and subscription key](get-started-with-document-translation.md#custom-domain-name-and-subscription-key)
 
 ```python
  subscriptionKey = "<your-subscription-key>"
