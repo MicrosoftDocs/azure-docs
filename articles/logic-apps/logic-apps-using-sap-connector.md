@@ -44,14 +44,11 @@ This article explains how you can access your SAP resources from Azure Logic App
 
 * Message content to send to your SAP server, such as a sample IDoc file. This content must be in XML format and include the namespace of the [SAP action](#actions) you want to use. You can [send IDocs with a flat file schema by wrapping them in an XML envelope](#send-flat-file-idocs).
 
-  > [!NOTE]
-  > If you use the SAP trigger named **When a message is received from SAP** with the **IDOC Format** parameter set to **FlatFile** 
-  > and the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md), you have to use the `early_terminate_optional_fields` 
-  > property in your flat file schema by setting the value to `true`. This requirement is necessary because the flat file IDOC data record 
-  > that's sent by SAP on the tRFC call `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. 
-  > Azure Logic Apps provides the flat file IDOC original data without padding as received from SAP.
-
 * If you want to use the **When a message is received from SAP** trigger, you must also do the following:
+
+  * If you use this SAP trigger with the **IDOC Format** parameter set to **FlatFile** along with the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md), you have to use the `early_terminate_optional_fields` property in your flat file schema by setting the value to `true`.
+
+    This requirement is necessary because the flat file IDOC data record that's sent by SAP on the tRFC call `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDOC original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match.
 
   * Set up your SAP gateway security permissions with this setting: 
 
@@ -200,7 +197,7 @@ If you're using SNC with SSO, make sure the data gateway service is running as a
 
 ![Screenshot of on-premises data gateway settings in the Azure portal, showing Service Settings page with button to change the gateway service account selected.](./media/logic-apps-using-sap-connector/gateway-account.png)
 
-If you're enabling SNC through an external security product, copy the SNC library or files on the same computer where your data gateway is installed. Some examples of SNC products include [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, and NTLM. For more information about enabling SNC for the data gateway, review [Enable Secure Network Communications](#enable-secure-network-communications).
+If you're enabling SNC through an external security product, copy the SNC library or files on the same computer where your data gateway is installed. Some examples of SNC products include [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, and NTLM. For more information about enabling SNC for the data gateway, review [Enable Secure Network Communications (SNC)](#enable-secure-network-communications).
 
 > [!TIP]
 > The version of your SNC library and its dependencies must be compatible with your SAP environment.
@@ -331,19 +328,19 @@ Follow these examples to create a logic app that sends an IDoc message to an SAP
 
 ### Create HTTP request trigger
 
-To have your workflow start by receiving IDocs from SAP, you can use the [Request trigger](../connectors/connectors-native-reqres.md), which now supports the SAP plain XML format. So first, create a logic app workflow that has an endpoint in Azure where you can send *HTTP POST* requests. When your logic app workflow receives these HTTP requests, the trigger fires and runs the next step in your workflow.
+To have your logic app workflow receive IDocs from SAP, you can use the [Request trigger](../connectors/connectors-native-reqres.md), which now supports the SAP plain XML format. 
 
 > [!TIP]
-> To receive IDocs as plain XML, use the SAP trigger named **When a message is received from SAP** instead, 
-> and set the **IDOC Format** parameter to **SapPlainXml**.
->
-> To receive IDocs as a flat file, use the same SAP trigger, but set the **IDOC Format** parameter to **FlatFile**. 
-> In this case, you can use the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md). However, 
-> in your flat file schema, you have to use the `early_terminate_optional_fields` property by setting the value 
-> to `true`. This requirement is necessary because the flat file IDOC data record is padded to the full SDATA 
-> field length. However, the data sent by SAP on the tRFC call `IDOC_INBOUND_ASYNCHRONOUS` isn't padded. 
-> Azure Logic Apps provides the flat file IDOC original data without padding as received from SAP.
+> To receive IDocs as plain XML, use the SAP trigger named **When a message is received from SAP** instead, and set the **IDOC Format** parameter to **SapPlainXml**.  
+> 
+> To receive IDocs as a flat file, use the same SAP trigger, but set the **IDOC Format** parameter to **FlatFile**. In this case, you can use the 
+> [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md). However, in your flat file schema, you have to use the `early_terminate_optional_fields` 
+> property by setting the value to `true`. This requirement is necessary because the flat file IDOC data record that's sent by SAP on the tRFC call 
+> `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDOC original data without padding 
+> as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match.
 
+This section continues with the Request trigger, so first, create a logic app workflow with an endpoint in Azure to send *HTTP POST* requests to your workflow. When your logic app workflow receives these HTTP requests, the trigger fires and runs the next step in your workflow.
+ 
 1. In the [Azure portal](https://portal.azure.com), create a blank logic app, which opens the workflow designer.
 
 1. In the search box, enter `http request` as your filter. From the **Triggers** list, select **When a HTTP request is received**.
@@ -1415,7 +1412,9 @@ Optionally, you can download or store the generated schemas in repositories, suc
 
 1. After a successful run, go to the integration account, and check that the generated schemas exist.
 
-## Enable secure network communications
+<a name="enable-secure-network-communications"></a>
+
+## Enable Secure Network Communications (SNC)
 
 Before you start, make sure that you met the previously listed [prerequisites](#prerequisites), which apply only when you use the data gateway and your logic apps run in multi-tenant Azure:
 
