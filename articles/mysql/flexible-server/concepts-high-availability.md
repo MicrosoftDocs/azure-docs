@@ -35,6 +35,9 @@ When the flexible server is created with zone redundant high availability enable
 
 The primary server is deployed in the region and a specific availability zone. When the high availability is chosen, a standby replica server with the same configuration as that of the primary server is automatically deployed in the "specified availability zone", including compute tier, compute size, storage size, and network configuration. The log data is synchronously replicated to the standby replica to ensure zero data loss in any failure situation. Automatic backups, both snapshots and log backups, are performed from the primary database server.
 
+## Standby Zone Selection
+In zone redundant high availability scenario you may choose the standby server zone location of your choice. Co-locating the standby database servers and standby applications in the same zone reduces latencies and allows users to better prepare for disaster recovery situations and “zone down” scenarios.
+
 ## Same-Zone High Availability
 
 When the flexible server is created with same-zone high availability enabled, the data and log files are hosted in a [Locally redundant storage (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#locally-redundant-storage). Using storage level replication available with LRS, the data and log files are synchronously replicated to the standby server to ensure zero data loss. The standby server offers infrastructure redundancy with a separate virtual machine (compute) which reduces the failover time and network latency between the user application and the database server due to colocation. The failover is fully transparent from the client application and doesn't require any user actions. The recovery of the standby server to come online during failover is dependent on the binary log application on the standby. It is therefore advised to use primary keys on all the tables to reduce failover time. The standby server is not available for any read or write operations but is a passive standby to enable fast failover. The failover times typically ranges from 60-120 seconds.
@@ -63,6 +66,7 @@ Here are some advantages for using zone redundancy HA feature:
 - Clients always connect to the primary database server.
 - If there is a database crash or node failure, the flexible server VM is restarted on the same node. At the same time, an automatic failover is triggered. If flexible server VM restart is successful before the failover finishes, the failover operation will be canceled.
 - Ability to restart the server to pick up any static server parameter changes.
+- 
 
 ## Steady-state Operations
 
