@@ -23,7 +23,7 @@ API Management occasionally upgrades its hosting platform. These changes general
 | **Stv2** | Single-tenant v2 | [Virtual machine scale sets](../virtual-machine-scale-sets/overview.md) | SKUs other than Consumption 
 
 
-Currently, only [zone redundancy](zone-redundancy.md) (Premium SKU) requires your API Management instance to be hosted on the v2 platform.
+Currently, only certain features such as [zone redundancy](zone-redundancy.md) (Premium SKU) and some [virtual network options](virtual-network-concepts.md) require your API Management instance to be hosted on the v2 platform.
 
 
 ## How do I know which platform hosts my API Management instance?

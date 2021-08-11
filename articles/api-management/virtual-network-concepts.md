@@ -9,7 +9,8 @@ ms.date: 08/10/2021
 ms.author: danlep
 ms.custom: 
 ---
-# Using a virtual network with Azure API Management
+# Use a virtual network with Azure API Management
+
 With Azure Virtual Networks (VNETs), you can place your Azure resources in a non-internet-routable network to which you control access. You can then connect VNETs to your on-premises networks using various VPN technologies. To learn more about Azure VNETs, start with the information in the [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
 
 This article explains VNET connectivity options, requirements, and considerations for your API Management instance. You can use the Azure portal, Azure CLI, Azure Resource Manager templates, or other tools for the deployment. You control inbound and outbound traffic into the subnet in which API Management is deployed by using [network security groups][NetworkSecurityGroups].
