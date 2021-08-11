@@ -41,7 +41,7 @@ Check that idmapping is disabled and nothing is re-enabling it, then perform the
 
 ### Cause 1: Subscription is not enabled
 
-Your subscription may not have been registered for the Azure Files NFS preview. You will need to run a few additional commandlets from either Cloud Shell or a local terminal to enable the feature.
+Your subscription may not have been registered for the Azure Files NFS preview. You will need to run a few more commandlets from either Cloud Shell or a local terminal to enable the feature.
 
 > [!NOTE]
 > You may have to wait up to 30 minutes for the registration to complete.
@@ -87,15 +87,15 @@ Once registration completes, follow the instructions in our article: [How to cre
 
 ### Cause 1: Request originates from a client in an untrusted network/untrusted IP
 
-Unlike SMB, NFS does not have user-based authentication. The authentication for a share is based on your network security rule configuration. Due to this, to ensure only secure connections are established to your NFS share, you must use either the service endpoint or private endpoints. To access shares from on-premises in addition to private endpoints, you must set up VPN or ExpressRoute. IPs added to the storage account's allow-list for the firewall are ignored. You must use one of the following methods to setup access to an NFS share:
+Unlike SMB, NFS does not have user-based authentication. The authentication for a share is based on your network security rule configuration. Due to this, to ensure only secure connections are established to your NFS share, you must use either the service endpoint or private endpoints. To access shares from on-premises in addition to private endpoints, you must set up VPN or ExpressRoute. IPs added to the storage account's allowlist for the firewall are ignored. You must use one of the following methods to set up access to an NFS share:
 
 
 - [Service endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access)
     - Accessed by the public endpoint
     - Only available in the same region.
     - VNet peering won't give access to your share.
-    - Each virtual network or subnet must be individually added to the allow-list.
-    - For on-premises access, service endpoints can be used with ExpressRoute, point-to-site and site-to-site VPNs but, we recommend using private endpoint since it is more secure.
+    - Each virtual network or subnet must be individually added to the allowlist.
+    - For on-premises access, service endpoints can be used with ExpressRoute, point-to-site, and site-to-site VPNs but, we recommend using private endpoint since it is more secure.
 
 The following diagram depicts connectivity using public endpoints.
 
@@ -105,7 +105,7 @@ The following diagram depicts connectivity using public endpoints.
     - Access is more secure than the service endpoint.
     - Access to NFS share via private link is available from within and outside the storage account's Azure region (cross-region, on-premise)
     - Virtual network peering with virtual networks hosted in the private endpoint give NFS share access to the clients in peered virtual networks.
-    - Private endpoints can be used with ExpressRoute, point-to-site and site-to-site VPNs.
+    - Private endpoints can be used with ExpressRoute, point-to-site, and site-to-site VPNs.
 
 :::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagram of private endpoint connectivity." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
 
@@ -155,7 +155,7 @@ Verify that port 2049 is open on your client by running the following command: `
 ## ls (list files) command shows incorrect/inconsistent results
 
 ### Cause: Inconsistency between cached values and server file metadata values when the file handle is open
-Sometimes the "list files" or "df" or "find" command displays a non zero size as expected and in the very next list files command instead shows size 0 or a very old time stamp. This is a known issue due to inconsistent caching of file metadata values while the file is open. You may use one of the following workarounds to resolve this:
+Sometimes the "list files" or "df" or "find" command displays a non-zero size as expected and in the very next list files command instead shows size 0 or an old time stamp. This is a known issue due to inconsistent caching of file metadata values while the file is open. You may use one of the following workarounds to resolve this:
 
 #### Workaround 1: For fetching file size, use wc -c instead of ls -l
 Using wc -c will always fetch the latest value from the server and won't have any inconsistency.
@@ -172,7 +172,7 @@ There is a known issue during preview where NFS shares gets soft deleted despite
 ### Cause: A known bug that has been fixed in newer Linux Kernel
 On older kernels, NFS4ERR_NOT_SAME causes the client to stop enumerating (instead of restarting for the directory). Newer kernels would be unblocked right away, unfortunately, for distros like SUSE, there is no patch for SUSE Enterprise Linux Server 12 or 15 that would bring the kernel-up-to-date to this fix.  The patch is available in kernel 5.12+.  The patch for the client-side fix is described here [PATCH v3 15/17 NFS: Handle NFS4ERR_NOT_SAME and NFSERR_BADCOOKIE from readdir calls](https://www.spinics.net/lists/linux-nfs/msg80096.html).
 
-#### Workaround : Use latest kernel workaround while the fix reaches the region hosting your storage account
+#### Workaround: Use latest kernel workaround while the fix reaches the region hosting your storage account
 The patch is available in kernel 5.12+.
 
 ## df and find command shows inconsistent results on clients other than where the writes happen
