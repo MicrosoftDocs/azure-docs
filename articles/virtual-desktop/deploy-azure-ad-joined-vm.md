@@ -43,7 +43,10 @@ You can deploy Azure AD-joined VMs directly from the Azure portal when [creating
 > - Host pools should only contain VMs of the same domain join type. For example, AD-joined VMs should only be with other AD VMs, and vice-versa.
 > - The host pool VMs must be Windows 10 single-session or multi-session, version 2004 or later.
 
-After you've created the host pool, you must assign user access. For Azure AD-joined VMs, you'll need to do two things: give users access to both the App Group and VMs.
+After you've created the host pool, you must assign user access. For Azure AD-joined VMs, you'll need to do two things:
+
+- Add users to the App Group to give them access to the resources.
+- Grant users the Virtual Machine User Login role so they can sign in to the VMs.
 
 Follow the instructions in [Manage app groups](manage-app-groups.md) to assign user access to apps and desktops. We recommend that you use user groups instead of individual users wherever possible.
 
