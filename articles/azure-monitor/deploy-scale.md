@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Monitor at scale using Azure Policy
-description: Deploy Azure Monitor features at scale using Azure Policy.
+title: Deploy Azure Monitor at scale by using Azure Policy
+description: Deploy Azure Monitor features at scale by using Azure Policy.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -8,39 +8,46 @@ ms.date: 06/08/2020
 
 ---
 
-# Deploy Azure Monitor at scale using Azure Policy
-While some Azure Monitor features are configured once or a limited number of times, others must be repeated for each resource that you want to monitor. This article describes methods for using Azure Policy to implement Azure Monitor at scale to ensure that monitoring is consistently and accurately configured for all your Azure resources.
+# Deploy Azure Monitor at scale by using Azure Policy
+Although some Azure Monitor features are configured once or a limited number of times, others must be repeated for each resource that you want to monitor. This article describes methods for using Azure Policy to implement Azure Monitor at scale. The goal is to ensure that monitoring is consistently and accurately configured for all your Azure resources.
 
-For example, you need to create a diagnostic setting for all your existing Azure resources and for each new resource that you create. You also need to have an agent installed and configured each time you create a virtual machine. You could use methods such as PowerShell or CLI to perform these actions since these methods are available for all features of Azure Monitor. Using Azure Policy, you can have logic in place that will automatically perform the appropriate configuration each time you create or modify a resource.
+For example, you need to create a diagnostic setting for all your existing Azure resources and for each new resource that you create. You also need to have an agent installed and configured each time you create a virtual machine. You can use methods such as PowerShell or CLI to perform these actions, because these methods are available for all features of Azure Monitor. But by using Azure Policy, you can have logic in place that will automatically perform the appropriate configuration each time you create or modify a resource.
 
 
 ## Azure Policy
-This section provides a brief introduction to [Azure Policy](../governance/policy/overview.md) which allows you to assess and enforce organizational standards across your entire Azure subscription or management group with minimal effort. Refer to the [Azure Policy documentation](../governance/policy/overview.md) for complete details.
+This section provides a brief introduction to [Azure Policy](../governance/policy/overview.md). You can use the Azure Policy service to assess and enforce organizational standards across your entire Azure subscription or management group with minimal effort. For complete details, see the [Azure Policy documentation](../governance/policy/overview.md).
 
-With Azure Policy you can specify configuration requirements for any resources that are created and either identify resources that are out of compliance, block the resources from being created, or add the required configuration. It works by intercepting calls to create a new resource or to modify an existing resource. It can respond with such effects as denying the request if it doesn't match match with the properties expected in a policy definition, flagging it for noncompliance, or deploy a related resource. You can remediate existing resources with a **deployIfNotExists** or **modify** policy definition.
+With Azure Policy, you can specify configuration requirements for any resources that are created and take one of these actions:
 
-Azure Policy consists of the objects in the following table. See [Azure Policy objects](../governance/policy/overview.md#azure-policy-objects) for a more detailed explanation of each.
+- Identify resources that are out of compliance.
+- Block the resources from being created.
+- Add the required configuration. 
+
+Azure Policy works by intercepting calls to create a new resource or to modify an existing resource. It can respond with such effects as denying the request if it doesn't match match with the properties expected in a policy definition, flagging it for noncompliance, or deploying a related resource. You can remediate existing resources with a **deployIfNotExists** or **modify** policy definition.
+
+Azure Policy consists of the objects in the following table. For a more detailed explanation of each, see [Azure Policy objects](../governance/policy/overview.md#azure-policy-objects).
 
 | Item | Description |
 |:---|:---|
-| Policy definition | Describes resource compliance conditions and the effect to take if a condition is met. This may be all resources of a particular type or only resources that match certain properties. The effect may be to simply flag the resource for compliance or to deploy a related resource. Policy definitions are written using JSON as described in [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md). Effects are described in [Understand Azure Policy effects](../governance/policy/concepts/effects.md).
-| Policy initiative | A group of policy definitions that should be applied together. For example, you might have one policy definition to send resource logs to a Log Analytics workspace and another to send resource logs to event hubs. Create an initiative that includes both policy definitions, and apply the initiative to resources instead of the individual policy definitions. Initiatives are written using JSON as described in [Azure Policy initiative structure](../governance/policy/concepts/initiative-definition-structure.md). |
-| Assignment | A policy definition or initiative doesn't take effect until it's assigned to a scope. For example, assign a policy to a resource group to apply it to all resources created in that resource, or apply it to a subscription to apply it to all resources in that subscription.  For more details, see [Azure Policy assignment structure](../governance/policy/concepts/assignment-structure.md). |
+| Policy definition | This object describes resource compliance conditions and the effect to take if a condition is met. It might be all resources of a particular type or only resources that match certain properties. The effect might be to simply flag the resource for compliance or to deploy a related resource. Policy definitions are written using JSON, as described in [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md). Effects are described in [Understand Azure Policy effects](../governance/policy/concepts/effects.md).
+| Policy initiative | A group of policy definitions that should be applied together is called an intiative. For example, you might have one policy definition to send resource logs to a Log Analytics workspace and another to send resource logs to event hubs. Create an initiative that includes both policy definitions, and apply the initiative to resources instead of the individual policy definitions. Initiatives are written using JSON, as described in [Azure Policy initiative structure](../governance/policy/concepts/initiative-definition-structure.md). |
+| Assignment | A policy definition or initiative doesn't take effect until it's assigned to a scope. For example, assign a policy to a resource group to apply it to all resources created in that resource, or assign it to a subscription to apply it to all resources in that subscription. For more information, see [Azure Policy assignment structure](../governance/policy/concepts/assignment-structure.md). |
 
 ## Built-in policy definitions for Azure Monitor
-Azure Policy includes several prebuilt definitions related to Azure Monitor. You can assign these policy definitions to your existing subscription or use them as a basis to create your own custom definitions. For a complete list of the built-in politics in the **Monitoring** category, see [Azure Policy built-in policy definitions for Azure Monitor](.//policy-reference.md).
+Azure Policy includes several prebuilt definitions related to Azure Monitor. You can assign these policy definitions to your existing subscription or use them as a basis to create your own custom definitions. For a complete list of the built-in policies in the **Monitoring** category, see [Azure Policy built-in policy definitions for Azure Monitor](.//policy-reference.md).
 
-To view the built-in policy definitions related to monitoring, perform the following:
+To view the built-in policy definitions related to monitoring:
 
 1. Go to **Azure Policy** in the Azure portal.
 2. Select **Definitions**.
-3. For **Type**, select *Built-in* and for **Category**, select *Monitoring*.
+3. For **Type**, select **Built-in**. For **Category**, select **Monitoring**.
 
   ![Screenshot of the Azure Policy Definitions page in Azure portal showing a list of policy definitions for the Monitoring category and Built-in Type.](media/deploy-scale/builtin-policies.png)
 
-## Azure Monitor Agent
-The [Azure Monitor agent](agents/azure-monitor-agent-overview.md) collects monitoring data from the guest operating system of Azure virtual machines and delivers it to Azure Monitor. It uses [Data Collection Rules](agents/data-collection-rule-overview.md) to configure data to collect from each agent, that enable manageability of collection settings at scale while still enabling unique, scoped configurations for subsets of machines.  
-Use the policies and policy initiatives below to automatically install the agent and associate it to a data collection rule, every time you create a virtual machine.
+## Azure Monitor agent
+The [Azure Monitor agent](agents/azure-monitor-agent-overview.md) collects monitoring data from the guest operating system of Azure virtual machines and delivers it to Azure Monitor. It uses [Data Collection Rules](agents/data-collection-rule-overview.md) to configure data to collect from each agent, that enable manageability of collection settings at scale while still enabling unique, scoped configurations for subsets of machines.
+
+Use the following policies and policy initiatives to automatically install the agent and associate it to a data collection rule, every time you create a virtual machine.
 
 ### Built-in policy initiatives
 View prerequisites for agent installation [here](agents/azure-monitor-agent-install.md#prerequisites). 
@@ -51,8 +58,8 @@ There are policy initiatives for Windows and Linux virtual machines, comprising 
 
   ![Partial screenshot from the Azure Policy Definitions page showing two built-in policy initiaves for configuring Azure Monitor Agent.](media/deploy-scale/built-in-ama-dcr-initiatives.png)  
 
-### Built-in policy  
-You may choose to use the individual policies as per your needs, from the respective policy initiative. For example if you only want to automatically install the agent, simply use the first policy from the initiative as shown below:  
+### Built-in policies 
+You can choose to use the individual policies as per your needs, from the respective policy initiative. For example if you only want to automatically install the agent, simply use the first policy from the initiative as shown below:  
 
   ![Partial screenshot from the Azure Policy Definitions page showing policies contained within the initiative for configuring Azure Monitor Agent.](media/deploy-scale/built-in-ama-dcr-policy.png)  
 
@@ -175,7 +182,7 @@ Create a remediation task if you have existing virtual machine scale set that ne
 ![Remediation task](media/deploy-scale/virtual-machine-scale-set-remediation.png)
 
 ### Log Analytics agent
-You may have scenarios where you want to install the Log Analytics agent but not the dependency agent. There is no built-in initiative for just the agent, but you can create your own based on the built-in policy definitions provided by VM insights.
+You might have scenarios where you want to install the Log Analytics agent but not the dependency agent. There is no built-in initiative for just the agent, but you can create your own based on the built-in policy definitions provided by VM insights.
 
 > [!NOTE]
 > There would be no reason to deploy the Dependency agent on its own since it requires the Log Analytics agent to deliver its data to Azure Monitor.

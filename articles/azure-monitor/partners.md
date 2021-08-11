@@ -235,9 +235,9 @@ The IBM QRadar Device Support Module (DSM) for the Microsoft Azure platform and 
 
 ![RSA logo.](./media/partners/rsa.png)
 
-The RSA NetWitness Platform brings together evolved SIEM and extended threat detection and response solutions. The solutions deliver unsurpassed visibility, analytics, and automated response capabilities. These combined capabilities help security teams work more efficiently and effectively, upleveling their threat-hunting skills and enabling them to investigate and respond to threats faster across their organization's entire infrastructure—whether in the cloud, on-premises, or virtual. 
+The RSA NetWitness Platform brings together evolved SIEM and extended threat detection and response solutions. The solutions deliver visibility, analytics, and automated response capabilities. These combined capabilities help security teams work more efficiently and effectively, enhancing their threat-hunting skills and enabling them to investigate and respond to threats faster across their organization's entire infrastructure—whether in the cloud, on-premises, or virtual. 
 
-RSA NetWitness Platform's integration with Azure Monitor provides quick out-of-the-box capabilities to ingest event data and logs from Azure Monitor natively into the RSA NetWitness Platform through an intuitive UI and robust native parsing capabilities. Gain rapid visibility into Activity Logs, Azure Diagnostics, Active Directory events, and Azure Event Hubs data, and see this data alongside your other enterprise security information in a complete threat detection and response solution.
+RSA NetWitness Platform's integration with Azure Monitor provides quick out-of-the-box capabilities to ingest event data and logs from Azure Monitor natively into the RSA NetWitness Platform through an intuitive UI and robust native parsing capabilities. Gain rapid visibility into Activity Logs, Azure Diagnostics data, Active Directory events, and Event Hubs data. See this data alongside your other enterprise security information in a complete threat detection and response solution.
 
 [Learn more](https://community.rsa.com/docs/DOC-101239).
 
@@ -246,7 +246,7 @@ RSA NetWitness Platform's integration with Azure Monitor provides quick out-of-t
 
 ![ScienceLogic logo.](./media/partners/sciencelogic.png)
 
-ScienceLogic delivers a next-generation IT service assurance platform for managing any technology, anywhere. ScienceLogic delivers the scale, security, automation, and resiliency necessary to simplify the tasks of managing IT resources, services, and applications. The ScienceLogic platform uses Azure APIs to connect with Microsoft Azure. 
+ScienceLogic delivers a next-generation IT service assurance platform for managing any technology, anywhere. ScienceLogic delivers the scale, security, automation, and resilience necessary to simplify the tasks of managing IT resources, services, and applications. The ScienceLogic platform uses Azure APIs to connect with Microsoft Azure. 
 
 ScienceLogic gives you real-time visibility into your Azure services and resources. So you know when something's not working, and you can fix it faster. You can also manage Azure alongside your other clouds and datacenter systems and services.
 
@@ -267,7 +267,7 @@ For more information, see the [Serverless360 documentation](https://docs.serverl
 
 ![ServiceNow logo.](./media/partners/servicenow.png)
 
-Reduce incidents and mean time to recovery (MTTR) with the Now Platform for AIOps to eliminate noise, prioritize, identify root-cause detection using ML, and remediate with IT transformation (ITX) workflows. Understand the current state of your IaaS, PaaS, and FaaS services from Azure, and build service maps from tags to build application service context for the business impact analysis.    
+Reduce incidents and mean time to recovery (MTTR) with the Now Platform for AIOps to eliminate noise, prioritize, identify root-cause detection by using ML, and remediate with IT transformation (ITX) workflows. Understand the current state of your IaaS, PaaS, and FaaS services from Azure, and build service maps from tags to build application service context for the business impact analysis.    
 
 [Learn more about ServiceNow](https://www.servicenow.com/solutions/aiops.html).
 
@@ -275,11 +275,11 @@ Reduce incidents and mean time to recovery (MTTR) with the Now Platform for AIOp
 
 ![SignalFx logo.](./media/partners/signalfx.png)
 
-SignalFx is a leader in real-time operational intelligence for data-driven DevOps. The service discovers and collects metrics across every component in the cloud. It replaces traditional point tools and provides real-time visibility into today's dynamic environments. 
+SignalFx offers real-time operational intelligence for data-driven DevOps. The service discovers and collects metrics across every component in the cloud. It replaces traditional point tools and provides real-time visibility into today's dynamic environments. 
 
-By taking advantage of the massively scalable SignalFx platform, the SaaS platform is optimized for container-based and microservices-based architectures. It provides powerful visualization, proactive alerting, and collaborative triage capabilities across organizations of all sizes. 
+By taking advantage of the massively scalable SignalFx platform, the SaaS platform is optimized for container-based and microservices-based architectures. SignalFx provides powerful visualization, proactive alerting, and collaborative triage capabilities across organizations of all sizes. 
 
-SignalFx integrates directly with Azure Monitor as well as through open-source connectors such as Telegraf, StatsD, and collectd to provide dashboards, analytics, and alerts for Azure.
+SignalFx integrates directly with Azure Monitor—as well as through open-source connectors such as Telegraf, StatsD, and collectd—to provide dashboards, analytics, and alerts for Azure.
 
 For more information, see the [SignalFx documentation](https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure).
 
@@ -287,7 +287,7 @@ For more information, see the [SignalFx documentation](https://docs.signalfx.com
 
 ![SIGNL4 logo.](./media/partners/signl4.png)
 
-SIGNL4 is a mobile alerting app for operations teams. It's a fast way to route critical alerts from Azure Monitor to the right people at the right time, anywhere, by push, text, and voice calls. SIGNL4 manages on-call duties and shifts of your team, tracks delivery and ownership of alerts, and escalates if necessary. Full transparency across your team is provided. Through the REST webhook of SIGNL4, any Azure service can be connected with no effort. With SIGNL4, you'll see up to 10 times faster response over email notifications and manual alerting.
+SIGNL4 is a mobile alerting app for operations teams. It's a fast way to route critical alerts from Azure Monitor to the right people at the right time, anywhere, by push, text, and voice calls. SIGNL4 manages on-call duties and shifts of your team, tracks delivery and ownership of alerts, and escalates if necessary. It provides full transparency across your team. Through the REST webhook of SIGNL4, any Azure service can be connected with minimal effort. With SIGNL4, you'll see up to 10 times faster response over email notifications and manual alerting.
 
 For more information, see the [SIGNL4 documentation](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/).
 
@@ -297,7 +297,7 @@ For more information, see the [SIGNL4 documentation](https://www.signl4.com/blog
 
 Site24x7 provides an advanced and full-stack Azure monitoring solution. It delivers visibility and insight into your applications and allows application owners to detect performance bottlenecks rapidly, automate fault resolution, and optimize performance.
 
-With Site24x7 Azure Monitoring, you'll be able to:
+With Site24x7 Azure monitoring, you'll be able to:
 
 * Monitor more than 100 Azure IaaS and PaaS services.
 * Get in-depth monitoring for Windows and Linux VMs with exclusive Azure extensions, right from Azure Marketplace.
@@ -317,7 +317,7 @@ See the [SolarWinds documentation](https://www.solarwinds.com/topics/azure-monit
 
 ![SpearTip logo.](./media/partners/speartip.png)
 
-SpearTip's 24/7 security operations center continuously monitors Azure environments for cyber threats. Utilizing the ShadowSpear integration with Azure Monitor, security events are collected and analyzed for advanced threats, while SpearTip engineers investigate and respond to stop threat actors in their tracks. The integration is seamless and provides instant value after the integration is deployed.
+SpearTip's 24/7 security operations center continuously monitors Azure environments for cyber threats. Utilizing the ShadowSpear integration with Azure Monitor, security events are collected and analyzed for advanced threats, while SpearTip engineers investigate and respond to stop threat actors. The integration is seamless and provides instant value after the integration is deployed.
 
 For more information, see the [SpearTip documentation](https://www.speartip.com/identify/).
 
@@ -325,9 +325,7 @@ For more information, see the [SpearTip documentation](https://www.speartip.com/
 
 ![Splunk logo.](./media/partners/splunk.png)
 
-The Azure Monitor Add-On for Splunk is [available in the Splunkbase](https://splunkbase.splunk.com/app/3534/).
-
-For more information, see the [Splunk documentation](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
+The Azure Monitor Add-On for Splunk is [available in the Splunkbase](https://splunkbase.splunk.com/app/3534/). For more information, see the [Splunk documentation](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
 
 ## SquaredUp 
 
@@ -345,7 +343,7 @@ For more information, see the [SquaredUp website](https://squaredup.com/).
 
 ![Sumo Logic logo.](./media/partners/SumoLogic.png)
 
-Sumo Logic is a secure, cloud-native, analytics service for machine data. It delivers real-time, continuous intelligence from structured, semistructured, and unstructured data across the entire application lifecycle and stack. 
+Sumo Logic is a secure, cloud-native analytics service for machine data. It delivers real-time, continuous intelligence from structured, semistructured, and unstructured data across the entire application lifecycle and stack. 
 
 More than 1,000 customers around the globe rely on Sumo Logic for the analytics and insights to build, run, and secure their applications and cloud infrastructures. With Sumo Logic, customers gain a multitenant, service-model advantage to help increase competitive advantage, business value, and growth.
 
@@ -357,7 +355,7 @@ For more information, see the [Sumo Logic documentation](https://www.sumologic.c
 
 Turbonomic delivers workload automation for hybrid clouds by simultaneously optimizing performance, cost, and compliance in real time. Turbonomic helps organizations be elastic in their Azure estate by continuously optimizing the estate to ensure that applications constantly get the resources they require to deliver their SLA and nothing more across compute, storage, and network for the IaaS and PaaS layer. 
 
-Organizations can simulate migrations, properly scale workloads, and retire datacenter resources to responsibly migrate to Azure on time, within budget, while assuring both performance and compliance. Turbonomic is API driven and runs as an agentless VM in Azure and on-premises.
+Organizations can simulate migrations, properly scale workloads, and retire datacenter resources to responsibly migrate to Azure on time and within budget, while assuring both performance and compliance. Turbonomic is API driven and runs as an agentless VM in Azure and on-premises.
 
 For more information, see the [Turbonomic introduction](https://turbonomic.com/).
 
@@ -368,9 +366,9 @@ If you use Azure Monitor to route monitoring data to an event hub, you can easil
 | Tool | Hosted in Azure | Description |
 |:---|:---| :---|
 |  IBM QRadar | No | The Microsoft Azure DSM and the Microsoft Azure Event Hubs protocol are available for download from [the IBM support website](https://www.ibm.com/support). You can learn more about the integration with Azure at [QRadar DSM configuration](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
-| Splunk | No | The [Azure Monitor Add-On for Splunk](https://splunkbase.splunk.com/app/3757/) is an open-source project available in Splunkbase. <br><br> If you can't install an add-on in your Splunk instance (for example, you're using a proxy or running on Splunk Cloud), you can forward these events to the Splunk HTTP Event Collector by using [Azure Function For Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), which is triggered by new messages in the event hub. |
+| Splunk | No | The [Azure Monitor Add-On for Splunk](https://splunkbase.splunk.com/app/3757/) is an open-source project available in Splunkbase. <br><br> If you can't install an add-on in your Splunk instance (because, for example, you're using a proxy or running on Splunk Cloud), you can forward these events to the Splunk HTTP Event Collector by using [Azure Function For Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS). Azure Function For Splunk is triggered by new messages in the event hub. |
 | Sumo Logic | No | Instructions for setting up Sumo Logic to consume data from an event hub are available at [Collect Logs for the Azure Audit App from Event Hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
-| ArcSight | No | The ArcSight smart connector for Azure Event Hubs is available as part of [the ArcSight smart connector collection](https://community.microfocus.com/cyberres/arcsight/f/arcsight-product-announcements/163662/announcing-general-availability-of-arcsight-smart-connectors-7-10-0-8114-0). |
+| ArcSight | No | The ArcSight smart connector for Azure Event Hubs is available as part of the [ArcSight smart connector collection](https://community.microfocus.com/cyberres/arcsight/f/arcsight-product-announcements/163662/announcing-general-availability-of-arcsight-smart-connectors-7-10-0-8114-0). |
 | Syslog server | No | If you want to stream Azure Monitor data directly to a syslog server, you can use a [solution based on an Azure function](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 | LogRhythm | No| Instructions to set up LogRhythm to collect logs from an event hub are available on the [LogRhythm website](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
 |Logz.io | Yes | For more information, see [Getting started with monitoring and logging using Logz.io for Java apps running on Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio).
