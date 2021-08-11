@@ -210,6 +210,18 @@ The Azure Monitor Agent replaces the Azure Diagnostics extension and Log Analyti
 |TotalUpdateDeploymentMachineRuns|Yes|Total Update Deployment Machine Runs|Count|Total|Total software update deployment machine runs in a software update deployment run|SoftwareUpdateConfigurationName, Status, TargetComputer, SoftwareUpdateConfigurationRunId|
 |TotalUpdateDeploymentRuns|Yes|Total Update Deployment Runs|Count|Total|Total software update deployment runs|SoftwareUpdateConfigurationName, Status|
 
+## Microsoft.AVS/privateClouds
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|CapacityLatest|Yes|Datastore Disk Total Capacity|Bytes|Average|The total capacity of disk in the datastore|dsname|
+|DiskUsedPercentage|Yes| Percentage Datastore Disk Used|Percent|Average|Percent of available disk used in Datastore|dsname|
+|EffectiveCpuAverage|Yes|Percentage CPU|Percent|Average|Percentage of Used CPU resources in Cluster|clustername|
+|EffectiveMemAverage|Yes|Average Effective Memory|Bytes|Average|Total available amount of machine memory in cluster|clustername|
+|OverheadAverage|Yes|Average Memory Overhead|Bytes|Average|Host physical memory consumed by the virtualization infrastructure|clustername|
+|TotalMbAverage|Yes|Average Total Memory|Bytes|Average|Total memory in cluster|clustername|
+|UsageAverage|Yes|Average Memory Usage|Percent|Average|Memory usage as percentage of total configured or available memory|clustername|
+|UsedLatest|Yes|Datastore Disk Used|Bytes|Average|The total amount of disk used in the datastore|dsname|
 
 ## Microsoft.Batch/batchAccounts
 
@@ -247,6 +259,25 @@ The Azure Monitor Agent replaces the Azure Diagnostics extension and Log Analyti
 |UnusableNodeCount|No|Unusable Node Count|Count|Total|Number of unusable nodes|No Dimensions|
 |WaitingForStartTaskNodeCount|No|Waiting For Start Task Node Count|Count|Total|Number of nodes waiting for the Start Task to complete|No Dimensions|
 
+## Microsoft.BatchAI/workspaces
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|Active Cores|Yes|Active Cores|Count|Average|Number of active cores|Scenario, ClusterName|
+|Active Nodes|Yes|Active Nodes|Count|Average|Number of running nodes|Scenario, ClusterName|
+|Idle Cores|Yes|Idle Cores|Count|Average|Number of idle cores|Scenario, ClusterName|
+|Idle Nodes|Yes|Idle Nodes|Count|Average|Number of idle nodes|Scenario, ClusterName|
+|Job Completed|Yes|Job Completed|Count|Total|Number of jobs completed|Scenario, ClusterName, ResultType|
+|Job Submitted|Yes|Job Submitted|Count|Total|Number of jobs submitted|Scenario, ClusterName|
+|Leaving Cores|Yes|Leaving Cores|Count|Average|Number of leaving cores|Scenario, ClusterName|
+|Leaving Nodes|Yes|Leaving Nodes|Count|Average|Number of leaving nodes|Scenario, ClusterName|
+|Preempted Cores|Yes|Preempted Cores|Count|Average|Number of preempted cores|Scenario, ClusterName|
+|Preempted Nodes|Yes|Preempted Nodes|Count|Average|Number of preempted nodes|Scenario, ClusterName|
+|Quota Utilization Percentage|Yes|Quota Utilization Percentage|Count|Average|Percent of quota utilized|Scenario, ClusterName, VmFamilyName, VmPriority|
+|Total Cores|Yes|Total Cores|Count|Average|Number of total cores|Scenario, ClusterName|
+|Total Nodes|Yes|Total Nodes|Count|Average|Number of total nodes|Scenario, ClusterName|
+|Unusable Cores|Yes|Unusable Cores|Count|Average|Number of unusable cores|Scenario, ClusterName|
+|Unusable Nodes|Yes|Unusable Nodes|Count|Average|Number of unusable nodes|Scenario, ClusterName|
 
 ## microsoft.bing/accounts
 
