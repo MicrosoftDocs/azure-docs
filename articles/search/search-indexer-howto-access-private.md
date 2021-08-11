@@ -33,7 +33,7 @@ The following table lists Azure resources for which you can create outbound priv
 
 | Azure resource | Group ID |
 | --- | --- |
-| Azure Storage - Blob (or) ADLS Gen 2 | `blob`|
+| Azure Storage - Blob | `blob`|
 | Azure Storage - Tables | `table`|
 | Azure Cosmos DB - SQL API | `Sql`|
 | Azure SQL Database | `sqlServer`|
@@ -99,13 +99,6 @@ When using the first option (recommended), the dialog pane will help guide you t
 When using the second option, you can enter the Azure resource ID manually and choose the appropriate group ID. The group IDs are listed at the beginning of this article.
 
 ![Screenshot of the "Add Shared Private Access" pane, showing the manual experience for creating a shared private link resource. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource-manual.png)
-
-
->>>>>>TODO
-Shared private link resources for an Azure Cognitive Search service can be managed via the Azure portal. Navigate to your search service -> Networking -> Shared Private Access to manage these resources via the portal.
-
-   ![Screenshot of the "Networking" pane, showing the shared private link management blade. ](media\search-indexer-howto-secure-access\shared-private-link-portal-blade.png)
->>>>>>TODO
 
 #### Option 2: Azure CLI
 
