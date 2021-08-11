@@ -19,7 +19,7 @@ Private Preview Documentation | Version 2.0 | Last updated on August 10, 2021
 ```
 Microsoft Confidential | Contact: crosstenantcmkvteam@service.microsoft.com
 ```
-## Scenario Overview
+## Scenario overview
 Azure resources require a way to access other Azure services in various scenarios. Today, Managed Identities for Azure resources make it easy to facilitate such access by eliminating the need for credential management, only if all resources belong to the same Azure AD Tenant. Multiple service providers building SaaS offerings on Azure want to offer Customer Managed Keys to encrypt all customer data using an encryption key managed by the service provider’s customer using Azure Key Vault managed using the customer’s Azure AD Tenant and subscription. The Azure resources owned by the Service Provider in the Service-Provider Tenant require access to the key from the customer’s tenant to perform the encryption/decryption operations. In this private-preview we will enable a mechanism using a new feature of Azure AD called workload identity federation. Thank you for your participation in the private preview!
 
 
