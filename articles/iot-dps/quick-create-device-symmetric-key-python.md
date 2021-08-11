@@ -36,7 +36,7 @@ This article is oriented toward a Windows-based workstation. However, you can pe
 
 <a id="setupdevbox"></a>
 
-## Prepare the Python SDK environment 
+## Prepare the Python SDK environment
 
 1. Make sure Git is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 

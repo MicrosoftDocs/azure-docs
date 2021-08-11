@@ -1,6 +1,6 @@
 ---
-title: Provision a device with symmetric keys using C
-description: In this quickstart, you will use the C device SDK to provision a device that uses symmetric key with the Azure IoT Hub Device Provisioning Service (DPS)
+title: Provision a device with symmetric keys
+description: In this quickstart, you will provision a device that uses symmetric key with the Azure IoT Hub Device Provisioning Service (DPS)
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 08/11/2021
@@ -14,7 +14,6 @@ zone_pivot_groups: iot-dps-set1
 ---
 
 # Quickstart: Provision a device with symmetric keys
-
 
 In this quickstart, you'll learn:
 
@@ -56,7 +55,13 @@ If you're unfamiliar with the process of provisioning, review the [provisioning]
 
 ::: zone-end
 
-* Install the latest version of [Git](https://git-scm.com/download/).
+::: zone pivot="programming-language-python"
+
+* Install [Python 3.7](https://www.python.org/downloads/) or later installed on your Windows-based machine. You can check your version of Python by running `python --version`.
+
+::: zone-end
+
+* Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
 
 <a id="setupdevbox"></a>
 
@@ -148,6 +153,32 @@ The SDK includes the provisioning sample code for devices. This code attempt pro
 
     ```cmd
     git clone https://github.com/Azure/azure-iot-sdk-node.git --recursive
+    ```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+## Prepare the Azure IoT Python SDK environment
+
+1. Open a Git CMD or Git Bash command line environment.
+
+2. Clone the [Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python.git) GitHub repository using the following command:
+
+    ```cmd
+    git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
+    ```
+
+3. Navigate to the `azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios` directory where the sample file, _provision_symmetric_key.py_, is located.
+
+   ```console
+   cd azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios
+   ```
+
+4. Install the _azure-iot-device_ library by running the following command.
+
+    ```console
+    pip install azure-iot-device
     ```
 
 ::: zone-end
