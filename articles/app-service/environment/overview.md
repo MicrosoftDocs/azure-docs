@@ -86,7 +86,7 @@ With ASEv3, there is a different pricing model depending on the type of ASE depl
 - **Availability Zone ASEv3**: There is a minimum nine Windows I1v2 instance charge. There is no added charge for availability zone support if you have nine or more App Service plan instances. All App Service plans in an AZ ASEv3 also have a minimum instance count of 3 to ensure there is an instance in each availability zone. As the plans are scaled out, they are spread across the availability zones. 
 - **Dedicated host ASEv3**: With a dedicated host deployment, you are charged for two dedicated hosts per our pricing at ASEv3 creation then a small percentage of the Isolated V2 rate per core charge as you scale.
 
-Reserved Instance pricing for Isolated v2 is available and is described in [How reservation discounts apply to Azure App Service][ri]. The pricing, along with reserved instance pricing, is available at [App Service pricing][ under **Isolated v2 plan**. 
+Reserved Instance pricing for Isolated v2 is available and is described in [How reservation discounts apply to Azure App Service][ri]. The pricing, along with reserved instance pricing, is available at [App Service pricing][reservedinstances] under **Isolated v2 plan**. 
 
 ## Regions
 
@@ -120,5 +120,5 @@ The ASEv3 is available in the following regions.
 |West US 2| |
 
 <!--Links-->
-[ri]: ../../reservations/reservation-discount-app-service.md
+[reservedinstances]: ../../../cost-management-billing/reservations/reservation-discount-app-service.md
 [pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/
