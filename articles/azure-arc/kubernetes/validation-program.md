@@ -1,5 +1,5 @@
 ---
-title: "Azure Arc enabled Kubernetes Validation Program"
+title: "Azure Arc enabled Kubernetes validation"
 services: azure-arc
 ms.service: azure-arc
 ms.date: 03/03/2021
@@ -10,7 +10,7 @@ description: "Describes Arc validation program for Kubernetes distributions"
 keywords: "Kubernetes, Arc, Azure, K8s, validation"
 ---
 
-# Azure Arc validation program
+# Azure Arc-enabled Kubernetes validation
 
 Azure Arc enabled Kubernetes works with any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters. The Azure Arc team has also worked with key industry Kubernetes offering providers to validate Azure Arc enabled Kubernetes with their Kubernetes distributions. Future major and minor versions of Kubernetes distributions released by these providers will be validated for compatibility with Azure Arc enabled Kubernetes.
 

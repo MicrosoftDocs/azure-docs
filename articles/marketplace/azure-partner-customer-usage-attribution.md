@@ -29,6 +29,11 @@ There are secondary use cases for customer usage attribution outside of the comm
 
 Tracking Azure usage from Azure apps published to the commercial marketplace is largely automatic. When you upload a Resource Manager template as part of the [technical configuration of your marketplace Azure app's plan](./azure-app-solution.md#define-the-technical-configuration), Partner Center will add a tracking ID readable by Azure Resource Manager.
 
+>[!NOTE]
+>To ensure your application's usage is attributed accurately in our systems:
+>1. If you define the tracking ID in the resource type Microsoft.Resources/deployment with a variable, replace the variable with the tracking ID visible in Partner Center on the plan's **Technical Configuration** page (see [Add a GUID to a Resource Manager template](#add-a-guid-to-a-resource-manager-template) below).
+>2. If your Resource Manager template uses resources of type Microsoft.Resources/deployments for purposes other than customer usage attribution, Microsoft will be unable to add a customer usage attribution tracking ID on your behalf. Add a new resource of type Microsoft.Resources/deployments and add the tracking ID visible in Partner Center on the plan's **Technical configuration** page (see [Add a GUID to a Resource Manager template](#add-a-guid-to-a-resource-manager-template) below).
+
 If you use Azure Resource Manager APIs, you will need to add your tracking ID per the [instructions below](#use-resource-manager-apis) to pass it to Azure Resource Manager as your code deploys resources. This ID is visible in Partner Center on your plan's Technical Configuration page. 
 
 > [!NOTE]

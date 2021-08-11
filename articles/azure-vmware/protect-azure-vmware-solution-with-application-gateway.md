@@ -21,7 +21,7 @@ This article shows you how to use Application Gateway in front of a web server f
 ## Topology
 The diagram shows how Application Gateway is used to protect Azure IaaS virtual machines (VMs), Azure virtual machine scale sets, or on-premises servers. Application Gateway treats Azure VMware Solution VMs as on-premises servers. 
 
-:::image type="content" source="media/application-gateway/app-gateway-protects.png" alt-text="Diagram showing how Application Gateway protects Azure IaaS virtual machines (VMs), Azure virtual machine scale sets, or on-premises servers.":::
+:::image type="content" source="media/application-gateway/app-gateway-protects.png" alt-text="Diagram showing how Application Gateway protects Azure IaaS virtual machines (VMs), Azure virtual machine scale sets, or on-premises servers." border="false":::
 
 > [!IMPORTANT]
 > Azure Application Gateway is currently the only supported method to expose web apps running on Azure VMware Solution VMs.
