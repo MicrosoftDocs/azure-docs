@@ -17,7 +17,7 @@ ms.author: alkohli
 
 ## Overview
 
-The Azure datacenters operate in multiple geographic regions around the world to meet customers' demands of performance, requirements, and preferences regarding data location. An Azure geography is a defined area of the world that contains at least one Azure region. An Azure region is an area within a geography, containing one or more datacenters.
+The Azure datacenters operate in multiple geographic regions around the world to meet customers' demands of performance, requirements, and preferences for data location. An Azure geography is a defined area of the world that contains at least one Azure region. An Azure region is an area within a geography, containing one or more datacenters.
 
 Choosing an Azure region is very important, and the choice of region is influenced by factors such as data residency and sovereignty, service availability, performance, cost, and redundancy. For more information on how to choose a region, go to [Which Azure region is right for me?](https://azure.microsoft.com/overview/datacenters/how-to-choose/).
 
@@ -25,7 +25,7 @@ For an Azure Stack Edge device, the choice of region is specifically determined 
 
 - Regions where the Azure Stack Edge service is available.
 - The countries/regions that the Azure Stack Edge device can be shipped to.
-- The regions where the storage accounts that store Azure Stack Edge data should be located for optimum performance.
+- The regions where the storage accounts that store Azure Stack Edge data should be located for the best performance.
 
 This article describes the region availability for the Azure Stack Edge service and for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices.
 
@@ -49,7 +49,7 @@ Azure Stack Edge data is physically stored in Azure storage accounts, and these 
 
 A storage account is assigned when you [create a share on your device](azure-stack-edge-gpu-deploy-add-shares.md#add-a-share). Your Azure Stack Edge service and Azure storage can be in two separate locations.
 
-In general, choose the nearest region to your service for your storage account. However, the nearest Microsoft Azure region might not actually be the region with the lowest latency. It is the latency that dictates network service performance and hence the performance of the device. So if you are choosing a storage account in a different region, it is important to know what the latencies are between your service and the region associated with your storage account.
+In general, choose the nearest region to your service for your storage account. However, the nearest Microsoft Azure region might not actually be the region with the lowest latency. The latency dictates network service performance and hence the performance of the device. So if you're choosing a storage account in a different region, it's important to know what the latencies are between your service and the region associated with your storage account.
 
 ## Availability of device
 
