@@ -25,7 +25,7 @@ To download and install the My Apps Secure Sign-in Extension, use one of the fol
 
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
 - [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
-- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
+- Firefox
 
 ## Test SAML-based single sign-on
 
