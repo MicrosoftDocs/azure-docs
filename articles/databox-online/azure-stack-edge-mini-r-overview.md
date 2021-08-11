@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 04/19/2021
+ms.date: 08/11/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Mini R is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -84,6 +84,8 @@ Azure Stack Edge Mini R physical device, Azure resource, and target storage acco
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. The regions where the storage accounts store Azure Stack Edge Mini R data should be located close to where the device is located for optimum performance. A storage account located far from the device results in long latencies and slower performance.
 
 Azure Stack Edge service is a non-regional service. For more information, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md). Azure Stack Edge service does not have dependency on a specific Azure region, making it resilient to zone-wide outages and region-wide outages.
+
+For more information about region availability for Azure Stack Edge, see [Available regions for your Azure Stack Edge](azure-stack-edge-gpu-regions.md).
 
 ## Next steps
 
