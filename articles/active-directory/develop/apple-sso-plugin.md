@@ -139,7 +139,7 @@ When this flag is on (its value is set to `1`), all MDM-managed apps not in the 
 - **Value**: Comma-delimited list of application bundle ID prefixes for the applications that are allowed to participate in SSO. This parameter allows all apps that start with a particular prefix to participate in SSO.
 - **Example**: `com.contoso., com.fabrikam.`
 
-#### To provide a list of specific apps to be blocked from participating in  SSO, use these parameters:
+#### Disable SSO for specific apps
 
 - **Key**: `AppBlockList`
 - **Type**: `String`
