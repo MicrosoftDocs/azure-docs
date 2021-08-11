@@ -76,7 +76,7 @@ Ready to begin?
   * [**JavaScript/Node.js**](quickstart-translator.md?tabs=nodejs)
   * [**Python**](quickstart-translator.md?tabs=python).
 
-## Next Steps
+## Next steps
 
 Dive deeper into the Text Translation REST API:
 
