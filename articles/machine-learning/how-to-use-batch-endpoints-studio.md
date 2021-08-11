@@ -66,7 +66,7 @@ After a batch endpoint is created, select it from the **Endpoints** page to view
 
 :::image type="content" source="media/how-to-use-batch-endpoints-studio/batch-endpoint-details.png" alt-text="Check batch endpoints and deployment details":::
 
-## Start a batch scoring job using the Azure machine learning studio
+## Start a batch scoring job
 
 A batch scoring workload runs as an offline job. By default, batch scoring stores the scoring outputs in blob storage. You can also configure the outputs location and overwrite some of the settings to get the best performance.
 
