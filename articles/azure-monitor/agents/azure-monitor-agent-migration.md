@@ -1,6 +1,6 @@
 ---
 title: Migrate from legacy agents to the new Azure Monitor agent
-description: Guidance for migrating from the existing legacy agents to the new Azure Monitor agent and data collection rules.
+description: Guidance for migrating from the existing legacy agents to the new Azure Monitor agent (AMA) and data collection rules (DCR).
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
@@ -9,8 +9,8 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
 
-# Migrate from a Log Analytics agent
-This article provides high-level guidance on when and how to migrate to the new Azure Monitor agent (AMA) and data collection rules. This article will be updated when new migration tooling is available.
+# Migrate from Log Analytics agents
+This article provides high-level guidance on when and how to migrate to the new Azure Monitor agent (AMA) and data collection rules (DCR). This article will be updated when new migration tooling is available.
 
 
 ## Review
