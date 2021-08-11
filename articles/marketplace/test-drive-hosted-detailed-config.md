@@ -48,7 +48,7 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 	- **Azure Active Directory application ID** – The ID of the Azure Active Directory (AD) app you created in Step 5. Example value: `53852862-a2ae-4e43-9461-faa49650a096`.
 	- **Azure Active Directory application client secret** – Secret for the Azure AD app created in Step 5. Example value: `IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=`.
 
-7. Complete the fields on the **Test drive** > **Marketplace listing** page.
+7. Complete the fields on the **Test drive marketplace listing** page.
 
     :::image type="content" source="./media/test-drive/marketplace-listing-details-workspaces.png" alt-text="Illustrates Marketplace listing details page.":::
 
@@ -115,7 +115,7 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 5. Grant Microsoft AppSource permission to provision and deprovision test drive users in your tenant using [these instructions](https://github.com/Microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md). In this step, you will generate the **Azure AD App ID** and **Azure AD App Key** values mentioned below.
 6. Complete these fields on the **Test drive** >  **Technical configuration** page.
 
-     [![The Marketplace technical configuration page.](media/test-drive/technical-config-details-workspaces.png)](media/test-drive/technical-config-details-workspaces.png#lightbox)
+    :::image type="content" source="./media/test-drive/technical-config-details-operations-workspaces.png" alt-text="Illustrates the Marketplace technical configuration page..":::
 
     - **Max concurrent test drives** – The number of concurrent users that can have an active test drive running at the same time. Each user will consume a Dynamics license while their test drive is active, so ensure you have at least this many Dynamics licenses available for test drive users. We recommended 3 to 5.
 	- **Test drive duration** – The number of hours the user's test drive will be active. After the time has expired, the user will be deprovisioned from your tenant. We recommended 2-24 hours depending on the complexity of your app. The user can always request another test drive if they run out of time and want to access the test drive again.
@@ -129,7 +129,7 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 
         :::image type="content" source="./media/test-drive/security-config.png" alt-text="The security configuration page.":::
 
-7. Complete the fields on the **Test drive** > **Marketplace listing** page.
+7. Complete the fields on the **Test drive marketplace listing** page.
 
     [![The Marketplace listing details page.](media/test-drive/marketplace-listing-details-workspaces.png)](media/test-drive/marketplace-listing-details-workspaces.png#lightbox)
 
