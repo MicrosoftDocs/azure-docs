@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 07/05/2021
+ms.date: 09/01/2021
 ---
 
 # Review and publish an offer to the commercial marketplace
@@ -195,6 +195,42 @@ After these validation checks are complete, your offer will be live in the marke
 
 ## Publishing history
 
+#### [Workspaces view](#tab/Workspaces-view)
+
+The **History** page in Partner Center shows the publishing events for your commercial marketplace offers. For each event, the page displays the user who initiated the action, the event type, and the event date and time. The [validation and publishing steps](#validation-and-publishing-steps) are listed with the date and time of completion.
+
+To view the history of your offer:
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+
+1. On the Home page, select the **Marketplace offers** tile.
+
+    :::image type="content" source="./media/workspaces/partner-center-home.png" alt-text="Illustrates the Partner Center Home page.":::
+
+1. On the Marketplace offers page, select your offer.
+1. Select the **History** tab in the navigation menu on the left. The page provides details for the following events, as applicable to your offer:
+
+|Event    |Description    |
+|---------|---------------|
+|Created offer | The offer was created in Partner Center. A user selected the offer type, offer ID, and offer alias from the commercial marketplace **Overview** page.    |
+|Created plan: *plan name*    |A user created a new plan by entering the plan ID and plan name in the **Plan overview** tab.</br>*This event applies only to offer types that support plans*.    |
+|Deleted plan    |A user deleted a draft plan that had not been published by selecting **Delete draft** from the **Plan overview** page.</br>*This event applies only to offer types that support plans*.    |
+|Initiated plan Stop distribution: *plan name*    |A user initiated a plan Stop distribution by selecting **Stop distribution** from the **Plan overview** page.</br>*This event applies only to offer types that support plans*.    |
+|Resume distribution: *plan name*    |A user canceled a plan stop distribution by selecting **Resume distribution** from the **Plan overview** page.</br>*This event applies only to offer types that support plans*.    |
+|Submitted offer to preview    |A user submitted the offer to preview by selecting **Publish** from the **Review and publish** page.    |
+|Initiated submit to preview cancellation    |A user requested to cancel the offer publication to preview by selecting **Cancel publish** from the **Offer overview** page after the submission to preview.</br>*This event is displayed as the cancellation request is being processed*.    |
+|Canceled submission to preview    |A user canceled the offer publication to preview by selecting **Cancel publish** from the **Offer overview** page after the submission to preview.</br>*This event is displayed after the cancellation request is successfully processed*.    |
+|Sign-off to go live    |A user published the offer to the commercial marketplace by selecting **Go live** from the **Offer overview** page.    |
+|Initiated publish to marketplace cancellation    |A user requested to cancel the offer publication by selecting **Cancel publish** from the **Offer overview** page after the sign-off to go live.</br>*This event is displayed as the cancellation request is being processed*.    |
+|Canceled publishing to the commercial marketplace    |A user canceled the offer publication by selecting **Cancel publish** from the **Offer overview** page after the sign-off to go live.</br>*This event is displayed after the cancellation request is successfully processed*.    |
+|Sync private audience    |A user updated and synced the private audience by selecting **Sync private audience** from the **Plan overview** page or the **Plan pricing & availability** page.</br>*This event applies only to offer types that support private plans*.    |
+|Stop distribution offer    |A user stopped selling the offer by selecting **Stop distribution** from the **Offer overview** page.    |
+
+> [!NOTE]
+> The History page doesn’t say when an offer draft was saved.
+
+#### [Classic view](#tab/classic-view)
+
 The **History** page in Partner Center shows the publishing events for your commercial marketplace offers. For each event, the page displays the user who initiated the action, the event type, and the event date and time. The [validation and publishing steps](#validation-and-publishing-steps) are listed with the date and time of completion.
 
 To view the history of your offer:
@@ -222,6 +258,8 @@ To view the history of your offer:
 
 > [!NOTE]
 > The History page doesn’t say when an offer draft was saved.
+
+---
 
 ### Filter options
 
