@@ -116,10 +116,40 @@ To learn how to view the scoring results, see [Use batch endpoints](how-to-use-b
 
 In Azure machine learning studio, you can also perform following tasks:
 
-1. Add a deployment to the batch endpoint
-1. Update default deployment
-1. Delete batch endpoint and deployments.
-1. Summary of all submitted jobs
+### Add new deployment to an existing batch endpoint
+
+In Azure machine learning studio there are two ways for users to add a deployment to an existing batch endpoint.
+
+1. Models page:
+
+* Select the model you want to deploy.
+* Click on Deploy to batch endpoint (preview) option from the drop-down.
+* In the wizard, on the endpoint screen, select **Existing** option.
+* Complete the wizard to add a new deployment successfully.
+
+:::image type="content" source="media/how-to-use-batch-endpoints-studio/add-deployment-models-page.png" alt-text="Select an existing batch endpoint to add new deployment":::
+
+2. Endpoints page:
+
+* Select the batch endpoint from the list you want add a new deployment.
+* Click on **+ Add deployment** option
+* Complete the wizard to add a new deployment successfully.
+
+:::image type="content" source="media/how-to-use-batch-endpoints-studio/add-deployment-option.png" alt-text="Select add new deployment option":::
+
+### Update default deployment
+
+* Users can update their default deployment to send 100% traffic.
+
+:::image type="content" source="media/how-to-use-batch-endpoints-studio/update-default-deployment.png" alt-text="Update default deployment":::
+
+### Delete batch endpoint and deployments
+
+From Azure machine learning studio, users can delete an individual deployment or an entire endpoint which also deletes associated deployments.
+
+### Summary of all submitted jobs
+
+:::image type="content" source="media/how-to-use-batch-endpoints-studio/summary-jobs.png" alt-text="Summary of jobs submitted to a batch endpoint":::
 
 ## Clean up resources
 
