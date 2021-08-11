@@ -181,4 +181,4 @@ If you encounter any troubles with creation, please see the [troubleshooting gui
 
 ## Next steps
 
-[Connect to Azure Arc–enabled SQL Managed Instance](connect-managed-instance.md)
+[Connect to Azure Arc-enabled SQL Managed Instance](connect-managed-instance.md)

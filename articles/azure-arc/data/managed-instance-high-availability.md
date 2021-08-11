@@ -1,7 +1,7 @@
 ---
-title: Azure Arc–enabled SQL Managed Instance high availability
-titleSuffix: Deploy Azure Arc–enabled SQL Managed Instance with high availability 
-description: Learn how to deploy Azure Arc–enabled SQL Managed Instance with high availability.
+title: Azure Arc-enabled SQL Managed Instance high availability
+titleSuffix: Deploy Azure Arc-enabled SQL Managed Instance with high availability 
+description: Learn how to deploy Azure Arc-enabled SQL Managed Instance with high availability.
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
@@ -12,13 +12,13 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ---
 
-# Azure Arc–enabled SQL Managed Instance high availability
+# Azure Arc-enabled SQL Managed Instance high availability
 
-Azure Arc–enabled SQL Managed Instance is deployed on Kubernetes as a containerized application and uses kubernetes constructs such as stateful sets and persistent storage to provide built-in health monitoring, failure detection, and failover mechanisms to maintain service health. For increased reliability, you can also configure Azure Arc–enabled SQL Managed Instance to deploy with extra replicas in a high availability configuration. Monitoring, failure detection, and automatic failover are managed by the Arc data services data controller. This service is provided without user intervention – all from availability group setup, configuring database mirroring endpoints, to adding databases to the availability group or failover and upgrade coordination. This document explores both types of high availability.
+Azure Arc-enabled SQL Managed Instance is deployed on Kubernetes as a containerized application and uses kubernetes constructs such as stateful sets and persistent storage to provide built-in health monitoring, failure detection, and failover mechanisms to maintain service health. For increased reliability, you can also configure Azure Arc-enabled SQL Managed Instance to deploy with extra replicas in a high availability configuration. Monitoring, failure detection, and automatic failover are managed by the Arc data services data controller. This service is provided without user intervention – all from availability group setup, configuring database mirroring endpoints, to adding databases to the availability group or failover and upgrade coordination. This document explores both types of high availability.
 
 ## Built-in high availability 
 
-Built-in high availability is provided by Kubernetes when remote persistent storage is configured and shared with nodes used by the Arc data service deployment. In this configuration, Kubernetes plays the role of the cluster orchestrator. When the managed instance in a container or the underlying node fails, the orchestrator bootstraps another instance of the container and attaches to the same persistent storage. This type is enabled by default when you deploy Azure Arc–enabled SQL Managed Instance.
+Built-in high availability is provided by Kubernetes when remote persistent storage is configured and shared with nodes used by the Arc data service deployment. In this configuration, Kubernetes plays the role of the cluster orchestrator. When the managed instance in a container or the underlying node fails, the orchestrator bootstraps another instance of the container and attaches to the same persistent storage. This type is enabled by default when you deploy Azure Arc-enabled SQL Managed Instance.
 
 ### Verify built-in high availability
 
@@ -27,7 +27,7 @@ This section, you verify the built-in high availability provided by Kubernetes. 
 ### Prerequisites
 
 - Kubernetes cluster must have [shared, remote storage](storage-configuration.md#factors-to-consider-when-choosing-your-storage-configuration) 
-- An Azure Arc–enabled SQL Managed Instance deployed with one replica (default)
+- An Azure Arc-enabled SQL Managed Instance deployed with one replica (default)
 
 1. View the pods. 
 
@@ -66,11 +66,11 @@ After all containers within the pod have recovered, you can connect to the manag
 
 ## Deploy with Always On availability groups
 
-For increased reliability, you can configure Azure Arc–enabled SQL Managed Instance to deploy with extra replicas in a high availability configuration. 
+For increased reliability, you can configure Azure Arc-enabled SQL Managed Instance to deploy with extra replicas in a high availability configuration. 
 
 Capabilities that availability groups enable:
 
-- When deployed with multiple replicas, a single availability group named `containedag` is created. By default, `containedag` has three replicas, including primary. All CRUD operations for the availability group are managed internally, including creating the availability group or joining replicas to the availability group created. Additional availability groups cannot be created in the Azure Arc–enabled SQL Managed Instance.
+- When deployed with multiple replicas, a single availability group named `containedag` is created. By default, `containedag` has three replicas, including primary. All CRUD operations for the availability group are managed internally, including creating the availability group or joining replicas to the availability group created. Additional availability groups cannot be created in the Azure Arc-enabled SQL Managed Instance.
 
 - All databases are automatically added to the availability group, including all user and system databases like `master` and `msdb`. This capability provides a single-system view across the availability group replicas. Notice both `containedag_master` and `containedag_msdb` databases if you connect directly to the instance. The `containedag_*` databases represent the `master` and `msdb` inside the availability group.
 
@@ -214,8 +214,8 @@ Additional steps are required to restore a database into an availability group. 
 
 ### Limitations
 
-Azure Arc–enabled SQL Managed Instance availability groups has the same [limitations as Big Data Cluster availability groups. Click here to learn more.](/sql/big-data-cluster/deployment-high-availability#known-limitations)
+Azure Arc-enabled SQL Managed Instance availability groups has the same [limitations as Big Data Cluster availability groups. Click here to learn more.](/sql/big-data-cluster/deployment-high-availability#known-limitations)
 
 ## Next steps
 
-Learn more about [Features and Capabilities of Azure Arc–enabled SQL Managed Instance](managed-instance-features.md)
+Learn more about [Features and Capabilities of Azure Arc-enabled SQL Managed Instance](managed-instance-features.md)

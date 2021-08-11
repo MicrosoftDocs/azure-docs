@@ -1,6 +1,6 @@
 ---
-title: Azure Arc–enabled SQL Managed Instance service tiers
-description: Explains the service tiers available for Azure Arc–enabled SQL Managed Instance deployments. 
+title: Azure Arc-enabled SQL Managed Instance service tiers
+description: Explains the service tiers available for Azure Arc-enabled SQL Managed Instance deployments. 
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,20 +11,20 @@ ms.date: 07/30/2021
 ms.topic: overview
 ---
 
-# Azure Arc–enabled SQL Managed Instance service tiers
+# Azure Arc-enabled SQL Managed Instance service tiers
 
-As part of of the family of Azure SQL products, Azure Arc–enabled SQL Managed Instance is available in two [vCore](../../azure-sql/database/service-tiers-vcore.md) service tiers.
+As part of of the family of Azure SQL products, Azure Arc-enabled SQL Managed Instance is available in two [vCore](../../azure-sql/database/service-tiers-vcore.md) service tiers.
 
 - **General purpose** is a budget-friendly tier designed for most workloads with common performance and availability features.
 - **Business critical** tier is designed for performance-sensitive workloads with higher availability features.
 
 At this time, the business critical service tier is [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The general purpose service tier is generally available. 
 
-In Azure, storage and compute is provided by Microsoft with guaranteed service level agreements (SLAs) for performance, throughput, availability, and etc. across each of the service tiers. With Azure Arc–enabled data services, customers provide the storage and compute. Hence, there are no guaranteed SLAs provided to customers with Azure Arc–enabled data services. However, customers get the flexibility to bring their own performant hardware irrespective of the service tier. 
+In Azure, storage and compute is provided by Microsoft with guaranteed service level agreements (SLAs) for performance, throughput, availability, and etc. across each of the service tiers. With Azure Arc-enabled data services, customers provide the storage and compute. Hence, there are no guaranteed SLAs provided to customers with Azure Arc-enabled data services. However, customers get the flexibility to bring their own performant hardware irrespective of the service tier. 
 
 ## Service tier comparison
 
-Following is a description of the various capabilities available from Azure Arc–enabled data services across the two service tiers:
+Following is a description of the various capabilities available from Azure Arc-enabled data services across the two service tiers:
 
 
 Area | Business critical (preview)* | General purpose

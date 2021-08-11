@@ -1,6 +1,6 @@
 ---
-title: Data collection and reporting | Azure Arc–enabled data services
-description: Explains the type of data that is transmitted by Azure Arc–enabled Data services to Microsoft. 
+title: Data collection and reporting | Azure Arc-enabled data services
+description: Explains the type of data that is transmitted by Azure Arc-enabled Data services to Microsoft. 
 author: dnethi
 ms.author: dinethi
 services: azure-arc
@@ -13,12 +13,12 @@ ms.custom: template-concept
 
 # Azure Arc data services data collection and reporting
 
-This article describes the data that Azure Arc–enabled data services transmits to Microsoft. 
+This article describes the data that Azure Arc-enabled data services transmits to Microsoft. 
 
 
 ## Related products
 
-Azure Arc–enabled data services may use some or all of the following products:
+Azure Arc-enabled data services may use some or all of the following products:
 
 - SQL MI – Azure Arc 
 - PostgreSQL Hyperscale – Azure Arc
@@ -57,15 +57,15 @@ Customer Experience Improvement Program (CEIP)|[CEIP summary](/sql/sql-server/us
 
 ## Detailed description of data
 
-This section provides more details about the information included with the Azure Arc–enabled data services transmits to Microsoft.
+This section provides more details about the information included with the Azure Arc-enabled data services transmits to Microsoft.
 
 ### Operational data
 
-Operational data is collected for all database instances and for the Azure Arc–enabled data services platform itself. There are two types of operational data: 
+Operational data is collected for all database instances and for the Azure Arc-enabled data services platform itself. There are two types of operational data: 
 
-- Metrics – Performance and capacity related metrics, which are collected to an Influx DB provided as part of Azure Arc–enabled data services. You can view these metrics in the provided Grafana dashboard. 
+- Metrics – Performance and capacity related metrics, which are collected to an Influx DB provided as part of Azure Arc-enabled data services. You can view these metrics in the provided Grafana dashboard. 
 
-- Logs – logs emitted by all components including failure, warning, and informational events are collected to an Elasticsearch database provided as part of Azure Arc–enabled data services. You can view the logs in the provided Kibana dashboard. 
+- Logs – logs emitted by all components including failure, warning, and informational events are collected to an Elasticsearch database provided as part of Azure Arc-enabled data services. You can view the logs in the provided Kibana dashboard. 
 
 The operational data stored locally requires built in administrative privileges to view it in Grafana/Kibana. 
 
@@ -81,14 +81,14 @@ Every database instance and the data controller itself will be reflected in Azur
 
 There are three resource types: 
 
-- Azure Arc–enabled SQL Managed Instance 
-- Azure Arc–enabled PostgreSQL Hyperscale server group 
-- SQL Server on Azure Arc–enabled servers 
+- Azure Arc-enabled SQL Managed Instance 
+- Azure Arc-enabled PostgreSQL Hyperscale server group 
+- SQL Server on Azure Arc-enabled servers 
 - Data controller 
 
 The following sections show the properties, types, and descriptions that are collected and stored about each type of resource: 
 
-### SQL Server on Azure Arc–enabled servers 
+### SQL Server on Azure Arc-enabled servers 
 - SQL Server edition. 
    - `string: Edition` 
 - Resource ID of the container resource (Azure Arc for Servers). 

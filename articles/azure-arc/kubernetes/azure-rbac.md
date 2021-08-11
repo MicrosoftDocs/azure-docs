@@ -1,19 +1,19 @@
 ---
-title: "Azure RBAC for Azure Arc–enabled Kubernetes clusters"
+title: "Azure RBAC for Azure Arc-enabled Kubernetes clusters"
 services: azure-arc
 ms.service: azure-arc
 ms.date: 04/05/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
-description: "Use Azure RBAC for authorization checks on Azure Arc–enabled Kubernetes clusters."
+description: "Use Azure RBAC for authorization checks on Azure Arc-enabled Kubernetes clusters."
 ---
 
-# Integrate Azure Active Directory with Azure Arc–enabled Kubernetes clusters
+# Integrate Azure Active Directory with Azure Arc-enabled Kubernetes clusters
 
 Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) object types help to define authorization in Kubernetes natively. By using this feature, you can use Azure Active Directory (Azure AD) and role assignments in Azure to control authorization checks on the cluster. This implies that you can now use Azure role assignments to granularly control who can read, write, and delete Kubernetes objects like deployment, pod, and service.
 
-A conceptual overview of this feature is available in the [Azure RBAC on Azure Arc–enabled Kubernetes](conceptual-azure-rbac.md) article.
+A conceptual overview of this feature is available in the [Azure RBAC on Azure Arc-enabled Kubernetes](conceptual-azure-rbac.md) article.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
@@ -33,7 +33,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     az extension update --name connectedk8s
     ```
 
-- Connect an existing Azure Arc–enabled Kubernetes cluster:
+- Connect an existing Azure Arc-enabled Kubernetes cluster:
     - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
     - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version 1.1.0 or later.
 
@@ -141,7 +141,7 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
 
 ## Enable Azure RBAC on the cluster
 
-Enable Azure role-based access control (RBAC) on your Azure Arc–enabled Kubernetes cluster by running the following command:
+Enable Azure role-based access control (RBAC) on your Azure Arc-enabled Kubernetes cluster by running the following command:
 
 ```console
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id <serverApplicationId> --app-secret <serverApplicationSecret>
@@ -265,7 +265,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
 ## Create role assignments for users to access the cluster
 
-Owners of the Azure Arc–enabled Kubernetes resource can use either built-in roles or custom roles to grant other users access to the Kubernetes cluster.
+Owners of the Azure Arc-enabled Kubernetes resource can use either built-in roles or custom roles to grant other users access to the Kubernetes cluster.
 
 ### Built-in roles
 
@@ -276,7 +276,7 @@ Owners of the Azure Arc–enabled Kubernetes resource can use either built-in ro
 | [Azure Arc Kubernetes Admin](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-admin) | Allows admin access. It's intended to be granted within a namespace through `RoleBinding`. If you use it in `RoleBinding`, it allows read/write access to most resources in a namespace, including the ability to create roles and role bindings within the namespace. This role doesn't allow write access to resource quota or to the namespace itself. |
 | [Azure Arc Kubernetes Cluster Admin](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-cluster-admin) | Allows superuser access to execute any action on any resource. When you use it in `ClusterRoleBinding`, it gives full control over every resource in the cluster and in all namespaces. When you use it in `RoleBinding`, it gives full control over every resource in the role binding's namespace, including the namespace itself.|
 
-You can create role assignments scoped to the Azure Arc–enabled Kubernetes cluster in the Azure portal, on the **Access Control (IAM)** pane of the cluster resource. You can also use the following Azure CLI commands:
+You can create role assignments scoped to the Azure Arc-enabled Kubernetes cluster in the Azure portal, on the **Access Control (IAM)** pane of the cluster resource. You can also use the following Azure CLI commands:
 
 ```azurecli
 az role assignment create --role "Azure Arc Kubernetes Cluster Admin" --assignee <AZURE-AD-ENTITY-ID> --scope $ARM_ID
@@ -333,7 +333,7 @@ Copy the following JSON object into a file called *custom-role.json*. Replace th
 
 There are two ways to get the *kubeconfig* file that you need to access the cluster:
 
-- You use the [Cluster Connect](cluster-connect.md) feature (`az connectedk8s proxy`) of the Azure Arc–enabled Kubernetes cluster.
+- You use the [Cluster Connect](cluster-connect.md) feature (`az connectedk8s proxy`) of the Azure Arc-enabled Kubernetes cluster.
 - The cluster admin shares the *kubeconfig* file with every other user.
 
 ### If you're accessing the cluster by using the Cluster Connect feature
@@ -398,7 +398,7 @@ After the proxy process is running, you can open another tab in your console to 
 
 ## Use Conditional Access with Azure AD
 
-When you're integrating Azure AD with your Azure Arc–enabled Kubernetes cluster, you can also use [Conditional Access](../../active-directory/conditional-access/overview.md) to control access to your cluster.
+When you're integrating Azure AD with your Azure Arc-enabled Kubernetes cluster, you can also use [Conditional Access](../../active-directory/conditional-access/overview.md) to control access to your cluster.
 
 > [!NOTE]
 > Azure AD Conditional Access is an Azure AD Premium capability.

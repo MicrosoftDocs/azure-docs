@@ -1,6 +1,6 @@
 --- 
 title: Configure Postgres engine server parameters for your PostgreSQL Hyperscale server group on Azure Arc
-titleSuffix: Azure Arc–enabled data services
+titleSuffix: Azure Arc-enabled data services
 description: Configure Postgres engine server parameters for your PostgreSQL Hyperscale server group on Azure Arc
 services: azure-arc
 ms.service: azure-arc
@@ -12,7 +12,7 @@ ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Set the database engine settings for Azure Arc–enabled PostgreSQL Hyperscale
+# Set the database engine settings for Azure Arc-enabled PostgreSQL Hyperscale
 
 This document describes the steps to set the database engine settings of your PostgreSQL Hyperscale server group to custom (non-default) values. For details about what database engine parameters can be set and what their default value is, refer to the PostgreSQL documentation [here](https://www.postgresql.org/docs/current/runtime-config.html).
 

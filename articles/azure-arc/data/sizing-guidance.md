@@ -1,6 +1,6 @@
 ---
 title: Sizing guidance
-description: Plan for the size of a deployment of Azure Arc–enabled data services.
+description: Plan for the size of a deployment of Azure Arc-enabled data services.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -16,7 +16,7 @@ ms.topic: how-to
 
 ## Overview of sizing guidance
 
-When planning for the deployment of Azure Arc data services you should plan for the correct amount of compute, memory, and storage that will be required to run the Azure Arc data controller and for the number of SQL managed instance and PostgreSQL Hyperscale server groups that you will be deploying.  Because Azure Arc–enabled data services is deployed on Kubernetes, you have the flexibility of adding additional capacity to your Kubernetes cluster over time by adding additional compute nodes or storage.  This guide will provide guidance on minimum requirements as well as provide guidance on recommended sizes for some common requirements.
+When planning for the deployment of Azure Arc data services you should plan for the correct amount of compute, memory, and storage that will be required to run the Azure Arc data controller and for the number of SQL managed instance and PostgreSQL Hyperscale server groups that you will be deploying.  Because Azure Arc-enabled data services is deployed on Kubernetes, you have the flexibility of adding additional capacity to your Kubernetes cluster over time by adding additional compute nodes or storage.  This guide will provide guidance on minimum requirements as well as provide guidance on recommended sizes for some common requirements.
 
 ## General sizing requirements
 
@@ -33,7 +33,7 @@ Limit values for cores are the billable metric on SQL managed instance and Postg
 
 ## Minimum deployment requirements
 
-A minimum size Azure Arc–enabled data services deployment could be considered to be the Azure Arc data controller plus one SQL managed instance plus one PostgreSQL Hyperscale server group with two worker nodes.  For this configuration, you need at least 16 GB of RAM and 4 cores of _available_ capacity on your Kubernetes cluster.  You should ensure that you have a minimum Kubernetes node size of 8 GB RAM and 4 cores and a sum total capacity of 16 GB RAM available across all of your Kubernetes nodes.  For example, you could have 1 node at 32 GB RAM and 4 cores or you could have 2 nodes with 16GB RAM and 4 cores each.
+A minimum size Azure Arc-enabled data services deployment could be considered to be the Azure Arc data controller plus one SQL managed instance plus one PostgreSQL Hyperscale server group with two worker nodes.  For this configuration, you need at least 16 GB of RAM and 4 cores of _available_ capacity on your Kubernetes cluster.  You should ensure that you have a minimum Kubernetes node size of 8 GB RAM and 4 cores and a sum total capacity of 16 GB RAM available across all of your Kubernetes nodes.  For example, you could have 1 node at 32 GB RAM and 4 cores or you could have 2 nodes with 16GB RAM and 4 cores each.
 
 See the [storage-configuration](storage-configuration.md) article for details on storage sizing.
 
@@ -111,9 +111,9 @@ Each PostgreSQL Hyperscale server group coordinator or worker pod that is create
 
 ## Cumulative sizing
 
-The overall size of an environment required for Azure Arc–enabled data services is primarily a function of the number and size of the database instances that will be created.  The overall size can be difficult to predict ahead of time knowing that the number of instances will grow and shrink and the amount of resources that are required for each database instance will change.
+The overall size of an environment required for Azure Arc-enabled data services is primarily a function of the number and size of the database instances that will be created.  The overall size can be difficult to predict ahead of time knowing that the number of instances will grow and shrink and the amount of resources that are required for each database instance will change.
 
-The baseline size for a given Azure Arc–enabled data services environment is the size of the data controller which requires 4 cores and 16 GB of RAM.  From there you can add on top the cumulative total of cores and memory required for the database instances.  For SQL managed instance the number of pods is equal to the number of SQL managed instances that are created.  For PostgreSQL Hyperscale server groups the number of pods is equivalent to the number of worker nodes plus one for the coordinator node.  For example, if you have a PostgreSQL Server group with 3 worker nodes, the total number of pods will be 4.
+The baseline size for a given Azure Arc-enabled data services environment is the size of the data controller which requires 4 cores and 16 GB of RAM.  From there you can add on top the cumulative total of cores and memory required for the database instances.  For SQL managed instance the number of pods is equal to the number of SQL managed instances that are created.  For PostgreSQL Hyperscale server groups the number of pods is equivalent to the number of worker nodes plus one for the coordinator node.  For example, if you have a PostgreSQL Server group with 3 worker nodes, the total number of pods will be 4.
 
 In addition to the cores and memory you request for each database instance, you should add 250m of cores and 250Mi of RAM for the agent containers.
 
@@ -145,7 +145,7 @@ Keep in mind that a given database instance size request for cores or RAM cannot
 
 It is a good idea to maintain at least 25% of available capacity across the Kubernetes nodes to allow Kubernetes to efficiently schedule pods to be created and to allow for elastic scaling, allow for rolling upgrades of the Kubernetes nodes, and longer term growth on demand.
 
-In your sizing calculations, don't forget to add in the resource requirements of the Kubernetes system pods and any other workloads which may be sharing capacity with Azure Arc–enabled data services on the same Kubernetes cluster.
+In your sizing calculations, don't forget to add in the resource requirements of the Kubernetes system pods and any other workloads which may be sharing capacity with Azure Arc-enabled data services on the same Kubernetes cluster.
 
 To maintain high availability during planned maintenance and disaster continuity, you should plan for at least one of the Kubernetes nodes in your cluster to be unavailable at any given point in time.  Kubernetes will attempt to reschedule the pods that were running on a given node that was taken down for maintenance or due to a failure.  If there is no available capacity on the remaining nodes those pods will not be rescheduled for creation until there is available capacity again.  Be extra careful with large database instances.  For example, if there is only one Kubernetes node big enough to meet the resource requirements of a large database instance and that node fails then Kubernetes will not be able to schedule that database instance pod onto another Kubernetes node.
 

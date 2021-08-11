@@ -1,6 +1,6 @@
 ---
-title: Azure Arc–enabled Open Service Mesh (Preview)
-description: Open Service Mesh (OSM) extension on Azure Arc–enabled Kubernetes cluster
+title: Azure Arc-enabled Open Service Mesh (Preview)
+description: Open Service Mesh (OSM) extension on Azure Arc-enabled Kubernetes cluster
 services: azure-arc
 ms.service: azure-arc
 ms.date: 07/23/2021
@@ -9,15 +9,15 @@ author: mayurigupta13
 ms.author: mayg
 ---
 
-# Azure Arc–enabled Open Service Mesh (Preview)
+# Azure Arc-enabled Open Service Mesh (Preview)
 
 [Open Service Mesh (OSM)](https://docs.openservicemesh.io/) is a lightweight, extensible, Cloud Native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
 
 OSM runs an Envoy-based control plane on Kubernetes, can be configured with [SMI](https://smi-spec.io/) APIs, and works by injecting an Envoy proxy as a sidecar container next to each instance of your application. [Read more](https://docs.openservicemesh.io/#features) on the service mesh scenarios enabled by Open Service Mesh.
 
-### Support limitations for Azure Arc–enabled Open Service Mesh
+### Support limitations for Azure Arc-enabled Open Service Mesh
 
-- Only one instance of Open Service Mesh can be deployed on an Azure Arc–connected Kubernetes cluster
+- Only one instance of Open Service Mesh can be deployed on an Azure Arc-connected Kubernetes cluster
 - Public preview is available for Open Service Mesh version v0.8.4 and above. Find out the latest version of the release [here](https://github.com/Azure/osm-azure/releases).
 - Following Kubernetes distributions are currently supported
     - AKS Engine
@@ -27,7 +27,7 @@ OSM runs an Envoy-based control plane on Kubernetes, can be configured with [SMI
     - Rancher Kubernetes Engine
     - OpenShift Kubernetes Distribution
     - Amazon Elastic Kubernetes Service
-- Azure Monitor integration with Azure Arc–enabled Open Service Mesh is available with [limited support](https://github.com/microsoft/Docker-Provider/blob/ci_dev/Documentation/OSMPrivatePreview/ReadMe.md).
+- Azure Monitor integration with Azure Arc-enabled Open Service Mesh is available with [limited support](https://github.com/microsoft/Docker-Provider/blob/ci_dev/Documentation/OSMPrivatePreview/ReadMe.md).
 
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
@@ -37,7 +37,7 @@ OSM runs an Envoy-based control plane on Kubernetes, can be configured with [SMI
 - Ensure you have met all the common prerequisites for cluster extensions listed [here](extensions.md#prerequisites).
 - Use az k8s-extension CLI version >= v0.4.0
 
-## Install Azure Arc–enabled Open Service Mesh (OSM) on an Azure Arc–enabled Kubernetes cluster
+## Install Azure Arc-enabled Open Service Mesh (OSM) on an Azure Arc-enabled Kubernetes cluster
 
 The following steps assume that you already have a cluster with supported Kubernetes distribution connected to Azure Arc.
 
@@ -53,7 +53,7 @@ export CLUSTER_NAME=<arc-cluster-name>
 export RESOURCE_GROUP=<resource-group-name>
 ```
 
-While Azure Arc–enabled Open Service Mesh is in preview, the `az k8s-extension create` command only accepts `pilot` for the `--release-train` flag. `--auto-upgrade-minor-version` is always set to `false` and a version must be provided. If you have an OpenShift cluster, use the steps in the [section](#install-a-specific-version-of-osm-on-openshift-cluster).
+While Azure Arc-enabled Open Service Mesh is in preview, the `az k8s-extension create` command only accepts `pilot` for the `--release-train` flag. `--auto-upgrade-minor-version` is always set to `false` and a version must be provided. If you have an OpenShift cluster, use the steps in the [section](#install-a-specific-version-of-osm-on-openshift-cluster).
 
 ```azurecli-interactive
 az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --release-train pilot --name osm --version $VERSION
@@ -120,7 +120,7 @@ It may take 3-5 minutes for the actual OSM helm chart to get deployed to the clu
 
 To ensure that the privileged init container setting is not reverted to the default, pass in the "osm.OpenServiceMesh.enablePrivilegedInitContainer" : "true" configuration setting to all subsequent az k8s-extension create commands.
 
-### Install Azure Arc–enabled OSM using ARM template
+### Install Azure Arc-enabled OSM using ARM template
 
 After connecting your cluster to Azure Arc, create a json file with the following format, making sure to update the <cluster-name> value:
 
@@ -197,7 +197,7 @@ az deployment group create --name $DEPLOYMENT_NAME --resource-group $RESOURCE_GR
 
 Now, you should be able to view the OSM resources and use the OSM extension in your cluster.
 
-## Validate the Azure Arc–enabled Open Service Mesh installation
+## Validate the Azure Arc-enabled Open Service Mesh installation
 
 Run the following command.
 
@@ -349,7 +349,7 @@ To make changes to the OSM ConfigMap for version v0.8.4, use the following guida
     > [!NOTE]
     > To ensure that the ConfigMap changes are not reverted to the default, pass in the same configuration settings to all subsequent az k8s-extension create commands.
 
-## Using the Azure Arc–enabled Open Service Mesh
+## Using the Azure Arc-enabled Open Service Mesh
 
 To start using OSM capabilities, you need to first onboard the application namespaces to the service mesh. Download the OSM CLI from [OSM GitHub releases page](https://github.com/openservicemesh/osm/releases/). Once the namespaces are added to the mesh, you can configure the SMI policies to achieve the desired OSM capability.
 
@@ -386,7 +386,7 @@ The OSM extension does not install add-ons like [Jaeger](https://www.jaegertraci
 
 Both Azure Monitor and Azure Application Insights helps you maximize the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
-Azure Arc–enabled Open Service Mesh will have deep integrations into both of these Azure services, and provide a seemless Azure experience for viewing and responding to critical KPIs provided by OSM metrics. Follow the steps below to allow Azure Monitor to scrape prometheus endpoints for collecting application metrics. 
+Azure Arc-enabled Open Service Mesh will have deep integrations into both of these Azure services, and provide a seemless Azure experience for viewing and responding to critical KPIs provided by OSM metrics. Follow the steps below to allow Azure Monitor to scrape prometheus endpoints for collecting application metrics. 
 
 1. Ensure that prometheus_scraping is set to true in the `osm-mesh-config`.
 
@@ -422,7 +422,7 @@ Read more about integration with Azure Monitor [here](https://github.com/microso
 
 ### Navigating the OSM dashboard
 
-1. Access your Azure Arc–connected Kubernetes cluster using this [link](https://aka.ms/azmon/osmarcux).
+1. Access your Azure Arc-connected Kubernetes cluster using this [link](https://aka.ms/azmon/osmarcux).
 2. Go to Azure Monitor and navigate to the Reports tab to access the OSM workbook.
 3. Select the time-range & namespace to scope your services.
 
@@ -482,7 +482,7 @@ Make sure to back up your Custom Resources prior to deleting the CRDs so that th
 
 5. Recreate Custom Resources using new CRDs
 
-## Uninstall Azure Arc–enabled Open Service Mesh
+## Uninstall Azure Arc-enabled Open Service Mesh
 
 Use the following command:
 

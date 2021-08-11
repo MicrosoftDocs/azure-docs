@@ -1,6 +1,6 @@
 ---
 title: az arcdata reference overview
-titleSuffix: Azure Arc–enabled data services
+titleSuffix: Azure Arc-enabled data services
 description: Reference article for arcdata commands. 
 author: MikeRayMSFT
 ms.author: mikeray
@@ -25,11 +25,11 @@ ms.subservice: azure-arc-data
 ### Commands
 | Command | Description|
 | --- | --- |
-[az sql mi-arc](reference-az-sql-mi-arc.md) | Manage Azure Arc–enabled SQL managed instances.
+[az sql mi-arc](reference-az-sql-mi-arc.md) | Manage Azure Arc-enabled SQL managed instances.
 
 
 ## az postgres arc-server
 ### Commands
 | Command | Description|
 | --- | --- |
-[az postgres arc-server](reference-az-postgres-arc-server.md) | Manage Azure Arc–enabled PostgreSQL Hyperscale server groups.
+[az postgres arc-server](reference-az-postgres-arc-server.md) | Manage Azure Arc-enabled PostgreSQL Hyperscale server groups.

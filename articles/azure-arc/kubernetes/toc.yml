@@ -1,8 +1,8 @@
-- name: Azure Arc–enabled Kubernetes
+- name: Azure Arc-enabled Kubernetes
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure Arc–enabled Kubernetes
+  - name: About Azure Arc-enabled Kubernetes
     href: overview.md
   - name: Azure Arc validated partners
     href: validation-program.md
@@ -60,7 +60,7 @@
       href: ../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json
     - name: Admission control policies using Azure Policy
       href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
-    - name: Deploy Azure Arc–enabled Open Service Mesh
+    - name: Deploy Azure Arc-enabled Open Service Mesh
       href: tutorial-arc-enabled-open-service-mesh.md
     - name: Securely connect to cluster from anywhere
       href: cluster-connect.md
@@ -70,7 +70,7 @@
       href: custom-locations.md
     - name: Deploy IoT workloads
       href: deploy-azure-iot-edge-workloads.md
-    - name: Azure Arc–enabled Machine Learning
+    - name: Azure Arc-enabled Machine Learning
       href: ../../machine-learning/how-to-attach-arc-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
   - name: Troubleshooting
     href: Troubleshooting.md

@@ -13,9 +13,9 @@ ms.topic: how-to
 
 # Offline Deployment Overview
 
-Typically the container images used in the creation of the Azure Arc data controller, SQL managed instances and PostgreSQL Hyperscale server groups are directly pulled from the Microsoft Container Registry (MCR). In some cases, the environment that you are deploying to will not have connectivity to the Microsoft Container Registry.  For situations like this, you can pull the container images using a computer, which _does_ have access to the Microsoft Container Registry and then tag and push them to a private container registry that _is_ connectable from the environment in which you want to deploy Azure Arc–enabled data services.
+Typically the container images used in the creation of the Azure Arc data controller, SQL managed instances and PostgreSQL Hyperscale server groups are directly pulled from the Microsoft Container Registry (MCR). In some cases, the environment that you are deploying to will not have connectivity to the Microsoft Container Registry.  For situations like this, you can pull the container images using a computer, which _does_ have access to the Microsoft Container Registry and then tag and push them to a private container registry that _is_ connectable from the environment in which you want to deploy Azure Arc-enabled data services.
 
-Because monthly updates are provided for Azure Arc–enabled data services and there are a large number of container images, it is best to perform this process of pulling, tagging, and pushing the container images to a private container registry using a script.  The script can either be automated or run manually.
+Because monthly updates are provided for Azure Arc-enabled data services and there are a large number of container images, it is best to perform this process of pulling, tagging, and pushing the container images to a private container registry using a script.  The script can either be automated or run manually.
 
 A [sample script](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/scripts/pull-and-push-arc-data-services-images-to-private-registry.py) can be found in the Azure Arc GitHub repository.
 

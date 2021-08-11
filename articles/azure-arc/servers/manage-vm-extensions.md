@@ -1,15 +1,15 @@
 ---
-title: VM extension management with Azure Arc–enabled servers
-description: Azure Arc–enabled servers can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
+title: VM extension management with Azure Arc-enabled servers
+description: Azure Arc-enabled servers can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
 ms.date: 08/05/2021
 ms.topic: conceptual
 ---
 
-# Virtual machine extension management with Azure Arc–enabled servers
+# Virtual machine extension management with Azure Arc-enabled servers
 
 Virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script in it, a VM extension can be used.
 
-Azure Arc–enabled servers enables you to deploy and remove Azure VM extensions to non-Azure Windows and Linux VMs, simplifying the management of your hybrid machine through their lifecycle. VM extensions can be managed using the following methods on your hybrid machines or servers managed by Azure Arc–enabled servers:
+Azure Arc-enabled servers enables you to deploy and remove Azure VM extensions to non-Azure Windows and Linux VMs, simplifying the management of your hybrid machine through their lifecycle. VM extensions can be managed using the following methods on your hybrid machines or servers managed by Azure Arc-enabled servers:
 
 - The [Azure portal](manage-vm-extensions-portal.md)
 - The [Azure CLI](manage-vm-extensions-cli.md)
@@ -17,11 +17,11 @@ Azure Arc–enabled servers enables you to deploy and remove Azure VM extensions
 - Azure [Resource Manager templates](manage-vm-extensions-template.md)
 
 > [!NOTE]
-> Azure Arc–enabled servers does not support deploying and managing VM extensions to Azure virtual machines. For Azure VMs, see the following [VM extension overview](../../virtual-machines/extensions/overview.md) article.
+> Azure Arc-enabled servers does not support deploying and managing VM extensions to Azure virtual machines. For Azure VMs, see the following [VM extension overview](../../virtual-machines/extensions/overview.md) article.
 
 ## Key benefits
 
-Azure Arc–enabled servers VM extension support provides the following key benefits:
+Azure Arc-enabled servers VM extension support provides the following key benefits:
 
 - Collect log data for analysis with [Logs in Azure Monitor](../../azure-monitor/logs/data-platform-logs.md) by enabling the Log Analytics agent VM extension. This is useful for doing complex analysis across data from different kinds of sources.
 
@@ -42,7 +42,7 @@ In this release, we support the following VM extensions on Windows and Linux mac
 To learn about the Azure Connected Machine agent package and details about the Extension agent component, see [Agent overview](agent-overview.md#agent-component-details).
 
 > [!NOTE]
-> Recently support for the DSC VM extension was removed for Azure Arc–enabled servers. Alternatively, we recommend using the Custom Script Extension to manage the post-deployment configuration of your server or machine.
+> Recently support for the DSC VM extension was removed for Azure Arc-enabled servers. Alternatively, we recommend using the Custom Script Extension to manage the post-deployment configuration of your server or machine.
 
 ### Windows extensions
 
@@ -99,7 +99,7 @@ Before you deploy the extension, you need to complete the following:
 
 1. [Create a vault and certificate](../../key-vault/certificates/quick-create-portal.md) (self-signed or import).
 
-2. Grant the Azure Arc–enabled server access to the certificate secret. If you’re using the [RBAC preview](../../key-vault/general/rbac-guide.md), search for the name of the Azure Arc resource and assign it the **Key Vault Secrets User (preview)** role. If you’re using [Key Vault access policy](../../key-vault/general/assign-access-policy-portal.md), assign Secret **Get** permissions to the Azure Arc resource’s system assigned identity.
+2. Grant the Azure Arc-enabled server access to the certificate secret. If you’re using the [RBAC preview](../../key-vault/general/rbac-guide.md), search for the name of the Azure Arc resource and assign it the **Key Vault Secrets User (preview)** role. If you’re using [Key Vault access policy](../../key-vault/general/assign-access-policy-portal.md), assign Secret **Get** permissions to the Azure Arc resource’s system assigned identity.
 
 ### Connected Machine agent
 

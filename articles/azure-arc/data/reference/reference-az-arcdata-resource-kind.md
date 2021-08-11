@@ -1,6 +1,6 @@
 ---
 title: az arcdata resource-kind reference
-titleSuffix: Azure Arc–enabled data services
+titleSuffix: Azure Arc-enabled data services
 description: Reference article for az arcdata resource-kind commands.
 author: MikeRayMSFT
 ms.author: mikeray
