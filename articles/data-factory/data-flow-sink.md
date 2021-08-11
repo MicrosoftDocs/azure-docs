@@ -8,8 +8,8 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: synapse
-ms.date: 07/20/2021
+ms.custom: seo-lt-2019
+ms.date: 07/27/2021
 ---
 
 # Sink transformation in mapping data flow
@@ -31,6 +31,15 @@ Inline datasets are recommended when you use flexible schemas, one-off sink inst
 To use an inline dataset, select the format you want in the **Sink type** selector. Instead of selecting a sink dataset, you select the linked service you want to connect to.
 
 ![Screenshot that shows Inline selected.](media/data-flow/inline-selector.png "Screenshot that shows Inline selected.")
+
+## Workspace DB (Synapse workspaces only)
+
+When using data flows in Azure Synapse workspaces, you will have an additional option to sink your data directly into a database type that is inside your Synapse workspace. This will alleviate the need to add linked services or datasets for those databases.
+
+> [!NOTE]
+> Azure Synapse Workspace DB is currently in public preview
+
+![Screenshot that shows workspace db selected.](media/data-flow/syms-sink.png "Screenshot that shows Inline selected.")
 
 ##  <a name="supported-sinks"></a> Supported sink types
 
