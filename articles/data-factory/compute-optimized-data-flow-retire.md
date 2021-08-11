@@ -31,6 +31,6 @@ From now through 31 August 2024, your Compute Optimized data flows will continue
 | Memory Optimized Data Flows (Standard) | Best performing runtime for data flows when working with large datasets and many calculations |
 | Compute Optimized Data Flows (Deprecated) | Not recommended for production workloads |
 
-* [Visit the Azure Data Factory pricing page for the latest updated pricing available for General Purpose and Memory Optimized data flows](https://azure.microsoft.com/en-us/pricing/details/data-factory/data-pipeline/)
+* [Visit the Azure Data Factory pricing page for the latest updated pricing available for General Purpose and Memory Optimized data flows](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 * [Find more detailed information at the data flows FAQ here](https://aka.ms/dataflowsqa)  
 * [Post questions and find answers on data flows on Microsoft Q&A](https://aka.ms/datafactoryqa)
