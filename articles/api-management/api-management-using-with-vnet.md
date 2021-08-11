@@ -27,10 +27,10 @@ This article explains how to set up VNET connectivity for your API Management in
 
 ## Prerequisites
 
-Some prerequisites differ depending on the version (v1 or v2) of the [hosting platform](hosting-infrastructure.md) for your API Management instance. 
+Some prerequisites differ depending on the version (v1 or v2) of the [hosting platform](hosting-platform.md) for your API Management instance. 
 
 > [!TIP]
-> When you use the portal to create or update your API Management instance, the instance is hosted on v2 infrastructure.
+> When you use the portal to create or update your API Management instance, the instance is hosted on v2 platform.
 
 ### [v1](#tab/v1)
 
@@ -52,7 +52,7 @@ Some prerequisites differ depending on the version (v1 or v2) of the [hosting pl
 
 ## Enable VNET connection
 
-### Enable VNET connectivity using the Azure portal (v2 hosting infrastructure)
+### Enable VNET connectivity using the Azure portal (v2 hosting platform)
 
 1. Go to the [Azure portal](https://portal.azure.com) to find your API management instance. Search for and select **API Management services**.
 1. Choose your API Management instance.
@@ -137,7 +137,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | * / 25, 587, 25028                       | Outbound           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connect to SMTP Relay for sending e-mails                    | External & Internal  |
 | * / 6381 - 6383              | Inbound & Outbound | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Access Redis Service for [Cache](api-management-caching-policies.md) policies between machines         | External & Internal  |
 | * / 4290              | Inbound & Outbound | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Sync Counters for [Rate Limit](api-management-access-restriction-policies.md#LimitCallRateByKey) policies between machines         | External & Internal  |
-| * / * (v1 hosting)<br/>*/6390 (v2 hosting)                        | Inbound            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure Infrastructure Load Balancer                          | External & Internal  |
+| * / * (v1 platform)<br/><br/>*/6390 (v2 platform)                        | Inbound            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure Infrastructure Load Balancer                          | External & Internal  |
 
 
 ### TLS functionality  
