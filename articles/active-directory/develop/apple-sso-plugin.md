@@ -153,9 +153,9 @@ To *disable* SSO for Safari or Safari View Service, you must explicitly do so by
 
 #### Enable SSO through cookies for a specific application
 
-A few apps might be incompatible with the SSO extension. Specifically, apps that have advanced network settings might experience unexpected issues when they're enabled for SSO. For example, you might see an error indicating that network request was canceled or interrupted. 
+Some apps that have advanced network settings might experience unexpected issues when they're enabled for SSO. For example, you might see an error indicating that a network request was canceled or interrupted.
 
-If you have problems signing in by using the method described in the [Applications that don't use MSAL](#applications-that-dont-use-msal) section, try an alternative configuration. Use these parameters to configure the plug-in:
+If your users have problems signing in to an application even after you've enabled it through the other settings, try adding it to the `AppCookieSSOAllowList` to resolve the issues.
 
 - **Key**: `AppCookieSSOAllowList`
 - **Type**: `String`
