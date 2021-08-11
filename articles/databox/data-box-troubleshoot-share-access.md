@@ -18,7 +18,7 @@ This article describes what to do when you can't connect to an SMB share on your
 The most common reasons for being unable to connect to a share on your device are:
 
 - [a domain issue](#check-for-a-domain-issue)
-- [your account is locked out of the share](#account-locked-out-of-device)
+- [your account is locked out of the share](#account-locked-out-of-share)
 - [a group policy is preventing a connection](#check-for-a-blocking-group-policy)
 - [a permissions issue](#check-for-permissions-issues)
 
