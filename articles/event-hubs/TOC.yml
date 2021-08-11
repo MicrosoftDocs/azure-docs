@@ -4,6 +4,8 @@
   items:
     - name: What is Event Hubs?
       href: event-hubs-about.md
+    - name: Terminology
+      href: event-hubs-features.md
 - name: Quickstarts
   expanded: true
   items:
@@ -73,26 +75,26 @@
       href: event-hubs-samples.md
 - name: Concepts
   items:
-    - name: Event Hubs terminology
-      href: event-hubs-features.md
-    - name: Event Hubs Premium
-      href: event-hubs-premium-overview.md      
+    - name: Tiers 
+      items: 
+      - name: Premium tier
+        href: event-hubs-premium-overview.md      
+      - name: Dedicated tier
+        href: event-hubs-dedicated-overview.md
+      - name: Compare tiers
+        href: compare-tiers.md
     - name: Event Hubs for Apache Kafka
       href: event-hubs-for-kafka-ecosystem-overview.md
     - name: Event Hubs Capture
       href: event-hubs-capture-overview.md
-    - name: Event Hubs Dedicated
-      href: event-hubs-dedicated-overview.md
-    - name: Azure Schema Registry in Event Hubs (Preview)
+    - name: Azure Schema Registry in Event Hubs
       href: schema-registry-overview.md      
-    - name: Event processor host (legacy SDK)
-      href: event-hubs-event-processor-host.md
-    - name: Event processor (latest SDK)
-      href: event-processor-balance-partition-load.md
-    - name: Availability and consistency
-      href: event-hubs-availability-and-consistency.md
-    - name: Scalability
-      href: event-hubs-scalability.md
+    - name: Event processing using SDKs
+      items: 
+      - name: Event processor host (legacy SDK)
+        href: event-hubs-event-processor-host.md
+      - name: Event processor (latest SDK)
+        href: event-processor-balance-partition-load.md
     - name: Federation 
       items:
         - name: Multi-site and multi-region federation
@@ -140,6 +142,10 @@
           href: ./security-controls-policy.md
         - name: Security baseline
           href: /security/benchmark/azure/baselines/event-hubs-security-baseline?toc=/azure/event-hubs/TOC.json
+    - name: Availability and consistency
+      href: event-hubs-availability-and-consistency.md
+    - name: Scalability
+      href: event-hubs-scalability.md
     - name: AMQP
       items: 
       - name: AMQP 1.0 protocol guide
@@ -217,8 +223,6 @@
       items:
         - name: Monitor Azure Event Hubs
           href: monitor-event-hubs.md
-        - name: Set up diagnostic logs
-          href: event-hubs-diagnostic-logs.md
         - name: Stream Azure Diagnostics data using Event Hubs
           href: ../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md
         - name: Automatically scale throughput units

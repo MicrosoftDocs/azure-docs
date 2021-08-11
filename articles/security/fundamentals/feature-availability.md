@@ -147,7 +147,7 @@ The following tables display the current Azure Sentinel feature availability in 
 | - [Azure ADIP](../../sentinel/connect-azure-ad-identity-protection.md) | GA | GA |
 | - [Azure DDoS Protection](../../sentinel/connect-azure-ddos-protection.md) | GA | GA |
 | - [Azure Defender](../../sentinel/connect-azure-security-center.md) | GA | GA |
-| - [Azure Defender for IoT](../../sentinel/connect-asc-iot.md) | GA | Not Available |
+| - [Azure Defender for IoT](../../sentinel/connect-asc-iot.md) | Public Preview | Not Available |
 | - [Azure Firewall ](../../sentinel/connect-azure-firewall.md) | GA | GA |
 | - [Azure Information Protection](../../sentinel/connect-azure-information-protection.md) | Public Preview | Not Available |
 | - [Azure Key Vault ](../../sentinel/connect-azure-key-vault.md) | Public Preview | Not Available |
@@ -269,8 +269,8 @@ Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office
 | - Office 365 DoD | - | Public Preview |
 | **[Microsoft Defender for Endpoint](../../sentinel/connect-microsoft-defender-advanced-threat-protection.md)** |  |  |
 | - Office 365 GCC | GA | - |
-| - Office 365 GCC High | - | Not Available |
-| - Office 365 DoD | - | Not Available |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
 | **[Microsoft Defender for Identity](../../sentinel/connect-azure-atp.md)** |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |

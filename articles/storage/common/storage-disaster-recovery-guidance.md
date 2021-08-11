@@ -82,7 +82,7 @@ The customer initiates the account failover to the secondary endpoint. The failo
 Write access is restored for geo-redundant accounts once the DNS entry has been updated and requests are being directed to the new primary endpoint. Existing storage service endpoints for blobs, tables, queues, and files remain the same after the failover.
 
 > [!IMPORTANT]
-> After the failover is complete, the storage account is configured to be either locally redundant or zone-redundant at the new primary endpoint, depending on whether the original primary was configured for GRS/RA-GRS or GZRS/RA-GZRS. To resume replication to the new secondary, configure the account for geo-redundancy again.
+> After the failover is complete, the storage account is configured to be locally redundant in the new primary endpoint. To resume replication to the new secondary, configure the account for geo-redundancy again.
 >
 > Keep in mind that converting a locally redundant storage account to use geo-redundancy incurs both cost and time. For more information, see [Important implications of account failover](storage-initiate-account-failover.md#important-implications-of-account-failover).
 
@@ -93,7 +93,7 @@ Write access is restored for geo-redundant accounts once the DNS entry has been 
 
 Because data is written asynchronously from the primary region to the secondary region, there is always a delay before a write to the primary region is copied to the secondary region. If the primary region becomes unavailable, the most recent writes may not yet have been copied to the secondary region.
 
-When you force a failover, all data in the primary region is lost as the secondary region becomes the new primary region. If the primary was configured for GRS or RA-GRS, then the new primary will be locally redundant (LRS) after failover. If the primary was configured for GZRS or RA-GZRS, then the new primary will be zone-redundant (ZRS) after failover.
+When you force a failover, all data in the primary region is lost as the secondary region becomes the new primary region. The new primary region is configured to be locally redundant after the failover.
 
 All data already copied to the secondary is maintained when the failover happens. However, any data written to the primary that has not also been copied to the secondary is lost permanently.
 
@@ -105,11 +105,13 @@ For more information about checking the **Last Sync Time** property, see [Check 
 
 ### Use caution when failing back to the original primary
 
-After you fail over from the primary to the secondary region, your storage account is configured to be either locally redundant or zone-redundant in the new primary region, depending on whether the original configuration was GRS/RA-GRS or GZRS/RA-GZRS. You can then configure the account for geo-redundancy again. When the account is configured for geo-redundancy again after a failover, the new primary region immediately begins copying data to the new secondary region, which was the primary before the original failover. However, it may take some time before existing data in the primary is fully copied to the new secondary.
+After you fail over from the primary to the secondary region, your storage account is configured to be locally redundant in the new primary region. You can then configure the account in the new primary region for geo-redundancy. When the account is configured for geo-redundancy after a failover, the new primary region immediately begins copying data to the new secondary region, which was the primary before the original failover. However, it may take some time before existing data in the new primary is fully copied to the new secondary.
 
-After the storage account is reconfigured for geo-redundancy, it's possible to initiate another failover from the new primary back to the new secondary. In this case, the original primary region prior to the failover becomes the primary region again, and is configured to be either locally redundant or zone-redundant, depending on whether the original primary configuration was GRS/RA-GRS or GZRS/RA-GZRS. All data in the post-failover primary region (the original secondary) is then lost. If most of the data in the storage account has not been copied to the new secondary before you fail back, you could suffer a major data loss.
+After the storage account is reconfigured for geo-redundancy, it's possible to initiate a fail back from the new primary back to the new secondary. In this case, the original primary region prior to the failover becomes the primary region again, and is configured to be either locally redundant or zone-redundant, depending on whether the original primary configuration was GRS/RA-GRS or GZRS/RA-GZRS. All data in the post-failover primary region (the original secondary) is lost during the failback. If most of the data in the storage account has not been copied to the new secondary before you fail back, you could suffer a major data loss.
 
 To avoid a major data loss, check the value of the **Last Sync Time** property before failing back. Compare the last sync time to the last times that data was written to the new primary to evaluate expected data loss.
+
+After a failback operation, you can configure the new primary region to be geo-redundant again. If the original primary was configured for LRS, you can configure it to be GRS or RA-GRS. If the original primary was configured for ZRS, you can configure it to be GZRS or RA-GZRS. For additional options, see [Change how a storage account is replicated](redundancy-migration.md).
 
 ## Initiate an account failover
 
@@ -157,7 +159,7 @@ The following features and services are not supported for account failover:
 - Azure File Sync does not support storage account failover. Storage accounts containing Azure file shares being used as cloud endpoints in Azure File Sync should not be failed over. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files.
 - Storage accounts that have hierarchical namespace enabled (such as for Data Lake Storage Gen2) are not supported at this time.
 - A storage account containing premium block blobs cannot be failed over. Storage accounts that support premium block blobs do not currently support geo-redundancy.
-- A storage account containing any [WORM immutability policy](../blobs/storage-blob-immutable-storage.md) enabled containers cannot be failed over. Unlocked/locked time-based retention or legal hold policies prevent failover in order to maintain compliance.
+- A storage account containing any [WORM immutability policy](../blobs/immutable-storage-overview.md) enabled containers cannot be failed over. Unlocked/locked time-based retention or legal hold policies prevent failover in order to maintain compliance.
 
 ## Copying data as an alternative to failover
 
