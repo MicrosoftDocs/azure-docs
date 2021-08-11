@@ -4,7 +4,7 @@ description: Learn how to use Azure CLI commands to manage a workspace in Azure 
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date:  
+ms.date: 08/16/2021
 ms.custom: devx-track-azurecli
 
 ---
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 Use the Azure CLI commands described here to manage your log analytics workspace in Azure Monitor.
 
-[!INCLUDE [Prepare your Azure CLI environment](../../include/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [Prepare your Azure CLI environment](../../../include/azure-cli-prepare-your-environment.md)]
 
 ## Sample commands
 
