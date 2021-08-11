@@ -297,8 +297,3 @@ Learn more about managed identities for Azure resources:
 * [What are managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 * [Azure Resource Manager templates](https://github.com/Azure/azure-quickstart-templates)
 
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
