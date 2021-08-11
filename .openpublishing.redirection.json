@@ -25935,6 +25935,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sentinel/connect-cef-agent.md",
+      "redirect_url": "/azure/sentinel/connect-log-forwarder",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-cef-solution-config.md",
+      "redirect_url": "/azure/sentinel/connect-common-event-format",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/service-bus/index.md",
       "redirect_url": "/azure/service-bus-messaging/index",
       "redirect_document_id": false

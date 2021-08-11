@@ -57,6 +57,67 @@ The Agari connector uses an environment variable to store log access timestamps.
 
 1. Select **Save**.
 
+## AI Analyst (AIA) by Darktrace (Preview)
+
+**Data ingestion method:** [Common Event Format (CEF)](connect-common-event-format.md) over Syslog.
+
+**Log Analytics table:** CommonSecurityLog
+
+**Supported by:** [Darktrace](https://customerportal.darktrace.com/)
+
+### Configure CEF log forwarding
+
+Configure Darktrace to forward Syslog messages in CEF format to your Azure workspace via the Log Analytics agent.
+
+1. Within the Darktrace Threat Visualizer, navigate to the **System Config** page in the main menu under **Admin**.
+
+1. From the left-hand menu, select **Modules** and choose **Azure Sentinel** from the available **Workflow Integrations**.
+
+1. A configuration window will open. Locate **Azure Sentinel Syslog CEF** and click **New** to reveal the configuration settings, unless already exposed.
+
+1. In the **Server configuration** field, enter the location of the log forwarder and optionally modify the communication port. Ensure that the port selected is set to 514 and is allowed by any intermediary firewalls.
+
+1. Configure any alert thresholds, time offsets, or additional settings as required.
+
+1. Review any additional configuration options you may wish to enable that alter the Syslog syntax.
+
+1. Enable **Send Alerts** and save your changes.
+
+## AI Vectra Detect (Preview)
+
+**Data ingestion method:** [CEF](connect-common-event-format.md) over Syslog.
+
+**Supported by:** [Vectra](https://www.vectra.ai/support)
+
+### Configure CEF log forwarding
+
+Configure Vectra (X Series) Agent to forward Syslog messages in CEF format to your Azure Sentinel workspace via the Log Analytics agent.
+
+From the Vectra interface, navigate to Settings > Notifications and choose Edit Syslog configuration. Follow the instructions below to set up the connection:
+
+- Add a new Destination (the hostname of the log forwarder)
+- Set the Port as **514**
+- Set the Protocol as **UDP**
+- Set the format to **CEF**
+- Set Log types (select all log types available)
+- Click on **Save**
+
+You can click the **Test** button to force the sending of some test events to the log forwarder.
+
+For more information, refer to Cognito Detect Syslog Guide which can be downloaded from the resource page in Detect UI.
+
+## Akamai Security Events (Preview)
+
+**Data ingestion method:** [CEF](connect-common-event-format.md) over Syslog. The connector also uses a log parser based on a Kusto function.
+
+**Kusto function alias:** AkamaiSIEMEvent
+
+**Kusto function URL:** https://aka.ms/sentinel-akamaisecurityevents-parser
+
+**Links to instructions:** Follow Akamai's instructions to [configure SIEM integration](https://developer.akamai.com/tools/integrations/siem) and to [set up a CEF connector](https://developer.akamai.com/tools/integrations/siem/siem-cef-connector). This connector receives security events from your Akamai solutions in near real time using the SIEM OPEN API, and converts them from JSON into CEF format.
+
+**Supported by:** [Akamai](https://www.akamai.com/us/en/support/)
+
 ## Atlassian Confluence Audit (Preview)
 
 | Connector | [Atlassian Confluence Audit](https://www.atlassian.com/software/confluence) |
@@ -87,6 +148,22 @@ The Agari connector uses an environment variable to store log access timestamps.
 | **Supported by:** | Microsoft |
 |
 
+## Aruba ClearPass (Preview)
+
+The Aruba ClearPass connector connects Aruba ClearPass Audit, Session, System, and Insight logs to Azure Sentinel. For more information on configuring the Aruba ClearPass solution to forward syslog, see [Adding a Syslog Export Filter](https://www.arubanetworks.com/techdocs/ClearPass/6.7/PolicyManager/Content/CPPM_UserGuide/Admin/syslogExportFilters_add_syslog_filter_general.htm) .
+
+For more information about connecting to Azure Sentinel, see [Connect Aruba ClearPass to Azure Sentinel](connect-aruba-clearpass.md).
+
+**Data ingestion method:** [CEF](connect-common-event-format.md) over Syslog. The connector also uses a log parser based on a Kusto function.
+
+**Kusto function alias:** ArubaClearPass
+
+**Kusto function URL:** https://aka.ms/sentinel-arubaclearpass-parser
+
+**Links to instructions:** Follow Aruba's instructions to [configure ClearPass](https://www.arubanetworks.com/techdocs/ClearPass/6.7/PolicyManager/Content/CPPM_UserGuide/Admin/syslogExportFilters_add_syslog_filter_general.htm).
+
+**Supported by:** Microsoft
+
 ## Cisco Umbrella (Preview)
 
 | Connector | Cisco Umbrella |
@@ -114,10 +191,6 @@ The Agari connector uses an environment variable to store log access timestamps.
 | **Application settings** |  |
 | **Supported by:** | [ESET](https://support.eset.com/en) |
 |
-
-### Custom steps for deployment of this connector
-
-
 
 ## Google Workspace (G-Suite) (Preview)
 
