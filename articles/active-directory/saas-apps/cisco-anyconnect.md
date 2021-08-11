@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 08/11/2021
 ms.author: jeedes
 ---
 
@@ -32,7 +32,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Cisco AnyConnect supports **IDP** initiated SSO
+* Cisco AnyConnect supports **IDP** initiated SSO.
 
 ## Adding Cisco AnyConnect from the gallery
 
@@ -71,10 +71,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up single sign-on with SAML** page, enter the values for the following fields (note that the values are case-sensitive):
 
    1. In the **Identifier** text box, type a URL using the following pattern:  
-      `https://*.YourCiscoServer.com/saml/sp/metadata/TGTGroup`
+      `https://<SUBDOMAIN>.YourCiscoServer.com/saml/sp/metadata/<Tunnel_Group_Name>`
 
    1. In the **Reply URL** text box, type a URL using the following pattern:  
-      `https://YOUR_CISCO_ANYCONNECT_FQDN/+CSCOE+/saml/sp/acs?tgname=TGTGroup`
+      `https://<YOUR_CISCO_ANYCONNECT_FQDN>/+CSCOE+/saml/sp/acs?tgname=<Tunnel_Group_Name>`
 
     > [!NOTE]
     > For clarification about these values, contact Cisco TAC support. Update these values with the actual Identifier and Reply URL provided by Cisco TAC. Contact the [Cisco AnyConnect Client support team](https://www.cisco.com/c/en/us/support/index.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -88,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
 > [!NOTE]
-> If you would like to on board multiple TGTs of the server then you need to add multiple instance of the Cisco AnyConnect application from the gallery. Also you can choose to upload your own certificate in Azure AD for all these application instances. That way you can have same certificate for the applications but you can configure different Identifier and Reply URL for every application.
+> If you would like to on board multiple TGTs of the server then you need to add multiple instances of the Cisco AnyConnect application from the gallery. You can also choose to upload your own certificate in Azure AD for all these application instances. That way you can have same certificate for the applications but you can configure different Identifier and Reply URL for every application.
 
 ### Create an Azure AD test user
 
@@ -165,7 +165,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     ```
 
     > [!NOTE]
-    > There is a feature with the SAML IdP configuration - If you make changes to the IdP config you need to remove the saml identity-provider config from your Tunnel Group and re-apply it for the changes to become effective.
+    > There is a work around with the SAML IdP configuration. If you make changes to the IdP configuration you need to remove the saml identity-provider configuration from your Tunnel Group and re-apply it for the changes to become effective.
 
 ### Create Cisco AnyConnect test user
 
