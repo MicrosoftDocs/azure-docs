@@ -19,7 +19,7 @@ sections:
         answer: |
           - **If you work through a Microsoft seller**, the Microsoft Customer Agreement is currently available in Argentina, Australia, Austria, Canada, Chile, Finland, France, Germany, Greece, Iceland, Ireland, Italy, Luxembourg, Netherlands, Norway, Portugal, Puerto Rico, South Africa, Spain, Sweden, Switzerland, United Kingdom, United States, and Uruguay.
           - **If you are a new customer purchasing Azure services directly from Azure.com,** today the Microsoft Customer Agreement is available in the countries below all of which are transacted in US dollars (USD). In 2021, we began the rollout for the new customers in other regions with the goal of making Microsoft Customer Agreement available worldwide.
-          - The Microsoft Customer Agreement is also available through Cloud Solution Providers (CSP) around the world. You can find a partner in the CSP program [**here**](https://www.microsoft.com/solution-providers/home).
+          - The Microsoft Customer Agreement is also available through Cloud Solution Providers (CSP) around the world. You can find a partner in the CSP program at [Microsoft Solution Providers](https://www.microsoft.com/solution-providers/home).
 
              | Countries/regions       | Countries/regions   | Countries/regions      | Countries/regions                    |
              |-------------------------|---------------------|------------------------|--------------------------------------|
@@ -52,8 +52,7 @@ sections:
         answer: |
           All Azure services are available through Microsoft Customer Agreement. Once you accept the Microsoft Customer Agreement, you get the benefit of more free enterprise-grade management tools including new invoice and cost management capabilities through the same portal where you manage your Azure services.
       - question: How is Azure priced under the Microsoft Customer Agreement?
-        answer: |
-          
+        answer: |          
           Azure is priced in US dollars (USD) worldwide under the Microsoft Customer Agreement.
 
           If you transact in one of the other supported currencies listed below, your monthly cost is first calculated in US dollars (USD). For payment, the total is then converted to the local currency.
