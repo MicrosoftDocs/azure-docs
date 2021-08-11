@@ -87,7 +87,7 @@ These endpoint differences must be taken into account when you connect to storag
     import com.azure.data.tables.models.*;
     import java.util.HashMap;
     public class test {
-        public static final String storageConnectionString = System.getEnv(AZURE_STORAGE_CONNECTION_STRING);
+        public static final String storageConnectionString = System.getEnv("AZURE_STORAGE_CONNECTION_STRING");
         public static void main(String[] args) {
         try
         {
