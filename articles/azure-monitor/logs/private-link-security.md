@@ -65,4 +65,4 @@ In the above diagram, VNet 10.0.1.x first connects to AMPLS1 and maps the Azure 
 - [Design your Private Link setup](private-link-design.md)
 - Learn how to [configure your Private Link](private-link-configure.md)
 
-<h2><a id="connect-to-a-private-endpoint"></a></h2>
+<h3><a id="connect-to-a-private-endpoint"></a></h3>
