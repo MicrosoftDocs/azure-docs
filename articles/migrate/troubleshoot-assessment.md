@@ -53,9 +53,9 @@ In the case of VMware and Hyper-V VMs, Azure VM assessment marks Linux VMs as "C
 
 - The gap prevents it from detecting the minor version of the Linux OS installed on the on-premises VMs.
 - For example, for RHEL 6.10, currently Azure VM assessment detects only RHEL 6 as the OS version. This is because the vCenter Server ar the Hyper-V host do not provide the kernel version for Linux VM operating systems.
--  Because Azure endorses only specific versions of Linux, the Linux VMs are currently marked as conditionally ready in Azure VM assessment.
+- Because Azure endorses only specific versions of Linux, the Linux VMs are currently marked as conditionally ready in Azure VM assessment.
 - You can determine whether the Linux OS running on the on-premises VM is endorsed in Azure by reviewing [Azure Linux support](../virtual-machines/linux/endorsed-distros.md).
--  After you've verified the endorsed distribution, you can ignore this warning.
+- After you've verified the endorsed distribution, you can ignore this warning.
 
 This gap can be addressed by enabling [application discovery](./how-to-discover-applications.md) on the VMware VMs. Azure VM assessment uses the operating system detected from the VM using the guest credentials provided. This operating system data identifies the right OS information in the case of both Windows and Linux VMs.
 
@@ -76,13 +76,14 @@ To show how this can affect recommendations, let's take an example:
 
 We have an on-premises VM with four cores and eight GB of memory, with 50% CPU utilization and 50% memory utilization, and a specified comfort factor of 1.3.
 
--  If the assessment is **As on-premises**, an Azure VM SKU with four cores and 8 GB of memory is recommended.
+- If the assessment is **As on-premises**, an Azure VM SKU with four cores and 8 GB of memory is recommended.
 - If the assessment is performance-based, based on effective CPU and memory utilization (50% of 4 cores * 1.3 = 2.6 cores and 50% of 8-GB memory * 1.3 = 5.3-GB memory), the cheapest VM SKU of four cores (nearest supported core count) and eight GB of memory (nearest supported memory size) is recommended.
 - [Learn more](concepts-assessment-calculation.md#types-of-assessments) about assessment sizing.
 
 ## Why is the recommended Azure disk SKUs bigger than on-premises in an Azure VM assessment?
 
 Azure VM assessment might recommend a bigger disk based on the type of assessment.
+
 - Disk sizing depends on two assessment properties: sizing criteria and storage type.
 - If the sizing criteria is **Performance-based**, and the storage type is set to **Automatic**, the IOPS, and throughput values of the disk are considered when identifying the target disk type (Standard HDD, Standard SSD, Premium, or Ultra disk). A disk SKU from the disk type is then recommended, and the recommendation considers the size requirements of the on-premises disk.
 - If the sizing criteria is **Performance-based**, and the storage type is **Premium**, a premium disk SKU in Azure is recommended based on the IOPS, throughput, and size requirements of the on-premises disk. The same logic is used to perform disk sizing when the sizing criteria is **As on-premises** and the storage type is **Standard HDD**, **Standard SSD**, **Premium**, or **Ultra disk**.
@@ -110,7 +111,6 @@ For "Performance-based" assessment, the assessment report export says 'Percentag
     > [!Note]
     > If any of the performance counters are missing, Azure Migrate: Discovery and assessment falls back to the allocated cores/memory on-premises and recommends a VM size accordingly.
 
-
 ## Why is performance data missing for some/all SQL instances/databases in my Azure SQL assessment?
 
 To ensure performance data is collected, please check:
@@ -127,11 +127,10 @@ If any of the performance counters are missing, Azure SQL assessment recommends 
 The confidence rating is calculated for "Performance-based" assessments based on the percentage of [available data points](./concepts-assessment-calculation.md#ratings) needed to compute the assessment. Below are the reasons why an assessment could get a low confidence rating:
 
 - You did not profile your environment for the duration for which you are creating the assessment. For example, if you are creating an assessment with performance duration set to one week, you need to wait for at least a week after you start the discovery for all the data points to get collected. If you cannot wait for the duration, please change the performance duration to a smaller period and **Recalculate** the assessment.
- 
 - Assessment is not able to collect the performance data for some or all the servers in the assessment period. For a high confidence rating, please ensure that: 
     - Servers are powered on for the duration of the assessment
     - Outbound connections on ports 443 are allowed
-    - For Hyper-V Servers dynamic memory is enabled 
+    - For Hyper-V Servers dynamic memory is enabled
     - The connection status of agents in Azure Migrate are 'Connected' and check the last heartbeat
     - For For Azure SQL assessments, Azure Migrate connection status for all SQL instances is "Connected" in the discovered SQL instance blade
 
@@ -151,21 +150,25 @@ Azure VM assessment continuously collects performance data of on-premises server
 
 ## Can I migrate my disks to Ultra disk using Azure Migrate?
 
-No. Currently, both Azure Migrate and ASR  do not support migration to Ultra disks. Find steps to deploy Ultra disk [here](https://docs.microsoft.com/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk)
+No. Currently, both Azure Migrate and Azure Site Recovery do not support migration to Ultra disks. Find steps to deploy Ultra disk [here](https://docs.microsoft.com/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk)
 
 ## Why are the provisioned IOPS and throughput in my Ultra disk more than my on-premises IOPS and throughput?
+
 As per the [official pricing page](https://azure.microsoft.com/pricing/details/managed-disks/), Ultra Disk is billed based on the provisioned size, provisioned IOPS and provisioned throughput. As per an example provided:
 If you provisioned a 200 GiB Ultra Disk, with 20,000 IOPS and 1,000 MB/second and deleted it after 20 hours, it will map to the disk size offer of 256 GiB and you'll be billed for the 256 GiB, 20,000 IOPS and 1,000 MB/second for 20 hours.
 
 IOPS to be provisioned =  (Throughput discovered) *1024/256
 
 ## Does the Ultra disk recommendation consider latency?
+
 No, currently only disk size, total throughput and total IOPS is used for sizing and costing.
 
 ## I can see M series supports Ultra disk, but in my assessment where Ultra disk was recommended, it says “No VM found for this location”?
+
 This is possible as not all VM sizes that support Ultra disk are present in all Ultra disk supported regions. Change the target assessment region to get the VM size for this server.
 
 ## Why is my assessment showing a warning that it was created with an invalid combination of Reserved Instances, VM uptime and Discount (%)?
+
 When you select 'Reserved instances', the 'Discount (%)' and 'VM uptime' properties are not applicable. As your assessment was created with an invalid combination of these properties, the edit and recalculate buttons are disabled. Please create a new assessment. [Learn more](./concepts-assessment-calculation.md#whats-an-assessment).
 
 ## I do not see performance data for some network adapters on my physical servers
@@ -180,11 +183,9 @@ This can happen if the physical server has Hyper-V virtualization enabled. On th
 
 Readiness category may be incorrectly marked as "Not Ready" in the case of a physical server that has Hyper-V virtualization enabled. On these servers, due to a product gap, Azure Migrate currently discovers both the physical and virtual adapters. Hence, the no. of network adapters discovered is higher than actual. In both as-on-premises and performance-based assessments, Azure VM assessment picks an Azure VM that can support the required number of network adapters. If the number of network adapters is discovered to be being higher than 32, the maximum no. of NICs supported on Azure VMs, the server will be marked “Not ready”.  [Learn more](./concepts-assessment-calculation.md#calculating-sizing) about the impact of no. of NICs on sizing.
 
-
 ## Number of discovered NICs higher than actual for physical servers
 
 This can happen if the physical server has Hyper-V virtualization enabled. On these servers, Azure Migrate currently discovers both the physical and virtual adapters. Hence, the no. of NICs discovered is higher than actual.
-
 
 ## Capture network traffic
 
@@ -203,7 +204,6 @@ Collect network traffic logs as follows:
    - In Chrome, right-click anywhere in the console log. Select **Save as**, to export, and zip the log.
    - In Microsoft Edge or Internet Explorer, right-click the errors and select **Copy all**.
 7. Close Developer Tools.
-
 
 ## Where is the operating system data in my assessment discovered from?
 

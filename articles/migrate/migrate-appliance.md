@@ -97,7 +97,7 @@ The Azure Migrate appliance needs connectivity to the internet.
 management.azure.com | Used for resource deployments and management operations
 *.services.visualstudio.com | Upload appliance logs used for internal monitoring.
 *.vault.azure.net | Manage secrets in the Azure Key Vault.<br/> Note: Ensure servers to replicate have access to this.
-aka.ms/* | Allow access to aka links; used to download and install the latest updates for appliance services.
+aka.ms/* | Allow access to these links; used to download and install the latest updates for appliance services.
 download.microsoft.com/download | Allow downloads from Microsoft download center.
 *.servicebus.windows.net | Communication between the appliance and the Azure Migrate service.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Connect to Azure Migrate service URLs.
@@ -114,7 +114,7 @@ login.microsoftonline.us  | Used for access control and identity management by A
 management.usgovcloudapi.net |  Used for resource deployments and management operations
 *.services.visualstudio.com | Upload appliance logs used for internal monitoring.
 *.vault.usgovcloudapi.net | Manage secrets in the Azure Key Vault.
-aka.ms/* | Allow access to aka links; used to download and install the latest updates for appliance services.
+aka.ms/* | Allow access to these links; used to download and install the latest updates for appliance services.
 download.microsoft.com/download | Allow downloads from Microsoft download center.
 *.servicebus.usgovcloudapi.net  | Communication between the appliance and the Azure Migrate service.
 *.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Connect to Azure Migrate service URLs.
@@ -132,7 +132,7 @@ The appliance needs access to the following URLs (directly or via proxy) over an
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com <br/> *.microsoftonline.com <br/> *.microsoftonline-p.com <br/> *.microsoftazuread-sso.com  | Used for access control and identity management by Azure Active Directory
 management.azure.com |  Used for resource deployments and management operations
 *.services.visualstudio.com (optional) | Upload appliance logs used for internal monitoring.
-aka.ms/* (optional) | Allow access to aka links; used to download and install the latest updates for appliance services.
+aka.ms/* (optional) | Allow access to these links; used to download and install the latest updates for appliance services.
 download.microsoft.com/download | Allow downloads from Microsoft download center.
 *.servicebus.windows.net | **Used for VMware agentless migration**<br/><br/> Communication between the appliance and the Azure Migrate service.
 *.hypervrecoverymanager.windowsazure.com | **Used for VMware agentless migration**<br/><br/> Connect to Azure Migrate service URLs.
@@ -246,6 +246,7 @@ Version  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\\\<InstanceName>\Se
 #### ASP.NET web apps data
 
 Here's the web apps configuration data that the appliance collects from each Windows server discovered in your VMware environment.
+
 **Entity** | **Data**
 --- | ---
 Web apps | Application Name <br/>Configuration Path <br/>Frontend Bindings <br/>Enabled Frameworks <br/>Hosting Web Server<br/>Sub-Applications and virtual applications <br/>Application Pool name <br/>Runtime version <br/>Managed pipeline mode

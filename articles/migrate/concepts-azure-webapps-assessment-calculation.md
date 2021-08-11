@@ -8,7 +8,7 @@ ms.date: 07/27/2021
 
 ---
 
-# Assessment Overview (migrate to Azure App Service)
+# Assessment overview (migrate to Azure App Service)
 
 This article provides an overview of assessments for migrating on-premises ASP.NET web apps from a VMware environment to Azure App Service using the [Azure Migrate: Discovery and assessment tool](./migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool).
 
@@ -48,7 +48,7 @@ After the appliance begins discovery, you can gather servers (hosting web apps) 
 
 Follow our tutorial for assessing [ASP.NET web apps](tutorial-assess-webapps.md) to try out these steps.
 
-## What properties are used to create and customize an Azure App Service assessment?
+## What properties are used to customize the assessment?
 
 Here's what's included in Azure App Service assessment properties:
 

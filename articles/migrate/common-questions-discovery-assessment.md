@@ -16,7 +16,7 @@ This article answers common questions about discovery, assessment, and dependenc
 - [General questions](resources-faq.md) about Azure Migrate
 - Questions about the [Azure Migrate appliance](common-questions-appliance.md)
 - Questions about [server migration](common-questions-server-migration.md)
-- Get questions answered in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum)
+- Get questions answered in the [Azure Migrate forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureMigrate
 
 ## What geographies are supported for discovery and assessment with Azure Migrate?
 
@@ -193,9 +193,10 @@ For Azure SQL Managed Instance, there is no storage cost added for the first 32 
 
 ### Can I migrate my disks to Ultra disk using Azure Migrate?
 
-No. Currently, both Azure Migrate and ASR  do not support migration to Ultra disks. Find steps to deploy Ultra disk [here](https://docs.microsoft.com/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk)
+No. Currently, both Azure Migrate and Azure Sire Recovery do not support migration to Ultra disks. Find steps to deploy Ultra disk [here](https://docs.microsoft.com/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk)
 
 ### Why are the provisioned IOPS and throughput in my Ultra disk more than my on-premises IOPS and throughput?
+
 As per the [official pricing page](https://azure.microsoft.com/pricing/details/managed-disks/), Ultra Disk is billed based on the provisioned size, provisioned IOPS and provisioned throughput. As per an example provided:
 
 If you provisioned a 200 GiB Ultra Disk, with 20,000 IOPS and 1,000 MB/second and deleted it after 20 hours, it will map to the disk size offer of 256 GiB and you'll be billed for the 256 GiB, 20,000 IOPS and 1,000 MB/second for 20 hours.
@@ -203,9 +204,11 @@ If you provisioned a 200 GiB Ultra Disk, with 20,000 IOPS and 1,000 MB/second an
 IOPS to be provisioned =  (Throughput discovered) *1024/256
 
 ### Does the Ultra disk recommendation consider latency?
+
 No, currently only disk size, total throughput and total IOPS is used for sizing and costing.
 
 ### I can see M series supports Ultra disk, but in my assessment where Ultra disk was recommended, it says “No VM found for this location”?
+
 This is possible as not all VM sizes that support Ultra disk are present in all Ultra disk supported regions. Change the target assessment region to get the VM size for this server.
 
 ## I can't see some VM types and sizes in Azure Government
