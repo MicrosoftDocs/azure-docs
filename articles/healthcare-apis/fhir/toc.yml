@@ -77,9 +77,6 @@ items:
     - name: Get access token using CLI
       href: get-healthcare-apis-access-token-cli.md
 
-  - name: Access FHIR service with Postman
-    href: using-postman.md
-
 - name: Concepts
   items:
   - name: Security controls by Azure Policy
