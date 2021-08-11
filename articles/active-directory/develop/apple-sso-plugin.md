@@ -162,7 +162,7 @@ If your users have problems signing in to an application even after you've enabl
 - **Value**: Comma-delimited list of application bundle ID prefixes for the applications that are allowed to participate in the SSO. All apps that start with the listed prefixes will be allowed to participate in SSO.
 - **Example**: `com.contoso.myapp1, com.fabrikam.myapp2`
 
-Applications enabled for the SSO by using this setup need to be added to both `AppCookieSSOAllowList` and `AppPrefixAllowList`.
+**Other requirements**: To enable SSO for applications by using `AppCookieSSOAllowList`, you must also add their bundle ID prefixes `AppPrefixAllowList`.
 
 Try this configuration only for applications that have unexpected sign-in failures. 
 
