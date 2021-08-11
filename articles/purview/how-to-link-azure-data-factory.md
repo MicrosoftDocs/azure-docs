@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 05/31/2021
+ms.date: 08/10/2021
 ---
 # How to connect Azure Data Factory and Azure Purview
 
@@ -99,55 +99,9 @@ Azure Purview captures runtime lineage from the following Azure Data Factory act
 
 The integration between Data Factory and Purview supports only a subset of the data systems that Data Factory supports, as described in the following sections.
 
-### Data Factory Copy activity support
+[!INCLUDE[data-factory-supported-lineage-capabilities](includes/data-factory-common-supported-capabilities.md)]
 
-| Data store | Supported | 
-| ------------------- | ------------------- | 
-| Azure Blob Storage | Yes |
-| Azure Cognitive Search | Yes | 
-| Azure Cosmos DB (SQL API) \* | Yes | 
-| Azure Cosmos DB's API for MongoDB \* | Yes |
-| Azure Data Explorer \* | Yes | 
-| Azure Data Lake Storage Gen1 | Yes | 
-| Azure Data Lake Storage Gen2 | Yes | 
-| Azure Database for Maria DB \* | Yes | 
-| Azure Database for MySQL \* | Yes | 
-| Azure Database for PostgreSQL \* | Yes |
-| Azure File Storage | Yes | 
-| Azure SQL Database \* | Yes | 
-| Azure SQL Managed Instance \* | Yes | 
-| Azure Synapse Analytics \* | Yes | 
-| Azure Table Storage | Yes |
-| Amazon S3 | Yes | 
-| Hive \* | Yes | 
-| SAP ECC \* | Yes |
-| SAP Table | Yes |
-| SQL Server \* | Yes | 
-| Teradata \* | Yes |
-
-*\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
-
-> [!Note]
-> The lineage feature has certain performance overhead in Data Factory copy activity. For those who setup data factory connections in Purview, you may observe certain copy jobs taking longer to complete. Mostly the impact is none to negligible. Please contact support with time comparison if the copy jobs take significantly longer to finish than usual.
-
-#### Known limitations on copy activity lineage
-
-Currently, if you use the following copy activity features, the lineage is not yet supported:
-
-- Copy data into Azure Data Lake Storage Gen1 using Binary format.
-- Copy data into Azure Synapse Analytics using PolyBase or COPY statement.
-- Compression setting for Binary, delimited text, Excel, JSON, and XML files.
-- Source partition options for Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, and SAP Table.
-- Source partition discovery option for file-based stores.
-- Copy data to file-based sink with setting of max rows per file.
-- Add additional columns during copy.
-
-In additional to lineage, the data asset schema (shown in Asset -> Schema tab) is reported for the following connectors:
-
-- CSV and Parquet files on Azure Blob, Azure File Storage, ADLS Gen1, ADLS Gen2, and Amazon S3
-- Azure Data Explorer, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, Teradata
-
-### Data Factory Data Flow support
+### Data Flow support
 
 | Data store | Supported |
 | ------------------- | ------------------- | 
@@ -167,8 +121,11 @@ In additional to lineage, the data asset schema (shown in Asset -> Schema tab) i
 
 Refer to [supported data stores](how-to-lineage-sql-server-integration-services.md#supported-data-stores).
 
-> [!Note]
-> Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
+## Monitor lineage reporting status
+
+After you run the Azure Data Factory pipeline, in the [pipeline monitoring view](.../data-factory/monitor-visually.md#monitor-pipeline-runs), you can check the lineage reporting status by clicking the following **Lineage status** button.
+
+:::image type="content" source="./media/how-to-link-azure-data-factory/monitor-lineage-reporting-status.png" alt-text="Monitor the lineage reporting status in pipeline monitoring view"
 
 ## Supported lineage patterns
 
@@ -232,5 +189,8 @@ In the following example, an Azure Data Lake Gen2 resource set is produced from 
 
 ## Next steps
 
-- [Catalog lineage user guide](catalog-lineage-user-guide.md)
-- [Link to Azure Data Share for lineage](how-to-link-azure-data-share.md)
+[Tutorial: Push Data Factory lineage data to Azure Purview](../data-factory/turorial-push-lineage-to-purview.md)
+
+[Catalog lineage user guide](catalog-lineage-user-guide.md)
+
+[Link to Azure Data Share for lineage](how-to-link-azure-data-share.md)
