@@ -21,7 +21,7 @@ In this article, you'll learn how to deploy Azure Video Analyzer on an edge devi
 
 The following depicts the overall flow of the document and in 5 simple steps you should be all set up to run Azure Video Analyzer on a Windows device  that has EFLOW:
 
-![IoT Edge for Linux on Windows (EFLOW) diagram](./media/deploy-iot-edge-linux-on-windows/eflow-updated.png)
+![Diagram of IoT Edge for Linux on Windows (E FLOW).](./media/deploy-iot-edge-linux-on-windows/eflow-updated.png)
 
 1. [Install EFLOW](../../iot-edge/how-to-install-iot-edge-on-windows.md) on your Windows device using PowerShell.
 
@@ -51,10 +51,10 @@ The following depicts the overall flow of the document and in 5 simple steps you
     
     The deployment process will take about 20 minutes. Upon completion, you will have certain Azure resources deployed in the Azure subscription, including:
 
-    1. Video Analyzer account - This cloud service is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics.
-    1. Storage account - For storing recorded video and video analytics.
-    1. Managed Identity - This is the user assigned managed identity used to manage access to the above storage account.
-    1. IoT Hub - This acts as a central message hub for bi-directional communication between your IoT application, IoT Edge modules and the devices it manages.
+    * Video Analyzer account - This cloud service is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics.
+    * Storage account - For storing recorded video and video analytics.
+    * Managed Identity - This is the user assigned managed identity used to manage access to the above storage account.
+    * IoT Hub - This acts as a central message hub for bi-directional communication between your IoT application, IoT Edge modules and the devices it manages.
 
     In the template, when asked if you need an edge device, choose the "Use and existing edge device" option since you created both the device and the IoT Hub earlier. You will also be prompted for your IoT Hub name and IoT Edge device ID in the subsequent steps.  
     
