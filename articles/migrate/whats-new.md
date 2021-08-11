@@ -16,6 +16,11 @@ ms.custom: mvc
 ## Update (August 2021)
 
 - At-scale discovery and assessment of ASP.NET web apps running on IIS servers in your VMware environment, is now in preview. [Learn More](concepts-azure-sql-assessment-calculation.md) Refer to the [Discovery](tutorial-discover-vmware.md) and [assessment](tutorial-assess-sql.md) tutorials to get started.
+- Support for Azure [ultra disks](https://docs.microsoft.com/azure/virtual-machines/disks-types#ultra-disk) in Azure VM assessment recommendation.
+
+## Update (July 2021)
+
+Azure Migrate: App Containerization tool now lets you package applications running on servers into a container image and deploy the containerized application to Azure App Service containers, in addition to Azure Kubernetes Service. You can also automatically integrate application monitoring for Java apps with Azure Application Insights and use Azure Key Vault to manage application secrets such as certificates and parameterized configurations. For more information, see ASP.NET app containerization and migration to Azure App Service and Java web app containerization and migration to Azure App Service tutorials to get started.
 
 ## Update (June 2021)
 

@@ -189,6 +189,25 @@ For Azure SQL Managed Instance, there is no storage cost added for the first 32 
 - AVS assessment can be done on groups that have only VMware machines. Remove any non-VMware machine from the group if you intend to perform an AVS assessment.
 - If you are running AVS assessments in Azure Migrate for the first time, it is advisable to create a new group of VMware machines.
 
+## Queries regarding Ultra disks
+
+### Can I migrate my disks to Ultra disk using Azure Migrate?
+
+No. Currently, both Azure Migrate and ASR  do not support migration to Ultra disks. Find steps to deploy Ultra disk [here](https://docs.microsoft.com/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk)
+
+### Why are the provisioned IOPS and throughput in my Ultra disk more than my on-premises IOPS and throughput?
+As per the [official pricing page](https://azure.microsoft.com/pricing/details/managed-disks/), Ultra Disk is billed based on the provisioned size, provisioned IOPS and provisioned throughput. As per an example provided:
+
+If you provisioned a 200 GiB Ultra Disk, with 20,000 IOPS and 1,000 MB/second and deleted it after 20 hours, it will map to the disk size offer of 256 GiB and you'll be billed for the 256 GiB, 20,000 IOPS and 1,000 MB/second for 20 hours.
+
+IOPS to be provisioned =  (Throughput discovered) *1024/256
+
+### Does the Ultra disk recommendation consider latency?
+No, currently only disk size, total throughput and total IOPS is used for sizing and costing.
+
+### I can see M series supports Ultra disk, but in my assessment where Ultra disk was recommended, it says “No VM found for this location”?
+This is possible as not all VM sizes that support Ultra disk are present in all Ultra disk supported regions. Change the target assessment region to get the VM size for this server.
+
 ## I can't see some VM types and sizes in Azure Government
 
 VM types and sizes supported for assessment and migration depend on availability in Azure Government location. You can [review and compare](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) VM types in Azure Government.
@@ -217,8 +236,8 @@ For example, if an on-premises server has four cores and 8 GB of memory at 50% C
 
 Similarly, disk sizing depends on sizing criteria and storage type:
 
-- If the sizing criteria is performance-based and the storage type is automatic, Azure Migrate takes the IOPS and throughput values of the disk into account when it identifies the target disk type (Standard or Premium).
-- If the sizing criteria is performance-based and the storage type is Premium, Azure Migrate recommends a Premium disk SKU based on the size of the on-premises disk. The same logic is applied to disk sizing when the sizing is as-on-premises and the storage type is Standard or Premium.
+- If the sizing criteria is "performance-based" and the storage type is automatic, Azure Migrate takes the IOPS and throughput values of the disk into account when it identifies the target disk type (Standard, Premium or Ultra disk).
+- If the sizing criteria is "as on premises" and the storage type is Premium, Azure Migrate recommends a Premium disk SKU based on the size of the on-premises disk. The same logic is applied to disk sizing when the sizing is as-on-premises and the storage type is Standard, Premium or Ultra disk.
 
 ## Does performance history and utilization affect sizing in an Azure VM assessment?
 
