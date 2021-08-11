@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 08/11/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to choose optimal region(s) to meet my performance needs, requirements, and data location preferences for my Azure Stack Edge devices and storage.
 ---
@@ -35,17 +35,17 @@ The Azure Stack Edge service is currently supported in the US East, West Europe,
 
 The region of the service is the country or region assigned to the Azure Stack Edge management resource. The management resource uses the Azure Stack Edge service to activate, deploy, and return an Azure Stack Edge device.
 
-The Azure Stack Edge service also monitors the health of the device (issues, errors, alerts, and whether the device is "alive") and usage and consumption meters for billing - that is, the control plane information on the device.
+The Azure Stack Edge service also monitors the health of the device - issues, errors, alerts, and whether the device is "alive". And the service monitors usage and consumption meters for billing - the control plane information on the device.
 
 The device must connect to the Azure Stack Edge service to activate. If you don't want any further interaction with the service, you can switch the device to disconnected mode. 
 
-Data doesn't flow through the Azure Stack Edge service. Data flows between the device and the storage account deployed in the customer's region of data origin. 
+Data doesn't flow through the Azure Stack Edge service. Data flows between the device and the storage account that is deployed in the customer's region of data origin. 
 
 In general, a location closest to the geographical region where the device is deployed is chosen. But the device and the service can also be deployed in different locations.
 
 ## Region availability for data storage
 
-Azure Stack Edge data is physically stored in Azure storage accounts, and these accounts are available in all the Azure regions. When you create an Azure storage account, the primary location of the storage account is chosen, and that determines the region where the data resides.
+Azure Stack Edge data is physically stored in Azure storage accounts, and these accounts are available in all the Azure regions. When you create an Azure storage account, you choose the primary location of the storage account. That choice determines the region where the data resides.
 
 A storage account is assigned when you [create a share on your device](azure-stack-edge-gpu-deploy-add-shares.md#add-a-share). Your Azure Stack Edge service and Azure storage can be in two separate locations.
 
