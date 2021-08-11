@@ -71,14 +71,12 @@ The Azure Purview scanner service runs in a separate, Microsoft account in AWS. 
 
 The following diagram shows the components in both your customer account and Microsoft account. Highlighted in yellow are the components you’ll need to create to enable connectivity RDS VPC in your account to the VPC where the Purview scanner runs in the Microsoft account.
 
-:::image type="content" source="media/register-scan-amazon-rds/vpc-architecture.png" alt-text="Diagram of the Purview Scanner service in a VPC architecture.":::
+:::image type="content" source="media/register-scan-amazon-rds/vpc-architecture.png" alt-text="Diagram of the Purview Scanner service in a VPC architecture." border="false":::
 
 > [!NOTE]
 > You can perform this procedure automatically or manually. For more information, see [Prepare your RDS database manually (advanced)](#prepare-your-rds-database-manually-advanced).
 >
 
-
- 
 ## Register an Amazon RDS data source
 
 **To add your Amazon RDS server as an Azure Purview data source**:
