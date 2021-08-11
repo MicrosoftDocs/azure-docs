@@ -368,11 +368,13 @@ DisplayName           : Azure Service Fabric Resource Provider
 Id                    : 00000000-0000-0000-0000-000000000000
 ```
 
-Next, use the **Id** of the previous output as **principalId** and the role definition ID bellow as **roleDefinitionId** where applicable in the PowerShell command or ARM Template:
+Note the **Id** of the previous output as **principalId** for use in a later step
 
 |Role definition name|Role definition ID|
 |----|-------------------------------------|
 |Network Contributor|4d97b98b-1d4f-4787-a291-c67834d212e7|
+
+Note the `Role definition name` and `Role definition ID` property values for use in a later step
 
 3) Add a role assignment to the Service Fabric Resource Provider application. This is a one time action. You add the role by running the following PowerShell commands or ARM Template. 
 
