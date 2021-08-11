@@ -72,7 +72,9 @@ Your machine must meet the following requirements:
 - **Configuration**
     - You must have elevated permissions (sudo) on your designated Linux machine.
     - The Linux machine must not be connected to any Azure workspaces before you install the Log Analytics agent.
-    - You may need the **Workspace ID** and **Workspace Primary Key** at some point in this process. You can find them in the Azure Log Analytics workspace resource, under **Agents management**.
+
+- **Data**
+    - You may need your Azure Sentinel workspace's **Workspace ID** and **Workspace Primary Key** at some point in this process. You can find them in the workspace settings, under **Agents management**.
 
 ### Security considerations
 

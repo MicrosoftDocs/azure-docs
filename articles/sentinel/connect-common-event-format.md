@@ -25,12 +25,10 @@ Many networking and security devices and appliances send their system logs over 
 
 This article describes this process and explains what you need to do to make it work. There are two main steps to making this connection, that will be explained below in detail:
 
-- Designating a Linux machine or VM as a dedicated log forwarder and installing the Log Analytics agent on it.
+- Designating a Linux machine or VM as a dedicated log forwarder, installing the Log Analytics agent on it, and configuring the agent to forward the logs to your Azure Sentinel workspace.  
+The installation and configuration of the agent are handled by a deployment script.
 
--	Configuring your device to send its logs in CEF format to a Syslog server.
-
--	Installing the Log Analytics Agent on this log forwarder, and configuring the agent to forward the logs to your Azure Sentinel workspace.  
-This last part is almost entirely automated by a deployment script.
+- Configuring your device to send its logs in CEF format to a Syslog server.
 
 > [!NOTE] 
 > Data is stored in the geographic location of the workspace on which you are running Azure Sentinel.
