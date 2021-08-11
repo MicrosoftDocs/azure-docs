@@ -50,7 +50,23 @@ You can turn on monitoring for your Java apps running in Azure App Service just 
 
 To enable client-side monitoring for your Java application, you need to [manually add the client-side JavaScript SDK to your application](./javascript.md).
 
-[!INCLUDE [azure-web-apps-automate-monitoring](./includes/azure-web-apps-automate-monitoring.md)]
+## Automate monitoring
+
+In order to enable telemetry collection with Application Insights, only the Application settings need to be set:
+
+   ![App Service Application Settings with available Application Insights settings](../media/azure-web-apps/application-settings.png)
+
+### Application settings definitions
+
+|App setting name |  Definition | Value |
+|-----------------|:------------|-------------:|
+|ApplicationInsightsAgent_EXTENSION_VERSION | Main extension, which controls runtime monitoring. | `~2` for Windows or `~3` for Linux |
+|XDT_MicrosoftApplicationInsights_Mode |  In default mode, only essential features are enabled in order to insure optimal performance. | `default` or `recommended`. |
+|InstrumentationEngine_EXTENSION_VERSION | Controls if the binary-rewrite engine `InstrumentationEngine` will be turned on. This setting has performance implications and impacts cold start/startup time. | `~1` |
+|XDT_MicrosoftApplicationInsights_BaseExtensions | Controls if SQL & Azure table text will be captured along with the dependency calls. Performance warning: application cold start up time will be affected. This setting requires the `InstrumentationEngine`. | `~1` |
+|XDT_MicrosoftApplicationInsights_PreemptSdk | For ASP.NET Core apps only. Enables Interop (interoperation) with Application Insights SDK. Loads the extension side-by-side with the SDK and uses it to send telemetry (disables the Application Insights SDK). |`1`|
+
+[!INCLUDE [azure-web-apps-arm-automation](./includes/azure-web-apps-arm-automation.md)]
 
 
 ## Troubleshooting
