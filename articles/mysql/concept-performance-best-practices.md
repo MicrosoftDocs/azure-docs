@@ -41,7 +41,7 @@ Establishing a new connection is always an expensive and time-consuming task. Wh
 
 ## Azure Database for MySQL Memory Recommendations
 
-An Azure Database for MySQL performance best practice is to allocate enough RAM so that you’re working set resides almost completely in memory. 
+An Azure Database for MySQL performance best practice is to allocate enough RAM so that your working set resides almost completely in memory. 
 
 - Check if the memory percentage being used in reaching the [limits](./concepts-pricing-tiers.md) using the [metrics for the MySQL server](./concepts-monitoring.md). 
 - Set up alerts on such numbers to ensure that as the servers reaches limits you can take prompt actions to fix it. Based on the limits defined, check if scaling up the database SKU—either to higher compute size or to better pricing tier, which results in a dramatic increase in performance. 

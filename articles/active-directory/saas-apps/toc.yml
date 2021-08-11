@@ -483,6 +483,8 @@
         href: coralogix-tutorial.md
       - name: Cornerstone Single Sign-On
         href: cornerstone-ondemand-tutorial.md
+      - name: CorporateExperience
+        href: corporateexperience-tutorial.md  
       - name: CorpTax
         href: corptax-tutorial.md
       - name: Costpoint
@@ -2050,6 +2052,8 @@
         href: tulip-tutorial.md
       - name: TurboRater
         href: turborater-tutorial.md
+      - name: TutorOcean
+        href: tutorocean-tutorial.md  
       - name: Uberflip
         href: uberflip-tutorial.md
       - name: UltiPro
