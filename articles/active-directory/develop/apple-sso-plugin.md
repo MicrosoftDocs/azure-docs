@@ -114,7 +114,7 @@ Your organization likely uses the Authenticator app for scenarios like multifact
 
 Use the following parameters to configure the Microsoft Enterprise SSO plug-in for apps that don't use a Microsoft identity platform library.
 
-#### To enable SSO on all managed apps, use these parameters:
+#### Enable SSO for all managed apps
 
 - **Key**: `Enable_SSO_On_All_ManagedApps`
 - **Type**: `Integer`
