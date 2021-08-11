@@ -18,7 +18,7 @@ ms.custom: ep-msia
 
 ---
 
-# How to use managed identities with Windows Virtual machines
+# How to use managed identities to connect to Cosmos DB from a Azure virtual machine
 
 
 This article shows you how to use managed identities from a virtual machine to connect to Cosmos [!INCLUDE [managed identities](~/includes/managed-identities-definition.md)].
@@ -28,10 +28,20 @@ This article shows you how to use managed identities from a virtual machine to c
  - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md).
 - Before you begin, you must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 - A [Comos DB account](../../cosmos-db/create-cosmosdb-resources-portal.md).
-- Depending on your scenario you may need either [PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-6.3.0) or the [CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- You may need either [PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-6.3.0) or the [CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
-## Create a virtual machine with a system assigned managed identity enabled
+## Create a virtual machine with a managed identity
+
+Before we proceed we need a virtual machine with a managed identity. You have a few options: 
+- You may choose to create a virtual machine with a system assigned managed identity enabled.
+- You may enable system assigned managed identities on an existing virtual machines.
+- You could create a virtual machine with a user-assigned managed identities enabled.
+- You can assign a user-assigned managed identity to an existing VM.
+
+In addition, to the options listed above you may also choose between Linux and Windows for your virtual machine's operating system.
+
+### System assigned
 
 To create an Azure VM with the system-assigned managed identity enabled, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No additional Azure AD directory role assignments are required.
 
@@ -120,13 +130,13 @@ When you're done, the following sections should be added to the `resource` secti
 
 ---
 
-## User-assigned managed identities
+### User-assigned managed identities
 
 User-assigned managed identities can be used on multiple resources. To learn more about managed identities, for information on how to create or delete user-assigned managed identities you can review [Manage user-assigned managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots)
 
 To assign a user-assigned identity to a VM, your account needs the Virtual Machine Contributor and Managed Identity Operator role assignments. No additional Azure AD directory role assignments are required.
 
-### Create a virtual machine with a user-assigned managed identity assigned
+#### Create a virtual machine with a user-assigned managed identity assigned
 
 # [Portal](#tab/azure-portal)
 
@@ -184,18 +194,18 @@ az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLT
 
 ---
 
-### Assign a user-assigned managed identity to a Virtual machine
+#### Assign a user-assigned managed identity to a Virtual machine
 
 
 
-#### [Portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM.
 2. Navigate to the desired VM and click **Identity**, **User assigned** and then **\+Add**.
 3. Click the user-assigned identity you want to add to the VM and then click **Add**.
 
 
-#### [PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 To assign a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) and [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role assignments. No additional Azure AD directory role assignments are required.
 
@@ -218,7 +228,7 @@ $vm = Get-AzVM -ResourceGroupName <RESOURCE GROUP> -Name <VM NAME>
 Update-AzVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
 ```
 
-#### [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Create a VM using [az vm create](/cli/azure/vm/#az_vm_create). The following example creates a VM associated with a user-assigned managed identity, as specified by the `--assign-identity` parameter. Replace the `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>`, and `<USER ASSIGNED IDENTITY NAME>` parameter values with your own values. 
 
@@ -227,7 +237,7 @@ az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLT
 ```
 
 
-#### [Resource Manager Template](#tab/azure-resource-manager)
+# [Resource Manager Template](#tab/azure-resource-manager)
 
 
 ---
@@ -241,7 +251,9 @@ Now that you have a virtual machine configured with a managed identity we need t
 
 ### Grant access to a managed identity
 
-Cosmos DB uses RBAC roles to grant access to either data plan or management plane operations. The article titled [Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-rbac) helps you configure access to data plane operations. 
+Cosmos DB uses RBAC roles to grant access to either data plan or management plane operations. The article titled [Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-rbac) helps you configure access to data plane operations. From the perspective of rights assignment a managed identity is granted access the same way that you would grant access to any other identity.
+
+### Test access (?????)
 
 ## Clean up steps
 
