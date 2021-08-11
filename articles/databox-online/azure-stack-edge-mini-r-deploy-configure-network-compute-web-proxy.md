@@ -48,7 +48,8 @@ Follow these steps to configure the network for your device.
 3. Create certificates for Wi-Fi and signing chain. Both the signing chain and the Wi-Fi certificates must be DER format with a *.cer* file extension. For instructions, see [Create certificates](azure-stack-edge-gpu-manage-certificates.md).
 
    > [!NOTE] 
-   > If you're using password-based authentication on your personal Wi-Fi network, you don't need to add certificates. Just upload your Wi-Fi profile after you configure the Wi-Fi port on your device.<!--Verify: If they aren't using a Wi-Fi cert, do they need to add a signing chain cert?-->
+   > If you're using password-based authentication on your personal Wi-Fi network, you don't need to add certificates. Just upload your Wi-Fi profile after you configure the Wi-Fi port on your device.<!--Verify: If they aren't using a Wi-Fi cert, do they need to add a signing chain cert?--></br> 
+   > To find out about Wi-Fi profiles for a WPA2 - Personal network and learn how to export your Wi-Fi profile, see [Use Wi-Fi profiles](azure-stack-edge-mini-r-use-wifi-profiles.md).
 
 4. In the local web UI, go to **Get started**. On the **Security** tile, select **Certificates** and then select **Configure**. 
 
