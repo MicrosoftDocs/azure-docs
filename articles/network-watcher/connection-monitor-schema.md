@@ -37,36 +37,36 @@ Here are some benefits of Connection Monitor:
 * Support for connectivity checks that are based on HTTP, TCP, and ICMP 
 * Metrics and Log Analytics support for both Azure and non-Azure test setups
 
-There are two types of logs / data ingested into Log Analytics.
-The Test data(NWConnectionMonitorTestResult query) is updated based on monitoring frequency of a particular test group.
-The Path data(NWConnectionMonitorPathResult query) is updated when there is significant change in loss percentage or round trip time.
+There are two types of logs/data ingested into Log Analytics.
+The Test data (NWConnectionMonitorTestResult query) is updated based on monitoring frequency of a particular test group.
+The Path data (NWConnectionMonitorPathResult query) is updated when there is significant change in loss percentage or round trip time.
 Hence for some time duration test data may keep getting updated while path data is not frequently updated, as both are independent.
 
 ## Connection Monitor Tests schema
 
-Listed below are the fields in the Connection Monitor Tests data schema and what they signify 
+Listed below are the fields in the Connection Monitor Tests data schema and what they signify. 
 
 | Field  |    Description   |
 |---|---|
 | TimeGenerated	| The timestamp (UTC) of when the log was generated |
-| RecordId	| The record ID for unique identification of test result record |
+| RecordId	| The record ID for unique identification of the test result record |
 | ConnectionMonitorResourceId	| The connection monitor resource ID of the test |
-| TestGroupName	| The test group name to which the test belongs to |
-| TestConfigurationName	| The test configuration name to which the test belongs to |
+| TestGroupName	| The test group name to which the test belongs |
+| TestConfigurationName	| The test configuration name to which the test belongs |
 | SourceType	| The type of the source machine configured for the test |
 | SourceResourceId	| The resource ID of the source machine |
 | SourceAddress	| The address of the source configured for the test |
 | SourceSubnet	| The subnet of the source |
 | SourceIP	| The IP address of the source |
-| SourceName	| The source end point name |
+| SourceName	| The source endpoint name |
 | SourceAgentId	| The source agent ID |
 | DestinationPort	| The destination port configured for the test |
 | DestinationType	| The type of the destination machine configured for the test |
-| DestinationResourceId	| The resource ID of the Destination machine |
+| DestinationResourceId	| The resource ID of the destination machine |
 | DestinationAddress	| The address of the destination configured for the test |
 | DestinationSubnet	| If applicable, the subnet of the destination |
 | DestinationIP	| The IP address of the destination |
-| DestinationName	| The destination end point name |
+| DestinationName	| The destination endpoint name |
 | DestinationAgentId	| The destination agent ID |
 | Protocol	| The protocol of the test |
 | ChecksTotal	| The total number of checks done under the test |
@@ -84,30 +84,30 @@ Listed below are the fields in the Connection Monitor Tests data schema and what
 
 ## Connection Monitor Path schema
 
-Listed below are the fields in the Connection Monitor Path data schema and what they signify 
+Listed below are the fields in the Connection Monitor Path data schema and what they signify. 
 
 | Field  |    Description   |
 |---|---|
 | TimeGenerated	 | The timestamp (UTC) of when the log was generated |
-| RecordId	| The record ID for unique identification of test result record |
+| RecordId	| The record ID for unique identification of the test result record |
 | TopologyId	| The topology ID of the path record |
 | ConnectionMonitorResourceId	| The connection monitor resource ID of the test |
-| TestGroupName	| The test group name to which the test belongs to |
-| TestConfigurationName	| The test configuration name to which the test belongs to |
+| TestGroupName	| The test group name to which the test belongs |
+| TestConfigurationName	| The test configuration name to which the test belongs |
 | SourceType	| The type of the source machine configured for the test |
 | SourceResourceId	| The resource ID of the source machine |
 | SourceAddress	| The address of the source configured for the test |
 | SourceSubnet	| The subnet of the source |
 | SourceIP	| The IP address of the source | 
-| SourceName	| The source end point name |
+| SourceName	| The source endpoint name |
 | SourceAgentId	| The source agent ID |
 | DestinationPort	| The destination port configured for the test |
 | DestinationType	| The type of the destination machine configured for the test |
-| DestinationResourceId	| The resource ID of the Destination machine |
+| DestinationResourceId	| The resource ID of the destination machine |
 | DestinationAddress	| The address of the destination configured for the test |
 | DestinationSubnet	| If applicable, the subnet of the destination |
 | DestinationIP	| The IP address of the destination |
-| DestinationName	| The destination end point name |
+| DestinationName	| The destination endpoint name |
 | DestinationAgentId	| The destination agent ID |
 | Protocol	| The protocol of the test |
 | ChecksTotal	| The total number of checks done under the test |
