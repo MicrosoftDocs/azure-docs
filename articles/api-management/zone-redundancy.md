@@ -35,6 +35,7 @@ Configuring API Management for zone redundancy is currently supported in the fol
 * Japan East
 * Korea Central (*)
 * North Europe
+* Norway East (*)
 * South Africa North (*)
 * South Central US
 * Southeast Asia
