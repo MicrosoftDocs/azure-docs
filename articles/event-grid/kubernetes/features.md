@@ -36,7 +36,7 @@ Although Event Grid on Kubernetes and Azure Event Grid share many features and t
 | Azure Relay's Hybrid Connections as a destination | ✘ | ✔ |
 | [Advanced filtering](filter-events.md) | ✔*** | ✔ |
 | [Webhook AuthN/AuthZ with AAD](../secure-webhook-delivery.md) | ✘ | ✔ |
-| [Event delivery with resource identity](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#deliverywithresourceidentity) | ✘ | ✔ |
+| [Event delivery with resource identity](/rest/api/eventgrid/version2021-06-01-preview/event-subscriptions/create-or-update) | ✘ | ✔ |
 | Same set of data plane SDKs | ✔ | ✔ |
 | Same set of management SDKs | ✔ | ✔ |
 | Same Event Grid CLI | ✔ | ✔ |
