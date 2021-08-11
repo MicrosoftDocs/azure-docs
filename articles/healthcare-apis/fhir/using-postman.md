@@ -5,7 +5,7 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 08/03/2021
+ms.date: 08/11/2021
 ms.author: ginle
 ---
 

@@ -16,8 +16,6 @@ items:
       href: fhir-portal-quickstart.md
     - name: Using ARM template
       href: fhir-service-resource-manager-template.md
-  - name: Access FHIR service using Postman
-    href: using-postman.md
 
 - name: Tutorials
   expanded: true
@@ -50,7 +48,7 @@ items:
       href: how-to-run-a-reindex.md
     - name: Search examples
       href: search-samples.md
-
+    
   - name: Operations
     expanded: true
     items:  
@@ -79,6 +77,9 @@ items:
     - name: Get access token using CLI
       href: get-healthcare-apis-access-token-cli.md
 
+  - name: Access FHIR service using Postman
+    href: using-postman.md
+    
 - name: Concepts
   items:
   - name: Security controls by Azure Policy
