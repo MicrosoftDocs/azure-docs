@@ -120,8 +120,7 @@ The integration between Data Factory and Purview supports only a subset of the d
 | Azure Table Storage | Yes |
 | Amazon S3 | Yes | 
 | Hive \* | Yes | 
-| SAP ECC \* | Yes |
-| SAP Table | Yes |
+| SAP Table *(when used to connect to SAP ECC or SAP S/4HANA)* | Yes |
 | SQL Server \* | Yes | 
 | Teradata \* | Yes |
 
@@ -166,9 +165,6 @@ In additional to lineage, the data asset schema (shown in Asset -> Schema tab) i
 ### Data Factory Execute SSIS Package support
 
 Refer to [supported data stores](how-to-lineage-sql-server-integration-services.md#supported-data-stores).
-
-> [!Note]
-> Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
 
 ## Supported lineage patterns
 
