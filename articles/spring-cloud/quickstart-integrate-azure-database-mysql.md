@@ -91,9 +91,7 @@ export MYSQL_DATABASE_NAME=petclinic
     owners.
     
     Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-     ```
-    Follow the following commands.
-     ```
+    
     mysql> CREATE DATABASE petclinic;
     Query OK, 1 row affected (0.10 sec)
     
