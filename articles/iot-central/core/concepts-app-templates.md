@@ -52,7 +52,7 @@ The following screenshots show the out-of-the-box dashboard in the application t
 
 :::image type="content" source="media/concepts-app-templates/connected-logistics-dashboard2.png" alt-text="Screenshot that shows the bottom half of the connected logistics operations dashboard.":::
 
-To learn more, see the [Deploy and walk through a connected logistics application template](./tutorial-iot-central-connected-logistics.md) tutorial.
+To learn more, see the [Deploy and walk through a connected logistics application template](../retail/tutorial-iot-central-connected-logistics.md) tutorial.
 
 ## Digital distribution center
 
@@ -73,7 +73,7 @@ The following screenshot shows the out-of-the-box dashboard in the application t
 
 :::image type="content" source="media/concepts-app-templates/digital-distribution-center-dashboard.png" alt-text="Digital Distribution Center Dashboard":::
 
-To learn more, see the [Deploy and walk through a digital distribution center application template](./tutorial-iot-central-digital-distribution-center.md) tutorial.
+To learn more, see the [Deploy and walk through a digital distribution center application template](../retail/tutorial-iot-central-digital-distribution-center.md) tutorial.
 
 ## In-store analytics - condition monitoring
 
@@ -95,7 +95,7 @@ The following screenshot shows the out-of-the-box dashboard in the application t
 
 :::image type="content" source="media/concepts-app-templates/in-store-analytics-condition-dashboard.png" alt-text="In-Store Analytics Condition Monitoring":::
 
-To learn more, see the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) tutorial.
+To learn more, see the [Create an in-store analytics application in Azure IoT Central](../retail/tutorial-in-store-analytics-create-app.md) tutorial.
 
 ## In-store analytics - checkout
 
@@ -117,7 +117,7 @@ The following screenshot shows the out-of-the-box dashboard in the application t
 
 :::image type="content" source="media/concepts-app-templates/In-Store-Analytics-Checkout-Dashboard.png" alt-text="In-Store Analytics Checkout":::
 
-To learn more, see the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) tutorial.
+To learn more, see the [Create an in-store analytics application in Azure IoT Central](../retail/tutorial-in-store-analytics-create-app.md) tutorial.
 
 ## Smart inventory management
 
@@ -137,7 +137,7 @@ The following screenshot shows the out-of-the-box dashboard in the application t
 
 :::image type="content" source="media/concepts-app-templates/smart-inventory-management-dashboard.png" alt-text="Smart Inventory Management Dashboard":::
 
-To learn more, see the [Deploy and walk through a smart inventory management application template](./tutorial-iot-central-smart-inventory-management.md) tutorial.
+To learn more, see the [Deploy and walk through a smart inventory management application template](../retail/tutorial-iot-central-smart-inventory-management.md) tutorial.
 
 ## Micro-fulfillment center
 
@@ -157,7 +157,7 @@ The following screenshot shows the out-of-the-box dashboard in the application t
 
 :::image type="content" source="media/concepts-app-templates/MFC-Dashboard.png" alt-text="Micro-fulfillment Center":::
 
-To learn more, see the [Deploy and walk through the micro-fulfillment center application template](./tutorial-micro-fulfillment-center.md) tutorial.
+To learn more, see the [Deploy and walk through the micro-fulfillment center application template](../retail/tutorial-micro-fulfillment-center.md) tutorial.
 
 ## Video analytics - object and motion detection
 
@@ -168,15 +168,14 @@ The video analytics application uses a [live video analytics (LVA)](#live-video-
 The application template includes four application dashboards:
 
 * **Getting Started** provides links to resources to help you get started using the application template.
-* **Demo Dashboard** provides an illustration of the types of information you can display from your connected cameras.
-* **(Sample) Real Camera Management** uses simulated cameras to show how you can manage your cameras from the application.
-* **(Sample) Real Camera Monitor** uses simulated cameras to show how you can monitor your cameras from the application.
+
+- **Demo Dashboard** provides an illustration of the types of information you can display from your connected cameras.
+- **(Sample) Real Camera Management** uses simulated cameras to show how you can manage your cameras from the application.
+- **(Sample) Real Camera Monitor** uses simulated cameras to show how you can monitor your cameras from the application.
 
 :::image type="content" source="media/concepts-app-templates/live-video-analytics.png" alt-text="Video analytics - object and motion detection":::
 
-To learn more about the architecture of the solution, see [Video analytics application architecture](architecture-video-analytics.md).
-
-To learn how to deploy the solution, see the [Create a video analytics application in Azure IoT Central](tutorial-video-analytics-deploy.md) tutorial.
+To learn how to deploy the solution, see the [Create a video analytics application in Azure IoT Central](../retail/tutorial-video-analytics-deploy.md) tutorial.
 
 ### Live video analytics
 
@@ -236,7 +235,7 @@ The App template consists of:
 - Pre-configured rules and jobs
 - Branding using white labeling 
 
-Get started with the [Water Quality Monitoring application tutorial](./tutorial-water-quality-monitoring.md).
+Get started with the [Water Quality Monitoring application tutorial](../government/tutorial-water-quality-monitoring.md).
 
 ## Water Consumption Monitoring
 
@@ -254,7 +253,7 @@ The Water Consumption Monitoring app template consists of pre-configured:
 - Pre-configured rules and jobs
 - Branding using white labeling
 
- Get started with the [Water Consumption Monitoring application tutorial](./tutorial-water-consumption-monitoring.md).
+ Get started with the [Water Consumption Monitoring application tutorial](../government/tutorial-water-consumption-monitoring.md).
 
 ## Connected Waste Management 
 
@@ -270,7 +269,7 @@ The Connected Waste Management app template consist of pre-configured:
 - Pre-configured rules and jobs
 - Branding using white labeling 
 
-Get started with the [Connected Waste Management application tutorial](./tutorial-connected-waste-management.md).
+Get started with the [Connected Waste Management application tutorial](../government/tutorial-connected-waste-management.md).
 
 ## Continuous patient monitoring 
 
