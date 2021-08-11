@@ -4,7 +4,7 @@ titleSuffix:  Azure Machine Learning
 description: Learn to scale up managed endpoints. Get more CPU, memory, disk space, and extra features.
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: concept
+ms.topic: how-to
 ms.author: seramasu
 author: rsethur
 ms.reviewer: laobri
@@ -52,7 +52,7 @@ az monitor autoscale create \
 {>> snippets? <<}
 
 > [!NOTE]
-For more, see the [reference page for autoscale](../../cli/azure/monitor/autoscale?view=azure-cli-latest)
+For more, see the [reference page for autoscale](../cli/azure/monitor/autoscale?view=azure-cli-latest)
 
 ## Create a rule to scale out
 
@@ -91,11 +91,11 @@ In Azure Machine Learning studio:
 
 In the endpoint details screen, in the Details tab, select "tk wording Configure autoscaling" to open the tk 
 
-:::image type="content" source="media/endpoint-details.png" alt-text="Screenshot showing link to configure autoscaling":::
+:::image type="content" source="media/how-to-autoscale-endpoints/endpoint-details.png" alt-text="Screenshot showing link to configure autoscaling":::
 
 ## Next steps
 
-- [Understand autoscale settings](../../autoscale/autoscale-understand-settings)
-- [Overview of common autoscale patterns](../../autoscale/autoscale-common-scale-patterns)
-- [Best practices for autoscale](../../autoscale/autoscale-best-practices)
-- [Troubleshooting Azure autoscale](../../autoscale/autoscale-troubleshoot)
+- [Understand autoscale settings](../autoscale/autoscale-understand-settings)
+- [Overview of common autoscale patterns](../autoscale/autoscale-common-scale-patterns)
+- [Best practices for autoscale](../autoscale/autoscale-best-practices)
+- [Troubleshooting Azure autoscale](../autoscale/autoscale-troubleshoot)
