@@ -15,7 +15,7 @@ ms.author: alkohli
 > [!IMPORTANT]
 > On December 31, 2022 the StorSimple 8000 series will reach end of support (EOS) status. We recommend that StorSimple 8000 series customers migrate to one of the alternatives described in the document.
 
-StorSimple 8000 series is reaching [end of Support](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) in December 2022. The customers who are running StorSimple 8000 series have an option to upgrade to other Azure first party hybrid services. This article describes the Azure hybrid options available to migrate data.
+StorSimple 8000 series is reaching [end of Support](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) in December 2022. The customers who are running StorSimple 8000 series can upgrade to other Azure first party hybrid services. This article describes the Azure hybrid options available to migrate data.
 
 ## Migration options
 
@@ -39,7 +39,7 @@ This migration is supported by Panzura and customers can get started by requesti
 
 #### Migrate to Nasuni
 
-Moving your entire StorSimple environment to a stable, secure, high performance file services platform is easy with Nasuni. Nasuni offers the security and performance of on-premises file storage while combining it with the scalability and durability of Azure. As a leading Azure independent software vendor (ISV), Nasuni brings all the tools necessary to move your StorSimple data to a modern platform that lets you share and collaborate with your files across multiple locations.
+Moving your entire StorSimple environment to a stable, secure, high-performance file services platform is easy with Nasuni. Nasuni offers the security and performance of on-premises file storage while combining it with the scalability and durability of Azure. As a leading Azure independent software vendor (ISV), Nasuni brings all the tools necessary to move your StorSimple data to a modern platform that lets you share and collaborate with your files across multiple locations.
 
 Get started today: [Nasuni website](https://info.nasuni.com/storsimple8000-webinar).
 
@@ -75,7 +75,7 @@ Learn more about how to evolve to a cloud-consolidated enterprise at https://www
 
 ### Q. When do the StorSimple 8000 series devices reach end of service?
 
-A. StorSimple 8000 series reach [end of support](https://support.microsoft.com/[lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) in December 2022. The end of support implies that Microsoft will no longer be able to provide support for both hardware and software of these devices after December 2022. This includes service support and software patches/security patches, and the service itself will be discontinued on December 31, 2022. We strongly recommend that you start formulating a plan to migrate the data from your devices now.
+A. StorSimple 8000 series reach [end of support](https://support.microsoft.com/[lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) in December 2022. The end of support implies that Microsoft will no longer be able to provide support for both hardware and software of these devices after December 2022. That includes service support and software patches/security patches, and the service itself will be discontinued on December 31, 2022. We strongly recommend that you start formulating a plan to migrate the data from your devices now.
 
 ### Q. What happens to the data I have stored in Azure?  
 
