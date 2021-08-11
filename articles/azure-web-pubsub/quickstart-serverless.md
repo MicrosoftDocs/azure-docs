@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 03/11/2021
 ---
 
-# Quickstart: Create a serverless simple chat application with Azure Functions and Azure Web PubSub service 
+# Quickstart: Create a serverless chat with Azure Functions and Azure Web PubSub service 
 
 The Azure Web PubSub service helps you build real-time messaging web applications using WebSockets and the publish-subscribe pattern easily. Azure Functions is a serverless platform that lets you run your code without managing any infrastructure. In this quickstart, learn how to use Azure Web PubSub service and Azure Functions to build a serverless application with real-time messaging and the publish-subscribe pattern.
 
