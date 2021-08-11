@@ -34,7 +34,7 @@ Configuring backups for AG databases will fail with the error code FabricSvcBack
 
 Let’s consider the following AG deployment as reference for this article. 
 
-:::image type="content" source="/media/backup-sql-server-on-availability-groups/ag-deployment.png" alt-text="Diagram for AG deployment as reference.":::
+:::image type="content" source="./media/backup-sql-server-on-availability-groups/ag-deployment.png" alt-text="Diagram for AG deployment as reference.":::
 
 Taking the above sample AG deployment, here are various considerations:
 
@@ -128,7 +128,7 @@ The recommendation is to use the following backup preferences to avoid these syn
 
 Like a standalone SQL instance, one backed-up AG instance is considered as one protected instance. Total frontend size of all protected databases in an instance is charged. Consider the following deployment:
 
-:::image type="content" source="/media/backup-sql-server-on-availability-groups/protected-instances-calculation.png" alt-text="Diagram showing the calculation of protected instances of databases.":::
+:::image type="content" source="./media/backup-sql-server-on-availability-groups/protected-instances-calculation.png" alt-text="Diagram showing the calculation of protected instances of databases.":::
 
 The protected instances are calculated as follows:
 
