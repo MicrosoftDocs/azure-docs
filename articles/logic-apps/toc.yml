@@ -204,7 +204,7 @@
       - name: AS2 message settings
         href: logic-apps-enterprise-integration-as2-message-settings.md
       - name: MDN messages
-        href: logic-apps-as2-mdn-messages.md
+        href: logic-apps-enterprise-integration-as2-mdn-acknowledgment.md
     - name: EDIFACT messaging
       items: 
       - name: Exchange EDIFACT messages
