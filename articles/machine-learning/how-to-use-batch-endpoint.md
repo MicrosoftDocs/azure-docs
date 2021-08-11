@@ -225,7 +225,7 @@ One batch endpoint can have multiple deployments. Each deployment hosts one mode
 
 Use the following command to add a new deployment to an existing batch endpoint.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="add_deployment" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" range="65" :::
 
 This sample uses a non-MLflow model. When using non-MLflow, you'll need to specify the environment and a scoring script in the YAML file:
 
