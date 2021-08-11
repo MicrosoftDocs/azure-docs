@@ -4,7 +4,7 @@ description: Explains how to add, modify, monitor, and delete StorSimple volumes
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 12/09/2017
+ms.date: 08/11/2021
 ms.author: alkohli
 
 ---
