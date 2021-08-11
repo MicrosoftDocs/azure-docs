@@ -65,7 +65,7 @@ In this step, you'll download the VMware HCX Connector OVA file, and then you'll
 
 1. Select a name and location, and select a resource or cluster where you're deploying the VMware HCX Connector. Then review the details and required resources and select **Next**.
 
-1. Review license terms, select the required storage and network and then select **Next**.
+1. Review license terms, select the required storage and network, and then select **Next**.
 
 1. Select the [VMware HCX management network segment](plan-private-cloud-deployment.md#define-vmware-hcx-network-segments) that you defined during the planning state. Then select **Next**.  
 
@@ -139,7 +139,7 @@ You can uninstall HCX Advanced through the portal, which removes the existing pa
    
 1. Enter **yes** to confirm the uninstall.
 
-At this point, HCX Advanced will no longer have the vCenter plugin, and if needed, it can be reinstalled at any time.
+At this point, HCX Advanced will no longer have the vCenter plugin, and if needed, you can reinstall it at any time.
 
 
 ## Next steps

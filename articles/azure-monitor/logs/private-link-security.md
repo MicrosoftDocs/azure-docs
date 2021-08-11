@@ -1,15 +1,15 @@
 ---
-title: Use Azure Private Link to securely connect networks to Azure Monitor
-description: Use Azure Private Link to securely connect networks to Azure Monitor
+title: Use Azure Private Link to connect networks to Azure Monitor
+description: Set up an Azure Monitor Private Link Scope to securely connect networks to Azure Monitor.
 author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ---
 
-# Use Azure Private Link to securely connect networks to Azure Monitor
+# Use Azure Private Link to connect networks to Azure Monitor
 
-[Azure Private Link](../../private-link/private-link-overview.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints. For many services, you just set up an endpoint per resource. However, Azure Monitor is a constellation of different interconnected services that work together to monitor your workloads. As a result, we have built a resource called an Azure Monitor Private Link Scope (AMPLS). AMPLS allows you to define the boundaries of your monitoring network and connect to your virtual network. This article covers when to use and how to set up an Azure Monitor Private Link Scope.
+With [Azure Private Link](../../private-link/private-link-overview.md), you can securely link Azure platform as a service (PaaS) services to your virtual network by using private endpoints. For many services, you just set up an endpoint for each resource. However, Azure Monitor is a constellation of different interconnected services that work together to monitor your workloads. 
 
 ## Advantages
 
@@ -65,4 +65,8 @@ In the above diagram, VNet 10.0.1.x first connects to AMPLS1 and maps the Azure 
 - [Design your Private Link setup](private-link-design.md)
 - Learn how to [configure your Private Link](private-link-configure.md)
 
+<<<<<<< HEAD
 <a id="connect-to-a-private-endpoint"></a> 
+=======
+<a id="connect-to-a-private-endpoint"></a> 
+>>>>>>> MicrosoftDocs-master1

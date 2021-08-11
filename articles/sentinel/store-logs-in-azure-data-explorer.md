@@ -235,5 +235,5 @@ Regardless of where you store your data, continue hunting and investigating usin
 
 For more information, see:
 
-- [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md)
+- [Tutorial: Investigate incidents with Azure Sentinel](investigate-cases.md)
 - [Hunt for threats with Azure Sentinel](hunting.md)
