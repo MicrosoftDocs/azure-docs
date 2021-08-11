@@ -224,7 +224,7 @@ To get the latest extension, which is version 0.1.1, run these commands to remov
 
 ```azurecli-interactive
 az extension remove --name logicapp
-az extension add --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
+az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
 ```
 
 <a name="create-resource-group"></a>
