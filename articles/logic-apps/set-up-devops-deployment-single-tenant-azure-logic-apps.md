@@ -28,7 +28,7 @@ This article shows how to deploy a single-tenant based logic app project from Vi
 
 ## Deploy infrastructure resources
 
-If you don't already have a logic app project or infrastructure set up, you can use the following sample projects to deploy an example app and infrastructure, based on the source and deployment options you prefer to use:
+If you haven't already set up a logic app project or infrastructure, you can use the following sample projects to deploy an example app and infrastructure, based on the source and deployment options you prefer to use:
 
 - [GitHub sample for single-tenant Azure Logic Apps](https://github.com/Azure/logicapps/tree/master/github-sample)
 
@@ -220,7 +220,7 @@ Currently, only the *preview* version for this extension is available. If you ha
 az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
 ```
 
-To get the latest extension, which is version 0.1.1, run these commands to remove the existng extension and then install the latest version from the source:
+To get the latest extension, which is version 0.1.1, run these commands to remove the existing extension and then install the latest version from the source:
 
 ```azurecli-interactive
 az extension remove --name logicapp
