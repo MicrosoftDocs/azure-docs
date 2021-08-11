@@ -20,8 +20,6 @@ In this quickstart, you'll learn how to provision a Windows development machine 
 >[!IMPORTANT]
 >This quickstart demonstrates a solution for a Windows-based workstation. However, you can also perform the procedures on Linux. For a Linux example, see [How to provision for multitenancy](how-to-provision-multitenant.md).
 
-Sample code from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) will be used to provision the device. The device will be recognized based on an individual enrollment with a provisioning service instance and assigned to an IoT hub.
-
 If you're unfamiliar with the process of provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview.
 
 >[!TIP]
