@@ -206,7 +206,7 @@ String[] substring = header.split("/");
 UUID modelId = UUID.fromString(substring[substring.length - 1]);
 System.out.println(modelId);
 
-//Check model status until the model get ready
+//Check model status until the model is ready
 Response<Model> trainResponse;
 while (true) {
     trainResponse = anomalyDetectorClient.getMultivariateModelWithResponse(modelId, Context.NONE);
