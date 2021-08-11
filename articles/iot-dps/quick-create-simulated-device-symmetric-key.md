@@ -57,6 +57,14 @@ If you're unfamiliar with the process of provisioning, review the [provisioning]
 
 ::: zone-end
 
+::: zone pivot="programming-language-java"
+
+* Install [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure) or later installed on your machine.
+
+* Download and install [Maven](https://maven.apache.org/install.html).
+
+::: zone-end
+
 * Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
 
 <a id="setupdevbox"></a>
@@ -164,7 +172,7 @@ The SDK includes the provisioning sample code for devices. This code attempt pro
     git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
     ```
 
-3. Navigate to the `azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios` directory where the sample file, _provision_symmetric_key.py_, is located.
+3. Go to the `azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios` directory where the sample file, _provision_symmetric_key.py_, is located.
 
    ```console
    cd azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios
@@ -175,6 +183,34 @@ The SDK includes the provisioning sample code for devices. This code attempt pro
     ```console
     pip install azure-iot-device
     ```
+
+::: zone-end
+
+
+::: zone pivot="programming-language-java"
+
+## Prepare the Azure IoT Java SDK environment
+
+1. Open a Git CMD or Git Bash command line environment.
+
+2. Clone the [Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java.git) GitHub repository using the following command:
+
+    ```cmd
+    git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
+    ```
+
+3. Go to the root `azure-iot-sdk-java` directory and build the project to download all needed packages.
+
+   ```console
+   cd azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios
+   ```
+
+4. Install the _azure-iot-device_ library by running the following command.
+
+   ```cmd/sh
+   cd azure-iot-sdk-java
+   mvn install -DskipTests=true
+   ```
 
 ::: zone-end
 
@@ -216,7 +252,8 @@ The SDK includes the provisioning sample code for devices. This code attempt pro
 
 ## Prepare and run the device provisioning code
 
-In this section, you'll update the sample code in order to authenticate and assign your device to the IoT hub linked to your Device Provisioning service instance.
+In this section, you'll update the device sample code to send the device's boot sequence to your Device Provisioning service instance. This boot sequence will cause the device to be recognized, authenticated, and assigned to an IoT hub linked to the Device Provisioning service instance.
+
 
 ::: zone pivot="programming-language-ansi-c"
 
@@ -246,7 +283,7 @@ To update and run the provisioning sample with your device information:
 
     >[!TIP]If the file was not generated in your cmake  directory, make sure you used a recent version of the CMake build system.
 
-4. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
+4. In Visual Studio's *Solution Explorer* window, go to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
 
 5. Find the `id_scope` constant, and replace the value with your **ID Scope** value that you copied earlier.
 
@@ -588,6 +625,84 @@ To update and run the provisioning sample with your device information:
     ![Device is registered with the IoT hub](./media/quick-create-simulated-device-symm-key/hub-registration.png)
 
 ::: zone-end
+
+::: zone pivot="programming-language-java"
+
+The sample provisioning code accomplishes the following tasks, in order:
+
+1. Authenticates your device with your Device Provisioning resource using the following four parameters:
+
+    * `GLOBAL_ENDPOINT`
+    * `SCOPE_ID`
+    * `REGISTRATION_ID`
+    * `SYMMETRIC_KEY`
+
+2. Assigns the device to the IoT hub already linked to your Device Provisioning service instance.
+
+3. Sends a test telemetry message to the IoT hub.
+
+To update and run the provisioning sample with your device information:
+
+1. In the main menu of your Device Provisioning service, select **Overview**.
+
+2. Copy the **ID Scope** and **Service Endpoint** values. These are your `SCOPE_ID` and `GLOBAL_ENDPOINT` respectively.
+
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/extract-dps-endpoints-host.png" alt-text="Extract Device Provisioning Service endpoint information":::
+
+3. Open the Java device sample code for editing. The full path to the device sample code is:
+
+    `azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-symmetrickey-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningSymmetricKeySampleSample.java`
+
+4. Replace the vallue of the following variables for your DPS and device enrollement(replace `<id-scope>` with the ID Scope of your Device Provisioning service ID Scope, `<registration-id>` with the registration id of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the service endpoint URl of your Device Provisioning service):
+
+       ```java
+        private static final String SCOPE_ID = "<id-scope>";
+        private static final String GLOBAL_ENDPOINT = "<provisioning-host>";
+        private static final String SYMMETRIC_KEY = "<primarykey>";
+        private static final String REGISTRATION_ID = "<registration-id>";
+      ```
+
+5. Open a command prompt for building. Go to the provisioning sample project folder of the Java SDK repository.
+
+    ```cmd
+    cd azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios
+    ```
+
+6. Build the sample then navigate to the `target` folder to execute the created `.jar` file.
+
+    ```cmd/sh
+    mvn clean install
+    cd target
+    java -jar ./provisioning-symmetrickey-sample-{version}-with-deps.jar
+    ```
+
+7. You should now see something similar to the following output.
+
+     ```cmd/sh
+      Starting...
+      Beginning setup.
+      Waiting for Provisioning Service to register
+      IotHUb Uri : <Your DPS Service Name>.azure-devices.net
+      Device ID : java-device-007
+      Sending message from device to IoT Hub...
+      Press any key to exit...
+      Message received! Response status: OK_EMPTY
+    ```
+
+7. Go to the [Azure portal](https://portal.azure.com).
+
+8. On the left-hand menu or on the portal page, select **All resources**.
+
+9. Select the IoT hub to which your device was assigned.
+
+10. In the **Explorers** menu, select **IoT Devices**.
+
+11. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
+
+    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-symm-key/hub-registration.png)
+
+::: zone-end
+
 
 > [!NOTE]
 > If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
