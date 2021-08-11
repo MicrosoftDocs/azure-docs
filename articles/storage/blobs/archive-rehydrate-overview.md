@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.author: tamram
-ms.date: 08/04/2021
+ms.date: 08/11/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -18,9 +18,9 @@ While a blob is in the archive access tier, it's considered offline and can't be
 
 - [Copy an archived blob to an online tier](#copy-an-archived-blob-to-an-online-tier): You can rehydrate an archived blob by copying it to a new blob in the hot or cool tier with the [Copy Blob](/rest/api/storageservices/copy-blob) or [Copy Blob from URL](/rest/api/storageservices/copy-blob-from-url) operation. Microsoft recommends this option for most scenarios.
 
-- [Change an archived blob's tier to an online tier](#change-an-archived-blobs-tier): You can rehydrate an archived blob to hot or cool by changing its tier using the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation.
+- [Change a blob's access tier to an online tier](#change-a-blobs-access-tier-to-an-online-tier): You can rehydrate an archived blob to hot or cool by changing its tier using the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation.
 
-When you rehydrate a blob from the archive tier to an online tier using one of these methods, [Azure Event Grid](../../event-grid/overview.md) raises an event. You can configure Event Grid to send the event to an event handler. For more information, see [Handle an event on blob rehydration](#handle-events-on-blob-rehydration).
+When you rehydrate a blob from the archive tier to an online tier using one of these methods, [Azure Event Grid](../../event-grid/overview.md) raises an event. You can configure Event Grid to send the event to an event handler. For more information, see [Handle an event on blob rehydration](#handle-an-event-on-blob-rehydration).
 
 For more information about the archive tier, see [Archive access tier](storage-blob-storage-tiers.md#archive-access-tier).
 
@@ -53,7 +53,7 @@ Microsoft recommends performing a copy operation in most scenarios where you nee
 Copying a blob from archive can take hours to complete depending on the rehydration priority selected. Behind the scenes, a blob copy operation reads your archived source blob to create a new online blob in the selected destination tier. The new blob may be visible when you list the blobs in the parent container, but the data is not available until the read operation from the source blob in the archive tier is complete and the blob's contents have been written to the new destination blob in an online tier. The new blob is an independent copy, so modifying or deleting it does not affect the source blob in the archive tier.
 
 > [!IMPORTANT]
-> Do not delete the the source blob until the copy operation has completed successfully at the destination. If the source blob is deleted, then the destination blob may not finish copying. You can handle the event that is raised when the copy operation completes to know when it is safe to delete the source blob. For more information, see [Handle an event on blob rehydration](#handle-events-on-blob-rehydration).
+> Do not delete the the source blob until the copy operation has completed successfully at the destination. If the source blob is deleted, then the destination blob may not finish copying. You can handle the event that is raised when the copy operation completes to know when it is safe to delete the source blob. For more information, see [Handle an event on blob rehydration](#handle-an-event-on-blob-rehydration).
 
 Copying an archived blob to an online destination tier is supported within the same storage account only. You cannot copy an archived blob to a destination blob that is also in the archive tier.
 
@@ -65,7 +65,7 @@ The following table shows the behavior of a blob copy operation, depending on th
 | **Cool tier destination** | Supported | Supported | Supported within the same account; pending rehydrate |
 | **Archive tier destination** | Supported | Supported | Unsupported |
 
-## Change an archived blob's tier
+## Change a blob's access tier to an online tier
 
 The second option for rehydrating a blob from the archive tier to an online tier is to change the blob's tier by calling [Set Blob Tier](/rest/api/storageservices/set-blob-tier). With this operation, you can change the tier of the archived blob to either hot or cool.
 
@@ -77,7 +77,7 @@ To check the status of the [Set Blob Tier](/rest/api/storageservices/set-blob-ti
 
 When the rehydration operation is complete, the blob's access tier property updates to reflect the new tier.
 
-To learn how to configure Azure Event Grid to fire an event when the rehydration is complete and then handle the event with an Azure Function, see [Handle an event on blob rehydration](#handle-events-on-blob-rehydration).
+To learn how to configure Azure Event Grid to fire an event when the rehydration is complete and then handle the event with an Azure Function, see [Handle an event on blob rehydration](#handle-an-event-on-blob-rehydration).
 
 > [!CAUTION]
 > Changing a blob's tier doesn't affect its last modified time. If there is a [lifecycle management](storage-lifecycle-management-concepts.md) policy in effect for the storage account, then rehydrating a blob with **Set Blob Tier** can result in a scenario where the lifecycle policy moves the blob back to the archive tier after rehydration because the last modified time is beyond the threshold set for the policy.

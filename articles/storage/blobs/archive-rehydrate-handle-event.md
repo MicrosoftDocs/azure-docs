@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/10/2021
+ms.date: 08/11/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
@@ -32,7 +32,7 @@ This article shows how to use [Visual Studio 2019](https://visualstudio.microsof
 
 To debug the Azure Function locally, you will need to use a tool that can send an HTTP request, such as Postman.
 
-An [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing) is required. If you don't already have an account, [create a free one](https://azure.microsoft.com/free/dotnet/) before you begin.
+An [Azure subscription](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing) is required. If you don't already have an account, [create a free one](https://azure.microsoft.com/free/dotnet/) before you begin.
 
 ## Create an Azure Function app
 
@@ -281,7 +281,7 @@ To test the Azure Function, you can trigger an event in the storage account that
 > [!TIP]
 > Although the goal of this how-to is to handle these events in the context of blob rehydration, for testing purposes it may helpful to observe these events in response to uploading a blob or changing an online blob's tier, because the event fires immediately.
 
-Rehydrating a blob can take up to 15 hours, depending on the rehydration priority setting. If you set the rehydration priority to **High**, rehydration may complete in under one hour for blobs that are less than 10 GB in size. However, a high-priority rehydration incurs a greater cost. For more information, see [Rehydrate blob data from the archive tier](archive-rehydrate-overview.md#rehydrate-an-archived-blob-to-an-online-tier).
+Rehydrating a blob can take up to 15 hours, depending on the rehydration priority setting. If you set the rehydration priority to **High**, rehydration may complete in under one hour for blobs that are less than 10 GB in size. However, a high-priority rehydration incurs a greater cost. For more information, see [Change a blob's access tier to an online tier](archive-rehydrate-overview.md#change-a-blobs-access-tier-to-an-online-tier).
 
 ### Rehydrate a blob with a copy operation
 
