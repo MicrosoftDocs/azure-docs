@@ -70,11 +70,22 @@
     - name: Failover and patching
       href: cache-failover.md
     - name: Best practices
+      href: cache-best-practices.md
       items:
        - name: Connection Resilience
-       - href: cache-best-practices-connection.md
-       - name: OG Best Practices
-       - href: cache-best-practices-og.md
+         href: cache-best-practices-connection.md
+       - name: Server load management
+         href: cache-best-practices-server-load.md
+       - name: Memory Management
+         href: cache-best-practices-memory-management.md
+       - name: Development
+         href: cache-best-practices-development.md
+       - name: Scaling
+         href: cache-best-practices-scale.md
+       - name: Kubernetes-hosted client applications
+         href: cache-best-practices-kubernetes.md
+       - name: Resilience and performance testing
+         href: cache-best-practices-resilience-performance.md
     - name: Security
       items:
       - name: Network isolation options
