@@ -23,7 +23,7 @@ This article is to show you how you can create a customized Windows image using 
 - identity - providing an identity for Azure Image Builder to use during the build
 
 
-You can also specify a `buildTimeoutInMinutes`. The default is 240 minutes, and you can increase a build time to allow for longer running builds. The minimum allowed  value is 6 minutes; shorter values will cause errors.
+You can also specify a `buildTimeoutInMinutes`. The default is 240 minutes, and you can increase a build time to allow for longer running builds. The minimum allowed value is 6 minutes; shorter values will cause errors.
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
 
