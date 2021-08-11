@@ -21,7 +21,7 @@ In this article, you'll learn how to deploy Azure Video Analyzer on an edge devi
 
 The following depicts the overall flow of the document and in 5 simple steps you should be all set up to run Azure Video Analyzer on a Windows device  that has EFLOW:
 
-![IoT Edge for Linux on Windows (EFLOW) diagram](./media/deploy-iot-edge-linux-on-windows/eflow.png)
+![IoT Edge for Linux on Windows (EFLOW) diagram](./media/deploy-iot-edge-linux-on-windows/eflow-updated.png)
 
 1. [Install EFLOW](../../iot-edge/how-to-install-iot-edge-on-windows.md) on your Windows device using PowerShell.
 
