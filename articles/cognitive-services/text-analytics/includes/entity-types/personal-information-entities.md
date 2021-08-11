@@ -32,7 +32,7 @@ The following entity categories are returned when you're sending requests to the
 | [DateTime](#category-datetime) | Dates and times of day. | 
 | [Quantity](#category-quantity) | Numbers and numeric quantities.  |
 | [Azure information](#azure-information) | Identifiable Azure information, such as authentication information.  |
-| [Identification](#identification) | Financial and country specific identification.  |
+| [Identification](#identification) | Financial and country-specific identification.  |
 
 ### Category: Person
 
@@ -446,7 +446,7 @@ The entity in this category can have the following subcategories.
 
 ### Azure information
 
-These entity categories includes identifiable Azure information, including authentication information and connection strings. Not returned with the `domain=phi` parameter.
+These entity categories include identifiable Azure information, including authentication information and connection strings. Not returned with the `domain=phi` parameter.
 
 :::row:::
     :::column span="":::
