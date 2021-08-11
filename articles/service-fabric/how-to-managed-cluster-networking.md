@@ -330,9 +330,9 @@ This feature allows customers to use an existing virtual network by specifying a
 > [!NOTE]
 > This setting cannot be changed once the cluster is created and the managed cluster will assign a NSG to the provided subnet. Do not override the NSG assignment or traffic may break.
 
-To bring your own virtual network:
-**1\) Get the service `Id` from your subscription for Service Fabric Resource Provider application:**
+**To bring your own virtual network:**
 
+1\) Get the service `Id` from your subscription for Service Fabric Resource Provider application.
 ```powershell
 Login-AzAccount
 Select-AzSubscription -SubscriptionId <SubId>
