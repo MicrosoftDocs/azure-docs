@@ -28,7 +28,8 @@ This article shows you how to use managed identities from a virtual machine to c
  - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md).
 - Before you begin, you must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 - A [Comos DB account](../../cosmos-db/create-cosmosdb-resources-portal.md).
-- You may need either [PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-6.3.0) or the [CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- You may need either [PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-6.3.0) or the [CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- A resource group that we can use to create all resources.
 
 
 ## Create a virtual machine with a managed identity
@@ -98,8 +99,8 @@ New-AzVm `
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
    ```
 
-- [Create a Linux virtual machine with a system assigned managed identity](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli)
-- [Create a Windows virtual machine with a system assigned managed identity](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
+- [Create a Linux virtual machine with a system assigned managed identity](../../virtual-machines/linux/quick-create-cli.md)
+- [Create a Windows virtual machine with a system assigned managed identity](../../virtual-machines/windows/quick-create-cli.md)
 
 # [Resource Manager Template](#tab/azure-resource-manager)
 
@@ -132,7 +133,7 @@ When you're done, the following sections should be added to the `resource` secti
 
 ### User-assigned managed identities
 
-User-assigned managed identities can be used on multiple resources. To learn more about managed identities, for information on how to create or delete user-assigned managed identities you can review [Manage user-assigned managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots)
+User-assigned managed identities can be used on multiple resources. To learn more about managed identities, for information on how to create or delete user-assigned managed identities you can review [Manage user-assigned managed identities](how-manage-user-assigned-managed-identities.md)
 
 To assign a user-assigned identity to a VM, your account needs the Virtual Machine Contributor and Managed Identity Operator role assignments. No additional Azure AD directory role assignments are required.
 
@@ -212,7 +213,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
 Create a user-assigned managed identity using the [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/new-azuserassignedidentity) cmdlet.  Write down the `Id` in the output because you will need this information in the next step.
 
 > [!IMPORTANT]
-> Creating user-assigned managed identities only supports alphanumeric, underscore and hyphen (0-9 or a-z or A-Z, \_ or -) characters. Additionally, name should be limited from 3 to 128 character length for the assignment to VM/VMSS to work properly. For more information see [FAQs and known issues](known-issues.md)
+> Creating user-assigned managed identities only supports alphanumeric, underscore and hyphen (0-9 or a-z or A-Z, \_ or -) characters. Additionally, name should be limited from 3 to 128 character length for the assignment to VM/VMSS to work properly. For more information see [FAQs](managed-identities-faq.md) and [known issues](known-issues.md)
 
 ```azurepowershell-interactive
 New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
@@ -251,7 +252,7 @@ Now that you have a virtual machine configured with a managed identity we need t
 
 ### Grant access to a managed identity
 
-Cosmos DB uses RBAC roles to grant access to either data plan or management plane operations. The article titled [Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-rbac) helps you configure access to data plane operations. From the perspective of rights assignment a managed identity is granted access the same way that you would grant access to any other identity.
+Cosmos DB uses RBAC roles to grant access to either data plan or management plane operations. The article titled [Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account](../../cosmos-db/how-to-setup-rbac.md) helps you configure access to data plane operations. From the perspective of rights assignment a managed identity is granted access the same way that you would grant access to any other identity.
 
 ### Test access (?????)
 
@@ -294,6 +295,6 @@ TBD what we would show here
 
 Learn more about managed identities for Azure resources:
 
-* [What are managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+* [What are managed identities for Azure resources?](overview.md)
 * [Azure Resource Manager templates](https://github.com/Azure/azure-quickstart-templates)
 
