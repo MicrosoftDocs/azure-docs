@@ -27,11 +27,25 @@ In this how-to guide, you'll learn about how to add Amazon RDS databases as Purv
 
 ## Purview scope for Amazon RDS
 
-- **Supported database engines**: Amazon RDS structured data storage supports multiple DB engines. Azure Purview supports Amazon RDS with/based on Microsoft SQL and PostgreSQL.
+- **Supported database engines**: Amazon RDS structured data storage supports multiple database engines. Azure Purview supports Amazon RDS with/based on Microsoft SQL and PostgreSQL.
 
-- **Maximum columns supported**. Scanning RDS tables with more than 300 columns is not supported.
+- **Maximum columns supported**: Scanning RDS tables with more than 300 columns is not supported.
 
-- **VPC scanning support**. Purview support with VPC Private Link in AWS will work only on the AWS regions where the scanner is deployed locally. For more information, see [Storage and scanning regions](#storage-and-scanning-regions).
+- **Public access support**: Purview supports scanning only with VPC Private Link in AWS, and is does not include public access scanning.
+
+- **Supported regions**: Purview only supports Amazon RDS databases that are located in the following regions:
+
+    - US East (Ohio)
+    - US East (N. Virginia)
+    - US West (N. California)
+    - US West (Oregon)
+    - Europe (Frankfurt)
+    - Asia Pacific (Tokyo)
+    - Asia Pacific (Singapore)
+    - Asia Pacific (Sydney)
+    - Europe (Ireland)
+    - Europe (London)
+    - Europe (Paris)
 
 For more information, see:
 
@@ -39,58 +53,19 @@ For more information, see:
 - [Supported data sources and file types in Azure Purview](sources-and-scans.md)
 - [Use private endpoints for your Purview account](catalog-private-link.md)
 
-### Storage and scanning regions
-
-The Purview connector for the Amazon RDS service is currently deployed in specific regions only. The following table maps the regions where you data is stored to the region where it would be scanned by Azure Purview.
-
-> [!IMPORTANT]
-> Customers will be charged for all related data transfer charges according to the region of their bucket.
->
-
-| Storage region | Scanning region |
-| ------------------------------- | ------------------------------------- |
-| US East (Ohio)                  | US East (Ohio)                        |
-| US East (N. Virginia)           | US East (N. Virginia)                       |
-| US West (N. California)         | US West (N. California)                        |
-| US West (Oregon)                | US West (Oregon)                      |
-| Africa (Cape Town)              | Europe (Frankfurt)                    |
-| Asia Pacific (Hong Kong)        | Asia Pacific (Tokyo)                |
-| Asia Pacific (Mumbai)           | Asia Pacific (Singapore)                |
-| Asia Pacific (Osaka-Local)      | Asia Pacific (Tokyo)                 |
-| Asia Pacific (Seoul)            | Asia Pacific (Tokyo)                 |
-| Asia Pacific (Singapore)        | Asia Pacific (Singapore)                 |
-| Asia Pacific (Sydney)           | Asia Pacific (Sydney)                  |
-| Asia Pacific (Tokyo)            | Asia Pacific (Tokyo)                |
-| Canada (Central)                | US East (Ohio)                        |
-| China (Beijing)                 | Not supported                    |
-| China (Ningxia)                 | Not supported                   |
-| Europe (Frankfurt)              | Europe (Frankfurt)                    |
-| Europe (Ireland)                | Europe (Ireland)                   |
-| Europe (London)                 | Europe (London)                 |
-| Europe (Milan)                  | Europe (Paris)                    |
-| Europe (Paris)                  | Europe (Paris)                   |
-| Europe (Stockholm)              | Europe (Frankfurt)                    |
-| Middle East (Bahrain)           | Europe (Frankfurt)                    |
-| South America (São Paulo)       | US East (Ohio)                        |
-| | |
-
 ## Prerequisites
 
-Ensure that you've performed the following prerequisites before adding your Amazon RDS buckets as Purview data sources and scanning your RDS data.
+Ensure that you've performed the following prerequisites before adding your Amazon RDS database as Purview data sources and scanning your RDS data.
 
 > [!div class="checklist"]
 > * You need to be an Azure Purview Data Source Admin.
 > * You need a Purview account. [Create an Azure Purview account instance](create-catalog-portal.md), if you don't yet have one.
-> * You need an Amazon RDS PostgreSQL or Microsoft SQL database, with data
+> * You need an Amazon RDS PostgreSQL or Microsoft SQL database, with data.
 
-
-> [!NOTE]
-> Additional steps are required to support Amazon RDS databases behind private networks (VPC). For more information, see [Prepare an RDS database in a VPC](#prepare-an-rds-database-in-a-vpc). If you don't have a VPC, start with [Register an Amazon RDS data source](#register-an-amazon-rds-data-source).
->
 
 ## Prepare an RDS database in a VPC
 
-Amazon RDS is often located in a VPC (private network), which means that RDS databases can only be accessed from within the same VPC.
+Azure Purview supports scanning only when your database is hosted in a virtual private cloud (VPC), where your RDS database can only be accessed from within the same VPC.
 
 The Azure Purview scanner service runs in a separate, Microsoft account in AWS. To scan your RDS databases, the Microsoft AWS account needs to be able to access your RDS databases in your VPC. To allow this access, you’ll need to configure AWS Private Link between the RDS VPC (in the customer account) to the VPC where the Purview scanner runs (in the Microsoft account).
 
@@ -98,7 +73,7 @@ The following diagram shows the components in both your customer account and Mic
 
 :::image type="content" source="media/register-scan-amazon-rds/vpc-architecture.png" alt-text="Diagram of the Purview Scanner service in a VPC architecture.":::
 
-TBD
+TBD automatic procedure and QUESTION to Oded do we want both automatic and manual procedure?
 
 
  
@@ -122,7 +97,9 @@ TBD
         > We recommend that you copy this URL from the Amazon RDS portal, and make sure that the URL includes the AWS region.
         >
 
-    - **Port** (RDS PostgreSQL only): Enter the port used to connect to the RDS database, such as `5432`.
+    - **Port** : Enter the port used to connect to the RDS database:
+        - PostgreSQL: `5432`
+        - Microsoft SQL: `1433`
 
     - **Connect to private network via endpoint service**: Enter the value of the service name you located at the end of TBD.
 
