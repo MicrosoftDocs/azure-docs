@@ -51,7 +51,7 @@ You must have _Contributor_ level access to the private cloud to manage placemen
 
 **VM-Host** policies specify if selected VMs can run on selected hosts.  To avoid interference with platform-managed operations such as host maintenance mode and host replacement, **VM-Host** policies in Azure VMware Solution are always preferential (also known as "should" rules). Accordingly, **VM-Host** policies [may not be honored in certain scenarios](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.resmgmt.doc/GUID-793013E2-0976-43B7-9A00-340FA76859D0.html). For more information, see [Monitor the operation of a policy](#monitor-the-operation-of-a-policy) below.
 
-Certain platform operations will dynamically update the list of hosts defined in **VM-Host** policies. For example, when you delete a host that is a member of a placement policy, the host is removed if more than one host is part of that policy. Also, if a host is part of a policy and needs to be replaced as part of a platform-managed operation, the policy is updated dynamically with the new host.
+Certain platform operations dynamically update the list of hosts defined in **VM-Host** policies. For example, when you delete a host that is a member of a placement policy, the host is removed if more than one host is part of that policy. Also, if a host is part of a policy and needs to be replaced as part of a platform-managed operation, the policy is updated dynamically with the new host.
 
 In addition to choosing a name and cluster for the policy, a **VM-Host** policy requires that you select at least one VM and one host to assign to the policy.
 
@@ -70,7 +70,7 @@ In addition to choosing a name and cluster for the policy, a **VM-Host** policy 
 
 Azure VMware Solution attempts to prevent certain DRS rule violations from occurring when performing cluster scale-in operations.
 
-You can't remove the last host from a VM-Host policy. If you need to remove the last host from the policy, you can remediate this by adding another host to the policy prior to removing the host from the cluster. Alternatively, you can delete the placement policy        prior to removing the host.
+You can't remove the last host from a VM-Host policy. However, if you need to remove the last host from the policy, you can remediate this by adding another host to the policy before removing the host from the cluster. Alternatively, you can delete the placement policy before removing the host.
 
 You can't have a VM-VM Anti Affinity policy with more VMs than the number of hosts in a cluster. If removing a host would result in fewer hosts in the cluster than VMs, you'll receive an error preventing the operation. You can remediate this by first removing VMs from the rule and then removing the host from the cluster.
 
@@ -81,25 +81,21 @@ If DRS rule conflicts are detected when you create a VM-VM policy, it results in
 
 
 
-## Create a policy
+## Create a VM-VM affinity policy
 
 Make sure to review the requirements for the [policy type](#placement-policy-types).
 
-1. In your Azure VMware Solution private cloud, under **Manage**, select **Placement policies** > **Add placement policy**.
+1. In your Azure VMware Solution private cloud, under **Manage**, select **Placement policies** > **Create**.
 
-   :::image type="content" source="media/placement-policies/add-placement-policy-1.png" alt-text="Screenshot showing " lightbox="media/placement-policies/add-placement-policy-1.png":::
-
-
-1. Provide a descriptive name, select the policy type, and then select the cluster where the policy is being created.
-
-   >[!TIP]
-   >You can also select the cluster from the Placement policy overview pane before you select **Add placement policy**.
+   :::image type="content" source="media/placement-policies/create-placement-policy.png" alt-text="Screenshot showing " lightbox="media/placement-policies/create-placement-policy.png":::
 
 
-1. Select the **Enable** checkbox to enable the policy.  
+1. Provide a descriptive name, select the policy type, and then select the cluster where the policy is being created. Then select **Enable**
 
-   >[!TIP]
-   >If you want to disable the policy, then clear the **Enable** checkbox. The policy and underlying DRS rule are created, but the policy actions are ignored until you enable the policy. 
+   >[!WARNING]
+   >If you disable the policy, then the policy and underlying DRS rule are created, but the policy actions are ignored until you enable the policy. 
+
+   :::image type="content" source="media/placement-policies/create-placement-policy-vm-vm-affinity-1.png" alt-text="Screenshot showing " lightbox="media/placement-policies/create-placement-policy-vm-vm-affinity-1.png":::   
 
 1. Select **Add virtual machine** and then select the VMs to include in the policy. You can select multiple VMs.
 
@@ -128,7 +124,7 @@ You can change the state of a policy to enabled or disabled.
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Placement policies**.
 
-1. For the policy you want to edit, select **Settings** (:::image type="icon" source="media/icon-cog-wheel.png":::) and then select **Edit**.
+1. For the policy you want to edit, select **More** (...) and then select **Edit**.
 
    >[!TIP]
    >You can disable a policy from the Placement policy overview by selecting **Disable** from the Settings drop-down. 
@@ -145,7 +141,7 @@ You can add new resources, such as a VM or a host, to a policy or remove existin
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Placement policies**.
 
-1. For the policy you want to edit, select **Settings** (:::image type="icon" source="media/icon-cog-wheel.png":::) and then select **Edit**.
+1. For the policy you want to edit, select **More** (...) and then select **Edit**.
 
    - To remove an existing resource, select the checkbox next to the resource and then select **Unassign**.  You can remove multiple resources.
 
@@ -163,7 +159,7 @@ You can delete a placement policy and its corresponding DRS rule.
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Placement policies**.
 
-1. For the policy you want to edit, select **Settings** (:::image type="icon" source="media/icon-cog-wheel.png":::) and then select **Delete**.
+1. For the policy you want to edit, select **More** (...) and then select **Delete**.
 
 1. Select **Delete** on the confirmation message.
 
