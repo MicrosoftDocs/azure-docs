@@ -1,6 +1,6 @@
 ---
-title: Provision a device with symmetric keys
-description: In this quickstart, you will provision a device that uses symmetric key with the Azure IoT Hub Device Provisioning Service (DPS)
+title: Quickstart - Provision a device with symmetric keys
+description: Learn how to provision a device that authenticates with a symmetric key in the Azure IoT Hub Device Provisioning Service (DPS)
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 08/11/2021
@@ -15,11 +15,7 @@ zone_pivot_groups: iot-dps-set1
 
 # Quickstart: Provision a device with symmetric keys
 
-In this quickstart, you'll learn:
-
-* How to run device provisioning code on a Windows development machine. Device provisioning code connects the device to an IoT Hub.
-
-* How to configure the device to use symmetric key authentication with a Device Provisioning service instance and be assigned to an IoT hub.
+In this quickstart, you'll learn how to provision a Windows development machine as a device to an IoT hub. The device will use a symmetric key and an individual enrollment to authenticate with a Device Provisioning Service (DPS) instance. Once authenticated, it will then be assigned to an IoT hub.
 
 >[!IMPORTANT]
 >This quickstart demonstrates a solution for a Windows-based workstation. However, you can also perform the procedures on Linux. For a Linux example, see [How to provision for multitenancy](how-to-provision-multitenant.md).
@@ -118,7 +114,6 @@ The SDK includes the provisioning sample code for devices. This code attempt pro
     -- Selecting Windows SDK version 10.0.19041.0 to target Windows 10.0.19042.
     -- The C compiler identification is MSVC 19.29.30040.0
     -- The CXX compiler identification is MSVC 19.29.30040.0
-
 
     ...
 
@@ -413,11 +408,11 @@ To update and run the provisioning sample with your device information:
 
 1. In the main menu of your Device Provisioning service, select **Overview**.
 
-2. Copy the **ID Scope** value.
+2. Copy the **ID Scope** and **Service Endpoint** values.
 
-    :::image type="content" source="./media/quick-create-simulated-device-symm-key/extract-dps-endpoints.png" alt-text="Extract Device Provisioning Service endpoint information":::
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/extract-dps-endpoints-host.png" alt-text="Extract Device Provisioning Service endpoint information":::
 
-3. Open a command prompt for executing Node.js commands, and navigate to the following *provisioning/device/samples* directory.
+3. Open a command prompt for executing Node.js commands, and go to the following directory:
 
     ```cmd
     cd azure-iot-sdk-node/provisioning/device/samples
@@ -435,9 +430,7 @@ To update and run the provisioning sample with your device information:
 
     No further changes are needed.
 
-5. In your command prompt, you'll now set the environment variables for the provisioning host, ID Scope, registration ID, and primary symmetric keys. You copied the values for ID Scope, registration ID, and primary symmetric key in the previous sections. The provisioning host is the service endpoint URI, and is located on the front page of your Device Provisioning service in the Azure portal. The provisioning host would look something like: `test-dps-docs.azure-devices-provisioning.net`.
-
-    The following commands are examples to show command syntax. Replace `<id-scope>` with the ID Scope of your Device Provisioning service ID Scope, `<registration-id>` with the registration id of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the service endpoint URl of your Device Provisioning service.
+5. In your command prompt, you'll now set the following environment variables (replace `<id-scope>` with the ID Scope of your Device Provisioning service ID Scope, `<registration-id>` with the registration id of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the service endpoint URl of your Device Provisioning service):
 
     ```console
     set PROVISIONING_HOST=<provisioning-host>
@@ -491,6 +484,106 @@ To update and run the provisioning sample with your device information:
 11. In the **Explorers** menu, select **IoT Devices**.
 
 12. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
+
+    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-symm-key/hub-registration.png)
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+The sample provisioning code accomplishes the following tasks, in order:
+
+1. Authenticates your device with your Device Provisioning resource using the following four parameters:
+
+    * `PROVISIONING_HOST`
+    * `PROVISIONING_IDSCOPE`
+    * `PROVISIONING_REGISTRATION_ID`
+    * `PROVISIONING_SYMMETRIC_KEY`
+
+2. Assigns the device to the IoT hub already linked to your Device Provisioning service instance.
+
+3. Sends a test telemetry message to the IoT hub.
+
+To update and run the provisioning sample with your device information:
+
+1. In the main menu of your Device Provisioning service, select **Overview**.
+
+2. Copy the **ID Scope** and **Service Endpoint** values.
+
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/extract-dps-endpoints-host.png" alt-text="Extract Device Provisioning Service endpoint information":::
+
+3. In your command prompt, you'll now set the following environment variables (replace `<id-scope>` with the ID Scope of your Device Provisioning service ID Scope, `<registration-id>` with the registration id of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the service endpoint URl of your Device Provisioning service):
+
+    ```console
+    set PROVISIONING_HOST=<provisioning-host>
+    ```
+
+    ```console
+    set PROVISIONING_IDSCOPE=<id-scope>
+    ```
+
+    ```console
+    set PROVISIONING_REGISTRATION_ID=<registration-id>
+    ```
+
+    ```console
+    set PROVISIONING_SYMMETRIC_KEY=<primarykey>
+    ```
+
+4. In the command prompt window, go to the following directory:
+
+    ```cmd
+    cd azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios
+    ```
+
+5. Run the python sample code in *_provision_symmetric_key.py_*.
+
+    ```console
+    python provision_symmetric_key.py
+    ```
+
+6. You should now see something similar to the following output. Some example wind speed telemetry messages are also sent to the hub as a test.
+
+     ```output
+    D:\azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios>python provision_symmetric_key.py
+    RegistrationStage(RequestAndResponseOperation): Op will transition into polling after interval 2.  Setting timer.
+    The complete registration result is
+    python-device-008
+    docs-test-iot-hub.azure-devices.net
+    initialAssignment
+    null
+    Will send telemetry from the provisioned device
+    sending message #8
+    sending message #9
+    sending message #3
+    sending message #10
+    sending message #4
+    sending message #2
+    sending message #6
+    sending message #7
+    sending message #1
+    sending message #5
+    done sending message #8
+    done sending message #9
+    done sending message #3
+    done sending message #10
+    done sending message #4
+    done sending message #2
+    done sending message #6
+    done sending message #7
+    done sending message #1
+    done sending message #5
+    ```
+
+7. Go to the [Azure portal](https://portal.azure.com).
+
+8. On the left-hand menu or on the portal page, select **All resources**.
+
+9. Select the IoT hub to which your device was assigned.
+
+10. In the **Explorers** menu, select **IoT Devices**.
+
+11. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
 
     ![Device is registered with the IoT hub](./media/quick-create-simulated-device-symm-key/hub-registration.png)
 
