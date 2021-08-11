@@ -310,7 +310,7 @@ Managed clusters do not enable IPv6 by default. This feature will enable full du
             }
 ```
 
-2) Deploy your IPv6 enabled managed cluster. Customize the [sample template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/fixme/AzureDeploy.json) as needed or build your own.
+2) Deploy your IPv6 enabled managed cluster. Customize the [sample template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-IPv6/AzureDeploy.json) as needed or build your own.
 In the following example, we'll create a resource group called `MyResourceGroup` in `westus` and deploy a cluster with this feature enabled.
 ```powershell
     New-AzResourceGroup -Name MyResourceGroup -Location westus
@@ -330,26 +330,8 @@ This feature allows customers to use an existing virtual network by specifying a
 > [!NOTE]
 > This setting cannot be changed once the cluster is created and the managed cluster will assign a NSG to the provided subnet. Do not override the NSG assignment or traffic may break.
 
-In the following example, we start with an existing virtual network named ExistingRG-vnet, in the ExistingRG resource group. The subnet is named default.
-
-1) Obtain the the required info from the existing VNet.
-
-```powershell
-Login-AzAccount
-Select-AzSubscription -SubscriptionId <SubId>
-Get-AzVirtualNetwork -Name ExistingRG-vnet -ResourceGroupName ExistingRG
-```
-Note the following subnet name and `Id` property value that is returned from the `Subnets` section in the response you'll use in later steps.
-
-```JSON
-Subnets:[
-{
-...
-"Id": "/subscriptions/<subscriptionId>/resourceGroups/Existing-RG/providers/Microsoft.Network/virtualNetworks/ExistingRG-vnet/subnets/default"
-}]
-```
-
-2) Get the service `Id` from your subscription for Service Fabric Resource Provider application:
+To bring your own virtual network:
+1) Get the service `Id` from your subscription for Service Fabric Resource Provider application:
 
 ```powershell
 Login-AzAccount
@@ -376,13 +358,32 @@ Note the **Id** of the previous output as **principalId** for use in a later ste
 
 Note the `Role definition name` and `Role definition ID` property values for use in a later step
 
-3) Add a role assignment to the Service Fabric Resource Provider application. This is a one time action. You add the role by running the following PowerShell commands or ARM Template. 
+2) Add a role assignment to the Service Fabric Resource Provider application. This is a one time action. You add the role by running the following PowerShell commands or by configuring an ARM Template as detailed below. 
 
-You'll use the subnet `Id` property returned in step 1 for `Scope` value along with the `principalId` and role definition name from step 2.
+In the following steps, we start with an existing virtual network named ExistingRG-vnet, in the ExistingRG resource group. The subnet is named default.
 
+Obtain the the required info from the existing VNet.
+
+```powershell
+Login-AzAccount
+Select-AzSubscription -SubscriptionId <SubId>
+Get-AzVirtualNetwork -Name ExistingRG-vnet -ResourceGroupName ExistingRG
+```
+Note the following subnet name and `Id` property value that is returned from the `Subnets` section in the response you'll use in later steps.
+
+```JSON
+Subnets:[
+{
+...
+"Id": "/subscriptions/<subscriptionId>/resourceGroups/Existing-RG/providers/Microsoft.Network/virtualNetworks/ExistingRG-vnet/subnets/default"
+}]
+```
+
+Run the following PowerShell command using the principal ID, role definition name from step 2, and assignment scope `Id` obtained above:
 ```powershell
 New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Network Contributor" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
 ```
+
 Or you can add the role assignment by using an ARM Template configured with proper values for `principalId`, `roleDefinitionId`, `vnetName`, and `subnetName`:
 
 ```JSON
@@ -401,7 +402,7 @@ Or you can add the role assignment by using an ARM Template configured with prop
 > [!NOTE]
 > vnetRoleAssignmentID should be a valid GUID. If you deploy again the same template including this role assignment, make sure the GUID is the same as the one originally used or remove this resource as it just needs to be created once.
 
-Here is a full sample [role assignment ARM Template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/fixme/SFMC-VNet-RoleAssign.json) you can use for this step.
+Here is a full sample [ARM Template that creates a VNet subnet and does role assignment](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOVNET/SFMC-VNet-RoleAssign.json) you can use for this step.
 
 3) Configure the `subnetId` property for the cluster deployment after the role is setup as shown below:
 
@@ -417,7 +418,7 @@ Here is a full sample [role assignment ARM Template](https://raw.githubuserconte
             ...
             }
 ```
-See the [bring your own load balancer cluster sample template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/fixme/AzureDeploy.json) for an example you can use or customize your own.
+See the [bring your own VNet cluster sample template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOVNET/AzureDeploy.json) or customize your own.
 
 4) Deploy the configured managed cluster ARM Template
 
@@ -427,12 +428,11 @@ In the following example, we'll create a resource group called `MyResourceGroup`
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName MyResourceGroup -TemplateFile AzureDeploy.json
 ```
 
-When you bring your own VNet the public endpoint is still created and managed by the resource provider. The feature does not allow you to specify the public ip/re-use static ip on the Azure Load Balancer. You can [bring your own Azure Load Balancer](#byolb) in concert with this feature or by itself if you require those or other load balancer scenarios that aren't natively supported.
-
+When you bring your own VNet subnet the public endpoint is still created and managed by the resource provider, but in the configured subnet. The feature does not allow you to specify the public ip/re-use static ip on the Azure Load Balancer. You can [bring your own Azure Load Balancer](#byolb) in concert with this feature or by itself if you require those or other load balancer scenarios that aren't natively supported.
 
 <a id="byolb"></a>
 ## Bring your own Azure Load Balancer
-Managed clusters create a Load Balancer and fully qualified domain name with a static public IP for both the primary and secondary node types. This feature allows you to create or re-use an Azure Load Balancer for secondary node types for both inbound and outbound traffic. When you bring your own Azure Load Balancer you can:
+Managed clusters create an Azure Load Balancer and fully qualified domain name with a static public IP for both the primary and secondary node types. This feature allows you to create or re-use an Azure Load Balancer for secondary node types for both inbound and outbound traffic. When you bring your own Azure Load Balancer you can:
 
 * Use a pre-configured Load Balancer static IP address for either private or public traffic
 * Map a Load Balancer to a specific node type
@@ -440,7 +440,11 @@ Managed clusters create a Load Balancer and fully qualified domain name with a s
 * Maintain existing policies and controls you may have in place
 
 > [!NOTE]
-> You can not switch from default to custom after deployment, but you can modify what custom load balancer to use in the future
+> You can not switch from default to custom after cluster deployment for a node type, but you can modify custom load balancer configuration post-deployment.
+
+* Feature Requirements
+ * Basic and Standard SKU Azure Load Balancer types are supported
+ * You must have backend and NAT pools configured on the existing Azure Load Balancer. See full [create and assign role sample here](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role) for an example. 
 
 Here are a couple example scenarios customers may leverage this for:
 * In this example a customer wants to route traffic through an existing Azure Load Balancer configured with a known static public ip address to two node types.
@@ -449,12 +453,8 @@ Here are a couple example scenarios customers may leverage this for:
 * In this example a customer wants to route traffic through existing Azure Load Balancers to help them manage traffic flow to their applications independently that live on separate node types. When this is configured each node type will be behind it's own NSG that you can manage.
 ![Bring your own Load Balancer example 2][sfmc-byolb-example-2]
 
-To configure the feature:
-1) In the [provided sample](url to sample json), configure role assignment that allows the resource provider to make required changes, setup the backend pool, and optionally define NAT pools on the existing Azure Load Balancer. You do this by running the following PowerShell command or ARM Template. 
-
-Add a role assignment to the Service Fabric Resource Provider application. This is a one time action.
-
-Get service principal for Service Fabric Resource Provider application:
+To configure bring your own load balancer:
+1\) Get the service `Id` from your subscription for Service Fabric Resource Provider application:
 
 ```powershell
 Login-AzAccount
@@ -473,13 +473,39 @@ DisplayName           : Azure Service Fabric Resource Provider
 Id                    : 00000000-0000-0000-0000-000000000000
 ```
 
-Use the **Id** of the previous output as **principalId** and the role definition ID bellow as **roleDefinitionId** where applicable on the template or PowerShell command:
+Note the **Id** of the previous output as **principalId** for use in a later step
 
 |Role definition name|Role definition ID|
 |----|-------------------------------------|
 |Network Contributor|4d97b98b-1d4f-4787-a291-c67834d212e7|
 
-This role assignment can be defined in the resources section template using the Principal ID and role definition ID:
+Note the `Role definition name` and `Role definition ID` property values for use in a later step
+
+3\) Add a role assignment to the Service Fabric Resource Provider application. This is a one time action. You add the role by running the following PowerShell commands or by configuring an ARM Template as detailed below.
+
+In the following steps, we start with an existing load balancer named Existing-LoadBalancer1, in the Existing-RG resource group. The subnet is named default.
+
+Obtain the the required `Id` property info from the existing Azure Load Balancer. We'll 
+
+```powershell
+Login-AzAccount
+Select-AzSubscription -SubscriptionId <SubId>
+Get-AzLoadBalancer -Name "Existing-LoadBalancer1" -ResourceGroupName "Existing-RG"
+```
+Note the following `Id` you'll use in the next step:
+```JSON
+{
+...
+"Id": "/subscriptions/<subscriptionId>/resourceGroups/Existing-RG/providers/Microsoft.Network/loadBalancers/Existing-LoadBalancer1"
+}
+```
+Run the following PowerShell command using the principal ID, role definition name from step 2, and assignment scope `Id` you just obtained:
+
+```powershell
+New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Network Contributor" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<LoadBalancerName>"
+```
+
+Or you can add the role assignment by using an ARM Template configured with proper values for `principalId`, `roleDefinitionId`, `vnetName`, and `subnetName`:
 
 ```JSON
       "type": "Microsoft.Authorization/roleAssignments",
@@ -497,21 +523,15 @@ This role assignment can be defined in the resources section template using the 
 > [!NOTE]
 > loadBalancerRoleAssignmentID should be a valid GUID. If you deploy again the same template including this role assignment, make sure the GUID is the same as the one originally used or remove this resource as it just needs to be created once.
 
-or created via PowerShell using the principal ID, role definition name, and assignment scope:
+4) Configure required outbound connectivity. All nodes must be able to route outbound on port 443 to ServiceFabric resource provider. You can use the `ServiceFabric` service tag in your NSG to restrict the traffic destination to the Azure endpoint.
 
-```powershell
-New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Network Contributor" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<LoadBalancerName>"
-```
+5) Optionally configure an inbound application port and related probe on your existing Azure Load Balancer.
 
-2) Configure required outbound connectivity. All nodes must be able to route outbound on port 443 to ServiceFabric resource provider. You can use the `ServiceFabric` service tag in your NSG to restrict traffic destination. 
+6) Optionally configure the managed cluster NSG rules applied to the node type to allow any required traffic that you've configured on the Azure Load Balancer or traffic will be blocked.
 
-3) Optionally configure an inbound application port and related probe. 
+See the [bring your own load balancer sample template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOLB/AzureDeploy.json) for an example on how to open inbound rules.
 
-4) Optionally configure NSG rules to allow any required traffic that you've configured on the Azure Load Balancer
-
-See the [bring your own load balancer sample template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/fixme/AzureDeploy.json) for an example or customize your own.
-
-5) Deploy the ARM Template
+7) Deploy the ARM Template
 
 In the following example, we'll create a resource group called `MyResourceGroup` in `westus` and deploy a cluster with this feature enabled.
 ```powershell
