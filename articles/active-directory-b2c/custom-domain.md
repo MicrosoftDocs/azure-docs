@@ -91,7 +91,7 @@ Follow these steps to create a Front Door for your Azure AD B2C tenant. For more
 
 The frontend host is the domain name used by your application. When you create a Front Door, the default frontend host is a subdomain of `azurefd.net`.
 
-Azure Front Door provides the option of associating a custom domain with the frontend host. With this option, you associate the Azure AD B2C user interface  with a custom domain in your URL instead of a Front Door owned domain name. For example, https://login.contoso.com.
+Azure Front Door provides the option of associating a custom domain with the frontend host. With this option, you associate the Azure AD B2C user interface  with a custom domain in your URL instead of a Front Door owned domain name. For example, `https://login.contoso.com`.
 
 To add a frontend host, follow these steps:
 
