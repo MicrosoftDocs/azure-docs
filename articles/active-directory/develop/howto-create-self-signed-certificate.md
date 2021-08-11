@@ -32,7 +32,7 @@ The application that initiates the authentication session requires the private k
 
 Your application may also be running from another machine, such as Azure Automation. In this scenario, you export the public and private key pair from your local certificate store, upload the public key to the Azure portal, and the private key (a `.pfx` file) to Azure Automation. Your application running in Azure Automation will use the private key to initiate authentication and obtain access tokens for Microsoft Graph.
 
-This article uses the `New-SelfSignedCertificate` PowerShell cmdlet to create the self-signed certificate and the `Export-Certificate` cmdlet to export it to a location that is easily accessible. These cmdlets that are built in modern versions of Windows (Windows 8.1 and greater, and Windows Server 2012R2 and greater). The self-signed certificate will have the following configuration:
+This article uses the `New-SelfSignedCertificate` PowerShell cmdlet to create the self-signed certificate and the `Export-Certificate` cmdlet to export it to a location that is easily accessible. These cmdlets are built-in to modern versions of Windows (Windows 8.1 and greater, and Windows Server 2012R2 and greater). The self-signed certificate will have the following configuration:
 
 + A 2048-bit key length. While longer values are supported, the 2048-bit size is highly recommended for the best combination of security and performance.
 + Uses the RSA cryptographic algorithm. Azure AD currently supports only RSA.
@@ -127,7 +127,7 @@ Remove-Item -Path Cert:\CurrentUser\My\{pasteTheCertificateThumbprintHere} -Dele
 
 ### Know your certificate expiry date
 
-The self-signed certificate you created following the steps above has a limited lifetime before it expires. On the **App registrations** section of the Azure portal, the **Certificates & secrets** screen displays the expiration date of the certificate. If you're using Azure Automation, the **Certificates** screen on the Automation account displays the expiration date of the certificate. Follow the previous steps to create a new self-signed certificate.
+The self-signed certificate you created following the steps above has a limited lifetime before it expires. In the **App registrations** section of the Azure portal, the **Certificates & secrets** screen displays the expiration date of the certificate. If you're using Azure Automation, the **Certificates** screen on the Automation account displays the expiration date of the certificate. Follow the previous steps to create a new self-signed certificate.
 
 ## Next steps
 
