@@ -25,8 +25,6 @@ Azure Load Balancer is a network load balancer that distributes traffic across V
 
 In the **Basics** tab of the create load balancer portal page, you'll see the following information:
 
-
-
 | Setting |  Details |
 | ---------- | ---------- |
 | Subscription  | Select your subscription. This selection is the subscription you want your load balancer to be deployed in. |
@@ -35,6 +33,41 @@ In the **Basics** tab of the create load balancer portal page, you'll see the fo
 | Region | Select an Azure region you'd like to deploy your load balancer in. |
 | Type | Load balancer has two types: </br> **Internal (Private)** </br> **Public (External)**.</br> An internal load balancer (ILB) routes traffic to backend pool members via a private IP address.</br> A public load balancer directs requests from clients over the internet to the backend pool.</br> Learn more about [load balancer types](components.md#frontend-ip-configuration-).|
 | SKU  | Select **Standard**. </br> Load balancer has two SKUs: **Basic** and **Standard**. </br> Basic has limited functionality. </br> **Standard** is recommended for production workloads. </br> Learn more about [SKUs](skus.md). |
+| Tier | Load balancer has two tiers: </br> **Regional** </br> **Global** </br> A regional load balancer is constrained to load balancing within a region. Global refers to a cross-region load balancer that load-balances across regions. </br> For more information on the **Global** tier, see [Cross-region load balancer (preview)](cross-region-overview.md)
+
+### Frontend IP configuration
+
+In the **Frontend IP configuration** tab of the create load balancer portal page, you'll see the following information:
+
+**+ Add a frontend IP** - Select to open the **Add frontend IP address** creation page:
+
+| Setting | Details |
+| ------- | ------- |
+| Name | The name of the frontend that will be added to the load balancer. |
+| IP version | **IPv4** </br> **IPv6** </br> Load balancer supports IPv4 and IPv6 frontends. </br> For more information see, [load Balancer and IPv6](load-balancer-ipv6-overview.md). |
+| IP type | **IP address** </br> **IP prefix** </br> Load balancer supports an IP address or an IP prefix for the frontend IP address. For more information, see [Azure Public IP address prefix](./virtual-network/public-ip-address-prefix.md). |
+
+If you select **IP address** for **IP type**, you'll see the following information:
+
+| Setting | Details |
+| ------- | ------- |
+| Public IP address | Select **Create new** to create a public IP address for your public load balancer. </br> If you have an existing public IP, select it in the pull down box. |
+| Name | The name of the public IP address resource. |
+| SKU | Public IP addresses have two SKUs: **Basic** and **Standard**. </br> Basic doesn't support zone-resiliency and zonal attributes. </br> **Standard** is recommended for production workloads. </br> Load balancer and public IP address SKUs **must match**. |
+| Tier | **Regional** </br> **Global** </br> Depending on type of load balancer tier will determine what is selected. Regional for traditional load balancer, global for cross-region. |
+| Assignment | **Static** is auto selected for standard. </br> Basic public IPs have two types: **Dynamic** and **Static**. </br> Dynamic public IP addresses aren't assigned until creation. </br> IPs can be lost if the resource is deleted. </br> Static IP addresses are recommended. |
+| Availability zone | Select **Zone-redundant** to create a resilient load balancer. </br> To create a zonal load balancer, select a specific zone from **1**, **2**, or **3**. </br> Standard load balancer and public IPs support zones. </br> Learn more about [load balancer and availability zones](load-balancer-standard-availability-zones.md). </br> You won't see zone selection for basic. Basic load balancer doesn't support zones. |
+
+If you select **IP prefix** for **IP type**, you'll see the following information:
+
+
+| Setting | Details |
+| ------- | ------- |
+| Public IP prefix | Select **Create new** to create a public IP prefix for your public load balancer. </br> If you have an existing public prefix, select it in the pull down box. |
+| Name | The name of the public IP prefix resource. |
+| SKU | Public IP prefixes have one SKU, **Standard**. |
+| IP version | **IPv4** or **IPv6**. </br> The version displayed will correspond to the version chosen above. |
+
 
 If you select **Public** as your type, you'll see the following information:
 
