@@ -339,7 +339,7 @@ To learn more about this policy, see [Allow log on through Remote Desktop Servic
 
 ## I can't deploy the golden image
 
-Having the Azure Virtual Desktop agent as part of the golden image is not supported. The agent must always be installed once the golden image is being deployed and not as part of the golden image itself.
+Golden images must not include the Azure Virtual Desktop agent. You can only install the agent after you deploy the golden image.
 
 ## Next steps
 
