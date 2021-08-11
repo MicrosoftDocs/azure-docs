@@ -69,17 +69,17 @@ Use [Event Grid's data plane SDK](https://devblogs.microsoft.com/azure-sdk/event
 
 Following are the prerequisites to authenticate to Event Grid.
 
-1. Install the SDK on your application.
+- Install the SDK on your application.
    - [Java](/java/api/overview/azure/messaging-eventgrid-readme#include-the-package)
    - [.NET](/dotnet/api/overview/azure/messaging.eventgrid-readme-pre#install-the-package)
    - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/eventgrid.md#install-the-azureeventgrid-package)
    - [Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventgrid/azure-eventgrid#install-the-package)
-2. Install the Azure Identity client library. The Event Grid SDK depends on the Azure Identity client library for authentication. 
+- Install the Azure Identity client library. The Event Grid SDK depends on the Azure Identity client library for authentication. 
    - [Azure Identity client library for Java](/java/api/overview/azure/identity-readme)
    - [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme)
    - [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme)
    - [Azure Identity client library for Python](/python/api/overview/azure/identity-readme)
-3. A topic, domain, or partner namespace created to which your application will send events.
+- A topic, domain, or partner namespace created to which your application will send events.
 
 ### Publish events using Azure AD Authentication
 
