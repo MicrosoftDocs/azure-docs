@@ -112,16 +112,10 @@ Placing these three FQDNs in order is required to:
 
 The FQDNs – sip.pstnhub.microsoft.com, sip2.pstnhub.microsoft.com, and sip3.pstnhub.microsoft.com – will be resolved to one of the following IP addresses:
 
-- `52.114.148.0`
-- `52.114.132.46`
-- `52.114.75.24` 
-- `52.114.76.76` 
-- `52.114.7.24` 
-- `52.114.14.70`
-- `52.114.16.74`
-- `52.114.20.29`
+- `52.112.0.0/14`
+- `52.120.0.0/14`
 
-Open firewall ports for these IP addresses to allow incoming and outgoing traffic to and from the addresses for signaling. If your firewall supports DNS names, the FQDN `sip-all.pstnhub.microsoft.com` resolves to all these IP addresses. 
+Open firewall ports for all these IP address ranges to allow incoming and outgoing traffic to and from the addresses for signaling. If your firewall supports DNS names, the FQDN `sip-all.pstnhub.microsoft.com` resolves to all these IP addresses. 
 
 ## SIP Signaling: Ports
 
