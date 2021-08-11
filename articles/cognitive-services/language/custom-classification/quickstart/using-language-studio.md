@@ -18,86 +18,40 @@ In this article, we use the Language studio to demonstrate key concepts of Custo
 
 ## Prerequisites
 
-* A Language Services resource in **West US 2** or **West Europe** with the standard (**S**) pricing tier.
-* An Azure [storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
 * The data file for this quickstart, available [on GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files).
 
-### Enable identity management for your Language Services resource
+### Create new resource from Azure portal
 
-You can enable identity management either using the Azure portal or from Language Studio. To enable it using the Azure portal:
+Go to the [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new resource from Azure. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following values to call the custom text classification API.  
 
-1. Go to the page for your Language Services resource in [Azure portal](https://ms.portal.azure.com/).
-2. Select **Identity** in the left navigation menu.
-3. Switch **Status** to **On** and select **Save**.
+|Requirement  |Required value  |
+|---------|---------|
+|Location | "West US 2" or "West Europe"         |
+|Pricing tier     | Standard (**S**) pricing tier        |
+|Managed Identity option     | On         |
 
-:::image type="content" source="../media/enable-identity-azure.png" alt-text="enable identity management" lightbox="../media/enable-identity-azure.png":::
+> [!IMPORTANT]
+> In the **Custom Extraction & Custom Classification (Preview)** section, make sure you choose an existing storage account, or create a new one. A storage account is required to use custom text classification. While you can specify a storage account later, it's easier to do it now. 
 
-### Set contributor roles on storage account
+## Create a custom classification project
 
-Ensure the below resource roles are set correctly on the storage account:
-
-* Your resource has the **owner** or **contributor** role on the storage account.
-* Your resource has the **Storage blob data owner** or **Storage blob data contributor** role on the storage account.
-* Your resource has the **Reader** role on the storage account.
-
-To set proper roles on your storage account:
-
-1. Go to your storage account page in the [Azure portal](https://ms.portal.azure.com/).
-2. Select **Access Control (IAM)** in the left navigation menu.
-3. Select **Add** to **Add Role Assignments**, and choose the **Owner** or **Contributor** role. You can search for user names in the **Select** field.
-
-:::image type="content" source="../media/assign-roles-azure.png" alt-text="assign roles for access control" lightbox="../media/assign-roles-azure.png":::
-
-## Sign in to the Language Studio and create a custom classification project
-
-1. Login through the [Language Studio portal](https://language.azure.com). A window will appear to let you select your subscription and Language Services resource.
-
-<!--
-:::image type="content" source="../media/select-resource.png" alt-text="Select your resource" lightbox="../media/select-resource.png":::
--->
+1. Login through the [Language Studio portal](https://language.azure.com). A window will appear to let you select your subscription and Language Services resource. Select the resource you created in the above step. 
 
 2. Scroll down until you see **Custom classification** from the available services, and select it.
 
-<!--
-:::image type="content" source="../media/language-studio.png" alt-text="Custom classification selection" lightbox="../media/language-studio.png":::
--->
-
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
-
-<!--
-:::image type="content" source="../media/create-project-1.png" alt-text="Create a new project" lightbox="../media/create-project-1.png"::: 
--->
 
 4. In the **Connect storage** screen that appears, connect your storage account using the drop-down menu. If you cannot find your storage account, make sure you set the [required permissions](#prerequisites). When you are done, select **Next**. 
  
     >[!NOTE]
-    > * You only need to do this step once for each resource.
-    > * This process is **irreversible**, if you connect a storage account to your resource you cannot disconnect it later.
+    > * You only need to do this step once for each new resource you use. 
+    > * This process is irreversible, if you connect a storage account to your resource you cannot disconnect it later.
     > * You can only connect your resource to one storage account.
     > * If you've already connected a storage account, you will see a **Select project type** screen instead. See the next step.
 
-<!--
-:::image type="content" source="../media/connect-storage.png" alt-text="Connect your storage account" lightbox="../media/connect-storage.png":::
--->
+5. Select your project type. For this quickstart we will create a multi label classification project. Then click **Next**.
 
-5. Select your project type. For this project we will create a multi label classification project. You can learn more about different project types in [definitions](../definitions.md#project-types). Then click **Next**.
-
-<!--
-:::image type="content" source="../media/project-type.png" alt-text="Select a project type" lightbox="../media/project-type.png":::
--->
-
-6. Enter the project information, including a name, description and the language of the files in your project.
-
-    > [!IMPORTANT]
-    > You will not be able to change the name of your project later. 
-    
-<!--
-:::image type="content" source="../media/create-project-2.png" alt-text="Enter basic information for your project" lightbox="../media/create-project-2.png":::
--->
-
-<!--
-:::image type="content" source="../media/create-project-3.png" alt-text="Storage container selection screen" lightbox="../media/create-project-3.png":::
--->
+6. Enter the project information, including a name, description and the language of the files in your project. You will not be able to change the name of your project later. 
 
 7. Review the data you entered and select **Create Project**.
 
@@ -120,7 +74,7 @@ To start training your model:
 
 ## Deploy model
 
-Generally after training a model you would review it's evaluation details and made adjustments if necessary. in this quickstart, you will just deploy your model, and make it available for you to use. 
+Generally after training a model you would review it's evaluation details and made adjustments if necessary. in this quickstart, you will just deploy your model, and make it available for you to try. 
 
 >[!NOTE]
 >You can only have one deployed model per project. Deploying a new model replaces any existing deployed model.
@@ -128,10 +82,6 @@ Generally after training a model you would review it's evaluation details and ma
 1. Select **Deploy model** from the left side menu.
 
 2. Select the model you want to deploy, then select **Deploy model**.
-
-<!--
-:::image type="content" source="../media/deploy-model-1.png" alt-text="Deploy the model" lightbox="../media/deploy-model-1.png":::
--->
 
 ## Test your model
 
@@ -143,11 +93,9 @@ Generally after training a model you would review it's evaluation details and ma
 
 4. Click on **Run the test**.
 
-    :::image type="content" source="../media/test-model-1.png" alt-text="Run a test on the model" lightbox="../media/test-model-1.png":::
-
 5. In the **Result** tab, you can see the predicted classes for your text. You can also view the JSON response under the **JSON** tab. 
 
-    :::image type="content" source="../media/test-model-2.png" alt-text="View the test results" lightbox="../media/test-model-2.png":::
+    :::image type="content" source="../media/test-model-results.png" alt-text="View the test results" lightbox="../media/test-model-2.png":::
 
 ## Clean up resources
 
