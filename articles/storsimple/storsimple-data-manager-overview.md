@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/10/2021
+ms.date: 08/11/2021
 ms.author: alkohli
 ---
 
@@ -88,7 +88,7 @@ The StorSimple Data Manager does not collect or display any personal information
 
 The service currently has the following limitations:
 - The StorSimple Data Manager currently does not work with volumes that are BitLocker encrypted. You will see job failures if you try to run the service with an encrypted drive.
-- A firewall can't be enabled on the storage account where StorSimple backups are stored.
+- A firewall can't be enabled on the storage account where StorSimple backups are stored. If you enable a firewall on the storage account, jobs will fail. 
 - Some metadata of files (including ACLs) will not be retained in the transformed data.
 - This service works only with NTFS volumes.
 - The StorSimple Data Manager doesn't support migration of Virtual Hard Disks (VHDs). To migrate VHDs, you can use either Azure Data Box or the Azure File Sync service.
