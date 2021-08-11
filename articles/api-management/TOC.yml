@@ -84,6 +84,8 @@
         href: automation-manage-api-management.md
       - name: API import restrictions
         href: api-management-api-import-restrictions.md
+      - name: Virtual network overview
+        href: virtual-network-concepts.md
       - name: Self-hosted gateway overview
         href: self-hosted-gateway-overview.md
       - name: Observability
@@ -92,6 +94,8 @@
         href: devops-api-development-templates.md
       - name: Soft-delete
         href: soft-delete.md
+      - name: Hosting Platform
+        href: hosting-infrastructure.md
 
 
 
