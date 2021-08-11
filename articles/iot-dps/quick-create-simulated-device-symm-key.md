@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Provision a device with symmetric keys using C
+title: Provision a device with symmetric keys using C
 description: In this quickstart, you will use the C device SDK to provision a device that uses symmetric key with the Azure IoT Hub Device Provisioning Service (DPS)
 author: anastasia-ms
 ms.author: v-stharr

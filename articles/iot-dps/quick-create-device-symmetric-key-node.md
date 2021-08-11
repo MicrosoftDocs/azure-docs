@@ -63,7 +63,7 @@ This article is oriented toward a Windows-based workstation. However, you can pe
 
 ## Prepare the Node.js environment 
 
-1. Open a Git CMD or Git Bash command-line environment. Clone the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node.git) GitHub repository using the following command:
+1. Open a Git CMD or Git Bash command-line environment. Open a Git CMD or Git Bash command-line environment. Clone the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node.git) GitHub repository using the following command:
 
     ```cmd
     git clone https://github.com/Azure/azure-iot-sdk-node.git --recursive

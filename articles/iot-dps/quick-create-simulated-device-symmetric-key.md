@@ -1,9 +1,9 @@
 ---
-title: Quickstart: Provision a device with symmetric keys using C
+title: Provision a device with symmetric keys using C
 description: In this quickstart, you will use the C device SDK to provision a device that uses symmetric key with the Azure IoT Hub Device Provisioning Service (DPS)
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 08/09/2021
+ms.date: 08/11/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
@@ -47,6 +47,12 @@ If you're unfamiliar with the process of provisioning, review the [provisioning]
 ::: zone pivot="programming-language-csharp"
 
 * Install [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download) or later on your Windows-based machine.
+
+::: zone-end
+
+::: zone pivot="programming-language-nodejs"
+
+* Install [Node.js v4.0+](https://nodejs.org).
 
 ::: zone-end
 
@@ -132,6 +138,20 @@ The SDK includes the provisioning sample code for devices. This code attempt pro
 
 ::: zone-end
 
+::: zone pivot="programming-language-nodejs"
+
+## Prepare the Azure IoT Node.js SDK environment
+
+1. Open a Git CMD or Git Bash command line environment.
+
+2. Clone the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node.git) GitHub repository using the following command:
+
+    ```cmd
+    git clone https://github.com/Azure/azure-iot-sdk-node.git --recursive
+    ```
+
+::: zone-end
+
 ## Create a device enrollment
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -168,9 +188,11 @@ The SDK includes the provisioning sample code for devices. This code attempt pro
 
 <a id="firstbootsequence"></a>
 
-## Run the provisioning code
+## Prepare and run the device provisioning code
 
 In this section, you'll update the sample code in order to authenticate and assign your device to the IoT hub linked to your Device Provisioning service instance.
+
+::: zone pivot="programming-language-ansi-c"
 
 The sample provisioning code accomplishes the following tasks, in order:
 
@@ -182,11 +204,7 @@ The sample provisioning code accomplishes the following tasks, in order:
 
 2. Assigns the device to the IoT hub already linked to your Device Provisioning service instance.
 
-3. Sends a test telemetry message to the IoT hub.
-
 To update and run the provisioning sample with your device information:
-
-::: zone pivot="programming-language-ansi-c"
 
 1. In the main menu of your Device Provisioning service, select **Overview**.
 
@@ -270,6 +288,20 @@ To update and run the provisioning sample with your device information:
 
 ::: zone pivot="programming-language-csharp"
 
+The sample provisioning code accomplishes the following tasks, in order:
+
+1. Authenticates your device with your Device Provisioning resource using the following three parameters:
+
+    * The ID Scope of your Device Provisioning service
+    * The registration ID for your device enrollment.
+    * The primary symmetric key for your device enrollment.
+
+2. Assigns the device to the IoT hub already linked to your Device Provisioning service instance.
+
+3. Sends a test telemetry message to the IoT hub.
+
+To update and run the provisioning sample with your device information:
+
 1. In the main menu of your Device Provisioning service, select **Overview**.
 
 2. Copy the **ID Scope** value.
@@ -301,7 +333,108 @@ To update and run the provisioning sample with your device information:
     dotnet run --s <id-scope> --i <registration-id> --p <primarykey>
     ```
 
-7. The output should look similar to the following output that shows the linked IoT hub that the device was assigned to based on the individual enrollment settings. An example "TestMessage" string is sent to the hub as a test:
+7. You should now see something similar to the following output. A "TestMessage" string is sent to the hub as a test message.
+
+     ```output
+    D:\azure-iot-samples-csharp\provisioning\Samples\device\SymmetricKeySample>dotnet run --s 0ne00000A0A --i symm-key-csharp-device-01 --p sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
+
+    Initializing the device provisioning client...
+    Initialized for registration Id symm-key-csharp-device-01.
+    Registering with the device provisioning service...
+    Registration status: Assigned.
+    Device csharp-device-01 registered to ExampleIoTHub.azure-devices.net.
+    Creating symmetric key authentication for IoT Hub...
+    Testing the provisioned device with IoT Hub...
+    Sending a telemetry message...
+    Finished.
+    Enter any key to exit.
+    ```
+
+8. Go to the [Azure portal](https://portal.azure.com).
+
+9. On the left-hand menu or on the portal page, select **All resources**.
+
+10. Select the IoT hub to which your device was assigned.
+
+11. In the **Explorers** menu, select **IoT Devices**.
+
+12. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
+
+    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-symm-key/hub-registration.png)
+
+::: zone-end
+
+::: zone pivot="programming-language-nodejs"
+
+The sample provisioning code accomplishes the following tasks, in order:
+
+1. Authenticates your device with your Device Provisioning resource using the following four parameters:
+    * `PROVISIONING_HOST`
+    * `PROVISIONING_IDSCOPE`
+    * `PROVISIONING_REGISTRATION_ID`
+    * `PROVISIONING_SYMMETRIC_KEY`
+
+2. Assigns the device to the IoT hub already linked to your Device Provisioning service instance.
+
+3. Sends a test telemetry message to the IoT hub.
+
+To update and run the provisioning sample with your device information:
+
+1. In the main menu of your Device Provisioning service, select **Overview**.
+
+2. Copy the **ID Scope** value.
+
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/extract-dps-endpoints.png" alt-text="Extract Device Provisioning Service endpoint information":::
+
+3. Open a command prompt for executing Node.js commands, and navigate to the following *provisioning/device/samples* directory.
+
+    ```cmd
+    cd azure-iot-sdk-node/provisioning/device/samples
+    ```
+
+4. In the *provisioning/device/samples* folder, open *register_symkey.js* and review the code. Notice that the sample code sets a custom payload:
+
+    ```nodejs
+    provisioningClient.setProvisioningPayload({a: 'b'});
+    ```
+
+    You may comment out this code, as it is not needed with for this quick start. A custom payload would be required you wanted to use a custom allocation function to assign your device to an IoT Hub. For more information, see [Tutorial: Use custom allocation policies](tutorial-custom-allocation-policies.md).
+
+     The `provisioningClient.register()` method attempts the registration of your device.
+
+    No further changes are needed.
+
+5. In your command prompt, you'll now set the environment variables for the provisioning host, ID Scope, registration ID, and primary symmetric keys. You copied the values for ID Scope, registration ID, and primary symmetric key in the previous sections. The provisioning host is the service endpoint URI, and is located on the front page of your Device Provisioning service in the Azure portal. The provisioning host would look something like: `test-dps-docs.azure-devices-provisioning.net`.
+
+    The following commands are examples to show command syntax. Replace `<id-scope>` with the ID Scope of your Device Provisioning service ID Scope, `<registration-id>` with the registration id of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the service endpoint URl of your Device Provisioning service.
+
+    ```console
+    set PROVISIONING_HOST=<provisioning-host>
+    ```
+
+    ```console
+    set PROVISIONING_IDSCOPE=<id-scope>
+    ```
+
+    ```console
+    set PROVISIONING_REGISTRATION_ID=<registration-id>
+    ```
+
+    ```console
+    set PROVISIONING_SYMMETRIC_KEY=<primarykey>
+    ```
+
+6. Build and run the sample code using the following commands:
+
+   ```console
+    npm install
+    ```
+
+    ```console
+    node register_symkey.js
+    ```
+
+7. You should now see something similar to the following output. A "Hello World" string is sent to the hub as a test message.
 
      ```output
     D:\azure-iot-samples-csharp\provisioning\Samples\device\SymmetricKeySample>dotnet run --s 0ne00000A0A --i symm-key-csharp-device-01 --p sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
