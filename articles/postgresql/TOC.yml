@@ -12,10 +12,6 @@
       href: concepts-certificate-rotation.md
 - name: Shared documentation
   items:
-  - name: Database deployment
-    items:
-    - name: GitHub actions
-      href: how-to-deploy-github-action.md
   - name: Migration
     items:
       - name: Migrate data with pg_dump and pg_restore
@@ -514,6 +510,12 @@
         href: flexible-server/how-to-manage-server-cli.md
       - name: Connect and query guide
         href: flexible-server/how-to-connect-query-guide.md
+   - name: Database deployment
+     items:
+      - name: GitHub actions
+        href: how-to-deploy-github-action.md
+      - name: Azure pipelines
+        href: azure-pipelines-deploy-database-task.md
     - name: Scheduled maintenance
       items:
       - name: Azure portal
