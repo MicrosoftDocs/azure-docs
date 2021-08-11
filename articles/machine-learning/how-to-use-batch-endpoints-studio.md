@@ -41,19 +41,15 @@ In this article, you learn about:
 
 There are two ways to create Batch Endpoints in Azure Machine Learning studio:
 
-# [Endpoint page](#tab/endpoint-page)
-
 * From the **Endpoints** page, select **Batch Endpoints** and then select **+ Create**. 
 
     :::image type="content" source="media/how-to-use-batch-endpoints-studio/create-batch-endpoints.png" alt-text="Create a batch endpoint and deployment from Endpoints page":::
 
-# [Models page](#tab/models-page)
+OR
 
 * From the **Models** page, select the model you want to deploy and then select **Deploy to batch endpoint (preview)**.
 
     :::image type="content" source="media/how-to-use-batch-endpoints-studio/models-page-deployment.png" alt-text="Create a batch endpoint and deployment from Models page":::
-
----
 
 > [!TIP]
 > If you're using an MLflow model, you can use no-code batch endpoint creation. That is, you don't need to prepare a scoring script and environment, both can be auto generated. For more, see [Train and track ML models with MLflow and Azure Machine Learning (preview)](how-to-use-mlflow.md).
@@ -92,7 +88,6 @@ Some settings can be overwritten when you start a batch scoring job to make best
 
 You have two options to specify the data inputs in Azure machine learning studio:
 
-# [Registered dataset](#tab/dataset)
 * Use a **registered dataset**:
 
     > [!NOTE]
@@ -100,13 +95,13 @@ You have two options to specify the data inputs in Azure machine learning studio
 
     :::image type="content" source="media/how-to-use-batch-endpoints-studio/select-dataset-for-job.png" alt-text="Select registered dataset as an input option":::
 
-# [Datastore](#tab/datastore)
+OR
+
 * Use a **datastore**:
 
     You can specify AML registered datastore or if your data is publicly available, specify the public path.
 
     :::image type="content" source="media/how-to-use-batch-endpoints-studio/select-datastore-job.png" alt-text="Select datastore as an input option":::
----
 
 ### Configure the output location
 
@@ -130,19 +125,15 @@ To learn how to view the scoring results, see [Use batch endpoints](how-to-use-b
 
 In Azure machine learning studio, there are two ways to add a deployment to an existing batch endpoint:
 
-# [Endpoints page](#tab/models-page)
-
 * From the **Endpoints** page, select the batch endpoint to add a new deployment to. Select **+ Add deployment**, and complete the wizard to add a new deployment.
 
     :::image type="content" source="media/how-to-use-batch-endpoints-studio/add-deployment-option.png" alt-text="Select add new deployment option":::
 
-# [Models page](#tab/models-page)
+OR
 
 * From the **Models** page, select the model you want to deploy. Then select **Deploy to batch endpoint (preview)** option from the drop-down. In the wizard, on the **Endpoint** screen, select **Existing**. Complete the wizard to add the new deployment.
 
     :::image type="content" source="media/how-to-use-batch-endpoints-studio/add-deployment-models-page.png" alt-text="Select an existing batch endpoint to add new deployment":::
-
----
 
 ## Update the default deployment
 
