@@ -52,94 +52,60 @@ To query your IoT security events in Log Analytics workspace directly:
 
 - **Device fleet failure**: Run the following query to retrieve the latest information about checks that failed across the device fleet:
 
-    ```azurecli
+    ```kusto
     let lastDates = SecurityIoTRawEvent |
-
     where RawEventName == "Baseline" |
-    
     summarize TimeStamp=max(TimeStamp) by DeviceId;
-    
     lastDates | join kind=inner (SecurityIoTRawEvent) on TimeStamp, DeviceId |
-    
     extend event = parse_json(EventDetails) |
-    
     where event.BaselineCheckResult == "FAIL" |
-    
     project DeviceId, event.BaselineCheckId, event.BaselineCheckDescription
     ```
 
 - **Specific device failure** - Run the following query to retrieve the latest information about checks that failed on a specific device:  
 
-    ```azurecli
-    let id = SecurityIoTRawEvent |
+    ```kusto
+    let id = SecurityIoTRawEvent | 
     extend IoTRawEventId = extractjson("$.EventId", EventDetails, typeof(string)) |
-
     where TimeGenerated <= now() |
-
     where RawEventName == "Baseline" |
-
     where DeviceId == "<device-id>" |
-
     summarize arg_max(TimeGenerated, IoTRawEventId) |
-
     project IoTRawEventId;
-
     SecurityIoTRawEvent |
-
     extend IoTRawEventId = extractjson("$.EventId", EventDetails, typeof(string)), extraDetails = todynamic(EventDetails) |
-
     where IoTRawEventId == toscalar(id) |
-
     where extraDetails.BaselineCheckResult == "FAIL" |
-
     project DeviceId, CceId = extraDetails.BaselineCheckId, Description = extraDetails.BaselineCheckDescription
     ```
 
 - **Specific device error** - Run this query to retrieve the latest information about checks that have an error on a specific device:
 
-    ```azurecli
+    ```kusto
     let id = SecurityIoTRawEvent |
-
     extend IoTRawEventId = extractjson("$.EventId", EventDetails, typeof(string)) |
-
     where TimeGenerated <= now() |
-
     where RawEventName == "Baseline" |
-
     where DeviceId == "<device-id>" |
-
     summarize arg_max(TimeGenerated, IoTRawEventId) |
-
     project IoTRawEventId;
-
     SecurityIoTRawEvent |
-
     extend IoTRawEventId = extractjson("$.EventId", EventDetails, typeof(string)), extraDetails = todynamic(EventDetails) |
-
     where IoTRawEventId == toscalar(id) |
-
     where extraDetails.BaselineCheckResult == "ERROR" |
-
     project DeviceId, CceId = extraDetails.BaselineCheckId, Description = extraDetails.BaselineCheckDescription
     ```
 
 - **Update device list for device fleet that failed a specific check** - Run this query to retrieve updated list of devices (across the device fleet) that failed a specific check:  
 
-    ```azurecli
+    ```kusto
     let lastDates = SecurityIoTRawEvent |
-
     where RawEventName == "Baseline" |
-    
     summarize TimeStamp=max(TimeStamp) by DeviceId;
-    
     lastDates | join kind=inner (SecurityIoTRawEvent) on TimeStamp, DeviceId |
-    
     extend event = parse_json(EventDetails) |
-    
     where event.BaselineCheckResult == "FAIL" |
-    
     where event.BaselineCheckId contains "6.2.8" |
-    
     project DeviceId;
     ```
 
