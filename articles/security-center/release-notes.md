@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 08/04/2021
+ms.date: 08/10/2021
 ms.author: memildin
 
 ---
@@ -27,6 +27,9 @@ Updates in August include:
 
 - [Microsoft Defender for Endpoint for Linux now supported by Azure Defender for servers (in preview)](#microsoft-defender-for-endpoint-for-linux-now-supported-by-azure-defender-for-servers-in-preview)
 - [Two new recommendations for managing endpoint protection solutions (in preview)](#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview)
+- [Built-in troubleshooting and guidance for solving common issues](#built-in-troubleshooting-and-guidance-for-solving-common-issues)
+- [Regulatory compliance dashboard's Azure Audit reports released for general availability (GA)](#regulatory-compliance-dashboards-azure-audit-reports-released-for-general-availability-ga)
+- [Deprecate recommendation 'Log Analytics agent health issues should be resolved on your machines'](#deprecated-recommendation-log-analytics-agent-health-issues-should-be-resolved-on-your-machines)
 
 ### Microsoft Defender for Endpoint for Linux now supported by Azure Defender for servers (in preview)
 
@@ -37,7 +40,7 @@ When Defender for Endpoint detects a threat, it triggers an alert. The alert is 
 During the preview period, you'll deploy the [Defender for Endpoint for Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux) sensor to supported Linux machines in one of two ways depending on whether you've already deployed it to your Windows machines:
 
 - [Existing users of Azure Defender and Microsoft Defender for Endpoint for Windows](security-center-wdatp.md?tabs=linux#existing-users-of-azure-defender-and-microsoft-defender-for-endpoint-for-windows)
-- [New users who've never enabled the integration with Microsoft Defender for Endpoint for Windows](security-center-wdatp.md?tabs=linux#new-users-whove-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows)
+- [New users who have never enabled the integration with Microsoft Defender for Endpoint for Windows](security-center-wdatp.md?tabs=linux#new-users-whove-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows)
 
 Learn more in [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md).
 
@@ -52,10 +55,45 @@ We've added two **preview** recommendations to deploy and maintain the endpoint 
 |||
 
 > [!NOTE]
-> The recommendations show their freshness interval as 8 hours, but there are some scenarios in which this might take significantly longer. For example, when an on premises machine is deleted, it takes 24 hours for Security Center to identify the deletion. After that, the assessment will take up to 8 hours to return the information. In that specific situation therefore, it may take 32 hours for the machine to be removed from the list of afffected resources.
+> The recommendations show their freshness interval as 8 hours, but there are some scenarios in which this might take significantly longer. For example, when an on premises machine is deleted, it takes 24 hours for Security Center to identify the deletion. After that, the assessment will take up to 8 hours to return the information. In that specific situation therefore, it may take 32 hours for the machine to be removed from the list of affected resources.
 >
 > :::image type="content" source="media/release-notes/freshness-interval.png" alt-text="Freshness interval indicator for these two new Security Center recommendations":::
-- [Microsoft Defender for Endpoint for Linux now supported by Azure Defender for servers (in preview)](#microsoft-defender-for-endpoint-for-linux-now-supported-by-azure-defender-for-servers-in-preview)
+
+### Built-in troubleshooting and guidance for solving common issues
+
+A new, dedicated area of the Security Center pages in the Azure portal provides a collated, ever-growing set of self-help materials for solving common challenges with Security Center and Azure Defender.
+
+When you're facing an issue, or are seeking advice from our support team, **Diagnose and solve problems** is another tool to help you find the solution:
+
+:::image type="content" source="media/release-notes/solve-problems.png" alt-text="Security Center's 'Diagnose and solve problems' page":::
+ 
+
+### Regulatory compliance dashboard's Azure Audit reports released for general availability (GA)
+
+The regulatory compliance dashboard's toolbar offers Azure and Dynamics certification reports for the standards applied to your subscriptions. 
+
+:::image type="content" source="media/release-notes/audit-reports-regulatory-compliance-dashboard.png" alt-text="Regulatory compliance dashboard's toolbar showing the button for generating audit reports.":::
+
+You can select the tab for the relevant reports types (PCI, SOC, ISO, and others) and use filters to find the specific reports you need.
+
+For more information, see [Generate compliance status reports and certificates](security-center-compliance-dashboard.md#generate-compliance-status-reports-and-certificates).
+
+:::image type="content" source="media/release-notes/audit-reports-list-regulatory-compliance-dashboard-ga.png" alt-text="Tabbed lists of available Azure Audit reports. Shown are tabs for ISO reports, SOC reports, PCI, and more.":::
+
+### Deprecated recommendation 'Log Analytics agent health issues should be resolved on your machines'
+
+We've found that recommendation **Log Analytics agent health issues should be resolved on your machines** impacts secure scores in ways that are inconsistent with Security Center's Cloud Security Posture Management (CSPM) focus. Typically, CSPM relates to identifying security misconfigurations. Agent health issues don't fit into this category of issues.
+
+Also, the recommendation is an anomaly when compared with the other agents related to Security Center: this is the only agent with a recommendation related to health issues.
+
+The recommendation has been deprecated.
+
+As a result of this deprecation, we've also made minor changes to the recommendations for installing the Log Analytics agent (**Log Analytics agent should be installed on...**).
+
+It's likely that this change will impact your secure scores. For most subscriptions, we expect the change to lead to an increased score, but it's possible the updates to the installation recommendation might result in decreased scores in some cases.
+
+> [!TIP]
+> The [asset inventory](asset-inventory.md) page was also affected by this change as it displays the monitored status for machines (monitored, not monitored, or partially monitored - a state which refers to an agent with health issues).
 
 
 ## July 2021
@@ -65,7 +103,7 @@ Updates in July include:
 - [Azure Sentinel connector now includes optional bi-directional alert synchronization (in preview)](#azure-sentinel-connector-now-includes-optional-bi-directional-alert-synchronization-in-preview)
 - [Logical reorganization of Azure Defender for Resource Manager alerts](#logical-reorganization-of-azure-defender-for-resource-manager-alerts)                                           
 - [Enhancements to recommendation to enable Azure Disk Encryption (ADE)](#enhancements-to-recommendation-to-enable-azure-disk-encryption-ade)                                     
-- [Continuous export of secure score and regulatory compliance data released for General Availability (GA)](#continuous-export-of-secure-score-and-regulatory-compliance-data-released-for-general-availability-ga)
+- [Continuous export of secure score and regulatory compliance data released for general availability (GA)](#continuous-export-of-secure-score-and-regulatory-compliance-data-released-for-general-availability-ga)
 - [Workflow automations can be triggered by changes to regulatory compliance assessments (GA)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-ga)
 - [Assessments API field 'FirstEvaluationDate' and 'StatusChangeDate' now available in workspace schemas and logic apps](#assessments-api-field-firstevaluationdate-and-statuschangedate-now-available-in-workspace-schemas-and-logic-apps)
 - ['Compliance over time' workbook template added to Azure Monitor Workbooks gallery](#compliance-over-time-workbook-template-added-to-azure-monitor-workbooks-gallery)
@@ -76,9 +114,9 @@ Security Center natively integrates with [Azure Sentinel](../sentinel/index.yml)
 
 Azure Sentinel includes built-in connectors for Azure Security Center at the subscription and tenant levels. Learn more in [Stream alerts to Azure Sentinel](export-to-siem.md#stream-alerts-to-azure-sentinel).
 
-When you connect Azure Defender to Azure Sentinel, the status of Azure Defender alerts that get ingested into Azure Sentinel is synchronized between the two services. So, for example, when an alert is closed in Azure Defender, that alert will display as closed in Azure Sentinel as well. Changing the status of an alert in Azure Defender will *not* affect the status of any Azure Sentinel **incidents** that contain the synchronized Azure Sentinel alert, only that of the synchronized alert itself.
+When you connect Azure Defender to Azure Sentinel, the status of Azure Defender alerts that get ingested into Azure Sentinel is synchronized between the two services. So, for example, when an alert is closed in Azure Defender, that alert will display as closed in Azure Sentinel as well. Changing the status of an alert in Azure Defender "won't"* affect the status of any Azure Sentinel **incidents** that contain the synchronized Azure Sentinel alert, only that of the synchronized alert itself.
 
-Enabling this preview feature, **bi-directional alert synchronization**, will automatically sync the status of the original Azure Defender alerts with Azure Sentinel incidents that contain the copies of those Azure Defender alerts. So, for example, when an Azure Sentinel incident containing an Azure Defender alert is closed, the corresponding original alert will be closed in Azure Defender automatically.
+Enabling this preview feature, **bi-directional alert synchronization**, will automatically sync the status of the original Azure Defender alerts with Azure Sentinel incidents that contain the copies of those Azure Defender alerts. So, for example, when an Azure Sentinel incident containing an Azure Defender alert is closed, Azure Defender will automatically close the corresponding original alert.
 
 Learn more in [Connect Azure Defender alerts from Azure Security Center](../sentinel/connect-azure-security-center.md).
 
@@ -134,7 +172,7 @@ The description has also been updated to better explain the purpose of this hard
 |                                                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |          |
 
 
-### Continuous export of secure score and regulatory compliance data released for General Availability (GA)
+### Continuous export of secure score and regulatory compliance data released for general availability (GA)
 
 [Continuous export](continuous-export.md) provides the mechanism for exporting your security alerts and recommendations for tracking with other monitoring tools in your environment.
 
@@ -146,14 +184,14 @@ We've enhanced and expanded this feature over time:
 
 - In December 2020, we added the **preview** option to stream changes to your **regulatory compliance assessment data**.<br/>For full details, see [Continuous export gets new data types (preview)](release-notes-archive.md#continuous-export-gets-new-data-types-and-improved-deployifnotexist-policies).
 
-With this update, these two options are released for General Availability (GA). 
+With this update, these two options are released for general availability (GA). 
 
 
 ### Workflow automations can be triggered by changes to regulatory compliance assessments (GA)
 
 In February 2021, we added a **preview** third data type to the trigger options for your workflow automations: changes to regulatory compliance assessments. Learn more in [Workflow automations can be triggered by changes to regulatory compliance assessments](release-notes-archive.md#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-in-preview).
 
-With this update, this trigger option is released for General Availability (GA).
+With this update, this trigger option is released for general availability (GA).
 
 Learn how to use the workflow automation tools in [Automate responses to Security Center triggers](workflow-automation.md).
 
@@ -261,8 +299,8 @@ The following two recommendations were deprecated:
 
 Updates in May include:
 
-- [Azure Defender for DNS and Azure Defender for Resource Manager released for General Availability (GA)](#azure-defender-for-dns-and-azure-defender-for-resource-manager-released-for-general-availability-ga)
-- [Azure Defender for open-source relational databases released for General Availability (GA)](#azure-defender-for-open-source-relational-databases-released-for-general-availability-ga)
+- [Azure Defender for DNS and Azure Defender for Resource Manager released for general availability (GA)](#azure-defender-for-dns-and-azure-defender-for-resource-manager-released-for-general-availability-ga)
+- [Azure Defender for open-source relational databases released for general availability (GA)](#azure-defender-for-open-source-relational-databases-released-for-general-availability-ga)
 - [New alerts for Azure Defender for Resource Manager](#new-alerts-for-azure-defender-for-resource-manager)
 - [CI/CD vulnerability scanning of container images with GitHub workflows and Azure Defender (preview)](#cicd-vulnerability-scanning-of-container-images-with-github-workflows-and-azure-defender-preview)
 - [More Resource Graph queries available for some recommendations](#more-resource-graph-queries-available-for-some-recommendations)
@@ -273,7 +311,7 @@ Updates in May include:
 - [Asset inventory gets a cloud environment filter](#asset-inventory-gets-a-cloud-environment-filter)
 
 
-### Azure Defender for DNS and Azure Defender for Resource Manager released for General Availability (GA)
+### Azure Defender for DNS and Azure Defender for Resource Manager released for general availability (GA)
 
 These two cloud-native breadth threat protection plans are now GA.
 
@@ -298,7 +336,7 @@ To simplify the process of enabling these plans, use the recommendations:
 > Enabling Azure Defender plans results in charges. Learn about the pricing details per region on Security Center's pricing page: https://aka.ms/pricing-security-center.
 
 
-### Azure Defender for open-source relational databases released for General Availability (GA)
+### Azure Defender for open-source relational databases released for general availability (GA)
 
 Azure Security Center expands its offer for SQL  protection with a new bundle to cover your open-source relational databases:
 
@@ -310,7 +348,7 @@ Azure Defender for open-source relational databases constantly monitors your ser
 
 - **Granular detection of brute force attacks** -  Azure Defender for open-source relational databases provides detailed information on attempted and successful brute force attacks. This lets you investigate and respond with a more complete understanding of the nature and status of the attack on your environment.
 - **Behavioral alerts detection** - Azure Defender for open-source relational databases alerts you to suspicious and unexpected behaviors on your servers, such as changes in the access pattern to your database.
-- **Threat intelligence-based detection** - Azure Defender leverages Microsoft’s threat intelligence and vast knowledge base to surface threat alerts so you can act against them.
+- **Threat intelligence-based detection** - Azure Defender applies Microsoft’s threat intelligence and vast knowledge base to surface threat alerts so you can act against them.
 
 Learn more in [Introduction to Azure Defender for open-source relational databases](defender-for-databases-introduction.md).
 
@@ -427,7 +465,7 @@ Learn more about the [Assessments REST API](/rest/api/securitycenter/assessments
 
 ### Asset inventory gets a cloud environment filter
 
-Security Center's asset inventory page has offers a number of filters to quickly refine the list of resources displayed. Learn more in [Explore and manage your resources with asset inventory](asset-inventory.md).
+Security Center's asset inventory page offers many filters to quickly refine the list of resources displayed. Learn more in [Explore and manage your resources with asset inventory](asset-inventory.md).
 
 A new filter offers the option to refine the list according to the cloud accounts you've connected with Security Center's multi-cloud features:
 
@@ -443,9 +481,9 @@ Learn more about the multi-cloud capabilities:
 
 Updates in April include:
 - [Refreshed resource health page (in preview)](#refreshed-resource-health-page-in-preview)
-- [Container registry images that have been recently pulled are now rescanned weekly (released for General Availability (GA))](#container-registry-images-that-have-been-recently-pulled-are-now-rescanned-weekly-released-for-general-availability-ga)
+- [Container registry images that have been recently pulled are now rescanned weekly (released for general availability (GA))](#container-registry-images-that-have-been-recently-pulled-are-now-rescanned-weekly-released-for-general-availability-ga)
 - [Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (in preview)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-in-preview)
-- [Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 Virtual Desktop (WVD) released for General Availability (GA)](#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-released-for-general-availability-ga)
+- [Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 Virtual Desktop (WVD) released for general availability (GA)](#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-released-for-general-availability-ga)
 - [Recommendations to enable Azure Defender for DNS and Resource Manager (in preview)](#recommendations-to-enable-azure-defender-for-dns-and-resource-manager-in-preview)
 - [Three regulatory compliance standards added: Azure CIS 1.3.0, CMMC Level 3, and New Zealand ISM Restricted](#three-regulatory-compliance-standards-added-azure-cis-130-cmmc-level-3-and-new-zealand-ism-restricted)
 - [Four new recommendations related to guest configuration (in preview)](#four-new-recommendations-related-to-guest-configuration-in-preview)
@@ -475,7 +513,7 @@ This preview page in Security Center's portal pages shows:
 Learn more in [Tutorial: Investigate the health of your resources](investigate-resource-health.md).
 
 
-### Container registry images that have been recently pulled are now rescanned weekly (released for General Availability (GA))
+### Container registry images that have been recently pulled are now rescanned weekly (released for general availability (GA))
 
 Azure Defender for container registries includes a built-in vulnerability scanner. This scanner immediately scans any image you push to your registry and any image pulled within the last 30 days.
 
@@ -507,7 +545,7 @@ Learn more in [Use Azure Defender for Kubernetes with your on-premises and multi
 :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center's recommendation for deploying the Azure Defender extension for Azure Arc-enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
 
-### Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 Virtual Desktop (WVD) released for General Availability (GA)
+### Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 Virtual Desktop (WVD) released for general availability (GA)
 
 Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security solution. It provides risk-based vulnerability management and assessment as well as endpoint detection and response (EDR). For a full list of the benefits of using Defender for Endpoint together with Azure Security Center, see [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md).
 
@@ -559,7 +597,7 @@ We've added four new recommendations to Security Center to make the most of this
     - **Guest Configuration extension should be installed on your machines**
     - **Virtual machines' Guest Configuration extension should be deployed with system-assigned managed identity**
 
-- When the extension is installed and running, it'll begin auditing your machines and you'll be prompted to harden settings such as configuration of the operating system and environment settings. These two recommendations will prompt you to harden your Windows and Linux machines as described:
+- When the extension is installed and running, it will begin auditing your machines and you'll be prompted to harden settings such as configuration of the operating system and environment settings. These two recommendations will prompt you to harden your Windows and Linux machines as described:
     - **Windows Defender Exploit Guard should be enabled on your machines**
     - **Authentication to Linux machines should require SSH keys**
 
@@ -586,7 +624,7 @@ Learn which recommendations are in each security control in [Security controls a
 
 ### 11 Azure Defender alerts deprecated
 
-The eleven Azure Defender alerts listed below have been deprecated.
+The 11 Azure Defender alerts listed below have been deprecated.
 
 - New alerts will replace these two alerts and provide better coverage:
 
@@ -684,7 +722,7 @@ Learn more in [Disable specific findings](defender-for-sql-on-machines-vulnerabi
 
 As part of Ignite Spring 2021, we announced an integrated Azure Monitor Workbooks experience in Security Center.
 
-You can leverage the new integration to start using the out-of-the-box templates from Security Center’s gallery. By using workbook templates, you can access and build dynamic and visual reports to track your organization’s security posture. Additionally, you can create new workbooks based on Security Center data or any other supported data types and quickly deploy community workbooks from Security Center's GitHub community.
+You can use the new integration to start using the out-of-the-box templates from Security Center’s gallery. By using workbook templates, you can access and build dynamic and visual reports to track your organization’s security posture. Additionally, you can create new workbooks based on Security Center data or any other supported data types and quickly deploy community workbooks from Security Center's GitHub community.
 
 Three templates reports are provided:
 
@@ -699,7 +737,7 @@ Learn about using these reports or building your own in [Create rich, interactiv
 
 ### Regulatory compliance dashboard now includes Azure Audit reports (preview)
 
-From the regulatory compliance dashboard's toolbar you can now download Azure and Dynamics certification reports. 
+From the regulatory compliance dashboard's toolbar, you can now download Azure and Dynamics certification reports. 
 
 :::image type="content" source="media/release-notes/audit-reports-regulatory-compliance-dashboard.png" alt-text="Regulatory compliance dashboard's toolbar":::
 
@@ -747,7 +785,7 @@ Learn more about how to [Automate responses to Security Center triggers](workflo
 
 ### Two legacy recommendations no longer write data directly to Azure activity log 
 
-Security Center passes the data for almost all security recommendations to Azure Advisor which, in turn, writes it to [Azure activity log](../azure-monitor/essentials/activity-log.md).
+Security Center passes the data for almost all security recommendations to Azure Advisor, which in turn, writes it to [Azure activity log](../azure-monitor/essentials/activity-log.md).
 
 For two recommendations, the data is simultaneously written directly to Azure activity log. With this change, Security Center stops writing data for these legacy security recommendations directly to activity Log. Instead, we're exporting the data to Azure Advisor as we do for all the other recommendations.
 

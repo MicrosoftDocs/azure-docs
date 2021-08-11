@@ -117,7 +117,12 @@ landingContent:
       links:
         - text: Entity recognition
           url: how-tos/text-analytics-how-to-entity-linking.md
-
+- title: Text Summarization
+  linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Text summarization
+          url: how-tos/extractive-summarization.md
 - title: Responsible use of AI
   linkLists:
     - linkListType: overview

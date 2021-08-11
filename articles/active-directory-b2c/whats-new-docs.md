@@ -93,7 +93,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
 - [Developer notes for Azure Active Directory B2C](custom-policy-developer-notes.md)
 - [Add an API connector to a sign-up user flow](add-api-connector.md)
-- [Walkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C](custom-policy-rest-api-claims-exchange.md)
+- [Walkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C](add-api-connector-token-enrichment.md)
 - [Secure your API Connector](secure-rest-api.md)
 - [Use API connectors to customize and extend sign-up user flows](api-connectors-overview.md)
 - [Technical and feature overview of Azure Active Directory B2C](technical-overview.md)
