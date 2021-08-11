@@ -2,7 +2,7 @@
 title: Cross Tenant Customer Managed Keys - Step-by-Step tutorial
 description: Private Preview tutuorial for cross-tenant CMK. 
 services: active-directory
-author: vakarand
+author: karavar
 manager: skwan
 editor: 
 ms.service: active-directory
