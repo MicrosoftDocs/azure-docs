@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot general issues with Azure Percept DK
+title: Troubleshoot issues with Azure Percept DK
 description: Get troubleshooting tips for some of the more common issues with Azure Percept DK and IoT Edge
 author: mimcco
 ms.author: mimcco
