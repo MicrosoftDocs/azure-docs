@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
 ms.author: zxue
-ms.date: 08/03/2021
+ms.date: 08/06/2021
 ---
 
 # Deploy a FHIR service within Azure Healthcare APIs - using ARM template
@@ -23,7 +23,7 @@ An [ARM template](../../azure-resource-manager/templates/overview.md) is a JSON 
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 * If you want to run the code locally:
-    * [Azure PowerShell](/powershell/azure/install-az-ps).
+    * [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 # [CLI](#tab/CLI)
 
@@ -277,3 +277,10 @@ resourceGroupName = “your resource group name”
 az group delete --name $resourceGroupName
 ```
 ---
+
+## Next steps
+
+In this quickstart guide, you've deployed the FHIR service within Azure Healthcare APis using an ARM template. For more information about the FHIR service supported features, see.
+
+>[!div class="nextstepaction"]
+>[Supported FHIR features](fhir-features-supported.md)
