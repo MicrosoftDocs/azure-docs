@@ -29,7 +29,8 @@ To support these new capabilities, a new containerized agent is included in the 
 Either process assigns the **Monitoring Metrics Publisher** role to the cluster's service principal or User assigned MSI for the monitoring add-on so that the data collected by the agent can be published to your clusters resource. Monitoring Metrics Publisher has permission only to push metrics to the resource, it cannot alter any state, update the resource, or read any data. For more information about the role, see [Monitoring Metrics Publisher role](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher). The Monitoring Metrics Publisher role requirement is not applicable to Azure Arc-enabled Kubernetes clusters.
 
 > [!IMPORTANT]
-> The upgrade is not required for Azure Arc-enabled Kubernetes clusters since they will already have the minimum required agent version.
+> The upgrade is not required for Azure Arc-enabled Kubernetes clusters since they will already have the minimum required agent version. 
+> The assignment of **Monitoring Metrics Publisher** role to the cluster's service principal or User assigned MSI for the monitoring add-on is automatically done when using Azure portal, Azure PowerShell, or Azure CLI.
 
 ## Prerequisites
 
