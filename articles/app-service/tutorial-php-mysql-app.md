@@ -67,17 +67,17 @@ If your command runs successfully, then your MySQL server is running. If not, ma
 
 ### Create a database locally
 
-At the `mysql` prompt, create a database.
+1. At the `mysql` prompt, create a database.
 
-```sql 
-CREATE DATABASE sampledb;
-```
+    ```sql 
+    CREATE DATABASE sampledb;
+    ```
 
-Exit your server connection by typing `quit`.
+1. Exit your server connection by typing `quit`.
 
-```sql
-quit
-```
+    ```sql
+    quit
+    ```
 
 <a name="step2"></a>
 
@@ -413,7 +413,7 @@ Laravel needs an application key in App Service. You can configure it with app s
     az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
     ```
 
-`APP_DEBUG="true"` tells Laravel to return debugging information when the deployed app encounters errors. When running a production application, set it to `false`, which is more secure.
+    `APP_DEBUG="true"` tells Laravel to return debugging information when the deployed app encounters errors. When running a production application, set it to `false`, which is more secure.
 
 ### Set the virtual application path
 

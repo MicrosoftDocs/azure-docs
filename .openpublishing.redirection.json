@@ -40344,7 +40344,7 @@
       "redirect_url": "/azure/active-directory/b2b/claims-mapping",
       "redirect_document_id": true
     },
-	{
+    {
       "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-device-disappearance.md",
       "redirect_url": "/troubleshoot/azure/active-directory/reference-connect-device-disappearance",
       "redirect_document_id": false
@@ -56254,5 +56254,10 @@
       "redirect_url": "/azure/communication-services/concepts/telephony-sms/direct-routing-infrastructure",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/translator-info-overview.md",
+      "redirect_url": "/azure/cognitive-services/translator/translator-overview",
+      "redirect_document_id": false
+   }
   ]
 }
