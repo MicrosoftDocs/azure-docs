@@ -11,7 +11,7 @@ ms.date: 08/10/2021
 
 This article introduces built-in policy definitions for Azure Container Registry. Use these definitions to audit new and existing registries for compliance.
 
-There are currently no charges for using Azure Policy.
+There is no charge for using Azure Policy.
 
 ## Built-in policy definitions
 
@@ -26,7 +26,7 @@ The following built-in policy definitions are specific to Azure Container Regist
 * Enable or disable [policy enforcement](../governance/policy/concepts/assignment-structure.md#enforcement-mode) at any time.
 
 > [!NOTE]
-> After you create or update a policy assignment, it takes some time for the assignment to be applied to resources in the defined scope. See information about [policy evaluation triggers](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
+> After you create or update a policy assignment, it takes some time for the assignment to evaluate resources in the defined scope. See information about [policy evaluation triggers](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
 ## Review policy compliance
 
