@@ -29,7 +29,7 @@ The following steps show how to create an Ubuntu 16.04\18.04\20.04 image from a 
 
     Ubuntu also publishes prebuilt [Azure VHDs for download](https://cloud-images.ubuntu.com/).  However, these VHDs are intended for creating custom images a from Linux host machine and hypervisor, such as KVM.  These VHDs require that you first set the default user password which can only be done using Linux tooling, such as qemu, which aren't available for Windows.  As a result, when you create a custom image using Windows Hyper-V, you won't be able to connect to these VHDs to make image customizations.  For more information about the prebuilt Azure VHDs, read [Ubuntu's documentation](https://help.ubuntu.com/community/UEC/Images?_ga=2.114783623.1858181609.1624392241-1226151842.1623682781#QEMU_invocation).
 
-1.  Start with a Hyper-V VM in your physical lab environment that has been created from your image.  Read the article [on how to create a virtual machine in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) for more information as set the settings as shown below:
+1.  Start with a Hyper-V VM in your physical lab environment that has been created from your image.  Read the article [on how to create a virtual machine in Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) for more information as set the settings as shown below:
     -   The VM must be created as a **Generation 1** VM.
     -   Use the **Default Switch** network configuration option to allow the VM to connect to the internet.
     -   In the **Connect Virtual Hard Disk** settings, the disk's **Size** must *not* be greater than 128 GB as shown in the below image.
@@ -56,8 +56,8 @@ The following steps show how to create an Ubuntu 16.04\18.04\20.04 image from a 
             :::image type="content" source="./media/upload-custom-image-shared-image-gallery/choose-action.png" alt-text="Choose action":::
 
 To help with resizing the VHD and converting to a VHDX, you can also use the following PowerShell cmdlets:
-- [Resize-VHD](https://docs.microsoft.com/powershell/module/hyper-v/resize-vhd?view=windowsserver2019-ps)
-- [Convert-VHD](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd?view=windowsserver2019-ps)
+- [Resize-VHD](/powershell/module/hyper-v/resize-vhd?view=windowsserver2019-ps)
+- [Convert-VHD](/powershell/module/hyper-v/convert-vhd?view=windowsserver2019-ps)
 
 ## Upload the custom image to a shared image gallery
 
