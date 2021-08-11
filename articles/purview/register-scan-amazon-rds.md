@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/08/2021
+ms.date: 08/11/2021
 ms.custom: references_regions
 # Customer intent: As a security officer, I need to understand how to use the Azure Purview connector for Amazon RDS service to set up, configure, and scan my Amazon RDS databases.
 ---
@@ -73,7 +73,9 @@ The following diagram shows the components in both your customer account and Mic
 
 :::image type="content" source="media/register-scan-amazon-rds/vpc-architecture.png" alt-text="Diagram of the Purview Scanner service in a VPC architecture.":::
 
-TBD automatic procedure and QUESTION to Oded do we want both automatic and manual procedure?
+> [!NOTE]
+> You can perform this procedure automatically or manually. For more information, see [Prepare your RDS database manually (advanced)](#prepare-your-rds-database-manually-advanced).
+>
 
 
  
@@ -195,6 +197,270 @@ Use the other areas of Purview to find out details about the content in your dat
     - [Tutorial: Create and import glossary terms in Azure Purview (preview)](tutorial-import-create-glossary-terms.md)
 
 
+## Prepare your RDS database manually (advanced)
+
+This procedure describes the manual steps required for preparing your RDS database in a VPC to connect to Azure Purview. By default, we recommend that you perform this procedure using the automatic tool described earlier in this article. For more information, see [Prepare an RDS database in a VPC](#prepare-an-rds-database-in-a-vpc).
+
+### Step 1: Retrieve your Amazon RDS endpoint IP address
+
+Locate the IP address of your Amazon RDS endpoint, hosted inside an Amazon VPC. You’ll use this IP address later in the process when you create your target group.
+
+**To retrieve your RDS endpoint IP address**:
+
+1.	In Amazon RDS, navigate to your RDS database, and identify your endpoint URL.
+
+    For example:
+
+    :::image type="content" source="media/register-scan-amazon-rds/identify-endpoint-url.png" alt-text="Screenshot of how to identify your endpoint URL in AWS.":::
+
+    > [!TIP]
+    > Use the following command to get a list of the databases in your endpoint: `aws rds describe-db-instances`
+    >
+
+1.	Use the endpoint URL to find the IP address of your Amazon RDS database. For example, use one of the following methods:
+
+    - **Ping**: `ping <DB-Endpoint>`
+
+    - **nslookup**: `nslookup <Db-Endpoint>`
+
+    - **Online nslookup**. Enter your database **Endpoint** value in the search box and select **Find DNS records**.
+
+        For example:
+
+        :::image type="content" source="media/register-scan-amazon-rds/nslookup-search.png" alt-text="Screenshot of an NsLookup.io search.":::
+
+        **NSLookup.io** shows your IP address on the next screen. For example:
+
+        :::image type="content" source="media/register-scan-amazon-rds/nslookup-search-results.png" alt-text="Screenshot of NsLookup.io search results.":::
+
+### Step 2: Enable your RDS connection from a load balancer
+
+To ensure that your RDS connection will be allowed from the load balancer you create later in the process:
+
+1.	**Find the VPC IP range**.
+
+    In Amazon RDS, navigate to your RDS database, and click the **VPC** link to find its IP range (IPv4 CIDR). For example:
+
+    :::image type="content" source="media/register-scan-amazon-rds/vpc-ip-range.png" alt-text="Screenshot of a VPC IP range shown in AWS.":::
+
+    The IP range is shown under **Your VPCs**, in the **IPv4 CIDR** column:
+
+    :::image type="content" source="media/register-scan-amazon-rds/vpc-ipv4-cidr-column.png" alt-text="Screenshot of the IP range shown in the I P v 4 C I D R column.":::
+
+    > [!TIP]
+    > To perform this step via CLI, use the following command: `aws ec2 describe-vpcs`
+    >
+    > For more information, see [ec2 — AWS CLI 1.19.105 Command Reference (amazon.com)](https://docs.aws.amazon.com/cli/latest/reference/ec2/).
+    >
+
+1.	**Create a Security Group for this IP range**.
+
+    1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/
+
+    1. In the navigation pane, under **Network & Security**, select **Security Groups** > **Create security group**.
+
+    1. Create your security group, making sure to include the following details:
+
+        - **Security group name** – enter a meaningful name
+        - **Description** – enter a description for your security group
+        - **VPC** – select the RDS DB VPC
+
+    1.	Under **Inbound rules**, select **Add rule** and enter the following details:
+
+        - **Type** – select Custom TCP
+        - **Port range** – select the RDS DB port
+        - **Source** – select **Custom** and enter the VPC IP range from the previous step.
+
+        For example:
+
+        :::image type="content" source="media/register-scan-amazon-rds/create-security-group.png" alt-text="Screenshot of creating a security group in AWS.":::
+
+    1.	Select **Create security group**.
+
+1.	**Associate the new security group to RDS**.
+
+    1.	In Amazon RDS, navigate to your RDS database, and select **Modify**.
+
+        :::image type="content" source="media/register-scan-amazon-rds/modify-rds-database.png" alt-text="Screenshot of modifying your RDS database in AWS.":::
+
+    1.	In the **Connectivity** section, in the **Security group** field, add the new security group that you created in the previous step, and then select **Continue.**
+
+        :::image type="content" source="media/register-scan-amazon-rds/add-new-security-group.png" alt-text="Screenshot of adding your new security group in AWS.":::
+
+    1.	In the **Scheduling of modifications** section, select **Apply immediately** to update the security group immediately.
+
+        :::image type="content" source="media/register-scan-amazon-rds/apply-immediately.png" alt-text="Screenshot of Apply immediately option in AWS.":::
+
+    1.	Select **Modify DB instance**.
+
+> [!TIP]
+> To perform this step via CLI, use the following commands:
+>
+> - `aws  ec2 create-security-group--description <value>--group-name <value>[--vpc-id <value>]`
+>
+>     For more information, see [create-security-group — AWS CLI 1.19.105 Command Reference (amazon.com)](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-security-group.html).
+>
+> - `aws rds --db-instance-identifier <value> --vpc-security-group-ids <value>`
+>
+>     For more information, see [modify-db-instance — AWS CLI 1.19.105 Command Reference (amazon.com)](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-instance.html).
+>
+
+### Step 3: Create a target group
+
+**To create your target group in AWS**:
+
+1.	Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/
+
+1.	In the navigation pane, under **Load Balancing**, select **Target Groups**.
+
+1.	Select **Create target group**
+
+    Create your target group, making sure to include the following details:
+
+    - **Target type** – select IP addresses (optional)
+    - **Protocol** – select TCP
+    - **Port** – RDS DB port
+    - **VPC** – RDS DB VPC
+
+    > [!TIP]
+    > You can find the RDS database port and VPC values on the RDS database page.
+
+    When you’re done, select **Next** to continue.
+
+    For example:
+
+    :::image type="content" source="media/register-scan-amazon-rds/create-target-group.png" alt-text="Screenshot of creating a target group in AWS.":::
+
+1.	In the **Register targets** page, enter your database IP address, and then select **Include as pending below**.
+
+    For example:
+
+    :::image type="content" source="media/register-scan-amazon-rds/include-as-pending-below.png" alt-text="Screenshot of the Include as pending below button in AWS.":::
+
+1.	After you see the new target listed in the **Targets** table, select **Create target group** at the bottom of the page.
+
+> [!TIP]
+> To perform this step via CLI, use the following command:
+>
+> - `aws elbv2 create-target-group --name <tg-name> --protocol <db-protocol> --port <db-port> --target-type ip --vpc-id <db-vpc-id>`
+>
+>     For more information, see [create-target-group — AWS CLI 2.2.7 Command Reference (amazonaws.com)](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/elbv2/create-target-group.html).
+>
+> - `aws elbv2 register-targets --target-group-arn <tg-arn> --targets Id=<db-ip>,Port=<db-port>`
+>
+>     For more information, see [register-targets — AWS CLI 2.2.7 Command Reference (amazonaws.com)](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/elbv2/register-targets.html).
+>
+
+### Step 4: Create a load balancer
+
+To create a network load balancer to forward traffic to the RDS IP address:
+
+1.	Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/
+
+1.	In the navigation pane, under **Load Balancing**, select **Load Balancers**.
+
+1.	Select **Create Load Balancer**.
+
+1.	Select **Network Load Balancer > Create**.
+
+1.	In the **Create Network Load Balancer** page, select or enter the following values:
+
+    - **Scheme** – select Internal
+
+    - **VPC** – enter your RDS DB VPC
+
+    - **Mapping** – Make sure that the RDS is defined for all AWS regions, and then make sure to select all of those regions. You can find this information in the **Availability zone** value on the **RDS database** page, on the **Connectivity & security** tab.
+
+    - **Listeners and Routing**:
+
+        - *Protocol* – select **TCP**
+        - *Port* – select **RDS DB port**
+        - *Default action* – select the target group created in the [previous step](#step-3-create-a-target-group)
+
+    For example:
+
+    :::image type="content" source="media/register-scan-amazon-rds/create-network-load-balancer.png" alt-text="Screenshot of creating a network load balancer in AWS.":::
+
+1.	At the bottom of the page, select **Create Load Balancer**.
+
+1.	Select **View Load Balancers**.
+
+1.	Wait few minutes and refresh the screen, until the **State** column of the new Load Balancer is **Active.**
+
+
+> [!TIP]
+> To perform this step via CLI, use the following commands:
+> - `aws elbv2 create-load-balancer --name <lb-name> --type network --scheme internal --subnet-mappings SubnetId=<value>`
+>
+>    For more information, see [create-load-balancer — AWS CLI 2.2.7 Command Reference (amazonaws.com)](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/elbv2/create-load-balancer.html).
+>
+> - `aws elbv2 create-listener --load-balancer-arn <lb-arn> --protocol TCP --port 80 --default-actions Type=forward,TargetGroupArn=<tg-arn>`
+>
+>    For more information, see [create-listener — AWS CLI 2.2.7 Command Reference (amazonaws.com)](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/elbv2/create-listener.html).
+>
+
+ 
+### Step 5: Create an endpoint service
+
+After the [Load Balancer is created](#step-4-create-a-load-balancer) and its State is **Active** you can create the endpoint service.
+
+**To create the endpoint service**:
+
+1.	Open the Amazon VPC console at https://console.aws.amazon.com/vpc/.
+
+1.	In the navigation pane, select **Virtual Private Cloud > Endpoint Services**.
+
+1.	Select **Create Endpoint Service**.
+
+1.	In the **Associate Load Balancers** dropdown list, select the new load balancer created in the [previous step](#step-4-create-a-load-balancer).
+
+1.	Clear the selection for both of the following options:
+
+    - **Require acceptance for endpoint**
+    - **Enable private DNS name**
+
+    For example:
+
+    :::image type="content" source="media/register-scan-amazon-rds/create-service.png" alt-text="Screenshot of creating a service in AWS.":::
+
+1.	At the bottom of the page, select **Create Service**, and then **Close**.
+
+1.	Back in the Endpoint Services page:
+
+    1. Select the new Endpoint Service you created.
+    1. In the **Whitelisted principals** tab at the bottom, select **Add principals to whitelist**.
+    1. In the **Identities to add > ARN** field, enter `arn:aws:iam::181328463391:root`.
+    1. Select **Add to whitelisted principals**.
+
+    For example:
+
+    :::image type="content" source="media/register-scan-amazon-rds/add-principals-to-whitelist.png" alt-text="Screenshot of adding principals to whitelist in AWS.":::
+
+> [!TIP]
+> To perform this step via CLI, use the following commands:
+>
+> - `aws ec2 create-vpc-endpoint-service-configuration --network-load-balancer-arns  <lb-arn>  --no-acceptance-required`
+>
+>    For more information, see [create-vpc-endpoint-service-configuration — AWS CLI 2.2.7 Command Reference (amazonaws.com)](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc-endpoint-service-configuration.html).
+>
+> - `aws ec2 modify-vpc-endpoint-service-permissions --service-id <endpoint-service-id> --add-allowed-principals <purview-scanner-arn>`
+>
+>    For more information, see [modify-vpc-endpoint-service-permissions — AWS CLI 2.2.7 Command Reference (amazonaws.com)](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/modify-vpc-endpoint-service-permissions.html).
+>
+
+**To copy the service name for use in Azure Purview**:
+
+After you’ve created your endpoint service, you can copy the **Service name** value from AWS for use in Azure Purview.
+
+Locate the **Service name** on the **Details** tab for your selected endpoint service. For example:
+
+:::image type="content" source="media/register-scan-amazon-rds/locate-service-name.png" alt-text="Screenshot of the service name in AWS.":::
+
+> [!TIP]
+> To perform this step via CLI, use the following command: `Aws ec2 describe-vpc-endpoint-services`
+>
+> For more information, see [describe-vpc-endpoint-services — AWS CLI 2.2.7 Command Reference (amazonaws.com)](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-vpc-endpoint-services.html).
+>
 ## Next steps
 
 Learn more about Azure Purview Insight reports:
