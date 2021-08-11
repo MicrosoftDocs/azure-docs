@@ -345,7 +345,7 @@
   - name: Shared concepts
     items:
     - name: Available regions for Azure Stack Edge
-      href: azure-stack-edge-gpu-regionsx.md
+      href: azure-stack-edge-gpu-regions.md
     - name: What is GPU sharing?
       href: azure-stack-edge-gpu-sharing.md 
     - name: Understand data residency
