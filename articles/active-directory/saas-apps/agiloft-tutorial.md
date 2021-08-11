@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/03/2021
+ms.date: 08/11/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Agiloft Contract Management Suite
@@ -120,15 +120,20 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, log in to your Agiloft Contract Management Suite company site as an administrator.
 
-2. Click on **Setup** (on the Left Pane) and then select **Access**.
+2. Click on the **Settings** icon at the top right corner of the page.
 
-    ![Screenshot that highlights the Access section.](./media/agiloft-tutorial/access.png)
+    ![Screenshot highlighting the Setup icon.](./media/agiloft-tutorial/settings.png)
 
-3. Click on the button **Configure SAML 2.0 Single Sign-On**.
+3. Select **Access**.
+
+    ![Screenshot highlighting the Access area](./media/agiloft-tutorial/access.png)
+
+
+4. Click on the button **Configure SAML 2.0 Single Sign-On**.
 
     ![Screenshot that highlights the Configure SAML 2.0 Single Sign-On button.](./media/agiloft-tutorial/setup.png)
 
-4. A wizard dialog appears. On the dialog, click on the **Identity Provider Details** and fill in the following fields:  
+5. A wizard dialog appears. On the dialog, click on the **Identity Provider Details** and fill in the following fields:  
 
     ![Agiloft Contract Management Suite Configuration](./media/agiloft-tutorial/details.png)
 
