@@ -61,7 +61,7 @@ The pipeline you'll create will be parameter driven. Parameters allow you to cre
 |Name  |Type  |Default value  |Description|
 |---------|---------|---------|-----------|
 |ResourceGroup    |string        |Synapse          |Name of the resource group for your dedicated SQL pools|
-|SubscriptionID   |string        |<SubscriptionID> |Subscription ID for your resource group|
+|SubscriptionID   |string        |`<SubscriptionID>` |Subscription ID for your resource group|
 |WorkspaceName    |string        |Synapse          |Name of your workspace|
 |SQLPoolName      |string        |SQLPool1         |Name of your dedicated SQL pool|
 |PauseorResume    |string        |Pause            |The state wanted at the end of the pipeline run|
