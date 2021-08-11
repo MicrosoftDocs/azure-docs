@@ -22,7 +22,7 @@
     },
     {
       "source_path": "security-authenticate-publishing-clients.md",
-      "redirect_url": "/azure/event-grid/authenticate-using-access-keys-shared-access-signatures",
+      "redirect_url": "/azure/event-grid/authenticate-with-access-keys-shared-access-signatures",
       "redirect_document_id": false
     },    
     {

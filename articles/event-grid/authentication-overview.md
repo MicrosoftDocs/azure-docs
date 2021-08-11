@@ -12,7 +12,7 @@ Authentication for clients publishing events to Event Grid is supported using th
 - Access key or shared access signature (SAS)
 
 ## Authenticate using Azure Active Directory (preview)
-Azure AD integration for Event Grid resources provides Azure role-based access control (RBAC) for fine-grained control over a client’s access to resources. You can use Azure RBAC to grant permissions to a security principal, which may be a user, a group, or an application service principal. The security principal is authenticated by Azure AD to return an OAuth 2.0 token. The token can be used to authorize a request to access Event Grid resources (topics, domains, or partner namespaces). For detailed information, see [Authenticate and authorize with the Microsoft Identity platform](authenticate-using-active-directory.md).
+Azure AD integration for Event Grid resources provides Azure role-based access control (RBAC) for fine-grained control over a client’s access to resources. You can use Azure RBAC to grant permissions to a security principal, which may be a user, a group, or an application service principal. The security principal is authenticated by Azure AD to return an OAuth 2.0 token. The token can be used to authorize a request to access Event Grid resources (topics, domains, or partner namespaces). For detailed information, see [Authenticate and authorize with the Microsoft Identity platform](authenticate-with-active-directory.md).
 
 
 > [!IMPORTANT]
@@ -23,7 +23,7 @@ Azure AD integration for Event Grid resources provides Azure role-based access c
 > Azure Event Grid on Kubernetes does not support Azure AD authentication yet. 
 
 ## Authenticate using access keys and shared access signatures
-You can authenticate clients that publish events to Azure Event Grid topics, domains, partner namespaces using **access key** or **Shared Access Signature (SAS)** token. For more information, see [Using access keys or using Shared Access Signatures (SAS)](authenticate-using-access-keys-shared-access-signatures.md). 
+You can authenticate clients that publish events to Azure Event Grid topics, domains, partner namespaces using **access key** or **Shared Access Signature (SAS)** token. For more information, see [Using access keys or using Shared Access Signatures (SAS)](authenticate-with-access-keysshared-access-signatures.md). 
    
 
 ## Next steps
