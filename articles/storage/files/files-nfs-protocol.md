@@ -98,7 +98,6 @@ The following workloads have known issues. See the [Troubleshoot Azure NFS file 
 - Oracle Database will experience incompatibility with its dNFS feature.
 - SAP Application Layer will experience inconsistent behavior due to a [known active issue with ls -l](storage-troubleshooting-files-nfs.md#ls-la-throws-io-error).
 
-We look forward to gathering more feedback. Reach out to azurefilesnfs@microsoft.com for sharing feedback/suggestions/recommendations.
 
 ## Next steps
 - [Create an NFS file share](storage-files-how-to-create-nfs-shares.md)
