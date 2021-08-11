@@ -54,6 +54,19 @@ The name of the template you created is **Sensor Controller**. The model include
 
 :::image type="content" source="media/howto-set-up-template/device-template.png" alt-text="Screenshot that shows a Sensor controller device template."::: 
 
+## Auto-Create a device template using a connected device
+
+In addition to the above mentioned options to create a device template, you can also automatically create a device template using a connected (unassigned) device.
+The device template is created by scanning the device data and inferring the model based on the data. 
+Below are the steps to create a template using this feature 
+1. Connect a device to IoT Central, and start sending the data to IoT Central. Once you see the data in the **Raw data** view, click on **Auto-Create template** under Manage template drop down 
+:::image type="content" source="media/howto-set-up-template/infer-model-1.png" alt-text="Screenshot that shows how to auto-create template"::: 
+1. The screen with the incoming data is now presented on the Data preview screen, make changes if required to the raw data and click on **Create template** 
+:::image type="content" source="media/howto-set-up-template/infer-model-2.png" alt-text="Screenshot that shows how to auto-create template"::: 
+1. Once you click Create template, a template will be automatically created based on this data format and this device will be automatically assigned to it.You can make further edits/updates to the template.
+:::image type="content" source="media/howto-set-up-template/infer-model-3.png" alt-text="Screenshot that shows how to auto-create template"::: 
+
+
 ## Manage a device template
 
 You can rename or delete a template from the template's editor page.
