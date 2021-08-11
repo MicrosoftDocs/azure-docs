@@ -26,14 +26,14 @@ You can monitor the following metrics to help determine if you need to scale.
   - High memory usage indicates that your data size is too large for the current cache size. Consider scaling to a cache size with larger memory.
 - Client connections
   - Each cache size has a limit to the number of client connections it can support. If your client connections are close to the limit for the cache size, consider scaling up to a larger tier, or scaling out to enable clustering and increase shard count. Your choice depends on the Redis server load and memory usage.
-  - For more information on connection limits by cache size, see [Azure Cache for Redis planning FAQs](/azure/azure-cache-for-redis/cache-planning-faq).
+  - For more information on connection limits by cache size, see [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
 - Network Bandwidth
   - If the Redis server exceeds the available bandwidth, clients requests could time out because the server can't push data to the client fast enough. Check "Cache Read" and "Cache Write" metrics to see how much server-side bandwidth is being used. If you Redis server is exceeding available network bandwidth, you should consider scaling up to a larger cache size with higher network bandwidth.
-  - For more information on network available bandwidth by cache size, see [Azure Cache for Redis planning FAQs](/azure/azure-cache-for-redis/cache-planning-faq).
+  - For more information on network available bandwidth by cache size, see [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
 
 If you determine your cache is no longer meeting your application's requirements, you can scale to an appropriate cache pricing tier for your application. You can choose a larger or smaller cache to match your needs.
 
-For more information on determining the cache pricing tier to use, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier) and [Azure Cache for Redis planning FAQs](/azure/azure-cache-for-redis/cache-planning-faq).
+For more information on determining the cache pricing tier to use, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier) and [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
 
 ## Scale a cache
 

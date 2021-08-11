@@ -2164,18 +2164,53 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/aks/consul-install.md",
-      "redirect_url": "/azure/aks/servicemesh-consul-install",
+      "source_path_from_root": "/articles/aks/istio-install.md",
+      "redirect_url": "/azure/aks/servicemesh-about",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/aks/istio-install.md",
-      "redirect_url": "/azure/aks/servicemesh-istio-install",
+      "source_path_from_root": "/articles/aks/servicemesh-istio-about.md",
+      "redirect_url": "/azure/aks/servicemesh-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/servicemesh-istio-install.md",
+      "redirect_url": "/azure/aks/servicemesh-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/servicemesh-istio-scenario-routing.md",
+      "redirect_url": "/azure/aks/servicemesh-about",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/aks/istio-scenario-routing.md",
-      "redirect_url": "/azure/aks/servicemesh-istio-scenario-routing",
+      "redirect_url": "/azure/aks/servicemesh-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/servicemesh-linkerd-about.md",
+      "redirect_url": "/azure/aks/servicemesh-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/servicemesh-linkerd-install.md",
+      "redirect_url": "/azure/aks/servicemesh-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/consul-install.md",
+      "redirect_url": "/azure/aks/servicemesh-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/servicemesh-consul-about.md",
+      "redirect_url": "/azure/aks/servicemesh-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/servicemesh-consul-install.md",
+      "redirect_url": "/azure/aks/servicemesh-about",
       "redirect_document_id": false
     },
     {
@@ -32330,6 +32365,96 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/immersive-reader/how-to-cache-token.md",
+      "redirect_url": "/azure/applied-ai-services/immersive-reader/how-to-cache-token",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/immersive-reader/how-to-configure-read-aloud.md",
+      "redirect_url": "/azure/applied-ai-services/immersive-reader/how-to-configure-read-aloud",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/immersive-reader/how-to-configure-translation.md",
+      "redirect_url": "/azure/applied-ai-services/immersive-reader/how-to-configure-translation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/immersive-reader/how-to-create-immersive-reader.md",
+      "redirect_url": "/azure/applied-ai-services/immersive-reader/how-to-create-immersive-reader",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/immersive-reader/how-to-customize-launch-button.md",
+      "redirect_url": "/azure/applied-ai-services/immersive-reader/how-to-customize-launch-button",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/immersive-reader/how-to-launch-immersive-reader.md",
+      "redirect_url": "/azure/applied-ai-services/immersive-reader/how-to-launch-immersive-reader",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/immersive-reader/how-to-multiple-resources.md",
+      "redirect_url": "/azure/applied-ai-services/immersive-reader/how-to-multiple-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/immersive-reader/how-to-prepare-html.md",
+      "redirect_url": "/azure/applied-ai-services/immersive-reader/how-to-prepare-html",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/immersive-reader/how-to-store-user-preferences.md",
+      "redirect_url": "/azure/applied-ai-services/immersive-reader/how-to-store-user-preferences",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/immersive-reader/language-support.md",
+      "redirect_url": "/azure/applied-ai-services/immersive-reader/language-support",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/immersive-reader/overview.md",
+      "redirect_url": "/azure/applied-ai-services/immersive-reader/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/immersive-reader/reference.md",
+      "redirect_url": "/azure/applied-ai-services/immersive-reader/reference",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/immersive-reader/release-notes.md",
+      "redirect_url": "/azure/applied-ai-services/immersive-reader/release-notes",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/immersive-reader/tutorial-ios-picture-immersive-reader.md",
+      "redirect_url": "/azure/applied-ai-services/immersive-reader/tutorial-ios-picture-immersive-reader",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/immersive-reader/how-to/display-math.md",
+      "redirect_url": "/azure/applied-ai-services/immersive-reader/how-to/display-math",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/immersive-reader/how-to/set-cookie-policy.md",
+      "redirect_url": "/azure/applied-ai-services/immersive-reader/how-to/set-cookie-policy",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/immersive-reader/quickstarts/client-libraries.md",
+      "redirect_url": "/azure/applied-ai-services/immersive-reader/quickstarts/client-libraries",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/immersive-reader/index.yml",
+      "redirect_url": "/azure/applied-ai-services/immersive-reader/index",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/azure-stack/partner/azure-stack-vaas-local-agent.md",
       "redirect_url": "/azure-stack/partner/azure-stack-vaas-local-agent",
       "redirect_document_id": false
@@ -40219,7 +40344,7 @@
       "redirect_url": "/azure/active-directory/b2b/claims-mapping",
       "redirect_document_id": true
     },
-	{
+    {
       "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-device-disappearance.md",
       "redirect_url": "/troubleshoot/azure/active-directory/reference-connect-device-disappearance",
       "redirect_document_id": false
@@ -55965,6 +56090,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sentinel/tutorial-investigate-cases.md",
+      "redirect_url": "articles/sentinel/investigate-cases.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/quickstart-get-visibility.md",
+      "redirect_url": "articles/sentinel/get-visibility.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/tutorial-detect-threats-built-in.md",
+      "redirect_url": "articles/sentinel/detect-threats-built-in.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/tutorial-detect-threats-custom.md",
+      "redirect_url": "articles/sentinel/detect-threats-custom.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/tutorial-monitor-your-data.md",
+      "redirect_url": "articles/sentinel/monitor-your-data.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-desktop/connect-android.md",
       "redirect_url": "/azure/virtual-desktop/user-documentation/connect-android",
       "redirect_document_id": true
@@ -56098,6 +56248,16 @@
       "source_path_from_root": "/articles/store-sendgrid-php-how-to-send-email.md",
       "redirect_url": "https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-account",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/sip-interface-infrastructure.md",
+      "redirect_url": "/azure/communication-services/concepts/telephony-sms/direct-routing-infrastructure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/translator-info-overview.md",
+      "redirect_url": "/azure/cognitive-services/translator/translator-overview",
+      "redirect_document_id": false
+   }
   ]
 }
