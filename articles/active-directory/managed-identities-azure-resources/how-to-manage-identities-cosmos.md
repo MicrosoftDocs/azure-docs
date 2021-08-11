@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: msi
 ms.workload: integration
 ms.topic: how-to
-ms.date: 08/04/2021
+ms.date: 08/11/2021
 ms.author: barclayn
 ms.custom: ep-msia
 #Customer intent: As an administrator I want to know how to access Cosmos DB from a virtual machine using a managed identity
@@ -21,7 +21,7 @@ ms.custom: ep-msia
 # How to use managed identities to connect to Cosmos DB from a Azure virtual machine
 
 
-This article shows you how to use managed identities from a virtual machine to connect to Cosmos [!INCLUDE [managed identities](~/includes/managed-identities-definition.md)].
+This article shows you how to use managed identities from a virtual machine to connect to Cosmos. [Azure Cosmos DB](../../cosmos-db/introduction.md) is a fully managed NoSQL database for modern app development. [Managed identities](overview.md) for Azure resources allow your applications to authenticate when accessing resources without the need to store credential information in code or to manage an account. 
 
 ## Prerequisites
 
