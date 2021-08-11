@@ -31,9 +31,17 @@ In your logic app workflow, you can use a trigger that monitors events in ShareP
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). 
+* Your Microsoft Office 365 account credentials that you use with SharePoint where you sign in with a [work or school account](https://support.microsoft.com/office/what-account-to-use-with-office-and-you-need-one-914e6610-2763-47ac-ab36-602a81068235#bkmk_msavsworkschool).
 
-* Your SharePoint site address and user credentials. You need these credentials so that you can authorize your workflow to access your your SharePoint account.
+  You need these credentials so that you can authorize your workflow to access your SharePoint account.
+
+  > [!NOTE]
+  > If you're using [Microsoft Azure operated by 21Vianet](https://portal.azure.cn), Azure Active Directory (Azure AD) authentication 
+  > works only with an account for Microsoft Office 365 operated by 21Vianet (.cn), not .com accounts.
+
+* Your SharePoint site address
+
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * For connections to an on-premises SharePoint server, you need to [install and set up the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a local computer and a [data gateway resource that's already created in Azure](../logic-apps/logic-apps-gateway-connection.md).
 

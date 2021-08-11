@@ -1,11 +1,11 @@
 ---
-title: Integrate with Office 365 Outlook
+title: Connect to Office 365 Outlook
 description: Automate tasks and workflows that manage email, contacts, and calendars in Office 365 Outlook by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: estfan, azla
 ms.topic: article
-ms.date: 11/13/2020
+ms.date: 08/11/2021
 tags: connectors
 ---
 
@@ -21,11 +21,24 @@ You can use any trigger to start your workflow, for example, when a new email ar
 
 ## Prerequisites
 
-* An Outlook account where you sign in with a [work or school account](https://www.office.com/). If you have an @outlook.com or @hotmail.com account, use the [Outlook.com connector](../connectors/connectors-create-api-outlook.md) instead. To connect to Outlook with a different user account, such as a service account, see [Connect using other accounts](#connect-using-other-accounts).
+* Your Microsoft Office 365 account for Outlook where you sign in with a [work or school account](https://support.microsoft.com/office/what-account-to-use-with-office-and-you-need-one-914e6610-2763-47ac-ab36-602a81068235#bkmk_msavsworkschool).
+
+  You need these credentials so that you can authorize your workflow to access your Outlook account.
+
+  > [!NOTE]
+  > If you have an @outlook.com or @hotmail.com account, use the [Outlook.com connector](../connectors/connectors-create-api-outlook.md). 
+  > To connect to Outlook with a different user account, such as a service account, see [Connect using other accounts](#connect-using-other-accounts).
+  >
+  > If you're using [Microsoft Azure operated by 21Vianet](https://portal.azure.cn), Azure Active Directory (Azure AD) authentication 
+  > works only with an account for Microsoft Office 365 operated by 21Vianet (.cn), not .com accounts.
 
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * The logic app where you want to access your Outlook account. To start your workflow with an Office 365 Outlook trigger, you need to have a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To add an Office 365 Outlook action to your workflow, your logic app needs to already have a trigger.
+
+## Connector reference
+
+For technical details about this connector, such as triggers, actions, and limits, as described by the connector's Swagger file, see the [connector's reference page](/connectors/office365/).
 
 ## Add a trigger
 
@@ -59,7 +72,7 @@ Now add an action that runs after the trigger fires. For example, you can add th
 
 ## Add an action
 
-An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an operation that's run by the workflow in your logic app. This example logic app creates a new contact in Office 365 Outlook. You can use the output from another trigger or action to create the contact. For example, suppose your logic app uses the Dynamics 365 trigger, **When a record is created**. You can add the Office 365 Outlook **Create contact** action and use the outputs from the SalesForce trigger to create the new contact.
+An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an operation that's run by the workflow in your logic app. This example logic app creates a new contact in Office 365 Outlook. You can use the output from another trigger or action to create the contact. For example, suppose your logic app uses the Salesforce trigger, **When a record is created**. You can add the Office 365 Outlook **Create contact** action and use the outputs from the trigger to create the new contact.
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
@@ -108,10 +121,6 @@ If you try connecting to Outlook by using a different account than the one curre
    1. In the **Send an email** action, open the **Add a parameter** list, and select the **From (Send as)** parameter.
 
    1. After the parameter appears on the action, enter the service account's email address.
-
-## Connector reference
-
-For technical details about this connector, such as triggers, actions, and limits, as described by the connector's Swagger file, see the [connector's reference page](/connectors/office365/). 
 
 ## Next steps
 
