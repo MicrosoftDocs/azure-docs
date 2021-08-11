@@ -27,8 +27,8 @@ This quickstart describes the steps to create an Azure Purview account by using 
 1. On the **Basics** tab, do the following:
     1. Select a **Resource group**.
     1. Enter a **Purview account name** for your catalog. Spaces and symbols aren't allowed.
-    1. Choose a  **Location**
-    1. Enter a **Managed resource group name** and Select **Review & Create**.
+    1. Choose a  **Location** and Select **Review & Create**.
+  
     
 2. Select **Review & Create**, and then select **Create**. It takes a few minutes to complete the creation. The newly created Azure Purview account instance appears in the list on your **Purview accounts** page.
 

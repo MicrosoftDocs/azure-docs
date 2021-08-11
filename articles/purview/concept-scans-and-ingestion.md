@@ -29,7 +29,7 @@ A scan rule determines the rules, which are associated to a scan and applied to 
    > Scoping the scans or Scan rule sets are not available to all data sources. [Scan Rule Sets](create-a-scan-rule-set.md)
 
 ## Ingestion
-Ingestion process is responsible for populating the data map. The tech metadata or classifications identified by scanning process is then sent to Ingestion. Ingestion analyses the input from scan, applies resource set patterns and policies and then loads the data map automatically. The assets/schemas can be discovered or curated only after ingestion is complete.Ingestion process also populates lineage graph from external connections  like Azure Data Factory and Synapse. Ingested assets are discoverable and consumable within the data catalog.
+Ingestion process is responsible for populating the data map. The tech metadata or classifications identified by scanning process is then sent to Ingestion. Ingestion analyses the input from scan, applies resource set patterns and policies and then loads the data map automatically. The assets/schemas can be discovered or curated only after ingestion is complete.A resource set is a single representation in Purview for a large number of data assets on data source. Ingestion process also populates lineage graph from external connections  like Azure Data Factory and Synapse. Ingested assets are discoverable and consumable within the data catalog.
 
 ## Next steps
 
