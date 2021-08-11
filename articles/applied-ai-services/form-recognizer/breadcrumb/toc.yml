@@ -8,7 +8,7 @@
     items:
     - name: Form Recognizer
       tocHref: /azure/cognitive-services/
-      topicHref: /azure/cognitive-services/form-recognizer/index
+      topicHref: /azure/applied-ai-services/form-recognizer/index
 - name: Azure
   tocHref: /legal/
   topicHref: /azure/index

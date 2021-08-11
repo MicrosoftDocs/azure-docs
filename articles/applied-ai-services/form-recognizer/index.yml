@@ -241,4 +241,4 @@ landingContent:
       - linkListType: reference
         links:
           - text: Support and help options
-            url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
+            url: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
