@@ -8,7 +8,7 @@ editor:
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: 
-ms.topic: tutorial
+ms.topic: howto
 ms.workload: identity
 ms.date: 08/10/2021
 ms.author: vakarand
