@@ -97,17 +97,3 @@ landingContent:
             url: https://azure.microsoft.com/pricing/details/#Linux
           - text: Regional availability
             url: https://azure.microsoft.com/regions/services/
-
-  # Card
-  - title: Flexible orchestration for scale sets
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Flexible orchestration mode
-            url: flexible-virtual-machine-scale-sets.md
-          - text: Get started with CLI
-            url: flexible-virtual-machine-scale-sets-cli.md
-          - text: Get started with Portal 
-            url: flexible-virtual-machine-scale-sets-portal.md
-          - text: Virtual Machine Scale Sets Orchestration modes 
-            url: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md

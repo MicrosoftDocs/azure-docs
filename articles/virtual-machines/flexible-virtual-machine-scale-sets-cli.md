@@ -50,12 +50,6 @@ Feature registration can take up to 15 minutes. To check the registration status
 az feature show --namespace Microsoft.Compute --name VMOrchestratorMultiFD
 ```
 
-Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
-
 
 ## Get started with Flexible orchestration mode
 

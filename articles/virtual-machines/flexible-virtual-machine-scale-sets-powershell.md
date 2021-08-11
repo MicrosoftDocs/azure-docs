@@ -57,12 +57,6 @@ Feature registration can take up to 15 minutes. To check the registration status
 Get-AzProviderFeature -FeatureName VMOrchestratorMultiFD -ProviderNamespace Microsoft.Compute
 ```
 
-Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
-
 
 ## Get started with Flexible orchestration mode
 

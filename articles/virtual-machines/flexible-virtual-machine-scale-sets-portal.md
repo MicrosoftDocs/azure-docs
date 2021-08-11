@@ -41,10 +41,8 @@ Before you can deploy virtual machine scale sets in Flexible orchestration mode,
 1. Go to your **Subscriptions**.
 1. Navigate to the details page for the subscription you would like to create a scale set in Flexible orchestration mode by selecting the name of the subscription.
 1. In the menu under **Settings**, select **Preview features**.
-1. Select the two orchestrator features to enable: *VMOrchestratorSingleFD* and *VMOrchestratorMultiFD*.
+1. Select the two orchestrator features to enable: *VMOrchestratorSingleFD*, *VMOrchestratorMultiFD*, *VMScaleSetFlexPreview*, and *SkipPublicIpWriteRBACCheckForVMNetworkInterfaceConfigurationsPublicPreview*.
 1. Select **Register**.
-
-    :::image type="content" source="./media/flexible-virtual-machine-scale-sets-portal/flex-register-portal.png" alt-text="Screenshot of the feature registration page in the Azure portal.":::
 
 Once the features have been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider. 
 
@@ -65,7 +63,6 @@ Once the features have been registered for your subscription, complete the opt-i
 1. Set the **Fault domain count**.
 1. Finish creating your scale set. See [create a scale set in the Azure portal](../virtual-machine-scale-sets/quick-create-portal.md#create-virtual-machine-scale-set) for more information on how to create a scale set.
 
-    :::image type="content" source="./media/flexible-virtual-machine-scale-sets-portal/portal-create-orchestration-mode-flexible.png" alt-text="Screenshot of the orchestration mode toggle in the portal when creating a scale set.":::
 
 ### Next, add a virtual machine to the scale set in Flexible orchestration mode.
 
@@ -73,9 +70,12 @@ Once the features have been registered for your subscription, complete the opt-i
 1. Select **Add** on the **Virtual machines** page.
 1. In the **Basics** tab, view the **Instance details** section.
 1. Add your VM to the scale set in Flexible orchestration mode by selecting the scale set in the **Availability options**. You can add the virtual machine to a scale set in the same region, zone, and resource group.
-1. Finish creating your virtual machine.
+1. Go to the **Networking** tab and explicitly define your outbound connectivity.
 
-    :::image type="content" source="./media/flexible-virtual-machine-scale-sets-portal/vm-portal-orchestration-mode-flexible.png" alt-text="Screenshot of adding a VM to the Flexible orchestration mode scale set.":::
+    > [!IMPORTANT]
+    > Explicitly defined outbound connectivity is required for virtual machine scale sets with flexible orchestration. Refer to [explicit outbound network connectivity](flexible-virtual-machine-scale-sets.md#explicit-network-outbound-connectivity-required) for more information.
+
+1. Finish creating your virtual machine.
 
 
 ## Next steps
