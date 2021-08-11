@@ -12,7 +12,6 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 08/10/2021
 ms.author: vakarand
-zone_pivot_groups: azure-cli-shell
 ---
 # Cross tenant Customer Managed Keys with Managed identity
 Private Preview Documentation | Version 2.0 | Last updated on August 10, 2021
@@ -87,7 +86,6 @@ You will need the followingtools to complete this tutorial.
 1. [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 2. [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) - No installation needed.
 
-::: zone pivot="azure-cli-shell-bash" 
 ### Phase 1 - Service Provider configures identities
 #### Step 0 - Login to Azure
 Login to Azure to use Azure CLI 
@@ -274,10 +272,3 @@ Then run the following command:
 az deployment group create --resource-group $rgName --template-file .\XTCMK-Storage.json
 ```
 
-::: zone-end
-
-::: zone pivot="azure-cli-shell-PowerShell" 
-
-#This is a test.
-
-::: zone-end
