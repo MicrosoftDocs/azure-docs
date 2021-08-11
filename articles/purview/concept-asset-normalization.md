@@ -27,7 +27,7 @@ Before: `https://myaccount.file.core.windows.net/myshare/{folderA}/folder{B/`
 After: 	`https://myaccount.file.core.windows.net/myshare/%7BfolderA%7D/folder%7BB/`
 
 ### Trim section spaces
-Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure Data Factory, Azure SQL Database, Azure SQL Database Managed Instance, Azure SQL pool, Azure Cosmos DB, Azure Cognitive Search, Azure Data Explorer, Azure Data Share, Amazon S3, Amazon RDS (public preview)
+Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure Data Factory, Azure SQL Database, Azure SQL Database Managed Instance, Azure SQL pool, Azure Cosmos DB, Azure Cognitive Search, Azure Data Explorer, Azure Data Share, Amazon S3
 
 Before: `https://myaccount.file.core.windows.net/myshare/  folder A/folderB   /`
 

@@ -22,7 +22,7 @@ To address the challenge of mapping large numbers of data assets to a single log
 
 ## How Azure Purview detects resource sets
 
-Azure Purview supports detecting resource sets in Azure Blob Storage, ADLS Gen1, ADLS Gen2, Azure Files, Amazon S3, and Amazon RDS (public preview).
+Azure Purview supports detecting resource sets in Azure Blob Storage, ADLS Gen1, ADLS Gen2, Azure Files, and Amazon S3.
 
 Azure Purview automatically detects resource sets when scanning. This feature looks at all of the data that's ingested via scanning and compares it to a set of defined patterns.
 
