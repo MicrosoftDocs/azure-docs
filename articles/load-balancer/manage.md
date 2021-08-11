@@ -19,7 +19,7 @@ As you create Azure Load Balancer, information in this article will help you lea
 
 ## Create load balancer
 
-Azure Load Balancer is a network load balancer that distributes traffic across VM instances in the backend pool.
+Azure Load Balancer is a network load balancer that distributes traffic across VM instances in the backend pool. To create a load balancer in the portal, at the top of the page select the search box. Enter **Load balancer**. Select **Load balancers** in the search results. Select **+ Create** in the **Load balancers** page.
 
 ### Basics
 
@@ -76,7 +76,7 @@ If you select **IP prefix** for **IP type**, you'll see the following informatio
 | Prefix size | IPv4 or IPv6 prefixes are displayed depending on the selection above. </br> **IPv4** </br> /24 (256 addresses) </br> /25 (128 addresses) </br> /26 (64 addresses) </br> /27 (32 addresses) </br> /28 (16 addresses) </br> /29 (8 addresses) </br> /30 (4 addresses) </br> /31 (2 addresses) </br> **IPv6** </br> /124 (16 addresses) </br> /125 (8 addresses) </br> 126 (4 addresses) </br> 127 (2 addresses) |
 | Availability zone | Select **Zone-redundant** to create a resilient load balancer. </br> To create a zonal load balancer, select a specific zone from **1**, **2**, or **3**. </br> Standard load balancer and public IP prefixes support zones. </br> Learn more about [load balancer and availability zones](load-balancer-standard-availability-zones.md).
 
-If you selected **Internal** in Type in the **Basics** tab, you'll see the following information:
+If you select **Internal** as your type in the **Basics** tab, you'll see the following information:
 
 | Setting |  Details |
 | ---------- | ---------- |
@@ -85,6 +85,11 @@ If you selected **Internal** in Type in the **Basics** tab, you'll see the follo
 | Availability zone | Your options are: </br> **Zone redundant** </br> **Zone 1** </br> **Zone 2** </br> **Zone 3** </br> To create a load balancer that is highly available and resilient to availability zone failures, select a **zone-redundant** IP. |
 
 :::image type="content" source="./media/manage/create-internal-load-balancer-basics.png" alt-text="Create load balancer internal." border="true":::
+
+#### **+ Add a frontend IP**
+
+Select to open the **Add frontend IP address** creation page:
+
 
 ## Frontend IP configuration
 
