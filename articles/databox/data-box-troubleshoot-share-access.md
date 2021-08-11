@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 08/09/2021
+ms.date: 08/11/2021
 ms.author: alkohli
 ---
 
@@ -18,7 +18,7 @@ This article describes what to do when you can't connect to an SMB share on your
 The most common reasons for being unable to connect to a share on your device are:
 
 - [a domain issue](#check-for-a-domain-issue)
-- [your account is locked out of the device](#account-locked-out-of-device)
+- [your account is locked out of the share](#account-locked-out-of-device)
 - [a group policy is preventing a connection](#check-for-a-blocking-group-policy)
 - [a permissions issue](#check-for-permissions-issues)
 
@@ -39,14 +39,35 @@ To find out whether a domain issue is preventing a share connection:
 
     For a procedure, see [Copy data to Data Box via SMB](data-box-deploy-copy-data.md).
 
-## Account locked out of device
+## Account locked out of share
 
-If you enter an incorrect password three times while signing in on your device, your account will be locked out of the device for 15 minutes. During that time, you won't be able to access shares on the device.
+If you see the following error when you try to connect to an SMB share on your device, the share user account has been locked after multiple attempts to connect with an incorrect password.
 
-Wait 15 minutes, and sign in to your device. After a successful signin, you should be able to access shares on your device via SMB.
+`The referenced account is currently locked out and may not be logged on to.`
 
-<!--I will add an example after I successfully produce this error.-->
+After five attempts to connect to a share with an incorrect share password, the share will be locked, and you won't be able to connect to the share for 15 minutes. The failed connection attempts may include background processes, such as retries, which you may not be aware of.
 
+The following example shows the output from two attempts to connect to an SMB share with an incorrect password.
+
+```
+C:\Users\Databoxuser>net use \\10.126.167.22\podpmresourcesa_BlockBlob /u:10.126.167.22\podpmresourcesa
+Enter the password for '10.126.167.22\podpmresourcesa' to connect to '10.126.167.22':
+System error 1909 has occurred.
+
+The referenced account is currently locked out and may not be logged on to.
+```
+
+To connect to an SMB share after a share account lockout, do these steps:
+
+1. Verify the SMB credentials for the share. In the local web UI of your device, go to **Connect and copy**, and select **SMB** for the share. You'll see the following dialog box.
+
+    ![Screenshot of the Access Share And Copy Data screen for an SMB share on a Data Box. Copy icons for the account, username, and password are highlighted.](media/data-box-troubleshoot-share-access/get-share-credentials-01.png)
+
+1. After 15 minutes, connect to the share using the following command:  
+
+    `net use \\<IP address of the device>\<share name> /u:<IP address of the device>\<user name for the share>`
+
+    For a procedure, see [Copy data to Data Box via SMB](data-box-deploy-copy-data.md).
 
 ## Check for a blocking group policy
 
