@@ -1,6 +1,6 @@
 ---
-title: Access the Azure Healthcare APIs FHIR service using Postman
-description: This article describes how to access the Azure Healthcare APIs FHIR service using Postman.
+title: Access the Azure Healthcare APIs FHIR service with Postman
+description: This article describes how to access the Azure Healthcare APIs FHIR service with Postman.
 services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
@@ -14,7 +14,7 @@ ms.author: ginle
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this article, we will walk through the steps of accessing the Healthcare APIs FHIR service using [Postman](https://www.getpostman.com/).
+In this article, we will walk through the steps of accessing the Healthcare APIs FHIR service with [Postman](https://www.getpostman.com/).
 
 ## Prerequisites
 
@@ -157,3 +157,10 @@ Select **Bearer Token** as authorization type.  Enter `{{bearerToken}}` in the *
 Hit **Send**. You should notice a `202 Accepted` response. Select the **Headers** tab of the response and make a note of the value in the **Content-Location**. You can use the value to query the export job status.
 
 [ ![Post to create a new patient 202 accepted response.](media/postman/postman-202-accepted-response.png) ](media/postman/postman-202-accepted-response.png#lightbox)
+
+## Next steps
+
+In this article, you learned how to access the FHIR service in Azure Healthcare APIs with Postman. For information about the FHIR service in Azure Healthcare APIs, see
+
+>[!div class="nextstepaction"]
+>[What is FHIR service?](overview.md)

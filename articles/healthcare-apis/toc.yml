@@ -31,6 +31,8 @@ items:
   items:
     - name: Authentication & Authorization
       href: authentication-authorization.md
+    - name: Access FHIR service with Postman
+      href: using-postman.md  
     - name: Access using cURL
       href: using-curl.md
     - name: Access using REST Client
