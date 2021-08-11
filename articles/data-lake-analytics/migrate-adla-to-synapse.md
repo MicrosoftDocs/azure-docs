@@ -58,3 +58,11 @@ The document shows you how to do the migration from ADLA to Azure Synapse Analyt
 After you're confident that your applications and workloads are stable, you can begin using Azure Synapse Analytics to satisfy your business scenarios. Turn off any remaining pipelines that are running on ADLA and decommission your ADLA accounts.
 
 ## Questionnaire for Migration Assessment 
+
+|Category	|Questions 	|Reference|
+| --- | --- |--- |
+|Evaluate the size of the Migration	|How many ADLA accounts do you have? How many pipelines are in use? How many U-SQL scripts are in use?| The more data and scripts to be migrated, the more UDO/UDF are used in scripts, the more difficult it is to migrate. The time and resources required for migration need to be well planned according to the scale of the project.|
+|Data source |What’s the size of the data source? What kinds of data format for processing?	|Understand Apache Spark data formats for Azure Data Lake Analytics U-SQL developers.|
+|Data output |Will you keep the output data for later use? If the output data is saved in U-SQL tables, how to handle it? | If the output data will be used often and saved in U-SQL tables, you need change the scripts and change the output data to Spark supported data format.|
+|Data migration	|Have you made the storage migration plan? |Migrate Azure Data Lake Storage from Gen1 to Gen2 |
+|U-SQL scripts transform|Do you use UDO/UDF (.Net, python, etc.)?If above answer is yes, which language do you use in your UDO/UDF and any problems for the transform during the transform?Is the federated query being used in U-SQL?|Understand Apache Spark code concepts for Azure Data Lake Analytics U-SQL developers|
