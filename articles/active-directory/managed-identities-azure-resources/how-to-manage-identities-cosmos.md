@@ -21,7 +21,7 @@ ms.custom: ep-msia
 # How to use managed identities to connect to Cosmos DB from a Azure virtual machine
 
 
-This article shows you how to use managed identities from a virtual machine to connect to Cosmos. [Azure Cosmos DB](../../cosmos-db/introduction.md) is a fully managed NoSQL database for modern app development. [Managed identities](overview.md) for Azure resources allow your applications to authenticate when accessing resources without the need to store credential information in code or to manage an account. 
+This article shows you how to use managed identities from a virtual machine to connect to Cosmos. [Azure Cosmos DB](../../cosmos-db/introduction.md) is a fully managed NoSQL database for modern app development. [Managed identities](overview.md) for Azure resources allow your applications to authenticate when accessing resources while using an automatically managed identity. 
 
 ## Prerequisites
 
@@ -245,14 +245,15 @@ az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLT
 
 ## Grant access 
 
-Now that you have a virtual machine configured with a managed identity we need to [grant it access](../../cosmos-db/how-to-setup-rbac.md) to Cosmos.
+Now that you have a virtual machine configured with a managed identity we need to [grant the managed identity access](../../cosmos-db/how-to-setup-rbac.md) to Cosmos.
 
 
 
 
 ### Grant access to a managed identity
 
-Cosmos DB uses RBAC roles to grant access to either data plan or management plane operations. The article titled [Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account](../../cosmos-db/how-to-setup-rbac.md) helps you configure access to data plane operations. From the perspective of rights assignment a managed identity is granted access the same way that you would grant access to any other identity.
+Cosmos DB uses RBAC roles to grant access to either data plan or management plane operations. Management plane operations are managed using [Azure RBAC roles](../../cosmos-db/role-based-access-control.md). Data plane access control is managed using Azure Cosmos DB [data plane RBAC](../../cosmos-db/how-to-setup-rbac.md) helps you configure access to data plane operations. From the perspective of rights assignment a managed identity is granted access the same way that you would grant access to any other identity.
+
 
 ### Test access (?????)
 
