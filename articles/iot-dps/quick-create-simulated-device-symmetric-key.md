@@ -645,12 +645,12 @@ To update and run the provisioning sample with your device information:
 
 4. Replace the vallue of the following variables for your DPS and device enrollement(replace `<id-scope>` with the ID Scope of your Device Provisioning service ID Scope, `<registration-id>` with the registration id of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the service endpoint URl of your Device Provisioning service):
 
-       ```java
-        private static final String SCOPE_ID = "<id-scope>";
-        private static final String GLOBAL_ENDPOINT = "<provisioning-host>";
-        private static final String SYMMETRIC_KEY = "<primarykey>";
-        private static final String REGISTRATION_ID = "<registration-id>";
-      ```
+    ```java
+    private static final String SCOPE_ID = "<id-scope>";
+    private static final String GLOBAL_ENDPOINT = "<provisioning-host>";
+    private static final String SYMMETRIC_KEY = "<primarykey>";
+    private static final String REGISTRATION_ID = "<registration-id>";
+    ```
 
 5. Open a command prompt for building. Go to the provisioning sample project folder of the Java SDK repository.
 
@@ -679,15 +679,15 @@ To update and run the provisioning sample with your device information:
       Message received! Response status: OK_EMPTY
     ```
 
-7. Go to the [Azure portal](https://portal.azure.com).
+8. Go to the [Azure portal](https://portal.azure.com).
 
-8. On the left-hand menu or on the portal page, select **All resources**.
+9. On the left-hand menu or on the portal page, select **All resources**.
 
-9. Select the IoT hub to which your device was assigned.
+10. Select the IoT hub to which your device was assigned.
 
-10. In the **Explorers** menu, select **IoT Devices**.
+12. In the **Explorers** menu, select **IoT Devices**.
 
-11. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
+13. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
 
     ![Device is registered with the IoT hub](./media/quick-create-simulated-device-symm-key/hub-registration.png)
 
