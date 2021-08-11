@@ -25,21 +25,25 @@ Server quota limit has been reached for this location. Please select a different
 ```
 
 ```
-Could not perform the operation because server would exceed the allowed Database Throughput Unit quota of 10.
+Could not perform the operation because server would exceed the allowed Database Throughput Unit quota of xx.
 ```
 
 During a scale operation, you may see the following error: 
 
 ```
-Could not perform the operation because server would exceed the allowed Database Throughput Unit quota of 0. 
+Could not perform the operation because server would exceed the allowed Database Throughput Unit quota of xx. 
 ```
 
 ## Subscription access
 
-Your subscription may not have access to create a server in the selected region if your subscription has not been registered with the SQL resource provider (RP).  If you see the follow errors, please [register your subscription with the SQL RP](#register-with-sql-rp). 
+Your subscription may not have access to create a server in the selected region if your subscription has not been registered with the SQL resource provider (RP).  If you see the following errors, please [register your subscription with the SQL RP](#register-with-sql-rp). 
 
 ```
 Your subscription does not have access to create a server in the selected region.
+OR
+Provisioning is restricted in this region. Please choose a different region. For exceptions to this rule please open a support request with issue type of 'Service and subscription limits' 
+OR
+Location 'region name' is not accepting creation of new Windows Azure SQL Database servers for the subscription 'subscription id' at this time
 ```
 
 ## Enable region 
@@ -50,6 +54,10 @@ If you see the below error, file a support ticket to enable a specific region:
 
 ```
 Your subscription does not have access to create a server in the selected region.
+OR
+Provisioning is restricted in this region. Please choose a different region. For exceptions to this rule please open a support request with issue type of 'Service and subscription limits' 
+OR
+Location 'region name' is not accepting creation of new Windows Azure SQL Database servers for the subscription 'subscription id' at this time
 ```
 
 
@@ -89,7 +97,15 @@ To register your subscription using [Azure PowerShell](/powershell/azure/install
 Register-AzResourceProvider -ProviderNamespace Microsoft.Sql
 ```
 
+## Is the Azure Program offered in the region??
 
+Azure Program offerings (Azure Pass, Imagine, Azure for Students, MPN, BizSpark, BizSpark Plus, Microsoft for Startups / Sponsorship Offers, VIsual Studio Subscriptions / MSDN) have access to a limited set of regions. if you are requesting access to the regions _below_ please consider using alternate regions instead
+
+_Australia Central, Australia Central 2, Australia SouthEast, Brazil SouthEast, Canada East, China East, China North, China North 2, France South, Germany North, Japan West, JIO India Central, JIO India West, Korea South, Norway West, South Africa West, South India, Switzerland West, UAE Central , UK West, US DoD Central, US DoD East, US Gov Arizona, US Gov Texas, West Central US, West India._ 
+
+## Are you still facing issues provisioning? 
+
+Please open a Region access request under the support topic of SQL Database and specify the DTU or vCores you want to consume on Azure SQL DB
 
 ## Next steps
 
