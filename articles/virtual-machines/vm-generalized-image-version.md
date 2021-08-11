@@ -11,7 +11,7 @@ ms.author: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 #PMcontact: akjosh
 ---
-# Create a VM from a generalized image version using the Azure CLI
+# Create a VM from a generalized image version
 
 Create a VM from a [generalized image version](./shared-image-galleries.md#generalized-and-specialized-images) stored in a Shared Image Gallery. If you want to create a VM using a specialized image, see [Create a VM from a specialized image](vm-specialized-image-version.md). 
 
@@ -28,7 +28,7 @@ az sig image-definition list --resource-group $resourceGroup --gallery-name $gal
 
 Create a VM using [az vm create](/cli/azure/vm#az_vm_create). To use the latest version of the image, set `--image` to the ID of the image definition. 
 
-Replace resource names as needed in this example. 
+The example below is for creating a Linux VMsecured with SSH. For Windows or to secure a Linux VM with a password, remove `--generate-ssh-keys` to be prompted for a password. If you want to supply a password directly, replace `--generate-ssh-keys` with `--admin-password`. Replace resource names as needed in this example. 
 
 ```azurecli-interactive 
 imgDef="/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition"
@@ -175,6 +175,196 @@ New-AzVM `
    -Location $location `
    -VM $vmConfig
 ```
+
+### [REST](#tab/rest)
+
+Create a Virtual Network.
+
+```rest
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vNetName}?api-version=2020-05-01
+
+{
+    "properties": {
+        "addressSpace": {
+            "addressPrefixes": [
+                "10.0.0.0/16"
+            ]
+        }
+    },
+    "location": "eastus"
+}
+```
+
+Create a subnet.
+
+```rest
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vNetName}/subnets/{subnetName}?api-version=2020-05-01
+
+{
+    "properties": {
+        "addressPrefix": "10.0.0.0/16"
+    },
+}
+```
+
+Create a public IP address.
+
+```rest
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPAddresses/{pIPName}?api-version=2020-11-01
+
+{
+  "location": "eastus"
+}
+
+```
+
+Create a network security group.
+
+```rest
+# @name vmNSG
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{nsgName}?api-version=2020-11-01
+
+{
+  "properties": {
+    "securityRules": [
+      {
+        "name": "AllowSSH",
+        "properties": {
+          "protocol": "Tcp",
+          "sourceAddressPrefix": "*",
+          "destinationAddressPrefix": "*",
+          "access": "Allow",
+          "destinationPortRange": "3389",
+          "sourcePortRange": "*",
+          "priority": 1000,
+          "direction": "Inbound"
+        }
+      }
+    ]
+  },
+  "location": "eastus"
+}
+```
+
+Create a NIC.
+
+```rest
+# @name vmNIC
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{nicName}?api-version=2020-05-01
+
+{
+    "properties": {
+        "enableAcceleratedNetworking": true,
+        "networkSecurityGroup": {
+          "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{nsgName}"
+        },
+        "ipConfigurations": [
+            {
+                "name": "ipconfig1",
+                "properties": {
+                    "subnet": {
+                        "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vNetName}/subnets/{subNetName}",
+                    },
+                    "publicIPAddress": {
+                        "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPAddresses/{pipName}"
+          }
+                }
+            }
+        ]
+    },
+    "location": "eastus",
+}
+```
+Create a Linux VM. The `oSProfile` section contains some OS specific details. See the next code example for the Windows syntax.
+
+```rest
+# @name vm
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2020-06-01
+
+{
+    "location": "eastus",
+    "properties": {
+        "hardwareProfile": {
+            "vmSize": "Standard_DS3_v2"
+        },
+        "storageProfile": {
+            "imageReference": {
+                "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{galleryImageName}/versions/{versionNumber}"
+            },
+            "osDisk": {
+                "caching": "ReadWrite",
+                "managedDisk": {
+                    "storageAccountType": "Standard_LRS"
+                },
+                "createOption": "FromImage"
+            }
+        },
+        "osProfile": {
+            "adminUsername": "{your-username}",
+            "computerName": "myVM",
+            "linuxConfiguration": {
+                "ssh": {
+                    "publicKeys": [
+                        {
+                            "path": "/home/{your-username}/.ssh/authorized_keys",
+                            "keyData": "{sshKey}",
+                        }
+                    ]
+                },
+                "disablePasswordAuthentication": true
+            }
+        },
+        "networkProfile": {
+            "networkInterfaces": [
+                {
+                    "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{nicName}",
+                }
+            ]
+        }
+    },
+}
+
+```
+
+Create a Windows VM.
+
+```rest
+# @name vm
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2020-06-01
+
+{
+    "location": "eastus",
+    "properties": {
+        "hardwareProfile": {
+            "vmSize": "Standard_DS3_v2"
+        },
+        "storageProfile": {
+            "imageReference": {
+                "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{galleryImageName}/versions/{versionNumber}"
+            },
+            "osDisk": {
+                "caching": "ReadWrite",
+                "managedDisk": {
+                    "storageAccountType": "Standard_LRS"
+                },
+                "createOption": "FromImage"
+            }
+        },
+        "osProfile": {
+            "adminUsername": "{your-username}",
+            "computerName": "myVM",
+            "adminPassword": "{your-password}"
+        },
+        "networkProfile": {
+            "networkInterfaces": [
+                {
+                    "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{nicName}",
+                }
+            ]
+        }
+    },
+```
+
 ---
 
 ## Next steps

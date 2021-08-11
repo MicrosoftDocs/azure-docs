@@ -75,12 +75,28 @@ $gallery = New-AzGallery `
 
 ### [REST](#tab/rest)
 
-You can use the [REST API](/rest/api/compute/galleries/create-or-update) to create a gallery.
+Use the [REST API](/rest/api/resources/resource-groups/create-or-update) to create a resource group.
+
+```rest
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}?api-version=2021-04-01
+
+{
+  "location": "eastus"
+}
+```
+
+Use the [REST API](/rest/api/compute/galleries/create-or-update) to create a gallery.
 
 ```rest
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}?api-version=2019-12-01
-```
 
+{
+  "properties": {
+    "description": "Shared Image Gallery for my organization"
+  },
+  "location": "eastus",
+}
+```
 ---
 
 ## Next steps

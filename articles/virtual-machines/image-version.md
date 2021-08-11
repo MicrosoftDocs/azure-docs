@@ -13,6 +13,8 @@ ms.custom:
 
 ---
 
+
+
 # Create an image definition and an image version 
 
 A [Shared Image Gallery](shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap deployment tasks like preloading applications, application configurations, and other OS configurations. 
@@ -233,6 +235,61 @@ $job.State
 >
 > You can also store your image in Premium storage by adding `-StorageAccountType Premium_LRS`, or [Zone Redundant Storage](../storage/common/storage-redundancy.md) by adding `-StorageAccountType Standard_ZRS` when you create the image version.
 >
+
+### [REST](#tab/rest)
+
+Create an image definition using the [REST API](/rest/api/compute/gallery-images/create-or-update)
+
+```rest
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{galleryDefinitionName}?api-version=2019-12-01
+
+{
+    "location": "eastus",
+    "properties": {
+        "hyperVGeneration": "V1",
+        "identifier": {
+            "offer": "myOffer",
+            "publisher": "myPublisher",
+            "sku": "mySKU"
+        },
+        "osState": "Specialized",
+        "osType": "Linux",
+    },
+}
+```
+
+Create an image version using the [REST API](/rest/api/compute/gallery-image-versions/create-or-update). In this example, we are creating an image version from a VM. To use another source, pass in the resource ID for source (for example, pass in the ID of the OS disk snapshot).
+
+```rest
+# @name imageVersion
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{galleryDefinitionName}/versions/{galleryImageVersionName}?api-version=2019-12-01
+
+{
+    "location": "{region}",
+    "properties": {
+        "publishingProfile": {
+            "endOfLifeDate": "2024-12-02T00:00:00+00:00",
+            "replicaCount": 1,
+            "storageAccountType": "Standard_ZRS",
+            "targetRegions": [
+                {
+                    "name": "eastus",
+                    "regionalReplicaCount": 2,
+                    "storageAccountType": "Standard_LRS",
+                },
+                {
+                    "name": "westus2",
+                }
+            ]
+        },
+        "storageProfile": {
+            "source": {
+                "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}"
+            }
+        }
+    }
+}
+```
 
 ---
 
