@@ -257,6 +257,8 @@
       items:
       - name: GitHub Actions
         href: quickstart-mysql-github-actions.md
+      - name: Azure pipelines
+        href: azure-pipelines-deploy-database-task.md
     - name: Networking
       items:
       - name: Configure VNet Service Endpoints using Azure portal
