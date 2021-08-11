@@ -1080,131 +1080,131 @@
     - name: Overview
       items:
         - name: What is the API for MongoDB in Cosmos DB?
-          href: mongodb-introduction.md
+          href: mongodb/mongodb-introduction.md
     - name: Quickstarts
       items:
         - name: .NET
-          href: create-mongodb-dotnet.md
+          href: mongodb/create-mongodb-dotnet.md
         - name: Java
-          href: create-mongodb-java.md
+          href: mongodb/create-mongodb-java.md
         - name: Node.js
-          href: create-mongodb-nodejs.md
+          href: mongodb/create-mongodb-nodejs.md
         - name: Xamarin
-          href: create-mongodb-xamarin.md
+          href: mongodb/create-mongodb-xamarin.md
         - name: Golang
-          href: create-mongodb-go.md
+          href: mongodb/create-mongodb-go.md
         - name: Rust
-          href: create-mongodb-rust.md
+          href: mongodb/create-mongodb-rust.md
     - name: Tutorials
       items:
         - name: 1 - Create and manage data
           items:
             - name: Node.js console app
-              href: mongodb-samples.md
+              href: mongodb/nodejs-console-app.md
             - name: Node.js and Angular app
               items:
                 - name: Part 1 - Introduction
-                  href: tutorial-develop-mongodb-nodejs.md
+                  href: mongodb/tutorial-develop-nodejs-part-1.md
                 - name: Part 2 - Create Node app
-                  href: tutorial-develop-mongodb-nodejs-part2.md
+                  href: mongodb/tutorial-develop-nodejs-part-2.md
                 - name: Part 3 - Add UI with Angular
-                  href: tutorial-develop-mongodb-nodejs-part3.md
+                  href: mongodb/tutorial-develop-nodejs-part-3.md
                 - name: Part 4 - Create an account
-                  href: tutorial-develop-mongodb-nodejs-part4.md
+                  href: mongodb/tutorial-develop-nodejs-part-4.md
                 - name: Part 5 - Connect to Cosmos DB
-                  href: tutorial-develop-mongodb-nodejs-part5.md
+                  href: mongodb/tutorial-develop-nodejs-part-5.md
                 - name: Part 6 - Perform CRUD operations
-                  href: tutorial-develop-mongodb-nodejs-part6.md
+                  href: mongodb/tutorial-develop-nodejs-part-6.md
             - name: Node.js and React app
-              href: tutorial-develop-mongodb-react.md
+              href: mongodb/tutorial-develop-mongodb-react.md
         - name: 2 - Query data
-          href: tutorial-query-mongodb.md
+          href: mongodb/tutorial-query-mongodb.md
         - name: 3 - Distribute data globally
-          href: tutorial-global-distribution-mongodb.md
+          href: mongodb/tutorial-global-distribution-mongodb.md
     - name: Concepts
       items:
         - name: API version 4.0
-          href: mongodb-feature-support-40.md
+          href: mongodb/feature-support-40.md
         - name: API version 3.6
-          href: mongodb-feature-support-36.md
+          href: mongodb/feature-support-36.md
         - name: API version 3.2
-          href: mongodb-feature-support.md
+          href: mongodb/feature-support-32.md
         - name: FAQ
-          href: mongodb-api-faq.yml
+          href: mongodb/mongodb-faq.yml
         - name: Mapping consistency levels
-          href: mongodb-consistency.md
+          href: mongodb/consistency-mapping.md
     - name: How-to guides
       items:
         - name: Migrate to MongoDB API
           items:
             - name: Pre-migration guide
-              href: mongodb-pre-migration.md
+              href: mongodb/pre-migration-steps.md
             - name: MongoDB native tools (offline)
-              href: tutorial-mongotools-cosmos-db.md                            
+              href: mongodb/tutorial-mongotools-cosmos-db.md                            
             - name: Database Migration Service (online)
               href: ../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Database Migration Service (offline)
               href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Azure Databricks and Spark (offline)
-              href: mongodb-migrate-databricks.md  
+              href: mongodb/migrate-databricks.md 
             - name: Post-migration guide
-              href: mongodb-post-migration.md
+              href: mongodb/post-migration-optimization.md
         - name: Upgrade to API version 4.0 or 3.6
-          href: mongodb-version-upgrade.md
+          href: mongodb/upgrade-mongodb-version.md
         - name: Get the connection string
-          href: connect-mongodb-account.md
+          href: mongodb/connect-mongodb-account.md
         - name: Connect using Studio 3T
-          href: mongodb-mongochef.md
+          href: mongodb/connect-using-mongochef.md
         - name: Connect using Compass
-          href: mongodb-compass.md
+          href: mongodb/connect-using-compass.md
         - name: Connect using Robo 3T
-          href: mongodb-robomongo.md
+          href: mongodb/connect-using-robomongo.md
         - name: Connect using Mongoose
-          href: mongodb-mongoose.md
+          href: mongodb/connect-using-mongoose.md
         - name: Distribute reads globally
           displayName: read preference
-          href: mongodb-readpreference.md
+          href: mongodb/readpreference-global-distribution.md
         - name: Time to live - MongoDB
-          href: mongodb-time-to-live.md
+          href: mongodb/mongodb-time-to-live.md
         - name: Change streams
-          href: mongodb-change-streams.md
+          href: mongodb/change-streams.md
         - name: Manage data indexing
-          href: mongodb-indexing.md
+          href: mongodb/mongodb-indexing.md
         - name: Use multi-document transactions
-          href: use-multi-document-transactions.md
+          href: mongodb/use-multi-document-transactions.md
         - name: Estimate RU/s with capacity planner
           displayName: request units, RUs, RU, capacity
           href: mongodb/estimate-ru-capacity-planner.md
         - name: Optimize write performance
           href: mongodb/optimize-write-performance.md
         - name: Create a container - MongoDB API
-          href: how-to-create-container-mongodb.md
+          href: mongodb/how-to-create-container-mongodb.md
         - name: Provision throughput- MongoDB API
           displayName: request units, RUs, RU, collection level
-          href: how-to-provision-throughput-mongodb.md
+          href: mongodb/how-to-provision-throughput-mongodb.md
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
-          href: find-request-unit-charge-mongodb.md
+          href: mongodb/find-request-unit-charge-mongodb.md
         - name: Monitor using Diagnostics Logs
-          href: queries-mongo.md
+          href: mongodb/diagnostic-queries-mongodb.md
         - name: Troubleshoot query performance
-          href: mongodb-troubleshoot-query.md
+          href: mongodb/troubleshoot-query-performance.md
         - name: Troubleshoot common issues
-          href: mongodb-troubleshoot.md
+          href: mongodb/error-codes-solutions.md
         - name: Prevent rate-limiting errors
-          href: prevent-rate-limiting-errors.md
+          href: mongodb/prevent-rate-limiting-errors.md
         - name: Store and manage Spring Data
           href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: MongoDB extension commands
-          href: mongodb-custom-commands.md
+          href: mongodb/custom-commands.md
           displayName: custom commands
         - name: Manage using Resource Manager templates
-          href: templates-samples-mongodb.md
+          href: mongodb/resource-manager-template-samples.md
           displayName: ARM
         - name: Manage using PowerShell
-          href: powershell-samples-mongodb.md
+          href: mongodb/powershell-samples.md
         - name: Manage using Azure CLI
-          href: cli-samples-mongodb.md
+          href: mongodb/cli-samples.md
     - name: Reference
       items:
         - name: REST resource provider
@@ -1221,78 +1221,78 @@
     - name: Overview
       items:
         - name: What is Gremlin API in Cosmos DB?
-          href: graph-introduction.md
+          href: graph/graph-introduction.md
         - name: Wire protocol support
-          href: gremlin-support.md
+          href: graph/gremlin-support.md
     - name: Quickstarts
       items:
         - name: Gremlin console
-          href: create-graph-gremlin-console.md
+          href: graph/create-graph-console.md
         - name: .NET
-          href: create-graph-dotnet.md
+          href: graph/create-graph-dotnet.md
         - name: Java
-          href: create-graph-java.md
+          href: graph/create-graph-java.md
         - name: Node.js
-          href: create-graph-nodejs.md
+          href: graph/create-graph-nodejs.md
         - name: Python
-          href: create-graph-python.md
+          href: graph/create-graph-python.md
         - name: PHP
-          href: create-graph-php.md
+          href: graph/create-graph-php.md
     - name: Tutorials
       items:
         - name: 1 - Query data
-          href: tutorial-query-graph.md
+          href: graph/tutorial-query-graph.md
     - name: Concepts
       items:
         - name: FAQ
-          href: gremlin-api-faq.yml
+          href: graph/gremlin-api-faq.yml
         - name: Response headers
-          href: gremlin-headers.md
+          href: graph/gremlin-headers.md
         - name: Limits
-          href: gremlin-limits.md
+          href: graph/gremlin-limits.md
     - name: How-to guides
       items:
         - name: Graph data modeling
-          href: graph-modeling.md
+          href: graph/graph-modeling.md
         - name: Third-party Graph Modeling solutions
-          href: graph-modeling-tools.md
+          href: graph/graph-modeling-tools.md
         - name: Graph data partitioning
-          href: graph-partitioning.md
+          href: graph/graph-partitioning.md
         - name: Import graph data
-          href: bulk-executor-graph-dotnet.md
+          href: graph/bulk-executor-graph-dotnet.md
         - name: Optimize Gremlin queries
           href: graph/graph-execution-profile.md
         - name: Create a container - Gremlin API
-          href: how-to-create-container-gremlin.md
+          href: graph/how-to-create-container-gremlin.md
         - name: Provision throughput- Gremlin API
           displayName: request units, RUs, RU, collection level
-          href: how-to-provision-throughput-gremlin.md
+          href: graph/how-to-provision-throughput-gremlin.md
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
-          href: find-request-unit-charge-gremlin.md
+          href: graph/find-request-unit-charge-gremlin.md
         - name: Use resource tokens
-          href: how-to-use-resource-tokens-gremlin.md
+          href: graph/how-to-use-resource-tokens-gremlin.md
         - name: Use regional endpoints
-          href: how-to-use-regional-gremlin.md
+          href: graph/use-regional-endpoints.md
         - name: Access system document properties
-          href: how-to-access-system-properties-gremlin.md
+          href: graph/access-system-properties-gremlin.md
         - name: Visualize graph data
-          href: graph-visualization-partners.md
+          href: graph/graph-visualization-partners.md
         - name: Monitor using Diagnostics Logs
-          href: queries-gremlin.md
+          href: graph/diagnostic-queries-gremlin.md
         - name: Store and manage Spring Data
           href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Manage using Resource Manager templates
-          href: templates-samples-gremlin.md
+          href: graph/resource-manager-template-samples.md
           displayName: ARM
         - name: Manage using PowerShell
-          href: powershell-samples-gremlin.md
+          href: graph/powershell-samples.md
         - name: Manage using Azure CLI
-          href: cli-samples-gremlin.md
+          href: graph/cli-samples.md
     - name: Reference
       items:
         - name: Response Headers
-          href: gremlin-headers.md
+          href: graph/gremlin-headers.md
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: REST resource provider

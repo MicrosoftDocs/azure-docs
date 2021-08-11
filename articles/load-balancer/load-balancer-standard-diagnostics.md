@@ -164,7 +164,7 @@ To view SNAT port usage and allocation:
 #### How do I check inbound/outbound connection attempts for my service?
 <details>
   <summary>Expand</summary>
-A SYN packets metric describes the volume of TCP SYN packets, which have arrived or were sent (for [outbound flows](./load-balancer-outbound-connections.md)) that are associated with a specific front end. You can use this metric to understand TCP connection attempts to your service.
+A SYN packets metric describes the volume of TCP SYN packets, which have arrived or were sent (for [outbound flows](../load-balancer-outbound-connections.md)) that are associated with a specific front end. You can use this metric to understand TCP connection attempts to your service.
 
 Use **Sum** as the aggregation for most scenarios.
 

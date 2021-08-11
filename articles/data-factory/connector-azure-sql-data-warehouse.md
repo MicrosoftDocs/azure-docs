@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/10/2021
+ms.date: 08/06/2021
 ---
 
 # Copy and transform data in Azure Synapse Analytics by using Azure Data Factory or Synapse pipelines
@@ -38,7 +38,7 @@ For Copy activity, this Azure Synapse Analytics connector supports these functio
 - As a sink, load data by using [PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics) or [COPY statement](#use-copy-statement) or bulk insert. We recommend PolyBase or COPY statement for better copy performance. The connector also supports automatically creating destination table if not exists based on the source schema.
 
 > [!IMPORTANT]
-> If you copy data by using an Azure integration runtime, configure a [server-level firewall rule](../azure-sql/database/firewall-configure.md) so that Azure services can access the [logical SQL server](../azure-sql/database/logical-servers.md).
+> If you copy data by using an Azure Integration Runtime, configure a [server-level firewall rule](../azure-sql/database/firewall-configure.md) so that Azure services can access the [logical SQL server](../azure-sql/database/logical-servers.md).
 > If you copy data by using a self-hosted integration runtime, configure the firewall to allow the appropriate IP range. This range includes the machine's IP that is used to connect to Azure Synapse Analytics.
 
 ## Get started
@@ -366,13 +366,11 @@ GO
 
 Azure Data Factory and Synapse pipelines support three ways to load data into Azure Synapse Analytics.
 
-![Azure Synapse Analytics sink copy options](./media/connector-azure-sql-data-warehouse/sql-dw-sink-copy-options.png)
-
-- [Use PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics)
 - [Use COPY statement](#use-copy-statement)
+- [Use PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics)
 - Use bulk insert
 
-The fastest and most scalable way to load data is through [PolyBase](/sql/relational-databases/polybase/polybase-guide) or the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql).
+The fastest and most scalable way to load data is through the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql) or the [PolyBase](/sql/relational-databases/polybase/polybase-guide).
 
 To copy data to Azure Synapse Analytics, set the sink type in Copy Activity to **SqlDWSink**. The following properties are supported in the Copy Activity **sink** section:
 
@@ -471,6 +469,153 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 
 If the table has physical partition, you would see "HasPartition" as "yes".
 
+## <a name="use-copy-statement"></a> Use COPY statement to load data into Azure Synapse Analytics
+
+Using [COPY statement](/sql/t-sql/statements/copy-into-transact-sql) is a simple and flexible way to load data into Azure Synapse Analytics with high throughput. To learn more details, check [Bulk load data using the COPY statement](../synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql.md)
+
+
+- If your source data is in **Azure Blob or Azure Data Lake Storage Gen2**, and the **format is COPY statement compatible**, you can use copy activity to directly invoke COPY statement to let Azure Synapse Analytics pull the data from source. For details, see **[Direct copy by using COPY statement](#direct-copy-by-using-copy-statement)**.
+- If your source data store and format isn't originally supported by COPY statement, use the **[Staged copy by using COPY statement](#staged-copy-by-using-copy-statement)** feature instead. The staged copy feature also provides you better throughput. It automatically converts the data into COPY statement compatible format, stores the data in Azure Blob storage, then calls COPY statement to load data into Azure Synapse Analytics.
+
+>[!TIP]
+>When using COPY statement with Azure Integration Runtime, effective [Data Integration Units (DIU)](copy-activity-performance-features.md#data-integration-units) is always 2. Tuning the DIU doesn't impact the performance, as loading data from storage is powered by the Azure Synapse engine.
+
+### Direct copy by using COPY statement
+
+Azure Synapse Analytics COPY statement directly supports Azure Blob, Azure Data Lake Storage Gen1 and Azure Data Lake Storage Gen2. If your source data meets the criteria described in this section, use COPY statement to copy directly from the source data store to Azure Synapse Analytics. Otherwise, use [Staged copy by using COPY statement](#staged-copy-by-using-copy-statement). the service checks the settings and fails the copy activity run if the criteria is not met.
+
+1. The **source linked service and format** are with the following types and authentication methods:
+
+    | Supported source data store type                             | Supported format           | Supported source authentication type                         |
+    | :----------------------------------------------------------- | -------------------------- | :----------------------------------------------------------- |
+    | [Azure Blob](connector-azure-blob-storage.md)                | [Delimited text](format-delimited-text.md)             | Account key authentication, shared access signature authentication, service principal authentication, managed identity authentication |
+    | &nbsp;                                                       | [Parquet](format-parquet.md)                    | Account key authentication, shared access signature authentication |
+    | &nbsp;                                                       | [ORC](format-orc.md)                        | Account key authentication, shared access signature authentication |
+    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | [Delimited text](format-delimited-text.md)<br/>[Parquet](format-parquet.md)<br/>[ORC](format-orc.md) | Account key authentication, service principal authentication, managed identity authentication |
+
+    >[!IMPORTANT]
+    >- When you use managed identity authentication for your storage linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.
+    >- If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage).
+
+2. Format settings are with the following:
+
+   1. For **Parquet**: `compression` can be **no compression**, **Snappy**, or **``GZip``**.
+   2. For **ORC**: `compression` can be **no compression**, **```zlib```**, or **Snappy**.
+   3. For **Delimited text**:
+      1. `rowDelimiter` is explicitly set as **single character** or "**\r\n**", the default value is not supported.
+      2. `nullValue` is left as default or set to **empty string** ("").
+      3. `encodingName` is left as default or set to **utf-8 or utf-16**.
+      4. `escapeChar` must be same as `quoteChar`, and is not empty.
+      5. `skipLineCount` is left as default or set to 0.
+      6. `compression` can be **no compression** or **``GZip``**.
+
+3. If your source is a folder, `recursive` in copy activity must be set to true, and `wildcardFilename` need to be `*` or `*.*`. 
+
+4. `wildcardFolderPath` , `wildcardFilename` (other than `*`or `*.*`), `modifiedDateTimeStart`, `modifiedDateTimeEnd`, `prefix`, `enablePartitionDiscovery` and `additionalColumns` are not specified.
+
+The following COPY statement settings are supported under `allowCopyCommand` in copy activity:
+
+| Property          | Description                                                  | Required                                      |
+| :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
+| defaultValues | Specifies the default values for each target column in Azure Synapse Analytics.  The default values in the property overwrite the DEFAULT constraint set in the data warehouse, and identity column cannot have a default value. | No |
+| additionalOptions | Additional options that will be passed to an Azure Synapse Analytics COPY statement directly in "With" clause in [COPY statement](/sql/t-sql/statements/copy-into-transact-sql). Quote the value as needed to align with the COPY statement requirements. | No |
+
+```json
+"activities":[
+    {
+        "name": "CopyFromAzureBlobToSQLDataWarehouseViaCOPY",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "ParquetDataset",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "AzureSQLDWDataset",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "ParquetSource",
+                "storeSettings":{
+                    "type": "AzureBlobStorageReadSettings",
+                    "recursive": true
+                }
+            },
+            "sink": {
+                "type": "SqlDWSink",
+                "allowCopyCommand": true,
+                "copyCommandSettings": {
+                    "defaultValues": [
+                        {
+                            "columnName": "col_string",
+                            "defaultValue": "DefaultStringValue"
+                        }
+                    ],
+                    "additionalOptions": {
+                        "MAXERRORS": "10000",
+                        "DATEFORMAT": "'ymd'"
+                    }
+                }
+            },
+            "enableSkipIncompatibleRow": true
+        }
+    }
+]
+```
+
+### Staged copy by using COPY statement
+
+When your source data is not natively compatible with COPY statement, enable data copying via an interim staging Azure Blob or Azure Data Lake Storage Gen2 (it can't be Azure Premium Storage). In this case, the service automatically converts the data to meet the data format requirements of COPY statement. Then it invokes COPY statement to load data into Azure Synapse Analytics. Finally, it cleans up your temporary data from the storage. See [Staged copy](copy-activity-performance-features.md#staged-copy) for details about copying data via a staging.
+
+To use this feature, create an [Azure Blob Storage linked service](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2 linked service](connector-azure-data-lake-storage.md#linked-service-properties) with **account key or system-managed identity authentication** that refers to the Azure storage account as the interim storage.
+
+>[!IMPORTANT]
+>- When you use managed identity authentication for your staging linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.
+>- If your staging Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). 
+
+>[!IMPORTANT]
+>If your staging Azure Storage is configured with Managed Private Endpoint and has the storage firewall enabled, you must use managed identity authentication and grant Storage Blob Data Reader permissions to the Synapse SQL Server to ensure it can access the staged files during the COPY statement load.
+
+```json
+"activities":[
+    {
+        "name": "CopyFromSQLServerToSQLDataWarehouseViaCOPYstatement",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "SQLServerDataset",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "AzureSQLDWDataset",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "SqlSource",
+            },
+            "sink": {
+                "type": "SqlDWSink",
+                "allowCopyCommand": true
+            },
+            "stagingSettings": {
+                "linkedServiceName": {
+                    "referenceName": "MyStagingStorage",
+                    "type": "LinkedServiceReference"
+                }
+            }
+        }
+    }
+]
+```
+
 ## Use PolyBase to load data into Azure Synapse Analytics
 
 Using [PolyBase](/sql/relational-databases/polybase/polybase-guide) is an efficient way to load a large amount of data into Azure Synapse Analytics with high throughput. You'll see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics](v1/data-factory-load-sql-data-warehouse.md).
@@ -479,7 +624,7 @@ Using [PolyBase](/sql/relational-databases/polybase/polybase-guide) is an effici
 - If your source data store and format isn't originally supported by PolyBase, use the **[Staged copy by using PolyBase](#staged-copy-by-using-polybase)** feature instead. The staged copy feature also provides you better throughput. It automatically converts the data into PolyBase-compatible format, stores the data in Azure Blob storage, then calls PolyBase to load data into Azure Synapse Analytics.
 
 > [!TIP]
-> Learn more on [Best practices for using PolyBase](#best-practices-for-using-polybase). When using PolyBase with Azure Integration Runtime, effective [Data Integration Units (DIU)](copy-activity-performance-features.md#data-integration-units) for direct or staged storage-to-Synapse is always 2. Tuning the DIU doesn't impact the performance, as loading data from storage is powered by the Azure Synapse engine.
+> Learn more on [Best practices for using PolyBase](#best-practices-for-using-polybase). When using PolyBase with Azure Integration Runtime, effective [Data Integration Units (DIU)](copy-activity-performance-features.md#data-integration-units) for direct or staged storage-to-Synapse is always 2. Tuning the DIU doesn't impact the performance, as loading data from storage is powered by Synapse engine.
 
 The following PolyBase settings are supported under `polyBaseSettings` in copy activity:
 
@@ -681,101 +826,6 @@ Job failed due to reason: at Sink '[SinkName]': shaded.msdataflow.com.microsoft.
 
 For more information, see [Grant permissions to managed identity after workspace creation](../synapse-analytics/security/how-to-grant-workspace-managed-identity-permissions.md#grant-permissions-to-managed-identity-after-workspace-creation).
 
-## <a name="use-copy-statement"></a> Use COPY statement to load data into Azure Synapse Analytics
-
-Azure Synapse Analytics [COPY statement](/sql/t-sql/statements/copy-into-transact-sql) directly supports loading data from **Azure Blob and Azure Data Lake Storage Gen2**. If your source data meets the criteria described in this section, you can choose to use COPY statement to load data into Azure Synapse Analytics. Azure Data Factory checks the settings and fails the copy activity run if the criteria is not met.
-
->[!NOTE]
->Currently the service only supports copy from COPY statement compatible sources mentioned below.
-
->[!TIP]
->When using COPY statement with Azure Integration Runtime, effective [Data Integration Units (DIU)](copy-activity-performance-features.md#data-integration-units) is always 2. Tuning the DIU doesn't impact the performance, as loading data from storage is powered by the Azure Synapse engine.
-
-Using COPY statement supports the following configuration:
-
-1. The **source linked service and format** are with the following types and authentication methods:
-
-    | Supported source data store type                             | Supported format           | Supported source authentication type                         |
-    | :----------------------------------------------------------- | -------------------------- | :----------------------------------------------------------- |
-    | [Azure Blob](connector-azure-blob-storage.md)                | [Delimited text](format-delimited-text.md)             | Account key authentication, shared access signature authentication, service principal authentication, managed identity authentication |
-    | &nbsp;                                                       | [Parquet](format-parquet.md)                    | Account key authentication, shared access signature authentication |
-    | &nbsp;                                                       | [ORC](format-orc.md)                        | Account key authentication, shared access signature authentication |
-    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | [Delimited text](format-delimited-text.md)<br/>[Parquet](format-parquet.md)<br/>[ORC](format-orc.md) | Account key authentication, service principal authentication, managed identity authentication |
-
-    >[!IMPORTANT]
-    >- When you use managed identity authentication for your storage linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.
-    >- If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage).
-
-2. Format settings are with the following:
-
-   1. For **Parquet**: `compression` can be **no compression**, **Snappy**, or **``GZip``**.
-   2. For **ORC**: `compression` can be **no compression**, **```zlib```**, or **Snappy**.
-   3. For **Delimited text**:
-      1. `rowDelimiter` is explicitly set as **single character** or "**\r\n**", the default value is not supported.
-      2. `nullValue` is left as default or set to **empty string** ("").
-      3. `encodingName` is left as default or set to **utf-8 or utf-16**.
-      4. `escapeChar` must be same as `quoteChar`, and is not empty.
-      5. `skipLineCount` is left as default or set to 0.
-      6. `compression` can be **no compression** or **``GZip``**.
-
-3. If your source is a folder, `recursive` in copy activity must be set to true, and `wildcardFilename` need to be `*`. 
-
-4. `wildcardFolderPath` , `wildcardFilename` (other than `*`), `modifiedDateTimeStart`, `modifiedDateTimeEnd`, `prefix`, `enablePartitionDiscovery` and `additionalColumns` are not specified.
-
-The following COPY statement settings are supported under `allowCopyCommand` in copy activity:
-
-| Property          | Description                                                  | Required                                      |
-| :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| defaultValues | Specifies the default values for each target column in Azure Synapse Analytics.  The default values in the property overwrite the DEFAULT constraint set in the data warehouse, and identity column cannot have a default value. | No |
-| additionalOptions | Additional options that will be passed to an Azure Synapse Analytics COPY statement directly in "With" clause in [COPY statement](/sql/t-sql/statements/copy-into-transact-sql). Quote the value as needed to align with the COPY statement requirements. | No |
-
-```json
-"activities":[
-    {
-        "name": "CopyFromAzureBlobToSQLDataWarehouseViaCOPY",
-        "type": "Copy",
-        "inputs": [
-            {
-                "referenceName": "ParquetDataset",
-                "type": "DatasetReference"
-            }
-        ],
-        "outputs": [
-            {
-                "referenceName": "AzureSQLDWDataset",
-                "type": "DatasetReference"
-            }
-        ],
-        "typeProperties": {
-            "source": {
-                "type": "ParquetSource",
-                "storeSettings":{
-                    "type": "AzureBlobStorageReadSettings",
-                    "recursive": true
-                }
-            },
-            "sink": {
-                "type": "SqlDWSink",
-                "allowCopyCommand": true,
-                "copyCommandSettings": {
-                    "defaultValues": [
-                        {
-                            "columnName": "col_string",
-                            "defaultValue": "DefaultStringValue"
-                        }
-                    ],
-                    "additionalOptions": {
-                        "MAXERRORS": "10000",
-                        "DATEFORMAT": "'ymd'"
-                    }
-                }
-            },
-            "enableSkipIncompatibleRow": true
-        }
-    }
-]
-```
-
 ## Mapping data flow properties
 
 When transforming data in mapping data flow, you can read and write to tables from Azure Synapse Analytics. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows.
@@ -859,7 +909,7 @@ To learn details about the properties, check [GetMetadata activity](control-flow
 
 ## Data type mapping for Azure Synapse Analytics
 
-When you copy data from or to Azure Synapse Analytics, the following mappings are used from Azure Synapse Analytics data types to Azure Data Factory interim data types. These mappings are also used when copying data from or to Azure Synapse Analytics using Synapse pipelines, since pipelines also implement Azure Data Factory within Azure Synapse.  See [schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn how Copy Activity maps the source schema and data type to the sink.
+When you copy data from or to Azure Synapse Analytics, the following mappings are used from Azure Synapse Analytics data types to Azure Data Factory interim data types. These mappings are also used when copying data from or to Azure Synapse Analytics using Synapse pipelines, since pipelines also implement Azure Data Factory within Azure Synapse. See [schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn how Copy Activity maps the source schema and data type to the sink.
 
 >[!TIP]
 >Refer to [Table data types in Azure Synapse Analytics](../synapse-analytics/sql/develop-tables-data-types.md) article on Azure Synapse Analytics supported data types and the workarounds for unsupported ones.
