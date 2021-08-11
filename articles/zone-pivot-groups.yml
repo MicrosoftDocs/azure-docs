@@ -1329,3 +1329,18 @@ groups:
     title: Azure CLI
   - id: identity-mi-methods-sub-powershell
     title: PowerShell
+# Owner: lizross
+- id: iot-dps-set1
+  title: Choose a programming language
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-ansi-c
+    title: C
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
