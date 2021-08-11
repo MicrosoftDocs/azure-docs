@@ -15,7 +15,7 @@ ms.date: 08/23/2021
 
 Learn how to migrate from Studio (classic) to Azure Machine Learning. Azure Machine Learning provides a modernized data science platform that combines no-code and code-first approaches.
 
-This is a guide for a basic 'lift and shift' migration. If you want to optimize an existing machine learning workflow, or modernize an ml platform, see the [Azure Machine Learning adoption framework](https://github.com/solliancenet/microsoft-ml-kinetic/blob/main/aml-adoption-framework.md) for additional resources including digital survey tools, worksheets, and planning templates.
+This is a guide for a basic "lift and shift" migration. If you want to optimize an existing machine learning workflow, or modernize an ml platform, see the [Azure Machine Learning adoption framework](https://aka.ms/mlstudio-classic-migration-repo) for additional resources including digital survey tools, worksheets, and planning templates.
 
 ![Azure ML adoption framework](./media/migrate-overview/aml-adoption-framework.png)
 
