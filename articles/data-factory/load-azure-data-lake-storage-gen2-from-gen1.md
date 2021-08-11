@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/05/2021
+ms.date: 08/06/2021
 ---
 
 # Copy data from Azure Data Lake Storage Gen1 to Gen2 with Azure Data Factory
@@ -58,75 +58,71 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 1. On the home page, select the **Ingest** tile to launch the copy data tool. 
 
    ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png )
-2. On the **Properties** page, specify **CopyFromADLSGen1ToGen2** for the **Task name** field. Select **Next**.
 
-    ![Properties page](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-properties-page.png)
-3. On the **Source data store** page, select **+ Create new connection**.
+2. On the **Properties** page, choose **Built-in copy task** under **Task type**, and choose **Run once now** under **Task cadence or task schedule**, then select **Next**.
 
-    ![Source data store page](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page.png)
+3. On the **Source data store** page, select **+ New connection**.
     
 4. Select **Azure Data Lake Storage Gen1** from the connector gallery, and select **Continue**.
     
     ![Source data store Azure Data Lake Storage Gen1 page](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png)
     
-5. On the **Specify Azure Data Lake Storage Gen1 connection** page, follow these steps:
-
-   a. Select your Data Lake Storage Gen1 for the account name, and specify or validate the **Tenant**.
+5. On the **New connection (Azure Data Lake Storage Gen1)** page, follow these steps:
+   1. Select your Data Lake Storage Gen1 for the account name, and specify or validate the **Tenant**.
+   1. Select **Test connection** to validate the settings. Then select **Create**.
   
-   b. Select **Test connection** to validate the settings. Then select **Finish**.
-  
-   c. You see that a new connection was created. Select **Next**.
-   
    > [!IMPORTANT]
    > In this walk-through, you use a managed identity for Azure resources to authenticate your Azure Data Lake Storage Gen1. To grant the managed identity the proper permissions in Azure Data Lake Storage Gen1, follow [these instructions](connector-azure-data-lake-store.md#managed-identity).
    
    ![Specify Azure Data Lake Storage Gen1 account](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
       
-6. On the **Choose the input file or folder** page, browse to the folder and file that you want to copy over. Select the folder or file, and select **Choose**.
-
-    ![Choose input file or folder](./media/load-azure-data-lake-storage-gen2-from-gen1/choose-input-folder.png)
-
-7. Specify the copy behavior by selecting the **Copy files recursively** and **Binary copy** options. Select **Next**.
-
-    ![Screenshot shows the Choose the input file or folder where you can select Copy file recursively and Binary Copy.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
+6. On the **Source data store** page, complete the following steps. 
+    1. Select the newly created connection in the **Connection** section.
+    1. Under **File or folder**, browse to the folder and file that you want to copy over. Select the folder or file, and select **OK**.
+    1. Specify the copy behavior by selecting the **Recursively** and **Binary copy** options. Select **Next**.
     
-8. On the **Destination data store** page, select **+ Create new connection** > **Azure Data Lake Storage Gen2** > **Continue**.
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page.png" alt-text="Screenshot showing the source data store page.":::
+    
+7. On the **Destination data store** page, select **+ New connection** > **Azure Data Lake Storage Gen2** > **Continue**.
 
-    ![Destination data store page](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-storage-page.png)
+    ![Destination data store page](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-store-page-adls-gen2.png)
 
-9. On the **Specify Azure Data Lake Storage Gen2 connection** page, follow these steps:
+8. On the **New connection (Azure Data Lake Storage Gen2)** page, follow these steps:
+   1. Select your Data Lake Storage Gen2 capable account from the **Storage account name** drop-down list.
+   1. Select **Create** to create the connection. 
 
-   a. Select your Data Lake Storage Gen2 capable account from the **Storage account name** drop-down list.
-   
-   b. Select **Finish** to create the connection. Then select **Next**.
-   
    ![Specify Azure Data Lake Storage Gen2 account](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 
-10. On the **Choose the output file or folder** page, enter **copyfromadlsgen1** as the output folder name, and select **Next**. Data Factory creates the corresponding Azure Data Lake Storage Gen2 file system and subfolders during copy if they don't exist.
+9. On the **Destination data store** page, complete the following steps. 
+    1. Select the newly created connection in the **Connection** block. 
+    1. Under **Folder path**, enter **copyfromadlsgen1** as the output folder name, and select **Next**. Data Factory creates the corresponding Azure Data Lake Storage Gen2 file system and subfolders during copy if they don't exist.
 
-    ![Screenshot shows the folder path you enter.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-path.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-store-page.png" alt-text="Screenshot showing the destination data store page.":::
 
-11. On the **Settings** page, select **Next** to use the default settings.
+10. On the **Settings** page, specify **CopyFromADLSGen1ToGen2** for the **Task name** field, then select **Next** to use the default settings.
 
-12. On the **Summary** page, review the settings, and select **Next**.
+
+11. On the **Summary** page, review the settings, and select **Next**.
 
     ![Summary page](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-summary.png)
-13. On the **Deployment page**, select **Monitor** to monitor the pipeline.
+
+12. On the **Deployment page**, select **Monitor** to monitor the pipeline.
 
     ![Deployment page](./media/load-azure-data-lake-storage-gen2-from-gen1/deployment-page.png)
-14. Notice that the **Monitor** tab on the left is automatically selected. The **Actions** column includes links to view activity run details and to rerun the pipeline.
+
+13. Notice that the **Monitor** tab on the left is automatically selected. The **Pipeline name** column includes links to view activity run details and to rerun the pipeline.
 
     ![Monitor pipeline runs](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-pipeline-runs.png)
 
-15. To view activity runs that are associated with the pipeline run, select the **View Activity Runs** link in the **Actions** column. There's only one activity (copy activity) in the pipeline, so you see only one entry. To switch back to the pipeline runs view, select the **Pipelines** link at the top. Select **Refresh** to refresh the list. 
+14. To view activity runs that are associated with the pipeline run, select the link in the **Pipeline name** column. There's only one activity (copy activity) in the pipeline, so you see only one entry. To switch back to the pipeline runs view, select the **All pipeline runs** link in the breadcrumb menu at the top. Select **Refresh** to refresh the list. 
 
     ![Monitor activity runs](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-runs.png)
 
-16. To monitor the execution details for each copy activity, select the **Details** link (eyeglasses image) under **Actions** in the activity monitoring view. You can monitor details like the volume of data copied from the source to the sink, data throughput, execution steps with corresponding duration, and used configurations.
+15. To monitor the execution details for each copy activity, select the **Details** link (eyeglasses image) under the **Activity name** column in the activity monitoring view. You can monitor details like the volume of data copied from the source to the sink, data throughput, execution steps with corresponding duration, and used configurations.
 
-    ![Monitor activity run details](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-run-details.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-run-details.png" alt-text="Screenshot showing the activity run details.":::
 
-17. Verify that the data is copied into your Azure Data Lake Storage Gen2 account.
+16. Verify that the data is copied into your Azure Data Lake Storage Gen2 account.
 
 ## Best practices
 
