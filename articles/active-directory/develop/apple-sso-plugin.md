@@ -190,8 +190,6 @@ Usage:
     - Add any app that needs SSO disabled to AppBlockList
 
 
->[!NOTE]
-> You don't need to add applications that use MSAL or ASWebAuthenticationSession to the list of apps that can participate in SSO. Those applications are enabled by default. 
 
 ##### Find app bundle identifiers on iOS devices
 
