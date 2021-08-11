@@ -91,7 +91,7 @@ A private link resource is the destination target of a given private endpoint. T
 | **Microsoft Search** | Microsoft.Search/searchServices | search service |
 | **Azure Service Bus** | Microsoft.ServiceBus/namespaces | namespace |
 | **SignalR** | Microsoft.SignalRService/SignalR | signalr |
-| **SignalR** | Microsoft.SignalRService/webPubSub | signalR |
+| **SignalR** | Microsoft.SignalRService/webPubSub | webpubsub |
 | **Azure SQL Database** | Microsoft.Sql/servers | Sql Server (sqlServer) |
 | **Azure Storage** | Microsoft.Storage/storageAccounts | Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary) |
 | **Azure File Sync** | Microsoft.StorageSync/storageSyncServices | File Sync Service |
