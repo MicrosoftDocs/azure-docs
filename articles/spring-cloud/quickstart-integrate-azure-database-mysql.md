@@ -75,10 +75,7 @@ export MYSQL_DATABASE_NAME=petclinic
     // SUBSTITUTE values
     mysql -u ${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
      -h ${MYSQL_SERVER_FULL_NAME} -P 3306 -p
-     ```
-     
-     Enter correct password.
-     ```
+
     Enter password:
     Welcome to the MySQL monitor.  Commands end with ; or \g.
     Your MySQL connection id is 64379
