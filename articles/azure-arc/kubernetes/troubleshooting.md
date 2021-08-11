@@ -233,7 +233,7 @@ The above warning is observed when you have used a service principal to log into
 
 Once above permissions are granted, you can now proceed to [enabling the custom location feature](custom-locations.md#enable-custom-locations-on-cluster) on the cluster.
 
-## Arc enabled Open Service Mesh
+## Azure Arc-enabled Open Service Mesh
 
 The following troubleshooting steps provide guidance on validating the deployment of all the Open Service Mesh extension components on your cluster.
 
