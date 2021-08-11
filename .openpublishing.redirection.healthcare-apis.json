@@ -59,7 +59,7 @@
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/azure-ad-hcapi-token-validation.md",
-        "redirect_url": "/azure/healthcare-apis/fhir/fhir-service-access-token-validation",
+        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/azure-api-fhir-access-token-validation",
         "redirect_document_id": true
     },
     {
@@ -304,7 +304,7 @@
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/fhir/iot-fhir-arm-template-quickstart.md",
-        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/iot-azure-resource-manager-template-quickstart",
+        "redirect_url": "/azure/healthcare-apis/fhir/iot-azure-resource-manager-template-quickstart",
         "redirect_document_id": true
     },
     {
@@ -444,7 +444,7 @@
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/fhir/azure-ad-hcapi-token-validation.md",
-        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/azure-api-fhir-access-token-validation",
+        "redirect_url": "/azure/healthcare-apis/fhir/fhir-service-access-token-validation",
         "redirect_document_id": false
     }
   ]
