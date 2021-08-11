@@ -269,8 +269,8 @@ Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office
 | - Office 365 DoD | - | Public Preview |
 | **[Microsoft Defender for Endpoint](../../sentinel/connect-microsoft-defender-advanced-threat-protection.md)** |  |  |
 | - Office 365 GCC | GA | - |
-| - Office 365 GCC High | - | Not Available |
-| - Office 365 DoD | - | Not Available |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
 | **[Microsoft Defender for Identity](../../sentinel/connect-azure-atp.md)** |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |

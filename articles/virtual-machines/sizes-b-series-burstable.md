@@ -47,6 +47,7 @@ The B-series comes in the following VM sizes:
 
 <sup>2</sup> B1ls is supported only on Linux
 
+
 ## Workload example
 
 Consider an office check-in/out application. The application needs CPU bursts during business hours, but not a lot of computing power during off hours. In this example, the workload requires a 16vCPU virtual machine with 64GiB of RAM to work efficiently.

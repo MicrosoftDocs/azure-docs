@@ -9,7 +9,7 @@ ms.date: 07/29/2021
 
 ---
 
-# Monitoring Azure Kubernetes Service (AKS) machines with Azure Monitor
+# Monitoring Azure Kubernetes Service (AKS) with Azure Monitor
 This scenario describes how to use Azure Monitor to monitor the health and performance of Azure Kubernetes Service (AKS). It includes collection of telemetry critical for monitoring, analysis and visualization of collected data to identify trends, and how to configure alerting to be proactively notified of critical issues.
 
 The [Cloud Monitoring Guide](/azure/cloud-adoption-framework/manage/monitor/) defines the [primary monitoring objectives](/azure/cloud-adoption-framework/strategy/monitoring-strategy#formulate-monitoring-requirements) you should focus on for your Azure resources. This scenario focuses on Health and Status monitoring using Azure Monitor.
@@ -62,7 +62,7 @@ If you're unsure about which resource logs to initially enable, use the recommen
 
 | Category | Enable? | Destination |
 |:---|:---|:---|
-| cluster-autoscale       | Enable if autoscale is enabled | Log Analytics workspace |
+| cluster-autoscaler      | Enable if autoscale is enabled | Log Analytics workspace |
 | guard                   | Enable if Azure Active Directory is enabled | Log Analytics workspace |
 | kube-apiserver          | Enable | Log Analytics workspace |
 | kube-audit              | Enable | Azure storage. This keeps costs to a minimum yet retains the audit logs if they're required by an auditor. |
