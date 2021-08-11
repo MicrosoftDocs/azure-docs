@@ -114,7 +114,7 @@ All three of these data types can be stored in a storage account or streamed to 
 * Never grant the ListKeys permission for either storage accounts or event hubs at subscription scope when a user needs only access to monitoring data. Instead, give these permissions to the user at a resource or resource group scope (if you have a dedicated monitoring resource group).
 
 ### Limiting access to monitoring-related storage accounts
-When a user or application needs access to monitoring data in a storage account, you should [generate an account shared access signature (SAS)](/rest/api/storageservices/create-account-sas) on the storage account that contains monitoring data with service-level read-only access to blob storage. In PowerShell, the account SAS might look like:
+When a user or application needs access to monitoring data in a storage account, you should [generate a shared access signature (SAS)](/rest/api/storageservices/create-account-sas) on the storage account that contains monitoring data with service-level read-only access to blob storage. In PowerShell, the account SAS might look like the following code:
 
 ```powershell
 $context = New-AzStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
@@ -142,9 +142,9 @@ New-AzRoleDefinition -Role $role
 > The ListKeys permission enables the user to list the primary and secondary storage account keys. These keys grant the user all signed permissions (such as read, write, create blobs, and delete blobs) across all signed services (blob, queue, table, file) in that storage account. We recommend using an account SAS when possible. 
 
 ### Limiting access to monitoring-related event hubs
-You can follow a similar pattern with event hubs, but first you need to create a dedicated Listen authorization rule. If you want to grant  access to an application that only needs to listen to monitoring-related event hubs, do the following:
+You can follow a similar pattern with event hubs, but first you need to create a dedicated authorization rule for listening. If you want to grant access to an application that only needs to listen to monitoring-related event hubs, do the following:
 
-1. In the portal, create a shared access policy on the event hubs that were created for streaming monitoring data with only Listen claims. For example, you might call it "monitoringReadOnly." If possible, give that key directly to the consumer and skip the next step.
+1. In the portal, create a shared access policy on the event hubs that were created for streaming monitoring data with only listening claims. For example, you might call it "monitoringReadOnly." If possible, give that key directly to the consumer and skip the next step.
 2. If the consumer needs to be able to get the key ad hoc, grant the user the ListKeys action for that event hub. This step is also necessary for users who need to be able to set a diagnostic setting or log profile to stream to event hubs. For example, you might create an Azure RBAC rule:
    
    ```powershell
@@ -164,7 +164,7 @@ You can follow a similar pattern with event hubs, but first you need to create a
 
 Azure Monitor needs access to your Azure resources to provide the services that you enable. If you want to monitor your Azure resources while still securing them from access to the public internet, you can use secured storage accounts.
 
-Monitoring data is often written to a storage account. You might want to make sure that unauthorized users can't access the data that's copied to a storage account. For additional security, you can lock down network access to allow only your authorized resources and trusted Microsoft services access to a storage account by restricting a storage account to use selected networks.
+Monitoring data is often written to a storage account. You might want to make sure that unauthorized users can't access the data that's copied to a storage account. For additional security, you can lock down network access to give only your authorized resources and trusted Microsoft services access to a storage account by restricting a storage account to use selected networks.
 
 ![Screenshot that shows the settings for firewalls and virtual networks.](./media/roles-permissions-security/secured-storage-example.png)
 
