@@ -16,13 +16,11 @@ ms.subservice: blobs
 
 # Run an Azure Function in response to a blob rehydration event
 
-To read a blob that is in the archive tier, you must first rehydrate the blob to the hot or cool tier. The rehydration process can take several hours to complete. When the blob is rehydrated, an [Azure Event Grid](../../event-grid/overview.md) event fires. Your application can handle this event to be notified when the rehydration process is complete.
+To read a blob that is in the archive tier, you must first rehydrate the blob to the hot or cool tier. The rehydration process can take several hours to complete. You can configure [Azure Event Grid](../../event-grid/overview.md) to fire an event when the blob rehydration operation is complete and handle this event in your application.
 
-When an event occurs, Event Grid sends the event to an event handler via an endpoint. A number of Azure services can serve as event handlers, including [Azure Functions](../../azure-functions/functions-overview.md). An Azure Function is a block of code that can execute in response to an event. This how-to walks you through the process of creating an Azure Function and configuring Event Grid to capture an event that occurs when a blob is rehydrated. Event Grid sends the event to the Azure Function, which executes code in response.
+When an event occurs, Event Grid sends the event to an event handler via an endpoint. A number of Azure services can serve as event handlers, including [Azure Functions](../../azure-functions/functions-overview.md). An Azure Function is a block of code that can execute in response to an event. This how-to walks you through the process of developing an Azure Function and then configuring Event Grid to run the function in response to an event that occurs when a blob is rehydrated.
 
-During the blob rehydration operation, you can call the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation to check its status. However, rehydration of an archived blob may take up to 15 hours, and repeatedly polling **Get Blob Properties** to determine whether rehydration is complete is inefficient. Using Event Grid to capture the event that fires when rehydration is complete offers better performance and cost optimization.
-
-This article shows how to create and test an Azure Function with .NET from Visual Studio. You can build Azure Functions from a variety of local development environments and using a variety of different programming languages. For more information about supported languages for Azure Functions, see [Supported languages in Azure Functions](../../azure-functions/supported-languages.md). For more information about development options, see [Code and test Azure Functions locally](../../azure-functions/functions-develop-local.md).
+This article shows how to create and test an Azure Function with .NET from Visual Studio. You can build Azure Functions from a variety of local development environments and using a variety of different programming languages. For more information about supported languages for Azure Functions, see [Supported languages in Azure Functions](../../azure-functions/supported-languages.md). For more information about development options for Azure Functions, see [Code and test Azure Functions locally](../../azure-functions/functions-develop-local.md).
 
 For more information about rehydrating blobs from the archive tier, see [Rehydrate blob data from the archive tier](archive-rehydrate-overview.md).
 
@@ -36,11 +34,11 @@ An [Azure subscription](../../guides/developer/azure-developer-guide.md#understa
 
 ## Create an Azure Function app
 
-A function app is an Azure resource that serves as a container for your functions. You can use a new or existing function app to complete the steps in this article.
+A function app is an Azure resource that serves as a container for your Azure Functions. You can use a new or existing function app to complete the steps described in this article.
 
 To create a new function app in the Azure portal, follow these steps:
 
-1. In the Azure portal, search for *Function App*. Select **Function App** icon to navigate to the list of function apps in your subscription.
+1. In the Azure portal, search for *Function App*. Select the **Function App** icon to navigate to the list of function apps in your subscription.
 1. Select the **Create** button to create a new function app.
 1. On the **Basics** tab, specify a resource group, and provide a unique name for the new function app.
 1. Make sure that the **Publish** option is set to *Code*.
@@ -50,7 +48,7 @@ To create a new function app in the Azure portal, follow these steps:
     :::image type="content" source="media/archive-rehydrate-handle-event/create-function-app-basics-tab.png" alt-text="Screenshot showing how to create a new function app in Azure - Basics tab":::
 
 1. After you have completed the **Basics** tab, navigate to the **Hosting** tab.
-1. On the **Hosting** tab, select the storage account where your Azure Functions will be stored. You can choose an existing storage account or create a new one.
+1. On the **Hosting** tab, select the storage account where your Azure Function will be stored. You can choose an existing storage account or create a new one.
 1. Make sure that the **Operating system** field is set to *Windows*.
 1. In the **Plan type** field, select *Consumption (Serverless)*. For more information about this plan, see [Azure Functions Consumption plan hosting](../../azure-functions/consumption-plan.md).
 
@@ -62,7 +60,7 @@ To learn more about configuring your function app, see [Manage your function app
 
 ## Create an Azure Function as an Event Grid trigger
 
-Next, create an Azure Function that will run when a blob is rehydrated. Follow these steps to create an Azure Function in Visual Studio with C# and .NET Core:
+Next, create an Azure Function that will run when a blob is rehydrated in a particular storage account. Follow these steps to create an Azure Function in Visual Studio with C# and .NET Core:
 
 1. Launch Visual Studio 2019, and create a new Azure Functions project. For details, follow the instructions described in [Create a function app project](../../azure-functions/functions-create-your-first-function-visual-studio.md#create-a-function-app-project).
 1. On the **Create a new Azure Functions application** step, select the following values:
@@ -98,7 +96,8 @@ Next, create an Azure Function that will run when a blob is rehydrated. Follow t
 
     ```csharp
     // When either Microsoft.Storage.BlobCreated or Microsoft.Storage.BlobTierChanged
-    // event occurs, write the event details to a log blob in the same container.
+    // event occurs, write the event details to a log blob in the same container
+    // as the event subject (the blob for which the event occurred).
 
     // Create a unique name for the log blob.
     string logBlobName = string.Format("function-log-{0}.txt", DateTime.UtcNow.Ticks);
@@ -224,13 +223,13 @@ Follow these steps to construct and send a request to this endpoint. This exampl
 
 When you send the request, Event Grid calls your Azure Function, and you can debug it normally. For additional information and examples, see [Manually post the request](../../azure-functions/functions-bindings-event-grid-trigger.md#manually-post-the-request) in the Azure Functions documentation.
 
-The request that triggers the event is simulated, but the Azure Function that runs when the event fires writes log information to a blob in your storage account. You can read the contents of the blob and view its last modified time in the Azure portal, as shown in the following image:
+The request that triggers the event is simulated, but the Azure Function that runs when the event fires writes log information to a new blob in your storage account. You can verify the contents of the blob and view its last modified time in the Azure portal, as shown in the following image:
 
 :::image type="content" source="media/archive-rehydrate-handle-event/log-blob-contents-portal.png" alt-text="Screenshot showing the contents of the log blob in the Azure portal":::
 
 ## Publish the Azure Function
 
-After you have tested your Azure Function locally, the next step is to publish the Azure Function to the Azure Function App that you created previously. The function must be published so that you can configure Event Grid to send events to the function endpoint.
+After you have tested your Azure Function locally, the next step is to publish the Azure Function to the Azure Function App that you created previously. The function must be published so that you can configure Event Grid to send events that happen on the storage account to the function endpoint.
 
 Follow these steps to publish the function:
 
@@ -339,9 +338,9 @@ After the copy operation is complete, the destination blob appears in the archiv
 
 :::image type="content" source="media/archive-rehydrate-handle-event/copy-blob-archive-tier.png" alt-text="Screenshot showing the newly copied destination blob in the archive tier in the Azure portal":::
 
-The destination blob is subsequently rehydrated to the online tier that you specified in the copy operation. When the rehydration is complete and the destination blob is created in the online tier, the **Microsoft.Storage.BlobCreated** event fires. The Azure Function event handler created previously runs in response and writes log information about the event to a new blob.
+The destination blob is subsequently rehydrated to the online tier that you specified in the copy operation. When the rehydration is complete and the destination blob is created in the online tier, the **Microsoft.Storage.BlobCreated** event fires and Event Grid sends the event to your Azure Function, which runs in response.
 
-In the Azure portal, you'll see that the destination blob now shows in the targeted online tier, and the log blob that was written by the Azure Function also appears in the list.
+In the Azure portal, you'll see that the fully rehydrated destination blob now appears in the targeted online tier, and the log blob that was created by the Azure Function also appears in the list.
 
 :::image type="content" source="media/archive-rehydrate-handle-event/copy-blob-archive-tier-rehydrated.png" alt-text="Screenshot showing the original blob in the archive tier, the rehydrated blob in the hot tier, and the log blob written by the event handler":::
 
@@ -353,7 +352,7 @@ To rehydrate a blob by changing its tier from archive to hot or cool with a **Se
 1. Select the **More** button on the right side of the page.
 1. Select **Change tier**.
 1. Select the target access tier from the **Access tier** dropdown.
-1. From the **Rehydrate priority** dropdown, select the desired rehydration priority. Keep in mind that setting the rehydration priority to *High* results in a faster rehydration, but incurs a greater cost.
+1. From the **Rehydrate priority** dropdown, select the desired rehydration priority. Keep in mind that setting the rehydration priority to *High* typically results in a faster rehydration, but also incurs a greater cost.
 
     :::image type="content" source="media/archive-rehydrate-handle-event/rehydrate-change-tier-portal.png" alt-text="Screenshot showing how to rehydrate a blob from the archive tier in the Azure portal ":::
 
@@ -363,7 +362,9 @@ While the blob is rehydrating, you can check its status in the Azure portal by d
 
 :::image type="content" source="media/archive-rehydrate-handle-event/rehydration-status-portal.png" alt-text="Screenshot showing the rehydration status for a blob in the Azure portal":::
 
-When the rehydration is complete, the **Microsoft.Storage.BlobTierChanged** event fires. The Azure Function event handler created previously runs in response and writes log information about the event to a new blob. In the following image, *blob5.txt* has been rehydrated to the cool tier:
+When the rehydration is complete, the **Microsoft.Storage.BlobTierChanged** event fires and Event Grid sends the event to your Azure Function, which runs in response.
+
+In the Azure portal, you'll see that the fully rehydrated blob now appears in the targeted online tier, and the log blob that was created by the Azure Function also appears in the list.
 
 :::image type="content" source="media/archive-rehydrate-handle-event/set-blob-tier-rehydrated.png" alt-text="Screenshot showing the rehydrated blob in the cool tier and the log blob written by the event handler":::
 
