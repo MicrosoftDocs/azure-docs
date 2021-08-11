@@ -77,7 +77,7 @@ The minimum size of the subnet in which API Management can be deployed is /29, w
 
 ## Routing
 
-See the Routing guidance when deploying your API Management instance into an [external VNET](./api-management-using-with-external-vnet.md#routing)) or [internal VNET](./api-management-using-with-internal-vnet.md#routing).
+See the Routing guidance when deploying your API Management instance into an [external VNET](./api-management-using-with-vnet.md#routing)) or [internal VNET](./api-management-using-with-internal-vnet.md#routing).
 
 ## DNS
 

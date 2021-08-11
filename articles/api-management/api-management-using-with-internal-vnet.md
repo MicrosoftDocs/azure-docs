@@ -38,8 +38,8 @@ Use API Management in internal mode to:
 
 Some prerequisites differ depending on the version (v1 or v2) of the [hosting platform](hosting-infrastructure.md) for your API Management instance. 
 
-   > [!TIP]
-    > When you use the portal to create or update your API Management instance, the instance is hosted on the v2 platform.
+> [!TIP]
+> When you use the portal to create or update your API Management instance, the instance is hosted on the v2 platform.
 
 ### [v1](#tab/v1)
 
