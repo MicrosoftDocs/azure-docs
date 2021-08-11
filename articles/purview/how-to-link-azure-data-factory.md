@@ -120,8 +120,7 @@ The integration between Data Factory and Purview supports only a subset of the d
 | Azure Table Storage | Yes |
 | Amazon S3 | Yes | 
 | Hive \* | Yes | 
-| SAP ECC \* | Yes |
-| SAP Table | Yes |
+| SAP Table *(when used to connect to SAP ECC or SAP S/4HANA)* | Yes |
 | SQL Server \* | Yes | 
 | Teradata \* | Yes |
 
