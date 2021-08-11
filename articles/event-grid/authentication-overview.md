@@ -23,7 +23,7 @@ Azure AD integration for Event Grid resources provides Azure role-based access c
 > Azure Event Grid on Kubernetes does not support Azure AD authentication yet. 
 
 ## Authenticate using access keys and shared access signatures
-You can authenticate clients that publish events to Azure Event Grid topics, domains, partner namespaces using **access key** or **Shared Access Signature (SAS)** token. For more information, see [Using access keys or using Shared Access Signatures (SAS)](authenticate-with-access-keysshared-access-signatures.md). 
+You can authenticate clients that publish events to Azure Event Grid topics, domains, partner namespaces using **access key** or **Shared Access Signature (SAS)** token. For more information, see [Using access keys or using Shared Access Signatures (SAS)](authenticate-with-access-keys-shared-access-signatures.md). 
    
 
 ## Next steps

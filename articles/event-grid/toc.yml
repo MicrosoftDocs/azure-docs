@@ -219,7 +219,7 @@
       - name: Authenticate using Azure Active Directory
         href: authenticate-with-active-directory.md
       - name: Authenticate using access key or shared access signatures
-        href: authenticate-with-access-keysshared-access-signatures.md
+        href: authenticate-with-access-keys-shared-access-signatures.md
     - name: Authorize access to Event Grid resources 
       href: security-authorization.md
     - name: Network security
