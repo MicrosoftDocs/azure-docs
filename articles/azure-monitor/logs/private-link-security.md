@@ -76,5 +76,7 @@ In the following diagram, virtual network 10.0.1.x first connects to AMPLS1 and 
 ![Diagram of DNS overrides in multiple virtual networks.](./media/private-link-security/dns-overrides-multiple-vnets.png)
 
 ## Next steps
+- [Design your Private Link setup](private-link-design.md)
+- Learn how to [configure your Private Link](private-link-configure.md)
 
-- [Plan your Private Link setup](private-links-planning.md)
+<a id="connect-to-a-private-endpoint"></a> 

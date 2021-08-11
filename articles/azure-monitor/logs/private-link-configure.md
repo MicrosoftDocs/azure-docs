@@ -1,6 +1,6 @@
 ---
-title: Configure Private Links
-description: Configure Private Links
+title: Configure your Private Link
+description: Configure Private Link
 author: noakup
 ms.author: noakuper
 ms.topic: conceptual
@@ -100,7 +100,7 @@ Go to the Azure portal. In your resource's menu, there's a menu item called **Ne
 ### Connected Azure Monitor Private Link scopes
 Here you can review and configure the resource's connections to Azure Monitor Private Links scopes. Connecting to scopes (AMPLSs) allows traffic from the virtual network connected to each AMPLS to reach the resource. It has the same effect as connecting it from the scope as we did in [Connecting Azure Monitor resources](#connect-azure-monitor-resources). 
 
-To add a new connection, select **Add** and select the Azure Monitor Private Link Scope. Select **Apply** to connect it. Your resource can connect to five AMPLS objects, as mentioned in [Consider AMPLS limits](./private-links-planning.md#consider-ampls-limits).
+To add a new connection, select **Add** and select the Azure Monitor Private Link Scope. Select **Apply** to connect it. Your resource can connect to five AMPLS objects, as mentioned in [Consider AMPLS limits](./private-link-design.md#consider-ampls-limits).
 
 ### Virtual networks access configuration - Managing access from outside of private links scopes
 The settings on the bottom part of this page control access from public networks, meaning networks not connected to the listed scopes (AMPLSs).
@@ -166,7 +166,7 @@ This zone configures connectivity to the global agents' solution packs storage a
 ### Validating you are communicating over a Private Link
 * To validate your requests are now sent through the Private Endpoint, you can review them with a network tracking tool or even your browser. For example, when attempting to query your workspace or application, make sure the request is sent to the private IP mapped to the API endpoint, in this example it's *172.17.0.9*.
 
-    Note: Some browsers may use other DNS settings (see [Browser DNS settings](./private-links-planning.md#browser-dns-settings)). Make sure your DNS settings apply.
+    Note: Some browsers may use other DNS settings (see [Browser DNS settings](./private-link-design.md#browser-dns-settings)). Make sure your DNS settings apply.
 
 * To make sure your workspace or component aren't receiving requests from public networks (not connected through AMPLS), set the resource's public ingestion and query flags to *No* as explained in [Configure access to your resources](#configure-access-to-your-resources).
 
