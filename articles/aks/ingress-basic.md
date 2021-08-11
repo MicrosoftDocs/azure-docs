@@ -50,7 +50,7 @@ Note that the above configuration uses the 'out of the box' configuration for si
 As an alternative to the basic configuration presented in the above section, the next set of steps will show how to deploy a customized ingress controller.
 ### Import the images used by the Helm chart into your ACR
 
-To control image versions, you will want to impor them into your own Azure Container registry.  The [NGINX ingress controller Helm chart][ingress-nginx-helm-chart] relies on three container images. Use `az acr import` to import those images into your ACR.
+To control image versions, you will want to import them into your own Azure Container registry.  The [NGINX ingress controller Helm chart][ingress-nginx-helm-chart] relies on three container images. Use `az acr import` to import those images into your ACR.
 
 ```azurecli
 REGISTRY_NAME=<REGISTRY_NAME>
