@@ -8,7 +8,7 @@ author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 08/12/2021
 ---
 
 # Sentiment cognitive skill (V3)
@@ -16,10 +16,10 @@ ms.date: 05/25/2021
 The V3 **Sentiment** skill evaluates unstructured text and for each record, provides sentiment labels (such as "negative", "neutral" and "positive") based on the highest confidence score found by the service at a sentence and document-level. This skill uses the machine learning models provided by version 3 of [Text Analytics](../cognitive-services/text-analytics/overview.md) in Cognitive Services. It also exposes [the opinion mining capabilities of the Text Analytics API](../cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining), which provides more granular information about the opinions related to attributes of products or services in text.
 
 > [!NOTE]
-> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
+> This skill is bound to Cognitive Services and requires that you [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
+> 
+> Image extraction is an extra charge metered by Azure Cognitive Search, as described on the [pricing page](https://azure.microsoft.com/pricing/details/search/). Text extraction is free.
 >
-> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
-
 
 ## @odata.type  
 Microsoft.Skills.Text.V3.SentimentSkill
