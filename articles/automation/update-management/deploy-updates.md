@@ -9,9 +9,9 @@ ms.topic: conceptual
 
 # How to deploy updates and review results
 
-This article describes how to schedule an update deployment and review the process after the deployment is complete. You can configure an update deployment from a selected Azure virtual machine, from the selected Azure Arc–enabled server, or from the Automation account across all configured machines and servers.
+This article describes how to schedule an update deployment and review the process after the deployment is complete. You can configure an update deployment from a selected Azure virtual machine, from the selected Azure Arc-enabled server, or from the Automation account across all configured machines and servers.
 
-Under each scenario, the deployment you create targets that selected machine or server, or in the case of creating a deployment from your Automation account, you can target one or more machines. When you schedule an update deployment from an Azure VM or Azure Arc–enabled server, the steps are the same as deploying from your Automation account, with the following exceptions:
+Under each scenario, the deployment you create targets that selected machine or server, or in the case of creating a deployment from your Automation account, you can target one or more machines. When you schedule an update deployment from an Azure VM or Azure Arc-enabled server, the steps are the same as deploying from your Automation account, with the following exceptions:
 
 * The operating system is automatically pre-selected based on the OS of the machine
 * The target machine to update is set to target itself automatically
@@ -31,31 +31,31 @@ Scheduling an update deployment creates a [schedule](../shared-resources/schedul
 >[!NOTE]
 >If you delete the schedule resource from the Azure portal or using PowerShell after creating the deployment, the deletion breaks the scheduled update deployment and presents an error when you attempt to reconfigure the schedule resource from the portal. You can only delete the schedule resource by deleting the corresponding deployment schedule.  
 
-To schedule a new update deployment, perform the following steps. Depending on the resource selected (that is, Automation account, Azure Arc–enabled server, Azure VM), the steps below apply to all with minor differences while configuring the deployment schedule.
+To schedule a new update deployment, perform the following steps. Depending on the resource selected (that is, Automation account, Azure Arc-enabled server, Azure VM), the steps below apply to all with minor differences while configuring the deployment schedule.
 
 1. In the portal, to schedule a deployment for:
 
    * One or more machines, navigate to **Automation accounts** and select your Automation account with Update Management enabled from the list.
    * For an Azure VM, navigate to **Virtual machines** and select your VM from the list.
-   * For an Azure Arc–enabled server, navigate to **Servers - Azure Arc** and select your server from the list.
+   * For an Azure Arc-enabled server, navigate to **Servers - Azure Arc** and select your server from the list.
 
 2. Depending on the resource you selected, to navigate to Update Management:
 
    * If you selected your Automation account, go to **Update management** under **Update management**, and then select **Schedule update deployment**.
    * If you selected an Azure VM, go to **Guest + host updates**, and then select **Go to Update Management**.
-   * If you selected an Azure Arc–enabled server, go to **Update Management**, and then select **Schedule update deployment**.
+   * If you selected an Azure Arc-enabled server, go to **Update Management**, and then select **Schedule update deployment**.
 
 3. Under **New update deployment**, in the **Name** field enter a unique name for your deployment.
 
 4. Select the operating system to target for the update deployment.
 
     > [!NOTE]
-    > This option is not available if you selected an Azure VM or Azure Arc–enabled server. The operating system is automatically identified.
+    > This option is not available if you selected an Azure VM or Azure Arc-enabled server. The operating system is automatically identified.
 
 5. In the **Groups to update** region, define a query that combines subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more, see [Use dynamic groups with Update Management](configure-groups.md).
 
     > [!NOTE]
-    > This option is not available if you selected an Azure VM or Azure Arc–enabled server. The machine is automatically targeted for the scheduled deployment.
+    > This option is not available if you selected an Azure VM or Azure Arc-enabled server. The machine is automatically targeted for the scheduled deployment.
 
    > [!IMPORTANT]
    > When building a dynamic group of Azure VMs, Update Management only supports a maximum of 500 queries that combines subscriptions or resource groups in the scope of the group.
@@ -63,7 +63,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
 6. In the **Machines to update** region, select a saved search, an imported group, or pick **Machines** from the dropdown menu and select individual machines. With this option, you can see the readiness of the Log Analytics agent for each machine. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../../azure-monitor/logs/computer-groups.md). You can include up to a maximum of 1000 machines in a scheduled update deployment.
 
     > [!NOTE]
-    > This option is not available if you selected an Azure VM or Azure Arc–enabled server. The machine is automatically targeted for the scheduled deployment.
+    > This option is not available if you selected an Azure VM or Azure Arc-enabled server. The machine is automatically targeted for the scheduled deployment.
 
 7. Use the **Update classifications** region to specify [update classifications](view-update-assessments.md#work-with-update-classifications) for products. For each product, deselect all supported update classifications but the ones to include in your update deployment.
 
@@ -100,7 +100,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
 9. Select **Schedule settings**. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
 
     > [!NOTE]
-    > This option is different if you selected an Azure Arc–enabled server. You can select **Update now** or a start time 20 minutes into the future.
+    > This option is different if you selected an Azure Arc-enabled server. You can select **Update now** or a start time 20 minutes into the future.
 
 10. Use the **Recurrence** to specify if the deployment occurs once or uses a recurring schedule, then select **OK**.
 
@@ -130,7 +130,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
     ![Update Schedule Settings pane](./media/deploy-updates/manageupdates-schedule-win.png)
 
     > [!NOTE]
-    > When you're finished configuring the deployment schedule for a selected Azure Arc–enabled server, select **Review + create**.
+    > When you're finished configuring the deployment schedule for a selected Azure Arc-enabled server, select **Review + create**.
 
 15. You're returned to the status dashboard. Select **Deployment schedules** to show the deployment schedule that you've created. A maximum of 500 schedules are listed. If you have more than 500 schedules and you want to review the complete list, see the [Software Update Configurations - List](/rest/api/automation/softwareupdateconfigurations/list) REST API method. Specify API version 2019-06-01 or higher.
 

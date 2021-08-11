@@ -190,7 +190,7 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
 [!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
 > [!IMPORTANT]
-> To attach an Azure Kubernetes Services (AKS) or Azure Arc–enabled Kubernetes cluster, you must be subscription owner or have permission to access AKS cluster resources under the subscription. Otherwise, the cluster list on "attach new compute" page will be blank.
+> To attach an Azure Kubernetes Services (AKS) or Azure Arc-enabled Kubernetes cluster, you must be subscription owner or have permission to access AKS cluster resources under the subscription. Otherwise, the cluster list on "attach new compute" page will be blank.
 
 To detach your compute use the following steps:
 

@@ -37,7 +37,7 @@ VM insights supports the following machines:
 > If the ethernet device for your virtual machine has more than nine characters, then it won’t be recognized by VM insights and data won’t be sent to the InsightsMetrics table. The agent will collect data from [other sources](../agents/agent-data-sources.md).
 
 ## Supported Azure Arc machines
-VM insights is available for Azure Arc–enabled servers in regions where the Arc extension service is available. You must be running version 0.9 or above of the Arc Agent.
+VM insights is available for Azure Arc-enabled servers in regions where the Arc extension service is available. You must be running version 0.9 or above of the Arc Agent.
 
 | Connected source | Supported | Description |
 |:--|:--|:--|

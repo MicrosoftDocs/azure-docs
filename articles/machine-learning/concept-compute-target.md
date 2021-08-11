@@ -158,7 +158,7 @@ Azure Machine Learning supports the following unmanaged compute types:
 * Azure Databricks
 * Azure Data Lake Analytics
 * Azure Container Instance
-* Azure Kubernetes Service & Azure Arc–enabled Kubernetes (preview)
+* Azure Kubernetes Service & Azure Arc-enabled Kubernetes (preview)
 
 For more information, see [set up compute targets for model training and deployment](how-to-attach-compute-targets.md)
 

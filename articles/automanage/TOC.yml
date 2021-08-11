@@ -17,7 +17,7 @@
         href: automanage-windows-server-services-overview.md
       - name: Hotpatch for new virtual machines
         href: automanage-hotpatch.md
-  - name: Automanage for Azure Arc–enabled servers
+  - name: Automanage for Azure Arc-enabled servers
     href: automanage-arc.md
   - name: Automanage account
     href: automanage-account.md

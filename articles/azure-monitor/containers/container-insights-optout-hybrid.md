@@ -13,7 +13,7 @@ After you enable monitoring of your Kubernetes cluster, you can stop monitoring 
 
 - AKS Engine on Azure and Azure Stack
 - OpenShift version 4 and higher
-- Azure Arc–enabled Kubernetes (preview)
+- Azure Arc-enabled Kubernetes (preview)
 
 ## How to stop monitoring using Helm
 
@@ -53,7 +53,7 @@ The following steps apply to the following environments:
 
 The configuration change can take a few minutes to complete. Because Helm tracks your releases even after you’ve deleted them, you can audit a cluster’s history, and even undelete a release with `helm rollback`.
 
-## How to stop monitoring on Azure Arc–enabled Kubernetes
+## How to stop monitoring on Azure Arc-enabled Kubernetes
 
 ### Using PowerShell
 
@@ -63,7 +63,7 @@ The configuration change can take a few minutes to complete. Because Helm tracks
     wget https://aka.ms/disable-monitoring-powershell-script -OutFile disable-monitoring.ps1
     ```
 
-2. Configure the `$azureArcClusterResourceId` variable by setting the corresponding values for `subscriptionId`, `resourceGroupName` and `clusterName` representing the resource ID of your Azure Arc–enabled Kubernetes cluster resource.
+2. Configure the `$azureArcClusterResourceId` variable by setting the corresponding values for `subscriptionId`, `resourceGroupName` and `clusterName` representing the resource ID of your Azure Arc-enabled Kubernetes cluster resource.
 
     ```powershell
     $azureArcClusterResourceId = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
@@ -108,7 +108,7 @@ For example:
     curl -o disable-monitoring.sh -L https://aka.ms/disable-monitoring-bash-script
     ```
 
-2. Configure the `azureArcClusterResourceId` variable by setting the corresponding values for `subscriptionId`, `resourceGroupName` and `clusterName` representing the resource ID of your Azure Arc–enabled Kubernetes cluster resource.
+2. Configure the `azureArcClusterResourceId` variable by setting the corresponding values for `subscriptionId`, `resourceGroupName` and `clusterName` representing the resource ID of your Azure Arc-enabled Kubernetes cluster resource.
 
     ```bash
     export azureArcClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"

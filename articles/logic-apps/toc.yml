@@ -87,11 +87,11 @@
       href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
     - name: Estimate storage costs for single-tenant workflows
       href: estimate-storage-costs.md
-  - name: Azure Arc–enabled Logic Apps
+  - name: Azure Arc-enabled Logic Apps
     items:
-    - name: About Azure Arc–enabled Logic Apps
+    - name: About Azure Arc-enabled Logic Apps
       href: azure-arc-enabled-logic-apps-overview.md
-    - name: Create and deploy Azure Arc–enabled logic apps
+    - name: Create and deploy Azure Arc-enabled logic apps
       href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
   - name: Develop
     items:

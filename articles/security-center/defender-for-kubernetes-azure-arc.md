@@ -9,9 +9,9 @@ ms.date: 04/06/2021
 ms.author: memildin
 ---
 
-# Defend Azure Arc–enabled Kubernetes clusters running in on-premises and multi-cloud environments
+# Defend Azure Arc-enabled Kubernetes clusters running in on-premises and multi-cloud environments
 
-The **Azure Defender for Kubernetes clusters extension** can defend your on-premises clusters with the same threat detection capabilities offered for Azure Kubernetes Service clusters. Enable [Azure Arc–enabled Kubernetes](../azure-arc/kubernetes/overview.md) on your clusters and deploy the extension as described on this page. 
+The **Azure Defender for Kubernetes clusters extension** can defend your on-premises clusters with the same threat detection capabilities offered for Azure Kubernetes Service clusters. Enable [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) on your clusters and deploy the extension as described on this page. 
 
 The extension can also protect Kubernetes clusters on other cloud providers, although not on their managed Kubernetes services.
 
@@ -26,16 +26,16 @@ The extension can also protect Kubernetes clusters on other cloud providers, alt
 | Required roles and permissions | [Security admin](../role-based-access-control/built-in-roles.md#security-admin) can dismiss alerts<br>[Security reader](../role-based-access-control/built-in-roles.md#security-reader) can view findings |
 | Pricing | Requires [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md) |
 | Supported Kubernetes distributions | [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/overview)<br>[Kubernetes](https://kubernetes.io/docs/home/)<br> [AKS Engine](https://github.com/Azure/aks-engine)<br> [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer)<br> [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/) |
-| Limitations | Azure Arc–enabled Kubernetes and the Azure Defender extension **don't support** managed Kubernetes offerings like Google Kubernetes Engine and Elastic Kubernetes Service. [Azure Defender is natively available for Azure Kubernetes Service (AKS)](defender-for-kubernetes-introduction.md) and doesn't require connecting the cluster to Azure Arc. |
-| Environments and regions | Availability for this extension is the same as [Azure Arc–enabled Kubernetes](../azure-arc/kubernetes/overview.md)|
+| Limitations | Azure Arc-enabled Kubernetes and the Azure Defender extension **don't support** managed Kubernetes offerings like Google Kubernetes Engine and Elastic Kubernetes Service. [Azure Defender is natively available for Azure Kubernetes Service (AKS)](defender-for-kubernetes-introduction.md) and doesn't require connecting the cluster to Azure Arc. |
+| Environments and regions | Availability for this extension is the same as [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md)|
 
 ## Architecture overview
 
-For all Kubernetes clusters other than AKS, you'll need to connect your cluster to Azure Arc. Once connected, Azure Defender for Kubernetes can be deployed on [Azure Arc–enabled Kubernetes](../azure-arc/kubernetes/overview.md) resources as a [cluster extension](../azure-arc/kubernetes/extensions.md).
+For all Kubernetes clusters other than AKS, you'll need to connect your cluster to Azure Arc. Once connected, Azure Defender for Kubernetes can be deployed on [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) resources as a [cluster extension](../azure-arc/kubernetes/extensions.md).
 
 The extension components collect Kubernetes audit logs data from all control plane nodes in the cluster and send them to the Azure Defender for Kubernetes backend in the cloud for further analysis. The extension is registered with a Log Analytics workspace used as a data pipeline, but the audit log data isn't stored in the Log Analytics workspace.
 
-This diagram shows the interaction between Azure Defender for Kubernetes and the Azure Arc–enabled Kubernetes cluster:
+This diagram shows the interaction between Azure Defender for Kubernetes and the Azure Arc-enabled Kubernetes cluster:
 
 :::image type="content" source="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png" alt-text="A high-level architecture diagram outlining the interaction between Azure Defender for Kubernetes and an Azure Arc-enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png":::
 
@@ -90,7 +90,7 @@ A dedicated recommendation in Azure Security Center provides:
     > [!IMPORTANT]
     > Ensure that you use the same subscription ID for ``<your-subscription-id>`` as the one that was used when connecting your cluster to Azure Arc.
 
-1. Run the following command to deploy the extension on top of your Azure Arc–enabled Kubernetes cluster:
+1. Run the following command to deploy the extension on top of your Azure Arc-enabled Kubernetes cluster:
 
     ```azurecli
     az k8s-extension create --name microsoft.azuredefender.kubernetes --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <resource-group> --extension-type microsoft.azuredefender.kubernetes
@@ -138,9 +138,9 @@ To use the REST API to deploy the Azure Defender extension, you'll need a Log An
 
     | Name            | In   | Required | Type   | Description                                  |
     |-----------------|------|----------|--------|----------------------------------------------|
-    | Subscription ID | path | True     | string | Your Azure Arc–enabled Kubernetes resource's subscription ID |
-    | Resource Group  | path | True     | string | Name of the resource group containing your Azure Arc–enabled Kubernetes resource |
-    | Cluster Name    | path | True     | string | Name of your Azure Arc–enabled Kubernetes resource  |
+    | Subscription ID | path | True     | string | Your Azure Arc-enabled Kubernetes resource's subscription ID |
+    | Resource Group  | path | True     | string | Name of the resource group containing your Azure Arc-enabled Kubernetes resource |
+    | Cluster Name    | path | True     | string | Name of your Azure Arc-enabled Kubernetes resource  |
 
 
     For **Authentication**, your header must have a Bearer token (as with other Azure APIs). To get a bearer token, run the following command:
@@ -322,9 +322,9 @@ DELETE https://management.azure.com/subscriptions/{{Subscription Id}}/resourcegr
 
 | Name            | In   | Required | Type   | Description                                           |
 |-----------------|------|----------|--------|-------------------------------------------------------|
-| Subscription ID | path | True     | string | Your Azure Arc–enabled Kubernetes cluster's subscription ID |
-| Resource Group  | path | True     | string | Your Azure Arc–enabled Kubernetes cluster's resource group  |
-| Cluster Name    | path | True     | string | Your Azure Arc–enabled Kubernetes cluster's name            |
+| Subscription ID | path | True     | string | Your Azure Arc-enabled Kubernetes cluster's subscription ID |
+| Resource Group  | path | True     | string | Your Azure Arc-enabled Kubernetes cluster's resource group  |
+| Cluster Name    | path | True     | string | Your Azure Arc-enabled Kubernetes cluster's name            |
 
 For **Authentication**, your header must have a Bearer token (as with other Azure APIs). To get a bearer token, run the following command:
 
@@ -338,7 +338,7 @@ The request may take several minutes to complete.
 
 ## Next steps
 
-This page explained how to deploy the Azure Defender extension for Azure Arc–enabled Kubernetes clusters. Learn more about Azure Defender and Azure Security Center's container security features in the following pages:
+This page explained how to deploy the Azure Defender extension for Azure Arc-enabled Kubernetes clusters. Learn more about Azure Defender and Azure Security Center's container security features in the following pages:
 
 - [Container security in Security Center](container-security.md)
 - [Introduction to Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)

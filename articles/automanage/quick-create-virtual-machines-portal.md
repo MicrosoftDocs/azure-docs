@@ -60,7 +60,7 @@ Sign in to the [Azure portal](https://aka.ms/AutomanagePortal-Ignite21).
     1. Check the checkbox of each virtual machine you want to onboard.
     1. Click the **Select** button.
     > [!NOTE]
-    > You may select both Azure VMs and Azure Arc–enabled servers.
+    > You may select both Azure VMs and Azure Arc-enabled servers.
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Select existing VM from list of available VMs.":::
 

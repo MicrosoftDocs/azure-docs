@@ -31,7 +31,7 @@ Azure Automanage also automatically monitors for drift and corrects for it when 
 Automanage doesn't store/process customer data outside the geography your VMs are located. In the SoutheastAsia region, Automanage does not store/process data outside of SoutheastAsia.
 
 > [!NOTE]
-> Automanage can be enabled on Azure virtual machines as well as Azure Arc–enabled servers. Automanage is not available in US Government Cloud at this time.
+> Automanage can be enabled on Azure virtual machines as well as Azure Arc-enabled servers. Automanage is not available in US Government Cloud at this time.
 
 ## Prerequisites
 

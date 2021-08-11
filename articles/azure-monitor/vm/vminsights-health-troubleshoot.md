@@ -58,7 +58,7 @@ This is likely because VM Guest Agent couldn’t acquire the lock for the servic
 
 ### Upgrade available message is still displayed after upgrading guest health 
 
-- Verify that VM is running in global Azure. Azure Arc–enabled servers are not yet supported.
+- Verify that VM is running in global Azure. Azure Arc-enabled servers are not yet supported.
 - Verify that the virtual machine's region and operating system version are supported as described in [Enable Azure Monitor for VMs guest health (preview)](vminsights-health-enable.md).
 - Verify that guest health extension installed successfully with 0 exit code.
 - Verify that Azure Monitor agent extension is installed successfully.

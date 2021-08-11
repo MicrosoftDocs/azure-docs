@@ -1,5 +1,5 @@
 ---
-title: Create and deploy workflows with Azure Arc–enabled Logic Apps
+title: Create and deploy workflows with Azure Arc-enabled Logic Apps
 description: Create and deploy single-tenant based logic app workflows that run anywhere that Kubernetes can run.
 services: logic-apps
 ms.suite: integration
@@ -10,26 +10,26 @@ ms.date: 06/03/2021
 ## Customer intent: As a developer, I want to learn how to create and deploy automated Logic Apps workflows that can run anywhere that Kubernetes can run.
 ---
 
-# Create and deploy single-tenant based logic app workflows with Azure Arc–enabled Logic Apps (Preview)
+# Create and deploy single-tenant based logic app workflows with Azure Arc-enabled Logic Apps (Preview)
 
 > [!NOTE]
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-With Azure Arc–enabled Logic Apps and the Azure portal, you can create and deploy single-tenant based logic app workflows to a Kubernetes infrastructure that you operate and manage. Your logic apps run in a *custom location* that's mapped to an Azure Arc–enabled Kubernetes cluster where you have installed and enabled the Azure App Service platform extensions bundle.
+With Azure Arc-enabled Logic Apps and the Azure portal, you can create and deploy single-tenant based logic app workflows to a Kubernetes infrastructure that you operate and manage. Your logic apps run in a *custom location* that's mapped to an Azure Arc-enabled Kubernetes cluster where you have installed and enabled the Azure App Service platform extensions bundle.
 
 For example, this cluster can be Azure Kubernetes Service, bare-metal Kubernetes, or another setup. The extensions bundle enables you to run platform services such as Azure Logic Apps, Azure App Service, and Azure Functions on your Kubernetes cluster. 
 
 For more information, review the following documentation:
 
-- [What is Azure Arc–enabled Logic Apps?](azure-arc-enabled-logic-apps-overview.md)
+- [What is Azure Arc-enabled Logic Apps?](azure-arc-enabled-logic-apps-overview.md)
 - [Single-tenant versus multi-tenant and integration service environment](../logic-apps/single-tenant-overview-compare.md)
 - [Azure Arc overview](../azure-arc/overview.md)
 - [Azure Kubernetes Service overview](../aks/intro-kubernetes.md)
-- [What is Azure Arc–enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
-- [Custom locations on Azure Arc–enabled Kubernetes](../azure-arc/kubernetes/conceptual-custom-locations.md)
+- [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
+- [Custom locations on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-custom-locations.md)
 - [App Service, Functions, and Logic Apps on Azure Arc (Preview)](../app-service/overview-arc-integration.md)
-- [Set up an Azure Arc–enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)](../app-service/manage-create-arc-environment.md)
+- [Set up an Azure Arc-enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)](../app-service/manage-create-arc-environment.md)
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ This section describes the common prerequisites across all the approaches and to
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- A Kubernetes environment with an Azure Arc–enabled Kubernetes cluster and *custom location* where you can host and run Azure Logic Apps, Azure App Service, and Azure Functions.
+- A Kubernetes environment with an Azure Arc-enabled Kubernetes cluster and *custom location* where you can host and run Azure Logic Apps, Azure App Service, and Azure Functions.
 
   > [!IMPORTANT]
   > Make sure that you use the same resource location for your Kubernetes environment, custom location, and logic app.
@@ -49,16 +49,16 @@ This section describes the common prerequisites across all the approaches and to
   For more information, review the following documentation:
 
   - [App Service, Functions, and Logic Apps on Azure Arc (Preview)](../app-service/overview-arc-integration.md)
-  - [Cluster extensions on Azure Arc–enabled Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md)
-  - [Set up an Azure Arc–enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)](../app-service/manage-create-arc-environment.md)
+  - [Cluster extensions on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md)
+  - [Set up an Azure Arc-enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)](../app-service/manage-create-arc-environment.md)
   - [Change the default scaling behavior](#change-scaling)
 
 - Your own Azure Active Directory (Azure AD) identity
 
-  If your workflows need to use any Azure-hosted connections, such as Office 365 Outlook or Azure Storage, your logic app must use an Azure AD identity for authentication. Azure Arc–enabled Logic Apps can run on any infrastructure but requires an identity that has permissions to use Azure-hosted connections. To set up this identity, create an app registration in Azure AD that your logic app uses as the required identity.
+  If your workflows need to use any Azure-hosted connections, such as Office 365 Outlook or Azure Storage, your logic app must use an Azure AD identity for authentication. Azure Arc-enabled Logic Apps can run on any infrastructure but requires an identity that has permissions to use Azure-hosted connections. To set up this identity, create an app registration in Azure AD that your logic app uses as the required identity.
 
   > [!NOTE]
-  > Managed identity support is currently unavailable for Azure Arc–enabled Logic Apps.
+  > Managed identity support is currently unavailable for Azure Arc-enabled Logic Apps.
 
   To create an Azure Active Directory (Azure AD) app registration using the Azure CLI, follow these steps:
 
@@ -166,7 +166,7 @@ If your resource group is successfully created, the output shows the `provisioni
 
 #### Create logic app
 
-To create an Azure Arc–enabled logic app, run the command, `az logicapp create`, with the following required parameters. The resource locations for your logic app, custom location, and Kubernetes environment must all be the same.
+To create an Azure Arc-enabled logic app, run the command, `az logicapp create`, with the following required parameters. The resource locations for your logic app, custom location, and Kubernetes environment must all be the same.
 
 | Parameters | Description |
 |------------|-------------|
@@ -181,7 +181,7 @@ az logicapp create --name MyLogicAppName
    --storage-account MyStorageAccount --custom-location MyCustomLocation
 ```
 
-To create an Azure Arc–enabled logic app using a private Azure Container Registry image, run the command, `az logicapp create`, with the following required parameters:
+To create an Azure Arc-enabled logic app using a private Azure Container Registry image, run the command, `az logicapp create`, with the following required parameters:
 
 ```azurecli
 az logicapp create --name MyLogicAppName 
@@ -194,7 +194,7 @@ az logicapp create --name MyLogicAppName
 
 #### Show logic app details
 
-To show details about your Azure Arc–enabled logic app, run the command, `az logicapp show`, with the following required parameters:
+To show details about your Azure Arc-enabled logic app, run the command, `az logicapp show`, with the following required parameters:
 
 ```azurecli
 az logicapp show --name MyLogicAppName 
@@ -203,7 +203,7 @@ az logicapp show --name MyLogicAppName
 
 #### Deploy logic app
 
-To deploy your Azure Arc–enabled logic app using [Azure App Service's Kudu zip deployment](../app-service/resources-kudu.md), run the command, `az logicapp deployment source config-zip`, with the following required parameters:
+To deploy your Azure Arc-enabled logic app using [Azure App Service's Kudu zip deployment](../app-service/resources-kudu.md), run the command, `az logicapp deployment source config-zip`, with the following required parameters:
 
 > [!IMPORTANT]
 > Make sure that your zip file contains your project's artifacts at the root level. These artifacts include all workflow folders, 
@@ -225,7 +225,7 @@ az logicapp deployment source config-zip --name MyLogicAppName
 
 #### Start logic app
 
-To start your Azure Arc–enabled logic app, run the command, `az logicapp start`, with the following required parameters:
+To start your Azure Arc-enabled logic app, run the command, `az logicapp start`, with the following required parameters:
 
 ```azurecli
 az logicapp start --name MyLogicAppName 
@@ -234,7 +234,7 @@ az logicapp start --name MyLogicAppName
 
 #### Stop logic app
 
-To stop your Azure Arc–enabled logic app, run the command, `az logicapp stop`, with the following required parameters:
+To stop your Azure Arc-enabled logic app, run the command, `az logicapp stop`, with the following required parameters:
 
 ```azurecli
 az logicapp stop --name MyLogicAppName 
@@ -243,7 +243,7 @@ az logicapp stop --name MyLogicAppName
 
 #### Restart logic app
 
-To restart your Azure Arc–enabled logic app, run the command, `az logicapp restart`, with the following required parameters:
+To restart your Azure Arc-enabled logic app, run the command, `az logicapp restart`, with the following required parameters:
 
 ```azurecli
 az logicapp restart --name MyLogicAppName 
@@ -252,7 +252,7 @@ az logicapp restart --name MyLogicAppName
 
 #### Delete logic app
 
-To delete your Azure Arc–enabled logic app, run the command, `az logicapp delete`, with the following required parameters:
+To delete your Azure Arc-enabled logic app, run the command, `az logicapp delete`, with the following required parameters:
 
 ```azurecli
 az logicapp delete --name MyLogicAppName 
@@ -261,7 +261,7 @@ az logicapp delete --name MyLogicAppName
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
-You can create, deploy, and monitor your logic app workflows from end to end in Visual Studio Code. There is no change or difference in the designer experience between developing logic app workflows that run in single-tenant Azure Logic Apps versus Azure Arc–enabled Logic Apps.
+You can create, deploy, and monitor your logic app workflows from end to end in Visual Studio Code. There is no change or difference in the designer experience between developing logic app workflows that run in single-tenant Azure Logic Apps versus Azure Arc-enabled Logic Apps.
 
 1. To create a logic app project, follow the prerequisites and steps in the [Create integration workflows in single-tenant Azure Logic Apps with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md) documentation.
 
@@ -271,11 +271,11 @@ You can create, deploy, and monitor your logic app workflows from end to end in 
 
    1. Select the Azure subscription that's associated with your custom location.
 
-   1. To create a new Azure Arc–enabled Logic Apps resource, select **Create new Logic App in Azure (Advanced)**. Or, you can select an existing logic app resource from the list and skip the next steps.
+   1. To create a new Azure Arc-enabled Logic Apps resource, select **Create new Logic App in Azure (Advanced)**. Or, you can select an existing logic app resource from the list and skip the next steps.
 
    1. Provide a globally unique name for your logic app.
 
-   1. Select the custom location for the Azure Arc–enabled Kubernetes environment to where you want to deploy. If you select a generic Azure region instead, you create a non-Azure Arc–enabled logic app resource that runs in single-tenant Azure Logic Apps.
+   1. Select the custom location for the Azure Arc-enabled Kubernetes environment to where you want to deploy. If you select a generic Azure region instead, you create a non-Azure Arc-enabled logic app resource that runs in single-tenant Azure Logic Apps.
 
    1. Select or create a new resource group to where you want to deploy the logic app.
 
@@ -291,15 +291,15 @@ You can create, deploy, and monitor your logic app workflows from end to end in 
       > You only have to complete this step once. Visual Studio Code updates your project's 
       > connections.json file and your managed API connections' access policies for you.
 
-1. When you're done, your logic app is live and running in your Azure Arc–enabled Kubernetes cluster, ready for you to test.
+1. When you're done, your logic app is live and running in your Azure Arc-enabled Kubernetes cluster, ready for you to test.
 
 ### [Azure portal](#tab/azure-portal)
 
-The portal-based designer's editing capability is currently under development for Azure Arc–enabled Logic Apps. You can create, deploy, and view your logic apps using the portal-based designer, but you can't edit them in the portal after deployment. For now, you can create and edit a logic app project locally in Visual Studio Code, and then deploy using Visual Studio Code, Azure CLI, or automated deployments.
+The portal-based designer's editing capability is currently under development for Azure Arc-enabled Logic Apps. You can create, deploy, and view your logic apps using the portal-based designer, but you can't edit them in the portal after deployment. For now, you can create and edit a logic app project locally in Visual Studio Code, and then deploy using Visual Studio Code, Azure CLI, or automated deployments.
 
 1. In the Azure portal, [create a **Logic App (Standard)** resource](create-single-tenant-workflows-azure-portal.md). However, for the **Publish** destination, select **Docker Container**. For **Region**, select your previously created custom location as your app's location.
 
-   By default, the **Logic App (Standard)** resource runs in single-tenant Azure Logic Apps. However, for Azure Arc–enabled Logic Apps, your logic app resource runs in the custom location that you created for your Kubernetes environment. Also, you don't need to create an App Service plan, which is created for you.
+   By default, the **Logic App (Standard)** resource runs in single-tenant Azure Logic Apps. However, for Azure Arc-enabled Logic Apps, your logic app resource runs in the custom location that you created for your Kubernetes environment. Also, you don't need to create an App Service plan, which is created for you.
 
    > [!IMPORTANT]
    > The resource locations for your logic app, custom location, and Kubernetes environment must all be the same.
@@ -314,9 +314,9 @@ The portal-based designer's editing capability is currently under development fo
 
 ## Set up connection authentication
 
-Currently, Azure Arc–enabled Kubernetes clusters don't support using a logic app's managed identity to authenticate managed API connections. You create these Azure-hosted and managed connections when you use managed connectors in your workflows.
+Currently, Azure Arc-enabled Kubernetes clusters don't support using a logic app's managed identity to authenticate managed API connections. You create these Azure-hosted and managed connections when you use managed connectors in your workflows.
 
-Instead, you have to create your own app registration in Azure Active Directory (Azure AD). You can then use this app registration as an identity for logic apps deployed and running in Azure Arc–enabled Logic Apps. For more information, review the [top-level prerequisites](#prerequisites).
+Instead, you have to create your own app registration in Azure Active Directory (Azure AD). You can then use this app registration as an identity for logic apps deployed and running in Azure Arc-enabled Logic Apps. For more information, review the [top-level prerequisites](#prerequisites).
 
 From your app registration, you need the client ID, object ID, tenant ID, and client secret. If you use Visual Studio Code to deploy, you have a built-in experience for setting up your logic app with an Azure AD identity. For more information, review [Create and deploy logic app workflows - Visual Studio Code](#create-and-deploy-logic-apps).
 
@@ -412,11 +412,11 @@ For this task, use your previously saved client ID as the *application ID*.
 
 ## Automate DevOps deployment
 
-To build and deploy your Azure Arc–enabled logic apps, you can use the same pipelines and processes as for [single-tenant based logic apps](single-tenant-overview-compare.md). To automate infrastructure deployments using pipelines for DevOps, make the following changes at the infrastructure level for both non-container and container deployments.
+To build and deploy your Azure Arc-enabled logic apps, you can use the same pipelines and processes as for [single-tenant based logic apps](single-tenant-overview-compare.md). To automate infrastructure deployments using pipelines for DevOps, make the following changes at the infrastructure level for both non-container and container deployments.
 
 ### Standard deployment (non-container)
 
-If you use zip deploy for logic app deployment, you don't need to set up a Docker registry for hosting container images. Although logic apps on Kubernetes technically run on containers, Azure Arc–enabled Logic Apps manages these containers for you. For this scenario, complete the following tasks when you set up your infrastructure:
+If you use zip deploy for logic app deployment, you don't need to set up a Docker registry for hosting container images. Although logic apps on Kubernetes technically run on containers, Azure Arc-enabled Logic Apps manages these containers for you. For this scenario, complete the following tasks when you set up your infrastructure:
 
 - Notify the resource provider that you are creating a logic app on Kubernetes.
 - Include an App Service plan with your deployment. For more information, review [Include App Service plan with deployment](#include-app-service-plan).
@@ -434,7 +434,7 @@ In your [Azure Resource Manager template (ARM template)](../azure-resource-manag
 
 #### ARM template
 
-The following example describes a sample Azure Arc–enabled Logic Apps resource definition that you can use in your ARM template. For more information, review the [Microsoft.Web/sites template format (JSON)](/azure/templates/microsoft.web/sites?tabs=json) documentation.
+The following example describes a sample Azure Arc-enabled Logic Apps resource definition that you can use in your ARM template. For more information, review the [Microsoft.Web/sites template format (JSON)](/azure/templates/microsoft.web/sites?tabs=json) documentation.
 
 ```json
 {
@@ -487,7 +487,7 @@ The following example describes a sample Azure Arc–enabled Logic Apps resource
 
 ### Container deployment
 
-If you prefer to use container tools and deployment processes, you can containerize your logic apps and deploy them to Azure Arc–enabled Logic Apps. For this scenario, complete the following high-level tasks when you set up your infrastructure:
+If you prefer to use container tools and deployment processes, you can containerize your logic apps and deploy them to Azure Arc-enabled Logic Apps. For this scenario, complete the following high-level tasks when you set up your infrastructure:
 
 - Set up a Docker registry for hosting your container images.
 - Notify the resource provider that you are creating a logic app on Kubernetes.
@@ -517,7 +517,7 @@ To reference your Docker registry and container image, include these values in y
 
 #### ARM template
 
-The following example describes a sample Azure Arc–enabled Logic Apps resource definition that you can use in your ARM template. For more information, review the [Microsoft.Web/sites template format (ARM template)](/azure/templates/microsoft.web/sites?tabs=json) documentation.
+The following example describes a sample Azure Arc-enabled Logic Apps resource definition that you can use in your ARM template. For more information, review the [Microsoft.Web/sites template format (ARM template)](/azure/templates/microsoft.web/sites?tabs=json) documentation.
 
 ```json
 {
@@ -632,7 +632,7 @@ The following example describes a sample App Service plan resource definition th
 
 ## Change default scaling behavior
 
-Azure Arc–enabled Logic Apps automatically manages scaling for your logic apps based on the number of *jobs* in the backend storage queue. However, you can change the default scaling behavior.
+Azure Arc-enabled Logic Apps automatically manages scaling for your logic apps based on the number of *jobs* in the backend storage queue. However, you can change the default scaling behavior.
 
 In a logic app, the workflow definition specifies the sequence of actions to run. Whenever a workflow run is triggered, the Azure Logic Apps runtime creates a *job* for each action type in the workflow definition. The runtime then organizes these jobs into a *job sequencer*. This sequencer orchestrates running the jobs for the workflow definition, but the underlying Azure Logic Apps job orchestration engine runs each job.
 
@@ -642,11 +642,11 @@ To change the default scaling behavior, you specify different minimum and maximu
 
 ### Prerequisites to change scaling
 
-On your Azure Arc–enabled Kubernetes cluster, your previously created App Service bundle extension must have the `keda.enabled` property set to `true`. For more information, review the [top-level prerequisites](#prerequisites).
+On your Azure Arc-enabled Kubernetes cluster, your previously created App Service bundle extension must have the `keda.enabled` property set to `true`. For more information, review the [top-level prerequisites](#prerequisites).
 
 ### Change scaling threshold
 
-In Azure Arc–enabled Logic Apps, the length of the job queue triggers a scale event and sets a threshold for how often scaling happens for your logic app. You can change the queue length, which has the default value set to `20` jobs. To scale less often, increase the queue length. To scale more often, decrease the queue length. This process might require some trial and error.
+In Azure Arc-enabled Logic Apps, the length of the job queue triggers a scale event and sets a threshold for how often scaling happens for your logic app. You can change the queue length, which has the default value set to `20` jobs. To scale less often, increase the queue length. To scale more often, decrease the queue length. This process might require some trial and error.
 
 To change the queue length, in your logic app project's root-level **host.json** file, set the `Runtime.ScaleMonitor.KEDA.TargetQueueLength` property, for example:
 
@@ -792,4 +792,4 @@ To get logged data about your logic app, enable Application Insights on your
 
 ## Next steps
 
-- [About Azure Arc–enabled Logic Apps](azure-arc-enabled-logic-apps-overview.md)
+- [About Azure Arc-enabled Logic Apps](azure-arc-enabled-logic-apps-overview.md)

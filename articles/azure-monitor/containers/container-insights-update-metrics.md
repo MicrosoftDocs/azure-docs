@@ -9,7 +9,7 @@ ms.custom: devx-track-azurecli
 
 # How to update Container insights to enable metrics
 
-Container insights is introducing support for collecting metrics from Azure Kubernetes Services (AKS) and Azure Arc–enabled Kubernetes clusters nodes and pods and writing them to the Azure Monitor metrics store. This change is intended to deliver improved timeliness when presenting aggregate calculations (Avg, Count, Max, Min, Sum) in performance charts, support pinning performance charts in Azure portal dashboards, and support metric alerts.
+Container insights is introducing support for collecting metrics from Azure Kubernetes Services (AKS) and Azure Arc-enabled Kubernetes clusters nodes and pods and writing them to the Azure Monitor metrics store. This change is intended to deliver improved timeliness when presenting aggregate calculations (Avg, Count, Max, Min, Sum) in performance charts, support pinning performance charts in Azure portal dashboards, and support metric alerts.
 
 >[!NOTE]
 >This feature does not currently support Azure Red Hat OpenShift clusters.
@@ -24,12 +24,12 @@ The following metrics are enabled as part of this feature:
 | Insights.container/containers | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
 | Insights.container/persistentvolumes | pvUsageExceededPercentage | |
 
-To support these new capabilities, a new containerized agent is included in the release, version **microsoft/oms:ciprod05262020** for AKS and version **microsoft/oms:ciprod09252020** for Azure Arc–enabled Kubernetes clusters. New deployments of AKS automatically include this configuration change and capabilities. Updating your cluster to support this feature can be performed from the Azure portal, Azure PowerShell, or with Azure CLI. With Azure PowerShell and CLI. You can enable this per-cluster or for all clusters in your subscription.
+To support these new capabilities, a new containerized agent is included in the release, version **microsoft/oms:ciprod05262020** for AKS and version **microsoft/oms:ciprod09252020** for Azure Arc-enabled Kubernetes clusters. New deployments of AKS automatically include this configuration change and capabilities. Updating your cluster to support this feature can be performed from the Azure portal, Azure PowerShell, or with Azure CLI. With Azure PowerShell and CLI. You can enable this per-cluster or for all clusters in your subscription.
 
-Either process assigns the **Monitoring Metrics Publisher** role to the cluster's service principal or User assigned MSI for the monitoring add-on so that the data collected by the agent can be published to your clusters resource. Monitoring Metrics Publisher has permission only to push metrics to the resource, it cannot alter any state, update the resource, or read any data. For more information about the role, see [Monitoring Metrics Publisher role](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher). The Monitoring Metrics Publisher role requirement is not applicable to Azure Arc–enabled Kubernetes clusters.
+Either process assigns the **Monitoring Metrics Publisher** role to the cluster's service principal or User assigned MSI for the monitoring add-on so that the data collected by the agent can be published to your clusters resource. Monitoring Metrics Publisher has permission only to push metrics to the resource, it cannot alter any state, update the resource, or read any data. For more information about the role, see [Monitoring Metrics Publisher role](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher). The Monitoring Metrics Publisher role requirement is not applicable to Azure Arc-enabled Kubernetes clusters.
 
 > [!IMPORTANT]
-> The upgrade is not required for Azure Arc–enabled Kubernetes clusters since they will already have the minimum required agent version.
+> The upgrade is not required for Azure Arc-enabled Kubernetes clusters since they will already have the minimum required agent version.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ Before you update your cluster, confirm the following:
 
 * Custom metrics are only available in a subset of Azure regions. A list of supported regions is documented [here](../essentials/metrics-custom-overview.md#supported-regions).
 
-* You are a member of the **[Owner](../../role-based-access-control/built-in-roles.md#owner)** role on the AKS cluster resource to enable collection of node and pod custom performance metrics. This requirement does not apply to Azure Arc–enabled Kubernetes clusters.
+* You are a member of the **[Owner](../../role-based-access-control/built-in-roles.md#owner)** role on the AKS cluster resource to enable collection of node and pod custom performance metrics. This requirement does not apply to Azure Arc-enabled Kubernetes clusters.
 
 If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.59 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 

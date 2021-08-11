@@ -215,7 +215,7 @@
     - name: Disable specific image vulnerability findings
       displayName: ACR, registry, images, qualys
       href: defender-for-container-registries-usage.md#disable-specific-findings-preview
-    - name: Defend Azure Arc–enabled Kubernetes clusters
+    - name: Defend Azure Arc-enabled Kubernetes clusters
       displayName: k8s, containers, aks, hybrid, arc, azure arc, multicloud
       href: defender-for-kubernetes-azure-arc.md
     - name: Protect your Kubernetes workloads

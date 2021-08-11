@@ -73,7 +73,7 @@ The following table displays the current Security Center feature availability in
 | - [Azure Defender for container registries](/azure/security-center/defender-for-container-registries-introduction) <sup>[1](#footnote1)</sup>                               | GA             | GA  <sup>[2](#footnote2)</sup> | 
 | - [Azure Defender for container registries scanning of images in CI/CD workflows](/azure/security-center/defender-for-container-registries-cicd) <sup>[3](#footnote3)</sup> | Public Preview | Not Available                  | 
 | - [Azure Defender for Kubernetes](/azure/security-center/defender-for-kubernetes-introduction) <sup>[4](#footnote4)</sup>                                                   | GA             | GA                             | 
-| - [Azure Defender extension for Azure Arc–enabled Kubernetes clusters](/azure/security-center/defender-for-kubernetes-azure-arc) <sup>[5](#footnote5)</sup>                 | Public Preview | Not Available                  | 
+| - [Azure Defender extension for Azure Arc-enabled Kubernetes clusters](/azure/security-center/defender-for-kubernetes-azure-arc) <sup>[5](#footnote5)</sup>                 | Public Preview | Not Available                  | 
 | - [Azure Defender for Azure SQL database servers](/azure/security-center/defender-for-sql-introduction)                                                                     | GA             | GA                             | 
 | - [Azure Defender for SQL servers on machines](/azure/security-center/defender-for-sql-introduction)                                                                        | GA             | GA                             |
 | - [Azure Defender for open-source relational databases](/azure/security-center/defender-for-databases-introduction)                                                         | GA             | Not Available                  |
@@ -101,7 +101,7 @@ The following table displays the current Security Center feature availability in
 
 <sup><a name="footnote3" /></a>3</sup> Requires Azure Defender for container registries.
 
-<sup><a name="footnote4" /></a>4</sup> Partially GA: Support for Azure Arc–enabled clusters is in public preview and not available on Azure Government.
+<sup><a name="footnote4" /></a>4</sup> Partially GA: Support for Azure Arc-enabled clusters is in public preview and not available on Azure Government.
 
 <sup><a name="footnote5" /></a>5</sup> Requires Azure Defender for Kubernetes.
 

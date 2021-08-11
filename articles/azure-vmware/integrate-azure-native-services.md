@@ -9,7 +9,7 @@ ms.date: 06/15/2021
 
 Microsoft Azure native services let you monitor, manage, and protect your virtual machines (VMs) in a hybrid environment (Azure, Azure VMware Solution, and on-premises). The Azure native services that you can integrate with Azure VMware Solution include:
 
-- **Log Analytics workspace:** Each workspace has its own data repository and configuration for storing log data. Data sources and solutions are configured to store their data in a specific workspace. Easily deploy the Log Analytics agent using Azure Arc–enabled servers VM extension support for new and existing VMs. 
+- **Log Analytics workspace:** Each workspace has its own data repository and configuration for storing log data. Data sources and solutions are configured to store their data in a specific workspace. Easily deploy the Log Analytics agent using Azure Arc-enabled servers VM extension support for new and existing VMs. 
 - **Azure Security Center:** Unified infrastructure security management system that strengthens security of data centers, and provides advanced threat protection across hybrid workloads in the cloud or on premises. It assesses the vulnerability of Azure VMware Solution VMs and raises alerts as needed. To enable Azure Security Center, see [Integrate Azure Security Center with Azure VMware Solution](azure-security-integration.md).
 - **Azure Sentinel:** A cloud-native, security information event management (SIEM) solution. It provides security analytics, alert detection, and automated threat response across an environment. Azure Sentinel is built on top of a Log Analytics workspace.
 - **Azure Arc:** Extends Azure management to any infrastructure, including Azure VMware Solution, on-premises, or other cloud platforms. 
@@ -36,23 +36,23 @@ In this article, you'll integrate Azure native services in your Azure VMware Sol
  
 1. Once you've enabled Update Management, you can [deploy updates on VMs and review the results](../automation/update-management/deploy-updates.md). 
 
-## Onboard VMs to Azure Arc–enabled servers
+## Onboard VMs to Azure Arc-enabled servers
 
-Azure Arc extends Azure management to any infrastructure, including Azure VMware Solution and on-premises.  [Azure Arc–enabled servers](../azure-arc/servers/overview.md) lets you manage your Windows and Linux physical servers and virtual machines hosted *outside* of Azure, on your corporate network, or another cloud provider.
+Azure Arc extends Azure management to any infrastructure, including Azure VMware Solution and on-premises.  [Azure Arc-enabled servers](../azure-arc/servers/overview.md) lets you manage your Windows and Linux physical servers and virtual machines hosted *outside* of Azure, on your corporate network, or another cloud provider.
 
-For information on enabling Azure Arc–enabled servers for multiple Windows or Linux VMs, see [Connect hybrid machines to Azure at scale](../azure-arc/servers/onboard-service-principal.md).
+For information on enabling Azure Arc-enabled servers for multiple Windows or Linux VMs, see [Connect hybrid machines to Azure at scale](../azure-arc/servers/onboard-service-principal.md).
 
-## Onboard hybrid Kubernetes clusters with Azure Arc–enabled Kubernetes
+## Onboard hybrid Kubernetes clusters with Azure Arc-enabled Kubernetes
 
-[Azure Arc–enabled Kubernetes](../azure-arc/kubernetes/overview.md) lets you attach a Kubernetes cluster hosted in your Azure VMware Solution environment. 
+[Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) lets you attach a Kubernetes cluster hosted in your Azure VMware Solution environment. 
 
-For more information, see [Create an Azure Arc–enabled onboarding Service Principal](../azure-arc/kubernetes/create-onboarding-service-principal.md).
+For more information, see [Create an Azure Arc-enabled onboarding Service Principal](../azure-arc/kubernetes/create-onboarding-service-principal.md).
 
 ## Deploy the Log Analytics agent
 
 You can monitor Azure VMware Solution VMs through the Log Analytics agent. Machines connected to the Log Analytics workspace use the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) to collect data about changes to installed software, Microsoft services, Windows registry and files, and Linux daemons on monitored servers. When data is available, the agent sends it to Azure Monitor Logs for processing. Azure Monitor Logs applies logic to the received data, records it, and makes it available for analysis.
 
-Deploy the Log Analytics agent by using [Azure Arc–enabled servers VM extension support](../azure-arc/servers/manage-vm-extensions.md).
+Deploy the Log Analytics agent by using [Azure Arc-enabled servers VM extension support](../azure-arc/servers/manage-vm-extensions.md).
 
 ## Enable Azure Monitor
 

@@ -17,7 +17,7 @@ ms.author: alkohli
 
 This article shows you how to enable Azure Arc on an existing Kubernetes cluster on your Azure Stack Edge Pro device. 
 
-This procedure is intended for those who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc–enabled Kubernetes (Preview)?](../azure-arc/kubernetes/overview.md).
+This procedure is intended for those who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc-enabled Kubernetes (Preview)?](../azure-arc/kubernetes/overview.md).
 
 
 ## Prerequisites
@@ -70,7 +70,7 @@ Before you enable Azure Arc on the Kubernetes cluster, you will need to enable a
     
     ![Register Kubernetes resource providers 3](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
 
-You can also register resource providers via the `az cli`. For more information, see [Register the two providers for Azure Arc–enabled Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md#1-register-providers-for-azure-arc-enabled-kubernetes).
+You can also register resource providers via the `az cli`. For more information, see [Register the two providers for Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md#1-register-providers-for-azure-arc-enabled-kubernetes).
 
 ## Create service principal, assign role
 
@@ -125,7 +125,7 @@ You can also register resource providers via the `az cli`. For more information,
     }
     PS /home/user>
     ```
-    For more information on how to create service principal and perform the role assignment, see the steps in [Create an Azure Arc–enabled onboarding Service Principal](../azure-arc/kubernetes/create-onboarding-service-principal.md).
+    For more information on how to create service principal and perform the role assignment, see the steps in [Create an Azure Arc-enabled onboarding Service Principal](../azure-arc/kubernetes/create-onboarding-service-principal.md).
 
 
 ## Enable Arc on Kubernetes cluster
@@ -202,14 +202,14 @@ Follow these steps to configure the Kubernetes cluster for Azure Arc management:
     ```
 
 
-As the preceding output shows, Azure Arc–enabled Kubernetes consists of a few agents (operators) that run in your cluster deployed to the `azure-arc` namespace.
+As the preceding output shows, Azure Arc-enabled Kubernetes consists of a few agents (operators) that run in your cluster deployed to the `azure-arc` namespace.
 
 - `config-agent`: watches the connected cluster for source control configuration resources applied on the cluster and updates compliance state
 - `controller-manager`: is an operator of operators and orchestrates interactions between Azure Arc components
 - `metrics-agent`: collects metrics of other Arc agents to ensure that these agents are exhibiting optimal performance
 - `cluster-metadata-operator`: gathers cluster metadata - cluster version, node count, and Azure Arc agent version
 - `resource-sync-agent`: syncs the above mentioned cluster metadata to Azure
-- `clusteridentityoperator`: Azure Arc–enabled Kubernetes currently supports system assigned identity. clusteridentityoperator maintains the managed service identity (MSI) certificate used by other agents for communication with Azure.
+- `clusteridentityoperator`: Azure Arc-enabled Kubernetes currently supports system assigned identity. clusteridentityoperator maintains the managed service identity (MSI) certificate used by other agents for communication with Azure.
 - `flux-logs-agent`: collects logs from the flux operators deployed as a part of source control configuration.
 - `connect-agent`: talks to the Azure Arc resource.
 

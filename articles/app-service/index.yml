@@ -210,5 +210,5 @@ landingContent:
             url: quickstart-arc.md            
       - linkListType: tutorial
         links:            
-          - text: Set up an Azure Arc–enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)
+          - text: Set up an Azure Arc-enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)
             url: manage-create-arc-environment.md

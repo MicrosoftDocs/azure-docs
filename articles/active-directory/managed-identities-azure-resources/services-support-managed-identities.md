@@ -61,26 +61,26 @@ Refer to the following list to configure managed identity for Azure App Service 
 - [Azure PowerShell](../../app-service/overview-managed-identity.md#using-azure-powershell)
 - [Azure Resource Manager template](../../app-service/overview-managed-identity.md#using-an-azure-resource-manager-template)
 
-### Azure Arc–enabled Kubernetes
+### Azure Arc-enabled Kubernetes
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | Preview | Not available | Not available | Not available |
 | User assigned | Not available | Not available | Not available | Not available |
 
-Azure Arc–enabled Kubernetes currently [supports system assigned identity](../../azure-arc/kubernetes/quickstart-connect-cluster.md). The managed service identity certificate is used by all Azure Arc–enabled Kubernetes agents for communication with Azure.
+Azure Arc-enabled Kubernetes currently [supports system assigned identity](../../azure-arc/kubernetes/quickstart-connect-cluster.md). The managed service identity certificate is used by all Azure Arc-enabled Kubernetes agents for communication with Azure.
 
-### Azure Arc–enabled servers
+### Azure Arc-enabled servers
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | ![Available][check] | ![Available][check] | Not available | Not available |
 | User assigned | Not available | Not available | Not available | Not available |
 
-All Azure Arc–enabled servers have a system assigned identity. You cannot disable or change the system assigned identity on an Azure Arc–enabled server. Refer to the following resources to learn more about how to consume managed identities on Azure Arc–enabled servers:
+All Azure Arc-enabled servers have a system assigned identity. You cannot disable or change the system assigned identity on an Azure Arc-enabled server. Refer to the following resources to learn more about how to consume managed identities on Azure Arc-enabled servers:
 
-- [Authenticate against Azure resources with Azure Arc–enabled servers](../../azure-arc/servers/managed-identity-authentication.md)
-- [Using a managed identity with Azure Arc–enabled servers](../../azure-arc/servers/security-overview.md#using-a-managed-identity-with-arc-enabled-servers)
+- [Authenticate against Azure resources with Azure Arc-enabled servers](../../azure-arc/servers/managed-identity-authentication.md)
+- [Using a managed identity with Azure Arc-enabled servers](../../azure-arc/servers/security-overview.md#using-a-managed-identity-with-arc-enabled-servers)
 
 ### Azure Automanage
 
