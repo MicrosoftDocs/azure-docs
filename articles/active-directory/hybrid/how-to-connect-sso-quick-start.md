@@ -212,7 +212,7 @@ To test the feature for a specific user, ensure that all the following condition
   - You have [rolled out the feature](#step-3-roll-out-the-feature) to this user through Group Policy.
 
 To test the scenario where the user enters only the username, but not the password:
-   - Sign in to `https://myapps.microsoft.com/. Be sure to either clear the browser cache or use a new private browser session with any of the supported browsers in private mode.
+   - Sign in to https://myapps.microsoft.com/. Be sure to either clear the browser cache or use a new private browser session with any of the supported browsers in private mode.
 
 To test the scenario where the user doesn't have to enter the username or the password, use one of these steps: 
    - Sign in to `https://myapps.microsoft.com/contoso.onmicrosoft.com` Be sure to either clear the browser cache or use a new private browser session with any of the supported browsers in private mode. Replace *contoso* with your tenant's name.
