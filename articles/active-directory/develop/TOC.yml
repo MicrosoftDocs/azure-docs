@@ -515,6 +515,8 @@
       href: support-fido2-authentication.md
   - name: Authenticate apps and services
     items:
+    - name: Create a self-signed certificate to authenticate your app
+      href: howto-create-self-signed-certificate.md
     - name: Create a service principal using Azure PowerShell
       href: howto-authenticate-service-principal-powershell.md
     - name: Create a service principal using the Azure portal

@@ -30,6 +30,7 @@ For a virtual networks belonging to the same resource group as the cloud service
        <Subnet name="<subnet-name>"/> 
      </Subnets> 
     </InstanceAddress> 
+  </AddressAssignments> 
 ```
 
 #### Virtual network located in different resource group
@@ -41,6 +42,7 @@ For a virtual networks belonging to the same resource group as the cloud service
         <Subnet name="<subnet-name>"/> 
        </Subnets> 
      </InstanceAddress> 
+   </AddressAssignments>
 ```
 ### 2) Remove the old plugins
 
