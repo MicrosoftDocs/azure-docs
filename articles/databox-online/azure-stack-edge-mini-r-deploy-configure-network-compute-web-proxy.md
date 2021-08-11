@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 08/11/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Mini R so I can use it to transfer data to Azure. 
 ---
@@ -46,6 +46,9 @@ Follow these steps to configure the network for your device.
 2. If a zero day update is needed, you can do that here by configuring a data port with a wired connection. For more instructions on how to set up a wired connection for this device, see [Cable your device](azure-stack-edge-mini-r-deploy-install.md#cable-the-device). After the update is over, you can remove the wired connection.
 
 3. Create certificates for Wi-Fi and signing chain. Both the signing chain and the Wi-Fi certificates must be DER format with a *.cer* file extension. For instructions, see [Create certificates](azure-stack-edge-gpu-manage-certificates.md).
+
+   > [!NOTE] 
+   > If you're using password-based authentication on your personal Wi-Fi network, you don't need to add certificates. Just upload your Wi-Fi profile after you configure the Wi-Fi port on your device.<!--Verify: If they aren't using a Wi-Fi cert, do they need to add a signing chain cert?-->
 
 4. In the local web UI, go to **Get started**. On the **Security** tile, select **Certificates** and then select **Configure**. 
 
