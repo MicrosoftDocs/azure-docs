@@ -333,12 +333,14 @@ This feature allows customers to use an existing virtual network by specifying a
 In the following example, we start with an existing virtual network named ExistingRG-vnet, in the ExistingRG resource group. The subnet is named default.
 
 1) Obtain the the required info from the existing VNet.
+
 ```powershell
 Login-AzAccount
 Select-AzSubscription -SubscriptionId <SubId>
 Get-AzVirtualNetwork -Name ExistingRG-vnet -ResourceGroupName ExistingRG
 ```
 Note the following subnet name and `Id` property value that is returned from the `Subnets` section in the response you'll use in later steps.
+
 ```JSON
 Subnets:[
 {
@@ -348,14 +350,18 @@ Subnets:[
 ```
 
 2) Add a role assignment to the Service Fabric Resource Provider application. This is a one time action. You add the role by running the following PowerShell commands or ARM Template. 
+
 First, get the service `principal Id` for Service Fabric Resource Provider application:
+
 ```powershell
 Login-AzAccount
 Select-AzSubscription -SubscriptionId <SubId>
 Get-AzADServicePrincipal -DisplayName "Azure Service Fabric Resource Provider"
 ```
+
 > [!NOTE]
 > Make sure you are in the correct subscription, the principal ID will change if the subscription is in a different tenant.
+
 ```powershell
 ServicePrincipalNames : {74cb6831-0dbb-4be1-8206-fd4df301cdc2}
 ApplicationId         : 74cb6831-0dbb-4be1-8206-fd4df301cdc2
@@ -363,15 +369,20 @@ ObjectType            : ServicePrincipal
 DisplayName           : Azure Service Fabric Resource Provider
 Id                    : 00000000-0000-0000-0000-000000000000
 ```
+
 Next, use the **Id** of the previous output as **principalId** and the role definition ID bellow as **roleDefinitionId** where applicable in the PowerShell command or ARM Template:
+
 |Role definition name|Role definition ID|
 |----|-------------------------------------|
 |Network Contributor|4d97b98b-1d4f-4787-a291-c67834d212e7|
+
 Add the role assignment via PowerShell using the principal ID, role definition name, and assignment scope url using the id property returned in step 1:
+
 ```powershell
 New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Network Contributor" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
 ```
 Or you can add the role assignment by using an ARM Template configured with proper values for `principalId`, `roleDefinitionId`, `vnetName`, and `subnetName`:
+
 ```JSON
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2020-04-01-preview",
@@ -387,6 +398,7 @@ Or you can add the role assignment by using an ARM Template configured with prop
 ```
 > [!NOTE]
 > vnetRoleAssignmentID should be a valid GUID. If you deploy again the same template including this role assignment, make sure the GUID is the same as the one originally used or remove this resource as it just needs to be created once.
+
 Here is a full sample [role assignment ARM Template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/fixme/SFMC-VNet-RoleAssign.json) you can use for this step.
 
 3) Configure the `subnetId` property for the cluster deployment after the role is setup as shown below:
