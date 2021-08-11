@@ -68,7 +68,7 @@ In order to enable telemetry collection with Application Insights, only the Appl
 |App setting name |  Definition | Value |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Main extension, which controls runtime monitoring. | `~3` |
-
+---
 
 [!INCLUDE [azure-web-apps-arm-automation](./includes/azure-web-apps-arm-automation.md)]
 
