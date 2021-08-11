@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 Use the Azure CLI commands described here to manage your log analytics workspace in Azure Monitor.
 
-[!INCLUDE [Prepare your Azure CLI environment](../../../include/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [Prepare your Azure CLI environment](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample commands
 
