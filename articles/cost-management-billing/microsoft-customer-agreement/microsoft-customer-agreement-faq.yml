@@ -52,7 +52,7 @@ sections:
         answer: |
           All Azure services are available through Microsoft Customer Agreement. Once you accept the Microsoft Customer Agreement, you get the benefit of more free enterprise-grade management tools including new invoice and cost management capabilities through the same portal where you manage your Azure services.
       - question: How is Azure priced under the Microsoft Customer Agreement?
-        answer: |          
+        answer: |
           Azure is priced in US dollars (USD) worldwide under the Microsoft Customer Agreement.
 
           If you transact in one of the other supported currencies listed below, your monthly cost is first calculated in US dollars (USD). For payment, the total is then converted to the local currency.
@@ -75,7 +75,6 @@ sections:
           | SEK     | Swedish Krona      |
           | CHF     | Swiss Franc        |
           | TWD     | Taiwan Dollar      |
-
       - question: What exchange rate will be used and how does it work with my bill?
         answer: |
           We use Thomson Reuters benchmark rates that are captured at the end of the previous month and go into effect on the first day of the next calendar month. This rate applies to all transactions during the upcoming month.
@@ -83,7 +82,6 @@ sections:
           For example, the exchange rate for January transactions is first captured in the final days of December. This rate will be applied to all Azure purchases made in January and all Azure consumption in January. The January exchange rate and local currency billed amount will appear in the January invoice, which is available at the beginning of February.
       - question: Under the Microsoft Customer Agreement, in which currency will my payment be processed?
         answer: |
-          
           The legal address you provide at the time of signing will determine your billing geography and currency based on the table below:
 
           | **Country/Region**                  | **Billing currency**    |
