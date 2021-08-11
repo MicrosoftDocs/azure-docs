@@ -27,7 +27,7 @@ Azure AD B2C correlation ID is a unique identifier value that is attached to aut
 - Find the sign-in request's Azure Application Insights logs.
 - Pass the correlation ID to your REST API and use it to identify the sign-in flow. 
 
-The correlation ID is changed every time a new session is established. When debugging your policies, make sure to close existing browser tabs. Or to open a new in-private mode browser.
+The correlation ID is changed every time a new session is established. When you debug your policies, make sure that you close existing browser tabs or open a new in-private mode browser.
 
 ### Get the Azure AD B2C correlation ID
 
