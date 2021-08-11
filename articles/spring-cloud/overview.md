@@ -14,6 +14,10 @@ customer intent: As an Azure Cloud user, I want to deploy, run, and monitor Spri
 
 Azure Spring Cloud makes it easy to deploy Spring Boot microservice applications to Azure without any code changes.  The service manages the infrastructure of Spring Cloud applications so developers can focus on their code.  Azure Spring Cloud provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
+The following video shows an app composed of Java microservices running on Azure using Azure Spring Cloud.
+
+<br>
+
 > [!VIDEO https://www.youtube.com/embed/1jOXMFc1oRg]
 
 ## Why use Azure Spring Cloud?
