@@ -48,3 +48,219 @@ time setup. Phase 2 and 3 would repeat for each customer.
 
 This section provides step-by-step tutorial to create a working setup. At the end of this tutorial, you will have a new Azure storage account that is configured for encryption with a key vault from another tenant.
 
+### Things you will need 
+#### Service Provider Tenant
+1. Service-Provider Azure AD Tenant (for example -BestServiceProvider.com)
+2. An Azure subscription associated with Service-Provider Tenant–(for example, AppSubscription1)
+3. A user account in Service Provider tenant (for example, demouser@bestserviceprovider.com) with the following permissions
+    a. Owner role for “AppSubscription1”.(Created using Azure RBAC Role assignments).
+    b. One of the following Azure AD roles (Granted using Azure AD RBAC)
+        i.Application Administrator
+        ii.Application Developer
+        iii.Cloud application administrator
+4. Fill out the Private Preview request survey using https://aka.ms/ami/xtcmk/privatepreview
+    a. Include the Service-Provider Tenant (for example -BestServiceProvider.com) and the corresponding subscription (for example -AppSubscription1)
+#### Customer Tenant 
+5. At least 1 Customer Azure AD Tenant -Contoso.com
+6. An Azure subscription associated with Customer Tenant.“KVSubscription2”
+7. An account in the Customer tenant (for example, demouser@contoso.com) with the “Owner” role for “KVSubscription2” (Created using Azure RBAC Role Assignments)
+
+#### Tools
+You will need the followingtools to complete this tutorial.
+1. [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+2. [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) - No installation needed.
+
+::: zone pivot="BASH" 
+### Phase 1 - Service Provider configures identities
+#### Step 0 - Login to Azure
+Login to Azure to use Azure CLI 
+```azurecli-interactive
+az login
+```
+#### Step 1 - Create a new Multi-tenant AAD Application registration
+Pick a name for your Multi-Tenant Azure AD Application.For example: “XTCMKDemoApp”.Note that this name will be used by your customers to identify the Application.Note the “AppId” generated for this application. Also note the “ObjectId”generated for this application–referred as appObjectId in this document. 
+
+```azurecli-interactive
+username=$(az account show --query user.name --out tsv)
+tenantId=$(az account show --query tenantId --out tsv)
+echo "Logged in as username = $username from Tenant = $tenantId"
+# Create Multi-Tenant App registration
+appName="XTCMKDemoApp"
+appObjectId=$(az ad app create --display-name $appName --available-to-other-tenants true --query objectId --out tsv)
+appId=$(az ad app show --id $appObjectId --query appId --out tsv)
+echo "Multi-tenant AAD Application has appId = $appId and ObjectId = $appObjectId"
+```
+
+#### Step 2 - Create a resource group and a user-assigned managed identity
+
+```azurecli-interactive
+subscriptionId="<replace-with-your-subscriptionId"
+rgName="XTCMKDemo"
+location="eastus2euap" # This is the Azure canary.
+az group create --location $location --resource-group $rgName --subscription $subscriptionId
+echo "Created a new resource group with name = $rgName, location = $location in subscriptionid = $subscriptionId"
+uamiName="xtcmkFIC"
+uamiObjectId=$(az identity create --name $uamiName --resource-group $rgName --location $location --subscription $subscriptionId --query principalId --out tsv)
+```
+#### Step 3 - Configure user-assigned managed identity as a *federated identity credential* on the application
+
+```azurecli-interactive
+az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<replace-with-appObjectId>/federatedIdentityCredentials' --body '{"name":"test01","issuer":"https://login.microsoftonline.com/<replace-with-tenantId>/v2.0","subject":"<replace-with-uamiObjectId","description":"This is a new test federated identity credential","audiences":["api://AzureADTokenExchange"]}'
+```
+#### Step 4 - Share the AppId with the customers.
+Find the “AppId” of the Azure AD MT application and share it with the customers. In this example, it is "appId"
+
+### Phase 2 - Customer Tenant authorizes Azure Key Vault
+#### Step 1 Install the Azure AD Application using AppId in the customer tenant.
+Once you receive the “AppId” from the Service Provider Tenant, install the application using the following command(installation of the application is equivalent to creation of service principal).
+
+```azurecli-interactive
+#Login to Azure
+az login
+
+# Install the appllcation
+appId='<replace-the-multi-tenant-ApplicationId' #appId from Phase 1.
+appObjectId=$(az ad sp create --id appId --query objectId --out tsv)
+appObjectId=$(az ad sp show --id appId --query objectId --out tsv)
+```
+
+#### Step 2 Create a key vault and encryption keys
+
+1. Create Azure RBAC role assignments for the current user
+This is required so that the user continues to have access to the key vault via Azure RBAC after its creation. 
+
+```azurecli-interactive
+#Role assignments to manageresourcesandkeyvaultsintheresourcegroup.
+rgName='CMKKeys'
+subscriptionId='<replace-your-subscriptionId'
+
+az group create --location $location --name $rgName
+currentUserObjectId=$(az ad signed-in-user show --query objectId --out tsv)
+# Create Azure RBAC Role assignment to manage resouces and key vaults in the resource group.
+az role assignment create --role "00482a5a-887f-4fb3-b363-3b7fe8e74483" --scope /subscriptions/$subscriptionId/resourceGroups/$rgName --assignee-object-id $currentUserObjectId
+az role assignment create --role 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 --scope /subscriptions/$subscriptionId/resourceGroups/$rgName --assignee-object-id $currentUserObjectId
+```
+
+2. Create key vault
+Now create an Azure Key Vault
+
+```azurecli-interactive
+vaultName='<provide-a-name-for-keyvault'
+location='pick-a-location' # for example: location='centralus'
+az keyvault create --location $location --name $vaultName --resource-group $rgName --subscription $subscriptionId --enable-purge-protection true --enable-rbac-authorization true --query name --out tsv
+```
+3. Create an encryption key in the Key Vault.
+
+```azurecli-interactive
+az keyvault key create --name mastercmkkey --vault-name $vaultName
+```
+
+#### Grant Service Provider Application access to the key vault.
+Assign Key Vault Crypto Service user role to the service-provider application at the resource group scope.
+
+```azurecli-interactive
+az role assignment create --role e147488a-f6f5-4113-8e2d-b22465e65bf6 --scope /subscriptions/$subscriptionId/resourceGroups/$rgName/providers/Microsoft.KeyVault/vaults/$vaultName --assignee-object-id $appObjectId
+
+```
+
+### Phase 3 - Service Provider Tenant- Configures Customer Managed Keys
+Create a file for ARM template –called XTCMK-storage.json.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "storagename": {
+        "defaultValue": "20210802templatetest",
+        "type": "String"
+      },
+      "userassignedmicmk": {
+        "defaultValue": "/subscriptions/af13be3e-55c8-4bb8-974e-ccd023ca4f21/resourcegroups/0728XTCMK/providers/Microsoft.ManagedIdentity/userAssignedIdentities/xtcmkFIC01",
+        "type": "String"
+      },
+      "cmkfederatedclientId" : {
+        "type" : "string",
+        "defaultValue": "e5658e5f-ccb7-47ac-9e07-cccbb66abafa"
+      },
+      "keyVaultURL" : 
+      {
+        "type": "string",
+        "defaultValue" : "https://contosovault1122.vault.azure.net"
+      },
+      "CMKkeyName" : {
+        "type": "string",
+        "defaultValue" : "mastercmkkey"
+      } 
+    },
+    "variables": {},
+    "resources": [
+      {
+        "type": "Microsoft.Storage/storageAccounts",
+        "apiVersion": "2021-05-01",
+        "name": "[parameters('storagename')]",
+        "location": "eastus2euap",
+        "sku": {
+          "name": "Standard_LRS",
+          "tier": "Standard"
+        },
+        "kind": "StorageV2",
+        "identity": {
+          "type": "UserAssigned",
+          "userAssignedIdentities": {
+            "[parameters('userassignedmicmk')]": {}
+          }
+        },
+        "properties": {
+          "minimumTlsVersion": "TLS1_2",
+          "allowBlobPublicAccess": true,
+          "allowSharedKeyAccess": true,
+          "networkAcls": {
+            "bypass": "AzureServices",
+            "virtualNetworkRules": [],
+            "ipRules": [],
+            "defaultAction": "Allow"
+          },
+          "supportsHttpsTrafficOnly": true,
+          "encryption": {
+            "identity": {
+              "userAssignedIdentity": "[parameters('userassignedmicmk')]",
+              "federatedIdentityClientId": "[parameters('cmkfederatedclientId')]"
+            },
+            "keyvaultproperties": {
+              "keyvaulturi": "[parameters('keyVaultURL')]",
+              "keyname": "[parameters('CMKkeyName')]"
+            },
+            "services": {
+              "file": {
+                "keyType": "Account",
+                "enabled": true
+              },
+              "blob": {
+                "keyType": "Account",
+                "enabled": true
+              }
+            },
+            "keySource": "Microsoft.Keyvault"
+          },
+          "accessTier": "Hot"
+        }
+      }      
+    ]
+  }
+
+```
+
+Then run the following command:
+
+```azurecli-interactive
+az deployment group create --resource-group $rgName --template-file .\XTCMK-Storage.json
+```
+
+::: zone-end
+
+::: zone pivot="PowerShell" 
+
+#This is a test.
+
+::: zone-end
