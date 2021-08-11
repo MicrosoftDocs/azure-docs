@@ -122,7 +122,7 @@ Use the following parameters to configure the Microsoft Enterprise SSO plug-in f
 
 When this flag is on (its value is set to `1`), all MDM-managed apps not in the `AppBlockList` may participate in SSO.
 
-#### To provide a list of specific apps, use these parameters:
+#### Enable SSO for specific apps
 
 - **Key**: `AppAllowList`
 - **Type**: `String`
