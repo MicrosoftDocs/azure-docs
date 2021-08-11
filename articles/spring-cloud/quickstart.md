@@ -139,7 +139,7 @@ In Visual Studio, create an ASP.NET Core Web application named as "hello-world" 
 
    ```xml
    <ItemGroup>
-     <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="3.0.0" />
+     <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="3.1.0" />
      <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="2.0.0-preview.1" />
    </ItemGroup>
    <Target Name="Publish-Zip" AfterTargets="Publish">
@@ -177,15 +177,6 @@ In Visual Studio, create an ASP.NET Core Web application named as "hello-world" 
        // Template code not shown.
 
        services.AddDiscoveryClient(Configuration);
-   }
-   ```
-
-   ```csharp
-   public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-   {
-       // Template code not shown.
-
-       app.UseDiscoveryClient();
    }
    ```
 
