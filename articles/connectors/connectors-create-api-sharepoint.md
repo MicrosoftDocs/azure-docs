@@ -1,15 +1,15 @@
 ---
-title: Connect to SharePoint from Azure Logic Apps
+title: Connect to SharePoint
 description: Monitor and manage resources in SharePoint Online or SharePoint Server on premises by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: estfan, azla
 ms.topic: article
-ms.date: 04/27/2021
+ms.date: 08/11/2021
 tags: connectors
 ---
 
-# Connect to SharePoint resources with Azure Logic Apps
+# Connect to SharePoint resources using Azure Logic Apps
 
 To automate tasks that monitor and manage resources, such as files, folders, lists, and items, in SharePoint Online or in on-premises SharePoint Server, you can create automated integration workflows by using Azure Logic Apps and the SharePoint connector.
 
@@ -52,13 +52,17 @@ In your logic app workflow, you can use a trigger that monitors events in ShareP
   * To start the workflow with a SharePoint trigger, you need a blank logic app workflow.
   * To add a SharePoint action, your workflow needs to already have a trigger.
 
+## Connector reference
+
+For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, review the [connector's reference page](/connectors/sharepoint/).
+
 ## Connect to SharePoint
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
 ## Add a trigger
 
-1. From the Azure portal, Visual Studio Code, or Visual Studio, open your logic app workflow in the Logic App Designer, if not open already.
+1. From the Azure portal, Visual Studio Code, or Visual Studio, open your logic app workflow in the visual designer, if not open already.
 
 1. On the designer, in the search box, enter `sharepoint` as the search term. Select the **SharePoint** connector.
 
@@ -77,7 +81,7 @@ In your logic app workflow, you can use a trigger that monitors events in ShareP
 
 ## Add an action
 
-1. From the Azure portal, Visual Studio Code, or Visual Studio, open your logic app workflow in the Logic App Designer, if not open already.
+1. From the Azure portal, Visual Studio Code, or Visual Studio, open your logic app workflow in the visual designer, if not open already.
 
 1. Choose one of the following options:
 
@@ -98,10 +102,6 @@ In your logic app workflow, you can use a trigger that monitors events in ShareP
    After your workflow successfully creates the connection, your selected action appears.
 
 1. Provide the information to set up the action and continue building your workflow.
-
-## Connector reference
-
-For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, review the [connector's reference page](/connectors/sharepoint/).
 
 ## Next steps
 
