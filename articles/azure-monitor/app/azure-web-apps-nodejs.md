@@ -54,7 +54,7 @@ To enable client-side monitoring for your Node.js application, you need to [manu
 
 In order to enable telemetry collection with Application Insights, only the Application settings need to be set:
 
-   ![App Service Application Settings with available Application Insights settings](../media/azure-web-apps/application-settings-nodejs.png)
+   ![App Service Application Settings with available Application Insights settings](./media/azure-web-apps/application-settings-nodejs.png)
 
 ### Application settings definitions
 

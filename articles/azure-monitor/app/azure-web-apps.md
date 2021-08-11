@@ -155,7 +155,7 @@ If for some reason you would like to disable client-side monitoring:
 
 In order to enable telemetry collection with Application Insights, only the Application settings need to be set:
 
-   ![App Service Application Settings with available Application Insights settings](../media/azure-web-apps/application-settings.png)
+   ![App Service Application Settings with available Application Insights settings](./media/azure-web-apps/application-settings.png)
 
 ### Application settings definitions
 
