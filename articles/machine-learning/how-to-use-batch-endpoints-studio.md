@@ -80,7 +80,7 @@ A batch scoring workload runs as an offline job. By default, batch scoring store
 
 ### Overwrite settings
 
-Some settings can be overwritten when you start a batch scoring job to make best use of the compute resource and to improve performance. To override settings, select __Override deployment settings__ and provide the settings. For more information, see [Use batch endpoints](how-to-use-batch-endpoint.md#overwrite-settings).
+Some settings can be overwritten when you start a batch scoring job. For example, you might overwrite settings to make better use of the compute resource, or to improve performance. To override settings, select __Override deployment settings__ and provide the settings. For more information, see [Use batch endpoints](how-to-use-batch-endpoint.md#overwrite-settings).
 
 :::image type="content" source="media/how-to-use-batch-endpoints-studio/overwrite-setting.png" alt-text="Overwrite setting to start a batch job":::
 
@@ -105,7 +105,9 @@ OR
 
 ### Configure the output location
 
-By default, the batch scoring results are stored in the default blob store for the workspace. Results are contained in a folder named after the job name (a system-generated GUID). You can configure where to store the scoring results when you start a batch scoring job by providing a blob store and output path.
+By default, the batch scoring results are stored in the default blob store for the workspace. Results are in a folder named after the job name (a system-generated GUID).
+
+To change where the results are stored, providing a blob store and output path when you start a job.
 
 > [!IMPORTANT]
 > You must use a unique output location. If the output file exists, the batch scoring job will fail. 
@@ -154,7 +156,7 @@ To delete a **deployment**, select the endpoint from the **Endpoints** page, sel
 
 ## Next steps
 
-In this article, you learned how to create and call batch endpoints, allowing you to score large amounts of data. See these other articles to learn more about Azure Machine Learning:
+In this article, you learned how to create and call batch endpoints. See these other articles to learn more about Azure Machine Learning:
 
 * [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md)
 * [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
