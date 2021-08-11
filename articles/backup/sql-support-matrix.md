@@ -19,7 +19,7 @@ You can use Azure Backup to back up SQL Server databases in Azure VMs hosted on 
 **Supported operating systems** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Linux isn't currently supported.
 **Supported SQL Server versions** | SQL Server 2019, SQL Server 2017 as detailed on the [Search product lifecycle page](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 and SPs as detailed on the [Search product lifecycle page](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express.<br><br>Express Local DB versions aren't supported.
 **Supported .NET versions** | .NET Framework 4.5.2 or later installed on the VM
-**Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server that is manually installed) VMs are supported. Support for standalone instances are always on [availability groups](backup-sql-on-availability-groups.md).
+**Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server that is manually installed) VMs are supported. Support for standalone instances are always on [availability groups](backup-sql-server-on-availability-groups.md).
 
 ## Feature considerations and limitations
 

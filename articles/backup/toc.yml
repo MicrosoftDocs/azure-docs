@@ -184,6 +184,8 @@
       items:
       - name: Back up multiple SQL Server VMs from the vault
         href: backup-sql-server-database-azure-vms.md
+      - name: SQL Availability Group backup
+        href: backup-sql-server-on-availability-groups.md
       - name: Backup a SQL Server VM from the VM pane
         href: backup-sql-server-vm-from-vm-pane.md
     - name: Restore
