@@ -20,6 +20,8 @@ Applications such as [Voice assistants](voice-assistants.md) listen to users and
 
 Custom Commands is best suited for task completion or command-and-control scenarios, well matched for Internet of Things (IoT) devices, ambient and headless devices. Examples include solutions for Hospitality, Retail and Automotive industries, allowing you to build the best in-room voice-controlled experiences for your guests, manage inventory in your store and control in-car functionality while on the move.
 
+If you're interested in building complex conversational apps, you're encouraged to try the Bot Framework using the [Virtual Assistant Solution](/azure/bot-service/bot-builder-enterprise-template-overview). You can add voice to any bot framework bot using Direct Line Speech.
+
 Good candidates for Custom Commands have a fixed vocabulary with well-defined sets of variables. For example, home automation tasks, like controlling a thermostat, are ideal.
 
    ![Examples of task completion scenarios](media/voice-assistants/task-completion-examples.png "task completion examples")
