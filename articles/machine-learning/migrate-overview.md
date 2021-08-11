@@ -71,7 +71,7 @@ After you've defined a strategy, migrate your first model.
 
 ## Step 5: Cleanup Studio (classic) assets
 
-1. [Clean up Studio (classic) assets](export-delete-personal-data-dsr.md) to avoid extra charges. You may want to retain assets for fallback until you have validated Azure Machine Learning workloads.
+1. [Clean up Studio (classic) assets](/classic/export-delete-personal-data-dsr.md) to avoid extra charges. You may want to retain assets for fallback until you have validated Azure Machine Learning workloads.
 
 ## Step 6: Review and expand scenarios
 
