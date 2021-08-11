@@ -293,7 +293,7 @@ Service Fabric managed clusters automatically creates load balancer probes for f
 ```
 
 <a id="ipv6"></a>
-## IPv6
+## Enable IPv6
 Managed clusters do not enable IPv6 by default. This feature will enable full dual stack IPv4/IPv6 capability from the Load Balancer frontend to the backend resources. Any changes you make to the managed cluster load balancing rules will take effect for the IPv4 and IPv6 addresses.
 
 > [!NOTE]
