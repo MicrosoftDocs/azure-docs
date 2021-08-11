@@ -62,6 +62,9 @@ Enabling advanced resource sets also allows for the creation of [resource set pa
 
 Advanced resource sets is off by default in all new Azure Purview instances. Advanced resource sets can be enabled from **Account information** in the management hub.
 
+> [!NOTE]
+> All Purview instances created before August 16, 2021 will have advanced resource set turned on by default.
+
 :::image type="content" source="media/concept-resource-sets/advanced-resource-set-toggle.png" alt-text="Turn on Advanced resource set." border="true":::
 
 After enabling advanced resource sets, the additional enrichments will occur on all newly ingested assets.
