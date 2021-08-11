@@ -86,8 +86,6 @@ Check that the zipped file is secure, before you deploy it.
 
 After the script has executed successfully, the appliance configuration manager will be launched automatically.
 
-> [!NOTE]
-> If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
 
 ### Verify access
 
@@ -147,9 +145,6 @@ Check that the zipped file is secure, before you deploy it.
     - **Log Files**: %Programdata%\Microsoft Azure\Logs
 
 After the script has executed successfully, the appliance configuration manager will be launched automatically.
-
-> [!NOTE]
-> If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
 
 ### Verify access
 
