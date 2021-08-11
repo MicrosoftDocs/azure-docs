@@ -93,7 +93,7 @@ For more information about rules and completion rules, see [Custom Commands conc
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
     | **Name**       | `ConfirmationResponse`                  | A name describing the purpose of the rule          |
     | **Conditions** | None                                     | Conditions that determine when the rule can run    |
-    | **Actions**    | **Send speech response** > **Simple editor** > **First variation** > `Ok, turning the tv on` | The action to take when the rule condition is true |
+    | **Actions**    | **Send speech response** > **Simple editor** > `Ok, turning the tv on` | The action to take when the rule condition is true |
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot showing where to create a speech response.](media/custom-commands/create-speech-response-action.png)

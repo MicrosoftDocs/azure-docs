@@ -61,7 +61,9 @@ Custom Commands supports the following parameter types:
 * Temperature
 * Url
 
-All these parameter types except for Geography, support default value configuration, which you can configure from the portal.
+The availability of a parameter type varies with locales, with the exception of the "String" parameter type which universally supported. Custom Commands internally leverages LUIS's prebuilt entity resolution, so the availability of a parameter type in a locale depends on LUIS's prebuilt entity support in that locale. You can find more details on LUIS's prebuilt entity support per locale [here](../luis/luis-reference-prebuilt-entities).
+
+Some parameter types like Number, String and DateTime support default value configuration, which you can configure from the portal. 
 
 ### Configuration
 Configuration is a parameter property defined only for the type String. The following values are supported:
