@@ -5,7 +5,7 @@ ms.topic: overview
 author: anvar-ms
 ms.author: anvar
 ms.manager: bsiva
-ms.date: 04/19/2020
+ms.date: 08/04/2021
 ms.custom: mvc
 ---
 
@@ -19,8 +19,7 @@ ms.custom: mvc
 - Support for Azure [ultra disks](https://docs.microsoft.com/azure/virtual-machines/disks-types#ultra-disk) in Azure VM assessment recommendation.
 
 ## Update (July 2021)
-
-Azure Migrate: App Containerization tool now lets you package applications running on servers into a container image and deploy the containerized application to Azure App Service containers, in addition to Azure Kubernetes Service. You can also automatically integrate application monitoring for Java apps with Azure Application Insights and use Azure Key Vault to manage application secrets such as certificates and parameterized configurations. For more information, see ASP.NET app containerization and migration to Azure App Service and Java web app containerization and migration to Azure App Service tutorials to get started.
+- Azure Migrate: App Containerization tool now lets you package applications running on servers into a container image and deploy the containerized application to Azure App Service containers, in addition to Azure Kubernetes Service. You can also automatically integrate application monitoring for Java apps with Azure Application Insights and use Azure Key Vault to manage application secrets such as certificates and parameterized configurations. For more information, see [ASP.NET app containerization and migration to Azure App Service](tutorial-app-containerization-aspnet-app-service.md) and [Java web app containerization and migration to Azure App Service](tutorial-app-containerization-java-app-service.md) tutorials to get started.
 
 ## Update (June 2021)
 

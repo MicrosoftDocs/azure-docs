@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 07/27/2021
+ms.date: 07/28/2021
 ms.author: curtand
 ---
 
@@ -46,3 +46,8 @@ Receiving an unexpected text message could mean that someone knows your password
 You can reply to the text message with `STOP` in the body of the text message. This message prevents the provider from sending messages to your phone number in the future. You might need to reply to similar messages with different codes.  
 
 However, if you're already using two-step verification, sending this message prevents you from using this phone number to sign in. If you want to begin receiving text messages again, reply to the initial text message with `START` in the body.
+
+## Next steps
+
+- [Get help with two-step verification](multi-factor-authentication-end-user-troubleshoot.md)
+- [Set up a mobile phone as your two-step verification method](multi-factor-authentication-setup-phone-number.md)

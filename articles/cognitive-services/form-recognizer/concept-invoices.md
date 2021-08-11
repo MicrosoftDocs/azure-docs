@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 08/09/2021
 ms.author: lajanuar
 ---
 
@@ -23,12 +23,12 @@ The Invoice API extracts key fields and line items from invoices and returns the
 
 ![Contoso invoice example](./media/invoice-example-new.jpg)
 
-## Try it out
+## Try it
 
 To try out the Form Recognizer Invoice Service, go to the online Sample UI Tool:
 
 > [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://aka.ms/fott-2.1-ga)
+> [Try invoice model](https://aka.ms/fott-2.1-ga "Start with a prebuilt model to extract data from invoices.")
 
 You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Invoice service.
 

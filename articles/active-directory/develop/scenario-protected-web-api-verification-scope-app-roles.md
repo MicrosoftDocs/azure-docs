@@ -78,7 +78,7 @@ public class TodoListController : Controller
 
     // GET: api/values
     [HttpGet]
-    [RequiredScope(scopeRequiredByApi)
+    [RequiredScope(scopeRequiredByApi)]
     public IEnumerable<TodoItem> Get()
     {
         // Do the work and return the result.
@@ -113,7 +113,7 @@ public class TodoListController : Controller
 {
     // GET: api/values
     [HttpGet]
-    [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")
+    [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
     public IEnumerable<TodoItem> Get()
     {
         // Do the work and return the result.

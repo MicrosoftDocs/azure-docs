@@ -43,12 +43,14 @@ The Speech SDK exposes many features from the Speech service, but not all of the
 
 **Text-to-speech (TTS)** is available on the following platforms:
 
-  - C++/Windows & Linux
-  - C#/Windows & UWP & Unity
+  - C++/Windows & Linux & macOS
+  - C# (Framework & .NET Core)/Windows & UWP & Unity & Xamarin & Linux & macOS
   - Java (Jre and Android)
+  - JavaScript (Browser and NodeJS)
   - Python
   - Swift
   - Objective-C
+  - Go
   - TTS REST API can be used in every other situation.
 
 ### Voice assistants
