@@ -4,7 +4,7 @@ description: How to configure a DNS server for round-robin load balancing for Az
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/29/2021
+ms.date: 08/11/2021
 ms.author: v-erkel
 ---
 
@@ -12,7 +12,7 @@ ms.author: v-erkel
 
 This article explains some basic methods for balancing client traffic to all the mount points on your Azure HPC Cache.
 
-Your cache has at least three different IP addresses. Caches with large throughput values have up to 12. <!-- xxx check what's our maximum number of nodes? I think it's one IP per node. --> It's important to use all of the IP addresses to get the full benefits of Azure HPC Cache.
+Your cache has at least three different IP addresses. Caches with large throughput values have up to 12. It's important to use all of the IP addresses to get the full benefits of Azure HPC Cache.
 
 There are various options for load-balancing your client mounts:
 
@@ -20,7 +20,7 @@ There are various options for load-balancing your client mounts:
 * Include IP address rotation in your client mounting scripts
 * Configure a DNS system to automatically route client requests among all the available addresses (round-robin DNS)
 
-The right load-balancing system for you depends on the complexity of your workflow, the number of IP addresses in your cache, and a large number of other factors. Consult your Azure advisor if you need help deciding <!-- xxx something xxx -->
+The right load-balancing system for you depends on the complexity of your workflow, the number of IP addresses in your cache, and a large number of other factors. Consult your Azure advisor if you need help deciding which approach is best for you.
 
 ## Assign IPs manually
 
@@ -36,7 +36,7 @@ There are several ways to programmatically randomize clients among the available
 
 This example script uses client IP addresses as a randomizing element to distribute clients to all of the HPC Cache's available IP addresses.
 
-xxx start here xxx 
+***script needs to be updated to remove non-HPC-cache elements like node count***
 
 ```bash
 function mount_round_robin() {
@@ -61,71 +61,60 @@ function mount_round_robin() {
 }
 ```
 
+## Use DNS load balancing
+
+This section explains the basics of configuring a DNS system to load balance client traffic to all of the mount points on your Azure HPC Cache.
+
+This document *does not include* instructions for setting up and managing a DNS server in the Azure environment. ***[ can you do it with built-in Azure DNS? ]***
+
+DNS is not required to mount clients using NFS protocol and numeric IP addresses. It is needed if you want to use domain names instead of IP addresses to reach hardware NAS systems, or if your workflow includes certain advanced protocol settings. Read [Storage target DNS access](hpc-cache-prerequisites.md#dns-access) for more information.
 
 
-configuring a DNS system for load balancing client traffic to your Azure HPC Cache.
 
-This document *does not include* instructions for setting up and managing a DNS server in the Azure environment.
+### Configure round-robin distribution for cache mount points
 
-Instead of using round-robin DNS to load-balance a vFXT cluster in Azure, consider using manual methods to assign IP addresses evenly among clients when they are mounted. Several methods are described in [Mount the Avere cluster](avere-vfxt-mount-clients.md).
-
-Keep these things in mind when deciding whether or not to use a DNS server:
-
-* If your system is accessed by NFS clients only, using DNS is not required - it is possible to specify all network addresses by using numeric IP addresses.
-
-* If your system supports SMB (CIFS) access, DNS is required, because you must specify a DNS domain for the Active Directory server.
-
-* DNS is required if you want to use Kerberos authentication.
-
-## Load balancing
-
-To distribute the overall load, configure your DNS domain to use round-robin load distribution for client-facing IP addresses.
-
-## Configuration details
-
-When clients access the cluster, RRDNS automatically balances their requests among all available interfaces.
+A round-robin DNS (RRDNS) system automatically rotates client requests among all the available mount interfaces on your HPC Cache. To set this system up, you must create individual names for the cache's mount points, and then configure the DNS server to cycle among all of the entries.
 
 For optimal performance, configure your DNS server to handle client-facing cluster addresses as shown in the following diagram.
 
-A cluster vserver is shown on the left, and IP addresses appear in the center and on the right. Configure each client access point with A records and pointers as illustrated.
+The HPC Cache server is shown on the left, and its mount IP addresses appear in the center. The circles on the right side of the diagram show the corresponding DNS name for each client mount point. Configure each client access point with A records and pointers as illustrated.
 
-![Avere cluster round-robin DNS diagram](media/avere-vfxt-rrdns-diagram.png)
-<!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
+:::image type="complex" source="media/rrdns-diagram-hpc.png" alt-text="Diagram showing client mount point DNS configuration.":::
+   <detail The diagram shows connections among three categories of elements: the single HPC Cache entity (at the left), three IP addresses (middle column), and three client interfaces (right column). A single circle at the left labeled "HPC Cache" is connected by arrows pointing toward three circles labeled with IP addresses: 10.0.0.10, 10.0.0.11, and 10.0.0.12. The arrows from the HPC Cache circle to the three IP circles have the caption "A". Each of the IP address circles is connected by two arrows to a circle labeled as a client interface - the circle with IP 10.0.0.10 is connected to "client-IP-10", the circle with IP 10.0.0.11 is connected to "client-IP-11", and the circle with IP 10.0.0.12 is connected to "client-IP-11". The connections between the IP address circles and the client interface circles are two arrows: one arrow labeled "PTR" that points from the IP address circle to the client interface circle, and one arrow labeled "A" that points from the client interface circle to the IP address circle.>
+:::image-end:::
 
-Each client-facing IP address must have a unique name for internal use by the cluster. (In this diagram, the client IPs are named vs1-client-IP-* for clarity, but in production you should probably use something more concise, like client*.)
+<!-- ![HPC Cache round-robin DNS diagram](media/rrdns-diagram-hpc.png) -->
 
-Clients mount the cluster using the vserver name as the server argument.
+Each client-facing IP address must have a unique name for internal use by the HPC Cache. Clients mount the cluster using these names as the server argument.
 
-Modify your DNS server’s ``named.conf`` file to set cyclic order for queries to your vserver. This option ensures that all of the available values are cycled through. Add a statement like the following:
+Modify your DNS server’s ``named.conf`` file to set cyclic order for queries to your HPC Cache. This option ensures that all of the available values are cycled through. Add a statement like the following:
 
-```
+```bash
 options {
     rrset-order {
-        class IN A name "vserver1.example.com" order cyclic;
+        class IN A name "hpccache.example.com" order cyclic;
     };
 };
 ```
 
 The following ``nsupdate`` commands provide an example of configuring DNS correctly:
 
+```bash
+update add hpccache.example.com. 86400 A 10.0.0.10
+update add hpccache.example.com. 86400 A 10.0.0.11
+update add hpccache.example.com. 86400 A 10.0.0.12
+update add client-IP-10.example.com. 86400 A 10.0.0.10
+update add client-IP-11.example.com. 86400 A 10.0.0.11
+update add client-IP-12.example.com. 86400 A 10.0.0.12
+update add 10.0.0.10.in-addr.arpa. 86400 PTR client-IP-10.example.com
+update add 11.0.0.10.in-addr.arpa. 86400 PTR client-IP-11.example.com
+update add 12.0.0.10.in-addr.arpa. 86400 PTR client-IP-12.example.com
 ```
-update add vserver1.example.com. 86400 A 10.0.0.10
-update add vserver1.example.com. 86400 A 10.0.0.11
-update add vserver1.example.com. 86400 A 10.0.0.12
-update add vs1-client-IP-10.example.com. 86400 A 10.0.0.10
-update add vs1-client-IP-11.example.com. 86400 A 10.0.0.11
-update add vs1-client-IP-12.example.com. 86400 A 10.0.0.12
-update add 10.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-10.example.com
-update add 11.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-11.example.com
-update add 12.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-12.example.com
-```
 
-## Cluster DNS settings
+### Configure the HPC Cache to use the custom DNS server
 
-Specify the DNS server that the vFXT cluster uses in the **Cluster** > **Administrative Network** settings page. Settings on that page include:
+When your DNS system is ready, use the **Networking** page in the portal to tell the cache to use it. Follow the instructions in [Set a custom DNS configuration](configuration.md#set-a-custom-dns-configuration).
 
-* DNS server address
-* DNS domain name
-* DNS search domains
+## Next steps
 
-Read [DNS Settings](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns>) in the Avere Cluster Configuration Guide for more details about using this page.
+***some things***

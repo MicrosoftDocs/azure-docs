@@ -130,6 +130,12 @@ The virtual namespace paths are shown on the cache's **Namespace** settings page
 
 ![screenshot of the portal Settings > Namespace page with a highlight box around the first column of the table: "Namespace path"](media/view-namespace-paths.png)
 
+## Use all available mount addresses
+
+You must spread out client traffic among all of the IP addresses listed for the cache. If you mount all of your clients to only one address, the cache's performance will be impaired.
+
+You can select different mount addresses for different clients manually, or by creating a script. You also can use a DNS server configured for round-robin DNS (RRDNS) to automatically rotate client mounts among all of the available addresses. Read [Load balance HPC Cache traffic](client-load-balancing.md) to learn more.
+
 ## Next steps
 
 * To move data to the cache's storage targets, read [Populate new Azure Blob storage](hpc-cache-ingest.md).
