@@ -162,7 +162,7 @@ If you don't want to access the API Management service with the default host nam
 
 ## Routing
 
-The following virtual IP addresses are configured for an API Management instance in an internal virtual network.
+The following virtual IP addresses are configured for an API Management instance in an internal virtual network. Learn more about the [IP addresses of API Management](api-management-howto-ip-addresses.md).
 
 | Virtual IP address | Description |
 | ----- | ----- |
@@ -198,13 +198,3 @@ Learn more about:
 
 [ServiceTags]: ../virtual-network/network-security-groups-overview.md#service-tags
 
-<!-- WHEHRE TO PUT THIHS
-The API Management service in an internal virtual network is hosted behind an internal load balancer. The load balancer SKU depends on the management API used to create the service. For more information, see [Azure Load Balancer SKUs](../load-balancer/skus.md).
-
-| API version | Hosted behind |
-| ----------- | ------------- |
-| 2020-12-01 | An internal load balancer in the Basic SKU |
-| 2020-01-01-preview, with a public IP address from your subscription | An internal load balancer Standard SKU |
-
-
->

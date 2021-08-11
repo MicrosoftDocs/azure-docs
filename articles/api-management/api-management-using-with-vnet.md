@@ -27,7 +27,7 @@ This article explains how to set up VNET connectivity for your API Management in
 
 ## Prerequisites
 
-Some prerequisites differ depending on the version (v1 or v2) of the [hosting infrastructure](hosting-infrastructure.md) for your API Management instance. 
+Some prerequisites differ depending on the version (v1 or v2) of the [hosting platform](hosting-infrastructure.md) for your API Management instance. 
 
 > [!TIP]
 > When you use the portal to create or update your API Management instance, the instance is hosted on v2 infrastructure.
@@ -78,19 +78,19 @@ Some prerequisites differ depending on the version (v1 or v2) of the [hosting in
 
 ### Enable connectivity using a Resource Manager template
 
-#### API version 2021-01-01-preview (v2 hosting infrastructure)
+#### API version 2021-01-01-preview (v2 hosting platform)
 
 * Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-external-vnet-publicip)
 
      [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-external-vnet-publicip%2Fazuredeploy.json)
 
-#### API version 2020-12-01 (v1 hosting infrastructure)
+#### API version 2020-12-01 (v1 hosting platform)
 
 * Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-external-vnet)
 
      [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-external-vnet%2Fazuredeploy.json)
 
-### Enable connectivity using Azure PowerShell cmdlets (v1 hosting infrastructure)
+### Enable connectivity using Azure PowerShell cmdlets (v1 hosting platform)
 
 [Create](/powershell/module/az.apimanagement/new-azapimanagement) or [update](/powershell/module/az.apimanagement/update-azapimanagementregion) an API Management instance in a VNET.
 
@@ -101,17 +101,17 @@ Once you've connected your API Management service to the VNET, you can access ba
 :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-add-api.png" alt-text="Add API from VNET":::
 
 ## Network configuration
-Review the following sections for common network configuration settings. 
+Review the following sections for more network configuration settings. 
 
 These settings address common misconfiguration issues that can occur while deploying API Management service into a VNET.
 
 ### Custom DNS server setup 
-The API Management service depends on several Azure services. When API Management is hosted in a VNET with a custom DNS server, it needs to resolve the hostnames of those Azure services.  
+In external VNET mode, Azure manages the DNS by default.The API Management service depends on several Azure services. When API Management is hosted in a VNET with a custom DNS server, it needs to resolve the hostnames of those Azure services.  
 * For guidance on custom DNS setup, see [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).  
 * For reference, see the [required ports](#required-ports) and network requirements.
 
-    > [!IMPORTANT]
-    > If you plan to use a Custom DNS server(s) for the VNET, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS Server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/2020-12-01/api-management-service/apply-network-configuration-updates).
+> [!IMPORTANT]
+> If you plan to use a Custom DNS server(s) for the VNET, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS Server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/2020-12-01/api-management-service/apply-network-configuration-updates).
 
 ### Required ports  
 
@@ -129,7 +129,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | * / 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | **Dependency on Azure Storage**                             | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) and Azure Key Vault dependency                  | External & Internal  |
 | * / 1433                     | Outbound           | TCP                | VIRTUAL_NETWORK / SQL                 | **Access to Azure SQL endpoints**                           | External & Internal  |
-| * / 443                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureKeyVault  (v2 platform only)               | **Access to Azure Key Vault**                           | External & Internal  |
+| * / 443                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureKeyVault                | **Access to Azure Key Vault** (v2 platform only)                         | External & Internal  |
 | * / 5671, 5672, 443          | Outbound           | TCP                | VIRTUAL_NETWORK / Event Hub            | Dependency for [Log to Event Hub policy](api-management-howto-log-event-hubs.md) and monitoring agent | External & Internal  |
 | * / 445                      | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | Dependency on Azure File Share for [GIT](api-management-configuration-repository-git.md)                      | External & Internal  |
 | * / 443, 12000                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Health and Monitoring Extension         | External & Internal  |
@@ -201,39 +201,7 @@ Allow outbound network connectivity for the developer portal's CAPTCHA, which re
       - SMTP Relay
       - Developer portal CAPTCHA
 
-## Troubleshooting
-* **Unsuccessful initial deployment of API Management service into a subnet** 
-  * Deploy a virtual machine into the same subnet. 
-  * Connect to the virtual machine and validate connectivity to one of each of the following resources in your Azure subscription:
-    * Azure Storage blob
-    * Azure SQL Database
-    * Azure Storage Table
-    * Azure Key Vault (for an API Management instance hosted on the [v2 platform](hosting-infrastructure.md))
-
-  > [!IMPORTANT]
-  > After validating the connectivity, remove all the resources in the subnet before deploying API Management into the subnet (required when API Management is hosted on the v1 platform).
-
-* **Verify network connectivity status**  
-  * After deploying API Management into the subnet, use the portal to check the connectivity of your instance to dependencies, such as Azure Storage. 
-  * In the portal, in the left-hand menu, under **Deployment and infrastructure**, select **Network connectivity status**.
-
-   :::image type="content" source="media/api-management-using-with-vnet/verify-network-connectivity-status.png" alt-text="Verify network connectivity status in the portal":::
-
-  | Filter | Description |
-  | ----- | ----- |
-  | **Required** | Select to review the required Azure services connectivity for API Management. Failure indicates that the instance is unable to perform core operations to manage APIs. |
-  | **Optional** | Select to review the optional services connectivity. Failure indicates only that the specific functionality will not work (for example, SMTP). Failure may lead to degradation in using and monitoring the API Management instance and providing the committed SLA. |
-
-  To address connectivity issues, review [network configuration settings](#network-configuration) and fix required network settings.
-
-* **Incremental updates**  
-  When making changes to your network, refer to [NetworkStatus API](/rest/api/apimanagement/2020-12-01/network-status) to verify that the API Management service has not lost access to critical resources. The connectivity status should be updated every 15 minutes.
-
-* **Resource navigation links (v1 hosting platform)**  
-  When deploying into a Resource Manager VNET subnet, API Management reserves the subnet by creating a resource navigation link. If the subnet already contains a resource from a different provider, deployment will **fail**. Similarly, when you delete an API Management service, or move it to a different subnet, the resource navigation link will be removed.
-
 ## Routing
-
 
 + A load-balanced public IP address (VIP) is reserved to provide access to all service endpoints and resources outside the VNET.
   + Load balanced public IP addresses can be found on the **Overview/Essentials** blade in the Azure portal.
@@ -313,6 +281,37 @@ The following IP addresses are divided by **Azure Environment**. When allowing i
 | Azure Government| USGov Texas| 52.243.154.118|
 | Azure Government| USDoD Central| 52.182.32.132|
 | Azure Government| USDoD East| 52.181.32.192|
+
+## Troubleshooting
+* **Unsuccessful initial deployment of API Management service into a subnet** 
+  * Deploy a virtual machine into the same subnet. 
+  * Connect to the virtual machine and validate connectivity to one of each of the following resources in your Azure subscription:
+    * Azure Storage blob
+    * Azure SQL Database
+    * Azure Storage Table
+    * Azure Key Vault (for an API Management instance hosted on the [v2 platform](hosting-infrastructure.md))
+
+  > [!IMPORTANT]
+  > After validating the connectivity, remove all the resources in the subnet before deploying API Management into the subnet (required when API Management is hosted on the v1 platform).
+
+* **Verify network connectivity status**  
+  * After deploying API Management into the subnet, use the portal to check the connectivity of your instance to dependencies, such as Azure Storage. 
+  * In the portal, in the left-hand menu, under **Deployment and infrastructure**, select **Network connectivity status**.
+
+   :::image type="content" source="media/api-management-using-with-vnet/verify-network-connectivity-status.png" alt-text="Verify network connectivity status in the portal":::
+
+  | Filter | Description |
+  | ----- | ----- |
+  | **Required** | Select to review the required Azure services connectivity for API Management. Failure indicates that the instance is unable to perform core operations to manage APIs. |
+  | **Optional** | Select to review the optional services connectivity. Failure indicates only that the specific functionality will not work (for example, SMTP). Failure may lead to degradation in using and monitoring the API Management instance and providing the committed SLA. |
+
+  To address connectivity issues, review [network configuration settings](#network-configuration) and fix required network settings.
+
+* **Incremental updates**  
+  When making changes to your network, refer to [NetworkStatus API](/rest/api/apimanagement/2020-12-01/network-status) to verify that the API Management service has not lost access to critical resources. The connectivity status should be updated every 15 minutes.
+
+* **Resource navigation links (v1 hosting platform)**  
+  When deploying into a Resource Manager VNET subnet, API Management reserves the subnet by creating a resource navigation link. If the subnet already contains a resource from a different provider, deployment will **fail**. Similarly, when you delete an API Management service, or move it to a different subnet, the resource navigation link will be removed.
 
 ## Next steps
 

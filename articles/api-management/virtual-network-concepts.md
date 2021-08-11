@@ -77,7 +77,9 @@ The minimum size of the subnet in which API Management can be deployed is /29, w
 
 ## Routing
 
-See the Routing guidance when deploying your API Management instance into an [external VNET](./api-management-using-with-vnet.md#routing)) or [internal VNET](./api-management-using-with-internal-vnet.md#routing).
+See the Routing guidance when deploying your API Management instance into an [external VNET](./api-management-using-with-vnet.md#routing) or [internal VNET](./api-management-using-with-internal-vnet.md#routing).
+
+Learn more about the [IP addresses of API Management](api-management-howto-ip-addresses.md).
 
 ## DNS
 
@@ -85,9 +87,7 @@ In external mode, the VNET enables [Azure-provided name resolution](../virtual-n
 
 In internal mode, you must provide your own DNS solution to ensure name resolution for API Management endpoints and other required Azure resources. We recommend configuring an Azure [private DNS zone](../dns/private-dns-overview.md).
 
-If needed for your scenario, you may configure a custom DNS solution for your virtual network. Because the API Management service depends on several Azure services, when API Management is hosted in a VNET with a custom DNS server, it needs to resolve the hostnames of those Azure services.  
-
-* For more information, see: 
+For more information, see: 
 * [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).  
 * [Create an Azure private DNS zone](../dns/private-dns-getstarted-portal.md)
 
@@ -95,6 +95,8 @@ If needed for your scenario, you may configure a custom DNS solution for your vi
 > If you plan to use a custom DNS solution for the VNET, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/2020-12-01/api-management-service/apply-network-configuration-updates).
 
 ## Limitations
+
+Some limitations differ depending on the version (v1 or v2) of the [hosting platform](hosting-infrastructure.md) used for your API Management instance.
 
 ### [v1](#tab/v1)
 
@@ -109,7 +111,19 @@ If needed for your scenario, you may configure a custom DNS solution for your vi
 
 ---
 
-## <a name="related-content"> </a>Related content
+## Next steps
+Learn more about:
+
+* [Connecting a virtual network to backend using VPN Gateway](../vpn-gateway/design.md#s2smulti)
+* [Connecting a virtual network from different deployment models](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
+* [Virtual network frequently asked questions](../virtual-network/virtual-networks-faq.md)
+
+Connect to a virtual network:
+* [Connect to an external virtual network using Azure API Management](./api-management-using-with-vnet.md).
+* [Connect to an internal virtual network using Azure API Management](./api-management-using-with-internal-vnet.md).
+
+Review the following topics
+
 * [Connecting a Virtual Network to backend using Vpn Gateway](../vpn-gateway/design.md#s2smulti)
 * [Connecting a Virtual Network from different deployment models](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [How to use the API Inspector to trace calls in Azure API Management](api-management-howto-api-inspector.md)
