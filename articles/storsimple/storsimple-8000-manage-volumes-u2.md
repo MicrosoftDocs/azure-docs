@@ -310,8 +310,7 @@ Perform the following steps to enable or disable monitoring for a volume.
 2. From the tabular listing of volumes, select the volume and right-click to invoke the context menu. Select **Modify**.
 3. In the **Modify volume** blade, for **Monitoring** select **Enable** or **Disable** to enable or disable monitoring.
 
-    ![Disable monitoring](./media/storsimple-8000-manage-volumes-u2/monitor-volume-0
-1.png) 
+    ![Disable monitoring](./media/storsimple-8000-manage-volumes-u2/monitor-volume-01.png) 
 
 4. Click **Save** and when prompted for confirmation, click **Yes**. The Azure portal displays a notification for updating the volume and then a success message, after the volume is successfully updated.
 
