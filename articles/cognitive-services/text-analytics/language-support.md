@@ -163,7 +163,7 @@ The Text Analytics API can detect a wide range of languages, variants, dialects,
 
 If you have content expressed in a less frequently used language, you can try Language Detection to see if it returns a code. The response for languages that cannot be detected is `unknown`.
 
-| Language | Language Code | v3 support | Starting with v3 model version: |
+| Language | Language Code | v3.x support | Starting with v3 model version: |
 |:-|:-:|:-:|:-:|
 |Afrikaans|`af`|✓|    |
 |Albanian|`sq`|✓|    |
